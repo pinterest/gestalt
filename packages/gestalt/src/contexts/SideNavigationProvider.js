@@ -5,24 +5,28 @@ export interface Indexable {
   index(): number;
 }
 
-type SideNavigationContextType = {|
+type SideNavigationContextType = {
   selectedItemId: string,
   setSelectedItemId: (string) => void,
   selectedMobileChildren: Node | null,
   setSelectedMobileChildren: (Node | null) => void,
   hideActiveChildren: boolean,
   setHideActiveChildren: (boolean) => void,
-  dismissButton?: {|
+  dismissButton?: {
     accessibilityLabel?: string,
     onDismiss: () => void,
     id: string,
-  |},
-|};
+  },
+};
 
-type Props = {|
+type Props = {
   children: Node,
-  dismissButton?: {| accessibilityLabel?: string, onDismiss: () => void, id: string |},
-|};
+  dismissButton?: {
+    accessibilityLabel?: string,
+    onDismiss: () => void,
+    id: string,
+  },
+};
 
 const SideNavigationContext: Context<SideNavigationContextType> =
   createContext<SideNavigationContextType>({

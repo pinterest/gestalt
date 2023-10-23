@@ -40,15 +40,17 @@ const headerCopyByPlatform = {
     'Gestalt provides a growing set of interactive UI components for use in building larger Android experiences and patterns.',
 };
 
-type Props = {|
+type Props = {
   platform: Exclude<Platform, 'figma'>,
-|};
+};
 
 export default function Overview({ platform }: Props): Node {
   const [order, setOrder] = useState<'alphabetical' | 'categorical'>('alphabetical');
 
   const platformComponentData = getByPlatform(componentData, { platform });
-  const componentsByCategory = categoryOrder.reduce<{| [string]: $ReadOnlyArray<PlatformData> |}>(
+  const componentsByCategory = categoryOrder.reduce<{
+    [string]: $ReadOnlyArray<PlatformData>,
+  }>(
     (acc, cur) => ({
       ...acc,
       [`${cur}`]: getByCategory(componentData, { platform, category: cur }),

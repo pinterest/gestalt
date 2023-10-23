@@ -7,13 +7,13 @@ import Toc from './Toc.js';
 
 const DETAIL_PAGE_MAX_WIDTH = 894;
 
-type Props = {|
+type Props = {
   children: Node,
   title: string,
   hideSideNav?: boolean,
   hideEditLink?: boolean,
   pageSourceUrl?: string,
-|};
+};
 
 export default function Page({
   title: page,

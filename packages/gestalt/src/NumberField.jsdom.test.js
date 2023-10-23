@@ -57,7 +57,7 @@ describe('NumberField', () => {
 
   it('handles blur events', () => {
     const mockBlur = jest.fn<
-      [{| event: SyntheticFocusEvent<HTMLInputElement>, value: number | void |}],
+      [{ event: SyntheticFocusEvent<HTMLInputElement>, value: number | void }],
       void,
     >();
     render(<NumberField id="test" onBlur={mockBlur} onChange={jest.fn()} value={42} />);
@@ -68,7 +68,7 @@ describe('NumberField', () => {
 
   it('handles change events', () => {
     const mockChange = jest.fn<
-      [{| event: SyntheticInputEvent<HTMLInputElement>, value: number | void |}],
+      [{ event: SyntheticInputEvent<HTMLInputElement>, value: number | void }],
       void,
     >();
     const { container } = render(<NumberField id="test" onChange={mockChange} value={42} />);
@@ -87,7 +87,7 @@ describe('NumberField', () => {
 
   it('handles focus events', () => {
     const mockFocus = jest.fn<
-      [{| event: SyntheticFocusEvent<HTMLInputElement>, value: number | void |}],
+      [{ event: SyntheticFocusEvent<HTMLInputElement>, value: number | void }],
       void,
     >();
     render(<NumberField id="test" onChange={jest.fn()} onFocus={mockFocus} value={42} />);
@@ -98,7 +98,12 @@ describe('NumberField', () => {
 
   it('handles key down events', () => {
     const mockKeyDown = jest.fn<
-      [{| event: SyntheticKeyboardEvent<HTMLInputElement>, value: number | void |}],
+      [
+        {
+          event: SyntheticKeyboardEvent<HTMLInputElement>,
+          value: number | void,
+        },
+      ],
       void,
     >();
     const { container } = render(

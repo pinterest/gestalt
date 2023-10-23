@@ -5,6 +5,7 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -20,7 +21,7 @@ import roleButton from '../../examples/avatarGroup/roleButton.js';
 import roleLink from '../../examples/avatarGroup/roleLink.js';
 import sizing from '../../examples/avatarGroup/sizing.js';
 
-export default function AvatarGroupPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function AvatarGroupPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -127,7 +128,9 @@ If AvatarGroup is used as a control button to show/hide Popover-component, we re
           Hitting the Enter or Return key opens a dialog or redirects to a new page (depending on the role) and the user can then add or view collaborators.`}
         />
       </AccessibilitySection>
-      <MainSection name="Localization" description="Be sure to localize  `accessibilityLabel`." />
+
+      <LocalizationSection name={generatedDocGen?.displayName} noDefaultLabelProvider />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Fixed sizes"
@@ -304,7 +307,9 @@ If AvatarGroup is used as a control button to show/hide Popover-component, we re
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('AvatarGroup') },
   };

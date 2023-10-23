@@ -23,12 +23,12 @@ const getIllustrationCardColor = (category: ComponentCategory, hasDarkBackground
   return 'green-matchacado-0';
 };
 
-type Props = {|
+type Props = {
   components: $ReadOnlyArray<PlatformData>,
   headingLevel: 2 | 3,
   platform: Platform,
   title?: string,
-|};
+};
 
 export default function OverviewList({
   components,

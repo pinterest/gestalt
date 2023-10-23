@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -28,7 +29,7 @@ import useLabelToClearlyDenoteWhat from '../../examples/textarea/useLabelToClear
 import withRowsExample from '../../examples/textarea/withRowsExample.js';
 import withTagsExample from '../../examples/textarea/withTagsExample.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -227,10 +228,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         />
       </AccessibilitySection>
 
-      <MainSection
-        name="Localization"
-        description={`Be sure to localize \`errorMessage\`, \`helperText\`, \`label\`, and \`placeholder\`.`}
-      />
+      <LocalizationSection name={generatedDocGen?.displayName} noDefaultLabelProvider />
 
       <MainSection name="Variants">
         <MainSection.Subsection
@@ -371,7 +369,9 @@ The first example shows an empty TextArea with \`maxLength\` set to 200 characte
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('TextArea') },
   };

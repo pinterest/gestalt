@@ -3,30 +3,30 @@
 // $FlowExpectedError[unclear-type]
 export type GenericObjectType = Object;
 
-export type ImportSpecifierType = {|
+export type ImportSpecifierType = {
   type: string,
-  imported: {|
+  imported: {
     type: string,
     name: string,
-  |},
-  local: {|
+  },
+  local: {
     type: string,
     name: string,
-  |},
+  },
   name: string,
-|};
+};
 
-export type NodePathType = {|
+export type NodePathType = {
   parentPath: { parentPath: GenericObjectType },
-  value: {|
+  value: {
     type: string,
     specifiers: Array<ImportSpecifierType>,
-  |},
+  },
   name: string,
-  node: {| specifiers: Array<ImportSpecifierType> |},
-|};
+  node: { specifiers: Array<ImportSpecifierType> },
+};
 
-export type ImportDeclarationType = {|
+export type ImportDeclarationType = {
   type: string,
   specifiers: Array<ImportSpecifierType>,
   source: {
@@ -34,51 +34,51 @@ export type ImportDeclarationType = {|
     value: string,
     raw: string,
   },
-|};
+};
 
-export type JSXAttributeType = {|
+export type JSXAttributeType = {
   type: string,
-  name: {|
+  name: {
     type: string,
     name: string,
-  |},
-  value: {|
+  },
+  value: {
     type: string,
-    expression?: {|
+    expression?: {
       type: string,
       value: number | string,
       raw: string,
-    |},
+    },
     value?: string,
     raw?: string,
-  |},
-|};
+  },
+};
 
-export type JSXNodeType = {|
+export type JSXNodeType = {
   type: string,
-  loc: {|
-    start: {| line: number, column: number, token: number |},
-    end: {| line: number, column: number, token: number |},
-  |},
+  loc: {
+    start: { line: number, column: number, token: number },
+    end: { line: number, column: number, token: number },
+  },
   range: Array<number>,
-  openingElement: {|
+  openingElement: {
     type: string,
-    name: {|
+    name: {
       type: string,
       name: GenericObjectType,
       optional: boolean,
       object: GenericObjectType,
       property: GenericObjectType,
-    |},
+    },
     attributes: Array<JSXAttributeType>,
     selfClosing: true,
-  |},
-  closingElement: ?{|
+  },
+  closingElement: ?{
     type: string,
     name: GenericObjectType,
-  |},
-  local?: {| name: string |},
-|};
+  },
+  local?: { name: string },
+};
 
 export interface Collection {
   at: (number) => Collection;
@@ -111,6 +111,6 @@ export type JSCodeShift = {
   JSXSpreadAttribute: GenericObjectType,
 };
 
-export type FileType = {| path: string, source: string |};
+export type FileType = { path: string, source: string };
 
-export type ApiType = {| jscodeshift: JSCodeShift |};
+export type ApiType = { jscodeshift: JSCodeShift };

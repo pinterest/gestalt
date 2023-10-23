@@ -7,13 +7,19 @@ import styles from './TapArea.css';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 
-type FocusEventHandler = ({| event: SyntheticFocusEvent<HTMLDivElement> |}) => void;
+type FocusEventHandler = ({
+  event: SyntheticFocusEvent<HTMLDivElement>,
+}) => void;
 
-type MouseEventHandler = ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void;
+type MouseEventHandler = ({
+  event: SyntheticMouseEvent<HTMLDivElement>,
+}) => void;
 
-type KeyboardEventHandler = ({| event: SyntheticKeyboardEvent<HTMLDivElement> |}) => void;
+type KeyboardEventHandler = ({
+  event: SyntheticKeyboardEvent<HTMLDivElement>,
+}) => void;
 
-type Props = {|
+type Props = {
   /**
    * Supply a short, descriptive label for screen-readers to replace TapArea texts that do not provide sufficient context about the button component behavior.
    *
@@ -106,9 +112,9 @@ type Props = {|
    *
    * Required with type="button".
    */
-  onTap?: ({|
+  onTap?: ({
     event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
-  |}) => void,
+  }) => void,
   /**
    * Ref that is forwarded to the underlying div element.
    */
@@ -137,7 +143,7 @@ type Props = {|
    * `- 'compress' scales down TapArea.`
    */
   tapStyle?: 'none' | 'compress',
-|};
+};
 
 /**
  * [TapArea](https://gestalt.pinterest.systems/tapArea) allows components to be clickable and touchable in an accessible way

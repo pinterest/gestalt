@@ -1,14 +1,14 @@
 // @flow strict
 import { type Context, createContext, type Element, type Node, useContext } from 'react';
 
-type TableContextType = {|
+type TableContextType = {
   stickyColumns: ?number,
-|};
+};
 
-type Props = {|
+type Props = {
   children: Node,
   stickyColumns: ?number,
-|};
+};
 
 const TableContext: Context<TableContextType> = createContext<TableContextType>({
   stickyColumns: 0,

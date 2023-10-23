@@ -9,11 +9,11 @@ describe('List', () => {
     labelDisplay,
     type,
     text,
-  }: {|
+  }: {
     labelDisplay?: 'hidden' | 'visible',
     type?: 'unordered' | 'bare' | 'ordered',
     text?: boolean,
-  |}): Node {
+  }): Node {
     return (
       <List labelDisplay={labelDisplay} label={text ? <Text>Numbers</Text> : 'Numbers'} type={type}>
         <List.Item text={text ? <Text>1</Text> : '1'}>

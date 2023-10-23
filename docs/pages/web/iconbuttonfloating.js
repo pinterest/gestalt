@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -15,7 +16,7 @@ import main from '../../examples/iconbuttonfloating/main.js';
 import variantsA11y from '../../examples/iconbuttonfloating/variantsA11y.js';
 import variantsWithTooltip from '../../examples/iconbuttonfloating/variantsWithTooltip.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -123,7 +124,7 @@ IconButtonFloating should be contained within the \`role="contentinfo"\` contain
         </MainSection.Subsection>
       </AccessibilitySection>
 
-      <MainSection name="Localization" description="Be sure to localize `accessibilityLabel`." />
+      <LocalizationSection name={generatedDocGen?.displayName} noDefaultLabelProvider />
 
       <MainSection name="Variants">
         <MainSection.Subsection
@@ -218,7 +219,9 @@ IconButtonFloating is commonly paired with Dropdown to display a menu of options
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   const generatedDocGen = await docGen('IconButtonFloating');
 
   generatedDocGen.props.icon = {

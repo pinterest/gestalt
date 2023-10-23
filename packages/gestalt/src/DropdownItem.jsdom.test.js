@@ -5,10 +5,10 @@ import Dropdown from './Dropdown.js';
 describe('Dropdown.Item', () => {
   const onSelectMock = jest.fn<
     [
-      {|
+      {
         event: SyntheticInputEvent<HTMLInputElement>,
-        item: {| label: string, subtext?: string, value: string |},
-      |},
+        item: { label: string, subtext?: string, value: string },
+      },
     ],
     void,
   >();

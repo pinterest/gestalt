@@ -13,7 +13,7 @@ import {
 
 export default function getByCategory(
   componentList: $ReadOnlyArray<ComponentData>,
-  options: {| category: ComponentCategory, platform: Platform |},
+  options: { category: ComponentCategory, platform: Platform },
 ): $ReadOnlyArray<PlatformData> {
   const { category, platform } = options;
   const platformComponents = getByPlatform(componentList, { platform });

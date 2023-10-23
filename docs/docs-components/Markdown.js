@@ -5,7 +5,7 @@ import highlightjs from 'highlight.js';
 import { marked, Renderer } from 'marked';
 import { Text } from 'gestalt';
 
-type Props = {|
+type Props = {
   textColor?:
     | 'default'
     | 'subtle'
@@ -17,7 +17,7 @@ type Props = {|
     | 'light'
     | 'dark',
   text: string,
-|};
+};
 
 // Source: https://github.com/Thinkmill/react-markings/blob/master/index.js
 // which originally got it from https://github.com/sindresorhus/strip-indent

@@ -4,6 +4,7 @@ import { Link, SlimBanner, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -13,6 +14,7 @@ import animationExample from '../../examples/overlaypanel/animationExample.js';
 import confirmationExample from '../../examples/overlaypanel/confirmationExample.js';
 import defaultExample from '../../examples/overlaypanel/defaultExample.js';
 import footerExample from '../../examples/overlaypanel/footerExample.js';
+import localizationLabels from '../../examples/overlaypanel/localizationLabels.js';
 import preventClosingExample from '../../examples/overlaypanel/preventClosingExample.js';
 import quickEditsExample from '../../examples/overlaypanel/quickEditsExample.js';
 import sizesExample from '../../examples/overlaypanel/sizesExample.js';
@@ -20,9 +22,9 @@ import subheadingExample from '../../examples/overlaypanel/subHeadingExample.js'
 
 export default function SheetPage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): Node {
   const PREVIEW_HEIGHT = 800;
 
   return (
@@ -148,20 +150,13 @@ When OverlayPanel opens, focus should be placed on the first interactive element
 `}
         />
       </AccessibilitySection>
-      <MainSection
-        name="Localization"
-        description={`Be sure to localize the \`heading\`, \`accessibilityDismissButtonLabel\`, \`accessibilityLabel\` props and well as any custom strings in \`dismissConfirmation\`. Note that localization can lengthen text by 20 to 30 percent.`}
-      />
-      <SlimBanner
-        iconAccessibilityLabel="Localize the default label"
-        message="OverlayPanel's dismiss IconButton and confirmation modal consume default text and labels from DefaultLabelProvider. Make sure to localize the default strings with DefaultLabelProvider."
-        type="recommendationBare"
-        helperLink={{
-          text: 'Learn more',
-          accessibilityLabel: 'Learn more about DefaultLabelProvider',
-          href: '/web/utilities/defaultlabelprovider',
-          onClick: () => {},
-        }}
+
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen?.OverlayPanel.displayName}
+        notes={`Note that \`accessibilityDismissButtonLabel\`, \`dismissConfirmation.message\`, \`dismissConfirmation.subtext\`, \`dismissConfirmation.primaryAction.accessibilityLabel\`,
+    \`dismissConfirmation.primaryAction.text\`, \`dismissConfirmation.secondaryAction.accessibilityLabel\`,
+    \`dismissConfirmation.secondaryAction.text\` are optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.`}
       />
 
       <MainSection name="Subcomponents">
@@ -326,30 +321,8 @@ The externally-controlled dismiss actions (\`subHeading\`, \`children\`, and \`f
 OverlayPanels can contain forms or be part of flows where the user is required to submit infomation. If an OverlayPanel is dismissed involuntarily, the data entered by the user could not be saved and lost. This can create a bad user experience.
 
 To prevent dismissing OverlayPanel involuntary, we can use \`dismissConfirmation\`. When provided, it will open a confirmation modal each time component-controlled dismiss actions are triggered.
-
-The confirmation modal has a flexible API. When the \`dismissConfirmation\` prop is set to an empty object "dismissConfirmation={{}}", OverlayPanel uses default texts and labels. See the default content below:
-
-- Message: "Are you sure you want to dismiss?"
-- Subtext: "You will lose all of your changes. This cannot be undone."
-- Primary action text: "Yes, dismiss."
-- Primary action label: "Yes, dismiss the overlay panel."
-- Secondary action text: "No, go back."
-- Secondary action label: "No, go back to the overlay panel."
-
-All texts and labels can be customized using the \`dismissConfirmation\` prop. We can pass an object with custom strings. For any missing strings, OverlayPanel uses the default ones. See the \`dismissConfirmation\` prop Flow type to learn more about the optional texts and labels than can be customized.
 `}
         >
-          <SlimBanner
-            iconAccessibilityLabel="Recommendation"
-            message={`OverlayPanel's confirmation Popover uses default texts and labels provided by DefaultLabelProvider when the "dismissConfirmation={true}". Don't forget to localize them.`}
-            type="recommendationBare"
-            helperLink={{
-              text: 'Learn more',
-              accessibilityLabel: 'Learn more about DefaultLabelProvider',
-              href: '/web/utilities/defaultlabelprovider',
-              onClick: () => {},
-            }}
-          />
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
@@ -380,10 +353,12 @@ Toast provides feedback on an interaction. Toasts appear at the bottom of a desk
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   return {
-    props: { generatedDocGen: await multipleDocGen(['OverlayPanel', 'DismissingElement']) },
+    props: {
+      generatedDocGen: await multipleDocGen(['OverlayPanel', 'DismissingElement']),
+    },
   };
 }

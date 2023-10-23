@@ -12,7 +12,7 @@ import FormErrorMessage from './shared/FormErrorMessage.js';
 import FormHelperText from './shared/FormHelperText.js';
 import FormLabel from './shared/FormLabel.js';
 
-type Props = {|
+type Props = {
   /**
    * One or more SelectList.Option components, which may be grouped using SelectList.Group.
    */
@@ -48,7 +48,10 @@ type Props = {|
   /**
    * Callback triggered when the user selects a new option.  See the [controlled component](https://gestalt.pinterest.systems/web/selectlist#Controlled-component) variant to learn more.
    */
-  onChange: ({| event: SyntheticInputEvent<HTMLSelectElement>, value: string |}) => void,
+  onChange: ({
+    event: SyntheticInputEvent<HTMLSelectElement>,
+    value: string,
+  }) => void,
   /**
    * If not provided, the first item in the list will be shown. Be sure to localize the text. See the [controlled component](https://gestalt.pinterest.systems/web/selectlist#Controlled-component) variant to learn more.
    */
@@ -61,7 +64,7 @@ type Props = {|
    * The currently-selected value. See the [controlled component](https://gestalt.pinterest.systems/web/selectlist#Controlled-component) variant to learn more.
    */
   value?: ?string,
-|};
+};
 
 /**
  * [SelectList](https://gestalt.pinterest.systems/web/selectlist) displays a list of actions or options using the browser’s native select.

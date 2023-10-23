@@ -15,11 +15,11 @@
 // @flow strict
 import { Children, Component, type Node } from 'react';
 
-type Props = {|
+type Props = {
   children?: Node,
   onScroll: (event: Event) => void,
   scrollContainer: ?HTMLElement | (() => ?HTMLElement),
-|};
+};
 
 function getScrollContainer(scrollContainer: ?(HTMLElement | (() => ?HTMLElement))) {
   return typeof scrollContainer === 'function' ? scrollContainer() : scrollContainer;

@@ -5,11 +5,11 @@ import { Box, Button, CompositeZIndex, Dropdown, FixedZIndex, Flex, Link, Text }
 export default function CustomIconButtonPopoverExample(): Node {
   const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
 
-  const [selected, setSelected] = useState<null | {|
+  const [selected, setSelected] = useState<null | {
     label: string,
     subtext?: string,
     value: string,
-  |}>(null);
+  }>(null);
   const [open, setOpen] = useState(false);
   const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
   const onSelect: $ElementType<React$ElementConfig<typeof Dropdown.Item>, 'onSelect'> = ({

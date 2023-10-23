@@ -11,7 +11,7 @@ import useFocusVisible from './useFocusVisible.js';
 import useInteractiveStates from './utils/useInteractiveStates.js';
 import { type Indexable } from './zIndex.js';
 
-type Props = {|
+type Props = {
   /**
    * Label for screen readers to announce IconButtonLink.
    */
@@ -30,7 +30,7 @@ type Props = {|
   /**
    * Defines a new icon different from the built-in Gestalt icons.
    */
-  dangerouslySetSvgPath?: {| __path: string |},
+  dangerouslySetSvgPath?: { __path: string },
   /**
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
    */
@@ -56,10 +56,10 @@ type Props = {|
   /**
    * Callback fired when the component is clicked, pressed or tapped. See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
    */
-  onClick?: ({|
+  onClick?: ({
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
+  }) => void,
   /**
    * Sets a padding for the IconButtonLink.
    */
@@ -83,14 +83,14 @@ type Props = {|
   /**
    * Adds a [Tooltip](/web/tooltip) on hover/focus of the IconButtonLink.
    */
-  tooltip?: {|
+  tooltip?: {
     accessibilityLabel?: string,
     inline?: boolean,
     idealDirection?: 'up' | 'right' | 'down' | 'left',
     text: string,
     zIndex?: Indexable,
-  |},
-|};
+  },
+};
 
 /**
  * [IconButtonLink](https://gestalt.pinterest.systems/web/iconbuttonlink) is mainly used as navigational element.
@@ -146,7 +146,11 @@ const IconButtonLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> 
 
   const buttonComponent = (
     <InternalLink
-      accessibilityLabel={getAriaLabel({ target, accessibilityLabel, accessibilityNewTabLabel })}
+      accessibilityLabel={getAriaLabel({
+        target,
+        accessibilityLabel,
+        accessibilityNewTabLabel,
+      })}
       dataTestId={dataTestId}
       disabled={disabled}
       href={href}

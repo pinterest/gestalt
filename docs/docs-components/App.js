@@ -8,13 +8,13 @@ import DocsExperimentProvider from './contexts/DocsExperimentProvider.js';
 import { LocalFilesProvider } from './contexts/LocalFilesProvider.js';
 import { NavigationContextProvider } from './navigationContext.js';
 
-type Props = {|
+type Props = {
   children?: Node,
-  files?: {|
+  files?: {
     css: string,
     js: string,
-  |},
-|};
+  },
+};
 
 export default function App({ children, files }: Props): Node {
   const router = useRouter();
@@ -28,11 +28,11 @@ export default function App({ children, files }: Props): Node {
   const useOnNavigation = ({
     href,
     target,
-  }: {|
+  }: {
     href: string,
     target?: null | 'self' | 'blank',
-  |}) => {
-    const onNavigationClick = ({ event }: {| +event: SyntheticEvent<> |}) => {
+  }) => {
+    const onNavigationClick = ({ event }: { +event: SyntheticEvent<> }) => {
       if (event.defaultPrevented) return; // onClick prevented default
       if (isModifiedEvent(event) || !isLeftClickEvent(event)) return;
       if (target === 'blank') return; // let browser handle "target=_blank"

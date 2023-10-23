@@ -5,12 +5,12 @@ import HoverOverlay from './HoverOverlay.js';
 import PositioningWrapper from './PositioningWrapper.js';
 import Avatar from '../Avatar.js';
 
-type Props = {|
+type Props = {
   ...BaseStackType,
   index: number,
   name: string,
   src: string,
-|};
+};
 
 export default function AvatarGroupCollaboratorAvatar({
   hovered,

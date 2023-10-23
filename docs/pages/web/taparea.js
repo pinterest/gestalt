@@ -6,6 +6,7 @@ import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen, type DocType } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -43,7 +44,7 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
         </MainSection.Subsection>
       </AccessibilitySection>
 
-      <MainSection name="Localization" description="Localize the accessibilityLabel." />
+      <LocalizationSection name={generatedDocGen?.displayName} noDefaultLabelProvider />
 
       <MainSection name="Variants">
         <MainSection.Subsection title="Link/Button within TapArea">
@@ -145,7 +146,9 @@ Use TapAreaLink when a link is needed instead of an action.
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('TapArea') },
   };

@@ -10,7 +10,7 @@ import formLabelStyles from './shared/FormLabel.css';
 import Text from './Text.js';
 import whitespaceStyles from './Whitespace.css';
 
-type Props = {|
+type Props = {
   /**
    * The content of Fieldset, typically [RadioButtons](https://gestalt.pinterest.systems/web/radiobutton), [Checkboxes](https://gestalt.pinterest.systems/web/checkbox) or [TextFields](https://gestalt.pinterest.systems/web/textfield).
    */
@@ -31,7 +31,7 @@ type Props = {|
    * Whether the legend should be visible or not. If `hidden`, the legend is still available for screen reader users, but does not appear visually. See the [legend visibility variant](https://gestalt.pinterest.systems#Legend-visibility) for more info.
    */
   legendDisplay?: 'visible' | 'hidden',
-|};
+};
 
 /**
  * [Fieldset](https://gestalt.pinterest.systems/web/fieldset) creates a fieldset and legend for a group of related form items, like [RadioButtons](https://gestalt.pinterest.systems/web/radiobutton) or [CheckBoxes](https://gestalt.pinterest.systems/web/checkbox), in order to clearly indicate related form items."

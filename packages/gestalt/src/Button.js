@@ -38,7 +38,7 @@ const SIZE_NAME_TO_PIXEL = {
 
 type Target = null | 'self' | 'blank';
 
-type Props = {|
+type Props = {
   accessibilityControls?: string,
   accessibilityExpanded?: boolean,
   accessibilityHaspopup?: boolean,
@@ -56,15 +56,15 @@ type Props = {|
   fullWidth?: boolean,
   iconEnd?: $Keys<typeof icons>,
   name?: string,
-  onClick?: ({|
+  onClick?: ({
     event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
-  |}) => void,
+  }) => void,
   selected?: boolean,
   size?: 'sm' | 'md' | 'lg',
   tabIndex?: -1 | 0,
   text: string,
   type?: 'button' | 'submit',
-|};
+};
 
 function InternalButtonContent({
   target,
@@ -72,13 +72,13 @@ function InternalButtonContent({
   textColor,
   icon,
   size,
-}: {|
+}: {
   target?: Target,
   text: Node,
   textColor: IconColor,
   icon?: $Keys<typeof icons>,
   size: string,
-|}): Node {
+}): Node {
   return (
     <Fragment>
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">

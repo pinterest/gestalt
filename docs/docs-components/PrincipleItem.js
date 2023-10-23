@@ -2,10 +2,10 @@
 import { type Node } from 'react';
 import { Box, Flex, Heading, Text } from 'gestalt';
 
-type Props = {|
+type Props = {
   heading: string,
   text: string | Node,
-|};
+};
 
 export default function PrincipleItem({ heading, text }: Props): Node {
   return (

@@ -2,21 +2,21 @@
 import getRandomColor from './getRandomColor.js';
 import getRandomNumberGenerator from './getRandomNumberGenerator.js';
 
-type Args = {|
+type Args = {
   baseHeight?: number,
   name?: string,
   numberOfItems?: number,
   previousItemCount?: number,
   randomNumberSeed?: number,
   twoColItems?: boolean,
-|};
+};
 
-type ExampleItem = {|
+type ExampleItem = {
   color: string,
   columnSpan?: number,
   height: number,
   name: string,
-|};
+};
 
 export default function generateExampleItems({
   baseHeight = 200,

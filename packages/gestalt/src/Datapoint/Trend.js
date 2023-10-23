@@ -12,7 +12,7 @@ const TREND_COLOR_MAP = {
 
 type Sentiment = 'good' | 'bad' | 'neutral' | 'auto';
 
-function getValueColor({ sentiment, value }: {| sentiment: Sentiment, value: number |}) {
+function getValueColor({ sentiment, value }: { sentiment: Sentiment, value: number }) {
   if (sentiment === 'auto') {
     if (value === 0) {
       return 'default';
@@ -22,12 +22,12 @@ function getValueColor({ sentiment, value }: {| sentiment: Sentiment, value: num
   return TREND_COLOR_MAP[sentiment];
 }
 
-type Props = {|
+type Props = {
   disabled?: boolean,
   iconAccessibilityLabel: string,
   sentiment?: Sentiment,
   value: number,
-|};
+};
 
 export default function Trend({
   disabled = false,

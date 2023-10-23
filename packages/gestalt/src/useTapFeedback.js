@@ -4,10 +4,10 @@ import { ENTER, SPACE } from './keyCodes.js';
 
 const SCROLL_DISTANCE = 10;
 
-type Coordinate = {|
+type Coordinate = {
   +x: number,
   +y: number,
-|};
+};
 
 type TapTargetHTMLElement = HTMLDivElement;
 
@@ -15,8 +15,8 @@ export const keyPressShouldTriggerTap = (
   event: SyntheticKeyboardEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
 ): boolean => [ENTER, SPACE].includes(event.charCode);
 
-export default function useTapFeedback({ height, width }: {| height: ?number, width: ?number |}): {|
-  compressStyle: ?{| transform: string |},
+export default function useTapFeedback({ height, width }: { height: ?number, width: ?number }): {
+  compressStyle: ?{ transform: string },
   handleBlur: () => void,
   handleMouseDown: () => void,
   handleMouseUp: () => void,
@@ -25,14 +25,16 @@ export default function useTapFeedback({ height, width }: {| height: ?number, wi
   handleTouchMove: (SyntheticTouchEvent<TapTargetHTMLElement>) => void,
   handleTouchStart: (SyntheticTouchEvent<TapTargetHTMLElement>) => void,
   isTapping: boolean,
-|} {
+} {
   const [isTapping, setTapping] = useState<boolean>(false);
   const [coordinate, setCoordinate] = useState<Coordinate>({
     x: 0,
     y: 0,
   });
 
-  const [compressStyle, setCompressStyle] = useState<null | {| transform: string |}>(null);
+  const [compressStyle, setCompressStyle] = useState<null | {
+    transform: string,
+  }>(null);
 
   useEffect(() => {
     if (height != null && width != null) {

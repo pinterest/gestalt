@@ -40,7 +40,7 @@ export default function Example(): Node {
             <Flex direction="column" gap={2}>
               <Flex.Item>
                 {payload.map(
-                  (payloadData: {|
+                  (payloadData: {
                     dataKey: string,
                     color?: ?string,
                     fill?: ?string,
@@ -51,7 +51,7 @@ export default function Example(): Node {
                     strokeDasharray?: ?(string | number),
                     value: number,
                     strokeWidth?: number,
-                  |}) => (
+                  }) => (
                     <Flex key={payloadData.name} alignItems="center" gap={2}>
                       <ChartGraph.LegendIcon payloadData={payloadData} />
                       <Flex.Item flex="grow">

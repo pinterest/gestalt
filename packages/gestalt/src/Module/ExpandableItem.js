@@ -9,10 +9,10 @@ import icons from '../icons/index.js';
 import TapArea from '../TapArea.js';
 import Text from '../Text.js';
 
-type BadgeType = {|
+type BadgeType = {
   text: string,
   type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
-|};
+};
 
 export default function ModuleExpandableItem({
   accessibilityCollapseLabel,
@@ -28,7 +28,7 @@ export default function ModuleExpandableItem({
   summary,
   title,
   type = 'info',
-}: {|
+}: {
   accessibilityCollapseLabel: string,
   accessibilityExpandLabel: string,
   badge?: BadgeType,
@@ -42,7 +42,7 @@ export default function ModuleExpandableItem({
   summary?: $ReadOnlyArray<string>,
   title: string,
   type?: 'error' | 'info',
-|}): Node {
+}): Node {
   return (
     <Box padding={6}>
       <Flex direction="column" gap={{ column: 6, row: 0 }}>

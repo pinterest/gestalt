@@ -116,9 +116,9 @@ function setupGlobalFocusEvents() {
 /**
  * https://gestalt.pinterest.systems/web/utilities/usefocusvisible
  */
-export default function useFocusVisible(): {|
+export default function useFocusVisible(): {
   isFocusVisible: boolean,
-|} {
+} {
   setupGlobalFocusEvents();
   const [isFocusVisibleState, setFocusVisible] = useState(isFocusVisible());
   useEffect(() => {

@@ -14,14 +14,14 @@ const SIZE_WIDTH_MAP = {
   lg: 320,
   xl: 360,
 };
-type OwnProps = {|
+type OwnProps = {
   accessibilityLabel?: string,
   anchor: HTMLElement,
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
   border?: boolean,
   caret?: boolean,
   children?: ReactNode,
-  onKeyDown?: ({| event: SyntheticKeyboardEvent<HTMLElement> |}) => void,
+  onKeyDown?: ({ event: SyntheticKeyboardEvent<HTMLElement> }) => void,
   id?: ?string,
   idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown',
   onDismiss: () => void,
@@ -31,23 +31,23 @@ type OwnProps = {|
   shouldFocus?: boolean,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
   __dangerouslyIgnoreScrollBoundaryContainerSize?: boolean,
-|};
+};
 
-type HookProps = {|
+type HookProps = {
   scrollBoundaryContainerRef: ?HTMLElement,
-|};
+};
 
-type Props = {| ...OwnProps, ...HookProps |};
+type Props = { ...OwnProps, ...HookProps };
 
-type State = {|
+type State = {
   relativeOffset: ?Coordinates,
   triggerBoundingRect: ?ClientRect,
-|};
+};
 
 class Controller extends Component<Props, State> {
-  static defaultProps: {|
+  static defaultProps: {
     size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
-  |} = {
+  } = {
     // Default size only applies when size is omitted,
     // if passed as null it will remain null
     size: 'sm',
@@ -72,8 +72,15 @@ class Controller extends Component<Props, State> {
     anchor,
     positionRelativeToAnchor,
     scrollBoundaryContainerRef,
-  }: Props): {| relativeOffset: ?Coordinates, triggerBoundingRect: ?ClientRect |} {
-    return getTriggerRect({ anchor, positionRelativeToAnchor, scrollBoundaryContainerRef });
+  }: Props): {
+    relativeOffset: ?Coordinates,
+    triggerBoundingRect: ?ClientRect,
+  } {
+    return getTriggerRect({
+      anchor,
+      positionRelativeToAnchor,
+      scrollBoundaryContainerRef,
+    });
   }
 
   componentDidMount() {

@@ -6,7 +6,7 @@ type Color = 'deprecatedBlue' | 'red' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
 type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 
-type Props = {|
+type Props = {
   /**
    * Unique label to describe each Popover. Used for [accessibility](https://gestalt.pinterest.systems/web/popover#ARIA-attributes) purposes.
    */
@@ -30,7 +30,7 @@ type Props = {|
   /**
    * Callback for key stroke events allowing keyboard navigation in Popover's children.
    */
-  onKeyDown?: ({| event: SyntheticKeyboardEvent<HTMLElement> |}) => void,
+  onKeyDown?: ({ event: SyntheticKeyboardEvent<HTMLElement> }) => void,
   /**
    * Unique id to identify each Popover. Used for [accessibility](https://gestalt.pinterest.systems/web/popover#ARIA-attributes) purposes.
    */
@@ -69,7 +69,7 @@ type Props = {|
   size?: Size,
   // This property can be set when `ScrollBoundaryContainer` is set to `overflow="visible"` but therefore limits the height of the Popover-based component. Some cases require
   __dangerouslySetMaxHeight?: '30vh',
-|};
+};
 
 /**
  * [Popover](https://gestalt.pinterest.systems/web/popover) is a floating view that contains a task related to the content on screen. It can be triggered when the user clicks or focuses on an element, typically [Button](https://gestalt.pinterest.systems/web/button) or [IconButton](https://gestalt.pinterest.systems/web/iconbutton). It can also be triggered automatically, as in the case of user education. Popover is non-modal and can be dismissed by interacting with another part of the screen or an item within Popover.

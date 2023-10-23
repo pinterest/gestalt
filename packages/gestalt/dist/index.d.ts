@@ -2000,7 +2000,7 @@ interface TagDataProps {
   size?: 'sm' | 'md' | 'lg';
   showCheckbox?: boolean;
   text: string;
-  tooltip?: TooltipProps;
+  tooltip?: ExtendedTooltipProps;
 }
 
 interface TapAreaProps {
@@ -2180,7 +2180,7 @@ interface TileDataProps {
   selected?: boolean | undefined;
   showCheckbox?: boolean | undefined;
   title: string;
-  tooltip?: TooltipProps | undefined;
+  tooltip?: ExtendedTooltipProps | undefined;
   trend?: TrendObject | undefined;
   trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto' | undefined;
   value: string;
@@ -2239,6 +2239,12 @@ interface TooltipProps {
   inline?: boolean | undefined;
   link?: Node | undefined;
   zIndex?: Indexable | undefined;
+}
+
+type TooltipTemp = Omit<TooltipProps, 'text'>;
+
+interface ExtendedTooltipProps extends TooltipTemp {
+  text: string | string[];
 }
 
 interface UpsellProps {

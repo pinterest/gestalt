@@ -17,7 +17,7 @@ import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback from './useTapFeedback.js';
 import { type Indexable } from './zIndex.js';
 
-type Props = {|
+type Props = {
   /**
    * Label for screen readers to announce IconButton. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
    */
@@ -52,7 +52,7 @@ type Props = {|
   /**
    * Defines a new icon different from the built-in Gestalt icons.
    */
-  dangerouslySetSvgPath?: {| __path: string |},
+  dangerouslySetSvgPath?: { __path: string },
   /**
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
    */
@@ -76,9 +76,9 @@ type Props = {|
   /**
    * Callback fired when the component is clicked, pressed or tapped.
    */
-  onClick?: ({|
+  onClick?: ({
     event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
-  |}) => void,
+  }) => void,
   /**
    * Sets a padding for the IconButton. See the [size](#Size) variant to learn more.
    */
@@ -103,18 +103,18 @@ type Props = {|
   /**
    * Adds a [Tooltip](/web/tooltip) on hover/focus of the IconButton.
    */
-  tooltip?: {|
+  tooltip?: {
     accessibilityLabel?: string,
     inline?: boolean,
     idealDirection?: 'up' | 'right' | 'down' | 'left',
     text: string,
     zIndex?: Indexable,
-  |},
+  },
   /**
    * Use "submit" if IconButton is used within or associated with a form.
    */
   type?: 'submit' | 'button',
-|};
+};
 
 /**
  * [IconButton](https://gestalt.pinterest.systems/web/iconbutton) allows users to take actions and make choices with a single click or tap. IconButtons use icons instead of text to convey available actions on a screen. IconButton is typically found in forms, dialogs and toolbars.

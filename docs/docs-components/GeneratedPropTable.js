@@ -52,15 +52,17 @@ function getDefaultValue(description?: string): {
 }
 
 function removeDomain(description: string) {
-  return { description: description?.replace(/https:\/\/gestalt\.pinterest\.systems/g, '') };
+  return {
+    description: description?.replace(/https:\/\/gestalt\.pinterest\.systems/g, ''),
+  };
 }
 
-type Props = {|
+type Props = {
   excludeProps?: $ReadOnlyArray<string>,
   generatedDocGen: DocGen,
   id?: string,
   name?: string,
-|};
+};
 
 export default function GeneratedPropTable({
   excludeProps = [],

@@ -3,18 +3,18 @@ import { type Node, PureComponent } from 'react';
 import Box from '../Box.js';
 import styles from '../Video.css';
 
-type Props = {|
+type Props = {
   accessibilityProgressBarLabel: string,
   currentTime: number,
   duration: number,
   onPlayheadDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
   onPlayheadUp: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
   seek: (time: number) => void,
-|};
+};
 
-type State = {|
+type State = {
   seeking: boolean,
-|};
+};
 
 export default class VideoPlayhead extends PureComponent<Props, State> {
   playhead: ?HTMLDivElement;

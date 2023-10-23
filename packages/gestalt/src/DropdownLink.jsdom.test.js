@@ -5,11 +5,11 @@ import Dropdown from './Dropdown.js';
 describe('Dropdown.Link', () => {
   const onClickMock = jest.fn<
     [
-      {|
+      {
         dangerouslyDisableOnNavigation: () => void,
         event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
         mobileOnDismissStart: () => void,
-      |},
+      },
     ],
     void,
   >();

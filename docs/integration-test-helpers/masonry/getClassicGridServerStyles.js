@@ -9,12 +9,12 @@ export default function getClassicGridServerStyles({
   itemWidth = 236,
   maxColumns = 16,
   minColumns = 2,
-}: {|
+}: {
   isRTL?: boolean,
   itemWidth: number,
   maxColumns: number,
   minColumns: number,
-|}): string {
+}): string {
   let styles = `
 .gridCentered {
   margin-left: auto;

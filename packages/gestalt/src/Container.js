@@ -2,12 +2,12 @@
 import { type Node } from 'react';
 import Box from './Box.js';
 
-type Props = {|
+type Props = {
   /**
    *
    */
   children?: Node,
-|};
+};
 
 /**
  * [Containers](https://gestalt.pinterest.systems/web/container ) are useful in responsively laying out content on different screens.

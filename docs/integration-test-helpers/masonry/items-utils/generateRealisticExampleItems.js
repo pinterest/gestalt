@@ -2,21 +2,21 @@
 import getRandomColor from './getRandomColor.js';
 import getRandomNumberGenerator from './getRandomNumberGenerator.js';
 
-type Args = {|
+type Args = {
   name?: string,
   numberOfItems?: number,
   pinHeightsSample: $ReadOnlyArray<number>,
   previousItemCount?: number,
   randomNumberSeed?: number,
   twoColItems?: boolean,
-|};
+};
 
-type ExampleItem = {|
+type ExampleItem = {
   color: string,
   columnSpan?: number,
   height: number,
   name: string,
-|};
+};
 
 /**
  * A NOTE ABOUT SSR:

@@ -9,6 +9,7 @@
     "600": { "value": "24px" },
     "700": { "value": "28px" },
     "800": { "value": "32px" },
-    "pill": { "value": "999px" }
+    "pill": { "value": "999px" },
+    "circle": { "value": "50%" }
   }
 }

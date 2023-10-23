@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 
-export default function HeroGraphic({ animate = true }: {| animate?: boolean |}): Node {
+export default function HeroGraphic({ animate = true }: { animate?: boolean }): Node {
   return (
     <svg
       width="501"

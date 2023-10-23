@@ -7,7 +7,7 @@ import styles from './TableOfContents.css';
 import TableOfContentsItemList from './TableOfContents/TableOfContentsItemList.js';
 import TableOfContentsItem from './TableOfContentsItem.js';
 
-type Props = {|
+type Props = {
   /**
    * String that clients such as VoiceOver will read to describe the element. See [accessibility](https://gestalt.pinterest.systems/web/tableofcontents#Accessibility) section to learn more.
    */
@@ -20,7 +20,7 @@ type Props = {|
    * Must be instances TableofContents.Item
    */
   children: Node,
-|};
+};
 
 /**
  * [TableOfContents](https://gestalt.pinterest.systems/web/tableofcontents) component is used to navigate to anchors on a page. It also serves as an outline of a page’s content. TableOfContents is placed on the right side of the page, close to the main content block.

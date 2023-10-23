@@ -2,7 +2,7 @@
 import { type AbstractComponent, forwardRef, type Node } from 'react';
 import InternalCheckbox from './Checkbox/InternalCheckbox.js';
 
-type Props = {|
+type Props = {
   /**
    * Indicates whether or not Checkbox is checked. See the [state variant](https://gestalt.pinterest.systems/web/checkbox#State) to learn more.
    */
@@ -46,11 +46,17 @@ type Props = {|
   /**
    * Callback triggered when the state of the input changes.
    */
-  onChange: ({| event: SyntheticInputEvent<HTMLInputElement>, checked: boolean |}) => void,
+  onChange: ({
+    event: SyntheticInputEvent<HTMLInputElement>,
+    checked: boolean,
+  }) => void,
   /**
    * Callback triggered when the user clicks on the input.
    */
-  onClick?: ({| event: SyntheticInputEvent<HTMLInputElement>, checked: boolean |}) => void,
+  onClick?: ({
+    event: SyntheticInputEvent<HTMLInputElement>,
+    checked: boolean,
+  }) => void,
   /**
    * Ref that is forwarded to the underlying input element.
    */
@@ -59,7 +65,7 @@ type Props = {|
    * Determines the Checkbox size: sm = 16px, md = 24px. See the [size variant](https://gestalt.pinterest.systems/web/checkbox#Size) to learn more.
    */
   size?: 'sm' | 'md',
-|};
+};
 
 /**
  * [Checkbox](https://gestalt.pinterest.systems/web/checkbox) is used for multiple choice selection. They are independent of each other in a list, and therefore, different from [RadioButton](https://gestalt.pinterest.systems/web/radiobutton), one selection does not affect other checkboxes in the same list.

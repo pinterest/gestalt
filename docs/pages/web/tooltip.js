@@ -4,6 +4,7 @@ import { SlimBanner } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -24,7 +25,7 @@ import useToAddSupplementaryInfo from '../../examples/tooltip/useToAddSupplement
 import useToDescribeInteractiveElement from '../../examples/tooltip/useToDescribeInteractiveElement.js';
 import useToDistinguishRelatedActions from '../../examples/tooltip/useToDistinguishRelatedActions.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title="Tooltip">
       <PageHeader
@@ -205,10 +206,9 @@ If you need to explain why an item is disabled, consider adding plain [Text](/we
         />
         <MainSection.Card />
       </AccessibilitySection>
-      <MainSection
-        name="Localization"
-        description={`Be sure to localize the \`text\` and \`accessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
-      />
+
+      <LocalizationSection name={generatedDocGen?.displayName} noDefaultLabelProvider />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Ideal direction"
@@ -330,7 +330,9 @@ Toast provides feedback on an interaction. One example of Toast is the confirmat
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Tooltip') },
   };

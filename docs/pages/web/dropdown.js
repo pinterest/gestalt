@@ -4,6 +4,7 @@ import { SlimBanner } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -29,9 +30,9 @@ import truncation from '../../examples/dropdown/truncation.js';
 
 export default function ComponentPage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): Node {
   return (
     <Page title={generatedDocGen.Dropdown?.displayName}>
       <PageHeader
@@ -175,21 +176,13 @@ export default function ComponentPage({
           />
         </MainSection.Subsection>
       </AccessibilitySection>
-      <MainSection name="Localization">
-        <MainSection.Subsection
-          title="Truncation"
-          description={`
-      When the text of the Dropdown.Item becomes longer than the width of the menu, either intentionally or through localization, the text will truncate at one line. Subtext will wrap as needed to display the full text.
-          `}
-        >
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample code={truncation} name="Truncation example" layout="row" />
-            }
-          />
-        </MainSection.Subsection>
-      </MainSection>
+
+      <LocalizationSection
+        code={truncation}
+        name={generatedDocGen?.DropdownItem?.displayName}
+        notes={`
+When the text of the Dropdown.Item becomes longer than the width of the menu, either intentionally or through localization, the text will truncate at one line. Subtext will wrap as needed to display the full text.`}
+      />
 
       <MainSection name="Subcomponents">
         <MainSection.Subsection
@@ -359,9 +352,9 @@ If users need the ability to choose an option by typing in an input and filterin
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   const docGen = await multipleDocGen([
     'Dropdown',
     'DropdownItem',

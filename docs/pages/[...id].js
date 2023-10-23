@@ -16,23 +16,23 @@ import ErrorBoundary from '../docs-components/ErrorBoundary.js';
 import MarkdownPage from '../docs-components/MarkdownPage.js';
 import { getAllMarkdownPosts, getDocByRoute } from '../utils/mdHelper.js';
 
-type MDXRemoteSerializeResult = {|
+type MDXRemoteSerializeResult = {
   compiledSource: string,
 
   frontmatter?: { [key: string]: string },
-|};
+};
 
-type Props = {|
+type Props = {
   content: MDXRemoteSerializeResult,
-  meta: {|
+  meta: {
     title: string,
     badge: 'pilot' | 'deprecated',
     fullwidth?: boolean,
     description: string,
     component: boolean,
-  |},
+  },
   pageSourceUrl: string,
-|};
+};
 
 export default function DocumentPage({ content, meta, pageSourceUrl }: Props): Node {
   return (
@@ -44,15 +44,13 @@ export default function DocumentPage({ content, meta, pageSourceUrl }: Props): N
   );
 }
 
-export async function getStaticProps(context: {|
-  params: {| id: $ReadOnlyArray<string> |},
-|}): Promise<{|
-  props: {|
+export async function getStaticProps(context: { params: { id: $ReadOnlyArray<string> } }): Promise<{
+  props: {
     meta: { [key: string]: string },
-    content: {||},
+    content: {},
     pageSourceUrl: string,
-  |},
-|}> {
+  },
+}> {
   const { id } = context.params;
 
   const pathName = id.join('/');
@@ -71,12 +69,12 @@ export async function getStaticProps(context: {|
   };
 }
 
-export async function getStaticPaths(): Promise<{|
-  paths: $ReadOnlyArray<{|
-    params: {| id: string | $ReadOnlyArray<string> |},
-  |}>,
+export async function getStaticPaths(): Promise<{
+  paths: $ReadOnlyArray<{
+    params: { id: string | $ReadOnlyArray<string> },
+  }>,
   fallback: boolean,
-|}> {
+}> {
   // get all the possible paths that exist within ./markdown folder
   const paths = await getAllMarkdownPosts();
 
