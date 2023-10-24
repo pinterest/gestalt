@@ -45,7 +45,7 @@ module.exports = {
     'flowtype/define-flow-type': ERROR,
     'flowtype/no-mutable-array': ERROR,
     'flowtype/no-types-missing-file-annotation': ERROR,
-    'flowtype/require-exact-type': [ERROR, ALWAYS],
+    'flowtype/require-exact-type': OFF, // Flow is set to exact_by_default to true in .flowconfig
     'flowtype/require-valid-file-annotation': [
       ERROR,
       ALWAYS,
@@ -84,6 +84,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': ERROR,
     'react-hooks/rules-of-hooks': ERROR,
     'react/destructuring-assignment': OFF,
+    'react/prefer-exact-props': OFF, // Flow is set to exact_by_default to true in .flowconfig
     'react/jsx-filename-extension': OFF,
     'react/jsx-fragments': [ERROR, 'element'],
     'react/jsx-key': [ERROR, { 'checkFragmentShorthand': true }],

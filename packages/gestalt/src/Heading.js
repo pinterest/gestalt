@@ -23,7 +23,7 @@ type AccessibilityLevel = 1 | 2 | 3 | 4 | 5 | 6 | 'none';
 type Overflow = 'normal' | 'breakWord' | 'breakAll';
 type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
-type Props = {|
+type Props = {
   /**
    * Allows you to override the default heading level for the given `size`.
    */
@@ -66,7 +66,7 @@ type Props = {|
    * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/foundations/design_tokens#Font-size).
    */
   size?: Size,
-|};
+};
 
 /**
  * [Heading](https://gestalt.pinterest.systems/web/heading) allows you to add H1–H6 level text on a page. They are generally placed underneath a PageHeader, and provide you with a way to create a logical text hierarchy.

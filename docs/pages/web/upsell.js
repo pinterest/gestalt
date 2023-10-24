@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -15,7 +16,7 @@ import dontUseForCriticalInfo from '../../examples/upsell/dontUseForCriticalInfo
 import iconVariant from '../../examples/upsell/iconVariant.js';
 import imageVariant from '../../examples/upsell/imageVariant.js';
 import labelsExample from '../../examples/upsell/labelsExample.js';
-import loclizeLabelsExample from '../../examples/upsell/loclizeLabelsExample.js';
+import localizationLabels from '../../examples/upsell/localizationLabels.js';
 import mainExample from '../../examples/upsell/mainExample.js';
 import messagePropForVisualStyle from '../../examples/upsell/messagePropForVisualStyle.js';
 import multipleTextField from '../../examples/upsell/multipleTextField.js';
@@ -27,9 +28,9 @@ import useForMarketing from '../../examples/upsell/useForMarketing.js';
 
 export default function DocsPage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): Node {
   return (
     <Page title={generatedDocGen?.Upsell?.displayName}>
       <PageHeader
@@ -46,19 +47,6 @@ export default function DocsPage({
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen?.Upsell} />
-
-      <MainSection name="Subcomponents">
-        <MainSection.Subsection
-          title={generatedDocGen?.UpsellForm?.displayName}
-          description={generatedDocGen?.UpsellForm?.description}
-        >
-          <GeneratedPropTable
-            generatedDocGen={generatedDocGen?.UpsellForm}
-            id={generatedDocGen?.UpsellForm?.displayName}
-            name={generatedDocGen?.UpsellForm?.displayName}
-          />
-        </MainSection.Subsection>
-      </MainSection>
 
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
@@ -216,20 +204,23 @@ export default function DocsPage({
         </MainSection.Subsection>
       </AccessibilitySection>
 
-      <MainSection
-        name="Localization"
-        description={`Remember to localize all link or button labels, as well as \`title\` and \`message\`.`}
-      >
-        <MainSection.Subsection>
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample
-                name="Remember to Localize All Labels"
-                code={loclizeLabelsExample}
-                layout="column"
-              />
-            }
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen.Upsell?.displayName}
+        layout="column"
+        notes={`
+Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.`}
+      />
+
+      <MainSection name="Subcomponents">
+        <MainSection.Subsection
+          title={generatedDocGen?.UpsellForm?.displayName}
+          description={generatedDocGen?.UpsellForm?.description}
+        >
+          <GeneratedPropTable
+            generatedDocGen={generatedDocGen?.UpsellForm}
+            id={generatedDocGen?.UpsellForm?.displayName}
+            name={generatedDocGen?.UpsellForm?.displayName}
           />
         </MainSection.Subsection>
       </MainSection>
@@ -379,9 +370,9 @@ If the \`message\` text requires more complex style, such as bold text or inline
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   return {
     props: { generatedDocGen: await multipleDocGen(['Upsell', 'UpsellForm']) },
   };

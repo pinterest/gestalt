@@ -5,10 +5,10 @@ import { Box, Flex, Link, NumberField, Text } from 'gestalt';
 function TextExample({
   linkDisplay,
   maxWidth,
-}: {|
+}: {
   linkDisplay: 'inline' | 'inlineBlock',
   maxWidth: number,
-|}): Node {
+}): Node {
   return (
     <Box borderStyle="sm" maxWidth={maxWidth} padding={2} rounding={2}>
       <Text>

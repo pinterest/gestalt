@@ -11,7 +11,7 @@ import SandpackExample from '../../docs-components/SandpackExample.js';
 import main from '../../examples/buttongroup/main.js';
 import variantsWrap from '../../examples/buttongroup/variantsWrap.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen.description}>
@@ -19,8 +19,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
-
-      <AccessibilitySection name={generatedDocGen?.displayName} />
 
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
@@ -45,6 +43,8 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         </MainSection.Subsection>
       </MainSection>
 
+      <AccessibilitySection name={generatedDocGen?.displayName} />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Wrap"
@@ -64,7 +64,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('ButtonGroup') },
   };

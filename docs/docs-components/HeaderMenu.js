@@ -6,10 +6,10 @@ import trackButtonClick from './buttons/trackButtonClick.js';
 export default function HeaderMenu({
   isHeader,
   popoverZIndex,
-}: {|
+}: {
   isHeader?: boolean,
   popoverZIndex?: CompositeZIndex,
-|}): Node {
+}): Node {
   return (
     <Box
       alignItems="center"

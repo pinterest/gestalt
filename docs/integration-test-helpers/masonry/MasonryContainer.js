@@ -22,7 +22,7 @@ const TWO_COL_MINDEX = 50;
 
 type MasonryProps<T> = $PropertyType<Masonry<T>, 'props'>;
 
-type Props<T> = {|
+type Props<T> = {
   // The actual Masonry component to be used (if using an experimental version of Masonry).
   MasonryComponent: typeof Masonry,
   // Experimental prop to batch paints of measured items.
@@ -63,16 +63,16 @@ type Props<T> = {|
   virtualBoundsTop?: number,
   // The relative amount in pixel to extend the virtualized viewport bottom value.
   virtualBoundsBottom?: number,
-|};
+};
 
-type State = {|
+type State = {
   expanded: boolean,
   hasScrollContainer: boolean,
   // $FlowFixMe[unclear-type]
   items: $ReadOnlyArray<Object>,
   mountGrid: boolean,
   mounted: boolean,
-|};
+};
 
 export default class MasonryContainer extends Component<Props<{ ... }>, State> {
   state: State = {
@@ -84,7 +84,7 @@ export default class MasonryContainer extends Component<Props<{ ... }>, State> {
   };
 
   // $FlowFixMe[unclear-type]
-  gridRef: {| current: any | null |} = createRef();
+  gridRef: { current: any | null } = createRef();
 
   randomNumberSeed: number = 0;
 
@@ -135,7 +135,11 @@ export default class MasonryContainer extends Component<Props<{ ... }>, State> {
 
   handleAddItems: () => void = () => {
     const { items } = this.state;
-    this.customLoadItems({ name: 'Manual Fetch Pin', from: items.length, force: true });
+    this.customLoadItems({
+      name: 'Manual Fetch Pin',
+      from: items.length,
+      force: true,
+    });
   };
 
   handleShuffleItems: () => void = () => {
@@ -203,7 +207,7 @@ export default class MasonryContainer extends Component<Props<{ ... }>, State> {
     }));
   };
 
-  customLoadItems: ({| force: boolean, from?: number, name?: string |}) => void = ({
+  customLoadItems: ({ force: boolean, from?: number, name?: string }) => void = ({
     name,
     from = 0,
     force = false,
@@ -323,14 +327,14 @@ export default class MasonryContainer extends Component<Props<{ ... }>, State> {
 
     const { hasScrollContainer, mountGrid, items } = this.state;
 
-    const dynamicGridProps: {|
+    const dynamicGridProps: {
       minCols: $ElementType<React$ElementConfig<typeof Masonry>, 'minCols'>,
       gutterWidth: $ElementType<React$ElementConfig<typeof Masonry>, 'gutterWidth'>,
       loadItems: $ElementType<React$ElementConfig<typeof Masonry>, 'loadItems'>,
       virtualBoundsTop: $ElementType<React$ElementConfig<typeof Masonry>, 'virtualBoundsBottom'>,
       virtualBoundsBottom: $ElementType<React$ElementConfig<typeof Masonry>, 'virtualBoundsBottom'>,
       scrollContainer: $ElementType<React$ElementConfig<typeof Masonry>, 'scrollContainer'>,
-    |} = {
+    } = {
       minCols: undefined,
       gutterWidth: undefined,
       loadItems: undefined,
@@ -339,10 +343,10 @@ export default class MasonryContainer extends Component<Props<{ ... }>, State> {
       scrollContainer: undefined,
     };
 
-    const gridStyle: {|
+    const gridStyle: {
       margin: ?string,
       width: ?string | number,
-    |} = {
+    } = {
       margin: undefined,
       width: undefined,
     };

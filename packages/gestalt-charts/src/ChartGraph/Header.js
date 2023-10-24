@@ -12,7 +12,7 @@ export default function Header({
   titleDisplay,
   toggleTabularDataModal,
   showTabularData,
-}: {|
+}: {
   readyToRender: boolean,
   title?: string,
   description?: string,
@@ -21,7 +21,7 @@ export default function Header({
   titleDisplay?: 'visible' | 'hidden',
   toggleTabularDataModal: () => void,
   showTabularData: boolean,
-|}): Node {
+}): Node {
   const { accessibleViewText, defaultViewText, tabularData } = useDefaultLabel('ChartGraph');
   const { decal: showVisualPattern } = useChartContext();
 

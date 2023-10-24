@@ -27,7 +27,7 @@ import {
 
 export type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 
-type OwnProps = {|
+type OwnProps = {
   accessibilityLabel?: string,
   anchor: HTMLElement,
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
@@ -46,26 +46,26 @@ type OwnProps = {|
   triggerRect: ?ClientRect,
   width: ?number,
   __dangerouslyIgnoreScrollBoundaryContainerSize?: boolean,
-|};
+};
 
-type HookProps = {|
+type HookProps = {
   scrollBoundaryContainerRef: ?HTMLElement,
-|};
+};
 
-type Props = {| ...OwnProps, ...HookProps |};
+type Props = { ...OwnProps, ...HookProps };
 
-type State = {|
-  popoverOffset: {|
+type State = {
+  popoverOffset: {
     top: ?number,
     left: ?number,
-  |},
+  },
   caretOffset: CaretOffset,
   popoverDir: ?PopoverDir,
   popoverRef: ?HTMLElement,
-|};
+};
 
 class Contents extends Component<Props, State> {
-  static defaultProps: {| border: boolean, caret: boolean |} = {
+  static defaultProps: { border: boolean, caret: boolean } = {
     border: true,
     caret: true,
   };
@@ -181,7 +181,12 @@ class Contents extends Component<Props, State> {
       }),
       ...popoverData,
       // Now that we have the main direction, chose from 3 caret placements for that direction
-      caretDir: getCaretDir({ popoverSize, popoverDir, triggerRect, windowSize }),
+      caretDir: getCaretDir({
+        popoverSize,
+        popoverDir,
+        triggerRect,
+        windowSize,
+      }),
       triggerRect,
       isScrollBoundaryContainer: !!containerNode,
     });
@@ -203,7 +208,7 @@ class Contents extends Component<Props, State> {
     }
   };
 
-  calcTopHeight(): {| height: ?number, top: ?number |} {
+  calcTopHeight(): { height: ?number, top: ?number } {
     if (!window || !document) {
       return { top: null, height: null };
     }
@@ -226,7 +231,10 @@ class Contents extends Component<Props, State> {
     // 90% of height available on container reference
     const elementHeight = (height / 10) * 9;
 
-    return { top: !positionRelativeToAnchor ? top : null, height: elementHeight };
+    return {
+      top: !positionRelativeToAnchor ? top : null,
+      height: elementHeight,
+    };
   }
 
   render(): Node {

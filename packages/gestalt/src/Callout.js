@@ -13,7 +13,7 @@ import Text from './Text.js';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 
 export type ActionDataType =
-  | {|
+  | {
       accessibilityLabel: string,
       disabled?: boolean,
       href: string,
@@ -22,25 +22,25 @@ export type ActionDataType =
       rel?: 'none' | 'nofollow',
       role: 'link',
       target?: null | 'self' | 'blank',
-    |}
-  | {|
+    }
+  | {
       accessibilityLabel: string,
       disabled?: boolean,
       label: string,
       onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
       role?: 'button',
-    |};
+    };
 
-type Props = {|
+type Props = {
   /**
    * Adds a dismiss button to Callout. See the [Dismissible variant](https://gestalt.pinterest.systems/web/callout#Dismissible) for more info.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility).
    */
-  dismissButton?: {| accessibilityLabel?: string, onDismiss: () => void |},
+  dismissButton?: { accessibilityLabel?: string, onDismiss: () => void },
   /**
    * Label to describe the icon’s purpose. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility) for details on proper usage.
    */
-  iconAccessibilityLabel: string,
+  iconAccessibilityLabel?: string,
   /**
    * Main content of Callout. Content should be [localized](https://gestalt.pinterest.systems/web/callout#Localization).
    *
@@ -53,7 +53,7 @@ type Props = {|
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility).
    */
   primaryAction?:
-    | {|
+    | {
         role: 'link',
         accessibilityLabel: string,
         disabled?: boolean,
@@ -62,21 +62,21 @@ type Props = {|
         onClick?: $ElementType<React$ElementConfig<typeof ButtonLink>, 'onClick'>,
         rel?: 'none' | 'nofollow',
         target?: null | 'self' | 'blank',
-      |}
-    | {|
+      }
+    | {
         role?: 'button',
         accessibilityLabel: string,
         disabled?: boolean,
         label: string,
         onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
-      |},
+      },
   /**
    * Secondary action for users to take on Callout. If role='link', the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
    * If role='button' (or undefined), the action will be a button.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility).
    */
   secondaryAction?:
-    | {|
+    | {
         role: 'link',
         accessibilityLabel: string,
         disabled?: boolean,
@@ -85,14 +85,14 @@ type Props = {|
         onClick?: $ElementType<React$ElementConfig<typeof ButtonLink>, 'onClick'>,
         rel?: 'none' | 'nofollow',
         target?: null | 'self' | 'blank',
-      |}
-    | {|
+      }
+    | {
         role?: 'button',
         accessibilityLabel: string,
         disabled?: boolean,
         label: string,
         onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
-      |},
+      },
   /**
    * The category of Callout. See [Variants](https://gestalt.pinterest.systems/web/callout#Variants) to learn more.
    */
@@ -101,17 +101,17 @@ type Props = {|
    * Brief title summarizing Callout. Content should be [localized](https://gestalt.pinterest.systems/web/callout#Localization).
    */
   title?: string,
-|};
+};
 
 function CalloutAction({
   data,
   stacked,
   type,
-}: {|
+}: {
   data: ActionDataType,
   stacked?: boolean,
   type: string,
-|}): Node {
+}): Node {
   const color = type === 'primary' ? 'white' : 'transparent';
 
   const { accessibilityLabel, disabled, label } = data;

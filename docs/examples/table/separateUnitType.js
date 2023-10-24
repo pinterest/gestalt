@@ -25,14 +25,14 @@ function BaseRow({
   subtext,
   rate,
   category,
-}: {|
+}: {
   disabled?: boolean,
   type: $ElementType<React$ElementConfig<typeof Status>, 'type'>,
   title: string,
   subtext: string,
   rate: number | string,
   category: string,
-|}) {
+}) {
   return (
     <Table.Row>
       <Table.Cell>

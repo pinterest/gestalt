@@ -16,7 +16,7 @@ import variantsUniform from '../../examples/masonry/variantsUniform.js';
 
 const PREVIEW_HEIGHT = 400;
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -36,16 +36,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <AccessibilitySection name={generatedDocGen?.displayName} />
-
-      <MainSection name="How Masonry works">
-        <MainSection.Subsection
-          description={`
-          Generally, Masonry renders items in two passes: an initial render off-screen to collect measurements, then an on-screen render with the correct measurements. This is necessary because we need to know the height of each item before we can render it in the correct position. This mental model is necessary to understand [the \`serverRenderedFlexible\` layout](/web/masonry#Flexible-layouts), as well as [the common overlap / extra vertical whitespace bug](/web/masonry#Why-is-there-too-much-too-little-vertical-whitespace-between-items).
-
-          Check out [this README](https://github.com/pinterest/gestalt/blob/master/packages/gestalt/src/Masonry/README.md) for more details about how Masonry works. Pinterest employees can also check out [this PDocs page](https://pdocs.pinadmin.com/docs/webapp/masonry-ssr) to learn more about our Masonry SSR optimizations in Pinboard.
-          `}
-        />
-      </MainSection>
 
       <MainSection name="Variants">
         <MainSection.Subsection
@@ -105,7 +95,15 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection name="FAQ">
+      <MainSection name="How Masonry works">
+        <MainSection.Subsection
+          description={`
+          Generally, Masonry renders items in two passes: an initial render off-screen to collect measurements, then an on-screen render with the correct measurements. This is necessary because we need to know the height of each item before we can render it in the correct position. This mental model is necessary to understand [the \`serverRenderedFlexible\` layout](/web/masonry#Flexible-layouts), as well as [the common overlap / extra vertical whitespace bug](/web/masonry#Why-is-there-too-much-too-little-vertical-whitespace-between-items).
+
+          Check out [this README](https://github.com/pinterest/gestalt/blob/master/packages/gestalt/src/Masonry/README.md) for more details about how Masonry works. Pinterest employees can also check out [this PDocs page](https://pdocs.pinadmin.com/docs/webapp/masonry-ssr) to learn more about our Masonry SSR optimizations in Pinboard.
+          `}
+        />
+
         <MainSection.Subsection
           title="Why is there too much / too little vertical whitespace between items?"
           description={`
@@ -133,7 +131,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   const generatedDocGen = await docGen('Masonry');
 
   generatedDocGen.props.loadItems = {

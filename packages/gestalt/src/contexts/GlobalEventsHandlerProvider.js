@@ -3,22 +3,22 @@ import { type Context, createContext, type Element, type Node, useContext } from
 
 export type NoopType = () => void;
 
-type OnLinkNavigationType = ({|
+type OnLinkNavigationType = ({
   href: string,
   target?: null | 'self' | 'blank',
-|}) => ?({|
+}) => ?({
   +event: SyntheticEvent<>,
-|}) => void;
+}) => void;
 
-type GlobalEventsHandlerContextType = {|
-  dateFieldHandlers?: {| onMount?: NoopType |},
-  datePickerHandlers?: {| onMount?: NoopType |},
-  dateRangeHandlers?: {| onMount?: NoopType |},
-  sheetMobileHandlers?: {| onOpen?: NoopType, onClose?: NoopType |},
-  linkHandlers?: {| onNavigation?: OnLinkNavigationType |},
-|} | void;
+type GlobalEventsHandlerContextType = {
+  dateFieldHandlers?: { onMount?: NoopType },
+  datePickerHandlers?: { onMount?: NoopType },
+  dateRangeHandlers?: { onMount?: NoopType },
+  sheetMobileHandlers?: { onOpen?: NoopType, onClose?: NoopType },
+  linkHandlers?: { onNavigation?: OnLinkNavigationType },
+} | void;
 
-type Props = {|
+type Props = {
   /**
    * Context lets a parent component provide data to the entire tree below it. Only components within the GlobalEventsHandlerProvider tree will be able to subscribe to it.
    */
@@ -26,31 +26,31 @@ type Props = {|
   /**
    * Handlers consumed by [DateField](https://gestalt.pinterest.systems/web/datefield).
    */
-  dateFieldHandlers?: {| onMount?: () => void |},
+  dateFieldHandlers?: { onMount?: () => void },
   /**
    * Handlers consumed by [DatePicker](https://gestalt.pinterest.systems/web/datepicker).
    */
-  datePickerHandlers?: {| onMount?: () => void |},
+  datePickerHandlers?: { onMount?: () => void },
   /**
    * Handlers consumed by [DateRange](https://gestalt.pinterest.systems/web/daterange).
    */
-  dateRangeHandlers?: {| onMount?: () => void |},
+  dateRangeHandlers?: { onMount?: () => void },
   /**
    * Handlers consumed by [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile#External-handlers).
    */
-  sheetMobileHandlers?: {| onOpen?: () => void, onClose?: () => void |},
+  sheetMobileHandlers?: { onOpen?: () => void, onClose?: () => void },
   /**
    * Handlers consumed by [Link](https://gestalt.pinterest.systems/web/link).
    */
-  linkHandlers?: {|
-    onNavigation?: ({|
+  linkHandlers?: {
+    onNavigation?: ({
       href: string,
       target?: null | 'self' | 'blank',
-    |}) => ?({|
+    }) => ?({
       +event: SyntheticEvent<>,
-    |}) => void,
-  |},
-|};
+    }) => void,
+  },
+};
 
 const GlobalEventsHandlerContext: Context<GlobalEventsHandlerContextType> =
   createContext<GlobalEventsHandlerContextType>();

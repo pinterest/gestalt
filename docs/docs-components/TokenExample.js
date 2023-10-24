@@ -3,19 +3,19 @@ import { type Node } from 'react';
 import { Box } from 'gestalt';
 import { type Token } from '../pages/foundations/design_tokens.js';
 
-type BaseProps = {|
+type BaseProps = {
   token: Token,
-|};
+};
 
-type FontBoxProps = {|
+type FontBoxProps = {
   ...BaseProps,
   type?: string,
-|};
+};
 
-type ExampleProps = {|
+type ExampleProps = {
   ...BaseProps,
   category: string,
-|};
+};
 
 export function ColorBox({ token }: BaseProps): Node {
   return (
@@ -53,7 +53,9 @@ export function SpacingBox({ token }: BaseProps): Node {
     const marginLeftDimension = `calc(64px + ${token.value})`;
     return (
       <Box
-        dangerouslySetInlineStyle={{ __style: { marginLeft: marginLeftDimension } }}
+        dangerouslySetInlineStyle={{
+          __style: { marginLeft: marginLeftDimension },
+        }}
         borderStyle="lg"
         width={absoluteDimension}
         height={absoluteDimension}

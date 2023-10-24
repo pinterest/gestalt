@@ -6,7 +6,7 @@ import styles from './Layer.css';
 import { getContainerNode } from './utils/positioningUtils.js';
 import { type Indexable } from './zIndex.js';
 
-type Props = {|
+type Props = {
   /**
    *
    */
@@ -15,7 +15,7 @@ type Props = {|
    * An object representing the z-index value of the Layer. See the [z-index example](https://gestalt.pinterest.systems/web/layer#zIndex) for more details.
    */
   zIndex?: Indexable,
-|};
+};
 
 /**
  * [Layers](https://gestalt.pinterest.systems/web/layer) allow you to render children outside the DOM hierarchy of the parent. It's a wrapper around React createPortal that lets you use it as a component. This is particularly useful for places you might have needed to use z-index to overlay the screen before.

@@ -23,12 +23,12 @@ function Task({
   description,
   delivery,
   platforms,
-}: {|
+}: {
   text: string,
   description: string,
   delivery: string,
   platforms: $ReadOnlyArray<Platform>,
-|}) {
+}) {
   return (
     <MainSection.Subsection
       title={platforms.length > 0 ? `${text} (${platforms.join('/')})` : text}

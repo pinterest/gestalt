@@ -5,12 +5,12 @@ import IllustrationContainer from './IllustrationContainer.js';
 
 export const MIN_SVG_ILLUSTRATION_WIDTH = 245;
 
-type Props = {|
+type Props = {
   children?: Node,
   grid?: 'auto-fill' | 'auto-fit',
   min?: number,
   title?: string,
-|};
+};
 
 export default function IllustrationSection({
   children,

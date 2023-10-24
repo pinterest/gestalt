@@ -2,6 +2,7 @@
 import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -19,7 +20,7 @@ import useFromEdgeToEdge from '../../examples/divider/useFromEdgeToEdge.js';
 import useToSeparateCollections from '../../examples/divider/useToSeparateCollections.js';
 import useWhitespaceToSeparateGroups from '../../examples/divider/useWhitespaceToSeparateGroups.js';
 
-export default function DividerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DividerPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -169,9 +170,14 @@ export default function DividerPage({ generatedDocGen }: {| generatedDocGen: Doc
         name={generatedDocGen?.displayName}
         description="Divider is not focusable and is treated as decorative. Screen readers on tab navigation don't announce Dividers but do announce them on left/right quick navigation."
       />
-      <MainSection name="Localization">
-        <MainSection.Subsection description="If you are aligning Divider to content, ensure that it switches sides according to the content's start-end alignment." />
-      </MainSection>
+
+      <LocalizationSection
+        name={generatedDocGen?.displayName}
+        noDefaultLabelProvider
+        noBaseText
+        notes={`If you are aligning Divider to content, ensure that it switches sides according to the content's start-end alignment.`}
+      />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Orientation"
@@ -207,7 +213,9 @@ export default function DividerPage({ generatedDocGen }: {| generatedDocGen: Doc
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Divider') },
   };

@@ -7,7 +7,7 @@ export default function Example(): Node {
   const labelId = useId();
   const [width, setWidth] = useState<number>(700);
   const scrollContainerRef = useRef<?HTMLDivElement>();
-  const updateWidth = ({ target }: {| target: HTMLInputElement |}) => {
+  const updateWidth = ({ target }: { target: HTMLInputElement }) => {
     setWidth(Number(target.value));
   };
 
@@ -31,13 +31,13 @@ export default function Example(): Node {
   const data = [
     {
       name: 'A',
-      'Series_01': 100,
-      'Series_02': 200,
+      Series_01: 100,
+      Series_02: 200,
     },
     {
       name: 'B',
-      'Series_01': 200,
-      'Series_02': 300,
+      Series_01: 200,
+      Series_02: 300,
     },
   ];
 

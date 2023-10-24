@@ -156,7 +156,7 @@ function SelectBoard() {
   );
 }
 
-function List({ title, onSelect }: {| title: string, onSelect: (data: string) => void |}) {
+function List({ title, onSelect }: { title: string, onSelect: (data: string) => void }) {
   return (
     <Flex direction="column" gap={{ column: 4, row: 0 }}>
       <Text color="default" size="100">

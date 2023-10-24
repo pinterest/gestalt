@@ -36,12 +36,12 @@ import {
   throwErrorMessageWithNodesData,
 } from './utils.js';
 
-type OptionsType = {|
+type OptionsType = {
   component: string,
   subcomponent?: string,
   prop?: string,
   value?: string,
-|};
+};
 
 function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?string | null {
   const { component, subcomponent, prop, value } = options;
@@ -72,7 +72,10 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
   });
 
   if (isNullOrUndefined(prop) && isNullOrUndefined(value)) {
-    throwErrorMessageWithNodesData({ fileInfo, jSXCollection: matchedJSXCollection });
+    throwErrorMessageWithNodesData({
+      fileInfo,
+      jSXCollection: matchedJSXCollection,
+    });
   }
 
   throwErrorIfSpreadProps({

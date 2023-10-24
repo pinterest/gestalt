@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { AvatarGroup, Box, Divider, Flex, Icon, Mask, Text } from 'gestalt';
 
-function Block({ title, url, locked }: {| title: string, url: string, locked?: boolean |}) {
+function Block({ title, url, locked }: { title: string, url: string, locked?: boolean }) {
   return (
     <Flex gap={{ row: 2, column: 0 }} alignItems="center">
       <Box maxWidth={60}>

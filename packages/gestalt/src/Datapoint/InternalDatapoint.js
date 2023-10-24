@@ -11,17 +11,17 @@ import Text from '../Text.js';
 import Tooltip from '../Tooltip.js';
 import { type Indexable } from '../zIndex.js';
 
-type BadgeObject = {|
+type BadgeObject = {
   text: string,
   type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
-|};
+};
 
-type TrendObject = {|
+type TrendObject = {
   accessibilityLabel: string,
   value: number,
-|};
+};
 
-type Props = {|
+type Props = {
   badge?: BadgeObject,
   /**
    * Changes the color of the text and internal items to be disabled
@@ -42,9 +42,9 @@ type Props = {|
   trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto',
   tooltipZIndex?: Indexable,
   value: string,
-|};
+};
 
-function MaybeMinWidth({ minWidth, children }: {| minWidth?: number, children: Node |}) {
+function MaybeMinWidth({ minWidth, children }: { minWidth?: number, children: Node }) {
   return minWidth ? <Box minWidth={minWidth}>{children}</Box> : children;
 }
 

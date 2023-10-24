@@ -6,9 +6,9 @@ import { NestingProvider } from '../contexts/NestingProvider.js';
 import Layout from '../Layout.css';
 import Whitespace from '../Whitespace.css';
 
-type Props = {|
+type Props = {
   children: Node,
-|};
+};
 
 export default function TableOfContentsItemList({ children }: Props): Node {
   const childrenArray = getChildrenToArray({ children });

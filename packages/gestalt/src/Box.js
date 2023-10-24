@@ -78,9 +78,9 @@ type Props = {
   /**
    * An "escape hatch" used to apply styles not otherwise available on Box.
    */
-  dangerouslySetInlineStyle?: {|
+  dangerouslySetInlineStyle?: {
     __style: { [key: string]: string | number | void },
-  |},
+  },
 
   /**
    * Aligns a flex container's lines within when there is extra space in the cross-axis, similar to how justify-content aligns individual items within the main-axis.
@@ -558,7 +558,7 @@ type OutputType = Element<As>;
  */
 const BoxWithForwardRef: AbstractComponent<Props, HTMLElement> = forwardRef<Props, HTMLElement>(
   function Box({ as, ...props }: Props, ref): OutputType {
-    const { passthroughProps, propsStyles } = buildStyles<$Diff<Props, {| as?: As |}>>({
+    const { passthroughProps, propsStyles } = buildStyles<$Diff<Props, { as?: As }>>({
       baseStyles: styles.box,
       props,
       blocklistProps: disallowedProps,

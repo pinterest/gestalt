@@ -11,12 +11,12 @@ import { type Indexable } from './zIndex.js';
 
 type Position = 'middle' | 'top';
 
-type TooltipProps = {|
+type TooltipProps = {
   accessibilityLabel?: string,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   text: string,
   zIndex?: Indexable,
-|};
+};
 
 export type TypeOptions =
   | 'info'
@@ -28,7 +28,7 @@ export type TypeOptions =
   | 'darkWash'
   | 'lightWash';
 
-type Props = {|
+type Props = {
   /**
    * Badge position relative to its parent element. See the [positioning](https://gestalt.pinterest.systems/web/badge#Positioning) variant to learn more.
    */
@@ -45,7 +45,7 @@ type Props = {|
    * Determines the style of the badge. See the [type](https://gestalt.pinterest.systems/web/badge#Type) variant to learn more.
    */
   type?: TypeOptions,
-|};
+};
 
 /**
  * [Badge](https://gestalt.pinterest.systems/web/badge) is a label that indicates status or importance. Badges should provide quick recognition.

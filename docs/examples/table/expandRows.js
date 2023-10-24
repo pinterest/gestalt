@@ -29,7 +29,7 @@ function BaseRow({
   hours,
   active,
   setActive,
-}: {|
+}: {
   name: string,
   team: string,
   src: string,
@@ -37,7 +37,7 @@ function BaseRow({
   hours: string,
   active: boolean,
   setActive: (active: boolean) => void,
-|}) {
+}) {
   return (
     <Table.RowExpandable
       accessibilityExpandLabel="Expand"

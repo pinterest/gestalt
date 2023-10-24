@@ -3,32 +3,26 @@ import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import completeVariant from '../../examples/activationcard/completeVariant.js';
+import localizationLabels from '../../examples/activationcard/localizationLabels.js';
 import mainExample from '../../examples/activationcard/mainExample.js';
 import needsAttentionVariant from '../../examples/activationcard/needsAttentionVariant.js';
 import notStartedVariant from '../../examples/activationcard/notStartedVariant.js';
 import pendingVariant from '../../examples/activationcard/pendingVariant.js';
 
-export default function ActivationCardPage({
-  generatedDocGen,
-}: {|
-  generatedDocGen: DocGen,
-|}): Node {
+export default function ActivationCardPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
         <SandpackExample name="Main Example" code={mainExample} layout="column" hideEditor />
       </PageHeader>
-
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
-
-      <AccessibilitySection name={generatedDocGen?.displayName} />
-
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -49,6 +43,13 @@ export default function ActivationCardPage({
           />
         </MainSection.Subsection>
       </MainSection>
+      <AccessibilitySection name={generatedDocGen?.displayName} />
+
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen?.displayName}
+        notes={`Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.`}
+      />
 
       <MainSection name="Variants">
         <MainSection.Subsection title="Not Started">
@@ -79,13 +80,14 @@ export default function ActivationCardPage({
           />
         </MainSection.Subsection>
       </MainSection>
-
       <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('ActivationCard') },
   };

@@ -6,10 +6,10 @@ import Flex from '../Flex.js';
 import Status from '../Status.js';
 import Text from '../Text.js';
 
-type Props = {|
+type Props = {
   id: string,
   text?: Node,
-|};
+};
 
 export default function FormErrorMessage({ id, text = '' }: Props): Node {
   return (

@@ -6,9 +6,9 @@ import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 
-type ColorCardProps = {|
+type ColorCardProps = {
   children: Node,
-|};
+};
 function ColorSchemeLayout({ children }: ColorCardProps): Node {
   return (
     <Flex gap={4} wrap>

@@ -16,7 +16,7 @@ import UpsellForm from './UpsellForm.js';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 
 export type ActionDataType =
-  | {|
+  | {
       accessibilityLabel: string,
       disabled?: boolean,
       href: string,
@@ -25,20 +25,20 @@ export type ActionDataType =
       rel?: 'none' | 'nofollow',
       role: 'link',
       target?: null | 'self' | 'blank',
-    |}
-  | {|
+    }
+  | {
       accessibilityLabel: string,
       disabled?: boolean,
       label: string,
       onClick: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
       role?: 'button',
-    |};
+    };
 
-type UpsellActionProps = {|
+type UpsellActionProps = {
   data: ActionDataType,
   stacked?: boolean,
   type: string,
-|};
+};
 
 function UpsellAction({ data, stacked, type }: UpsellActionProps): Node {
   const color = type === 'primary' ? 'red' : 'gray';
@@ -79,7 +79,7 @@ function UpsellAction({ data, stacked, type }: UpsellActionProps): Node {
   );
 }
 
-type Props = {|
+type Props = {
   /**
    * To create forms within Upsell, pass Upsell.Form as children.
    */
@@ -87,21 +87,21 @@ type Props = {|
   /**
    * Adds a dismiss button to the Upsell. The \`accessibilityLabel\` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/upsell#Accessibility).
    */
-  dismissButton?: {|
+  dismissButton?: {
     accessibilityLabel?: string,
     onDismiss: () => void,
-  |},
+  },
   /**
    * Either an [Icon](https://gestalt.pinterest.systems/web/icon) or an [Image](https://gestalt.pinterest.systems/web/image) to render at the start of the banner. Width is not used with Icon. Image width defaults to 128px. See the [Icon](https://gestalt.pinterest.systems/web/upsell#Icon) and [Image](https://gestalt.pinterest.systems/web/upsell#Image) variants for more info.
    */
-  imageData?: {|
+  imageData?: {
     component: Element<typeof Image | typeof Icon>,
-    mask?: {|
+    mask?: {
       rounding?: 'circle' | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8,
       wash?: boolean,
-    |},
+    },
     width?: number,
-  |},
+  },
   /**
    * Main content of Upsell, explains what is being offered or recommended. Content should be [localized](https://gestalt.pinterest.systems/web/upsell#Localization). See the [Message variant](https://gestalt.pinterest.systems/web/upsell#Message) to learn more.
    */
@@ -122,7 +122,7 @@ type Props = {|
    * Brief title summarizing the Upsell. Content should be [localized](https://gestalt.pinterest.systems/web/upsell#Localization).
    */
   title?: string,
-|};
+};
 
 /**
  * [Upsells](https://gestalt.pinterest.systems/web/upsell) are banners that display short messages that focus on promoting an action or upgrading something the user already has.

@@ -1,12 +1,12 @@
 // @flow strict
 import { type Context, createContext } from 'react';
 
-type DropdownContextType = {|
+type DropdownContextType = {
   id: string,
   hoveredItemIndex: ?number,
   setHoveredItemIndex: (n: number) => void,
   setOptionRef: (?HTMLElement) => void,
-|};
+};
 
 const initialContextState = {
   id: '',

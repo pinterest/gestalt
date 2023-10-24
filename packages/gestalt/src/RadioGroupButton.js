@@ -12,7 +12,7 @@ import FormHelperText from './shared/FormHelperText.js';
 import Text from './Text.js';
 import useFocusVisible from './useFocusVisible.js';
 
-type Props = {|
+type Props = {
   /**
    * Indicates if the input is checked. See the [state example](https://gestalt.pinterest.systems/web/radiogroup#States) for more details.
    */
@@ -40,7 +40,10 @@ type Props = {|
   /**
    * Callback triggered when the user interacts with the input.
    */
-  onChange: ({| event: SyntheticInputEvent<HTMLInputElement>, checked: boolean |}) => void,
+  onChange: ({
+    event: SyntheticInputEvent<HTMLInputElement>,
+    checked: boolean,
+  }) => void,
   /**
    * Ref forwarded to the underlying input element. See [ref example](https://gestalt.pinterest.systems/web/radiogroup#Using-ref) for more details.
    */
@@ -57,7 +60,7 @@ type Props = {|
    * The value of the input.
    */
   value: string,
-|};
+};
 
 /**
  *  Use [RadioGroup.RadioButtons](https://gestalt.pinterest.systems/web/radiogroup#RadioGroup.RadioButton) to present an option for selection to the user within a RadioGroup. They should not be used outside of RadioGroup or when the user can select more than one option from a list.
@@ -163,7 +166,9 @@ const RadioGroupButtonWithForwardRef: AbstractComponent<Props, HTMLInputElement>
             {/* marginTop: '-1px'/'2px' is needed to  visually align the label text & radiobutton input */}
             <Box
               paddingX={1}
-              dangerouslySetInlineStyle={{ __style: { marginTop: size === 'md' ? '2px' : '-1px' } }}
+              dangerouslySetInlineStyle={{
+                __style: { marginTop: size === 'md' ? '2px' : '-1px' },
+              }}
             >
               <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
                 {label}

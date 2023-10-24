@@ -10,7 +10,7 @@ import FullPage from './SheetMobile/FullPage.js';
 import PartialPage from './SheetMobile/PartialPage.js';
 import { type Indexable } from './zIndex.js';
 
-type Props = {|
+type Props = {
   /**
    * Specify the alignment of `heading` & `subHeading` strings. See the [Header variant](https://gestalt.pinterest.systems/web/sheetmobile#Heading) for more info.
    */
@@ -18,17 +18,17 @@ type Props = {|
   /**
    * Adds a "back-arrow" IconButton for user interaction at the start of the header section. See the [header variant, back and forward navigation case](https://gestalt.pinterest.systems/web/sheetmobile#Header) for more info.
    */
-  backIconButton?: {|
+  backIconButton?: {
     accessibilityLabel: string,
-    onClick: ({|
+    onClick: ({
       event:
         | SyntheticMouseEvent<HTMLButtonElement>
         | SyntheticKeyboardEvent<HTMLButtonElement>
         | SyntheticMouseEvent<HTMLAnchorElement>
         | SyntheticKeyboardEvent<HTMLAnchorElement>,
       onDismissStart: () => void,
-    |}) => void,
-  |},
+    }) => void,
+  },
   /**
    * Supply the element(s) that will be used as SheetMobile's main content.
    */
@@ -44,17 +44,17 @@ type Props = {|
   /**
    * Adds a "forward-arrow" IconButton for user interaction at the end of the header section.. See the [header variant, back and forward navigation case](https://gestalt.pinterest.systems/web/sheetmobile#Header) for more info.
    */
-  forwardIconButton?: {|
+  forwardIconButton?: {
     accessibilityLabel: string,
-    onClick: ({|
+    onClick: ({
       event:
         | SyntheticMouseEvent<HTMLButtonElement>
         | SyntheticKeyboardEvent<HTMLButtonElement>
         | SyntheticMouseEvent<HTMLAnchorElement>
         | SyntheticKeyboardEvent<HTMLAnchorElement>,
       onDismissStart: () => void,
-    |}) => void,
-  |},
+    }) => void,
+  },
   /**
    * The text used for SheetMobile's heading. See the [header variant](https://gestalt.pinterest.systems/web/sheetmobile#Header) for more info.
    */
@@ -62,7 +62,7 @@ type Props = {|
   /**
    * Callback fired when SheetMobile's in & out animations end. See the [animation variant](https://gestalt.pinterest.systems/web/sheetmobile#Animation) to learn more.
    */
-  onAnimationEnd?: ({| animationState: 'in' | 'out' |}) => void,
+  onAnimationEnd?: ({ animationState: 'in' | 'out' }) => void,
   /**
    * Callback fired when SheetMobile is dismissed. Must be used for controlling SheetMobile's visibility state.
    */
@@ -70,9 +70,9 @@ type Props = {|
   /**
    * Callback fired when clicking on the backdrop (gray area) outside of SheetMobile.
    */
-  onOutsideClick?: ({|
+  onOutsideClick?: ({
     event: SyntheticMouseEvent<HTMLDivElement>,
-  |}) => void,
+  }) => void,
   /**
    * The main SheetMobile content section has a "default" padding. For those cases where full bleed is needed, set `padding` to "none".
    */
@@ -80,22 +80,22 @@ type Props = {|
   /**
    * Adds an primary action Button for user interaction at the end of the header section. See the [header variant, with primary action case](https://gestalt.pinterest.systems/web/sheetmobile#Header) for more info.
    */
-  primaryAction?: {|
+  primaryAction?: {
     accessibilityLabel: string,
     href?: string,
     label: string,
-    onClick: ({|
+    onClick: ({
       event:
         | SyntheticMouseEvent<HTMLButtonElement>
         | SyntheticKeyboardEvent<HTMLButtonElement>
         | SyntheticMouseEvent<HTMLAnchorElement>
         | SyntheticKeyboardEvent<HTMLAnchorElement>,
       onDismissStart: () => void,
-    |}) => void,
+    }) => void,
     rel?: $ElementType<ElementConfig<typeof Link>, 'rel'>,
     size?: $ElementType<ElementConfig<typeof Button>, 'size'>,
     target?: $ElementType<ElementConfig<typeof Link>, 'target'>,
-  |},
+  },
   /**
    * The underlying ARIA role for the SheetMobile. See the [Accessibility Role section](https://gestalt.pinterest.systems/web/sheetmobile#Role) for more info.
    */
@@ -116,7 +116,7 @@ type Props = {|
    * An object representing the zIndex value of SheetMobile. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
   zIndex?: Indexable,
-|};
+};
 
 /**
  * [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile) is a mobile only component. It is not used in desktop experiences.

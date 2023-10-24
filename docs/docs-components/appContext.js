@@ -15,7 +15,7 @@ type DirectionScheme = 'ltr' | 'rtl';
 type Experiments = string;
 type DevExampleMode = 'development' | 'default';
 
-export type AppContextType = {|
+export type AppContextType = {
   propTableVariant: PropTableVariant,
   setPropTableVariant: (val: PropTableVariant) => void,
   colorScheme: ColorScheme,
@@ -26,7 +26,7 @@ export type AppContextType = {|
   setExperiments: (val: Experiments) => void,
   devExampleMode: DevExampleMode,
   setDevExampleMode: (val: DevExampleMode) => void,
-|};
+};
 
 const {
   Provider,
@@ -34,7 +34,7 @@ const {
   useHook: useAppContext,
 }: Hydra<AppContextType> = createHydra<AppContextType>('AppContext');
 
-function AppContextProvider({ children }: {| children?: Node |}): Node {
+function AppContextProvider({ children }: { children?: Node }): Node {
   const [cookies, setCookies] = useCookies([
     colorSchemeKey,
     propTableVariantKey,

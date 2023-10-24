@@ -2,13 +2,13 @@
 import { type Node, useEffect, useRef, useState } from 'react';
 import { Box, Flex, Image, Masonry, Text } from 'gestalt';
 
-type Pin = {|
+type Pin = {
   color: string,
   height: number,
   name: string,
   src: string,
   width: number,
-|};
+};
 
 function getPins(): Promise<$ReadOnlyArray<Pin>> {
   const pins: $ReadOnlyArray<Pin> = [

@@ -10,6 +10,6 @@ import styles from './Divider.css';
  *
  */
 // eslint-disable-next-line no-empty-pattern
-export default function Divider({}: {||}): Node {
+export default function Divider({}: {}): Node {
   return <hr className={styles.divider} />;
 }

@@ -18,7 +18,7 @@ import FormLabel from './shared/FormLabel.js';
 
 type UnionRefs = HTMLDivElement | HTMLAnchorElement;
 
-type Props = {|
+type Props = {
   /**
    * String that clients such as VoiceOver will read to describe the element. Always localize the label. See the [Accessibility section](https://gestalt.pinterest.systems/web/searchfield#Accessibility) for more info.
    */
@@ -46,31 +46,31 @@ type Props = {|
   /**
    *
    */
-  onBlur?: ({|
+  onBlur?: ({
     event: SyntheticKeyboardEvent<HTMLInputElement>,
     value: string,
-  |}) => void,
+  }) => void,
   /**
    * Primary callback to handle keyboard input.
    */
-  onChange: ({|
+  onChange: ({
     value: string,
     syntheticEvent: SyntheticEvent<HTMLInputElement>,
-  |}) => void,
+  }) => void,
   /**
    *
    */
-  onFocus?: ({|
+  onFocus?: ({
     value: string,
     syntheticEvent: SyntheticEvent<HTMLInputElement>,
-  |}) => void,
+  }) => void,
   /**
    * Secondary callback for keyboard events. Possible uses include validation, form submission, etc.
    */
-  onKeyDown?: ({|
+  onKeyDown?: ({
     event: SyntheticKeyboardEvent<HTMLInputElement>,
     value: string,
-  |}) => void,
+  }) => void,
   /**
    * Text displayed before the user has entered anything.
    */
@@ -87,7 +87,7 @@ type Props = {|
    * The current value of the input.
    */
   value?: string,
-|};
+};
 
 /**
  * [SearchField](https://gestalt.pinterest.systems/web/searchfield) allows users to search for free-form content.

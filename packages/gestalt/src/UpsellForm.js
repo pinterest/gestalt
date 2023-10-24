@@ -5,7 +5,7 @@ import Button from './Button.js';
 import Flex from './Flex.js';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 
-type Props = {|
+type Props = {
   /**
    * Contents of the form, typically input components like [TextField](https://gestalt.pinterest.systems/web/textfield) or [NumberField](https://gestalt.pinterest.systems/web/numberfield).
    */
@@ -13,13 +13,13 @@ type Props = {|
   /**
    * Callback triggered when the form is submitted.
    */
-  onSubmit: ({|
+  onSubmit: ({
     event:
       | SyntheticMouseEvent<HTMLButtonElement>
       | SyntheticMouseEvent<HTMLAnchorElement>
       | SyntheticKeyboardEvent<HTMLAnchorElement>
       | SyntheticKeyboardEvent<HTMLButtonElement>,
-  |}) => void,
+  }) => void,
   /**
    * Text content of the submit button. Be sure to localize!
    */
@@ -32,7 +32,7 @@ type Props = {|
    * Used to disable the submit button.
    */
   submitButtonDisabled?: boolean,
-|};
+};
 
 /**
  * [Upsell.Form](https://gestalt.pinterest.systems/web/upsell#Upsell.Form) can be used to add a short form to Upsell for collecting data from the user.

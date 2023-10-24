@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 import RadioButton from './RadioButton.js';
 
 const mockOnChange = jest.fn<
-  [{| checked: boolean, event: SyntheticInputEvent<HTMLInputElement> |}],
+  [{ checked: boolean, event: SyntheticInputEvent<HTMLInputElement> }],
   void,
 >();
 

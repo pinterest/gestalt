@@ -8,7 +8,7 @@ import Pog from '../Pog.js';
 import TapArea from '../TapArea.js';
 import Tooltip from '../Tooltip.js';
 
-function MaybeTooltip({ children, tooltipText }: {| children: Node, tooltipText: ?string |}) {
+function MaybeTooltip({ children, tooltipText }: { children: Node, tooltipText: ?string }) {
   return tooltipText ? (
     <Tooltip inline text={tooltipText}>
       {children}
@@ -18,7 +18,7 @@ function MaybeTooltip({ children, tooltipText }: {| children: Node, tooltipText:
   );
 }
 
-type Props = {|
+type Props = {
   accessibilityChecked?: boolean,
   accessibilityHidden?: boolean,
   accessibilityLabel?: string,
@@ -29,7 +29,7 @@ type Props = {|
   role?: 'switch',
   tapStyle?: $ElementType<ElementConfig<typeof TapArea>, 'tapStyle'>,
   tooltipText?: string,
-|};
+};
 
 export default function InternalTextFieldIconButton({
   accessibilityChecked,

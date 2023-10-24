@@ -11,13 +11,13 @@ function DatePickerWrap({
   localeData,
   readOnly,
   disabled,
-}: {|
+}: {
   errorMessage?: string,
   disabled?: boolean,
   readOnly?: boolean,
 
   localeData?: { ... },
-|}) {
+}) {
   const [date, setDate] = useState<Date | null>(initialDate);
 
   return (

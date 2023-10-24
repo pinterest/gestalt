@@ -5,7 +5,7 @@ import Document, { type DocumentContext, Head, Html, Main, NextScript } from 'ne
 import Cookies from 'universal-cookie';
 
 class GestaltDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext): Promise<{||}> {
+  static async getInitialProps(ctx: DocumentContext): Promise<{}> {
     const initialProps = await Document.getInitialProps(ctx);
 
     const cookieHeader = ctx?.req?.headers?.cookie;

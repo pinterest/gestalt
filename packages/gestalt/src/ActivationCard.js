@@ -17,28 +17,28 @@ const STATUS_ICONS = {
   complete: { symbol: 'check-circle', color: 'success' },
 };
 
-type LinkData = {|
+type LinkData = {
   accessibilityLabel: string,
   href: string,
   label: string,
-  onClick?: ({|
+  onClick?: ({
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
+  }) => void,
   rel?: 'none' | 'nofollow',
   target?: null | 'self' | 'blank',
-|};
+};
 
-type Props = {|
+type Props = {
   /**
    * Callback fired when the dismiss button is clicked (pressed and released) with a mouse or keyboard.
    * Supply a short, descriptive label for screen-readers to provide sufficient context about the dismiss button action. IconButtons do not render text for screen readers to read requiring an accessibility label.
    * Accessibility: `accessibilityLabel` populates aria-label.
    */
-  dismissButton?: {|
-    accessibilityLabel: string,
+  dismissButton?: {
+    accessibilityLabel?: string,
     onDismiss: () => void,
-  |},
+  },
   /**
    * Link-role button to render inside the activation card as a call-to-action to the user.
    * - `label`: Text to render inside the button to convey the function and purpose of the button. The button text has a fixed size.
@@ -68,9 +68,9 @@ type Props = {|
    * Heading to render inside the activation card above the message to convey the activation card topic to the user.
    */
   title: string,
-|};
+};
 
-function ActivationCardLink({ data }: {| data: LinkData |}): Node {
+function ActivationCardLink({ data }: { data: LinkData }): Node {
   const { accessibilityLabel, href, label, onClick, rel, target } = data;
 
   return (
@@ -97,7 +97,14 @@ function ActivationCardLink({ data }: {| data: LinkData |}): Node {
   );
 }
 
-function CompletedCard({ dismissButton, message, status, statusMessage, title }: Props): Node {
+type CardProps = {
+  ...Props,
+  dismissButton?: {
+    accessibilityLabel: string,
+    onDismiss: () => void,
+  },
+};
+function CompletedCard({ dismissButton, message, status, statusMessage, title }: CardProps): Node {
   const icon = STATUS_ICONS[status];
 
   return (
@@ -153,7 +160,7 @@ function UncompletedCard({
   status,
   statusMessage,
   title,
-}: Props): Node {
+}: CardProps): Node {
   const isStarted = status !== 'notStarted';
   const icon = STATUS_ICONS[status];
 

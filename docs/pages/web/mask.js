@@ -15,7 +15,7 @@ import variantContent from '../../examples/mask/variantContent.js';
 import variantWash from '../../examples/mask/variantWash.js';
 import variantWillChangeTransform from '../../examples/mask/variantWillChangeTransform.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -59,7 +59,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
                   height={70}
                   width={70}
                   dangerouslySetInlineStyle={{
-                    __style: { backgroundColor: 'var(--color-teal-spabattical-400)' },
+                    __style: {
+                      backgroundColor: 'var(--color-teal-spabattical-400)',
+                    },
                   }}
                 />
               </Mask>
@@ -93,7 +95,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Mask') },
   };

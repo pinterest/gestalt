@@ -19,7 +19,7 @@ const defaultLayout =
     minCols = 2,
     rawItemCount,
     width,
-  }: {|
+  }: {
     columnWidth?: number,
     gutter?: number,
     justify: 'center' | 'start',
@@ -27,7 +27,7 @@ const defaultLayout =
     minCols?: number,
     rawItemCount: number,
     width?: ?number,
-  |}): ((items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>) =>
+  }): ((items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>) =>
   (items): $ReadOnlyArray<Position> => {
     if (width == null) {
       return items.map(() => offscreen(columnWidth));

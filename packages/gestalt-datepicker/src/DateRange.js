@@ -18,38 +18,38 @@ import InternalDatePicker from './DateRange/InternalDatePicker.js';
 const MOBILE_DATEFIELD_WIDTH = 171;
 const DATEFIELD_WIDTH = 280;
 
-type LocaleData = {|
+type LocaleData = {
   code?: string,
   formatDistance?: (...args: $ReadOnlyArray<{ ... }>) => { ... },
   formatRelative?: (...args: $ReadOnlyArray<{ ... }>) => { ... },
-  localize?: {|
+  localize?: {
     ordinalNumber: (...args: $ReadOnlyArray<{ ... }>) => { ... },
     era: (...args: $ReadOnlyArray<{ ... }>) => { ... },
     quarter: (...args: $ReadOnlyArray<{ ... }>) => { ... },
     month: (...args: $ReadOnlyArray<{ ... }>) => { ... },
     day: (...args: $ReadOnlyArray<{ ... }>) => { ... },
     dayPeriod: (...args: $ReadOnlyArray<{ ... }>) => { ... },
-  |},
-  formatLong?: {|
+  },
+  formatLong?: {
     date: (...args: $ReadOnlyArray<{ ... }>) => { ... },
     time: (...args: $ReadOnlyArray<{ ... }>) => { ... },
     dateTime: (...args: $ReadOnlyArray<{ ... }>) => { ... },
-  |},
-  match?: {|
+  },
+  match?: {
     ordinalNumber: (...args: $ReadOnlyArray<string>) => { ... },
     era: (...args: $ReadOnlyArray<{ ... }>) => { ... },
     quarter: (...args: $ReadOnlyArray<{ ... }>) => { ... },
     month: (...args: $ReadOnlyArray<{ ... }>) => { ... },
     day: (...args: $ReadOnlyArray<{ ... }>) => { ... },
     dayPeriod: (...args: $ReadOnlyArray<{ ... }>) => { ... },
-  |},
-  options?: {|
+  },
+  options?: {
     weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6,
     firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7,
-  |},
-|};
+  },
+};
 
-type Props = {|
+type Props = {
   /**
    * Customize your error message for the cases the user enters invalid end dates. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
@@ -77,53 +77,53 @@ type Props = {|
   /**
    * Callback triggered when the end date input loses focus. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
-  onEndDateBlur?: ({|
+  onEndDateBlur?: ({
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
-  |}) => void,
+  }) => void,
   /**
    * DateField is a controlled component. `onEndDateChange` is the  callback triggered when the end date value changes. Should be used to modify the controlled value. See the [controlled component variant](https://gestalt.pinterest.systems/web/daterange#Controlled-component) to learn more.
    */
-  onEndDateChange: ({| value: Date | null |}) => void,
+  onEndDateChange: ({ value: Date | null }) => void,
   /**
    * Callback triggered when the end date value entered is invalid. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
-  onEndDateError: ({|
+  onEndDateError: ({
     errorMessage: string,
     value: Date | null,
-  |}) => void,
+  }) => void,
   /**
    * Callback triggered when the user focus on the input of the end date DateField. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
-  onEndDateFocus?: ({|
+  onEndDateFocus?: ({
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
-  |}) => void,
+  }) => void,
   /**
    * Callback triggered when the end date input loses focus. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
-  onStartDateBlur?: ({|
+  onStartDateBlur?: ({
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
-  |}) => void,
+  }) => void,
   /**
    * DateField is a controlled component. `onStartDateChange` is the  callback triggered when the start date value changes. Should be used to modify the controlled value. See the [controlled component variant](https://gestalt.pinterest.systems/web/daterange#Controlled-component) to learn more.
    */
-  onStartDateChange: ({| value: Date | null |}) => void,
+  onStartDateChange: ({ value: Date | null }) => void,
   /**
    * Callback triggered when the start date value entered is invalid. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
-  onStartDateError: ({|
+  onStartDateError: ({
     errorMessage: string,
     value: Date | null,
-  |}) => void,
+  }) => void,
   /**
    * Callback triggered when the user focus on the input of the start date DateField. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
-  onStartDateFocus?: ({|
+  onStartDateFocus?: ({
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
-  |}) => void,
+  }) => void,
   /**
    * Callback triggered when the user clicks the Apply button to persist the selected dates. It should be used to persist the dates selected and close the DateRange. See the [controlled component variant](https://gestalt.pinterest.systems/web/daterange#Controlled-component) to learn more.
    */
@@ -140,7 +140,7 @@ type Props = {|
    * Customize your error message for the cases the user enters invalid start dates. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   startDateErrorMessage?: string | null,
-|};
+};
 
 /**
  * [DateRange](https://gestalt.pinterest.systems/web/daterange) enables users to preview and select a range of days by picking dates from a calendar or adding a text input.

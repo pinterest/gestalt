@@ -97,7 +97,7 @@ const renderChildrenWithIndex = (childrenArray) => {
   }, []);
 };
 
-type Props = {|
+type Props = {
   /**
    * Ref for the element that the Dropdown will attach to, will most likely be a [Button](https://gestalt.pinterest.systems/web/button). See the [Accessibility](https://gestalt.pinterest.systems/web/dropdown#Accessibility) guidelines to learn more.
    */
@@ -129,7 +129,7 @@ type Props = {|
   /**
    * Mobile-only prop. Callback fired when Dropdown's in & out animations end. See the [mobile variant](https://gestalt.pinterest.systems/web/dropdown#mobile) to learn more.
    */
-  mobileOnAnimationEnd?: ({| animationState: 'in' | 'out' |}) => void,
+  mobileOnAnimationEnd?: ({ animationState: 'in' | 'out' }) => void,
   /**
    * Callback fired when the menu is closed.
    */
@@ -142,7 +142,7 @@ type Props = {|
    * An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
   zIndex?: Indexable,
-|};
+};
 
 /**
  * [Dropdown](https://gestalt.pinterest.systems/web/dropdown) displays a list of actions, options or links. It is triggered when a user interacts with a Button, Textfield or other control. Dropdown allows for complex functionality that can’t be accomplished with SelectList.
@@ -217,7 +217,7 @@ export default function Dropdown({
     }
   };
 
-  const onKeyDown = ({ event }: {| event: SyntheticKeyboardEvent<HTMLElement> |}) => {
+  const onKeyDown = ({ event }: { event: SyntheticKeyboardEvent<HTMLElement> }) => {
     const { keyCode } = event;
     if (keyCode === UP_ARROW) {
       handleKeyNavigation(event, KEYS.UP);
@@ -251,7 +251,12 @@ export default function Dropdown({
           >
             {headerContent}
             <DropdownContextProvider
-              value={{ id, hoveredItemIndex, setHoveredItemIndex, setOptionRef }}
+              value={{
+                id,
+                hoveredItemIndex,
+                setHoveredItemIndex,
+                setOptionRef,
+              }}
             >
               {renderChildrenWithIndex(dropdownChildrenArray)}
             </DropdownContextProvider>

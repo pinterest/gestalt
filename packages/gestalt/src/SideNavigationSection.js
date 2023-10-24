@@ -6,7 +6,7 @@ import styles from './SideNavigation.css';
 import getChildrenToArray from './SideNavigation/getChildrenToArray.js';
 import Text from './Text.js';
 
-type Props = {|
+type Props = {
   /**
    * Any [SideNavigation.TopItem](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.TopItem) to be rendered
    */
@@ -15,7 +15,7 @@ type Props = {|
    * Label for the section. See the [Sections](https://gestalt.pinterest.systems/web/sidenavigation#Sections) variant for more info.
    */
   label: string,
-|};
+};
 
 /**
  * Use [SideNavigation.Section](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.Section) to categorize navigation menu items into groups and also avoid redundant language in labels.

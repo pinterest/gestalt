@@ -33,10 +33,10 @@ type Margin =
 function BoxWithMargins({
   marginEnd = 0,
   marginStart = 0,
-}: {|
+}: {
   marginEnd?: Margin,
   marginStart?: Margin,
-|}): Node {
+}): Node {
   return (
     <Box
       dangerouslySetInlineStyle={{

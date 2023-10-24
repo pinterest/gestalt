@@ -8,7 +8,7 @@ type Fit = 'cover' | 'contain' | 'none';
 
 const shouldScaleImage = (fit: ?Fit) => fit === 'cover' || fit === 'contain';
 
-type Props = {|
+type Props = {
   /**
    * Alt text read by screen readers. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/alt) for more details.
    */
@@ -58,11 +58,11 @@ type Props = {|
   /**
    * Callback fired when the image loading has an error.
    */
-  onError?: ({| event: SyntheticEvent<HTMLImageElement> |}) => void,
+  onError?: ({ event: SyntheticEvent<HTMLImageElement> }) => void,
   /**
    * Callback fired when the image successfully loads.
    */
-  onLoad?: ({| event: SyntheticEvent<HTMLImageElement> |}) => void,
+  onLoad?: ({ event: SyntheticEvent<HTMLImageElement> }) => void,
   /**
    * When Image is used purely as a presentational or decorative addition, the \`role\` should be set to "presentation" for better accessibility. See the [Presentational Images with Role example](https://gestalt.pinterest.systems/web/image#Presentational-Images-with-Role) for more details.
    */
@@ -79,7 +79,7 @@ type Props = {|
    * A comma-separated list of one or more strings indicating a set of possible image sources for the user agent to use.
    */
   srcSet?: string,
-|};
+};
 
 /**
  * [Image](https://gestalt.pinterest.systems/web/image) is the workhorse of Pinterest. If you define Pinterest to be all about collecting ideas, then images are how we choose to represent those ideas. In response, we've added a few extra superpowers to the regular img tag to make it even more awesome.
@@ -89,12 +89,12 @@ type Props = {|
  *
  */
 export default class Image extends PureComponent<Props> {
-  static defaultProps: {|
+  static defaultProps: {
     color: string,
     fetchPriority?: 'high' | 'low' | 'auto',
     fit?: 'contain' | 'cover' | 'none',
     loading?: 'eager' | 'lazy' | 'auto',
-  |} = {
+  } = {
     // eslint-disable-next-line react/default-props-match-prop-types
     color: 'transparent',
     fetchPriority: 'auto',
@@ -162,7 +162,7 @@ export default class Image extends PureComponent<Props> {
     const isScaledImage = shouldScaleImage(fit);
     const fitStyles = fit === 'cover' || fit === 'contain' ? styles.scaledImg : undefined;
     const imageStyles = classnames(styles.img, fitStyles);
-    const elementTimingValue: {| elementtiming?: string |} = elementTiming
+    const elementTimingValue: { elementtiming?: string } = elementTiming
       ? { elementtiming: elementTiming }
       : {};
     const styleValue = isScaledImage ? { style: { objectFit: fit } } : {};

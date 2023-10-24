@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -20,7 +21,7 @@ import textAdditionsExample2 from '../../examples/status/textAdditionsExample2.j
 import useTitleWhenItRepresents from '../../examples/status/useTitleWhenItRepresents.js';
 import useToCommunicateAStepIn from '../../examples/status/useToCommunicateAStepIn.js';
 
-export default function StatusPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function StatusPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title="Status">
       <PageHeader name="Status" description={generatedDocGen?.description}>
@@ -183,10 +184,7 @@ If using \`title\` to describe what the icon represents, \`accessibilityLabel\` 
         </MainSection.Subsection>
       </AccessibilitySection>
 
-      <MainSection
-        name="Localization"
-        description={`Be sure to localize the \`title\`, \`subtext\` and \`accessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
-      />
+      <LocalizationSection name={generatedDocGen?.displayName} noDefaultLabelProvider />
 
       <MainSection name="Variants">
         <MainSection.Subsection title="Text additions" columns={2}>
@@ -234,7 +232,9 @@ Use Callout to communicate page-level status, such as an error, and to provide a
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Status') },
   };

@@ -4,11 +4,11 @@ import { render, screen } from '@testing-library/react';
 import Checkbox from './Checkbox.js';
 
 const mockOnClick = jest.fn<
-  [{| checked: boolean, event: SyntheticInputEvent<HTMLInputElement> |}],
+  [{ checked: boolean, event: SyntheticInputEvent<HTMLInputElement> }],
   void,
 >();
 const mockOnChange = jest.fn<
-  [{| checked: boolean, event: SyntheticInputEvent<HTMLInputElement> |}],
+  [{ checked: boolean, event: SyntheticInputEvent<HTMLInputElement> }],
   void,
 >();
 

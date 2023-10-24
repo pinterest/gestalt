@@ -4,6 +4,7 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -12,12 +13,13 @@ import SandpackExample from '../../docs-components/SandpackExample.js';
 import autoplayAndErrorDetectionExample from '../../examples/video/autoplayAndErrorDetectionExample.js';
 import captionsExample from '../../examples/video/captionsExample.js';
 import controlsExample from '../../examples/video/controlsExample.js';
+import localizationLabels from '../../examples/video/localizationLabels.js';
 import mainExample from '../../examples/video/mainExample.js';
 import multipleSourcesExample from '../../examples/video/multipleSourcesExample.js';
 import updatesExample from '../../examples/video/updatesExample.js';
 import withChildrenExample from '../../examples/video/withChildrenExample.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title="Video">
       <PageHeader name="Video" description={generatedDocGen?.description} pdocsLink>
@@ -53,14 +55,13 @@ The following example uses an excerpt from the [Sintel open movie](https://www.s
             }
           />
         </MainSection.Subsection>
-        <MainSection.Subsection
-          title="Labels"
-          description={`Video requires several accessibility labels for each video control: \`accessibilityMaximizeLabel\`, \`accessibilityMinimizeLabel\`, \`accessibilityMuteLabel\`, \`accessibilityPauseLabel\`, \`accessibilityPlayLabel\`, \`accessibilityProgressBarLabel\` and \`accessibilityUnmuteLabel\`.
-
-If the video contain captions, it also requires \`accessibilityHideCaptionsLabel\` and \`accessibilityShowCaptionsLabel\`.
-`}
-        />
       </AccessibilitySection>
+
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen?.displayName}
+        previewHeight={600}
+      />
 
       <MainSection name="Variants">
         <MainSection.Subsection
@@ -164,7 +165,7 @@ For more information about autoplay, check the [MDN Web Docs: video](https://dev
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{ props: { generatedDocGen: DocGen } }> {
   const generatedDocGen = await docGen('Video');
 
   generatedDocGen.props.ref = {

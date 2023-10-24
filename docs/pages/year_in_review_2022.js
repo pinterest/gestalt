@@ -41,10 +41,10 @@ const BUTTON_ZINDEX = new CompositeZIndex([INTRO_ZINDEX]);
 const SIDE_GAP = 8;
 const MAX_CONTENT_WIDTH = 660;
 
-type StatsProps = {|
+type StatsProps = {
   description: string,
   number: string,
-|};
+};
 
 function StatsColumn({ number, description }: StatsProps): Node {
   return (
@@ -57,10 +57,10 @@ function StatsColumn({ number, description }: StatsProps): Node {
   );
 }
 
-type GridProps = {|
+type GridProps = {
   description: string,
   number: string,
-|};
+};
 
 function StatsGrid({ number, description }: GridProps): Node {
   return (
@@ -71,9 +71,9 @@ function StatsGrid({ number, description }: GridProps): Node {
   );
 }
 
-type AnimationProps = {|
+type AnimationProps = {
   shouldReduceMotion: boolean,
-|};
+};
 
 function DiscoAnimation({ shouldReduceMotion }: AnimationProps): Node {
   const [animationData, setAnimationData] = useState<null | { ... }>(null);
@@ -652,7 +652,9 @@ export default function YearInReview2022(): Node {
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
-                dangerouslySetInlineStyle={{ __style: { flexWrap: 'wrap-reverse' } }}
+                dangerouslySetInlineStyle={{
+                  __style: { flexWrap: 'wrap-reverse' },
+                }}
                 margin={4}
               >
                 <Flex

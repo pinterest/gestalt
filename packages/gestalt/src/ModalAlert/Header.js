@@ -17,12 +17,12 @@ const ICON_COLOR_MAP = {
   },
 };
 
-type Props = {|
+type Props = {
   accessibilityDismissButtonLabel: string,
   type: 'default' | 'warning' | 'error',
   heading: string,
   onDismiss: () => void,
-|};
+};
 
 export default function ModalAlertHeader({
   accessibilityDismissButtonLabel,

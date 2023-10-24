@@ -13,7 +13,7 @@ import styles from './TextArea.css';
 const ROW_HEIGHT = 24;
 const INPUT_PADDING_WITH_TAGS = 20;
 
-type Props = {|
+type Props = {
   /**
    * Indicate if the input is currently disabled. See the [disabled example](https://gestalt.pinterest.systems/web/textarea#Disabled) for more details.
    */
@@ -45,10 +45,10 @@ type Props = {|
   /**
    * The maximum number of characters allowed in TextArea. `maxLength` must be an integer value 0 or higher. See the [maximum length variant](https://gestalt.pinterest.systems/web/textarea#Maximum-length) for more details.
    */
-  maxLength?: {|
+  maxLength?: {
     characterCount: number,
     errorAccessibilityLabel: string,
-  |},
+  },
   /**
    * A unique name for the input.
    */
@@ -56,31 +56,31 @@ type Props = {|
   /**
    * Callback triggered when the user blurs the input.!
    */
-  onBlur?: ({|
+  onBlur?: ({
     event: SyntheticFocusEvent<HTMLTextAreaElement>,
     value: string,
-  |}) => void,
+  }) => void,
   /**
    * Callback triggered when the value of the input changes.
    */
-  onChange: ({|
+  onChange: ({
     event: SyntheticInputEvent<HTMLTextAreaElement>,
     value: string,
-  |}) => void,
+  }) => void,
   /**
    * Callback triggered when the user focuses the input.
    */
-  onFocus?: ({|
+  onFocus?: ({
     event: SyntheticFocusEvent<HTMLTextAreaElement>,
     value: string,
-  |}) => void,
+  }) => void,
   /**
    * Callback triggered when the user presses any key while the input is focused.
    */
-  onKeyDown?: ({|
+  onKeyDown?: ({
     event: SyntheticKeyboardEvent<HTMLTextAreaElement>,
     value: string,
-  |}) => void,
+  }) => void,
   /**
    * Placeholder text shown the the user has not yet input a value.
    */
@@ -105,7 +105,7 @@ type Props = {|
    * The current value of the input.
    */
   value?: string,
-|};
+};
 
 /**
  * [TextArea](https://gestalt.pinterest.systems/web/textarea) allows for multi-line input.

@@ -15,9 +15,9 @@ import visibleOverflowExample from '../../../examples/scrollboundarycontainer/vi
 
 export default function ScrollBoundaryContainerPage({
   generatedDocGen,
-}: {|
+}: {
   generatedDocGen: DocGen,
-|}): Node {
+}): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
@@ -112,7 +112,9 @@ The following example shows the internal ScrollBoundaryContainer in action. The 
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('ScrollBoundaryContainer') },
   };

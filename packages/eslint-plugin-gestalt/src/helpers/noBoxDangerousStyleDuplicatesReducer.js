@@ -40,11 +40,11 @@ const buildNoBoxDangerousStyleDuplicatesReducer: BuildReducerType = ({ context }
     const handleAlternative = ({
       alternative,
     }:
-      | {| alternative: string |}
-      | {| alternative: ?string |}
-      | {| alternative: string | void |}
-      | {| alternative: ?(number | string) |}
-      | {| alternative: ?string |}) => {
+      | { alternative: string }
+      | { alternative: ?string }
+      | { alternative: string | void }
+      | { alternative: ?(number | string) }
+      | { alternative: ?string }) => {
       if (alternative) {
         accumulatorAlternativesBuilder.push({
           node,
@@ -216,19 +216,28 @@ const buildNoBoxDangerousStyleDuplicatesReducer: BuildReducerType = ({ context }
 
         case 'height':
           handleAlternative({
-            alternative: dimensionFormatting({ keyName: node?.key?.name ?? '', value }),
+            alternative: dimensionFormatting({
+              keyName: node?.key?.name ?? '',
+              value,
+            }),
           });
           break;
 
         case 'maxHeight':
           handleAlternative({
-            alternative: dimensionFormatting({ keyName: node?.key?.name ?? '', value }),
+            alternative: dimensionFormatting({
+              keyName: node?.key?.name ?? '',
+              value,
+            }),
           });
           break;
 
         case 'minHeight':
           handleAlternative({
-            alternative: dimensionFormatting({ keyName: node?.key?.name, value }),
+            alternative: dimensionFormatting({
+              keyName: node?.key?.name,
+              value,
+            }),
           });
           break;
 
@@ -246,7 +255,10 @@ const buildNoBoxDangerousStyleDuplicatesReducer: BuildReducerType = ({ context }
 
         case 'minWidth':
           handleAlternative({
-            alternative: dimensionFormatting({ keyName: node?.key?.name, value }),
+            alternative: dimensionFormatting({
+              keyName: node?.key?.name,
+              value,
+            }),
           });
           break;
 

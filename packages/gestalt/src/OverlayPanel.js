@@ -6,9 +6,9 @@ import DismissingElement from './animation/DismissingElement.js';
 import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext.js';
 import InternalOverlayPanel from './OverlayPanel/InternalOverlayPanel.js';
 
-type NodeOrRenderProp = Node | (({| onDismissStart: () => void |}) => Node);
+type NodeOrRenderProp = Node | (({ onDismissStart: () => void }) => Node);
 
-type Props = {|
+type Props = {
   /**
     Supply a short, descriptive label for screen-readers as a text alternative to the Dismiss button. See the [Accessibility section](https://gestalt.pinterest.systems/web/overlaypanel#Accessibility) for more info.
    */
@@ -36,36 +36,36 @@ type Props = {|
   /**
    * Callback fired when the OverlayPanel in/out animations end. See the [animation](https://gestalt.pinterest.systems/web/overlaypanel#Animation) variant to learn more.
    */
-  onAnimationEnd?: ({| animationState: 'in' | 'out' |}) => void,
+  onAnimationEnd?: ({ animationState: 'in' | 'out' }) => void,
   /**
    * When supplied, it will disable component-controlled dismiss actions (ESC key press, backdrop click, or built-in dismiss IconButtons) and launch a confirmation Popover next to the dismiss IconButton requesting user confirmation before proceding. Pass an empty object to use the default text and labels. See the [dismiss confirmation](https://gestalt.pinterest.systems/web/overlaypanel#Dismiss-confirmation) variant to learn more.
    */
-  dismissConfirmation?: {|
+  dismissConfirmation?: {
     message?: string,
     subtext?: string,
-    primaryAction?: {|
+    primaryAction?: {
       accessibilityLabel?: string,
       text?: string,
-      onClick?: ({|
+      onClick?: ({
         event:
           | SyntheticMouseEvent<HTMLButtonElement>
           | SyntheticMouseEvent<HTMLAnchorElement>
           | SyntheticKeyboardEvent<HTMLAnchorElement>
           | SyntheticKeyboardEvent<HTMLButtonElement>,
-      |}) => void,
-    |},
-    secondaryAction?: {|
+      }) => void,
+    },
+    secondaryAction?: {
       accessibilityLabel?: string,
       text?: string,
-      onClick?: ({|
+      onClick?: ({
         event:
           | SyntheticMouseEvent<HTMLButtonElement>
           | SyntheticMouseEvent<HTMLAnchorElement>
           | SyntheticKeyboardEvent<HTMLAnchorElement>
           | SyntheticKeyboardEvent<HTMLButtonElement>,
-      |}) => void,
-    |},
-  |},
+      }) => void,
+    },
+  },
   /**
    * Callback fired when the OverlayPanel is dismissed by clicking on the Dismiss button, pressing the ESC key, or clicking on the backdrop outside of the OverlayPanel (if `closeOnOutsideClick` is true).
    */
@@ -78,7 +78,7 @@ type Props = {|
    * Supply the container element(s) or render prop that will be used as OverlayPanel's sub-heading docked under the heading. See the [sub-heading variant](#Sub-heading) for more info.
    */
   subHeading?: NodeOrRenderProp,
-|};
+};
 
 /**
  * [OverlayPanels](https://gestalt.pinterest.systems/web/overlaypanel ) are surfaces that allow users to view optional information or complete sub-tasks in a workflow while keeping the context of the current page. The most common example of OverlayPanel displays content in a panel that opens from the side of the screen for the user to read or input information. OverlayPanels have default, internal padding for content.

@@ -2,13 +2,13 @@
 import { type Node, useState } from 'react';
 import { Box, Image, TextField, Upsell } from 'gestalt';
 
-type SubmitHandler = ({|
+type SubmitHandler = ({
   event:
     | SyntheticMouseEvent<HTMLButtonElement>
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLButtonElement>,
-|}) => void;
+}) => void;
 
 export default function Example(): Node {
   const [nameValue, setNameValue] = useState('');

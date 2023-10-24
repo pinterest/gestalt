@@ -2,11 +2,11 @@
 import { create } from 'react-test-renderer';
 import Collage from './Collage.js';
 
-type CollageImageProps = {|
+type CollageImageProps = {
   width: number,
   height: number,
   index: number,
-|};
+};
 
 describe('<Collage />', () => {
   function CollageImage({ width, height, index }: CollageImageProps) {

@@ -6,20 +6,20 @@ import { FixedZIndex, type Indexable } from './zIndex.js';
 type PositionType = number | string;
 
 type Threshold =
-  | {| top: PositionType |}
-  | {| bottom: PositionType |}
-  | {| left: PositionType |}
-  | {| right: PositionType |}
-  | {| top: PositionType, bottom: PositionType |}
-  | {| left: PositionType, right: PositionType |}
-  | {|
+  | { top: PositionType }
+  | { bottom: PositionType }
+  | { left: PositionType }
+  | { right: PositionType }
+  | { top: PositionType, bottom: PositionType }
+  | { left: PositionType, right: PositionType }
+  | {
       top: PositionType,
       left: PositionType,
       right: PositionType,
       bottom: PositionType,
-    |};
+    };
 
-type Props = {|
+type Props = {
   ...Threshold,
   /**
    * The content to display.
@@ -33,7 +33,7 @@ type Props = {|
    * An object representing the z-index of the sticky container. See the [zIndex Classes](https://gestalt.pinterest.systems/web/zindex_classes) page for more information.
    */
   zIndex?: Indexable,
-|};
+};
 
 const DEFAULT_ZINDEX = new FixedZIndex(1);
 

@@ -11,12 +11,12 @@ function getExpandedId(expandedIndex: ?number): ?number {
   return Number.isFinite(expandedIndex) ? expandedIndex : null;
 }
 
-type BadgeType = {|
+type BadgeType = {
   text: string,
   type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
-|};
+};
 
-type Props = {|
+type Props = {
   /**
    * Label used to communicate to screen readers which module will be collapsed when interacting with the title button. Should be something clear, like "Collapse Security Policies Module". Be sure to localize the label. See [Expandable](https://gestalt.pinterest.systems/web/module#Expandable) variant to learn more.
    *
@@ -37,7 +37,7 @@ type Props = {|
   /**
    * Array of modules displayed in a stack. Only one item can be expanded at a time. See [Expandable](https://gestalt.pinterest.systems/web/module#Expandable) variant to learn more.
    */
-  items: $ReadOnlyArray<{|
+  items: $ReadOnlyArray<{
     badge?: BadgeType,
     children?: Node,
     icon?: $Keys<typeof icons>,
@@ -46,12 +46,12 @@ type Props = {|
     summary?: $ReadOnlyArray<string>,
     title: string,
     type?: 'error' | 'info',
-  |}>,
+  }>,
   /**
    * Callback executed whenever any module item is expanded or collapsed. It receives the index of the currently expanded module, or null if none are expanded. See [Expandable](https://gestalt.pinterest.systems/web/module#Expandable) variant to learn more.
    */
   onExpandedChange?: (?number) => void,
-|};
+};
 
 /**
  * Use [Module.Expandable](https://gestalt.pinterest.systems/web/module) if your module requires expanding and collapsing content.

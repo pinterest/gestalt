@@ -30,7 +30,7 @@ export const NESTING_MARGIN_START_MAP = {
   '2': '68px',
 };
 
-type Props = {|
+type Props = {
   /**
    * When set to 'page' or 'section', it displays the item in "active" state. See the [Accessibility](https://gestalt.pinterest.systems/web/sidenavigation#Accessibility) guidelines to learn more.
    */
@@ -38,14 +38,14 @@ type Props = {|
   /**
    * When supplied, will display a [Badge](https://gestalt.pinterest.systems/web/badge) next to the item's label. See the [Badges](https://gestalt.pinterest.systems/web/sidenavigation#Badge) variant to learn more.
    */
-  badge?: {|
+  badge?: {
     text: string,
     type?: 'info' | 'error' | 'warning' | 'success' | 'neutral',
-  |},
+  },
   /**
    * When supplied, will display a counter. See the [Counter](https://gestalt.pinterest.systems/web/sidenavigation#Counter) variant to learn more.
    */
-  counter?: {| number: string, accessibilityLabel: string |},
+  counter?: { number: string, accessibilityLabel: string },
   /**
    * Directs users to the url when item is selected.
    */
@@ -53,7 +53,7 @@ type Props = {|
   /**
    * When supplied, will display Icon. See the [Icon](https://gestalt.pinterest.systems/web/sidenavigation#Icon) variant to learn more.
    */
-  icon?: $Keys<typeof icons> | {| __path: string |},
+  icon?: $Keys<typeof icons> | { __path: string },
   /**
    *  When supplied, will display a notification dot. See the [Notification](https://gestalt.pinterest.systems/web/sidenavigation#Notification) variant to learn more.
    */
@@ -61,10 +61,10 @@ type Props = {|
   /**
    * Callback when the user selects an item using the mouse or keyboard.
    */
-  onClick?: ({|
+  onClick?: ({
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
+  }) => void,
   /**
    * Label for the item.
    */
@@ -72,23 +72,23 @@ type Props = {|
   /**
    * The primary action for each item. See the [primary action variant](https://gestalt.pinterest.systems/web/sidenavigation#Primary-action) to learn more.
    */
-  primaryAction?: {|
+  primaryAction?: {
     icon?: 'ellipsis' | 'edit' | 'trash-can',
-    onClick?: ({|
+    onClick?: ({
       event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
-    |}) => void,
-    tooltip: {|
+    }) => void,
+    tooltip: {
       accessibilityLabel?: string,
       text: string,
       zIndex?: Indexable,
-    |},
+    },
     dropdownItems?: $ReadOnlyArray<Element<typeof Dropdown.Item>>,
-  |},
+  },
   /**
    * Ref that is forwarded to the underlying `li` element.
    */
   ref?: HTMLLIElement, // eslint-disable-line react/no-unused-prop-types
-|};
+};
 
 /**
  * Use [SideNavigation.TopItem](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.TopItem) to redirect the user to a different page or section. SideNavigation.TopItem must be used at the top level of SideNavigation. It supports badges, icons, counters, and notifications.

@@ -39,9 +39,9 @@ const TRANSLATIONS_MAP = {
   'uk-UA': ['P', 'MM', 'ДД'],
 };
 
-type CustomTextFieldProps = {|
+type CustomTextFieldProps = {
   disabled: boolean,
-  InputProps: {| ref: {| current: ?HTMLElement |} |},
+  InputProps: { ref: { current: ?HTMLElement } },
   focused: boolean,
   placeholder: string,
   value: string,
@@ -51,25 +51,26 @@ type CustomTextFieldProps = {|
   onChange: () => void,
   onKeyDown: () => void,
   onMouseUp: () => void,
-  ownerState: {|
-    passthroughProps: {|
+  ownerState: {
+    passthroughProps: {
       autoComplete: 'bday' | 'off',
       id: string,
       errorMessage: boolean,
       enterKeyHint: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
       name: string,
-      onBlur: ({|
+      onBlur: ({
         event: SyntheticFocusEvent<HTMLInputElement>,
         value: string,
-      |}) => void,
+      }) => void,
       onClearInput: () => void,
-      onFocus: ({|
+      onFocus: ({
         event: SyntheticFocusEvent<HTMLInputElement>,
         value: string,
-      |}) => void,
-    |},
-  |},
-|};
+      }) => void,
+      size: 'md' | 'lg',
+    },
+  },
+};
 
 const CustomTextField = forwardRef(
   (
@@ -96,7 +97,7 @@ const CustomTextField = forwardRef(
       styles.formElementBase,
       styles.typographyTruncate,
       styles.actionButton,
-      styles.layoutLarge,
+      ownerState?.passthroughProps?.size === 'lg' ? styles.layoutLarge : styles.layoutMedium,
       disabled ? styles.formElementDisabled : styles.formElementEnabled,
       ownerState?.passthroughProps?.errorMessage && !focused
         ? styles.formElementErrored
@@ -159,7 +160,7 @@ const CustomTextField = forwardRef(
 );
 
 type CustomDateFieldProps = {
-  inputRef: {| ref: {| current: ?HTMLElement |} |},
+  inputRef: { ref: { current: ?HTMLElement } },
   slots: string,
   slotProps: string,
   ...
@@ -181,42 +182,42 @@ function CustomDateField({
   );
 }
 
-type LocaleData = {|
+type LocaleData = {
   code?: string,
   formatDistance?: (...args: $ReadOnlyArray<{ ... }>) => { ... },
   formatRelative?: (...args: $ReadOnlyArray<{ ... }>) => { ... },
-  localize?: {|
+  localize?: {
     ordinalNumber: (...args: $ReadOnlyArray<{ ... }>) => { ... },
     era: (...args: $ReadOnlyArray<{ ... }>) => { ... },
     quarter: (...args: $ReadOnlyArray<{ ... }>) => { ... },
     month: (...args: $ReadOnlyArray<{ ... }>) => { ... },
     day: (...args: $ReadOnlyArray<{ ... }>) => { ... },
     dayPeriod: (...args: $ReadOnlyArray<{ ... }>) => { ... },
-  |},
-  formatLong?: {|
+  },
+  formatLong?: {
     date: (...args: $ReadOnlyArray<{ ... }>) => { ... },
     time: (...args: $ReadOnlyArray<{ ... }>) => { ... },
     dateTime: (...args: $ReadOnlyArray<{ ... }>) => { ... },
-  |},
-  match?: {|
+  },
+  match?: {
     ordinalNumber: (...args: $ReadOnlyArray<string>) => { ... },
     era: (...args: $ReadOnlyArray<{ ... }>) => { ... },
     quarter: (...args: $ReadOnlyArray<{ ... }>) => { ... },
     month: (...args: $ReadOnlyArray<{ ... }>) => { ... },
     day: (...args: $ReadOnlyArray<{ ... }>) => { ... },
     dayPeriod: (...args: $ReadOnlyArray<{ ... }>) => { ... },
-  |},
-  options?: {|
+  },
+  options?: {
     weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6,
     firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7,
-  |},
-|};
+  },
+};
 
-const getTranslationsFromMUIJS: (?LocaleData) => ?{|
-  fieldYearPlaceholder: (params: {| digitAmount: number |}) => string,
-  fieldMonthPlaceholder: (params: {| contentType: string |}) => string,
+const getTranslationsFromMUIJS: (?LocaleData) => ?{
+  fieldYearPlaceholder: (params: { digitAmount: number }) => string,
+  fieldMonthPlaceholder: (params: { contentType: string }) => string,
   fieldDayPlaceholder: () => string,
-|} = (localeData) => {
+} = (localeData) => {
   // converts date-fns localeData.code (e.g. es-EN) from to the format expected by the MUI Locale (esEN)
   // https://mui.com/x/react-date-pickers/localization/
   if (localeData && localeData.code) {
@@ -235,11 +236,11 @@ const getTranslationsFromMUIJS: (?LocaleData) => ?{|
   return undefined;
 };
 
-const getLocalTranslations: (?LocaleData) => ?{|
-  fieldYearPlaceholder: (params: {| digitAmount: number |}) => string,
-  fieldMonthPlaceholder: (params: {| contentType: string |}) => string,
+const getLocalTranslations: (?LocaleData) => ?{
+  fieldYearPlaceholder: (params: { digitAmount: number }) => string,
+  fieldMonthPlaceholder: (params: { contentType: string }) => string,
   fieldDayPlaceholder: () => string,
-|} = (localeData) => {
+} = (localeData) => {
   const MAPPED_TRANSLATION = localeData?.code && TRANSLATIONS_MAP[localeData.code];
 
   if (MAPPED_TRANSLATION) {
@@ -253,7 +254,7 @@ const getLocalTranslations: (?LocaleData) => ?{|
   return undefined;
 };
 
-type InternalDateFieldProps = {|
+type InternalDateFieldProps = {
   autoComplete?: 'bday' | 'off',
   disabled?: boolean,
   disableRange?: 'disableFuture' | 'disablePast',
@@ -267,24 +268,25 @@ type InternalDateFieldProps = {|
   minDate?: Date | null,
   mobileEnterKeyHint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
   name?: string,
-  onBlur?: ({|
+  onBlur?: ({
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
-  |}) => void,
-  onChange: ({| value: Date | null |}) => void,
+  }) => void,
+  onChange: ({ value: Date | null }) => void,
   onClearInput?: () => void,
-  onError?: ({|
+  onError?: ({
     errorMessage: string,
     value: Date | null,
-  |}) => void,
-  onFocus?: ({|
+  }) => void,
+  onFocus?: ({
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
-  |}) => void,
+  }) => void,
   readOnly?: boolean,
   ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
+  size?: 'md' | 'lg',
   value: Date | null,
-|};
+};
 
 function InternalDateField({
   autoComplete,
@@ -306,6 +308,7 @@ function InternalDateField({
   onError,
   onFocus,
   readOnly = false,
+  size,
   value,
 }: InternalDateFieldProps): Node {
   let translations = getTranslationsFromMUIJS(localeData);
@@ -357,6 +360,7 @@ function InternalDateField({
                 onBlur,
                 onFocus,
                 onClearInput,
+                size,
               }}
               viewRenderers={null}
             />

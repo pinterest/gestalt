@@ -10,7 +10,7 @@ import ModalAlertAction from './ModalAlert/Action.js';
 import ModalAlertHeader from './ModalAlert/Header.js';
 
 export type ActionDataType =
-  | {|
+  | {
       accessibilityLabel: string,
       dataTestId?: string,
       disabled?: boolean,
@@ -20,17 +20,17 @@ export type ActionDataType =
       rel?: 'none' | 'nofollow',
       role: 'link',
       target?: null | 'self' | 'blank',
-    |}
-  | {|
+    }
+  | {
       accessibilityLabel: string,
       dataTestId?: string,
       disabled?: boolean,
       label: string,
       onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
       role?: 'button',
-    |};
+    };
 
-type Props = {|
+type Props = {
   /**
    * Label to describe the dismiss button's purpose.
    */
@@ -67,7 +67,7 @@ type Props = {|
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/modalalert#Accessibility).
    */
   secondaryAction?: ActionDataType,
-|};
+};
 
 /**
  * A [ModalAlert](https://gestalt.pinterest.systems/web/modalalert) is a simple modal dialog used to alert a user of an issue, or to request confirmation after a user-triggered action. ModalAlert overlays and blocks page content until it is dismissed by the user.
