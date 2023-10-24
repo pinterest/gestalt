@@ -13,6 +13,7 @@ export default function TextFieldSizes(): Node {
         <Flex direction="column" gap={{ column: 2, row: 0 }}>
           <Heading size="300">sm</Heading>
           <TextField
+            id="field1"
             onChange={({ value }) => {
               setInput1Text(value);
             }}
@@ -26,6 +27,7 @@ export default function TextFieldSizes(): Node {
         <Flex direction="column" gap={{ column: 2, row: 0 }}>
           <Heading size="300">md</Heading>
           <TextField
+            id="field2"
             onChange={({ value }) => {
               setInput2Text(value);
             }}
@@ -38,6 +40,7 @@ export default function TextFieldSizes(): Node {
         <Flex direction="column" gap={{ column: 2, row: 0 }}>
           <Heading size="300">lg</Heading>
           <TextField
+            id="field3"
             onChange={({ value }) => {
               setInput3Text(value);
             }}

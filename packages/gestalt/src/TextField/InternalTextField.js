@@ -64,7 +64,7 @@ type Props = {
   }) => void,
   placeholder?: string,
   readOnly?: boolean,
-  size?: 'md' | 'lg',
+  size?: 'sm' | 'md' | 'lg',
   step?: number,
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
   type?: 'date' | 'email' | 'number' | 'password' | 'tel' | 'text' | 'url',

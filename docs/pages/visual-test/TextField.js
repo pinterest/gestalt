@@ -10,7 +10,12 @@ export default function TextFieldScreenshot(): Node {
   const cities = ['Aberdeen', 'Spartanburg', 'Spokane', 'Springdale'];
 
   const renderedTags = cities.map((tag) => (
-    <Tag key={tag} accessibilityRemoveIconLabel={`Remove ${tag} tag`} text={tag} />
+    <Tag
+      key={tag}
+      accessibilityRemoveIconLabel={`Remove ${tag} tag`}
+      text={tag}
+      onRemove={() => {}}
+    />
   ));
 
   return (
@@ -20,6 +25,7 @@ export default function TextFieldScreenshot(): Node {
           <Flex direction="column" gap={{ column: 2, row: 0 }}>
             <Heading size="300">sm</Heading>
             <TextField
+              id="field0"
               onChange={({ value }) => {
                 setInput1Text(value);
               }}
@@ -33,6 +39,7 @@ export default function TextFieldScreenshot(): Node {
           <Flex direction="column" gap={{ column: 2, row: 0 }}>
             <Heading size="300">md</Heading>
             <TextField
+              id="field1"
               onChange={({ value }) => {
                 setInput2Text(value);
               }}
@@ -45,6 +52,7 @@ export default function TextFieldScreenshot(): Node {
           <Flex direction="column" gap={{ column: 2, row: 0 }}>
             <Heading size="300">lg</Heading>
             <TextField
+              id="field2"
               onChange={({ value }) => {
                 setInput3Text(value);
               }}
@@ -56,7 +64,14 @@ export default function TextFieldScreenshot(): Node {
           </Flex>
           <Flex direction="column" gap={{ column: 2, row: 0 }}>
             <Heading size="300">Tags</Heading>
-            <TextField tags={renderedTags} type="text" size="md" value={input3text} />
+            <TextField
+              id="field3"
+              onChange={() => {}}
+              tags={renderedTags}
+              type="text"
+              size="md"
+              value={input3text}
+            />
           </Flex>
         </Flex>
       </Box>
