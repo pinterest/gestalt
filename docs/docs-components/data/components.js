@@ -260,6 +260,20 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           status: 'planned',
         },
       },
+      ios: {
+        name: 'Badge',
+        visual: {
+          svg: <Button />,
+        },
+        alias: ['Lozenge', 'Label', 'Stamp', 'Flag'],
+        description: 'Badge is a label that indicates status or importance.',
+        category: ['Indicators'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          status: 'planned',
+        },
+      },
     },
   },
   {
