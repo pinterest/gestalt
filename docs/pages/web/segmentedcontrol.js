@@ -48,7 +48,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          cardSize="lg"
           description="Segmented Control is a naive component, meaning you need to wire any additional behavior when the user clicks on an item.
               If you'd like the tabs to control hiding or showing content, that state should
               live in a parent component."
@@ -56,7 +55,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         >
           <MainSection.Card
             cardSize="lg"
-            name="Default Example"
             sandpackExample={<SandpackExample name="Default Example" code={defaultExample} />}
           />
         </MainSection.Subsection>
@@ -66,7 +64,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         >
           <MainSection.Card
             cardSize="lg"
-            name="Default Example"
             sandpackExample={<SandpackExample name="Responsive Example" code={responsiveExample} />}
           />
         </MainSection.Subsection>
@@ -76,7 +73,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         >
           <MainSection.Card
             cardSize="lg"
-            name="Default Example"
             sandpackExample={<SandpackExample name="Sizes Example" code={sizeExample} />}
           />
         </MainSection.Subsection>
