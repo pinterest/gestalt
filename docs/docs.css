@@ -20,11 +20,6 @@ pre {
   vertical-align: baseline;
 }
 
-.rotateIcon {
-  transform: scale(-1, 1);
-  transform-origin: center;
-}
-
 /**
  * LiveEditor overrides
  */

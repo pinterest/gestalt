@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, ColorSchemeProvider } from 'gestalt';
+import { ColorSchemeProvider } from 'gestalt';
 import SegmentedControlSnapshot from './SegmentedControl.js';
 
 export default function Snapshot(): Node {
