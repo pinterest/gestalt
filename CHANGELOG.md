@@ -1,3 +1,9 @@
+## 127.5.2 (Oct 24, 2023)
+
+### Patch
+
+- Docs: layout and general cleanups ([#3272](https://github.com/pinterest/gestalt/pull/3272)) - [Preview link](https://deploy-preview-3272--gestalt.netlify.app?devexample=true)
+
 ## 127.5.1 (Oct 24, 2023)
 
 ### Patch
