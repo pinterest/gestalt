@@ -263,7 +263,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
       ios: {
         name: 'Badge',
         visual: {
-          svg: <Button />,
+          svg: <Badge />,
         },
         alias: ['Lozenge', 'Label', 'Stamp', 'Flag'],
         description: 'Badge is a label that indicates status or importance.',
