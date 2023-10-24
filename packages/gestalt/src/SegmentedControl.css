@@ -7,7 +7,7 @@
 }
 
 .SegmentedControl.sm {
-  border-radius: var(--rounding-300);
+  border-radius: var(--rounding-200);
   padding: var(--space-100);
 }
 
