@@ -14,7 +14,6 @@ import doColor from '../../examples/badge/doColor.js';
 import dontColor from '../../examples/badge/dontColor.js';
 import dontComplex from '../../examples/badge/dontComplex.js';
 import main from '../../examples/badge/main.js';
-import variantsOtherComponents from '../../examples/badge/variantsOtherComponents.js';
 import variantsOverMedia from '../../examples/badge/variantsOverMedia.js';
 import variantsPositioning from '../../examples/badge/variantsPositioning.js';
 import variantsType from '../../examples/badge/variantsType.js';
@@ -164,21 +163,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           <MainSection.Card
             sandpackExample={
               <SandpackExample code={variantsPositioning} name="Variants - Position" />
-            }
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection
-          title="Within other components"
-          description="Components like [Module](/web/module) and [Dropdown](/web/dropdown) have Badges built into the component through props, so it will not be necessary to add the component yourself."
-        >
-          <MainSection.Card
-            sandpackExample={
-              <SandpackExample
-                code={variantsOtherComponents}
-                layout="column"
-                name="Variants - Within other components"
-              />
             }
           />
         </MainSection.Subsection>

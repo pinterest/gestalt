@@ -22,7 +22,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample code={main} name="Main example" hideEditor />
+        <SandpackExample code={main} name="Main example" hideEditor previewHeight={200} />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />

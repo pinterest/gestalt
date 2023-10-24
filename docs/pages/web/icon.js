@@ -208,25 +208,17 @@ Should be used sparingly and only in places where the UI is very dense and a lar
           description="Icon accepts both Gestalt [icons](/foundations/iconography/library#Search-icon-library) and custom icons, as shown in the second example. For custom icons, follow the [iconography and SVG](/foundations/iconography/library#Custom-SVG-icons) guidelines."
         >
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
+            title="Built-in icon"
             sandpackExample={
-              <SandpackExample
-                name="Built-in icon"
-                code={builtInIcon}
-                previewHeight={HEIGHT}
-                layout="column"
-              />
+              <SandpackExample name="Built-in icon" code={builtInIcon} previewHeight={HEIGHT} />
             }
           />
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
+            title="Custom SVG icon"
             sandpackExample={
-              <SandpackExample
-                name="Custom icon"
-                code={customIcon}
-                previewHeight={HEIGHT}
-                layout="column"
-              />
+              <SandpackExample name="Custom icon" code={customIcon} previewHeight={HEIGHT} />
             }
           />
         </MainSection.Subsection>

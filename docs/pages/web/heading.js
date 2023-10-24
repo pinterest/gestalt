@@ -35,6 +35,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           code={mainExample}
           layout="column"
           hideEditor
+          previewHeight={150}
         />
       </PageHeader>
 

@@ -76,11 +76,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                code={variantsLegend}
-                name="Variants - Legend visibility"
-                layout="column"
-              />
+              <SandpackExample code={variantsLegend} name="Variants - Legend visibility" />
             }
           />
         </MainSection.Subsection>
@@ -88,11 +84,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                code={variantsError}
-                name="Variants - Error message"
-                layout="column"
-              />
+              <SandpackExample code={variantsError} name="Variants - Error message" />
             }
           />
         </MainSection.Subsection>
