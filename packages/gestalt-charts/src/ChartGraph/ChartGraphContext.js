@@ -1,14 +1,14 @@
 // @flow strict
 import { type Context, createContext, type Element, type Node, useContext } from 'react';
 
-type TableContextType = {|
+type TableContextType = {
   decal: ?'visualPattern' | 'default' | 'disabled',
-|};
+};
 
-type Props = {|
+type Props = {
   children: Node,
   decal: ?'visualPattern' | 'default' | 'disabled',
-|};
+};
 
 const TableContext: Context<TableContextType> = createContext<TableContextType>({
   decal: 'default',

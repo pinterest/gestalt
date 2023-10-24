@@ -7,10 +7,10 @@ describe('TapAreaLink', () => {
   it('TapAreaLink handles onTap', () => {
     const mockOnTap = jest.fn<
       [
-        {|
+        {
           dangerouslyDisableOnNavigation: () => void,
           event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-        |},
+        },
       ],
       void,
     >();
@@ -28,9 +28,9 @@ describe('TapAreaLink', () => {
   it('TapAreaLink handles onBlur callback', () => {
     const mockOnBlur = jest.fn<
       [
-        {|
+        {
           event: SyntheticFocusEvent<HTMLAnchorElement>,
-        |},
+        },
       ],
       void,
     >();
@@ -50,9 +50,9 @@ describe('TapAreaLink', () => {
   it('TapAreaLink handles onFocus callback', () => {
     const mockOnFocus = jest.fn<
       [
-        {|
+        {
           event: SyntheticFocusEvent<HTMLAnchorElement>,
-        |},
+        },
       ],
       void,
     >();
@@ -70,9 +70,9 @@ describe('TapAreaLink', () => {
   it('TapAreaLink handles onMouseEnter callback', () => {
     const mockOnMouseEnter = jest.fn<
       [
-        {|
+        {
           event: SyntheticMouseEvent<HTMLAnchorElement>,
-        |},
+        },
       ],
       void,
     >();
@@ -90,9 +90,9 @@ describe('TapAreaLink', () => {
   it('TapAreaLink handles onMouseLeave callback', () => {
     const mockOnMouseLeave = jest.fn<
       [
-        {|
+        {
           event: SyntheticMouseEvent<HTMLAnchorElement>,
-        |},
+        },
       ],
       void,
     >();
@@ -109,10 +109,10 @@ describe('TapAreaLink', () => {
   it('TapAreaLink handles key press event', () => {
     const mockOnTap = jest.fn<
       [
-        {|
+        {
           dangerouslyDisableOnNavigation: () => void,
           event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-        |},
+        },
       ],
       void,
     >();

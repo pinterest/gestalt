@@ -6,6 +6,7 @@ import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -67,9 +68,9 @@ const ignoredProps = [
   'lgPaddingY',
 ];
 
-type ColorCardProps = {|
+type ColorCardProps = {
   children: Node,
-|};
+};
 function ColorSchemeLayout({ children }: ColorCardProps): Node {
   return (
     <Flex
@@ -90,7 +91,7 @@ function ColorSchemeLayout({ children }: ColorCardProps): Node {
   );
 }
 
-export default function BoxPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function BoxPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -239,13 +240,13 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
         </MainSection.Subsection>
       </AccessibilitySection>
 
-      <MainSection
-        name="Localization"
-        description={`Utilizing the \`marginStart\` and \`marginEnd\`  properties will account for right-to-left languages and maintain proper spacing.`}
-      >
+      <LocalizationSection name={generatedDocGen?.displayName} noDefaultLabelProvider>
         <MainSection.Subsection
+          title="Page direction"
           description={`
     Some languages (ex. Arabic, Hebrew) read from right to left (RTL) instead of from left to right. For this reason, we use \`marginStart\` and \`marginEnd\` (as opposed to left and right options) to support RTL. If specific left and right options are needed, use \`dangerouslySetInlineStyle\`.
+
+    Utilizing the \`marginStart\` and \`marginEnd\`  properties will account for right-to-left languages and maintain proper spacing.
 
     \`marginStart\` is a left margin that flips to a right margin in a RTL layout.
 
@@ -253,15 +254,13 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
 
     You can toggle the page direction using the button below to see this behavior.
     `}
-          title="Page direction"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={<SandpackExample code={rtl} name="Right-to-left example" />}
           />
         </MainSection.Subsection>
-      </MainSection>
-
+      </LocalizationSection>
       <MainSection name="Variants">
         <MainSection.Subsection
           description={`Borders are controlled by the \`borderStyle\` property. Specifying a size (\`sm\` or \`lg\`) enables a solid, light gray color in that width. Specifying \`shadow\` adds an even box-shadow around the entire container, while \`raisedTopShadow\` and \`raisedBottomShadow\` add shadows to indicate an elevated header or footer. See the [elevation foundations page](/foundations/elevation) for more details.`}
@@ -548,7 +547,9 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Box') },
   };

@@ -21,16 +21,6 @@ export default function Example(): Node {
   const HEADER_ZINDEX = new FixedZIndex(10);
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
-  const renderFooter = (
-    <OverlayPanel.DismissingElement>
-      {({ onDismissStart }) => (
-        <Flex alignItems="center" justifyContent="end">
-          <Button color="red" text="Create" onClick={onDismissStart} />
-        </Flex>
-      )}
-    </OverlayPanel.DismissingElement>
-  );
-
   return (
     <Fragment>
       <Box padding={8}>
@@ -44,7 +34,15 @@ export default function Example(): Node {
             accessibilityLabel="Audience list creation for new campaign"
             heading="Create a new audience list"
             onDismiss={() => setShowComponent(false)}
-            footer={renderFooter}
+            footer={
+              <OverlayPanel.DismissingElement>
+                {({ onDismissStart }) => (
+                  <Flex alignItems="center" justifyContent="end">
+                    <Button color="red" text="Create" onClick={onDismissStart} />
+                  </Flex>
+                )}
+              </OverlayPanel.DismissingElement>
+            }
             size="md"
           >
             <Flex

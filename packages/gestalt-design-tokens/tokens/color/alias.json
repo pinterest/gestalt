@@ -193,6 +193,11 @@
           "comment": "Weak background color to indicate recommendations, can be used behind text"
         }
       },
+      "neutral": {
+        "value": "{color.gray.roboflow.500.value}",
+        "darkValue": "{color.gray.roboflow.300.value}",
+        "comment": "Background color to indicate neutral information"
+      },
       "shopping": {
         "value": "{color.blue.skycicle.500.value}",
         "darkValue": "{color.blue.skycicle.300.value}",

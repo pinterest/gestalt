@@ -5,19 +5,19 @@ import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.j
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import InternalLink from './Link/InternalLink.js';
 
-type FocusEventHandler = ({|
+type FocusEventHandler = ({
   event: SyntheticFocusEvent<HTMLAnchorElement>,
-|}) => void;
+}) => void;
 
-type MouseEventHandler = ({|
+type MouseEventHandler = ({
   event: SyntheticMouseEvent<HTMLAnchorElement>,
-|}) => void;
+}) => void;
 
-type KeyboardEventHandler = ({|
+type KeyboardEventHandler = ({
   event: SyntheticKeyboardEvent<HTMLAnchorElement>,
-|}) => void;
+}) => void;
 
-type Props = {|
+type Props = {
   /**
    * For accessibility purposes. When you have a group of related elements with one element in the group styled differently from the others to indicate that this is the current element within its group, accessibilityCurrent should be used to inform the assistive technology user what has been indicated via styling.
    * Accessibility: It populates aria-current.
@@ -95,10 +95,10 @@ type Props = {|
   /**
    * Callback fired when a TapAreaLink component is clicked (pressed and released) with a mouse or keyboard
    */
-  onTap?: ({|
+  onTap?: ({
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
+  }) => void,
   /**
    * Provides hints for SEO. See the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#rel) to learn more
    */
@@ -124,7 +124,7 @@ type Props = {|
 - 'compress' scales down TapArea.
    */
   tapStyle?: 'none' | 'compress',
-|};
+};
 
 /**
  * [TapAreaLink](https://gestalt.pinterest.systems/tapArea) is mainly used as navigational element
@@ -172,7 +172,11 @@ const TapAreaLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = f
   return (
     <InternalLink
       accessibilityCurrent={accessibilityCurrent}
-      accessibilityLabel={getAriaLabel({ target, accessibilityLabel, accessibilityNewTabLabel })}
+      accessibilityLabel={getAriaLabel({
+        target,
+        accessibilityLabel,
+        accessibilityNewTabLabel,
+      })}
       dataTestId={dataTestId}
       disabled={disabled}
       href={href}

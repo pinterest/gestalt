@@ -3,11 +3,11 @@ import { useState } from 'react';
 import { Flex, NumberField } from 'gestalt';
 
 export default function Example(): React$Node {
-  const [values, setValues] = useState<{|
+  const [values, setValues] = useState<{
     first: ?number,
     second: ?number,
     third: ?number,
-  |}>({
+  }>({
     first: undefined,
     second: undefined,
     third: undefined,

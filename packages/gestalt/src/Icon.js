@@ -19,7 +19,7 @@ export type IconColor =
   | 'light'
   | 'dark';
 
-type Props = {|
+type Props = {
   /**
    * Label for screen readers to announce Icon. This populates the `aria-label` attribute. If the label is hidden, use an empty string for the label (`accessibilityLabel=""`) to set `aria-hidden`.
    *
@@ -43,7 +43,7 @@ type Props = {|
    *
    * See the [custom icon](https://gestalt.pinterest.systems/web/icon#Custom-icon) variant to learn more.
    */
-  dangerouslySetSvgPath?: {| __path: string |},
+  dangerouslySetSvgPath?: { __path: string },
   /**
    * Properly positions Icon relative to an inline element, such as Text using the inline property.
    */
@@ -54,7 +54,7 @@ type Props = {|
    * See the [size](https://gestalt.pinterest.systems/web/icon#Size) variant to learn more.
    */
   size?: number | string,
-|};
+};
 
 const IconNames: $ReadOnlyArray<$Keys<typeof icons>> = Object.keys(icons);
 

@@ -1,13 +1,5 @@
 // @flow strict-local
-import {
-  type Element,
-  Fragment,
-  type Node,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import { type Element, type Node, useCallback, useEffect, useMemo, useState } from 'react';
 import {
   BarChart,
   CartesianGrid,
@@ -16,14 +8,13 @@ import {
   LineChart,
   ResponsiveContainer,
   Tooltip,
-  XAxis,
-  YAxis,
 } from 'recharts';
 import { Box, Flex, HelpButton, TagData, TileData, useColorScheme, useDefaultLabel } from 'gestalt';
 import { ChartProvider } from './ChartGraph/ChartGraphContext.js';
 import EmptyBox from './ChartGraph/EmptyBox.js';
 import Header from './ChartGraph/Header.js';
 import LegendIcon from './ChartGraph/LegendIcon.js';
+import renderAxis from './ChartGraph/renderAxis.js';
 import renderElements from './ChartGraph/renderElements.js';
 import renderReferenceAreas from './ChartGraph/renderReferenceAreas.js';
 import TabularDataModal from './ChartGraph/TabularDataModal.js';
@@ -36,7 +27,7 @@ interface Indexable {
   index(): number;
 }
 
-type Props = {|
+type Props = {
   // REQUIRED
   /**
    * Label to provide more context around ChartGraph’s content.
@@ -59,22 +50,22 @@ type Props = {|
    *
    * The additional key-values represent one or more series of data presented on ChartGraph for each category or timestamp. A sequence of source data objects generate one or more series of data across categories or timestamps.
    */
-  data: $ReadOnlyArray<{|
+  data: $ReadOnlyArray<{
     name: string | number,
     [string]: number,
-  |}>,
+  }>,
   /**
    * The series elements, bars or lines, of the ChartGraph.
    *
    * See the [combo variants](https://gestalt.pinterest.systems/web/chartgraph#Layout), [color variant](https://gestalt.pinterest.systems/web/chartgraph#Combo), [layout](https://gestalt.pinterest.systems/web/chartgraph#Layout), [color variant](https://gestalt.pinterest.systems/web/chartgraph#Color), [precision in line graphs variant](https://gestalt.pinterest.systems/web/chartgraph#Precision-in-line-graphs) to learn more about configuring bars and lines.
    */
-  elements: $ReadOnlyArray<{|
+  elements: $ReadOnlyArray<{
     axis?: 'left' | 'right' | 'bottom' | 'top',
     color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10' | '11' | '12',
     id: string,
     precision?: 'exact' | 'estimate',
     type: 'line' | 'bar',
-  |}>,
+  }>,
   /**
    * [HelpButton](https://gestalt.pinterest.systems/web/helpbutton) to be placed after the title for to provide supplemental support to the user. See the [header variant](https://gestalt.pinterest.systems/web/chartgraph#Header) to learn more.
    */
@@ -109,7 +100,7 @@ type Props = {|
         number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
         number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
       ]
-    | {|
+    | {
         xAxisBottom?: [
           number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
           number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
@@ -128,13 +119,13 @@ type Props = {|
           number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
           number | 'auto' | 'dataMin' | 'dataMax' | ((number) => number),
         ],
-      |},
+      },
   /**
    * Replaces the labels from `data` in default tooltips, legends, and axis. Use for lacalization.
    *
    * See the [localizations section](https://gestalt.pinterest.systems/web/chartgraph#Localization) to learn more.
    */
-  labelMap?: {| [string]: string |},
+  labelMap?: { [string]: string },
   /**
    * Sets the horizontal or vertical layout of bars and lines and the single or double axis in the chart.
    *
@@ -152,7 +143,7 @@ type Props = {|
    *
    * See the [reference area variant](https://gestalt.pinterest.systems/web/chartgraph#ReferenceArea) to learn more.
    */
-  referenceAreas?: $ReadOnlyArray<{|
+  referenceAreas?: $ReadOnlyArray<{
     id: string,
     label: string,
     x1: string | number,
@@ -161,7 +152,7 @@ type Props = {|
     y2: string | number,
     yAxisId: string,
     style?: 'default',
-  |}>,
+  }>,
   /**
    * Displays data about the datasets on hover over each data point.
    *
@@ -170,7 +161,11 @@ type Props = {|
   renderTooltip?:
     | 'auto'
     | 'none'
-    | (({| active: ?boolean, payload: ?{ ... }, label: string | number |}) => Node),
+    | (({
+        active: ?boolean,
+        payload: ?{ ... },
+        label: string | number,
+      }) => Node),
   /**
    * When set to "true", bars are stacked.
    *
@@ -200,13 +195,13 @@ type Props = {|
    *
    * See the [tick format variant](https://gestalt.pinterest.systems/web/chartgraph#Tick-format) and [time series variant](https://gestalt.pinterest.systems/web/chartgraph#Time-series) to learn more
    */
-  tickFormatter?: {|
+  tickFormatter?: {
     timeseries?: (number) => string | number,
     xAxisTop?: (number, number) => string | number,
     xAxisBottom?: (number, number) => string | number,
     yAxisRight?: (number, number) => string | number,
     yAxisLeft?: (number, number) => string | number,
-  |},
+  },
   /**
    * Type of chart.
    * See the [types variant](https://gestalt.pinterest.systems/web/chartgraph#Types) to learn more.
@@ -216,7 +211,7 @@ type Props = {|
    * An object representing the zIndex value of the tabular representation modal. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
   modalZIndex?: Indexable,
-|};
+};
 
 /**
  * [ChartGraph](https://gestalt.pinterest.systems/web/chartgraph) is used for displaying various types of graphs plotted on an x and y axis. It makes it easier to identify and understand patterns over time across different categories, enabling people to make informed decisions quickly.
@@ -247,27 +242,15 @@ function ChartGraph({
   renderTooltip = 'auto',
 }: Props): Node {
   // CONSTANTS
-  const FONT_STYLE_CATEGORIES = {
-    fontSize: 'var(--font-size-100)',
-    fontFamily: 'var(--font-family-default-latin)',
-    fontWeight: 'var(--font-weight-normal)',
-  };
-
-  const FONT_STYLE_VALUES = {
-    color: 'var(--color-text-subtle)',
-    fontSize: 'var(--font-size-100)',
-    fontFamily: 'var(--font-family-default-latin)',
-    fontWeight: 'var(--font-weight-normal)',
-  };
 
   const SMALL_BREAKPOINT = 576;
   const TICK_SPACE = 48;
 
   const LAYOUT_MAP = {
-    'horizontal': 'vertical',
-    'vertical': 'horizontal',
-    'horizontalBiaxial': 'verticalBiaxial',
-    'verticalBiaxial': 'horizontalBiaxial',
+    horizontal: 'vertical',
+    vertical: 'horizontal',
+    horizontalBiaxial: 'verticalBiaxial',
+    verticalBiaxial: 'horizontalBiaxial',
   };
 
   // STATE
@@ -291,6 +274,8 @@ function ChartGraph({
   // This is needed to keep the layout in sync with Recharts where vertical/horizontal is inversed to our ChartGraph API.
   // Internally we match Recharts for easier development and comoprehension of Recharts docs
   const layout = LAYOUT_MAP[externalLayout];
+
+  const isRtl = document?.dir === 'rtl';
 
   const isVerticalLayout = ['vertical', 'verticalBiaxial'].includes(layout);
   const isHorizontalLayout = ['horizontal', 'horizontalBiaxial'].includes(layout);
@@ -339,7 +324,7 @@ function ChartGraph({
   let legendVerticalAlign = 'bottom';
   let legendAlign = 'left';
 
-  if (isVerticalBiaxialLayout && legend === 'auto') {
+  if (isVerticalBiaxialLayout) {
     legendVerticalAlign = 'top';
     legendAlign = 'right';
   }
@@ -382,6 +367,36 @@ function ChartGraph({
     [referenceAreas],
   );
 
+  const axisElements = useMemo(
+    () =>
+      renderAxis({
+        isHorizontalLayout,
+        isHorizontalBiaxialLayout,
+        isVerticalLayout,
+        isTimeSeries,
+        isVerticalBiaxialLayout,
+        isBar,
+        isCombo,
+        range,
+        tickFormatter,
+        labelMap,
+        tickCount,
+      }),
+    [
+      isHorizontalLayout,
+      isHorizontalBiaxialLayout,
+      isVerticalLayout,
+      isTimeSeries,
+      isVerticalBiaxialLayout,
+      isBar,
+      isCombo,
+      range,
+      tickFormatter,
+      labelMap,
+      tickCount,
+    ],
+  );
+
   const referenceAreaSummary = useMemo(
     () =>
       referenceAreas
@@ -398,13 +413,19 @@ function ChartGraph({
     renderTooltip,
   });
 
-  const defaultTooltip = useDefaultTooltip({ isDarkMode, labelMap, tickFormatter, isTimeSeries });
+  const defaultTooltip = useDefaultTooltip({
+    isDarkMode,
+    isRtl,
+    labelMap,
+    tickFormatter,
+    isTimeSeries,
+  });
 
   const defaultLegend = useDefaultLegend({
     isHorizontalBiaxialLayout,
     isVerticalBiaxialLayout,
+    isRtl,
     height: chartHeight,
-    legend,
     labelMap,
     setLegendHeight,
     referenceAreaSummary,
@@ -435,147 +456,68 @@ function ChartGraph({
             <Flex gap={2}>{children}</Flex>
           </Box>
         ) : null}
-
-        <Box width="100%" height="100%" maxWidth={960}>
-          <ResponsiveContainer
-            debounce={150}
-            onResize={(width, height) => {
-              setChartHeight(height);
-              setChartWidth(width);
-            }}
-            minWidth="100%"
-            width="100%"
-            minHeight={internalHeight}
-            height={internalHeight}
-          >
-            <ChartType
-              title={`${accessibilityLabelPrefixText}. ${accessibilityLabel}`}
-              {...(isBar || isCombo ? { barCategoryGap: '25%' } : {})}
-              data={data}
-              layout={isVerticalLayout ? 'vertical' : 'horizontal'}
-              margin={{
-                top: 10,
-                right: 5,
-                bottom: isVerticalBiaxialLayout && legend === 'auto' ? 20 : 10,
-                left: 5,
+        <div style={{ direction: 'ltr' }}>
+          <Box width="100%" height="100%" maxWidth={960}>
+            <ResponsiveContainer
+              debounce={150}
+              onResize={(width, height) => {
+                setChartHeight(height);
+                setChartWidth(width);
               }}
+              minWidth="100%"
+              width="100%"
+              minHeight={internalHeight}
+              height={internalHeight}
             >
-              {patterns}
-              <CartesianGrid
-                stroke="var(--color-border-container)"
-                horizontal={isVerticalLayout ? false : undefined}
-                vertical={isVerticalLayout ? undefined : false}
-              />
-              {isHorizontalLayout && (
-                <Fragment>
-                  <XAxis
-                    padding={
-                      isTimeSeries && (isBar || isCombo) ? { left: 100, right: 100 } : undefined
-                    }
-                    axisLine={false}
-                    dataKey="name"
-                    domain={isTimeSeries ? !Array.isArray(range) && range?.xAxisBottom : undefined}
-                    orientation="bottom"
-                    scale={isTimeSeries ? 'time' : undefined}
-                    style={FONT_STYLE_CATEGORIES}
-                    tickFormatter={
-                      isTimeSeries
-                        ? tickFormatter?.xAxisBottom || tickFormatter?.timeseries
-                        : (value: string) => labelMap?.[value] || value
-                    }
-                    tickLine={false}
-                    type={isTimeSeries ? 'number' : 'category'}
-                    // DO NOT SET xAxisId here (it breaks the component, opaque behavior from Recharts)
-                  />
-                  <YAxis
-                    axisLine={false}
-                    domain={Array.isArray(range) ? range : range.yAxisLeft}
-                    orientation="left"
-                    style={FONT_STYLE_VALUES}
-                    tickLine={false}
-                    tickCount={tickCount}
-                    yAxisId="left"
-                    tickFormatter={tickFormatter?.yAxisLeft}
-                  />
-                </Fragment>
-              )}
-              {isHorizontalBiaxialLayout && (
-                <YAxis
-                  axisLine={false}
-                  domain={Array.isArray(range) ? range : range.yAxisLeft}
-                  orientation="right"
-                  style={FONT_STYLE_VALUES}
-                  tickLine={false}
-                  tickCount={tickCount}
-                  yAxisId="right"
-                  tickFormatter={tickFormatter?.yAxisRight}
+              <ChartType
+                title={`${accessibilityLabelPrefixText}. ${accessibilityLabel}`}
+                {...(isBar || isCombo ? { barCategoryGap: '25%' } : {})}
+                data={data}
+                layout={isVerticalLayout ? 'vertical' : 'horizontal'}
+                margin={{
+                  top: 10,
+                  right: 5,
+                  bottom: isVerticalBiaxialLayout ? 20 : 10,
+                  left: 5,
+                }}
+              >
+                {/* Patterns cannot be moved into a Patterns subcomponent as Recharts doesn't recognize the wrapper component */}
+                {patterns}
+                <CartesianGrid
+                  stroke="var(--color-border-container)"
+                  horizontal={isVerticalLayout ? false : undefined}
+                  vertical={isVerticalLayout ? undefined : false}
                 />
-              )}
-              {isVerticalLayout && (
-                <Fragment>
-                  <XAxis
-                    axisLine={false}
-                    domain={range}
-                    type="number"
-                    orientation="bottom"
-                    style={FONT_STYLE_VALUES}
-                    tickLine={false}
-                    tickCount={tickCount}
-                    xAxisId="bottom"
-                    tickFormatter={tickFormatter?.xAxisBottom}
+                {/* Axis cannot be moved into an Axis subcomponent as Recharts doesn't recognize the wrapper component */}
+                {axisElements}
+                {renderTooltip === 'none' ? (
+                  <Tooltip isAnimationActive={false} content={<EmptyBox />} />
+                ) : (
+                  <Tooltip
+                    cursor={{ fill: 'rgba(0, 0, 0, var(--opacity-100))' }}
+                    isAnimationActive={false}
+                    content={renderTooltip === 'auto' ? defaultTooltip : customTooltip}
                   />
-                  <YAxis
-                    axisLine={false}
-                    dataKey="name"
-                    type="category"
-                    style={FONT_STYLE_CATEGORIES}
-                    tickLine={false}
-                    orientation="left"
-                    tickFormatter={(value: string) => labelMap?.[value] || value}
-                    // DO NOT SET yAxisId here
-                  />
-                </Fragment>
-              )}
-              {isVerticalBiaxialLayout && (
-                <XAxis
-                  axisLine={false}
-                  domain={range}
-                  orientation="top"
-                  style={FONT_STYLE_VALUES}
-                  tickLine={false}
-                  tickCount={tickCount}
-                  type="number"
-                  xAxisId="top"
-                  tickFormatter={tickFormatter?.xAxisTop}
+                )}
+                <Legend
+                  verticalAlign={legendVerticalAlign}
+                  align={legendAlign}
+                  iconSize={16}
+                  iconType="square"
+                  content={
+                    legend === 'auto' || isVerticalBiaxialLayout || isHorizontalBiaxialLayout ? (
+                      defaultLegend
+                    ) : (
+                      <EmptyBox />
+                    )
+                  }
                 />
-              )}
-              {renderTooltip === 'none' ? (
-                <Tooltip isAnimationActive={false} content={<EmptyBox />} />
-              ) : (
-                <Tooltip
-                  cursor={{ fill: 'rgba(0, 0, 0, var(--opacity-100))' }}
-                  isAnimationActive={false}
-                  content={renderTooltip === 'auto' ? defaultTooltip : customTooltip}
-                />
-              )}
-              <Legend
-                verticalAlign={legendVerticalAlign}
-                align={legendAlign}
-                iconSize={16}
-                iconType="square"
-                content={
-                  legend === 'auto' || ['verticalBiaxial', 'horizontalBiaxial'].includes(layout) ? (
-                    defaultLegend
-                  ) : (
-                    <EmptyBox />
-                  )
-                }
-              />
-              {referenceAreas && referenceAreasElements}
-              {chartElements}
-            </ChartType>
-          </ResponsiveContainer>
-        </Box>
+                {referenceAreas && referenceAreasElements}
+                {chartElements}
+              </ChartType>
+            </ResponsiveContainer>
+          </Box>
+        </div>
       </Box>
       {showTabularDataModal ? (
         <TabularDataModal

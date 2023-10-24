@@ -14,7 +14,7 @@ import linkHandlersDropdown from '../../../examples/globaleventshandlerprovider/
 import linkHandlersLinkButton from '../../../examples/globaleventshandlerprovider/linkHandlersLinkButton.js';
 import sheetMobileHandlers from '../../../examples/globaleventshandlerprovider/sheetMobileHandlers.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -181,7 +181,9 @@ It's implemented in the following components:
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: {
       generatedDocGen: await docGen('GlobalEventsHandlerProvider'),

@@ -3,23 +3,23 @@ import { type Node } from 'react';
 import InternalTooltip from '../Tooltip/InternalTooltip.js';
 import { type Indexable } from '../zIndex.js';
 
-type TooltipProps = {|
+type TooltipProps = {
   accessibilityLabel?: string,
   inline?: boolean,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
-  text: string,
+  text: string | $ReadOnlyArray<string>,
   zIndex?: Indexable,
-|};
+};
 
 export default function MaybeTooltip({
   children,
   disabled,
   tooltip,
-}: {|
+}: {
   children: Node,
   disabled?: boolean,
   tooltip?: TooltipProps,
-|}): Node {
+}): Node {
   if (!tooltip) return children;
 
   return (

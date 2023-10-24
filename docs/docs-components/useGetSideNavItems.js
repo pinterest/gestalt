@@ -9,7 +9,7 @@ function convertNamesForURL(name: string) {
   return name.replace(/ - /g, '/').replace(/ /g, '_').replace(/'/g, '').toLowerCase();
 }
 
-const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): Node => {
+const useGetSideNavItems = ({ sectionInfo }: { sectionInfo: siteIndexType }): Node => {
   const { pathname, query } = useRouter();
   const { setIsSidebarOpen } = useNavigationContext();
 

@@ -4,7 +4,7 @@ import { Badge, Box, Flex, Heading, TapAreaLink, Text, WashAnimated } from 'gest
 import { MIN_SVG_ILLUSTRATION_WIDTH } from './IllustrationSection.js';
 import illustrations, { type Illustrations } from '../graphics/index.js';
 
-export type Props = {|
+export type Props = {
   color: string,
   description?: string,
   headingLevel: 2 | 3,
@@ -12,7 +12,7 @@ export type Props = {|
   image: Node | Illustrations,
   isNew?: boolean,
   title: string,
-|};
+};
 
 export default function IllustrationCard({
   color,

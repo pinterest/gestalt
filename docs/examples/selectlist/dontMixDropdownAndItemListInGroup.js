@@ -4,19 +4,19 @@ import { Box, Button, Dropdown, Flex, SelectList } from 'gestalt';
 
 export default function SubtextIconButtonFlyoutExample(): Node {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState<{|
+  const [selected, setSelected] = useState<{
     label: string,
     subtext?: string,
     value: string,
-  |} | null>(null);
+  } | null>(null);
   const anchorRef = useRef<HTMLElement | null>(null);
 
   const handleSelect = ({
     item,
-  }: {|
+  }: {
     event: SyntheticInputEvent<HTMLInputElement>,
-    item: {| label: string, subtext?: string, value: string |},
-  |}) => {
+    item: { label: string, subtext?: string, value: string },
+  }) => {
     setSelected(item);
   };
 

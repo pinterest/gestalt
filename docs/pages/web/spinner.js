@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -15,9 +16,10 @@ import dontMultiple from '../../examples/spinner/dontMultiple.js';
 import dontWait from '../../examples/spinner/dontWait.js';
 import doOverlay from '../../examples/spinner/doOverlay.js';
 import doWait from '../../examples/spinner/doWait.js';
+import localizationLabels from '../../examples/spinner/localizationLabels.js';
 import main from '../../examples/spinner/main.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -146,9 +148,10 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
       `}
       />
 
-      <MainSection
-        name="Localization"
-        description={`Be sure to localize \`accessibilityLabel\`. Be mindful of label length so that it isn't truncated in languages with lengthier character counts.`}
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen?.displayName}
+        notes={`Note that \`accessibilityLabel\` is optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.`}
       />
 
       <MainSection name="Variants">
@@ -169,7 +172,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Spinner') },
   };

@@ -2,14 +2,14 @@
 
 // Sample data: https://docs.google.com/spreadsheets/d/1EPVN3D-hnM_HsU3r2QXX9ZOlB-_RVuYNLDVyDSYp5Nc/edit#gid=0
 
-export type PinHeight = {|
+export type PinHeight = {
   // height of pin image in pixels
   height: number,
   // number of impressions for this image height
   impressionsCount: number,
   //  number of pins with this image height
   pinsCount: number,
-|};
+};
 
 const pinHeights: $ReadOnlyArray<PinHeight> = [
   { height: 210, impressionsCount: 9303674, pinsCount: 1648160 },

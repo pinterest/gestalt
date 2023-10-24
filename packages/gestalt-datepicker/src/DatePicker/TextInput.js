@@ -6,7 +6,7 @@ import styles from '../DatePicker.css';
 // InjectedProps are props that Datepicker adds on to DatePickerTextField.
 // Datepicker takes this props and then funnels them to DatePickerTextField.
 // See https://github.com/Hacker0x01/react-datepicker/blob/769d960d35d18f06bdee1b62a53d739ef4f0c39a/src/index.jsx#L844
-type InjectedProps = {|
+type InjectedProps = {
   disabled?: boolean,
   id: string,
   name?: string,
@@ -19,14 +19,14 @@ type InjectedProps = {|
   value?: string,
   errorMessage?: string,
   helperText?: string,
-|};
+};
 
-type Props = {|
+type Props = {
   id: string,
   // $FlowFixMe[unclear-type]
   forwardedRef?: ElementRef<any>,
   ...InjectedProps,
-|};
+};
 
 function DatePickerTextField(props: Props) {
   const {

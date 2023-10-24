@@ -3,12 +3,14 @@ import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import dontPlaceFarAway from '../../examples/tableofcontents/dontPlaceFarAway.js';
+import localizationLabels from '../../examples/tableofcontents/localizationLabels.js';
 import main from '../../examples/tableofcontents/main.js';
 import nestedItemsExample from '../../examples/tableofcontents/nestedItemsExample.js';
 import topAlignWithContetnTitle from '../../examples/tableofcontents/topAlignWithContentTitle.js';
@@ -16,9 +18,9 @@ import withHeaderExample from '../../examples/tableofcontents/withHeaderExample.
 
 export default function TableOfContentsPage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): Node {
   return (
     <Page title={generatedDocGen?.TableOfContents.displayName}>
       <PageHeader
@@ -112,6 +114,11 @@ export default function TableOfContentsPage({
         description="The TableOfContents component is critical in navigating the structure of the application and thus has been assigned the 'navigation' role to improve its accessibility. This role ensures that the component is recognized as a 'landmark' by assistive technologies, such as screen readers. Be sure to include an `accessibilityLabel` for the screen reader for TableOfContents. Consider using meaningful labels to enhance the ease of navigation through the application."
       />
 
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen.TableOfContentsItem?.displayName}
+      />
+
       <MainSection name="Subcomponents">
         <MainSection.Subsection
           title={generatedDocGen.TableOfContentsItem?.displayName}
@@ -124,11 +131,6 @@ export default function TableOfContentsPage({
           />
         </MainSection.Subsection>
       </MainSection>
-
-      <MainSection
-        name="Localization"
-        description="Be sure to localize text and `accessibilityLabel`. Note that localization can lengthen text by 20 to 30 percent."
-      />
 
       <MainSection name="Variants">
         <MainSection.Subsection
@@ -177,9 +179,9 @@ Tabs may be used navigate between multiple URLs. Tabs are intended as page-level
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   const docGen = await multipleDocGen(['TableOfContents', 'TableOfContentsItem']);
 
   docGen.TableOfContents.props.children.flowType.raw = '<Element<typeof TableOfContents.Item>>';

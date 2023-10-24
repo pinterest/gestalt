@@ -26,7 +26,7 @@ const SIZE_NAME_TO_PIXEL = {
   lg: 12,
 };
 
-type ButtonProps = {|
+type ButtonProps = {
   /**
    * Label to provide more context around ButtonLink’s function or purpose. See the [Accessibility guidelines](/foundations/accessibility) to learn more.,
    */
@@ -66,10 +66,10 @@ type ButtonProps = {|
    * Callback invoked when the user clicks (press and release) on ButtonLink with the mouse or keyboard.
      See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
    */
-  onClick?: ({|
+  onClick?: ({
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
+  }) => void,
   /**
    * sm: 32px, md: 40px, lg: 48px
    */
@@ -93,7 +93,7 @@ type ButtonProps = {|
 - 'self' opens an anchor in the same frame.
    */
   target?: null | 'self' | 'blank',
-|};
+};
 
 /**
  * [ButtonLink](https://gestalt.pinterest.systems/buttonlink) is mainly used as a navigational element to direct users to a new page or location.
@@ -144,15 +144,19 @@ const ButtonLinkWithForwardRef: AbstractComponent<ButtonProps, HTMLAnchorElement
     (disabled && 'subtle') ||
     ((isDarkModeRed || isDarkModeBlue) && 'default') ||
     DEFAULT_TEXT_COLORS[color];
-  const ariaLabel = getAriaLabel({ target, accessibilityLabel, accessibilityNewTabLabel });
+  const ariaLabel = getAriaLabel({
+    target,
+    accessibilityLabel,
+    accessibilityNewTabLabel,
+  });
 
   const handleClick = ({
     event,
     dangerouslyDisableOnNavigation,
-  }: {|
+  }: {
     dangerouslyDisableOnNavigation: () => void,
     event: SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLAnchorElement>,
-  |}) =>
+  }) =>
     onClick
       ? onClick({
           event,

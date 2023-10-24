@@ -3,10 +3,10 @@
 import React, { type Node } from 'react';
 import { Button, Text } from 'gestalt';
 
-class ErrorBoundary extends React.Component<{| children: Node |}, {| hasError: boolean |}> {
-  state: {| hasError: boolean |} = { hasError: false };
+class ErrorBoundary extends React.Component<{ children: Node }, { hasError: boolean }> {
+  state: { hasError: boolean } = { hasError: false };
 
-  static getDerivedStateFromError(): {| hasError: boolean |} {
+  static getDerivedStateFromError(): { hasError: boolean } {
     // Update state so the next render will show the fallback UI
     return { hasError: true };
   }

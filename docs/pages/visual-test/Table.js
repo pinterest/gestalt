@@ -8,13 +8,13 @@ function BaseRow({
   disabled = false,
   text,
   spend,
-}: {|
+}: {
   id: string,
   checked?: boolean,
   disabled?: boolean,
   text: string,
   spend: string,
-|}) {
+}) {
   const newId = `${id.replace(/ /g, '_').replace(/'/g, '')}_${text
     .replace(/ /g, '_')
     .replace(/'/g, '')}`;

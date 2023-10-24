@@ -17,7 +17,7 @@ import ScrollBoundaryContainerWithForwardRef from './ScrollBoundaryContainer/Int
 
 type ScrollBoundaryContainerOverflow = 'scroll' | 'scrollX' | 'scrollY' | 'auto' | 'visible';
 
-type Props = {|
+type Props = {
   children: Node,
   /**
    * Use numbers for pixels: height={100} and strings for percentages: height="100%".
@@ -26,7 +26,7 @@ type Props = {|
    */
   height?: number | string,
   overflow?: ScrollBoundaryContainerOverflow,
-|};
+};
 
 /**
  * [ScrollBoundaryContainer](https://gestalt.pinterest.systems/web/utilities/scrollboundarycontainer) is used with anchor-based components such as Popover, Tooltip, Dropdown or ComboBox. ScrollBoundaryContainer is needed for proper positioning when the anchor-based component is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures the anchor-based component remains attached to its anchor when scrolling. Don't use ScrollBoundaryContainer to add scrolling to a container, use [Box's props](https://gestalt.pinterest.systems/web/box#Props) instead.

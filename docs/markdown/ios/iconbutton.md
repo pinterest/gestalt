@@ -1,114 +1,111 @@
 ---
 title: IconButton
-description: IconButton allows users to take actions and make choices with a single click or tap. IconButtons use icons instead of text to convey available actions on a screen. IconButton is typically found in forms, dialogs and toolbars. Some buttons are specialized for particular tasks, such as navigation or presenting menus.
+description: IconButton allows users to take actions and make choices with a single tap. IconButtons use icons instead of text to convey available actions on a screen. Some buttons are specialized for particular tasks, such as navigation or presenting menus.
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/95/15/4a/95154a609396c1d2e4ae9575a041bf3b.png" width={44} height={44} alt="Icon Button component example."/>
+<ImgContainer padding="standard" src="https://i.pinimg.com/originals/f7/e2/b5/f7e2b5e234f5f33f8cb526be18de2912.png" alt="Icon Button component example."/>
 
 ## Usage guidelines
 
 <TwoCol>
   <Group>
     <Do title="When to use" />
-    - Interface space is limited. Prioritize using a Button if space is available.
-    - Triggering a Modal to complete a related task.
-    - Creating visual separation of actions in text-heavy content.
-    - Lower-emphasis actions that don't impede users from completing a task.
+    - Interface space is limited. Prioritize using a [Button](/ios/button) if space is available
+    - Triggering a [Sheet](ios/sheet) to complete a related task
+    - Creating visual separation of actions in text-heavy content
+    - Lower-emphasis actions that don't impede users from completing a task
   </Group>
   <Group>
   <Dont title="When not to use" />
-    - Displaying icons that don't have actions associated with them. Use an Icon instead.
-    - Displaying multiple IconButtons on a surface that uses the same icon for different actions.
-    - Text is better suited to convey the action and/or the icon isn't quickly recognizable by users.
-    - Destructive, high-emphasis actions, e.g "delete", "remove".
+    - Displaying icons that don't have actions associated with them. Use an [Icon](ios/icon) instead
+    - Displaying multiple IconButtons on a surface that uses the same icon for different actions
+    - Text is better suited to convey the action and/or the icon isn't quickly recognizable by users
+    - For destructive, high-emphasis actions, for example "delete" or "remove"
   </Group>
 </TwoCol>
 
 ## Mobile best practices
 
-- Avoid using a floating icon button if it obscures important information on the screen. 
-- IconButton on mobile should primarily utilize the lg (44pt) size as the increased size will better accommodate tapping with a finger.   
+- Avoid using a floating IconButton if it obscures important information on the screen 
+- IconButton on mobile should primarily utilize the LG (44px) size as the increased size will better accommodate tapping with a finger
+- When using IconButton on top of images, use a variant with background to ensure readability and accessible contrast 
 
 For general IconButton best practices, refer to the [IconButton web documentation](/web/iconbutton).
 
 ## Accessibility
+
+Ensure IconButton have a label describing the intent of the action. For example, use "Add Pin to board" instead of "Add icon". 
 
 People use Apple’s accessibility features, such as reduced transparency, VoiceOver, and increased text size to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Apple’s Human Interface Guidelines and documentation about accessibility for iOS:
 
 [Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/accessibility/overview/introduction/)
 [Accessible development on iOS](https://developer.apple.com/accessibility/ios/)
 
+## Design tokens 
+
+Use these tokens for applying size and color styles to IconButton. 
+<br/>
+<iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39425%253A3395%26mode%3Ddesign%26t%3DYIMzlxYjQqQf2ZV6-1" allowFullScreen></iframe>
+
+## Anatomy 
+
+IconButtons use icons instead of text to convey available actions on a screen. Some buttons are specialized for particular tasks, such as navigation or presenting menus. Icons(.svg viewbox) dimensions are the same for all icons regardless of the size of the vector asset inside of the container. See [Icon](/ios/icon) for more information.
+
+<br/>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39425%253A3175%26mode%3Ddesign%26t%3DYIMzlxYjQqQf2ZV6-1" allowFullScreen></iframe>
+**1. Icon | 2. Container** 
+
 ## Variants
 
 ### Size
+<br/>
+**Size specs: Container**
+<br/>
 
-1. **lg** **(44pt)**
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39425%253A3610%26mode%3Ddesign%26t%3DiXPhQMpwqZ5Cw3LM-1" allowFullScreen></iframe>
+<br/>
+**Size specs: Icon**
+<br/>
+
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39425%253A3701%26mode%3Ddesign%26t%3DiXPhQMpwqZ5Cw3LM-1" allowFullScreen></iframe>
+
+**Size use cases**
+
+1. **LG** **(44px)**
 Large is the only size that should be used on Pinner surfaces.
-2. **md** **(32pt)**
+2. **MD** **(32px)**
 Medium is the size used on more dense UI such as business surfaces or internal tools.
-3. **sm** **(24pt)**
+3. **SM** **(24px)**
 Small IconButton should be used sparingly and only in places where the UI is very dense.
 
-<ThreeCol>
-<Group center>
-<ImgContainer src="https://i.pinimg.com/originals/30/fa/30/30fa30fd2e78a285efd2b81ef7cba745.png" alt="small IconButton" width={24} height={24} />
-**size = "sm"**
-</Group>
-<Group>
-<ImgContainer src="https://i.pinimg.com/originals/cd/6b/4f/cd6b4ffcd8254493c5a8da94b1d68e19.png" alt="medium IconButton" width={32} height={32} />
-**size = "md"**
-</Group>
-<Group>
-<ImgContainer src="https://i.pinimg.com/originals/95/15/4a/95154a609396c1d2e4ae9575a041bf3b.png" alt="large IconButton" width={44} height={44} />
-**size = "lg"**
-</Group>
-</ThreeCol>
+## Color
+IconButton colors are semantic - they have a specific meaning and aren’t arbitrary. There is no disabled color for icons, as that is handled by the button state that an icon is in.
 
-### Elevation
+**Light mode**
+<br/>
+<iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39425%253A3793%26mode%3Ddesign%26t%3DiXPhQMpwqZ5Cw3LM-1" allowFullScreen></iframe>
+<br/>
 
-1. **Flat**
-Flat components sit right on top of the background, with no elevation. Therefore they do not have a drop shadow. 
-2. **Floating**
-Floating components are lifted off of the background, with high-emphasis elevation. They present with a drop shadow which can serve as an affordance for scrolling behavior. 
+**Dark mode**
+<br/>
+<iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39425%253A3897%26mode%3Ddesign%26t%3DiXPhQMpwqZ5Cw3LM-1" allowFullScreen></iframe>
+<br/>
 
-<TwoCol>
-<Group>
-<ImgContainer src="https://i.pinimg.com/originals/6c/27/78/6c27788eca8b18879395892bda8ca8e5.png" width={60} height={60} alt="flat IconButton"/>
-**flat**
-</Group>
-<Group>
-<ImgContainer src="https://i.pinimg.com/originals/54/73/1d/54731d4ae0c67a031887f6f58cd7905f.png" width={60} height={60} alt="floating IconButton"/>
-**floating**
-</Group>
-</TwoCol>
+## Elevation
 
-### Styling
-For information on color, icons, roles and states, refer to the [web IconButton documentation](/web/iconbutton). 
+For elevated IconButton, we suggest using the IconButtonFloating component (iOS documentation in progress). See the [web IconButtonFloating](web/iconbuttonfloating) for reference.
 
 ## Writing
 
-For writing best practices, refer to the [web IconButton documentation](/web/iconbutton). 
-
-## Related
-
-<ThreeCol>
-  <IllustrationCard
-  title="Button"
-  description="Button allows users to take actions, and make choices using text labels to express what action will occur when the user interacts with it."
-  color="teal-spabattical-450"
-  image="button"
-  />
-  <IllustrationCard
-  title="Icon"
-  description="IconButtons use icons instead of text to convey available actions on a screen. Use an existing one from the Gestalt Icon library."
-  color="teal-spabattical-450"
-  image="icon"
-  />
-  <IllustrationCard
-  title="Dropdown"
-  description="It's most common to anchor Dropdown to Button or IconButton."
-  color="teal-spabattical-450"
-  image="dropdown"
-  />
-</ThreeCol>
+For writing best practices, refer to the [content standards](foundations/content_standards/ui_elements).
+<TwoCol>
+  <Group>
+    <Do title="Do" />
+    - Use a descriptive label to indicate IconButton action by beginning with a verb
+  </Group>
+  <Group>
+  <Dont title="Don't" />
+    - Use the words “image” or “icon” in the description label. Instead, prefer to use verbs that describe the action. For example, “Save” or “Edit”
+  </Group>
+</TwoCol> 

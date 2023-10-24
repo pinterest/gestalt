@@ -19,7 +19,7 @@ import variantTwoColumnUnequal from '../../examples/column/variantTwoColumnUnequ
 
 const ignoredProps = ['smSpan', 'mdSpan', 'lgSpan'];
 
-export default function ColumnPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function ColumnPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
@@ -151,7 +151,9 @@ export default function ColumnPage({ generatedDocGen }: {| generatedDocGen: DocG
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Column') },
   };

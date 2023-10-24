@@ -16,8 +16,8 @@ import {
 
 export default function Example(): Node {
   function reducer(
-    state: {| heading: string, size: 'sm' | 'md' | 'lg' |} | { ... },
-    action: {| type: 'small' | 'medium' | 'large' | 'none' |},
+    state: { heading: string, size: 'sm' | 'md' | 'lg' } | { ... },
+    action: { type: 'small' | 'medium' | 'large' | 'none' },
   ) {
     switch (action.type) {
       case 'small':

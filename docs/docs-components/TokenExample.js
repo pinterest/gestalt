@@ -3,19 +3,19 @@ import { type Node } from 'react';
 import { Box } from 'gestalt';
 import { type Token } from '../pages/foundations/design_tokens.js';
 
-type BaseProps = {|
+type BaseProps = {
   token: Token,
-|};
+};
 
-type FontBoxProps = {|
+type FontBoxProps = {
   ...BaseProps,
   type?: string,
-|};
+};
 
-type ExampleProps = {|
+type ExampleProps = {
   ...BaseProps,
   category: string,
-|};
+};
 
 export function ColorBox({ token }: BaseProps): Node {
   return (
@@ -34,13 +34,28 @@ export function ColorBox({ token }: BaseProps): Node {
   );
 }
 
+export function RoundingBox({ token }: BaseProps): Node {
+  return (
+    <Box
+      dangerouslySetInlineStyle={{
+        __style: { 'border-radius': `var(--${token.name})` },
+      }}
+      borderStyle="lg"
+      width={64}
+      height={64}
+    />
+  );
+}
+
 export function SpacingBox({ token }: BaseProps): Node {
   if (token.value.includes('-')) {
     const absoluteDimension = token.value.replace(/^-/, '');
     const marginLeftDimension = `calc(64px + ${token.value})`;
     return (
       <Box
-        dangerouslySetInlineStyle={{ __style: { marginLeft: marginLeftDimension } }}
+        dangerouslySetInlineStyle={{
+          __style: { marginLeft: marginLeftDimension },
+        }}
         borderStyle="lg"
         width={absoluteDimension}
         height={absoluteDimension}
@@ -173,6 +188,8 @@ export function TokenExample({ token, category }: ExampleProps): Node {
     case 'background-color':
     case 'data-visualization':
       return <ColorBox token={token} />;
+    case 'rounding':
+      return <RoundingBox token={token} />;
     case 'spacing':
       return <SpacingBox token={token} />;
     case 'text-color':

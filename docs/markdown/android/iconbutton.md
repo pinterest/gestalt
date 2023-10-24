@@ -1,6 +1,6 @@
 ---
 title: IconButton
-description: IconButton allows users to take actions and make choices with a single click or tap. IconButtons use icons instead of text to convey available actions on a screen. IconButton is typically found in forms, dialogs and toolbars. Some buttons are specialized for particular tasks, such as navigation or presenting menus.
+description: IconButton allows users to take actions and make choices with a single tap. IconButtons use icons instead of text to convey available actions on a screen. Some buttons are specialized for particular tasks, such as navigation or presenting menus.
 fullwidth: true
 ---
 
@@ -11,28 +11,31 @@ fullwidth: true
 <TwoCol>
   <Group>
     <Do title="When to use" />
-    - Interface space is limited. Prioritize using a Button if space is available.
-    - Triggering a Modal to complete a related task.
-    - Creating visual separation of actions in text-heavy content.
-    - Lower-emphasis actions that don't impede users from completing a task.
+    - Interface space is limited. Prioritize using a Button if space is available
+    - Triggering a Modal to complete a related task
+    - Creating visual separation of actions in text-heavy content
+    - Lower-emphasis actions that don't impede users from completing a task
   </Group>
   <Group>
   <Dont title="When not to use" />
-    - Displaying icons that don't have actions associated with them. Use an Icon instead.
-    - Displaying multiple IconButtons on a surface that uses the same icon for different actions.
-    - Text is better suited to convey the action and/or the icon isn't quickly recognizable by users.
-    - Destructive, high-emphasis actions, e.g "delete", "remove".
+    - Displaying icons that don't have actions associated with them. Use an Icon instead
+    - Displaying multiple IconButtons on a surface that uses the same icon for different actions
+    - Text is better suited to convey the action and/or the icon isn't quickly recognizable by users
+    - Destructive, high-emphasis actions, for example "delete", "remove"
   </Group>
 </TwoCol>
 
 ## Best practices
 
-- Avoid using a floating icon button if it obscures important information on the screen.
-- IconButton on mobile should primarily utilize the lg (44dp) size as the increased size will better accommodate tapping with a finger.
+- Avoid using a floating IconButton if it obscures important information on the screen
+- IconButton on mobile should primarily utilize the LG (44dp) size as the increased size will better accommodate tapping with a finger
+- When using IconButton on top of images, use a variant with background to ensure readability and accessible contrast
 
 For general IconButton best practices, refer to the [IconButton web documentation](/web/iconbutton).
 
 ## Accessibility
+
+Ensure IconButton have a label describing the intent of the action. For example, use "Add Pin to board" instead of "Add icon".
 
 People use Android’s accessibility features, such as TalkBack and dynamic text sizing to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Material Design and development documentation about accessibility for Android:
 
@@ -74,11 +77,11 @@ IconButtons use icons instead of text to convey available actions on a screen. S
 
 #### Size use cases
 
-1. **lg** **(44dp)**
+1. **LG** **(44dp)**
 Large is the only size that should be used on Pinner surfaces.
-2. **md** **(32dp)**
+2. **MD** **(32dp)**
 Medium is the size used on more dense UI such as business surfaces or internal tools.
-3. **sm** **(24dp)**
+3. **SM** **(24dp)**
 Small IconButton should be used sparingly and only in places where the UI is very dense.
 
 ## Color
@@ -97,8 +100,7 @@ Icon colors are semantic—they have a specific meaning and aren't arbitrary. Th
 
 ## Elevation
 
-For elevated IconButton, we suggest using the IconButtonFloating component (Android documentation in progress). See the [IconButtonFloating web](/web/iconbuttonfloating) for reference.
-
+For elevated IconButton, we suggest using the [IconButtonFloating](android/iconbuttonfloating) component.
 ## Writing
 
 For writing best practices, refer to the [content standards](/foundations/content_standards/ui_elements).
@@ -110,6 +112,6 @@ For writing best practices, refer to the [content standards](/foundations/conten
   </Group>
   <Group>
     <Dont title="Don't" />
-    - Use the words "image" or "icon" in the description label; instead, prefer to use verbs that describe the action, e.g. "Save" or "Edit"
+    - Use the words "image" or "icon" in the description label; instead, prefer to use verbs that describe the action. For example "Save" or "Edit"
   </Group>
 </TwoCol>

@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -28,7 +29,7 @@ import withCheckbox from '../../examples/modalalert/withCheckbox.js';
 
 const PREVIEW_HEIGHT = 450;
 
-export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function ModalAlertPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -201,10 +202,8 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
         />
       </AccessibilitySection>
 
-      <MainSection
-        name="Localization"
-        description={`Be sure to localize the \`heading\` and \`accessibilityModalLabel\`props, as well as any other text elements within ModalAlert. Note that localization can lengthen text by 20 to 30 percent. `}
-      />
+      <LocalizationSection name={generatedDocGen?.displayName} noDefaultLabelProvider />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Multiple actions for confirmation"
@@ -294,18 +293,17 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
             }
           />
         </MainSection.Subsection>
-      </MainSection>
-
-      <MainSection
-        name="Mobile"
-        description="ModalAlert is responsive but not adaptive to mobile devices; therefore, it does not require [DeviceTypeProvider](/web/utilities/devicetypeprovider)."
-      >
-        <MainSection.Card
-          cardSize="lg"
-          sandpackExample={
-            <SandpackExample code={mobileExample} name="Mobile example" layout="mobileRow" />
-          }
-        />
+        <MainSection.Subsection
+          title="Mobile"
+          description="ModalAlert is responsive but not adaptive to mobile devices; therefore, it does not require [DeviceTypeProvider](/web/utilities/devicetypeprovider)."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={mobileExample} name="Mobile example" layout="mobileRow" />
+            }
+          />
+        </MainSection.Subsection>
       </MainSection>
 
       <MainSection name="Writing">
@@ -352,7 +350,9 @@ export default function ModalAlertPage({ generatedDocGen }: {| generatedDocGen: 
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('ModalAlert') },
   };

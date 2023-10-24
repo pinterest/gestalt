@@ -4,6 +4,7 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -12,12 +13,13 @@ import SandpackExample from '../../docs-components/SandpackExample.js';
 import accessibilityExample from '../../examples/modal/accessibilityExample.js';
 import createBoardExample from '../../examples/modal/createBoardExample.js';
 import limitActionsExample from '../../examples/modal/limitActionsExample.js';
+import localizationLabels from '../../examples/modal/localizationLabels.js';
 import mobileExample from '../../examples/modal/mobileExample.js';
 import preventCloseExample from '../../examples/modal/preventCloseExample.js';
 import roleAlertDialogExample from '../../examples/modal/roleAlertDialogExample.js';
 import sizesExample from '../../examples/modal/sizesExample.js';
 
-export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function ModalPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   const PREVIEW_HEIGHT = 450;
 
   return (
@@ -59,6 +61,7 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Best practices">
         <MainSection.Subsection>
           <MainSection.Card
@@ -168,10 +171,13 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
           />
         </MainSection.Subsection>
       </AccessibilitySection>
-      <MainSection
-        name="Localization"
-        description={`Be sure to localize the \`heading\`, \`subheading\` and \`accessibilityModalLabel\` props, as well as any other text elements within Modal. Note that localization can lengthen text by 20 to 30 percent.`}
+
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen?.displayName}
+        previewHeight={PREVIEW_HEIGHT}
       />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Heading"
@@ -246,8 +252,9 @@ export default function ModalPage({ generatedDocGen }: {| generatedDocGen: DocGe
             }
           />
         </MainSection.Subsection>
-        <MainSection
-          name="Mobile"
+
+        <MainSection.Subsection
+          title="Mobile"
           description={`Modal requires [DeviceTypeProvider](/web/utilities/devicetypeprovider) to enable its mobile user interface. The example below shows the mobile platform UI and its implementation.
 
 For mobile, all \`sizes\` are unified into a full mobile viewport Modal. Notice that \`subHeading\` gets moved from the header to the main content container.
@@ -259,7 +266,7 @@ For mobile, all \`sizes\` are unified into a full mobile viewport Modal. Notice 
               <SandpackExample code={mobileExample} name="Mobile example" layout="mobileRow" />
             }
           />
-        </MainSection>
+        </MainSection.Subsection>
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />
@@ -291,9 +298,9 @@ Toast provides temporary feedback on an interaction. Toasts appear at the bottom
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: DocGen |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: {
       generatedDocGen: await docGen('Modal'),

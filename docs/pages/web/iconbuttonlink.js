@@ -4,11 +4,13 @@ import { Icon, SlimBanner } from 'gestalt';
 import docGen, { type DocGen, type DocType, overrideTypes } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
+import localizationLabels from '../../examples/iconbuttonlink/localizationLabels.js';
 import main from '../../examples/iconbuttonlink/main.js';
 
 export default function DocsPage({ generatedDocGen }: DocType): Node {
@@ -39,6 +41,9 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
         name="Usage guidelines"
         description="See [IconButton](/web/iconbutton) for usage guidelines."
       />
+
+      <LocalizationSection name={generatedDocGen?.displayName} code={localizationLabels} />
+
       <MainSection
         name="Variants"
         description="See [IconButton](/web/iconbutton) for more variants."
@@ -55,6 +60,7 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onN
 `}
         />
       </MainSection>
+
       <QualityChecklist component={generatedDocGen?.displayName} />
 
       <InternalDocumentationSection
@@ -83,7 +89,9 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Lin
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   const generatedDocGen = await docGen('IconButtonLink');
   const overriddenDocGen = overrideTypes(generatedDocGen, {
     icon: (Icon?.icons ?? []).map((icon) => `'${icon}'`).join(' | '),

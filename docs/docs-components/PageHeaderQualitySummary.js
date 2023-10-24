@@ -12,10 +12,10 @@ const webComponentData = getByPlatform(componentData, { platform: 'web' });
 function QualityItem({
   category,
   status,
-}: {|
+}: {
   category: 'figmaStatus' | 'responsive' | 'mobileAdaptive' | 'accessible',
   status: ?(StatusType | 'deprecated'),
-|}) {
+}) {
   const isAccessibility = category === 'accessible';
 
   return (
@@ -36,9 +36,9 @@ function QualityItem({
   );
 }
 
-type Props = {|
+type Props = {
   name: string,
-|};
+};
 
 export default function PageHeaderQualitySummary({ name }: Props): Node {
   const componentStatusData = webComponentData.find((component) => component.name === name)?.status;

@@ -6,16 +6,16 @@ export type SortChangeType = 'series' | 'x' | 'y';
 export type FilterIdType = null | SortChangeType;
 export type FilterOrderType = 'desc' | 'asc';
 
-export type TransformedTabularDataType = $ReadOnlyArray<{|
+export type TransformedTabularDataType = $ReadOnlyArray<{
   series: string,
   xAxis: number | string,
   yAxis: number,
-|}>;
+}>;
 
-type UseBuildCsvDataProps = ({|
+type UseBuildCsvDataProps = ({
   transformedTabularData: TransformedTabularDataType,
   isHorizontalLayout: boolean,
-|}) => string;
+}) => string;
 
 export const useBuildCsvData: UseBuildCsvDataProps = ({
   transformedTabularData,
@@ -37,15 +37,15 @@ export const useBuildCsvData: UseBuildCsvDataProps = ({
   return csvObj;
 };
 
-type ElementType = {| series: string, xAxis: string, yAxis: string |};
+type ElementType = { series: string, xAxis: string, yAxis: string };
 
 const getCompareFn = ({
   filterId,
   filterOrder,
-}: {|
+}: {
   filterId: FilterIdType,
   filterOrder: FilterOrderType,
-|}) =>
+}) =>
   function compareXDesc(a: ElementType, b: ElementType) {
     let aValue = a.xAxis;
     let bValue = b.xAxis;
@@ -70,23 +70,23 @@ const getCompareFn = ({
     return 0;
   };
 
-type UseTabularDataProps = ({|
-  data: $ReadOnlyArray<{|
+type UseTabularDataProps = ({
+  data: $ReadOnlyArray<{
     name: string | number,
     [string]: number,
-  |}>,
+  }>,
   filterId: FilterIdType,
   filterOrder: FilterOrderType,
-  tickFormatter?: {|
+  tickFormatter?: {
     timeseries?: (number) => string | number,
     xAxisTop?: (number, number) => string | number,
     xAxisBottom?: (number, number) => string | number,
     yAxisRight?: (number, number) => string | number,
     yAxisLeft?: (number, number) => string | number,
-  |},
-  labelMap?: {| [string]: string |},
+  },
+  labelMap?: { [string]: string },
   isHorizontalLayout: boolean,
-|}) => TransformedTabularDataType;
+}) => TransformedTabularDataType;
 
 const useTabularData: UseTabularDataProps = ({
   data,
@@ -103,10 +103,10 @@ const useTabularData: UseTabularDataProps = ({
         .reduce(
           (
             accumulator: $ReadOnlyArray<TransformedTabularDataType>,
-            currentValue: {|
+            currentValue: {
               name: string | number,
               [string]: number,
-            |},
+            },
           ) => {
             const { name } = currentValue;
 

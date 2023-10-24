@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { Box, Checkbox, Label, Table, Text } from 'gestalt';
 
-function HeaderRow({ id }: {| id: string |}) {
+function HeaderRow({ id }: { id: string }) {
   return (
     <Table.Header>
       <Table.Row>

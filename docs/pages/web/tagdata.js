@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -19,11 +20,12 @@ import dontUseLongLabels from '../../examples/tagdata/dontUseLongLabels.js';
 import doUseSameStyle from '../../examples/tagdata/doUseSameStyle.js';
 import doUseShortLabels from '../../examples/tagdata/doUseShortLabels.js';
 import group from '../../examples/tagdata/group.js';
+import localizationLabels from '../../examples/tagdata/localizationLabels.js';
 import main from '../../examples/tagdata/main.js';
 import sizes from '../../examples/tagdata/sizes.js';
 import tooltip from '../../examples/tagdata/tooltip.js';
 
-export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function TagDataPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -152,13 +154,13 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
         description="Users should be able to navigate or activate TagData using a keyboard or other input modalities. Be sure to include an `accessibilityRemoveIconLabel` and `tooltip.accessibilityLabel` for the screen reader with the `onRemove` prop and `tooltip` prop."
       />
 
-      <MainSection
-        name="Localization"
-        description={`
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen?.displayName}
+        notes={`
+When the \`text\` of TagData reaches its max width, either intentionally or through localization, the text will be truncated with ellipses as needed to preserve the max-width.
 
-      Be sure to localize \`accessibilityRemoveIconLabel\` ,\`tooltip.accessibilityLabel\`, and \`text\` props in TagData.
-
-      When the \`text\` of TagData reaches its max width, either intentionally or through localization, the text will be truncated with ellipses as needed to preserve the max-width. Keep this in mind when selecting wording for TagData. Note that localization can lengthen text by 20 to 30 percent.`}
+Note that \`accessibilityRemoveIconLabel\` is optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.`}
       />
 
       <MainSection name="Variants">
@@ -208,7 +210,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="Use `tooltip` to display clarifying information on hover or focus. We recommend using tooltips to provide the user additional context/details."
+          description="Use `tooltip` to display clarifying information on hover or focus. We recommend using tooltips to provide the user additional context/details. You can also pass in a list of strings to create multi-line tooltips for TagData."
           title="Tooltip"
         >
           <MainSection.Card
@@ -243,7 +245,7 @@ export default function TagDataPage({ generatedDocGen }: {| generatedDocGen: Doc
   );
 }
 
-export async function getStaticProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{ props: { generatedDocGen: DocGen } }> {
   return {
     props: { generatedDocGen: await docGen('TagData') },
   };

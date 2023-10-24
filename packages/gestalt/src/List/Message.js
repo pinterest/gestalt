@@ -4,9 +4,9 @@ import { useColorScheme } from '../contexts/ColorSchemeProvider.js';
 import styles from '../List.css';
 import Text from '../Text.js';
 
-type Props = {|
+type Props = {
   text: string | Element<typeof Text>,
-|};
+};
 
 export default function ListText({ text }: Props): Node {
   const { name: colorSchemeName } = useColorScheme();

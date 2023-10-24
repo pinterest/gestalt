@@ -48,7 +48,7 @@ const importsToRemoveRegex = new RegExp(
   'g',
 );
 
-export default function DevelopmentEditor({ code }: {| code: ?string | (() => Node) |}): Node {
+export default function DevelopmentEditor({ code }: { code: ?string | (() => Node) }): Node {
   const { devExampleMode } = useAppContext();
 
   if (devExampleMode === 'default') {

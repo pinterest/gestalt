@@ -14,11 +14,11 @@ import feedbackExample from '../../../examples/animation/feedbackExample.js';
 import transitionExample from '../../../examples/animation/transitionExample.js';
 import useExample from '../../../examples/animation/useExample.js';
 
-type Props = {|
+type Props = {
   children: Node,
   heading: string,
   text: string,
-|};
+};
 function ThemeLayout({ heading, children, text }: Props): Node {
   return (
     <Flex gap={2} direction="column" maxWidth={DOCS_COPY_MAX_WIDTH_PX}>

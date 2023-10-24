@@ -14,26 +14,26 @@ type Size = 'sm' | 'flexible';
 type IdealDirection = 'up' | 'right' | 'down' | 'left';
 type Role = 'dialog' | 'tooltip';
 type PrimaryActionType =
-  | {|
+  | {
       accessibilityLabel?: string,
       href: string,
-      onClick?: ({|
+      onClick?: ({
         event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
         dangerouslyDisableOnNavigation: () => void,
-      |}) => void,
+      }) => void,
       rel?: 'none' | 'nofollow',
       role: 'link',
       target?: null | 'self' | 'blank',
       text: string,
-    |}
-  | {|
+    }
+  | {
       accessibilityLabel?: string,
-      onClick?: ({|
+      onClick?: ({
         event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
-      |}) => void,
+      }) => void,
       role?: 'button',
       text: string,
-    |};
+    };
 
 function PrimaryAction(props: PrimaryActionType) {
   if (props.role === 'link') {
@@ -61,7 +61,7 @@ function PrimaryAction(props: PrimaryActionType) {
   );
 }
 
-type Props = {|
+type Props = {
   /**
    * Unique label to describe each PopoverEducational. See the [accessibility section](https://gestalt.pinterest.systems/web/popovereducational#ARIA-attributes) for more guidance.
    */
@@ -114,7 +114,7 @@ type Props = {|
    * An object representing the zIndex value of PopoverEducational. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
   zIndex?: Indexable,
-|};
+};
 
 /**
  * [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducationaleducational) is a floating container that introduces users to elements on the screen. Used for education or onboarding experiences.

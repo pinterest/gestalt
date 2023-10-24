@@ -6,7 +6,7 @@ import Markdown from '../../docs-components/Markdown.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 
-function InlineLink({ children, href }: {| children: string, href: string |}) {
+function InlineLink({ children, href }: { children: string, href: string }) {
   return (
     <Fragment>
       {' '}

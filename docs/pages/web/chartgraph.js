@@ -5,6 +5,7 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -25,10 +26,10 @@ import doColor from '../../examples/chartgraph/doColor.js';
 import doLimit from '../../examples/chartgraph/doLimit.js';
 import dontLimit from '../../examples/chartgraph/dontLimit.js';
 import doSameColor from '../../examples/chartgraph/doSameColor.js';
-import labelMap from '../../examples/chartgraph/labelMap.js';
 import layout from '../../examples/chartgraph/layout.js';
 import legend from '../../examples/chartgraph/legend.js';
 import line from '../../examples/chartgraph/line.js';
+import localizationLabels from '../../examples/chartgraph/localizationLabels.js';
 import main from '../../examples/chartgraph/main.js';
 import precision from '../../examples/chartgraph/precision.js';
 import range from '../../examples/chartgraph/range.js';
@@ -44,9 +45,9 @@ import tooltip from '../../examples/chartgraph/tooltip.js';
 
 export default function ComponentPage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): Node {
   const MEDIUM_HEIGHT = 300;
   const SMALL_HEIGHT = 250;
   const LARGE_HEIGHT = 400;
@@ -235,33 +236,13 @@ The tabular data is also available to download as a .csv file.
         />
       </AccessibilitySection>
 
-      <MainSection
-        name="Localization"
-        description={`Be sure to localize text and ARIA attributes.
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen.ChartGraph?.displayName}
+        notes={`To localize data content, use the \`labelMap\` prop. See the example for detailed implementation guidance.
 
-To localize data content, use the \`labelMap\` prop. See the example for detailed implementation guidance.
-
-To localize dates in time series, use the \`tickFormatter.timeseries\` prop. See the [time series example](#Time-series) for detailed implementation guidance.
-
-Any abbreviations for dates and numerals should also be localized. Note that localization can lengthen text by 20 to 30%.`}
-      >
-        <SlimBanner
-          iconAccessibilityLabel="Recommendation"
-          message={`ChartGraph's depends on DefaultLabelProvider for internal text strings. Localize the texts via DefaultLabelProvider.`}
-          type="recommendationBare"
-          helperLink={{
-            text: 'Learn more',
-            accessibilityLabel: 'Learn more about DefaultLabelProvider',
-            href: '/web/utilities/defaultlabelprovider',
-            onClick: () => {},
-          }}
-        />
-        <MainSection.Subsection>
-          <MainSection.Card
-            sandpackExample={<SandpackExample code={labelMap} name="Localization" />}
-          />
-        </MainSection.Subsection>
-      </MainSection>
+To localize dates in time series, use the \`tickFormatter.timeseries\` prop. See the [time series example](#Time-series) for detailed implementation guidance.`}
+      />
 
       <MainSection name="Subcomponents">
         <MainSection.Subsection
@@ -650,9 +631,9 @@ Tables show data that's more complex and granular.      `}
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   return {
     props: {
       generatedDocGen: await multipleDocGen(['ChartGraph', 'LegendIcon']),

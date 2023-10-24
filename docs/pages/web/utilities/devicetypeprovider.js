@@ -10,7 +10,7 @@ import PageHeader from '../../../docs-components/PageHeader.js';
 import SandpackExample from '../../../docs-components/SandpackExample.js';
 import implementation from '../../../examples/devicetypeprovider/implementation.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -63,7 +63,9 @@ The example shows a component with different desktop and mobile UIs.`}
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: {
       generatedDocGen: await docGen('DeviceTypeProvider'),

@@ -9,6 +9,7 @@ export default function Example(): Node {
         accessibilityLabel="Click to learn more about help button"
         accessibilityPopoverLabel="Expanded information about help button"
         text="Informational context that's displayed on click"
+        idealDirection="right"
       />
     </Flex>
   );

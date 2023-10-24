@@ -11,7 +11,7 @@ import QualityChecklist from '../../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../../docs-components/SandpackExample.js';
 import variantsColorScheme from '../../../examples/colorschemeprovider/variantsColorScheme.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -51,7 +51,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: {
       generatedDocGen: await docGen('ColorSchemeProvider'),

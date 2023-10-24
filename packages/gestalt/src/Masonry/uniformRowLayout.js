@@ -16,13 +16,13 @@ const uniformRowLayout =
     gutter = 14,
     width,
     minCols = 3,
-  }: {|
+  }: {
     cache: Cache<T, number>,
     columnWidth?: number,
     gutter?: number,
     width?: ?number,
     minCols?: number,
-  |}): ((items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>) =>
+  }): ((items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>) =>
   (items: $ReadOnlyArray<T>): $ReadOnlyArray<Position> => {
     if (width == null) {
       return items.map(() => offscreen(columnWidth));

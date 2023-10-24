@@ -4,14 +4,14 @@ import { useSandpack } from '@codesandbox/sandpack-react';
 import LZString from 'lz-string';
 import OpenSandboxButton from './OpenSandboxButton.js';
 
-const getParameters = (parameters: {| files: { ... }, template?: string |}): string =>
+const getParameters = (parameters: { files: { ... }, template?: string }): string =>
   LZString.compressToBase64(JSON.stringify(parameters))
     .replace(/\+/g, '-') // Convert '+' to '-'
     .replace(/\//g, '_') // Convert '/' to '_'
     .replace(/=+$/, ''); /* Remove ending '=' */
 
 const getFileParameters = (
-  files: { [string]: {| code: string, hidden: boolean |} },
+  files: { [string]: { code: string, hidden: boolean } },
   environment?: string,
 ): string => {
   const normalizedFiles = Object.keys(files).reduce((prev, next) => {

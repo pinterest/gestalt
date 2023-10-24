@@ -5,17 +5,17 @@ import { type Position } from './types.js';
 
 const layoutNumberToCssDimension = (n: number) => (n !== Infinity ? n : undefined);
 
-type Props<T> = {|
+type Props<T> = {
   baseIndex: number,
   getPositions: (items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>,
   items: $ReadOnlyArray<T>,
   measurementStore: Cache<T, number>,
-  renderItem: ({|
+  renderItem: ({
     +data: T,
     +itemIdx: number,
     +isMeasuring: boolean,
-  |}) => Node,
-|};
+  }) => Node,
+};
 
 export default function MeasureItems<T>({
   baseIndex,

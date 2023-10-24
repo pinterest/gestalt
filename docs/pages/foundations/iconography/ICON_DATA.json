@@ -156,6 +156,12 @@
       "keywords": ["diagonal"]
     },
     {
+      "name": "api",
+      "categories": ["Ads and measurement"],
+      "description": "Indicates a connection to an API",
+      "keywords": ["conversion", "insights", "ad"]
+    },
+    {
       "name": "apple",
       "categories": ["Social"],
       "description": "Indicates Apple service or feature",
@@ -400,7 +406,7 @@
     },
     {
       "name": "conversion-tag",
-      "categories": ["Utility and tools"],
+      "categories": ["Ads and measurement", "Utility and tools"],
       "description": "Indicates code sources or API references",
       "keywords": ["code", "api"]
     },
@@ -429,11 +435,31 @@
       "keywords": ["minus", "empty", "remove"]
     },
     {
+      "name": "data-source",
+      "categories": ["Ads and measurement", "Utility and tools"],
+      "description": "Indicates a data source for API conversion insights or a general database icon",
+      "keywords": ["database", "conversion", "insights", "ad"]
+    },
+    {
       "name": "desktop",
       "categories": ["Toggle"],
       "description": "Indicates a desktop screen",
       "keywords": ["screen", "size", "break point", "responsive", "computer"]
     },
+    {
+      "name": "diagnostics",
+      "categories": ["Ads and measurement"],
+      "description": "Indicates a diagnostics tool",
+      "keywords": [
+        "monitor",
+        "diagnosis",
+        "analyze",
+        "conversion",
+        "insights",
+        "ad"
+      ]
+    },
+
     {
       "name": "directional-arrow-left",
       "categories": ["Arrows", "Platform specific"],
@@ -702,6 +728,12 @@
       "categories": ["Reactions and ratings", "Toggle"],
       "description": "Indicates a heart-broken reaction",
       "keywords": ["love", "dislike"]
+    },
+    {
+      "name": "heart-health",
+      "categories": ["Ads and measurement", "Utility and tools"],
+      "description": "Indicates the health of a process",
+      "keywords": ["issues", "status", "conversion", "insights", "ad"]
     },
     {
       "name": "heart-outline",
@@ -1169,19 +1201,19 @@
       "name": "speech",
       "categories": ["Utility and tools"],
       "description": "Indicates the ability to comment",
-      "keywords": ["chat", "message"]
+      "keywords": ["chat", "message", "comment", "bubble"]
     },
     {
       "name": "speech-ellipsis",
       "categories": ["Utility and tools"],
       "description": "Indicates the messages inbox",
-      "keywords": ["chat", "message", "inbox"]
+      "keywords": ["chat", "message", "inbox", "bubble"]
     },
     {
-      "name": "speech-exclamation-point",
+      "name": "speech-outline",
       "categories": ["Utility and tools"],
-      "description": "Indicates an alert message",
-      "keywords": ["chat", "message", "alert"]
+      "description": "Indicates the ability to comment. Use for the unselected state or when grouped with other outlined icons.",
+      "keywords": ["chat", "message", "comment", "bubble"]
     },
     {
       "name": "star-outline",

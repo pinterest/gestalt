@@ -3,6 +3,7 @@ import { type Node } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -14,6 +15,7 @@ import dontInput from '../../examples/tag/dontInput.js';
 import dontInteractive from '../../examples/tag/dontInteractive.js';
 import dontIntermix from '../../examples/tag/dontIntermix.js';
 import doSuccinct from '../../examples/tag/doSuccinct.js';
+import localizationLabels from '../../examples/tag/localizationLabels.js';
 import main from '../../examples/tag/main.js';
 import variantDisabled from '../../examples/tag/variantDisabled.js';
 import variantDismissable from '../../examples/tag/variantDismissable.js';
@@ -21,7 +23,7 @@ import variantError from '../../examples/tag/variantError.js';
 import variantMaxWidth from '../../examples/tag/variantMaxWidth.js';
 import variantWarning from '../../examples/tag/variantWarning.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen.description}>
@@ -116,9 +118,10 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
-      <MainSection
-        name="Localization"
-        description={`Be sure to localize \`text\` and \`accessibilityRemoveIconLabel\`. Be mindful of label length so that it doesn’t truncate in languages with lengthier character counts.`}
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen?.displayName}
+        notes={`Note that \`accessibilityRemoveIconLabel\` is optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.`}
       />
 
       <MainSection name="Variants">
@@ -187,7 +190,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Tag') },
   };

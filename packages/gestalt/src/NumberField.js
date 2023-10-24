@@ -14,14 +14,17 @@ const parseHandlerValue =
     event,
     value,
   }:
-    | {| event: SyntheticInputEvent<HTMLInputElement>, value: string |}
-    | {| event: SyntheticFocusEvent<HTMLInputElement>, value: string |}
-    | {| event: SyntheticKeyboardEvent<HTMLInputElement>, value: string |}) => {
+    | { event: SyntheticInputEvent<HTMLInputElement>, value: string }
+    | { event: SyntheticFocusEvent<HTMLInputElement>, value: string }
+    | { event: SyntheticKeyboardEvent<HTMLInputElement>, value: string }) => {
     const parsedValue = parseFloat(value);
-    handler?.({ event, value: Number.isFinite(parsedValue) ? parsedValue : undefined });
+    handler?.({
+      event,
+      value: Number.isFinite(parsedValue) ? parsedValue : undefined,
+    });
   };
 
-type Props = {|
+type Props = {
   /**
    * Indicate if autocomplete should be available on the input.
    */
@@ -66,31 +69,31 @@ type Props = {|
   /**
    * Callback triggered when the user blurs the input.
    */
-  onBlur?: ({|
+  onBlur?: ({
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: number | void,
-  |}) => void,
+  }) => void,
   /**
    * Callback triggered when the value of the input changes, whether by keyboard entry or the input's arrows.
    */
-  onChange: ({|
+  onChange: ({
     event: SyntheticInputEvent<HTMLInputElement>,
     value: number | void,
-  |}) => void,
+  }) => void,
   /**
    * Callback triggered when the user focuses the input.
    */
-  onFocus?: ({|
+  onFocus?: ({
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: number | void,
-  |}) => void,
+  }) => void,
   /**
    * Callback triggered when the user presses any key while the input is focused.
    */
-  onKeyDown?: ({|
+  onKeyDown?: ({
     event: SyntheticKeyboardEvent<HTMLInputElement>,
     value: number | void,
-  |}) => void,
+  }) => void,
   /**
    * Placeholder text shown the the user has not yet input a value.
    */
@@ -111,7 +114,7 @@ type Props = {|
    * The current value of the input.
    */
   value?: number | void,
-|};
+};
 
 /**
  * [NumberField](https://gestalt.pinterest.systems/web/numberfield) allows for numerical input.
