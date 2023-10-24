@@ -37,7 +37,10 @@ type Props = {|
 |};
 
 const applyDensityStyle = (s: 'sm' | 'md' | 'lg') => styles[`${s}`];
-const applyDensityLayout = (s: 'sm' | 'md' | 'lg') => layout[`${s}`];
+const applyDensityLayout = (s: 'sm' | 'md' | 'lg') => {
+  const lookup = { 'sm': 'small', 'md': 'medium', 'lg': 'large' };
+  return layout[`${lookup[s]}`];
+};
 
 function SegmentedControlItem({
   index,

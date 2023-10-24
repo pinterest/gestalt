@@ -2,12 +2,12 @@
 
 exports[`SegmentedControl renders 1`] = `
 <div
-  className="SegmentedControl medium"
+  className="SegmentedControl medium md"
   role="tablist"
 >
   <button
     aria-selected={true}
-    className="item hideOutline itemIsSelected accessibilityOutline"
+    className="item hideOutline itemIsSelected accessibilityOutline md"
     onClick={[Function]}
     role="tab"
     style={
@@ -25,7 +25,7 @@ exports[`SegmentedControl renders 1`] = `
   </button>
   <button
     aria-selected={false}
-    className="item hideOutline itemIsNotSelected accessibilityOutline"
+    className="item hideOutline itemIsNotSelected accessibilityOutline md"
     onClick={[Function]}
     role="tab"
     style={
@@ -43,7 +43,7 @@ exports[`SegmentedControl renders 1`] = `
   </button>
   <button
     aria-selected={false}
-    className="item hideOutline itemIsNotSelected accessibilityOutline"
+    className="item hideOutline itemIsNotSelected accessibilityOutline md"
     onClick={[Function]}
     role="tab"
     style={
@@ -61,7 +61,7 @@ exports[`SegmentedControl renders 1`] = `
   </button>
   <button
     aria-selected={false}
-    className="item hideOutline itemIsNotSelected accessibilityOutline"
+    className="item hideOutline itemIsNotSelected accessibilityOutline md"
     onClick={[Function]}
     role="tab"
     style={
@@ -82,12 +82,12 @@ exports[`SegmentedControl renders 1`] = `
 
 exports[`SegmentedControl with responsive widths renders 1`] = `
 <div
-  className="SegmentedControl medium"
+  className="SegmentedControl medium md"
   role="tablist"
 >
   <button
     aria-selected={true}
-    className="item hideOutline itemIsSelected accessibilityOutline"
+    className="item hideOutline itemIsSelected accessibilityOutline md"
     onClick={[Function]}
     role="tab"
     style={
@@ -105,7 +105,7 @@ exports[`SegmentedControl with responsive widths renders 1`] = `
   </button>
   <button
     aria-selected={false}
-    className="item hideOutline itemIsNotSelected accessibilityOutline"
+    className="item hideOutline itemIsNotSelected accessibilityOutline md"
     onClick={[Function]}
     role="tab"
     style={
