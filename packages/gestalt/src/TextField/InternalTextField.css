@@ -53,9 +53,8 @@
 }
 
 /*
-Overriding the default bottom padding when tags are wrapped
+Overriding the default bottom padding with important because tags need less padding at the bottom
 */
-
 .sm.textFieldWrapper {
   /* stylelint-disable-next-line declaration-no-important */
   padding-bottom: var(--space-0) !important;

@@ -151,6 +151,7 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
     disabled ? formElement.disabled : formElement.enabled,
     (hasError || hasErrorMessage) && !focused ? formElement.errored : formElement.normal,
     {
+      // note: layout CSS controls min-height of element
       [layout.small]: !tags && size === 'sm',
       [layout.medium]: size === 'md',
       [layout.large]: size === 'lg',

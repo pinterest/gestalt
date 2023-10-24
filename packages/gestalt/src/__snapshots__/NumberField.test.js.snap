@@ -7,7 +7,7 @@ exports[`NumberField NumberField normal 1`] = `
   >
     <input
       aria-invalid="false"
-      className="textField base enabled normal medium truncate"
+      className="textField base enabled normal medium md truncate"
       disabled={false}
       id="test"
       onBlur={[Function]}
@@ -30,7 +30,7 @@ exports[`NumberField NumberField with autocomplete 1`] = `
     <input
       aria-invalid="false"
       autoComplete="on"
-      className="textField base enabled normal medium truncate"
+      className="textField base enabled normal medium md truncate"
       disabled={false}
       id="test"
       name="email"
@@ -53,7 +53,7 @@ exports[`NumberField NumberField with enterKeyHint 1`] = `
   >
     <input
       aria-invalid="false"
-      className="textField base enabled normal medium truncate"
+      className="textField base enabled normal medium md truncate"
       disabled={false}
       enterKeyHint="go"
       id="test"
@@ -76,7 +76,7 @@ exports[`NumberField NumberField with error 1`] = `
   >
     <input
       aria-invalid="true"
-      className="textField base enabled errored medium truncate"
+      className="textField base enabled errored medium md truncate"
       disabled={false}
       id="test"
       onBlur={[Function]}
@@ -154,7 +154,7 @@ exports[`NumberField NumberField with name 1`] = `
   >
     <input
       aria-invalid="false"
-      className="textField base enabled normal medium truncate"
+      className="textField base enabled normal medium md truncate"
       disabled={false}
       id="test"
       name="email"

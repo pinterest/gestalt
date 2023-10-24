@@ -7,7 +7,7 @@ exports[`TextField TextField normal 1`] = `
   >
     <input
       aria-invalid="false"
-      className="textField base enabled normal medium truncate"
+      className="textField base enabled normal medium md truncate"
       disabled={false}
       id="test"
       onBlur={[Function]}
@@ -30,7 +30,7 @@ exports[`TextField TextField with autocomplete 1`] = `
     <input
       aria-invalid="false"
       autoComplete="email"
-      className="textField base enabled normal medium truncate"
+      className="textField base enabled normal medium md truncate"
       disabled={false}
       id="test"
       name="email"
@@ -53,7 +53,7 @@ exports[`TextField TextField with disabled 1`] = `
   >
     <input
       aria-invalid="false"
-      className="textField base disabled normal medium truncate"
+      className="textField base disabled normal medium md truncate"
       disabled={true}
       id="test"
       onBlur={[Function]}
@@ -75,7 +75,7 @@ exports[`TextField TextField with enterKeyHint 1`] = `
   >
     <input
       aria-invalid="false"
-      className="textField base enabled normal medium truncate"
+      className="textField base enabled normal medium md truncate"
       disabled={false}
       enterKeyHint="go"
       id="test"
@@ -98,7 +98,7 @@ exports[`TextField TextField with error 1`] = `
   >
     <input
       aria-invalid="true"
-      className="textField base enabled errored medium truncate"
+      className="textField base enabled errored medium md truncate"
       disabled={false}
       id="test"
       onBlur={[Function]}
@@ -176,7 +176,7 @@ exports[`TextField TextField with hasError 1`] = `
   >
     <input
       aria-invalid="true"
-      className="textField base enabled errored medium truncate"
+      className="textField base enabled errored medium md truncate"
       disabled={false}
       id="test"
       onBlur={[Function]}
@@ -198,7 +198,7 @@ exports[`TextField TextField with maxLength character counter 1`] = `
   >
     <input
       aria-invalid="false"
-      className="textField base enabled normal medium truncate"
+      className="textField base enabled normal medium md truncate"
       disabled={false}
       id="test"
       maxLength={20}
@@ -291,7 +291,7 @@ exports[`TextField TextField with name 1`] = `
   >
     <input
       aria-invalid="false"
-      className="textField base enabled normal medium truncate"
+      className="textField base enabled normal medium md truncate"
       disabled={false}
       id="test"
       name="email"
@@ -314,7 +314,7 @@ exports[`TextField TextField with readOnly 1`] = `
   >
     <input
       aria-invalid="false"
-      className="textField base enabled normal medium truncate"
+      className="textField base enabled normal medium md truncate"
       disabled={false}
       id="test"
       onBlur={[Function]}
@@ -335,7 +335,7 @@ exports[`TextField TextField with tags 1`] = `
     className="box relative"
   >
     <div
-      className="textField base enabled normal large textFieldWrapper"
+      className="textField base enabled normal medium md textFieldWrapper"
     >
       <div
         className="box marginBottom1 marginEnd1"
