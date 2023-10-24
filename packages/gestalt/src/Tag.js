@@ -52,6 +52,18 @@ type Props = {
   type?: 'default' | 'error' | 'warning',
 };
 
+const applyDensityTheme = (s: 'sm' | 'md' | 'lg') => {
+  switch (s) {
+    case 'sm':
+      return { rounding: 4, paddingX: 2, paddingY: 1, height: 24 };
+    case 'md':
+      return { rounding: 4, paddingX: 2, paddingY: 1, height: 24 };
+    case 'lg':
+      return { rounding: 4, paddingX: 2, paddingY: 1, height: 24 };
+    default:
+      return { rounding: 4, paddingX: 2, paddingY: 1, height: 24 };
+  }
+};
 /**
  * [Tags](https://gestalt.pinterest.systems/web/tag) are objects that hold text and have a delete icon to remove them. They can appear within [TextFields](https://gestalt.pinterest.systems/web/textfield#tagsExample), [TextAreas](https://gestalt.pinterest.systems/web/textarea#tagsExample), [ComboBox](https://gestalt.pinterest.systems/web/combobox#Tags) or as standalone components.
  *
