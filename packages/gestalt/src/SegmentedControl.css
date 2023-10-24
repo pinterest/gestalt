@@ -7,18 +7,18 @@
 }
 
 .SegmentedControl.sm {
-  padding: var(--space-100);
   border-radius: var(--rounding-300);
+  padding: var(--space-100);
 }
 
 .SegmentedControl.md {
-  padding: var(--space-100);
   border-radius: var(--rounding-300);
+  padding: var(--space-100);
 }
 
 .SegmentedControl.lg {
-  padding: var(--space-100);
   border-radius: var(--rounding-400);
+  padding: var(--space-100);
 }
 
 .item {
@@ -32,18 +32,18 @@
 }
 
 .item.sm {
-  padding: var(--space-0) var(--space-200);
   border-radius: var(--rounding-100);
+  padding: var(--space-0) var(--space-200);
 }
 
 .item.md {
-  padding: var(--space-100) var(--space-300);
   border-radius: var(--rounding-200);
+  padding: var(--space-100) var(--space-300);
 }
 
 .item.lg {
-  padding: var(--space-200) var(--space-400);
   border-radius: var(--rounding-300);
+  padding: var(--space-200) var(--space-400);
 }
 
 .itemIsNotSelected {
