@@ -15,18 +15,18 @@ import Text from '../Text.js';
 import { type FontWeight } from '../textTypes.js';
 import useFocusVisible from '../useFocusVisible.js';
 
-export type OptionItemType = {|
+export type OptionItemType = {
   label: string,
   subtext?: string,
   value: string,
-|};
+};
 
-type BadgeType = {|
+type BadgeType = {
   text: string,
   type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
-|};
+};
 
-type Props = {|
+type Props = {
   badge?: BadgeType,
   children?: Node,
   dataTestId?: string,
@@ -35,20 +35,20 @@ type Props = {|
   id: string,
   index: number,
   isExternal?: boolean,
-  onClick?: ({|
+  onClick?: ({
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
     mobileOnDismissStart: () => void,
-  |}) => void,
-  onSelect?: ({|
+  }) => void,
+  onSelect?: ({
     item: OptionItemType,
     event: SyntheticInputEvent<HTMLInputElement>,
-  |}) => void,
+  }) => void,
   option: OptionItemType,
   selected?: OptionItemType | $ReadOnlyArray<OptionItemType> | null,
   setHoveredItemIndex: (number) => void,
   textWeight?: FontWeight,
-|};
+};
 
 const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forwardRef<
   Props,

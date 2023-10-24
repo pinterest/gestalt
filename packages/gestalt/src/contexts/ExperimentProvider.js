@@ -1,14 +1,14 @@
 // @flow strict
 import { type Context, createContext, useContext } from 'react';
 
-type Experiment = {|
+type Experiment = {
   anyEnabled: boolean,
   group: string,
-|};
+};
 
-type ExperimentContextType = {|
+type ExperimentContextType = {
   [experimentName: string]: Experiment,
-|};
+};
 
 const ExperimentContext: Context<ExperimentContextType> = createContext<ExperimentContextType>({});
 

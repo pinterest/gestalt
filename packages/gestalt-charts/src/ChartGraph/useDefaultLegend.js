@@ -6,22 +6,25 @@ import LegendIcon from './LegendIcon.js';
 export default function useDefaultLegend({
   isHorizontalBiaxialLayout,
   isVerticalBiaxialLayout,
-  legend,
+  isRtl,
   height,
   labelMap,
   setLegendHeight,
   referenceAreaSummary,
-}: {|
+}: {
   isHorizontalBiaxialLayout: boolean,
   isVerticalBiaxialLayout: boolean,
-  legend: 'auto' | 'none' | 'complete',
+  isRtl: boolean,
   height: number,
-  labelMap: ?{| [string]: string |},
+  labelMap: ?{ [string]: string },
   setLegendHeight: (number) => void,
-  referenceAreaSummary: null | $ReadOnlyArray<{| label: string, style?: 'default' |}>,
-|}): ({|
-  payload: $ReadOnlyArray<{|
-    payload: {|
+  referenceAreaSummary: null | $ReadOnlyArray<{
+    label: string,
+    style?: 'default',
+  }>,
+}): ({
+  payload: $ReadOnlyArray<{
+    payload: {
       color: ?string,
       dataKey: string,
       fill: ?string,
@@ -29,16 +32,16 @@ export default function useDefaultLegend({
       stroke: ?string,
       strokeDasharray: ?(string | number),
       value: number,
-    |},
-  |}>,
-|}) => Node {
+    },
+  }>,
+}) => Node {
   return useCallback(
     ({ payload }) => {
       const series = payload.map(
         ({
           payload: payloadData,
-        }: {|
-          payload: {|
+        }: {
+          payload: {
             color: ?string,
             dataKey: string,
             fill: ?string,
@@ -46,8 +49,8 @@ export default function useDefaultLegend({
             stroke: ?string,
             strokeDasharray: ?(string | number),
             value: number,
-          |},
-        |}) => (
+          },
+        }) => (
           <Flex key={payloadData.dataKey} gap={{ row: 2, column: 0 }}>
             <LegendIcon payloadData={{ ...payloadData, isLegend: true }} />
             <Text size="200">{labelMap?.[payloadData.dataKey] || payloadData.dataKey}</Text>
@@ -58,7 +61,7 @@ export default function useDefaultLegend({
       const referenceAreas =
         // TO DO FIX
         // eslint-disable-next-line no-unused-vars
-        referenceAreaSummary?.map(({ style, label }: {| style?: 'default', label: string |}) => (
+        referenceAreaSummary?.map(({ style, label }: { style?: 'default', label: string }) => (
           <Flex key={label} gap={{ row: 2, column: 0 }}>
             <LegendIcon payloadData={{ referenceArea: 'default', isLegend: true }} />
             <Text size="200">{label}</Text>
@@ -67,51 +70,57 @@ export default function useDefaultLegend({
 
       const legendItemsArray = [...series, ...referenceAreas];
 
-      if (isHorizontalBiaxialLayout && legend === 'auto') {
+      if (isHorizontalBiaxialLayout) {
         return (
-          <Box color="transparent" marginBottom={6} width="100%">
-            <Flex justifyContent="between">{legendItemsArray.slice(0, 2)}</Flex>
-          </Box>
+          <div style={{ direction: isRtl ? 'rtl' : 'ltr' }}>
+            <Box color="transparent" marginBottom={6} width="100%">
+              <Flex justifyContent="between">{legendItemsArray.slice(0, 2)}</Flex>
+            </Box>
+          </div>
         );
       }
 
-      if (isVerticalBiaxialLayout && legend === 'auto') {
+      if (isVerticalBiaxialLayout) {
         return (
-          <Box
-            dangerouslySetInlineStyle={{ __style: { top: '-15px' } }}
-            color="transparent"
-            position="absolute"
-            height={height}
-            display="flex"
-            alignContent="end"
-          >
-            <Flex direction="column" justifyContent="between">
-              {legendItemsArray.slice(0, 2)}
-            </Flex>
-          </Box>
+          <div style={{ direction: isRtl ? 'rtl' : 'ltr' }}>
+            <Box
+              dangerouslySetInlineStyle={{ __style: { top: '-15px' } }}
+              color="transparent"
+              position="absolute"
+              height={height}
+              display="flex"
+              alignContent="end"
+            >
+              <Flex direction="column" justifyContent="between">
+                {legendItemsArray.slice(0, 2)}
+              </Flex>
+            </Box>
+          </div>
         );
       }
 
       return (
-        <Box
-          color="transparent"
-          width="100%"
-          ref={(ref) => {
-            if (ref) setLegendHeight(ref.getBoundingClientRect().height);
-          }}
-        >
-          <Flex gap={{ row: 4, column: 0 }} wrap>
-            {legendItemsArray}
-          </Flex>
-        </Box>
+        <div style={{ direction: isRtl ? 'rtl' : 'ltr' }}>
+          <Box
+            color="transparent"
+            width="100%"
+            ref={(ref) => {
+              if (ref) setLegendHeight(ref.getBoundingClientRect().height);
+            }}
+          >
+            <Flex gap={{ row: 4, column: 0 }} wrap>
+              {legendItemsArray}
+            </Flex>
+          </Box>
+        </div>
       );
     },
     [
       isHorizontalBiaxialLayout,
       isVerticalBiaxialLayout,
+      isRtl,
       height,
       labelMap,
-      legend,
       setLegendHeight,
       referenceAreaSummary,
     ],

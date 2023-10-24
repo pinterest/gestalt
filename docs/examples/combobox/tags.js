@@ -19,7 +19,10 @@ export default function Example(): Node {
     'zie / zem',
   ];
 
-  const options = PRONOUNS.map((pronoun, index) => ({ label: pronoun, value: `value${index}` }));
+  const options = PRONOUNS.map((pronoun, index) => ({
+    label: pronoun,
+    value: `value${index}`,
+  }));
 
   const [suggestedOptions, setSuggestedOptions] = useState(
     options.filter((pronoun) => !selected.includes(pronoun.value)),
@@ -27,10 +30,10 @@ export default function Example(): Node {
 
   const handleOnSelect = ({
     item: { label },
-  }: {|
+  }: {
     event: SyntheticInputEvent<HTMLElement> | SyntheticKeyboardEvent<HTMLElement>,
-    item: {| label: string, subtext?: string, value: string |},
-  |}) => {
+    item: { label: string, subtext?: string, value: string },
+  }) => {
     if (!selected.includes(label) && selected.length < 2) {
       const newSelected = [...selected, label];
       setSelected(newSelected);
@@ -41,10 +44,10 @@ export default function Example(): Node {
 
   const handleOnChange = ({
     value,
-  }: {|
+  }: {
     event: SyntheticInputEvent<HTMLInputElement>,
     value: string,
-  |}) => {
+  }) => {
     setSearchTerm(value);
 
     const suggested = value
@@ -63,10 +66,10 @@ export default function Example(): Node {
 
   const handleOnKeyDown = ({
     event: { keyCode, currentTarget },
-  }: {|
+  }: {
     event: SyntheticKeyboardEvent<HTMLInputElement>,
     value: string,
-  |}) => {
+  }) => {
     // Remove tag on backspace if the cursor is at the beginning of the field
 
     if (keyCode === 8 /* Backspace */ && currentTarget.selectionEnd === 0) {

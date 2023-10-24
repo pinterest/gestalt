@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node as ReactNode, useEffect, useRef } from 'react';
 
-type Props = {|
+type Props = {
   children?: ReactNode,
-|};
+};
 
 function queryFocusableAll(el: HTMLDivElement) {
   // Focusable, interactive elements that could possibly be in children

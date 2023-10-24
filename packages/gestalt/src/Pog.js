@@ -22,11 +22,11 @@ const SIZE_NAME_TO_ICON_SIZE_PIXEL = {
 };
 
 const OLD_TO_NEW_COLOR_MAP = {
-  'white': 'inverse',
-  'gray': 'subtle',
-  'darkGray': 'default',
-  'red': 'error',
-  'brandPrimary': 'brandPrimary',
+  white: 'inverse',
+  gray: 'subtle',
+  darkGray: 'default',
+  red: 'error',
+  brandPrimary: 'brandPrimary',
 };
 
 const defaultIconButtonIconColors = {
@@ -39,7 +39,7 @@ const defaultIconButtonIconColors = {
   white: 'darkGray',
 };
 
-type Props = {|
+type Props = {
   /**
    * Omit if and only if an ancestor element already has the aria-label set.
    * This is similar to having [empty alt attributes](https://davidwalsh.name/accessibility-tip-empty-alt-attributes).
@@ -63,7 +63,7 @@ type Props = {|
   /**
    * Used for custom icons within Pog. Make sure that the viewbox around the SVG path is 24x24.
    */
-  dangerouslySetSvgPath?: {| __path: string |},
+  dangerouslySetSvgPath?: { __path: string },
   /**
    * Indicate if Pog is in a focused state. See [state combinations](https://gestalt.pinterest.systems/web/pog#stateCombinations) for more details.
    */
@@ -92,7 +92,7 @@ type Props = {|
    * This controls the icon size and the default padding size. Available sizes are "xs" (12px), "sm" (16px), "md" (18px), "lg" (20px), and "xl" (24px). If padding is omitted, button sizes are "xs" (24px), "sm" (32px), "md" (40px), "lg" (48px), and "xl" (56px). See [size combinations](https://gestalt.pinterest.systems/web/pog#sizeCombinations) for more details.
    */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
-|};
+};
 
 /**
  * [Pog](https://gestalt.pinterest.systems/web/pog) is a lower-level functional component to show the active, hovered, & focused states of [IconButton](https://gestalt.pinterest.systems/web/iconbutton).

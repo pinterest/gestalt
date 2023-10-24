@@ -2,19 +2,21 @@
 import { type Node } from 'react';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import endGuideElement from '../../examples/helpbutton/endGuideElement.js';
 import intermixedBlocks from '../../examples/helpbutton/intermixedBlocks.js';
+import localizationLabels from '../../examples/helpbutton/localizationLabels.js';
 import main from '../../examples/helpbutton/main.js';
 import withLink from '../../examples/helpbutton/withLink.js';
 import withText from '../../examples/helpbutton/withText.js';
 
-type DocsType = {|
+type DocsType = {
   generatedDocGen: DocGen,
-|};
+};
 
 export default function DocsPage({ generatedDocGen }: DocsType): Node {
   return (
@@ -83,9 +85,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): Node {
         />
       </MainSection>
 
-      <MainSection name="Localization">
-        <MainSection.Subsection description="Be sure to localize `text`, `accessibilityLabel`, `accessibilityPopoverLabel`, `link.text` and `link.accessibilityLabel` within HelpButton. Note that localization can lengthen text by 20 to 30 percent." />
-      </MainSection>
+      <LocalizationSection code={localizationLabels} name={generatedDocGen?.displayName} />
 
       <MainSection name="Variants">
         <MainSection.Subsection
@@ -124,7 +124,7 @@ HelpButton is a more specific component than IconButton. IconButton is preferabl
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: DocsType |}> {
+export async function getServerSideProps(): Promise<{ props: DocsType }> {
   return {
     props: { generatedDocGen: await docGen('HelpButton') },
   };

@@ -5,6 +5,7 @@ import AccessibilitySection from '../../docs-components/AccessibilitySection.js'
 import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -18,6 +19,7 @@ import differentSize from '../../examples/sheetmobile/differentSize.js';
 import dismissButtonHeader from '../../examples/sheetmobile/dismissButtonHeader.js';
 import footer from '../../examples/sheetmobile/footer.js';
 import fullSize from '../../examples/sheetmobile/fullSize.js';
+import localizationLabels from '../../examples/sheetmobile/localizationLabels.js';
 import main from '../../examples/sheetmobile/main.js';
 import navigationHeader from '../../examples/sheetmobile/navigationHeader.js';
 import outsideClick from '../../examples/sheetmobile/outsideClick.js';
@@ -26,9 +28,9 @@ import withPrimaryActionHeader from '../../examples/sheetmobile/withPrimaryActio
 
 export default function SheetMobilePage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): Node {
   return (
     <Page title={generatedDocGen?.SheetMobile.displayName}>
       <PageHeader
@@ -103,24 +105,10 @@ export default function SheetMobilePage({
 
       <AccessibilitySection name={generatedDocGen?.SheetMobile.displayName} />
 
-      <MainSection
-        name="Localization"
-        description={`Be sure to localize \`heading\` and \`subHeading\`. Also, localize all instances \`accessibilityLabel\`, \`primaryAction\`'s \`label\` any \`children\`'s and \`footer\`'s content.
-
-Be mindful of label length so that it doesn’t truncate in languages with lengthier character counts.`}
-      >
-        <SlimBanner
-          iconAccessibilityLabel="Recommendation"
-          message={`SheetMobile's main \`accessibilityLabel\` is used to announce SheetMobile to assistive technologies as "Bottom sheet". Localize the default label with DefaultLabelProvider if you want to provide a custom label to SheetMobile.`}
-          type="recommendationBare"
-          helperLink={{
-            text: 'Learn more',
-            accessibilityLabel: 'Learn more about DefaultLabelProvider',
-            href: '/web/utilities/defaultlabelprovider',
-            onClick: () => {},
-          }}
-        />
-      </MainSection>
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen?.SheetMobile.displayName}
+      />
 
       <MainSection name="Subcomponents">
         <MainSection.Subsection
@@ -408,9 +396,9 @@ OverlayPanels are surfaces that allow users to view optional information or comp
   );
 }
 
-export async function getStaticProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   return {
     props: {
       generatedDocGen: await multipleDocGen(['SheetMobile', 'DismissingElement']),

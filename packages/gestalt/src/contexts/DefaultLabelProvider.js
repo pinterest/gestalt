@@ -13,19 +13,19 @@ import { type Context, createContext, type Node, useContext } from 'react';
  *      docs/examples/defaultlabelprovider/translations.js
  */
 
-export type DefaultLabelContextType = {|
-  ActivationCard: {|
+export type DefaultLabelContextType = {
+  ActivationCard: {
     accessibilityDismissButtonLabel: string,
-  |},
-  Callout: {|
+  },
+  Callout: {
     accessibilityDismissButtonLabel: string,
     iconAccessibilityLabelError: string,
     iconAccessibilityLabelInfo: string,
     iconAccessibilityLabelRecommendation: string,
     iconAccessibilityLabelWarning: string,
     iconAccessibilityLabelSuccess: string,
-  |},
-  ChartGraph: {|
+  },
+  ChartGraph: {
     accessibilityLabelPrefixText: string,
     defaultViewText: string,
     accessibleViewText: string,
@@ -36,25 +36,25 @@ export type DefaultLabelContextType = {|
     tableYAxisText: string,
     downloadCsvButtonText: string,
     cancelButtonText: string,
-  |},
-  ComboBox: {|
+  },
+  ComboBox: {
     noResultText: string,
     accessibilityClearButtonLabel: string,
-  |},
-  DateRange: {|
+  },
+  DateRange: {
     cancelText: string,
     applyText: string,
-  |},
-  Link: {|
+  },
+  Link: {
     accessibilityNewTabLabel: string,
-  |},
-  Modal: {|
+  },
+  Modal: {
     accessibilityDismissButtonLabel: string,
-  |},
-  Popover: {|
+  },
+  Popover: {
     accessibilityDismissButtonLabel: string,
-  |},
-  OverlayPanel: {|
+  },
+  OverlayPanel: {
     accessibilityDismissButtonLabel: string,
     dismissConfirmationMessage: string,
     dismissConfirmationSubtext: string,
@@ -62,45 +62,45 @@ export type DefaultLabelContextType = {|
     dismissConfirmationPrimaryActionTextLabel: string,
     dismissConfirmationSecondaryActionText: string,
     dismissConfirmationSecondaryActionTextLabel: string,
-  |},
-  SheetMobile: {|
+  },
+  SheetMobile: {
     accessibilityDismissButtonLabel: string,
     accessibilityGrabberLabel: string,
     accessibilityLabel: string,
-  |},
-  SideNavigation: {|
+  },
+  SideNavigation: {
     accessibilityDismissButtonLabel: string,
-  |},
-  SlimBanner: {|
+  },
+  SlimBanner: {
     accessibilityDismissButtonLabel: string,
     iconAccessibilityLabelError: string,
     iconAccessibilityLabelInfo: string,
     iconAccessibilityLabelRecommendation: string,
     iconAccessibilityLabelWarning: string,
     iconAccessibilityLabelSuccess: string,
-  |},
-  Spinner: {|
+  },
+  Spinner: {
     accessibilityLabel: string,
-  |},
-  TableOfContents: {|
+  },
+  TableOfContents: {
     accessibilityLabel: string,
-  |},
-  Tag: {|
+  },
+  Tag: {
     accessibilityErrorIconLabel: string,
     accessibilityRemoveIconLabel: string,
     accessibilityWarningIconLabel: string,
-  |},
-  TagData: {|
+  },
+  TagData: {
     accessibilityRemoveIconLabel: string,
-  |},
-  TextField: {|
+  },
+  TextField: {
     accessibilityHidePasswordLabel: string,
     accessibilityShowPasswordLabel: string,
-  |},
-  Upsell: {|
+  },
+  Upsell: {
     accessibilityDismissButtonLabel: string,
-  |},
-  Video: {|
+  },
+  Video: {
     accessibilityMaximizeLabel: string,
     accessibilityMinimizeLabel: string,
     accessibilityMuteLabel: string,
@@ -110,17 +110,17 @@ export type DefaultLabelContextType = {|
     accessibilityUnmuteLabel: string,
     accessibilityHideCaptionsLabel: string,
     accessibilityShowCaptionsLabel: string,
-  |},
-  HelpButton: {|
+  },
+  HelpButton: {
     tooltipMessage: string,
-  |},
-  Toast: {|
+  },
+  Toast: {
     accessibilityDismissButtonLabel: string,
     accessibilityIconSuccessLabel: string,
     accessibilityIconErrorLabel: string,
     accessibilityProcessingLabel: string,
-  |},
-|};
+  },
+};
 
 export const fallbackLabels: DefaultLabelContextType = {
   ActivationCard: {
@@ -234,7 +234,7 @@ export const fallbackLabels: DefaultLabelContextType = {
 const DefaultLabelContext: Context<?DefaultLabelContextType> =
   createContext<?DefaultLabelContextType>(null);
 
-type Props = {|
+type Props = {
   children: Node,
   /**
    * An object describing the default strings to be used by supported component labels throughout your app. If your app supports i18n, don't forget to translate your strings!
@@ -244,7 +244,7 @@ type Props = {|
    * See [the source code](https://github.com/pinterest/gestalt/blob/master/packages/gestalt/src/contexts/DefaultLabelProvider.js) for the specific shape of this object.
    */
   labels?: null | DefaultLabelContextType,
-|};
+};
 
 /**
  * [DefaultLabelProvider](https://gestalt.pinterest.systems/web/utilities/defaultlabelprovider) is an optional [React Context provider](https://reactjs.org/docs/context.html#contextprovider) to provide default strings for Gestalt component labels that support it. This allows for faster development by reducing boilerplate props at the callsite.

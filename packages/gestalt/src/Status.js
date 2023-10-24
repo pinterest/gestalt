@@ -50,7 +50,7 @@ type StatusType =
   | 'canceled'
   | 'warning';
 
-type Props = {|
+type Props = {
   /**
    * If not using `title`, provide an accessibility label to give the user context about the icon. Be sure to [localize](https://gestalt.pinterest.systems/web/status#Localization) the label.
    */
@@ -67,7 +67,7 @@ type Props = {|
    * The type of status to display.
    */
   type: StatusType,
-|};
+};
 
 /**
  * [Status](https://gestalt.pinterest.systems/web/status) is a graphic indicator of an element’s state.

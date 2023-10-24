@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { useTableContext } from './contexts/TableContext.js';
 import styles from './Table.css';
 
-type Props = {|
+type Props = {
   /**
    * Must be instances of Table.Cell, Table.HeaderCell, or Table.SortableHeaderCell components. See the [Subcomponent section](https://gestalt.pinterest.systems/web/table#Subcomponents) to learn more.
    */
@@ -17,7 +17,7 @@ type Props = {|
    * Indicates if Table.Row is currently selected or unselected. See the [selected and hovered state variant](https://gestalt.pinterest.systems/web/table#Selected-and-hovered-state) to learn more.
    */
   selected?: 'selected' | 'unselected',
-|};
+};
 
 /**
  * Use [Table.Row](https://gestalt.pinterest.systems/web/table#Table.Row) to define a row in Table.
@@ -42,7 +42,11 @@ export default function TableRow({ children, hoverStyle = 'none', selected }: Pr
       previousWidths.length > 0 ? previousWidths.reduce((a, b) => a + b) : 0;
     // $FlowFixMe[incompatible-exact]
     // $FlowFixMe[incompatible-type]
-    return cloneElement(child, { shouldBeSticky, previousTotalWidth, shouldHaveShadow });
+    return cloneElement(child, {
+      shouldBeSticky,
+      previousTotalWidth,
+      shouldHaveShadow,
+    });
   };
 
   const rowStyle = classnames({

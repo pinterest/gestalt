@@ -11,34 +11,34 @@ import { ESCAPE } from '../keyCodes.js';
 import Popover from '../Popover.js';
 import Text from '../Text.js';
 
-type Props = {|
+type Props = {
   anchor: ?HTMLElement,
   message?: string,
   onDismiss: () => void,
-  primaryAction?: {|
+  primaryAction?: {
     accessibilityLabel?: string,
     text?: string,
-    onClick?: ({|
+    onClick?: ({
       event:
         | SyntheticMouseEvent<HTMLButtonElement>
         | SyntheticMouseEvent<HTMLAnchorElement>
         | SyntheticKeyboardEvent<HTMLAnchorElement>
         | SyntheticKeyboardEvent<HTMLButtonElement>,
-    |}) => void,
-  |},
-  secondaryAction?: {|
+    }) => void,
+  },
+  secondaryAction?: {
     accessibilityLabel?: string,
     text?: string,
-    onClick?: ({|
+    onClick?: ({
       event:
         | SyntheticMouseEvent<HTMLButtonElement>
         | SyntheticMouseEvent<HTMLAnchorElement>
         | SyntheticKeyboardEvent<HTMLAnchorElement>
         | SyntheticKeyboardEvent<HTMLButtonElement>,
-    |}) => void,
-  |},
+    }) => void,
+  },
   subtext?: string,
-|};
+};
 
 export default function ConfirmationPopover({
   anchor,

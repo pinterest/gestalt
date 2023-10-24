@@ -11,7 +11,7 @@ import handleCodeSandbox from './handleCodeSandbox.js';
 
 const CODE_EXAMPLE_HEIGHT = 162;
 
-async function copyCode({ code }: {| code: string |}) {
+async function copyCode({ code }: { code: string }) {
   try {
     await clipboardCopy(code);
   } catch (error) {
@@ -20,13 +20,13 @@ async function copyCode({ code }: {| code: string |}) {
   }
 }
 
-type Props = {|
+type Props = {
   code: string,
   name: string,
   readOnly?: boolean,
   hideCodePreview?: boolean,
   developmentEditor?: boolean,
-|};
+};
 
 export default function ExampleCode({
   code,

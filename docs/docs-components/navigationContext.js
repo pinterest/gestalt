@@ -8,19 +8,19 @@ const localStorageOrganizedByKey = 'gestalt-sidebar-organized-by-platform';
 
 export type ComponentPlatformFilteredBy = 'web' | 'ios' | 'android';
 
-export type NavigationContextType = {|
+export type NavigationContextType = {
   isSidebarOpen: boolean,
   setIsSidebarOpen: (boolean | ((boolean) => boolean)) => void,
   componentPlatformFilteredBy: ComponentPlatformFilteredBy,
   setComponentPlatformFilteredByCookie: (val: ComponentPlatformFilteredBy) => void,
   selectedTab: string,
   setSelectedTab: (string | ((string) => string)) => void,
-|};
+};
 
 const PLATFORM_MAP = {
-  'web': 'web',
-  'ios': 'ios',
-  'android': 'android',
+  web: 'web',
+  ios: 'ios',
+  android: 'android',
 };
 
 const {
@@ -29,7 +29,7 @@ const {
   useHook: useNavigationContext,
 }: Hydra<NavigationContextType> = createHydra<NavigationContextType>('NavigationContext');
 
-function NavigationContextProvider({ children }: {| children?: Node |}): Node {
+function NavigationContextProvider({ children }: { children?: Node }): Node {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const [cookies, setCookies] = useCookies([localStorageOrganizedByKey]);

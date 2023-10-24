@@ -5,12 +5,12 @@ import matter from 'gray-matter';
 import logGAEvent from './gAnalytics.js';
 import siteIndex, { type siteIndexType } from '../docs-components/siteIndex.js';
 
-export async function getDocByRoute(route: string): Promise<{|
+export async function getDocByRoute(route: string): Promise<{
   content?: string,
   meta: { [key: string]: string },
   route: string,
   isMDX: boolean,
-|}> {
+}> {
   const docsDirectory = path.join(process.cwd(), 'markdown');
   const fullPath = path.join(docsDirectory, `${route}.md`);
 
@@ -24,7 +24,7 @@ export async function getDocByRoute(route: string): Promise<{|
 
     return { route, meta: data, content, isMDX: true };
   } catch (ex) {
-    logGAEvent('md-page-not-found', { route, 'error': ex.message });
+    logGAEvent('md-page-not-found', { route, error: ex.message });
     return { route, isMDX: false, meta: {} };
   }
 }
@@ -78,7 +78,6 @@ export async function getAllMarkdownPosts(): Promise<$ReadOnlyArray<$ReadOnlyArr
     }
   };
 
-  // $FlowFixMe[incompatible-call]
   const pathResults = await Promise.all(pagePaths.map((pagePath) => checkIfPathExists(pagePath)));
 
   const validMarkdownPages = pathResults.filter((p) => p.length > 0);

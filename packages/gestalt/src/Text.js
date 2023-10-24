@@ -14,7 +14,7 @@ type As = 'span' | 'div';
 type Overflow = 'normal' | 'breakAll' | 'breakWord' | 'noWrap';
 type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
-type Props = {|
+type Props = {
   /**
    * `"start"` and `"end"` should be used for regular alignment since they flip with locale direction. `"forceLeft"` and `"forceRight"` should only be used in special cases where locale direction should be ignored, such as tabular or numeric text. See the [alignment variant](https://gestalt.pinterest.systems/web/text#Alignment) for more details.
    */
@@ -73,7 +73,7 @@ type Props = {|
    * Indicates the font weight for the text content. See the [styles variant](https://gestalt.pinterest.systems/web/text#Styles) for more details.
    */
   weight?: 'bold' | 'normal',
-|};
+};
 
 /**
  * [Text](https://gestalt.pinterest.systems/web/text) component is used for all non-heading text on all surfaces, whether inside of UI components or in long-form paragraph text.

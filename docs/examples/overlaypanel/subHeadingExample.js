@@ -28,11 +28,11 @@ export default function SubheadingExample(): Node {
   const handleChangeTab = ({
     activeTabIndex: activeTabIndexLocal,
     event,
-  }: {|
+  }: {
     +activeTabIndex: number,
     dangerouslyDisableOnNavigation: () => void,
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-  |}) => {
+  }) => {
     event.preventDefault();
     setActiveTabIndex(activeTabIndexLocal);
     refs[activeTabIndexLocal].current?.scrollIntoView({

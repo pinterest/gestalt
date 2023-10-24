@@ -8,7 +8,7 @@ import wrapWithComponent from './utils/wrapWithComponent.js';
 type Dimension = number | string;
 type Gap = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-type Props = {|
+type Props = {
   /**
    * Aligns the flex container's lines within when there is extra space in the cross axis, similar to how `justify-content` aligns individual items within the main axis.
    */
@@ -55,7 +55,7 @@ type Props = {|
   /**
    * Defines spacing between each child along the main and cross axes. Use an object to define different spacing for rows and columns. See the [Gap](https://gestalt.pinterest.systems/web/flex#Gap) variant to learn more.
    */
-  gap?: Gap | {| row: Gap, column: Gap |},
+  gap?: Gap | { row: Gap, column: Gap },
   /**
    * Use numbers for pixels: `height={100}` and strings for percentages: `height="100%"`.
    */
@@ -92,7 +92,7 @@ type Props = {|
    * By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap onto multiple lines, from top to bottom.
    */
   wrap?: boolean,
-|};
+};
 
 const allowedProps = [
   'alignContent',

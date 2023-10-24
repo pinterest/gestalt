@@ -24,10 +24,10 @@ const neutrals = [
   { name: 'Cosmicore', id: 'black', textColor: 'light' },
 ];
 
-type ColorCardProps = {|
+type ColorCardProps = {
   children: Node,
   colorScheme: 'light' | 'dark',
-|};
+};
 function ColorSchemeCard({ children, colorScheme }: ColorCardProps): Node {
   return (
     <Flex

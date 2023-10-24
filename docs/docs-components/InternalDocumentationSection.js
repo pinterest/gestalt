@@ -3,7 +3,7 @@ import { type Node } from 'react';
 import { Link, List, Module, Text } from 'gestalt';
 import Card from './Card.js';
 
-type Props = {| items: $ReadOnlyArray<{| href: string, text: string |}> |};
+type Props = { items: $ReadOnlyArray<{ href: string, text: string }> };
 
 export default function InternalDocumentationSection({ items }: Props): Node {
   return (

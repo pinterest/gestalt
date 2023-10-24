@@ -39,11 +39,11 @@ export default function wrapWithComponent<P>({
   element,
   Component,
   props,
-}: {|
+}: {
   element: ?Node,
   Component: ComponentType<P>,
   props: P,
-|}): Node {
+}): Node {
   if (element === null || element === undefined) {
     return null;
   }

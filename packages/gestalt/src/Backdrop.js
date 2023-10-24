@@ -4,11 +4,11 @@ import classnames from 'classnames';
 import { ANIMATION_STATE, useAnimation } from './animation/AnimationContext.js';
 import styles from './Backdrop.css';
 
-type Props = {|
+type Props = {
   children?: Node,
   closeOnOutsideClick: boolean,
   onClick?: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
-|};
+};
 
 function Backdrop({ children, closeOnOutsideClick, onClick }: Props): Node {
   const { animationState } = useAnimation();

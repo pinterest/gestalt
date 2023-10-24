@@ -8,7 +8,7 @@ import List from './List/InternalList.js'; // eslint-disable import/no-cycle
 import ListText from './List/Message.js';
 import Text from './Text.js';
 
-type Props = {|
+type Props = {
   /**
    * Use List.Item to build nested lists. Use List to combine different types nested lists. See [subcomponents](https://gestalt.pinterest.systems/web/list#Subcomponents).
    */
@@ -17,7 +17,7 @@ type Props = {|
    * The content of the list item. See the [text variant](https://gestalt.pinterest.systems/web/list#Text-and-label) for guidance.
    */
   text: string | Element<typeof Text>,
-|};
+};
 
 /**
  * [List.Item](https://gestalt.pinterest.systems/web/list#List.Item) is a subcomponent of [List](https://gestalt.pinterest.systems/web/list). List.Item represents the `<li>` tag nested within a `<ul>` or `<ol>` list tag.

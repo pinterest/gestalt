@@ -13,7 +13,7 @@ import mainExample from '../../examples/segmentedcontrol/mainExample.js';
 import responsiveExample from '../../examples/segmentedcontrol/responsiveExample.js';
 import sizeExample from '../../examples/segmentedcontrol/sizeExample.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title="SegmentedControl">
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen.description}>
@@ -87,7 +87,9 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('SegmentedControl') },
   };

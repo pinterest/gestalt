@@ -74,6 +74,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-background-success-weak: #00422c;
   --color-background-recommendation-base: #b190ff;
   --color-background-recommendation-weak: #550aa9;
+  --color-background-neutral: #cdcdcd;
   --color-background-shopping: #75bfff;
   --color-background-secondary-base: #767676;
   --color-background-tertiary-base: #cdcdcd;
@@ -184,6 +185,7 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-background-success-weak: #c3f9c2;
   --color-background-recommendation-base: #812ae7;
   --color-background-recommendation-weak: #e9e4ff;
+  --color-background-neutral: #767676;
   --color-background-shopping: #0074e8;
   --color-background-secondary-base: #e9e9e9;
   --color-background-tertiary-base: #767676;
@@ -294,6 +296,7 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-background-success-weak: #c3f9c2;
   --color-background-recommendation-base: #812ae7;
   --color-background-recommendation-weak: #e9e4ff;
+  --color-background-neutral: #767676;
   --color-background-shopping: #0074e8;
   --color-background-secondary-base: #e9e9e9;
   --color-background-tertiary-base: #767676;
@@ -404,6 +407,7 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-background-success-weak: #c3f9c2;
   --color-background-recommendation-base: #812ae7;
   --color-background-recommendation-weak: #e9e4ff;
+  --color-background-neutral: #767676;
   --color-background-shopping: #0074e8;
   --color-background-secondary-base: #e9e9e9;
   --color-background-tertiary-base: #767676;
@@ -515,6 +519,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-background-success-weak: #00422c;
   --color-background-recommendation-base: #b190ff;
   --color-background-recommendation-weak: #550aa9;
+  --color-background-neutral: #cdcdcd;
   --color-background-shopping: #75bfff;
   --color-background-secondary-base: #767676;
   --color-background-tertiary-base: #cdcdcd;

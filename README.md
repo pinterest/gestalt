@@ -87,7 +87,7 @@ Gestalt is Pinterest's open-sourced design system. However, Gestalt's web compon
 
 We do not have resources to work on features or issues requested only by external developers. We also handle a very large amount of internal support requests, so we do not have the resources to respond to external Github issues.
 
-Pinterest is staying open source, as it's a great resource for the design and engineering community, but we don't provide support to external developers.
+Pinterest is staying open source, as it's a great resource for the design and engineering community, but we don't provide support to external developers. If you need to get in touch, send us an [email](mailto:designsystems@pinterest.com?subject=Github%20Request%3A).
 
 ### Troubleshooting
 

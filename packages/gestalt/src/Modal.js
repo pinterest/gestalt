@@ -16,7 +16,7 @@ import FullPage from './SheetMobile/FullPage.js';
 import Text from './Text.js';
 import { FixedZIndex } from './zIndex.js';
 
-type Props = {|
+type Props = {
   /**
    * Temporary undocumented prop to disable ScrollBoundaryContainer.
    */
@@ -67,7 +67,7 @@ type Props = {|
    * Subtext for Modal, only renders with `heading` strings. See the [sub-heading variant](https://gestalt.pinterest.systems/web/modal#Sub-heading) for more info.
    */
   subHeading?: string,
-|};
+};
 
 const SIZE_WIDTH_MAP = {
   sm: 540,
@@ -79,11 +79,11 @@ function Header({
   align,
   heading,
   subHeading,
-}: {|
+}: {
   align: 'start' | 'center',
   heading: string,
   subHeading?: string,
-|}) {
+}) {
   return (
     <Box justifyContent={align} padding={6}>
       <Heading size="500" accessibilityLevel={1} align={align}>
@@ -128,7 +128,7 @@ export default function Modal({
   const contentRef = useRef<?HTMLElement>(null);
 
   useEffect(() => {
-    function handleKeyUp(event: {| keyCode: number |}) {
+    function handleKeyUp(event: { keyCode: number }) {
       if (event.keyCode === ESCAPE) {
         onDismiss();
       }

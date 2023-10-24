@@ -2,22 +2,22 @@
 import { Children, Fragment, type Node } from 'react';
 
 const ALLOWED_CHILDREN_MAP = {
-  'main': ['SideNavigation.Section', 'SideNavigation.TopItem', 'SideNavigation.Group'],
-  'nested': ['SideNavigation.NestedItem', 'SideNavigation.NestedGroup'],
+  main: ['SideNavigation.Section', 'SideNavigation.TopItem', 'SideNavigation.Group'],
+  nested: ['SideNavigation.NestedItem', 'SideNavigation.NestedGroup'],
 };
 
 const getChildrenToArray = ({
   children,
   filterLevel,
-}: {|
+}: {
   children: Node,
   filterLevel: 'main' | 'nested',
   // $FlowFixMe[unclear-type] ALBERTO TO FIX FLOW TYPE HERE
-|}): $ReadOnlyArray<any> => {
+}): $ReadOnlyArray<any> => {
   const navigationChildren = [];
 
   let recursionLevel = 0;
-  const getChildren: ({| nodeChildren: Node |}) => void = ({ nodeChildren }) =>
+  const getChildren: ({ nodeChildren: Node }) => void = ({ nodeChildren }) =>
     // $FlowFixMe[underconstrained-implicit-instantiation]
     Children.toArray(nodeChildren).forEach((child) => {
       // Detect incorrect subcomponent usage at the main level

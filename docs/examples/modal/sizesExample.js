@@ -5,7 +5,7 @@ import { Box, Button, CompositeZIndex, FixedZIndex, Heading, Layer, Modal } from
 type Size = 'small' | 'medium' | 'large' | 'none';
 
 export default function SizesExample(): Node {
-  function reducer(state: {| modal: Size |}, action: {| type: Size |}) {
+  function reducer(state: { modal: Size }, action: { type: Size }) {
     switch (action.type) {
       case 'small':
         return { modal: 'small' };

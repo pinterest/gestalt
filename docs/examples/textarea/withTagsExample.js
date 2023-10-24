@@ -2,15 +2,15 @@
 import { type Node, useRef, useState } from 'react';
 import { Box, Tag, TextArea } from 'gestalt';
 
-type ChangeTagHandler = ({|
+type ChangeTagHandler = ({
   event: SyntheticInputEvent<HTMLTextAreaElement>,
   value: string,
-|}) => void;
+}) => void;
 
-type KeyDownHandler = ({|
+type KeyDownHandler = ({
   event: SyntheticKeyboardEvent<HTMLTextAreaElement>,
   value: string,
-|}) => void;
+}) => void;
 
 const CITIES = ['San Francisco', 'New York'];
 

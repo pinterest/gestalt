@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import InternalLabel from './Label/InternalLabel.js';
 
-type Props = {|
+type Props = {
   /**
    * The content of the label, typically [Text](https://gestalt.pinterest.systems/web/text) or similar.
    */
@@ -11,7 +11,7 @@ type Props = {|
    * Unique id of the element this label is describing.
    */
   htmlFor: string,
-|};
+};
 
 /**
  * Use the [Label](https://gestalt.pinterest.systems/web/label) component to connect a label with a form component in an accessible way.

@@ -2,7 +2,7 @@
 import { type Node } from 'react';
 import { Box, Checkbox, Flex, Label, Status, Table, Text } from 'gestalt';
 
-function HeaderRow({ id }: {| id: string |}) {
+function HeaderRow({ id }: { id: string }) {
   return (
     <Table.Header>
       <Table.Row>
@@ -30,7 +30,7 @@ function BaseRow({
   text,
   subtext,
   campaign,
-}: {|
+}: {
   id: string,
   checked?: boolean,
   disabled?: boolean,
@@ -38,7 +38,7 @@ function BaseRow({
   text: string,
   subtext: string,
   campaign: string,
-|}) {
+}) {
   return (
     <Table.Row>
       <Table.Cell>

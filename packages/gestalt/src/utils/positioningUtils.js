@@ -36,10 +36,10 @@ const DIR_INDEX_MAP = {
 export const getContainerNode = ({
   scrollBoundaryContainerRef,
   initialPositionRef,
-}: {|
+}: {
   scrollBoundaryContainerRef: ?HTMLElement,
   initialPositionRef: ?HTMLElement,
-|}): ?HTMLElement => {
+}): ?HTMLElement => {
   // containerNode references the ScrollBoundaryContainer node to which
   // append the portal
   let containerNode = null;
@@ -72,14 +72,14 @@ export const getTriggerRect = ({
   anchor,
   positionRelativeToAnchor,
   scrollBoundaryContainerRef,
-}: {|
+}: {
   anchor: HTMLElement,
   positionRelativeToAnchor: boolean,
   scrollBoundaryContainerRef: ?HTMLElement,
-|}): {|
+}): {
   relativeOffset: ?Coordinates,
   triggerBoundingRect: ?ClientRect,
-|} => {
+} => {
   let triggerBoundingRect;
   let relativeOffset;
 
@@ -133,13 +133,13 @@ export function getPopoverDir({
   triggerRect,
   windowSize,
   isScrollBoundaryContainer,
-}: {|
+}: {
   popoverSize: Dimensions,
   idealDirection: PopoverDir,
   triggerRect: ?ClientRect,
   windowSize: Window,
   isScrollBoundaryContainer?: boolean,
-|}): MainDirections {
+}): MainDirections {
   // Calculates the available space if we were to place the popover in the 4 main directions
   // to determine which 'quadrant' to position the popover inside of
   let up = (triggerRect?.top ?? 0) - popoverSize.height - CARET_HEIGHT;
@@ -205,12 +205,12 @@ export function getCaretDir({
   popoverDir,
   triggerRect,
   windowSize,
-}: {|
+}: {
   popoverSize: Dimensions,
   popoverDir: PopoverDir,
   triggerRect: ?ClientRect,
   windowSize: Window,
-|}): CaretDir {
+}): CaretDir {
   // Now that we have the main direction, chose from 3 caret placements for that direction
   let offset;
   let triggerMid;
@@ -252,11 +252,11 @@ export function calcEdgeShifts({
   triggerRect,
   windowSize,
   isScrollBoundaryContainer,
-}: {|
+}: {
   triggerRect: ?ClientRect,
   windowSize: Window,
   isScrollBoundaryContainer: boolean,
-|}): {| caret: Coordinates, popover: Coordinates |} {
+}): { caret: Coordinates, popover: Coordinates } {
   // Target values for popover and caret shifts
   let popoverVerticalShift =
     CARET_OFFSET_FROM_SIDE - ((triggerRect?.height ?? 0) - CARET_HEIGHT) / 2;
@@ -313,18 +313,18 @@ export function adjustOffsets({
   caretDir,
   triggerRect,
   isScrollBoundaryContainer,
-}: {|
-  base: {| top: number, left: number |},
+}: {
+  base: { top: number, left: number },
   edgeShift: EdgeShift,
   popoverSize: Dimensions,
   popoverDir: PopoverDir,
   caretDir: CaretDir,
   triggerRect: ?ClientRect,
   isScrollBoundaryContainer: boolean,
-|}): {|
+}): {
   caretOffset: CaretOffset,
   popoverOffset: Offset,
-|} {
+} {
   let popoverLeft = base.left;
   let popoverTop = base.top;
 
@@ -384,14 +384,14 @@ export function baseOffsets({
   popoverDir,
   triggerRect,
   windowSize,
-}: {|
+}: {
   hasCaret: boolean,
   relativeOffset: ?Coordinates,
   popoverSize: Dimensions,
   popoverDir: PopoverDir,
   triggerRect: ?ClientRect,
   windowSize: Window,
-|}): Offset {
+}): Offset {
   const SPACING_OUTSIDE = hasCaret ? CARET_HEIGHT : 8;
   // TOP OFFSET
   let top;

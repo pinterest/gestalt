@@ -17,8 +17,6 @@ export default function DocsPage(): Node {
         description="FixedZIndex and CompositeZIndex are utility classes that generate z-indices for Gestalt components."
       />
 
-      <AccessibilitySection name="Z-Index Classes" />
-
       <MainSection name="FixedZIndex">
         <MainSection.Subsection>
           <MainSection.Card
@@ -279,6 +277,9 @@ const modalB = (
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <AccessibilitySection name="Z-Index Classes" />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="z-index in foundational components"

@@ -7,10 +7,10 @@
  */
 
 type Arguments = $ReadOnlyArray<Event | string | number | boolean | null>;
-export type DebounceReturn = {|
+export type DebounceReturn = {
   (...args: Arguments): void,
   clearTimeout: () => void,
-|};
+};
 
 export default function debounce(
   fn: (...args: Arguments) => void,

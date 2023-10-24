@@ -1,10 +1,11 @@
 // @flow strict
 import { type Node } from 'react';
-import { Box, SlimBanner, TapAreaLink } from 'gestalt';
+import { Box, TapAreaLink } from 'gestalt';
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen, type DocType } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -13,6 +14,7 @@ import SandpackExample from '../../docs-components/SandpackExample.js';
 import compressBehavior from '../../examples/taparealink/compressBehavior.js';
 import heightWidth from '../../examples/taparealink/heightWidth.js';
 import inlineUsage from '../../examples/taparealink/inlineUsage.js';
+import localizationLabels from '../../examples/taparealink/localizationLabels.js';
 import main from '../../examples/taparealink/main.js';
 import mouseCursor from '../../examples/taparealink/mouseCursor.js';
 
@@ -29,21 +31,9 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
-      <MainSection name="Localization" description="Localize the accessibilityLabel.">
-        <SlimBanner
-          iconAccessibilityLabel="Localize the default label"
-          message="TapAreas with link role announce to assistive technologies that the link opens in a new tab when setting target to 'blank'. Localize the default label with DefaultLabelProvider."
-          type="recommendationBare"
-          helperLink={{
-            text: 'Learn more',
-            accessibilityLabel: 'Learn more about DefaultLabelProvider',
-            href: '/web/utilities/defaultlabelprovider',
-            onClick: () => {},
-          }}
-        />
-      </MainSection>
-
       <MainSection name="Usage guidelines" description="See [TapArea](/web/taparea)." />
+
+      <LocalizationSection name={generatedDocGen?.displayName} code={localizationLabels} />
 
       <MainSection name="Variants" description="See [TapArea](/web/taparea) for more variants.">
         <MainSection.Subsection title="Compress behavior">
@@ -143,7 +133,9 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Lin
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('TapAreaLink') },
   };

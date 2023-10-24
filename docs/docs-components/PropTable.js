@@ -36,7 +36,7 @@ const transformDefaultValue = (input: ?(number | string | boolean)) => {
   return input;
 };
 
-type Prop = {|
+type Prop = {
   defaultValue?: boolean | string | number | null,
   description?: string | $ReadOnlyArray<string>,
   href?: string,
@@ -45,12 +45,12 @@ type Prop = {|
   required?: boolean,
   responsive?: boolean,
   type: string,
-|};
+};
 
 const sortBy = (list: $ReadOnlyArray<Prop>, fn: (Prop) => string) =>
   [...list].sort((a, b) => fn(a).localeCompare(fn(b)));
 
-function FormattedCode({ children }: {| children: Node |}) {
+function FormattedCode({ children }: { children: Node }) {
   return (
     <code>
       <pre style={{ margin: 0, overflowX: 'scroll', minWidth: 510 }}>{children}</pre>
@@ -75,7 +75,7 @@ function Description(lines: $ReadOnlyArray<string>): Node {
   );
 }
 
-function Th({ children }: {| children?: Node |}) {
+function Th({ children }: { children?: Node }) {
   return (
     <th style={{ borderBottom: '2px solid #ddd' }}>
       <Box padding={2}>
@@ -93,13 +93,13 @@ function Td({
   colspan = 1,
   shrink = false,
   color = 'default',
-}: {|
+}: {
   border?: boolean,
   children?: Node,
   colspan?: number,
   shrink?: boolean,
   color?: 'default' | 'subtle',
-|}) {
+}) {
   return (
     <td
       style={{
@@ -119,12 +119,12 @@ function Td({
   );
 }
 
-type Props = {|
+type Props = {
   componentName: string,
   id?: string,
   name?: string,
   props: $ReadOnlyArray<Prop>,
-|};
+};
 
 export default function PropTable({
   componentName,
@@ -177,7 +177,10 @@ export default function PropTable({
               position="absolute"
               as="caption"
               dangerouslySetInlineStyle={{
-                __style: { clip: 'rect(1px, 1px, 1px, 1px)', whiteSpace: 'nowrap' },
+                __style: {
+                  clip: 'rect(1px, 1px, 1px, 1px)',
+                  whiteSpace: 'nowrap',
+                },
               }}
             >
               {proptableName ? `${proptableName} subcomponent props` : 'Component props'}
@@ -293,8 +296,9 @@ export default function PropTable({
                               <Box marginTop={6}>
                                 <Text>
                                   <code>
-                                    sm{capitalizeFirstLetter(name)}, md{capitalizeFirstLetter(name)}
-                                    , lg{capitalizeFirstLetter(name)}
+                                    sm{capitalizeFirstLetter(name)}, md
+                                    {capitalizeFirstLetter(name)}, lg
+                                    {capitalizeFirstLetter(name)}
                                   </code>
                                 </Text>
                               </Box>

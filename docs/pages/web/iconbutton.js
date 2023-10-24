@@ -1,11 +1,12 @@
 // @flow strict
 import { type Node } from 'react';
-import { IconButton, SlimBanner } from 'gestalt';
+import { IconButton } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -25,7 +26,7 @@ import selectedState from '../../examples/iconbutton/selectedState.js';
 import tooltip from '../../examples/iconbutton/tooltip.js';
 import tooltipVariant from '../../examples/iconbutton/tooltipVariant.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -157,19 +158,7 @@ If IconButton is disabled, it's also unreachable from keyboard navigation.`}
           />
         </MainSection.Subsection>
       </AccessibilitySection>
-      <MainSection name="Localization" description="Be sure to localize `accessibilityLabel`.">
-        <SlimBanner
-          iconAccessibilityLabel="Localize the default label"
-          message="IconButtons with link role announce to assistive technologies that the link opens in a new tab when setting target to 'blank'. Localize the default label with DefaultLabelProvider."
-          type="recommendationBare"
-          helperLink={{
-            text: 'Learn more',
-            accessibilityLabel: 'Learn more about DefaultLabelProvider',
-            href: '/web/utilities/defaultlabelprovider',
-            onClick: () => {},
-          }}
-        />
-      </MainSection>
+      <LocalizationSection name={generatedDocGen?.displayName} noDefaultLabelProvider />
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Size"
@@ -350,7 +339,9 @@ It's most common to anchor Dropdown to [Button](/web/button) or IconButton.
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('IconButton') },
   };

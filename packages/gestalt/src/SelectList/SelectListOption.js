@@ -1,7 +1,7 @@
 // @flow strict
 import { type Element } from 'react';
 
-type Props = {|
+type Props = {
   /**
    * Used to disable the option.
    */
@@ -14,7 +14,7 @@ type Props = {|
    * The underlying value of the option.
    */
   value: string,
-|};
+};
 
 /**
  * Use [SelectList.Option](https://gestalt.pinterest.systems/selectlist#SelectList.Option) to define the available options within SelectList.

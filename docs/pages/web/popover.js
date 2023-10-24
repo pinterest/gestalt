@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node } from 'react';
-import { SlimBanner } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -11,6 +11,7 @@ import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import a11y from '../../examples/popover/a11y.js';
 import dontCritical from '../../examples/popover/dontCritical.js';
+import localizationLabels from '../../examples/popover/localizationLabels.js';
 import main from '../../examples/popover/main.js';
 import variantAnchor from '../../examples/popover/variantAnchor.js';
 import variantIdealDirection from '../../examples/popover/variantIdealDirection.js';
@@ -18,15 +19,13 @@ import variantLayer from '../../examples/popover/variantLayer.js';
 import variantScrollingContainers from '../../examples/popover/variantScrollingContainers.js';
 import variantVisibility from '../../examples/popover/variantVisibility.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
         <SandpackExample code={main} hideEditor name="Main popover example" previewHeight={600} />
       </PageHeader>
-
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
-
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -51,7 +50,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
       </MainSection>
-
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -78,7 +76,6 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           />
         </MainSection.Subsection>
       </MainSection>
-
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="Keyboard interaction"
@@ -118,24 +115,11 @@ For the \`role\` prop, use:
           />
         </MainSection.Subsection>
       </AccessibilitySection>
-
-      <MainSection
-        name="Localization"
-        description="Be sure to localize any text elements within Popover, along with `accessibilityLabel` and `accessibilityDismissButtonLabel`. Note that localization can lengthen text by 20 to 30 percent."
-      >
-        <SlimBanner
-          iconAccessibilityLabel="Recommendation"
-          message="Popovers with a dismiss button announce to assistive technologies that the button will dismiss the Popover. Localize the default label with DefaultLabelProvider."
-          type="recommendationBare"
-          helperLink={{
-            text: 'Learn more',
-            accessibilityLabel: 'Learn more about DefaultLabelProvider',
-            href: '/web/utilities/defaultlabelprovider',
-            onClick: () => {},
-          }}
-        />
-      </MainSection>
-
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen?.displayName}
+        notes={`Note that \`accessibilityDismissButtonLabel\` is optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.`}
+      />
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Size"
@@ -172,17 +156,6 @@ Popover calculates its position based on the bounding box of the \`anchor\`. The
           description={` We highly recommend including a dismiss button on all Popovers with \`showDismissButton\`. This improves accessibility and gives users an immediate action for closing Popover. A label for the button can be provided with the \`accessibilityDismissButtonLabel\` prop. Don't forget to localize this label as well.
 `}
         >
-          <SlimBanner
-            iconAccessibilityLabel="Recommendation"
-            message="Popovers with a dismiss button announce to assistive technologies that the button will dismiss the Popover with a default label of 'Close popover'. Localize the default label with DefaultLabelProvider."
-            type="recommendationBare"
-            helperLink={{
-              text: 'Learn more',
-              accessibilityLabel: 'Learn more about DefaultLabelProvider',
-              href: '/web/utilities/defaultlabelprovider',
-              onClick: () => {},
-            }}
-          />
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
@@ -264,7 +237,6 @@ Popover's positioning algorithm requires that the anchor element renders before 
           />
         </MainSection.Subsection>
       </MainSection>
-
       <MainSection name="Writing">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -289,7 +261,6 @@ Popover's positioning algorithm requires that the anchor element renders before 
         </MainSection.Subsection>
       </MainSection>
       <QualityChecklist component={generatedDocGen?.displayName} />
-
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
@@ -317,7 +288,9 @@ ScrollBoundaryContainer is needed for proper positioning when Popover is anchore
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   const generatedDocGen = await docGen('Popover');
 
   generatedDocGen.props.color.flowType.raw = '"red" | "white" | "darkGray"';

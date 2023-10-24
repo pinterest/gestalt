@@ -22,9 +22,9 @@ import staticWithIconButton from '../../examples/module/staticWithIconButton.js'
 
 export default function DocsPage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): Node {
   return (
     <Page title={generatedDocGen.Module?.description}>
       <PageHeader
@@ -209,9 +209,9 @@ export default function DocsPage({
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   const docGen = await multipleDocGen(['Module', 'ModuleExpandable']);
 
   docGen.Module.props.icon = {

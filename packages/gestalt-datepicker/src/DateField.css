@@ -48,6 +48,7 @@
 
 .formElementBase {
   appearance: none;
+  border-color: var(--color-border-container);
   border-radius: 16px;
   border-style: solid;
   border-width: 2px;
@@ -58,7 +59,7 @@
   outline: 0;
 }
 
-.formElementBase .formElementNormal {
+.formElementNormal {
   border-color: var(--color-border-container);
 }
 
@@ -95,6 +96,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.layoutMedium {
+  min-height: 40px;
 }
 
 .layoutLarge {

@@ -3,7 +3,7 @@ import { type Node } from 'react';
 import Button from '../Button.js';
 import ButtonLink from '../ButtonLink.js';
 
-type LinkDataType = {|
+type LinkDataType = {
   accessibilityLabel: string,
   dataTestId?: string,
   disabled?: boolean,
@@ -14,8 +14,8 @@ type LinkDataType = {|
   role: 'link',
   target?: null | 'self' | 'blank',
   type: string,
-|};
-type ButtonDataType = {|
+};
+type ButtonDataType = {
   accessibilityLabel: string,
   dataTestId?: string,
   disabled?: boolean,
@@ -23,7 +23,7 @@ type ButtonDataType = {|
   onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
   role?: 'button',
   type: string,
-|};
+};
 
 type Props = LinkDataType | ButtonDataType;
 

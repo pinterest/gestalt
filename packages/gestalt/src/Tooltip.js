@@ -3,7 +3,7 @@ import { type Node } from 'react';
 import InternalTooltip from './Tooltip/InternalTooltip.js';
 import { type Indexable } from './zIndex.js';
 
-type Props = {|
+type Props = {
   /**
    * Label to provide more context around the Tooltip’s function or purpose. By default `text` is used but this prop allows you to override it. Learn more about when to override it in the [Accessibility](https://gestalt.pinterest.systems/web/tooltip#Labels) section.
    */
@@ -32,7 +32,7 @@ type Props = {|
    * Specifies the stacking order of Tooltip along the z-axis in the current stacking context. See the [z-index](https://gestalt.pinterest.systems/web/tooltip#Z-index) variant to learn more.
    */
   zIndex?: Indexable,
-|};
+};
 
 /**
  * [Tooltip](https://gestalt.pinterest.systems/web/tooltip) is a floating text label that succinctly describes the function of an interactive element, typically [Icon Button](https://gestalt.pinterest.systems/web/iconbutton). It’s displayed continuously as long as the user hovers over or focuses on the element.

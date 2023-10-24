@@ -20,16 +20,16 @@ export default function ScrollBoundaryContainerExample(): Node {
   const [showComponent, setShowComponent] = useState(false);
   const [open, setOpen] = useState(false);
   const [selected, setSelected] =
-    useState<?{| label: string, subtext?: string, value: string |}>(null);
+    useState<?{ label: string, subtext?: string, value: string }>(null);
   const [parentComponent, setParentComponent] = useState('modal');
   const anchorDropdownRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   const handleSelect = ({
     item,
-  }: {|
+  }: {
     event: SyntheticInputEvent<HTMLInputElement>,
-    item: {| label: string, subtext?: string, value: string |},
-  |}) => setSelected(item);
+    item: { label: string, subtext?: string, value: string },
+  }) => setSelected(item);
 
   const MODAL_Z_INDEX = new FixedZIndex(11);
 

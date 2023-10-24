@@ -3,12 +3,12 @@ import { type Node } from 'react';
 import { Button, ButtonGroup, Flex, useDefaultLabel } from 'gestalt';
 import { type TransformedTabularDataType, useBuildCsvData } from './useTabularData.js';
 
-type Props = {|
+type Props = {
   title: string,
   toggleTabularDataModal: () => void,
   isHorizontalLayout: boolean,
   transformedTabularData: TransformedTabularDataType,
-|};
+};
 
 export default function TabularDataModalFooter({
   title,

@@ -5,27 +5,31 @@ import { Box } from 'gestalt';
 export default function useCustomTooltip({
   isDarkMode,
   renderTooltip,
-}: {|
+}: {
   isDarkMode: boolean,
   renderTooltip?:
     | 'auto'
     | 'none'
-    | (({| active: ?boolean, payload: ?{ ... }, label: string | number |}) => Node),
-|}): ({|
+    | (({
+        active: ?boolean,
+        payload: ?{ ... },
+        label: string | number,
+      }) => Node),
+}): ({
   active: ?boolean,
   payload: ?{ ... },
   label: string | number,
-|}) => Node {
+}) => Node {
   return useCallback(
     ({
       active,
       payload,
       label,
-    }: {|
+    }: {
       active: ?boolean,
       payload: ?{ ... },
       label: string | number,
-    |}) => (
+    }) => (
       <Box
         color={isDarkMode ? 'elevationFloating' : 'default'}
         borderStyle={isDarkMode ? undefined : 'shadow'}

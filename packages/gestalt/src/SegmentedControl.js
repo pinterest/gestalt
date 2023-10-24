@@ -8,7 +8,10 @@ import styles from './SegmentedControl.css';
 import Text from './Text.js';
 import useFocusVisible from './useFocusVisible.js';
 
-type OnChange = ({| event: SyntheticMouseEvent<HTMLButtonElement>, activeIndex: number |}) => void;
+type OnChange = ({
+  event: SyntheticMouseEvent<HTMLButtonElement>,
+  activeIndex: number,
+}) => void;
 
 type Props = {|
   /**

@@ -33,7 +33,7 @@ function booleanize(value: string): boolean {
 }
 
 // LazyHydrate doesn't like to be used without any props, so we have to add it conditionally
-function MaybeLazyHydrate({ children, ssrOnly }: {| children: Node, ssrOnly: boolean |}) {
+function MaybeLazyHydrate({ children, ssrOnly }: { children: Node, ssrOnly: boolean }) {
   if (ssrOnly) {
     return <LazyHydrate ssrOnly>{children}</LazyHydrate>;
   }
@@ -45,11 +45,11 @@ function randomSample({
   samples,
   field,
   randomNumberSeed,
-}: {|
+}: {
   samples: $ReadOnlyArray<PinHeight>,
   field: 'impressionsCount' | 'pinsCount',
   randomNumberSeed: number,
-|}): number {
+}): number {
   // [0..1) * sum of weight
   let sample = randomNumberSeed * samples.reduce((sum, pin) => sum + pin[field], 0);
 
@@ -62,9 +62,9 @@ function randomSample({
 
 export default function TestPage({
   randomNumberSeeds,
-}: {|
+}: {
   randomNumberSeeds: $ReadOnlyArray<number>,
-|}): Node {
+}): Node {
   const router = useRouter();
   // These should match playwright/masonry/utils/getServerURL.mjs
   const {
@@ -114,7 +114,10 @@ export default function TestPage({
           flexible={booleanize(flexible)}
           initialItems={
             realisticPinHeights
-              ? generateRealisticExampleItems({ name: 'InitialPin', pinHeightsSample })
+              ? generateRealisticExampleItems({
+                  name: 'InitialPin',
+                  pinHeightsSample,
+                })
               : generateExampleItems({ name: 'InitialPin' })
           }
           logWhitespace={booleanize(logWhitespace)}
@@ -136,13 +139,13 @@ export default function TestPage({
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| randomNumberSeeds: $ReadOnlyArray<number> |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { randomNumberSeeds: $ReadOnlyArray<number> },
+}> {
   // This is used to ensure we're using the same dataset of realistic pins on the server and client
-  const randomNumberSeeds = Array.from({ length: REALISTIC_PINS_DATASET_SIZE }).map(() =>
-    Math.random(),
-  );
+  const randomNumberSeeds = Array.from({
+    length: REALISTIC_PINS_DATASET_SIZE,
+  }).map(() => Math.random());
   return {
     props: {
       randomNumberSeeds,

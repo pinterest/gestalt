@@ -21,7 +21,7 @@ import textStyles from '../Typography.css';
 import useFocusVisible from '../useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from '../useTapFeedback.js';
 
-type Props = {|
+type Props = {
   accessibilityCurrent?: AriaCurrent,
   accessibilityLabel?: string,
   children?: Node,
@@ -33,31 +33,31 @@ type Props = {|
   href: string,
   id?: string,
   mouseCursor?: 'copy' | 'grab' | 'grabbing' | 'move' | 'noDrop' | 'pointer' | 'zoomIn' | 'zoomOut',
-  onClick?: ({|
+  onClick?: ({
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
-  onBlur?: ({|
+  }) => void,
+  onBlur?: ({
     event: SyntheticFocusEvent<HTMLAnchorElement>,
-  |}) => void,
-  onFocus?: ({|
+  }) => void,
+  onFocus?: ({
     event: SyntheticFocusEvent<HTMLAnchorElement>,
-  |}) => void,
-  onKeyDown?: ({|
+  }) => void,
+  onKeyDown?: ({
     event: SyntheticKeyboardEvent<HTMLAnchorElement>,
-  |}) => void,
-  onMouseDown?: ({|
+  }) => void,
+  onMouseDown?: ({
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
-  |}) => void,
-  onMouseUp?: ({|
+  }) => void,
+  onMouseUp?: ({
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
-  |}) => void,
-  onMouseEnter?: ({|
+  }) => void,
+  onMouseEnter?: ({
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
-  |}) => void,
-  onMouseLeave?: ({|
+  }) => void,
+  onMouseLeave?: ({
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLDivElement>,
-  |}) => void,
+  }) => void,
   rel?: 'none' | 'nofollow',
   tabIndex: -1 | 0,
   rounding?: Rounding,
@@ -66,7 +66,7 @@ type Props = {|
   tapStyle?: 'none' | 'compress',
   target?: null | 'self' | 'blank',
   wrappedComponent: 'button' | 'iconButton' | 'tapArea',
-|};
+};
 
 const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardRef<
   Props,

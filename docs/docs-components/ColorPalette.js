@@ -4,10 +4,10 @@ import { Box, Text } from 'gestalt';
 import tokens from 'gestalt-design-tokens/dist/json/variables.json';
 import ColorTile from './ColorTile.js';
 
-type Props = {|
+type Props = {
   name: string,
   tokenId: string,
-|};
+};
 
 function ColorPalette({ name, tokenId }: Props): Node {
   const tokenNumbers = [0, 50, 100, 200, 300, 400, 500, 550, 600, 700, 800, 900];

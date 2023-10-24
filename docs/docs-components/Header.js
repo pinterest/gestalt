@@ -1,14 +1,28 @@
 // @flow strict
 import { type Node, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
-import { Badge, Box, Flex, IconButton, Link, Sticky, Tabs, Text } from 'gestalt';
+import {
+  Badge,
+  Box,
+  CompositeZIndex,
+  FixedZIndex,
+  Flex,
+  IconButton,
+  Link,
+  Sticky,
+  Tabs,
+  Text,
+} from 'gestalt';
 import { useAppContext } from './appContext.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
 import DocSearch from './DocSearch.js';
 import { convertNamesForURL, isComponentsActiveSection } from './DocsSideNavigation.js';
 import GestaltLogo from './GestaltLogo.js';
 import { useNavigationContext } from './navigationContext.js';
-import { PAGE_HEADER_POPOVER_ZINDEX, PAGE_HEADER_ZINDEX } from './z-indices.js';
+
+const PAGE_HEADER_ZINDEX: FixedZIndex = new FixedZIndex(10);
+
+const PAGE_HEADER_POPOVER_ZINDEX: CompositeZIndex = new CompositeZIndex([PAGE_HEADER_ZINDEX]);
 
 function getTabs(componentPlatform: 'web' | 'android' | 'ios') {
   return [

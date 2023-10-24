@@ -13,6 +13,7 @@ declare module.exports: {|
   +'formLabel': string,
   +'label': string,
   +'layoutLarge': string,
+  +'layoutMedium': string,
   +'textField': string,
   +'typographyTruncate': string,
   +'visuallyHidden': string,
