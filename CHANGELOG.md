@@ -1,3 +1,9 @@
+## 127.5.1 (Oct 24, 2023)
+
+### Patch
+
+- Divider: make vertical border lightgray ([#3262](https://github.com/pinterest/gestalt/pull/3262)) - [Preview link](https://deploy-preview-3262--gestalt.netlify.app?devexample=true)
+
 ## 127.5.0 (Oct 20, 2023)
 
 ### Minor
