@@ -43,6 +43,10 @@ type Props = {
    */
   onRemove: ({ event: SyntheticMouseEvent<HTMLButtonElement> }) => void,
   /**
+   * Size of the Tag. Default is `md`. See [size variant](https://gestalt.pinterest.systems/web/tag#Size) for more details.
+   */
+  size?: 'sm' | 'md' | 'lg',
+  /**
    * Short text to render inside the Tag.
    */
   text: string,
@@ -55,13 +59,12 @@ type Props = {
 const applyDensityTheme = (s: 'sm' | 'md' | 'lg') => {
   switch (s) {
     case 'sm':
-      return { rounding: 4, paddingX: 2, paddingY: 1, height: 24 };
-    case 'md':
-      return { rounding: 4, paddingX: 2, paddingY: 1, height: 24 };
+      return { rounding: 1, paddingX: 2, paddingY: 1, height: 32 };
     case 'lg':
-      return { rounding: 4, paddingX: 2, paddingY: 1, height: 24 };
+      return { rounding: 3, paddingX: 4, paddingY: 3, height: 48 };
+    case 'md':
     default:
-      return { rounding: 4, paddingX: 2, paddingY: 1, height: 24 };
+      return { rounding: 2, paddingX: 3, paddingY: 2, height: 40 };
   }
 };
 /**
@@ -74,6 +77,7 @@ export default function Tag({
   accessibilityRemoveIconLabel,
   disabled = false,
   onRemove,
+  size = 'md',
   text,
   type = 'default',
 }: Props): Node {
@@ -106,6 +110,8 @@ export default function Tag({
     },
   );
 
+  const { height, rounding, paddingX, paddingY } = applyDensityTheme(size);
+
   return (
     <Box
       aria-disabled={disabled}
@@ -114,9 +120,11 @@ export default function Tag({
         __style: disabled && !hasIcon ? { border: `solid 1px ${colorGray200}` } : {},
       }}
       display="inlineBlock"
-      height={32}
+      height={height}
+      rounding={rounding}
+      paddingX={paddingX}
+      paddingY={paddingY}
       maxWidth={300}
-      rounding={2}
     >
       <Flex alignItems="center" height="100%">
         <Box marginStart={hasIcon ? 2 : 0} marginEnd={2}>
