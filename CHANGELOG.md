@@ -1,3 +1,9 @@
+## 127.5.3 (Oct 25, 2023)
+
+### Patch
+
+- Docs: Clarifying updates to ListAction docs ([#3278](https://github.com/pinterest/gestalt/pull/3278)) - [Preview link](https://deploy-preview-3278--gestalt.netlify.app?devexample=true)
+
 ## 127.5.2 (Oct 24, 2023)
 
 ### Patch
