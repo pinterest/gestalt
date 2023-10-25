@@ -19,6 +19,12 @@ export default function Snapshot(): Node {
         onRemove={() => {}}
         text="Some really long text that just keeps going on and on and on and on and on and on"
       />
+
+      <Flex gap={2}>
+        <Tag onRemove={() => {}} text="Small" size="sm" />
+        <Tag onRemove={() => {}} text="Medium" size="md" />
+        <Tag onRemove={() => {}} text="Large" size="lg" />
+      </Flex>
     </Flex>
   );
 }
