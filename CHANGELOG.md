@@ -1,3 +1,9 @@
+## 127.5.4 (Oct 25, 2023)
+
+### Patch
+
+- Docs: Add iOS Badge docs ([#3277](https://github.com/pinterest/gestalt/pull/3277)) - [Preview link](https://deploy-preview-3277--gestalt.netlify.app?devexample=true)
+
 ## 127.5.3 (Oct 25, 2023)
 
 ### Patch
