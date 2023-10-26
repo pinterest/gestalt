@@ -1,11 +1,12 @@
 // @flow strict
-import { type Element as ReactElement, type Node } from 'react';
+import { type Element as ReactElement, type Node, useContext } from 'react';
 import ModuleTitle from './Title.js';
 import Box from '../Box.js';
 import Flex from '../Flex.js';
 import Icon from '../Icon.js';
 import IconButton from '../IconButton.js';
 import icons from '../icons/index.js';
+import { ModuleDensityContext } from '../Module.js';
 import TapArea from '../TapArea.js';
 import Text from '../Text.js';
 
@@ -43,9 +44,11 @@ export default function ModuleExpandableItem({
   title: string,
   type?: 'error' | 'info',
 }): Node {
+  const { gap, padding } = useContext(ModuleDensityContext);
+
   return (
-    <Box padding={6}>
-      <Flex direction="column" gap={{ column: 6, row: 0 }}>
+    <Box padding={padding}>
+      <Flex direction="column" gap={{ column: gap, row: 0 }}>
         <TapArea
           accessibilityControls={id}
           accessibilityExpanded={!isCollapsed}
@@ -71,7 +74,7 @@ export default function ModuleExpandableItem({
               </Box>
 
               {summary && isCollapsed && (
-                <Box column={6} marginStart={6}>
+                <Box column={padding} marginStart={padding}>
                   <Flex direction="column" gap={{ column: 2, row: 0 }}>
                     {summary.map((item, i) => (
                       // eslint-disable-next-line react/no-array-index-key

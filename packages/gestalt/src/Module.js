@@ -1,5 +1,5 @@
 // @flow strict
-import { type Element, type Node } from 'react';
+import { createContext, type Element, type Node, useMemo } from 'react';
 import Box from './Box.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import Flex from './Flex.js';
@@ -40,6 +40,10 @@ type Props = {
    */
   id: string,
   /**
+   * Sets the size of the Module. See the [size variant](https://gestalt.pinterest.systems.com/web/module#size) to learn more.
+   */
+  size?: 'sm' | 'md' | 'lg',
+  /**
    * Title of this Module. Be sure to localize the text.
    */
   title?: string,
@@ -47,7 +51,32 @@ type Props = {
    * If set to `error`, displays error icon and changes title to red text. Be sure to provide an `iconAccessibilityLabel` when set to `error`. See the [error variant](https://gestalt.pinterest.systems/web/module#Static-Error) for more details.
    */
   type?: 'error' | 'info',
+  /**
+   * If set to `error`, displays error icon and changes title to red text. Be sure to provide an `iconAccessibilityLabel` when set to `error`. See the [error variant](https://gestalt.pinterest.systems/web/module#Static-Error) for more details.
+   */
+  type?: 'error' | 'info',
 };
+
+type ModuleDensityValue = {
+  size: 'sm' | 'md' | 'lg',
+  gap: number,
+  padding: number,
+  rounding: number,
+};
+
+const applyDensityStyle = (s: 'sm' | 'md' | 'lg') => {
+  switch (s) {
+    case 'sm':
+      return { gap: 2, padding: 2, rounding: 2 };
+    case 'md':
+      return { gap: 4, padding: 4, rounding: 3 };
+    case 'lg':
+    default:
+      return { gap: 6, padding: 6, rounding: 4 };
+  }
+};
+
+export const ModuleDensityContext = createContext<ModuleDensityValue>();
 
 /**
  * [Module](https://gestalt.pinterest.systems/web/module) is a container that holds content about one subject. Its contents can be visible at all times, or expand and collapse as individual modules or a group of modules.
@@ -64,34 +93,41 @@ export default function Module({
   iconButton,
   id,
   title,
+  size = 'lg',
   type = 'info',
 }: Props): Node {
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
+  const density = useMemo(() => applyDensityStyle(size), [size]);
+
+  const { gap, padding, rounding } = density;
+
   return (
-    <Box
-      borderStyle="shadow"
-      color={isDarkMode ? 'elevationFloating' : 'default'}
-      id={id}
-      padding={6}
-      rounding={4}
-    >
-      <Flex direction="column" gap={{ column: 6, row: 0 }}>
-        {title && (
-          <ModuleTitle
-            badge={badge}
-            icon={icon}
-            iconAccessibilityLabel={iconAccessibilityLabel}
-            iconButton={iconButton}
-            title={title}
-            type={type}
-          />
-        )}
-        {/* Flex.Item necessary to prevent gap from being applied to each child */}
-        <Flex.Item>{children}</Flex.Item>
-      </Flex>
-    </Box>
+    <ModuleDensityContext.Provider value={density}>
+      <Box
+        borderStyle="shadow"
+        color={isDarkMode ? 'elevationFloating' : 'default'}
+        id={id}
+        padding={padding}
+        rounding={rounding}
+      >
+        <Flex direction="column" gap={{ column: gap, row: 0 }}>
+          {title && (
+            <ModuleTitle
+              badge={badge}
+              icon={icon}
+              iconAccessibilityLabel={iconAccessibilityLabel}
+              iconButton={iconButton}
+              title={title}
+              type={type}
+            />
+          )}
+          {/* Flex.Item necessary to prevent gap from being applied to each child */}
+          <Flex.Item>{children}</Flex.Item>
+        </Flex>
+      </Box>
+    </ModuleDensityContext.Provider>
   );
 }
 

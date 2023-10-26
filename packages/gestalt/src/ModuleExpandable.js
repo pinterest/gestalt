@@ -1,11 +1,20 @@
 // @flow strict
-import { type Element, Fragment, type Node, useCallback, useEffect, useState } from 'react';
+import {
+  type Element,
+  Fragment,
+  type Node,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import Box from './Box.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import Divider from './Divider.js';
 import IconButton from './IconButton.js';
 import icons from './icons/index.js';
 import ModuleExpandableItem from './Module/ExpandableItem.js';
+import { ModuleDensityContext } from '../Module.js';
 
 function getExpandedId(expandedIndex: ?number): ?number {
   return Number.isFinite(expandedIndex) ? expandedIndex : null;
@@ -69,6 +78,8 @@ export default function ModuleExpandable({
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
+  const { rounding } = useContext(ModuleDensityContext);
+
   useEffect(() => {
     setExpandedId(getExpandedId(expandedIndex));
   }, [expandedIndex, setExpandedId]);
@@ -85,7 +96,11 @@ export default function ModuleExpandable({
   );
 
   return (
-    <Box borderStyle="shadow" color={isDarkMode ? 'elevationFloating' : 'default'} rounding={4}>
+    <Box
+      borderStyle="shadow"
+      color={isDarkMode ? 'elevationFloating' : 'default'}
+      rounding={rounding}
+    >
       {items.map(
         (
           { badge, children, icon, iconAccessibilityLabel, iconButton, summary, title, type },
