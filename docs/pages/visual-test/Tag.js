@@ -21,9 +21,9 @@ export default function Snapshot(): Node {
       />
 
       <Flex gap={2}>
-        <Tag onRemove={() => {}} text="Small" size="sm" />
-        <Tag onRemove={() => {}} text="Medium" size="md" />
-        <Tag onRemove={() => {}} text="Large" size="lg" />
+        <Tag onRemove={() => {}} text="Small Tag" size="sm" />
+        <Tag onRemove={() => {}} text="Medium Tag" size="md" />
+        <Tag onRemove={() => {}} text="Large Tag" size="lg" />
       </Flex>
     </Flex>
   );

@@ -1,16 +1,28 @@
 .button {
   composes: noBorder from "./Borders.css";
-  composes: paddingX2 from "./boxWhitespace.css";
-  composes: paddingY3 from "./boxWhitespace.css";
   composes: pointer from "./Cursor.css";
+
+  /*
+  Since the button is on an already transparent bg, it appears darker. This adjusts the background color to be a tad brighter since it's layered on top.
+  */
+  backdrop-filter: brightness(1.1);
+  height: 100%;
+  outline: none;
+  position: absolute;
 }
 
 html[dir="rtl"] .button {
   border-radius: var(--rounding-200) 0 0 var(--rounding-200);
+  left: 0;
+  right: unset;
+  top: 0;
 }
 
 html:not([dir="rtl"]) .button {
   border-radius: 0 var(--rounding-200) var(--rounding-200) 0;
+  left: unset;
+  right: 0;
+  top: 0;
 }
 
 .secondary {

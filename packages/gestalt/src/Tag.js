@@ -59,12 +59,33 @@ type Props = {
 const applyDensityTheme = (s: 'sm' | 'md' | 'lg') => {
   switch (s) {
     case 'sm':
-      return { rounding: 1, paddingX: 2, paddingY: 1, height: 32 };
+      return {
+        rounding: 1,
+        paddingX: 1,
+        paddingY: 0,
+        height: 24,
+        removeIconGap: 2,
+        fontSize: '100',
+      };
     case 'lg':
-      return { rounding: 3, paddingX: 4, paddingY: 3, height: 48 };
+      return {
+        rounding: 3,
+        paddingX: 4,
+        paddingY: 3,
+        height: 48,
+        removeIconGap: 4,
+        fontSize: '200',
+      };
     case 'md':
     default:
-      return { rounding: 2, paddingX: 3, paddingY: 2, height: 40 };
+      return {
+        rounding: 2,
+        paddingX: 2,
+        paddingY: 1,
+        height: 32,
+        removeIconGap: 3,
+        fontSize: '200',
+      };
   }
 };
 /**
@@ -110,10 +131,11 @@ export default function Tag({
     },
   );
 
-  const { height, rounding, paddingX, paddingY } = applyDensityTheme(size);
+  const { height, rounding, paddingX, paddingY, removeIconGap, fontSize } = applyDensityTheme(size);
 
   return (
     <Box
+      position="relative"
       aria-disabled={disabled}
       color={bgColor}
       dangerouslySetInlineStyle={{
@@ -125,9 +147,10 @@ export default function Tag({
       paddingX={paddingX}
       paddingY={paddingY}
       maxWidth={300}
+      marginEnd={onRemove ? 4 : 0}
     >
       <Flex alignItems="center" height="100%">
-        <Box marginStart={hasIcon ? 2 : 0} marginEnd={2}>
+        <Box marginStart={hasIcon ? 1 : 0} marginEnd={hasIcon ? 1 : 0}>
           {/* Not using hasIcon to appease Flow */}
           {(type === 'error' || type === 'warning') && (
             <Icon
@@ -139,23 +162,36 @@ export default function Tag({
           )}
         </Box>
 
-        <div title={text}>
-          <Text color={fgColor} inline size="200" lineClamp={1}>
+        <Box title={text} marginEnd={!disabled ? removeIconGap + 2 : 0}>
+          <Text color={fgColor} inline size={fontSize} lineClamp={1}>
             {text}
           </Text>
-        </div>
+        </Box>
 
-        <Box marginStart={disabled ? 2 : 1}>
+        <Box>
           {!disabled && (
             <button className={removeIconClasses} onClick={onRemove} type="button">
-              <Icon
-                accessibilityLabel={
-                  accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault
-                }
-                color={fgColor}
-                icon="cancel"
-                size={8}
-              />
+              <Box
+                dangerouslySetInlineStyle={{
+                  __style: {
+                    paddingInlineEnd: paddingX,
+                    paddingInlineStart: removeIconGap,
+                  },
+                }}
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                width="100%"
+              >
+                <Icon
+                  accessibilityLabel={
+                    accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault
+                  }
+                  color={fgColor}
+                  icon="cancel"
+                  size={8}
+                />
+              </Box>
             </button>
           )}
         </Box>
