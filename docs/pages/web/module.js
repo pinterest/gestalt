@@ -193,7 +193,7 @@ export default function DocsPage({
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Sizes"
-          description={`Module can have different sizes. The default size is large with a padding of 24px. For a dense variant, use the \`sm\` size with a padding of 8px.`}
+          description={`Module can have different sizes. The default size is large with a padding of 24px (\`$space-600\`). For a dense variant, use the \`sm\` size with a padding of 8px (\`$space-200\`).`}
         >
           <MainSection.Card
             cardSize="lg"

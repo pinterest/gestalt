@@ -7,14 +7,8 @@ export default function Example(): Node {
   const [size, setSize] = useState('sm');
 
   return (
-    <Box padding={8} height="100%" width="100%" display="flex" alignItems="center">
-      <Flex
-        direction="column"
-        width="100%"
-        height="100%"
-        justifyContent="between"
-        gap={{ column: 2, row: 0 }}
-      >
+    <Box padding={8} width="100%" display="flex" alignItems="center">
+      <Flex direction="column" width="100%" justifyContent="between" gap={{ column: 2, row: 0 }}>
         <SegmentedControl
           selectedItemIndex={sizes.indexOf(size)}
           items={sizes}
