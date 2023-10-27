@@ -11,12 +11,12 @@ type OnLinkNavigationType = ({
 }) => void;
 
 type GlobalEventsHandlerContextType = {
-  dateFieldHandlers?: { onMount?: NoopType },
-  datePickerHandlers?: { onMount?: NoopType },
-  dateRangeHandlers?: { onMount?: NoopType },
+  dateFieldHandlers?: { onRender?: NoopType },
+  datePickerHandlers?: { onRender?: NoopType },
+  dateRangeHandlers?: { onRender?: NoopType },
   sheetMobileHandlers?: { onOpen?: NoopType, onClose?: NoopType },
   linkHandlers?: { onNavigation?: OnLinkNavigationType },
-  radioGroupHandlers?: { onLoad?: NoopType },
+  radioGroupHandlers?: { onRender?: NoopType },
 } | void;
 
 type Props = {
@@ -27,15 +27,15 @@ type Props = {
   /**
    * Handlers consumed by [DateField](https://gestalt.pinterest.systems/web/datefield).
    */
-  dateFieldHandlers?: { onMount?: () => void },
+  dateFieldHandlers?: { onRender?: () => void },
   /**
    * Handlers consumed by [DatePicker](https://gestalt.pinterest.systems/web/datepicker).
    */
-  datePickerHandlers?: { onMount?: () => void },
+  datePickerHandlers?: { onRender?: () => void },
   /**
    * Handlers consumed by [DateRange](https://gestalt.pinterest.systems/web/daterange).
    */
-  dateRangeHandlers?: { onMount?: () => void },
+  dateRangeHandlers?: { onRender?: () => void },
   /**
    * Handlers consumed by [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile#External-handlers).
    */
@@ -51,7 +51,7 @@ type Props = {
       +event: SyntheticEvent<>,
     }) => void,
   },
-  radioGroupHandlers?: { onLoad?: () => void },
+  radioGroupHandlers?: { onRender?: () => void },
 };
 
 const GlobalEventsHandlerContext: Context<GlobalEventsHandlerContextType> =

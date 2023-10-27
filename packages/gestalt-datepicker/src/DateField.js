@@ -159,12 +159,13 @@ function DateField({
   readOnly = false,
   value,
 }: Props): Node {
-  const { dateFieldHandlers } = useGlobalEventsHandler() || {
+  // Consume GlobalEventsHandlerProvider
+  const { dateFieldHandlers } = useGlobalEventsHandler() ?? {
     dateFieldHandlers: undefined,
   };
 
   useEffect(() => {
-    if (dateFieldHandlers?.onMount) dateFieldHandlers?.onMount();
+    if (dateFieldHandlers?.onRender) dateFieldHandlers?.onRender();
   }, [dateFieldHandlers]);
 
   return (

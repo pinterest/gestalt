@@ -347,9 +347,9 @@ If DatePicker presents pre-selected date values, initialize \`value\` with the p
 
 Handlers:
 
-- [onMount](/web/utilities/globaleventshandlerprovider#onMount): executed when DateField mounts for the first time
+- [onRender](/web/utilities/globaleventshandlerprovider#onRender): executed when DateField mounts for the first time
 
-See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onMount) for more information.
+See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onRender) for more information.
 `}
         />
       </MainSection>

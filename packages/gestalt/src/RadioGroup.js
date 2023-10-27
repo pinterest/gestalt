@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useEffect } from 'react';
-import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider.js';
+import { useGlobalEventsHandler } from 'gestalt';
 import Fieldset from './Fieldset.js';
 import Flex from './Flex.js';
 import { RadioGroupContextProvider } from './RadioGroup/Context.js';
@@ -52,12 +52,13 @@ function RadioGroup({
   legendDisplay = 'visible',
 }: Props): Node {
   // Consume GlobalEventsHandlerProvider
-  const { onLoad } = useGlobalEventsHandlerContext()?.radioGroupHandlers ?? {
-    onLoad: () => {},
+  const { radioGroupHandlers } = useGlobalEventsHandler() ?? {
+    radioGroupHandlers: undefined,
   };
+
   useEffect(() => {
-    onLoad?.();
-  });
+    if (radioGroupHandlers?.onRender) radioGroupHandlers?.onRender();
+  }, [radioGroupHandlers]);
 
   return (
     <RadioGroupContextProvider value={{ parentName: 'RadioGroup' }}>
