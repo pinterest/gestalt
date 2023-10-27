@@ -147,7 +147,6 @@ export default function Tag({
       paddingX={paddingX}
       paddingY={paddingY}
       maxWidth={300}
-      marginEnd={onRemove ? 4 : 0}
     >
       <Flex alignItems="center" height="100%">
         <Box marginStart={hasIcon ? 1 : 0} marginEnd={hasIcon ? 1 : 0}>
@@ -175,7 +174,6 @@ export default function Tag({
                 dangerouslySetInlineStyle={{
                   __style: {
                     paddingInlineEnd: paddingX,
-                    paddingInlineStart: removeIconGap,
                   },
                 }}
                 display="flex"
