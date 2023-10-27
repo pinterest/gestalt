@@ -1647,10 +1647,10 @@ exports[`TagData renders dismisible button with color background 1`] = `
         aria-hidden={null}
         aria-label="Remove tag"
         className="icon defaultIcon iconBlock"
-        height={10}
+        height={8}
         role="img"
         viewBox="0 0 24 24"
-        width={10}
+        width={8}
       >
         <path
           d="test-file-stub"
@@ -1813,10 +1813,10 @@ exports[`TagData renders dismissable button 1`] = `
         aria-hidden={null}
         aria-label="Remove tag"
         className="icon defaultIcon iconBlock"
-        height={10}
+        height={8}
         role="img"
         viewBox="0 0 24 24"
-        width={10}
+        width={8}
       >
         <path
           d="test-file-stub"
@@ -1946,10 +1946,10 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
           aria-hidden={null}
           aria-label="Remove tag"
           className="icon defaultIcon iconBlock"
-          height={10}
+          height={8}
           role="img"
           viewBox="0 0 24 24"
-          width={10}
+          width={8}
         >
           <path
             d="test-file-stub"

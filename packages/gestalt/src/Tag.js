@@ -65,6 +65,7 @@ const applyDensityTheme = (s: 'sm' | 'md' | 'lg') => {
         paddingY: 0,
         height: 24,
         removeIconGap: 2,
+        removeIconSize: 8,
         fontSize: '100',
       };
     case 'lg':
@@ -74,6 +75,7 @@ const applyDensityTheme = (s: 'sm' | 'md' | 'lg') => {
         paddingY: 3,
         height: 48,
         removeIconGap: 4,
+        removeIconSize: 10,
         fontSize: '200',
       };
     case 'md':
@@ -84,6 +86,7 @@ const applyDensityTheme = (s: 'sm' | 'md' | 'lg') => {
         paddingY: 1,
         height: 32,
         removeIconGap: 3,
+        removeIconSize: 10,
         fontSize: '200',
       };
   }
@@ -131,7 +134,8 @@ export default function Tag({
     },
   );
 
-  const { height, rounding, paddingX, paddingY, removeIconGap, fontSize } = applyDensityTheme(size);
+  const { height, rounding, paddingX, paddingY, removeIconGap, fontSize, removeIconSize } =
+    applyDensityTheme(size);
 
   return (
     <Box
@@ -187,7 +191,7 @@ export default function Tag({
                   }
                   color={fgColor}
                   icon="cancel"
-                  size={8}
+                  size={removeIconSize}
                 />
               </Box>
             </button>

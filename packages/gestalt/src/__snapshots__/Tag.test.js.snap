@@ -3,7 +3,7 @@
 exports[`Tag clips long strings 1`] = `
 <div
   aria-disabled={false}
-  className="box rounding2 secondary xsDisplayInlineBlock"
+  className="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
   style={
     Object {
       "height": 32,
@@ -20,9 +20,10 @@ exports[`Tag clips long strings 1`] = `
     }
   >
     <div
-      className="box marginEnd2 marginStart0"
+      className="box marginEnd0 marginStart0"
     />
     <div
+      className="box marginEnd5"
       title="The quick brown fox jumps over the lazy dog"
     >
       <span
@@ -38,26 +39,36 @@ exports[`Tag clips long strings 1`] = `
       </span>
     </div>
     <div
-      className="box marginStart1"
+      className="box"
     >
       <button
         className="button secondary hideOutline tapTransition accessibilityOutline"
         onClick={[Function]}
         type="button"
       >
-        <svg
-          aria-hidden={null}
-          aria-label="Remove long example tag"
-          className="icon defaultIcon iconBlock"
-          height={8}
-          role="img"
-          viewBox="0 0 24 24"
-          width={8}
+        <div
+          className="box justifyCenter xsDisplayFlex xsItemsCenter"
+          style={
+            Object {
+              "paddingInlineEnd": 2,
+              "width": "100%",
+            }
+          }
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden={null}
+            aria-label="Remove long example tag"
+            className="icon defaultIcon iconBlock"
+            height={10}
+            role="img"
+            viewBox="0 0 24 24"
+            width={10}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </button>
     </div>
   </div>
@@ -67,7 +78,7 @@ exports[`Tag clips long strings 1`] = `
 exports[`Tag renders 1`] = `
 <div
   aria-disabled={false}
-  className="box rounding2 secondary xsDisplayInlineBlock"
+  className="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
   style={
     Object {
       "height": 32,
@@ -84,9 +95,10 @@ exports[`Tag renders 1`] = `
     }
   >
     <div
-      className="box marginEnd2 marginStart0"
+      className="box marginEnd0 marginStart0"
     />
     <div
+      className="box marginEnd5"
       title="New"
     >
       <span
@@ -102,26 +114,36 @@ exports[`Tag renders 1`] = `
       </span>
     </div>
     <div
-      className="box marginStart1"
+      className="box"
     >
       <button
         className="button secondary hideOutline tapTransition accessibilityOutline"
         onClick={[Function]}
         type="button"
       >
-        <svg
-          aria-hidden={null}
-          aria-label="Remove New tag"
-          className="icon defaultIcon iconBlock"
-          height={8}
-          role="img"
-          viewBox="0 0 24 24"
-          width={8}
+        <div
+          className="box justifyCenter xsDisplayFlex xsItemsCenter"
+          style={
+            Object {
+              "paddingInlineEnd": 2,
+              "width": "100%",
+            }
+          }
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden={null}
+            aria-label="Remove New tag"
+            className="icon defaultIcon iconBlock"
+            height={10}
+            role="img"
+            viewBox="0 0 24 24"
+            width={10}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </button>
     </div>
   </div>
@@ -131,7 +153,7 @@ exports[`Tag renders 1`] = `
 exports[`Tag renders a disabled tag 1`] = `
 <div
   aria-disabled={true}
-  className="box rounding2 secondary xsDisplayInlineBlock"
+  className="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
   style={
     Object {
       "border": "solid 1px #767676",
@@ -149,9 +171,10 @@ exports[`Tag renders a disabled tag 1`] = `
     }
   >
     <div
-      className="box marginEnd2 marginStart0"
+      className="box marginEnd0 marginStart0"
     />
     <div
+      className="box marginEnd0"
       title="New"
     >
       <span
@@ -167,7 +190,7 @@ exports[`Tag renders a disabled tag 1`] = `
       </span>
     </div>
     <div
-      className="box marginStart2"
+      className="box"
     />
   </div>
 </div>
@@ -176,7 +199,7 @@ exports[`Tag renders a disabled tag 1`] = `
 exports[`Tag renders a tag with a warning state 1`] = `
 <div
   aria-disabled={false}
-  className="box rounding2 warningBase xsDisplayInlineBlock"
+  className="box paddingX2 paddingY1 relative rounding2 warningBase xsDisplayInlineBlock"
   style={
     Object {
       "height": 32,
@@ -193,7 +216,7 @@ exports[`Tag renders a tag with a warning state 1`] = `
     }
   >
     <div
-      className="box marginEnd2 marginStart2"
+      className="box marginEnd1 marginStart1"
     >
       <svg
         aria-hidden={null}
@@ -210,6 +233,7 @@ exports[`Tag renders a tag with a warning state 1`] = `
       </svg>
     </div>
     <div
+      className="box marginEnd5"
       title="New"
     >
       <span
@@ -225,26 +249,36 @@ exports[`Tag renders a tag with a warning state 1`] = `
       </span>
     </div>
     <div
-      className="box marginStart1"
+      className="box"
     >
       <button
         className="button warningBase hideOutline tapTransition accessibilityOutline"
         onClick={[Function]}
         type="button"
       >
-        <svg
-          aria-hidden={null}
-          aria-label="Remove tag"
-          className="icon inverseIcon iconBlock"
-          height={8}
-          role="img"
-          viewBox="0 0 24 24"
-          width={8}
+        <div
+          className="box justifyCenter xsDisplayFlex xsItemsCenter"
+          style={
+            Object {
+              "paddingInlineEnd": 2,
+              "width": "100%",
+            }
+          }
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden={null}
+            aria-label="Remove tag"
+            className="icon inverseIcon iconBlock"
+            height={10}
+            role="img"
+            viewBox="0 0 24 24"
+            width={10}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </button>
     </div>
   </div>
@@ -254,7 +288,7 @@ exports[`Tag renders a tag with a warning state 1`] = `
 exports[`Tag renders a tag with an error state 1`] = `
 <div
   aria-disabled={false}
-  className="box errorBase rounding2 xsDisplayInlineBlock"
+  className="box errorBase paddingX2 paddingY1 relative rounding2 xsDisplayInlineBlock"
   style={
     Object {
       "height": 32,
@@ -271,7 +305,7 @@ exports[`Tag renders a tag with an error state 1`] = `
     }
   >
     <div
-      className="box marginEnd2 marginStart2"
+      className="box marginEnd1 marginStart1"
     >
       <svg
         aria-hidden={null}
@@ -288,6 +322,7 @@ exports[`Tag renders a tag with an error state 1`] = `
       </svg>
     </div>
     <div
+      className="box marginEnd5"
       title="New"
     >
       <span
@@ -303,26 +338,36 @@ exports[`Tag renders a tag with an error state 1`] = `
       </span>
     </div>
     <div
-      className="box marginStart1"
+      className="box"
     >
       <button
         className="button errorBase hideOutline tapTransition accessibilityOutline"
         onClick={[Function]}
         type="button"
       >
-        <svg
-          aria-hidden={null}
-          aria-label="Remove tag"
-          className="icon inverseIcon iconBlock"
-          height={8}
-          role="img"
-          viewBox="0 0 24 24"
-          width={8}
+        <div
+          className="box justifyCenter xsDisplayFlex xsItemsCenter"
+          style={
+            Object {
+              "paddingInlineEnd": 2,
+              "width": "100%",
+            }
+          }
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden={null}
+            aria-label="Remove tag"
+            className="icon inverseIcon iconBlock"
+            height={10}
+            role="img"
+            viewBox="0 0 24 24"
+            width={10}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </button>
     </div>
   </div>
