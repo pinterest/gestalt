@@ -1,11 +1,12 @@
 // @flow strict
-import { createContext, type Element, type Node, useMemo } from 'react';
+import { type Element, type Node } from 'react';
 import Box from './Box.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import Flex from './Flex.js';
 import IconButton from './IconButton.js';
 import IconButtonLink from './IconButtonLink.js';
 import icons from './icons/index.js';
+import applyModuleDensityStyle from './Module/applyModuleDensity.js';
 import ModuleTitle from './Module/Title.js';
 import ModuleExpandable from './ModuleExpandable.js';
 
@@ -57,27 +58,6 @@ type Props = {
   type?: 'error' | 'info',
 };
 
-type ModuleDensityValue = {
-  size: 'sm' | 'md' | 'lg',
-  gap: number,
-  padding: number,
-  rounding: number,
-};
-
-const applyDensityStyle = (s: 'sm' | 'md' | 'lg') => {
-  switch (s) {
-    case 'sm':
-      return { gap: 2, padding: 2, rounding: 2 };
-    case 'md':
-      return { gap: 4, padding: 4, rounding: 3 };
-    case 'lg':
-    default:
-      return { gap: 6, padding: 6, rounding: 4 };
-  }
-};
-
-export const ModuleDensityContext = createContext<ModuleDensityValue>();
-
 /**
  * [Module](https://gestalt.pinterest.systems/web/module) is a container that holds content about one subject. Its contents can be visible at all times, or expand and collapse as individual modules or a group of modules.
  *
@@ -99,35 +79,32 @@ export default function Module({
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
-  const density = useMemo(() => applyDensityStyle(size), [size]);
-
-  const { gap, padding, rounding } = density;
+  const { gap, padding, rounding } = applyModuleDensityStyle(size);
 
   return (
-    <ModuleDensityContext.Provider value={density}>
-      <Box
-        borderStyle="shadow"
-        color={isDarkMode ? 'elevationFloating' : 'default'}
-        id={id}
-        padding={padding}
-        rounding={rounding}
-      >
-        <Flex direction="column" gap={{ column: gap, row: 0 }}>
-          {title && (
-            <ModuleTitle
-              badge={badge}
-              icon={icon}
-              iconAccessibilityLabel={iconAccessibilityLabel}
-              iconButton={iconButton}
-              title={title}
-              type={type}
-            />
-          )}
-          {/* Flex.Item necessary to prevent gap from being applied to each child */}
-          <Flex.Item>{children}</Flex.Item>
-        </Flex>
-      </Box>
-    </ModuleDensityContext.Provider>
+    <Box
+      borderStyle="shadow"
+      color={isDarkMode ? 'elevationFloating' : 'default'}
+      id={id}
+      padding={padding}
+      rounding={rounding}
+    >
+      <Flex direction="column" gap={{ column: gap, row: 0 }}>
+        {title && (
+          <ModuleTitle
+            badge={badge}
+            icon={icon}
+            iconAccessibilityLabel={iconAccessibilityLabel}
+            iconButton={iconButton}
+            title={title}
+            type={type}
+            size={size}
+          />
+        )}
+        {/* Flex.Item necessary to prevent gap from being applied to each child */}
+        <Flex.Item>{children}</Flex.Item>
+      </Flex>
+    </Box>
   );
 }
 

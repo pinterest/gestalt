@@ -14,6 +14,7 @@ import expandableGroup from '../../examples/module/expandableGroup.js';
 import expandableWithErrorType from '../../examples/module/expandableWithErrorType.js';
 import expandableWithIconBadgeIconButton from '../../examples/module/expandableWithIconBadgeIconButton.js';
 import mainExample from '../../examples/module/mainExample.js';
+import sizesExample from '../../examples/module/sizesExample.js';
 import staticVariant from '../../examples/module/staticVariant.js';
 import staticWithBadge from '../../examples/module/staticWithBadge.js';
 import staticWithErrorType from '../../examples/module/staticWithErrorType.js';
@@ -187,6 +188,17 @@ export default function DocsPage({
             cardSize="lg"
             sandpackExample={
               <SandpackExample name="Expandable With Error Type" code={expandableWithErrorType} />
+            }
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Sizes"
+          description={`Module can have different sizes. The default size is large with a padding of 24px. For a dense variant, use the \`sm\` size with a padding of 8px.`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample name="Expandable With Error Type" code={sizesExample} />
             }
           />
         </MainSection.Subsection>

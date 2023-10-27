@@ -1,20 +1,12 @@
 // @flow strict
-import {
-  type Element,
-  Fragment,
-  type Node,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
+import { type Element, Fragment, type Node, useCallback, useEffect, useState } from 'react';
 import Box from './Box.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import Divider from './Divider.js';
 import IconButton from './IconButton.js';
 import icons from './icons/index.js';
+import applyModuleDensityStyle from './Module/applyModuleDensity.js';
 import ModuleExpandableItem from './Module/ExpandableItem.js';
-import { ModuleDensityContext } from '../Module.js';
 
 function getExpandedId(expandedIndex: ?number): ?number {
   return Number.isFinite(expandedIndex) ? expandedIndex : null;
@@ -60,6 +52,10 @@ type Props = {
    * Callback executed whenever any module item is expanded or collapsed. It receives the index of the currently expanded module, or null if none are expanded. See [Expandable](https://gestalt.pinterest.systems/web/module#Expandable) variant to learn more.
    */
   onExpandedChange?: (?number) => void,
+  /**
+   * Size
+   */
+  size?: 'sm' | 'md' | 'lg',
 };
 
 /**
@@ -72,13 +68,15 @@ export default function ModuleExpandable({
   id,
   items,
   onExpandedChange,
+  size = 'lg',
 }: Props): Node {
   const [expandedId, setExpandedId] = useState<?number>(getExpandedId(expandedIndex));
 
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
-  const { rounding } = useContext(ModuleDensityContext);
+  const density = applyModuleDensityStyle(size);
+  const { rounding } = density;
 
   useEffect(() => {
     setExpandedId(getExpandedId(expandedIndex));
@@ -119,6 +117,7 @@ export default function ModuleExpandable({
               id={`${id}-${index}`}
               isCollapsed={expandedId !== index}
               onModuleClicked={buildOnModuleClickHandler(index)}
+              size={size}
               summary={summary}
               title={title}
               type={type}

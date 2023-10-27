@@ -35,6 +35,3 @@ const MissingProp = <ModuleExpandableItem />;
 
 // $FlowExpectedError[prop-missing]
 const NonExistingProp = <ModuleExpandableItem nonexisting={33} />;
-
-// $FlowExpectedError[prop-missing]
-const InvalidTypeProp = <ModuleExpandableItem size="xxl" />;

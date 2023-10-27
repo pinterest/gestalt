@@ -1,20 +1,29 @@
 // @flow strict
-import { type Node } from 'react';
-import { useRouter } from 'next/router';
-import { Box, Flex, IconButton, Module, Text } from 'gestalt';
+import { type Node, useState } from 'react';
+import { Box, Flex, IconButton, Module, SegmentedControl, Text } from 'gestalt';
 
-export default function Screenshot(): Node {
-  const { query } = useRouter();
-
-  let size = 'lg';
-  if (query.size) {
-    size = query.size;
-  }
+export default function Example(): Node {
+  const sizes = ['sm', 'md', 'lg'];
+  const [size, setSize] = useState('sm');
 
   return (
-    <Box color="default" display="inlineBlock" padding={1} width="600px">
-      <Flex direction="column" width="100%" justifyContent="between" gap={{ column: 2, row: 0 }}>
+    <Box padding={8} height="100%" width="100%" display="flex" alignItems="center">
+      <Flex
+        direction="column"
+        width="100%"
+        height="100%"
+        justifyContent="between"
+        gap={{ column: 2, row: 0 }}
+      >
+        <SegmentedControl
+          selectedItemIndex={sizes.indexOf(size)}
+          items={sizes}
+          onChange={({ activeIndex }) => {
+            setSize(sizes[activeIndex]);
+          }}
+        />
         <Module
+          icon="lock"
           iconButton={
             <IconButton
               bgColor="lightGray"
@@ -29,7 +38,7 @@ export default function Screenshot(): Node {
           iconAccessibilityLabel="Module Locked - check permission settings"
           id="ModuleExample - header"
           size={size}
-          title="Module Title"
+          title="Title"
         >
           <Text size="200">This is example content.</Text>
         </Module>
@@ -40,23 +49,18 @@ export default function Screenshot(): Node {
           size={size}
           items={[
             {
+              icon: 'lock',
+              children: <Text size="200">Content here</Text>,
+              summary: ['Summary 1', 'Summary 2'],
+              title: 'Title',
+            },
+            {
               badge: { text: 'badge' },
               children: <Text size="200">Content here</Text>,
               summary: ['Summary 1', 'Summary 2', 'Summary 3'],
               title: 'Title',
-              iconButton: (
-                <IconButton
-                  bgColor="lightGray"
-                  icon="question-mark"
-                  iconColor="darkGray"
-                  accessibilityLabel="Get help"
-                  size="xs"
-                  onClick={() => {}}
-                />
-              ),
             },
             {
-              icon: 'lock',
               children: <Text size="200">More content here</Text>,
               summary: ['Summary 1', 'Summary 2'],
               title: 'Title',
