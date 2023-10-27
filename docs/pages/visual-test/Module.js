@@ -25,7 +25,6 @@ export default function Screenshot(): Node {
               onClick={() => {}}
             />
           }
-          badge={{ text: 'Beta' }}
           iconAccessibilityLabel="Module Locked - check permission settings"
           id="ModuleExample - header"
           size={size}
