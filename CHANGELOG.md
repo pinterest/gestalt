@@ -1,3 +1,9 @@
+## 127.5.5 (Oct 27, 2023)
+
+### Patch
+
+- Icon: updated TS types ([#3285](https://github.com/pinterest/gestalt/pull/3285)) - [Preview link](https://deploy-preview-3285--gestalt.netlify.app?devexample=true)
+
 ## 127.5.4 (Oct 25, 2023)
 
 ### Patch
