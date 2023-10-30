@@ -1,3 +1,9 @@
+## 128.0.1 (Oct 30, 2023)
+
+### Patch
+
+- TextArea: iOS Publishing docs ([#3286](https://github.com/pinterest/gestalt/pull/3286)) - [Preview link](https://deploy-preview-3286--gestalt.netlify.app?devexample=true)
+
 ## 128.0.0 (Oct 30, 2023)
 
 ### Major
