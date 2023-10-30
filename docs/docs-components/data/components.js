@@ -2488,9 +2488,9 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           figmaStatus: 'ready',
           status: 'planned',
         },
+      },
     },
   },
-},
   {
     id: 'TextField',
     platform: {
