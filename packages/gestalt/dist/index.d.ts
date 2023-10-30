@@ -518,6 +518,10 @@ interface DeviceTypeProviderProps {
 
 interface GlobalEventsHandlerProviderProps {
   children: Node;
+  dateFieldHandlers?: {onRender?: (() => void) | undefined;} | undefined;
+  datePickerHandlers?: {onRender?: (() => void) | undefined;} | undefined;
+  dateRangeHandlers?: {onRender?: (() => void) | undefined;} | undefined;
+  radioGroupHandlers?: {onRender?: (() => void) | undefined;} | undefined;
   linkHandlers?: {
     onNavigation: (arg: {
       href: string;

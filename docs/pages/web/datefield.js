@@ -224,9 +224,9 @@ Use the SelectList to try out different locales by passing in the \`localeData\`
 
 Handlers:
 
-- [onMount](/web/utilities/globaleventshandlerprovider#onMount): executed when DateField mounts for the first time
+- [onRender](/web/utilities/globaleventshandlerprovider#onRender): executed when DateField mounts for the first time
 
-See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onMount) for more information.
+See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onRender) for more information.
 `}
         />
       </MainSection>
