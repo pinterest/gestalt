@@ -2475,6 +2475,20 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           status: 'ready',
         },
       },
+      ios: {
+        name: 'TextArea',
+        visual: {
+          svg: <TextArea />,
+        },
+        alias: ['Multi-line Input'],
+        description: 'TextArea allows for multi-line input.',
+        category: ['Fields and forms'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          status: 'planned',
+        },
+      },
     },
   },
   {
