@@ -1,6 +1,6 @@
 {
   "name": "gestalt-charts",
-  "version": "127.5.6",
+  "version": "128.0.0",
   "license": "Apache-2.0",
   "homepage": "https://gestalt.pinterest.systems/",
   "description": "A React UI chart component which enforces Pinterest's design language",

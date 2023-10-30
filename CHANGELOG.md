@@ -1,3 +1,9 @@
+## 128.0.0 (Oct 30, 2023)
+
+### Major
+
+- RadioGroup/DatePicker/DateField/DateRange: Updating GlobalEventsHandlerProvider for impression logging hooks ([#3260](https://github.com/pinterest/gestalt/pull/3260)) - [Preview link](https://deploy-preview-3260--gestalt.netlify.app?devexample=true)
+
 ## 127.5.6 (Oct 30, 2023)
 
 ### Patch
