@@ -1,3 +1,9 @@
+## 127.5.6 (Oct 30, 2023)
+
+### Patch
+
+- Internal: Bump browserify-sign from 4.0.4 to 4.2.2 ([#3282](https://github.com/pinterest/gestalt/pull/3282)) - [Preview link](https://deploy-preview-3282--gestalt.netlify.app?devexample=true)
+
 ## 127.5.5 (Oct 27, 2023)
 
 ### Patch
