@@ -20,6 +20,8 @@ declare module '@floating-ui/react' {
   declare type Side = 'top' | 'right' | 'bottom' | 'left';
   declare type AlignedPlacement = "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end";
   declare type Placement = Side | AlignedPlacement;
+  declare type Strategy = 'absolute' | 'fixed';
+  declare type UseFloatingReturn = any;
 }
 
 /**

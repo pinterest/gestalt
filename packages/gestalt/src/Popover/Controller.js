@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
+import { FloatingPortal } from '@floating-ui/react';
 import Contents, { type Role } from './Contents.js';
 import OutsideEventBehavior from '../behaviors/OutsideEventBehavior.js';
 import { ESCAPE } from '../keyCodes.js';
@@ -12,7 +13,7 @@ const SIZE_WIDTH_MAP = {
   xl: 360,
 };
 
-type Props = {|
+type Props = {
   accessibilityLabel?: string,
   anchor: HTMLElement,
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
@@ -23,15 +24,13 @@ type Props = {|
   id?: ?string,
   idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown',
   onDismiss: () => void,
-  positionRelativeToAnchor: boolean,
   role?: ?Role,
   rounding?: 2 | 4,
   shouldFocus?: boolean,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
-
-  // eslint-disable-next-line react/no-unused-prop-types
-  __dangerouslyIgnoreScrollBoundaryContainerSize?: boolean,
-|};
+  disablePortal?: boolean,
+  scrollBoundary?: HTMLElement,
+};
 
 export default function Controller({
   accessibilityLabel,
@@ -42,13 +41,14 @@ export default function Controller({
   children,
   id,
   idealDirection,
-  positionRelativeToAnchor,
   role,
   rounding,
   shouldFocus,
   size = 'sm',
   onDismiss,
   onKeyDown,
+  scrollBoundary,
+  disablePortal,
 }: Props): ReactNode {
   const width = typeof size === 'string' ? SIZE_WIDTH_MAP[size] : size;
 
@@ -65,7 +65,7 @@ export default function Controller({
     }
   };
 
-  return (
+  const contents = (
     <OutsideEventBehavior onClick={handlePageClick}>
       <Contents
         accessibilityLabel={accessibilityLabel}
@@ -76,14 +76,18 @@ export default function Controller({
         id={id}
         idealDirection={idealDirection}
         onKeyDown={handleKeyDown}
-        positionRelativeToAnchor={positionRelativeToAnchor}
         role={role}
         rounding={rounding}
         shouldFocus={shouldFocus}
         width={width}
+        scrollBoundary={scrollBoundary}
       >
         {children}
       </Contents>
     </OutsideEventBehavior>
   );
+
+  if (disablePortal) return contents;
+
+  return <FloatingPortal>{contents}</FloatingPortal>;
 }

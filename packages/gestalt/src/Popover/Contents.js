@@ -1,7 +1,8 @@
 // @flow strict
-import { type Node, useEffect } from 'react';
-import { autoUpdate, offset, shift, type Side, useFloating } from '@floating-ui/react';
+import { type Node, useEffect, useRef } from 'react';
+import { FloatingFocusManager } from '@floating-ui/react';
 import classnames from 'classnames';
+import usePopover, { DIRECTIONS_MAP, SIDES_MAP } from './usePopover.js';
 import borders from '../Borders.css';
 import Caret from '../Caret.js';
 import colors from '../Colors.css';
@@ -11,7 +12,7 @@ import { CARET_HEIGHT, CARET_WIDTH } from '../utils/positioningUtils.js';
 
 export type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 
-type Props = {|
+type Props = {
   accessibilityLabel?: string,
   anchor: HTMLElement,
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
@@ -25,17 +26,7 @@ type Props = {|
   rounding?: 2 | 4,
   shouldFocus?: boolean,
   width: ?number,
-
-  // eslint-disable-next-line react/no-unused-prop-types
-  positionRelativeToAnchor?: boolean,
-|};
-
-const DIRECTIONS_MAP: Record<MainDirections, Side> = {
-  down: 'bottom',
-  forceDown: 'bottom',
-  left: 'left',
-  right: 'right',
-  up: 'top',
+  scrollBoundary?: HTMLElement,
 };
 
 export default function Contents({
@@ -52,35 +43,36 @@ export default function Contents({
   width,
   shouldFocus = true,
   onKeyDown,
+  scrollBoundary,
 }: Props): Node {
-  // const { caretOffset, popoverOffset, popoverDir } = this.state;
-  const popoverDir = idealDirection ? DIRECTIONS_MAP[idealDirection] : 'up';
+  const caretRef = useRef<HTMLElement | null>(null);
+  const idealPlacement = idealDirection ? DIRECTIONS_MAP[idealDirection] : 'top';
 
-  // Needed to prevent UI thrashing
-  // const visibility = popoverDir === null ? 'hidden' : 'visible';
-  const background = bgColor === 'white' ? `${bgColor}BgElevated` : `${bgColor}Bg`;
-  const bgColorElevated = bgColor === 'white' ? 'whiteElevated' : bgColor;
-  const isCaretVertical = ['down', 'up'].includes(popoverDir);
-
-  // const { top, height } = this.calcTopHeight();
-  // Top value is used only when the current top value is negative
-  // const topValue = top != null && (popoverOffset?.top ?? 0) < 0 ? { top } : {};
-
-  const { refs, floatingStyles } = useFloating({
-    elements: { reference: anchor },
-    middleware: [offset(8), shift({ padding: 8 })],
-    placement: popoverDir,
-    whileElementsMounted: (reference, floating, update) =>
-      autoUpdate(reference, floating, update, { layoutShift: false, ancestorScroll: false }),
+  const { refs, placement, floatingStyles, middlewareData, context } = usePopover({
+    anchor,
+    caretElement: caretRef.current,
+    direction: idealPlacement,
+    scrollBoundary,
   });
 
-  const popoverCaret = caret && idealDirection && (
+  const caretOffset = middlewareData.arrow;
+  const visibility = middlewareData.hide?.referenceHidden === true ? 'hidden' : 'visible';
+  const background = bgColor === 'white' ? `${bgColor}BgElevated` : `${bgColor}Bg`;
+  const bgColorElevated = bgColor === 'white' ? 'whiteElevated' : bgColor;
+  const isCaretVertical = placement === 'top' || placement === 'bottom';
+
+  const popoverCaret = (
     <div
+      ref={caretRef}
       className={classnames(colors[bgColorElevated], styles.caret)}
-      // style={{ ...caretOffset }} // caretOffset positions the Caret on the Popover
+      style={{
+        left: caretOffset?.x != null ? `${caretOffset.x}px` : '',
+        top: caretOffset?.y != null ? `${caretOffset.y}px` : '',
+        [placement]: '100%',
+      }}
     >
       <Caret
-        direction={idealDirection}
+        direction={SIDES_MAP[placement]}
         height={isCaretVertical ? CARET_HEIGHT : CARET_WIDTH}
         width={isCaretVertical ? CARET_WIDTH : CARET_HEIGHT}
       />
@@ -99,42 +91,43 @@ export default function Contents({
   }, [onKeyDown]);
 
   return (
-    <div
-      className={classnames(
-        styles.container,
-        rounding === 2 && borders.rounding2,
-        rounding === 4 && borders.rounding4,
-        styles.contents,
-        styles.maxDimensions,
-        width !== null && styles.minDimensions,
-      )}
-      ref={refs.setFloating}
-      tabIndex={-1}
-      // popoverOffset positions the Popover component
-      style={floatingStyles}
-    >
-      {popoverCaret}
+    <FloatingFocusManager context={context}>
       <div
-        aria-label={accessibilityLabel}
-        id={id}
-        role={role}
+        ref={refs.setFloating}
+        tabIndex={-1}
         className={classnames(
-          border && styles.border,
-          colors[background],
-          colors[bgColorElevated],
+          styles.container,
           rounding === 2 && borders.rounding2,
           rounding === 4 && borders.rounding4,
-          styles.innerContents,
+          styles.contents,
           styles.maxDimensions,
           width !== null && styles.minDimensions,
         )}
-        style={{
-          maxWidth: width,
-          // maxHeight: height
-        }}
+        style={{ ...floatingStyles, visibility }}
       >
-        {children}
+        {caret && popoverCaret}
+
+        <div
+          aria-label={accessibilityLabel}
+          id={id}
+          role={role}
+          className={classnames(
+            border && styles.border,
+            colors[background],
+            colors[bgColorElevated],
+            rounding === 2 && borders.rounding2,
+            rounding === 4 && borders.rounding4,
+            styles.innerContents,
+            styles.maxDimensions,
+            width !== null && styles.minDimensions,
+          )}
+          style={{
+            maxWidth: width,
+          }}
+        >
+          {children}
+        </div>
       </div>
-    </div>
+    </FloatingFocusManager>
   );
 }
