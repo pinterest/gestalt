@@ -98,7 +98,7 @@ const inSemiBoldExp = useInExperiment({
 
 const fontWeightStyle = inSemiBoldExp ? typography.fontWeightSemiBold : typography.fontWeightBold;
 
-<div className={[fontWeightStyle, ...]} />
+export default <div className={[fontWeightStyle, ...]} />
 
 ```
 
@@ -117,7 +117,7 @@ const activeGestaltExperiments = [
   'mweb_gestalt_semibold_weight',
 ];
 
-<ExperimentProvider value={activeGestaltExperiments}>{children}</ExperimentProvider>;
+export default <ExperimentProvider value={activeGestaltExperiments}>{children}</ExperimentProvider>;
 
 ```
 
