@@ -5,6 +5,7 @@ import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 import SandpackExample from '../../../docs-components/SandpackExample.js';
+import chartgraph from '../../../examples/chartgraph/main.js';
 import tiledata from '../../../examples/tiledata/main.js';
 
 export default function DocsPage(): Node {
@@ -13,6 +14,18 @@ export default function DocsPage(): Node {
       <PageHeader name="Available data visualization components" type="guidelines" />
 
       <MainSection name="Components">
+        <MainSection.Subsection
+          title="ChartGraph"
+          description={`ChartGraph is used for displaying various types of graphs plotted on an x and y axis. It makes it easier to identify and understand patterns over time across different categories, enabling people to make informed decisions quickly.
+
+[Go to the ChartGraph component](/web/chartgraph)`}
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample code={chartgraph} name="ChartGraph example" hideEditor />
+            }
+          />
+        </MainSection.Subsection>
         <MainSection.Subsection
           title="TileData"
           description={`TileData enables users to select a multiple categories to compare with each other in a graph or chart view, while still being able to see all of the data points.
