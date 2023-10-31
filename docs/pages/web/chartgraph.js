@@ -22,8 +22,10 @@ import combo from '../../examples/chartgraph/combo.js';
 import customTooltip from '../../examples/chartgraph/customTooltip.js';
 import decalBars from '../../examples/chartgraph/decalBars.js';
 import decalLines from '../../examples/chartgraph/decalLines.js';
+import doBiaxial from '../../examples/chartgraph/doBiaxial.js';
 import doColor from '../../examples/chartgraph/doColor.js';
 import doLimit from '../../examples/chartgraph/doLimit.js';
+import dontBiaxial from '../../examples/chartgraph/dontBiaxial.js';
 import dontLimit from '../../examples/chartgraph/dontLimit.js';
 import doSameColor from '../../examples/chartgraph/doSameColor.js';
 import layout from '../../examples/chartgraph/layout.js';
@@ -78,7 +80,11 @@ export default function ComponentPage({
 
       <MainSection
         name="Usage guidelines"
-        description="These are overall guidelines for using Chart. For guidelines on using specific charts, see our [Chart and graph guidelines](/foundations/data_visualization/charts_and_graphs)."
+        description={`These are overall guidelines for ChartGraph. For usage guidelines on specific graphs, see:
+        - [Bar graph usage guidelines](../foundations/data_visualization/charts_and_graphs/bar_graphs#Usage-guidelines)
+        - [Line graph usage guidelines](../foundations/data_visualization/charts_and_graphs/line_graphs#Usage-guidelines)
+        - [Charts and graphs general guidelines](../foundations/data_visualization/charts_and_graphs/general_guidelines)
+        `}
       >
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -104,7 +110,11 @@ export default function ComponentPage({
 
       <MainSection
         name="Best practices"
-        description="These are overall best practices for Chart. For best practices on specific charts, see our [Chart and graph guidelines](/foundations/data_visualization/charts_and_graphs)."
+        description={`These are overall best practices for ChartGraph. For best practices on specific graphs, see:
+        - [Bar graph best practices](../foundations/data_visualization/charts_and_graphs/bar_graphs#Best-practices)
+        - [Line graph best practices](../foundations/data_visualization/charts_and_graphs/line_graphs#Best-practices)
+        - [Charts and graphs general guidelines](../foundations/data_visualization/charts_and_graphs/general_guidelines)
+        `}
       >
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -160,6 +170,37 @@ export default function ComponentPage({
               <SandpackExample
                 name="Don't same color"
                 code={doSameColor}
+                layout="column"
+                hideEditor
+                hideControls
+                previewHeight={SMALL_HEIGHT}
+              />
+            }
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Use a biaxial chart when there is a significant difference between values. A suggestion is a 50%+ difference."
+            sandpackExample={
+              <SandpackExample
+                name="Do biaxial"
+                code={doBiaxial}
+                layout="column"
+                hideEditor
+                previewHeight={SMALL_HEIGHT}
+              />
+            }
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use a biaxial chart when there is a very minor difference between values being compared. Use a chart with a single axis instead."
+            sandpackExample={
+              <SandpackExample
+                name="Don't biaxial"
+                code={dontBiaxial}
                 layout="column"
                 hideEditor
                 hideControls
@@ -331,7 +372,7 @@ Props:  \`type="combo"\` \`elements=[{..., type:'bar' or type:'line'}]\`
 
         <MainSection.Subsection
           title="Biaxial"
-          description={`Biaxial graphs show two y-axis. They're used when different amounts need to be displayed per each category.
+          description={`Biaxial graphs show two y-axis. They're used when either comparing two categories with mixed types of data—for example, clicks vs spend—or when there is a significant difference between values. A suggestion is to move to a biaxial chart if there is a 50%+ difference between compared values.
 
 Props:  \`layout="verticalBiaxial"\`  \`layout="horizontalBiaxial"\`
 `}

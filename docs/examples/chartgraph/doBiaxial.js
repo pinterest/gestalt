@@ -9,28 +9,18 @@ export default function Example(): Node {
   const data = [
     {
       name: new Date(2023, 0, 1).getTime(),
-      'Spend': 40000,
-      'Total ROAS (Checkout)': 570000,
+      'Spend': 1000,
+      'ROAS': 5000,
     },
     {
       name: new Date(2023, 1, 1).getTime(),
-      'Spend': 45000,
-      'Total ROAS (Checkout)': 690000,
+      'Spend': 1200,
+      'ROAS': 7000,
     },
     {
       name: new Date(2023, 2, 1).getTime(),
-      'Spend': 55000,
-      'Total ROAS (Checkout)': 850000,
-    },
-    {
-      name: new Date(2023, 3, 1).getTime(),
-      'Spend': 70000,
-      'Total ROAS (Checkout)': 550000,
-    },
-    {
-      name: new Date(2023, 4, 1).getTime(),
-      'Spend': 830000,
-      'Total ROAS (Checkout)': 1000000,
+      'Spend': 1250,
+      'ROAS': 15000,
     },
   ];
 
@@ -48,7 +38,7 @@ export default function Example(): Node {
         range={{ xAxisBottom: ['auto', 'auto'] }}
         elements={[
           { type: 'line', id: 'Spend', axis: 'left' },
-          { type: 'line', id: 'Total ROAS (Checkout)', axis: 'right' },
+          { type: 'line', id: 'ROAS', axis: 'right' },
         ]}
         type="line"
         tickFormatter={{
@@ -61,9 +51,7 @@ export default function Example(): Node {
             return value;
           },
           timeseries: (date) =>
-            `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(
-              date,
-            )} ${new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(date)}`,
+            `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(date)}`,
         }}
         modalZIndex={new FixedZIndex(11)}
       />

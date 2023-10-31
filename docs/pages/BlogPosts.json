@@ -2069,7 +2069,7 @@
             "audience": ["Engineering", "Design"],
             "imageSrc": "https://i.pinimg.com/originals/51/b1/29/51b129c9260e824d1e87e328080dea2f.png",
             "imageAltText": "Screenshots of Gestalt's Text and Heading documentation",
-            "content": "We added [typography guidelines](https://gestalt.pinterest.systems/foundations/typography/guidelines) a couple weeks ago and now we're coming in hot with design guidelines for [Text](https://gestalt.pinterest.systems/web/text) and [Heading](https://gestalt.pinterest.systems/web/heading). Our goal for these updates is to develop a strong foundation of typographic guidance that we can build upon in future releases."
+            "content": "We added [typography guidelines](https://gestalt.pinterest.systems/foundations/typography) a couple weeks ago and now we're coming in hot with design guidelines for [Text](https://gestalt.pinterest.systems/web/text) and [Heading](https://gestalt.pinterest.systems/web/heading). Our goal for these updates is to develop a strong foundation of typographic guidance that we can build upon in future releases."
           },
           {
             "title": "Gestalt Learning released",
@@ -2107,7 +2107,7 @@
             "audience": ["Engineering", "Design"],
             "imageSrc": "https://i.pinimg.com/originals/ad/66/52/ad66524c172960e4fe2edaa67d150a58.png",
             "imageAltText": "Screenshot of typography guidelines",
-            "content": "To keep the momentum going on our release of guidelines in 2022, we just published the first iteration of our [Typography guidelines](https://gestalt.pinterest.systems/foundations/typography/guidelines). This is intended to serve as the foundation for much more detail and updates in the future. We look forward to sharing many more typography-related updates in the near future."
+            "content": "To keep the momentum going on our release of guidelines in 2022, we just published the first iteration of our [Typography guidelines](https://gestalt.pinterest.systems/foundations/typography). This is intended to serve as the foundation for much more detail and updates in the future. We look forward to sharing many more typography-related updates in the near future."
           },
           {
             "title": "Major updates to our Pin and Masonry Figma components",

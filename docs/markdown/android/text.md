@@ -136,7 +136,7 @@ Used for text that is part of paragraphs or UI controls
 
 ## Size
 
-These font sizes follow those available through our [Typography scale](https://gestalt.pinterest.systems/foundations/typography/guidelines#Scale)
+These font sizes follow those available through our [Typography scale](https://gestalt.pinterest.systems/foundations/typography#Scale)
 <br/>
 
 <iframe style={{border:0}} width="100%" height="776" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Fnode-id%3D11171%253A20317%26t%3D852gzGIkINao5ZEY-1" allowFullScreen></iframe>
@@ -170,7 +170,7 @@ Text can be italicized for emphasis, or underlined to denote a link.
 
 ## Overflow and truncation
 
-For general guidelines around text truncation, see [Typography Best practices](https://gestalt.pinterest.systems/foundations/typography/guidelines#Best-practices)
+For general guidelines around text truncation, see [Typography Best practices](https://gestalt.pinterest.systems/foundations/typography#Best-practices)
 
 ## Writing
 
@@ -227,6 +227,6 @@ Hyphenation on Android is turned off by default to avoid incorrect word breaks w
 
 ## Related
 
-**[Typography guidelines](https://gestalt.pinterest.systems/foundations/typography/guidelines)**
+**[Typography guidelines](https://gestalt.pinterest.systems/foundations/typography)**
 
 A run-down of our typographic foundations across platforms
