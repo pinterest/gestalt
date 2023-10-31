@@ -1,3 +1,9 @@
+## 128.0.3 (Oct 31, 2023)
+
+### Patch
+
+- Docs: Experimentation section ([#3288](https://github.com/pinterest/gestalt/pull/3288)) - [Preview link](https://deploy-preview-3288--gestalt.netlify.app?devexample=true)
+
 ## 128.0.2 (Oct 31, 2023)
 
 ### Patch
