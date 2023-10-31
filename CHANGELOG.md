@@ -1,3 +1,9 @@
+## 128.0.2 (Oct 31, 2023)
+
+### Patch
+
+- Docs: foundations-data-visualization-updates ([#3287](https://github.com/pinterest/gestalt/pull/3287)) - [Preview link](https://deploy-preview-3287--gestalt.netlify.app?devexample=true)
+
 ## 128.0.1 (Oct 30, 2023)
 
 ### Patch
