@@ -43,7 +43,7 @@ Parameterize your change as an optional prop value then set up the experiment in
 // Your file in Pinboard
 import { Button } from 'gestalt';
  
-<Button color={amIinThisExperiment('fancy_buttons') ? 'fancyRed' : 'red'} />
+export default <Button color={amIinThisExperiment('fancy_buttons') ? 'fancyRed' : 'red'} />
 
 ```
 
@@ -55,7 +55,7 @@ Create an optional prop prefixed with `_experimental____` then set up the experi
 // Your file in Pinboard
 import { Popover } from 'gestalt';
  
-<Popover _experimentalPopover={amIinThisExperiment('replace_experimental_popover') ? 'newPopover' : 'default'} />
+export default <Popover _experimentalPopover={amIinThisExperiment('replace_experimental_popover') ? 'newPopover' : 'default'} />
 
 ```
 
