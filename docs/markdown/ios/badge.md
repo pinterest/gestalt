@@ -29,19 +29,19 @@ For general Badge best practices, refer to the [Badge web documentation](/web/ba
 
 ## Accessibility
 
-People use Android's accessibility features, such as TalkBack and dynamic text sizing to personalize how they interact with their devices. Supporting these personalizations ensures that everyone has a great user experience. See Material Design and development documentation about accessibility for Android:
+People use Apple’s accessibility features, such as reduced transparency, VoiceOver, and increased text size to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Apple’s Human Interface Guidelines and API documentation about accessibility for iOS:
 
-[Accessible design on Android](https://material.io/design/usability/accessibility.html#understanding-accessibility)
-[Accessible development on Android](https://developer.android.com/guide/topics/ui/accessibility)
+- [Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/foundations/accessibility/)
+- [Accessible development on iOS](https://developer.apple.com/accessibility/)
 
 ### Color
 Badge text must be clear so that users can understand the status without relying only on Badge color.
 
 ## Design tokens
-<iframe style={{border:0}} width="100%" height="1500" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D26401%253A37969%26mode%3Ddesign%26t%3DsuyatDgaHD9xfkom-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="1500" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D38436%253A599%26mode%3Ddesign%26t%3D85TPebyA6PdlqLTx-1" allowFullScreen></iframe>
 
 ## Anatomy
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D26400%253A36566%26mode%3Ddesign%26t%3DsuyatDgaHD9xfkom-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D38436%253A492%26mode%3Ddesign%26t%3D85TPebyA6PdlqLTx-1" allowFullScreen></iframe>
 
 ## Variants
 
@@ -60,7 +60,7 @@ The badge is available in six styles. Each type has a semantic meaning and repre
 6. **Recommendation**
    Highlights suggestions that'll improve the experience and achieve better results. For example, 'Recommended for you'.
 
-<iframe style={{border:0}} width="100%" height="500" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D26411%253A39652%26mode%3Ddesign%26t%3DsuyatDgaHD9xfkom-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="500" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D38436%253A894%26mode%3Ddesign%26t%3D85TPebyA6PdlqLTx-1" allowFullScreen></iframe>
 
 ### Light wash / Dark wash
    Badge with wash style may be used over media.
@@ -69,10 +69,10 @@ The badge is available in six styles. Each type has a semantic meaning and repre
 2. **Dark wash**
   The dark wash badge should be used over media that's light or uses a light gradient overlay.
 
-<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D27075%253A36805%26mode%3Ddesign%26t%3DsuyatDgaHD9xfkom-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D38436%253A972%26mode%3Ddesign%26t%3D85TPebyA6PdlqLTx-1" allowFullScreen></iframe>
 
 ### Dark mode
-<iframe style={{border:0}} width="100%" height="500" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D26843%253A36727%26mode%3Ddesign%26t%3DsuyatDgaHD9xfkom-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="500" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D38436%253A933%26mode%3Ddesign%26t%3D85TPebyA6PdlqLTx-1" allowFullScreen></iframe>
 
 ## Writing
 For writing best practices, refer to the [Content standards](foundations/content_standards/voice). 

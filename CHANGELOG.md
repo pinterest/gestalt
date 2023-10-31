@@ -1,3 +1,39 @@
+## 128.0.1 (Oct 30, 2023)
+
+### Patch
+
+- TextArea: iOS Publishing docs ([#3286](https://github.com/pinterest/gestalt/pull/3286)) - [Preview link](https://deploy-preview-3286--gestalt.netlify.app?devexample=true)
+
+## 128.0.0 (Oct 30, 2023)
+
+### Major
+
+- RadioGroup/DatePicker/DateField/DateRange: Updating GlobalEventsHandlerProvider for impression logging hooks ([#3260](https://github.com/pinterest/gestalt/pull/3260)) - [Preview link](https://deploy-preview-3260--gestalt.netlify.app?devexample=true)
+
+## 127.5.6 (Oct 30, 2023)
+
+### Patch
+
+- Internal: Bump browserify-sign from 4.0.4 to 4.2.2 ([#3282](https://github.com/pinterest/gestalt/pull/3282)) - [Preview link](https://deploy-preview-3282--gestalt.netlify.app?devexample=true)
+
+## 127.5.5 (Oct 27, 2023)
+
+### Patch
+
+- Icon: updated TS types ([#3285](https://github.com/pinterest/gestalt/pull/3285)) - [Preview link](https://deploy-preview-3285--gestalt.netlify.app?devexample=true)
+
+## 127.5.4 (Oct 25, 2023)
+
+### Patch
+
+- Docs: Add iOS Badge docs ([#3277](https://github.com/pinterest/gestalt/pull/3277)) - [Preview link](https://deploy-preview-3277--gestalt.netlify.app?devexample=true)
+
+## 127.5.3 (Oct 25, 2023)
+
+### Patch
+
+- Docs: Clarifying updates to ListAction docs ([#3278](https://github.com/pinterest/gestalt/pull/3278)) - [Preview link](https://deploy-preview-3278--gestalt.netlify.app?devexample=true)
+
 ## 127.5.2 (Oct 24, 2023)
 
 ### Patch

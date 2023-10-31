@@ -173,12 +173,13 @@ function DateRange({
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
 
-  const { dateRangeHandlers } = useGlobalEventsHandler() || {
+  // Consume GlobalEventsHandlerProvider
+  const { dateRangeHandlers } = useGlobalEventsHandler() ?? {
     dateRangeHandlers: undefined,
   };
 
   useEffect(() => {
-    if (dateRangeHandlers?.onMount) dateRangeHandlers?.onMount();
+    if (dateRangeHandlers?.onRender) dateRangeHandlers?.onRender();
   }, [dateRangeHandlers]);
 
   if (!startDateValue && endDateValue) {
