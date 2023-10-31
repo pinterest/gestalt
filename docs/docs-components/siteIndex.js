@@ -27,7 +27,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
         pages: [
           {
             sectionName: 'Contributing',
-            pages: ['Creating and updating pages', 'Development process'],
+            pages: ['Creating and updating pages', 'Development process', 'Experimentation'],
           },
           'ESLint plugin',
           'Hacking Gestalt',
