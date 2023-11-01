@@ -12,7 +12,7 @@ export default function LineGraphsPage(): Node {
         name="Line graphs"
         type="guidelines"
         badge="trends"
-        description={`Line graphs plot numeric values for categorical data as a line that shows a progression through time. If you need to plot and/or compare data by amount from a common zero-line, use a [Bar graph](bar_graphs)
+        description={`Line graphs plot numeric values for categorical data as a line that shows a progression through time. If you need to plot and/or compare data by amount from a common zero-line, use a [Bar graph](/foundations/data_visualization/charts_and_graphs/bar_graphs)
 `}
       />
       <Box
@@ -35,7 +35,7 @@ export default function LineGraphsPage(): Node {
         name="Components"
         description={`
 For components, go to:
-- Web component: [ChartGraph](../../../web/chartgraph)
+- Web component: [ChartGraph](/web/chartgraph)
 - Figma component: [Line graph](http://pinch.pinadmin.com/figma-line-graph)
     `}
       />
@@ -55,8 +55,8 @@ For components, go to:
             type="don't"
             title="When not to use"
             description={`
-            - When viewing or comparing categories based on total amounts. Use a [bar graph](bar_graphs) instead.
-            - When it’s more important to see how different amounts of categorical data form a whole. Use a Pie or [Donut](donut_charts) chart instead.
+            - When viewing or comparing categories based on total amounts. Use a [bar graph](/foundations/data_visualization/charts_and_graphs/bar_graphs) instead.
+            - When it’s more important to see how different amounts of categorical data form a whole. Use a Pie or [Donut](/foundations/data_visualization/charts_and_graphs/donut_charts) chart instead.
         `}
           />
         </MainSection.Subsection>
@@ -64,7 +64,7 @@ For components, go to:
 
       <MainSection
         name="Best practices"
-        description="These are best practices specific to line graphs. For global best practices, see [ChartGraph best practices](../../../web/chartgraph#Best-practices) and [General guidelines](general_guidelines)."
+        description="These are best practices specific to line graphs. For global best practices, see [ChartGraph best practices](/web/chartgraph#Best-practices) and [General guidelines](/foundations/data_visualization/charts_and_graphs/general_guidelines)."
       >
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -163,15 +163,15 @@ For components, go to:
       <MainSection
         name="Variants"
         description={`See the ChartGraph component for use cases and examples of all the different types of line graphs available:
-- [Line graph](../../../web/chartgraph#Line): for both single or multiple lines
-- [Biaxial](../../../web/chartgraph#Biaxial): when comparing two trends that have significantly different amounts or units of measurement
-- [Precision in line graphs](../../../web/chartgraph#Precision-in-line-graphs): for deciding when to use a rectilinear, curved or dashed line
+- [Line graph](/web/chartgraph#Line): for both single or multiple lines
+- [Biaxial](/web/chartgraph#Biaxial): when comparing two trends that have significantly different amounts or units of measurement
+- [Precision in line graphs](/web/chartgraph#Precision-in-line-graphs): for deciding when to use a rectilinear, curved or dashed line
 `}
       />
 
       <MainSection
         name="Writing"
-        description="For general writing and content formatting guidelines, refer to our [Content standards](../../../markdown/foundations/content_standards)."
+        description="For general writing and content formatting guidelines, refer to our [Content standards](/foundations/content_standards/voice)."
       >
         <MainSection.Subsection columns={2}>
           <MainSection.Card

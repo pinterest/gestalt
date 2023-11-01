@@ -13,7 +13,7 @@ export default function ComboGraphsPage(): Node {
         badge="comparisontrends"
         description={`Combo graphs combine a bar graph and a line graph. They are useful for seeing a trend over time while comparing values in a category.
 
-For a working example, see the [Combo](../../../web/chartgraph#Combo) variant in the ChartGraph component.
+For a working example, see the [Combo](/web/chartgraph#Combo) variant in the ChartGraph component.
 `}
       />
       <Box maxWidth={892}>
