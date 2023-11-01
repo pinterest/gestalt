@@ -1,3 +1,9 @@
+## 128.0.4 (Nov 1, 2023)
+
+### Patch
+
+- Docs: fixed paragraph typo ([#3289](https://github.com/pinterest/gestalt/pull/3289)) - [Preview link](https://deploy-preview-3289--gestalt.netlify.app?devexample=true)
+
 ## 128.0.3 (Oct 31, 2023)
 
 ### Patch
