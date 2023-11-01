@@ -1,3 +1,9 @@
+## 128.0.5 (Nov 1, 2023)
+
+### Patch
+
+- Docs: fixes in Markdown links and links ([#3290](https://github.com/pinterest/gestalt/pull/3290)) - [Preview link](https://deploy-preview-3290--gestalt.netlify.app?devexample=true)
+
 ## 128.0.4 (Nov 1, 2023)
 
 ### Patch
