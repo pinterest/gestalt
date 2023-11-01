@@ -21,11 +21,12 @@ export default function GeneralGuidelines(): Node {
       <MainSection
         name="Chart use cases"
         description={`
-        The type of chart you use depends on how you are analyzing and monitoring data. Below are our most common use cases:
-        - **Trends:** to see how data changes over time
-        - **Parts-to-whole:** to see how a breakdown adds up to a total
-        - **Comparison:** to see how multiple data sets compare to each other
-        - **Connection:** to see the relationship between variables
+The type of chart you use depends on how you are analyzing and monitoring data. Below are our most common use cases:
+
+- **Trends:** to see how data changes over time
+- **Parts-to-whole:** to see how a breakdown adds up to a total
+- **Comparison:** to see how multiple data sets compare to each other
+- **Connection:** to see the relationship between variables
 
 For a great resource on understanding when to use what type of chart, [download the Financial Times Visual Vocabulary PDF](https://github.com/Financial-Times/chart-doctor/blob/main/visual-vocabulary/FT4schools_RGS.pdf).
         `}
