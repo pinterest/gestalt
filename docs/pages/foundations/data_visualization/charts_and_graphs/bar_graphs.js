@@ -12,7 +12,7 @@ export default function BarGraphsPage(): Node {
         name="Bar graphs"
         type="guidelines"
         badge="comparison"
-        description={`Bar graphs plot numeric values for categorical data as bars on an x/y axis. The numeric amounts are shown on a common baseline in order to easily compare values across categories. If you need to plot and/or compare data across a time range, use a [Line graph](line_graphs) instead.
+        description={`Bar graphs plot numeric values for categorical data as bars on an x/y axis. The numeric amounts are shown on a common baseline in order to easily compare values across categories. If you need to plot and/or compare data across a time range, use a [Line graph](/foundations/data_visualization/charts_and_graphs/line_graphs) instead.
 `}
       />
       <Box
@@ -35,7 +35,7 @@ export default function BarGraphsPage(): Node {
         name="Components"
         description={`
 For components, go to:
-- Web component: [ChartGraph](../../../web/chartgraph)
+- Web component: [ChartGraph](/web/chartgraph)
 - Figma component: [Column bar graph](http://pinch.pinadmin.com/figma-bar-column)
 - Figma component: [Horizontal bar graph](http://pinch.pinadmin.com/figma-bar-horizonal)
     `}
@@ -56,8 +56,8 @@ For components, go to:
             type="don't"
             title="When not to use"
             description={`
-            - When viewing or comparing data and/or trends that change in value over time. Use a [line graph](line_graphs) instead.
-            - When it’s more important to see how different amounts of categorical data form a whole. Use a pie or [donut chart](donut_charts) instead.
+            - When viewing or comparing data and/or trends that change in value over time. Use a [line graph](/foundations/data_visualization/charts_and_graphs/line_graphs) instead.
+            - When it’s more important to see how different amounts of categorical data form a whole. Use a pie or [donut chart](/foundations/data_visualization/charts_and_graphs/donut_charts) instead.
         `}
           />
         </MainSection.Subsection>
@@ -65,7 +65,7 @@ For components, go to:
 
       <MainSection
         name="Best practices"
-        description="These are best practices specific to bar graphs. For global best practices, see [ChartGraph best practices](../../../web/chartgraph#Best-practices) and [General guidelines](general_guidelines)."
+        description="These are best practices specific to bar graphs. For global best practices, see [ChartGraph best practices](/web/chartgraph#Best-practices) and [General guidelines](/foundations/data_visualization/charts_and_graphs/general_guidelines)."
       >
         <MainSection.Subsection columns={2}>
           <MainSection.Card type="do" description="Use to compare total values between categories.">
@@ -161,15 +161,15 @@ For components, go to:
       <MainSection
         name="Variants"
         description={`See the ChartGraph component for use cases and examples of all the different types of bar graphs available:
-- [Bar horizontal](../../../web/chartgraph#Bar-horizontal)
-- [Bar column](../../../web/chartgraph#Bar-column)
-- [Stacked bars](../../../web/chartgraph#Stacked-bars)
+- [Bar horizontal](/web/chartgraph#Bar-horizontal)
+- [Bar column](/web/chartgraph#Bar-column)
+- [Stacked bars](/web/chartgraph#Stacked-bars)
 `}
       />
 
       <MainSection
         name="Writing"
-        description="For general writing and content formatting guidelines, refer to our [Content standards](../../../markdown/foundations/content_standards)."
+        description="For general writing and content formatting guidelines, refer to our [Content standards](/foundations/content_standards/ui_elements)."
       >
         <MainSection.Subsection columns={2}>
           <MainSection.Card

@@ -23,10 +23,10 @@ export default function GeneralGuidelines(): Node {
         description={`
 The type of chart you use depends on how you are analyzing and monitoring data. Below are our most common use cases:
 
-- **Trends:** to see how data changes over time
-- **Parts-to-whole:** to see how a breakdown adds up to a total
-- **Comparison:** to see how multiple data sets compare to each other
-- **Connection:** to see the relationship between variables
+  - **Trends:** to see how data changes over time
+  - **Parts-to-whole:** to see how a breakdown adds up to a total
+  - **Comparison:** to see how multiple data sets compare to each other
+  - **Connection:** to see the relationship between variables
 
 For a great resource on understanding when to use what type of chart, [download the Financial Times Visual Vocabulary PDF](https://github.com/Financial-Times/chart-doctor/blob/main/visual-vocabulary/FT4schools_RGS.pdf).
         `}
@@ -36,11 +36,11 @@ For a great resource on understanding when to use what type of chart, [download 
         name="Chart types"
         description={`
         Currently, we are mainly concerned with looking at categorical data. We do it via the following charts:
-        - [Bar graphs](bar_graphs.js) **Comparison**
-        - [Line graphs](line_graphs.js) **Trends**
-        - [Combo grapgs](combo_graphs.js) **Trends + Comparison**
-        - [Donut charts](donut_charts.js) **Parts-to-whole**
-        - [Funnel charts](funnel_charts.js) **Connection**
+        - [Bar graphs](/foundations/data_visualization/charts_and_graphs/bar_graphs) for Comparison
+        - [Line graphs](/foundations/data_visualization/charts_and_graphs/line_graphs) for Trends
+        - [Combo graphs](/foundations/data_visualization/charts_and_graphs/combo_graphs) for Trends + Comparison
+        - [Donut charts](/foundations/data_visualization/charts_and_graphs/donut_charts) for Parts-to-whole
+        - [Funnel charts](/foundations/data_visualization/charts_and_graphs/funnel_charts) for Connection
         `}
       />
 
