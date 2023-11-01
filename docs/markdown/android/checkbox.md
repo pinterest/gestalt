@@ -11,16 +11,16 @@ fullwidth: true
 <TwoCol>
   <Group>
     <Do title="When to use" />
-    - In a list, form or [Table](https://gestalt.pinterest.systems/web/table), to present users with multiple, related options where more than one option can be selected. Users must be able to select all, none or some of the presented options.
-    - In a Form, along with a [TextField](https://gestalt.pinterest.systems/android/textfield), or other spaces that are too small for a [Switch](https://gestalt.pinterest.systems/android/switch).
+    - In a list, form or [Table](/web/table), to present users with multiple, related options where more than one option can be selected. Users must be able to select all, none or some of the presented options.
+    - In a Form, along with a [TextField](/android/textfield), or other spaces that are too small for a [Switch](/android/switch).
     - When selection doesn’t take immediate effect and requires form submission.
   </Group>
 
   <Group>
     <Dont title="When not to use" />
-    - Situations where users can only choose one out of multiple, related options. Use [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup) instead.
-    - When a selection takes immediate effect, especially on mobile. Use [Switch](https://gestalt.pinterest.systems/android/switch) instead.
-    - When visually, it’s hard to tell that a checkbox turns something on or off. Use [Switch](https://gestalt.pinterest.systems/android/switch) instead.
+    - Situations where users can only choose one out of multiple, related options. Use [RadioGroup](/web/radiogroup) instead.
+    - When a selection takes immediate effect, especially on mobile. Use [Switch](/android/switch) instead.
+    - When visually, it’s hard to tell that a checkbox turns something on or off. Use [Switch](/android/switch) instead.
   </Group>
   </TwoCol>
 
@@ -36,7 +36,7 @@ fullwidth: true
   <Group>
     <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/df347d70-e6db-4b6c-8ff8-06f3043588c1" noPadding alt="Example of incorrect single-select use" />
     <Dont title="Don't" />
-    Use checkboxes for one selection. Use [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup) instead.
+    Use checkboxes for one selection. Use [RadioGroup](/web/radiogroup) instead.
   </Group>
 </TwoCol>
 
@@ -50,7 +50,7 @@ fullwidth: true
   <Group>
     <ImgContainer src="https://github.com/pinterest/gestalt/assets/63257116/ed0014d3-ada7-45dc-a717-bed0b1e83cfb" noPadding alt="Example of incorrect immediate effect use" />
     <Dont title="Don't" />
-    Use a Checkbox to turn a state on and off with immediate effect. Use [Switch](https://gestalt.pinterest.systems/android/switch) instead.
+    Use a Checkbox to turn a state on and off with immediate effect. Use [Switch](/android/switch) instead.
   </Group>
 </TwoCol>
 

@@ -17,7 +17,6 @@ For a working example, see the [Combo](/web/chartgraph#Combo) variant in the Cha
 `}
       />
       <Box maxWidth={892}>
-        {' '}
         <SlimBanner
           type="info"
           iconAccessibilityLabel="Info"

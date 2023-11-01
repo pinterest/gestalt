@@ -38,7 +38,12 @@ const components = {
     children: string | null,
     display: 'inline' | 'inlineBlock' | 'block',
   }) => (
-    <Link href={href} target={isExternal(href)} display="inline">
+    <Link
+      href={href}
+      target={isExternal(href)}
+      externalLinkIcon={isExternal(href) === 'blank' ? 'default' : 'none'}
+      display="inline"
+    >
       {children}
     </Link>
   ),

@@ -169,7 +169,7 @@ For components, go to:
 
       <MainSection
         name="Writing"
-        description="For general writing and content formatting guidelines, refer to our [Content standards](/foundations/content_standards/voice)."
+        description="For general writing and content formatting guidelines, refer to our [Content standards](/foundations/content_standards/ui_elements)."
       >
         <MainSection.Subsection columns={2}>
           <MainSection.Card
