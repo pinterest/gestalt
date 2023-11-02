@@ -80,14 +80,14 @@ export default function usePopover({
   const popoverArrow = caretElement && arrow({ element: caretElement });
   // Flips popover direction based on available space
   const popoverFlip = flip({
-    boundary: scrollBoundary, // default is window
+    boundary: scrollBoundary,
     fallbackAxisSideDirection: 'start',
   });
   // Shifts popover to prevent clipping near viewport edges
   const popoverShift = shift({
     padding: 8,
     crossAxis: false,
-    boundary: scrollBoundary, // default is window
+    boundary: scrollBoundary,
     limiter: limitShift({
       offset: 5,
     }),

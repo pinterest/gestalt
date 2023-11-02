@@ -2,8 +2,8 @@
 import { type Node, useEffect, useRef } from 'react';
 import Box from '../Box.js';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
-import Controller from '../Controller.js';
 import Flex from '../Flex.js';
+import LegacyController from '../LegacyController.js';
 import InternalDismissButton from '../shared/InternalDismissButton.js';
 
 type Color = 'blue' | 'red' | 'white' | 'darkGray';
@@ -61,7 +61,7 @@ export default function InternalPopover({
   }
 
   return (
-    <Controller
+    <LegacyController
       accessibilityLabel={accessibilityLabel}
       anchor={anchor}
       bgColor={color}
@@ -96,6 +96,6 @@ export default function InternalPopover({
       ) : (
         children
       )}
-    </Controller>
+    </LegacyController>
   );
 }
