@@ -1,3 +1,9 @@
+## 128.0.6 (Nov 2, 2023)
+
+### Patch
+
+- Popover: Base implementation using Floating-UI ([#3244](https://github.com/pinterest/gestalt/pull/3244)) - [Preview link](https://deploy-preview-3244--gestalt.netlify.app?devexample=true)
+
 ## 128.0.5 (Nov 1, 2023)
 
 ### Patch
