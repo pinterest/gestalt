@@ -1,8 +1,8 @@
 // @flow strict
 import { Fragment, type Node, useEffect, useReducer, useRef } from 'react';
 import Box from '../Box.js';
-import Controller from '../Controller.js';
 import Layer from '../Layer.js';
+import LegacyController from '../LegacyController.js';
 import Text from '../Text.js';
 import useDebouncedCallback from '../useDebouncedCallback.js';
 import { type Indexable } from '../zIndex.js';
@@ -137,7 +137,7 @@ export default function InternalTooltip({
       </Box>
       {isOpen && !!anchor && (
         <Layer zIndex={zIndex}>
-          <Controller
+          <LegacyController
             anchor={anchor}
             caret={false}
             bgColor="darkGray"
@@ -164,7 +164,7 @@ export default function InternalTooltip({
 
               {Boolean(link) && <Box marginTop={1}>{link}</Box>}
             </Box>
-          </Controller>
+          </LegacyController>
         </Layer>
       )}
     </Box>

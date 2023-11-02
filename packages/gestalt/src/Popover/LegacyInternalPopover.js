@@ -1,34 +1,33 @@
 // @flow strict
 import { type Node, useEffect, useRef } from 'react';
-import Controller from './Controller.js';
 import Box from '../Box.js';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
 import Flex from '../Flex.js';
+import LegacyController from '../LegacyController.js';
 import InternalDismissButton from '../shared/InternalDismissButton.js';
 
 type Color = 'blue' | 'red' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
 type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 
-type Props = {
+type Props = {|
   accessibilityLabel?: string,
   accessibilityDismissButtonLabel?: string,
   anchor: ?HTMLElement,
   children?: Node,
   color?: Color,
-  onKeyDown?: ({ event: SyntheticKeyboardEvent<HTMLElement> }) => void,
+  onKeyDown?: ({| event: SyntheticKeyboardEvent<HTMLElement> |}) => void,
   id?: string,
   idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown',
   onDismiss: () => void,
+  positionRelativeToAnchor?: boolean,
   role?: Role,
   shouldFocus?: boolean,
   showCaret?: boolean,
   showDismissButton?: boolean,
   size?: Size,
-  disablePortal?: boolean,
-  scrollBoundary?: HTMLElement,
-  hideWhenReferenceHidden?: boolean,
-};
+  __dangerouslySetMaxHeight?: '30vh',
+|};
 
 export default function InternalPopover({
   accessibilityLabel,
@@ -40,14 +39,13 @@ export default function InternalPopover({
   id,
   idealDirection,
   onDismiss,
+  positionRelativeToAnchor = false,
   color = 'white',
   role,
   shouldFocus,
   showCaret,
   size = 'sm',
-  disablePortal,
-  scrollBoundary,
-  hideWhenReferenceHidden,
+  __dangerouslySetMaxHeight,
 }: Props): null | Node {
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Popover');
@@ -63,7 +61,7 @@ export default function InternalPopover({
   }
 
   return (
-    <Controller
+    <LegacyController
       accessibilityLabel={accessibilityLabel}
       anchor={anchor}
       bgColor={color}
@@ -73,13 +71,12 @@ export default function InternalPopover({
       id={id}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
+      positionRelativeToAnchor={positionRelativeToAnchor}
       role={role}
       rounding={4}
       shouldFocus={shouldFocus}
       size={size === 'flexible' ? null : size}
-      scrollBoundary={scrollBoundary}
-      disablePortal={disablePortal}
-      hideWhenReferenceHidden={hideWhenReferenceHidden}
+      __dangerouslyIgnoreScrollBoundaryContainerSize={__dangerouslySetMaxHeight === '30vh'}
     >
       {showDismissButton ? (
         <Flex direction="column">
@@ -99,6 +96,6 @@ export default function InternalPopover({
       ) : (
         children
       )}
-    </Controller>
+    </LegacyController>
   );
 }

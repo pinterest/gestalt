@@ -64,7 +64,7 @@ type State = {
   popoverRef: ?HTMLElement,
 };
 
-class Contents extends Component<Props, State> {
+class LegacyContents extends Component<Props, State> {
   static defaultProps: { border: boolean, caret: boolean } = {
     border: true,
     caret: true,
@@ -303,8 +303,8 @@ class Contents extends Component<Props, State> {
   }
 }
 
-export default function WrappedContents(props: OwnProps): Node {
+export default function WrappedLegacyContents(props: OwnProps): Node {
   const { scrollBoundaryContainerRef = null } = useScrollBoundaryContainer();
 
-  return <Contents {...props} scrollBoundaryContainerRef={scrollBoundaryContainerRef} />;
+  return <LegacyContents {...props} scrollBoundaryContainerRef={scrollBoundaryContainerRef} />;
 }

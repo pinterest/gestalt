@@ -62,13 +62,15 @@ export default function DevelopmentEditor({ code }: { code: ?string | (() => Nod
     // Remove imports
     .replace(importsToRemoveRegex, '')
     // Remove export statement
-    .replace('export default', '')
+    .replace('export default', 'const App =')
     // Add React. to React imports
     .replace(reactRegex, 'React.$&')
     .replace(
       'const [showComponent, setShowComponent] = React.useState(true);',
       'const [showComponent, setShowComponent] = React.useState(false);',
     );
+
+  const codeWrapped = `function Root() {${codeFileCleaned || ''}; return <App />}`;
 
   return (
     <Box
@@ -127,7 +129,7 @@ export default function DevelopmentEditor({ code }: { code: ?string | (() => Nod
           />
         </Flex>
       </Box>
-      <LiveProvider code={codeFileCleaned} scope={scope} theme={theme}>
+      <LiveProvider code={codeWrapped} scope={scope} theme={theme}>
         <Box
           alignItems="center"
           borderStyle="sm"
@@ -142,7 +144,7 @@ export default function DevelopmentEditor({ code }: { code: ?string | (() => Nod
         >
           <LivePreview style={{ display: 'contents' }} />
         </Box>
-        <ExampleCode code={codeFileCleaned ?? ''} name="DEVELOPMENT MODE" developmentEditor />
+        <ExampleCode code={codeWrapped ?? ''} name="DEVELOPMENT MODE" developmentEditor />
 
         <Box paddingX={2}>
           <Text color="error">

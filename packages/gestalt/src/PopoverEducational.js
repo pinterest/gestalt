@@ -5,7 +5,7 @@ import Button from './Button.js';
 import ButtonLink from './ButtonLink.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import Flex from './Flex.js';
-import InternalPopover from './Popover/InternalPopover.js';
+import InternalPopover from './Popover/LegacyInternalPopover.js';
 import styles from './PopoverEducational.css';
 import Text from './Text.js';
 import { type Indexable } from './zIndex.js';
