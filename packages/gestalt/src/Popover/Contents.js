@@ -27,6 +27,7 @@ type Props = {
   shouldFocus?: boolean,
   width: ?number,
   scrollBoundary?: HTMLElement,
+  hideWhenReferenceHidden?: boolean,
 };
 
 export default function Contents({
@@ -44,6 +45,7 @@ export default function Contents({
   shouldFocus = true,
   onKeyDown,
   scrollBoundary,
+  hideWhenReferenceHidden = true,
 }: Props): Node {
   const caretRef = useRef<HTMLElement | null>(null);
   const idealPlacement = idealDirection ? DIRECTIONS_MAP[idealDirection] : 'top';
@@ -53,6 +55,7 @@ export default function Contents({
     caretElement: caretRef.current,
     direction: idealPlacement,
     scrollBoundary,
+    hideWhenReferenceHidden,
   });
 
   const caretOffset = middlewareData.arrow;
@@ -60,24 +63,6 @@ export default function Contents({
   const background = bgColor === 'white' ? `${bgColor}BgElevated` : `${bgColor}Bg`;
   const bgColorElevated = bgColor === 'white' ? 'whiteElevated' : bgColor;
   const isCaretVertical = placement === 'top' || placement === 'bottom';
-
-  const popoverCaret = (
-    <div
-      ref={caretRef}
-      className={classnames(colors[bgColorElevated], styles.caret)}
-      style={{
-        left: caretOffset?.x != null ? `${caretOffset.x}px` : '',
-        top: caretOffset?.y != null ? `${caretOffset.y}px` : '',
-        [placement]: '100%',
-      }}
-    >
-      <Caret
-        direction={SIDES_MAP[placement]}
-        height={isCaretVertical ? CARET_HEIGHT : CARET_WIDTH}
-        width={isCaretVertical ? CARET_WIDTH : CARET_HEIGHT}
-      />
-    </div>
-  );
 
   useEffect(() => {
     if (shouldFocus && refs.floating.current) {
@@ -105,7 +90,23 @@ export default function Contents({
         )}
         style={{ ...floatingStyles, visibility }}
       >
-        {caret && popoverCaret}
+        {caret && (
+          <div
+            ref={caretRef}
+            className={classnames(colors[bgColorElevated], styles.caret)}
+            style={{
+              left: caretOffset?.x != null ? `${caretOffset.x}px` : '',
+              top: caretOffset?.y != null ? `${caretOffset.y}px` : '',
+              [placement]: '100%',
+            }}
+          >
+            <Caret
+              direction={SIDES_MAP[placement]}
+              height={isCaretVertical ? CARET_HEIGHT : CARET_WIDTH}
+              width={isCaretVertical ? CARET_WIDTH : CARET_HEIGHT}
+            />
+          </div>
+        )}
 
         <div
           aria-label={accessibilityLabel}

@@ -31,11 +31,31 @@ export const SIDES_MAP: Record<Side, MainDirections> = {
 };
 
 interface Props {
+  /**
+   * Reference element
+   */
   anchor?: HTMLElement | null;
+  /**
+   * Caret (Popover arrow) element
+   */
   caretElement?: HTMLElement | null;
-  scrollBoundary?: HTMLElement | null; // define boundaries for popover should flip or shift itself
+  /**
+   * Container element in which Popover flips directions or shifts itself upon reaching its viewport boundaries.
+   * Default is window viewport.
+   */
+  scrollBoundary?: HTMLElement | null;
+  /**
+   * Specifies the preferred position of Popover relative to its anchor element.
+   */
   direction?: Placement | 'forceDown';
+  /**
+   * Type of CSS position property to use.
+   * Deafult is `absolute`
+   */
   strategy?: Strategy;
+  /**
+   * Whether to hide Popover when reference element gets out of viewport.
+   */
   hideWhenReferenceHidden?: boolean;
 }
 
@@ -80,7 +100,7 @@ export default function usePopover({
     placement,
     whileElementsMounted: autoUpdate,
     elements: { reference: anchor },
-    // Order of middlewares are important as the calculations are passed along
+    // Do not reorder middlewares! Order is important as the calculations are passed along
     middleware: [
       popoverOffset,
       isForceDown ? undefined : popoverFlip,

@@ -27,6 +27,7 @@ type Props = {
   size?: Size,
   disablePortal?: boolean,
   scrollBoundary?: HTMLElement,
+  hideWhenReferenceHidden?: boolean,
 };
 
 export default function InternalPopover({
@@ -44,8 +45,9 @@ export default function InternalPopover({
   shouldFocus,
   showCaret,
   size = 'sm',
-  scrollBoundary,
   disablePortal,
+  scrollBoundary,
+  hideWhenReferenceHidden,
 }: Props): null | Node {
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Popover');
@@ -77,6 +79,7 @@ export default function InternalPopover({
       size={size === 'flexible' ? null : size}
       scrollBoundary={scrollBoundary}
       disablePortal={disablePortal}
+      hideWhenReferenceHidden={hideWhenReferenceHidden}
     >
       {showDismissButton ? (
         <Flex direction="column">

@@ -30,6 +30,7 @@ type Props = {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
   disablePortal?: boolean,
   scrollBoundary?: HTMLElement,
+  hideWhenReferenceHidden?: boolean,
 };
 
 export default function Controller({
@@ -47,8 +48,9 @@ export default function Controller({
   size = 'sm',
   onDismiss,
   onKeyDown,
-  scrollBoundary,
   disablePortal,
+  scrollBoundary,
+  hideWhenReferenceHidden,
 }: Props): ReactNode {
   const width = typeof size === 'string' ? SIZE_WIDTH_MAP[size] : size;
 
@@ -81,13 +83,12 @@ export default function Controller({
         shouldFocus={shouldFocus}
         width={width}
         scrollBoundary={scrollBoundary}
+        hideWhenReferenceHidden={hideWhenReferenceHidden}
       >
         {children}
       </Contents>
     </OutsideEventBehavior>
   );
 
-  if (disablePortal) return contents;
-
-  return <FloatingPortal>{contents}</FloatingPortal>;
+  return disablePortal ? contents : <FloatingPortal>{contents}</FloatingPortal>;
 }
