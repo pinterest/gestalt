@@ -518,10 +518,10 @@ interface DeviceTypeProviderProps {
 
 interface GlobalEventsHandlerProviderProps {
   children: Node;
-  dateFieldHandlers?: {onRender?: (() => void) | undefined;} | undefined;
-  datePickerHandlers?: {onRender?: (() => void) | undefined;} | undefined;
-  dateRangeHandlers?: {onRender?: (() => void) | undefined;} | undefined;
-  radioGroupHandlers?: {onRender?: (() => void) | undefined;} | undefined;
+  dateFieldHandlers?: { onRender?: (() => void) | undefined } | undefined;
+  datePickerHandlers?: { onRender?: (() => void) | undefined } | undefined;
+  dateRangeHandlers?: { onRender?: (() => void) | undefined } | undefined;
+  radioGroupHandlers?: { onRender?: (() => void) | undefined } | undefined;
   linkHandlers?: {
     onNavigation: (arg: {
       href: string;
@@ -1390,6 +1390,7 @@ interface NumberFieldProps {
   errorMessage?: Node | undefined;
   helperText?: string | undefined;
   label?: string | undefined;
+  labelDisplay?: 'visible' | 'hidden' | undefined;
   max?: number | undefined;
   min?: number | undefined;
   mobileEnterKeyHint?: MobileEnterKeyHintType | undefined;
