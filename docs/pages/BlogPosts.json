@@ -23,21 +23,21 @@
             "audience": ["Engineering"],
             "imageSrc": "https://i.pinimg.com/originals/da/a3/09/daa3091ea239588ceda32affcdbea74b.png",
             "imageAltText": "Snapshot of ChartGraph localized to German",
-            "content": "Docs improvements! We standardized the Localization section in our web components. Inside Localization, you'll find information regarding DefaultLabelProvider as well locale support. [Check it out!](https://gestalt.pinterest.systems/web/chartgraph#Localization). \n\n  We also added an [Experimentation section](https://gestalt.pinterest.systems/get_started/developers/contributing/experimentation) for reference approved contributions."
+            "content": "More Docs improvements! We standardized the Localization section in our web components. Inside the Localization section, you'll find information regarding DefaultLabelProvider as well as locale support. [Check it out!](https://gestalt.pinterest.systems/web/chartgraph#Localization). \n\n  We also added an [Experimentation section](https://gestalt.pinterest.systems/get_started/developers/contributing/experimentation) as guidalines for approved contributions."
           },
           {
             "title": "PDocs integrated into Gestalt Docs",
             "audience": ["Engineering"],
             "imageSrc": "https://i.pinimg.com/originals/40/ab/10/40ab10d7611aa3d1b557aa0ed4d71943.png",
             "imageAltText": "Image of the DOcs for ButtonLink and an arrow pointing to the PDocs link'",
-            "content": "PDocs is now accessible from our Docs in our Internal documentation section. \n\n  In [PDocs](https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-overview), we document Pinboard specific implementations for Gestalt Providers, component extensions, and ads logging extensions! \n\n Check [ButtonLink](https://gestalt.pinterest.systems/web/buttonlink) to see an example of PDocs for a particular component."
+            "content": "PDocs is now accessible from our Docs in our Internal documentation section. \n\n  In [PDocs](https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-overview), we document Pinboard-specific implementations for Gestalt Providers, component extensions, and ads logging extensions. \n\n Check [ButtonLink](https://gestalt.pinterest.systems/web/buttonlink) to see an example of PDocs integrated in our Docs."
           },
           {
             "title": "Other component updates",
             "audience": ["Engineering"],
             "imageSrc": "https://i.pinimg.com/originals/e2/15/52/e21552b93b2034c0f6438a7e11c20c3a.png",
             "imageAltText": "Image of the new icons",
-            "content": "- **Link** finally supports dataTestId prop. In Pinboard, we also deprecated SterlingLink and added Link to the [adsLoggingExtension extension](https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-ads-logging-extension#gestalt-components-with-ads-logging) \n - **TagData, TileData** support multi-line Tooltips. \n - **NumberField** support labelDisplay prop for consistency with TextField. \n - **Icons**. We added 6 new icons added to our [iconography collection](https://gestalt.pinterest.systems/foundations/iconography/library). They are: \n **Cross-platform icons**: speech-outline, speech-exclamation-point \n **Web-only icons** (campaign insights, media planing and measurement): api, data-source, hearth-health, diagnostics"
+            "content": "- **Link** finally supports dataTestId prop. In Pinboard, we also deprecated SterlingLink and added Link to the [adsLoggingExtension extension](https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-ads-logging-extension#gestalt-components-with-ads-logging) \n - **TagData, TileData** support multi-line Tooltips. \n - **NumberField** support labelDisplay prop for consistency with TextField. \n - **Icons**. We added 6 new icons added to our [iconography collection](https://gestalt.pinterest.systems/foundations/iconography/library). They are: \n **Cross-platform icons**: speech-outline, speech-exclamation-point \n **Web-only icons** (campaign insights, media planing and measurement): api, data-source, hearth-health, diagnostics."
           },
           {
             "title": "Gestalt Design October Newsletter",
