@@ -1,3 +1,9 @@
+## 128.1.2 (Nov 3, 2023)
+
+### Patch
+
+- Status: Add locked status ([#3293](https://github.com/pinterest/gestalt/pull/3293)) - [Preview link](https://deploy-preview-3293--gestalt.netlify.app?devexample=true)
+
 ## 128.1.1 (Nov 3, 2023)
 
 ### Patch
