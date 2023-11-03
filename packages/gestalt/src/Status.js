@@ -18,6 +18,10 @@ const ICON_COLOR_MAP = {
     icon: 'workflow-status-in-progress',
     color: 'success',
   },
+  locked: {
+    icon: 'lock',
+    color: 'subtle',
+  },
   ok: {
     icon: 'workflow-status-ok',
     color: 'success',
@@ -45,6 +49,7 @@ type StatusType =
   | 'queued'
   | 'inProgress'
   | 'halted'
+  | 'locked'
   | 'ok'
   | 'problem'
   | 'canceled'

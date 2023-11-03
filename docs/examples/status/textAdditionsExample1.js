@@ -10,6 +10,7 @@ export default function Example(): Node {
         <Status type="queued" title="Queued" />
         <Status type="inProgress" title="In progress" />
         <Status type="halted" title="Halted" />
+        <Status type="locked" title="Locked" />
         <Status type="ok" title="OK" />
         <Status type="canceled" title="Canceled" />
         <Status type="warning" title="Warning" />
