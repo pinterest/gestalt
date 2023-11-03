@@ -1,3 +1,9 @@
+## 128.1.0 (Nov 3, 2023)
+
+### Minor
+
+- NumberField: added `labelDisplay` prop ([#3291](https://github.com/pinterest/gestalt/pull/3291)) - [Preview link](https://deploy-preview-3291--gestalt.netlify.app?devexample=true)
+
 ## 128.0.6 (Nov 2, 2023)
 
 ### Patch
