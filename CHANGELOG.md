@@ -1,3 +1,9 @@
+## 128.1.3 (Nov 7, 2023)
+
+### Patch
+
+- Docs: implement `?helixbot=boolean` in the url to enable a site without code examples to facilitate the crawling of the helix-bot to integrate AI ([#3294](https://github.com/pinterest/gestalt/pull/3294)) - [Preview link](https://deploy-preview-3294--gestalt.netlify.app?devexample=true)
+
 ## 128.1.2 (Nov 3, 2023)
 
 ### Patch
