@@ -156,7 +156,7 @@ export default function SandpackExample({
   hideEditor?: boolean,
 }): Node {
   const { files } = useLocalFiles();
-  const { colorScheme, devExampleMode, textDirection } = useAppContext();
+  const { colorScheme, devExampleMode, helixBot, textDirection } = useAppContext();
   const [exampleColorScheme, setExampleColorScheme] = useState<'light' | 'dark'>(colorScheme);
   const [exampleTextDirection, setExampleTextDirection] = useState<'ltr' | 'rtl'>(textDirection);
 
@@ -165,6 +165,8 @@ export default function SandpackExample({
     setExampleColorScheme(colorScheme);
     setExampleTextDirection(textDirection);
   }, [colorScheme, textDirection]);
+
+  if (helixBot) return null;
 
   return devExampleMode === 'default' ? (
     <SandpackProvider

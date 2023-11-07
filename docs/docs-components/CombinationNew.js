@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node } from 'react';
 import { Box, Flex } from 'gestalt';
+import { useAppContext } from './appContext.js';
 import Checkerboard from './Checkerboard.js';
 import MainSectionCard from './MainSectionCard.js';
 
@@ -61,6 +62,8 @@ export default function CombinationNew({
   cardSize,
   ...props
 }: Props): Node {
+  const { helixBot } = useAppContext();
+
   const CardArray = combinations(props).map((combination, i) => {
     const combinationTitles = Object.keys(combination).map((key) =>
       toReactAttribute(key, combination[key]),
@@ -92,6 +95,9 @@ export default function CombinationNew({
       </MainSectionCard>
     );
   });
+
+  if (helixBot) return null;
+
   return (
     <Flex wrap gap={4}>
       {CardArray}
