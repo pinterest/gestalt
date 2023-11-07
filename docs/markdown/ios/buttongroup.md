@@ -16,7 +16,7 @@ fullwidth: true
   </Group>
   <Group>
   <Dont title="When not to use" />
-     - Switching between different views. Use [Tabs](/android/tabs) instead
+     - Switching between different views. Use [Tabs](/ios/tabs) instead
   </Group>
 </TwoCol>
 
@@ -24,26 +24,30 @@ fullwidth: true
 
 Keep primary actions (ex: submitting a form) on the right and secondary actions (ex: cancel) on the left. When used vertically, keep the primary action at the top. 
 
-For general Button best practices, refer to the [Button documentation](/android/button).
+For general Button best practices on color usage and states, refer to the [Button documentation](/ios/button).
 
 ## Accessibility
 
-People use Android's accessibility features, such as TalkBack and dynamic text sizing to personalize how they interact with their devices. Supporting these personalizations ensures that everyone has a great user experience. See Material Design and development documentation about accessibility for Android:
+People use iOS's accessibility features, such as TalkBack and dynamic text sizing to personalize how they interact with their devices. Supporting these personalizations ensures that everyone has a great user experience. See Material Design and development documentation about accessibility for Android:
 
-[Accessible design on Android](https://material.io/design/usability/accessibility.html#understanding-accessibility)
-[Accessible development on Android](https://developer.android.com/guide/topics/ui/accessibility)
+[Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/accessibility/overview/introduction/)
+[Accessible development on iOS](https://developer.apple.com/accessibility/ios/)
+
+## Content
+
+For writing best practices, refer to the [Button documentation](/ios/button).
 
 ## Design tokens
 
 Use these tokens for applying size, weight and color styles to ButtonGroups.
 <br/>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D8172%253A19117%26t%3DFuLEqHprSOBB2XwC-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244%3A751&mode=design&t=rpzG2JbQK3dHaeE6-1" allowFullScreen></iframe>
 
 ## Anatomy
 
 See below how the ButtonGroup component is constructed.
 <br/>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D8172%253A19266%26t%3DFuLEqHprSOBB2XwC-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244%3A900&mode=design&t=rpzG2JbQK3dHaeE6-1" allowFullScreen></iframe>
 
 ## Variants
 
@@ -52,21 +56,21 @@ See below how the ButtonGroup component is constructed.
 Mobile buttons are available in 2 sizes. The Button text always use [$font-size-300 token](/foundations/design_tokens#Font-size) (16sp).
 <br/>
 
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D8763%253A19224%26t%3DFuLEqHprSOBB2XwC-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244%3A603&mode=design&t=rpzG2JbQK3dHaeE6-1" allowFullScreen></iframe>
 
 <br/>
 
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D8763%253A19084%26t%3DFuLEqHprSOBB2XwC-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244%3A529&mode=design&t=rpzG2JbQK3dHaeE6-1" allowFullScreen></iframe>
 
-1. **lg (60dp)**
+1. **lg (60px)**
    Large should be primarily used on Pinner, business and internal surfaces.
-2. **sm (48dp)**
+2. **sm (48px)**
    Small should be used sparingly and only in places where the UI is very dense.
 
 <br/>
 ### Orientation use cases
 
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D8767%253A18914%26t%3DFuLEqHprSOBB2XwC-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244%3A677&mode=design&t=rpzG2JbQK3dHaeE6-1" allowFullScreen></iframe>
 
 1. **Horizontal**
    By default, a ButtonGroup is horizontal.
@@ -75,15 +79,28 @@ Mobile buttons are available in 2 sizes. The Button text always use [$font-size-
 
 <br/>
 
+## Dark mode
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244%3A329&mode=design&t=rpzG2JbQK3dHaeE6-1" allowFullScreen></iframe>
+
 ## Styling
 
-For information on color, icons, roles, and states, refer to the [Button documentation](/android/button).
-
+For information on color, icons, roles, and states, refer to the [Button documentation](/ios/button).
 
 ## Writing
-
-For writing best practices, refer to the [content standards documentation](/foundations/content_standards/ui_elements).
-
+<TwoCol>
+  <Group>
+    <Do title="Do" />
+    - If your object is already described on the screen, Buttons only need a verb (Example: Save).
+    - If your object isn’t described on the screen, Buttons need a verb + the object (Example: Create Pin).
+    - Use fewer than 3 words.
+    - Use sentence case.
+  </Group>
+  <Group>
+  <Dont title="Don't" />
+    - Do not use punctuation.
+  </Group>
+</TwoCol>
+For writing best practices, refer to the [web Button documentation](/web/button).
 
 ## Localization
 
