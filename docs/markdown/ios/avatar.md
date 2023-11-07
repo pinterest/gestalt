@@ -47,14 +47,14 @@ For general Avatar best practices, refer to the [Avatar web documentation](/web/
 
 People use Android’s accessibility features, such as TalkBack and dynamic text sizing to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Material Design and development documentation about accessibility for Android:
 
-[Accessbile design on Android](https://material.io/design/usability/accessibility.html#understanding-accessibility)
-[Accessible development on Android](https://developer.android.com/guide/topics/ui/accessibility)
+[Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/accessibility/overview/introduction/)
+[Accessible development on iOS](https://developer.apple.com/accessibility/ios/)
 
 ## Design tokens
-<iframe style={{border:0}} width="100%" height="560" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19031%253A33387%26mode%3Ddesign%26t%3D7DILxmTXufpjBBtl-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="560" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39390%3A1240&mode=design&t=rpzG2JbQK3dHaeE6-1" allowFullScreen></iframe>
 
 ## Anatomy
-<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19031%253A33041%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39390-783&mode=design&t=rpzG2JbQK3dHaeE6-11" allowFullScreen></iframe>
 
 
 ## Variants
@@ -68,7 +68,7 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 5. **sm** **(24px)**
 6. **xs** **(16px)**
 <br/>
-<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19031%253A33199%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39390-1178&mode=design&t=rpzG2JbQK3dHaeE6-11" allowFullScreen></iframe>
 Avatar comes in 6 different sizes.
 
 ### Without an image
@@ -80,21 +80,21 @@ If there is no image source provided for the Avatar, the first character of the 
 <br/>
 <TwoCol>
   <Group>
-    <iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19085%253A33121%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+    <iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39390-940&mode=design&t=rpzG2JbQK3dHaeE6-11" allowFullScreen></iframe>
   </Group>
   <Group>
-    <iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D20221%253A35222%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+    <iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39390-1020&mode=design&t=rpzG2JbQK3dHaeE6-11" allowFullScreen></iframe>
   </Group>
   </TwoCol>
 
 ### Stroke
-The avatar has an optional 1dp border. 
+The avatar has an optional 1px border. 
 <br/>
 <TwoCol>
   <Group>
-    <iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19085%253A33528%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+    <iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39390-1101&mode=design&t=rpzG2JbQK3dHaeE6-11" allowFullScreen></iframe>
   </Group>
   <Group>
-    <iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19085%253A33617%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
+    <iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39390-1471&mode=design&t=rpzG2JbQK3dHaeE6-11" allowFullScreen></iframe>
   </Group>
   </TwoCol>
