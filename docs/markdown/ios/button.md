@@ -68,20 +68,6 @@ Mobile buttons are available in 2 sizes. The Button text always use [$font-size-
 2. **Full-width (fullWidth)**
    Full-width Buttons can be used in narrower content areas when the text in the Button is close to full width in the content area.
 
-
-<Group>
-<ImgContainer src="https://i.pinimg.com/originals/32/a5/bf/32a5bfd6e4b12b80d8d5cc855e9bc50c.png" alt="a large red button that says Save"/>
-**size = "lg"**
-</Group>
-</TwoCol>
-
-### Width
-
-1. **Inline (default)**
-   Inline is our default button width. The width of an inline Button is based on the length of its text. Use in most cases where you need a Button.
-2. **Full-width (fullWidth)**
-   Full-width Buttons can be used in narrower content areas when the text in the Button is close to full width in the content area.
-
 <TwoCol>
 <Group>
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244-1299&mode=design&t=iHJEURtTWzEJEX0J-11" allowFullScreen></iframe>
