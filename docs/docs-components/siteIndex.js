@@ -74,6 +74,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Component status',
       'Avatar',
       'Badge',
+      'AvatarGroup',
       'Button',
       'ButtonGroup',
       {
