@@ -2,7 +2,7 @@
 import { test } from '@playwright/test';
 import expectAccessiblePage from './expectAccessiblePage.mjs';
 
-test('Typography guidelines check', async ({ page }) => {
-  await page.goto('/foundations/typography/guidelines');
+test('iOS TextArea Accessibility check', async ({ page }) => {
+  await page.goto('/ios/textarea');
   await expectAccessiblePage({ page });
 });

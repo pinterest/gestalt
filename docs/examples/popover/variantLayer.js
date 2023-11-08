@@ -38,7 +38,7 @@ function SearchBoardField() {
   const ref = useRef<null | HTMLInputElement>(null);
 
   useEffect(() => {
-    ref.current?.focus();
+    if (ref.current) ref.current.focus();
   }, []);
 
   return (

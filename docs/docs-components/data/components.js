@@ -260,6 +260,20 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           status: 'planned',
         },
       },
+      ios: {
+        name: 'Badge',
+        visual: {
+          svg: <Badge />,
+        },
+        alias: ['Lozenge', 'Label', 'Stamp', 'Flag'],
+        description: 'Badge is a label that indicates status or importance.',
+        category: ['Indicators'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          status: 'planned',
+        },
+      },
     },
   },
   {
@@ -2459,6 +2473,20 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           documentation: 'ready',
           figmaStatus: 'ready',
           status: 'ready',
+        },
+      },
+      ios: {
+        name: 'TextArea',
+        visual: {
+          svg: <TextArea />,
+        },
+        alias: ['Multi-line Input'],
+        description: 'TextArea allows for multi-line input.',
+        category: ['Fields and forms'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          status: 'planned',
         },
       },
     },

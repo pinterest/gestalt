@@ -857,7 +857,7 @@
     },
     {
       "name": "lock",
-      "categories": ["Utility and tools"],
+      "categories": ["Utility and tools", "Status"],
       "description": "Indicates private content",
       "keywords": ["private", "safe", "privacy"]
     },

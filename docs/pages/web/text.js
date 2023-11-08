@@ -162,7 +162,7 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
           helperLink={{
             text: 'View Typography guidelines',
             accessibilityLabel: 'View Typography guidelines',
-            href: '/foundations/typography/guidelines',
+            href: '/foundations/typography',
             onClick: () => {},
           }}
         />
@@ -302,7 +302,7 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
         />
         <MainSection.Subsection
           description={`
-      **[Typography guidelines](/foundations/typography/guidelines)**
+      **[Typography guidelines](/foundations/typography)**
       A run-down on our typographic foundations, with some guidelines for using Heading and Text components together in products.
 `}
         />

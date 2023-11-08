@@ -24,7 +24,29 @@ type Props = {
   pageSourceUrl?: string,
 };
 
+const isExternal: (string) => 'blank' | void = (href) => {
+  if (href.startsWith('https://')) return 'blank';
+  return undefined;
+};
+
 const components = {
+  a: ({
+    children,
+    href,
+  }: {
+    href: string,
+    children: string | null,
+    display: 'inline' | 'inlineBlock' | 'block',
+  }) => (
+    <Link
+      href={href}
+      target={isExternal(href)}
+      externalLinkIcon={isExternal(href) === 'blank' ? 'default' : 'none'}
+      display="inline"
+    >
+      {children}
+    </Link>
+  ),
   // $FlowFixMe[missing-local-annot]
   ul: (props) => {
     const filtered = Object.values(props.children).filter((a) => a !== '\n');
@@ -135,18 +157,14 @@ const components = {
     children: string | null,
     display: 'inline' | 'inlineBlock' | 'block',
   }) => (
-    <Link href={href} target="blank" display={display || 'block'}>
-      <Flex
-        alignItems="baseline"
-        gap={{
-          row: 1,
-          column: 0,
-        }}
-      >
-        <Text underline>{children}</Text>
-        <InternalOnlyIconButton size="sm" />
-      </Flex>
-    </Link>
+    <Text inline>
+      <Link target="blank" href={href} display={display || 'block'}>
+        <Flex alignItems="baseline">
+          {children}
+          <InternalOnlyIconButton size="xs" />
+        </Flex>
+      </Link>
+    </Text>
   ),
   Hint: ({ children }: { children: string | null }) => (
     <div
@@ -312,7 +330,7 @@ const components = {
 };
 
 export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): Node {
-  const maxWidth = meta.fullwidth ? 'none' : `${DOCS_COPY_MAX_WIDTH_PX}px`;
+  const maxWidth = meta?.fullwidth ? 'none' : `${DOCS_COPY_MAX_WIDTH_PX}px`;
 
   return (
     <MDXProvider components={components}>

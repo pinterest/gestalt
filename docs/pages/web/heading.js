@@ -182,7 +182,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           helperLink={{
             text: 'View Typography guidelines',
             accessibilityLabel: 'View Typography guidelines',
-            href: '/foundations/typography/guidelines',
+            href: '/foundations/typography',
             onClick: () => {},
           }}
         />
@@ -377,7 +377,7 @@ For certain specific situations, it is possible to use Heading without an access
         />
         <MainSection.Subsection
           description={`
-      **[Typography guidelines](/foundations/typography/guidelines)**
+      **[Typography guidelines](/foundations/typography)**
       A run-down on our typographic foundations, with some guidelines for using Heading and Text components together in products.
 `}
         />

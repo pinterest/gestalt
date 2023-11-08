@@ -50,6 +50,10 @@ type Props = {
    */
   label?: string,
   /**
+   * Whether the label should be visible or not. If `hidden`, the label is still available for screen reader users, but does not appear visually.
+   */
+  labelDisplay?: 'visible' | 'hidden',
+  /**
    * The upper bound of valid input, inclusive.
    */
   max?: number,
@@ -135,6 +139,7 @@ const NumberFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = fo
     helperText,
     id,
     label,
+    labelDisplay,
     max,
     min,
     name,
@@ -158,6 +163,7 @@ const NumberFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = fo
       helperText={helperText}
       id={id}
       label={label}
+      labelDisplay={labelDisplay}
       max={max}
       min={min}
       name={name}

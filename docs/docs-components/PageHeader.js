@@ -36,7 +36,15 @@ const buildSourceLinkUrl = (componentName: string) =>
   );
 
 type Props = {
-  badge?: 'pilot' | 'deprecated' | 'experimental',
+  badge?:
+    | 'pilot'
+    | 'deprecated'
+    | 'experimental'
+    | 'comparison'
+    | 'comparisontrends'
+    | 'connection'
+    | 'partstowhole'
+    | 'trends',
   children?: Node,
   description?: string,
   /**
@@ -82,12 +90,32 @@ export default function PageHeader({
     },
     experimental: {
       text: 'Experimental',
-      tooltipText: `This is an experimental version of ${name}. This component might significantly change in the future with additional breaking functionality. The component could be deprecated as well. We recommend not using it unless discuss and agreed with the Gestalt team`,
+      tooltipText: `This is an experimental version of ${name}. This component might significantly change in the future with additional breaking functionality. The component could be deprecated as well. We recommend not using it unless discuss and agreed with the Gestalt team.`,
     },
     deprecated: {
       text: 'Deprecated',
-      tooltipText: `This component is deprecated and will be removed soon`,
+      tooltipText: `This component is deprecated and will be removed soon.`,
       type: 'error',
+    },
+    comparison: {
+      text: 'Comparison',
+      tooltipText: 'Charts used to see how multiple data sets compare to each other.',
+    },
+    comparisontrends: {
+      text: 'Comparison + Trends',
+      tooltipText: 'Charts used to both see a trend over time and compare amounts in a category.',
+    },
+    connection: {
+      text: 'Connection',
+      tooltipText: 'Charts used to see the relationship between variables.',
+    },
+    partstowhole: {
+      text: 'Parts-to-whole',
+      tooltipText: 'Charts used to see how a breakdown adds up to a total.',
+    },
+    trends: {
+      text: 'Trends',
+      tooltipText: 'Charts used to see how data changes over time.',
     },
   };
 
