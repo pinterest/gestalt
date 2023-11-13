@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Sticky from './Sticky.js';
+import Sticky from './Sticky';
 
 test('Sticky renders', () => {
   const tree = create(<Sticky top={1}>Sticky</Sticky>).toJSON();

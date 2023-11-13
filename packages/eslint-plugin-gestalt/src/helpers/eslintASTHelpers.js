@@ -4,7 +4,7 @@ import {
   type GenericType,
   type ReducerAccType,
   type ReducerType,
-} from './reducerTypes.js';
+} from './reducerTypes';
 
 /** =================  HELPERS =================
  */

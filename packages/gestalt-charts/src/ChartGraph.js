@@ -17,18 +17,18 @@ import {
   Tooltip,
 } from 'recharts';
 import { Box, Flex, HelpButton, TagData, TileData, useColorScheme, useDefaultLabel } from 'gestalt';
-import { ChartProvider } from './ChartGraph/ChartGraphContext.js';
-import EmptyBox from './ChartGraph/EmptyBox.js';
-import Header from './ChartGraph/Header.js';
-import LegendIcon from './ChartGraph/LegendIcon.js';
-import renderAxis from './ChartGraph/renderAxis.js';
-import renderElements from './ChartGraph/renderElements.js';
-import renderReferenceAreas from './ChartGraph/renderReferenceAreas.js';
-import TabularDataModal from './ChartGraph/TabularDataModal.js';
-import useCustomTooltip from './ChartGraph/useCustomTooltip.js';
-import useDefaultLegend from './ChartGraph/useDefaultLegend.js';
-import useDefaultTooltip from './ChartGraph/useDefaultTooltip.js';
-import usePatterns, { useHexColor } from './ChartGraph/usePatterns.js';
+import { ChartProvider } from './ChartGraph/ChartGraphContext';
+import EmptyBox from './ChartGraph/EmptyBox';
+import Header from './ChartGraph/Header';
+import LegendIcon from './ChartGraph/LegendIcon';
+import renderAxis from './ChartGraph/renderAxis';
+import renderElements from './ChartGraph/renderElements';
+import renderReferenceAreas from './ChartGraph/renderReferenceAreas';
+import TabularDataModal from './ChartGraph/TabularDataModal';
+import useCustomTooltip from './ChartGraph/useCustomTooltip';
+import useDefaultLegend from './ChartGraph/useDefaultLegend';
+import useDefaultTooltip from './ChartGraph/useDefaultTooltip';
+import usePatterns, { useHexColor } from './ChartGraph/usePatterns';
 
 interface Indexable {
   index(): number;

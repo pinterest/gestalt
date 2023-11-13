@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Link, List, Module, Text } from 'gestalt';
-import Card from './Card.js';
+import Card from './Card';
 
 type Props = { items: $ReadOnlyArray<{ href: string, text: string }> };
 

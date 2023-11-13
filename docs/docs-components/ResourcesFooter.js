@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, Flex, Heading, Link, Text } from 'gestalt';
-import InternalOnlyIconButton from './InternalOnlyIconButton.js';
+import InternalOnlyIconButton from './InternalOnlyIconButton';
 
 const figmaLibraries = [
   {
@@ -50,7 +50,7 @@ const engResources = [
   { title: 'Web repository', url: 'https://github.com/pinterest/gestalt' },
   {
     title: 'Code sandbox',
-    url: 'https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js',
+    url: 'https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode',
   },
 ];
 

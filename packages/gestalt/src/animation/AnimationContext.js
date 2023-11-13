@@ -11,7 +11,7 @@ import {
   useState,
 } from 'react';
 import ReactDOM from 'react-dom';
-import useReducedMotion from '../useReducedMotion.js';
+import useReducedMotion from '../useReducedMotion';
 
 export const ANIMATION_STATE = {
   animatedOpening: 'animatedOpening',

@@ -1,24 +1,24 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import doHighlight from '../../examples/pulsar/doHighlight.js';
-import dontMultiple from '../../examples/pulsar/dontMultiple.js';
-import dontPopover from '../../examples/pulsar/dontPopover.js';
-import dontPosition from '../../examples/pulsar/dontPosition.js';
-import dontStatus from '../../examples/pulsar/dontStatus.js';
-import doPopover from '../../examples/pulsar/doPopover.js';
-import doPosition from '../../examples/pulsar/doPosition.js';
-import doPrioritize from '../../examples/pulsar/doPrioritize.js';
-import main from '../../examples/pulsar/main.js';
-import paused from '../../examples/pulsar/paused.js';
-import size from '../../examples/pulsar/size.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import doHighlight from '../../examples/pulsar/doHighlight';
+import dontMultiple from '../../examples/pulsar/dontMultiple';
+import dontPopover from '../../examples/pulsar/dontPopover';
+import dontPosition from '../../examples/pulsar/dontPosition';
+import dontStatus from '../../examples/pulsar/dontStatus';
+import doPopover from '../../examples/pulsar/doPopover';
+import doPosition from '../../examples/pulsar/doPosition';
+import doPrioritize from '../../examples/pulsar/doPrioritize';
+import main from '../../examples/pulsar/main';
+import paused from '../../examples/pulsar/paused';
+import size from '../../examples/pulsar/size';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (

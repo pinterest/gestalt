@@ -1,9 +1,9 @@
 // @flow strict
 import { fireEvent, getNodeText, render, screen } from '@testing-library/react';
-import AnimationProvider, { ANIMATION_STATE, useAnimation } from './AnimationContext.js';
-import * as useReducedMotionHook from '../useReducedMotion.js';
+import AnimationProvider, { ANIMATION_STATE, useAnimation } from './AnimationContext';
+import * as useReducedMotionHook from '../useReducedMotion';
 
-jest.mock('../useReducedMotion.js');
+jest.mock('../useReducedMotion');
 
 function AnimatedComponent() {
   const { animationState, handleAnimationEnd, handleExternalDismiss } = useAnimation();

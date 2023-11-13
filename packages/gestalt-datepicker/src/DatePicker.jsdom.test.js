@@ -1,7 +1,7 @@
 // @flow strict-local
 import { useState } from 'react';
 import { act, fireEvent, render, screen } from '@testing-library/react';
-import DatePicker from './DatePicker.js';
+import DatePicker from './DatePicker';
 
 const initialDate = new Date(2018, 11, 14);
 

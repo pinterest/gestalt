@@ -6,28 +6,28 @@ import {
   isValidElement,
   type Node as ReactNode,
 } from 'react';
-import Avatar from './Avatar.js';
-import Box from './Box.js';
-import Button from './Button.js';
-import ButtonLink from './ButtonLink.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import Flex from './Flex.js';
-import Icon from './Icon.js';
-import Image from './Image.js';
-import Link from './Link.js';
-import InternalDismissButton from './shared/InternalDismissButton.js';
-import Text from './Text.js';
+import Avatar from './Avatar';
+import Box from './Box';
+import Button from './Button';
+import ButtonLink from './ButtonLink';
+import { useColorScheme } from './contexts/ColorSchemeProvider';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import Flex from './Flex';
+import Icon from './Icon';
+import Image from './Image';
+import Link from './Link';
+import InternalDismissButton from './shared/InternalDismissButton';
+import Text from './Text';
 import styles from './Toast.css';
-import PrimaryAction from './Toast/PrimaryAction.js';
+import PrimaryAction from './Toast/PrimaryAction';
 import {
   ToastAvatarThumbnail,
   ToastIconThumbnail,
   ToastImageThumbnail,
   ToastMessage,
   ToastTypeThumbnail,
-} from './Toast/subcomponents.js';
-import useResponsiveMinWidth from './useResponsiveMinWidth.js';
+} from './Toast/subcomponents';
+import useResponsiveMinWidth from './useResponsiveMinWidth';
 
 const DEFAULT_COLORS = {
   containerColor: 'inverse',

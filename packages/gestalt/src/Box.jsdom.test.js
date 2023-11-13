@@ -1,7 +1,7 @@
 // @flow strict
 import { createRef } from 'react';
 import { render } from '@testing-library/react';
-import Box from './Box.js';
+import Box from './Box';
 
 describe('Box', () => {
   it('forwards a ref to the innermost div element', () => {

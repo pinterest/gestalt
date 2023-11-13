@@ -1,9 +1,9 @@
 // @flow strict
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
-import Dropdown from './Dropdown.js';
-import SideNavigation from './SideNavigation.js';
+import DeviceTypeProvider from './contexts/DeviceTypeProvider';
+import Dropdown from './Dropdown';
+import SideNavigation from './SideNavigation';
 
 describe('SideNavigation desktop', () => {
   function Component() {

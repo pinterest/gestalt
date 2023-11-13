@@ -1,18 +1,18 @@
 // @flow strict
 import { type Element, type Node as ReactNode, useId, useState } from 'react';
 import classnames from 'classnames';
-import { useDeviceType } from './contexts/DeviceTypeProvider.js';
-import { NestingProvider, useNesting } from './contexts/NestingProvider.js';
-import { useSideNavigation } from './contexts/SideNavigationProvider.js';
-import Dropdown from './Dropdown.js';
-import icons from './icons/index.js';
+import { useDeviceType } from './contexts/DeviceTypeProvider';
+import { NestingProvider, useNesting } from './contexts/NestingProvider';
+import { useSideNavigation } from './contexts/SideNavigationProvider';
+import Dropdown from './Dropdown';
+import icons from './icons/index';
 import styles from './SideNavigation.css';
-import getChildrenToArray from './SideNavigation/getChildrenToArray.js';
-import SideNavigationGroupContent from './SideNavigation/GroupContent.js';
-import SideNavigationGroupMobile from './SideNavigation/GroupMobile.js';
-import { NESTING_MARGIN_START_MAP } from './SideNavigationTopItem.js';
-import TapArea from './TapArea.js';
-import { type Indexable } from './zIndex.js';
+import getChildrenToArray from './SideNavigation/getChildrenToArray';
+import SideNavigationGroupContent from './SideNavigation/GroupContent';
+import SideNavigationGroupMobile from './SideNavigation/GroupMobile';
+import { NESTING_MARGIN_START_MAP } from './SideNavigationTopItem';
+import TapArea from './TapArea';
+import { type Indexable } from './zIndex';
 
 type IconType = $Keys<typeof icons> | { __path: string };
 type Display = 'expandable' | 'static';

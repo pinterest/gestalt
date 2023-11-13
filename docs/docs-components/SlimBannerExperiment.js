@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { SlimBanner } from 'gestalt';
-import { useAppContext } from './appContext.js';
+import { useAppContext } from './appContext';
 
 export function BareSlimBannerExperiment({ componentName }: { componentName: string }): ReactNode {
   const { experiments } = useAppContext();

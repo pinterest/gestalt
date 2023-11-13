@@ -1,32 +1,32 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { SlimBanner } from 'gestalt';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import doMinimalStyle from '../../examples/text/doMinimalStyle.js';
-import dontCenterAlign from '../../examples/text/dontCenterAlign.js';
-import dontMixStyles from '../../examples/text/dontMixStyles.js';
-import dontUnderline from '../../examples/text/dontUnderline.js';
-import dontUseHierarchy from '../../examples/text/dontUseHierarchy.js';
-import doStartAlign from '../../examples/text/doStartAlign.js';
-import doUseSize from '../../examples/text/doUseSize.js';
-import doWeight from '../../examples/text/doWeight.js';
-import main from '../../examples/text/main.js';
-import variantAlignment from '../../examples/text/variantAlignment.js';
-import variantBoxInline from '../../examples/text/variantBoxInline.js';
-import variantColors from '../../examples/text/variantColors.js';
-import variantOverflowTruncation from '../../examples/text/variantOverflowTruncation.js';
-import variantRefs from '../../examples/text/variantRefs.js';
-import variantSizes from '../../examples/text/variantSizes.js';
-import variantStyles from '../../examples/text/variantStyles.js';
-import variantTitle from '../../examples/text/variantTitle.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import doMinimalStyle from '../../examples/text/doMinimalStyle';
+import dontCenterAlign from '../../examples/text/dontCenterAlign';
+import dontMixStyles from '../../examples/text/dontMixStyles';
+import dontUnderline from '../../examples/text/dontUnderline';
+import dontUseHierarchy from '../../examples/text/dontUseHierarchy';
+import doStartAlign from '../../examples/text/doStartAlign';
+import doUseSize from '../../examples/text/doUseSize';
+import doWeight from '../../examples/text/doWeight';
+import main from '../../examples/text/main';
+import variantAlignment from '../../examples/text/variantAlignment';
+import variantBoxInline from '../../examples/text/variantBoxInline';
+import variantColors from '../../examples/text/variantColors';
+import variantOverflowTruncation from '../../examples/text/variantOverflowTruncation';
+import variantRefs from '../../examples/text/variantRefs';
+import variantSizes from '../../examples/text/variantSizes';
+import variantStyles from '../../examples/text/variantStyles';
+import variantTitle from '../../examples/text/variantTitle';
 
 export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (

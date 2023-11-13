@@ -1,29 +1,29 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import addingAPopoverExample from '../../examples/radiogroup/addingAPopoverExample.js';
-import directionExample from '../../examples/radiogroup/directionExample.js';
-import dontUseToSelectMultipleItems from '../../examples/radiogroup/dontUseToSelectMultipleItems.js';
-import dontUseToToggleStateOnMobile from '../../examples/radiogroup/dontUseToToggleStateOnMobile.js';
-import dontUseTruncatedText from '../../examples/radiogroup/dontUseTruncatedText.js';
-import keepLabelsAndLegendsClear from '../../examples/radiogroup/keepLabelsAndLegendsClear.js';
-import legendVisibilityExample from '../../examples/radiogroup/legendVisibilityExample.js';
-import main from '../../examples/radiogroup/main.js';
-import sizeExample from '../../examples/radiogroup/sizeExample.js';
-import statesExample from '../../examples/radiogroup/statesExample.js';
-import useToSelectOnlyOneOption from '../../examples/radiogroup/useToSelectOnlyOneOption.js';
-import useWhenNeedClearAnswer from '../../examples/radiogroup/useWhenNeedClearAnswer.js';
-import withAnErrorExample from '../../examples/radiogroup/withAnErrorExample.js';
-import withCustomLabelsExample from '../../examples/radiogroup/withCustomLabelsExample.js';
-import withHelperTextExample from '../../examples/radiogroup/withHelperTextExample.js';
-import withImageExample from '../../examples/radiogroup/withImageExample.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import { type DocGen, multipleDocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import SandpackExample from '../../docs-components/SandpackExample';
+import addingAPopoverExample from '../../examples/radiogroup/addingAPopoverExample';
+import directionExample from '../../examples/radiogroup/directionExample';
+import dontUseToSelectMultipleItems from '../../examples/radiogroup/dontUseToSelectMultipleItems';
+import dontUseToToggleStateOnMobile from '../../examples/radiogroup/dontUseToToggleStateOnMobile';
+import dontUseTruncatedText from '../../examples/radiogroup/dontUseTruncatedText';
+import keepLabelsAndLegendsClear from '../../examples/radiogroup/keepLabelsAndLegendsClear';
+import legendVisibilityExample from '../../examples/radiogroup/legendVisibilityExample';
+import main from '../../examples/radiogroup/main';
+import sizeExample from '../../examples/radiogroup/sizeExample';
+import statesExample from '../../examples/radiogroup/statesExample';
+import useToSelectOnlyOneOption from '../../examples/radiogroup/useToSelectOnlyOneOption';
+import useWhenNeedClearAnswer from '../../examples/radiogroup/useWhenNeedClearAnswer';
+import withAnErrorExample from '../../examples/radiogroup/withAnErrorExample';
+import withCustomLabelsExample from '../../examples/radiogroup/withCustomLabelsExample';
+import withHelperTextExample from '../../examples/radiogroup/withHelperTextExample';
+import withImageExample from '../../examples/radiogroup/withImageExample';
 
 export default function DocsPage({
   generatedDocGen,

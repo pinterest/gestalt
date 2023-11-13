@@ -1,18 +1,18 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import MainSection from '../../../docs-components/MainSection.js';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import SandpackExample from '../../../docs-components/SandpackExample.js';
-import checkbox from '../../../examples/checkbox/main.js';
-import combobox from '../../../examples/combobox/main.js';
-import datepicker from '../../../examples/datepicker/main.js';
-import fieldset from '../../../examples/fieldset/main.js';
-import numberfield from '../../../examples/numberfield/main.js';
-import radiogroup from '../../../examples/radiogroup/main.js';
-import selectlist from '../../../examples/selectlist/main.js';
-import textarea from '../../../examples/textarea/main.js';
-import textfield from '../../../examples/textfield/main.js';
+import MainSection from '../../../docs-components/MainSection';
+import Page from '../../../docs-components/Page';
+import PageHeader from '../../../docs-components/PageHeader';
+import SandpackExample from '../../../docs-components/SandpackExample';
+import checkbox from '../../../examples/checkbox/main';
+import combobox from '../../../examples/combobox/main';
+import datepicker from '../../../examples/datepicker/main';
+import fieldset from '../../../examples/fieldset/main';
+import numberfield from '../../../examples/numberfield/main';
+import radiogroup from '../../../examples/radiogroup/main';
+import selectlist from '../../../examples/selectlist/main';
+import textarea from '../../../examples/textarea/main';
+import textfield from '../../../examples/textfield/main';
 
 const SM_PREVIEW_HEIGHT = 150;
 const MD_PREVIEW_HEIGHT = 200;

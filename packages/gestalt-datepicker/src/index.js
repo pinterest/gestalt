@@ -1,6 +1,6 @@
 // @flow strict-local
-import DateField from './DateField.js';
-import DatePicker from './DatePicker.js';
-import DateRange from './DateRange.js';
+import DateField from './DateField';
+import DatePicker from './DatePicker';
+import DateRange from './DateRange';
 
 export { DateField, DatePicker, DateRange };

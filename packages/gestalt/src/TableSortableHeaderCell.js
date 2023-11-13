@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node as ReactNode, useState } from 'react';
-import Box from './Box.js';
-import Icon from './Icon.js';
-import TableHeaderCell from './TableHeaderCell.js';
-import TapArea from './TapArea.js';
+import Box from './Box';
+import Icon from './Icon';
+import TableHeaderCell from './TableHeaderCell';
+import TapArea from './TapArea';
 
 type Props = {
   /**

@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { FloatingPortal } from '@floating-ui/react';
-import Contents, { type Role } from './Contents.js';
-import OutsideEventBehavior from '../behaviors/OutsideEventBehavior.js';
-import { ESCAPE } from '../keyCodes.js';
+import Contents, { type Role } from './Contents';
+import OutsideEventBehavior from '../behaviors/OutsideEventBehavior';
+import { ESCAPE } from '../keyCodes';
 
 const SIZE_WIDTH_MAP = {
   xs: 180,

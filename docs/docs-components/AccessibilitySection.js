@@ -1,10 +1,10 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box } from 'gestalt';
-import AccessibilityChecklist from './AccessibilityChecklist.js';
-import Card from './Card.js';
-import { DOCS_COPY_MAX_WIDTH_PX } from './consts.js';
-import Markdown from './Markdown.js';
+import AccessibilityChecklist from './AccessibilityChecklist';
+import Card from './Card';
+import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
+import Markdown from './Markdown';
 
 type Props = {
   children?: ReactNode,

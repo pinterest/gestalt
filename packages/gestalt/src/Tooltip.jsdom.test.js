@@ -1,10 +1,10 @@
 // @flow strict
 import { create } from 'react-test-renderer';
 import { fireEvent, render, screen } from '@testing-library/react';
-import Link from './Link.js';
-import Text from './Text.js';
-import Tooltip from './Tooltip.js';
-import { FixedZIndex } from './zIndex.js';
+import Link from './Link';
+import Text from './Text';
+import Tooltip from './Tooltip';
+import { FixedZIndex } from './zIndex';
 
 test('Tooltip renders', () => {
   const component = create(
@@ -32,7 +32,6 @@ test('Tooltip renders the link when hovered', () => {
     </Tooltip>,
   );
 
-  // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
   const ariaContainer = container.querySelector('[aria-label]');
   expect(ariaContainer).not.toBe(null);
 
@@ -51,7 +50,6 @@ test('Tooltip should render as expected when hovered', () => {
     </Tooltip>,
   );
 
-  // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
   const ariaContainer = container.querySelector('[aria-label]');
   expect(ariaContainer).not.toBe(null);
 
@@ -79,7 +77,7 @@ test('Tooltip renders with zIndex', () => {
       <div>Hi</div>
     </Tooltip>,
   );
-  // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+
   const ariaContainer = container.querySelector('[aria-label]');
   expect(ariaContainer).not.toBe(null);
 
@@ -89,7 +87,6 @@ test('Tooltip renders with zIndex', () => {
 
   const { body } = document;
 
-  // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
   const layer = body && body.querySelector('.layer');
   expect(layer && getComputedStyle(layer).zIndex).toEqual('100');
   expect(body && body.contains(screen.getByText('This is a tooltip'))).toBe(true);

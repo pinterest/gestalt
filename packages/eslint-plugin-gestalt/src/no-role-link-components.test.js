@@ -2,25 +2,25 @@
 import { readFileSync } from 'fs';
 import path from 'path';
 import { RuleTester } from 'eslint';
-import { parserOptions } from './helpers/testHelpers.js';
-import rule from './no-role-link-components.js';
+import { parserOptions } from './helpers/testHelpers';
+import rule from './no-role-link-components';
 
 const ruleTester = new RuleTester({ parserOptions });
 
 const validCode = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-role-link-components/valid.js'),
+  path.resolve(__dirname, './__fixtures__/no-role-link-components/valid'),
   'utf-8',
 );
 const invalidButton = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-role-link-components/invalid/invalid-button.js'),
+  path.resolve(__dirname, './__fixtures__/no-role-link-components/invalid/invalid-button'),
   'utf-8',
 );
 const invalidIconButton = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-role-link-components/invalid/invalid-iconbutton.js'),
+  path.resolve(__dirname, './__fixtures__/no-role-link-components/invalid/invalid-iconbutton'),
   'utf-8',
 );
 const invalidTapArea = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-role-link-components/invalid/invalid-taparea.js'),
+  path.resolve(__dirname, './__fixtures__/no-role-link-components/invalid/invalid-taparea'),
   'utf-8',
 );
 

@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, Flex, Heading } from 'gestalt';
-import IllustrationContainer from './IllustrationContainer.js';
+import IllustrationContainer from './IllustrationContainer';
 
 export const MIN_SVG_ILLUSTRATION_WIDTH = 245;
 

@@ -15,7 +15,7 @@ import {
   Text,
   useReducedMotion,
 } from 'gestalt';
-import GestaltLogo from '../docs-components/GestaltLogo.js';
+import GestaltLogo from '../docs-components/GestaltLogo';
 // SVGs
 import AsteriskFilled from '../graphics/year-in-review/asteriskFilled.svg';
 import Circle from '../graphics/year-in-review/circle.svg';

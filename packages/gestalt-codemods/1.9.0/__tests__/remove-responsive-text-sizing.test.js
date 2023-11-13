@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../remove-responsive-text-sizing', () =>
   Object.assign(jest.requireActual('../remove-responsive-text-sizing'), {

@@ -1,24 +1,24 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Link, SlimBanner, Text } from 'gestalt';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import animationExample from '../../examples/overlaypanel/animationExample.js';
-import confirmationExample from '../../examples/overlaypanel/confirmationExample.js';
-import defaultExample from '../../examples/overlaypanel/defaultExample.js';
-import footerExample from '../../examples/overlaypanel/footerExample.js';
-import localizationLabels from '../../examples/overlaypanel/localizationLabels.js';
-import preventClosingExample from '../../examples/overlaypanel/preventClosingExample.js';
-import quickEditsExample from '../../examples/overlaypanel/quickEditsExample.js';
-import sizesExample from '../../examples/overlaypanel/sizesExample.js';
-import subheadingExample from '../../examples/overlaypanel/subHeadingExample.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import { type DocGen, multipleDocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import animationExample from '../../examples/overlaypanel/animationExample';
+import confirmationExample from '../../examples/overlaypanel/confirmationExample';
+import defaultExample from '../../examples/overlaypanel/defaultExample';
+import footerExample from '../../examples/overlaypanel/footerExample';
+import localizationLabels from '../../examples/overlaypanel/localizationLabels';
+import preventClosingExample from '../../examples/overlaypanel/preventClosingExample';
+import quickEditsExample from '../../examples/overlaypanel/quickEditsExample';
+import sizesExample from '../../examples/overlaypanel/sizesExample';
+import subheadingExample from '../../examples/overlaypanel/subHeadingExample';
 
 export default function SheetPage({
   generatedDocGen,

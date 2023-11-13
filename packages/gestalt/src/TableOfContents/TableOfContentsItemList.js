@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import classNames from 'classnames';
-import getChildrenToArray from './getChildrenToArray.js';
-import { NestingProvider } from '../contexts/NestingProvider.js';
+import getChildrenToArray from './getChildrenToArray';
+import { NestingProvider } from '../contexts/NestingProvider';
 import Layout from '../Layout.css';
 import Whitespace from '../Whitespace.css';
 

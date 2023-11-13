@@ -1,5 +1,5 @@
 // @flow strict
-import AvatarGroup from './AvatarGroup.js';
+import AvatarGroup from './AvatarGroup';
 
 const Valid = (
   <AvatarGroup

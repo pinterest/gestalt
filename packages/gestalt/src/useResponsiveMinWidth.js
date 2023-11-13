@@ -1,6 +1,6 @@
 // @flow strict
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { addListener, removeListener } from './utils/matchMedia.js';
+import { addListener, removeListener } from './utils/matchMedia';
 
 type MinWidthType = 'lg' | 'md' | 'sm' | 'xs';
 

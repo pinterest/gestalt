@@ -1,6 +1,6 @@
 // @flow strict
 import { type Context, createContext, type Node as ReactNode, useContext } from 'react';
-import { type DefaultLabelContextType, fallbackLabels } from '../DefaultLabelProvider.js';
+import { type DefaultLabelContextType, fallbackLabels } from '../DefaultLabelProvider';
 
 const MockContext: Context<?DefaultLabelContextType> =
   createContext<?DefaultLabelContextType>(fallbackLabels);

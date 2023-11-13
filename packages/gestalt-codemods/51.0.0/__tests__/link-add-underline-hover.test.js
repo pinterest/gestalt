@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../link-add-underline-hover', () =>
   Object.assign(jest.requireActual('../link-add-underline-hover'), {

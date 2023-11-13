@@ -1,11 +1,11 @@
 // @flow strict
 import { Fragment, type Node as ReactNode, useEffect, useReducer, useRef } from 'react';
-import Box from '../Box.js';
-import Layer from '../Layer.js';
-import LegacyController from '../LegacyController.js';
-import Text from '../Text.js';
-import useDebouncedCallback from '../useDebouncedCallback.js';
-import { type Indexable } from '../zIndex.js';
+import Box from '../Box';
+import Layer from '../Layer';
+import LegacyController from '../LegacyController';
+import Text from '../Text';
+import useDebouncedCallback from '../useDebouncedCallback';
+import { type Indexable } from '../zIndex';
 
 const noop = () => {};
 const TIMEOUT = 100;

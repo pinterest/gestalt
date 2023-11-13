@@ -1,6 +1,6 @@
 // @flow strict
 import { render, screen } from '@testing-library/react';
-import SelectList from './SelectList.js';
+import SelectList from './SelectList';
 
 describe('<SelectList />', () => {
   const options = [
@@ -25,7 +25,7 @@ describe('<SelectList />', () => {
         {options}
       </SelectList>,
     );
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+
     expect(container.querySelector('[name="select_name"]')).toBeVisible();
   });
 
@@ -56,7 +56,7 @@ describe('<SelectList />', () => {
         {options}
       </SelectList>,
     );
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+
     expect(container.querySelector('select[disabled]')).toBeVisible();
   });
 
@@ -66,7 +66,7 @@ describe('<SelectList />', () => {
         {options}
       </SelectList>,
     );
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+
     expect(container.querySelector('option')).toBeDisabled();
   });
 
@@ -77,7 +77,7 @@ describe('<SelectList />', () => {
         <SelectList.Option disabled label="option4" value="value4" />
       </SelectList>,
     );
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+
     expect(container.querySelector('option[value="value4"]')).toBeDisabled();
   });
 
@@ -135,7 +135,7 @@ describe('<SelectList />', () => {
           {options}
         </SelectList>,
       );
-      // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+
       expect(container.querySelector('.medium')).toBeVisible();
     });
 
@@ -145,7 +145,7 @@ describe('<SelectList />', () => {
           {options}
         </SelectList>,
       );
-      // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+
       expect(container.querySelector('.large')).toBeVisible();
     });
   });
@@ -160,11 +160,11 @@ describe('<SelectList />', () => {
         </SelectList.Group>
       </SelectList>,
     );
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+
     expect(container.querySelector('optgroup[label="Foo group"]')).toBeDisabled();
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+
     expect(container.querySelector('option[value="Foo-value1"]')).toBeDisabled();
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+
     expect(container.querySelector('option[value="Foo-value2"]')).toBeDisabled();
   });
 });

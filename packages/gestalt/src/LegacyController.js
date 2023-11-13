@@ -1,11 +1,11 @@
 // @flow strict
 import { Component, type Node as ReactNode } from 'react';
-import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
-import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider.js';
-import { ESCAPE } from './keyCodes.js';
-import LegacyContents, { type Role } from './LegacyContents.js';
-import { type ClientRect, type Coordinates } from './utils/positioningTypes.js';
-import { getTriggerRect } from './utils/positioningUtils.js';
+import OutsideEventBehavior from './behaviors/OutsideEventBehavior';
+import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider';
+import { ESCAPE } from './keyCodes';
+import LegacyContents, { type Role } from './LegacyContents';
+import { type ClientRect, type Coordinates } from './utils/positioningTypes';
+import { getTriggerRect } from './utils/positioningUtils';
 
 const SIZE_WIDTH_MAP = {
   xs: 180,

@@ -1,7 +1,7 @@
 // @flow strict
 import { createRef } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
-import TapAreaLink from './TapAreaLink.js';
+import TapAreaLink from './TapAreaLink';
 
 describe('TapAreaLink', () => {
   it('TapAreaLink handles onTap', () => {

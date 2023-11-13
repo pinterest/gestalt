@@ -3,7 +3,7 @@ import { type Node as ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import focusStyles from './Focus.css';
 import styles from './Switch.css';
-import useFocusVisible from './useFocusVisible.js';
+import useFocusVisible from './useFocusVisible';
 
 type Props = {
   /**

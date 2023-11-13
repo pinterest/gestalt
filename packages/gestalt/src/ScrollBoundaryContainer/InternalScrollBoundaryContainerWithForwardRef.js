@@ -7,9 +7,9 @@ import {
   useImperativeHandle,
   useRef,
 } from 'react';
-import Box from '../Box.js';
-import { type Dimension, type Padding } from '../boxTypes.js';
-import { useScrollBoundaryContainer } from '../contexts/ScrollBoundaryContainerProvider.js';
+import Box from '../Box';
+import { type Dimension, type Padding } from '../boxTypes';
+import { useScrollBoundaryContainer } from '../contexts/ScrollBoundaryContainerProvider';
 
 type ScrollBoundaryContainerOverflow = 'scroll' | 'scrollX' | 'scrollY' | 'auto' | 'visible';
 

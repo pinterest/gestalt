@@ -1,5 +1,5 @@
 // @flow strict
-import Divider from './Divider.js';
+import Divider from './Divider';
 
 const Valid = <Divider />;
 

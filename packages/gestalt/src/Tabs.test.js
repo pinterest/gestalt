@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Tabs from './Tabs.js';
+import Tabs from './Tabs';
 
 describe('<Tabs />', () => {
   // TODO: we no longer support this, but we should
@@ -36,7 +36,6 @@ describe('<Tabs />', () => {
       />,
     ).root;
 
-    // eslint-disable-next-line testing-library/await-async-query -- Please fix the next time this file is touched!
     expect(instance.findByProps({ id: 'news-tab' })).toBeDefined();
   });
 

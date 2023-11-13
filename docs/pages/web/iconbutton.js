@@ -1,30 +1,30 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { IconButton } from 'gestalt';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import CombinationNew from '../../docs-components/CombinationNew.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import aria from '../../examples/iconbutton/aria.js';
-import customIcon from '../../examples/iconbutton/customIcon.js';
-import gestaltIcon from '../../examples/iconbutton/gestaltIcon.js';
-import grouping from '../../examples/iconbutton/grouping.js';
-import highActions from '../../examples/iconbutton/highActions.js';
-import image from '../../examples/iconbutton/image.js';
-import keyboard from '../../examples/iconbutton/keyboard.js';
-import lowActions from '../../examples/iconbutton/lowActions.js';
-import main from '../../examples/iconbutton/main.js';
-import noGrouping from '../../examples/iconbutton/noGrouping.js';
-import selectedState from '../../examples/iconbutton/selectedState.js';
-import tooltip from '../../examples/iconbutton/tooltip.js';
-import tooltipVariant from '../../examples/iconbutton/tooltipVariant.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import CombinationNew from '../../docs-components/CombinationNew';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import aria from '../../examples/iconbutton/aria';
+import customIcon from '../../examples/iconbutton/customIcon';
+import gestaltIcon from '../../examples/iconbutton/gestaltIcon';
+import grouping from '../../examples/iconbutton/grouping';
+import highActions from '../../examples/iconbutton/highActions';
+import image from '../../examples/iconbutton/image';
+import keyboard from '../../examples/iconbutton/keyboard';
+import lowActions from '../../examples/iconbutton/lowActions';
+import main from '../../examples/iconbutton/main';
+import noGrouping from '../../examples/iconbutton/noGrouping';
+import selectedState from '../../examples/iconbutton/selectedState';
+import tooltip from '../../examples/iconbutton/tooltip';
+import tooltipVariant from '../../examples/iconbutton/tooltipVariant';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (

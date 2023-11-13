@@ -1,5 +1,5 @@
 // @flow strict
-import Mask from './Mask.js';
+import Mask from './Mask';
 
 const Valid = <Mask width={400}>content</Mask>;
 

@@ -1,30 +1,30 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, SlimBanner, Table, Text } from 'gestalt';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Markdown from '../../docs-components/Markdown.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import accessibilityLevelExample from '../../examples/heading/accessibilityLevelExample.js';
-import alignmentExample from '../../examples/heading/alignmentExample.js';
-import clearlyDescribeTheSection from '../../examples/heading/clearlyDescribeTheSection.js';
-import colorsExample from '../../examples/heading/colorsExample.js';
-import dontCenterAlign from '../../examples/heading/dontCenterAlign.js';
-import dontOverlyLongHeadings from '../../examples/heading/dontOverlyLongHeadings.js';
-import dontUseToEmphasizeText from '../../examples/heading/dontUseToEmphasizeText.js';
-import dontUseVagueLanguage from '../../examples/heading/dontUseVagueLanguage.js';
-import groupTextIntoSections from '../../examples/heading/groupTextIntoSections.js';
-import keepHeadingShort from '../../examples/heading/keepHeadingShort.js';
-import mainExample from '../../examples/heading/mainExample.js';
-import overflowAndTruncationExample from '../../examples/heading/overflowAndTruncationExample.js';
-import startAlignHeadings from '../../examples/heading/startAlignHeadings.js';
-import variantsExample from '../../examples/heading/variantsExample.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Markdown from '../../docs-components/Markdown';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import accessibilityLevelExample from '../../examples/heading/accessibilityLevelExample';
+import alignmentExample from '../../examples/heading/alignmentExample';
+import clearlyDescribeTheSection from '../../examples/heading/clearlyDescribeTheSection';
+import colorsExample from '../../examples/heading/colorsExample';
+import dontCenterAlign from '../../examples/heading/dontCenterAlign';
+import dontOverlyLongHeadings from '../../examples/heading/dontOverlyLongHeadings';
+import dontUseToEmphasizeText from '../../examples/heading/dontUseToEmphasizeText';
+import dontUseVagueLanguage from '../../examples/heading/dontUseVagueLanguage';
+import groupTextIntoSections from '../../examples/heading/groupTextIntoSections';
+import keepHeadingShort from '../../examples/heading/keepHeadingShort';
+import mainExample from '../../examples/heading/mainExample';
+import overflowAndTruncationExample from '../../examples/heading/overflowAndTruncationExample';
+import startAlignHeadings from '../../examples/heading/startAlignHeadings';
+import variantsExample from '../../examples/heading/variantsExample';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (

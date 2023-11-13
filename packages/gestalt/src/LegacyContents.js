@@ -2,10 +2,10 @@
 import { Component, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import borders from './Borders.css';
-import Caret from './Caret.js';
+import Caret from './Caret';
 import colors from './Colors.css';
 import styles from './Contents.css';
-import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider.js';
+import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider';
 import {
   type CaretOffset,
   type ClientRect,
@@ -13,7 +13,7 @@ import {
   type DerivedState,
   type MainDirections,
   type PopoverDir,
-} from './utils/positioningTypes.js';
+} from './utils/positioningTypes';
 import {
   adjustOffsets,
   baseOffsets,
@@ -23,7 +23,7 @@ import {
   getCaretDir,
   getContainerNode,
   getPopoverDir,
-} from './utils/positioningUtils.js';
+} from './utils/positioningUtils';
 
 export type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 

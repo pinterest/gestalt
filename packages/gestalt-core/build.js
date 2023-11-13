@@ -11,7 +11,7 @@ import postcss from 'postcss';
 import postcssModules from 'postcss-modules';
 import postcssPresetEnv from 'postcss-preset-env';
 import { parseString } from 'xml2js';
-import classnameBuilder from './lib/classnameBuilder.js';
+import classnameBuilder from './lib/classnameBuilder';
 
 const svgPath = () => ({
   name: 'svgPath',

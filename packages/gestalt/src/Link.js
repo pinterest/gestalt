@@ -10,21 +10,21 @@ import {
   useRef,
 } from 'react';
 import classnames from 'classnames';
-import getAriaLabel from './accessibility/getAriaLabel.js';
-import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
-import Box from './Box.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider.js';
+import getAriaLabel from './accessibility/getAriaLabel';
+import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
+import Box from './Box';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider';
 import focusStyles from './Focus.css';
-import getRoundingClassName from './getRoundingClassName.js';
-import Icon from './Icon.js';
+import getRoundingClassName from './getRoundingClassName';
+import Icon from './Icon';
 import layoutStyles from './Layout.css';
 import styles from './Link.css';
 import touchableStyles from './TapArea.css';
-import Text from './Text.js';
+import Text from './Text';
 import textStyles from './Typography.css';
-import useFocusVisible from './useFocusVisible.js';
-import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
+import useFocusVisible from './useFocusVisible';
+import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback';
 
 const externalLinkIconMap = {
   '100': 12,

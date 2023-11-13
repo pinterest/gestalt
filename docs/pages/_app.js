@@ -12,9 +12,9 @@ import { useRouter } from 'next/router';
 import parser from 'ua-parser-js';
 import Cookies from 'universal-cookie';
 import { Box, DeviceTypeProvider } from 'gestalt';
-import App from '../docs-components/App.js';
-import { DocsConfigProvider } from '../docs-components/contexts/DocsConfigProvider.js';
-import DocsDefaultLabelProvider from '../docs-components/contexts/DocsDefaultLabelProvider.js';
+import App from '../docs-components/App';
+import { DocsConfigProvider } from '../docs-components/contexts/DocsConfigProvider';
+import DocsDefaultLabelProvider from '../docs-components/contexts/DocsDefaultLabelProvider';
 
 function Providers({ children, isMobile }: { children: ReactNode, isMobile: boolean }): ReactNode {
   const [isMobileDevice] = useState(isMobile);

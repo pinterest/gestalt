@@ -12,9 +12,9 @@ import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import remarkBreaks from 'remark-breaks';
 import remarkGfm from 'remark-gfm';
-import ErrorBoundary from '../docs-components/ErrorBoundary.js';
-import MarkdownPage from '../docs-components/MarkdownPage.js';
-import { getAllMarkdownPosts, getDocByRoute } from '../utils/mdHelper.js';
+import ErrorBoundary from '../docs-components/ErrorBoundary';
+import MarkdownPage from '../docs-components/MarkdownPage';
+import { getAllMarkdownPosts, getDocByRoute } from '../utils/mdHelper';
 
 type MDXRemoteSerializeResult = {
   compiledSource: string,

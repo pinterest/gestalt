@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Tag from './Tag.js';
+import Tag from './Tag';
 
 describe('Tag', () => {
   it('renders', () => {

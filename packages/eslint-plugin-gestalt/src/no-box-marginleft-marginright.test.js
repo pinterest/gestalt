@@ -2,40 +2,40 @@
 import { readFileSync } from 'fs';
 import path from 'path';
 import { RuleTester } from 'eslint';
-import { parserOptions } from './helpers/testHelpers.js';
-import rule, { errorMessage } from './no-box-marginleft-marginright.js';
+import { parserOptions } from './helpers/testHelpers';
+import rule, { errorMessage } from './no-box-marginleft-marginright';
 
 const ruleTester = new RuleTester({ parserOptions });
 
 const validCode = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-box-marginleft-marginright/valid.js'),
+  path.resolve(__dirname, './__fixtures__/no-box-marginleft-marginright/valid'),
   'utf-8',
 );
 const invalidLeftCode = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-left.js',
+    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-left',
   ),
   'utf-8',
 );
 const invalidRightCode = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-right.js',
+    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-right',
   ),
   'utf-8',
 );
 const invalidRightStartCode = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-right-margin-start.js',
+    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-right-margin-start',
   ),
   'utf-8',
 );
 const invalidLeftStartCode = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-left-margin-start.js',
+    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-left-margin-start',
   ),
   'utf-8',
 );

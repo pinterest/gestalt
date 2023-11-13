@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { render, screen } from '@testing-library/react';
-import List from './List.js';
-import Text from './Text.js';
+import List from './List';
+import Text from './Text';
 
 describe('List', () => {
   function Component({

@@ -1,9 +1,9 @@
 // @flow strict-local
 import { type Node as ReactNode } from 'react';
 import { useColorScheme } from 'gestalt';
-import { useChartContext } from './ChartGraphContext.js';
-import { GraphPoint } from './renderGraphPoint.js';
-import { type DataVisualizationColors } from './types.js';
+import { useChartContext } from './ChartGraphContext';
+import { GraphPoint } from './renderGraphPoint';
+import { type DataVisualizationColors } from './types';
 
 type Props = {
   /**

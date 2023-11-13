@@ -1,6 +1,6 @@
 // @flow strict
 import { act, render, screen } from '@testing-library/react';
-import ColorSchemeProvider, { useColorScheme } from './ColorSchemeProvider.js';
+import ColorSchemeProvider, { useColorScheme } from './ColorSchemeProvider';
 
 function ThemeAwareComponent() {
   const theme = useColorScheme();
@@ -10,7 +10,7 @@ function ThemeAwareComponent() {
 describe('ColorSchemeProvider', () => {
   it('renders child content in a div', () => {
     const { container } = render(<ColorSchemeProvider>Child 1</ColorSchemeProvider>);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+
     expect(container.querySelector('div')).toMatchInlineSnapshot(`
         <div
           class=""
@@ -22,7 +22,7 @@ describe('ColorSchemeProvider', () => {
 
   it('renders styling for light mode when no color scheme specified', () => {
     const { container } = render(<ColorSchemeProvider>Content</ColorSchemeProvider>);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+
     expect(container.querySelector('style')).toMatchSnapshot();
   });
 
@@ -30,7 +30,7 @@ describe('ColorSchemeProvider', () => {
     const { container } = render(
       <ColorSchemeProvider colorScheme="light">Content</ColorSchemeProvider>,
     );
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+
     expect(container.querySelector('style')).toMatchSnapshot();
   });
 
@@ -38,7 +38,7 @@ describe('ColorSchemeProvider', () => {
     const { container } = render(
       <ColorSchemeProvider colorScheme="dark">Content</ColorSchemeProvider>,
     );
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+
     expect(container.querySelector('style')).toMatchSnapshot();
   });
 
@@ -46,15 +46,15 @@ describe('ColorSchemeProvider', () => {
     const { container } = render(
       <ColorSchemeProvider colorScheme="userPreference">Content</ColorSchemeProvider>,
     );
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+
     expect(container.querySelector('style')).toMatchSnapshot();
   });
 
   it('renders styling with a custom class if has an id', () => {
     const { container } = render(<ColorSchemeProvider id="testId">Content</ColorSchemeProvider>);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+
     expect(container.querySelector('.__gestaltThemetestId')).toBeTruthy();
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+
     expect(container.querySelector('style')).toMatchSnapshot();
   });
 });

@@ -13,7 +13,7 @@ const visualtestingPages = path.join(root, 'docs/pages/visual-test');
 const getExamplesPath = (componentName) => path.join(root, `docs/examples/${componentName}/`);
 
 const gestaltPackages = path.join(root, 'packages/gestalt/src');
-const indexFile = path.join(gestaltPackages, 'index.js');
+const indexFile = path.join(gestaltPackages, 'index');
 
 function logError(message) {
   // eslint-disable-next-line no-console
@@ -47,7 +47,7 @@ async function appendToExportIndex({ componentName }) {
 
   const importsTransformed = imports
     .split('\n')
-    .concat(`import ${componentName} from './${componentName}.js';`)
+    .concat(`import ${componentName} from './${componentName}';`)
     .sort()
     .join('\n');
 
@@ -90,26 +90,26 @@ async function generateComponentFiles(componentName) {
     }),
     generateFile({
       componentName,
-      outputPath: path.join(getExamplesPath(componentName), 'main.js'),
-      template: 'templates/main.js',
+      outputPath: path.join(getExamplesPath(componentName), 'main'),
+      template: 'templates/main',
       log: 'Generated main example',
     }),
     generateFile({
       componentName,
       outputPath: path.join(gestaltPackages, `${componentName}.js`),
-      template: 'templates/ComponentName.js',
+      template: 'templates/ComponentName',
       log: 'Generated React component',
     }),
     generateFile({
       componentName,
       outputPath: path.join(gestaltPackages, `${componentName}.test.js`),
-      template: 'templates/ComponentName.test.js',
+      template: 'templates/ComponentName.test',
       log: 'Generated React test',
     }),
     generateFile({
       componentName,
       outputPath: path.join(gestaltPackages, `${componentName}.flowtest.js`),
-      template: 'templates/ComponentName.flowtest.js',
+      template: 'templates/ComponentName.flowtest',
       log: 'Generated flow test',
     }),
     generateFile({
@@ -133,7 +133,7 @@ async function generateComponentFiles(componentName) {
     generateFile({
       componentName,
       outputPath: path.join(docs, `${componentName.toLowerCase()}.js`),
-      template: 'templates/lowercasecomponentname.js',
+      template: 'templates/lowercasecomponentname',
       log: 'Generated component documentation',
     }),
     generateFile({
@@ -151,13 +151,13 @@ async function generateComponentFiles(componentName) {
     generateFile({
       componentName,
       outputPath: path.join(visualtestingPages, `${componentName}-light.js`),
-      template: 'templates/ComponentName-light.js',
+      template: 'templates/ComponentName-light',
       log: 'Generated light mode visual testing page',
     }),
     generateFile({
       componentName,
       outputPath: path.join(visualtestingPages, `${componentName}-dark.js`),
-      template: 'templates/ComponentName-dark.js',
+      template: 'templates/ComponentName-dark',
       log: 'Generated dark mode visual testing page',
     }),
 

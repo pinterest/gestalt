@@ -16,7 +16,7 @@ export default function Example(): ReactNode {
           label="Best practices for Save Button for developers"
           type="unordered"
         >
-          <List.Item text="Pin type settings: Include 'pinit.js' correctly" />
+          <List.Item text="Pin type settings: Include 'pinit' correctly" />
           <List.Item text="Use the Save button that’s best for your website" />
           <List.Item text="Multiple images on a page (like a blog)" />
         </List>

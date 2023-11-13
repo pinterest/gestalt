@@ -2,8 +2,8 @@
 import { type Node as ReactNode } from 'react';
 import { useRouter } from 'next/router';
 import { SideNavigation } from 'gestalt';
-import { useNavigationContext } from './navigationContext.js';
-import { type siteIndexType } from './siteIndex.js';
+import { useNavigationContext } from './navigationContext';
+import { type siteIndexType } from './siteIndex';
 
 function convertNamesForURL(name: string) {
   return name.replace(/ - /g, '/').replace(/ /g, '_').replace(/'/g, '').toLowerCase();

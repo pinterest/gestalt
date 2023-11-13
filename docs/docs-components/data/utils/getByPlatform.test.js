@@ -1,6 +1,6 @@
 // @flow strict
-import getByPlatform from './getByPlatform.js';
-import mockComponentList from './test-fixtures.js';
+import getByPlatform from './getByPlatform';
+import mockComponentList from './test-fixtures';
 
 describe('getByPlatform', () => {
   it('filters for figma components', () => {

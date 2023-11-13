@@ -9,12 +9,12 @@ import {
   useState,
 } from 'react';
 import classnames from 'classnames';
-import Box from './Box.js';
-import { useTableContext } from './contexts/TableContext.js';
-import IconButton from './IconButton.js';
+import Box from './Box';
+import { useTableContext } from './contexts/TableContext';
+import IconButton from './IconButton';
 import styles from './Table.css';
-import getChildrenCount from './Table/getChildrenCount.js';
-import TableCell from './TableCell.js';
+import getChildrenCount from './Table/getChildrenCount';
+import TableCell from './TableCell';
 
 type Props = {
   /**

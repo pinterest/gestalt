@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../gestaltprovider-to-provider', () =>
   Object.assign(jest.requireActual('../gestaltprovider-to-provider'), {

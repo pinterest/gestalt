@@ -1,27 +1,27 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import displayChangeInValueOverTime from '../../examples/datapoint/displayChangeInValueOverTime.js';
-import dontUseForLargeVolumesOfData from '../../examples/datapoint/dontUseForLargeVolumesOfData.js';
-import dontUseLongDecimalValuesForTrend from '../../examples/datapoint/dontUseLongDecimalValuesForTrend.js';
-import dontUseSubjectiveValuesForValue from '../../examples/datapoint/dontUseSubjectiveValuesForValue.js';
-import explicitTrendSentimentSettings from '../../examples/datapoint/explicitTrendSentimentSettings.js';
-import mainExample from '../../examples/datapoint/mainExample.js';
-import makeSureToLocalizeNumericValues from '../../examples/datapoint/makeSureToLocalizeNumericValues.js';
-import provideContextDetailFramingWithTooltip from '../../examples/datapoint/provideContextDetailFramingWithTooltip.js';
-import sizeExample1 from '../../examples/datapoint/sizeExample1.js';
-import sizeExample2 from '../../examples/datapoint/sizeExample2.js';
-import useFullNumberWithLocaleSeparators from '../../examples/datapoint/useFullNumberWithLocaleSeparators.js';
-import usePositiveTrendSentiment from '../../examples/datapoint/usePositiveTrendSentiment.js';
-import withBadgeExample from '../../examples/datapoint/withBadgeExample.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import displayChangeInValueOverTime from '../../examples/datapoint/displayChangeInValueOverTime';
+import dontUseForLargeVolumesOfData from '../../examples/datapoint/dontUseForLargeVolumesOfData';
+import dontUseLongDecimalValuesForTrend from '../../examples/datapoint/dontUseLongDecimalValuesForTrend';
+import dontUseSubjectiveValuesForValue from '../../examples/datapoint/dontUseSubjectiveValuesForValue';
+import explicitTrendSentimentSettings from '../../examples/datapoint/explicitTrendSentimentSettings';
+import mainExample from '../../examples/datapoint/mainExample';
+import makeSureToLocalizeNumericValues from '../../examples/datapoint/makeSureToLocalizeNumericValues';
+import provideContextDetailFramingWithTooltip from '../../examples/datapoint/provideContextDetailFramingWithTooltip';
+import sizeExample1 from '../../examples/datapoint/sizeExample1';
+import sizeExample2 from '../../examples/datapoint/sizeExample2';
+import useFullNumberWithLocaleSeparators from '../../examples/datapoint/useFullNumberWithLocaleSeparators';
+import usePositiveTrendSentiment from '../../examples/datapoint/usePositiveTrendSentiment';
+import withBadgeExample from '../../examples/datapoint/withBadgeExample';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (

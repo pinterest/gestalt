@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import InternalTooltip from './Tooltip/InternalTooltip.js';
-import { type Indexable } from './zIndex.js';
+import InternalTooltip from './Tooltip/InternalTooltip';
+import { type Indexable } from './zIndex';
 
 type Props = {
   /**

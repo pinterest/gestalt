@@ -1,20 +1,20 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import dontPlaceFarAway from '../../examples/tableofcontents/dontPlaceFarAway.js';
-import localizationLabels from '../../examples/tableofcontents/localizationLabels.js';
-import main from '../../examples/tableofcontents/main.js';
-import nestedItemsExample from '../../examples/tableofcontents/nestedItemsExample.js';
-import topAlignWithContetnTitle from '../../examples/tableofcontents/topAlignWithContentTitle.js';
-import withHeaderExample from '../../examples/tableofcontents/withHeaderExample.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import { type DocGen, multipleDocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import dontPlaceFarAway from '../../examples/tableofcontents/dontPlaceFarAway';
+import localizationLabels from '../../examples/tableofcontents/localizationLabels';
+import main from '../../examples/tableofcontents/main';
+import nestedItemsExample from '../../examples/tableofcontents/nestedItemsExample';
+import topAlignWithContetnTitle from '../../examples/tableofcontents/topAlignWithContentTitle';
+import withHeaderExample from '../../examples/tableofcontents/withHeaderExample';
 
 export default function TableOfContentsPage({
   generatedDocGen,

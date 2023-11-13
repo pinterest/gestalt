@@ -1,5 +1,5 @@
 // @flow strict
-import Callout from './Callout.js';
+import Callout from './Callout';
 
 const Valid = (
   <Callout message="Callout error message" iconAccessibilityLabel="error" type="error" />

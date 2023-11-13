@@ -1,17 +1,17 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../../docs-components/docgen.js';
-import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import QualityChecklist from '../../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../../docs-components/SandpackExample.js';
-import autoOverflowExample from '../../../examples/scrollboundarycontainer/autoOverflowExample.js';
-import modalExample from '../../../examples/scrollboundarycontainer/modalExample.js';
-import popoverExample from '../../../examples/scrollboundarycontainer/popoverExample.js';
-import visibleOverflowExample from '../../../examples/scrollboundarycontainer/visibleOverflowExample.js';
+import AccessibilitySection from '../../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../../docs-components/docgen';
+import GeneratedPropTable from '../../../docs-components/GeneratedPropTable';
+import MainSection from '../../../docs-components/MainSection';
+import Page from '../../../docs-components/Page';
+import PageHeader from '../../../docs-components/PageHeader';
+import QualityChecklist from '../../../docs-components/QualityChecklist';
+import SandpackExample from '../../../docs-components/SandpackExample';
+import autoOverflowExample from '../../../examples/scrollboundarycontainer/autoOverflowExample';
+import modalExample from '../../../examples/scrollboundarycontainer/modalExample';
+import popoverExample from '../../../examples/scrollboundarycontainer/popoverExample';
+import visibleOverflowExample from '../../../examples/scrollboundarycontainer/visibleOverflowExample';
 
 export default function ScrollBoundaryContainerPage({
   generatedDocGen,

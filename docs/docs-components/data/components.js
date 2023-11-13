@@ -1,5 +1,5 @@
 // @flow strict
-import { type ComponentData } from './types.js';
+import { type ComponentData } from './types';
 import Box from '../../graphics/building-blocks/Box.svg';
 import Column from '../../graphics/building-blocks/Column.svg';
 import Container from '../../graphics/building-blocks/Container.svg';
@@ -969,7 +969,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
               description:
                 'When the "lineClamp" prop is set to 1, text with long strings of characters might be truncated incorrectly.',
               codesandboxUrl:
-                'https://codesandbox.io/s/development-mode-forked-44qkwk?file=/example.js',
+                'https://codesandbox.io/s/development-mode-forked-44qkwk?file=/example',
             },
           ],
         },
@@ -2399,7 +2399,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
               description:
                 'When the "lineClamp" prop is set to 1, text with long strings of characters might be truncated incorrectly',
               codesandboxUrl:
-                'https://codesandbox.io/s/development-mode-forked-ngkj3c?file=/example.js',
+                'https://codesandbox.io/s/development-mode-forked-ngkj3c?file=/example',
             },
           ],
         },

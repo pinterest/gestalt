@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, Divider, Flex, Heading, Icon, Link, Status, Table, Text } from 'gestalt';
-import MainSection from '../../../docs-components/MainSection.js';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
+import MainSection from '../../../docs-components/MainSection';
+import Page from '../../../docs-components/Page';
+import PageHeader from '../../../docs-components/PageHeader';
 import Blocking from '../../../graphics/messaging/blocking.svg';
 import Emphemeral from '../../../graphics/messaging/ephemeral.svg';
 import CampaignIssue from '../../../graphics/messaging/modals/campaignIssue.svg';

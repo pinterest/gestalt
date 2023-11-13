@@ -1,10 +1,10 @@
 // @flow strict
 import { type Node as ReactNode, useEffect, useRef } from 'react';
-import Box from '../Box.js';
-import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
-import Flex from '../Flex.js';
-import LegacyController from '../LegacyController.js';
-import InternalDismissButton from '../shared/InternalDismissButton.js';
+import Box from '../Box';
+import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
+import Flex from '../Flex';
+import LegacyController from '../LegacyController';
+import InternalDismissButton from '../shared/InternalDismissButton';
 
 type Color = 'blue' | 'red' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;

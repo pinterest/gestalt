@@ -1,5 +1,5 @@
 // @flow strict
-import TapArea from './TapArea.js';
+import TapArea from './TapArea';
 
 const ValidDefaultTapAreaType = <TapArea>text</TapArea>;
 

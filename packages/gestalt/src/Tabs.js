@@ -1,9 +1,9 @@
 // @flow strict
 import { type AbstractComponent, forwardRef, type Node as ReactNode, useState } from 'react';
-import Box from './Box.js';
-import Flex from './Flex.js';
-import TapAreaLink from './TapAreaLink.js';
-import Text from './Text.js';
+import Box from './Box';
+import Flex from './Flex';
+import TapAreaLink from './TapAreaLink';
+import Text from './Text';
 
 type OnChangeHandler = ({
   event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,

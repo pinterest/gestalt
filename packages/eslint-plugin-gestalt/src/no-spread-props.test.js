@@ -2,32 +2,32 @@
 import { readFileSync } from 'fs';
 import path from 'path';
 import { RuleTester } from 'eslint';
-import { parserOptions } from './helpers/testHelpers.js';
-import rule from './no-spread-props.js';
+import { parserOptions } from './helpers/testHelpers';
+import rule from './no-spread-props';
 
 const ruleTester = new RuleTester({ parserOptions });
 
 const validCode = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-spread-props/valid.js'),
+  path.resolve(__dirname, './__fixtures__/no-spread-props/valid'),
   'utf-8',
 );
 const invalidFixableInput = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-spread-props/invalid-fixable-input.js'),
+  path.resolve(__dirname, './__fixtures__/no-spread-props/invalid-fixable-input'),
   'utf-8',
 );
 
 const invalidFixableOutput = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-spread-props/invalid-fixable-output.js'),
+  path.resolve(__dirname, './__fixtures__/no-spread-props/invalid-fixable-output'),
   'utf-8',
 );
 
 const invalidNotFixableInput = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-spread-props/invalid-not-fixable-input.js'),
+  path.resolve(__dirname, './__fixtures__/no-spread-props/invalid-not-fixable-input'),
   'utf-8',
 );
 
 const invalidNotFixableOutput = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-spread-props/invalid-not-fixable-output.js'),
+  path.resolve(__dirname, './__fixtures__/no-spread-props/invalid-not-fixable-output'),
   'utf-8',
 );
 

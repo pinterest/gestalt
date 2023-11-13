@@ -1,5 +1,5 @@
 // @flow strict-local
-import ChartGraph from './ChartGraph.js';
+import ChartGraph from './ChartGraph';
 
 // $FlowFixMe[prop-missing]
 const Valid = <ChartGraph />;

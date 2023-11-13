@@ -6,15 +6,15 @@ import {
   useImperativeHandle,
   useRef,
 } from 'react';
-import getAriaLabel from './accessibility/getAriaLabel.js';
-import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import Flex from './Flex.js';
-import Icon from './Icon.js';
-import icons from './icons/index.js';
-import InternalLink from './Link/InternalLink.js';
-import Text from './Text.js';
+import getAriaLabel from './accessibility/getAriaLabel';
+import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
+import { useColorScheme } from './contexts/ColorSchemeProvider';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import Flex from './Flex';
+import Icon from './Icon';
+import icons from './icons/index';
+import InternalLink from './Link/InternalLink';
+import Text from './Text';
 
 const DEFAULT_TEXT_COLORS = {
   blue: 'inverse',

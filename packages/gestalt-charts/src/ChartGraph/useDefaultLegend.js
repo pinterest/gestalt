@@ -1,7 +1,7 @@
 // @flow strict-local
 import { type Node as ReactNode, useCallback } from 'react';
 import { Box, Flex, Text } from 'gestalt';
-import LegendIcon from './LegendIcon.js';
+import LegendIcon from './LegendIcon';
 
 export default function useDefaultLegend({
   isHorizontalBiaxialLayout,

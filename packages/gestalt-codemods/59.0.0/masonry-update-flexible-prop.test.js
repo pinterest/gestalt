@@ -1,5 +1,5 @@
-import { runInlineTest } from 'jscodeshift/dist/testUtils.js';
-import masonryUpdateFlexibleProp from './masonry-update-flexible-prop.js';
+import { runInlineTest } from 'jscodeshift/dist/testUtils';
+import masonryUpdateFlexibleProp from './masonry-update-flexible-prop';
 
 describe('masonry-update-flexible-prop', () => {
   it('transforms correctly', () => {
@@ -43,7 +43,7 @@ describe('masonry-update-flexible-prop', () => {
         masonryUpdateFlexibleProp,
         { quote: 'single' },
         {
-          path: 'test.js',
+          path: 'test',
           source: `
       // @flow strict
       import { Masonry } from 'gestalt';
@@ -68,7 +68,7 @@ describe('masonry-update-flexible-prop', () => {
         masonryUpdateFlexibleProp,
         { quote: 'single' },
         {
-          path: 'test.js',
+          path: 'test',
           source: `
       // @flow strict
       import { Masonry } from 'gestalt';
@@ -93,7 +93,7 @@ describe('masonry-update-flexible-prop', () => {
         masonryUpdateFlexibleProp,
         { quote: 'single' },
         {
-          path: 'test.js',
+          path: 'test',
           source: `
       // @flow strict
       import { Masonry } from 'gestalt';

@@ -1,6 +1,6 @@
 // @flow strict
 import renderer from 'react-test-renderer';
-import Label from './Label.js';
+import Label from './Label';
 
 test('Label renders', () => {
   const component = renderer.create(<Label htmlFor="email">Email</Label>);

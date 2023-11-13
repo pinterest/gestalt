@@ -1,29 +1,29 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import accessibilityExample from '../../examples/callout/accessibilityExample.js';
-import actionsExample from '../../examples/callout/actionsExample.js';
-import dismissibleExample from '../../examples/callout/dismissibleExample.js';
-import dontStack from '../../examples/callout/dontStack.js';
-import dontUseForMarketing from '../../examples/callout/dontUseForMarketing.js';
-import localizationLabels from '../../examples/callout/localizationLabels.js';
-import main from '../../examples/callout/main.js';
-import placeAtTop from '../../examples/callout/placeAtTop.js';
-import productMessages from '../../examples/callout/productMessages.js';
-import variantError from '../../examples/callout/variantError.js';
-import variantInfo from '../../examples/callout/variantInfo.js';
-import variantMessage from '../../examples/callout/variantMessage.js';
-import variantRecommendation from '../../examples/callout/variantRecommendation.js';
-import variantSuccess from '../../examples/callout/variantSuccess.js';
-import variantWarning from '../../examples/callout/variantWarning.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import accessibilityExample from '../../examples/callout/accessibilityExample';
+import actionsExample from '../../examples/callout/actionsExample';
+import dismissibleExample from '../../examples/callout/dismissibleExample';
+import dontStack from '../../examples/callout/dontStack';
+import dontUseForMarketing from '../../examples/callout/dontUseForMarketing';
+import localizationLabels from '../../examples/callout/localizationLabels';
+import main from '../../examples/callout/main';
+import placeAtTop from '../../examples/callout/placeAtTop';
+import productMessages from '../../examples/callout/productMessages';
+import variantError from '../../examples/callout/variantError';
+import variantInfo from '../../examples/callout/variantInfo';
+import variantMessage from '../../examples/callout/variantMessage';
+import variantRecommendation from '../../examples/callout/variantRecommendation';
+import variantSuccess from '../../examples/callout/variantSuccess';
+import variantWarning from '../../examples/callout/variantWarning';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (

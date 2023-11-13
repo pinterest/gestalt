@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
-import Box from './Box.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import Icon from './Icon.js';
+import Box from './Box';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import Icon from './Icon';
 import styles from './Spinner.css';
 
 const SIZE_NAME_TO_PIXEL = {

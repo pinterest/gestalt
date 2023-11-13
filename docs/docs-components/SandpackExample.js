@@ -8,15 +8,15 @@ import {
   useSandpack,
 } from '@codesandbox/sandpack-react';
 import { Box, Flex } from 'gestalt';
-import { useAppContext } from './appContext.js';
-import CodeExampleDarkModeButton from './buttons/CodeExampleDarkModeButton.js';
-import CodeExampleTextDirectionButton from './buttons/CodeExampleTextDirectionButton.js';
-import CopyCodeButton from './buttons/CopyCodeButton.js';
-import OpenInCodeSandboxButton from './buttons/OpenInCodeSandboxButton.js';
-import ShowHideEditorButton from './buttons/ShowHideEditorButton.js';
-import clipboardCopy from './clipboardCopy.js';
-import { useLocalFiles } from './contexts/LocalFilesProvider.js';
-import DevelopmentEditor from './DevelopmentEditor.js';
+import { useAppContext } from './appContext';
+import CodeExampleDarkModeButton from './buttons/CodeExampleDarkModeButton';
+import CodeExampleTextDirectionButton from './buttons/CodeExampleTextDirectionButton';
+import CopyCodeButton from './buttons/CopyCodeButton';
+import OpenInCodeSandboxButton from './buttons/OpenInCodeSandboxButton';
+import ShowHideEditorButton from './buttons/ShowHideEditorButton';
+import clipboardCopy from './clipboardCopy';
+import { useLocalFiles } from './contexts/LocalFilesProvider';
+import DevelopmentEditor from './DevelopmentEditor';
 
 const MIN_EDITOR_HEIGHT = 350;
 const MAX_EDITOR_IPHONE_SE_MOBILE_WIDTH = 375;
@@ -123,7 +123,7 @@ function SandpackContainer({
 
             <CopyCodeButton
               onClick={() => {
-                const code = sandpack?.files?.['/App.js']?.code;
+                const code = sandpack?.files?.['/App']?.code;
                 copyCode({ code });
               }}
             />
@@ -187,7 +187,7 @@ export default function SandpackExample({
               '/node_modules/gestalt/package.json': {
                 code: JSON.stringify({
                   name: 'gestalt',
-                  main: './dist/gestalt.js',
+                  main: './dist/gestalt',
                   style: 'dist/gestalt.css',
                 }),
                 hidden: true,
@@ -195,27 +195,27 @@ export default function SandpackExample({
               '/node_modules/gestalt-charts/package.json': {
                 code: JSON.stringify({
                   name: 'gestalt-charts',
-                  main: './dist/gestalt-charts.js',
+                  main: './dist/gestalt-charts',
                 }),
                 hidden: true,
               },
               '/node_modules/gestalt-datepicker/package.json': {
                 code: JSON.stringify({
                   name: 'gestalt-datepicker',
-                  main: './dist/gestalt-datepicker.js',
+                  main: './dist/gestalt-datepicker',
                   style: 'dist/gestalt-datepicker.css',
                 }),
                 hidden: true,
               },
-              '/node_modules/gestalt/dist/gestalt.js': {
+              '/node_modules/gestalt/dist/gestalt': {
                 code: files.js,
                 hidden: true,
               },
-              '/node_modules/gestalt-charts/dist/gestalt-charts.js': {
+              '/node_modules/gestalt-charts/dist/gestalt-charts': {
                 code: files.js,
                 hidden: true,
               },
-              '/node_modules/gestalt-datepicker/dist/gestalt-datepicker.js': {
+              '/node_modules/gestalt-datepicker/dist/gestalt-datepicker': {
                 code: files.js,
                 hidden: true,
               },
@@ -229,10 +229,10 @@ export default function SandpackExample({
               },
             }
           : {}),
-        '/App.js': {
+        '/App': {
           code,
         },
-        '/index.js': {
+        '/index': {
           code: `import React, { StrictMode } from "react";
           import { createRoot } from "react-dom/client";
           import "./styles.css";

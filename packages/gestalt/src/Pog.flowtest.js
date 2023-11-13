@@ -1,5 +1,5 @@
 // @flow strict
-import Pog from './Pog.js';
+import Pog from './Pog';
 
 const Valid = <Pog icon="add" />;
 

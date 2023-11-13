@@ -1,6 +1,6 @@
 // @flow strict
 import { fireEvent, render, screen } from '@testing-library/react';
-import Avatar from './Avatar.js';
+import Avatar from './Avatar';
 
 test('Avatar handles Image error by rendering the default avatar', () => {
   render(<Avatar name="Name" src="example.com" />);

@@ -1,16 +1,16 @@
 // @flow strict
 import { type AbstractComponent, forwardRef, type Node as ReactNode, useState } from 'react';
 import classnames from 'classnames';
-import Box from './Box.js';
-import Flex from './Flex.js';
+import Box from './Box';
+import Flex from './Flex';
 import focusStyles from './Focus.css';
-import Label from './Label.js';
+import Label from './Label';
 import styles from './RadioButton.css';
 import controlStyles from './RadioButtonCheckbox.css';
-import { useRadioGroupContext } from './RadioGroup/Context.js';
-import FormHelperText from './shared/FormHelperText.js';
-import Text from './Text.js';
-import useFocusVisible from './useFocusVisible.js';
+import { useRadioGroupContext } from './RadioGroup/Context';
+import FormHelperText from './shared/FormHelperText';
+import Text from './Text';
+import useFocusVisible from './useFocusVisible';
 
 type Props = {
   /**

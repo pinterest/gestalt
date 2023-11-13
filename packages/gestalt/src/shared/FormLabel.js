@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import styles from './FormLabel.css';
-import InternalLabel from '../Label/InternalLabel.js';
-import Text from '../Text.js';
+import InternalLabel from '../Label/InternalLabel';
+import Text from '../Text';
 
 type Props = {
   id: string,

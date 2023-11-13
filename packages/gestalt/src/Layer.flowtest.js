@@ -1,5 +1,5 @@
 // @flow strict
-import Layer from './Layer.js';
+import Layer from './Layer';
 
 const Valid = <Layer>content</Layer>;
 

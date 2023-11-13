@@ -2,20 +2,20 @@
 import { readFileSync } from 'fs';
 import path from 'path';
 import { RuleTester } from 'eslint';
-import { parserOptions } from './helpers/testHelpers.js';
-import rule, { SUPPORTED_HTML_TAGS } from './prefer-box-as-tag.js';
+import { parserOptions } from './helpers/testHelpers';
+import rule, { SUPPORTED_HTML_TAGS } from './prefer-box-as-tag';
 
 const ruleTester = new RuleTester({ parserOptions });
 
 const validCode = readFileSync(
-  path.resolve(__dirname, './__fixtures__/prefer-box-as-tag/valid.js'),
+  path.resolve(__dirname, './__fixtures__/prefer-box-as-tag/valid'),
   'utf-8',
 );
 
 const gestaltImportHTMLMultipleTagWithPropsInput = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/prefer-box-as-tag/invalid/gestalt-import-HTML-multiple-tag-with-props-input.js',
+    './__fixtures__/prefer-box-as-tag/invalid/gestalt-import-HTML-multiple-tag-with-props-input',
   ),
   'utf-8',
 );
@@ -23,7 +23,7 @@ const gestaltImportHTMLMultipleTagWithPropsInput = readFileSync(
 const gestaltImportHTMLMultipleTagWithPropsOutput = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/prefer-box-as-tag/invalid/gestalt-import-HTML-multiple-tag-with-props-output.js',
+    './__fixtures__/prefer-box-as-tag/invalid/gestalt-import-HTML-multiple-tag-with-props-output',
   ),
   'utf-8',
 );
@@ -31,7 +31,7 @@ const gestaltImportHTMLMultipleTagWithPropsOutput = readFileSync(
 const gestaltImportHTMLSingleTagInput = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/prefer-box-as-tag/invalid/gestalt-import-HTML-single-tag-input.js',
+    './__fixtures__/prefer-box-as-tag/invalid/gestalt-import-HTML-single-tag-input',
   ),
   'utf-8',
 );
@@ -39,7 +39,7 @@ const gestaltImportHTMLSingleTagInput = readFileSync(
 const gestaltImportHTMLSingleTagOutput = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/prefer-box-as-tag/invalid/gestalt-import-HTML-single-tag-output.js',
+    './__fixtures__/prefer-box-as-tag/invalid/gestalt-import-HTML-single-tag-output',
   ),
   'utf-8',
 );
@@ -47,7 +47,7 @@ const gestaltImportHTMLSingleTagOutput = readFileSync(
 const noGestaltImportHTMLSingleTagInput = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/prefer-box-as-tag/invalid/no-gestalt-import-HTML-single-tag-input.js',
+    './__fixtures__/prefer-box-as-tag/invalid/no-gestalt-import-HTML-single-tag-input',
   ),
   'utf-8',
 );
@@ -55,7 +55,7 @@ const noGestaltImportHTMLSingleTagInput = readFileSync(
 const noGestaltImportHTMLSingleTagOutput = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/prefer-box-as-tag/invalid/no-gestalt-import-HTML-single-tag-output.js',
+    './__fixtures__/prefer-box-as-tag/invalid/no-gestalt-import-HTML-single-tag-output',
   ),
   'utf-8',
 );

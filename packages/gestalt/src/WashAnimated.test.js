@@ -1,6 +1,6 @@
 // @flow strict
 import renderer from 'react-test-renderer';
-import WashAnimated from './WashAnimated.js';
+import WashAnimated from './WashAnimated';
 
 it('renders an empty WashAnimated', () =>
   expect(renderer.create(<WashAnimated />).toJSON()).toMatchSnapshot());

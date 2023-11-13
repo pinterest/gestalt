@@ -10,15 +10,15 @@ import {
 } from 'react';
 import classnames from 'classnames';
 import styles from './InternalCheckbox.css';
-import Box from '../Box.js';
+import Box from '../Box';
 import colors from '../Colors.css';
 import focusStyles from '../Focus.css';
-import Icon from '../Icon.js';
-import Label from '../Label.js';
-import FormErrorMessage from '../shared/FormErrorMessage.js';
-import FormHelperText from '../shared/FormHelperText.js';
-import Text from '../Text.js';
-import useFocusVisible from '../useFocusVisible.js';
+import Icon from '../Icon';
+import Label from '../Label';
+import FormErrorMessage from '../shared/FormErrorMessage';
+import FormHelperText from '../shared/FormHelperText';
+import Text from '../Text';
+import useFocusVisible from '../useFocusVisible';
 
 type Props = {
   checked?: boolean,

@@ -1,7 +1,7 @@
 // @flow strict
-import Box from './Box.js';
-import Icon from './Icon.js';
-import Upsell from './Upsell.js';
+import Box from './Box';
+import Icon from './Icon';
+import Upsell from './Upsell';
 
 const Valid = (
   <Upsell message="Upsell message" imageData={{ component: <Icon accessibilityLabel="test" /> }} />

@@ -16,10 +16,10 @@ import {
 } from 'react';
 import classnames from 'classnames';
 import styles from '../IconButton.css';
-import Pog from '../Pog.js';
+import Pog from '../Pog';
 import touchableStyles from '../TapArea.css';
-import useFocusVisible from '../useFocusVisible.js';
-import useTapFeedback from '../useTapFeedback.js';
+import useFocusVisible from '../useFocusVisible';
+import useTapFeedback from '../useTapFeedback';
 
 type Props = {
   accessibilityLabel: string,

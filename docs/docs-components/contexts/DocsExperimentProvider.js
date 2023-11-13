@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { ExperimentProvider } from 'gestalt';
-import { useAppContext } from '../appContext.js';
+import { useAppContext } from '../appContext';
 
 /**
  * To implement experimental behavior in the docs:

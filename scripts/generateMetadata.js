@@ -10,10 +10,10 @@ const docsPath = path.join(root, '/docs');
 
 // Files/components that doesn't have data to parse
 const excludedPaths = [
-  '/packages/gestalt/src/contexts/ExperimentProvider.js',
-  '/packages/gestalt/src/useReducedMotion.js',
-  '/packages/gestalt/src/useFocusVisible.js',
-  '/packages/gestalt/src/zIndex.js',
+  '/packages/gestalt/src/contexts/ExperimentProvider',
+  '/packages/gestalt/src/useReducedMotion',
+  '/packages/gestalt/src/useFocusVisible',
+  '/packages/gestalt/src/zIndex',
 ].map((filePath) => path.join(root, filePath));
 
 function logError(message) {
@@ -90,7 +90,7 @@ function getSubcomponentPaths(componentPath) {
  * Gets components that are imported in `index.js` of given directory (assuming they're all exported).
  */
 function getExposedFilesFromDirectory(directoryPath) {
-  const indexFile = fs.readFileSync(path.join(root, directoryPath, 'index.js'), 'utf-8');
+  const indexFile = fs.readFileSync(path.join(root, directoryPath, 'index'), 'utf-8');
   const importMatches = indexFile.matchAll(/from '(?<path>.+)'/g);
   const filePaths = [...importMatches].map((match) => path.join(directoryPath, match.groups.path));
   const subcomponentPaths = filePaths.map(getSubcomponentPaths).flat();

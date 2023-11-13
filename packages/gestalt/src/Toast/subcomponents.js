@@ -10,16 +10,16 @@ import {
   useRef,
   useState,
 } from 'react';
-import Avatar from '../Avatar.js';
-import Box from '../Box.js';
-import ColorSchemeProvider, { useColorScheme } from '../contexts/ColorSchemeProvider.js';
-import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
-import Icon from '../Icon.js';
-import Image from '../Image.js';
-import Link from '../Link.js';
-import Mask from '../Mask.js';
-import Spinner from '../Spinner.js';
-import Text from '../Text.js';
+import Avatar from '../Avatar';
+import Box from '../Box';
+import ColorSchemeProvider, { useColorScheme } from '../contexts/ColorSchemeProvider';
+import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
+import Icon from '../Icon';
+import Image from '../Image';
+import Link from '../Link';
+import Mask from '../Mask';
+import Spinner from '../Spinner';
+import Text from '../Text';
 
 const SIZE_THUMBNAIL = 32;
 const SIZE_ICON = 24;

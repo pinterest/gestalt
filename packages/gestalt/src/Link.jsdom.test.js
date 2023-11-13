@@ -1,6 +1,6 @@
 // @flow strict
 import { render, screen } from '@testing-library/react';
-import Link from './Link.js';
+import Link from './Link';
 
 describe('Link', () => {
   test('Link handles onClick callback', () => {

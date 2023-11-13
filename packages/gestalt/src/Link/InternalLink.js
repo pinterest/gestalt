@@ -8,18 +8,18 @@ import {
   useRef,
 } from 'react';
 import classnames from 'classnames';
-import { type AriaCurrent } from '../ariaTypes.js';
+import { type AriaCurrent } from '../ariaTypes';
 import buttonStyles from '../Button.css';
-import { useGlobalEventsHandlerContext } from '../contexts/GlobalEventsHandlerProvider.js';
+import { useGlobalEventsHandlerContext } from '../contexts/GlobalEventsHandlerProvider';
 import focusStyles from '../Focus.css';
-import getRoundingClassName, { type Rounding } from '../getRoundingClassName.js';
+import getRoundingClassName, { type Rounding } from '../getRoundingClassName';
 import iconButtonStyles from '../IconButton.css';
 import layoutStyles from '../Layout.css';
 import linkStyles from '../Link.css';
 import touchableStyles from '../TapArea.css';
 import textStyles from '../Typography.css';
-import useFocusVisible from '../useFocusVisible.js';
-import useTapFeedback, { keyPressShouldTriggerTap } from '../useTapFeedback.js';
+import useFocusVisible from '../useFocusVisible';
+import useTapFeedback, { keyPressShouldTriggerTap } from '../useTapFeedback';
 
 type Props = {
   accessibilityCurrent?: AriaCurrent,

@@ -1,6 +1,6 @@
 // @flow strict
 import { render, screen } from '@testing-library/react';
-import Video from './Video.js';
+import Video from './Video';
 
 describe('Video loading', () => {
   beforeEach(() => {
@@ -17,7 +17,7 @@ describe('Video loading', () => {
     };
 
     const { container, rerender } = render(<Video {...props} />);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(<Video {...props} volume={0} />);
@@ -39,7 +39,7 @@ describe('Video loading', () => {
     };
 
     const { container, rerender } = render(<Video {...props} />);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(<Video {...props} volume={0} />);
@@ -56,7 +56,7 @@ describe('Video loading', () => {
     };
 
     const { container, rerender } = render(<Video {...props} />);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(<Video {...props} src="https://media.w3.org/2010/05/bunny/movie.mp4" />);
@@ -73,7 +73,7 @@ describe('Video loading', () => {
     };
 
     const { container, rerender } = render(<Video {...props} />);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(
@@ -105,7 +105,7 @@ describe('Video loading', () => {
     };
 
     const { container, rerender } = render(<Video {...props} />);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(<Video {...props} src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />);
@@ -127,7 +127,7 @@ describe('Video loading', () => {
     };
 
     const { container, rerender } = render(<Video {...props} />);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(
@@ -159,7 +159,7 @@ describe('Video loading', () => {
     };
 
     const { container, rerender } = render(<Video {...props} />);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(
@@ -198,7 +198,7 @@ describe('Video loading', () => {
     const { container } = render(<Video {...props} />);
 
     // $FlowFixMe[prop-missing] disableremoteplayback is not available on attributes
-    expect(container.querySelector('video')?.attributes.disableremoteplayback).toBeDefined(); // eslint-disable-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+    expect(container.querySelector('video')?.attributes.disableremoteplayback).toBeDefined();
   });
 
   it('DisableRemotePlayback is not set on <video />', () => {
@@ -218,7 +218,7 @@ describe('Video loading', () => {
 
     const { container } = render(<Video {...props} />);
     // $FlowFixMe[prop-missing] disableremoteplayback is not available on attributes
-    expect(container.querySelector('video')?.attributes.disableremoteplayback).toBeUndefined(); // eslint-disable-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+    expect(container.querySelector('video')?.attributes.disableremoteplayback).toBeUndefined();
   });
 
   it('Progress bar label is set', () => {

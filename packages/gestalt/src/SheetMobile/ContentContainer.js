@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode, useCallback, useEffect, useRef, useState } from 'react';
-import Box from '../Box.js';
+import Box from '../Box';
 
 type Props = {
   children?: ReactNode,

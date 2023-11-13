@@ -1,10 +1,10 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
-import Box from './Box.js';
+import Box from './Box';
 import styles from './SideNavigation.css';
-import getChildrenToArray from './SideNavigation/getChildrenToArray.js';
-import Text from './Text.js';
+import getChildrenToArray from './SideNavigation/getChildrenToArray';
+import Text from './Text';
 
 type Props = {
   /**

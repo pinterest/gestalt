@@ -1,7 +1,7 @@
 // @flow strict
 import { createRef } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
-import NumberField from './NumberField.js';
+import NumberField from './NumberField';
 
 describe('NumberField', () => {
   it('renders error message on errorMessage prop change', () => {
@@ -73,7 +73,6 @@ describe('NumberField', () => {
     >();
     const { container } = render(<NumberField id="test" onChange={mockChange} value={42} />);
 
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const input = container.querySelector('input');
     expect(input).not.toBe(null);
 
@@ -110,7 +109,6 @@ describe('NumberField', () => {
       <NumberField id="test" onChange={() => {}} onKeyDown={mockKeyDown} value={42} />,
     );
 
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const input = container.querySelector('input');
     expect(input).not.toBe(null);
 
@@ -160,7 +158,7 @@ describe('NumberField', () => {
 
   it('adds a "medium" classname by default', () => {
     const { container } = render(<NumberField id="test" onChange={() => {}} value={42} />);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+
     expect(container.querySelector('.medium')).toBeVisible();
   });
 
@@ -168,7 +166,7 @@ describe('NumberField', () => {
     const { container } = render(
       <NumberField id="test" onChange={() => {}} value={42} size="lg" />,
     );
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+
     expect(container.querySelector('.large')).toBeVisible();
   });
 });

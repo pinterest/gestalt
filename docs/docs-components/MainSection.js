@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import Card from './Card.js';
-import MainSectionCard from './MainSectionCard.js';
-import MainSectionSubsection from './MainSectionSubsection.js';
+import Card from './Card';
+import MainSectionCard from './MainSectionCard';
+import MainSectionSubsection from './MainSectionSubsection';
 
 type Props = {
   badge?: { text: string, tooltipText: string },

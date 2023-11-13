@@ -1,7 +1,7 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Box from './Box.js';
-import ScrollBoundaryContainer from './ScrollBoundaryContainer.js';
+import Box from './Box';
+import ScrollBoundaryContainer from './ScrollBoundaryContainer';
 
 describe('ScrollBoundaryContainer', () => {
   it('renders', () => {
@@ -26,7 +26,7 @@ describe('ScrollBoundaryContainer', () => {
     expect(tree).toMatchSnapshot();
 
     const instance = component.root;
-    // eslint-disable-next-line testing-library/await-async-query -- Please fix the next time this file is touched!
+
     const element = instance.findByType('div');
     expect(element.props.className.includes('overflowScroll')).toBe(true);
     expect(element.props.style.height).toEqual(200);

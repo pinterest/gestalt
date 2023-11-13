@@ -9,20 +9,20 @@ import {
   useState,
 } from 'react';
 import classnames from 'classnames';
-import Badge from './Badge.js';
-import Box from './Box.js';
-import { useDeviceType } from './contexts/DeviceTypeProvider.js';
-import { useNesting } from './contexts/NestingProvider.js';
-import { useSideNavigation } from './contexts/SideNavigationProvider.js';
-import Dropdown from './Dropdown.js';
-import Flex from './Flex.js';
-import Icon from './Icon.js';
-import icons from './icons/index.js';
+import Badge from './Badge';
+import Box from './Box';
+import { useDeviceType } from './contexts/DeviceTypeProvider';
+import { useNesting } from './contexts/NestingProvider';
+import { useSideNavigation } from './contexts/SideNavigationProvider';
+import Dropdown from './Dropdown';
+import Flex from './Flex';
+import Icon from './Icon';
+import icons from './icons/index';
 import styles from './SideNavigation.css';
-import PrimaryActionIconButton from './SideNavigation/PrimaryActionIconButton.js';
-import TapAreaLink from './TapAreaLink.js';
-import Text from './Text.js';
-import { type Indexable } from './zIndex.js';
+import PrimaryActionIconButton from './SideNavigation/PrimaryActionIconButton';
+import TapAreaLink from './TapAreaLink';
+import Text from './Text';
+import { type Indexable } from './zIndex';
 
 export const NESTING_MARGIN_START_MAP = {
   '0': '16px',

@@ -1,8 +1,8 @@
 // @flow strict-local
 import { type Node as ReactNode } from 'react';
 import { Bar as RechartsBar, Line as RechartsLine, Rectangle } from 'recharts';
-import renderGraphPoint from './renderGraphPoint.js';
-import { type DataVisualizationColors } from './types.js';
+import renderGraphPoint from './renderGraphPoint';
+import { type DataVisualizationColors } from './types';
 
 const colorMap = {
   '0': '01',

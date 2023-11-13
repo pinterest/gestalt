@@ -2,7 +2,7 @@
 import { type Node as ReactNode, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { useRouter } from 'next/router';
-import createHydra, { type Hydra } from './createHydra.js';
+import createHydra, { type Hydra } from './createHydra';
 
 const localStorageOrganizedByKey = 'gestalt-sidebar-organized-by-platform';
 

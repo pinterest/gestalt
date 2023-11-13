@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Pog from './Pog.js';
+import Pog from './Pog';
 
 test('Pog renders with icon', () => {
   const tree = create(<Pog icon="heart" />).toJSON();
