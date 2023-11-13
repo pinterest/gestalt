@@ -1,6 +1,8 @@
 // @flow strict
 import { type Node } from 'react';
-import InternalPopover from './Popover/LegacyInternalPopover.js';
+import InternalPopover from './Popover/InternalPopover.js';
+import LegacyInternalPopover from './Popover/LegacyInternalPopover.js';
+import useInExperiment from './useInExperiment.js';
 
 type Color = 'deprecatedBlue' | 'red' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
@@ -48,6 +50,10 @@ type Props = {
    */
   positionRelativeToAnchor?: boolean,
   /**
+   * EXPERIMENTAL: Disables portalling and Popover will be under the DOM hierarchy of the parent component.
+   */
+  disablePortal?: boolean,
+  /**
    * The underlying ARIA role for Popover. See the [accessibility](https://gestalt.pinterest.systems/web/popover#ARIA-attributes) section for more info.
    */
   role?: Role,
@@ -67,6 +73,14 @@ type Props = {
    * The maximum width of Popover. See the [size](https://gestalt.pinterest.systems/web/popover#Size) variant to learn more.
    */
   size?: Size,
+  /**
+   * *EXPERIMENTAL:* Reference to a parent of the anchor element, relative to which Popover shifts or flips its position.
+   */
+  scrollBoundary?: HTMLElement,
+  /**
+   * *EXPERIMENTAL:* Whether to hide Popover when reference element gets out of viewport.
+   */
+  hideWhenReferenceHidden?: boolean,
   // This property can be set when `ScrollBoundaryContainer` is set to `overflow="visible"` but therefore limits the height of the Popover-based component. Some cases require
   __dangerouslySetMaxHeight?: '30vh',
 };
@@ -91,13 +105,45 @@ export default function Popover({
   idealDirection,
   onDismiss,
   positionRelativeToAnchor = true,
+  disablePortal = true,
   color = 'white',
   role = 'dialog',
   shouldFocus = true,
   _deprecatedShowCaret = false,
   size = 'sm',
+  scrollBoundary,
+  hideWhenReferenceHidden,
   __dangerouslySetMaxHeight,
 }: Props): null | Node {
+  const isInExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_popover_v2',
+    mwebExperimentName: 'mweb_gestalt_popover_v2',
+  });
+
+  if (!isInExperiment) {
+    return (
+      <LegacyInternalPopover
+        accessibilityLabel={accessibilityLabel}
+        accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
+        anchor={anchor}
+        showDismissButton={showDismissButton}
+        onKeyDown={onKeyDown}
+        id={id}
+        idealDirection={idealDirection}
+        onDismiss={onDismiss}
+        positionRelativeToAnchor={positionRelativeToAnchor}
+        color={color === 'deprecatedBlue' ? 'blue' : color}
+        role={role}
+        shouldFocus={shouldFocus}
+        showCaret={_deprecatedShowCaret}
+        size={size}
+        __dangerouslySetMaxHeight={__dangerouslySetMaxHeight}
+      >
+        {children}
+      </LegacyInternalPopover>
+    );
+  }
+
   return (
     <InternalPopover
       accessibilityLabel={accessibilityLabel}
@@ -108,13 +154,14 @@ export default function Popover({
       id={id}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
-      positionRelativeToAnchor={positionRelativeToAnchor}
+      disablePortal={disablePortal ?? positionRelativeToAnchor}
       color={color === 'deprecatedBlue' ? 'blue' : color}
       role={role}
       shouldFocus={shouldFocus}
       showCaret={_deprecatedShowCaret}
       size={size}
-      __dangerouslySetMaxHeight={__dangerouslySetMaxHeight}
+      scrollBoundary={scrollBoundary}
+      hideWhenReferenceHidden={hideWhenReferenceHidden}
     >
       {children}
     </InternalPopover>
