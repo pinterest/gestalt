@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
@@ -81,7 +81,7 @@ type Props = {
  * ![Status dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Status-dark.spec.mjs-snapshots/Status-dark-chromium-darwin.png)
  *
  */
-export default function Status({ accessibilityLabel, subtext, title, type }: Props): Node {
+export default function Status({ accessibilityLabel, subtext, title, type }: Props): ReactNode {
   const { icon, color } = ICON_COLOR_MAP[type];
 
   return (

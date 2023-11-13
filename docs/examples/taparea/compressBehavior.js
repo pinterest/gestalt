@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Flex, Image, Label, Mask, Switch, TapArea, Text } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [disabled, setDisabled] = useState(false);
   const [compressed, setCompressed] = useState('compress');
   const [touches, setTouches] = useState(0);

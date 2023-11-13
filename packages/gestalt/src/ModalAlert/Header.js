@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import Box from '../Box.js';
 import Flex from '../Flex.js';
 import Heading from '../Heading.js';
@@ -29,7 +29,7 @@ export default function ModalAlertHeader({
   type,
   heading,
   onDismiss,
-}: Props): Node {
+}: Props): ReactNode {
   return (
     <Flex flex="grow" alignItems="center" gap={4}>
       {type !== 'default' && (

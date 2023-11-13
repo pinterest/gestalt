@@ -1,5 +1,5 @@
 // @flow strict
-import { type AbstractComponent, forwardRef, type Node } from 'react';
+import { type AbstractComponent, forwardRef, type Node as ReactNode } from 'react';
 import SideNavigationTopItem from './SideNavigationTopItem.js';
 
 type Props = {
@@ -38,7 +38,10 @@ type Props = {
 const SideNavigationNestedItemWithForwardRef: AbstractComponent<Props, HTMLLIElement> = forwardRef<
   Props,
   HTMLLIElement,
->(function SideNavigationNestedItem({ active, counter, href, label, onClick }: Props, ref): Node {
+>(function SideNavigationNestedItem(
+  { active, counter, href, label, onClick }: Props,
+  ref,
+): ReactNode {
   return (
     <SideNavigationTopItem
       active={active}

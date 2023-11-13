@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { AvatarGroup } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
@@ -21,7 +21,11 @@ import roleButton from '../../examples/avatarGroup/roleButton.js';
 import roleLink from '../../examples/avatarGroup/roleLink.js';
 import sizing from '../../examples/avatarGroup/sizing.js';
 
-export default function AvatarGroupPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function AvatarGroupPage({
+  generatedDocGen,
+}: {
+  generatedDocGen: DocGen,
+}): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>

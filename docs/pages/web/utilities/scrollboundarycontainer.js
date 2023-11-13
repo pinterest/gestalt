@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../../docs-components/docgen.js';
 import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
@@ -17,7 +17,7 @@ export default function ScrollBoundaryContainerPage({
   generatedDocGen,
 }: {
   generatedDocGen: DocGen,
-}): Node {
+}): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />

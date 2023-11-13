@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useState } from 'react';
+import { Fragment, type Node as ReactNode, useState } from 'react';
 import { Box, Flex, SegmentedControl } from 'gestalt';
 import componentData from './data/components.js';
 import { type ComponentCategory, type Platform, type PlatformData } from './data/types.js';
@@ -44,7 +44,7 @@ type Props = {
   platform: Exclude<Platform, 'figma'>,
 };
 
-export default function Overview({ platform }: Props): Node {
+export default function Overview({ platform }: Props): ReactNode {
   const [order, setOrder] = useState<'alphabetical' | 'categorical'>('alphabetical');
 
   const platformComponentData = getByPlatform(componentData, { platform });

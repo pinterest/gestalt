@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { IconButton } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
@@ -26,7 +26,7 @@ import selectedState from '../../examples/iconbutton/selectedState.js';
 import tooltip from '../../examples/iconbutton/tooltip.js';
 import tooltipVariant from '../../examples/iconbutton/tooltipVariant.js';
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader

@@ -3,7 +3,7 @@ import {
   type AbstractComponent,
   type Element,
   forwardRef,
-  type Node,
+  type Node as ReactNode,
   useImperativeHandle,
   useRef,
   useState,
@@ -34,7 +34,7 @@ type Props = {
   accessibilityActiveDescendant?: string,
   autoComplete?: 'bday' | 'current-password' | 'email' | 'new-password' | 'on' | 'off' | 'username',
   disabled?: boolean,
-  errorMessage?: Node,
+  errorMessage?: ReactNode,
   hasError?: boolean,
   helperText?: string,
   iconButton?: Element<typeof InternalTextFieldIconButton>,
@@ -107,7 +107,7 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
     value,
   }: Props,
   ref,
-): Node {
+): ReactNode {
   // ==== REFS ====
   const innerRef = useRef<null | HTMLInputElement | HTMLDivElement>(null);
   // When using both forwardRef and innerRefs, useimperativehandle() allows to externally set focus via the ref prop: textfieldRef.current.focus()

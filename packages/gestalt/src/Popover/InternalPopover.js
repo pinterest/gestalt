@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useEffect, useRef } from 'react';
+import { type Node as ReactNode, useEffect, useRef } from 'react';
 import Controller from './Controller.js';
 import Box from '../Box.js';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
@@ -14,7 +14,7 @@ type Props = {
   accessibilityLabel?: string,
   accessibilityDismissButtonLabel?: string,
   anchor: ?HTMLElement,
-  children?: Node,
+  children?: ReactNode,
   color?: Color,
   onKeyDown?: ({ event: SyntheticKeyboardEvent<HTMLElement> }) => void,
   id?: string,
@@ -48,7 +48,7 @@ export default function InternalPopover({
   disablePortal,
   scrollBoundary,
   hideWhenReferenceHidden,
-}: Props): null | Node {
+}: Props): null | ReactNode {
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Popover');
 

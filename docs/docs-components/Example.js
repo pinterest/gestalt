@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { LiveError, LivePreview, LiveProvider } from 'react-live';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import * as gestaltChart from 'gestalt-charts'; // eslint-disable-line import/no-namespace
@@ -30,7 +30,7 @@ function Example({
   showHeading,
   showCode = true,
   skipContrastCheck = false,
-}: Props): Node {
+}: Props): ReactNode {
   const code = defaultCode.trim();
   const scope = { ...gestalt, ...gestaltChart, ...gestaltDatepicker };
 

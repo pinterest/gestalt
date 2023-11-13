@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { type BaseStackType } from './constants.js';
 import HoverOverlay from './HoverOverlay.js';
 import PositioningWrapper from './PositioningWrapper.js';
@@ -17,7 +17,7 @@ export default function AvatarGroupCollaboratorsCount({
   hovered,
   count,
   size,
-}: Props): Node {
+}: Props): ReactNode {
   const isOverNineCount = count > 9;
   const isAbove99Count = count > 99;
 

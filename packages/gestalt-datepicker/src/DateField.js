@@ -1,5 +1,5 @@
 // @flow strict-local
-import { type Node, useEffect } from 'react';
+import { type Node as ReactNode, useEffect } from 'react';
 import { useGlobalEventsHandler } from 'gestalt';
 import InternalDateField from './DateField/InternalDateField.js';
 
@@ -163,7 +163,7 @@ function DateField({
   readOnly = false,
   size = 'lg',
   value,
-}: Props): Node {
+}: Props): ReactNode {
   // Consume GlobalEventsHandlerProvider
   const { dateFieldHandlers } = useGlobalEventsHandler() ?? {
     dateFieldHandlers: undefined,

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Button, SlimBanner } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
@@ -30,7 +30,7 @@ import showFullTextDont from '../../examples/button/showFullTextDont.js';
 
 const PREVIEW_HEIGHT = 300;
 
-export default function DocsPage({ generatedDocGen }: DocType): Node {
+export default function DocsPage({ generatedDocGen }: DocType): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader

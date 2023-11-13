@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
@@ -12,7 +12,7 @@ import defaultExample from '../../examples/segmentedcontrol/defaultExample.js';
 import mainExample from '../../examples/segmentedcontrol/mainExample.js';
 import responsiveExample from '../../examples/segmentedcontrol/responsiveExample.js';
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title="SegmentedControl">
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen.description}>

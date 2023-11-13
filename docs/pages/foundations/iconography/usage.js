@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Icon, Text } from 'gestalt';
 import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts.js';
 import MainSection from '../../../docs-components/MainSection.js';
@@ -19,7 +19,7 @@ import useIconsSemantically from '../../../examples/iconography/useIconsSemantic
 import CreditCards from '../../../graphics/iconography/creditCards.svg';
 import Layout from '../../../graphics/iconography/layout.svg';
 
-export default function IconographyPage(): Node {
+export default function IconographyPage(): ReactNode {
   return (
     <Page title="Iconography usage">
       <PageHeader

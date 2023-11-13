@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useEffect, useRef } from 'react';
+import { type Node as ReactNode, useEffect, useRef } from 'react';
 import { FloatingFocusManager } from '@floating-ui/react';
 import classnames from 'classnames';
 import usePopover, { DIRECTIONS_MAP, SIDES_MAP } from './usePopover.js';
@@ -18,7 +18,7 @@ type Props = {
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
   border?: boolean,
   caret?: boolean,
-  children?: Node,
+  children?: ReactNode,
   id: ?string,
   idealDirection?: MainDirections,
   onKeyDown: (event: SyntheticKeyboardEvent<HTMLElement>) => void,
@@ -46,7 +46,7 @@ export default function Contents({
   onKeyDown,
   scrollBoundary,
   hideWhenReferenceHidden = true,
-}: Props): Node {
+}: Props): ReactNode {
   const caretRef = useRef<HTMLElement | null>(null);
   const idealPlacement = idealDirection ? DIRECTIONS_MAP[idealDirection] : 'top';
 

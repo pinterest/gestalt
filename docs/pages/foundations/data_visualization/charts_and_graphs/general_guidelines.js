@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Heading, Image, Text } from 'gestalt';
 import { DOCS_COPY_MAX_WIDTH_PX } from '../../../../docs-components/consts.js';
 import MainSection from '../../../../docs-components/MainSection.js';
@@ -9,7 +9,7 @@ import PageHeader from '../../../../docs-components/PageHeader.js';
 import SandpackExample from '../../../../docs-components/SandpackExample.js';
 import mobilegraphExample from '../../../../examples/datavisualization/mobilegraphExample.js';
 
-export default function GeneralGuidelines(): Node {
+export default function GeneralGuidelines(): ReactNode {
   return (
     <Page title="General guidelines">
       <PageHeader

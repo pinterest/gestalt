@@ -1,7 +1,7 @@
 // @flow strict
 import {
   type ElementConfig,
-  type Node,
+  type Node as ReactNode,
   useCallback,
   useEffect,
   useId,
@@ -38,14 +38,14 @@ type Props = {
   accessibilityLabel?: string,
   align: 'start' | 'center',
   backIconButton?: { accessibilityLabel: string, onClick: OnClickType },
-  children?: Node,
+  children?: ReactNode,
   closeOnOutsideClick?: boolean,
-  footer?: Node,
+  footer?: ReactNode,
   forwardIconButton?: {
     accessibilityLabel: string,
     onClick: OnClickType,
   },
-  heading?: Node,
+  heading?: ReactNode,
   onAnimationEnd: ?({ animationState: 'in' | 'out' }) => void,
   onDismiss: () => void,
   onOutsideClick?: ({
@@ -87,7 +87,7 @@ export default function PartialPage({
   size,
   subHeading,
   zIndex,
-}: Props): Node {
+}: Props): ReactNode {
   const id = useId();
 
   // Consumes DefaultLabelProvider

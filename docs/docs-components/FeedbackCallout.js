@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Callout } from 'gestalt';
 
 const BASE_LINK =
@@ -9,7 +9,7 @@ type Props = {
   componentName: string,
 };
 
-export default function FeedbackCallout({ componentName }: Props): Node {
+export default function FeedbackCallout({ componentName }: Props): ReactNode {
   const [showCallout, setShowCallout] = useState(true);
   const link = `${BASE_LINK}${componentName}`;
 

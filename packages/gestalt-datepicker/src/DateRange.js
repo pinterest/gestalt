@@ -1,5 +1,5 @@
 // @flow strict-local
-import { Children, type Element, type Node, useEffect, useId } from 'react';
+import { Children, type Element, type Node as ReactNode, useEffect, useId } from 'react';
 import {
   Box,
   Button,
@@ -168,7 +168,7 @@ function DateRange({
   radioGroup,
   startDateValue,
   startDateErrorMessage,
-}: Props): Node {
+}: Props): ReactNode {
   const componentId = useId();
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';

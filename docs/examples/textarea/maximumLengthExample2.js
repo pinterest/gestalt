@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Flex, TextArea } from 'gestalt';
 
-export default function TextAreaExample(): Node {
+export default function TextAreaExample(): ReactNode {
   const [valueA, setValueA] = useState(
     'Before and after via side by side display of pale woman with auburn hair using concealer. The image shows her using a brush with concealer under her eyes.  The second image shows her with full makeup.',
   );

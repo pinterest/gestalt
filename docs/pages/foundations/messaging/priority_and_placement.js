@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Divider, Flex, Heading, Icon, Link, Status, Table, Text } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
@@ -16,7 +16,7 @@ import WebsiteBlocked from '../../../graphics/messaging/modals/websiteBlocked.sv
 import Section from '../../../graphics/messaging/section.svg';
 import TopPage from '../../../graphics/messaging/topPage.svg';
 
-export default function MessagingPriorityAndPlacementPage(): Node {
+export default function MessagingPriorityAndPlacementPage(): ReactNode {
   return (
     <Page title="Messaging priority and placement">
       <PageHeader name="Messaging priority and placement" type="guidelines" />

@@ -1,5 +1,5 @@
 // @flow strict-local
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Flex, Heading, IconButton, Text, useDefaultLabel, useDeviceType } from 'gestalt';
 
 type Props = {
@@ -7,7 +7,10 @@ type Props = {
   toggleTabularDataModal: () => void,
 };
 
-export default function TabularDataModalHeading({ title, toggleTabularDataModal }: Props): Node {
+export default function TabularDataModalHeading({
+  title,
+  toggleTabularDataModal,
+}: Props): ReactNode {
   const { accessibilityLabelDismissModal, tabularData } = useDefaultLabel('ChartGraph');
 
   const deviceType = useDeviceType();

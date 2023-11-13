@@ -1,12 +1,18 @@
 // @flow strict
-import { type Context, createContext, type Element, type Node, useContext } from 'react';
+import {
+  type Context,
+  createContext,
+  type Element,
+  type Node as ReactNode,
+  useContext,
+} from 'react';
 
 type TableContextType = {
   decal: ?'visualPattern' | 'default' | 'disabled',
 };
 
 type Props = {
-  children: Node,
+  children: ReactNode,
   decal: ?'visualPattern' | 'default' | 'disabled',
 };
 

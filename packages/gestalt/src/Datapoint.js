@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import InternalDatapoint from './Datapoint/InternalDatapoint.js';
 import { type Indexable } from './zIndex.js';
 
@@ -64,7 +64,7 @@ export default function Datapoint({
   trend,
   trendSentiment = 'auto',
   value,
-}: Props): Node {
+}: Props): ReactNode {
   return (
     <InternalDatapoint
       badge={badge}

@@ -1,8 +1,8 @@
 // @flow strict
-import { Fragment, type Node, useRef, useState } from 'react';
+import { Fragment, type Node as ReactNode, useRef, useState } from 'react';
 import { Box, Flex, Image, Layer, Mask, Popover, TapArea, Text } from 'gestalt';
 
-export default function MenuButtonExample(): Node {
+export default function MenuButtonExample(): ReactNode {
   const [selected, setSelected] = useState(false);
   const anchorRef = useRef<HTMLElement | null>(null);
 

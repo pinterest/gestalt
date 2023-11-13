@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useEffect, useState } from 'react';
+import { type Node as ReactNode, useEffect, useState } from 'react';
 import VideoPlayhead from './Playhead.js';
 import Box from '../Box.js';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
@@ -49,7 +49,7 @@ function VideoControls({
   playing,
   seek,
   volume,
-}: Props): Node {
+}: Props): ReactNode {
   const handleFullscreenChange = ({
     event,
   }: {

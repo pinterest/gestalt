@@ -1,6 +1,6 @@
 // @flow strict
 
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Flex, Table, Text } from 'gestalt';
 import dataVizTokens from 'gestalt-design-tokens/dist/js/data-viz-tokens.js';
 import tokens from 'gestalt-design-tokens/dist/js/tokens.js';
@@ -102,7 +102,7 @@ const sortedDataTokens = dataVizTokens.sort((a, b) =>
   }),
 );
 
-const tableHeaders = (category: string): Node => (
+const tableHeaders = (category: string): ReactNode => (
   <Table.Header>
     <Table.Row>
       {headers.map((header) => {
@@ -119,7 +119,7 @@ const tableHeaders = (category: string): Node => (
   </Table.Header>
 );
 
-export default function DesignTokensPage(): Node {
+export default function DesignTokensPage(): ReactNode {
   return (
     <Page title="Design tokens guidelines">
       <PageHeader

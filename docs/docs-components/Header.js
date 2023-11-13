@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { type Node as ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import {
   Badge,
@@ -246,7 +246,7 @@ function Header() {
 
 const isReducedHeight = () => typeof window !== 'undefined' && window.innerHeight < 709;
 
-export default function StickyHeader(): Node {
+export default function StickyHeader(): ReactNode {
   const [reducedHeight, setReducedHeight] = useState(false);
 
   const handleResizeHeight = useCallback(() => {

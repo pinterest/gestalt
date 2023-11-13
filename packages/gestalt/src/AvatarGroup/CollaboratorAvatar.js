@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { type BaseStackType } from './constants.js';
 import HoverOverlay from './HoverOverlay.js';
 import PositioningWrapper from './PositioningWrapper.js';
@@ -19,7 +19,7 @@ export default function AvatarGroupCollaboratorAvatar({
   pileCount,
   size,
   src,
-}: Props): Node {
+}: Props): ReactNode {
   return (
     <PositioningWrapper index={index} pileCount={pileCount} size={size}>
       <HoverOverlay hovered={hovered} size={size}>

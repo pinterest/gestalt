@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Link, Table, Text } from 'gestalt';
 import docGen, { type DocGen } from '../../../docs-components/docgen.js';
 import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
@@ -332,7 +332,7 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
   ];
 }
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />

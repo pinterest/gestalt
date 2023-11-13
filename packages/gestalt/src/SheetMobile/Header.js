@@ -1,5 +1,5 @@
 // @flow strict
-import { type ElementConfig, Fragment, type Node, useEffect, useRef } from 'react';
+import { type ElementConfig, Fragment, type Node as ReactNode, useEffect, useRef } from 'react';
 import PrimaryAction from './PrimaryAction.js';
 import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext.js';
 import Box from '../Box.js';
@@ -27,7 +27,7 @@ type Props = {
   align: 'start' | 'center',
   backIconButton: ?{ accessibilityLabel: string, onClick: OnClickType },
   forwardIconButton: ?{ accessibilityLabel: string, onClick: OnClickType },
-  heading: Node,
+  heading: ReactNode,
   id: string,
   onDismiss?: () => void,
   primaryAction: ?{
@@ -55,7 +55,7 @@ export default function Header({
   primaryAction,
   showGrabber,
   align,
-}: Props): Node {
+}: Props): ReactNode {
   const { accessibilityDismissButtonLabel, accessibilityGrabberLabel } =
     useDefaultLabelContext('SheetMobile');
   const { onExternalDismiss } = useRequestAnimationFrame();

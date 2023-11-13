@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { SlimBanner } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
@@ -25,7 +25,7 @@ import useToAddSupplementaryInfo from '../../examples/tooltip/useToAddSupplement
 import useToDescribeInteractiveElement from '../../examples/tooltip/useToDescribeInteractiveElement.js';
 import useToDistinguishRelatedActions from '../../examples/tooltip/useToDistinguishRelatedActions.js';
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title="Tooltip">
       <PageHeader

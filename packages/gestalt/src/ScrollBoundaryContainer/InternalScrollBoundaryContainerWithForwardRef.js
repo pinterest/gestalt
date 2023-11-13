@@ -2,7 +2,7 @@
 import {
   type AbstractComponent,
   forwardRef,
-  type Node,
+  type Node as ReactNode,
   useEffect,
   useImperativeHandle,
   useRef,
@@ -14,7 +14,7 @@ import { useScrollBoundaryContainer } from '../contexts/ScrollBoundaryContainerP
 type ScrollBoundaryContainerOverflow = 'scroll' | 'scrollX' | 'scrollY' | 'auto' | 'visible';
 
 type InternalProps = {
-  children?: Node,
+  children?: ReactNode,
   includesFooter?: boolean,
   height?: Dimension,
   onScroll?: () => void,
@@ -35,7 +35,7 @@ const ScrollBoundaryContainerWithForwardRef: AbstractComponent<InternalProps, HT
       overflow = 'auto',
     }: InternalProps,
     ref,
-  ): Node {
+  ): ReactNode {
     const { addRef } = useScrollBoundaryContainer();
     const anchorRef = useRef<HTMLElement | null>(null);
     // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component

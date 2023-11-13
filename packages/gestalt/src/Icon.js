@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import colors from './Colors.css';
 import styles from './Icon.css';
@@ -101,7 +101,7 @@ function Icon({
   icon,
   inline = false,
   size = 16,
-}: Props): Node {
+}: Props): ReactNode {
   const colorClass = colors[`${color}Icon`] && colors[`${color}Icon`];
 
   const cs = classnames(

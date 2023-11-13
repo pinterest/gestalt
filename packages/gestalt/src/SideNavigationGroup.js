@@ -1,5 +1,5 @@
 // @flow strict
-import { type Element, type Node, useId, useState } from 'react';
+import { type Element, type Node as ReactNode, useId, useState } from 'react';
 import classnames from 'classnames';
 import { useDeviceType } from './contexts/DeviceTypeProvider.js';
 import { NestingProvider, useNesting } from './contexts/NestingProvider.js';
@@ -32,7 +32,7 @@ export type Props = {
   /**
    * Content of the group. See [nested directory](https://gestalt.pinterest.systems/web/sidenavigation#Nested-directory) variant for more information.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * When supplied, will display a counter. See the [Counter](https://gestalt.pinterest.systems/web/sidenavigation#Counter) variant to learn more.
    */
@@ -82,7 +82,7 @@ export default function SideNavigationGroup({
   notificationAccessibilityLabel,
   label,
   primaryAction,
-}: Props): Node {
+}: Props): ReactNode {
   // Manages adaptiveness
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';

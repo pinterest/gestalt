@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Flex, Module, Text } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [extExpandedId, setExtExpandedId] = useState<number | string | null>(null);
   const mapIds = {
     'first-0': 0,

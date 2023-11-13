@@ -4,7 +4,7 @@ import {
   type Element,
   type ElementConfig,
   Fragment,
-  type Node,
+  type Node as ReactNode,
   useCallback,
   useEffect,
   useRef,
@@ -44,7 +44,7 @@ export function ToastMessage({
     }) => void,
   },
   type: 'default' | 'success' | 'error' | 'progress',
-}): Node {
+}): ReactNode {
   const isError = type === 'error';
   const textRef = useRef<null | HTMLElement>(null);
   const [ellipsisActive, setEllipsisActive] = useState(false);
@@ -125,7 +125,11 @@ export function ToastMessage({
   );
 }
 
-export function ToastImageThumbnail({ thumbnail }: { thumbnail: Element<typeof Image> }): Node {
+export function ToastImageThumbnail({
+  thumbnail,
+}: {
+  thumbnail: Element<typeof Image>,
+}): ReactNode {
   return (
     <Box aria-hidden>
       <Mask height={SIZE_THUMBNAIL} rounding={2} width={SIZE_THUMBNAIL}>
@@ -135,11 +139,15 @@ export function ToastImageThumbnail({ thumbnail }: { thumbnail: Element<typeof I
   );
 }
 
-export function ToastIconThumbnail({ thumbnail }: { thumbnail: Element<typeof Icon> }): Node {
+export function ToastIconThumbnail({ thumbnail }: { thumbnail: Element<typeof Icon> }): ReactNode {
   return <Box aria-hidden>{cloneElement(thumbnail, { size: SIZE_ICON, color: 'inverse' })}</Box>;
 }
 
-export function ToastAvatarThumbnail({ thumbnail }: { thumbnail: Element<typeof Avatar> }): Node {
+export function ToastAvatarThumbnail({
+  thumbnail,
+}: {
+  thumbnail: Element<typeof Avatar>,
+}): ReactNode {
   return <Box aria-hidden>{cloneElement(thumbnail, { size: 'sm' })}</Box>;
 }
 
@@ -147,7 +155,7 @@ export function ToastTypeThumbnail({
   type,
 }: {
   type: 'default' | 'success' | 'error' | 'progress',
-}): Node {
+}): ReactNode {
   const { name: colorSchemeName } = useColorScheme();
   const {
     accessibilityIconSuccessLabel,

@@ -1,8 +1,8 @@
 // @flow strict
-import { Fragment, type Node, useState } from 'react';
+import { Fragment, type Node as ReactNode, useState } from 'react';
 import { Box, Button, IconButton, Layer, Text } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [showLayer, setShowLayer] = useState(false);
 
   return (

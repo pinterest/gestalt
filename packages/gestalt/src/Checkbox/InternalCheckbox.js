@@ -2,7 +2,7 @@
 import {
   type AbstractComponent,
   forwardRef,
-  type Node,
+  type Node as ReactNode,
   useEffect,
   useImperativeHandle,
   useRef,
@@ -26,7 +26,7 @@ type Props = {
   errorMessage?: string,
   helperText?: string,
   id: string,
-  image?: Node,
+  image?: ReactNode,
   indeterminate?: boolean,
   label?: string,
   labelDisplay?: 'visible' | 'hidden',
@@ -70,7 +70,7 @@ const InternalCheckboxWithForwardRef: AbstractComponent<Props, HTMLInputElement>
     style,
   }: Props,
   ref,
-): Node {
+): ReactNode {
   const innerRef = useRef<null | HTMLInputElement>(null);
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <Checkbox ref={inputRef} /> to call inputRef.current.focus()

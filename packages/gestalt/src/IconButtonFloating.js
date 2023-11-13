@@ -1,5 +1,5 @@
 // @flow strict
-import { type AbstractComponent, forwardRef, type Node } from 'react';
+import { type AbstractComponent, forwardRef, type Node as ReactNode } from 'react';
 import Box from './Box.js';
 import IconButton from './IconButton.js';
 import icons from './icons/index.js';
@@ -84,7 +84,7 @@ const IconButtonFloatingWithForwardRef: AbstractComponent<Props, HTMLButtonEleme
     tooltip,
   }: Props,
   ref,
-): Node {
+): ReactNode {
   return (
     <Box borderStyle="shadow" rounding="circle" color="default">
       <IconButton

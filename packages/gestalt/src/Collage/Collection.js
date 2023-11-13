@@ -39,25 +39,25 @@
   4. The viewport can be any size. Most windowing/recycling solutions implement some sort of overscanning, however Collection leaves this up the the parent.
 
 */
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import layoutStyles from '../Layout.css';
 
 type Props = {
-  Item?: ({ idx: number }) => Node,
+  Item?: ({ idx: number }) => ReactNode,
   layout: $ReadOnlyArray<{
     top: number,
     left: number,
     width: number,
     height: number,
   }>,
-  renderItem?: ({ idx: number }) => Node,
+  renderItem?: ({ idx: number }) => ReactNode,
   viewportTop?: number,
   viewportLeft?: number,
   viewportWidth?: number,
   viewportHeight?: number,
 };
 
-export default function Collection(props: Props): Node {
+export default function Collection(props: Props): ReactNode {
   const { Item, layout = [], renderItem, viewportTop = 0, viewportLeft = 0 } = props;
 
   // Calculate the full dimensions of the item layer

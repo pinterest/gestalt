@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { SlimBanner } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
@@ -28,7 +28,7 @@ import variantSizes from '../../examples/text/variantSizes.js';
 import variantStyles from '../../examples/text/variantStyles.js';
 import variantTitle from '../../examples/text/variantTitle.js';
 
-export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>

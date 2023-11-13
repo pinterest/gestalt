@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, ComboBox, DefaultLabelProvider, Flex, Heading } from 'gestalt';
 
 const myI18nTranslator = (val: string) => val.toUpperCase();
@@ -129,7 +129,7 @@ const pronouns = [
   'zie / zem',
 ];
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [errorMessage, setErrorMessage] = useState<?string>();
 
   const handleOnBlur = ({

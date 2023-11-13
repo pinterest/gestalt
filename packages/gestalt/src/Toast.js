@@ -1,5 +1,11 @@
 // @flow strict
-import { Children, type Element, type ElementConfig, isValidElement, type Node } from 'react';
+import {
+  Children,
+  type Element,
+  type ElementConfig,
+  isValidElement,
+  type Node as ReactNode,
+} from 'react';
 import Avatar from './Avatar.js';
 import Box from './Box.js';
 import Button from './Button.js';
@@ -44,11 +50,11 @@ type Props = {
   /**
    * Allows to insert a custom button for user interaction. Do not use except for allowed cases where primaryAction doesn't support functionality required in it.
    */
-  _dangerouslySetPrimaryAction?: Node,
+  _dangerouslySetPrimaryAction?: ReactNode,
   /**
    * Allows to insert a custom thumbnail. Do not use except for allowed cases where thumbnail doesn't support functionality required in it or legacy code.
    */
-  _dangerouslySetThumbnail?: Node,
+  _dangerouslySetThumbnail?: ReactNode,
   /**
    * Adds a dismiss button to Toast. See the [Dismissible variant](https://gestalt.pinterest.systems/web/toast#Dismissible) for more info.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/toast#Accessibility).
@@ -125,7 +131,7 @@ export default function Toast({
   text,
   thumbnail,
   type = 'default',
-}: Props): Node {
+}: Props): ReactNode {
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 

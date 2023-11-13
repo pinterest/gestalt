@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -9,7 +9,7 @@ import SandpackExample from '../../docs-components/SandpackExample.js';
 import foundationalComponentsExample from '../../examples/zindex_classes/foundationalComponentsExample.js';
 import layerExample from '../../examples/zindex_classes/layerExample.js';
 
-export default function DocsPage(): Node {
+export default function DocsPage(): ReactNode {
   return (
     <Page title="Z-Index Classes">
       <PageHeader

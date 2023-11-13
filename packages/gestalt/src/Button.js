@@ -3,7 +3,7 @@ import {
   type AbstractComponent,
   forwardRef,
   Fragment,
-  type Node,
+  type Node as ReactNode,
   useImperativeHandle,
   useRef,
 } from 'react';
@@ -74,11 +74,11 @@ function InternalButtonContent({
   size,
 }: {
   target?: Target,
-  text: Node,
+  text: ReactNode,
   textColor: IconColor,
   icon?: $Keys<typeof icons>,
   size: string,
-}): Node {
+}): ReactNode {
   return (
     <Fragment>
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
@@ -127,7 +127,7 @@ const ButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = forwar
     accessibilityHaspopup,
   }: Props,
   ref,
-): Node {
+): ReactNode {
   const innerRef = useRef<null | HTMLButtonElement>(null);
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component

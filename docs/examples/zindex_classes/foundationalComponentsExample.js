@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useEffect, useRef, useState } from 'react';
+import { Fragment, type Node as ReactNode, useEffect, useRef, useState } from 'react';
 import {
   Box,
   Button,
@@ -21,7 +21,7 @@ import {
 const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
 const SHEET_ZINDEX = new CompositeZIndex([PAGE_HEADER_ZINDEX]);
 
-export default function ScrollBoundaryContainerExample(): Node {
+export default function ScrollBoundaryContainerExample(): ReactNode {
   const [showSheet, setShowSheet] = useState(false);
 
   return (

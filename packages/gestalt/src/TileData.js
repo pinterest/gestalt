@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useId } from 'react';
+import { type Node as ReactNode, useId } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import InternalCheckbox from './Checkbox/InternalCheckbox.js';
@@ -117,7 +117,7 @@ export default function TileData({
   trend,
   trendSentiment,
   value,
-}: Props): Node {
+}: Props): ReactNode {
   const theme = useColorScheme();
   const borderColor = getDataVisualizationColor(theme, color);
   const bgColor = getDataVisualizationColor(theme, color, { lighten: true });

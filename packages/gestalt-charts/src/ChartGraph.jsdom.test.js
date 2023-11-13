@@ -1,5 +1,5 @@
 // @flow strict-local
-import { type ElementConfig, type Node, useState } from 'react';
+import { type ElementConfig, type Node as ReactNode, useState } from 'react';
 import { act, render, screen } from '@testing-library/react';
 import { Flex, HelpButton, TileData } from 'gestalt';
 import ChartGraph from './ChartGraph.js';
@@ -10,7 +10,7 @@ jest.mock('recharts', () => {
   const OriginalModule = jest.requireActual<any>('recharts');
   return {
     ...OriginalModule,
-    ResponsiveContainer: ({ children }: { children: Node }) => (
+    ResponsiveContainer: ({ children }: { children: ReactNode }) => (
       <OriginalModule.ResponsiveContainer width={800} height={800}>
         {children}
       </OriginalModule.ResponsiveContainer>

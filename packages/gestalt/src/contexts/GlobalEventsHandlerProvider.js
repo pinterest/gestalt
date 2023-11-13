@@ -1,5 +1,11 @@
 // @flow strict
-import { type Context, createContext, type Element, type Node, useContext } from 'react';
+import {
+  type Context,
+  createContext,
+  type Element,
+  type Node as ReactNode,
+  useContext,
+} from 'react';
 
 export type NoopType = () => void;
 
@@ -23,7 +29,7 @@ type Props = {
   /**
    * Context lets a parent component provide data to the entire tree below it. Only components within the GlobalEventsHandlerProvider tree will be able to subscribe to it.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * Handlers consumed by [DateField](https://gestalt.pinterest.systems/web/datefield).
    */

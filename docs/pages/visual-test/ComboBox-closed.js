@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, ColorSchemeProvider, ComboBox } from 'gestalt';
 
-export default function Snapshot(): Node {
+export default function Snapshot(): ReactNode {
   return (
     <ColorSchemeProvider colorScheme="light">
       <Box color="default" padding={1} width={400}>

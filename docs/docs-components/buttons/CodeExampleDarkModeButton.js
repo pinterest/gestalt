@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { IconButton } from 'gestalt';
 import trackButtonClick from './trackButtonClick.js';
 
@@ -8,7 +8,7 @@ type Props = {
   onClick: () => void,
 };
 
-export default function CodeExampleDarkModeButton({ currentMode, onClick }: Props): Node {
+export default function CodeExampleDarkModeButton({ currentMode, onClick }: Props): ReactNode {
   const label = `Toggle ${currentMode === 'dark' ? 'light' : 'dark'} mode for code example`;
 
   return (

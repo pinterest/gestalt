@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
@@ -46,7 +46,7 @@ export default function Spinner({
   delay = true,
   show,
   size = 'md',
-}: Props): Node {
+}: Props): ReactNode {
   const { accessibilityLabel: accessibilityLabelDefault } = useDefaultLabelContext('Spinner');
   return show ? (
     <Box display="flex" justifyContent="around" overflow="hidden">

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box } from 'gestalt';
 import AccessibilityChecklist from './AccessibilityChecklist.js';
 import Card from './Card.js';
@@ -7,7 +7,7 @@ import { DOCS_COPY_MAX_WIDTH_PX } from './consts.js';
 import Markdown from './Markdown.js';
 
 type Props = {
-  children?: Node,
+  children?: ReactNode,
   description?: string,
   hideChecklist?: boolean,
   name: string,
@@ -18,7 +18,7 @@ export default function AccessibilitySection({
   description,
   hideChecklist = false,
   name,
-}: Props): Node {
+}: Props): ReactNode {
   return (
     <Card name="Accessibility" showHeading>
       {hideChecklist ? null : <AccessibilityChecklist component={name} />}

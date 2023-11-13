@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import styles from './FormErrorMessage.css';
 import Box from '../Box.js';
 import Flex from '../Flex.js';
@@ -8,10 +8,10 @@ import Text from '../Text.js';
 
 type Props = {
   id: string,
-  text?: Node,
+  text?: ReactNode,
 };
 
-export default function FormErrorMessage({ id, text = '' }: Props): Node {
+export default function FormErrorMessage({ id, text = '' }: Props): ReactNode {
   return (
     <Box marginTop={2}>
       <Text color="error" size="100">

@@ -1,5 +1,5 @@
 // @flow strict-local
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Table, Text, useDefaultLabel } from 'gestalt';
 import {
   type FilterIdType,
@@ -24,7 +24,7 @@ export default function TabularDataModal({
   onSortChange,
   sortOrder,
   sortCol,
-}: Props): Node {
+}: Props): ReactNode {
   const { tableSeriesText, tableXAxisText, tableYAxisText } = useDefaultLabel('ChartGraph');
 
   return (

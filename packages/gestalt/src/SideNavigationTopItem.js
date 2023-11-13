@@ -3,7 +3,7 @@ import {
   type AbstractComponent,
   type Element,
   forwardRef,
-  type Node,
+  type Node as ReactNode,
   useEffect,
   useId,
   useState,
@@ -109,7 +109,7 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
     onClick,
   }: Props,
   ref,
-): Node {
+): ReactNode {
   const { nestedLevel } = useNesting();
 
   const { setSelectedItemId } = useSideNavigation();

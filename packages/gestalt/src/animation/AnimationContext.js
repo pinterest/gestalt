@@ -4,7 +4,7 @@ import {
   type Context,
   createContext,
   type Element,
-  type Node,
+  type Node as ReactNode,
   useCallback,
   useContext,
   useMemo,
@@ -40,7 +40,7 @@ type UseAnimationType = {
 };
 
 type AnimationProviderProps = {
-  children: Node,
+  children: ReactNode,
 };
 
 // CONTEXT

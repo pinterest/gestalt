@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
 import LocalizationSection from '../../docs-components/LocalizationSection.js';
@@ -18,7 +18,7 @@ type DocsType = {
   generatedDocGen: DocGen,
 };
 
-export default function DocsPage({ generatedDocGen }: DocsType): Node {
+export default function DocsPage({ generatedDocGen }: DocsType): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>

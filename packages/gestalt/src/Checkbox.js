@@ -1,5 +1,5 @@
 // @flow strict
-import { type AbstractComponent, forwardRef, type Node } from 'react';
+import { type AbstractComponent, forwardRef, type Node as ReactNode } from 'react';
 import InternalCheckbox from './Checkbox/InternalCheckbox.js';
 
 type Props = {
@@ -26,7 +26,7 @@ type Props = {
   /**
    * An optional Image can be supplied to add an image to each Checkbox. See the [with Image variant](https://gestalt.pinterest.systems/web/checkbox#With-Image) to learn more.
    */
-  image?: Node,
+  image?: ReactNode,
   /**
    * Indicates a state that is neither checked nor unchecked. See the [state variant](https://gestalt.pinterest.systems/web/checkbox#State) to learn more.
    */
@@ -94,7 +94,7 @@ const CheckboxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
     size = 'md',
   }: Props,
   ref,
-): Node {
+): ReactNode {
   return (
     <InternalCheckbox
       checked={checked}

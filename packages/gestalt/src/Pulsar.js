@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import Box from './Box.js';
 import styles from './Pulsar.css';
 
@@ -20,7 +20,7 @@ type Props = {
  * ![Pulsar light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Pulsar.spec.mjs-snapshots/Pulsar-chromium-darwin.png)
  * ![Pulsar dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Pulsar-dark.spec.mjs-snapshots/Pulsar-dark-chromium-darwin.png)
  */
-export default function Pulsar({ paused, size = 136 }: Props): Node {
+export default function Pulsar({ paused, size = 136 }: Props): ReactNode {
   return (
     <Box
       dangerouslySetInlineStyle={{

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Icon from './Icon.js';
@@ -16,7 +16,7 @@ type Props = {
   /**
    * One or more SelectList.Option components, which may be grouped using SelectList.Group.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * Used to disable the entire SelectList.
    */
@@ -86,7 +86,7 @@ function SelectList({
   placeholder,
   size = 'md',
   value,
-}: Props): Node {
+}: Props): ReactNode {
   const [focused, setFocused] = useState(false);
 
   const handleOnChange: (event: SyntheticInputEvent<HTMLSelectElement>) => void = (event) => {

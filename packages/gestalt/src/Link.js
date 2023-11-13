@@ -4,7 +4,7 @@ import {
   type Element,
   type ElementConfig,
   forwardRef,
-  type Node,
+  type Node as ReactNode,
   type Ref,
   useImperativeHandle,
   useRef,
@@ -46,7 +46,7 @@ type ExternalLinkIcon =
       size: $ElementType<ElementConfig<typeof Text>, 'size'>,
     };
 
-function ExternalIcon({ externalLinkIcon }: { externalLinkIcon: ExternalLinkIcon }): Node {
+function ExternalIcon({ externalLinkIcon }: { externalLinkIcon: ExternalLinkIcon }): ReactNode {
   return externalLinkIcon === 'none' ? null : (
     <Box aria-hidden display="inlineBlock" marginStart={1}>
       <Icon
@@ -74,7 +74,7 @@ type Props = {
   /**
    * Link is a wrapper around components (or children), most commonly text, so that they become hyperlinks. See the [Text and Link variant](https://gestalt.pinterest.systems/web/link#Link-and-Text) to learn more.
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
    */

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
@@ -19,7 +19,7 @@ import preventCloseExample from '../../examples/modal/preventCloseExample.js';
 import roleAlertDialogExample from '../../examples/modal/roleAlertDialogExample.js';
 import sizesExample from '../../examples/modal/sizesExample.js';
 
-export default function ModalPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function ModalPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   const PREVIEW_HEIGHT = 450;
 
   return (

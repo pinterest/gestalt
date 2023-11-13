@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Checkbox, Fieldset, Flex } from 'gestalt';
 
-export default function Snapshot(): Node {
+export default function Snapshot(): ReactNode {
   return (
     <Box padding={1}>
       <Fieldset legend="What languages would you like to learn?" id="fieldset-error-message">

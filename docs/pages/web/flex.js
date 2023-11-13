@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
@@ -24,7 +24,7 @@ export default function DocsPage({
   generatedDocGen,
 }: {
   generatedDocGen: { [string]: DocGen },
-}): Node {
+}): ReactNode {
   return (
     <Page title={generatedDocGen?.Flex?.displayName}>
       <PageHeader

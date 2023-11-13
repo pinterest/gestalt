@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -7,7 +7,7 @@ import SandpackExample from '../../docs-components/SandpackExample.js';
 import useFocusVisibleExample from '../../examples/accessibility/useFocusVisibleExample.js';
 import useReducedMotionExample from '../../examples/accessibility/useReducedMotionExample.js';
 
-export default function AccessibilityGuidelinesPage(): Node {
+export default function AccessibilityGuidelinesPage(): ReactNode {
   return (
     <Page title="Accessibility Guidelines">
       <PageHeader

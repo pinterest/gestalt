@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Flex, IconButton, RadioButton, Tooltip } from 'gestalt';
 
-export default function ExampleTooltip(): Node {
+export default function ExampleTooltip(): ReactNode {
   const [idealDirection, setIdealDirection] = useState('down');
 
   return (

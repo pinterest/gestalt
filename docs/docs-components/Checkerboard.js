@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, useColorScheme } from 'gestalt';
 
-export default function Checkerboard(): Node {
+export default function Checkerboard(): ReactNode {
   const { colorGray300 } = useColorScheme();
   const colorGray300Encoded = colorGray300.replace('#', '%23');
   return (

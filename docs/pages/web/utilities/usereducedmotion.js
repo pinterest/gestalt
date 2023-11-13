@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import AccessibilitySection from '../../../docs-components/AccessibilitySection.js';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
@@ -8,7 +8,7 @@ import QualityChecklist from '../../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../../docs-components/SandpackExample.js';
 import example from '../../../examples/usereducedmotion/example.js';
 
-export default function DocsPage(): Node {
+export default function DocsPage(): ReactNode {
   return (
     <Page title="useReducedMotion">
       <PageHeader

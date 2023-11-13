@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Link, Text } from 'gestalt';
 import roadmapData from './RoadmapData.json';
 import InternalOnlyIconButton from '../docs-components/InternalOnlyIconButton.js';
@@ -47,7 +47,7 @@ function Task({
   );
 }
 
-export default function RoadmapPage(): Node {
+export default function RoadmapPage(): ReactNode {
   const [inProgressItems, futureItems, completeItems, abandonedItems] = [
     inProgress,
     future,

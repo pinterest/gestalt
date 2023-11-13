@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useEffect, useRef, useState } from 'react';
+import { type Node as ReactNode, useEffect, useRef, useState } from 'react';
 import { AvatarGroup, Box, Flex, Layer, Popover, SearchField, Text } from 'gestalt';
 
-function SearchCollaboratorsField(): Node {
+function SearchCollaboratorsField(): ReactNode {
   const ref = useRef<null | HTMLInputElement>(null);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ function SearchCollaboratorsField(): Node {
   );
 }
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
 

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useCallback, useEffect, useRef, useState } from 'react';
+import { type Node as ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import cx from 'classnames';
 import Box from './Box.js';
 import { TableContextProvider } from './contexts/TableContext.js';
@@ -18,7 +18,7 @@ type Props = {
   /**
    * Must be instances of Table.Header, Table.Body, and/or Table.Footer components. See the [Subcomponent section](https://gestalt.pinterest.systems/web/table#Subcomponents) to learn more.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * Label for screen readers to announce Table.
    */
@@ -49,7 +49,7 @@ export default function Table({
   children,
   maxHeight,
   stickyColumns,
-}: Props): Node {
+}: Props): ReactNode {
   const [showShadowScroll, setShowShadowScroll] = useState<'left' | 'right' | null>(null);
   const tableRef = useRef<?HTMLElement>(null);
 

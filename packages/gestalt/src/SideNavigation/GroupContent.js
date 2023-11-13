@@ -1,5 +1,5 @@
 // @flow strict
-import { type Element, type Node, useEffect, useState } from 'react';
+import { type Element, type Node as ReactNode, useEffect, useState } from 'react';
 import PrimaryActionIconButton from './PrimaryActionIconButton.js';
 import Badge from '../Badge.js';
 import Box from '../Box.js';
@@ -65,7 +65,7 @@ export default function SideNavigationGroupContent({
     dropdownItems?: $ReadOnlyArray<Element<typeof Dropdown.Item>>,
   },
   setCompression: ('compress' | 'none') => void,
-}): Node {
+}): ReactNode {
   // Manages adaptiveness
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';

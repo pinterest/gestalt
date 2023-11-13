@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useEffect, useState } from 'react';
+import { Fragment, type Node as ReactNode, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Box, DeviceTypeProvider, Divider, FixedZIndex, Flex } from 'gestalt';
 import { useAppContext } from './appContext.js';
@@ -17,11 +17,11 @@ const fullWidthPages = ['home', 'whats_new', 'roadmap'];
 const fullBleedNoNavigationPages = ['/year_in_review_2022', 'integration-test'];
 
 type Props = {
-  children?: Node,
+  children?: ReactNode,
   colorScheme?: 'light' | 'dark',
 };
 
-export default function AppLayout({ children, colorScheme }: Props): Node {
+export default function AppLayout({ children, colorScheme }: Props): ReactNode {
   const { isMobile } = useDocsConfig();
   const { isSidebarOpen, setIsSidebarOpen } = useNavigationContext();
   const router = useRouter();

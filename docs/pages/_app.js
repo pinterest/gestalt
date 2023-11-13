@@ -5,7 +5,7 @@ import 'gestalt/dist/gestalt.css';
 import 'gestalt-datepicker/dist/gestalt-datepicker.css';
 import { promises as fs } from 'fs';
 import path from 'path';
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { CookiesProvider } from 'react-cookie';
 import NextApp, { type AppInitialProps } from 'next/app';
 import { useRouter } from 'next/router';
@@ -16,7 +16,7 @@ import App from '../docs-components/App.js';
 import { DocsConfigProvider } from '../docs-components/contexts/DocsConfigProvider.js';
 import DocsDefaultLabelProvider from '../docs-components/contexts/DocsDefaultLabelProvider.js';
 
-function Providers({ children, isMobile }: { children: Node, isMobile: boolean }): Node {
+function Providers({ children, isMobile }: { children: ReactNode, isMobile: boolean }): ReactNode {
   const [isMobileDevice] = useState(isMobile);
 
   return (
@@ -34,7 +34,7 @@ function GestaltApp(
   // $FlowFixMe[missing-local-annot]
   // $FlowFixMe[signature-verification-failure]
   { Component, pageProps, cookieHeader, isMobile, files }, // eslint-disable-line react/prop-types
-): Node {
+): ReactNode {
   const router = useRouter();
 
   // Hide navigation / sidebar for visual tests

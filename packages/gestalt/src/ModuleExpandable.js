@@ -1,5 +1,12 @@
 // @flow strict
-import { type Element, Fragment, type Node, useCallback, useEffect, useState } from 'react';
+import {
+  type Element,
+  Fragment,
+  type Node as ReactNode,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 import Box from './Box.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import Divider from './Divider.js';
@@ -39,7 +46,7 @@ type Props = {
    */
   items: $ReadOnlyArray<{
     badge?: BadgeType,
-    children?: Node,
+    children?: ReactNode,
     icon?: $Keys<typeof icons>,
     iconAccessibilityLabel?: string,
     iconButton?: Element<typeof IconButton>,
@@ -63,7 +70,7 @@ export default function ModuleExpandable({
   id,
   items,
   onExpandedChange,
-}: Props): Node {
+}: Props): ReactNode {
   const [expandedId, setExpandedId] = useState<?number>(getExpandedId(expandedIndex));
 
   const { name: colorSchemeName } = useColorScheme();

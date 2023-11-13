@@ -1,10 +1,10 @@
 // @flow strict
-import { Fragment, type Node, useState } from 'react';
+import { Fragment, type Node as ReactNode, useState } from 'react';
 import { Box, Button, CompositeZIndex, FixedZIndex, IconButton, Layer, Text } from 'gestalt';
 
 const HEADER_ZINDEX = new FixedZIndex(100);
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [showLayer, setShowLayer] = useState(false);
   // Results in a zIndex of 101
   const zIndex = new CompositeZIndex([HEADER_ZINDEX]);

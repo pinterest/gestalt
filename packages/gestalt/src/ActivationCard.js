@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node } from 'react';
+import { Fragment, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import styles from './ActivationCard.css';
 import Box from './Box.js';
@@ -70,7 +70,7 @@ type Props = {
   title: string,
 };
 
-function ActivationCardLink({ data }: { data: LinkData }): Node {
+function ActivationCardLink({ data }: { data: LinkData }): ReactNode {
   const { accessibilityLabel, href, label, onClick, rel, target } = data;
 
   return (
@@ -104,7 +104,13 @@ type CardProps = {
     onDismiss: () => void,
   },
 };
-function CompletedCard({ dismissButton, message, status, statusMessage, title }: CardProps): Node {
+function CompletedCard({
+  dismissButton,
+  message,
+  status,
+  statusMessage,
+  title,
+}: CardProps): ReactNode {
   const icon = STATUS_ICONS[status];
 
   return (
@@ -160,7 +166,7 @@ function UncompletedCard({
   status,
   statusMessage,
   title,
-}: CardProps): Node {
+}: CardProps): ReactNode {
   const isStarted = status !== 'notStarted';
   const icon = STATUS_ICONS[status];
 
@@ -230,7 +236,7 @@ export default function ActivationCard({
   status,
   statusMessage,
   title,
-}: Props): Node {
+}: Props): ReactNode {
   const isCompleted = status === 'complete';
   const { accessibilityDismissButtonLabel } = useDefaultLabelContext('ActivationCard');
 

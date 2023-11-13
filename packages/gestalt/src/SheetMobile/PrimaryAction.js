@@ -1,5 +1,5 @@
 // @flow strict
-import { type ElementConfig, type Node } from 'react';
+import { type ElementConfig, type Node as ReactNode } from 'react';
 import Button from '../Button.js';
 import ButtonLink from '../ButtonLink.js';
 import Link from '../Link.js';
@@ -28,7 +28,7 @@ export default function PrimaryAction({
   label,
   size = 'lg',
   ...props
-}: Props): Node {
+}: Props): ReactNode {
   if (props.role === 'link')
     return (
       <ButtonLink

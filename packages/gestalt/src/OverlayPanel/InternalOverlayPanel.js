@@ -1,6 +1,14 @@
 // @flow strict
 
-import { type Node, useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
+import {
+  type Node as ReactNode,
+  useCallback,
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import classnames from 'classnames';
 import ConfirmationPopover from './ConfirmationPopover.js';
 import animation from '../animation/animation.css';
@@ -23,7 +31,7 @@ import { FixedZIndex } from '../zIndex.js';
 
 export const PADDING_BOINTS = 6;
 
-type NodeOrRenderProp = Node | (({ onDismissStart: () => void }) => Node);
+type NodeOrRenderProp = ReactNode | (({ onDismissStart: () => void }) => ReactNode);
 
 type InternalSheetProps = {
   accessibilityDismissButtonLabel?: string,
@@ -82,7 +90,7 @@ export default function InternalOverlayPanel({
   onDismiss,
   size,
   subHeading,
-}: InternalSheetProps): Node {
+}: InternalSheetProps): ReactNode {
   const [showTopShadow, setShowTopShadow] = useState<boolean>(false);
   const [showBottomShadow, setShowBottomShadow] = useState<boolean>(false);
   const [showPopover, setShowPopover] = useState<boolean>(false);
@@ -103,7 +111,7 @@ export default function InternalOverlayPanel({
   const { message, subtext, primaryAction, secondaryAction } = dismissConfirmation ?? {};
 
   function buildDismissableSubcomponent(
-    component: Node | (({ onDismissStart: () => void }) => Node),
+    component: ReactNode | (({ onDismissStart: () => void }) => ReactNode),
   ) {
     return typeof component === 'function'
       ? component({ onDismissStart: onExternalDismiss })

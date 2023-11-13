@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, ButtonLink, Flex, Image, Link, List, Table, Text } from 'gestalt';
 import trackButtonClick from '../../../../docs-components/buttons/trackButtonClick.js';
 import { DOCS_COPY_MAX_WIDTH_PX } from '../../../../docs-components/consts.js';
@@ -47,7 +47,7 @@ function TableEntry({
   );
 }
 
-export default function ToolingPage(): Node {
+export default function ToolingPage(): ReactNode {
   return (
     <Page title="Tooling">
       <PageHeader name="Web tooling" type="guidelines" />

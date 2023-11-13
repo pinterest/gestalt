@@ -1,5 +1,5 @@
 // @flow strict-local
-import { Fragment, type Node } from 'react';
+import { Fragment, type Node as ReactNode } from 'react';
 import { XAxis, YAxis } from 'recharts';
 
 export default function renderAxis({
@@ -56,7 +56,7 @@ export default function renderAxis({
   },
   labelMap?: { [string]: string },
   tickCount: 5 | 3,
-}): Node {
+}): ReactNode {
   const FONT_STYLE_CATEGORIES = {
     fontSize: 'var(--font-size-100)',
     fontFamily: 'var(--font-family-default-latin)',

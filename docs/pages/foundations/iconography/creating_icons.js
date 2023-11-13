@@ -1,12 +1,12 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Link, List, Text } from 'gestalt';
 import InternalOnlyIconButton from '../../../docs-components/InternalOnlyIconButton.js';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 
-export default function ToolingPage(): Node {
+export default function ToolingPage(): ReactNode {
   return (
     <Page title="Creating Icons">
       <PageHeader

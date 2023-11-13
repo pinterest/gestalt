@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Table, Text } from 'gestalt';
 
-export default function SortableHeaderExample(): Node {
+export default function SortableHeaderExample(): ReactNode {
   const [sortOrder, setSortOrder] = useState('desc');
   const [sortCol, setSortCol] = useState('name');
 

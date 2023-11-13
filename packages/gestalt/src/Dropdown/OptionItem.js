@@ -1,5 +1,5 @@
 // @flow strict
-import { type AbstractComponent, forwardRef, Fragment, type Node } from 'react';
+import { type AbstractComponent, forwardRef, Fragment, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext.js';
 import Badge from '../Badge.js';
@@ -28,7 +28,7 @@ type BadgeType = {
 
 type Props = {
   badge?: BadgeType,
-  children?: Node,
+  children?: ReactNode,
   dataTestId?: string,
   hoveredItemIndex: ?number,
   href?: string,
@@ -71,7 +71,7 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
     textWeight = 'normal',
   }: Props,
   ref,
-): Node {
+): ReactNode {
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
 

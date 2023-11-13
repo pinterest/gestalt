@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { type ComponentCategory, type Platform, type PlatformData } from './data/types.js';
 import IllustrationCard from './IllustrationCard.js';
 import IllustrationSection from './IllustrationSection.js';
@@ -35,7 +35,7 @@ export default function OverviewList({
   headingLevel,
   platform,
   title = '',
-}: Props): Node {
+}: Props): ReactNode {
   return (
     <IllustrationSection title={title} grid="auto-fill" min={312}>
       {[...components]

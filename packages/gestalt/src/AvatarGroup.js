@@ -1,5 +1,11 @@
 // @flow strict
-import { type AbstractComponent, forwardRef, type Node, useCallback, useState } from 'react';
+import {
+  type AbstractComponent,
+  forwardRef,
+  type Node as ReactNode,
+  useCallback,
+  useState,
+} from 'react';
 import AddCollaboratorsButton from './AvatarGroup/AddCollaboratorsButton.js';
 import CollaboratorAvatar from './AvatarGroup/CollaboratorAvatar.js';
 import CollaboratorsCount from './AvatarGroup/CollaboratorsCount.js';
@@ -97,7 +103,7 @@ const AvatarGroupWithForwardRef: AbstractComponent<Props, UnionRefs> = forwardRe
       size = 'fit',
     }: Props,
     ref,
-  ): Node {
+  ): ReactNode {
     const [hovered, setHovered] = useState(false);
 
     const isMdSize = size === 'md';
@@ -125,7 +131,7 @@ const AvatarGroupWithForwardRef: AbstractComponent<Props, UnionRefs> = forwardRe
       (showCollaboratorsCount ? 1 : 0) +
       (showAddCollaboratorsButton ? 1 : 0);
 
-    let collaboratorStack: $ReadOnlyArray<Node> = displayedCollaborators.map(
+    let collaboratorStack: $ReadOnlyArray<ReactNode> = displayedCollaborators.map(
       ({ src, name }, index) => (
         <CollaboratorAvatar
           hovered={hovered}

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import DatapointTrend from './Trend.js';
 import AccessibilityPause from '../accessibility/AccessibilityPause.js';
 import Badge from '../Badge.js';
@@ -44,7 +44,7 @@ type Props = {
   value: string,
 };
 
-function MaybeMinWidth({ minWidth, children }: { minWidth?: number, children: Node }) {
+function MaybeMinWidth({ minWidth, children }: { minWidth?: number, children: ReactNode }) {
   return minWidth ? <Box minWidth={minWidth}>{children}</Box> : children;
 }
 
@@ -60,7 +60,7 @@ export default function InternalDatapoint({
   trend,
   trendSentiment = 'auto',
   value,
-}: Props): Node {
+}: Props): ReactNode {
   const textColor = disabled ? 'subtle' : 'default';
   return (
     <Flex gap={{ column: 1, row: 0 }} direction="column">

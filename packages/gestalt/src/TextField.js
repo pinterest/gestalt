@@ -3,7 +3,7 @@ import {
   type AbstractComponent,
   type Element,
   forwardRef,
-  type Node,
+  type Node as ReactNode,
   useEffect,
   useState,
 } from 'react';
@@ -31,7 +31,7 @@ type Props = {
   /**
    * For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in [Link](https://gestalt.pinterest.systems/web/link) or [TapArea](https://gestalt.pinterest.systems/web/taparea).
    */
-  errorMessage?: Node,
+  errorMessage?: ReactNode,
   /**
    * This field is deprecated and will be removed soon. Please do not use.
    */
@@ -162,7 +162,7 @@ const TextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forw
     value,
   }: Props,
   ref,
-): Node {
+): ReactNode {
   /**
    * Yes, this is initializing a state variable with a prop value and then disregarding the prop value — often a code smell, I know. This is necessary to internalize the effective input type (password vs text) and not force the user to handle responding to clicks on the button
    */

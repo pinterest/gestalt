@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import Mask from './Mask.js';
 
 /*
@@ -17,7 +17,7 @@ type Props = {
   /**
    * The media to be displayed.
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * Proportional relationship between width and height of element.
    */
@@ -40,7 +40,12 @@ type Props = {
  * ![Letterbox light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Letterbox.spec.mjs-snapshots/Letterbox-chromium-darwin.png)
 
  */
-export default function Letterbox({ children, contentAspectRatio, height, width }: Props): Node {
+export default function Letterbox({
+  children,
+  contentAspectRatio,
+  height,
+  width,
+}: Props): ReactNode {
   const viewportAspectRatio = aspectRatio(width, height);
 
   let contentHeight;

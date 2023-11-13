@@ -1,5 +1,5 @@
 // @flow strict
-import { Children, type Node } from 'react';
+import { Children, type Node as ReactNode } from 'react';
 import { buildStyles } from './boxTransforms.js';
 import styles from './Flex.css';
 import FlexItem from './FlexItem.js';
@@ -38,7 +38,7 @@ type Props = {
   /**
    * Note that each child will be automatically wrapped in [Flex.Item](https://gestalt.pinterest.systems/web/flex#Flex.Item) to apply various styles. If specific flex styles are needed on a child, you can manually wrap it in Flex.Item to apply those styles. See [the Applying flex properties to children example](https://gestalt.pinterest.systems/web/flex#Applying-flex-properties-to-children) to learn more.
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * Used to identify the element for testing purposes.
    */
@@ -130,7 +130,7 @@ export default function Flex({
   gap = 0,
   justifyContent,
   ...rest
-}: Props): Node {
+}: Props): ReactNode {
   const children = gap
     ? Children.map(childrenProp, (child, index) => {
         if (child === null || child === undefined) {

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useId } from 'react';
+import { type Node as ReactNode, useId } from 'react';
 import classnames from 'classnames';
 import borderStyles from './Borders.css';
 import Box from './Box.js';
@@ -132,7 +132,7 @@ export default function TagData({
   size = 'md',
   text,
   tooltip,
-}: Props): Node {
+}: Props): ReactNode {
   const { accessibilityRemoveIconLabel: accessibilityRemoveIconLabelDefault } =
     useDefaultLabelContext('TagData');
 

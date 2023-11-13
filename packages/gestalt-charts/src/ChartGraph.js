@@ -1,5 +1,12 @@
 // @flow strict-local
-import { type Element, type Node, useCallback, useEffect, useMemo, useState } from 'react';
+import {
+  type Element,
+  type Node as ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import {
   BarChart,
   CartesianGrid,
@@ -165,7 +172,7 @@ type Props = {
         active: ?boolean,
         payload: ?{ ... },
         label: string | number,
-      }) => Node),
+      }) => ReactNode),
   /**
    * When set to "true", bars are stacked.
    *
@@ -240,7 +247,7 @@ function ChartGraph({
   type = 'bar',
   referenceAreas = [],
   renderTooltip = 'auto',
-}: Props): Node {
+}: Props): ReactNode {
   // CONSTANTS
 
   const SMALL_BREAKPOINT = 576;

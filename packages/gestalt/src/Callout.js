@@ -1,5 +1,5 @@
 // @flow strict
-import { Children, type Element, type Node } from 'react';
+import { Children, type Element, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Button from './Button.js';
@@ -111,7 +111,7 @@ function CalloutAction({
   data: ActionDataType,
   stacked?: boolean,
   type: string,
-}): Node {
+}): ReactNode {
   const color = type === 'primary' ? 'white' : 'transparent';
 
   const { accessibilityLabel, disabled, label } = data;
@@ -170,7 +170,7 @@ export default function Callout({
   secondaryAction,
   type,
   title,
-}: Props): Node {
+}: Props): ReactNode {
   const responsiveMinWidth = useResponsiveMinWidth();
   const {
     accessibilityDismissButtonLabel,

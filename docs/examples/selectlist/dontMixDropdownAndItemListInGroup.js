@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useRef, useState } from 'react';
+import { type Node as ReactNode, useRef, useState } from 'react';
 import { Box, Button, Dropdown, Flex, SelectList } from 'gestalt';
 
-export default function SubtextIconButtonFlyoutExample(): Node {
+export default function SubtextIconButtonFlyoutExample(): ReactNode {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<{
     label: string,

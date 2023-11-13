@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, TapAreaLink } from 'gestalt';
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen, type DocType } from '../../docs-components/docgen.js';
@@ -18,7 +18,7 @@ import localizationLabels from '../../examples/taparealink/localizationLabels.js
 import main from '../../examples/taparealink/main.js';
 import mouseCursor from '../../examples/taparealink/mouseCursor.js';
 
-export default function DocsPage({ generatedDocGen }: DocType): Node {
+export default function DocsPage({ generatedDocGen }: DocType): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader

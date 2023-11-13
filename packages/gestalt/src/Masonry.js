@@ -1,5 +1,5 @@
 // @flow strict
-import { Component as ReactComponent, type Node } from 'react';
+import { Component as ReactComponent, type Node as ReactNode } from 'react';
 import debounce, { type DebounceReturn } from './debounce.js';
 import FetchItems from './FetchItems.js';
 import styles from './Masonry.css';
@@ -81,7 +81,7 @@ type Props<T> = {
     +data: T,
     +itemIdx: number,
     +isMeasuring: boolean,
-  }) => Node,
+  }) => ReactNode,
   /**
    * A function that returns a DOM node that Masonry uses for scroll event subscription. This DOM node is intended to be the most immediate ancestor of Masonry in the DOM that will have a scroll bar; in most cases this will be the `window` itself, although sometimes Masonry is used inside containers that have `overflow: auto`. `scrollContainer` is optional, although it is required for features such as `virtualize` and `loadItems`.
    *
@@ -418,7 +418,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     this.forceUpdate();
   }
 
-  renderMasonryComponent: (itemData: T, idx: number, position: Position) => Node = (
+  renderMasonryComponent: (itemData: T, idx: number, position: Position) => ReactNode = (
     itemData,
     idx,
     position,
@@ -475,7 +475,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     return virtualize ? (isVisible && itemComponent) || null : itemComponent;
   };
 
-  render(): Node {
+  render(): ReactNode {
     const {
       columnWidth,
       gutterWidth: gutter,
