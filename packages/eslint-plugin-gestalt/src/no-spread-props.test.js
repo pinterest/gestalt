@@ -8,26 +8,26 @@ import rule from './no-spread-props';
 const ruleTester = new RuleTester({ parserOptions });
 
 const validCode = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-spread-props/valid'),
+  path.resolve(__dirname, './__fixtures__/no-spread-props/valid.js'),
   'utf-8',
 );
 const invalidFixableInput = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-spread-props/invalid-fixable-input'),
+  path.resolve(__dirname, './__fixtures__/no-spread-props/invalid-fixable-input.js'),
   'utf-8',
 );
 
 const invalidFixableOutput = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-spread-props/invalid-fixable-output'),
+  path.resolve(__dirname, './__fixtures__/no-spread-props/invalid-fixable-output.js'),
   'utf-8',
 );
 
 const invalidNotFixableInput = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-spread-props/invalid-not-fixable-input'),
+  path.resolve(__dirname, './__fixtures__/no-spread-props/invalid-not-fixable-input.js'),
   'utf-8',
 );
 
 const invalidNotFixableOutput = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-spread-props/invalid-not-fixable-output'),
+  path.resolve(__dirname, './__fixtures__/no-spread-props/invalid-not-fixable-output.js'),
   'utf-8',
 );
 

@@ -8,19 +8,19 @@ import rule from './prefer-box-inline-style';
 const ruleTester = new RuleTester({ parserOptions });
 
 const validCode = readFileSync(
-  path.resolve(__dirname, './__fixtures__/prefer-box-inline-style/valid'),
+  path.resolve(__dirname, './__fixtures__/prefer-box-inline-style/valid.js'),
   'utf-8',
 );
 const invalidBackgroundColor = readFileSync(
-  path.resolve(__dirname, './__fixtures__/prefer-box-inline-style/invalid/backgroundColor'),
+  path.resolve(__dirname, './__fixtures__/prefer-box-inline-style/invalid/backgroundColor.js'),
   'utf-8',
 );
 const invalidBorderRadius = readFileSync(
-  path.resolve(__dirname, './__fixtures__/prefer-box-inline-style/invalid/borderRadius'),
+  path.resolve(__dirname, './__fixtures__/prefer-box-inline-style/invalid/borderRadius.js'),
   'utf-8',
 );
 const invalidBorder = readFileSync(
-  path.resolve(__dirname, './__fixtures__/prefer-box-inline-style/invalid/border'),
+  path.resolve(__dirname, './__fixtures__/prefer-box-inline-style/invalid/border.js'),
   'utf-8',
 );
 

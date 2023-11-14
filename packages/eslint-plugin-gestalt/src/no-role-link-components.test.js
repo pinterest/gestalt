@@ -8,19 +8,19 @@ import rule from './no-role-link-components';
 const ruleTester = new RuleTester({ parserOptions });
 
 const validCode = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-role-link-components/valid'),
+  path.resolve(__dirname, './__fixtures__/no-role-link-components/valid.js'),
   'utf-8',
 );
 const invalidButton = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-role-link-components/invalid/invalid-button'),
+  path.resolve(__dirname, './__fixtures__/no-role-link-components/invalid/invalid-button.js'),
   'utf-8',
 );
 const invalidIconButton = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-role-link-components/invalid/invalid-iconbutton'),
+  path.resolve(__dirname, './__fixtures__/no-role-link-components/invalid/invalid-iconbutton.js'),
   'utf-8',
 );
 const invalidTapArea = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-role-link-components/invalid/invalid-taparea'),
+  path.resolve(__dirname, './__fixtures__/no-role-link-components/invalid/invalid-taparea.js'),
   'utf-8',
 );
 
