@@ -229,15 +229,15 @@ export default function SandpackExample({
               },
             }
           : {}),
-        '/App': {
+        '/App.js': {
           code,
         },
-        '/index': {
+        '/index.js': {
           code: `import React, { StrictMode } from "react";
           import { createRoot } from "react-dom/client";
           import "./styles.css";
           import { Box, ColorSchemeProvider } from 'gestalt';
-          import App from "./App.js";
+          import App from "./App";
 
           const html = document.querySelector('html');
           html.setAttribute('dir', '${exampleTextDirection}');

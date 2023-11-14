@@ -13,7 +13,7 @@ const visualtestingPages = path.join(root, 'docs/pages/visual-test');
 const getExamplesPath = (componentName) => path.join(root, `docs/examples/${componentName}/`);
 
 const gestaltPackages = path.join(root, 'packages/gestalt/src');
-const indexFile = path.join(gestaltPackages, 'index');
+const indexFile = path.join(gestaltPackages, 'index.js');
 
 function logError(message) {
   // eslint-disable-next-line no-console

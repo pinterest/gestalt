@@ -10,10 +10,10 @@ const docsPath = path.join(root, '/docs');
 
 // Files/components that doesn't have data to parse
 const excludedPaths = [
-  '/packages/gestalt/src/contexts/ExperimentProvider',
-  '/packages/gestalt/src/useReducedMotion',
-  '/packages/gestalt/src/useFocusVisible',
-  '/packages/gestalt/src/zIndex',
+  '/packages/gestalt/src/contexts/ExperimentProvider.js',
+  '/packages/gestalt/src/useReducedMotion.js',
+  '/packages/gestalt/src/useFocusVisible.js',
+  '/packages/gestalt/src/zIndex.js',
 ].map((filePath) => path.join(root, filePath));
 
 function logError(message) {
