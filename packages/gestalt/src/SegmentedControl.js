@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import focusStyles from './Focus.css';
@@ -17,7 +17,7 @@ type Props = {
   /**
    * Items for selection. Though typically strings, React.Node is accepted to allow for Icons or other custom UI.
    */
-  items: $ReadOnlyArray<Node>,
+  items: $ReadOnlyArray<ReactNode>,
   /**
    * Callback triggered when the user selects an item.
    */
@@ -40,7 +40,7 @@ function SegmentedControlItem({
   width,
 }: {
   index: number,
-  item: Node,
+  item: ReactNode,
   isSelected: boolean,
   onChange: OnChange,
   width: ?string,
@@ -88,7 +88,7 @@ export default function SegmentedControl({
   onChange,
   responsive,
   selectedItemIndex,
-}: Props): Node {
+}: Props): ReactNode {
   const buttonWidth = responsive ? undefined : `${Math.floor(100 / Math.max(1, items.length))}%`;
   return (
     <div className={classnames(styles.SegmentedControl, layout.medium)} role="tablist">

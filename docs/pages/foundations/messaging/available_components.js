@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Link, Text } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
@@ -10,7 +10,7 @@ import modalalert from '../../../examples/modalalert/main.js';
 import slimbanner from '../../../examples/slimbanner/main.js';
 import toast from '../../../examples/toast/main.js';
 
-export default function DocsPage(): Node {
+export default function DocsPage(): ReactNode {
   return (
     <Page title="Available messaging components">
       <PageHeader name="Available messaging components" type="guidelines" />

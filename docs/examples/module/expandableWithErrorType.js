@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Module, Text, TextField } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [value, setValue] = useState('');
   const moduleType = !value ? 'error' : 'info';
   const summaryInfo = !value ? 'Name is missing' : `Name: ${value}`;

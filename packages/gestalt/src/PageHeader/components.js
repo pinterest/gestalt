@@ -1,5 +1,12 @@
 // @flow strict
-import { cloneElement, type Element, Fragment, type Node, useRef, useState } from 'react';
+import {
+  cloneElement,
+  type Element,
+  Fragment,
+  type Node as ReactNode,
+  useRef,
+  useState,
+} from 'react';
 import Badge, { type TypeOptions } from '../Badge.js';
 import Box from '../Box.js';
 import Dropdown from '../Dropdown.js';
@@ -12,7 +19,13 @@ import Mask from '../Mask.js';
 import { type ActionType } from '../PageHeader.js';
 import Text from '../Text.js';
 
-export function PageHeaderTitle({ marginTop, title }: { marginTop: ?number, title: string }): Node {
+export function PageHeaderTitle({
+  marginTop,
+  title,
+}: {
+  marginTop: ?number,
+  title: string,
+}): ReactNode {
   return (
     <Fragment>
       <Box display="block" smDisplay="none">
@@ -35,7 +48,11 @@ export function PageHeaderTitle({ marginTop, title }: { marginTop: ?number, titl
   );
 }
 
-export function PageHeaderThumbnail({ thumbnail }: { thumbnail: Element<typeof Image> }): Node {
+export function PageHeaderThumbnail({
+  thumbnail,
+}: {
+  thumbnail: Element<typeof Image>,
+}): ReactNode {
   return (
     <Box display="none" smDisplay="block" aria-hidden>
       <Mask height={48} rounding={2} width={48}>
@@ -53,7 +70,7 @@ export function PageHeaderBadge({
   badgeText: string,
   badgeTooltipText?: string,
   type?: TypeOptions,
-}): Node {
+}): ReactNode {
   return badgeTooltipText ? (
     <Badge
       text={badgeText}
@@ -82,7 +99,7 @@ export function PageHeaderHelperIconButton({
   onClick: ({
     event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
   }) => void,
-}): Node {
+}): ReactNode {
   return (
     <IconButton
       accessibilityControls={accessibilityControls}
@@ -112,7 +129,7 @@ export function PageHeaderSubtext({
       dangerouslyDisableOnNavigation: () => void,
     }) => void,
   },
-}): Node {
+}): ReactNode {
   return (
     <Box display="none" smDisplay="block">
       <Text inline>
@@ -152,7 +169,7 @@ export function PageHeaderActionBlock({
     dropdownItems: $ReadOnlyArray<Element<typeof Dropdown.Item> | Element<typeof Dropdown.Link>>,
   },
   dropdownAccessibilityLabel?: string,
-}): Node {
+}): ReactNode {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
@@ -207,7 +224,7 @@ export function PageHeaderActionBlock({
   );
 }
 
-export function PageHeaderItemsBlock({ items }: { items: $ReadOnlyArray<Node> }): Node {
+export function PageHeaderItemsBlock({ items }: { items: $ReadOnlyArray<ReactNode> }): ReactNode {
   return (
     <Box display="none" mdDisplay="block" overflow="hidden">
       <Flex gap={{ column: 0, row: 6 }}>

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
@@ -22,7 +22,7 @@ import shapeExample from '../../examples/avatar/shapeExample.js';
 import sizingExample from '../../examples/avatar/sizingExample.js';
 import verifiedExample from '../../examples/avatar/verifiedExample.js';
 
-export default function AvatarPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function AvatarPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader

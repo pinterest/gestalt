@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, PureComponent } from 'react';
+import { type Node as ReactNode, PureComponent } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import styles from './Image.css';
@@ -16,7 +16,7 @@ type Props = {
   /**
    * Children content will be overlaid on the image.  See the [Overlay example](https://gestalt.pinterest.systems/web/image#Overlay) for more details.
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * Used as a visual placeholder while the image is loading.  See the [Placeholders example](https://gestalt.pinterest.systems/web/image#placeholders) for more details.
    */
@@ -134,7 +134,7 @@ export default class Image extends PureComponent<Props> {
     }
   }
 
-  render(): Node {
+  render(): ReactNode {
     const {
       alt,
       color,

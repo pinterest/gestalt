@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, PureComponent } from 'react';
+import { type Node as ReactNode, PureComponent } from 'react';
 import FetchItems from './FetchItems.js';
 import ScrollContainer from './Masonry/ScrollContainer.js';
 import { getElementHeight, getScrollHeight, getScrollPos } from './Masonry/scrollUtils.js';
@@ -88,7 +88,7 @@ export default class ScrollFetch extends PureComponent<Props, State> {
     };
   }
 
-  render(): null | Node {
+  render(): null | ReactNode {
     const { containerHeight, scrollHeight, scrollTop } = this.state;
     const { container, fetchMore, isAtEnd, isFetching } = this.props;
 

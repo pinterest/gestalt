@@ -1,5 +1,5 @@
 // @flow strict-local
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { useColorScheme } from 'gestalt';
 import { useChartContext } from './ChartGraphContext.js';
 import { GraphPoint } from './renderGraphPoint.js';
@@ -31,7 +31,7 @@ type Props = {
  * [LegendIcon](https://gestalt.pinterest.systems/web/chartgraph) should only be used within custom tooltips. See the [custom tooltip variant](https://gestalt.pinterest.systems/web/chartgraph#Tooltip) for implementation guidance.
  */
 
-function LegendIcon({ payloadData }: Props): Node {
+function LegendIcon({ payloadData }: Props): ReactNode {
   const theme = useColorScheme();
 
   const { decal: showVisualPattern } = useChartContext();

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import InternalTooltip from './Tooltip/InternalTooltip.js';
 import { type Indexable } from './zIndex.js';
 
@@ -11,7 +11,7 @@ type Props = {
   /**
    * The anchor element, usually [Icon Button](https://gestalt.pinterest.systems/web/iconbutton), that triggers Tooltip on hover or focus.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * Specifies the preferred position of Tooltip relative to its anchor element. See the [ideal direction](https://gestalt.pinterest.systems/web/tooltip#Ideal-direction) variant to learn more.
    */
@@ -23,7 +23,7 @@ type Props = {
   /**
    * Displays a link at the bottom of Tooltip. See the [link](https://gestalt.pinterest.systems/web/tooltip#Link) variant to learn more.
    */
-  link?: Node,
+  link?: ReactNode,
   /**
    * The text shown in Tooltip to describe its anchor element. See [localization ](https://gestalt.pinterest.systems/web/tooltip#Localization) to learn more.
    */
@@ -50,7 +50,7 @@ export default function Tooltip({
   inline,
   text,
   zIndex,
-}: Props): Node {
+}: Props): ReactNode {
   return (
     <InternalTooltip
       accessibilityLabel={accessibilityLabel}

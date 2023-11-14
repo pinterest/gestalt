@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
@@ -21,7 +21,7 @@ import textAdditionsExample2 from '../../examples/status/textAdditionsExample2.j
 import useTitleWhenItRepresents from '../../examples/status/useTitleWhenItRepresents.js';
 import useToCommunicateAStepIn from '../../examples/status/useToCommunicateAStepIn.js';
 
-export default function StatusPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function StatusPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title="Status">
       <PageHeader name="Status" description={generatedDocGen?.description}>

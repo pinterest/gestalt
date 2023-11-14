@@ -1,11 +1,11 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { type Node as ReactNode } from 'react';
 import { Box, Image, SlimBanner } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 
-export default function GuidelinesPage(): Node {
+export default function GuidelinesPage(): ReactNode {
   return (
     <Page title="Messaging overview">
       <PageHeader

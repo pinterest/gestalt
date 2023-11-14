@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import avatarStyles from '../AvatarGroup.css';
 import Box from '../Box.js';
@@ -11,9 +11,9 @@ import typography from '../Typography.css';
 
 const ICON_SIZE_RATIO = (20 / 48) * 100; // For pixel perfect icon button, we use the icon (20px) to parent container (48px) size ratio
 
-type ResponsiveFitSizeBoxProps = { children: Node, outline: boolean };
+type ResponsiveFitSizeBoxProps = { children: ReactNode, outline: boolean };
 
-function ResponsiveFitSizeBox({ children, outline }: ResponsiveFitSizeBoxProps): Node {
+function ResponsiveFitSizeBox({ children, outline }: ResponsiveFitSizeBoxProps): ReactNode {
   const { colorGray0 } = useColorScheme();
 
   return (
@@ -63,7 +63,7 @@ export default function AvatarFoundation({
   title,
   translate,
   content = 'text',
-}: Props): Node {
+}: Props): ReactNode {
   const { colorGray300 } = useColorScheme();
 
   const cs = classnames(styles.icon, colors.darkGray);

@@ -1,9 +1,9 @@
 // @flow strict
-import { type Node, useRef, useState } from 'react';
+import { type Node as ReactNode, useRef, useState } from 'react';
 import { Box, Flex, IconButton, Layer, Popover, Status } from 'gestalt';
 import { DateRange } from 'gestalt-datepicker';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [selectedDates, setSelectedDates] = useState<[Date, Date] | null>(null);
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);

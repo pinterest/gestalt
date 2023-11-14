@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
@@ -64,7 +64,7 @@ export default function Tag({
   onRemove,
   text,
   type = 'default',
-}: Props): Node {
+}: Props): ReactNode {
   const { colorGray200 } = useColorScheme();
 
   const hasIcon = ['error', 'warning'].includes(type);

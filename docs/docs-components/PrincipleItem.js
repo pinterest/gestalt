@@ -1,13 +1,13 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Heading, Text } from 'gestalt';
 
 type Props = {
   heading: string,
-  text: string | Node,
+  text: string | ReactNode,
 };
 
-export default function PrincipleItem({ heading, text }: Props): Node {
+export default function PrincipleItem({ heading, text }: Props): ReactNode {
   return (
     <Flex
       direction="column"

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import Icon from './Icon.js';
 import icons from './icons/index.js';
@@ -115,7 +115,7 @@ export default function Pog({
   padding,
   selected = false,
   size = 'md',
-}: Props): Node {
+}: Props): ReactNode {
   const iconSizeInPx = SIZE_NAME_TO_ICON_SIZE_PIXEL[size];
   const paddingInPx = padding ? padding * 4 : SIZE_NAME_TO_PADDING_PIXEL[size];
 

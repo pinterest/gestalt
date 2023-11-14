@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Table, Text } from 'gestalt';
 
-export default function ScreenSizesIos(): Node {
+export default function ScreenSizesIos(): ReactNode {
   return (
     <Box width="100%" padding={8}>
       <Table accessibilityLabel="Android Screen Sizes">

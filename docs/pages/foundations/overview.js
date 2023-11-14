@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Flex } from 'gestalt';
 import foundationsTiles from '../../docs-components/data/foundations.js';
 import IllustrationCard from '../../docs-components/IllustrationCard.js';
@@ -8,7 +8,7 @@ import IllustrationSection from '../../docs-components/IllustrationSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 
-export default function FoundationsOverview(): Node {
+export default function FoundationsOverview(): ReactNode {
   return (
     <Page title="Foundations overview" hideSideNav hideEditLink>
       <Flex direction="column" width="100%">

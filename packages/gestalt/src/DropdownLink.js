@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { DropdownContextConsumer } from './Dropdown/Context.js';
 import OptionItem from './Dropdown/OptionItem.js';
 
@@ -22,7 +22,7 @@ type Props = {
   /**
    * If needed, users can supply custom content to each Dropdown Link. This can be useful when extra functionality is needed beyond a basic Link. See the [Custom item content](https://gestalt.pinterest.systems/web/dropdown#Custom-item-content) variant to learn more.
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * When supplied, will add a data-test-id prop to the dom element.
    */
@@ -65,7 +65,7 @@ export default function DropdownLink({
   isExternal,
   onClick,
   option,
-}: Props): Node {
+}: Props): ReactNode {
   return (
     <DropdownContextConsumer>
       {({ id, hoveredItemIndex, setHoveredItemIndex, setOptionRef }) => (

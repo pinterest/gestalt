@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Module, Table, Text } from 'gestalt';
 import componentData from './data/components.js';
 import {
@@ -70,7 +70,7 @@ const webBuildingBlockComponents = getByPlatform(componentData, {
   platform: 'web',
 });
 
-export default function AccessibilityChecklist({ component }: Props): Node {
+export default function AccessibilityChecklist({ component }: Props): ReactNode {
   const data = webBuildingBlockComponents.find((cmpName) => cmpName.name === component);
 
   const a11ySummary = data?.status?.accessible?.summary;

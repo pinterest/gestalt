@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Badge, Box, Flex, IconButton, Link, Text, Tooltip } from 'gestalt';
 import { useAppContext } from './appContext.js';
 import trackButtonClick from './buttons/trackButtonClick.js';
@@ -50,7 +50,7 @@ type Prop = {
 const sortBy = (list: $ReadOnlyArray<Prop>, fn: (Prop) => string) =>
   [...list].sort((a, b) => fn(a).localeCompare(fn(b)));
 
-function FormattedCode({ children }: { children: Node }) {
+function FormattedCode({ children }: { children: ReactNode }) {
   return (
     <code>
       <pre style={{ margin: 0, overflowX: 'scroll', minWidth: 510 }}>{children}</pre>
@@ -58,7 +58,7 @@ function FormattedCode({ children }: { children: Node }) {
   );
 }
 
-function Description(lines: $ReadOnlyArray<string>): Node {
+function Description(lines: $ReadOnlyArray<string>): ReactNode {
   return (
     <Flex
       alignItems="start"
@@ -75,7 +75,7 @@ function Description(lines: $ReadOnlyArray<string>): Node {
   );
 }
 
-function Th({ children }: { children?: Node }) {
+function Th({ children }: { children?: ReactNode }) {
   return (
     <th style={{ borderBottom: '2px solid #ddd' }}>
       <Box padding={2}>
@@ -95,7 +95,7 @@ function Td({
   color = 'default',
 }: {
   border?: boolean,
-  children?: Node,
+  children?: ReactNode,
   colspan?: number,
   shrink?: boolean,
   color?: 'default' | 'subtle',
@@ -131,7 +131,7 @@ export default function PropTable({
   id = '',
   name: proptableName,
   props: properties,
-}: Props): Node {
+}: Props): ReactNode {
   const { propTableVariant, setPropTableVariant } = useAppContext();
   const propsId = `${id}Props`;
 

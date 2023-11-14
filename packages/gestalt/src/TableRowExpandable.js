@@ -1,5 +1,13 @@
 // @flow strict
-import { Children, cloneElement, Fragment, type Node, useEffect, useRef, useState } from 'react';
+import {
+  Children,
+  cloneElement,
+  Fragment,
+  type Node as ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import { useTableContext } from './contexts/TableContext.js';
@@ -20,7 +28,7 @@ type Props = {
   /**
    * Must be instances of Table.Cell. See the [Subcomponent section](https://gestalt.pinterest.systems/web/table#Subcomponents) to learn more.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * When passed Row.TableRowExpandable becomes a controlled component. If not passed, it stays uncontrolled. See the [controlled/uncontrolled Table.RowExpandable section](https://gestalt.pinterest.systems/web/table#ControlledUncontrolled-Table.RowExpandable) to learn more.
    */
@@ -28,7 +36,7 @@ type Props = {
   /**
    * The contents to show and/or hide on an expandable row. Required when using Table.RowExpandable as a controlled component. See the [controlled/uncontrolled Table.RowExpandable section](https://gestalt.pinterest.systems/web/table#ControlledUncontrolled-Table.RowExpandable) to learn more.
    */
-  expandedContents: Node,
+  expandedContents: ReactNode,
   /**
    * Callback fired when the expand button component is clicked.
    */
@@ -63,7 +71,7 @@ export default function TableRowExpandable({
   id,
   hoverStyle = 'gray',
   selected,
-}: Props): Node {
+}: Props): ReactNode {
   const { stickyColumns } = useTableContext();
   const rowRef = useRef<?HTMLTableRowElement>();
   const [columnWidths, setColumnWidths] = useState<$ReadOnlyArray<number>>([]);
@@ -82,7 +90,7 @@ export default function TableRowExpandable({
     }
   }, [isExpanded, setIsExpanded, expandedControlled]);
 
-  const renderCellWithAdjustedIndex = (child: Node, index: number) => {
+  const renderCellWithAdjustedIndex = (child: ReactNode, index: number) => {
     // Account for initial expandable column
     const adjustedIndex = index + 1;
     const shouldBeSticky = stickyColumns

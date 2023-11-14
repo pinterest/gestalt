@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useEffect, useState } from 'react';
+import { type Node as ReactNode, useEffect, useState } from 'react';
 import LazyHydrate from 'react-lazy-hydration';
 import { useRouter } from 'next/router';
 import { ColorSchemeProvider, Masonry } from 'gestalt';
@@ -33,7 +33,7 @@ function booleanize(value: string): boolean {
 }
 
 // LazyHydrate doesn't like to be used without any props, so we have to add it conditionally
-function MaybeLazyHydrate({ children, ssrOnly }: { children: Node, ssrOnly: boolean }) {
+function MaybeLazyHydrate({ children, ssrOnly }: { children: ReactNode, ssrOnly: boolean }) {
   if (ssrOnly) {
     return <LazyHydrate ssrOnly>{children}</LazyHydrate>;
   }
@@ -64,7 +64,7 @@ export default function TestPage({
   randomNumberSeeds,
 }: {
   randomNumberSeeds: $ReadOnlyArray<number>,
-}): Node {
+}): ReactNode {
   const router = useRouter();
   // These should match playwright/masonry/utils/getServerURL.mjs
   const {

@@ -1,5 +1,5 @@
 // @flow strict
-import { Children, type Element, type Node } from 'react';
+import { Children, type Element, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Button from './Button.js';
@@ -40,7 +40,7 @@ type UpsellActionProps = {
   type: string,
 };
 
-function UpsellAction({ data, stacked, type }: UpsellActionProps): Node {
+function UpsellAction({ data, stacked, type }: UpsellActionProps): ReactNode {
   const color = type === 'primary' ? 'red' : 'gray';
   const { accessibilityLabel, disabled, label } = data;
 
@@ -139,7 +139,7 @@ export default function Upsell({
   primaryAction,
   secondaryAction,
   title,
-}: Props): Node {
+}: Props): ReactNode {
   const isImage = imageData?.component && imageData.component.type === Image;
   const responsiveMinWidth = useResponsiveMinWidth();
   const { accessibilityDismissButtonLabel } = useDefaultLabelContext('Upsell');

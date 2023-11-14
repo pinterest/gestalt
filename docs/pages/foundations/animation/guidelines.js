@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Heading } from 'gestalt';
 import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts.js';
 import MainSection from '../../../docs-components/MainSection.js';
@@ -15,11 +15,11 @@ import transitionExample from '../../../examples/animation/transitionExample.js'
 import useExample from '../../../examples/animation/useExample.js';
 
 type Props = {
-  children: Node,
+  children: ReactNode,
   heading: string,
   text: string,
 };
-function ThemeLayout({ heading, children, text }: Props): Node {
+function ThemeLayout({ heading, children, text }: Props): ReactNode {
   return (
     <Flex gap={2} direction="column" maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
       <Heading size="300">{heading}</Heading>
@@ -29,7 +29,7 @@ function ThemeLayout({ heading, children, text }: Props): Node {
   );
 }
 
-export default function TypographyPage(): Node {
+export default function TypographyPage(): ReactNode {
   return (
     <Page title="Animation guidelines">
       <PageHeader

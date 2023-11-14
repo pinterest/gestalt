@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useRef, useState } from 'react';
+import { type Node as ReactNode, useRef, useState } from 'react';
 import { Avatar, AvatarGroup, Box, Flex, Layer, Popover, Text } from 'gestalt';
 
 const collaborators = [
@@ -17,7 +17,7 @@ const collaborators = [
   },
 ];
 
-function List(): Node {
+function List(): ReactNode {
   return (
     <Flex direction="column" gap={{ column: 2, row: 0 }}>
       {collaborators.map(({ name, src }) => (
@@ -30,7 +30,7 @@ function List(): Node {
   );
 }
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef<null | HTMLDivElement | HTMLAnchorElement>(null);
 

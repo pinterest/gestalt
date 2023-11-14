@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import Box from './Box.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Heading from './Heading.js';
@@ -19,7 +19,7 @@ type Props = {
   /**
    * Must be instances TableofContents.Item
    */
-  children: Node,
+  children: ReactNode,
 };
 
 /**
@@ -28,7 +28,7 @@ type Props = {
  * ![TableOfContents light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TableOfContents.spec.mjs-snapshots/TableOfContents-chromium-darwin.png)
  * ![TableOfContents dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TableOfContents-dark.spec.mjs-snapshots/TableOfContents-dark-chromium-darwin.png)
  */
-export default function TableOfContents({ accessibilityLabel, title, children }: Props): Node {
+export default function TableOfContents({ accessibilityLabel, title, children }: Props): ReactNode {
   const { accessibilityLabel: accessibilityLabelDefault } =
     useDefaultLabelContext('TableOfContents');
 

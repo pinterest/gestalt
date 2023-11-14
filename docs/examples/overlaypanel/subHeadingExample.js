@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useRef, useState } from 'react';
+import { Fragment, type Node as ReactNode, useRef, useState } from 'react';
 import {
   Box,
   Button,
@@ -13,7 +13,7 @@ import {
   Text,
 } from 'gestalt';
 
-export default function SubheadingExample(): Node {
+export default function SubheadingExample(): ReactNode {
   const [showComponent, setShowComponent] = useState(true);
   const HEADER_ZINDEX = new FixedZIndex(10);
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);

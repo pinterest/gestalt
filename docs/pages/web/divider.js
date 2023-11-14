@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import LocalizationSection from '../../docs-components/LocalizationSection.js';
@@ -20,7 +20,7 @@ import useFromEdgeToEdge from '../../examples/divider/useFromEdgeToEdge.js';
 import useToSeparateCollections from '../../examples/divider/useToSeparateCollections.js';
 import useWhitespaceToSeparateGroups from '../../examples/divider/useWhitespaceToSeparateGroups.js';
 
-export default function DividerPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DividerPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>

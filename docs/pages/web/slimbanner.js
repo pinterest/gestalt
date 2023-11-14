@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
@@ -31,7 +31,11 @@ import variantRecommendation from '../../examples/slimbanner/variantRecommendati
 import variantSuccess from '../../examples/slimbanner/variantSuccess.js';
 import variantWarning from '../../examples/slimbanner/variantWarning.js';
 
-export default function SlimBannerPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function SlimBannerPage({
+  generatedDocGen,
+}: {
+  generatedDocGen: DocGen,
+}): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>

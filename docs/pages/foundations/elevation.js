@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
@@ -53,7 +53,7 @@ function ColorCard({
   );
 }
 
-export default function ColorUsagePage(): Node {
+export default function ColorUsagePage(): ReactNode {
   return (
     <Page title="Elevation">
       <PageHeader

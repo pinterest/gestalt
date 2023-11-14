@@ -1,5 +1,5 @@
 // @flow strict-local
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import {
   af,
   arSA,
@@ -100,7 +100,11 @@ const localeMap = {
   'zh-TW': { localeData: zhTW, lang: 'Chinese (Traditional)' },
 };
 
-export default function DatePickerPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DatePickerPage({
+  generatedDocGen,
+}: {
+  generatedDocGen: DocGen,
+}): ReactNode {
   const [locale, setLocale] = useState<string | null>(null);
 
   return (

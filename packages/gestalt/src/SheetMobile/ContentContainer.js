@@ -1,15 +1,15 @@
 // @flow strict
-import { type Node, useCallback, useEffect, useRef, useState } from 'react';
+import { type Node as ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import Box from '../Box.js';
 
 type Props = {
-  children?: Node,
-  footer?: Node,
+  children?: ReactNode,
+  footer?: ReactNode,
   padding?: 'default' | 'none',
-  header: Node,
+  header: ReactNode,
 };
 
-export default function ContentContainer({ children, header, footer, padding }: Props): Node {
+export default function ContentContainer({ children, header, footer, padding }: Props): ReactNode {
   const [showTopShadow, setShowTopShadow] = useState(false);
 
   const [showBottomShadow, setShowBottomShadow] = useState(false);

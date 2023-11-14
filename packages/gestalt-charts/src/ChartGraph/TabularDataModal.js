@@ -1,5 +1,5 @@
 // @flow strict-local
-import { type Node, useCallback, useState } from 'react';
+import { type Node as ReactNode, useCallback, useState } from 'react';
 import { Layer, Modal, useDefaultLabel } from 'gestalt';
 import TabularDataModalFooter from './TabularDataModalFooter.js';
 import TabularDataModalHeading from './TabularDataModalHeading.js';
@@ -42,7 +42,7 @@ export default function TabularDataModal({
   labelMap,
   modalZIndex,
   isHorizontalLayout,
-}: Props): Node {
+}: Props): ReactNode {
   const { tabularData } = useDefaultLabel('ChartGraph');
 
   const [sortOrder, setSortOrder] = useState<FilterOrderType>('desc');

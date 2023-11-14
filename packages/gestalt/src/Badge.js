@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import cx from 'classnames';
 import styles from './Badge.css';
 import Box from './Box.js';
@@ -55,7 +55,12 @@ type Props = {
  *
  */
 
-export default function Badge({ position = 'middle', text, type = 'info', tooltip }: Props): Node {
+export default function Badge({
+  position = 'middle',
+  text,
+  type = 'info',
+  tooltip,
+}: Props): ReactNode {
   const isInfoType = type === 'info';
 
   const shouldUseTooltip = isInfoType && tooltip?.text;

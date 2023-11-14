@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useState } from 'react';
+import { Fragment, type Node as ReactNode, useState } from 'react';
 import {
   Box,
   Button,
@@ -12,7 +12,7 @@ import {
   TextField,
 } from 'gestalt';
 
-export default function HeadingExample(): Node {
+export default function HeadingExample(): ReactNode {
   const [showComponent, setShowComponent] = useState(true);
   const HEADER_ZINDEX = new FixedZIndex(10);
   const modalZIndex = new CompositeZIndex([HEADER_ZINDEX]);

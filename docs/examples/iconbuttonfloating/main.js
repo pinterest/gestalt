@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useRef, useState } from 'react';
+import { type Node as ReactNode, useRef, useState } from 'react';
 import { Box, Dropdown, Flex, IconButtonFloating } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<
     $ReadOnlyArray<{ label: string, subtext?: string, value: string }>,

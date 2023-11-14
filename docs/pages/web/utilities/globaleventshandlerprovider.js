@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { SlimBanner } from 'gestalt';
 import docGen, { type DocGen } from '../../../docs-components/docgen.js';
 import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
@@ -14,7 +14,7 @@ import linkHandlersDropdown from '../../../examples/globaleventshandlerprovider/
 import linkHandlersLinkButton from '../../../examples/globaleventshandlerprovider/linkHandlersLinkButton.js';
 import sheetMobileHandlers from '../../../examples/globaleventshandlerprovider/sheetMobileHandlers.js';
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader

@@ -4,7 +4,7 @@ import {
   type Context,
   createContext,
   type Element,
-  type Node,
+  type Node as ReactNode,
   useCallback,
   useContext,
   useEffect,
@@ -15,7 +15,7 @@ import { ANIMATION_STATE, useAnimation } from './AnimationContext.js';
 import useReducedMotion from '../useReducedMotion.js';
 
 type RequestAnimationFrameProviderProps = {
-  children: Node,
+  children: ReactNode,
 };
 
 type RequestAnimationFrameType = {

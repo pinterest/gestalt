@@ -1,5 +1,5 @@
 // @flow strict
-import { type ElementConfig, type Node, useState } from 'react';
+import { type ElementConfig, type Node as ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import styles from './InternalTextField.css';
 import Box from '../Box.js';
@@ -8,7 +8,7 @@ import Pog from '../Pog.js';
 import TapArea from '../TapArea.js';
 import Tooltip from '../Tooltip.js';
 
-function MaybeTooltip({ children, tooltipText }: { children: Node, tooltipText: ?string }) {
+function MaybeTooltip({ children, tooltipText }: { children: ReactNode, tooltipText: ?string }) {
   return tooltipText ? (
     <Tooltip inline text={tooltipText}>
       {children}
@@ -42,7 +42,7 @@ export default function InternalTextFieldIconButton({
   role,
   tapStyle,
   tooltipText,
-}: Props): Node {
+}: Props): ReactNode {
   const [focused, setFocused] = useState(false);
 
   return (

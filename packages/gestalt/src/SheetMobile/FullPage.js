@@ -1,5 +1,5 @@
 // @flow strict
-import { type ElementConfig, type Node, useEffect, useId } from 'react';
+import { type ElementConfig, type Node as ReactNode, useEffect, useId } from 'react';
 import classnames from 'classnames';
 import ContentContainer from './ContentContainer.js';
 import Header from './Header.js';
@@ -27,10 +27,10 @@ type Props = {
   accessibilityLabel?: string,
   align: 'start' | 'center',
   backIconButton?: { accessibilityLabel: string, onClick: OnClickType },
-  children?: Node,
-  footer?: Node,
+  children?: ReactNode,
+  footer?: ReactNode,
   forwardIconButton?: { accessibilityLabel: string, onClick: OnClickType },
-  heading?: Node,
+  heading?: ReactNode,
   onDismiss: () => void,
   padding?: 'default' | 'none',
   primaryAction?: {
@@ -61,7 +61,7 @@ export default function FullPage({
   role,
   showDismissButton,
   subHeading,
-}: Props): Node {
+}: Props): ReactNode {
   const id = useId();
 
   // Consumes DefaultLabelProvider

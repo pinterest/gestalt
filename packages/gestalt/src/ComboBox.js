@@ -5,7 +5,7 @@ import {
   type Element,
   forwardRef,
   Fragment,
-  type Node,
+  type Node as ReactNode,
   type Ref,
   useCallback,
   useEffect,
@@ -50,7 +50,7 @@ type Props = {
   /**
    * Provide feedback when an error on selection occurs. See [error message variant](https://gestalt.pinterest.systems/web/combobox#Error-message).
    */
-  errorMessage?: Node,
+  errorMessage?: ReactNode,
   /**
    * Provides additional information about how to select a ComboBox option. See [helper text variant](https://gestalt.pinterest.systems/web/combobox#Helper-text).
    */
@@ -190,7 +190,7 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
     zIndex,
   }: Props,
   ref,
-): Node {
+): ReactNode {
   const {
     accessibilityClearButtonLabel: accessibilityClearButtonLabelDefault,
     noResultText: noResultTextDefault,

@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useEffect, useState } from 'react';
+import { Fragment, type Node as ReactNode, useEffect, useState } from 'react';
 import {
   SandpackCodeEditor,
   SandpackLayout,
@@ -148,13 +148,13 @@ export default function SandpackExample({
   hideControls,
   hideEditor,
 }: {
-  code: ?string | (() => Node),
+  code: ?string | (() => ReactNode),
   layout?: 'row' | 'column' | 'mobileRow' | 'mobileColumn',
   name: string,
   previewHeight?: number,
   hideControls?: boolean,
   hideEditor?: boolean,
-}): Node {
+}): ReactNode {
   const { files } = useLocalFiles();
   const { colorScheme, devExampleMode, helixBot, textDirection } = useAppContext();
   const [exampleColorScheme, setExampleColorScheme] = useState<'light' | 'dark'>(colorScheme);

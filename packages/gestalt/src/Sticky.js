@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import layout from './Layout.css';
 import { FixedZIndex, type Indexable } from './zIndex.js';
 
@@ -24,7 +24,7 @@ type Props = {
   /**
    * The content to display.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * The height of the sticky container in pixels. This is useful when the sticky container and its content need to have different heights.
    */
@@ -55,7 +55,7 @@ export default function Sticky({
   // $FlowExpectedError[prop-missing]
   top, // eslint-disable-line react/prop-types
   zIndex,
-}: Props): Node {
+}: Props): ReactNode {
   const style = {
     ...(height !== undefined ? { height } : {}),
     top: top != null ? top : undefined,

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Badge, Box, Divider, Flex, Heading, Image, Mask, RadioGroup } from 'gestalt';
 import blogPosts from './BlogPosts.json';
 import MainSection from '../docs-components/MainSection.js';
@@ -24,7 +24,14 @@ export type Post = {
   imageColor?: string,
 };
 
-function PostLayout({ audience, content, imageAltText, imageSrc, title, imageColor }: Post): Node {
+function PostLayout({
+  audience,
+  content,
+  imageAltText,
+  imageSrc,
+  title,
+  imageColor,
+}: Post): ReactNode {
   return (
     <Flex direction="column" gap={2} maxWidth={POST_WIDTH_PX}>
       <Flex direction="column" gap={1}>
@@ -81,7 +88,7 @@ const radioButtons = [
   },
 ];
 
-export default function Blog(): Node {
+export default function Blog(): ReactNode {
   const [filter, setFilter] = useState<'All' | 'Design' | 'Engineering'>('All');
 
   // Get all digests across years

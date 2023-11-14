@@ -11,14 +11,14 @@
  */
 
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainerProvider.js';
 import ScrollBoundaryContainerWithForwardRef from './ScrollBoundaryContainer/InternalScrollBoundaryContainerWithForwardRef.js';
 
 type ScrollBoundaryContainerOverflow = 'scroll' | 'scrollX' | 'scrollY' | 'auto' | 'visible';
 
 type Props = {
-  children: Node,
+  children: ReactNode,
   /**
    * Use numbers for pixels: height={100} and strings for percentages: height="100%".
    *
@@ -37,7 +37,7 @@ export default function ScrollBoundaryContainerWithProvider({
   children,
   height = '100%',
   overflow = 'auto',
-}: Props): Node {
+}: Props): ReactNode {
   return (
     <ScrollBoundaryContainerProvider>
       <ScrollBoundaryContainerWithForwardRef height={height} overflow={overflow}>

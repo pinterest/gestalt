@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import classNames from 'classnames';
 import styles from './TableOfContentsAnchor.css';
 import Box from '../Box.js';
@@ -26,7 +26,7 @@ type Props = {
   onClick?: $ElementType<React$ElementConfig<typeof TapAreaLink>, 'onTap'>,
 };
 
-export default function TableOfContentsAnchor({ label, active, href, onClick }: Props): Node {
+export default function TableOfContentsAnchor({ label, active, href, onClick }: Props): ReactNode {
   const { nestedLevel } = useNesting();
   const { handleOnFocus, handleOnBlur, handleOnMouseEnter, handleOnMouseLeave, isHovered } =
     useInteractiveStates();

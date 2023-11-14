@@ -2,7 +2,7 @@
 import {
   type Element,
   type ElementConfig,
-  type Node,
+  type Node as ReactNode,
   type Ref,
   useId,
   useRef,
@@ -98,7 +98,7 @@ export default function HelpButton({
   onClick,
   text,
   zIndex,
-}: Props): Node {
+}: Props): ReactNode {
   const tapAreaRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
   const textRef = useRef<null | HTMLElement>(null);
   const [open, setOpen] = useState(false);

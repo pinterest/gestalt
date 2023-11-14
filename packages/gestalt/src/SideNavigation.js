@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useId } from 'react';
+import { type Node as ReactNode, useId } from 'react';
 import classnames from 'classnames';
 import borderStyles from './Borders.css';
 import Box from './Box.js';
@@ -26,15 +26,15 @@ export type Props = {
   /**
    * The content shown in SideNavigation. See [subcomponents](https://gestalt.pinterest.systems/web/sidenavigation#Subcomponents).
    */
-  children: Node,
+  children: ReactNode,
   /**
    * Content to display at the bottom of SideNavigation. Open slot available to display other functionality required in the page. See the [Footer variant](https://gestalt.pinterest.systems/web/sidenavigation#Header) to learn more.
    */
-  footer?: Node,
+  footer?: ReactNode,
   /**
    * Content to display at the top of SideNavigation. Open slot used for controlling the display of navigation items. See the [Header variant](https://gestalt.pinterest.systems/web/sidenavigation#Header) to learn more.
    */
-  header?: Node,
+  header?: ReactNode,
   /**
    * Callback fired when SideNavigation requests to be closed in mobile devices. Must be used to control SideNavigation´s on/off display state. The accessibilityLabel should follow the Accessibility guidelines.
    */
@@ -67,7 +67,7 @@ export default function SideNavigation({
   header,
   showBorder,
   mobileTitle,
-}: Props): Node {
+}: Props): ReactNode {
   const navigationChildren = getChildrenToArray({
     children,
     filterLevel: 'main',

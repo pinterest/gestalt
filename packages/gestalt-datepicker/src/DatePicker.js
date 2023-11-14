@@ -3,7 +3,7 @@ import {
   type AbstractComponent,
   type Element,
   forwardRef,
-  type Node,
+  type Node as ReactNode,
   useEffect,
   useImperativeHandle,
   useRef,
@@ -172,7 +172,7 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElement> = for
     value,
   }: Props,
   ref,
-): Node {
+): ReactNode {
   const innerInputRef = useRef<null | HTMLInputElement>(null);
   useImperativeHandle(ref, () => innerInputRef.current);
   // Consume GlobalEventsHandlerProvider

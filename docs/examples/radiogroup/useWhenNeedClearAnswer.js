@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Button, Flex, RadioGroup } from 'gestalt';
 
-export default function RadioButtonExample(): Node {
+export default function RadioButtonExample(): ReactNode {
   const [favorite, setFavorite] = useState('');
 
   return (

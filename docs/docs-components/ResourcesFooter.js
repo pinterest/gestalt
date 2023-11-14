@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Heading, Link, Text } from 'gestalt';
 import InternalOnlyIconButton from './InternalOnlyIconButton.js';
 
@@ -63,7 +63,7 @@ type LinkListProps = {
   heading: string,
   isInternal?: boolean,
 };
-function LinkList({ items, heading, isInternal = true }: LinkListProps): Node {
+function LinkList({ items, heading, isInternal = true }: LinkListProps): ReactNode {
   return (
     <Box
       display="flex"
@@ -113,7 +113,7 @@ function LinkList({ items, heading, isInternal = true }: LinkListProps): Node {
   );
 }
 
-export default function ResourcesFooter(): Node {
+export default function ResourcesFooter(): ReactNode {
   return (
     <Box padding={8} display="none" mdDisplay="flex" justifyContent="center">
       <Box

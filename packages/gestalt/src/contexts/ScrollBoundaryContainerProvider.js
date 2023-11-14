@@ -3,7 +3,7 @@ import {
   type Context,
   createContext,
   type Element,
-  type Node,
+  type Node as ReactNode,
   useCallback,
   useContext,
   useState,
@@ -15,7 +15,7 @@ type ScrollBoundaryContainerContextType = {
 };
 
 type Props = {
-  children: Node,
+  children: ReactNode,
 };
 
 const ScrollBoundaryContainerContext: Context<ScrollBoundaryContainerContextType> =

@@ -1,10 +1,10 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { type Node as ReactNode } from 'react';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 
-export default function FormsLayoutOverview(): Node {
+export default function FormsLayoutOverview(): ReactNode {
   return (
     <Page title="About international design">
       <PageHeader name="About international design" type="guidelines" />

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
@@ -9,7 +9,7 @@ import dangerouslySetInlineStyle from '../../../examples/hacking_gestalt/dangero
 import ref from '../../../examples/hacking_gestalt/ref.js';
 import wrappingComponents from '../../../examples/hacking_gestalt/wrappingComponents.js';
 
-export default function DocsPage(): Node {
+export default function DocsPage(): ReactNode {
   return (
     <Page title="How to hack around Gestalt">
       <PageHeader

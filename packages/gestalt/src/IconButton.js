@@ -2,7 +2,7 @@
 import {
   type AbstractComponent,
   forwardRef,
-  type Node,
+  type Node as ReactNode,
   useImperativeHandle,
   useRef,
   useState,
@@ -150,7 +150,7 @@ const IconButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = fo
     size = 'lg',
   }: Props,
   ref,
-): Node {
+): ReactNode {
   const innerRef = useRef<null | HTMLButtonElement>(null);
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()

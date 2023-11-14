@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, TapAreaLink, Text } from 'gestalt';
 
-export default function TapAreaExample(): Node {
+export default function TapAreaExample(): ReactNode {
   return (
     <Flex wrap gap={2}>
       {['copy', 'grab', 'grabbing', 'move', 'noDrop', 'pointer', 'zoomIn', 'zoomOut'].map(

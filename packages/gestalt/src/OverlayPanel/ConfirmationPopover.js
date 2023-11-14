@@ -1,6 +1,6 @@
 // @flow strict
 
-import { type Node, useEffect, useRef } from 'react';
+import { type Node as ReactNode, useEffect, useRef } from 'react';
 import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext.js';
 import TrapFocusBehavior from '../behaviors/TrapFocusBehavior.js';
 import Box from '../Box.js';
@@ -47,7 +47,7 @@ export default function ConfirmationPopover({
   primaryAction,
   secondaryAction,
   onDismiss,
-}: Props): Node {
+}: Props): ReactNode {
   const confirmationButtonRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   const { onExternalDismiss } = useRequestAnimationFrame();

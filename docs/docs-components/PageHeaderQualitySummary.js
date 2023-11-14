@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node } from 'react';
+import { Fragment, type Node as ReactNode } from 'react';
 import { Box, Divider, Flex, SlimBanner, Text } from 'gestalt';
 import componentData from './data/components.js';
 import { COMPONENT_STATUS_MESSAGING, STATUS_DESCRIPTION } from './data/componentStatusMessaging.js';
@@ -40,7 +40,7 @@ type Props = {
   name: string,
 };
 
-export default function PageHeaderQualitySummary({ name }: Props): Node {
+export default function PageHeaderQualitySummary({ name }: Props): ReactNode {
   const componentStatusData = webComponentData.find((component) => component.name === name)?.status;
 
   if (!componentStatusData) {

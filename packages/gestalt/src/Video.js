@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, PureComponent } from 'react';
+import { type Node as ReactNode, PureComponent } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import colors from './Colors.css';
@@ -34,7 +34,7 @@ type Props = {
   /**
    * This `children` prop is not same as children inside the native html `video` element. Instead, it serves to add overlays on top of the html video element, while still being under the video controls. See [children example](https://gestalt.pinterest.systems/web/video#video-with-children) for more details.
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * Designate CORS behavior for the video element. When not passed in, CORS checks are disabled.
    */
@@ -640,7 +640,7 @@ export default class Video extends PureComponent<Props, State> {
     onWaiting?.({ event });
   };
 
-  render(): Node {
+  render(): ReactNode {
     const {
       aspectRatio,
       autoplay,

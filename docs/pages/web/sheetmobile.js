@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { SlimBanner } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
@@ -30,7 +30,7 @@ export default function SheetMobilePage({
   generatedDocGen,
 }: {
   generatedDocGen: { [string]: DocGen },
-}): Node {
+}): ReactNode {
   return (
     <Page title={generatedDocGen?.SheetMobile.displayName}>
       <PageHeader

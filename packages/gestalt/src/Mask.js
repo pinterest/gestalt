@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import cx from 'classnames';
 import getRoundingClassName from './getRoundingClassName.js';
 import styles from './Mask.css';
@@ -10,7 +10,7 @@ type Props = {
   /**
    * The content to be masked.
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * Use numbers for pixels (`height={100}`) and strings for percentages (`height="100%"`).
    */
@@ -46,7 +46,7 @@ export default function Mask({
   height,
   willChangeTransform = true,
   wash = false,
-}: Props): Node {
+}: Props): ReactNode {
   return (
     <div
       className={cx(styles.Mask, getRoundingClassName(rounding), {

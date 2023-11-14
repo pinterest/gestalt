@@ -1,5 +1,5 @@
 // @flow strict
-import { type Element, type Node } from 'react';
+import { type Element, type Node as ReactNode } from 'react';
 import { Box, Flex, Heading, HelpButton, IconButton, Text, useDefaultLabel } from 'gestalt';
 import { useChartContext } from './ChartGraphContext.js';
 
@@ -21,7 +21,7 @@ export default function Header({
   titleDisplay?: 'visible' | 'hidden',
   toggleTabularDataModal: () => void,
   showTabularData: boolean,
-}): Node {
+}): ReactNode {
   const { accessibleViewText, defaultViewText, tabularData } = useDefaultLabel('ChartGraph');
   const { decal: showVisualPattern } = useChartContext();
 

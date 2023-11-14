@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
 import ColorTile from '../../../docs-components/ColorTile.js';
 import MainSection from '../../../docs-components/MainSection.js';
@@ -7,9 +7,9 @@ import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 
 type ColorCardProps = {
-  children: Node,
+  children: ReactNode,
 };
-function ColorSchemeLayout({ children }: ColorCardProps): Node {
+function ColorSchemeLayout({ children }: ColorCardProps): ReactNode {
   return (
     <Flex gap={4} wrap>
       {['light', 'dark'].map((scheme) => (
@@ -34,7 +34,7 @@ function ColorSchemeLayout({ children }: ColorCardProps): Node {
   );
 }
 
-export default function ColorUsagePage(): Node {
+export default function ColorUsagePage(): ReactNode {
   return (
     <Page title="Color usage">
       <PageHeader

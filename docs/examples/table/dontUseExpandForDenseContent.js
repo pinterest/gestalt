@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import {
   Box,
   Button,
@@ -274,7 +274,7 @@ function RowExpandable({ campaign, status, empty, budget, scope }: any) {
   );
 }
 
-export default function MainExample(): Node {
+export default function MainExample(): ReactNode {
   const tableID = "Another example of a 'don't' do for table content";
 
   return (

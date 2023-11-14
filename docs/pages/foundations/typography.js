@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Heading, Link, Table, Text } from 'gestalt';
 import { DOCS_COPY_MAX_WIDTH_PX } from '../../docs-components/consts.js';
 import MainSection from '../../docs-components/MainSection.js';
@@ -29,7 +29,7 @@ import LineHeightLatin from '../../graphics/typography/lineHeightLatin.svg';
 import LineLength from '../../graphics/typography/lineLength.svg';
 import ParagraphSpacing from '../../graphics/typography/paragraphSpacing.svg';
 
-export default function TypographyPage(): Node {
+export default function TypographyPage(): ReactNode {
   return (
     <Page title="Typography">
       <PageHeader

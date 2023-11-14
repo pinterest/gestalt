@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useCallback, useMemo, useState } from 'react';
+import { type Node as ReactNode, useCallback, useMemo, useState } from 'react';
 import {
   Box,
   Button,
@@ -12,7 +12,7 @@ import {
   SheetMobile,
 } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [showComponent, setShowComponent] = useState<null | boolean>(true);
 
   const PAGE_HEADER_ZINDEX: FixedZIndex = new FixedZIndex(10);

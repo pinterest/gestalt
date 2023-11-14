@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import styles from './FormLabel.css';
 import InternalLabel from '../Label/InternalLabel.js';
 import Text from '../Text.js';
@@ -10,7 +10,7 @@ type Props = {
   labelDisplay?: 'visible' | 'hidden',
 };
 
-export default function FormLabel({ id, label, labelDisplay }: Props): Node {
+export default function FormLabel({ id, label, labelDisplay }: Props): ReactNode {
   return (
     <InternalLabel _labelDisplay={labelDisplay} htmlFor={id}>
       <div className={styles.formLabel}>

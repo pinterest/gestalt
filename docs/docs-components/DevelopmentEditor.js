@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { LiveError, LivePreview, LiveProvider } from 'react-live';
 import { Box, Flex, HelpButton, Link, Text } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
@@ -48,7 +48,11 @@ const importsToRemoveRegex = new RegExp(
   'g',
 );
 
-export default function DevelopmentEditor({ code }: { code: ?string | (() => Node) }): Node {
+export default function DevelopmentEditor({
+  code,
+}: {
+  code: ?string | (() => ReactNode),
+}): ReactNode {
   const { devExampleMode } = useAppContext();
 
   if (devExampleMode === 'default') {

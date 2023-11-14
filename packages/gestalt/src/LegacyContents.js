@@ -1,5 +1,5 @@
 // @flow strict
-import { Component, type Node } from 'react';
+import { Component, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import borders from './Borders.css';
 import Caret from './Caret.js';
@@ -33,7 +33,7 @@ type OwnProps = {
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
   border?: boolean,
   caret?: boolean,
-  children?: Node,
+  children?: ReactNode,
   id: ?string,
   idealDirection?: MainDirections,
   onKeyDown: (event: SyntheticKeyboardEvent<HTMLElement>) => void,
@@ -237,7 +237,7 @@ class LegacyContents extends Component<Props, State> {
     };
   }
 
-  render(): Node {
+  render(): ReactNode {
     const { accessibilityLabel, bgColor, border, caret, children, id, role, rounding, width } =
       this.props;
     const { caretOffset, popoverOffset, popoverDir } = this.state;
@@ -303,7 +303,7 @@ class LegacyContents extends Component<Props, State> {
   }
 }
 
-export default function WrappedLegacyContents(props: OwnProps): Node {
+export default function WrappedLegacyContents(props: OwnProps): ReactNode {
   const { scrollBoundaryContainerRef = null } = useScrollBoundaryContainer();
 
   return <LegacyContents {...props} scrollBoundaryContainerRef={scrollBoundaryContainerRef} />;

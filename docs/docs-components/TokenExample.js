@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box } from 'gestalt';
 import { type Token } from '../pages/foundations/design_tokens.js';
 
@@ -17,7 +17,7 @@ type ExampleProps = {
   category: string,
 };
 
-export function ColorBox({ token }: BaseProps): Node {
+export function ColorBox({ token }: BaseProps): ReactNode {
   return (
     <Box
       dangerouslySetInlineStyle={{
@@ -34,7 +34,7 @@ export function ColorBox({ token }: BaseProps): Node {
   );
 }
 
-export function RoundingBox({ token }: BaseProps): Node {
+export function RoundingBox({ token }: BaseProps): ReactNode {
   return (
     <Box
       dangerouslySetInlineStyle={{
@@ -47,7 +47,7 @@ export function RoundingBox({ token }: BaseProps): Node {
   );
 }
 
-export function SpacingBox({ token }: BaseProps): Node {
+export function SpacingBox({ token }: BaseProps): ReactNode {
   if (token.value.includes('-')) {
     const absoluteDimension = token.value.replace(/^-/, '');
     const marginLeftDimension = `calc(64px + ${token.value})`;
@@ -73,7 +73,7 @@ export function SpacingBox({ token }: BaseProps): Node {
   );
 }
 
-export function TextColorBox({ token }: BaseProps): Node {
+export function TextColorBox({ token }: BaseProps): ReactNode {
   let backgroundColor;
   if (token.name.includes('inverse') || token.name.includes('light')) {
     backgroundColor = 'selected';
@@ -99,7 +99,7 @@ export function TextColorBox({ token }: BaseProps): Node {
   );
 }
 
-export function BorderBox({ token }: BaseProps): Node {
+export function BorderBox({ token }: BaseProps): ReactNode {
   return (
     <Box
       dangerouslySetInlineStyle={{
@@ -115,7 +115,7 @@ export function BorderBox({ token }: BaseProps): Node {
   );
 }
 
-export function OpacityBox({ token }: BaseProps): Node {
+export function OpacityBox({ token }: BaseProps): ReactNode {
   return (
     <Box
       color="recommendationWeak"
@@ -137,7 +137,7 @@ export function OpacityBox({ token }: BaseProps): Node {
   );
 }
 
-export function ElevationBox({ token }: BaseProps): Node {
+export function ElevationBox({ token }: BaseProps): ReactNode {
   return (
     <Box
       dangerouslySetInlineStyle={{
@@ -156,7 +156,7 @@ export function ElevationBox({ token }: BaseProps): Node {
   );
 }
 
-export function FontBox({ token, type }: FontBoxProps): Node {
+export function FontBox({ token, type }: FontBoxProps): ReactNode {
   const fontWeightStyle = type === 'weight' ? `var(--${token.name})` : undefined;
   const fontFamilyStyle = type === 'family' ? `var(--${token.name})` : undefined;
   const fontSizeStyle = type === 'size' ? `var(--${token.name})` : `var(--font-size-600)`;
@@ -183,7 +183,7 @@ export function FontBox({ token, type }: FontBoxProps): Node {
   );
 }
 
-export function TokenExample({ token, category }: ExampleProps): Node {
+export function TokenExample({ token, category }: ExampleProps): ReactNode {
   switch (category) {
     case 'background-color':
     case 'data-visualization':

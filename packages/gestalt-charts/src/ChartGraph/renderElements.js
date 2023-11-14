@@ -1,5 +1,5 @@
 // @flow strict-local
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Bar as RechartsBar, Line as RechartsLine, Rectangle } from 'recharts';
 import renderGraphPoint from './renderGraphPoint.js';
 import { type DataVisualizationColors } from './types.js';
@@ -43,7 +43,7 @@ export default function renderElements({
   visualPatternSelected,
   isHorizontalLayout,
   isBarRounded,
-}: Props): $ReadOnlyArray<Node> {
+}: Props): $ReadOnlyArray<ReactNode> {
   const { length } = elements;
   const lastElementPos = length > 1 ? length - 1 : 1;
   const squaredRadius = [0, 0, 0, 0];

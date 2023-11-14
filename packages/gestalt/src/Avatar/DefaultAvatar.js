@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import AvatarFoundation from './Foundation.js';
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
   name: string,
 };
 
-export default function DefaultAvatar({ accessibilityLabel, name }: Props): Node {
+export default function DefaultAvatar({ accessibilityLabel, name }: Props): ReactNode {
   const firstInitial = name ? Array.from(name)[0].toUpperCase() : '';
   const title = accessibilityLabel ?? name;
 

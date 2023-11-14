@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useEffect, useRef, useState } from 'react';
+import { type Node as ReactNode, useEffect, useRef, useState } from 'react';
 import { LiveEditor } from 'react-live';
 import { Box, Flex, Text } from 'gestalt';
 import { useAppContext } from './appContext.js';
@@ -34,7 +34,7 @@ export default function ExampleCode({
   readOnly,
   name,
   developmentEditor,
-}: Props): Node {
+}: Props): ReactNode {
   const { devExampleMode } = useAppContext();
 
   const [expanded, setExpanded] = useState(developmentEditor);

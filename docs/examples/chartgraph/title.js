@@ -1,9 +1,9 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Flex, HelpButton } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const data = [
     {
       name: 'Quarter 1',

@@ -2,7 +2,7 @@
 import {
   type AbstractComponent,
   forwardRef,
-  type Node,
+  type Node as ReactNode,
   useImperativeHandle,
   useRef,
   useState,
@@ -116,7 +116,7 @@ const SearchFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = fo
     errorMessage,
   }: Props,
   ref,
-): Node {
+): ReactNode {
   const [hovered, setHovered] = useState<boolean>(false);
   const [focused, setFocused] = useState<boolean>(false);
 

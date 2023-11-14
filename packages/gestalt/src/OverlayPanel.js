@@ -1,12 +1,12 @@
 // @flow strict
 
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import AnimationProvider from './animation/AnimationContext.js';
 import DismissingElement from './animation/DismissingElement.js';
 import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext.js';
 import InternalOverlayPanel from './OverlayPanel/InternalOverlayPanel.js';
 
-type NodeOrRenderProp = Node | (({ onDismissStart: () => void }) => Node);
+type NodeOrRenderProp = ReactNode | (({ onDismissStart: () => void }) => ReactNode);
 
 type Props = {
   /**
@@ -98,7 +98,7 @@ function OverlayPanel({
   onDismiss,
   size = 'sm',
   subHeading,
-}: Props): Node {
+}: Props): ReactNode {
   return (
     <AnimationProvider>
       <RequestAnimationFrameProvider>

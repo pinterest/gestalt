@@ -1,5 +1,5 @@
 // @flow strict-local
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { useColorScheme } from 'gestalt';
 import { type DataVisualizationColors } from './types.js';
 
@@ -8,7 +8,7 @@ export const useHexColor: () => (DataVisualizationColors) => string = () => {
   return (vizColor: DataVisualizationColors) => theme[`colorDataVisualization${vizColor}`];
 };
 
-export default function usePatterns(): Node {
+export default function usePatterns(): ReactNode {
   const hexColor = useHexColor();
 
   return (

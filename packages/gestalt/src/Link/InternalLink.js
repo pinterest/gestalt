@@ -3,7 +3,7 @@ import {
   type AbstractComponent,
   type Element,
   forwardRef,
-  type Node,
+  type Node as ReactNode,
   useImperativeHandle,
   useRef,
 } from 'react';
@@ -24,7 +24,7 @@ import useTapFeedback, { keyPressShouldTriggerTap } from '../useTapFeedback.js';
 type Props = {
   accessibilityCurrent?: AriaCurrent,
   accessibilityLabel?: string,
-  children?: Node,
+  children?: ReactNode,
   colorClass?: string,
   dataTestId?: string,
   disabled?: boolean,

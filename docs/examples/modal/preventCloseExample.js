@@ -1,8 +1,8 @@
 // @flow strict
-import { Fragment, type Node, useState } from 'react';
+import { Fragment, type Node as ReactNode, useState } from 'react';
 import { Box, Button, Flex, Layer, Modal, Text } from 'gestalt';
 
-export default function PreventCloseExample(): Node {
+export default function PreventCloseExample(): ReactNode {
   const [showComponent, setShowComponent] = useState(true);
   return (
     <Fragment>

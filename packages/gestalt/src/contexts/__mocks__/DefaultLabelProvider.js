@@ -1,16 +1,16 @@
 // @flow strict
-import { type Context, createContext, type Node, useContext } from 'react';
+import { type Context, createContext, type Node as ReactNode, useContext } from 'react';
 import { type DefaultLabelContextType, fallbackLabels } from '../DefaultLabelProvider.js';
 
 const MockContext: Context<?DefaultLabelContextType> =
   createContext<?DefaultLabelContextType>(fallbackLabels);
 
 type Props = {
-  children: Node,
+  children: ReactNode,
   labels?: null | DefaultLabelContextType,
 };
 
-export default function DefaultLabelProvider({ children, labels }: Props): Node {
+export default function DefaultLabelProvider({ children, labels }: Props): ReactNode {
   return <MockContext.Provider value={labels}>{children}</MockContext.Provider>;
 }
 

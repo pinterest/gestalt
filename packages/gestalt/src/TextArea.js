@@ -1,5 +1,11 @@
 // @flow strict
-import { type AbstractComponent, type Element, forwardRef, type Node, useState } from 'react';
+import {
+  type AbstractComponent,
+  type Element,
+  forwardRef,
+  type Node as ReactNode,
+  useState,
+} from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import focusStyles from './Focus.css';
@@ -21,7 +27,7 @@ type Props = {
   /**
    * For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in Link or TapArea. See the [error message example](https://gestalt.pinterest.systems/web/textarea#Error-message) for more details.
    */
-  errorMessage?: Node,
+  errorMessage?: ReactNode,
   /**
    * This field is deprecated and will be removed soon. Please do not use.
    */
@@ -139,7 +145,7 @@ const TextAreaWithForwardRef: AbstractComponent<Props, HTMLTextAreaElement> = fo
     value,
   }: Props,
   ref,
-): Node {
+): ReactNode {
   const [focused, setFocused] = useState(false);
   const [currentLength, setCurrentLength] = useState(value?.length ?? 0);
 

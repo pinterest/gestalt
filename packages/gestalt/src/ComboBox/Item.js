@@ -1,5 +1,5 @@
 // @flow strict
-import { type AbstractComponent, forwardRef, type Node } from 'react';
+import { type AbstractComponent, forwardRef, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import bordersStyles from '../Borders.css';
 import boxWhitespaceStyles from '../boxWhitespace.css';
@@ -38,7 +38,7 @@ const ComboBoxItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forwa
 >(function OptionItem(
   { isHovered, id, index, isSelected, label, onSelect, setHoveredItemIndex, subtext, value }: Props,
   ref,
-): Node {
+): ReactNode {
   const handleEventPreventDefault = (event: SyntheticInputEvent<HTMLDivElement>) =>
     event.preventDefault();
 

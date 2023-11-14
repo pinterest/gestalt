@@ -1,5 +1,5 @@
 // @flow strict
-import { type Element, type Node } from 'react';
+import { type Element, type Node as ReactNode } from 'react';
 import Badge from '../Badge.js';
 import Box from '../Box.js';
 import Flex from '../Flex.js';
@@ -21,7 +21,7 @@ export default function ModuleTitle(props: {
   iconButton?: Element<typeof IconButton | typeof IconButtonLink>,
   title: string,
   type?: 'error' | 'info',
-}): Node {
+}): ReactNode {
   const { iconAccessibilityLabel = '', title, type = 'info' } = props;
 
   const decoration = ['icon', 'badge', 'iconButton'].find((prop) => !!props[prop]);

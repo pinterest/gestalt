@@ -1,5 +1,13 @@
 // @flow strict
-import { cloneElement, type Element, type Node, useEffect, useId, useRef, useState } from 'react';
+import {
+  cloneElement,
+  type Element,
+  type Node as ReactNode,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+} from 'react';
 import Dropdown from '../Dropdown.js';
 import Pog from '../Pog.js';
 import TapArea from '../TapArea.js';
@@ -34,7 +42,7 @@ function ItemIconButton({
   forceIconButton,
   setForceIconButton,
   setCompression,
-}: Props): Node {
+}: Props): ReactNode {
   const id = useId();
 
   const innerRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);

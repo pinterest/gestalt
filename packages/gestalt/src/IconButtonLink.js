@@ -1,5 +1,11 @@
 // @flow strict
-import { type AbstractComponent, forwardRef, type Node, useImperativeHandle, useRef } from 'react';
+import {
+  type AbstractComponent,
+  forwardRef,
+  type Node as ReactNode,
+  useImperativeHandle,
+  useRef,
+} from 'react';
 import getAriaLabel from './accessibility/getAriaLabel.js';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
@@ -121,7 +127,7 @@ const IconButtonLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> 
     size = 'lg',
   }: Props,
   ref,
-): Node {
+): ReactNode {
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component

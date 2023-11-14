@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import {
   Box,
   Button,
@@ -12,7 +12,7 @@ import {
   Text,
 } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [showComponent, setShowComponent] = useState(true);
   const PAGE_HEADER_ZINDEX: FixedZIndex = new FixedZIndex(10);
   const ABOVE_PAGE_HEADER_ZINDEX: CompositeZIndex = new CompositeZIndex([PAGE_HEADER_ZINDEX]);

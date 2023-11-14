@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import InternalPopover from './Popover/LegacyInternalPopover.js';
 
 type Color = 'deprecatedBlue' | 'red' | 'white' | 'darkGray';
@@ -22,7 +22,7 @@ type Props = {
   /**
    * The content shown in Popover.
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * This field is deprecated and will be removed soon. Please do not use. See [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducational).
    */
@@ -97,7 +97,7 @@ export default function Popover({
   _deprecatedShowCaret = false,
   size = 'sm',
   __dangerouslySetMaxHeight,
-}: Props): null | Node {
+}: Props): null | ReactNode {
   return (
     <InternalPopover
       accessibilityLabel={accessibilityLabel}

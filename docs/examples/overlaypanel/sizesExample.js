@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useReducer } from 'react';
+import { Fragment, type Node as ReactNode, useReducer } from 'react';
 import {
   Box,
   Button,
@@ -14,7 +14,7 @@ import {
   Text,
 } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   function reducer(
     state: { heading: string, size: 'sm' | 'md' | 'lg' } | { ... },
     action: { type: 'small' | 'medium' | 'large' | 'none' },

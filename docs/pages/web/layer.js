@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
@@ -11,7 +11,7 @@ import SandpackExample from '../../docs-components/SandpackExample.js';
 import childContentRenderedOutsideExample from '../../examples/layer/childContentRenderedOutsideExample.js';
 import stackingUsingZIndexExample from '../../examples/layer/stackingUsingZIndexExample.js';
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title="Layer">
       <PageHeader name="Layer" description={generatedDocGen?.description} />

@@ -7,7 +7,7 @@ We do this so we don't have to define each page, and can just define the pages i
 */
 
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import remarkBreaks from 'remark-breaks';
@@ -34,7 +34,7 @@ type Props = {
   pageSourceUrl: string,
 };
 
-export default function DocumentPage({ content, meta, pageSourceUrl }: Props): Node {
+export default function DocumentPage({ content, meta, pageSourceUrl }: Props): ReactNode {
   return (
     <ErrorBoundary>
       <MarkdownPage meta={meta} pageSourceUrl={pageSourceUrl}>

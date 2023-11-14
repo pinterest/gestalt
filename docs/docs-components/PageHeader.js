@@ -1,5 +1,5 @@
 // @flow strict
-import { type Element, type Node } from 'react';
+import { type Element, type Node as ReactNode } from 'react';
 import { Badge, Box, Flex, Heading, Link, SlimBanner, Text } from 'gestalt';
 import * as gestaltChart from 'gestalt-charts'; // eslint-disable-line import/no-namespace
 import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
@@ -45,7 +45,7 @@ type Props = {
     | 'connection'
     | 'partstowhole'
     | 'trends',
-  children?: Node,
+  children?: ReactNode,
   description?: string,
   /**
    * Only use if name !== file name
@@ -73,7 +73,7 @@ export default function PageHeader({
   name,
   slimBanner = null,
   type = 'component',
-}: Props): Node {
+}: Props): ReactNode {
   const sourcePathName = folderName ?? fileName ?? name;
   let sourceLink = buildSourceLinkUrl(sourcePathName);
   if (folderName) {

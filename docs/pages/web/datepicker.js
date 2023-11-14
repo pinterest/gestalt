@@ -1,5 +1,5 @@
 // @flow strict-local
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import {
   af,
   arSA,
@@ -103,7 +103,7 @@ const localeMap = {
 
 const PREVIEW_HEIGHT = 480;
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   const [locale, setLocale] = useState<string | null>('en-US');
   const [date, setDate] = useState<Date | null>(new Date());
 

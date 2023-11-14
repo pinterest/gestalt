@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Badge, Box, Column, Flex, Link, Table, Text } from 'gestalt';
 import componentData from '../../docs-components/data/components.js';
 import {
@@ -24,7 +24,7 @@ const sortedComponentList = [...iosComponentData].sort(({ name: aName }, { name:
 
 const statusFields = ['figmaStatus', 'documentation', 'status'];
 
-export default function ComponentStatus(): Node {
+export default function ComponentStatus(): ReactNode {
   return (
     <Page title="iOS component status" hideSideNav hideEditLink>
       <PageHeader

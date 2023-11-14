@@ -1,5 +1,5 @@
 // @flow strict
-import { type Element as ReactElement, type Node } from 'react';
+import { type Element as ReactElement, type Node as ReactNode } from 'react';
 import ModuleTitle from './Title.js';
 import Box from '../Box.js';
 import Flex from '../Flex.js';
@@ -32,7 +32,7 @@ export default function ModuleExpandableItem({
   accessibilityCollapseLabel: string,
   accessibilityExpandLabel: string,
   badge?: BadgeType,
-  children?: Node,
+  children?: ReactNode,
   icon?: $Keys<typeof icons>,
   iconAccessibilityLabel?: string,
   iconButton?: ReactElement<typeof IconButton>,
@@ -42,7 +42,7 @@ export default function ModuleExpandableItem({
   summary?: $ReadOnlyArray<string>,
   title: string,
   type?: 'error' | 'info',
-}): Node {
+}): ReactNode {
   return (
     <Box padding={6}>
       <Flex direction="column" gap={{ column: 6, row: 0 }}>

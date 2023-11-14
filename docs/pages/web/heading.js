@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, SlimBanner, Table, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
@@ -26,7 +26,7 @@ import overflowAndTruncationExample from '../../examples/heading/overflowAndTrun
 import startAlignHeadings from '../../examples/heading/startAlignHeadings.js';
 import variantsExample from '../../examples/heading/variantsExample.js';
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>

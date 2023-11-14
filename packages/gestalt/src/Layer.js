@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, type Portal, useEffect, useRef, useState } from 'react';
+import { type Node as ReactNode, type Portal, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider.js';
 import styles from './Layer.css';
@@ -10,7 +10,7 @@ type Props = {
   /**
    *
    */
-  children: Node,
+  children: ReactNode,
   /**
    * An object representing the z-index value of the Layer. See the [z-index example](https://gestalt.pinterest.systems/web/layer#zIndex) for more details.
    */
@@ -22,7 +22,7 @@ type Props = {
  *
  * ![Layer](https://raw.githubusercontent.com/pinterest/gestalt/master/docs/graphics/building-blocks/Layer.svg)
  */
-export default function Layer({ children, zIndex: zIndexIndexable }: Props): Portal | Node {
+export default function Layer({ children, zIndex: zIndexIndexable }: Props): Portal | ReactNode {
   const [mounted, setMounted] = useState(false);
   const portalContainer = useRef<?HTMLDivElement>(null);
   const zIndex = zIndexIndexable?.index();

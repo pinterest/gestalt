@@ -9,7 +9,7 @@ import {
   type AbstractComponent,
   type ElementConfig,
   forwardRef,
-  type Node,
+  type Node as ReactNode,
   useImperativeHandle,
   useRef,
   useState,
@@ -42,7 +42,7 @@ const InternalDismissIconButtonWithForwardRef: AbstractComponent<Props, HTMLButt
       size = 'lg',
     }: Props,
     ref,
-  ): Node {
+  ): ReactNode {
     const innerRef = useRef<HTMLButtonElement | null>(null);
 
     // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component

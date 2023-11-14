@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { SlimBanner } from 'gestalt';
 import MainSection from './MainSection.js';
 import SandpackExample from './SandpackExample.js';
@@ -7,10 +7,10 @@ import SandpackExample from './SandpackExample.js';
 type Props = {
   notes?: string,
   name: string,
-  code?: () => Node,
+  code?: () => ReactNode,
   layout?: 'row' | 'column',
   previewHeight?: number,
-  children?: Node,
+  children?: ReactNode,
   noDefaultLabelProvider?: boolean,
   noBaseText?: boolean,
 };
@@ -24,7 +24,7 @@ export default function LocalizationSection({
   children,
   noDefaultLabelProvider,
   noBaseText = false,
-}: Props): Node {
+}: Props): ReactNode {
   const baseText =
     'Be sure to localize all text strings. Note that localization can lengthen text by 20 to 30 percent.';
 

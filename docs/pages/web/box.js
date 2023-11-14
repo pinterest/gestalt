@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { type Node as ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
@@ -69,9 +69,9 @@ const ignoredProps = [
 ];
 
 type ColorCardProps = {
-  children: Node,
+  children: ReactNode,
 };
-function ColorSchemeLayout({ children }: ColorCardProps): Node {
+function ColorSchemeLayout({ children }: ColorCardProps): ReactNode {
   return (
     <Flex
       gap={{
@@ -91,7 +91,7 @@ function ColorSchemeLayout({ children }: ColorCardProps): Node {
   );
 }
 
-export default function BoxPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function BoxPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader

@@ -1,5 +1,5 @@
 // @flow strict
-import { type AbstractComponent, forwardRef, type Node, useState } from 'react';
+import { type AbstractComponent, forwardRef, type Node as ReactNode, useState } from 'react';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import TapAreaLink from './TapAreaLink.js';
@@ -74,7 +74,7 @@ type TabType = {
   href: string,
   id?: string,
   indicator?: 'dot' | number,
-  text: Node,
+  text: ReactNode,
 };
 type BgColor = 'default' | 'transparent';
 
@@ -211,7 +211,7 @@ type Props = {
     id?: string,
     indicator?: 'dot' | number,
     ref?: { current: ?HTMLElement },
-    text: Node,
+    text: ReactNode,
   }>,
   /**
    * By default, tabs will all try to fit onto one line. Use this prop to allow the items to wrap onto multiple lines, from top to bottom.
@@ -232,7 +232,7 @@ export default function Tabs({
   onChange,
   tabs,
   wrap,
-}: Props): Node {
+}: Props): ReactNode {
   return (
     <Flex alignItems="center" gap={{ row: 4, column: 0 }} justifyContent="start" wrap={wrap}>
       {tabs.map(({ href, id, indicator, ref, text }, index) => (

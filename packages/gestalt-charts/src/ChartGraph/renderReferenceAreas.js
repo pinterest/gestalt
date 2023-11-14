@@ -1,5 +1,5 @@
 // @flow strict-local
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Rectangle, ReferenceArea as RechartsReferenceArea } from 'recharts';
 
 export default function renderReferenceAreas({
@@ -15,7 +15,7 @@ export default function renderReferenceAreas({
     yAxisId: string,
     style?: 'default',
   }>,
-}): $ReadOnlyArray<Node> {
+}): $ReadOnlyArray<ReactNode> {
   return referenceAreas.map((values) => (
     // Recharts doesn't recognize wrappers on their components, therefore, needs to be build within ChartGraph
     <RechartsReferenceArea

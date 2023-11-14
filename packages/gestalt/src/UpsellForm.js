@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import Box from './Box.js';
 import Button from './Button.js';
 import Flex from './Flex.js';
@@ -9,7 +9,7 @@ type Props = {
   /**
    * Contents of the form, typically input components like [TextField](https://gestalt.pinterest.systems/web/textfield) or [NumberField](https://gestalt.pinterest.systems/web/numberfield).
    */
-  children: Node,
+  children: ReactNode,
   /**
    * Callback triggered when the form is submitted.
    */
@@ -43,7 +43,7 @@ export default function UpsellForm({
   submitButtonText,
   submitButtonAccessibilityLabel,
   submitButtonDisabled,
-}: Props): Node {
+}: Props): ReactNode {
   const responsiveMinWidth = useResponsiveMinWidth();
   const isXsWidth = responsiveMinWidth === 'xs';
 

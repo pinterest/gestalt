@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import styles from './WashAnimated.css';
@@ -16,11 +16,11 @@ type Props = {
   /**
    *
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * An optional [Image](https://gestalt.pinterest.systems/web/image) to be displayed at the top of the layout.
    */
-  image?: Node,
+  image?: ReactNode,
   /**
    * Optional callback fired when the user hovers over from WashAnimated.
    */
@@ -42,7 +42,7 @@ export default function WashAnimated({
   image,
   onMouseEnter,
   onMouseLeave,
-}: Props): Node {
+}: Props): ReactNode {
   const [hovered, setHovered] = useState(false);
 
   const handleMouseEnter = (event: SyntheticMouseEvent<HTMLDivElement>) => {

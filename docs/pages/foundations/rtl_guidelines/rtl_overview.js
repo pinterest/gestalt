@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { type Node as ReactNode } from 'react';
 import { Box, Heading, Image, Mask, SlimBanner, Text } from 'gestalt';
 import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts.js';
 import MainSection from '../../../docs-components/MainSection.js';
@@ -7,7 +7,7 @@ import Markdown from '../../../docs-components/Markdown.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 
-export default function FormsLayoutOverview(): Node {
+export default function FormsLayoutOverview(): ReactNode {
   return (
     <Page title="RTL overview">
       <PageHeader

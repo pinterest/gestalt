@@ -1,5 +1,5 @@
 // @flow strict
-import { Children, type Element, Fragment, type Node } from 'react';
+import { Children, type Element, Fragment, type Node as ReactNode } from 'react';
 import Box from './Box.js';
 import Button from './Button.js';
 import ButtonLink from './ButtonLink.js';
@@ -163,7 +163,7 @@ export default function SlimBanner({
   message,
   primaryAction,
   type = 'neutral',
-}: Props): Node {
+}: Props): ReactNode {
   const isBare = type.endsWith('Bare');
   const isDefault = type === 'neutral';
   const { backgroundColor, iconColor, icon } = MESSAGING_TYPE_ATTRIBUTES[type.replace('Bare', '')];

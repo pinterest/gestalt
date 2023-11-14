@@ -1,10 +1,10 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 
-export default function IconPage(): Node {
+export default function IconPage(): ReactNode {
   return (
     <Page title="Custom and brand icons">
       <PageHeader name="Custom and brand icons" folderName="icons" type="guidelines" />
