@@ -57,7 +57,7 @@ module.exports = {
     'flowtype/space-after-type-colon': [ERROR, ALWAYS, { 'allowLineBreak': true }],
     'flowtype/space-before-type-colon': [ERROR, NEVER],
     'flowtype/type-import-style': ERROR,
-    'import/extensions': [ERROR, 'ALWAYS', { 'js': 'never', 'ignorePackages': true }],
+    'import/extensions': [ERROR, ALWAYS, { 'js': 'never', 'ignorePackages': true }],
     'import/first': ERROR,
     'import/newline-after-import': ERROR,
     'import/no-anonymous-default-export': ERROR,
