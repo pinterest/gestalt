@@ -1,3 +1,9 @@
+## 128.1.5 (Nov 14, 2023)
+
+### Patch
+
+- Icon: new icons for comments, captions and conversions ([#3298](https://github.com/pinterest/gestalt/pull/3298)) - [Preview link](https://deploy-preview-3298--gestalt.netlify.app?devexample=true)
+
 ## 128.1.4 (Nov 14, 2023)
 
 ### Patch
