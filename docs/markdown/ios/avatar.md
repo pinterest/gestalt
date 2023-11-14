@@ -51,11 +51,10 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 [Accessible development on iOS](https://developer.apple.com/accessibility/ios/)
 
 ## Design tokens
-<iframe style={{border:0}} width="100%" height="560" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39390%3A1240&mode=design&t=rpzG2JbQK3dHaeE6-1" allowFullScreen></iframe>
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="560" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39390%253A1240%26mode%3Ddesign%26t%3D8hM8hUptq2PvLuyA-1" allowfullscreen></iframe>
 
 ## Anatomy
-<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39390-783&mode=design&t=rpzG2JbQK3dHaeE6-11" allowFullScreen></iframe>
-
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39390%253A783%26mode%3Ddesign%26t%3D8hM8hUptq2PvLuyA-1" allowfullscreen></iframe>
 
 ## Variants
 
@@ -68,8 +67,7 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 5. **sm** **(24px)**
 6. **xs** **(16px)**
 <br/>
-<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39390-1178&mode=design&t=rpzG2JbQK3dHaeE6-11" allowFullScreen></iframe>
-Avatar comes in 6 different sizes.
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39390%253A1178%26mode%3Ddesign%26t%3D8hM8hUptq2PvLuyA-1" allowfullscreen></iframe>
 
 ### Without an image
 
@@ -80,10 +78,10 @@ If there is no image source provided for the Avatar, the first character of the 
 <br/>
 <TwoCol>
   <Group>
-    <iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39390-940&mode=design&t=rpzG2JbQK3dHaeE6-11" allowFullScreen></iframe>
+    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39390%253A940%26mode%3Ddesign%26t%3D8hM8hUptq2PvLuyA-1" allowfullscreen></iframe>
   </Group>
   <Group>
-    <iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39390-1020&mode=design&t=rpzG2JbQK3dHaeE6-11" allowFullScreen></iframe>
+    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39390%253A1020%26mode%3Ddesign%26t%3D8hM8hUptq2PvLuyA-1" allowfullscreen></iframe>
   </Group>
   </TwoCol>
 
@@ -92,9 +90,9 @@ The avatar has an optional 1px border.
 <br/>
 <TwoCol>
   <Group>
-    <iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39390-1101&mode=design&t=rpzG2JbQK3dHaeE6-11" allowFullScreen></iframe>
+    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39390%253A1101%26mode%3Ddesign%26t%3D8hM8hUptq2PvLuyA-1" allowfullscreen></iframe>
   </Group>
   <Group>
-    <iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39390-1471&mode=design&t=rpzG2JbQK3dHaeE6-11" allowFullScreen></iframe>
+    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39390%253A1471%26mode%3Ddesign%26t%3D8hM8hUptq2PvLuyA-1" allowfullscreen></iframe>
   </Group>
   </TwoCol>
