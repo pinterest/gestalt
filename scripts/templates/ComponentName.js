@@ -1,11 +1,6 @@
 // @flow strict
-<<<<<<< HEAD
 import { type Node as ReactNode } from 'react';
 import Box from './Box.js';
-=======
-import { type Node } from 'react';
-import Box from './Box';
->>>>>>> 81695ed8b (more)
 import styles from './ComponentName.css';
 
 type Props = {

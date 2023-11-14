@@ -1,5 +1,5 @@
 // @flow strict
-import ComponentName from './ComponentName';
+import ComponentName from './ComponentName.js';
 
 const Valid = <ComponentName />;
 
