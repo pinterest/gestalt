@@ -8,6 +8,10 @@ const reactDocs = import('react-docgen'); // v6 forces to use `import`
 const root = path.join(__dirname, '../');
 const docsPath = path.join(root, '/docs');
 
+/**
+ * IMPORTANT: When migrating to TypeScript we are going to need to find a way of detecting files without appending .js
+ */
+
 // Files/components that doesn't have data to parse
 const excludedPaths = [
   '/packages/gestalt/src/contexts/ExperimentProvider.js',
