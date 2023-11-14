@@ -67,6 +67,7 @@ function getSubcomponentPaths(componentPath) {
   );
 
   const fileContent = fs.readFileSync(path.join(root, componentPath), 'utf-8');
+
   const subcomponentNameMatches = fileContent.matchAll(subcomponentRegExp);
   const subcomponentNames = [...subcomponentNameMatches].map((a) => a.groups.subcomponentName);
 
@@ -79,8 +80,8 @@ function getSubcomponentPaths(componentPath) {
   );
 
   const subcomponentPathMatches = fileContent.matchAll(subcomponentPathRegExp);
-  const subcomponentPaths = [...subcomponentPathMatches].map((match) =>
-    path.join(componentPath, '../', match.groups.path),
+  const subcomponentPaths = [...subcomponentPathMatches].map(
+    (match) => `${path.join(componentPath, '../', match.groups.path)}.js`,
   );
 
   return subcomponentPaths;
@@ -92,7 +93,10 @@ function getSubcomponentPaths(componentPath) {
 function getExposedFilesFromDirectory(directoryPath) {
   const indexFile = fs.readFileSync(path.join(root, directoryPath, 'index.js'), 'utf-8');
   const importMatches = indexFile.matchAll(/from '(?<path>.+)'/g);
-  const filePaths = [...importMatches].map((match) => path.join(directoryPath, match.groups.path));
+  const filePaths = [...importMatches].map(
+    (match) => `${path.join(directoryPath, match.groups.path)}.js`,
+  );
+
   const subcomponentPaths = filePaths.map(getSubcomponentPaths).flat();
 
   return [...filePaths, ...subcomponentPaths];
