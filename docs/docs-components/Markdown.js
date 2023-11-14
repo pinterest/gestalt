@@ -40,6 +40,15 @@ const stripIndent = (str: string): string => {
 
 export default function Markdown({ textColor, text }: Props): Node {
   const renderer = new Renderer();
+
+  renderer.link = (href, title, linktext) => `
+              <a class="anchor" ${
+                href.startsWith('https://') || href.startsWith('http://') ? "target='blank'" : ''
+              }
+              } href="${href}">
+               ${`${linktext}`}
+              </a>`;
+
   renderer.heading = (input, level) => {
     const escapedText = input
       .toLowerCase()

@@ -3,8 +3,6 @@ title: Development
 fullwidth: true
 ---
 
-Pinterest web engineers can visit the [internal Gestalt documentation](http://pinch.pinadmin.com/gestalt_wiki).
-
 ## Set up your laptop
 
 - Install a code editor - we recommended [VS Code](https://code.visualstudio.com/download)

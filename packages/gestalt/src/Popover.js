@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node } from 'react';
-import InternalPopover from './Popover/InternalPopover.js';
+import InternalPopover from './Popover/LegacyInternalPopover.js';
 
 type Color = 'deprecatedBlue' | 'red' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;

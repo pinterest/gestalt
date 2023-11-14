@@ -1,6 +1,7 @@
 // @flow strict
-import { type Node, useEffect } from 'react';
+import { type Node, useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
+import { useRouter } from 'next/router';
 import createHydra, { type Hydra } from './createHydra.js';
 
 const colorSchemeKey = 'gestalt-color-scheme';
@@ -16,6 +17,7 @@ type Experiments = string;
 type DevExampleMode = 'development' | 'default';
 
 export type AppContextType = {
+  helixBot: boolean,
   propTableVariant: PropTableVariant,
   setPropTableVariant: (val: PropTableVariant) => void,
   colorScheme: ColorScheme,
@@ -61,6 +63,9 @@ function AppContextProvider({ children }: { children?: Node }): Node {
     setCookies(experimentsKey, component);
   };
   const setDevExampleMode = (state: DevExampleMode) => setCookies(devExampleModeKey, state);
+  const router = useRouter();
+
+  const [helixBot] = useState(router.query.helixbot && router.query.helixbot === 'true');
 
   useEffect(() => {
     if (document && document.documentElement) {
@@ -71,6 +76,7 @@ function AppContextProvider({ children }: { children?: Node }): Node {
   return (
     <Provider
       value={{
+        helixBot,
         propTableVariant,
         setPropTableVariant,
         colorScheme,

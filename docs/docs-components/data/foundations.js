@@ -120,7 +120,7 @@ const foundationsTiles: $ReadOnlyArray<DesignOverview> = [
     svg: <Typography />,
     title: 'Typography',
     description: 'A typographic system for a content hierarchy that is scannable and efficient',
-    path: '/foundations/typography/guidelines',
+    path: '/foundations/typography',
   },
 ];
 

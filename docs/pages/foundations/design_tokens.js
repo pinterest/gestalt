@@ -62,7 +62,7 @@ const tokenCategories = [
     name: 'Font family',
     category: 'font-family',
     id: 'font-family',
-    infoPage: { name: 'Typography', path: 'foundations/typography/guidelines' },
+    infoPage: { name: 'Typography', path: 'foundations/typography' },
   },
   {
     name: 'Opacity',

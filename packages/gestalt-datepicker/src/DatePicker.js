@@ -175,12 +175,13 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElement> = for
 ): Node {
   const innerInputRef = useRef<null | HTMLInputElement>(null);
   useImperativeHandle(ref, () => innerInputRef.current);
-  const { datePickerHandlers } = useGlobalEventsHandler() || {
+  // Consume GlobalEventsHandlerProvider
+  const { datePickerHandlers } = useGlobalEventsHandler() ?? {
     datePickerHandlers: undefined,
   };
 
   useEffect(() => {
-    if (datePickerHandlers?.onMount) datePickerHandlers?.onMount();
+    if (datePickerHandlers?.onRender) datePickerHandlers?.onRender();
   }, [datePickerHandlers]);
 
   return (

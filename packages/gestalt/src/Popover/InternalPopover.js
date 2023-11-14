@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node, useEffect, useRef } from 'react';
+import Controller from './Controller.js';
 import Box from '../Box.js';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
-import Controller from '../Controller.js';
 import Flex from '../Flex.js';
 import InternalDismissButton from '../shared/InternalDismissButton.js';
 
@@ -20,13 +20,14 @@ type Props = {
   id?: string,
   idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown',
   onDismiss: () => void,
-  positionRelativeToAnchor?: boolean,
   role?: Role,
   shouldFocus?: boolean,
   showCaret?: boolean,
   showDismissButton?: boolean,
   size?: Size,
-  __dangerouslySetMaxHeight?: '30vh',
+  disablePortal?: boolean,
+  scrollBoundary?: HTMLElement,
+  hideWhenReferenceHidden?: boolean,
 };
 
 export default function InternalPopover({
@@ -39,13 +40,14 @@ export default function InternalPopover({
   id,
   idealDirection,
   onDismiss,
-  positionRelativeToAnchor = false,
   color = 'white',
   role,
   shouldFocus,
   showCaret,
   size = 'sm',
-  __dangerouslySetMaxHeight,
+  disablePortal,
+  scrollBoundary,
+  hideWhenReferenceHidden,
 }: Props): null | Node {
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Popover');
@@ -71,12 +73,13 @@ export default function InternalPopover({
       id={id}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
-      positionRelativeToAnchor={positionRelativeToAnchor}
       role={role}
       rounding={4}
       shouldFocus={shouldFocus}
       size={size === 'flexible' ? null : size}
-      __dangerouslyIgnoreScrollBoundaryContainerSize={__dangerouslySetMaxHeight === '30vh'}
+      scrollBoundary={scrollBoundary}
+      disablePortal={disablePortal}
+      hideWhenReferenceHidden={hideWhenReferenceHidden}
     >
       {showDismissButton ? (
         <Flex direction="column">
