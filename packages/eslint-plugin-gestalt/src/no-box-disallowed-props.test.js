@@ -8,39 +8,39 @@ import rule from './no-box-disallowed-props';
 const ruleTester = new RuleTester({ parserOptions });
 
 const validId = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-box-disallowed-props/valid-id'),
+  path.resolve(__dirname, './__fixtures__/no-box-disallowed-props/valid-id.js'),
   'utf-8',
 );
 
 const validAs = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-box-disallowed-props/valid-as'),
+  path.resolve(__dirname, './__fixtures__/no-box-disallowed-props/valid-as.js'),
   'utf-8',
 );
 
 const validAsRenamed = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-box-disallowed-props/valid-as-renamed'),
+  path.resolve(__dirname, './__fixtures__/no-box-disallowed-props/valid-as-renamed.js'),
   'utf-8',
 );
 
 const validData = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-box-disallowed-props/valid-data'),
+  path.resolve(__dirname, './__fixtures__/no-box-disallowed-props/valid-data.js'),
   'utf-8',
 );
 
 const validAria = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-box-disallowed-props/valid-aria'),
+  path.resolve(__dirname, './__fixtures__/no-box-disallowed-props/valid-aria.js'),
   'utf-8',
 );
 
 const disallowedProps = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-box-disallowed-props/invalid/disallowed-props'),
+  path.resolve(__dirname, './__fixtures__/no-box-disallowed-props/invalid/disallowed-props.js'),
   'utf-8',
 );
 
 const disallowedPropsRenamed = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-box-disallowed-props/invalid/disallowed-props-renamed',
+    './__fixtures__/no-box-disallowed-props/invalid/disallowed-props-renamed.js',
   ),
   'utf-8',
 );
@@ -48,7 +48,7 @@ const disallowedPropsRenamed = readFileSync(
 const disallowedPropsInvalid = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-box-disallowed-props/invalid/disallowed-props-invalid-prop',
+    './__fixtures__/no-box-disallowed-props/invalid/disallowed-props-invalid-prop.js',
   ),
   'utf-8',
 );

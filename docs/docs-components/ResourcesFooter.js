@@ -50,7 +50,7 @@ const engResources = [
   { title: 'Web repository', url: 'https://github.com/pinterest/gestalt' },
   {
     title: 'Code sandbox',
-    url: 'https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode',
+    url: 'https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js',
   },
 ];
 

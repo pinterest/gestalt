@@ -15,7 +15,7 @@ const links: $ReadOnlyArray<{
   },
   {
     title: 'Code sandbox',
-    url: 'https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode',
+    url: 'https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js',
     external: true,
   },
   {

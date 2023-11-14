@@ -969,7 +969,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
               description:
                 'When the "lineClamp" prop is set to 1, text with long strings of characters might be truncated incorrectly.',
               codesandboxUrl:
-                'https://codesandbox.io/s/development-mode-forked-44qkwk?file=/example',
+                'https://codesandbox.io/s/development-mode-forked-44qkwk?file=/example.js',
             },
           ],
         },
@@ -2399,7 +2399,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
               description:
                 'When the "lineClamp" prop is set to 1, text with long strings of characters might be truncated incorrectly',
               codesandboxUrl:
-                'https://codesandbox.io/s/development-mode-forked-ngkj3c?file=/example',
+                'https://codesandbox.io/s/development-mode-forked-ngkj3c?file=/example.js',
             },
           ],
         },

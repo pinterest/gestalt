@@ -123,7 +123,7 @@ function SandpackContainer({
 
             <CopyCodeButton
               onClick={() => {
-                const code = sandpack?.files?.['/App']?.code;
+                const code = sandpack?.files?.['/App.js']?.code;
                 copyCode({ code });
               }}
             />
@@ -187,7 +187,7 @@ export default function SandpackExample({
               '/node_modules/gestalt/package.json': {
                 code: JSON.stringify({
                   name: 'gestalt',
-                  main: './dist/gestalt',
+                  main: './dist/gestalt.js',
                   style: 'dist/gestalt.css',
                 }),
                 hidden: true,
@@ -195,27 +195,27 @@ export default function SandpackExample({
               '/node_modules/gestalt-charts/package.json': {
                 code: JSON.stringify({
                   name: 'gestalt-charts',
-                  main: './dist/gestalt-charts',
+                  main: './dist/gestalt-charts.js',
                 }),
                 hidden: true,
               },
               '/node_modules/gestalt-datepicker/package.json': {
                 code: JSON.stringify({
                   name: 'gestalt-datepicker',
-                  main: './dist/gestalt-datepicker',
+                  main: './dist/gestalt-datepicker.js',
                   style: 'dist/gestalt-datepicker.css',
                 }),
                 hidden: true,
               },
-              '/node_modules/gestalt/dist/gestalt': {
+              '/node_modules/gestalt/dist/gestalt.js': {
                 code: files.js,
                 hidden: true,
               },
-              '/node_modules/gestalt-charts/dist/gestalt-charts': {
+              '/node_modules/gestalt-charts/dist/gestalt-charts.js': {
                 code: files.js,
                 hidden: true,
               },
-              '/node_modules/gestalt-datepicker/dist/gestalt-datepicker': {
+              '/node_modules/gestalt-datepicker/dist/gestalt-datepicker.js': {
                 code: files.js,
                 hidden: true,
               },
@@ -237,7 +237,7 @@ export default function SandpackExample({
           import { createRoot } from "react-dom/client";
           import "./styles.css";
           import { Box, ColorSchemeProvider } from 'gestalt';
-          import App from "./App";
+          import App from "./App.js";
 
           const html = document.querySelector('html');
           html.setAttribute('dir', '${exampleTextDirection}');

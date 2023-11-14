@@ -6,9 +6,9 @@ import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line 
 
 const compress = (object: {
   files: {
-    'example': { content: string },
+    'example.js': { content: string },
     'index.html': { content: string },
-    'index': { content: string },
+    'index.js': { content: string },
     'package.json': {
       content: {
         dependencies: {
@@ -81,7 +81,7 @@ const handleCodeSandbox = async ({ code, title }: { code: string, title: string 
   };
 
   const parameters = compress({
-    module: '/example',
+    module: '/example.js',
     files: {
       'package.json': {
         content: {
@@ -97,13 +97,13 @@ const handleCodeSandbox = async ({ code, title }: { code: string, title: string 
           devDependencies: {
             'react-scripts': 'latest',
           },
-          main: 'index',
+          main: 'index.js',
           scripts: {
             start: 'react-scripts start',
           },
         },
       },
-      'index': {
+      'index.js': {
         content: `import React from "react";
 import { createRoot } from "react-dom/client";
 import Example from "./example";
@@ -112,7 +112,7 @@ const container = document.querySelector("#root");
 const root = createRoot(container);
 root.render(<Example />);`,
       },
-      'example': {
+      'example.js': {
         content: `import React from "react";
 ${getPackagedComponents()}
 

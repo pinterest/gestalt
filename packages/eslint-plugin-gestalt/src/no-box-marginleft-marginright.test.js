@@ -8,34 +8,34 @@ import rule, { errorMessage } from './no-box-marginleft-marginright';
 const ruleTester = new RuleTester({ parserOptions });
 
 const validCode = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-box-marginleft-marginright/valid'),
+  path.resolve(__dirname, './__fixtures__/no-box-marginleft-marginright/valid.js'),
   'utf-8',
 );
 const invalidLeftCode = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-left',
+    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-left.js',
   ),
   'utf-8',
 );
 const invalidRightCode = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-right',
+    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-right.js',
   ),
   'utf-8',
 );
 const invalidRightStartCode = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-right-margin-start',
+    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-right-margin-start.js',
   ),
   'utf-8',
 );
 const invalidLeftStartCode = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-left-margin-start',
+    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-left-margin-start.js',
   ),
   'utf-8',
 );
