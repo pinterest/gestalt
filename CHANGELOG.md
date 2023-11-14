@@ -1,3 +1,9 @@
+## 128.1.4 (Nov 14, 2023)
+
+### Patch
+
+- Internal: Renamed `type Node` to `type Node as ReactNode` ([#3296](https://github.com/pinterest/gestalt/pull/3296)) - [Preview link](https://deploy-preview-3296--gestalt.netlify.app?devexample=true)
+
 ## 128.1.3 (Nov 7, 2023)
 
 ### Patch
