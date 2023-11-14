@@ -304,9 +304,9 @@
     },
     {
       "name": "camera-roll",
-      "categories": ["Media controls"],
-      "description": "Indicates the camera-roll content",
-      "keywords": ["image", "photo", "picture", "image"]
+      "categories": ["Media controls", "Utility and tools"],
+      "description": "Indicates the ability to open the camera roll on your device or to be able to add a photo comment",
+      "keywords": ["image", "photo", "picture", "image", "comment"]
     },
     {
       "name": "cancel",
@@ -323,8 +323,14 @@
     {
       "name": "captions",
       "categories": ["Media controls"],
-      "description": "Indicates the ability to show or hide captions in a video context",
-      "keywords": ["subtitles"]
+      "description": "Indicates that captions are currently turned on and can be turned off for a video",
+      "keywords": ["subtitles", "video"]
+    },
+    {
+      "name": "captions-outline",
+      "categories": ["Media controls"],
+      "description": "Indicates that captions are currently turned on and can be turned off if they are not disabled for a video",
+      "keywords": ["subtitles", "video"]
     },
     {
       "name": "check",
@@ -1234,6 +1240,12 @@
       "keywords": ["rating", "review"]
     },
     {
+      "name": "sticker",
+      "categories": ["Reactions and ratings", "Utility and tools"],
+      "description": "Indicates the ability to add a sticker to a Pin or a comment",
+      "keywords": ["reaction", "comment"]
+    },
+    {
       "name": "story-pin",
       "categories": ["Utility and tools"],
       "description": "Indicates a Story Pin",
@@ -1386,9 +1398,9 @@
     },
     {
       "name": "upload-feed",
-      "categories": ["Utility and tools"],
-      "description": "Indicates the ability to upload the feed",
-      "keywords": []
+      "categories": ["Utility and tools", "Ads and measurement"],
+      "description": "Indicates the ability to upload a feed, usually for ad conversions",
+      "keywords": ["conversions", "api"]
     },
     {
       "name": "video-advance-10-seconds",
