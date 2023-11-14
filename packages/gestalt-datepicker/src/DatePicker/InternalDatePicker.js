@@ -11,8 +11,8 @@ import {
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { Box, Icon, Label, Text } from 'gestalt';
 import DatePickerTextField from './TextInput';
-import styles from '../DatePicker.css';
 import { type Props } from '../DatePicker';
+import styles from '../DatePicker.css';
 
 const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
