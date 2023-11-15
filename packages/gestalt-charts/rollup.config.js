@@ -2,10 +2,10 @@
 import plugins from '../gestalt-core/build';
 
 const rollupConfig = {
-  input: 'src/index',
+  input: 'src/index.js',
   output: [
     {
-      file: 'dist/gestalt-charts',
+      file: 'dist/gestalt-charts.js',
       format: 'umd',
       name: 'gestalt-charts',
       exports: 'named',
