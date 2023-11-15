@@ -1,11 +1,17 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Image, Toast } from 'gestalt';
 
-export default function Snapshot(): Node {
+export default function Snapshot(): ReactNode {
   return (
     <Toast
-      primaryAction={{ accessibilityLabel: 'Test', label: 'Undo', size: 'lg' }}
+      primaryAction={{
+        accessibilityLabel: 'Test',
+        label: 'Undo',
+        size: 'lg',
+        role: 'button',
+        onClick: () => {},
+      }}
       text="Home decor"
       thumbnail={{
         image: (

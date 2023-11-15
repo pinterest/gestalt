@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import DatapointTrend from './Trend.js';
 import AccessibilityPause from '../accessibility/AccessibilityPause.js';
 import Badge from '../Badge.js';
@@ -11,17 +11,17 @@ import Text from '../Text.js';
 import Tooltip from '../Tooltip.js';
 import { type Indexable } from '../zIndex.js';
 
-type BadgeObject = {|
+type BadgeObject = {
   text: string,
   type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
-|};
+};
 
-type TrendObject = {|
+type TrendObject = {
   accessibilityLabel: string,
   value: number,
-|};
+};
 
-type Props = {|
+type Props = {
   badge?: BadgeObject,
   /**
    * Changes the color of the text and internal items to be disabled
@@ -42,9 +42,9 @@ type Props = {|
   trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto',
   tooltipZIndex?: Indexable,
   value: string,
-|};
+};
 
-function MaybeMinWidth({ minWidth, children }: {| minWidth?: number, children: Node |}) {
+function MaybeMinWidth({ minWidth, children }: { minWidth?: number, children: ReactNode }) {
   return minWidth ? <Box minWidth={minWidth}>{children}</Box> : children;
 }
 
@@ -60,7 +60,7 @@ export default function InternalDatapoint({
   trend,
   trendSentiment = 'auto',
   value,
-}: Props): Node {
+}: Props): ReactNode {
   const textColor = disabled ? 'subtle' : 'default';
   return (
     <Flex gap={{ column: 1, row: 0 }} direction="column">

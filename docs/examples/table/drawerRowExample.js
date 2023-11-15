@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, SlimBanner, Table, Text } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [showdrawer, setShowDrawer] = useState(true);
 
   return (
@@ -50,6 +50,7 @@ export default function Example(): Node {
                     accessibilityLabel: 'Apply for increasing your daily spend',
                     label: 'Apply',
                     onClick: () => {},
+                    role: 'button',
                   }}
                   dismissButton={{
                     accessibilityLabel: 'Dismiss',

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useEffect, useRef, useState } from 'react';
+import { type Node as ReactNode, useEffect, useRef, useState } from 'react';
 import { LiveEditor } from 'react-live';
 import { Box, Flex, Text } from 'gestalt';
 import { useAppContext } from './appContext.js';
@@ -11,7 +11,7 @@ import handleCodeSandbox from './handleCodeSandbox.js';
 
 const CODE_EXAMPLE_HEIGHT = 162;
 
-async function copyCode({ code }: {| code: string |}) {
+async function copyCode({ code }: { code: string }) {
   try {
     await clipboardCopy(code);
   } catch (error) {
@@ -20,13 +20,13 @@ async function copyCode({ code }: {| code: string |}) {
   }
 }
 
-type Props = {|
+type Props = {
   code: string,
   name: string,
   readOnly?: boolean,
   hideCodePreview?: boolean,
   developmentEditor?: boolean,
-|};
+};
 
 export default function ExampleCode({
   code,
@@ -34,7 +34,7 @@ export default function ExampleCode({
   readOnly,
   name,
   developmentEditor,
-}: Props): Node {
+}: Props): ReactNode {
   const { devExampleMode } = useAppContext();
 
   const [expanded, setExpanded] = useState(developmentEditor);

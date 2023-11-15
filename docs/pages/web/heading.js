@@ -1,9 +1,10 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, SlimBanner, Table, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Markdown from '../../docs-components/Markdown.js';
 import Page from '../../docs-components/Page.js';
@@ -25,7 +26,7 @@ import overflowAndTruncationExample from '../../examples/heading/overflowAndTrun
 import startAlignHeadings from '../../examples/heading/startAlignHeadings.js';
 import variantsExample from '../../examples/heading/variantsExample.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -34,6 +35,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           code={mainExample}
           layout="column"
           hideEditor
+          previewHeight={150}
         />
       </PageHeader>
 
@@ -180,7 +182,7 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           helperLink={{
             text: 'View Typography guidelines',
             accessibilityLabel: 'View Typography guidelines',
-            href: '/foundations/typography/guidelines',
+            href: '/foundations/typography',
             onClick: () => {},
           }}
         />
@@ -261,9 +263,15 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           description="For low-vision users, text color contrast is very important. To insure accessible contrast, stick to our [standard text colors](/foundations/color/usage#Standard-text-colors). See our [accessibility](/foundations/accessibility) page for design considerations and handy accessibility tools for checking color contrast."
         />
       </AccessibilitySection>
-      <MainSection name="Localization">
-        <MainSection.Subsection description="Keep text simple and short to avoid truncation or line wrapping in UI controls like buttons when translating languages that require more characters. Avoid overriding our line-height settings, as this can result in text clipping for scripts, like Hindi, that have taller ascenders and descenders." />
-      </MainSection>
+
+      <LocalizationSection
+        name={generatedDocGen?.displayName}
+        noDefaultLabelProvider
+        notes={`Keep text simple and short to avoid truncation or line wrapping in UI controls like buttons when translating languages that require more characters.
+
+Avoid overriding our line-height settings, as this can result in text clipping for scripts, like Hindi, that have taller ascenders and descenders.`}
+      />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           description={`These font sizes follow those available through our [Design Tokens](/foundations/design_tokens#Font-size). If your text does not need to be a [semantic heading (H1-H6)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), use [Text](/web/text) instead.
@@ -369,7 +377,7 @@ For certain specific situations, it is possible to use Heading without an access
         />
         <MainSection.Subsection
           description={`
-      **[Typography guidelines](/foundations/typography/guidelines)**
+      **[Typography guidelines](/foundations/typography)**
       A run-down on our typographic foundations, with some guidelines for using Heading and Text components together in products.
 `}
         />
@@ -384,7 +392,9 @@ For certain specific situations, it is possible to use Heading without an access
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Heading') },
   };

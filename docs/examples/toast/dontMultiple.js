@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Avatar, Box, Flex, Icon, Toast } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   return (
     <Box paddingY={4} height="100%" width="90%">
       <Flex
@@ -18,7 +18,12 @@ export default function Example(): Node {
             icon: <Icon accessibilityLabel="" icon="lightbulb" />,
           }}
           text="You have new recommendations"
-          primaryAction={{ accessibilityLabel: 'View new recommendations', label: 'View' }}
+          primaryAction={{
+            accessibilityLabel: 'View new recommendations',
+            label: 'View',
+            role: 'button',
+            onClick: () => {},
+          }}
         />
         <Toast text="Password updated" type="success" />
         <Toast

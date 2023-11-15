@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useId } from 'react';
+import { type Node as ReactNode, useId } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import InternalCheckbox from './Checkbox/InternalCheckbox.js';
@@ -14,15 +14,15 @@ import MaybeTooltip from './utils/MaybeTooltip.js';
 import useInteractiveStates from './utils/useInteractiveStates.js';
 import { type Indexable } from './zIndex.js';
 
-type TooltipProps = {|
+type TooltipProps = {
   accessibilityLabel?: string,
   inline?: boolean,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
-  text: string,
+  text: string | $ReadOnlyArray<string>,
   zIndex?: Indexable,
-|};
+};
 
-export type TileChangeHandler = ({|
+export type TileChangeHandler = ({
   event:
     | SyntheticMouseEvent<HTMLDivElement>
     | SyntheticKeyboardEvent<HTMLDivElement>
@@ -30,7 +30,7 @@ export type TileChangeHandler = ({|
     | SyntheticKeyboardEvent<HTMLAnchorElement>,
   selected: boolean,
   id?: string,
-|}) => void;
+}) => void;
 
 export type DataVisualizationColors =
   | '01'
@@ -46,12 +46,12 @@ export type DataVisualizationColors =
   | '11'
   | '12';
 
-type TrendObject = {|
+type TrendObject = {
   accessibilityLabel: string,
   value: number,
-|};
+};
 
-type Props = {|
+type Props = {
   /**
    * A valid color code from the [data visualization palette](https://gestalt.pinterest.systems/foundations/data_visualization/color/palette).
    */
@@ -96,7 +96,7 @@ type Props = {|
    * The datapoint value (e.g., 1.23M).
    */
   value: string,
-|};
+};
 
 /**
  * [TileData](https://gestalt.pinterest.systems/web/tiledata) enables users to select multiple categories to compare with each other in a graph or chart view, while still being able to see all of the data points.
@@ -117,12 +117,12 @@ export default function TileData({
   trend,
   trendSentiment,
   value,
-}: Props): Node {
+}: Props): ReactNode {
   const theme = useColorScheme();
   const borderColor = getDataVisualizationColor(theme, color);
   const bgColor = getDataVisualizationColor(theme, color, { lighten: true });
 
-  const colorStyles: {| borderColor?: string, backgroundColor?: string |} = {
+  const colorStyles: { borderColor?: string, backgroundColor?: string } = {
     borderColor,
     backgroundColor: bgColor,
   };

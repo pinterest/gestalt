@@ -1,16 +1,23 @@
 // @flow strict
-import { type AbstractComponent, forwardRef, type Node, useCallback, useState } from 'react';
+import {
+  type AbstractComponent,
+  forwardRef,
+  type Node as ReactNode,
+  useCallback,
+  useState,
+} from 'react';
 import AddCollaboratorsButton from './AvatarGroup/AddCollaboratorsButton.js';
 import CollaboratorAvatar from './AvatarGroup/CollaboratorAvatar.js';
 import CollaboratorsCount from './AvatarGroup/CollaboratorsCount.js';
 import Box from './Box.js';
 import Flex from './Flex.js';
-import TapArea, { type OnTapType } from './TapArea.js';
+import TapArea from './TapArea.js';
+import TapAreaLink from './TapAreaLink.js';
 
 const MAX_COLLABORATOR_AVATARS = 3;
 
 type UnionRefs = HTMLDivElement | HTMLAnchorElement;
-type Props = {|
+type Props = {
   /**
    * Label for screen readers to announce AvatarGroup.
    *
@@ -42,10 +49,10 @@ type Props = {|
   /**
    * The user group data. See the [collaborators display](https://gestalt.pinterest.systems/web/avatargroup#Collaborators-display) variant to learn more.
    */
-  collaborators: $ReadOnlyArray<{|
+  collaborators: $ReadOnlyArray<{
     name: string,
     src?: string,
-  |}>,
+  }>,
   /**
    * When supplied, wraps the component in a link, and directs users to the url when item is selected. See the [role](https://gestalt.pinterest.systems/web/avatargroup#Role) variant to learn more.
    */
@@ -53,7 +60,14 @@ type Props = {|
   /**
    * Callback fired when the component is clicked (pressed and released) with a mouse or keyboard. See the [role](https://gestalt.pinterest.systems/web/avatargroup#Role) variant to learn more and see [TapArea's `onTap`](https://gestalt.pinterest.systems/web/taparea#Props-onTap) for more info about `OnTapType`.
    */
-  onClick?: OnTapType,
+  onClick?: ({
+    event:
+      | SyntheticMouseEvent<HTMLDivElement>
+      | SyntheticKeyboardEvent<HTMLDivElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    dangerouslyDisableOnNavigation: () => void,
+  }) => void,
   /**
    * Forward the ref to the underlying div or anchor element. See the [role](https://gestalt.pinterest.systems/web/avatargroup#Role) variant to learn more.
    */
@@ -66,7 +80,7 @@ type Props = {|
    * The maximum height of AvatarGroup. If size is `fit`, AvatarGroup will fill 100% of the parent container width. See the [fixed size](https://gestalt.pinterest.systems/web/avatargroup#Fixed-sizes) and [responsive size](https://gestalt.pinterest.systems/web/avatargroup#Responsive-sizing) variant to learn more.
    */
   size?: 'xs' | 'sm' | 'md' | 'fit',
-|};
+};
 
 /**
  * [AvatarGroup](https://gestalt.pinterest.systems/web/avatargroup) is used to both display a group of user avatars and, optionally, control actions related to the users group.
@@ -89,7 +103,7 @@ const AvatarGroupWithForwardRef: AbstractComponent<Props, UnionRefs> = forwardRe
       size = 'fit',
     }: Props,
     ref,
-  ): Node {
+  ): ReactNode {
     const [hovered, setHovered] = useState(false);
 
     const isMdSize = size === 'md';
@@ -117,7 +131,7 @@ const AvatarGroupWithForwardRef: AbstractComponent<Props, UnionRefs> = forwardRe
       (showCollaboratorsCount ? 1 : 0) +
       (showAddCollaboratorsButton ? 1 : 0);
 
-    let collaboratorStack: $ReadOnlyArray<Node> = displayedCollaborators.map(
+    let collaboratorStack: $ReadOnlyArray<ReactNode> = displayedCollaborators.map(
       ({ src, name }, index) => (
         <CollaboratorAvatar
           hovered={hovered}
@@ -173,20 +187,21 @@ const AvatarGroupWithForwardRef: AbstractComponent<Props, UnionRefs> = forwardRe
 
     if (role === 'link' && href) {
       return (
-        <TapArea
+        <TapAreaLink
           accessibilityLabel={accessibilityLabel}
           href={href}
           fullWidth={false}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          onTap={onClick}
+          onTap={({ event, dangerouslyDisableOnNavigation }) =>
+            onClick?.({ event, dangerouslyDisableOnNavigation })
+          }
           ref={ref}
-          role="link"
           rounding="pill"
           tapStyle="compress"
         >
           <AvatarGroupStack />
-        </TapArea>
+        </TapAreaLink>
       );
     }
 
@@ -200,7 +215,8 @@ const AvatarGroupWithForwardRef: AbstractComponent<Props, UnionRefs> = forwardRe
           fullWidth={false}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          onTap={onClick}
+          // $FlowExpectedError[prop-missing]
+          onTap={({ event }) => onClick({ event })}
           ref={ref}
           rounding="pill"
           tapStyle="compress"

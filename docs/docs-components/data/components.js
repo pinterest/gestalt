@@ -22,7 +22,7 @@ import ButtonGroup from '../../graphics/general/ButtonGroup.svg';
 import ButtonLink from '../../graphics/general/ButtonLink.svg';
 import Callout from '../../graphics/general/Callout.svg';
 import Card from '../../graphics/general/Card.svg';
-// import Chart from '../../graphics/general/Chart.svg';
+import ChartGraph from '../../graphics/general/ChartGraph.svg';
 import Checkbox from '../../graphics/general/Checkbox.svg';
 import Collage from '../../graphics/general/Collage.svg';
 import ComboBox from '../../graphics/general/ComboBox.svg';
@@ -37,10 +37,12 @@ import HelpButton from '../../graphics/general/HelpButton.svg';
 import Icon from '../../graphics/general/Icon.svg';
 import IconButton from '../../graphics/general/IconButton.svg';
 import IconButtonFloating from '../../graphics/general/IconButtonFloating.svg';
+import IconButtonLink from '../../graphics/general/IconButtonLink.svg';
 import Image from '../../graphics/general/Image.svg';
 import GestaltLabel from '../../graphics/general/Label.svg';
 import GestaltLink from '../../graphics/general/Link.svg';
 import List from '../../graphics/general/List.svg';
+import ListAction from '../../graphics/general/ListAction.svg';
 import Masonry from '../../graphics/general/Masonry.svg';
 import Modal from '../../graphics/general/Modal.svg';
 import ModalAlert from '../../graphics/general/ModalAlert.svg';
@@ -212,29 +214,9 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           'AvatarGroup is used to both display a group of user avatars and, optionally, control actions related to the users group.',
         category: ['Avatars'],
         status: {
-          documentation: 'notAvailable',
+          documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
-        },
-      },
-      ios: {
-        name: 'AvatarGroup',
-        visual: {
-          svg: <AvatarGroup />,
-        },
-        alias: [
-          'Pinner reps',
-          'Personas',
-          'Facepile',
-          'User Images',
-          'Identification Group',
-          'Identicons',
-        ],
-        description:
-          'AvatarGroup is used to both display a group of user avatars and, optionally, control actions related to the users group.',
-        category: ['Avatars'],
-        status: {
-          documentation: 'notAvailable',
-          status: 'notAvailable',
         },
       },
     },
@@ -274,6 +256,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Indicators'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
         },
       },
@@ -286,7 +269,8 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         description: 'Badge is a label that indicates status or importance.',
         category: ['Indicators'],
         status: {
-          documentation: 'notAvailable',
+          documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
         },
       },
@@ -370,6 +354,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Actions'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'ready',
         },
       },
@@ -383,6 +368,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Actions'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
         },
       },
@@ -442,6 +428,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Actions'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'ready',
         },
       },
@@ -490,37 +477,40 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Pins and imagery'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
         },
       },
     },
   },
-  // {
-  //   id: 'Chart',
-  //   platform: {
-  //     web: {
-  //       name: 'Chart',
-  //       visual: {
-  //         svg: <Chart />,
-  //       },
-  //       description: 'WIP ',
-  //       category: ['Data'],
-  //       status: {
-  //         accessible: {
-  //           summary: 'notAvailable',
-  //           a11yVisual: 'notAvailable',
-  //           a11yScreenreader: 'notAvailable',
-  //           a11yNavigation: 'notAvailable',
-  //           a11yComprehension: 'notAvailable',
-  //         },
-  //         documentation: 'notAvailable',
-  //         figmaStatus: 'notAvailable',
-  //         responsive: 'notAvailable',
-  //         status: 'notAvailable',
-  //       },
-  //     },
-  //   },
-  // },
+  {
+    id: 'ChartGraph',
+    platform: {
+      web: {
+        name: 'ChartGraph',
+        visual: {
+          svg: <ChartGraph />,
+        },
+        alias: ['Bar Graph', 'Line Graph', 'Column Graph'],
+        description:
+          'ChartGraph is used for displaying various types of graphs plotted on an x and y axis. ',
+        category: ['Data'],
+        status: {
+          accessible: {
+            summary: 'ready',
+            a11yVisual: 'ready',
+            a11yScreenreader: 'ready',
+            a11yNavigation: 'ready',
+            a11yComprehension: 'ready',
+          },
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          responsive: 'ready',
+          status: 'ready',
+        },
+      },
+    },
+  },
   {
     id: 'Checkbox',
     platform: {
@@ -554,6 +544,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Controls'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'ready',
         },
       },
@@ -566,6 +557,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Controls'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
         },
       },
@@ -1129,6 +1121,32 @@ const componentData: $ReadOnlyArray<ComponentData> = [
     },
   },
   {
+    id: 'IconButtonLink',
+    platform: {
+      web: {
+        name: 'IconButtonLink',
+        visual: {
+          svg: <IconButtonLink />,
+        },
+        description: 'IconButton is mainly used as navigational element.',
+        category: ['Actions'],
+        status: {
+          accessible: {
+            summary: 'ready',
+            a11yVisual: 'ready',
+            a11yScreenreader: 'ready',
+            a11yNavigation: 'ready',
+            a11yComprehension: 'ready',
+          },
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          responsive: 'ready',
+          status: 'ready',
+        },
+      },
+    },
+  },
+  {
     id: 'IconButtonFloating',
     platform: {
       web: {
@@ -1327,6 +1345,41 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           figmaStatus: 'notAvailable',
           responsive: 'ready',
           status: 'ready',
+        },
+      },
+    },
+  },
+  {
+    id: 'ListAction',
+    platform: {
+      android: {
+        name: 'ListAction',
+        visual: {
+          svg: <ListAction />, // THIS IS WRONG
+        },
+        alias: ['Table', 'List', 'List item', 'Menu'],
+        description:
+          'ListAction is a continuous vertical group of list items that can include text, icons, images and actions.',
+        category: ['Structure'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          status: 'planned',
+        },
+      },
+      ios: {
+        name: 'ListAction',
+        visual: {
+          svg: <ListAction />, // THIS IS WRONG
+        },
+        alias: ['Table', 'List', 'List item', 'Menu'],
+        description:
+          'ListAction is a continuous vertical group of list items that can include text, icons, images and actions.',
+        category: ['Structure'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          status: 'planned',
         },
       },
     },
@@ -1796,7 +1849,22 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Fields and forms'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'ready',
+        },
+      },
+      ios: {
+        name: 'SearchField',
+        visual: {
+          svg: <SearchField />, // THIS IS WRONG
+        },
+        alias: ['Search Box', 'Search Bar'],
+        description: 'SearchField allows users to search for free-form content.',
+        category: ['Fields and forms'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          status: 'planned',
         },
       },
     },
@@ -1892,6 +1960,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: [],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
         },
       },
@@ -1906,6 +1975,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: [],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
         },
       },
@@ -2089,6 +2159,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Controls'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'ready',
         },
       },
@@ -2102,6 +2173,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Controls'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
         },
       },
@@ -2131,21 +2203,6 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           figmaStatus: 'partial',
           responsive: 'ready',
           status: 'ready',
-        },
-      },
-      android: {
-        name: 'Table',
-        visual: {
-          svg: <Table />,
-        },
-        alias: ['Data Table', 'Data Grid'],
-        description:
-          'Table is a set of structured data that is easy for a user to scan, examine, and compare.',
-        category: ['Data'],
-        status: {
-          documentation: 'ready',
-          figmaStatus: 'ready',
-          status: 'planned',
         },
       },
     },
@@ -2213,6 +2270,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Navigation'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'ready',
         },
       },
@@ -2225,6 +2283,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Navigation'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'ready',
         },
       },
@@ -2240,7 +2299,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         },
         alias: ['Chip', 'Pill', 'Filter Tag'],
         description: 'Tags are objects that hold text and have a delete icon to remove them.',
-        category: ['Data'],
+        category: ['Navigation'],
         status: {
           accessible: {
             summary: 'ready',
@@ -2268,7 +2327,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         alias: ['Chip', 'Pill', 'Filter', 'Tag'],
         description:
           'TagData can be used to select multiple categories to compare with each other in a graph or chart view.',
-        category: ['Fields and forms'],
+        category: ['Data'],
         status: {
           accessible: {
             summary: 'ready',
@@ -2356,6 +2415,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Text'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'ready',
         },
       },
@@ -2370,6 +2430,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Text'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
         },
       },
@@ -2410,7 +2471,22 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Fields and forms'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'ready',
+        },
+      },
+      ios: {
+        name: 'TextArea',
+        visual: {
+          svg: <TextArea />,
+        },
+        alias: ['Multi-line Input'],
+        description: 'TextArea allows for multi-line input.',
+        category: ['Fields and forms'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          status: 'planned',
         },
       },
     },
@@ -2450,6 +2526,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Fields and forms'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'ready',
         },
       },
@@ -2463,6 +2540,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Fields and forms'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
         },
       },
@@ -2479,7 +2557,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         alias: ['Card Grid', 'Item Featured', 'Choice Tile', 'Selection Card', 'Visual Picker'],
         description:
           'TileData can be used to select multiple categories to compare with each other in a graph or chart view.',
-        category: ['Fields and forms'],
+        category: ['Data'],
         status: {
           accessible: {
             summary: 'ready',
@@ -2534,6 +2612,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Messaging'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'ready',
         },
       },
@@ -2548,6 +2627,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: ['Messaging'],
         status: {
           documentation: 'ready',
+          figmaStatus: 'ready',
           status: 'planned',
         },
       },

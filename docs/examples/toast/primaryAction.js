@@ -1,12 +1,17 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Flex, Image, Toast } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   return (
     <Flex justifyContent="center" alignItems="center" width="100%" height="100%">
       <Toast
-        primaryAction={{ accessibilityLabel: 'Edit your Pin', label: 'Edit' }}
+        primaryAction={{
+          accessibilityLabel: 'Edit your Pin',
+          label: 'Edit',
+          role: 'button',
+          onClick: () => {},
+        }}
         thumbnail={{
           image: (
             <Image

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Icon from './Icon.js';
@@ -12,11 +12,11 @@ import FormErrorMessage from './shared/FormErrorMessage.js';
 import FormHelperText from './shared/FormHelperText.js';
 import FormLabel from './shared/FormLabel.js';
 
-type Props = {|
+type Props = {
   /**
    * One or more SelectList.Option components, which may be grouped using SelectList.Group.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * Used to disable the entire SelectList.
    */
@@ -48,7 +48,10 @@ type Props = {|
   /**
    * Callback triggered when the user selects a new option.  See the [controlled component](https://gestalt.pinterest.systems/web/selectlist#Controlled-component) variant to learn more.
    */
-  onChange: ({| event: SyntheticInputEvent<HTMLSelectElement>, value: string |}) => void,
+  onChange: ({
+    event: SyntheticInputEvent<HTMLSelectElement>,
+    value: string,
+  }) => void,
   /**
    * If not provided, the first item in the list will be shown. Be sure to localize the text. See the [controlled component](https://gestalt.pinterest.systems/web/selectlist#Controlled-component) variant to learn more.
    */
@@ -61,7 +64,7 @@ type Props = {|
    * The currently-selected value. See the [controlled component](https://gestalt.pinterest.systems/web/selectlist#Controlled-component) variant to learn more.
    */
   value?: ?string,
-|};
+};
 
 /**
  * [SelectList](https://gestalt.pinterest.systems/web/selectlist) displays a list of actions or options using the browser’s native select.
@@ -83,7 +86,7 @@ function SelectList({
   placeholder,
   size = 'md',
   value,
-}: Props): Node {
+}: Props): ReactNode {
   const [focused, setFocused] = useState(false);
 
   const handleOnChange: (event: SyntheticInputEvent<HTMLSelectElement>) => void = (event) => {

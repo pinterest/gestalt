@@ -1,15 +1,15 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { SlimBanner } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
-import cjkText from '../../examples/text/cjkText.js';
 import doMinimalStyle from '../../examples/text/doMinimalStyle.js';
 import dontCenterAlign from '../../examples/text/dontCenterAlign.js';
 import dontMixStyles from '../../examples/text/dontMixStyles.js';
@@ -28,7 +28,7 @@ import variantSizes from '../../examples/text/variantSizes.js';
 import variantStyles from '../../examples/text/variantStyles.js';
 import variantTitle from '../../examples/text/variantTitle.js';
 
-export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -162,7 +162,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           helperLink={{
             text: 'View Typography guidelines',
             accessibilityLabel: 'View Typography guidelines',
-            href: '/foundations/typography/guidelines',
+            href: '/foundations/typography',
             onClick: () => {},
           }}
         />
@@ -178,30 +178,13 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
           description="For low-vision users, text color contrast is very important. To insure accessible contrast, stick to our [standard text colors](/foundations/color/usage#Standard-text-colors). See our [accessibility](/foundations/accessibility) page for design considerations and handy accessibility tools for checking color contrast."
         />
       </AccessibilitySection>
-      <MainSection
-        name="Localization"
-        description="Keep text simple and short to avoid truncation or line wrapping in UI controls like buttons when translating languages that require more characters. Avoid overriding our line-height settings, as this can result in text clipping for scripts, like Hindi, that have taller ascenders and descenders."
-      >
-        <MainSection.Subsection
-          title="Text-wrapping and hyphenation"
-          description="Hyphenation on iOS is turned off by default to avoid incorrect word breaks when strings of text wrap to the next line. This is especially helpful for international languages where an incorrect word break can greatly change the meaning of a word or sentence."
-        />
 
-        <MainSection.Subsection
-          title="Word Breaks and CJK languages"
-          description={`Chinese, Japanese and Korean languages may be broken in the middle of a word. This creates text-wrapping issues and tall containers. To avoid this, Text uses the CSS property \`word-break:keep-all\` to keep words on CJK languages together when CJK is detected.  
-          <br /> Be sure to consider text overflow, and making sure a container is wide enough to support a CJK term.
-          `}
-        >
-          <SandpackExample
-            previewHeight={550}
-            code={cjkText}
-            name="CJK Text"
-            hideEditor
-            hideControls
-          />
-        </MainSection.Subsection>
-      </MainSection>
+      <LocalizationSection
+        name={generatedDocGen?.displayName}
+        noDefaultLabelProvider
+        notes="Keep text simple and short to avoid truncation or line wrapping in UI controls like buttons when translating languages that require more characters. Avoid overriding our line-height settings, as this can result in text clipping for scripts, like Hindi, that have taller ascenders and descenders."
+      />
+
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Alignment"
@@ -319,7 +302,7 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
         />
         <MainSection.Subsection
           description={`
-      **[Typography guidelines](/foundations/typography/guidelines)**
+      **[Typography guidelines](/foundations/typography)**
       A run-down on our typographic foundations, with some guidelines for using Heading and Text components together in products.
 `}
         />
@@ -340,7 +323,9 @@ export default function TextPage({ generatedDocGen }: {| generatedDocGen: DocGen
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Text') },
   };

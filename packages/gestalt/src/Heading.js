@@ -1,5 +1,5 @@
 // @flow strict
-import { createElement, type Node } from 'react';
+import { createElement, type Node as ReactNode } from 'react';
 import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Heading.css';
@@ -20,10 +20,10 @@ const defaultHeadingLevels = {
 };
 
 type AccessibilityLevel = 1 | 2 | 3 | 4 | 5 | 6 | 'none';
-type Overflow = 'normal' | 'breakWord';
+type Overflow = 'normal' | 'breakWord' | 'breakAll';
 type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
-type Props = {|
+type Props = {
   /**
    * Allows you to override the default heading level for the given `size`.
    */
@@ -35,7 +35,7 @@ type Props = {|
   /**
    *
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * The color of the text. See [Text colors example](https://gestalt.pinterest.systems/foundations/design_tokens#Text-color) for more details.
    */
@@ -66,7 +66,7 @@ type Props = {|
    * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/foundations/design_tokens#Font-size).
    */
   size?: Size,
-|};
+};
 
 /**
  * [Heading](https://gestalt.pinterest.systems/web/heading) allows you to add H1–H6 level text on a page. They are generally placed underneath a PageHeader, and provide you with a way to create a logical text hierarchy.
@@ -84,7 +84,20 @@ export default function Heading({
   id,
   overflow = 'breakWord',
   size = '600',
-}: Props): Node {
+}: Props): ReactNode {
+  const getWordBreakStyle = (): string | void => {
+    if (overflow === 'breakAll') {
+      return typography.breakAll;
+    }
+
+    // default to breakWord if lineClamp is set
+    if (overflow === 'breakWord' || isNotNullish(lineClamp)) {
+      return typography.breakWord;
+    }
+
+    return undefined;
+  };
+
   const cs = cx(
     styles.Heading,
     typography[`fontSize${size}`],
@@ -95,7 +108,7 @@ export default function Heading({
     align === 'end' && typography.alignEnd,
     align === 'forceLeft' && typography.alignForceLeft,
     align === 'forceRight' && typography.alignForceRight,
-    overflow === 'breakWord' && typography.breakWord,
+    getWordBreakStyle(),
     isNotNullish(lineClamp) && typography.lineClamp,
   );
 

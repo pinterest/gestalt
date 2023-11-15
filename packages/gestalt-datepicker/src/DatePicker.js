@@ -3,7 +3,7 @@ import {
   type AbstractComponent,
   type Element,
   forwardRef,
-  type Node,
+  type Node as ReactNode,
   useEffect,
   useImperativeHandle,
   useRef,
@@ -15,39 +15,39 @@ import InternalDatePicker from './DatePicker/InternalDatePicker.js';
 // NOTE: DO NOT USE PER-LINE FLOW SUPPRESSIONS HERE
 // They will get picked up by the docgen and bork the type displayed on the docs
 // flowlint unclear-type:off
-type LocaleData = {|
+type LocaleData = {
   code?: string,
   formatDistance?: (...args: $ReadOnlyArray<any>) => any,
   formatRelative?: (...args: $ReadOnlyArray<any>) => any,
-  localize?: {|
+  localize?: {
     ordinalNumber: (...args: $ReadOnlyArray<any>) => any,
     era: (...args: $ReadOnlyArray<any>) => any,
     quarter: (...args: $ReadOnlyArray<any>) => any,
     month: (...args: $ReadOnlyArray<any>) => any,
     day: (...args: $ReadOnlyArray<any>) => any,
     dayPeriod: (...args: $ReadOnlyArray<any>) => any,
-  |},
-  formatLong?: {|
+  },
+  formatLong?: {
     date: (...args: $ReadOnlyArray<any>) => any,
     time: (...args: $ReadOnlyArray<any>) => any,
     dateTime: (...args: $ReadOnlyArray<any>) => any,
-  |},
-  match?: {|
+  },
+  match?: {
     ordinalNumber: (...args: $ReadOnlyArray<string>) => any,
     era: (...args: $ReadOnlyArray<any>) => any,
     quarter: (...args: $ReadOnlyArray<any>) => any,
     month: (...args: $ReadOnlyArray<any>) => any,
     day: (...args: $ReadOnlyArray<any>) => any,
     dayPeriod: (...args: $ReadOnlyArray<any>) => any,
-  |},
-  options?: {|
+  },
+  options?: {
     weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6,
     firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7,
-  |},
-|};
+  },
+};
 // flowlint unclear-type:error
 
-export type Props = {|
+export type Props = {
   /**
    *  When disabled, DatePicker looks inactive and cannot be interacted with. See the [disabled example](https://gestalt.pinterest.systems/web/datepicker#States) to learn more.
    */
@@ -100,14 +100,14 @@ export type Props = {|
   /**
    * Required for date range selection. Pass the complimentary range date picker ref object to DatePicker to autofocus on the unselected date range field. See the [date range picker example](https://gestalt.pinterest.systems/web/datepicker#Date-range) to learn more.
    */
-  nextRef?: {| current: null | HTMLInputElement |},
+  nextRef?: { current: null | HTMLInputElement },
   /**
    * Callback triggered when the user selects a date.
    */
-  onChange: ({|
+  onChange: ({
     event: SyntheticInputEvent<HTMLInputElement>,
     value: Date | null,
-  |}) => void,
+  }) => void,
   /**
    * Placeholder text shown if the user has not yet input a value. The default placeholder value shows the date format for each locale, e.g. MM/DD/YYYY.
    */
@@ -136,7 +136,7 @@ export type Props = {|
    * DatePicker can be a controlled component. `value` sets the current value of the input. See the [controlled component date example](https://gestalt.pinterest.systems/web/datepicker#Controlled-component) to learn more.
    */
   value?: Date | null,
-|};
+};
 
 /**
  * [DatePicker](https://gestalt.pinterest.systems/web/datepicker) is used when the user has to select a date or date range.
@@ -172,15 +172,16 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElement> = for
     value,
   }: Props,
   ref,
-): Node {
+): ReactNode {
   const innerInputRef = useRef<null | HTMLInputElement>(null);
   useImperativeHandle(ref, () => innerInputRef.current);
-  const { datePickerHandlers } = useGlobalEventsHandler() || {
+  // Consume GlobalEventsHandlerProvider
+  const { datePickerHandlers } = useGlobalEventsHandler() ?? {
     datePickerHandlers: undefined,
   };
 
   useEffect(() => {
-    if (datePickerHandlers?.onMount) datePickerHandlers?.onMount();
+    if (datePickerHandlers?.onRender) datePickerHandlers?.onRender();
   }, [datePickerHandlers]);
 
   return (

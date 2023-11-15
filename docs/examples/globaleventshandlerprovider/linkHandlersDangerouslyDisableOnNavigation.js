@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useCallback, useMemo, useRef, useState } from 'react';
+import { type Node as ReactNode, useCallback, useMemo, useRef, useState } from 'react';
 import { Button, Dropdown, Flex, GlobalEventsHandlerProvider, Link, Text } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
 
@@ -15,11 +15,11 @@ export default function Example(): Node {
   const useOnNavigation = useCallback(
     ({
       href,
-    }: {|
+    }: {
       href: $ElementType<React$ElementConfig<typeof Link>, 'href'>,
       target?: $ElementType<React$ElementConfig<typeof Link>, 'target'>,
-    |}) => {
-      const onNavigationClick = ({ event }: {| +event: SyntheticEvent<> |}) => {
+    }) => {
+      const onNavigationClick = ({ event }: { +event: SyntheticEvent<> }) => {
         event.preventDefault();
         // eslint-disable-next-line no-alert
         alert(`Disabled link: ${href}. Opening help.pinterest.com instead.`);

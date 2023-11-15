@@ -1,16 +1,16 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import classNames from 'classnames';
 import getChildrenToArray from './getChildrenToArray.js';
 import { NestingProvider } from '../contexts/NestingProvider.js';
 import Layout from '../Layout.css';
 import Whitespace from '../Whitespace.css';
 
-type Props = {|
-  children: Node,
-|};
+type Props = {
+  children: ReactNode,
+};
 
-export default function TableOfContentsItemList({ children }: Props): Node {
+export default function TableOfContentsItemList({ children }: Props): ReactNode {
   const childrenArray = getChildrenToArray({ children });
 
   return (

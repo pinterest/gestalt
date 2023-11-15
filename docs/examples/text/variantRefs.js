@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useEffect, useRef, useState } from 'react';
+import { type Node as ReactNode, useEffect, useRef, useState } from 'react';
 import { Box, Flex, Label, Link, Switch, Text } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [showLongText, setShowLongText] = useState(false);
   const [applyTruncationDetection, setApplyTruncationDetection] = useState(false);
 

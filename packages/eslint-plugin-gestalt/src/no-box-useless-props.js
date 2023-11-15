@@ -29,11 +29,11 @@ function getAttributeName(attributeName): ?string {
   return attributeName?.name;
 }
 
-function getExpressionValues(valueExpression: {|
+function getExpressionValues(valueExpression: {
   value: string,
-  consequent: {| value: string |},
-  alternate: {| value: string |},
-|}): $ReadOnlyArray<string> {
+  consequent: { value: string },
+  alternate: { value: string },
+}): $ReadOnlyArray<string> {
   return [valueExpression.consequent, valueExpression.alternate].map((option) => option.value);
 }
 
@@ -64,13 +64,13 @@ function getAttributeValue(attributeValue): ?(string | $ReadOnlyArray<string>) {
   return undefined;
 }
 
-function getDangerouslySetStyles(attributeValue: {|
-  expression: {|
+function getDangerouslySetStyles(attributeValue: {
+  expression: {
     properties: $ReadOnlyArray<{
-      key: {| name: string |},
+      key: { name: string },
       value: {
         properties: $ReadOnlyArray<{
-          key: {| name: string |},
+          key: { name: string },
           value: { properties: $ReadOnlyArray<{ ... }>, ... },
           ...
         }>,
@@ -78,9 +78,9 @@ function getDangerouslySetStyles(attributeValue: {|
       },
       ...
     }>,
-  |},
+  },
   // $FlowFixMe[unclear-type]
-|}): any {
+}): any {
   const valueExpression = attributeValue.expression;
   const styleObject = valueExpression?.properties?.find(({ key }) => key.name === '__style');
   if (!styleObject) {
@@ -96,13 +96,13 @@ function getDangerouslySetStyles(attributeValue: {|
 }
 
 function hasDangerouslySetFlexDisplay(
-  stylesObject: null | {|
-    display: {|
+  stylesObject: null | {
+    display: {
       value: string,
-      consequent: {| value: string |},
-      alternate: {| value: string |},
-    |},
-  |},
+      consequent: { value: string },
+      alternate: { value: string },
+    },
+  },
 ): boolean {
   if (!stylesObject || !stylesObject.display) {
     return false;

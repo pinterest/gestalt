@@ -1,64 +1,52 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 import QualityChecklist from '../../docs-components/QualityChecklist.js';
+import SandpackExample from '../../docs-components/SandpackExample.js';
+import actionsVariant from '../../examples/upsell/actionsVariant.js';
+import dontShowSameOnceDismissed from '../../examples/upsell/dontShowSameOnceDismissed.js';
+import dontStack from '../../examples/upsell/dontStack.js';
+import dontUseForCriticalInfo from '../../examples/upsell/dontUseForCriticalInfo.js';
+import iconVariant from '../../examples/upsell/iconVariant.js';
+import imageVariant from '../../examples/upsell/imageVariant.js';
+import labelsExample from '../../examples/upsell/labelsExample.js';
+import localizationLabels from '../../examples/upsell/localizationLabels.js';
+import mainExample from '../../examples/upsell/mainExample.js';
+import messagePropForVisualStyle from '../../examples/upsell/messagePropForVisualStyle.js';
+import multipleTextField from '../../examples/upsell/multipleTextField.js';
+import placeAtTopOfPage from '../../examples/upsell/placeAtTopOfPage.js';
+import planTiming from '../../examples/upsell/planTiming.js';
+import singleTextField from '../../examples/upsell/singleTextField.js';
+import textVariant from '../../examples/upsell/textVariant.js';
+import useForMarketing from '../../examples/upsell/useForMarketing.js';
 
 export default function DocsPage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): ReactNode {
   return (
     <Page title={generatedDocGen?.Upsell?.displayName}>
       <PageHeader
         name={generatedDocGen?.Upsell?.displayName}
         description={generatedDocGen?.Upsell?.description}
-        defaultCode={`
-<Upsell
-  dismissButton={{
-    accessibilityLabel: 'Dismiss banner',
-    onDismiss: () => {},
-  }}
-  imageData={{
-    component: <Icon icon="pinterest" accessibilityLabel="" color="default" size={32} />,
-  }}
-  message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-  primaryAction={{
-    accessibilityLabel: "Send ads invite",
-    href: 'https://pinterest.com',
-    label: 'Send invite',
-    target: 'blank',
-  }}
-  secondaryAction={{
-    accessibilityLabel: 'Learn more: Verified Merchant Program',
-    href: 'https://help.pinterest.com/en/business/article/verified-merchant-program',
-    label: 'Learn more',
-    target: 'blank',
-  }}
-  title="Give $30, get $60 in ads credit"
-/>;
-    `}
-      />
+      >
+        <SandpackExample
+          name="Main Example"
+          code={mainExample}
+          layout="column"
+          hideEditor
+          previewHeight={240}
+        />
+      </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen?.Upsell} />
-
-      <MainSection name="Subcomponents">
-        <MainSection.Subsection
-          title={generatedDocGen?.UpsellForm?.displayName}
-          description={generatedDocGen?.UpsellForm?.description}
-        >
-          <GeneratedPropTable
-            generatedDocGen={generatedDocGen?.UpsellForm}
-            id={generatedDocGen?.UpsellForm?.displayName}
-            name={generatedDocGen?.UpsellForm?.displayName}
-          />
-        </MainSection.Subsection>
-      </MainSection>
 
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
@@ -89,31 +77,15 @@ export default function DocsPage({
             cardSize="lg"
             type="do"
             description="Use Upsells for marketing new products or encouraging upgrades."
-            defaultCode={`
-<Upsell
-  dismissButton={{
-    accessibilityLabel: 'Dismiss banner',
-    onDismiss: () => {},
-  }}
-  imageData={{
-    component: <Icon accessibilityLabel="" color="default" icon="pinterest" size={32} />,
-  }}
-  message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-  primaryAction={{
-    accessibilityLabel: "Send ads invite",
-    href: 'https://pinterest.com',
-    label: 'Send invite',
-    target: 'blank',
-  }}
-  secondaryAction={{
-    accessibilityLabel: 'Learn more: Ads credit',
-    href: 'https://help.pinterest.com/en/business/article/verified-merchant-program',
-    label: 'Learn more',
-    target: 'blank',
-  }}
-  title="Give $30, get $60 in ads credit"
-/>;
-        `}
+            sandpackExample={
+              <SandpackExample
+                name="Use for Marketing New Products & Encouraging Upgrades"
+                code={useForMarketing}
+                layout="column"
+                previewHeight={240}
+                hideEditor
+              />
+            }
           />
           <MainSection.Card
             cardSize="lg"
@@ -121,41 +93,15 @@ export default function DocsPage({
             description={`
         Place Upsell at the top of the page under the primary navigation when possible.
         `}
-            defaultCode={`
-<Box>
-  <Box alignItems="center" display="flex" marginBottom={4}>
-    <Icon accessibilityLabel="" color="brandPrimary" icon="pinterest" size={32} />
-    <ButtonGroup>
-      <Button color="transparent" iconEnd="arrow-down" text="Business" />
-      <Button color="transparent" iconEnd="arrow-down" text="Create" />
-      <Button color="transparent" iconEnd="arrow-down" text="Analytics" />
-      <Button color="transparent" iconEnd="arrow-down" text="Ads" />
-    </ButtonGroup>
-  </Box>
-
-  <Divider />
-
-  <Box marginTop={8}>
-    <Upsell
-      dismissButton={{
-        accessibilityLabel: 'Dismiss banner',
-        onDismiss: () => {},
-      }}
-      imageData={{
-        component: <Icon icon="pinterest" accessibilityLabel="" color="default" size={32} />,
-      }}
-      message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-      primaryAction={{
-        accessibilityLabel: "Send ads invite",
-        href: 'https://pinterest.com',
-        label: 'Send invite',
-        target: 'blank',
-      }}
-      title="Give $30, get $60 in ads credit"
-    />
-  </Box>
-</Box>;
-        `}
+            sandpackExample={
+              <SandpackExample
+                name="Place at Top of Page Under Primary Navigation"
+                code={placeAtTopOfPage}
+                layout="column"
+                previewHeight={300}
+                hideEditor
+              />
+            }
           />
 
           <MainSection.Card
@@ -164,39 +110,15 @@ export default function DocsPage({
             description={`
         Plan for the timing of your Upsells with new product launches. Try to create different messages for each time an Upsell appears to the user.
         `}
-            defaultCode={`
-<Flex gap={{ column: 4, row: 0 }} direction="column">
-  <Text>First Upsell:</Text>
-  <Upsell
-    dismissButton={{
-      accessibilityLabel: 'Dismiss banner',
-      onDismiss: () => {},
-    }}
-    imageData={{
-      component: <Icon icon="ads-stats" accessibilityLabel="" color="default" size={32} />,
-    }}
-    message="Install the Pinterest tag to track your website traffic, conversions and more."
-    primaryAction={{ label: 'Install now', accessibilityLabel: 'Install Pinterest tag now' }}
-    secondaryAction={{
-      accessibilityLabel: 'Learn more: Pinterest tag',
-      href: 'https://help.pinterest.com/en/business/article/verified-merchant-program',
-      label: 'Learn more',
-      target: 'blank',
-    }}
-    title="Measure ad performance"
-  />
-
-  <Text>Follow-up Upsell:</Text>
-  <Upsell
-    imageData={{
-      component: <Icon icon="send" accessibilityLabel="" color="default" size={32} />,
-    }}
-    message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
-    primaryAction={{ label: 'Claim now', accessibilityLabel: "Claim ads credit" }}
-    title="So close! Finish installing your Pinterest tag, get $10 in ads credit"
-  />
-</Flex>;
-        `}
+            sandpackExample={
+              <SandpackExample
+                name="Plan Timing with New Product Launches"
+                code={planTiming}
+                layout="column"
+                previewHeight={520}
+                hideEditor
+              />
+            }
           />
 
           <MainSection.Card
@@ -205,20 +127,16 @@ export default function DocsPage({
             description={`
           Use Upsells for critical information, such as errors or warnings. Use [Callout](/web/callout) instead. Upsells should not be used for general information either.
         `}
-            defaultCode={`
-<Upsell
-  dismissButton={{
-    accessibilityLabel: 'Dismiss banner',
-    onDismiss: () => {},
-  }}
-  imageData={{
-    component: <Icon icon="workflow-status-warning" accessibilityLabel="Warning" color="default" size={32} />,
-  }}
-  message="There was a problem connecting your account."
-  primaryAction={{ label: 'Try again', accessibilityLabel: 'Try linking account again' }}
-  title="Could not link account"
-/>;
-        `}
+            sandpackExample={
+              <SandpackExample
+                name="Don't Use for Critical Information, Use Callout Instead"
+                code={dontUseForCriticalInfo}
+                layout="column"
+                previewHeight={200}
+                hideEditor
+                hideControls
+              />
+            }
           />
 
           <MainSection.Card
@@ -227,51 +145,16 @@ export default function DocsPage({
             description={`
         Stack Upsells on a page. In the case that they must be stacked, [Callouts](/web/callout) will appear above Upsells.
         `}
-            defaultCode={`
-<Box>
-  <Box alignItems="center" display="flex" marginBottom={4}>
-    <Icon accessibilityLabel="" color="brandPrimary" icon="pinterest" size={32} />
-    <ButtonGroup>
-      <Button color="transparent" iconEnd="arrow-down" text="Business" />
-      <Button color="transparent" iconEnd="arrow-down" text="Create" />
-      <Button color="transparent" iconEnd="arrow-down" text="Analytics" />
-      <Button color="transparent" iconEnd="arrow-down" text="Ads" />
-    </ButtonGroup>
-  </Box>
-
-  <Divider />
-
-  <Box marginTop={8}>
-    <Flex direction="column" gap={{ column: 2, row: 0 }}>
-      <Upsell
-        imageData={{
-          component: <Icon icon="send" accessibilityLabel="" color="default" size={32} />,
-        }}
-        message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
-        primaryAction={{ label: 'Claim now', accessibilityLabel: 'Claim ads credit now' }}
-        title="So close! Finish installing your Pinterest tag, get $10 in ads credit"
-      />
-      <Upsell
-        dismissButton={{
-          accessibilityLabel: 'Dismiss banner',
-          onDismiss: () => {},
-        }}
-        imageData={{
-          component: <Icon icon="pinterest" accessibilityLabel="" color="default" size={32} />,
-        }}
-        message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-        primaryAction={{
-          accessibilityLabel: 'Send ads invite',
-          href: 'https://pinterest.com',
-          label: 'Send invite',
-          target: 'blank',
-        }}
-        title="Give $30, get $60 in ads credit"
-      />
-    </Flex>
-  </Box>
-</Box>;
-        `}
+            sandpackExample={
+              <SandpackExample
+                name="Do Not Stack on a Page"
+                code={dontStack}
+                layout="column"
+                previewHeight={480}
+                hideEditor
+                hideControls
+              />
+            }
           />
 
           <MainSection.Card
@@ -280,34 +163,16 @@ export default function DocsPage({
             description={`
         Keep showing the same Upsell once it has been dismissed. Upsells should only appear a maximum of 2 times to the same user, as they have diminishing returns.
         `}
-            defaultCode={`
-<Flex direction="column" gap={{ column: 4, row: 0 }}>
-  <Upsell
-    dismissButton={{
-      accessibilityLabel: 'Dismiss banner',
-      onDismiss: () => {},
-    }}
-    imageData={{
-      component: <Icon icon="ads-stats" accessibilityLabel="" color="default" size={32} />,
-    }}
-    message="Install the Pinterest tag to track your website traffic, conversions and more."
-    primaryAction={{ label: 'Install now', accessibilityLabel: 'Install Pinterest tag' }}
-    title="Measure ad performance"
-  />
-  <Upsell
-    dismissButton={{
-      accessibilityLabel: 'Dismiss banner',
-      onDismiss: () => {},
-    }}
-    imageData={{
-      component: <Icon icon="ads-stats" accessibilityLabel="" color="default" size={32} />,
-    }}
-    message="Install the Pinterest tag to track your website traffic, conversions and more."
-    primaryAction={{ label: 'Install now', accessibilityLabel: 'Install Pinterest tag' }}
-    title="Measure ad performance"
-  />
-</Flex>;
-        `}
+            sandpackExample={
+              <SandpackExample
+                name="Do Not Show the Same Once Dismissed"
+                code={dontShowSameOnceDismissed}
+                layout="column"
+                previewHeight={320}
+                hideEditor
+                hideControls
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
@@ -327,56 +192,35 @@ export default function DocsPage({
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Upsell
-  dismissButton={{
-    accessibilityLabel: 'Dismiss banner',
-    onDismiss: () => {},
-  }}
-  imageData={{
-    component: <Icon icon="pinterest" accessibilityLabel="" color="default" size={32} />,
-  }}
-  message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-  primaryAction={{
-    href: 'https://pinterest.com',
-    label: 'Send invite',
-    accessibilityLabel: 'Invite friend to use ads',
-    target: 'blank',
-  }}
-  secondaryAction={{
-    accessibilityLabel: 'Learn more: Verified Merchant Program',
-    href: 'https://help.pinterest.com/en/business/article/verified-merchant-program',
-    label: 'Learn more',
-    target: 'blank',
-  }}
-  title="Give $30, get $60 in ads credit"
-/>;
-        `}
+            sandpackExample={
+              <SandpackExample
+                name="Labels for Screen Readers and Localization"
+                code={labelsExample}
+                layout="column"
+                previewHeight={280}
+              />
+            }
           />
         </MainSection.Subsection>
       </AccessibilitySection>
 
-      <MainSection
-        name="Localization"
-        description={`Remember to localize all link or button labels, as well as \`title\` and \`message\`.`}
-      >
-        <MainSection.Subsection>
-          <MainSection.Card
-            cardSize="lg"
-            defaultCode={`
-<Upsell
-  imageData={{
-    component: <Icon icon="send" accessibilityLabel="" color="default" size={32} />,
-  }}
-  message="Verfolgen Sie die Anzeigenkonvertierung - Umsatz, Traffic und mehr - mit dem Pinterest Tag"
-  primaryAction={{
-    label: 'Beanspruche jetzt',
-    accessibilityLabel: 'Beanspruche Guthaben jetzt',
-    target: 'blank',
-  }}
-  title="Fast fertig! Beenden Sie die Installation Ihres Pinterest-Tags und erhalten Sie ein Guthaben von 10 Euro"
-/>;
-        `}
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen.Upsell?.displayName}
+        layout="column"
+        notes={`
+Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.`}
+      />
+
+      <MainSection name="Subcomponents">
+        <MainSection.Subsection
+          title={generatedDocGen?.UpsellForm?.displayName}
+          description={generatedDocGen?.UpsellForm?.description}
+        >
+          <GeneratedPropTable
+            generatedDocGen={generatedDocGen?.UpsellForm}
+            id={generatedDocGen?.UpsellForm?.displayName}
+            name={generatedDocGen?.UpsellForm?.displayName}
           />
         </MainSection.Subsection>
       </MainSection>
@@ -388,15 +232,13 @@ export default function DocsPage({
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Upsell
-  dismissButton={{
-    accessibilityLabel: 'Dismiss this banner',
-    onDismiss: () => {},
-  }}
-  message="Single line Upsell with no title or call to action."
-/>;
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Text-Only for Short Message with Dismiss"
+                code={textVariant}
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -406,25 +248,13 @@ export default function DocsPage({
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Upsell
-  dismissButton={{
-    accessibilityLabel: 'Dismiss banner',
-    onDismiss: () => {},
-  }}
-  imageData={{
-    component: <Icon icon="pinterest" accessibilityLabel="" color="default" size={32} />,
-  }}
-  message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-  primaryAction={{
-    href: 'https://pinterest.com',
-    label: 'Send invite',
-    accessibilityLabel: 'Invite friend to use ads',
-    target: 'blank',
-  }}
-  title="Give $30, get $60 in ads credit"
-/>;
-        `}
+            sandpackExample={
+              <SandpackExample
+                name="Icon to Add Additional Meaning"
+                code={iconVariant}
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -434,35 +264,13 @@ export default function DocsPage({
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-<Upsell
-  dismissButton={{
-    accessibilityLabel: 'Dismiss banner',
-    onDismiss: () => {},
-  }}
-  imageData={{
-    component: (
-      <Image
-        alt=""
-        color="rgb(231, 186, 176)"
-        naturalHeight={751}
-        naturalWidth={564}
-        src="https://i.ibb.co/7bQQYkX/stock2.jpg"
-      />
-    ),
-    mask: { rounding: 4 },
-    width: 128,
-  }}
-  message="Check out our resources for adapting to these times."
-  primaryAction={{
-    href: 'https://pinterest.com',
-    label: 'Visit',
-    accessibilityLabel: 'Visit our Stay Safe resources',
-    target: 'blank',
-  }}
-  title="Stay healthy and safe"
-/>;
-        `}
+            sandpackExample={
+              <SandpackExample
+                name="Image to Add Visual Interest"
+                code={imageVariant}
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
 
@@ -480,111 +288,13 @@ export default function DocsPage({
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-function Example(props) {
-  const [showModal, setShowModal] = React.useState(false);
-
-  return (
-    <Box marginStart={-1} marginEnd={-1}>
-      <Upsell
-        dismissButton={{
-          accessibilityLabel: 'Dismiss banner',
-          onDismiss: () => {},
-        }}
-        message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-        primaryAction={{
-          accessibilityLabel: 'Send ads invite',
-          label: 'Send invite',
-          onClick: () => {
-            setShowModal(!showModal);
-          },
-        }}
-        secondaryAction={{
-          accessibilityLabel: 'Learn more: Verified Merchant Program',
-          href: 'https://help.pinterest.com/en/business/article/verified-merchant-program',
-          label: 'Learn more',
-          target: 'blank',
-        }}
-        title="Give $30, get $60 in ads credit"
-      />
-
-      {showModal && (
-        <Layer>
-          <Modal
-            accessibilityModalLabel="Invite a friend to the Verified Merchant Program"
-            footer={
-              <Flex flex="grow" justifyContent="end">
-                <ButtonGroup>
-                  <Button
-                    onClick={() => {
-                      setShowModal(!showModal);
-                    }}
-                    size="lg"
-                    text="Cancel"
-                  />
-                  <Button color="red" size="lg" text="Send invite" />
-                </ButtonGroup>
-              </Flex>
+            sandpackExample={
+              <SandpackExample
+                name="Actions Can Be One Primary or One Primary & One Secondary"
+                code={actionsVariant}
+                layout="column"
+              />
             }
-            heading="Verified Merchant Program Invitation"
-            onDismiss={() => {
-              setShowModal(!showModal);
-            }}
-            size="md"
-            subHeading="When your friend spends their first $30 on ads, you’ll earn $60 of ads credit, and they’ll get $30 of ads credit, too."
-          >
-            <Flex direction="row">
-              <Column span={12}>
-                <Box display="flex" paddingY={2} paddingX={8}>
-                  <Column span={4}>
-                    <Label htmlFor="name">
-                      <Text align="left" weight="bold">
-                        Friend's Name
-                      </Text>
-                    </Label>
-                  </Column>
-
-                  <Column span={8}>
-                    <TextField id="name" onChange={() => undefined} />
-                  </Column>
-                </Box>
-
-                <Box display="flex" paddingY={2} paddingX={8}>
-                  <Column span={4}>
-                    <Label htmlFor="email">
-                      <Text align="left" weight="bold">
-                        Friend's E-mail
-                      </Text>
-                    </Label>
-                  </Column>
-
-                  <Column span={8}>
-                    <TextField id="email" onChange={() => undefined} />
-                  </Column>
-                </Box>
-
-                <Box display="flex" paddingY={2} paddingX={8}>
-                  <Column span={4}>
-                    <Label htmlFor="desc">
-                      <Text align="left" weight="bold">
-                        Personal Message
-                      </Text>
-                    </Label>
-                  </Column>
-
-                  <Column span={8}>
-                    <TextArea id="desc" onChange={() => undefined} />
-                  </Column>
-                </Box>
-              </Column>
-            </Flex>
-          </Modal>
-        </Layer>
-      )}
-    </Box>
-  );
-}
-        `}
           />
         </MainSection.Subsection>
 
@@ -595,119 +305,25 @@ function Example(props) {
           <MainSection.Card
             cardSize="lg"
             title="Single TextField"
-            defaultCode={`
-function FormExample(props) {
-  const [value, setValue] = React.useState('');
-  const handleSubmit = ({ event }) => {
-    event.preventDefault();
-    // your submit logic using state values
-  };
-
-  return (
-    <Upsell
-      dismissButton={{
-        accessibilityLabel: 'Dismiss banner',
-        onDismiss: ()=>{},
-      }}
-      imageData={{
-        component: <Icon icon="pinterest" accessibilityLabel="Pin" color="default" size={32}/>
-      }}
-      message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-      title="Give $30, get $60 in ads credit"
-    >
-      <Upsell.Form
-        onSubmit={handleSubmit}
-        submitButtonAccessibilityLabel="Submit name for ads credit"
-        submitButtonText="Submit"
-      >
-        <TextField
-          id="nameField"
-          onChange={({ value }) => setValue(value)}
-          placeholder="Name"
-          value={value}
-          label="Full name"
-          labelDisplay="hidden"
-        />
-      </Upsell.Form>
-    </Upsell>
-  );
-}
-      `}
+            sandpackExample={
+              <SandpackExample
+                name="Inputs to Collect Information from Users Example (1)"
+                code={singleTextField}
+                layout="column"
+              />
+            }
           />
 
           <MainSection.Card
             cardSize="lg"
             title="Multiple TextFields"
-            defaultCode={`
-function Example(props) {
-  const [nameValue, setNameValue] = React.useState('');
-  const [emailValue, setEmailValue] = React.useState('');
-  const handleSubmit = ({ event }) => {
-    event.preventDefault();
-    // your submit logic using state values
-  };
-
-  return (
-    <Upsell
-      dismissButton={{
-        accessibilityLabel: 'Dismiss banner',
-        onDismiss: () => {},
-      }}
-      imageData={{
-        component:
-          <Image
-            alt="Succulent plant against pink background"
-            color="rgb(231, 186, 176)"
-            naturalHeight={751}
-            naturalWidth={564}
-            src="https://i.ibb.co/7bQQYkX/stock2.jpg"
-          />,
-          mask: {rounding: 4},
-        width: 128,
-      }}
-      message="Learn how to grow your business with a Pinterest ads expert today!"
-      title="Interested in a free ads consultation?"
-    >
-      <Upsell.Form
-        onSubmit={handleSubmit}
-        submitButtonAccessibilityLabel="Submit info for contact"
-        submitButtonText="Contact me"
-      >
-        <Box display="block" smDisplay="flex">
-          <Box
-            flex="grow"
-            smMarginEnd={1}
-            marginEnd={0}
-            smMarginBottom={0}
-            marginBottom={2}
-          >
-            <TextField
-              id="name"
-              onChange={({ value }) => setNameValue(value)}
-              placeholder="Name"
-              label="Full name"
-              labelDisplay="hidden"
-              value={nameValue}
-            />
-          </Box>
-
-          <Box flex="grow" smMarginStart={1} marginStart={0}>
-            <TextField
-              id="email"
-              onChange={({ value }) => setEmailValue(value)}
-              placeholder="Email"
-              type="email"
-              label="Email address"
-              labelDisplay="hidden"
-              value={emailValue}
-            />
-          </Box>
-        </Box>
-      </Upsell.Form>
-    </Upsell>
-  );
-}
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Inputs to Collect Information from Users Example (2)"
+                code={multipleTextField}
+                layout="column"
+              />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -720,20 +336,14 @@ If the \`message\` text requires more complex style, such as bold text or inline
         >
           <MainSection.Card
             cardSize="lg"
-            defaultCode={`
-            <Flex direction="column" gap={6}>
-  <Text weight="bold">Simple message string</Text>
-  <Upsell
-    message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-    title="Give $30, get $60 in ads credit"
-  />
-  <Text weight="bold">Rich message with Text component</Text>
-  <Upsell
-    message={<Text display="inline">Earn $60 of ads credit, and give $30 of ads credit to a friend. <Link accessibilityLabel="Learn more about credit" display="inline" href="#Message">Learn more</Link></Text>}
-    title="Give $30, get $60 in ads credit"
-  />
-  </Flex>
-`}
+            sandpackExample={
+              <SandpackExample
+                name="Message: String or Text for Visual Style"
+                code={messagePropForVisualStyle}
+                layout="column"
+                previewHeight={400}
+              />
+            }
           />
         </MainSection.Subsection>
       </MainSection>
@@ -749,8 +359,6 @@ If the \`message\` text requires more complex style, such as bold text or inline
       **[Toast](/web/toast)**
       Toast provides feedback on a user interaction, like a confirmation that appears when a Pin has been saved. Unlike Upsell and Callout, Toasts don’t contain actions. They’re also less persistent, and disappear after a certain duration.
 
-      **[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)**
-      GlobalEventsHandlerProvider allows external link navigation control across all children components with link behavior.
 
       **[ActivationCard](/web/activationcard)**
       ActivationCards are used in groups to communicate a user’s stage in a series of steps toward an overall action.
@@ -762,9 +370,9 @@ If the \`message\` text requires more complex style, such as bold text or inline
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   return {
     props: { generatedDocGen: await multipleDocGen(['Upsell', 'UpsellForm']) },
   };

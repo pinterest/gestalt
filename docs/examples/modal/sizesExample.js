@@ -1,11 +1,11 @@
 // @flow strict
-import { type Node, useReducer } from 'react';
+import { type Node as ReactNode, useReducer } from 'react';
 import { Box, Button, CompositeZIndex, FixedZIndex, Heading, Layer, Modal } from 'gestalt';
 
 type Size = 'small' | 'medium' | 'large' | 'none';
 
-export default function SizesExample(): Node {
-  function reducer(state: {| modal: Size |}, action: {| type: Size |}) {
+export default function SizesExample(): ReactNode {
+  function reducer(state: { modal: Size }, action: { type: Size }) {
     switch (action.type) {
       case 'small':
         return { modal: 'small' };

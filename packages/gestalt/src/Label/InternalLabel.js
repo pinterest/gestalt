@@ -1,17 +1,17 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import styles from './InternalLabel.css';
 import boxStyles from '../Box.css';
 
-type Props = {|
-  children?: Node,
+type Props = {
+  children?: ReactNode,
   htmlFor: string,
   // This is used by ComboBox but not intended for direct external use.
   _labelDisplay?: 'visible' | 'hidden',
-|};
+};
 
-export default function InternalLabel({ children, htmlFor, _labelDisplay }: Props): Node {
+export default function InternalLabel({ children, htmlFor, _labelDisplay }: Props): ReactNode {
   return (
     <label
       className={classnames(styles.label, {

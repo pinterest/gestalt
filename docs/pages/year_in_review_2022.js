@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useEffect, useState } from 'react';
+import { Fragment, type Node as ReactNode, useEffect, useState } from 'react';
 import Lottie from 'lottie-react';
 import Link from 'next/link';
 import {
@@ -41,12 +41,12 @@ const BUTTON_ZINDEX = new CompositeZIndex([INTRO_ZINDEX]);
 const SIDE_GAP = 8;
 const MAX_CONTENT_WIDTH = 660;
 
-type StatsProps = {|
+type StatsProps = {
   description: string,
   number: string,
-|};
+};
 
-function StatsColumn({ number, description }: StatsProps): Node {
+function StatsColumn({ number, description }: StatsProps): ReactNode {
   return (
     <Flex gap={2} alignItems="start" direction="column">
       <p className="statsNumber">{number} </p>
@@ -57,12 +57,12 @@ function StatsColumn({ number, description }: StatsProps): Node {
   );
 }
 
-type GridProps = {|
+type GridProps = {
   description: string,
   number: string,
-|};
+};
 
-function StatsGrid({ number, description }: GridProps): Node {
+function StatsGrid({ number, description }: GridProps): ReactNode {
   return (
     <Fragment>
       <p className="statsNumber">{number}</p>
@@ -71,11 +71,11 @@ function StatsGrid({ number, description }: GridProps): Node {
   );
 }
 
-type AnimationProps = {|
+type AnimationProps = {
   shouldReduceMotion: boolean,
-|};
+};
 
-function DiscoAnimation({ shouldReduceMotion }: AnimationProps): Node {
+function DiscoAnimation({ shouldReduceMotion }: AnimationProps): ReactNode {
   const [animationData, setAnimationData] = useState<null | { ... }>(null);
   useEffect(() => {
     import(`../graphics/year-in-review/lottie/discoStars.json`).then((res) =>
@@ -87,7 +87,7 @@ function DiscoAnimation({ shouldReduceMotion }: AnimationProps): Node {
   return <Lottie animationData={animationData} autoplay={!shouldReduceMotion} />;
 }
 
-export default function YearInReview2022(): Node {
+export default function YearInReview2022(): ReactNode {
   const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
@@ -652,7 +652,9 @@ export default function YearInReview2022(): Node {
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
-                dangerouslySetInlineStyle={{ __style: { flexWrap: 'wrap-reverse' } }}
+                dangerouslySetInlineStyle={{
+                  __style: { flexWrap: 'wrap-reverse' },
+                }}
                 margin={4}
               >
                 <Flex

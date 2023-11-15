@@ -1,14 +1,14 @@
 // @flow strict
-import { Children, type Element, type Node } from 'react';
+import { Children, type Element, type Node as ReactNode } from 'react';
 import { useColorScheme } from '../contexts/ColorSchemeProvider.js';
 import styles from '../List.css';
 import Text from '../Text.js';
 
-type Props = {|
+type Props = {
   text: string | Element<typeof Text>,
-|};
+};
 
-export default function ListText({ text }: Props): Node {
+export default function ListText({ text }: Props): ReactNode {
   const { name: colorSchemeName } = useColorScheme();
 
   // Flow shuold catch if text is missing. In case Flow is not enabled and text is missing, the errors are not that helpful. This surfaces the problem more explicitly.

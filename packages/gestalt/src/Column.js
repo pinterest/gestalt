@@ -1,15 +1,15 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import styles from './Column.css';
 
 type Columns = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-type ColumnProps = {|
+type ColumnProps = {
   /**
    * The content to be laid out.
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * The number of units in a 12-unit width that this element will occupy.
    *
@@ -28,7 +28,7 @@ type ColumnProps = {|
    * The number of units in a 12-unit width that this element will occupy in lg and larger viewports.
    */
   lgSpan?: Columns,
-|};
+};
 
 /**
  * Use [Column](https://gestalt.pinterest.systems/web/column) to implement a 12-column system.
@@ -36,7 +36,7 @@ type ColumnProps = {|
  * ![Column light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Column.spec.mjs-snapshots/Column-chromium-darwin.png)
  *
  */
-export default function Column(props: ColumnProps): Node {
+export default function Column(props: ColumnProps): ReactNode {
   const { children } = props;
   const cs = classnames(
     props.span != null && styles[`xsCol${props.span}`],

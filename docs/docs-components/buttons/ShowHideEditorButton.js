@@ -1,15 +1,15 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { IconButton } from 'gestalt';
 import trackButtonClick from './trackButtonClick.js';
 
-type Props = {|
+type Props = {
   expanded: boolean,
   name: string,
   onClick: () => void,
-|};
+};
 
-export default function ShowHideEditorButton({ expanded, name, onClick }: Props): Node {
+export default function ShowHideEditorButton({ expanded, name, onClick }: Props): ReactNode {
   const label = `${expanded ? 'Hide' : 'Show'} code`;
 
   return (
@@ -22,7 +22,12 @@ export default function ShowHideEditorButton({ expanded, name, onClick }: Props)
         onClick();
       }}
       size="xs"
-      tooltip={{ text: label, inline: true, idealDirection: 'up', accessibilityLabel: '' }}
+      tooltip={{
+        text: label,
+        inline: true,
+        idealDirection: 'up',
+        accessibilityLabel: '',
+      }}
     />
   );
 }

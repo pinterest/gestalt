@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Text, useReducedMotion } from 'gestalt';
 
-export default function UseReducedMotionExample(): Node {
+export default function UseReducedMotionExample(): ReactNode {
   const shouldReduceMotion = useReducedMotion();
 
   return (

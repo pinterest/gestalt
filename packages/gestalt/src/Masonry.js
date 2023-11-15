@@ -1,5 +1,5 @@
 // @flow strict
-import { Component as ReactComponent, type Node } from 'react';
+import { Component as ReactComponent, type Node as ReactNode } from 'react';
 import debounce, { type DebounceReturn } from './debounce.js';
 import FetchItems from './FetchItems.js';
 import styles from './Masonry.css';
@@ -26,7 +26,7 @@ const layoutNumberToCssDimension = (n: ?number) => (n !== Infinity ? n : undefin
 
 type Layout = 'basic' | 'basicCentered' | 'flexible' | 'serverRenderedFlexible' | 'uniformRow';
 
-type Props<T> = {|
+type Props<T> = {
   /**
    * The preferred/target item width in pixels. If `layout="flexible"` is set, the item width will
    * grow to fill column space, and shrink to fit if below the minimum number of columns.
@@ -56,9 +56,9 @@ type Props<T> = {|
   loadItems?:
     | false
     | ((
-        ?{|
+        ?{
           from: number,
-        |},
+        },
       ) => void | boolean | { ... }),
   /**
    * Masonry internally caches item heights using a measurement store. If `measurementStore` is provided, Masonry will use it as its cache and will keep it updated with future measurements. This is often used to prevent re-measurement when users navigate away from and back to a grid. Create a new measurement store with `Masonry.createMeasurementStore()`.
@@ -69,15 +69,19 @@ type Props<T> = {|
    */
   minCols: number,
   /**
+   * Masonry internally caches positions using a position store. If `positionStore` is provided, Masonry will use it as its cache and will keep it updated with future positions.
+   */
+  positionStore?: Cache<T, Position>,
+  /**
    * A function that renders the item you would like displayed in the grid. This function is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item.
    *
    * If present, `heightAdjustment` indicates the number of pixels this item needs to grow/shrink to accommodate a 2-column item in the grid. Items must respond to this prop by adjusting their height or layout issues will occur.
    */
-  renderItem: ({|
+  renderItem: ({
     +data: T,
     +itemIdx: number,
     +isMeasuring: boolean,
-  |}) => Node,
+  }) => ReactNode,
   /**
    * A function that returns a DOM node that Masonry uses for scroll event subscription. This DOM node is intended to be the most immediate ancestor of Masonry in the DOM that will have a scroll bar; in most cases this will be the `window` itself, although sometimes Masonry is used inside containers that have `overflow: auto`. `scrollContainer` is optional, although it is required for features such as `virtualize` and `loadItems`.
    *
@@ -118,16 +122,16 @@ type Props<T> = {|
    * This is an experimental prop and may be removed in the future.
    */
   _logTwoColWhitespace?: (number) => void,
-|};
+};
 
-type State<T> = {|
+type State<T> = {
   hasPendingMeasurements: boolean,
   isFetching: boolean,
   items: $ReadOnlyArray<T>,
   measurementStore: Cache<T, number>,
   scrollTop: number,
   width: ?number,
-|};
+};
 
 /**
  * [Masonry](https://gestalt.pinterest.systems/web/masonry) creates a deterministic grid layout, positioning items based on available vertical space. It contains performance optimizations like virtualization and support for infinite scrolling.
@@ -140,20 +144,20 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     return new MeasurementStore();
   }
 
-  static defaultProps: {|
+  static defaultProps: {
     columnWidth?: number,
     layout?: Layout,
     loadItems?:
       | false
       | ((
-          ?{|
+          ?{
             from: number,
-          |},
+          },
         ) => void | boolean | { ... }),
     minCols: number,
     virtualBufferFactor: number,
     virtualize?: boolean,
-  |} = {
+  } = {
     columnWidth: 236,
     minCols: 3,
     layout: 'basic',
@@ -171,7 +175,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     const measurementStore: Cache<T, number> =
       props.measurementStore || Masonry.createMeasurementStore();
 
-    this.positionStore = new MeasurementStore();
+    this.positionStore = props.positionStore || Masonry.createMeasurementStore();
     this.heightsStore = new HeightsStore();
 
     this.state = {
@@ -301,11 +305,11 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
   static getDerivedStateFromProps<K>(
     props: Props<K>,
     state: State<K>,
-  ): null | {|
+  ): null | {
     hasPendingMeasurements: boolean,
     isFetching?: boolean,
     items: $ReadOnlyArray<K>,
-  |} {
+  } {
     const { items } = props;
     const { measurementStore } = state;
 
@@ -414,7 +418,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     this.forceUpdate();
   }
 
-  renderMasonryComponent: (itemData: T, idx: number, position: Position) => Node = (
+  renderMasonryComponent: (itemData: T, idx: number, position: Position) => ReactNode = (
     itemData,
     idx,
     position,
@@ -471,7 +475,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     return virtualize ? (isVisible && itemComponent) || null : itemComponent;
   };
 
-  render(): Node {
+  render(): ReactNode {
     const {
       columnWidth,
       gutterWidth: gutter,
@@ -645,7 +649,11 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
                       }
                     }}
                   >
-                    {renderItem({ data, itemIdx: measurementIndex, isMeasuring: true })}
+                    {renderItem({
+                      data,
+                      itemIdx: measurementIndex,
+                      isMeasuring: true,
+                    })}
                   </div>
                 );
               })

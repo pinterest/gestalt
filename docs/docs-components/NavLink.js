@@ -1,15 +1,15 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { useRouter } from 'next/router';
 import { Box, Link, Text } from 'gestalt';
 import { useNavigationContext } from './navigationContext.js';
 
-type Props = {|
+type Props = {
   href: string,
-  children: Node,
-|};
+  children: ReactNode,
+};
 
-export default function NavLink({ children, href }: Props): Node {
+export default function NavLink({ children, href }: Props): ReactNode {
   const { setIsSidebarOpen } = useNavigationContext();
   const router = useRouter();
 

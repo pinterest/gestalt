@@ -44,14 +44,14 @@ import {
   throwErrorIfSpreadProps,
 } from './utils.js';
 
-type OptionsType = {|
+type OptionsType = {
   component: string,
   subcomponent?: string,
   previousProp?: string,
   nextProp?: string,
   previousValue?: string,
   nextValue?: string,
-|};
+};
 
 function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?string | null {
   const { component, subcomponent, previousProp, nextProp } = options;
@@ -103,7 +103,10 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
     let replaceWithModifiedCloneCallback;
 
     if (!nextProp) {
-      replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({ j, previousProp });
+      replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({
+        j,
+        previousProp,
+      });
     } else {
       replaceWithModifiedCloneCallback = buildReplaceWithModifiedAttributes({
         j,

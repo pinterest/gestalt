@@ -4,7 +4,7 @@ import {
   type Context,
   createContext,
   type Element,
-  type Node,
+  type Node as ReactNode,
   useCallback,
   useContext,
   useEffect,
@@ -14,17 +14,20 @@ import {
 import { ANIMATION_STATE, useAnimation } from './AnimationContext.js';
 import useReducedMotion from '../useReducedMotion.js';
 
-type RequestAnimationFrameProviderProps = {|
-  children: Node,
-|};
+type RequestAnimationFrameProviderProps = {
+  children: ReactNode,
+};
 
-type RequestAnimationFrameType = {|
+type RequestAnimationFrameType = {
   handleRequestAnimationFrame: () => void,
   onExternalDismiss: () => void,
-|};
+};
 
 // CONTEXT
-const initialState = { handleRequestAnimationFrame: () => {}, onExternalDismiss: () => {} };
+const initialState = {
+  handleRequestAnimationFrame: () => {},
+  onExternalDismiss: () => {},
+};
 
 const RequestAnimationFrameContext: Context<RequestAnimationFrameType> =
   createContext<RequestAnimationFrameType>(initialState);
@@ -58,9 +61,9 @@ function getRequestAnimationFrame(callback: () => void): number {
 // cancelAnimationFrame
 function cancelRequestAnimationFrame({
   requestAnimationFrameId,
-}: {|
+}: {
   requestAnimationFrameId: number | null,
-|}): number | null {
+}): number | null {
   if (
     typeof window !== 'undefined' &&
     // $FlowFixMe[method-unbinding]

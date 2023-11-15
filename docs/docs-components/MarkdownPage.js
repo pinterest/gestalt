@@ -1,6 +1,6 @@
 // @flow strict
 import 'highlight.js/styles/a11y-light.css';
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import Image from 'next/image';
 import { Box, ButtonLink, Datapoint, Flex, Icon, Link, List, Text } from 'gestalt';
@@ -12,19 +12,41 @@ import MainSection from './MainSection.js';
 import Page from './Page.js';
 import PageHeader from './PageHeader.js';
 
-type Props = {|
-  children: Node,
-  meta: {|
+type Props = {
+  children: ReactNode,
+  meta: {
     title: string,
     badge: 'pilot' | 'deprecated',
     fullwidth?: boolean,
     description: string,
     component: boolean,
-  |},
+  },
   pageSourceUrl?: string,
-|};
+};
+
+const isExternal: (string) => 'blank' | void = (href) => {
+  if (href.startsWith('https://')) return 'blank';
+  return undefined;
+};
 
 const components = {
+  a: ({
+    children,
+    href,
+  }: {
+    href: string,
+    children: string | null,
+    display: 'inline' | 'inlineBlock' | 'block',
+  }) => (
+    <Link
+      href={href}
+      target={isExternal(href)}
+      externalLinkIcon={isExternal(href) === 'blank' ? 'default' : 'none'}
+      display="inline"
+    >
+      {children}
+    </Link>
+  ),
   // $FlowFixMe[missing-local-annot]
   ul: (props) => {
     const filtered = Object.values(props.children).filter((a) => a !== '\n');
@@ -55,14 +77,16 @@ const components = {
   },
   // $FlowFixMe[missing-local-annot]
   small: (props) => <Text size="100">{props.children}</Text>,
-  pre: (props: {|
-    children: {| props: {| className: $ReadOnlyArray<string>, children: string | null |} |},
-  |}) => (
+  pre: (props: {
+    children: {
+      props: { className: $ReadOnlyArray<string>, children: string | null },
+    },
+  }) => (
     <Highlighter classNames={props.children.props.className}>
       {props.children.props.children}
     </Highlighter>
   ),
-  figure: ({ src, caption }: {| src: string, caption?: string |}) => (
+  figure: ({ src, caption }: { src: string, caption?: string }) => (
     <Flex wrap justifyContent="center">
       <Box as="figure" width={400}>
         <Image
@@ -92,7 +116,7 @@ const components = {
       <hr />
     </Box>
   ),
-  ActionButton: ({ children, href }: {| href: string, children: string | null |}) => (
+  ActionButton: ({ children, href }: { href: string, children: string | null }) => (
     <ButtonLink
       href={href}
       target="blank"
@@ -108,14 +132,14 @@ const components = {
     trendValue,
     trendSentiment,
     trendAccessibilityLabel,
-  }: {|
+  }: {
     size?: 'lg' | 'md',
     title: string,
     value: string,
     trendValue: number,
     trendSentiment?: 'bad' | 'good' | 'neutral',
     trendAccessibilityLabel: string,
-  |}) => (
+  }) => (
     <Datapoint
       size={size}
       title={title}
@@ -128,25 +152,21 @@ const components = {
     children,
     href,
     display,
-  }: {|
+  }: {
     href: string,
     children: string | null,
     display: 'inline' | 'inlineBlock' | 'block',
-  |}) => (
-    <Link href={href} target="blank" display={display || 'block'}>
-      <Flex
-        alignItems="baseline"
-        gap={{
-          row: 1,
-          column: 0,
-        }}
-      >
-        <Text underline>{children}</Text>
-        <InternalOnlyIconButton size="sm" />
-      </Flex>
-    </Link>
+  }) => (
+    <Text inline>
+      <Link target="blank" href={href} display={display || 'block'}>
+        <Flex alignItems="baseline">
+          {children}
+          <InternalOnlyIconButton size="xs" />
+        </Flex>
+      </Link>
+    </Text>
   ),
-  Hint: ({ children }: {| children: string | null |}) => (
+  Hint: ({ children }: { children: string | null }) => (
     <div
       className="md-hint"
       style={{
@@ -167,12 +187,12 @@ const components = {
       </Flex>
     </div>
   ),
-  h3: ({ children }: {| children: string |}) => (
+  h3: ({ children }: { children: string }) => (
     <Box>
       <MainSection.Subsection title={children} marginBottom="compact" />
     </Box>
   ),
-  img: (props: {| src: string |}) => (
+  img: (props: { src: string }) => (
     <Image
       src={props.src}
       alt="image"
@@ -185,7 +205,7 @@ const components = {
   IllustrationCard,
   // $FlowFixMe[missing-local-annot]
   Card: (props) => <MainSection.Card {...props} description={undefined} />,
-  Code: (props: {| marginBottom: 'default' | 'none', children: string | null |}) => {
+  Code: (props: { marginBottom: 'default' | 'none', children: string | null }) => {
     const newProps = { ...props };
     newProps.children = null;
     // may not need to this in the future
@@ -197,18 +217,18 @@ const components = {
       />
     );
   },
-  Group: ({ children }: {| children: Node |}) => <Box marginBottom={12}>{children}</Box>,
-  Do: (props: {| children?: Node, title: string |}) => (
+  Group: ({ children }: { children: ReactNode }) => <Box marginBottom={12}>{children}</Box>,
+  Do: (props: { children?: ReactNode, title: string }) => (
     <MainSection.Card type="do" title={props.title || 'Do'} marginBottom="none">
       {props.children}
     </MainSection.Card>
   ),
-  Dont: (props: {| children?: Node, title: string |}) => (
+  Dont: (props: { children?: ReactNode, title: string }) => (
     <MainSection.Card type="don't" title={props.title || "Don't"} marginBottom="none">
       {props.children}
     </MainSection.Card>
   ),
-  TwoCol: ({ children }: {| children: Node |}) => (
+  TwoCol: ({ children }: { children: ReactNode }) => (
     <MainSection.Subsection columns={2}>{children}</MainSection.Subsection>
   ),
   ImgHero: ({
@@ -216,13 +236,13 @@ const components = {
     alt,
     width,
     height,
-  }: {|
+  }: {
     src: string,
     width: number,
     height: number,
     alt: string,
-  |}) => (
-    <div width="100%" style={{ 'aspectRatio': `${width}/${height}` }}>
+  }) => (
+    <div width="100%" style={{ aspectRatio: `${width}/${height}` }}>
       <Image src={src} alt={alt} width={width} height={height} fill />
     </div>
   ),
@@ -234,7 +254,7 @@ const components = {
     height,
     padding,
     color,
-  }: {|
+  }: {
     src: string,
     caption?: string,
     alt?: string,
@@ -242,7 +262,7 @@ const components = {
     height?: number,
     padding?: 'standard' | 'none',
     color?: string,
-  |}) => {
+  }) => {
     const layout = width || height ? 'fixed' : 'fill';
 
     const colorStyle = {
@@ -293,10 +313,10 @@ const components = {
   ThreeCol: ({
     children,
     spacing = 'default',
-  }: {|
-    children: Node,
+  }: {
+    children: ReactNode,
     spacing?: 'default' | 'expanded',
-  |}) => (
+  }) => (
     <div
       style={{
         display: 'grid',
@@ -309,8 +329,8 @@ const components = {
   ),
 };
 
-export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): Node {
-  const maxWidth = meta.fullwidth ? 'none' : `${DOCS_COPY_MAX_WIDTH_PX}px`;
+export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): ReactNode {
+  const maxWidth = meta?.fullwidth ? 'none' : `${DOCS_COPY_MAX_WIDTH_PX}px`;
 
   return (
     <MDXProvider components={components}>

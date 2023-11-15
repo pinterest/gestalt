@@ -1,12 +1,18 @@
 // @flow strict
-import { Fragment, type Node, type Ref, useCallback, useEffect, useState } from 'react';
-import { Box, CompositeZIndex, Icon, IconButton, Tooltip } from 'gestalt';
-import { PAGE_HEADER_POPOVER_ZINDEX } from './z-indices.js';
+import {
+  Fragment,
+  type Node as ReactNode,
+  type Ref,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
+import { Box, FixedZIndex, Icon, IconButton, Tooltip } from 'gestalt';
 
 const INPUT_ID = 'algolia-doc-search';
 
-function SearchBox({ popoverZIndex }: {| popoverZIndex?: CompositeZIndex |}) {
-  // Icon placement is copied directly from SearchField
+function SearchBox({ popoverZIndex }: { popoverZIndex?: FixedZIndex }) {
+  // Icon placement is copied directly from  SearchField
   // Try to maintain consistency w/ SearchField whenever possible
   return (
     <Tooltip inline text="Pro tip: press '/' to quickly access search" zIndex={popoverZIndex}>
@@ -45,11 +51,11 @@ export default function DocSearch({
   anchorRef,
   isMobileSearchExpandedOpen,
   toggleSearchBarOpen,
-}: {|
+}: {
   anchorRef: Ref<typeof IconButton>,
   isMobileSearchExpandedOpen: boolean,
   toggleSearchBarOpen: () => void,
-|}): Node {
+}): ReactNode {
   const [isCompressedUI, setIsCompressedUI] = useState(
     typeof window !== 'undefined' && window.innerWidth < 1312,
   );
@@ -152,7 +158,7 @@ export default function DocSearch({
         mdMarginStart={0}
       >
         <Box flex="grow" paddingX={2}>
-          <SearchBox popoverZIndex={PAGE_HEADER_POPOVER_ZINDEX} />
+          <SearchBox popoverZIndex={new FixedZIndex(11)} />
         </Box>
       </Box>
 
@@ -168,8 +174,8 @@ export default function DocSearch({
           ref={anchorRef}
           size="sm"
           tooltip={{
-            'text': isMobileSearchExpandedOpen ? 'Close search' : 'Search Gestalt',
-            'zIndex': PAGE_HEADER_POPOVER_ZINDEX,
+            text: isMobileSearchExpandedOpen ? 'Close search' : 'Search Gestalt',
+            zIndex: new FixedZIndex(11),
           }}
         />
       </Box>

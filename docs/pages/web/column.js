@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
@@ -19,7 +19,7 @@ import variantTwoColumnUnequal from '../../examples/column/variantTwoColumnUnequ
 
 const ignoredProps = ['smSpan', 'mdSpan', 'lgSpan'];
 
-export default function ColumnPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function ColumnPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
@@ -151,7 +151,9 @@ export default function ColumnPage({ generatedDocGen }: {| generatedDocGen: DocG
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Column') },
   };

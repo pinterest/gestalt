@@ -13,6 +13,7 @@ import Iconography from '../../graphics/foundations/iconography.svg';
 import Illustration from '../../graphics/foundations/illustration.svg';
 import Layouts from '../../graphics/foundations/layouts.svg';
 import Messaging from '../../graphics/foundations/messaging.svg';
+import RTLGuidelines from '../../graphics/foundations/rtl-guidelines.svg';
 import ScreenSizes from '../../graphics/foundations/screen-size.svg';
 import Typography from '../../graphics/foundations/typography.svg';
 
@@ -103,6 +104,13 @@ const foundationsTiles: $ReadOnlyArray<DesignOverview> = [
     path: '/foundations/messaging/overview',
   },
   {
+    svg: <RTLGuidelines />,
+    title: 'RTL guidelines',
+    description:
+      'How to display text direction, layout, icons and typography in right-to-left languages for internationalization',
+    path: '/foundations/rtl_guidelines/about_international_design',
+  },
+  {
     svg: <ScreenSizes />,
     title: 'Screen sizes',
     description: 'Responsive breakpoints and screen sizes for desktop, iOS and Android',
@@ -112,7 +120,7 @@ const foundationsTiles: $ReadOnlyArray<DesignOverview> = [
     svg: <Typography />,
     title: 'Typography',
     description: 'A typographic system for a content hierarchy that is scannable and efficient',
-    path: '/foundations/typography/guidelines',
+    path: '/foundations/typography',
   },
 ];
 

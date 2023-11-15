@@ -1,11 +1,11 @@
 // @flow strict
-import { type AbstractComponent, forwardRef, type Node } from 'react';
+import { type AbstractComponent, forwardRef, type Node as ReactNode } from 'react';
 import Box from './Box.js';
 import IconButton from './IconButton.js';
 import icons from './icons/index.js';
 import { type Indexable } from './zIndex.js';
 
-type Props = {|
+type Props = {
   /**
    * Specifies the `id` of an associated element (or elements) whose contents or visibility are controlled by IconButtonFloating so that screen reader users can identify the relationship between elements. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/iconbuttonfloating#ARIA-attributes) for details on proper usage.
    */
@@ -25,7 +25,7 @@ type Props = {|
   /**
    * Defines a new icon different from the built-in Gestalt icons. See [custom icon](https://gestalt.pinterest.systems/web/iconbuttonfloating#Custom-icon) variant to learn more.
    */
-  dangerouslySetSvgPath?: {| __path: string |},
+  dangerouslySetSvgPath?: { __path: string },
   /**
    * When disabled, IconButtonFloating looks inactive and cannot be interacted with.
    */
@@ -37,14 +37,9 @@ type Props = {|
   /**
    * Callback fired when the component is clicked, pressed or tapped.
    */
-  onClick: ({|
-    event:
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
+  onClick: ({
+    event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
+  }) => void,
   /**
    * Indicates whether the associated dropdown is open or closed. Not used when IconButtonFloating opens a dialog.
    */
@@ -52,16 +47,14 @@ type Props = {|
   /**
    * Adds a [Tooltip](https://gestalt.pinterest.systems/web/tooltip) on hover/focus of the IconButtonFloating. See the [With Tooltip](https://gestalt.pinterest.systems/web/iconbuttonfloating#With-Tooltip) variant to learn more.
    */
-  tooltip: {|
+  tooltip: {
     accessibilityLabel?: string,
     inline?: boolean,
     idealDirection?: 'up' | 'right' | 'down' | 'left',
     text: string,
     zIndex?: Indexable,
-  |},
-|};
-
-type unionRefs = HTMLButtonElement | HTMLAnchorElement;
+  },
+};
 
 /**
  * [IconButtonFloating](https://gestalt.pinterest.systems/web/iconbuttonfloating) represents the primary or most common action on the screen. As the name suggests, it floats over the content and is always on top of everything on the screen. Similar to [IconButton](https://gestalt.pinterest.systems/web/iconbutton), the floating version uses icons instead of text to convey available actions. However, it is used when the action needs to be visible at all times in a sticky way where content can scroll underneath. IconButtonFloating remains in place on scroll.
@@ -74,9 +67,9 @@ type unionRefs = HTMLButtonElement | HTMLAnchorElement;
  * ![IconButtonFloating dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/IconButtonFloating-dark.spec.mjs-snapshots/IconButtonFloating-dark-chromium-darwin.png)
  *
  */
-const IconButtonFloatingWithForwardRef: AbstractComponent<Props, unionRefs> = forwardRef<
+const IconButtonFloatingWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = forwardRef<
   Props,
-  unionRefs,
+  HTMLButtonElement,
 >(function IconButtonFloating(
   {
     accessibilityControls,
@@ -91,7 +84,7 @@ const IconButtonFloatingWithForwardRef: AbstractComponent<Props, unionRefs> = fo
     tooltip,
   }: Props,
   ref,
-): Node {
+): ReactNode {
   return (
     <Box borderStyle="shadow" rounding="circle" color="default">
       <IconButton
@@ -105,7 +98,6 @@ const IconButtonFloatingWithForwardRef: AbstractComponent<Props, unionRefs> = fo
         icon={icon}
         onClick={onClick}
         ref={ref}
-        role="button"
         selected={selected}
         size="xl"
         tooltip={tooltip}

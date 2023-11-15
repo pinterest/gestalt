@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { type ComponentCategory, type Platform, type PlatformData } from './data/types.js';
 import IllustrationCard from './IllustrationCard.js';
 import IllustrationSection from './IllustrationSection.js';
@@ -23,19 +23,19 @@ const getIllustrationCardColor = (category: ComponentCategory, hasDarkBackground
   return 'green-matchacado-0';
 };
 
-type Props = {|
+type Props = {
   components: $ReadOnlyArray<PlatformData>,
   headingLevel: 2 | 3,
   platform: Platform,
   title?: string,
-|};
+};
 
 export default function OverviewList({
   components,
   headingLevel,
   platform,
   title = '',
-}: Props): Node {
+}: Props): ReactNode {
   return (
     <IllustrationSection title={title} grid="auto-fill" min={312}>
       {[...components]

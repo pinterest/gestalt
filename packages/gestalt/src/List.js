@@ -1,16 +1,16 @@
 // @flow strict
-import { type Element, type Node } from 'react';
+import { type Element, type Node as ReactNode } from 'react';
 import InternalList from './List/InternalList.js';
 import ListItem from './ListItem.js'; // eslint-disable import/no-cycle
 import Text from './Text.js';
 
 type ListType = 'bare' | 'ordered' | 'unordered';
 
-type Props = {|
+type Props = {
   /**
    * Use List.Item to build lists. See [subcomponents](https://gestalt.pinterest.systems/web/list#List.Item).
    */
-  children: Node,
+  children: ReactNode,
   /**
    * The label for the list. Be sure to localize the text. See the [label variant](https://gestalt.pinterest.systems/web/list#Text-and-label) for guidance.
    */
@@ -27,7 +27,7 @@ type Props = {|
    * Determines the style of the list. See the [type variant](https://gestalt.pinterest.systems/web/list#Type) to learn more.
    */
   type?: ListType,
-|};
+};
 
 /**
  * [List](https://gestalt.pinterest.systems/web/list) allows users to view individual, but related, text items grouped together.
@@ -40,7 +40,7 @@ function List({
   spacing = 'regular',
   type,
   children,
-}: Props): Node {
+}: Props): ReactNode {
   return (
     // We need this InternalList to avoid the circular dependency src/List.js -> src/ListItem.js -> src/List.js
     <InternalList type={type} spacing={spacing} label={label} labelDisplay={labelDisplay}>

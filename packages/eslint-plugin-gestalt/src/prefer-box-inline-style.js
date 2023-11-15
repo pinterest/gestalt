@@ -20,21 +20,21 @@ function getInlineDefinedStyles(attr) {
   return attr.value.expression.properties ? attr.value.expression.properties : null;
 }
 
-function getVariableDefinedStyles(ref: {|
-  resolved: {|
-    defs: $ReadOnlyArray<{|
-      node: {|
-        init: {|
-          properties: $ReadOnlyArray<{|
+function getVariableDefinedStyles(ref: {
+  resolved: {
+    defs: $ReadOnlyArray<{
+      node: {
+        init: {
+          properties: $ReadOnlyArray<{
             key: { value: string, name: string, ... },
             type: string,
             value: { value: string, ... },
-          |}>,
-        |},
-      |},
-    |}>,
-  |},
-|}) {
+          }>,
+        },
+      },
+    }>,
+  },
+}) {
   return (
     ref.resolved &&
     ref.resolved.defs &&

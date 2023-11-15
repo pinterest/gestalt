@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import focusStyles from './Focus.css';
@@ -8,13 +8,16 @@ import styles from './SegmentedControl.css';
 import Text from './Text.js';
 import useFocusVisible from './useFocusVisible.js';
 
-type OnChange = ({| event: SyntheticMouseEvent<HTMLButtonElement>, activeIndex: number |}) => void;
+type OnChange = ({
+  event: SyntheticMouseEvent<HTMLButtonElement>,
+  activeIndex: number,
+}) => void;
 
-type Props = {|
+type Props = {
   /**
    * Items for selection. Though typically strings, React.Node is accepted to allow for Icons or other custom UI.
    */
-  items: $ReadOnlyArray<Node>,
+  items: $ReadOnlyArray<ReactNode>,
   /**
    * Callback triggered when the user selects an item.
    */
@@ -27,7 +30,7 @@ type Props = {|
    * Index of element in `items` that is currently selected.
    */
   selectedItemIndex: number,
-|};
+};
 
 function SegmentedControlItem({
   index,
@@ -35,13 +38,13 @@ function SegmentedControlItem({
   isSelected,
   onChange,
   width,
-}: {|
+}: {
   index: number,
-  item: Node,
+  item: ReactNode,
   isSelected: boolean,
   onChange: OnChange,
   width: ?string,
-|}) {
+}) {
   const { isFocusVisible } = useFocusVisible();
   const cs = classnames(styles.item, focusStyles.hideOutline, {
     [styles.itemIsNotSelected]: !isSelected,
@@ -85,7 +88,7 @@ export default function SegmentedControl({
   onChange,
   responsive,
   selectedItemIndex,
-}: Props): Node {
+}: Props): ReactNode {
   const buttonWidth = responsive ? undefined : `${Math.floor(100 / Math.max(1, items.length))}%`;
   return (
     <div className={classnames(styles.SegmentedControl, layout.medium)} role="tablist">

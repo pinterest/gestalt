@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import cx from 'classnames';
 import styles from './Badge.css';
 import Box from './Box.js';
@@ -11,12 +11,12 @@ import { type Indexable } from './zIndex.js';
 
 type Position = 'middle' | 'top';
 
-type TooltipProps = {|
+type TooltipProps = {
   accessibilityLabel?: string,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   text: string,
   zIndex?: Indexable,
-|};
+};
 
 export type TypeOptions =
   | 'info'
@@ -28,7 +28,7 @@ export type TypeOptions =
   | 'darkWash'
   | 'lightWash';
 
-type Props = {|
+type Props = {
   /**
    * Badge position relative to its parent element. See the [positioning](https://gestalt.pinterest.systems/web/badge#Positioning) variant to learn more.
    */
@@ -45,7 +45,7 @@ type Props = {|
    * Determines the style of the badge. See the [type](https://gestalt.pinterest.systems/web/badge#Type) variant to learn more.
    */
   type?: TypeOptions,
-|};
+};
 
 /**
  * [Badge](https://gestalt.pinterest.systems/web/badge) is a label that indicates status or importance. Badges should provide quick recognition.
@@ -55,7 +55,12 @@ type Props = {|
  *
  */
 
-export default function Badge({ position = 'middle', text, type = 'info', tooltip }: Props): Node {
+export default function Badge({
+  position = 'middle',
+  text,
+  type = 'info',
+  tooltip,
+}: Props): ReactNode {
   const isInfoType = type === 'info';
 
   const shouldUseTooltip = isInfoType && tooltip?.text;

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import {
   Box,
   Button,
@@ -11,7 +11,7 @@ import {
   Text,
 } from 'gestalt';
 
-export default function AlternativeColorTokensExample(): Node {
+export default function AlternativeColorTokensExample(): ReactNode {
   return (
     <Flex height="100%" justifyContent="center" alignItems="center">
       <ColorSchemeProvider colorScheme="dark" id="dark-example-dont">

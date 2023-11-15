@@ -1,12 +1,12 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import classNames from 'classnames';
 import boxWhitespace from './boxWhitespace.css';
 import ListStyles from './List.css';
 import TableOfContentsAnchor from './TableOfContents/TableOfContentsAnchor.js';
 import TableOfContentsItemList from './TableOfContents/TableOfContentsItemList.js';
 
-type Props = {|
+type Props = {
   /**
    * Label for the item.
    */
@@ -22,24 +22,20 @@ type Props = {|
   /**
    * Callback when the user selects an item using the mouse or keyboard.
    */
-  onClick?: ({|
-    event:
-      | SyntheticMouseEvent<HTMLDivElement>
-      | SyntheticKeyboardEvent<HTMLDivElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  onClick?: ({
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
+  }) => void,
   /**
    * Must be instances TableofContents.Item
    */
-  children?: Node,
-|};
+  children?: ReactNode,
+};
 
 /**
  * [TableOfContents.Item](https://gestalt.pinterest.systems/web/tableofcontents#TableOfContents.Item) is a subcomponent of [TableOfContents](https://gestalt.pinterest.systems/web/tableofcontents). Use [TableOfContents.Item](https://gestalt.pinterest.systems/web/tableofcontents#TableOfContents.Item) to redirect the user to a different section of a page.
  */
-export default function TableOfContentsItem(props: Props): Node {
+export default function TableOfContentsItem(props: Props): ReactNode {
   return (
     <li className={classNames(ListStyles.noStyle, boxWhitespace.marginTop1)}>
       <TableOfContentsAnchor

@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useState } from 'react';
+import { Fragment, type Node as ReactNode, useState } from 'react';
 import {
   Box,
   Button,
@@ -15,21 +15,11 @@ import {
   TextField,
 } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [showComponent, setShowComponent] = useState(true);
 
   const HEADER_ZINDEX = new FixedZIndex(10);
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
-
-  const renderFooter = (
-    <OverlayPanel.DismissingElement>
-      {({ onDismissStart }) => (
-        <Flex alignItems="center" justifyContent="end">
-          <Button color="red" text="Create" onClick={onDismissStart} />
-        </Flex>
-      )}
-    </OverlayPanel.DismissingElement>
-  );
 
   return (
     <Fragment>
@@ -44,7 +34,15 @@ export default function Example(): Node {
             accessibilityLabel="Audience list creation for new campaign"
             heading="Create a new audience list"
             onDismiss={() => setShowComponent(false)}
-            footer={renderFooter}
+            footer={
+              <OverlayPanel.DismissingElement>
+                {({ onDismissStart }) => (
+                  <Flex alignItems="center" justifyContent="end">
+                    <Button color="red" text="Create" onClick={onDismissStart} />
+                  </Flex>
+                )}
+              </OverlayPanel.DismissingElement>
+            }
             size="md"
           >
             <Flex

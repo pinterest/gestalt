@@ -1,6 +1,14 @@
 // @flow strict
-import { type Element, Fragment, type Node, useCallback, useEffect, useState } from 'react';
+import {
+  type Element,
+  Fragment,
+  type Node as ReactNode,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 import Box from './Box.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import Divider from './Divider.js';
 import IconButton from './IconButton.js';
 import icons from './icons/index.js';
@@ -10,12 +18,12 @@ function getExpandedId(expandedIndex: ?number): ?number {
   return Number.isFinite(expandedIndex) ? expandedIndex : null;
 }
 
-type BadgeType = {|
+type BadgeType = {
   text: string,
   type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
-|};
+};
 
-type Props = {|
+type Props = {
   /**
    * Label used to communicate to screen readers which module will be collapsed when interacting with the title button. Should be something clear, like "Collapse Security Policies Module". Be sure to localize the label. See [Expandable](https://gestalt.pinterest.systems/web/module#Expandable) variant to learn more.
    *
@@ -36,21 +44,21 @@ type Props = {|
   /**
    * Array of modules displayed in a stack. Only one item can be expanded at a time. See [Expandable](https://gestalt.pinterest.systems/web/module#Expandable) variant to learn more.
    */
-  items: $ReadOnlyArray<{|
+  items: $ReadOnlyArray<{
     badge?: BadgeType,
-    children?: Node,
+    children?: ReactNode,
     icon?: $Keys<typeof icons>,
     iconAccessibilityLabel?: string,
     iconButton?: Element<typeof IconButton>,
     summary?: $ReadOnlyArray<string>,
     title: string,
     type?: 'error' | 'info',
-  |}>,
+  }>,
   /**
    * Callback executed whenever any module item is expanded or collapsed. It receives the index of the currently expanded module, or null if none are expanded. See [Expandable](https://gestalt.pinterest.systems/web/module#Expandable) variant to learn more.
    */
   onExpandedChange?: (?number) => void,
-|};
+};
 
 /**
  * Use [Module.Expandable](https://gestalt.pinterest.systems/web/module) if your module requires expanding and collapsing content.
@@ -62,8 +70,11 @@ export default function ModuleExpandable({
   id,
   items,
   onExpandedChange,
-}: Props): Node {
+}: Props): ReactNode {
   const [expandedId, setExpandedId] = useState<?number>(getExpandedId(expandedIndex));
+
+  const { name: colorSchemeName } = useColorScheme();
+  const isDarkMode = colorSchemeName === 'darkMode';
 
   useEffect(() => {
     setExpandedId(getExpandedId(expandedIndex));
@@ -81,7 +92,7 @@ export default function ModuleExpandable({
   );
 
   return (
-    <Box borderStyle="shadow" color="elevationFloating" rounding={4}>
+    <Box borderStyle="shadow" color={isDarkMode ? 'elevationFloating' : 'default'} rounding={4}>
       {items.map(
         (
           { badge, children, icon, iconAccessibilityLabel, iconButton, summary, title, type },

@@ -1,8 +1,9 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -17,13 +18,14 @@ import correctIconExample from '../../examples/sidenavigation/correctIconExample
 import correctLengthExample from '../../examples/sidenavigation/correctLengthExample.js';
 import counterExample from '../../examples/sidenavigation/counterExample.js';
 import customIconsExample from '../../examples/sidenavigation/customIconsExample.js';
+import footerVariant from '../../examples/sidenavigation/footerVariant.js';
 import headerExample from '../../examples/sidenavigation/headerExample.js';
 import iconsExample from '../../examples/sidenavigation/iconsExample.js';
 import incorrectGroupingExample from '../../examples/sidenavigation/incorrectGroupingExample.js';
 import incorrectHeadingExample from '../../examples/sidenavigation/incorrectHeadingExample.js';
 import incorrectIconExample from '../../examples/sidenavigation/incorrectIconExample.js';
 import incorrectLengthExample from '../../examples/sidenavigation/incorrectLengthExample.js';
-import localizationExample from '../../examples/sidenavigation/localizationExample.js';
+import localizationLabels from '../../examples/sidenavigation/localizationLabels.js';
 import mainExample from '../../examples/sidenavigation/mainExample.js';
 import mobileExample from '../../examples/sidenavigation/mobileExample.js';
 import nestedExample from '../../examples/sidenavigation/nestedExample.js';
@@ -34,9 +36,9 @@ import subcomponent from '../../examples/sidenavigation/subcomponent.js';
 
 export default function SideNavigationPage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): ReactNode {
   return (
     <Page title={generatedDocGen.SideNavigation?.displayName ?? ''}>
       <PageHeader
@@ -210,18 +212,15 @@ export default function SideNavigationPage({
         </MainSection.Subsection>
       </AccessibilitySection>
 
-      <MainSection
-        name="Localization"
-        description={`
-        Be sure to localize the \`accessibilityLabel\` in SideNavigation and all subcomponents as well. When the text of the SideNav.Item becomes longer than the width of the menu, either intentionally or through localization, will wrap as needed to display the full text. Keep this in mind when selecting wording for your SideNavigation menu items.
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen.SideNavigationSection?.displayName}
+        notes={`
+When the text of the SideNav.Item becomes longer than the width of the menu, either intentionally or through localization, will wrap as needed to display the full text. Keep this in mind when selecting wording for your SideNavigation menu items.
+
+Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.
         `}
-      >
-        <MainSection.Card
-          sandpackExample={
-            <SandpackExample code={localizationExample} name="Localization example" />
-          }
-        />
-      </MainSection>
+      />
 
       <MainSection name="Subcomponents">
         <MainSection.Subsection
@@ -302,60 +301,7 @@ export default function SideNavigationPage({
           description="Footers allow for filters, additional external links or other UI controls to be included at the bottom of the navigation."
         >
           <MainSection.Card
-            defaultCode={`
-<Box width="100%" height="100%">
-  <Box height="100%" width={280} overflow="scroll">
-    <SideNavigation
-      accessibilityLabel="Footer example"
-      footer={
-        <Flex direction="column" gap={{ column: 4, row: 0 }}>
-          <Text size="300" weight="bold">
-            Filters
-          </Text>
-          <Fieldset legend="Campaign filters" legendDisplay="hidden">
-            <Flex direction="column" gap={{ column: 4, row: 0 }}>
-              <DatePicker
-                id="example-start-date"
-                label="Start"
-                onChange={() => {}}
-                rangeSelector="start"
-                value={new Date()}
-              />
-              <DatePicker
-                id="example-end-date"
-                label="End"
-                onChange={() => {}}
-                rangeSelector="end"
-                value={new Date(+7)}
-              />
-            </Flex>
-          </Fieldset>
-        </Flex>
-      }
-    >
-      <SideNavigation.Section label="Campaigns">
-        {[
-          {
-            label: 'Active',
-            counter: { number: '200', accessibilityLabel: '200 Pins' },
-          },
-          {
-            label: 'Draft',
-            counter: { number: '100', accessibilityLabel: '100 Pins' },
-          },
-        ].map(({ label, counter }, idx) => (
-          <SideNavigation.TopItem
-            key={idx}
-            href="#"
-            label={label}
-            icon="ads-stats"
-            counter={counter}
-          />
-        ))}
-      </SideNavigation.Section>
-    </SideNavigation>
-  </Box>
-</Box>`}
+            sandpackExample={<SandpackExample name="Footer Variant Example" code={footerVariant} />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -376,14 +322,15 @@ export default function SideNavigationPage({
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Icons"
-          columns={2}
           description="Icons are used when simple, clear icons help users with scanning the content of a menu. Only supported in SideNavigation.TopItem and SideNavigation.Group."
         >
           <MainSection.Card
+            cardSize="lg"
             title="Gestalt icon"
             sandpackExample={<SandpackExample code={iconsExample} name="Icons example" />}
           />
           <MainSection.Card
+            cardSize="lg"
             title="Custom icon"
             sandpackExample={
               <SandpackExample code={customIconsExample} name="Custom icon example" />
@@ -459,22 +406,22 @@ When building SideNavigation, we might want to render different combinations of 
             }
           />
         </MainSection.Subsection>
-      </MainSection>
 
-      <MainSection
-        name="Mobile"
-        description={`SideNavigation requires [DeviceTypeProvider](/web/utilities/devicetypeprovider) to enable its mobile user interface. The example below shows the mobile platform UI and its implementation.
+        <MainSection.Subsection
+          title="Mobile"
+          description={`SideNavigation requires [DeviceTypeProvider](/web/utilities/devicetypeprovider) to enable its mobile user interface. The example below shows the mobile platform UI and its implementation.
 
 For mobile, \`title\` and \`dismissButton\` become required props.
 
 Notice that the mobile UI requires logic to hide and show SideNavigation full width. If [Button](/web/button) or [TapArea](/web/taparea) control the visibility of SideNavigation, use \`accessibilityControls\` so that screen reader users can identify the relationship between elements.
   `}
-      >
-        <MainSection.Card
-          sandpackExample={
-            <SandpackExample code={mobileExample} name="Mobile example" layout="mobileRow" />
-          }
-        />
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample code={mobileExample} name="Mobile example" layout="mobileRow" />
+            }
+          />
+        </MainSection.Subsection>
       </MainSection>
 
       <MainSection name="Writing">
@@ -527,9 +474,9 @@ For pages with a main top nav bar, every SideNav should have a PageHeader to ann
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   return {
     props: {
       generatedDocGen: await multipleDocGen([

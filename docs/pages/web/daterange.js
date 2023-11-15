@@ -1,5 +1,5 @@
 // @flow strict-local
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import {
   af,
   arSA,
@@ -42,6 +42,8 @@ import { Flex, SelectList, SlimBanner } from 'gestalt';
 import { DateRange } from 'gestalt-datepicker';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -52,6 +54,7 @@ import disabledPast from '../../examples/daterange/disabledPast.js';
 import errorMessaging from '../../examples/daterange/errorMessaging.js';
 import futureRadiogroup from '../../examples/daterange/futureRadioGroup.js';
 import implementation from '../../examples/daterange/implementation.js';
+import localizationLabels from '../../examples/daterange/localizationLabels.js';
 import main from '../../examples/daterange/main.js';
 import mobile from '../../examples/daterange/mobile.js';
 import pastRadiogroup from '../../examples/daterange/pastRadioGroup.js';
@@ -59,9 +62,9 @@ import pastRadiogroup from '../../examples/daterange/pastRadioGroup.js';
 const PREVIEW_HEIGHT = 600;
 
 const localeMap = {
-  'af': { localeData: af, lang: 'Afrikaans' },
+  af: { localeData: af, lang: 'Afrikaans' },
   'ar-SA': { localeData: arSA, lang: 'Arabic (Saudi Arabia)' },
-  'bg': { localeData: bg, lang: 'Bulgarian' },
+  bg: { localeData: bg, lang: 'Bulgarian' },
   'cs-CZ': { localeData: cs, lang: 'Czech' },
   'da-DK': { localeData: da, lang: 'Danish' },
   de: { localeData: de, lang: 'German' },
@@ -73,7 +76,7 @@ const localeMap = {
   fr: { localeData: fr, lang: 'French' },
   he: { localeData: he, lang: 'Hebrew' },
   'hi-IN': { localeData: hi, lang: 'Hindi' },
-  'hr': { localeData: hr, lang: 'Croatian' },
+  hr: { localeData: hr, lang: 'Croatian' },
   'hu-HU': { localeData: hu, lang: 'Hungarian' },
   'id-ID': { localeData: id, lang: 'Indonesian' },
   it: { localeData: it, lang: 'Italian' },
@@ -97,7 +100,11 @@ const localeMap = {
   'zh-TW': { localeData: zhTW, lang: 'Chinese (Traditional)' },
 };
 
-export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DatePickerPage({
+  generatedDocGen,
+}: {
+  generatedDocGen: DocGen,
+}): ReactNode {
   const [locale, setLocale] = useState<string | null>(null);
 
   return (
@@ -122,9 +129,7 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
           layout="column"
         />
       </PageHeader>
-
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
-
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -145,7 +150,6 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
           />
         </MainSection.Subsection>
       </MainSection>
-
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -166,7 +170,57 @@ export default function DatePickerPage({ generatedDocGen }: {| generatedDocGen: 
           />
         </MainSection.Subsection>
       </MainSection>
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen?.displayName}
+        layout="column"
+        previewHeight={PREVIEW_HEIGHT}
+      >
+        <MainSection.Subsection
+          title="Date format locales"
+          description={`DateRange supports multiple locales. Adjust the date format to each [date-fns locale](https://date-fns.org/v2.14.0/docs/Locale). The following locale examples show the different locale format variants.
 
+Note that locale data from date-fns is external to gestalt-datepicker, it's not an internal dependency. Add date-fns to your app's dependencies.
+
+~~~jsx
+import { DateRange } from 'gestalt-datepicker';
+import { it } from 'date-fns/locale';
+<DateRange localeData={it}/>
+~~~
+
+Use the SelectList to try out different locales by passing in the \`localeData\` prop.`}
+        >
+          <Flex gap={4} direction="row" wrap>
+            <Flex.Item flex="none">
+              <SelectList
+                id="selectlistexample1"
+                label="Country"
+                size="lg"
+                onChange={({ value }) => setLocale(value)}
+              >
+                {Object.keys(localeMap).map((localeKey) => (
+                  <SelectList.Option
+                    key={localeKey}
+                    label={localeMap[localeKey].lang}
+                    value={localeKey}
+                  />
+                ))}
+              </SelectList>
+            </Flex.Item>
+            <DateRange
+              startDateValue={new Date()}
+              endDateValue={null}
+              onStartDateChange={() => {}}
+              onEndDateChange={() => {}}
+              onStartDateError={() => {}}
+              onEndDateError={() => {}}
+              localeData={locale ? localeMap[locale].localeData : undefined}
+              onSubmit={() => {}}
+              onCancel={() => {}}
+            />
+          </Flex>
+        </MainSection.Subsection>
+      </LocalizationSection>
       <MainSection name="Variants">
         <MainSection.Subsection
           title="Controlled component"
@@ -247,12 +301,14 @@ The \`onEndDateError\`, \`onStartDateError\` event are very noisy. If the date f
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Disable past & future dates"
-          description="DateField supports disabling future and past dates from being selected. Use `minDate` for disabling past dates and `maxDate` for disabling futures dates."
+          description={`DateField supports disabling future and past dates from being selected. Use \`minDate\` for disabling past dates and \`maxDate\` for disabling futures dates.
+ 1. Disable past. Disable the past when the user should select dates ranges in the future. For example, activation dates for a new campaign.
+ 2. Disable future. Disable the future when the user should select dates ranges in the past. For example, date ranges to analize performance metrics in ongoing campaigns.
+        `}
         >
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             title="Disable past"
-            description="Disable the past when the user should select dates ranges in the future. For example, activation dates for a new campaign."
             sandpackExample={
               <SandpackExample
                 code={disabledPast}
@@ -263,9 +319,8 @@ The \`onEndDateError\`, \`onStartDateError\` event are very noisy. If the date f
             }
           />
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             title="Disable future"
-            description="Disable the future when the user should select dates ranges in the past. For example, date ranges to analize performance metrics in ongoing campaigns."
             sandpackExample={
               <SandpackExample
                 code={disabledFuture}
@@ -283,77 +338,27 @@ The \`onEndDateError\`, \`onStartDateError\` event are very noisy. If the date f
 
 Handlers:
 
-- [onMount](/web/utilities/globaleventshandlerprovider#onMount): executed when DateField mounts for the first time
+- [onRender](/web/utilities/globaleventshandlerprovider#onRender): executed when DateField mounts for the first time
 
-See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onMount) for more information.
+See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onRender) for more information.
 `}
         />
-      </MainSection>
 
-      <MainSection
-        name="Supporting locales"
-        description={`DateRange supports multiple locales. Adjust the date format to each [date-fns locale](https://date-fns.org/v2.14.0/docs/Locale). The following locale examples show the different locale format variants.
-
-
-
-IMPORTANT: Locale data from date-fns is external to gestalt-datepicker, it's not an internal dependency. Add date-fns to your app's dependencies.
-
-~~~jsx
-import { DateRange } from 'gestalt-datepicker';
-import { it } from 'date-fns/locale';
-<DateRange localeData={it}/>
-~~~
-
-Use the Dropdown to try out different locales by passing in the \`localeData\` prop.`}
-      >
-        <MainSection.Subsection>
-          <Flex gap={4} direction="row" wrap>
-            <Flex.Item flex="none">
-              <SelectList
-                id="selectlistexample1"
-                label="Country"
-                size="lg"
-                onChange={({ value }) => setLocale(value)}
-              >
-                {Object.keys(localeMap).map((localeKey) => (
-                  <SelectList.Option
-                    key={localeKey}
-                    label={localeMap[localeKey].lang}
-                    value={localeKey}
-                  />
-                ))}
-              </SelectList>
-            </Flex.Item>
-            <DateRange
-              startDateValue={new Date()}
-              endDateValue={null}
-              onStartDateChange={() => {}}
-              onEndDateChange={() => {}}
-              onStartDateError={() => {}}
-              onEndDateError={() => {}}
-              localeData={locale ? localeMap[locale].localeData : undefined}
-              onSubmit={() => {}}
-              onCancel={() => {}}
-            />
-          </Flex>
-        </MainSection.Subsection>
-      </MainSection>
-
-      <MainSection
-        name="Mobile"
-        description={`
+        <MainSection.Subsection
+          title="Mobile"
+          description={`
 DateRange requires [DeviceTypeProvider](/web/utilities/devicetypeprovider) to enable its mobile user interface. The example below shows the mobile platform UI and its implementation.
 
 On mobile devices, the \`radiogroup\` prop is not shown.
   `}
-      >
-        <MainSection.Card
-          sandpackExample={
-            <SandpackExample code={mobile} name="Mobile example" layout="mobileRow" />
-          }
-        />
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample code={mobile} name="Mobile example" layout="mobileRow" />
+            }
+          />
+        </MainSection.Subsection>
       </MainSection>
-      <QualityChecklist component={generatedDocGen?.displayName} />
 
       <MainSection name="Writing">
         <MainSection.Subsection columns={2}>
@@ -373,6 +378,17 @@ On mobile devices, the \`radiogroup\` prop is not shown.
         </MainSection.Subsection>
       </MainSection>
 
+      <QualityChecklist component={generatedDocGen?.displayName} />
+
+      <InternalDocumentationSection
+        items={[
+          {
+            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-extensions#daterange',
+            text: 'DateRange extension',
+          },
+        ]}
+      />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
@@ -390,7 +406,9 @@ DatePicker is used when the user has to select a date.  Compared to DateField, D
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('DateRange') },
   };

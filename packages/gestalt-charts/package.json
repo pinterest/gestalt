@@ -1,6 +1,6 @@
 {
   "name": "gestalt-charts",
-  "version": "121.1.8",
+  "version": "128.1.5",
   "license": "Apache-2.0",
   "homepage": "https://gestalt.pinterest.systems/",
   "description": "A React UI chart component which enforces Pinterest's design language",
@@ -8,13 +8,12 @@
   "types": "dist/index.d.ts",
   "jsnext:main": "dist/gestalt-charts.es.js",
   "module": "dist/gestalt-charts.es.js",
-  "style": "dist/gestalt-charts.css",
   "files": [
     "dist",
     "src"
   ],
   "dependencies": {
-    "recharts": "2.6.2"
+    "recharts": "2.8.0"
   },
   "peerDependencies": {
     "gestalt": ">0.0.0",

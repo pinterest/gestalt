@@ -1,15 +1,21 @@
 // @flow strict
-import { type Context, createContext, type Element, type Node, useContext } from 'react';
+import {
+  type Context,
+  createContext,
+  type Element,
+  type Node as ReactNode,
+  useContext,
+} from 'react';
 
-type NestingContextType = {|
+type NestingContextType = {
   nestedLevel: number,
-|};
+};
 
-type Props = {|
+type Props = {
   componentName: 'SideNavigation' | 'List' | 'TableOfContents',
   maxNestedLevels: number,
-  children: Node,
-|};
+  children: ReactNode,
+};
 
 const NestingContext: Context<NestingContextType> = createContext<NestingContextType>({
   nestedLevel: 0,

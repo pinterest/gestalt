@@ -1,6 +1,7 @@
 // @flow strict
 import threeD from './3d.svg';
 import threeDMove from './3d-move.svg';
+import accessibility from './accessibility.svg';
 import ad from './ad.svg';
 import adGroup from './ad-group.svg';
 import add from './add.svg';
@@ -22,6 +23,7 @@ import alignTopLeft from './align-top-left.svg';
 import alignTopRight from './align-top-right.svg';
 import androidShare from './android-share.svg';
 import angledPin from './angled-pin.svg';
+import api from './api.svg';
 import apple from './apple.svg';
 import apps from './apps.svg';
 import arrowBack from './arrow-back.svg';
@@ -39,6 +41,7 @@ import arrowUpRight from './arrow-up-right.svg';
 import bell from './bell.svg';
 import board from './board.svg';
 import briefcase from './briefcase.svg';
+import businessHierarchy from './business-hierarchy.svg';
 import calendar from './calendar.svg';
 import calendarCheck from './calendar-check.svg';
 import camera from './camera.svg';
@@ -46,6 +49,7 @@ import cameraRoll from './camera-roll.svg';
 import cancel from './cancel.svg';
 import canonicalPin from './canonical-pin.svg';
 import captions from './captions.svg';
+import captionsOutline from './captions-outline.svg';
 import check from './check.svg';
 import checkCircle from './check-circle.svg';
 import circleOutline from './circle-outline.svg';
@@ -62,7 +66,9 @@ import copyToClipboard from './copy-to-clipboard.svg';
 import creditCard from './credit-card.svg';
 import crop from './crop.svg';
 import dash from './dash.svg';
+import dataSource from './data-source.svg';
 import desktop from './desktop.svg';
+import diagnostics from './diagnostics.svg';
 import directionalArrowLeft from './directional-arrow-left.svg';
 import directionalArrowRight from './directional-arrow-right.svg';
 import download from './download.svg';
@@ -99,6 +105,7 @@ import handPointing from './hand-pointing.svg';
 import handle from './handle.svg';
 import heart from './heart.svg';
 import heartBroken from './heart-broken.svg';
+import heartHealth from './heart-health.svg';
 import heartOutline from './heart-outline.svg';
 import history from './history.svg';
 import home from './home.svg';
@@ -173,10 +180,15 @@ import sound from './sound.svg';
 import sparkle from './sparkle.svg';
 import speech from './speech.svg';
 import speechEllipsis from './speech-ellipsis.svg';
+import speechExclamationPoint from './speech-exclamation-point.svg';
+import speechOutline from './speech-outline.svg';
 import star from './star.svg';
 import starHalf from './star-half.svg';
+import starOutline from './star-outline.svg';
+import sticker from './sticker.svg';
 import sun from './sun.svg';
 import switchAccount from './switch-account.svg';
+import table from './table.svg';
 import tag from './tag.svg';
 import target from './target.svg';
 import terms from './terms.svg';
@@ -197,6 +209,7 @@ import thumbsUp from './thumbs-up.svg';
 import trashCan from './trash-can.svg';
 import trending from './trending.svg';
 import twitter from './twitter.svg';
+import uploadFeed from './upload-feed.svg';
 import videoAdvance10Seconds from './video-advance-10-seconds.svg';
 import videoCamera from './video-camera.svg';
 import videoRewind10Seconds from './video-rewind-10-seconds.svg';
@@ -219,6 +232,7 @@ import workflowStatusWarning from './workflow-status-warning.svg';
 const icons = Object.freeze({
   '3D': threeD,
   '3D-move': threeDMove,
+  accessibility,
   ad,
   'ad-group': adGroup,
   add,
@@ -240,6 +254,7 @@ const icons = Object.freeze({
   'align-top': alignTop,
   'android-share': androidShare,
   'angled-pin': angledPin,
+  api,
   apple,
   apps,
   'arrow-back': arrowBack,
@@ -257,6 +272,7 @@ const icons = Object.freeze({
   bell,
   board,
   briefcase,
+  'business-hierarchy': businessHierarchy,
   calendar,
   'calendar-check': calendarCheck,
   camera,
@@ -264,6 +280,7 @@ const icons = Object.freeze({
   cancel,
   'canonical-pin': canonicalPin,
   captions,
+  'captions-outline': captionsOutline,
   'color-picker': colorPicker,
   check,
   'check-circle': checkCircle,
@@ -277,8 +294,10 @@ const icons = Object.freeze({
   compose,
   'copy-to-clipboard': copyToClipboard,
   crop,
+  'data-source': dataSource,
   dash,
   desktop,
+  diagnostics,
   'conversion-tag': conversionTag,
   'credit-card': creditCard,
   'directional-arrow-left': directionalArrowLeft,
@@ -318,6 +337,7 @@ const icons = Object.freeze({
   heart,
   'heart-outline': heartOutline,
   'heart-broken': heartBroken,
+  'heart-health': heartHealth,
   history,
   home,
   'idea-pin': ideaPin,
@@ -391,10 +411,15 @@ const icons = Object.freeze({
   sparkle,
   speech,
   'speech-ellipsis': speechEllipsis,
+  'speech-exclamation-point': speechExclamationPoint,
+  'speech-outline': speechOutline,
+  'star-outline': starOutline,
   star,
   'star-half': starHalf,
+  sticker,
   sun,
   'switch-account': switchAccount,
+  table,
   tag,
   terms,
   'text-align-left': textAlignLeft,
@@ -415,6 +440,7 @@ const icons = Object.freeze({
   target,
   trending,
   twitter,
+  'upload-feed': uploadFeed,
   'video-advance-10-seconds': videoAdvance10Seconds,
   'video-camera': videoCamera,
   'video-rewind-10-seconds': videoRewind10Seconds,

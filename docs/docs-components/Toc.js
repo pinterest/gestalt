@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { type Node as ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Box, TableOfContents } from 'gestalt';
 
 const HEADER_HEIGHT_PX = 60;
@@ -69,26 +69,26 @@ function useThrottledOnScroll(callback: null | (() => void), delay: number) {
   }, [throttledCallback]);
 }
 
-type ToCItem = {|
+type ToCItem = {
   id: string,
   label: string,
-  children: $ReadOnlyArray<{| id: string, label: string |}>,
-|};
+  children: $ReadOnlyArray<{ id: string, label: string }>,
+};
 
-type HandleClickParameters = {|
+type HandleClickParameters = {
   hash: string,
   event:
     | SyntheticMouseEvent<HTMLDivElement>
     | SyntheticKeyboardEvent<HTMLDivElement>
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>,
-|};
+};
 
-type Props = {|
-  cards: $ReadOnlyArray<Node>,
-|};
+type Props = {
+  cards: $ReadOnlyArray<ReactNode>,
+};
 
-export default function Toc({ cards }: Props): Node {
+export default function Toc({ cards }: Props): ReactNode {
   const [anchors, setAnchors] = useState<$ReadOnlyArray<HTMLElement>>([]);
   const [activeState, setActiveState] = useState<null | string>(null);
   const clickedRef = useRef<boolean>(false);
@@ -197,18 +197,19 @@ export default function Toc({ cards }: Props): Node {
 
   return (
     <Box
-      aria-label="component page"
       // Accounting for the footer height as set in App.js
-      dangerouslySetInlineStyle={{ __style: { marginBottom: FOOTER_HEIGHT_PX } }}
+      dangerouslySetInlineStyle={{
+        __style: { marginBottom: FOOTER_HEIGHT_PX },
+      }}
       // These margins counter the padding set on the <Box role="main"> in App.js
       marginTop={-4}
       mdMarginTop={-6}
       lgMarginTop={-8}
       maxHeight={`calc(100% - ${HEADER_HEIGHT_PX}px - ${FOOTER_HEIGHT_PX}px)`}
       overflow="auto"
+      paddingX={1}
       paddingY={8} // re-apply just the padding we need
       position="fixed"
-      role="navigation"
       width={240}
     >
       <TableOfContents>

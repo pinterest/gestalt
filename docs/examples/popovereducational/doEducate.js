@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useEffect, useRef, useState } from 'react';
+import { type Node as ReactNode, useEffect, useRef, useState } from 'react';
 import { Box, Flex, Icon, Image, Mask, PopoverEducational, TapArea, Text } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [openA, setOpenA] = useState(false);
   const [openB, setOpenB] = useState(false);
 
@@ -53,6 +53,7 @@ export default function Example(): Node {
                   setOpenA(false);
                   setOpenB(true);
                 },
+                role: 'button',
               }}
             />
           )}

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { LiveError, LivePreview, LiveProvider } from 'react-live';
 import { Box, Flex, HelpButton, Link, Text } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
@@ -35,8 +35,8 @@ const reactImports = [
   'useMemo',
   'useReducer',
   'useRef',
+  'useId',
   'useState',
-  'version',
 ];
 
 const reactRegex = new RegExp(`(${reactImports.join('|')})`, 'g');
@@ -48,7 +48,11 @@ const importsToRemoveRegex = new RegExp(
   'g',
 );
 
-export default function DevelopmentEditor({ code }: {| code: ?string | (() => Node) |}): Node {
+export default function DevelopmentEditor({
+  code,
+}: {
+  code: ?string | (() => ReactNode),
+}): ReactNode {
   const { devExampleMode } = useAppContext();
 
   if (devExampleMode === 'default') {
@@ -62,13 +66,15 @@ export default function DevelopmentEditor({ code }: {| code: ?string | (() => No
     // Remove imports
     .replace(importsToRemoveRegex, '')
     // Remove export statement
-    .replace('export default', '')
+    .replace('export default', 'const App =')
     // Add React. to React imports
     .replace(reactRegex, 'React.$&')
     .replace(
       'const [showComponent, setShowComponent] = React.useState(true);',
       'const [showComponent, setShowComponent] = React.useState(false);',
     );
+
+  const codeWrapped = `function Root() {${codeFileCleaned || ''}; return <App />}`;
 
   return (
     <Box
@@ -127,13 +133,13 @@ export default function DevelopmentEditor({ code }: {| code: ?string | (() => No
           />
         </Flex>
       </Box>
-      <LiveProvider code={codeFileCleaned} scope={scope} theme={theme}>
+      <LiveProvider code={codeWrapped} scope={scope} theme={theme}>
         <Box
           alignItems="center"
           borderStyle="sm"
           color="default"
           display="flex"
-          height={900}
+          height={500}
           width="100%"
           justifyContent="center"
           padding={8}
@@ -142,7 +148,7 @@ export default function DevelopmentEditor({ code }: {| code: ?string | (() => No
         >
           <LivePreview style={{ display: 'contents' }} />
         </Box>
-        <ExampleCode code={codeFileCleaned ?? ''} name="DEVELOPMENT MODE" developmentEditor />
+        <ExampleCode code={codeWrapped ?? ''} name="DEVELOPMENT MODE" developmentEditor />
 
         <Box paddingX={2}>
           <Text color="error">

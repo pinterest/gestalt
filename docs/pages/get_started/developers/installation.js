@@ -1,12 +1,12 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Flex, Link, Text } from 'gestalt';
 import Card from '../../../docs-components/Card.js';
 import Markdown from '../../../docs-components/Markdown.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
 
-export default function DocsPage(): Node {
+export default function DocsPage(): ReactNode {
   return (
     <Page title="Installation Guidelines">
       <PageHeader name="Installation" type="guidelines" />
@@ -28,7 +28,7 @@ or
 ~~~jsx
 yarn add gestalt
 ~~~
-To install the Chart package:
+To install the ChartGraph package:
 ~~~jsx
 npm i gestalt-charts --save
 ~~~
@@ -80,8 +80,7 @@ import 'gestalt-datepicker/dist/gestalt-datepicker.css';
           <Markdown
             text="
 ~~~jsx
-import { Chart } from 'gestalt-charts';
-import 'gestalt-charts/dist/gestalt-charts.css';
+import { ChartGraph } from 'gestalt-charts';
 ~~~
 "
           />

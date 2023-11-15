@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Avatar, Box, Link, Table, Text, WashAnimated } from 'gestalt';
 
 function HeaderRow() {
@@ -29,7 +29,7 @@ function BaseRow({
   hours,
   active,
   setActive,
-}: {|
+}: {
   name: string,
   team: string,
   src: string,
@@ -37,7 +37,7 @@ function BaseRow({
   hours: string,
   active: boolean,
   setActive: (active: boolean) => void,
-|}) {
+}) {
   return (
     <Table.RowExpandable
       accessibilityExpandLabel="Expand"
@@ -89,7 +89,7 @@ function BaseRow({
   );
 }
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [activeA, setActiveA] = useState(false);
   const [activeB, setActiveB] = useState(false);
   const [activeC, setActiveC] = useState(false);

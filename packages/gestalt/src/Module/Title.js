@@ -1,26 +1,27 @@
 // @flow strict
-import { type Element, type Node } from 'react';
+import { type Element, type Node as ReactNode } from 'react';
 import Badge from '../Badge.js';
 import Box from '../Box.js';
 import Flex from '../Flex.js';
 import Icon from '../Icon.js';
 import IconButton from '../IconButton.js';
+import IconButtonLink from '../IconButtonLink.js';
 import icons from '../icons/index.js';
 import Text from '../Text.js';
 
-type BadgeType = {|
+type BadgeType = {
   text: string,
   type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
-|};
+};
 
-export default function ModuleTitle(props: {|
+export default function ModuleTitle(props: {
   badge?: BadgeType,
   icon?: $Keys<typeof icons>,
   iconAccessibilityLabel?: string,
-  iconButton?: Element<typeof IconButton>,
+  iconButton?: Element<typeof IconButton | typeof IconButtonLink>,
   title: string,
   type?: 'error' | 'info',
-|}): Node {
+}): ReactNode {
   const { iconAccessibilityLabel = '', title, type = 'info' } = props;
 
   const decoration = ['icon', 'badge', 'iconButton'].find((prop) => !!props[prop]);

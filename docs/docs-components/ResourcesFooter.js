@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Heading, Link, Text } from 'gestalt';
 import InternalOnlyIconButton from './InternalOnlyIconButton.js';
 
@@ -48,19 +48,22 @@ const slackChannels = [
 ];
 const engResources = [
   { title: 'Web repository', url: 'https://github.com/pinterest/gestalt' },
-  { title: 'Code sandbox', url: 'https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js' },
+  {
+    title: 'Code sandbox',
+    url: 'https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js',
+  },
 ];
 
-type LinkListProps = {|
-  items: $ReadOnlyArray<{|
+type LinkListProps = {
+  items: $ReadOnlyArray<{
     title: string,
     url: string,
     a11yLabel?: string,
-  |}>,
+  }>,
   heading: string,
   isInternal?: boolean,
-|};
-function LinkList({ items, heading, isInternal = true }: LinkListProps): Node {
+};
+function LinkList({ items, heading, isInternal = true }: LinkListProps): ReactNode {
   return (
     <Box
       display="flex"
@@ -110,7 +113,7 @@ function LinkList({ items, heading, isInternal = true }: LinkListProps): Node {
   );
 }
 
-export default function ResourcesFooter(): Node {
+export default function ResourcesFooter(): ReactNode {
   return (
     <Box padding={8} display="none" mdDisplay="flex" justifyContent="center">
       <Box

@@ -1,10 +1,10 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
 
-export default function DocsPage(): Node {
+export default function DocsPage(): ReactNode {
   return (
     <Page title="Get started as a designer">
       <PageHeader name="Get started as a designer" description="" type="guidelines" />
@@ -49,7 +49,7 @@ In your first couple of weeks at Pinterest, you will receive an invite from your
 [**The Pinterest Design plugin**](https://www.figma.com/community/plugin/1215463263194174399)
 The Pinterest Design Figma plugin is _the_   design tool to work faster and smarter. You can add Pinterest images directly to designs, export icons in production-ready formats, automatically convert UI to dark mode, reference design system documentation and more!
 
-[**Pinterest Assets**](https://www.figma.com/community/plugin/1001559251745003811/Pinterest-Assets)
+[**Pinterest Assets**](https://www.figma.com/community/plugin/1167574100578966652/Pinterest-Assets)
 Insert Pinterest Brand-approved, royalty-free stock photography from curated collections on our DAM.
 
           `}
@@ -86,7 +86,7 @@ Wondering how a component works? The dos and dont's of its use?
 
 All of Gestalt’s documentation can be found right here at [gestalt.pinterest.systems](https://gestalt.pinterest.systems). This site is continuously updated and serves as the Gestalt source of truth. If you can’t find something or have ideas for our documentation, reach out or set up a meeting with the Gestalt team.
 
-Access the Gestalt documentation without leaving Figma, by using the [Pinterest Design plugin](https://www.figma.com/community/plugin/1215463263194174399)! 
+Access the Gestalt documentation without leaving Figma, by using the [Pinterest Design plugin](https://www.figma.com/community/plugin/1215463263194174399)!
 
           `}
         />

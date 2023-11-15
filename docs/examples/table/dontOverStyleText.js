@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Checkbox, Label, Table, Text } from 'gestalt';
 
-function HeaderRow({ id }: {| id: string |}) {
+function HeaderRow({ id }: { id: string }) {
   return (
     <Table.Header>
       <Table.Row>
@@ -61,7 +61,7 @@ function BaseRow({ id, checked, disabled, text, campaign, bold, underline, itali
   );
 }
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const tableID = 'Example of a Dont do for table style';
 
   return (

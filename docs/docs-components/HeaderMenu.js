@@ -1,15 +1,15 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, CompositeZIndex, Link as GestaltLink, Text, Tooltip } from 'gestalt';
 import trackButtonClick from './buttons/trackButtonClick.js';
 
 export default function HeaderMenu({
   isHeader,
   popoverZIndex,
-}: {|
+}: {
   isHeader?: boolean,
   popoverZIndex?: CompositeZIndex,
-|}): Node {
+}): ReactNode {
   return (
     <Box
       alignItems="center"

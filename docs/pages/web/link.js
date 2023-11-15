@@ -1,9 +1,10 @@
 // @flow strict
-import { type Node } from 'react';
-import { SlimBanner } from 'gestalt';
+import { type Node as ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -24,6 +25,7 @@ import dontWeightTexts from '../../examples/link/dontWeightTexts.js';
 import doUnderline from '../../examples/link/doUnderline.js';
 import doWeightLists from '../../examples/link/doWeightLists.js';
 import inline from '../../examples/link/inline.js';
+import localizationLabels from '../../examples/link/localizationLabels.js';
 import main from '../../examples/link/main.js';
 import variantExternalIcon from '../../examples/link/variantExternalIcon.js';
 import variantHiddenUnderline from '../../examples/link/variantHiddenUnderline.js';
@@ -34,7 +36,7 @@ import variantRel from '../../examples/link/variantRel.js';
 import variantStandaloneLink from '../../examples/link/variantStandaloneLink.js';
 import variantTarget from '../../examples/link/variantTarget.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -301,22 +303,7 @@ For external links where an external Gestalt Link doesn't apply, check out [Butt
         />
       </AccessibilitySection>
 
-      <MainSection
-        name="Localization"
-        description={`Be sure to localize the \`accessibilityLabel\` as well as any children content.`}
-      >
-        <SlimBanner
-          iconAccessibilityLabel="Localize the default label"
-          message="Link announces to assistive technologies that the link opens in a new tab when setting target to 'blank'. Localize the default label with DefaultLabelProvider."
-          type="recommendationBare"
-          helperLink={{
-            text: 'Learn more',
-            accessibilityLabel: 'Learn more about DefaultLabelProvider',
-            href: '/web/utilities/defaultlabelprovider',
-            onClick: () => {},
-          }}
-        />
-      </MainSection>
+      <LocalizationSection code={localizationLabels} name={generatedDocGen?.displayName} />
 
       <MainSection name="Variants">
         <MainSection.Subsection
@@ -431,17 +418,6 @@ However, Link's underline style can be overridden at any time using the \`underl
 - "self" opens an anchor in the same frame.
 `}
         >
-          <SlimBanner
-            iconAccessibilityLabel="Localize the default label"
-            message="Link announces to assistive technologies that the link opens in a new tab. Localize the default label with DefaultLabelProvider."
-            type="recommendationBare"
-            helperLink={{
-              text: 'Learn more',
-              accessibilityLabel: 'Learn more about DefaultLabelProvider',
-              href: '/web/utilities/defaultlabelprovider',
-              onClick: () => {},
-            }}
-          />
           <SandpackExample
             previewHeight={160}
             code={variantTarget}
@@ -518,14 +494,24 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onN
 
       <QualityChecklist component={generatedDocGen?.displayName} />
 
+      <InternalDocumentationSection
+        items={[
+          {
+            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/link-navigation',
+            text: 'Link navigation',
+          },
+          {
+            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-ads-logging-extension#ads-logging-extension',
+            text: 'Ads logging extension',
+          },
+        ]}
+      />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
 **[Text](/web/text)**
 Text provides Link with style: size, color, and font.
-
-**[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)**
-GlobalEventsHandlerProvider allows external link navigation control across all children components with link behavior.
 
 **[Button](/web/button)**
 Button allows users to take actions, and make choices using text labels to express what action will occur when the user interacts with it.
@@ -539,7 +525,9 @@ These components support link functionality themselves by setting \`role="link"\
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Link') },
   };

@@ -1,25 +1,31 @@
 // @flow strict
-import { type Context, createContext, type Element, type Node, useContext } from 'react';
+import {
+  type Context,
+  createContext,
+  type Element,
+  type Node as ReactNode,
+  useContext,
+} from 'react';
 
 type ListTypeContextValues = 'bare' | 'ordered' | 'unordered';
 type ListSpacingContextValues = 'regular' | 'condensed';
-type ListStyleContextValues = {|
+type ListStyleContextValues = {
   ol: $ReadOnlyArray<string>,
   ul: $ReadOnlyArray<string>,
-|};
+};
 
-type ListContextType = {|
+type ListContextType = {
   type: ?ListTypeContextValues,
   spacing: ?ListSpacingContextValues,
   style: ?ListStyleContextValues,
-|};
+};
 
-type Props = {|
-  children: Node,
+type Props = {
+  children: ReactNode,
   type: ?ListTypeContextValues,
   spacing: ?ListSpacingContextValues,
   style: ?ListStyleContextValues,
-|};
+};
 
 const ListContext: Context<ListContextType> = createContext<ListContextType>({
   type: null,

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import DefaultAvatar from './Avatar/DefaultAvatar.js';
 import Box from './Box.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
@@ -15,7 +15,7 @@ const sizes = {
   xl: 120,
 };
 
-type Props = {|
+type Props = {
   /**
    * String that clients such as VoiceOver will read to describe the element. Will default to `name` prop if not provided.
    */
@@ -40,7 +40,7 @@ type Props = {|
    * Used to indicate if the user is verified.
    */
   verified?: boolean,
-|};
+};
 
 /**
  * [Avatar](https://gestalt.pinterest.systems/web/avatar) is used to represent a user. Every Avatar image has a subtle color wash.
@@ -50,7 +50,7 @@ type Props = {|
  *
  */
 
-function Avatar(props: Props): Node {
+function Avatar(props: Props): ReactNode {
   const [isImageLoaded, setIsImageLoaded] = useState(true);
   const { colorGray0, colorGray100 } = useColorScheme();
   const { accessibilityLabel, name, outline, size = 'fit', src, verified } = props;

@@ -1,5 +1,5 @@
 // @flow strict
-import { type AbstractComponent, forwardRef, type Node, useState } from 'react';
+import { type AbstractComponent, forwardRef, type Node as ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import focusStyles from './Focus.css';
@@ -9,7 +9,7 @@ import controlStyles from './RadioButtonCheckbox.css';
 import Text from './Text.js';
 import useFocusVisible from './useFocusVisible.js';
 
-type Props = {|
+type Props = {
   /**
    * Indicates if the input is checked. See the [combinations example](https://gestalt.pinterest.systems/web/radiobutton#radio-state-combos) for more details.
    */
@@ -25,7 +25,7 @@ type Props = {|
   /**
    * An optional [Image](https://gestalt.pinterest.systems/web/image) component can be supplied to add an image to each radio button. Spacing is already accounted for — simply specify the width and height. See the [images example](https://gestalt.pinterest.systems/web/radiobutton#images) for more details.
    */
-  image?: Node,
+  image?: ReactNode,
   /**
    * The displayed label for the input.
    */
@@ -37,10 +37,10 @@ type Props = {|
   /**
    * Callback triggered when the user interacts with the input.
    */
-  onChange: ({|
+  onChange: ({
     event: SyntheticInputEvent<HTMLInputElement>,
     checked: boolean,
-  |}) => void,
+  }) => void,
   /**
    * Ref forwarded to the underlying input element. See [ref example](https://gestalt.pinterest.systems/web/radiobutton#ref) for more details.
    */
@@ -57,7 +57,7 @@ type Props = {|
    * The value of the input.
    */
   value: string,
-|};
+};
 
 /**
  * **NOTE** The standalone RadioButton is soon to be deprecated, use [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup) and RadioGroup.RadioButton instead.**NOTE**
@@ -79,7 +79,7 @@ const RadioButtonWithForwardRef: AbstractComponent<Props, HTMLInputElement> = fo
     size = 'md',
   }: Props,
   ref,
-): Node {
+): ReactNode {
   const [focused, setFocused] = useState(false);
   const [hovered, setHover] = useState(false);
 
@@ -161,7 +161,9 @@ const RadioButtonWithForwardRef: AbstractComponent<Props, HTMLInputElement> = fo
             {/* marginTop: '-1px'/'2px' is needed to  visually align the label text & radiobutton input */}
             <Box
               paddingX={1}
-              dangerouslySetInlineStyle={{ __style: { marginTop: size === 'md' ? '2px' : '-1px' } }}
+              dangerouslySetInlineStyle={{
+                __style: { marginTop: size === 'md' ? '2px' : '-1px' },
+              }}
             >
               <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
                 {label}

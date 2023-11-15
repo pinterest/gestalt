@@ -15,7 +15,7 @@ I'll explain each part as we go through. Just remember, if you want to make upda
 
 */
 
-import { type AbstractComponent, type Element, forwardRef, type Node } from 'react';
+import { type AbstractComponent, type Element, forwardRef, type Node as ReactNode } from 'react';
 import styles from './Box.css';
 import { buildStyles } from './boxTransforms.js';
 import { type As } from './boxTypes.js';
@@ -74,13 +74,13 @@ type Props = {
   /**
    *
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * An "escape hatch" used to apply styles not otherwise available on Box.
    */
-  dangerouslySetInlineStyle?: {|
+  dangerouslySetInlineStyle?: {
     __style: { [key: string]: string | number | void },
-  |},
+  },
 
   /**
    * Aligns a flex container's lines within when there is extra space in the cross-axis, similar to how justify-content aligns individual items within the main-axis.
@@ -558,7 +558,7 @@ type OutputType = Element<As>;
  */
 const BoxWithForwardRef: AbstractComponent<Props, HTMLElement> = forwardRef<Props, HTMLElement>(
   function Box({ as, ...props }: Props, ref): OutputType {
-    const { passthroughProps, propsStyles } = buildStyles<$Diff<Props, {| as?: As |}>>({
+    const { passthroughProps, propsStyles } = buildStyles<$Diff<Props, { as?: As }>>({
       baseStyles: styles.box,
       props,
       blocklistProps: disallowedProps,

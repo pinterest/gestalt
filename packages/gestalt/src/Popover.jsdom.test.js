@@ -12,7 +12,7 @@ describe('PopoverEducational', () => {
         accessibilityLabel="text"
         onDismiss={jest.fn()}
         message="text"
-        primaryAction={{ text: 'next' }}
+        primaryAction={{ text: 'next', role: 'button' }}
       />,
       {
         createNodeMock: () => true,
@@ -43,7 +43,7 @@ describe('PopoverEducational', () => {
         anchor={null}
         onDismiss={() => {}}
         message="text"
-        primaryAction={{ text: 'next' }}
+        primaryAction={{ text: 'next', role: 'button' }}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();

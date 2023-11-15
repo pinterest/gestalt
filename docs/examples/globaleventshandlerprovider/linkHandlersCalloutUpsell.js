@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useCallback, useMemo, useState } from 'react';
+import { type Node as ReactNode, useCallback, useMemo, useState } from 'react';
 import {
   ActivationCard,
   Callout,
@@ -12,17 +12,17 @@ import {
   Upsell,
 } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [onNavigationMode, setOnNavigationMode] = useState<'default' | 'custom'>('default');
 
   const useOnNavigation = useCallback(
     ({
       href,
-    }: {|
+    }: {
       href: $ElementType<React$ElementConfig<typeof Link>, 'href'>,
       target?: $ElementType<React$ElementConfig<typeof Link>, 'target'>,
-    |}) => {
-      const onNavigationClick = ({ event }: {| +event: SyntheticEvent<> |}) => {
+    }) => {
+      const onNavigationClick = ({ event }: { +event: SyntheticEvent<> }) => {
         event.preventDefault();
         // eslint-disable-next-line no-alert
         alert(`Disabled link: ${href}. Opening help.pinterest.com instead.`);
@@ -34,7 +34,9 @@ export default function Example(): Node {
   );
 
   const linkHandlers = useMemo(
-    () => ({ onNavigation: onNavigationMode === 'custom' ? useOnNavigation : undefined }),
+    () => ({
+      onNavigation: onNavigationMode === 'custom' ? useOnNavigation : undefined,
+    }),
     [onNavigationMode, useOnNavigation],
   );
 
@@ -74,11 +76,13 @@ export default function Example(): Node {
                 href: '#',
                 label: 'Get started',
                 accessibilityLabel: 'Get started: verified merchant program',
+                role: 'link',
               }}
               secondaryAction={{
                 href: '#',
                 label: 'Learn more',
                 accessibilityLabel: 'Learn more: verified merchant program',
+                role: 'link',
               }}
               dismissButton={{
                 accessibilityLabel: 'Dismiss banner',
@@ -92,6 +96,7 @@ export default function Example(): Node {
                 href: '#',
                 label: 'Send invite',
                 accessibilityLabel: 'Send invite for ads credit',
+                role: 'link',
               }}
               dismissButton={{
                 accessibilityLabel: 'Dismiss banner',

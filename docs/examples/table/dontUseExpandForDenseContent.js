@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import {
   Box,
   Button,
@@ -7,7 +7,7 @@ import {
   Datapoint,
   Flex,
   Heading,
-  IconButton,
+  IconButtonLink,
   Image,
   Label,
   Mask,
@@ -195,8 +195,7 @@ function ExpandedContents() {
               id="Ads Overview"
               title="Ads Overview"
               iconButton={
-                <IconButton
-                  role="link"
+                <IconButtonLink
                   href="https://analytics.pinterest.com/"
                   bgColor="lightGray"
                   icon="arrow-up-right"
@@ -275,7 +274,7 @@ function RowExpandable({ campaign, status, empty, budget, scope }: any) {
   );
 }
 
-export default function MainExample(): Node {
+export default function MainExample(): ReactNode {
   const tableID = "Another example of a 'don't' do for table content";
 
   return (

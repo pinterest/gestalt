@@ -1,5 +1,5 @@
 // @flow strict
-import { type Element as ReactElement, type Node } from 'react';
+import { type Element as ReactElement, type Node as ReactNode } from 'react';
 import ModuleTitle from './Title.js';
 import Box from '../Box.js';
 import Flex from '../Flex.js';
@@ -9,10 +9,10 @@ import icons from '../icons/index.js';
 import TapArea from '../TapArea.js';
 import Text from '../Text.js';
 
-type BadgeType = {|
+type BadgeType = {
   text: string,
   type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
-|};
+};
 
 export default function ModuleExpandableItem({
   accessibilityCollapseLabel,
@@ -28,11 +28,11 @@ export default function ModuleExpandableItem({
   summary,
   title,
   type = 'info',
-}: {|
+}: {
   accessibilityCollapseLabel: string,
   accessibilityExpandLabel: string,
   badge?: BadgeType,
-  children?: Node,
+  children?: ReactNode,
   icon?: $Keys<typeof icons>,
   iconAccessibilityLabel?: string,
   iconButton?: ReactElement<typeof IconButton>,
@@ -42,7 +42,7 @@ export default function ModuleExpandableItem({
   summary?: $ReadOnlyArray<string>,
   title: string,
   type?: 'error' | 'info',
-|}): Node {
+}): ReactNode {
   return (
     <Box padding={6}>
       <Flex direction="column" gap={{ column: 6, row: 0 }}>

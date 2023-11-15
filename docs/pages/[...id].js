@@ -7,7 +7,7 @@ We do this so we don't have to define each page, and can just define the pages i
 */
 
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import remarkBreaks from 'remark-breaks';
@@ -16,25 +16,25 @@ import ErrorBoundary from '../docs-components/ErrorBoundary.js';
 import MarkdownPage from '../docs-components/MarkdownPage.js';
 import { getAllMarkdownPosts, getDocByRoute } from '../utils/mdHelper.js';
 
-type MDXRemoteSerializeResult = {|
+type MDXRemoteSerializeResult = {
   compiledSource: string,
 
   frontmatter?: { [key: string]: string },
-|};
+};
 
-type Props = {|
+type Props = {
   content: MDXRemoteSerializeResult,
-  meta: {|
+  meta: {
     title: string,
     badge: 'pilot' | 'deprecated',
     fullwidth?: boolean,
     description: string,
     component: boolean,
-  |},
+  },
   pageSourceUrl: string,
-|};
+};
 
-export default function DocumentPage({ content, meta, pageSourceUrl }: Props): Node {
+export default function DocumentPage({ content, meta, pageSourceUrl }: Props): ReactNode {
   return (
     <ErrorBoundary>
       <MarkdownPage meta={meta} pageSourceUrl={pageSourceUrl}>
@@ -44,15 +44,13 @@ export default function DocumentPage({ content, meta, pageSourceUrl }: Props): N
   );
 }
 
-export async function getStaticProps(context: {|
-  params: {| id: $ReadOnlyArray<string> |},
-|}): Promise<{|
-  props: {|
+export async function getStaticProps(context: { params: { id: $ReadOnlyArray<string> } }): Promise<{
+  props: {
     meta: { [key: string]: string },
-    content: {||},
+    content: {},
     pageSourceUrl: string,
-  |},
-|}> {
+  },
+}> {
   const { id } = context.params;
 
   const pathName = id.join('/');
@@ -71,12 +69,12 @@ export async function getStaticProps(context: {|
   };
 }
 
-export async function getStaticPaths(): Promise<{|
-  paths: $ReadOnlyArray<{|
-    params: {| id: string | $ReadOnlyArray<string> |},
-  |}>,
+export async function getStaticPaths(): Promise<{
+  paths: $ReadOnlyArray<{
+    params: { id: string | $ReadOnlyArray<string> },
+  }>,
   fallback: boolean,
-|}> {
+}> {
   // get all the possible paths that exist within ./markdown folder
   const paths = await getAllMarkdownPosts();
 

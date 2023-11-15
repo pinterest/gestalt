@@ -1,19 +1,19 @@
 // @flow strict
-import { type Post } from './whats_new.js';
+import { type Post } from "./whats_new.js";
 
-type Week = {|
+type Week = {
   +week: string,
   +summary: string,
   +posts: $ReadOnlyArray<Post>,
-|};
+};
 
-type Month = {|
+type Month = {
   +month: string,
   +summary: string,
   +posts: $ReadOnlyArray<Post>,
-|};
+};
 
-declare module.exports: $ReadOnlyArray<{|
+declare module.exports: $ReadOnlyArray<{
   +year: string,
   +digests: $ReadOnlyArray<Week | Month>,
-|}>;
+}>;

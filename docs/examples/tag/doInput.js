@@ -1,17 +1,17 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Flex, Tag, TextField } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [tags, setTags] = useState<$ReadOnlyArray<string>>(['Design systems', 'Color', 'Tokens']);
   const [currentValue, setCurrentValue] = useState<string>('');
 
   const handleChange = ({
     value,
-  }: {|
+  }: {
     event: SyntheticInputEvent<HTMLInputElement>,
     value: string,
-  |}) => {
+  }) => {
     setCurrentValue(value);
   };
 

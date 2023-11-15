@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useCallback, useMemo, useRef, useState } from 'react';
+import { type Node as ReactNode, useCallback, useMemo, useRef, useState } from 'react';
 import {
   Button,
   Divider,
@@ -10,7 +10,7 @@ import {
   RadioGroup,
 } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [onNavigationMode, setOnNavigationMode] = useState<'default' | 'custom'>('default');
   const [open, setOpen] = useState(false);
   const anchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
@@ -18,11 +18,11 @@ export default function Example(): Node {
   const useOnNavigation = useCallback(
     ({
       href,
-    }: {|
+    }: {
       href: $ElementType<React$ElementConfig<typeof Link>, 'href'>,
       target?: $ElementType<React$ElementConfig<typeof Link>, 'target'>,
-    |}) => {
-      const onNavigationClick = ({ event }: {| +event: SyntheticEvent<> |}) => {
+    }) => {
+      const onNavigationClick = ({ event }: { +event: SyntheticEvent<> }) => {
         event.preventDefault();
         // eslint-disable-next-line no-alert
         alert(`Disabled link: ${href}. Opening help.pinterest.com instead.`);
@@ -34,7 +34,9 @@ export default function Example(): Node {
   );
 
   const linkHandlers = useMemo(
-    () => ({ onNavigation: onNavigationMode === 'custom' ? useOnNavigation : undefined }),
+    () => ({
+      onNavigation: onNavigationMode === 'custom' ? useOnNavigation : undefined,
+    }),
     [onNavigationMode, useOnNavigation],
   );
 

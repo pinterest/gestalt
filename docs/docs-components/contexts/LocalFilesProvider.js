@@ -1,17 +1,23 @@
 // @flow strict
-import { type Context, createContext, type Element, type Node, useContext } from 'react';
+import {
+  type Context,
+  createContext,
+  type Element,
+  type Node as ReactNode,
+  useContext,
+} from 'react';
 
-type LocalFilesContextType = {|
-  files: ?{|
+type LocalFilesContextType = {
+  files: ?{
     css: string,
     js: string,
-  |},
-|};
+  },
+};
 
-type Props = {|
+type Props = {
   ...LocalFilesContextType,
-  children: Node,
-|};
+  children: ReactNode,
+};
 
 const LocalFilesContext: Context<LocalFilesContextType> = createContext<LocalFilesContextType>({
   files: null,

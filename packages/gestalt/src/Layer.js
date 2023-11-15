@@ -1,28 +1,28 @@
 // @flow strict
-import { type Node, type Portal, useEffect, useRef, useState } from 'react';
+import { type Node as ReactNode, type Portal, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider.js';
 import styles from './Layer.css';
 import { getContainerNode } from './utils/positioningUtils.js';
 import { type Indexable } from './zIndex.js';
 
-type Props = {|
+type Props = {
   /**
    *
    */
-  children: Node,
+  children: ReactNode,
   /**
    * An object representing the z-index value of the Layer. See the [z-index example](https://gestalt.pinterest.systems/web/layer#zIndex) for more details.
    */
   zIndex?: Indexable,
-|};
+};
 
 /**
  * [Layers](https://gestalt.pinterest.systems/web/layer) allow you to render children outside the DOM hierarchy of the parent. It's a wrapper around React createPortal that lets you use it as a component. This is particularly useful for places you might have needed to use z-index to overlay the screen before.
  *
  * ![Layer](https://raw.githubusercontent.com/pinterest/gestalt/master/docs/graphics/building-blocks/Layer.svg)
  */
-export default function Layer({ children, zIndex: zIndexIndexable }: Props): Portal | Node {
+export default function Layer({ children, zIndex: zIndexIndexable }: Props): Portal | ReactNode {
   const [mounted, setMounted] = useState(false);
   const portalContainer = useRef<?HTMLDivElement>(null);
   const zIndex = zIndexIndexable?.index();

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
@@ -11,7 +11,7 @@ const SIZE_NAME_TO_PIXEL = {
   md: 40,
 };
 
-type Props = {|
+type Props = {
   /**
    * String that clients such as VoiceOver will read to describe the element. Always localize the label.
    */
@@ -32,7 +32,7 @@ type Props = {|
    * sm: 32px, md: 40px
    */
   size?: 'sm' | 'md',
-|};
+};
 
 /**
  * [Spinner](https://gestalt.pinterest.systems/web/spinner ) helps indicate that a surface's content or portion of content is currently loading.
@@ -46,7 +46,7 @@ export default function Spinner({
   delay = true,
   show,
   size = 'md',
-}: Props): Node {
+}: Props): ReactNode {
   const { accessibilityLabel: accessibilityLabelDefault } = useDefaultLabelContext('Spinner');
   return show ? (
     <Box display="flex" justifyContent="around" overflow="hidden">

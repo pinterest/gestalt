@@ -3,20 +3,20 @@ import {
   type Context,
   createContext,
   type Element,
-  type Node,
+  type Node as ReactNode,
   useCallback,
   useContext,
   useState,
 } from 'react';
 
-type ScrollBoundaryContainerContextType = {|
+type ScrollBoundaryContainerContextType = {
   scrollBoundaryContainerRef: ?HTMLElement,
   addRef: (ref: HTMLElement) => void,
-|};
+};
 
-type Props = {|
-  children: Node,
-|};
+type Props = {
+  children: ReactNode,
+};
 
 const ScrollBoundaryContainerContext: Context<ScrollBoundaryContainerContextType> =
   createContext<ScrollBoundaryContainerContextType>({

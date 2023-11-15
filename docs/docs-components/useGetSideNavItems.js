@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { useRouter } from 'next/router';
 import { SideNavigation } from 'gestalt';
 import { useNavigationContext } from './navigationContext.js';
@@ -9,7 +9,7 @@ function convertNamesForURL(name: string) {
   return name.replace(/ - /g, '/').replace(/ /g, '_').replace(/'/g, '').toLowerCase();
 }
 
-const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): Node => {
+const useGetSideNavItems = ({ sectionInfo }: { sectionInfo: siteIndexType }): ReactNode => {
   const { pathname, query } = useRouter();
   const { setIsSidebarOpen } = useNavigationContext();
 
@@ -17,7 +17,7 @@ const useGetSideNavItems = ({ sectionInfo }: {| sectionInfo: siteIndexType |}): 
     navItem: siteIndexType,
     previousSectionName: string,
     nestingLevel: number = 0,
-  ): Node => {
+  ): ReactNode => {
     // in nextjs, if it's a dynamic route, the dynamic route id will be passed as part of the query obj
     const { id: pathId } = query;
     const urlPath = pathId ? pathId.join('/') : '';

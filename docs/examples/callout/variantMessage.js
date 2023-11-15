@@ -1,8 +1,8 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { type Node as ReactNode } from 'react';
 import { Box, Callout, Flex, Text } from 'gestalt';
 
-export default function ResponsiveExample(): Node {
+export default function ResponsiveExample(): ReactNode {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Box paddingY={8} paddingX={8}>
@@ -25,10 +25,12 @@ export default function ResponsiveExample(): Node {
           primaryAction={{
             accessibilityLabel: 'Resend invite',
             label: 'Resend invite',
+            role: 'button',
           }}
           secondaryAction={{
             accessibilityLabel: 'Cancel invite',
             label: 'Cancel invite',
+            role: 'button',
           }}
           title="You've sent an invite"
           type="info"

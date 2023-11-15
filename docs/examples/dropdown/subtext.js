@@ -1,16 +1,16 @@
 // @flow strict
-import { Fragment, type Node, useRef, useState } from 'react';
+import { Fragment, type Node as ReactNode, useRef, useState } from 'react';
 import { Box, CompositeZIndex, Dropdown, FixedZIndex, Flex, IconButton } from 'gestalt';
 
-export default function CustomIconButtonPopoverExample(): Node {
+export default function CustomIconButtonPopoverExample(): ReactNode {
   const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
 
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState<null | {|
+  const [selected, setSelected] = useState<null | {
     label: string,
     subtext?: string,
     value: string,
-  |}>(null);
+  }>(null);
   const anchorRef = useRef<null | HTMLElement>(null);
   const onSelect: $ElementType<React$ElementConfig<typeof Dropdown.Item>, 'onSelect'> = ({
     item,
@@ -64,7 +64,10 @@ export default function CustomIconButtonPopoverExample(): Node {
           <Dropdown.Section label="More options">
             <Dropdown.Item
               onSelect={onSelect}
-              option={{ value: 'Tune your home feed', label: 'Tune your home feed' }}
+              option={{
+                value: 'Tune your home feed',
+                label: 'Tune your home feed',
+              }}
               selected={selected}
             />
             <Dropdown.Link

@@ -1,5 +1,5 @@
 // @flow strict
-import { type AbstractComponent, forwardRef, type Node } from 'react';
+import { type AbstractComponent, forwardRef, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import bordersStyles from '../Borders.css';
 import boxWhitespaceStyles from '../boxWhitespace.css';
@@ -11,26 +11,26 @@ import layoutStyles from '../Layout.css';
 import touchableStyles from '../TapArea.css';
 import Text from '../Text.js';
 
-export type ComboBoxItemType = {|
+export type ComboBoxItemType = {
   label: string,
   subtext?: string,
   value: string,
-|};
+};
 
-type Props = {|
+type Props = {
   id: string,
   index: number,
   isHovered: boolean,
   isSelected: boolean,
   label: string,
-  onSelect?: ({|
+  onSelect?: ({
     item: ComboBoxItemType,
     event: SyntheticInputEvent<HTMLInputElement>,
-  |}) => void,
+  }) => void,
   setHoveredItemIndex: (number) => void,
   subtext?: string,
   value: string,
-|};
+};
 
 const ComboBoxItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forwardRef<
   Props,
@@ -38,7 +38,7 @@ const ComboBoxItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forwa
 >(function OptionItem(
   { isHovered, id, index, isSelected, label, onSelect, setHoveredItemIndex, subtext, value }: Props,
   ref,
-): Node {
+): ReactNode {
   const handleEventPreventDefault = (event: SyntheticInputEvent<HTMLDivElement>) =>
     event.preventDefault();
 
@@ -70,7 +70,10 @@ const ComboBoxItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forwa
           bordersStyles.rounding2,
           boxWhitespaceStyles.paddingX2,
           boxWhitespaceStyles.paddingY2,
-          { [colorStyles.lightGrayBg]: isHovered, [colorStyles.transparentBg]: !isHovered },
+          {
+            [colorStyles.lightGrayBg]: isHovered,
+            [colorStyles.transparentBg]: !isHovered,
+          },
         )}
       >
         <div

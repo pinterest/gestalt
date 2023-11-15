@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Callout, Flex } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Box paddingY={8} paddingX={8}>
@@ -16,6 +16,7 @@ export default function Example(): Node {
           primaryAction={{
             accessibilityLabel: 'Send ads invite',
             label: 'Send invite',
+            role: 'button',
           }}
           title="Give $30, get $60 in ads credit"
           type="info"

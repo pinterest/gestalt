@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Flex, Link, Text } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
@@ -19,7 +19,7 @@ import repurposeExample from '../../../examples/colors/repurposeExample.js';
 import soleIndicatorExample from '../../../examples/colors/soleIndicatorExample.js';
 import validElevationExample from '../../../examples/colors/validElevationExample.js';
 
-export default function ColorExamplesPage(): Node {
+export default function ColorExamplesPage(): ReactNode {
   return (
     <Page title="Color examples">
       <PageHeader

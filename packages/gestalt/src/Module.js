@@ -1,18 +1,20 @@
 // @flow strict
-import { type Element, type Node } from 'react';
+import { type Element, type Node as ReactNode } from 'react';
 import Box from './Box.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import Flex from './Flex.js';
 import IconButton from './IconButton.js';
+import IconButtonLink from './IconButtonLink.js';
 import icons from './icons/index.js';
 import ModuleTitle from './Module/Title.js';
 import ModuleExpandable from './ModuleExpandable.js';
 
-type BadgeType = {|
+type BadgeType = {
   text: string,
   type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
-|};
+};
 
-type Props = {|
+type Props = {
   /**
    * Add a badge displayed after the title. Will not be displayed if `title` is not provided. Not to be used with `icon` or `iconButton`. Be sure to localize the text. See the [badge variant](https://gestalt.pinterest.systems/web/module#Static-Badge) for more details.
    */
@@ -20,7 +22,7 @@ type Props = {|
   /**
    * Content to display underneath Module title.
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * Name of icon to display in front of title. Will not be displayed if `title` is not provided. Not to be used with `badge` or `iconButton`. For a full list of icons, see [Iconography and SVGs](https://gestalt.pinterest.systems/foundations/iconography/library#Search-icon-library). See the [icon variant](https://gestalt.pinterest.systems/web/module#Static-Icon) for more details.
    */
@@ -32,7 +34,7 @@ type Props = {|
   /**
    * IconButton element to be placed after the `title` for a supplemental Call To Action (CTA). Will not be displayed if `title` is not provided. Not to be used with `badge` or `icon`. See the [icon button variant](https://gestalt.pinterest.systems/web/module#Static-IconButton) for more details.
    */
-  iconButton?: Element<typeof IconButton>,
+  iconButton?: Element<typeof IconButton | typeof IconButtonLink>,
   /**
    * Unique id to identify this Module
    */
@@ -45,7 +47,7 @@ type Props = {|
    * If set to `error`, displays error icon and changes title to red text. Be sure to provide an `iconAccessibilityLabel` when set to `error`. See the [error variant](https://gestalt.pinterest.systems/web/module#Static-Error) for more details.
    */
   type?: 'error' | 'info',
-|};
+};
 
 /**
  * [Module](https://gestalt.pinterest.systems/web/module) is a container that holds content about one subject. Its contents can be visible at all times, or expand and collapse as individual modules or a group of modules.
@@ -63,9 +65,18 @@ export default function Module({
   id,
   title,
   type = 'info',
-}: Props): Node {
+}: Props): ReactNode {
+  const { name: colorSchemeName } = useColorScheme();
+  const isDarkMode = colorSchemeName === 'darkMode';
+
   return (
-    <Box borderStyle="shadow" color="elevationFloating" id={id} padding={6} rounding={4}>
+    <Box
+      borderStyle="shadow"
+      color={isDarkMode ? 'elevationFloating' : 'default'}
+      id={id}
+      padding={6}
+      rounding={4}
+    >
       <Flex direction="column" gap={{ column: 6, row: 0 }}>
         {title && (
           <ModuleTitle

@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Checkbox, Flex, Label, Status, Table, Text } from 'gestalt';
 
-function HeaderRow({ id }: {| id: string |}) {
+function HeaderRow({ id }: { id: string }) {
   return (
     <Table.Header>
       <Table.Row>
@@ -30,7 +30,7 @@ function BaseRow({
   text,
   subtext,
   campaign,
-}: {|
+}: {
   id: string,
   checked?: boolean,
   disabled?: boolean,
@@ -38,7 +38,7 @@ function BaseRow({
   text: string,
   subtext: string,
   campaign: string,
-|}) {
+}) {
   return (
     <Table.Row>
       <Table.Cell>
@@ -68,7 +68,7 @@ function BaseRow({
   );
 }
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const tableID = 'Example of correct accessibility with bottom caption';
 
   return (

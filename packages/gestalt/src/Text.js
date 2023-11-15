@@ -1,5 +1,5 @@
 // @flow strict
-import { type AbstractComponent, type Element, forwardRef, type Node } from 'react';
+import { type AbstractComponent, type Element, forwardRef, type Node as ReactNode } from 'react';
 import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Text.css';
@@ -11,10 +11,10 @@ function isNotNullish(val: ?number): boolean {
 }
 
 type As = 'span' | 'div';
-type Overflow = 'normal' | 'breakWord' | 'noWrap';
+type Overflow = 'normal' | 'breakAll' | 'breakWord' | 'noWrap';
 type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
-type Props = {|
+type Props = {
   /**
    * `"start"` and `"end"` should be used for regular alignment since they flip with locale direction. `"forceLeft"` and `"forceRight"` should only be used in special cases where locale direction should be ignored, such as tabular or numeric text. See the [alignment variant](https://gestalt.pinterest.systems/web/text#Alignment) for more details.
    */
@@ -22,7 +22,7 @@ type Props = {|
   /**
    * The text content to be displayed.
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * The color of the text content. See the [colors variant](https://gestalt.pinterest.systems/web/text#Colors) for more details.
    */
@@ -73,7 +73,7 @@ type Props = {|
    * Indicates the font weight for the text content. See the [styles variant](https://gestalt.pinterest.systems/web/text#Styles) for more details.
    */
   weight?: 'bold' | 'normal',
-|};
+};
 
 /**
  * [Text](https://gestalt.pinterest.systems/web/text) component is used for all non-heading text on all surfaces, whether inside of UI components or in long-form paragraph text.
@@ -100,6 +100,19 @@ const TextWithForwardRef: AbstractComponent<Props, HTMLElement> = forwardRef<Pro
   ): Element<As> {
     const colorClass = semanticColors.includes(color) && colors[`${color}Text`];
 
+    const getWordBreakStyle = (): string | void => {
+      if (overflow === 'breakAll') {
+        return typography.breakAll;
+      }
+
+      // default to breakWord if lineClamp is set
+      if (overflow === 'breakWord' || isNotNullish(lineClamp)) {
+        return typography.breakWord;
+      }
+
+      return undefined;
+    };
+
     const cs = cx(
       styles.Text,
       typography[`fontSize${size}`],
@@ -110,7 +123,7 @@ const TextWithForwardRef: AbstractComponent<Props, HTMLElement> = forwardRef<Pro
       align === 'end' && typography.alignEnd,
       align === 'forceLeft' && typography.alignForceLeft,
       align === 'forceRight' && typography.alignForceRight,
-      overflow === 'breakWord' && typography.breakWord,
+      getWordBreakStyle(),
       overflow === 'noWrap' && typography.noWrap,
       italic && typography.fontStyleItalic,
       underline && typography.underline,

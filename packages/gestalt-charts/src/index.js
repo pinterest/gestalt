@@ -1,5 +1,5 @@
-// @flow strict
-import Chart from './Chart.js';
+// @flow strict-local
+import ChartGraph from './ChartGraph.js';
 
 // eslint-disable-next-line import/prefer-default-export
-export { Chart };
+export { ChartGraph };

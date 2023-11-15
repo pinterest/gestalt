@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
@@ -19,7 +19,7 @@ const MD_PREVIEW_HEIGHT = 200;
 const LG_PREVIEW_HEIGHT = 400;
 const XL_PREVIEW_HEIGHT = 500;
 
-export default function DocsPage(): Node {
+export default function DocsPage(): ReactNode {
   return (
     <Page title="Available form components">
       <PageHeader name="Available form components" type="guidelines" />

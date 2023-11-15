@@ -1,8 +1,9 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Link, Table, Text } from 'gestalt';
 import docGen, { type DocGen } from '../../../docs-components/docgen.js';
 import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
+import InternalDocumentationSection from '../../../docs-components/InternalDocumentationSection.js';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
@@ -14,279 +15,324 @@ import translations from '../../../examples/defaultlabelprovider/translations.js
 function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */) {
   return [
     {
-      'component': 'ActivationCard',
-      'prop': 'accessibilityDismissButtonLabel',
-      'label': 'Dismiss',
+      component: 'ActivationCard',
+      prop: 'accessibilityDismissButtonLabel',
+      label: 'Dismiss',
     },
     {
-      'component': 'Callout',
-      'prop': 'accessibilityDismissButtonLabel',
-      'label': 'Dismiss Banner',
+      component: 'Callout',
+      prop: 'accessibilityDismissButtonLabel',
+      label: 'Dismiss Banner',
     },
     {
-      'component': 'Callout',
-      'prop': 'iconAccessibilityLabelError',
-      'label': 'Error',
+      component: 'Callout',
+      prop: 'iconAccessibilityLabelError',
+      label: 'Error',
     },
     {
-      'component': 'Callout',
-      'prop': 'iconAccessibilityLabelInfo',
-      'label': 'Information',
+      component: 'Callout',
+      prop: 'iconAccessibilityLabelInfo',
+      label: 'Information',
     },
     {
-      'component': 'Callout',
-      'prop': 'iconAccessibilityLabelRecommendation',
-      'label': 'Recommendation',
+      component: 'Callout',
+      prop: 'iconAccessibilityLabelRecommendation',
+      label: 'Recommendation',
     },
     {
-      'component': 'Callout',
-      'prop': 'iconAccessibilityLabelWarning',
-      'label': 'Warning',
+      component: 'Callout',
+      prop: 'iconAccessibilityLabelWarning',
+      label: 'Warning',
     },
     {
-      'component': 'Callout',
-      'prop': 'iconAccessibilityLabelSuccess',
-      'label': 'Success',
+      component: 'Callout',
+      prop: 'iconAccessibilityLabelSuccess',
+      label: 'Success',
     },
     {
-      'component': 'ComboBox',
-      'prop': 'noResultText',
-      'label': 'No results',
+      component: 'ChartGraph',
+      prop: 'accessibilityLabelPrefixText',
+      label: 'ChartGraph',
     },
     {
-      'component': 'ComboBox',
-      'prop': 'accessibilityClearButtonLabel',
-      'label': 'Clear input',
+      component: 'ChartGraph',
+      prop: 'defaultViewText',
+      label: 'Default view mode',
     },
     {
-      'component': 'DateRange',
-      'prop': 'applyText',
-      'label': 'Apply',
+      component: 'ChartGraph',
+      prop: 'tabularData',
+      label: 'Tabular representation',
     },
     {
-      'component': 'DateRange',
-      'prop': 'cancelText',
-      'label': 'Cancel',
+      component: 'ChartGraph',
+      prop: 'accessibilityLabelDismissModal',
+      label: 'Dismiss tabular representation modal',
     },
     {
-      'component': 'Link',
-      'prop': 'accessibilityNewTabLabel',
-      'label': 'Opens a new tab',
+      component: 'ChartGraph',
+      prop: 'tableSeriesText',
+      label: 'Series',
     },
     {
-      'component': 'Modal',
-      'prop': 'accessibilityDismissButtonLabel',
-      'label': 'Dismiss modal',
+      component: 'ChartGraph',
+      prop: 'tableXAxisText',
+      label: 'x-axis values',
     },
     {
-      'component': 'Popover',
-      'prop': 'accessibilityDismissButtonLabel',
-      'label': 'Dismiss popover',
+      component: 'ChartGraph',
+      prop: 'tableYAxisText',
+      label: 'y-axis values',
     },
     {
-      'component': 'OverlayPanel',
-      'prop': 'accessibilityDismissButtonLabel',
-      'label': 'Dismiss overlay panel',
+      component: 'ChartGraph',
+      prop: 'downloadCsvButtonText',
+      label: 'Download as .csv',
     },
     {
-      'component': 'OverlayPanel',
-      'prop': 'dismissConfirmationMessage',
-      'label': 'Are you sure you want to dismiss?',
+      component: 'ChartGraph',
+      prop: 'cancelButtonText',
+      label: 'Cancel',
     },
     {
-      'component': 'OverlayPanel',
-      'prop': 'dismissConfirmationSubtext',
-      'label': 'You will lose all of your changes. This cannot be undone',
+      component: 'ComboBox',
+      prop: 'noResultText',
+      label: 'No results',
     },
     {
-      'component': 'OverlayPanel',
-      'prop': 'dismissConfirmationPrimaryActionText',
-      'label': 'Yes, dismiss',
+      component: 'ComboBox',
+      prop: 'accessibilityClearButtonLabel',
+      label: 'Clear input',
     },
     {
-      'component': 'OverlayPanel',
-      'prop': 'dismissConfirmationPrimaryActionTextLabel',
-      'label': 'Yes, dismiss the overlay panel',
+      component: 'DateRange',
+      prop: 'applyText',
+      label: 'Apply',
     },
     {
-      'component': 'OverlayPanel',
-      'prop': 'dismissConfirmationSecondaryActionText',
-      'label': 'No, go back',
+      component: 'DateRange',
+      prop: 'cancelText',
+      label: 'Cancel',
     },
     {
-      'component': 'OverlayPanel',
-      'prop': 'dismissConfirmationSecondaryActionTextLabel',
-      'label': 'No, go back to the overlay panel',
+      component: 'Link',
+      prop: 'accessibilityNewTabLabel',
+      label: 'Opens a new tab',
     },
     {
-      'component': 'SheetMobile',
-      'prop': 'accessibilityDismissButtonLabel',
-      'label': 'Dismiss bottom sheet',
+      component: 'Modal',
+      prop: 'accessibilityDismissButtonLabel',
+      label: 'Dismiss modal',
     },
     {
-      'component': 'SheetMobile',
-      'prop': 'accessibilityGrabberLabel',
-      'label': 'Grabber',
+      component: 'Popover',
+      prop: 'accessibilityDismissButtonLabel',
+      label: 'Dismiss popover',
     },
     {
-      'component': 'SheetMobile',
-      'prop': 'accessibilityLabel',
-      'label': 'Bottom sheet',
+      component: 'OverlayPanel',
+      prop: 'accessibilityDismissButtonLabel',
+      label: 'Dismiss overlay panel',
     },
     {
-      'component': 'SideNavigation',
-      'prop': 'accessibilityDismissButtonLabel',
-      'label': 'Dismiss side navigation',
+      component: 'OverlayPanel',
+      prop: 'dismissConfirmationMessage',
+      label: 'Are you sure you want to dismiss?',
     },
     {
-      'component': 'SlimBanner',
-      'prop': 'accessibilityDismissButtonLabel',
-      'label': 'Dismiss banner',
+      component: 'OverlayPanel',
+      prop: 'dismissConfirmationSubtext',
+      label: 'You will lose all of your changes. This cannot be undone',
     },
     {
-      'component': 'SlimBanner',
-      'prop': 'iconAccessibilityLabelError',
-      'label': 'Error',
+      component: 'OverlayPanel',
+      prop: 'dismissConfirmationPrimaryActionText',
+      label: 'Yes, dismiss',
     },
     {
-      'component': 'SlimBanner',
-      'prop': 'iconAccessibilityLabelInfo',
-      'label': 'Information',
+      component: 'OverlayPanel',
+      prop: 'dismissConfirmationPrimaryActionTextLabel',
+      label: 'Yes, dismiss the overlay panel',
     },
     {
-      'component': 'SlimBanner',
-      'prop': 'iconAccessibilityLabelRecommendation',
-      'label': 'Recommendation',
+      component: 'OverlayPanel',
+      prop: 'dismissConfirmationSecondaryActionText',
+      label: 'No, go back',
     },
     {
-      'component': 'SlimBanner',
-      'prop': 'iconAccessibilityLabelWarning',
-      'label': 'Warning',
+      component: 'OverlayPanel',
+      prop: 'dismissConfirmationSecondaryActionTextLabel',
+      label: 'No, go back to the overlay panel',
     },
     {
-      'component': 'SlimBanner',
-      'prop': 'iconAccessibilityLabelSuccess',
-      'label': 'Success',
+      component: 'SheetMobile',
+      prop: 'accessibilityDismissButtonLabel',
+      label: 'Dismiss bottom sheet',
     },
     {
-      'component': 'Spinner',
-      'prop': 'accessibilityLabel',
-      'label': 'Loading',
+      component: 'SheetMobile',
+      prop: 'accessibilityGrabberLabel',
+      label: 'Grabber',
     },
     {
-      'component': 'TableOfContents',
-      'prop': 'accessibilityLabel',
-      'label': 'Table of contents',
+      component: 'SheetMobile',
+      prop: 'accessibilityLabel',
+      label: 'Bottom sheet',
     },
     {
-      'component': 'Tag',
-      'prop': 'accessibilityErrorIconLabel',
-      'label': 'Error',
+      component: 'SideNavigation',
+      prop: 'accessibilityDismissButtonLabel',
+      label: 'Dismiss side navigation',
     },
     {
-      'component': 'Tag',
-      'prop': 'accessibilityRemoveIconLabel',
-      'label': 'Remove tag',
+      component: 'SlimBanner',
+      prop: 'accessibilityDismissButtonLabel',
+      label: 'Dismiss banner',
     },
     {
-      'component': 'Tag',
-      'prop': 'accessibilityWarningIconLabel',
-      'label': 'Warning',
+      component: 'SlimBanner',
+      prop: 'iconAccessibilityLabelError',
+      label: 'Error',
     },
     {
-      'component': 'TagData',
-      'prop': 'accessibilityRemoveIconLabel',
-      'label': 'Remove tag',
+      component: 'SlimBanner',
+      prop: 'iconAccessibilityLabelInfo',
+      label: 'Information',
     },
     {
-      'component': 'TextField',
-      'prop': 'accessibilityHidePasswordLabel',
-      'label': 'Hide password',
+      component: 'SlimBanner',
+      prop: 'iconAccessibilityLabelRecommendation',
+      label: 'Recommendation',
     },
     {
-      'component': 'TextField',
-      'prop': 'accessibilityShowPasswordLabel',
-      'label': 'Show password',
+      component: 'SlimBanner',
+      prop: 'iconAccessibilityLabelWarning',
+      label: 'Warning',
     },
     {
-      'component': 'HelpButton',
-      'prop': 'tooltipMessage',
-      'label': 'Click to learn more',
+      component: 'SlimBanner',
+      prop: 'iconAccessibilityLabelSuccess',
+      label: 'Success',
     },
     {
-      'component': 'Toast',
-      'prop': 'accessibilityDismissButtonLabel',
-      'label': 'Dismiss toast',
+      component: 'Spinner',
+      prop: 'accessibilityLabel',
+      label: 'Loading',
     },
     {
-      'component': 'Toast',
-      'prop': 'accessibilityIconSuccessLabel',
-      'label': 'Success message',
+      component: 'TableOfContents',
+      prop: 'accessibilityLabel',
+      label: 'Table of contents',
     },
     {
-      'component': 'Toast',
-      'prop': 'accessibilityIconErrorLabel',
-      'label': 'Error message',
+      component: 'Tag',
+      prop: 'accessibilityErrorIconLabel',
+      label: 'Error',
     },
     {
-      'component': 'Toast',
-      'prop': 'accessibilityProcessingLabel',
-      'label': 'Processing message',
+      component: 'Tag',
+      prop: 'accessibilityRemoveIconLabel',
+      label: 'Remove tag',
     },
     {
-      'component': 'Upsell',
-      'prop': 'accessibilityDismissButtonLabel',
-      'label': 'Dismiss banner',
+      component: 'Tag',
+      prop: 'accessibilityWarningIconLabel',
+      label: 'Warning',
     },
     {
-      'component': 'Video',
-      'prop': 'accessibilityMaximizeLabel',
-      'label': 'Maximize',
+      component: 'TagData',
+      prop: 'accessibilityRemoveIconLabel',
+      label: 'Remove tag',
     },
     {
-      'component': 'Video',
-      'prop': 'accessibilityMinimizeLabel',
-      'label': 'Minimize',
+      component: 'TextField',
+      prop: 'accessibilityHidePasswordLabel',
+      label: 'Hide password',
     },
     {
-      'component': 'Video',
-      'prop': 'accessibilityMuteLabel',
-      'label': 'Mute',
+      component: 'TextField',
+      prop: 'accessibilityShowPasswordLabel',
+      label: 'Show password',
     },
     {
-      'component': 'Video',
-      'prop': 'accessibilityPauseLabel',
-      'label': 'Pause',
+      component: 'HelpButton',
+      prop: 'tooltipMessage',
+      label: 'Click to learn more',
     },
     {
-      'component': 'Video',
-      'prop': 'accessibilityPlayLabel',
-      'label': 'Play',
+      component: 'Toast',
+      prop: 'accessibilityDismissButtonLabel',
+      label: 'Dismiss toast',
     },
     {
-      'component': 'Video',
-      'prop': 'accessibilityProgressLabel',
-      'label': 'Video progress',
+      component: 'Toast',
+      prop: 'accessibilityIconSuccessLabel',
+      label: 'Success message',
     },
     {
-      'component': 'Video',
-      'prop': 'accessibilityUnmuteLabel',
-      'label': 'Unmute',
+      component: 'Toast',
+      prop: 'accessibilityIconErrorLabel',
+      label: 'Error message',
     },
     {
-      'component': 'Video',
-      'prop': 'accessibilityHideCaptionsLabel',
-      'label': 'Hide captions',
+      component: 'Toast',
+      prop: 'accessibilityProcessingLabel',
+      label: 'Processing message',
     },
     {
-      'component': 'Video',
-      'prop': 'accessibilityShowCaptionsLabel',
-      'label': 'Show captions',
+      component: 'Upsell',
+      prop: 'accessibilityDismissButtonLabel',
+      label: 'Dismiss banner',
+    },
+    {
+      component: 'Video',
+      prop: 'accessibilityMaximizeLabel',
+      label: 'Maximize',
+    },
+    {
+      component: 'Video',
+      prop: 'accessibilityMinimizeLabel',
+      label: 'Minimize',
+    },
+    {
+      component: 'Video',
+      prop: 'accessibilityMuteLabel',
+      label: 'Mute',
+    },
+    {
+      component: 'Video',
+      prop: 'accessibilityPauseLabel',
+      label: 'Pause',
+    },
+    {
+      component: 'Video',
+      prop: 'accessibilityPlayLabel',
+      label: 'Play',
+    },
+    {
+      component: 'Video',
+      prop: 'accessibilityProgressLabel',
+      label: 'Video progress',
+    },
+    {
+      component: 'Video',
+      prop: 'accessibilityUnmuteLabel',
+      label: 'Unmute',
+    },
+    {
+      component: 'Video',
+      prop: 'accessibilityHideCaptionsLabel',
+      label: 'Hide captions',
+    },
+    {
+      component: 'Video',
+      prop: 'accessibilityShowCaptionsLabel',
+      label: 'Show captions',
     },
   ];
 }
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
@@ -360,11 +406,22 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
           </Table.Body>
         </Table>
       </MainSection>
+
+      <InternalDocumentationSection
+        items={[
+          {
+            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-providers#defaultlabelprovider',
+            text: 'Gestalt Providers in Pinboard',
+          },
+        ]}
+      />
     </Page>
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: {
       generatedDocGen: await docGen('DefaultLabelProvider'),

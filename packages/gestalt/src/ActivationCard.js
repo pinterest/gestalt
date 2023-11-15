@@ -1,9 +1,10 @@
 // @flow strict
-import { Fragment, type Node } from 'react';
+import { Fragment, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import styles from './ActivationCard.css';
 import Box from './Box.js';
-import Button from './Button.js';
+import ButtonLink from './ButtonLink.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
@@ -16,32 +17,28 @@ const STATUS_ICONS = {
   complete: { symbol: 'check-circle', color: 'success' },
 };
 
-type LinkData = {|
+type LinkData = {
   accessibilityLabel: string,
   href: string,
   label: string,
-  onClick?: ({|
-    event:
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>,
+  onClick?: ({
+    event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
+  }) => void,
   rel?: 'none' | 'nofollow',
   target?: null | 'self' | 'blank',
-|};
+};
 
-type Props = {|
+type Props = {
   /**
    * Callback fired when the dismiss button is clicked (pressed and released) with a mouse or keyboard.
    * Supply a short, descriptive label for screen-readers to provide sufficient context about the dismiss button action. IconButtons do not render text for screen readers to read requiring an accessibility label.
    * Accessibility: `accessibilityLabel` populates aria-label.
    */
-  dismissButton?: {|
-    accessibilityLabel: string,
+  dismissButton?: {
+    accessibilityLabel?: string,
     onDismiss: () => void,
-  |},
+  },
   /**
    * Link-role button to render inside the activation card as a call-to-action to the user.
    * - `label`: Text to render inside the button to convey the function and purpose of the button. The button text has a fixed size.
@@ -71,9 +68,9 @@ type Props = {|
    * Heading to render inside the activation card above the message to convey the activation card topic to the user.
    */
   title: string,
-|};
+};
 
-function ActivationCardLink({ data }: {| data: LinkData |}): Node {
+function ActivationCardLink({ data }: { data: LinkData }): ReactNode {
   const { accessibilityLabel, href, label, onClick, rel, target } = data;
 
   return (
@@ -85,14 +82,13 @@ function ActivationCardLink({ data }: {| data: LinkData |}): Node {
       marginStart="auto"
       rounding="pill"
     >
-      <Button
+      <ButtonLink
         accessibilityLabel={accessibilityLabel}
         color="gray"
         href={href}
         fullWidth
         onClick={onClick}
         rel={rel}
-        role="link"
         size="lg"
         text={label}
         target={target}
@@ -101,7 +97,20 @@ function ActivationCardLink({ data }: {| data: LinkData |}): Node {
   );
 }
 
-function CompletedCard({ dismissButton, message, status, statusMessage, title }: Props): Node {
+type CardProps = {
+  ...Props,
+  dismissButton?: {
+    accessibilityLabel: string,
+    onDismiss: () => void,
+  },
+};
+function CompletedCard({
+  dismissButton,
+  message,
+  status,
+  statusMessage,
+  title,
+}: CardProps): ReactNode {
   const icon = STATUS_ICONS[status];
 
   return (
@@ -157,7 +166,7 @@ function UncompletedCard({
   status,
   statusMessage,
   title,
-}: Props): Node {
+}: CardProps): ReactNode {
   const isStarted = status !== 'notStarted';
   const icon = STATUS_ICONS[status];
 
@@ -227,16 +236,19 @@ export default function ActivationCard({
   status,
   statusMessage,
   title,
-}: Props): Node {
+}: Props): ReactNode {
   const isCompleted = status === 'complete';
   const { accessibilityDismissButtonLabel } = useDefaultLabelContext('ActivationCard');
+
+  const { name: colorSchemeName } = useColorScheme();
+  const isDarkMode = colorSchemeName === 'darkMode';
 
   return (
     <Box
       display="flex"
       flex="grow"
       borderStyle="shadow"
-      color="elevationFloating"
+      color={isDarkMode ? 'elevationFloating' : 'default'}
       rounding={4}
       padding={6}
       maxWidth={400}

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { ExperimentProvider } from 'gestalt';
 import { useAppContext } from '../appContext.js';
 
@@ -14,12 +14,12 @@ const enabledExperiments = {};
 function buildExperimentsObj(experiments: $ReadOnlyArray<string>) {
   return experiments.reduce(
     (
-      acc: {|
-        [string]: {|
+      acc: {
+        [string]: {
           anyEnabled: boolean,
           group: string,
-        |},
-      |},
+        },
+      },
       cur: string,
     ) => ({
       ...acc,
@@ -29,9 +29,9 @@ function buildExperimentsObj(experiments: $ReadOnlyArray<string>) {
   );
 }
 
-type Props = {| children: Node |};
+type Props = { children: ReactNode };
 
-export default function DocsExperimentProvider({ children }: Props): Node {
+export default function DocsExperimentProvider({ children }: Props): ReactNode {
   const { experiments } = useAppContext();
 
   return (

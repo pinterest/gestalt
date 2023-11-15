@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useRef, useState } from 'react';
+import { type Node as ReactNode, useRef, useState } from 'react';
 import { Box, Dropdown, Flex, IconButtonFloating, Image, Mask } from 'gestalt';
 
 const pins = [
@@ -47,19 +47,19 @@ const pins = [
   },
 ];
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<
-    $ReadOnlyArray<{| label: string, subtext?: string, value: string |}>,
+    $ReadOnlyArray<{ label: string, subtext?: string, value: string }>,
   >([]);
   const anchorRef = useRef<null | HTMLElement>(null);
 
   const onSelect = ({
     item,
-  }: {|
+  }: {
     event: SyntheticInputEvent<HTMLInputElement>,
-    item: {| label: string, subtext?: string, value: string |},
-  |}) => {
+    item: { label: string, subtext?: string, value: string },
+  }) => {
     if (selected.some(({ value }) => value === item.value)) {
       setSelected((selectedValue) => selectedValue.filter(({ value }) => value !== item.value));
     } else {
@@ -71,7 +71,7 @@ export default function Example(): Node {
     <Box margin={3}>
       <Box role="main">
         <Flex justifyContent="center" width="100%" height="100%" gap={5} alignItems="center" wrap>
-          {[...new Array<void | $ReadOnlyArray<Node>>(3)].map(() =>
+          {[...new Array<void | $ReadOnlyArray<ReactNode>>(3)].map(() =>
             pins.map((pin) => (
               <Mask rounding={2} key={pin.name} height={170} width={100}>
                 <Image
@@ -94,7 +94,9 @@ export default function Example(): Node {
         bottom
         ref={anchorRef}
         marginBottom={2}
-        dangerouslySetInlineStyle={{ __style: { left: '50%', transform: 'translate(-50%)' } }}
+        dangerouslySetInlineStyle={{
+          __style: { left: '50%', transform: 'translate(-50%)' },
+        }}
       >
         <IconButtonFloating
           accessibilityControls="sections-dropdown-example"

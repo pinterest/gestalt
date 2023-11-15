@@ -17,7 +17,7 @@ const offscreen = (width: number, height: number = Infinity) => ({
 });
 
 function getPositionsOnly<T>(
-  positions: $ReadOnlyArray<{| item: T, position: Position |}>,
+  positions: $ReadOnlyArray<{ item: T, position: Position }>,
 ): $ReadOnlyArray<Position> {
   return positions.map(({ position }) => position);
 }
@@ -32,6 +32,46 @@ function getAdjacentColumnHeightDeltas(heights: $ReadOnlyArray<number>): $ReadOn
   }, []);
 }
 
+function calculateTwoColumnModuleWidth(columnWidth: number, gutter: number): number {
+  return columnWidth * 2 + gutter;
+}
+
+function initializeHeightsArray<T>({
+  centerOffset,
+  columnCount,
+  columnWidth,
+  columnWidthAndGutter,
+  gutter,
+  items,
+  positionCache,
+}: {
+  centerOffset: number,
+  columnCount: number,
+  columnWidth: number,
+  columnWidthAndGutter: number,
+  gutter: number,
+  items: $ReadOnlyArray<T>,
+  positionCache: ?Cache<T, Position>,
+}): $ReadOnlyArray<number> {
+  const heights = new Array<number>(columnCount).fill(0);
+  items.forEach((item) => {
+    const position = positionCache?.get(item);
+    if (position) {
+      const col = (position.left - centerOffset) / columnWidthAndGutter;
+      const isTwoColumnModule =
+        position.width === calculateTwoColumnModuleWidth(columnWidth, gutter);
+      const heightToAdd = position.height + gutter;
+      heights[col] += heightToAdd;
+      if (isTwoColumnModule) {
+        // if position width is greater than columnWidth
+        // increment height of the neighboring column as well
+        heights[col + 1] += heightToAdd;
+      }
+    }
+  });
+  return heights;
+}
+
 function getOneColumnItemPositions<T>({
   centerOffset,
   columnWidth,
@@ -41,7 +81,7 @@ function getOneColumnItemPositions<T>({
   items,
   measurementCache,
   positionCache,
-}: {|
+}: {
   centerOffset: number,
   columnWidth: number,
   columnWidthAndGutter: number,
@@ -50,13 +90,13 @@ function getOneColumnItemPositions<T>({
   items: $ReadOnlyArray<T>,
   measurementCache: Cache<T, number>,
   positionCache?: Cache<T, Position>,
-|}): {|
-  positions: $ReadOnlyArray<{| item: T, position: Position |}>,
+}): {
+  positions: $ReadOnlyArray<{ item: T, position: Position }>,
   heights: $ReadOnlyArray<number>,
-|} {
+} {
   const heights = [...heightsArg];
   const positions = items.reduce(
-    (positionsSoFar: $ReadOnlyArray<{| item: T, position: Position |}>, item) => {
+    (positionsSoFar: $ReadOnlyArray<{ item: T, position: Position }>, item) => {
       const height = measurementCache.get(item);
 
       const cachedPosition = positionCache?.get(item);
@@ -101,7 +141,7 @@ function getTwoColItemPosition<T>({
   heights: heightsArg,
   item,
   measurementCache,
-}: {|
+}: {
   centerOffset: number,
   columnWidth: number,
   columnWidthAndGutter: number,
@@ -110,16 +150,20 @@ function getTwoColItemPosition<T>({
   item: T,
   measurementCache: Cache<T, number>,
   positionCache?: Cache<T, Position>,
-|}): {|
+}): {
   additionalWhitespace: number | null,
   heights: $ReadOnlyArray<number>,
   position: Position,
-|} {
+} {
   const heights = [...heightsArg];
   const height = measurementCache.get(item);
 
   if (isNil(height)) {
-    return { additionalWhitespace: null, heights, position: offscreen(columnWidth) };
+    return {
+      additionalWhitespace: null,
+      heights,
+      position: offscreen(columnWidth),
+    };
   }
 
   const heightAndGutter = height + gutter;
@@ -150,7 +194,7 @@ function getTwoColItemPosition<T>({
     position: {
       top,
       left,
-      width: columnWidth * 2 + gutter,
+      width: calculateTwoColumnModuleWidth(columnWidth, gutter),
       height,
     },
   };
@@ -167,7 +211,7 @@ const defaultTwoColumnModuleLayout = <T>({
   positionCache,
   rawItemCount,
   width,
-}: {|
+}: {
   columnWidth?: number,
   gutter?: number,
   heightsCache?: HeightsStoreInterface,
@@ -178,22 +222,40 @@ const defaultTwoColumnModuleLayout = <T>({
   positionCache?: Cache<T, Position>,
   rawItemCount: number,
   width?: ?number,
-|}): ((items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>) => {
+}): ((items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>) => {
   const columnWidthAndGutter = columnWidth + gutter;
   const columnCount = isNil(width)
     ? minCols
     : Math.max(Math.floor((width + gutter) / columnWidthAndGutter), minCols);
 
   return (items): $ReadOnlyArray<Position> => {
+    if (isNil(width) || !items.every((item) => measurementCache.has(item))) {
+      return items.map(() => offscreen(columnWidth));
+    }
+
+    const centerOffset =
+      justify === 'center'
+        ? Math.max(
+            Math.floor(
+              (width - (Math.min(rawItemCount, columnCount) * columnWidthAndGutter + gutter)) / 2,
+            ),
+            0,
+          )
+        : Math.max(Math.floor((width - columnWidthAndGutter * columnCount + gutter) / 2), 0);
+
     // the total height of each column
     const heights =
       heightsCache && heightsCache.getHeights().length > 0
         ? heightsCache.getHeights()
-        : new Array<number>(columnCount).fill(0);
-
-    if (isNil(width) || !items.every((item) => measurementCache.has(item))) {
-      return items.map(() => offscreen(columnWidth));
-    }
+        : initializeHeightsArray({
+            centerOffset,
+            columnCount,
+            columnWidth,
+            columnWidthAndGutter,
+            gutter,
+            items,
+            positionCache,
+          });
 
     const itemsWithPositions = items.filter((item) => positionCache?.has(item));
     const itemsWithoutPositions = items.filter((item) => !positionCache?.has(item));
@@ -205,18 +267,6 @@ const defaultTwoColumnModuleLayout = <T>({
       // $FlowFixMe[incompatible-type] We're assuming `columnSpan` exists
       (item) => !item.columnSpan || item.columnSpan === 1,
     );
-
-    let centerOffset;
-    if (justify === 'center') {
-      const contentWidth = Math.min(rawItemCount, columnCount) * columnWidthAndGutter + gutter;
-
-      centerOffset = Math.max(Math.floor((width - contentWidth) / 2), 0);
-    } else {
-      centerOffset = Math.max(
-        Math.floor((width - columnWidthAndGutter * columnCount + gutter) / 2),
-        0,
-      );
-    }
 
     const commonGetPositionArgs = {
       centerOffset,
@@ -260,14 +310,14 @@ const defaultTwoColumnModuleLayout = <T>({
         prevNode,
         heightsArr,
         itemsSoFar = [],
-      }: {|
+      }: {
         item: T,
         i: number,
         arr: $ReadOnlyArray<T>,
         prevNode: NodeData<T>,
         heightsArr: $ReadOnlyArray<number>,
         itemsSoFar?: $ReadOnlyArray<T>,
-      |}) {
+      }) {
         // Copy the heights array so we don't mutate
         const heightsSoFar = [...heightsArr];
 

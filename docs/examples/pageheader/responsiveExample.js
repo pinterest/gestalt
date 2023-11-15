@@ -1,19 +1,19 @@
 // @flow strict
-import { Fragment, type Node, useRef, useState } from 'react';
+import { Fragment, type Node as ReactNode, useRef, useState } from 'react';
 import { Button, Dropdown, IconButton, PageHeader, Tooltip } from 'gestalt';
 
-export default function SecondaryActionsExample(): Node {
+export default function SecondaryActionsExample(): ReactNode {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<
-    $ReadOnlyArray<{| label: string, subtext?: string, value: string |}>,
+    $ReadOnlyArray<{ label: string, subtext?: string, value: string }>,
   >([]);
   const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
   const handleSelect = ({
     item,
-  }: {|
+  }: {
     event: SyntheticInputEvent<HTMLInputElement>,
-    item: {| label: string, subtext?: string, value: string |},
-  |}) => {
+    item: { label: string, subtext?: string, value: string },
+  }) => {
     if (selected.some((selectedItem) => selectedItem.value === item.value)) {
       setSelected((selectedLocal) =>
         selectedLocal.filter((selectedItem) => selectedItem.value !== item.value),

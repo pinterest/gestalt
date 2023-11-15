@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Callout, Flex } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Box paddingY={8} paddingX={8}>
@@ -18,12 +18,14 @@ export default function Example(): Node {
             href: 'https://pinterest.com',
             label: 'Get started',
             target: 'blank',
+            role: 'link',
           }}
           secondaryAction={{
             accessibilityLabel: 'Learn more: Verified Merchant Program',
             href: 'https://pinterest.com',
             label: 'Learn more',
             target: 'blank',
+            role: 'link',
           }}
           title="Your business account was created!"
           type="info"

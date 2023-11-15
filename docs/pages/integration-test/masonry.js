@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useEffect, useState } from 'react';
+import { type Node as ReactNode, useEffect, useState } from 'react';
 import LazyHydrate from 'react-lazy-hydration';
 import { useRouter } from 'next/router';
 import { ColorSchemeProvider, Masonry } from 'gestalt';
@@ -13,7 +13,13 @@ import MasonryContainer from '../../integration-test-helpers/masonry/MasonryCont
 // This can get bumped up another order of magnitude or so if needed…perf drops off pretty rapidly after that
 const REALISTIC_PINS_DATASET_SIZE = 1000;
 
-const measurementStore = Masonry.createMeasurementStore<{ ... }, mixed>();
+type MasonryProps = $PropertyType<Masonry<{ ... }>, 'props'>;
+
+type MeasurementStore = $PropertyType<MasonryProps, 'measurementStore'>;
+type PositionStore = $PropertyType<MasonryProps, 'positionStore'>;
+
+const measurementStore: MeasurementStore = Masonry.createMeasurementStore();
+const positionStore: PositionStore = Masonry.createMeasurementStore();
 
 // This is the counterpart to `normalizeValue` in `playwright/masonry/utils/getServerURL.mjs`
 function booleanize(value: string): boolean {
@@ -27,7 +33,7 @@ function booleanize(value: string): boolean {
 }
 
 // LazyHydrate doesn't like to be used without any props, so we have to add it conditionally
-function MaybeLazyHydrate({ children, ssrOnly }: {| children: Node, ssrOnly: boolean |}) {
+function MaybeLazyHydrate({ children, ssrOnly }: { children: ReactNode, ssrOnly: boolean }) {
   if (ssrOnly) {
     return <LazyHydrate ssrOnly>{children}</LazyHydrate>;
   }
@@ -39,11 +45,11 @@ function randomSample({
   samples,
   field,
   randomNumberSeed,
-}: {|
+}: {
   samples: $ReadOnlyArray<PinHeight>,
   field: 'impressionsCount' | 'pinsCount',
   randomNumberSeed: number,
-|}): number {
+}): number {
   // [0..1) * sum of weight
   let sample = randomNumberSeed * samples.reduce((sum, pin) => sum + pin[field], 0);
 
@@ -56,9 +62,9 @@ function randomSample({
 
 export default function TestPage({
   randomNumberSeeds,
-}: {|
+}: {
   randomNumberSeeds: $ReadOnlyArray<number>,
-|}): Node {
+}): ReactNode {
   const router = useRouter();
   // These should match playwright/masonry/utils/getServerURL.mjs
   const {
@@ -108,7 +114,10 @@ export default function TestPage({
           flexible={booleanize(flexible)}
           initialItems={
             realisticPinHeights
-              ? generateRealisticExampleItems({ name: 'InitialPin', pinHeightsSample })
+              ? generateRealisticExampleItems({
+                  name: 'InitialPin',
+                  pinHeightsSample,
+                })
               : generateExampleItems({ name: 'InitialPin' })
           }
           logWhitespace={booleanize(logWhitespace)}
@@ -118,6 +127,7 @@ export default function TestPage({
           noScroll={booleanize(noScroll)}
           offsetTop={offsetTop}
           pinHeightsSample={realisticPinHeights ? pinHeightsSample : undefined}
+          positionStore={positionStore}
           scrollContainer={booleanize(scrollContainer)}
           twoColItems={booleanize(twoColItems)}
           virtualize={booleanize(virtualize)}
@@ -129,13 +139,13 @@ export default function TestPage({
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| randomNumberSeeds: $ReadOnlyArray<number> |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { randomNumberSeeds: $ReadOnlyArray<number> },
+}> {
   // This is used to ensure we're using the same dataset of realistic pins on the server and client
-  const randomNumberSeeds = Array.from({ length: REALISTIC_PINS_DATASET_SIZE }).map(() =>
-    Math.random(),
-  );
+  const randomNumberSeeds = Array.from({
+    length: REALISTIC_PINS_DATASET_SIZE,
+  }).map(() => Math.random());
   return {
     props: {
       randomNumberSeeds,

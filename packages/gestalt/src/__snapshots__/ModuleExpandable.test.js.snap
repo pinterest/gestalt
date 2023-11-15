@@ -2,7 +2,7 @@
 
 exports[`Module Expandable renders correctly with multiple items 1`] = `
 <div
-  className="box elevationFloating rounding4 shadow"
+  className="box default rounding4 shadow"
 >
   <div
     className="box paddingX6 paddingY6"
@@ -388,7 +388,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
 
 exports[`Module Expandable renders correctly with one item 1`] = `
 <div
-  className="box elevationFloating rounding4 shadow"
+  className="box default rounding4 shadow"
 >
   <div
     className="box paddingX6 paddingY6"
@@ -542,7 +542,7 @@ exports[`Module Expandable renders correctly with one item 1`] = `
 
 exports[`renders correctly with multiple items with expandedId 1`] = `
 <div
-  className="box elevationFloating rounding4 shadow"
+  className="box default rounding4 shadow"
 >
   <div
     className="box paddingX6 paddingY6"

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, ComboBox, DefaultLabelProvider, Flex, Heading } from 'gestalt';
 
 const myI18nTranslator = (val: string) => val.toUpperCase();
@@ -19,6 +19,18 @@ const labels = {
   DateRange: {
     cancelText: myI18nTranslator('Cancel'),
     applyText: myI18nTranslator('Apply'),
+  },
+  ChartGraph: {
+    accessibilityLabelPrefixText: myI18nTranslator('ChartGraph'),
+    defaultViewText: myI18nTranslator('Default view mode'),
+    accessibleViewText: myI18nTranslator('Visual pattern view'),
+    tabularData: myI18nTranslator('Tabular representation'),
+    accessibilityLabelDismissModal: myI18nTranslator('Dismiss tabular representation modal'),
+    tableSeriesText: myI18nTranslator('Series'),
+    tableXAxisText: myI18nTranslator('x-axis values'),
+    tableYAxisText: myI18nTranslator('y-axis values'),
+    downloadCsvButtonText: myI18nTranslator('Download as .csv'),
+    cancelButtonText: myI18nTranslator('Cancel'),
   },
   ComboBox: {
     noResultText: myI18nTranslator('No results'),
@@ -117,15 +129,15 @@ const pronouns = [
   'zie / zem',
 ];
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [errorMessage, setErrorMessage] = useState<?string>();
 
   const handleOnBlur = ({
     value,
-  }: {|
+  }: {
     event: SyntheticFocusEvent<HTMLInputElement> | SyntheticEvent<HTMLInputElement>,
     value: string,
-  |}) => {
+  }) => {
     if (value !== '' && !pronouns.includes(value)) setErrorMessage('Please, select a valid option');
   };
 

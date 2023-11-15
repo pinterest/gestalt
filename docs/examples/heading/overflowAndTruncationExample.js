@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Heading, Text } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   return (
     <Box padding={8} display="flex" justifyContent="center">
       <Flex maxWidth={240} direction="column" gap={{ column: 8, row: 0 }}>
@@ -20,6 +20,16 @@ export default function Example(): Node {
           <Text>normal:</Text>
           <Box color="secondary" padding={2} rounding={2}>
             <Heading size="400" overflow="normal">
+              This is a long and Supercalifragilisticexpialidocious sentence.
+              次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
+            </Heading>
+          </Box>
+        </Flex>
+
+        <Flex direction="column" gap={{ column: 2, row: 0 }}>
+          <Text>breakAll:</Text>
+          <Box color="secondary" padding={2} rounding={2}>
+            <Heading size="400" overflow="breakAll">
               This is a long and Supercalifragilisticexpialidocious sentence.
               次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
             </Heading>

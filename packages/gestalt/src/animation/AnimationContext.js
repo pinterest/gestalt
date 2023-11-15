@@ -4,7 +4,7 @@ import {
   type Context,
   createContext,
   type Element,
-  type Node,
+  type Node as ReactNode,
   useCallback,
   useContext,
   useMemo,
@@ -27,21 +27,21 @@ export type AnimationStateType =
   | 'unmount'
   | 'hidden';
 
-type AnimationType = {|
+type AnimationType = {
   animationState: AnimationStateType,
   setAnimationState: (AnimationStateType) => void,
-|};
+};
 
-type UseAnimationType = {|
+type UseAnimationType = {
   animationState: AnimationStateType,
   setAnimationState: (AnimationStateType) => void,
   handleAnimationEnd: () => void,
   handleExternalDismiss: () => void,
-|};
+};
 
-type AnimationProviderProps = {|
-  children: Node,
-|};
+type AnimationProviderProps = {
+  children: ReactNode,
+};
 
 // CONTEXT
 const initialState = {

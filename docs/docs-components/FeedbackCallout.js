@@ -1,15 +1,15 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Callout } from 'gestalt';
 
 const BASE_LINK =
   'https://docs.google.com/forms/d/e/1FAIpQLSe7h8kVcD7QqvPvjkE8s8WvnuFfhYvAEQ6L7tZwPgHjJPAbSw/viewform?usp=pp_url&entry.847151274=';
 
-type Props = {|
+type Props = {
   componentName: string,
-|};
+};
 
-export default function FeedbackCallout({ componentName }: Props): Node {
+export default function FeedbackCallout({ componentName }: Props): ReactNode {
   const [showCallout, setShowCallout] = useState(true);
   const link = `${BASE_LINK}${componentName}`;
 
@@ -26,6 +26,7 @@ export default function FeedbackCallout({ componentName }: Props): Node {
             accessibilityLabel: 'Give documentation feedback',
             href: link,
             target: 'blank',
+            role: 'link',
           }}
           dismissButton={{
             accessibilityLabel: 'Dismiss banner',

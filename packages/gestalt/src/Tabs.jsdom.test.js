@@ -1,24 +1,20 @@
 // @flow strict
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Tabs from './Tabs.js';
 
 describe('<Tabs />', () => {
   it('handles click', () => {
     const mockOnChange = jest.fn<
       [
-        {|
+        {
           +activeTabIndex: number,
           dangerouslyDisableOnNavigation: () => void,
-          event:
-            | SyntheticMouseEvent<HTMLAnchorElement>
-            | SyntheticKeyboardEvent<HTMLAnchorElement>
-            | SyntheticMouseEvent<HTMLDivElement>
-            | SyntheticKeyboardEvent<HTMLDivElement>,
-        |},
+          event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+        },
       ],
       void,
     >();
-    const { getByText } = render(
+    render(
       <Tabs
         tabs={[
           { text: 'News', href: '#' },
@@ -30,16 +26,14 @@ describe('<Tabs />', () => {
       />,
     );
 
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    getByText('News').click();
+    screen.getByText('News').click();
     expect(mockOnChange).toHaveBeenCalledWith(
       expect.objectContaining({
         activeTabIndex: 0,
       }),
     );
 
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    getByText('You').click();
+    screen.getByText('You').click();
     expect(mockOnChange).toHaveBeenCalledWith(
       expect.objectContaining({
         activeTabIndex: 1,

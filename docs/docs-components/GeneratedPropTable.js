@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { type DocGen } from './docgen.js';
 import PropTable from './PropTable.js';
 
@@ -52,22 +52,24 @@ function getDefaultValue(description?: string): {
 }
 
 function removeDomain(description: string) {
-  return { description: description?.replace(/https:\/\/gestalt\.pinterest\.systems/g, '') };
+  return {
+    description: description?.replace(/https:\/\/gestalt\.pinterest\.systems/g, ''),
+  };
 }
 
-type Props = {|
+type Props = {
   excludeProps?: $ReadOnlyArray<string>,
   generatedDocGen: DocGen,
   id?: string,
   name?: string,
-|};
+};
 
 export default function GeneratedPropTable({
   excludeProps = [],
   generatedDocGen,
   id,
   name,
-}: Props): Node {
+}: Props): ReactNode {
   // Using Object.keys because of https://github.com/facebook/flow/issues/2174
   const props = Object.keys(generatedDocGen.props)
     .map((key: string) => {
@@ -104,7 +106,7 @@ export default function GeneratedPropTable({
         ''
       )
         // Replace "Node" with "React.Node" to match docs convention
-        .replace(/Node/g, 'React.Node')
+        .replace(/ReactNode/g, 'React.Node')
         // Replace "ComponentType" with "React.ComponentType" to match docs convention
         .replace(/ComponentType/g, 'React.ComponentType')
         // Replace "Element" with "React.Element" to match docs convention

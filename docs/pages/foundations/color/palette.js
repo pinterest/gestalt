@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
 import ColorPalette from '../../../docs-components/ColorPalette.js';
 import ColorTile from '../../../docs-components/ColorTile.js';
@@ -24,11 +24,11 @@ const neutrals = [
   { name: 'Cosmicore', id: 'black', textColor: 'light' },
 ];
 
-type ColorCardProps = {|
-  children: Node,
+type ColorCardProps = {
+  children: ReactNode,
   colorScheme: 'light' | 'dark',
-|};
-function ColorSchemeCard({ children, colorScheme }: ColorCardProps): Node {
+};
+function ColorSchemeCard({ children, colorScheme }: ColorCardProps): ReactNode {
   return (
     <Flex
       gap={{
@@ -56,7 +56,7 @@ function ColorSchemeCard({ children, colorScheme }: ColorCardProps): Node {
   );
 }
 
-export default function ColorPage(): Node {
+export default function ColorPage(): ReactNode {
   return (
     <Page title="Color palette">
       <PageHeader

@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Heading, Spinner } from 'gestalt';
 
-function Card({ text }: {| text: string |}) {
+function Card({ text }: { text: string }) {
   return (
     <Box rounding={4} height={250} width={250} padding={6} borderStyle="shadow">
       <Flex direction="column" alignItems="start" justifyContent="start" height="100%">
@@ -18,7 +18,7 @@ function Card({ text }: {| text: string |}) {
   );
 }
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" gap={6} height="100%" justifyContent="center" width="100%">
       <Card text="Top Pins" />

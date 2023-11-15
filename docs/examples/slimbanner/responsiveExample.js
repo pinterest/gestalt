@@ -1,8 +1,8 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { type Node as ReactNode } from 'react';
 import { Box, SlimBanner } from 'gestalt';
 
-export default function ResponsiveExample(): Node {
+export default function ResponsiveExample(): ReactNode {
   return (
     <Box padding={8}>
       <SlimBanner
@@ -17,6 +17,7 @@ export default function ResponsiveExample(): Node {
           accessibilityLabel: 'Learn more about campaign budget optimization',
           label: 'Learn more',
           onClick: () => {},
+          role: 'button',
         }}
       />
     </Box>

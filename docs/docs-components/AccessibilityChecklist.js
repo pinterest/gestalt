@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Module, Table, Text } from 'gestalt';
 import componentData from './data/components.js';
 import {
@@ -11,21 +11,17 @@ import getByPlatform from './data/utils/getByPlatform.js';
 import StatusData from './StatusData.js';
 
 export const STATUS_ICON_EQUIVALENCY_MAP = Object.freeze({
-  'ready': 'workflow-status-ok',
-  'notAvailable': 'dash',
-  'partial': 'workflow-status-in-progress',
-  'planned': 'workflow-status-unstarted',
+  ready: 'workflow-status-ok',
+  notAvailable: 'dash',
+  partial: 'workflow-status-in-progress',
+  planned: 'workflow-status-unstarted',
 });
 
-type Props = {|
+type Props = {
   component: string,
-|};
+};
 
-function AccessibilityTable({
-  accessibilityData,
-}: {|
-  accessibilityData?: ComponentAccessibility,
-|}) {
+function AccessibilityTable({ accessibilityData }: { accessibilityData?: ComponentAccessibility }) {
   return (
     <Table accessibilityLabel="Component Accessibility Checklist">
       <colgroup>
@@ -70,9 +66,11 @@ function AccessibilityTable({
   );
 }
 
-const webBuildingBlockComponents = getByPlatform(componentData, { platform: 'web' });
+const webBuildingBlockComponents = getByPlatform(componentData, {
+  platform: 'web',
+});
 
-export default function AccessibilityChecklist({ component }: Props): Node {
+export default function AccessibilityChecklist({ component }: Props): ReactNode {
   const data = webBuildingBlockComponents.find((cmpName) => cmpName.name === component);
 
   const a11ySummary = data?.status?.accessible?.summary;

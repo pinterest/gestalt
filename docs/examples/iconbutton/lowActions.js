@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import {
   Box,
   Button,
@@ -13,7 +13,7 @@ import {
   TextField,
 } from 'gestalt';
 
-function ModalWithHeading({ onDismiss }: {| onDismiss: () => void |}): Node {
+function ModalWithHeading({ onDismiss }: { onDismiss: () => void }): ReactNode {
   return (
     <Modal
       accessibilityModalLabel="Edit board"
@@ -49,7 +49,7 @@ function ModalWithHeading({ onDismiss }: {| onDismiss: () => void |}): Node {
   );
 }
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [shouldShow, setShouldShow] = useState(false);
   const HEADER_ZINDEX = new FixedZIndex(10);
   const modalZIndex = new CompositeZIndex([HEADER_ZINDEX]);

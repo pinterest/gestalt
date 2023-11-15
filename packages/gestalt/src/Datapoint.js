@@ -1,19 +1,19 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import InternalDatapoint from './Datapoint/InternalDatapoint.js';
 import { type Indexable } from './zIndex.js';
 
-type BadgeObject = {|
+type BadgeObject = {
   text: string,
   type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
-|};
+};
 
-type TrendObject = {|
+type TrendObject = {
   accessibilityLabel: string,
   value: number,
-|};
+};
 
-type Props = {|
+type Props = {
   /**
    * Adds a badge to the title. Currently a beta feature, expect changes.
    */
@@ -46,7 +46,7 @@ type Props = {|
    * The datapoint value (e.g., 1.23M).
    */
   value: string,
-|};
+};
 
 /**
  * [Datapoint](https://gestalt.pinterest.systems/web/datapoint) displays at-a-glance data for a user to quickly view key metrics.
@@ -64,7 +64,7 @@ export default function Datapoint({
   trend,
   trendSentiment = 'auto',
   value,
-}: Props): Node {
+}: Props): ReactNode {
   return (
     <InternalDatapoint
       badge={badge}

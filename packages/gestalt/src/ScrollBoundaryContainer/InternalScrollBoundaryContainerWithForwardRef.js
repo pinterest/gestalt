@@ -2,7 +2,7 @@
 import {
   type AbstractComponent,
   forwardRef,
-  type Node,
+  type Node as ReactNode,
   useEffect,
   useImperativeHandle,
   useRef,
@@ -13,14 +13,14 @@ import { useScrollBoundaryContainer } from '../contexts/ScrollBoundaryContainerP
 
 type ScrollBoundaryContainerOverflow = 'scroll' | 'scrollX' | 'scrollY' | 'auto' | 'visible';
 
-type InternalProps = {|
-  children?: Node,
+type InternalProps = {
+  children?: ReactNode,
   includesFooter?: boolean,
   height?: Dimension,
   onScroll?: () => void,
   overflow?: ScrollBoundaryContainerOverflow,
   padding?: Padding,
-|};
+};
 
 // ScrollBoundaryContainerWithForwardRef is the ScrollBoundaryContainer to be used internally, within components (e. Modal, OverlayPanel).
 // It has an extended API with private props (onScroll, padding, and ref) to maintain border shadows in the component main content container.
@@ -35,7 +35,7 @@ const ScrollBoundaryContainerWithForwardRef: AbstractComponent<InternalProps, HT
       overflow = 'auto',
     }: InternalProps,
     ref,
-  ): Node {
+  ): ReactNode {
     const { addRef } = useScrollBoundaryContainer();
     const anchorRef = useRef<HTMLElement | null>(null);
     // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component

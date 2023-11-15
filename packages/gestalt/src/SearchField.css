@@ -9,7 +9,7 @@
   composes: xsCol12 from "./Column.css";
   appearance: none;
   min-width: 180px;
-  padding: var(--space-200) calc(var(--space-500) + var(--space-200));
+  padding: var(--space-200) calc(var(--space-800) + var(--space-200));
 }
 
 .input::-webkit-search-decoration,
@@ -33,11 +33,11 @@
 }
 
 html:not([dir="rtl"]) .inputActive {
-  padding: var(--space-200) var(--space-500) var(--space-200) var(--space-300);
+  padding: var(--space-200) var(--space-800) var(--space-200) var(--space-400);
 }
 
 html[dir="rtl"] .inputActive {
-  padding: var(--space-200) var(--space-300) var(--space-200) var(--space-500);
+  padding: var(--space-200) var(--space-400) var(--space-200) var(--space-800);
 }
 
 .inputHovered {

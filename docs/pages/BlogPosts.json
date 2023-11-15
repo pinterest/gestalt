@@ -3,6 +3,214 @@
     "year": "2023",
     "digests": [
       {
+        "month": "October",
+        "summary": "",
+        "posts": [
+          {
+            "title": "Gestalt October Newsletter",
+            "audience": ["Engineering", "Design"],
+            "content": "A recap of significant changes from October."
+          },
+          {
+            "title": "ChartGraph & tabular data",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/8b/57/3c/8b573caa575ced25dd76c70550de09a4.gif",
+            "imageAltText": "Animation of Chart and tabular data modal",
+            "content": "ChartGraph supports tabular representation for accessibility [Check it out!](https://gestalt.pinterest.systems/web/chartgraph#Tabular-representation)"
+          },
+          {
+            "title": "Docs: Localization & Experimentation",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/da/a3/09/daa3091ea239588ceda32affcdbea74b.png",
+            "imageAltText": "Snapshot of ChartGraph localized to German",
+            "content": "More Docs improvements! We standardized the Localization section in our web components. Inside the Localization section, you'll find information regarding DefaultLabelProvider as well as locale support. [Check it out!](https://gestalt.pinterest.systems/web/chartgraph#Localization). \n\n  We also added an [Experimentation section](https://gestalt.pinterest.systems/get_started/developers/contributing/experimentation) as guidalines for approved contributions."
+          },
+          {
+            "title": "PDocs integrated into Gestalt Docs",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/40/ab/10/40ab10d7611aa3d1b557aa0ed4d71943.png",
+            "imageAltText": "Image of the DOcs for ButtonLink and an arrow pointing to the PDocs link'",
+            "content": "PDocs is now accessible from our Docs in our Internal documentation section. \n\n  In [PDocs](https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-overview), we document Pinboard-specific implementations for Gestalt Providers, component extensions, and ads logging extensions. \n\n Check [ButtonLink](https://gestalt.pinterest.systems/web/buttonlink) to see an example of PDocs integrated in our Docs."
+          },
+          {
+            "title": "Other component updates",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/e2/15/52/e21552b93b2034c0f6438a7e11c20c3a.png",
+            "imageAltText": "Image of the new icons",
+            "content": "- **Link** finally supports dataTestId prop. In Pinboard, we also deprecated SterlingLink and added Link to the [adsLoggingExtension extension](https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-ads-logging-extension#gestalt-components-with-ads-logging) \n - **TagData, TileData** support multi-line Tooltips. \n - **NumberField** support labelDisplay prop for consistency with TextField. \n - **Icons**. We added 6 new icons added to our [iconography collection](https://gestalt.pinterest.systems/foundations/iconography/library). They are: \n **Cross-platform icons**: speech-outline, speech-exclamation-point \n **Web-only icons** (campaign insights, media planing and measurement): api, data-source, hearth-health, diagnostics."
+          },
+          {
+            "title": "Gestalt Design October Newsletter",
+            "audience": ["Design"],
+            "content": "A recap of significant changes from September."
+          },
+          {
+            "title": "RTL and international design guidelines",
+            "audience": ["Design"],
+            "imageSrc": "https://i.pinimg.com/originals/ef/f0/13/eff013f68c196a0e4ff86b4959462bba.png",
+            "imageAltText": "Image of Buttons with RTL language",
+            "content": "RTL and international design guidelines are now available for you! [Check it out!](https://gestalt.pinterest.systems/foundations/rtl_guidelines/about_international_design)"
+          },
+          {
+            "title": "iOS doc updates",
+            "audience": ["Design"],
+            "imageSrc": "https://i.pinimg.com/originals/90/37/76/903776de6235663a7884bb65473e5552.png",
+            "imageAltText": "Image of IconButton UI'",
+            "content": "[iOS Badge](https://gestalt.pinterest.systems/ios/badge) and [iOS IconButton](https://gestalt.pinterest.systems/ios/iconbutton) docs are now available. Guidelines, best practices, accessibility and much more!"
+          },
+          {
+            "title": "ListAction updates",
+            "audience": ["Design"],
+            "imageSrc": "https://i.pinimg.com/originals/e5/61/b7/e561b7178fae086be0848d3cd3f01682.png",
+            "imageAltText": "Image of ListAction UI",
+            "content": "We updated our ListAction component to better support you. You can find it by checking our [iOS](https://gestalt.pinterest.systems/ios/listaction) and [Android](https://gestalt.pinterest.systems/android/listaction) docs."
+          },
+          {
+            "title": "New icons",
+            "audience": ["Design"],
+            "imageSrc": "https://i.pinimg.com/originals/e2/15/52/e21552b93b2034c0f6438a7e11c20c3a.png",
+            "imageAltText": "Image of the new icons",
+            "content": "We added 6 new icons added to our [iconography collection](https://gestalt.pinterest.systems/foundations/iconography/library). They are: \n- **Cross-platform icons**: speech-outline, speech-exclamation-point \n- **Web-only icons** (campaign insights, media planing and measurement): api, data-source, hearth-health, diagnostics"
+          }
+        ]
+      },
+      {
+        "month": "September",
+        "summary": "",
+        "posts": [
+          {
+            "title": "Gestalt Eng September Newsletter",
+            "audience": ["Engineering"],
+            "content": "A recap of significant changes from September."
+          },
+          {
+            "title": "ChartGraph",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/87/9a/9f/879a9f9e0ca32ade6fa1dec04090dfa5.png",
+            "imageAltText": "Screenshot of ChartGraph UI",
+            "content": "Another month, another new component — this time it's [ChartGraph](https://gestalt.pinterest.systems/web/chartgraph)! This component is used for displaying various types of graphs plotted on an x and y axis."
+          },
+          {
+            "title": "Button/ButtonLink, no more role='link'",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/18/f9/2f/18f92f5427bd5f7d4f27e389c5a74049.png",
+            "imageAltText": "Screenshot of Button and ButtonLink UI'",
+            "content": "[Button](https://gestalt.pinterest.systems/web/button), [IconButton](https://gestalt.pinterest.systems/web/iconbutton) and [TapArea](https://gestalt.pinterest.systems/web/taparea) no longer support link behavior. Instead, use [ButtonLink](https://gestalt.pinterest.systems/web/buttonlink), [IconButtonLink](https://gestalt.pinterest.systems/web/iconbuttonlink), and [TapAreaLink](https://gestalt.pinterest.systems/web/taparealink)."
+          },
+          {
+            "title": "Tokens",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/48/01/fc/4801fc8f9d06cd45eb2b126b2362ead6.png",
+            "imageAltText": "Screenshot of spacing token UI'",
+            "content": "[Spacing token](https://gestalt.pinterest.systems/foundations/design_tokens#Spacing) values are changing to a new scale. This updates old and also adds new values. In order to maintain consistency with our Figma designs and offer more flexibility in spacing, we're using spacing on a 4pt scale."
+          }
+        ]
+      },
+      {
+        "week": "September 22, 2023",
+        "summary": "",
+        "posts": [
+          {
+            "title": "ListAction, our newest component 🎉",
+            "audience": ["Design"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/14/11/02/141102f4ef7db84c0638e159a8049751.png",
+            "imageAltText": "Examples of the Figma ListAction component.",
+            "content": "The ListAction component is now available on Figma! You can get it from our [iOS](https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=42153%3A2141&mode=design&t=S8yWhcY8h1QKnNUa-1) and [Android](https://www.figma.com/file/REw1COFYAktmVWrUBh3Ov8/Gestalt-for-Android?type=design&node-id=44003%3A2474&mode=design&t=o8AXWs5UvyUcOy2F-1) libraries 🙌\n\n**Please note**: Table in iOS for Figma is being deprecated. We ask you to kindly update to ListAction."
+          },
+          {
+            "title": "ListAction documentation is now available for you",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/4d/3a/aa/4d3aaa0ea9a4cac5fb1588193ed6af17.png",
+            "imageAltText": "Example of the new ListAction component.",
+            "content": "We have brand new docs for you. Meet the **ListAction** component!\n\nThe ListAction is a continuous vertical group of list items that can include text, icons, images, and actions.\n\n\n* Go to [iOS](https://gestalt.pinterest.systems/ios/listaction) documentation\n\n\n* Go to [Android](https://gestalt.pinterest.systems/android/listaction) documentation"
+          },
+          {
+            "title": "New AvatarGroup documentation for Android",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://i.pinimg.com/originals/e3/a2/45/e3a245352d04a4bea3d9d229485e0afc.png",
+            "imageAltText": "AvatarGroup components examples",
+            "content": "In [this doc](https://gestalt.pinterest.systems/android/avatargroup) you can find AvatarGroup best practices, variants, specs, and more!"
+          }
+        ]
+      },
+      {
+        "week": "September 8, 2023",
+        "summary": "",
+        "posts": [
+          {
+            "title": "Handoff Kit updates",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/50343812/e8894a3f-fef7-4395-93a7-3d4a715ff89d",
+            "imageAltText": "Examples of the Figma Handoff Kit accessibility annotation components.",
+            "content": "We made **refinements** in our **Handoff Kit library** to bettersupport you! 🙌\n\nWhat changed:\n* Assets are using color variables instead of styles, it will make it easier for you to switch between themes (light and dark mode)\n* New accessibility annotations are available for you (keyboard navigation and error specs), plus, we added a section to explain how to use them\n* **Did you know we have an accessibility checklist component for you?** We recommend you to use it to check if your design meets accessibility standards!\n* Sizes and auto-layout issues were fixed\n\n**Enable our [Handoff Kit library](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/%5BLibrary%5D-Gestalt-Handoff-Kit?type=design&mode=design&t=742YdaAQSpoMySWA-0) in your files to use it all!**"
+          },
+          {
+            "title": "Toast updates",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/50343812/35e17554-8451-4a30-a9a5-86e716558cc9",
+            "imageAltText": "Example of the new Toast component design.",
+            "content": "The Toast component for iOS and Android now have the same smaller and slicker design and styling as web. It was also simplified, so a few variants have been deprecated and will be deleted on *09/31/2023*. \n\n**Our ask:** If you notice Toast doesn't show the new design after updating your file, please replace the component. Thank you!"
+          },
+          {
+            "title": "Icon updates",
+            "audience": ["Design", "Engineering"],
+            "imageColor": "blue-skycicle-100",
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/50343812/eb6ae689-e716-4952-87a1-f2c8ab40a9ad",
+            "imageAltText": "A fill star icon, a hollow star icon and a half-filled star icon.",
+            "content": "Thanks to Amanda Peterson, we found inconsistenciesbetween star icons on web vs mobile, in addition to a missing outlined version of the star icon. They are now availablein our Figma Foundations library, [Web Github repo](https://github.com/pinterest/gestalt), Android Github repo and will soon be available in our iOS Github repo!"
+          }
+        ]
+      },
+      {
+        "month": "August",
+        "summary": "",
+        "posts": [
+          {
+            "title": "Gestalt Eng August Newsletter",
+            "audience": ["Engineering"],
+            "content": "A recap of significant changes from August."
+          },
+          {
+            "title": "TableOfContents",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/4b/1b/f1/4b1bf1edb59d860186a5128c8520ea03.png",
+            "imageAltText": "Screenshot of TableOfContents UI",
+            "content": "Another month, another new component — this time it's [TableOfContents](https://gestalt.pinterest.systems/web/tableofcontents)! This component enables users to navigate to anchors on a page. It also serves as an outline of a page’s content."
+          },
+          {
+            "title": "TapAreaLink, IconButtonLink",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/51/ed/b1/51edb1ecef22ebb66ec1846ef86fc6e7.png",
+            "imageAltText": "Screenshot of IconButtonLink UI with a visit icon or an arrow to the top-right corner and a tooltip that reads 'Visit Pinterest!'",
+            "content": "Button, IconButton and TapArea can behave like buttons and links. Last month, we added ButtonLink to the library. This month, we just released [TapAreaLink](https://gestalt.pinterest.systems/web/taparealink) and [IconButtonLink](https://gestalt.pinterest.systems/web/iconbuttonlink): these components are only links. Stay tunned, we'll be deprecating the `role` prop soon."
+          },
+          {
+            "title": "Testing id support",
+            "audience": ["Engineering"],
+            "content": "We are working on expanding support to data-test-id in our components. This improvement helps engineers building better tests: faster and more reliable. Check TapArea's, TapAreaLink's, and IconButtonLink's new `dataTestId` prop. You can also use the `name` prop in Button and IconButton to build [better testing queries](https://testing-library.com/docs/queries/about/#priority)."
+          },
+          {
+            "title": "Component updates: Text, Heading ",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/e0/5e/6b/e05e6b9c2831290cb1c6229e0e934edf.png",
+            "imageAltText": "Screenshot breakAll in Text where the text string is justified",
+            "content": "[Text](https://gestalt.pinterest.systems/web/text#Overflow-and-truncation) and [Heading](https://gestalt.pinterest.systems/web/heading#Overflow-and-truncation) now support `breakAll` in the `overflow` prop."
+          },
+          {
+            "title": "Docs updates",
+            "audience": ["Engineering"],
+            "imageSrc": "https://i.pinimg.com/originals/fd/1b/4f/fd1b4fa6d86d10f6c72825a87377761a.png",
+            "imageAltText": "Screenshot of a Sandpack example",
+            "content": "Finally, ALL our component examples and live code editors use Sandpack! Sandpack provides a better documentation experience. Try it out!"
+          }
+        ]
+      },
+      {
         "week": "August 11, 2023",
         "summary": "New components and Figma updates, plus a very special announcement",
         "posts": [
@@ -1933,7 +2141,7 @@
             "audience": ["Engineering", "Design"],
             "imageSrc": "https://i.pinimg.com/originals/51/b1/29/51b129c9260e824d1e87e328080dea2f.png",
             "imageAltText": "Screenshots of Gestalt's Text and Heading documentation",
-            "content": "We added [typography guidelines](https://gestalt.pinterest.systems/foundations/typography/guidelines) a couple weeks ago and now we're coming in hot with design guidelines for [Text](https://gestalt.pinterest.systems/web/text) and [Heading](https://gestalt.pinterest.systems/web/heading). Our goal for these updates is to develop a strong foundation of typographic guidance that we can build upon in future releases."
+            "content": "We added [typography guidelines](https://gestalt.pinterest.systems/foundations/typography) a couple weeks ago and now we're coming in hot with design guidelines for [Text](https://gestalt.pinterest.systems/web/text) and [Heading](https://gestalt.pinterest.systems/web/heading). Our goal for these updates is to develop a strong foundation of typographic guidance that we can build upon in future releases."
           },
           {
             "title": "Gestalt Learning released",
@@ -1971,7 +2179,7 @@
             "audience": ["Engineering", "Design"],
             "imageSrc": "https://i.pinimg.com/originals/ad/66/52/ad66524c172960e4fe2edaa67d150a58.png",
             "imageAltText": "Screenshot of typography guidelines",
-            "content": "To keep the momentum going on our release of guidelines in 2022, we just published the first iteration of our [Typography guidelines](https://gestalt.pinterest.systems/foundations/typography/guidelines). This is intended to serve as the foundation for much more detail and updates in the future. We look forward to sharing many more typography-related updates in the near future."
+            "content": "To keep the momentum going on our release of guidelines in 2022, we just published the first iteration of our [Typography guidelines](https://gestalt.pinterest.systems/foundations/typography). This is intended to serve as the foundation for much more detail and updates in the future. We look forward to sharing many more typography-related updates in the near future."
           },
           {
             "title": "Major updates to our Pin and Masonry Figma components",
@@ -2013,7 +2221,6 @@
             "imageAltText": "RadioGroup depiction",
             "content": "We recently shipped a new [RadioGroup component](/web/radiogroup) which will make building forms easier and faster. The big change is that this component allows you to create a group of radio buttons as opposed to having to create each one independently. This may not have a ton of impact on your day-to-day, but we’re sharing it with you so that you remind your XFN buddies in case they aren’t aware. On that note, we’ve also deprecated our [RadioButton component](/web/radiobutton) in favor of RadioGroup."
           },
-
           {
             "title": "Gestalt Open Forum — Iconography workshop!",
             "audience": ["Design"],

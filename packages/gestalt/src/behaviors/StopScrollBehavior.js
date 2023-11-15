@@ -1,9 +1,9 @@
 // @flow strict
-import { Component, type Node } from 'react';
+import { Component, type Node as ReactNode } from 'react';
 
-type Props = {|
-  children: Node,
-|};
+type Props = {
+  children: ReactNode,
+};
 
 export default class NoScrollBehavior extends Component<Props> {
   prevOverflow: string | null;
@@ -26,7 +26,7 @@ export default class NoScrollBehavior extends Component<Props> {
     }
   }
 
-  render(): Node {
+  render(): ReactNode {
     return this.props.children;
   }
 }

@@ -55,7 +55,10 @@ const rule: ESLintRule = {
     const importDeclarationFnc = (node) => {
       if (!node) return;
 
-      const isGestaltImportNode = hasImport({ importNode: node, path: 'gestalt' });
+      const isGestaltImportNode = hasImport({
+        importNode: node,
+        path: 'gestalt',
+      });
 
       if (!isGestaltImportNode) return;
 
@@ -113,11 +116,7 @@ const rule: ESLintRule = {
         reducerCallbackFn: preferLinkReducer,
       });
 
-      const newPropsToAddToLink = ({
-        alternativeComponent,
-      }: {|
-        alternativeComponent: string,
-      |}) => {
+      const newPropsToAddToLink = ({ alternativeComponent }: { alternativeComponent: string }) => {
         const newResponse =
           alternativeComponent === 'Link'
             ? [...validatorResponse]
@@ -207,7 +206,9 @@ const rule: ESLintRule = {
                   context,
                   elementNode: node,
                   propSorting: false,
-                  propsToAdd: newPropsToAddToLink({ alternativeComponent: 'TapArea' }),
+                  propsToAdd: newPropsToAddToLink({
+                    alternativeComponent: 'TapArea',
+                  }),
                   propsToRemove: [
                     ...supportedAriaAttributes,
                     ...supportedEventAttributes,

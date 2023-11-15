@@ -1,10 +1,10 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Button, ComboBox, Flex } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const CATEGORIES = {
-    'BEAUTY': [
+    BEAUTY: [
       'Beauty tips',
       'DIY beauty',
       'Wedding beauty',
@@ -15,7 +15,7 @@ export default function Example(): Node {
       'Beauty salon',
       'Beauty blender',
     ].map((pronoun, index) => ({ label: pronoun, value: `value${index}` })),
-    'DIY': [
+    DIY: [
       'DIY Projects',
       'DIY Art',
       'DIY Home decor',
@@ -35,11 +35,11 @@ export default function Example(): Node {
 
   const [inputValue, setInputValue] = useState('');
 
-  const [selectedOption, setSelectedOption] = useState<void | {|
+  const [selectedOption, setSelectedOption] = useState<void | {
     label: string,
     subtext?: string,
     value: string,
-  |}>();
+  }>();
 
   const resetOptions = () => {
     setSuggestedOptions(CATEGORIES[currentCategory]);
@@ -47,10 +47,10 @@ export default function Example(): Node {
 
   const handleOnChange = ({
     value,
-  }: {|
+  }: {
     event: SyntheticInputEvent<HTMLInputElement>,
     value: string,
-  |}) => {
+  }) => {
     setSelectedOption();
     if (value) {
       setInputValue(value);
@@ -66,10 +66,10 @@ export default function Example(): Node {
 
   const handleSelect = ({
     item,
-  }: {|
+  }: {
     event: SyntheticInputEvent<HTMLElement> | SyntheticKeyboardEvent<HTMLElement>,
-    item: {| label: string, subtext?: string, value: string |},
-  |}) => {
+    item: { label: string, subtext?: string, value: string },
+  }) => {
     setInputValue(item.label);
     setSelectedOption(item);
     resetOptions();

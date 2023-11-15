@@ -1,5 +1,5 @@
 // @flow strict
-import { type Element, type Node, useEffect, useState } from 'react';
+import { type Element, type Node as ReactNode, useEffect, useState } from 'react';
 import PrimaryActionIconButton from './PrimaryActionIconButton.js';
 import Badge from '../Badge.js';
 import Box from '../Box.js';
@@ -11,13 +11,13 @@ import icons from '../icons/index.js';
 import Text from '../Text.js';
 import { type Indexable } from '../zIndex.js';
 
-type IconType = $Keys<typeof icons> | {| __path: string |};
+type IconType = $Keys<typeof icons> | { __path: string };
 type Display = 'expandable' | 'static';
-type BadgeType = {|
+type BadgeType = {
   text: string,
   type?: 'info' | 'error' | 'warning' | 'success' | 'neutral',
-|};
-type Counter = {| number: string, accessibilityLabel: string |};
+};
+type Counter = { number: string, accessibilityLabel: string };
 
 export default function SideNavigationGroupContent({
   itemColor,
@@ -35,41 +35,37 @@ export default function SideNavigationGroupContent({
   setCompression,
   hovered,
   focused,
-}: {|
+}: {
   hovered: boolean,
   focused: boolean,
   itemColor: ?'secondary',
   expanded: boolean,
   selectedItemId: string,
   itemId: string,
-  paddingStyle: {|
+  paddingStyle: {
     paddingInlineStart: string | number | void,
     paddingInlineEnd: string | number | void,
-  |},
+  },
   icon?: IconType,
   label: string,
   badge?: BadgeType,
   notificationAccessibilityLabel?: string,
   counter?: Counter,
   display?: Display,
-  primaryAction?: {|
+  primaryAction?: {
     icon?: 'ellipsis' | 'edit' | 'trash-can',
-    onClick?: ({|
-      event:
-        | SyntheticMouseEvent<HTMLDivElement>
-        | SyntheticKeyboardEvent<HTMLDivElement>
-        | SyntheticMouseEvent<HTMLAnchorElement>
-        | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    |}) => void,
-    tooltip: {|
+    onClick?: ({
+      event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>,
+    }) => void,
+    tooltip: {
       accessibilityLabel?: string,
       text: string,
       zIndex?: Indexable,
-    |},
+    },
     dropdownItems?: $ReadOnlyArray<Element<typeof Dropdown.Item>>,
-  |},
+  },
   setCompression: ('compress' | 'none') => void,
-|}): Node {
+}): ReactNode {
   // Manages adaptiveness
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';

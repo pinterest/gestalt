@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useId } from 'react';
+import { type Node as ReactNode, useId } from 'react';
 import classnames from 'classnames';
 import borderStyles from './Borders.css';
 import Box from './Box.js';
@@ -18,7 +18,7 @@ import SideNavigationNestedItem from './SideNavigationNestedItem.js';
 import SideNavigationSection from './SideNavigationSection.js';
 import SideNavigationTopItem from './SideNavigationTopItem.js';
 
-export type Props = {|
+export type Props = {
   /**
    * String that clients such as VoiceOver will read to describe the element.
    */
@@ -26,19 +26,19 @@ export type Props = {|
   /**
    * The content shown in SideNavigation. See [subcomponents](https://gestalt.pinterest.systems/web/sidenavigation#Subcomponents).
    */
-  children: Node,
+  children: ReactNode,
   /**
    * Content to display at the bottom of SideNavigation. Open slot available to display other functionality required in the page. See the [Footer variant](https://gestalt.pinterest.systems/web/sidenavigation#Header) to learn more.
    */
-  footer?: Node,
+  footer?: ReactNode,
   /**
    * Content to display at the top of SideNavigation. Open slot used for controlling the display of navigation items. See the [Header variant](https://gestalt.pinterest.systems/web/sidenavigation#Header) to learn more.
    */
-  header?: Node,
+  header?: ReactNode,
   /**
    * Callback fired when SideNavigation requests to be closed in mobile devices. Must be used to control SideNavigation´s on/off display state. The accessibilityLabel should follow the Accessibility guidelines.
    */
-  dismissButton?: {| accessibilityLabel?: string, onDismiss: () => void |},
+  dismissButton?: { accessibilityLabel?: string, onDismiss: () => void },
   /**
   /**
    * Displays a border in SideNavigation. See the [Border](https://gestalt.pinterest.systems/web/sidenavigation#Border) variant for more info.
@@ -48,7 +48,7 @@ export type Props = {|
    * Title for mobile navigation.
    */
   mobileTitle?: string,
-|};
+};
 
 /**
  * [SideNavigation](https://gestalt.pinterest.systems/web/sidenavigation) is start-aligned and arranged vertically. It is used to navigate between page urls or sections when you have too many menu items to fit in horizontal [Tabs](https://gestalt.pinterest.systems/web/tabs).
@@ -67,8 +67,11 @@ export default function SideNavigation({
   header,
   showBorder,
   mobileTitle,
-}: Props): Node {
-  const navigationChildren = getChildrenToArray({ children, filterLevel: 'main' });
+}: Props): ReactNode {
+  const navigationChildren = getChildrenToArray({
+    children,
+    filterLevel: 'main',
+  });
   const { accessibilityDismissButtonLabel } = useDefaultLabelContext('SideNavigation');
   const id = useId();
   const deviceType = useDeviceType();

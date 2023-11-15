@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, ButtonLink, Flex, Heading, Text } from 'gestalt';
 import IllustrationCard from '../docs-components/IllustrationCard.js';
 import IllustrationSection from '../docs-components/IllustrationSection.js';
@@ -12,7 +12,7 @@ import HeroGraphic from '../graphics/home-page/HeroGraphic.js';
 import HowToWork from '../graphics/home-page/how-to-work-with-us.svg';
 import Roadmap from '../graphics/home-page/roadmap.svg';
 
-export default function HomePage(): Node {
+export default function HomePage(): ReactNode {
   return (
     <Page title="Welcome to Gestalt" hideSideNav hideEditLink>
       <Box width="100%">

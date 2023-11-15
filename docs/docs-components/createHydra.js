@@ -30,13 +30,13 @@ Related articles:
 https://americanexpress.io/hydra/
 https://kentcdodds.com/blog/how-to-use-react-context-effectively */
 
-import { type Context, createContext, type Node, useContext } from 'react';
+import { type Context, createContext, type Node as ReactNode, useContext } from 'react';
 
-export type Hydra<ContextType> = {|
+export type Hydra<ContextType> = {
   Provider: $PropertyType<Context<ContextType | void>, 'Provider'>,
-  Consumer: ({| children: (ContextType) => Node |}) => Node,
+  Consumer: ({ children: (ContextType) => ReactNode }) => ReactNode,
   useHook: () => ContextType,
-|};
+};
 
 function formatDisplayName(
   displayName: string,
@@ -70,7 +70,7 @@ export default function createHydra<ContextType>(
   const { Provider } = context;
 
   // Consumer: Render Prop
-  const Consumer = ({ children }: { children: (ContextType) => Node, ... }) => {
+  const Consumer = ({ children }: { children: (ContextType) => ReactNode, ... }) => {
     const contextValue = useContext(context);
 
     if (contextValue === undefined) {

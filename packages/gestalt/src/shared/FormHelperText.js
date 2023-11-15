@@ -1,19 +1,19 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import FormHelperTextCounter from './FormHelperTextCounter.js';
 import Box from '../Box.js';
 import Flex from '../Flex.js';
 import Text from '../Text.js';
 import { type MaxLength } from '../TextField.js';
 
-type Props = {|
+type Props = {
   id?: string,
   text: ?string,
   maxLength?: ?MaxLength,
   currentLength?: number,
-|};
+};
 
-export default function FormHelperText({ id, currentLength, text, maxLength }: Props): Node {
+export default function FormHelperText({ id, currentLength, text, maxLength }: Props): ReactNode {
   return (
     // id is required for all helper texts accompanying an individual form element, not for groups of form elements such as RadioGroup.
     <Box marginTop={2} id={id}>

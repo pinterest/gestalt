@@ -111,7 +111,11 @@ describe('SheetMobile', () => {
           heading="test"
           subHeading="test"
           onDismiss={() => {}}
-          primaryAction={{ accessibilityLabel: 'Next', label: 'Next', onClick: () => {} }}
+          primaryAction={{
+            accessibilityLabel: 'Next',
+            label: 'Next',
+            onClick: () => {},
+          }}
         />
       </DeviceTypeProvider>,
     );
@@ -131,14 +135,14 @@ describe('SheetMobile', () => {
     const mockOnClick = jest.fn<[], void>();
     const mockOnClickPrimaryAction = jest.fn<
       [
-        {|
+        {
           event:
             | SyntheticMouseEvent<HTMLButtonElement>
             | SyntheticKeyboardEvent<HTMLButtonElement>
             | SyntheticMouseEvent<HTMLAnchorElement>
             | SyntheticKeyboardEvent<HTMLAnchorElement>,
           onDismissStart: () => void,
-        |},
+        },
       ],
       void,
     >();
@@ -178,14 +182,14 @@ describe('SheetMobile', () => {
     const mockOnClick = jest.fn<[], void>();
     const mockOnClickPrimaryAction = jest.fn<
       [
-        {|
+        {
           event:
             | SyntheticMouseEvent<HTMLButtonElement>
             | SyntheticKeyboardEvent<HTMLButtonElement>
             | SyntheticMouseEvent<HTMLAnchorElement>
             | SyntheticKeyboardEvent<HTMLAnchorElement>,
           onDismissStart: () => void,
-        |},
+        },
       ],
       void,
     >();

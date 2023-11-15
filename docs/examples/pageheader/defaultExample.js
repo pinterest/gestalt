@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Button, Datapoint, Dropdown, PageHeader } from 'gestalt';
 
-export default function PageHeaderExample(): Node {
+export default function PageHeaderExample(): ReactNode {
   return (
     <PageHeader
       title="Ads overview"

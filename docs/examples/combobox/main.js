@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { ComboBox, Flex } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const PRONOUNS = [
     'ey / em',
     'he / him',
@@ -15,16 +15,19 @@ export default function Example(): Node {
     'zie / zem',
   ];
 
-  const options = PRONOUNS.map((pronoun, index) => ({ label: pronoun, value: `value${index}` }));
+  const options = PRONOUNS.map((pronoun, index) => ({
+    label: pronoun,
+    value: `value${index}`,
+  }));
 
   const [errorMessage, setErrorMessage] = useState<?string>();
 
   const handleOnBlur = ({
     value,
-  }: {|
+  }: {
     event: SyntheticFocusEvent<HTMLInputElement> | SyntheticEvent<HTMLInputElement>,
     value: string,
-  |}) => {
+  }) => {
     if (value !== '' && !PRONOUNS.includes(value)) setErrorMessage('Please, select a valid option');
   };
 

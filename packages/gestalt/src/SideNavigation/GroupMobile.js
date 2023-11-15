@@ -1,5 +1,13 @@
 // @flow strict
-import { Fragment, type Node, useCallback, useEffect, useId, useMemo, useState } from 'react';
+import {
+  Fragment,
+  type Node as ReactNode,
+  useCallback,
+  useEffect,
+  useId,
+  useMemo,
+  useState,
+} from 'react';
 import classnames from 'classnames';
 import getChildrenToArray from './getChildrenToArray.js';
 import SideNavigationGroupContent from './GroupContent.js';
@@ -15,7 +23,7 @@ import { type Props } from '../SideNavigationGroup.js';
 import { NESTING_MARGIN_START_MAP } from '../SideNavigationTopItem.js';
 import TapArea from '../TapArea.js';
 
-type SideNavigationGroupMobileProps = {| ...Props, hasActiveChild: boolean |};
+type SideNavigationGroupMobileProps = { ...Props, hasActiveChild: boolean };
 
 export default function SideNavigationGroupMobile({
   children,
@@ -27,7 +35,7 @@ export default function SideNavigationGroupMobile({
   label,
   primaryAction,
   notificationAccessibilityLabel,
-}: SideNavigationGroupMobileProps): Node {
+}: SideNavigationGroupMobileProps): ReactNode {
   // Manages PrimaryAction
   const [compression, setCompression] = useState<'compress' | 'none'>('compress');
   const [hovered, setHovered] = useState(false);

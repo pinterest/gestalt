@@ -1,16 +1,16 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import cx from 'classnames';
 import getRoundingClassName from './getRoundingClassName.js';
 import styles from './Mask.css';
 
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle';
 
-type Props = {|
+type Props = {
   /**
    * The content to be masked.
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * Use numbers for pixels (`height={100}`) and strings for percentages (`height="100%"`).
    */
@@ -31,7 +31,7 @@ type Props = {|
    * Mask applies the style `will-change: transform` by default as a performance optimization. In certain specific scenarios, this can be problematic. This prop can be used to turn off that optimization. See the [willChangeTransform example](https://gestalt.pinterest.systems/web/mask#willChangeTransform) for more details.
    */
   willChangeTransform?: boolean,
-|};
+};
 
 /**
  * [Mask](https://gestalt.pinterest.systems/web/mask) is used to display content in a specific shape.
@@ -46,7 +46,7 @@ export default function Mask({
   height,
   willChangeTransform = true,
   wash = false,
-}: Props): Node {
+}: Props): ReactNode {
   return (
     <div
       className={cx(styles.Mask, getRoundingClassName(rounding), {

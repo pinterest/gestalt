@@ -3,34 +3,8 @@ import IconButton from './IconButton.js';
 
 const ValidDefaultIconButton = <IconButton icon="add" accessibilityLabel="Add" />;
 
-const ValidLinkRoleIconButton = (
-  <IconButton icon="add" accessibilityLabel="Add" role="link" href="http://www.pinterest.com" />
-);
-
-// $FlowExpectedError[incompatible-type]
+// $FlowExpectedError[prop-missing]
 const MissingProp = <IconButton />;
 
-// $FlowExpectedError[incompatible-type]
+// $FlowExpectedError[prop-missing]
 const NonExistingProp = <IconButton nonexisting={33} />;
-
-const IncompatibleLinkRoleProps = (
-  // $FlowExpectedError[incompatible-type]
-  <IconButton
-    accessibilityExpanded
-    icon="add"
-    accessibilityLabel="Add"
-    role="link"
-    href="http://www.pinterest.com"
-  />
-);
-
-const IncompatibleButtonRoleProps = (
-  // $FlowExpectedError[incompatible-type]
-  <IconButton
-    accessibilityExpanded
-    icon="add"
-    accessibilityLabel="Add"
-    role="button"
-    target="blank"
-  />
-);

@@ -1,7 +1,7 @@
 // @flow strict
 import {
   type ElementConfig,
-  type Node,
+  type Node as ReactNode,
   useCallback,
   useEffect,
   useId,
@@ -25,34 +25,34 @@ import Link from '../Link.js';
 import sheetMobileStyles from '../SheetMobile.css';
 import { type Indexable } from '../zIndex.js';
 
-type OnClickType = ({|
+type OnClickType = ({
   event:
     | SyntheticMouseEvent<HTMLButtonElement>
     | SyntheticKeyboardEvent<HTMLButtonElement>
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>,
   onDismissStart: () => void,
-|}) => void;
+}) => void;
 
-type Props = {|
+type Props = {
   accessibilityLabel?: string,
   align: 'start' | 'center',
-  backIconButton?: {| accessibilityLabel: string, onClick: OnClickType |},
-  children?: Node,
+  backIconButton?: { accessibilityLabel: string, onClick: OnClickType },
+  children?: ReactNode,
   closeOnOutsideClick?: boolean,
-  footer?: Node,
-  forwardIconButton?: {|
+  footer?: ReactNode,
+  forwardIconButton?: {
     accessibilityLabel: string,
     onClick: OnClickType,
-  |},
-  heading?: Node,
-  onAnimationEnd: ?({| animationState: 'in' | 'out' |}) => void,
+  },
+  heading?: ReactNode,
+  onAnimationEnd: ?({ animationState: 'in' | 'out' }) => void,
   onDismiss: () => void,
-  onOutsideClick?: ({|
+  onOutsideClick?: ({
     event: SyntheticMouseEvent<HTMLDivElement>,
-  |}) => void,
+  }) => void,
   padding?: 'default' | 'none',
-  primaryAction?: {|
+  primaryAction?: {
     accessibilityLabel: string,
     href?: string,
     label: string,
@@ -60,13 +60,13 @@ type Props = {|
     rel?: $ElementType<ElementConfig<typeof Link>, 'rel'>,
     size?: $ElementType<ElementConfig<typeof Button>, 'size'>,
     target?: $ElementType<ElementConfig<typeof Link>, 'target'>,
-  |},
+  },
   role?: 'alertdialog' | 'dialog',
   showDismissButton?: boolean,
   size: 'default' | 'full' | 'auto',
   subHeading?: string,
   zIndex?: Indexable,
-|};
+};
 
 export default function PartialPage({
   accessibilityLabel,
@@ -87,7 +87,7 @@ export default function PartialPage({
   size,
   subHeading,
   zIndex,
-}: Props): Node {
+}: Props): ReactNode {
   const id = useId();
 
   // Consumes DefaultLabelProvider
@@ -98,7 +98,10 @@ export default function PartialPage({
     sheetMobileHandlers: { onOpen: () => {}, onClose: () => {} },
   };
 
-  const { onClose, onOpen } = sheetMobileHandlers ?? { onOpen: () => {}, onClose: () => {} };
+  const { onClose, onOpen } = sheetMobileHandlers ?? {
+    onOpen: () => {},
+    onClose: () => {},
+  };
 
   useEffect(() => {
     onOpen?.();

@@ -1,5 +1,5 @@
 // @flow strict
-import { type ComponentType, isValidElement, type Node } from 'react';
+import { type ComponentType, isValidElement, type Node as ReactNode } from 'react';
 
 // $FlowIgnore[unclear-type]
 type UnknownComponent = ComponentType<any>;
@@ -12,7 +12,7 @@ const isComponent = (AComponent: UnknownComponent, AnotherComponent: UnknownComp
 
 // Checks whether `element` is a React element of type `Component` (or one of
 // the passed components, if `Component` is an array of React components).
-function isElementOfType<P>(element: ?Node, Component: ComponentType<P>): boolean {
+function isElementOfType<P>(element: ?ReactNode, Component: ComponentType<P>): boolean {
   if (
     element === null ||
     element === undefined ||
@@ -39,11 +39,11 @@ export default function wrapWithComponent<P>({
   element,
   Component,
   props,
-}: {|
-  element: ?Node,
+}: {
+  element: ?ReactNode,
   Component: ComponentType<P>,
   props: P,
-|}): Node {
+}): ReactNode {
   if (element === null || element === undefined) {
     return null;
   }

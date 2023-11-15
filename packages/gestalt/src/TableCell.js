@@ -1,13 +1,13 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import cx from 'classnames';
 import styles from './Table.css';
 
-type Props = {|
+type Props = {
   /**
    * The content of the table cell.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * `colSpan` defines the number of columns a cell should span.
    */
@@ -28,7 +28,7 @@ type Props = {|
    * Private prop required for sticky columns
    */
   previousTotalWidth?: number,
-|};
+};
 
 /**
  * Use [Table.Cell](https://gestalt.pinterest.systems/web/table#Table.Cell) for individual table values.
@@ -40,7 +40,7 @@ export default function TableCell({
   shouldBeSticky,
   previousTotalWidth,
   shouldHaveShadow,
-}: Props): Node {
+}: Props): ReactNode {
   const cs = cx(
     styles.td,
     shouldBeSticky && styles.columnSticky,

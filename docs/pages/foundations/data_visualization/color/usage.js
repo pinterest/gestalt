@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Image, SlimBanner } from 'gestalt';
 import ColorTile from '../../../../docs-components/ColorTile.js';
 import MainSection from '../../../../docs-components/MainSection.js';
@@ -41,11 +41,11 @@ const DO_NOT_PAIR_COLORS = [
   [6, 11],
 ];
 
-type ColorCardProps = {|
+type ColorCardProps = {
   count: number,
-|};
+};
 
-function PaletteGenerator({ count }: ColorCardProps): Node {
+function PaletteGenerator({ count }: ColorCardProps): ReactNode {
   return [...Array(count)].map((step, idx) => {
     const tokenStep = idx + 1;
 
@@ -61,12 +61,12 @@ function PaletteGenerator({ count }: ColorCardProps): Node {
   });
 }
 
-type PairSetProps = {|
+type PairSetProps = {
   color1: number,
   color2: number,
-|};
+};
 
-function DoNotPairSet({ color1, color2 }: PairSetProps): Node {
+function DoNotPairSet({ color1, color2 }: PairSetProps): ReactNode {
   const firstColor = color1 < 10 ? `0${color1}` : `${color1}`;
   const secondColor = color2 < 10 ? `0${color2}` : `${color2}`;
   return (
@@ -91,7 +91,7 @@ function DoNotPairSet({ color1, color2 }: PairSetProps): Node {
   );
 }
 
-export default function ColorPage(): Node {
+export default function ColorPage(): ReactNode {
   return (
     <Page title="Data visualization guidelines">
       <PageHeader

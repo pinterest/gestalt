@@ -53,13 +53,13 @@ html:not([dir="rtl"]) .dismissButtonPosition {
 }
 
 html[dir="rtl"] .dismissButtonRounding {
-  border-radius: 8px 0 0 8px;
+  border-radius: var(--rounding-200) 0 0 var(--rounding-200);
   border-width: var(--g-border-width-lg) 0 var(--g-border-width-lg)
     var(--g-border-width-lg);
 }
 
 html:not([dir="rtl"]) .dismissButtonRounding {
-  border-radius: 0 8px 8px 0;
+  border-radius: 0 var(--rounding-200) var(--rounding-200) 0;
   border-width: var(--g-border-width-lg) var(--g-border-width-lg)
     var(--g-border-width-lg) 0;
 }

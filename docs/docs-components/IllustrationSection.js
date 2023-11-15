@@ -1,23 +1,23 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Heading } from 'gestalt';
 import IllustrationContainer from './IllustrationContainer.js';
 
 export const MIN_SVG_ILLUSTRATION_WIDTH = 245;
 
-type Props = {|
-  children?: Node,
+type Props = {
+  children?: ReactNode,
   grid?: 'auto-fill' | 'auto-fit',
   min?: number,
   title?: string,
-|};
+};
 
 export default function IllustrationSection({
   children,
   grid = 'auto-fit',
   min = MIN_SVG_ILLUSTRATION_WIDTH,
   title,
-}: Props): Node {
+}: Props): ReactNode {
   return (
     <IllustrationContainer justifyContent="center">
       <Flex direction="column" gap={6} maxWidth={1200} width="100%">

@@ -1,10 +1,11 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -21,14 +22,15 @@ const ignoredProps = ['smAlignItems', 'mdAlignItems', 'lgAlignItems'];
 
 export default function DocsPage({
   generatedDocGen,
-}: {|
-  generatedDocGen: {| [string]: DocGen |},
-|}): Node {
+}: {
+  generatedDocGen: { [string]: DocGen },
+}): ReactNode {
   return (
     <Page title={generatedDocGen?.Flex?.displayName}>
       <PageHeader
         name={generatedDocGen?.Flex?.displayName}
         description={generatedDocGen?.Flex?.description}
+        pdocsLink
       >
         <SandpackExample code={main} name="Main example source" hideEditor previewHeight={150} />
       </PageHeader>
@@ -158,13 +160,21 @@ export default function DocsPage({
         </MainSection.Subsection>
       </MainSection>
       <QualityChecklist component={generatedDocGen?.Flex.displayName} />
+      <InternalDocumentationSection
+        items={[
+          {
+            href: 'https://w.pinadmin.com/display/EPD/Deep+dive%3A+Layout+components.+Box+vs+Flex',
+            text: 'Technical training: Box vs Flex',
+          },
+        ]}
+      />
     </Page>
   );
 }
 
-export async function getServerSideProps(): Promise<{|
-  props: {| generatedDocGen: {| [string]: DocGen |} |},
-|}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: { [string]: DocGen } },
+}> {
   return {
     props: { generatedDocGen: await multipleDocGen(['Flex', 'FlexItem']) },
   };

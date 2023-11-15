@@ -1,16 +1,15 @@
 // @flow strict
 import { createRef } from 'react';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import NumberField from './NumberField.js';
 
 describe('NumberField', () => {
   it('renders error message on errorMessage prop change', () => {
-    const { getByText, rerender } = render(
+    const { rerender } = render(
       <NumberField id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
     );
     expect(() => {
-      // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-      getByText('Error message');
+      screen.getByText('Error message');
     }).toThrow('Unable to find an element with the text: Error message');
 
     rerender(
@@ -22,12 +21,11 @@ describe('NumberField', () => {
         onBlur={jest.fn()}
       />,
     );
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    expect(getByText('Error message')).toBeVisible();
+    expect(screen.getByText('Error message')).toBeVisible();
   });
 
   it('reads the error message on focus', () => {
-    const { getByDisplayValue } = render(
+    render(
       <NumberField
         errorMessage="Error message"
         id="test"
@@ -37,10 +35,8 @@ describe('NumberField', () => {
         value={42}
       />,
     );
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    const input = getByDisplayValue('42');
-    fireEvent.focus(input);
-    expect(input).toHaveAccessibleDescription('Error message');
+    fireEvent.focus(screen.getByDisplayValue('42'));
+    expect(screen.getByDisplayValue('42')).toHaveAccessibleDescription('Error message');
   });
 
   it('forwards a ref to <input />', () => {
@@ -61,21 +57,18 @@ describe('NumberField', () => {
 
   it('handles blur events', () => {
     const mockBlur = jest.fn<
-      [{| event: SyntheticFocusEvent<HTMLInputElement>, value: number | void |}],
+      [{ event: SyntheticFocusEvent<HTMLInputElement>, value: number | void }],
       void,
     >();
-    const { getByDisplayValue } = render(
-      <NumberField id="test" onBlur={mockBlur} onChange={jest.fn()} value={42} />,
-    );
+    render(<NumberField id="test" onBlur={mockBlur} onChange={jest.fn()} value={42} />);
 
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    fireEvent.blur(getByDisplayValue('42'));
+    fireEvent.blur(screen.getByDisplayValue('42'));
     expect(mockBlur).toHaveBeenCalled();
   });
 
   it('handles change events', () => {
     const mockChange = jest.fn<
-      [{| event: SyntheticInputEvent<HTMLInputElement>, value: number | void |}],
+      [{ event: SyntheticInputEvent<HTMLInputElement>, value: number | void }],
       void,
     >();
     const { container } = render(<NumberField id="test" onChange={mockChange} value={42} />);
@@ -94,21 +87,23 @@ describe('NumberField', () => {
 
   it('handles focus events', () => {
     const mockFocus = jest.fn<
-      [{| event: SyntheticFocusEvent<HTMLInputElement>, value: number | void |}],
+      [{ event: SyntheticFocusEvent<HTMLInputElement>, value: number | void }],
       void,
     >();
-    const { getByDisplayValue } = render(
-      <NumberField id="test" onChange={jest.fn()} onFocus={mockFocus} value={42} />,
-    );
+    render(<NumberField id="test" onChange={jest.fn()} onFocus={mockFocus} value={42} />);
 
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    fireEvent.focus(getByDisplayValue('42'));
+    fireEvent.focus(screen.getByDisplayValue('42'));
     expect(mockFocus).toHaveBeenCalled();
   });
 
   it('handles key down events', () => {
     const mockKeyDown = jest.fn<
-      [{| event: SyntheticKeyboardEvent<HTMLInputElement>, value: number | void |}],
+      [
+        {
+          event: SyntheticKeyboardEvent<HTMLInputElement>,
+          value: number | void,
+        },
+      ],
       void,
     >();
     const { container } = render(
@@ -128,15 +123,14 @@ describe('NumberField', () => {
   });
 
   it('shows a label for the number field', () => {
-    const { getByText } = render(
+    render(
       <NumberField id="test" label="Label for the number field" onChange={() => {}} value={42} />,
     );
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    expect(getByText('Label for the number field')).toBeVisible();
+    expect(screen.getByText('Label for the number field')).toBeVisible();
   });
 
   it('shows helper text for the number field', () => {
-    const { getByText } = render(
+    render(
       <NumberField
         id="test"
         label="Label for the number field"
@@ -145,12 +139,11 @@ describe('NumberField', () => {
         value={42}
       />,
     );
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    expect(getByText('Helper text for the number field')).toBeVisible();
+    expect(screen.getByText('Helper text for the number field')).toBeVisible();
   });
 
   it('hides the helper text for the number field when an error message is shown', () => {
-    const { getByText } = render(
+    render(
       <NumberField
         id="test"
         label="Label for the number field"
@@ -161,8 +154,7 @@ describe('NumberField', () => {
       />,
     );
     expect(() => {
-      // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-      getByText('Helper text for the number field');
+      screen.getByText('Helper text for the number field');
     }).toThrow('Unable to find an element with the text: Helper text for the number field');
   });
 

@@ -1,7 +1,8 @@
 // @flow strict
-import { Children, type Element, Fragment, type Node } from 'react';
+import { Children, type Element, Fragment, type Node as ReactNode } from 'react';
 import Box from './Box.js';
 import Button from './Button.js';
+import ButtonLink from './ButtonLink.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
@@ -10,10 +11,10 @@ import Link from './Link.js';
 import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES.js';
 import Text from './Text.js';
 
-type DismissButtonType = {|
+type DismissButtonType = {
   accessibilityLabel?: string,
   onDismiss: () => void,
-|};
+};
 
 function DismissButton({ accessibilityLabel, onDismiss }: DismissButtonType) {
   const { accessibilityDismissButtonLabel } = useDefaultLabelContext('SlimBanner');
@@ -28,16 +29,16 @@ function DismissButton({ accessibilityLabel, onDismiss }: DismissButtonType) {
   );
 }
 
-type HelperLinkType = {|
+type HelperLinkType = {
   accessibilityLabel: string,
   href: string,
-  onClick?: ({|
+  onClick?: ({
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
+  }) => void,
   target?: null | 'self' | 'blank',
   text: string,
-|};
+};
 
 function HelperLink({ accessibilityLabel, href, onClick, target, text }: HelperLinkType) {
   return (
@@ -55,44 +56,37 @@ function HelperLink({ accessibilityLabel, href, onClick, target, text }: HelperL
   );
 }
 
-type PrimaryActionType = {|
-  accessibilityLabel: string,
-  disabled?: boolean,
-  href?: string,
-  label: string,
-  onClick?: ({|
-    event:
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>,
-    dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
-  rel?: 'none' | 'nofollow',
-  target?: null | 'self' | 'blank',
-|};
+type PrimaryActionType =
+  | {
+      accessibilityLabel: string,
+      disabled?: boolean,
+      href: string,
+      label: string,
+      onClick?: $ElementType<React$ElementConfig<typeof ButtonLink>, 'onClick'>,
+      rel?: 'none' | 'nofollow',
+      role: 'link',
+      target?: null | 'self' | 'blank',
+    }
+  | {
+      accessibilityLabel: string,
+      disabled?: boolean,
+      label: string,
+      onClick: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
+      role?: 'button',
+    };
 
-function PrimaryAction({
-  accessibilityLabel,
-  disabled,
-  href,
-  label,
-  onClick,
-  rel,
-  target,
-}: PrimaryActionType) {
-  return href ? (
-    <Button
+function PrimaryAction({ accessibilityLabel, disabled, label, ...props }: PrimaryActionType) {
+  return props.role === 'link' ? (
+    <ButtonLink
       accessibilityLabel={accessibilityLabel}
       color="white"
       disabled={disabled}
       fullWidth
-      href={href}
-      onClick={onClick}
-      rel={rel}
-      role="link"
+      href={props.href}
+      onClick={props.onClick}
+      rel={props.rel}
       size="sm"
-      target={target}
+      target={props.target}
       text={label}
     />
   ) : (
@@ -101,15 +95,14 @@ function PrimaryAction({
       color="white"
       disabled={disabled}
       fullWidth
-      onClick={onClick}
-      role="button"
+      onClick={props.onClick}
       size="sm"
       text={label}
     />
   );
 }
 
-type Props = {|
+type Props = {
   /**
    * Adds a dismiss button to SlimBanner. See the [Dismissible variant](https://gestalt.pinterest.systems/web/slimbanner#Dismissible) for more info.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/slimbanner#Accessibility).
@@ -154,7 +147,7 @@ type Props = {|
     | 'warningBare'
     | 'successBare'
     | 'recommendationBare',
-|};
+};
 
 /**
  * [SlimBanner](https://gestalt.pinterest.systems/web/slimbanner) conveys brief information related to a specific section of a page. The message can relay success, warning, error or general information. Since they are about a specific section of a page or surface, SlimBanner sits inside of a container, and not at the top of the page. For alerts that apply to the whole page, use [Callout](https://gestalt.pinterest.systems/web/callout).
@@ -170,7 +163,7 @@ export default function SlimBanner({
   message,
   primaryAction,
   type = 'neutral',
-}: Props): Node {
+}: Props): ReactNode {
   const isBare = type.endsWith('Bare');
   const isDefault = type === 'neutral';
   const { backgroundColor, iconColor, icon } = MESSAGING_TYPE_ATTRIBUTES[type.replace('Bare', '')];
@@ -237,7 +230,11 @@ export default function SlimBanner({
         )}
 
         <Flex.Item flex="grow">
-          <Box dangerouslySetInlineStyle={{ __style: !isDefault ? { marginTop: '-1px' } : {} }}>
+          <Box
+            dangerouslySetInlineStyle={{
+              __style: !isDefault ? { marginTop: '-1px' } : {},
+            }}
+          >
             {typeof message === 'string' ? (
               <Text inline>
                 {message}

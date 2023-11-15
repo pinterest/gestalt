@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Checkbox, Label, Table, Text } from 'gestalt';
 
 function BaseRow({
@@ -8,13 +8,13 @@ function BaseRow({
   disabled = false,
   text,
   spend,
-}: {|
+}: {
   id: string,
   checked?: boolean,
   disabled?: boolean,
   text: string,
   spend: string,
-|}) {
+}) {
   const newId = `${id.replace(/ /g, '_').replace(/'/g, '')}_${text
     .replace(/ /g, '_')
     .replace(/'/g, '')}`;
@@ -36,7 +36,7 @@ function BaseRow({
   );
 }
 
-export default function Snapshot(): Node {
+export default function Snapshot(): ReactNode {
   return (
     <Box color="default" display="inlineBlock" padding={4} width={400}>
       <Table accessibilityLabel="A table example">

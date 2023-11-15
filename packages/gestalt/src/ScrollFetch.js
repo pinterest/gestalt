@@ -1,11 +1,11 @@
 // @flow strict
-import { type Node, PureComponent } from 'react';
+import { type Node as ReactNode, PureComponent } from 'react';
 import FetchItems from './FetchItems.js';
 import ScrollContainer from './Masonry/ScrollContainer.js';
 import { getElementHeight, getScrollHeight, getScrollPos } from './Masonry/scrollUtils.js';
 import throttle, { type ThrottleReturn } from './throttle.js';
 
-type Props = {|
+type Props = {
   /**
    * The scroll container to use. Defaults to window.
    */
@@ -14,13 +14,13 @@ type Props = {|
   isFetching: boolean,
   fetchMore?: () => void,
   renderHeight?: () => number,
-|};
+};
 
-type State = {|
+type State = {
   containerHeight: number,
   scrollHeight: number,
   scrollTop: number,
-|};
+};
 
 export default class ScrollFetch extends PureComponent<Props, State> {
   /**
@@ -30,7 +30,7 @@ export default class ScrollFetch extends PureComponent<Props, State> {
     this.setState(this.getScrollState());
   });
 
-  static defaultProps: {| container?: HTMLElement |} = {
+  static defaultProps: { container?: HTMLElement } = {
     container: typeof window !== 'undefined' ? window : undefined,
   };
 
@@ -75,7 +75,7 @@ export default class ScrollFetch extends PureComponent<Props, State> {
     return getScrollHeight(container);
   };
 
-  getScrollState(): null | {| scrollHeight: number, scrollTop: number |} {
+  getScrollState(): null | { scrollHeight: number, scrollTop: number } {
     const { container, renderHeight } = this.props;
     if (!container) {
       return null;
@@ -88,7 +88,7 @@ export default class ScrollFetch extends PureComponent<Props, State> {
     };
   }
 
-  render(): null | Node {
+  render(): null | ReactNode {
     const { containerHeight, scrollHeight, scrollTop } = this.state;
     const { container, fetchMore, isAtEnd, isFetching } = this.props;
 

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Status, Table, Text } from 'gestalt';
 
 function HeaderRow() {
@@ -25,14 +25,14 @@ function BaseRow({
   subtext,
   rate,
   category,
-}: {|
+}: {
   disabled?: boolean,
   type: $ElementType<React$ElementConfig<typeof Status>, 'type'>,
   title: string,
   subtext: string,
   rate: number | string,
   category: string,
-|}) {
+}) {
   return (
     <Table.Row>
       <Table.Cell>
@@ -50,7 +50,7 @@ function BaseRow({
   );
 }
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const tableID = "Another example of a 'do' for table alignment";
 
   return (

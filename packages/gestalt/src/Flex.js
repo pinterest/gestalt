@@ -1,5 +1,5 @@
 // @flow strict
-import { Children, type Node } from 'react';
+import { Children, type Node as ReactNode } from 'react';
 import { buildStyles } from './boxTransforms.js';
 import styles from './Flex.css';
 import FlexItem from './FlexItem.js';
@@ -8,7 +8,7 @@ import wrapWithComponent from './utils/wrapWithComponent.js';
 type Dimension = number | string;
 type Gap = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-type Props = {|
+type Props = {
   /**
    * Aligns the flex container's lines within when there is extra space in the cross axis, similar to how `justify-content` aligns individual items within the main axis.
    */
@@ -38,7 +38,7 @@ type Props = {|
   /**
    * Note that each child will be automatically wrapped in [Flex.Item](https://gestalt.pinterest.systems/web/flex#Flex.Item) to apply various styles. If specific flex styles are needed on a child, you can manually wrap it in Flex.Item to apply those styles. See [the Applying flex properties to children example](https://gestalt.pinterest.systems/web/flex#Applying-flex-properties-to-children) to learn more.
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * Used to identify the element for testing purposes.
    */
@@ -55,7 +55,7 @@ type Props = {|
   /**
    * Defines spacing between each child along the main and cross axes. Use an object to define different spacing for rows and columns. See the [Gap](https://gestalt.pinterest.systems/web/flex#Gap) variant to learn more.
    */
-  gap?: Gap | {| row: Gap, column: Gap |},
+  gap?: Gap | { row: Gap, column: Gap },
   /**
    * Use numbers for pixels: `height={100}` and strings for percentages: `height="100%"`.
    */
@@ -92,7 +92,7 @@ type Props = {|
    * By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap onto multiple lines, from top to bottom.
    */
   wrap?: boolean,
-|};
+};
 
 const allowedProps = [
   'alignContent',
@@ -130,7 +130,7 @@ export default function Flex({
   gap = 0,
   justifyContent,
   ...rest
-}: Props): Node {
+}: Props): ReactNode {
   const children = gap
     ? Children.map(childrenProp, (child, index) => {
         if (child === null || child === undefined) {

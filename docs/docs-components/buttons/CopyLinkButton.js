@@ -1,14 +1,14 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { IconButton } from 'gestalt';
 import trackButtonClick from './trackButtonClick.js';
 
-type Props = {|
+type Props = {
   name: string,
   onClick: () => void,
-|};
+};
 
-export default function CopyLinkButton({ name, onClick }: Props): Node {
+export default function CopyLinkButton({ name, onClick }: Props): ReactNode {
   const label = 'Copy link';
 
   return (

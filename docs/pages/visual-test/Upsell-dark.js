@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Icon, Upsell } from 'gestalt';
 
-export default function Snapshot(): Node {
+export default function Snapshot(): ReactNode {
   return (
     <ColorSchemeProvider colorScheme="dark">
       <Box color="default" padding={5}>
@@ -20,6 +20,7 @@ export default function Snapshot(): Node {
             label: 'Send invite',
             accessibilityLabel: 'Invite friend to use ads',
             target: 'blank',
+            role: 'link',
           }}
           title="Give $30, get $60 in ads credit"
         />

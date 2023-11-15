@@ -1,5 +1,11 @@
 // @flow strict
-import { type AbstractComponent, forwardRef, type Node, useImperativeHandle, useRef } from 'react';
+import {
+  type AbstractComponent,
+  forwardRef,
+  type Node as ReactNode,
+  useImperativeHandle,
+  useRef,
+} from 'react';
 import getAriaLabel from './accessibility/getAriaLabel.js';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
@@ -26,13 +32,13 @@ const SIZE_NAME_TO_PIXEL = {
   lg: 12,
 };
 
-type ButtonProps = {|
+type ButtonProps = {
   /**
-   * Label to provide more context around Button’s function or purpose. See the [Accessibility guidelines](/foundations/accessibility) to learn more.,
+   * Label to provide more context around ButtonLink’s function or purpose. See the [Accessibility guidelines](/foundations/accessibility) to learn more.,
    */
   accessibilityLabel?: string,
   /**
-   * The background color of Button.
+   * The background color of ButtonLink.
    */
   color?:
     | 'gray'
@@ -47,35 +53,35 @@ type ButtonProps = {|
    */
   dataTestId?: string,
   /**
-   * Indicates if Button is disabled. Disabled Buttons are inactive and cannot be interacted with.
+   * Indicates if ButtonLink is disabled. Disabled Buttons are inactive and cannot be interacted with.
    */
   disabled?: boolean,
   /**
-   * An icon displayed after the text to help clarify the usage of Button. See the [icon variant](#Icons) to learn more.
+   * An icon displayed after the text to help clarify the usage of ButtonLink. See the [icon variant](#Icons) to learn more.
    */
   iconEnd?: $Keys<typeof icons>,
   /**
-   * Default Buttons are sized by the text within the Button whereas full-width Buttons expand to the full width of their container.
+   * Default Buttons are sized by the text within the ButtonLink whereas full-width Buttons expand to the full width of their container.
    */
   fullWidth?: boolean,
   /**
-   * Default Buttons are sized by the text within the Button whereas full-width Buttons expand to the full width of their container.
+   * Use "-1" to remove ButtonLink from keyboard navigation. See the [Accessibility guidelines](/foundations/accessibility) to learn more.
    */
   tabIndex?: -1 | 0,
   /**
-   * Callback invoked when the user clicks (press and release) on Button with the mouse or keyboard. Required with `role="button"` or `type="button"` Buttons.
+   * Callback invoked when the user clicks (press and release) on ButtonLink with the mouse or keyboard.
      See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
    */
-  onClick?: ({|
+  onClick?: ({
     event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
+  }) => void,
   /**
    * sm: 32px, md: 40px, lg: 48px
    */
   size?: 'sm' | 'md' | 'lg',
   /**
-   * Text to render inside the Button to convey the function and purpose of the Button.
+   * Text to render inside the ButtonLink to convey the function and purpose of the ButtonLink.
    */
   text: string,
   /**
@@ -93,8 +99,14 @@ type ButtonProps = {|
 - 'self' opens an anchor in the same frame.
    */
   target?: null | 'self' | 'blank',
-|};
+};
 
+/**
+ * [ButtonLink](https://gestalt.pinterest.systems/buttonlink) is mainly used as a navigational element to direct users to a new page or location.
+ *
+ * ![ButtonLink light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ButtonLink.spec.mjs-snapshots/ButtonLink-chromium-darwin.png)
+ * ![ButtonLink dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ButtonLink-dark.spec.mjs-snapshots/ButtonLink-dark-chromium-darwin.png)
+ */
 const ButtonLinkWithForwardRef: AbstractComponent<ButtonProps, HTMLAnchorElement> = forwardRef<
   ButtonProps,
   HTMLAnchorElement,
@@ -115,7 +127,7 @@ const ButtonLinkWithForwardRef: AbstractComponent<ButtonProps, HTMLAnchorElement
     target = null,
   }: ButtonProps,
   ref,
-): Node {
+): ReactNode {
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
@@ -138,15 +150,19 @@ const ButtonLinkWithForwardRef: AbstractComponent<ButtonProps, HTMLAnchorElement
     (disabled && 'subtle') ||
     ((isDarkModeRed || isDarkModeBlue) && 'default') ||
     DEFAULT_TEXT_COLORS[color];
-  const ariaLabel = getAriaLabel({ target, accessibilityLabel, accessibilityNewTabLabel });
+  const ariaLabel = getAriaLabel({
+    target,
+    accessibilityLabel,
+    accessibilityNewTabLabel,
+  });
 
   const handleClick = ({
     event,
     dangerouslyDisableOnNavigation,
-  }: {|
+  }: {
     dangerouslyDisableOnNavigation: () => void,
     event: SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticMouseEvent<HTMLAnchorElement>,
-  |}) =>
+  }) =>
     onClick
       ? onClick({
           event,

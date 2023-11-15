@@ -1,5 +1,13 @@
 // @flow strict
-import { Children, cloneElement, Fragment, type Node, useEffect, useRef, useState } from 'react';
+import {
+  Children,
+  cloneElement,
+  Fragment,
+  type Node as ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import { useTableContext } from './contexts/TableContext.js';
@@ -8,7 +16,7 @@ import styles from './Table.css';
 import getChildrenCount from './Table/getChildrenCount.js';
 import TableCell from './TableCell.js';
 
-type Props = {|
+type Props = {
   /**
    * Supply a short, descriptive label for screen-readers as a text alternative to the expand button.
    */
@@ -20,7 +28,7 @@ type Props = {|
   /**
    * Must be instances of Table.Cell. See the [Subcomponent section](https://gestalt.pinterest.systems/web/table#Subcomponents) to learn more.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * When passed Row.TableRowExpandable becomes a controlled component. If not passed, it stays uncontrolled. See the [controlled/uncontrolled Table.RowExpandable section](https://gestalt.pinterest.systems/web/table#ControlledUncontrolled-Table.RowExpandable) to learn more.
    */
@@ -28,18 +36,14 @@ type Props = {|
   /**
    * The contents to show and/or hide on an expandable row. Required when using Table.RowExpandable as a controlled component. See the [controlled/uncontrolled Table.RowExpandable section](https://gestalt.pinterest.systems/web/table#ControlledUncontrolled-Table.RowExpandable) to learn more.
    */
-  expandedContents: Node,
+  expandedContents: ReactNode,
   /**
    * Callback fired when the expand button component is clicked.
    */
-  onExpand?: ({|
-    event:
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  onExpand?: ({
+    event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
     expanded: boolean,
-  |}) => void,
+  }) => void,
   /**
    * Sets the background color on hover over the row. See the [selected and hovered state variant](https://gestalt.pinterest.systems/web/table#Selected-and-hovered-state) to learn more.
    */
@@ -52,7 +56,7 @@ type Props = {|
    * Indicates if Table.RowExpandable is currently selected or unselected. See the [selected and hovered state variant](https://gestalt.pinterest.systems/web/table#Selected-and-hovered-state) to learn more.
    */
   selected?: 'selected' | 'unselected',
-|};
+};
 
 /**
  * Use [Table.RowExpandable](https://gestalt.pinterest.systems/web/table#Table.RowExpandable) to define a row that expands and collapses additional content.
@@ -67,7 +71,7 @@ export default function TableRowExpandable({
   id,
   hoverStyle = 'gray',
   selected,
-}: Props): Node {
+}: Props): ReactNode {
   const { stickyColumns } = useTableContext();
   const rowRef = useRef<?HTMLTableRowElement>();
   const [columnWidths, setColumnWidths] = useState<$ReadOnlyArray<number>>([]);
@@ -86,7 +90,7 @@ export default function TableRowExpandable({
     }
   }, [isExpanded, setIsExpanded, expandedControlled]);
 
-  const renderCellWithAdjustedIndex = (child: Node, index: number) => {
+  const renderCellWithAdjustedIndex = (child: ReactNode, index: number) => {
     // Account for initial expandable column
     const adjustedIndex = index + 1;
     const shouldBeSticky = stickyColumns
@@ -98,7 +102,11 @@ export default function TableRowExpandable({
       previousWidths.length > 0 ? previousWidths.reduce((a, b) => a + b) : 0;
     // $FlowFixMe[incompatible-exact]
     // $FlowFixMe[incompatible-type]
-    return cloneElement(child, { shouldBeSticky, previousTotalWidth, shouldHaveShadow });
+    return cloneElement(child, {
+      shouldBeSticky,
+      previousTotalWidth,
+      shouldHaveShadow,
+    });
   };
 
   const rowStyle = classnames({

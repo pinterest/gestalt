@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
@@ -17,6 +17,10 @@ const ICON_COLOR_MAP = {
   inProgress: {
     icon: 'workflow-status-in-progress',
     color: 'success',
+  },
+  locked: {
+    icon: 'lock',
+    color: 'subtle',
   },
   ok: {
     icon: 'workflow-status-ok',
@@ -45,12 +49,13 @@ type StatusType =
   | 'queued'
   | 'inProgress'
   | 'halted'
+  | 'locked'
   | 'ok'
   | 'problem'
   | 'canceled'
   | 'warning';
 
-type Props = {|
+type Props = {
   /**
    * If not using `title`, provide an accessibility label to give the user context about the icon. Be sure to [localize](https://gestalt.pinterest.systems/web/status#Localization) the label.
    */
@@ -67,7 +72,7 @@ type Props = {|
    * The type of status to display.
    */
   type: StatusType,
-|};
+};
 
 /**
  * [Status](https://gestalt.pinterest.systems/web/status) is a graphic indicator of an element’s state.
@@ -76,7 +81,7 @@ type Props = {|
  * ![Status dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Status-dark.spec.mjs-snapshots/Status-dark-chromium-darwin.png)
  *
  */
-export default function Status({ accessibilityLabel, subtext, title, type }: Props): Node {
+export default function Status({ accessibilityLabel, subtext, title, type }: Props): ReactNode {
   const { icon, color } = ICON_COLOR_MAP[type];
 
   return (

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Button, Flex, Text } from 'gestalt';
 
 type Margin =
@@ -33,10 +33,10 @@ type Margin =
 function BoxWithMargins({
   marginEnd = 0,
   marginStart = 0,
-}: {|
+}: {
   marginEnd?: Margin,
   marginStart?: Margin,
-|}): Node {
+}): ReactNode {
   return (
     <Box
       dangerouslySetInlineStyle={{
@@ -58,7 +58,7 @@ function BoxWithMargins({
   );
 }
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   return (
     <Flex direction="column" gap={2} height="100%" alignItems="center" justifyContent="center">
       <Button

@@ -1,8 +1,8 @@
 // @flow strict
-import { Fragment, type Node, useState } from 'react';
+import { Fragment, type Node as ReactNode, useState } from 'react';
 import { Box, Button, CompositeZIndex, FixedZIndex, Layer, ModalAlert, Text } from 'gestalt';
 
-export default function AlertDialogAccessibilityExample(): Node {
+export default function AlertDialogAccessibilityExample(): ReactNode {
   const [showComponent, setShowComponent] = useState(true);
 
   const HEADER_ZINDEX = new FixedZIndex(10);
@@ -28,11 +28,13 @@ export default function AlertDialogAccessibilityExample(): Node {
               accessibilityLabel: 'Remove item',
               label: 'Yes, remove',
               onClick: () => {},
+              role: 'button',
             }}
             secondaryAction={{
               accessibilityLabel: 'Keep item',
               label: 'No, keep',
               onClick: () => {},
+              role: 'button',
             }}
             onDismiss={() => {
               setShowComponent(!showComponent);

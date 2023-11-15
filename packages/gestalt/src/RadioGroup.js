@@ -1,16 +1,17 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode, useEffect } from 'react';
+import { useGlobalEventsHandler } from 'gestalt';
 import Fieldset from './Fieldset.js';
 import Flex from './Flex.js';
 import { RadioGroupContextProvider } from './RadioGroup/Context.js';
 import RadioGroupButton from './RadioGroupButton.js';
 
-type Props = {|
+type Props = {
   /**
    * A collection of RadioGroup.RadioButtons representing the available options, as well as any Labels or layout components (Box, Flex, etc.), if needed. Other components such as Checkboxes should not be included. Note that children can be grouped into organizational components if desired.
    *
    */
-  children: Node,
+  children: ReactNode,
   /**
    * A unique identifier for this RadioGroup.
    *
@@ -36,7 +37,7 @@ type Props = {|
    *
    */
   legendDisplay?: 'visible' | 'hidden',
-|};
+};
 
 /**
  *  [RadioGroups](https://gestalt.pinterest.systems/web/radiogroup) are used for selecting only 1 item from a list of 2 or more items. If you need multiple selection or have only one option, use [Checkbox](https://gestalt.pinterest.systems/web/checkbox). If you need to provide a binary on/off choice that takes effect immediately, use [Switch](https://gestalt.pinterest.systems/web/switch).
@@ -49,7 +50,16 @@ function RadioGroup({
   id,
   legend,
   legendDisplay = 'visible',
-}: Props): Node {
+}: Props): ReactNode {
+  // Consume GlobalEventsHandlerProvider
+  const { radioGroupHandlers } = useGlobalEventsHandler() ?? {
+    radioGroupHandlers: undefined,
+  };
+
+  useEffect(() => {
+    if (radioGroupHandlers?.onRender) radioGroupHandlers?.onRender();
+  }, [radioGroupHandlers]);
+
   return (
     <RadioGroupContextProvider value={{ parentName: 'RadioGroup' }}>
       <Fieldset id={id} legend={legend} errorMessage={errorMessage} legendDisplay={legendDisplay}>

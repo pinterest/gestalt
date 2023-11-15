@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import styles from './Divider.css';
 
 /**
@@ -10,6 +10,6 @@ import styles from './Divider.css';
  *
  */
 // eslint-disable-next-line no-empty-pattern
-export default function Divider({}: {||}): Node {
+export default function Divider({}: {}): ReactNode {
   return <hr className={styles.divider} />;
 }

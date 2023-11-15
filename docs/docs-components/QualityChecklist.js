@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Flex, Link, SlimBanner, Status, Table, Text } from 'gestalt';
 import componentData from './data/components.js';
 import { COMPONENT_STATUS_MESSAGING, STATUS_DESCRIPTION } from './data/componentStatusMessaging.js';
@@ -10,11 +10,11 @@ import StatusData from './StatusData.js';
 
 const webComponentData = getByPlatform(componentData, { platform: 'web' });
 
-type Props = {|
+type Props = {
   component: string,
-|};
+};
 
-export default function QualityChecklist({ component }: Props): Node {
+export default function QualityChecklist({ component }: Props): ReactNode {
   const data = webComponentData.find((cmpName) => cmpName.name === component);
 
   return (

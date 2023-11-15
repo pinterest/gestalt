@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useEffect, useRef, useState } from 'react';
+import { type Node as ReactNode, useEffect, useRef, useState } from 'react';
 import { Box, Button, Flex, PopoverEducational, Pulsar } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [showEducation, setShowEducation] = useState(false);
   const anchorRef = useRef<null | HTMLElement>(null);
 
@@ -37,6 +37,7 @@ export default function Example(): Node {
             primaryAction={{
               text: 'Got it',
               onClick: () => {},
+              role: 'button',
             }}
           />
         )}

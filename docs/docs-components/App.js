@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useEffect } from 'react';
+import { type Node as ReactNode, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { ColorSchemeProvider, GlobalEventsHandlerProvider } from 'gestalt';
 import { AppContextConsumer, AppContextProvider } from './appContext.js';
@@ -8,15 +8,15 @@ import DocsExperimentProvider from './contexts/DocsExperimentProvider.js';
 import { LocalFilesProvider } from './contexts/LocalFilesProvider.js';
 import { NavigationContextProvider } from './navigationContext.js';
 
-type Props = {|
-  children?: Node,
-  files?: {|
+type Props = {
+  children?: ReactNode,
+  files?: {
     css: string,
     js: string,
-  |},
-|};
+  },
+};
 
-export default function App({ children, files }: Props): Node {
+export default function App({ children, files }: Props): ReactNode {
   const router = useRouter();
 
   // $FlowIssue[prop-missing]
@@ -28,17 +28,22 @@ export default function App({ children, files }: Props): Node {
   const useOnNavigation = ({
     href,
     target,
-  }: {|
+  }: {
     href: string,
     target?: null | 'self' | 'blank',
-  |}) => {
-    const onNavigationClick = ({ event }: {| +event: SyntheticEvent<> |}) => {
+  }) => {
+    const onNavigationClick = ({ event }: { +event: SyntheticEvent<> }) => {
       if (event.defaultPrevented) return; // onClick prevented default
       if (isModifiedEvent(event) || !isLeftClickEvent(event)) return;
       if (target === 'blank') return; // let browser handle "target=_blank"
 
       event.preventDefault();
-      router.push(href);
+      router.push(href).catch((e) => {
+        // workaround for https://github.com/vercel/next.js/issues/37362
+        if (!e.cancelled) {
+          throw e;
+        }
+      });
     };
 
     return onNavigationClick;

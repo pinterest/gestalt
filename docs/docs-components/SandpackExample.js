@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useEffect, useState } from 'react';
+import { Fragment, type Node as ReactNode, useEffect, useState } from 'react';
 import {
   SandpackCodeEditor,
   SandpackLayout,
@@ -22,7 +22,7 @@ const MIN_EDITOR_HEIGHT = 350;
 const MAX_EDITOR_IPHONE_SE_MOBILE_WIDTH = 375;
 const MAX_EDITOR_IPHONE_SE_MOBILE_HEIGHT = 667;
 
-async function copyCode({ code }: {| code: ?string |}) {
+async function copyCode({ code }: { code: ?string }) {
   try {
     await clipboardCopy(code ?? '');
   } catch (error) {
@@ -41,7 +41,7 @@ function SandpackContainer({
   previewHeight,
   toggleExampleColorScheme,
   toggleExampleTextDirection,
-}: {|
+}: {
   exampleColorScheme: 'light' | 'dark',
   exampleTextDirection: 'ltr' | 'rtl',
   hideControls?: boolean,
@@ -51,7 +51,7 @@ function SandpackContainer({
   previewHeight?: number,
   toggleExampleColorScheme: () => void,
   toggleExampleTextDirection: () => void,
-|}) {
+}) {
   const [editorShown, setEditorShown] = useState(!hideEditor);
   const { sandpack } = useSandpack();
 
@@ -147,16 +147,16 @@ export default function SandpackExample({
   previewHeight,
   hideControls,
   hideEditor,
-}: {|
-  code: ?string | (() => Node),
+}: {
+  code: ?string | (() => ReactNode),
   layout?: 'row' | 'column' | 'mobileRow' | 'mobileColumn',
   name: string,
   previewHeight?: number,
   hideControls?: boolean,
   hideEditor?: boolean,
-|}): Node {
+}): ReactNode {
   const { files } = useLocalFiles();
-  const { colorScheme, devExampleMode, textDirection } = useAppContext();
+  const { colorScheme, devExampleMode, helixBot, textDirection } = useAppContext();
   const [exampleColorScheme, setExampleColorScheme] = useState<'light' | 'dark'>(colorScheme);
   const [exampleTextDirection, setExampleTextDirection] = useState<'ltr' | 'rtl'>(textDirection);
 
@@ -166,6 +166,8 @@ export default function SandpackExample({
     setExampleTextDirection(textDirection);
   }, [colorScheme, textDirection]);
 
+  if (helixBot) return null;
+
   return devExampleMode === 'default' ? (
     <SandpackProvider
       // Based on https://github.com/codesandbox/sandpack/blob/53811bb4fdfb66ea95b9881ff18c93307f12ce0d/sandpack-react/src/presets/Sandpack.tsx#L67
@@ -173,7 +175,6 @@ export default function SandpackExample({
       files={{
         '/styles.css': {
           code: `@import "gestalt/dist/gestalt.css";
-          @import "gestalt-charts/dist/gestalt-charts.css";
           @import "gestalt-datepicker/dist/gestalt-datepicker.css";
           * { margin: 0; padding: 0;}
           body, html, #root { height: 100%; }`,
@@ -195,7 +196,6 @@ export default function SandpackExample({
                 code: JSON.stringify({
                   name: 'gestalt-charts',
                   main: './dist/gestalt-charts.js',
-                  style: 'dist/gestalt-charts.css',
                 }),
                 hidden: true,
               },
@@ -223,10 +223,6 @@ export default function SandpackExample({
                 code: files.css,
                 hidden: true,
               },
-              '/node_modules/gestalt-charts/dist/gestalt-charts.css': {
-                code: files.css,
-                hidden: true,
-              },
               '/node_modules/gestalt-datepicker/dist/gestalt-datepicker.css': {
                 code: files.css,
                 hidden: true,
@@ -243,11 +239,14 @@ export default function SandpackExample({
           import { Box, ColorSchemeProvider } from 'gestalt';
           import App from "./App";
 
+          const html = document.querySelector('html');
+          html.setAttribute('dir', '${exampleTextDirection}');
+
           const root = createRoot(document.getElementById("root"));
           root.render(
             <StrictMode>
               <ColorSchemeProvider colorScheme="${exampleColorScheme}" fullDimensions>
-                <Box color="default" height="100%" width="100%" dir="${exampleTextDirection}">
+                <Box color="default" height="100%" width="100%">
                   <App />
                 </Box>
               </ColorSchemeProvider>
@@ -260,7 +259,11 @@ export default function SandpackExample({
         dependencies: {
           ...(files
             ? { classnames: 'latest' }
-            : { gestalt: 'latest', 'gestalt-charts': 'latest', 'gestalt-datepicker': 'latest' }),
+            : {
+                gestalt: 'latest',
+                'gestalt-charts': 'latest',
+                'gestalt-datepicker': 'latest',
+              }),
           react: '18.2.0',
           'react-dom': '18.2.0',
         },

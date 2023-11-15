@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import Box from '../Box.js';
 import Flex from '../Flex.js';
 import Heading from '../Heading.js';
@@ -17,19 +17,19 @@ const ICON_COLOR_MAP = {
   },
 };
 
-type Props = {|
+type Props = {
   accessibilityDismissButtonLabel: string,
   type: 'default' | 'warning' | 'error',
   heading: string,
   onDismiss: () => void,
-|};
+};
 
 export default function ModalAlertHeader({
   accessibilityDismissButtonLabel,
   type,
   heading,
   onDismiss,
-}: Props): Node {
+}: Props): ReactNode {
   return (
     <Flex flex="grow" alignItems="center" gap={4}>
       {type !== 'default' && (

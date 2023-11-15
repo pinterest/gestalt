@@ -1,11 +1,11 @@
 // @flow strict
-import { Fragment, type Node, useState } from 'react';
+import { Fragment, type Node as ReactNode, useState } from 'react';
 import { Box, Button, CompositeZIndex, FixedZIndex, Layer, ModalAlert, Text } from 'gestalt';
 
 const HEADER_ZINDEX = new FixedZIndex(10);
 const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [showComponent, setShowComponent] = useState(true);
 
   return (
@@ -28,11 +28,13 @@ export default function Example(): Node {
               accessibilityLabel: 'Remove item',
               label: 'Yes, remove',
               onClick: () => setShowComponent(false),
+              role: 'button',
             }}
             secondaryAction={{
               accessibilityLabel: 'Keep item',
               label: 'No, keep',
               onClick: () => setShowComponent(false),
+              role: 'button',
             }}
             onDismiss={() => setShowComponent(false)}
           >

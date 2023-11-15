@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import {
   Box,
   Button,
@@ -15,7 +15,7 @@ import {
   TextField,
 } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => {
     setShowModal((currState) => !currState);
@@ -35,12 +35,14 @@ export default function Example(): Node {
             accessibilityLabel: 'Apply now: verified merchant program',
             label: 'Apply now',
             onClick: toggleModal,
+            role: 'button',
           }}
           secondaryAction={{
             accessibilityLabel: 'Learn more: Verified Merchant Program',
             href: 'https://help.pinterest.com/en/business/article/verified-merchant-program',
             label: 'Learn more',
             target: 'blank',
+            role: 'link',
           }}
           title="Your business account was created!"
           type="info"

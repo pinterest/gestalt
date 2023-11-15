@@ -1,13 +1,13 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { IconButton } from 'gestalt';
 import trackButtonClick from './trackButtonClick.js';
 
-type Props = {|
+type Props = {
   onClick: () => void,
-|};
+};
 
-export default function OpenSandboxButton({ onClick }: Props): Node {
+export default function OpenSandboxButton({ onClick }: Props): ReactNode {
   const label = 'Open in CodeSandbox';
 
   return (
@@ -23,7 +23,12 @@ export default function OpenSandboxButton({ onClick }: Props): Node {
         onClick();
       }}
       size="xs"
-      tooltip={{ text: label, inline: true, idealDirection: 'up', accessibilityLabel: '' }}
+      tooltip={{
+        text: label,
+        inline: true,
+        idealDirection: 'up',
+        accessibilityLabel: '',
+      }}
     />
   );
 }

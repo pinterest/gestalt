@@ -1,8 +1,9 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { SlimBanner } from 'gestalt';
 import docGen, { type DocGen } from '../../../docs-components/docgen.js';
 import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
+import InternalDocumentationSection from '../../../docs-components/InternalDocumentationSection.js';
 import MainSection from '../../../docs-components/MainSection.js';
 import Page from '../../../docs-components/Page.js';
 import PageHeader from '../../../docs-components/PageHeader.js';
@@ -13,7 +14,7 @@ import linkHandlersDropdown from '../../../examples/globaleventshandlerprovider/
 import linkHandlersLinkButton from '../../../examples/globaleventshandlerprovider/linkHandlersLinkButton.js';
 import sheetMobileHandlers from '../../../examples/globaleventshandlerprovider/sheetMobileHandlers.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -105,7 +106,7 @@ The example below demonstrates the correct use of "dangerouslyDisableOnNavigatio
           />
         </MainSection.Subsection>
 
-        <MainSection.Subsection title="Implementation in Link, Button, IconButton, TapArea">
+        <MainSection.Subsection title="Implementation in Link, ButtonLink, IconButtonLink, TapAreaLink">
           <MainSection.Card
             title="Examples from start to end: Link, Button, IconButton, TapArea"
             cardSize="lg"
@@ -151,12 +152,12 @@ The example below demonstrates the correct use of "dangerouslyDisableOnNavigatio
       <MainSection name="Other handlers">
         <SlimBanner
           iconAccessibilityLabel="Experimental feature"
-          message={`Experimental feature: The "onMount" prop is experimental and might be removed in the future.`}
+          message={`Experimental feature: The "onRender" prop is experimental and might be removed in the future.`}
           type="warningBare"
         />
         <MainSection.Subsection
-          title="onMount"
-          description={`\`onMount\` is only called when the component mounts for the first time.
+          title="onRender"
+          description={`\`onRender\` is only called when the component mounts for the first time.
 
 It's implemented in the following components:
 
@@ -167,11 +168,22 @@ It's implemented in the following components:
 `}
         />
       </MainSection>
+
+      <InternalDocumentationSection
+        items={[
+          {
+            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-providers#globaleventshandlerprovider',
+            text: 'Gestalt Providers in Pinboard',
+          },
+        ]}
+      />
     </Page>
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: {
       generatedDocGen: await docGen('GlobalEventsHandlerProvider'),

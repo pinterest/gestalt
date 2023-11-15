@@ -1,9 +1,11 @@
 // @flow strict
-import { type Node } from 'react';
-import { Button, Link, SlimBanner, Text } from 'gestalt';
+import { type Node as ReactNode } from 'react';
+import { Button, SlimBanner } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import CombinationNew from '../../docs-components/CombinationNew.js';
 import docGen, { type DocGen, type DocType } from '../../docs-components/docgen.js';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
+import LocalizationSection from '../../docs-components/LocalizationSection.js';
 import MainSection from '../../docs-components/MainSection.js';
 import Page from '../../docs-components/Page.js';
 import PageHeader from '../../docs-components/PageHeader.js';
@@ -22,36 +24,22 @@ import keepSimpleTextDont from '../../examples/button/keepSimpleTextDont.js';
 import main from '../../examples/button/main.js';
 import placePrimaryButtonDo from '../../examples/button/placePrimaryButtonDo.js';
 import placePrimaryButtonDont from '../../examples/button/placePrimaryButtonDont.js';
-import roleButtonExample from '../../examples/button/roleButtonExample.js';
 import selectedStateExample from '../../examples/button/selectedStateExample.js';
 import showFullTextDo from '../../examples/button/showFullTextDo.js';
 import showFullTextDont from '../../examples/button/showFullTextDont.js';
 
 const PREVIEW_HEIGHT = 300;
 
-export default function DocsPage({ generatedDocGen }: DocType): Node {
+export default function DocsPage({ generatedDocGen }: DocType): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <SlimBanner
-        type="info"
-        message={
-          <Text inline>
-            If you intend to use Button as a link, use
-            <Link
-              accessibilityLabel="Learn more about the ButtonLink component."
-              display="inline"
-              href="/web/ButtonLink"
-            >
-              ButtonLink
-            </Link>
-            instead.
-          </Text>
-        }
-      />
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        pdocsLink
+      >
         <SandpackExample code={main} name="Main Button example" hideEditor previewHeight={150} />
       </PageHeader>
-
       <PropTable
         componentName={generatedDocGen?.displayName}
         props={[
@@ -142,7 +130,7 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
             type: '({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> }) => void',
             required: false,
             description: [
-              'Callback invoked when the user clicks (press and release) on Button with the mouse or keyboard. Required with `role="button"` or `type="button"` Buttons.',
+              'Callback invoked when the user clicks (press and release) on Button with the mouse or keyboard.',
               'See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.',
             ],
           },
@@ -176,15 +164,6 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
             description: ['Indicates if Button is currently selected.'],
           },
           {
-            name: 'href',
-            type: 'string',
-            required: false,
-            description: [
-              'Specifies a link URL. Required with `role="link"` Buttons.',
-              '*This option is deprecated, use [ButtonLink](/web/ButtonLink) instead.*',
-            ],
-          },
-          {
             name: 'ref',
             type: `React.Ref<'button'> | React.Ref<'a'>`,
             required: false,
@@ -199,39 +178,8 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
               'Use "-1" to remove Button from keyboard navigation. See the [Accessibility guidelines](/foundations/accessibility) to learn more.',
             ],
           },
-          {
-            name: 'role',
-            type: `'button' | 'link'`,
-            required: false,
-            defaultValue: 'button',
-            description: [
-              'Use “link” to indicate Button that is acting as an `<a>` link.',
-              '*This option is deprecated, use [ButtonLink](/web/ButtonLink) instead.*',
-            ],
-          },
-          {
-            name: 'rel',
-            type: `'none' | 'nofollow'`,
-            required: false,
-            defaultValue: 'none',
-            description: [
-              'Optional with link-role Buttons.',
-              '*This option is deprecated, use [ButtonLink](/web/ButtonLink) instead.*',
-            ],
-          },
-          {
-            name: 'target',
-            type: `null | 'self' | 'blank'`,
-            required: false,
-            defaultValue: 'null',
-            description: [
-              'Indicates the browsing context where an href will be opened. Optional with `role="link"` Buttons.',
-              '*This option is deprecated, use [ButtonLink](/web/ButtonLink) instead.*',
-            ],
-          },
         ]}
       />
-
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -255,7 +203,6 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
           />
         </MainSection.Subsection>
       </MainSection>
-
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -370,13 +317,13 @@ export default function DocsPage({ generatedDocGen }: DocType): Node {
                 hideEditor
                 hideControls
                 name="Use a Tooltip on disabled Button, as it is not accessible for keyboard and screen reader users."
+                previewHeight={PREVIEW_HEIGHT}
               />
             }
             type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
-
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="ARIA attributes"
@@ -392,22 +339,12 @@ If Button is used as a control Button to show/hide a Popover-based component, we
 `}
         />
       </AccessibilitySection>
-      <MainSection
-        name="Localization"
-        description="Be sure to localize `text` and `accessibilityLabel`. Note that localization can lengthen text by 20 to 30 percent. Avoid truncating Button text whenever possible. Refer to the [Button usage guidelines](#Usage-guidelines) for more information. "
-      >
-        <SlimBanner
-          iconAccessibilityLabel="Localize the default label"
-          message="Buttons with link role announce to assistive technologies that the link opens in a new tab when setting target to 'blank'. Localize the default label with DefaultLabelProvider."
-          type="recommendationBare"
-          helperLink={{
-            text: 'Learn more',
-            accessibilityLabel: 'Learn more about DefaultLabelProvider',
-            href: '/web/utilities/defaultlabelprovider',
-            onClick: () => {},
-          }}
-        />
-      </MainSection>
+
+      <LocalizationSection
+        name={generatedDocGen?.displayName}
+        noDefaultLabelProvider
+        notes="Avoid truncating Button text whenever possible. Refer to the [Button usage guidelines](#Usage-guidelines) for more information"
+      />
 
       <MainSection name="Variants">
         <MainSection.Subsection
@@ -466,7 +403,12 @@ If Button is used as a control Button to show/hide a Popover-based component, we
         >
           <CombinationNew color={['red', 'blue', 'gray', 'transparent']}>
             {({ color }) => {
-              const map = { red: 'Save', blue: 'Shop', gray: 'Visit', transparent: 'Learn more' };
+              const map = {
+                red: 'Save',
+                blue: 'Shop',
+                gray: 'Visit',
+                transparent: 'Learn more',
+              };
               return (
                 <Button
                   accessibilityLabel={`Example width ${color}`}
@@ -520,24 +462,6 @@ If Button is used as a control Button to show/hide a Popover-based component, we
 
         <MainSection.Subsection
           columns={2}
-          title="Role"
-          description={`
-1. Button (default)
-    The “button” \`role\` is used for actions. This is the default and should be used for most Buttons.
-2. Link
-    The “link” \`role\` is used for navigating by URL. These Buttons should not use a \`selected\` state.
-`}
-        >
-          <MainSection.Card
-            cardSize="md"
-            sandpackExample={
-              <SandpackExample code={roleButtonExample} name="Role button example." />
-            }
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection
-          columns={2}
           title="States"
           description={`
 1. Default
@@ -545,7 +469,7 @@ If Button is used as a control Button to show/hide a Popover-based component, we
 2. Disabled
 Used to block user interaction such as hover, focus and click. Disabled Buttons are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled Buttons.
 3. Selected
-  When Button is used to toggle a boolean state or control the visibility of other elements (e.g. Dropdown), use the \`selected\` prop to indicate the current state. Do not use this prop with \`role="link"\` Buttons.
+  When Button is used to toggle a boolean state or control the visibility of other elements (e.g. Dropdown), use the \`selected\` prop to indicate the current state.
 `}
         >
           <MainSection.Card
@@ -628,6 +552,20 @@ To control focus or position anchored components relative to Button, use \`ref\`
         </MainSection.Subsection>
       </MainSection>
       <QualityChecklist component={generatedDocGen?.displayName} />
+
+      <InternalDocumentationSection
+        items={[
+          {
+            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-extensions#button',
+            text: 'Button extension',
+          },
+          {
+            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-ads-logging-extension#ads-logging-extension',
+            text: 'Ads logging extension',
+          },
+        ]}
+      />
+
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
@@ -645,10 +583,6 @@ Use TapArea to make non-button elements interactive, like an Image. This ensures
 
 **[Tabs](/web/tabs)**
 Tabs are intended for page-level navigation between multiple URLs.
-
-**[GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)**
-GlobalEventsHandlerProvider allows external link navigation control across all children components with link behavior.
-See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
       `}
         />
       </MainSection>
@@ -656,7 +590,9 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Lin
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('Button') },
   };

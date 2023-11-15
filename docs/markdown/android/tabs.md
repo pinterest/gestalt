@@ -1,6 +1,6 @@
 ---
 title: Tabs
-description: Tabs may be used to navigate between multiple URLs. Tabs are intended as page-level navigation.
+description: Tabs may be used to navigate between multiple URLs. Tabs are intended for page-level navigation.
 fullwidth: true
 ---
 
@@ -11,22 +11,22 @@ fullwidth: true
 <TwoCol>
   <Group>
     <Do title="When to use" />
-      - To break up a large collection of content into logical, digestible views.
+      - To break up a large collection of information or pages into logical, digestible views.
       - To switch between different, yet related views, such as Updates and Messages.
   </Group>
   <Group>
   <Dont title="When not to use" />
-    - When any UI or content above the Tabs is altered upon selection. Use Link instead. 
-    - To break up content that is not related to each other or is not on the same hierarchical level. 
-    - To filter content. Consider SegmentedControl instead.
+    - Any UI elements above the Tabs are altered upon selection. Use [Link](/web/link) instead. 
+    - To break up chunks of information that aren't related to each other or aren't on the same hierarchical level. 
+    - To filter information. Consider [SegmentedControl](/web/segmentedcontrol) instead.
   </Group>
 </TwoCol>
 
 ## Best practices
 
-- Place Tabs directly above the relevant content. 
-- Avoid using more than 6 Tabs. Consider using a different component like Sheet.
-- Order Tabs by relevance - the first tab should be the most logical starting view.
+- Place Tabs directly above the relevant information.
+- Avoid using more than six Tabs. Consider using a different component like [Sheet](/ios/sheet).
+- Order Tabs by relevance—the first tab should be the most logical starting view.
 
 <TwoCol>
   <Group>
@@ -37,7 +37,7 @@ fullwidth: true
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/1c/07/51/1c075150e78c4e55b403424786d659ab.png" alt="example of only one tab"/>
     <Dont title="Don't" />
-    Hide or disable Tabs if that Tab’s content is empty. Additionally, there should always be at least two tabs.
+    Hide or disable Tabs if that Tab is empty. Additionally, there should always be at least two tabs.
   </Group>
   <Group>
     <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/ce/cd/a3/cecda350757cfb6370705f46b2f64516.png" alt="example of tabs scrolling horizontally"/>
@@ -81,9 +81,9 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 Tabs can be aligned to either the start or end point depending on language direction or centered.
 
 1. **Start or end aligned (Default)**
-Use if you have more than three tabs. Start or end aligned tabs will scroll horizontally if content is long enough to flow out of the frame. 
+Use if you have more than three tabs. Start or end-aligned tabs will scroll horizontally if information is long enough to flow out of the frame.
 2. **Center aligned**
-This variant may be used if you have two or three tabs. Center aligned Tabs should not be used if labels are long or if you have more than three Tabs. The center-aligned style of Tabs is used primarily for navigational Tabs and sits in the header of the screen.
+This variant may be used if you have two or three tabs. Center-aligned Tabs shouldn't be used if labels are long or if you have more than three Tabs. The center-aligned style of Tabs is used primarily for navigational Tabs and sits in the header of the screen.
 
 <TwoCol>
   <Group>
@@ -118,10 +118,6 @@ This is the default tab style. Use the filled style for any Tabs that sit within
 </TwoCol>
 
 ## Localization
-Be sure to localize the tab text. Note that localization can lengthen text by 20 to 30 percent.
+Be sure to localize the tab text. Note that localization can lengthen text by 20 to 30%.
 <br/>
 <ImgContainer src="https://i.pinimg.com/originals/00/a4/ce/00a4cef58fafd51e28808e8a46c4f5b6.png" alt="start aligned tabs"/>
-
-## Animation
-
-By default, Sheet animates in from the bottom of the screen. It animates out when the header close button is pressed, the user swipes down or the user taps outside of the sheet. Visit Material Design for more information on [container motion](https://material.io/design/motion/the-motion-system.html#container-transform).

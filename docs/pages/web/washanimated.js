@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
 import docGen, { type DocGen } from '../../docs-components/docgen.js';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
@@ -10,7 +10,7 @@ import QualityChecklist from '../../docs-components/QualityChecklist.js';
 import SandpackExample from '../../docs-components/SandpackExample.js';
 import main from '../../examples/washanimated/main.js';
 
-export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen |}): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen.description}>
@@ -48,23 +48,14 @@ export default function DocsPage({ generatedDocGen }: {| generatedDocGen: DocGen
 
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
-      <MainSection name="Variants">
-        <MainSection.Subsection
-          title="Example"
-          description={`
-      Using \`WashAnimated\` is as easy as it can be: simply wrap your component(s) with it. Ideally all of the children should be clickable and cover 100% of the area
-    `}
-        >
-          <SandpackExample code={main} name="Variants - Example" previewHeight={325} />
-        </MainSection.Subsection>
-      </MainSection>
-
       <QualityChecklist component={generatedDocGen?.displayName} />
     </Page>
   );
 }
 
-export async function getServerSideProps(): Promise<{| props: {| generatedDocGen: DocGen |} |}> {
+export async function getServerSideProps(): Promise<{
+  props: { generatedDocGen: DocGen },
+}> {
   return {
     props: { generatedDocGen: await docGen('WashAnimated') },
   };

@@ -1,9 +1,9 @@
 // @flow strict
 import { type Context, createContext, useContext } from 'react';
 
-type RadioGroupContextType = {|
+type RadioGroupContextType = {
   parentName: string,
-|};
+};
 
 const initialContextState = {
   parentName: '',

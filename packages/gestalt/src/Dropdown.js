@@ -1,5 +1,5 @@
 // @flow strict
-import { Children, cloneElement, Fragment, type Node, useState } from 'react';
+import { Children, cloneElement, Fragment, type Node as ReactNode, useState } from 'react';
 import AnimationProvider from './animation/AnimationContext.js';
 import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext.js';
 import Box from './Box.js';
@@ -80,7 +80,7 @@ const renderChildrenWithIndex = (childrenArray) => {
       (subSectionChildren && childDisplayName === 'Dropdown.Section') ||
       child.type === Fragment
     ) {
-      const sectionChildrenArray = Children.toArray<Node>(subSectionChildren).flat();
+      const sectionChildrenArray = Children.toArray<ReactNode>(subSectionChildren).flat();
 
       const childWithIndex = cloneElement(child, {
         children: renderDropdownItemsWithIndex(sectionChildrenArray, numItemsRendered),
@@ -97,7 +97,7 @@ const renderChildrenWithIndex = (childrenArray) => {
   }, []);
 };
 
-type Props = {|
+type Props = {
   /**
    * Ref for the element that the Dropdown will attach to, will most likely be a [Button](https://gestalt.pinterest.systems/web/button). See the [Accessibility](https://gestalt.pinterest.systems/web/dropdown#Accessibility) guidelines to learn more.
    */
@@ -105,7 +105,7 @@ type Props = {|
   /**
    * Must be instances of [Dropdown.Item](https://gestalt.pinterest.systems/web/dropdown#Types-of-items), [Dropdown.Link](https://gestalt.pinterest.systems/web/dropdown#Types-of-items) or [Dropdown.Section](https://gestalt.pinterest.systems/web/dropdown#Sections) components. See the [Types of items](https://gestalt.pinterest.systems/web/dropdown#Types-of-items) variant to learn more.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * Enables correct behavior when Dropdown is used within a fixed container. To achieve this it removes the Layer component around Popover and enables positioning relative to its anchor element. Should only be used in cases where Layer breaks the Dropdown positionings such as when the anchor element is within a sticky component.
    */
@@ -113,7 +113,7 @@ type Props = {|
   /**
    * Content to display at the top of the Dropdown before any items or sections. See the [Custom header](https://gestalt.pinterest.systems/web/dropdown#Custom-header) variant to learn more.
    */
-  headerContent?: Node,
+  headerContent?: ReactNode,
   /**
    * Unique id to identify each Dropdown. Used for [Accessibility](https://gestalt.pinterest.systems/web/dropdown#Accessibility) purposes.
    */
@@ -129,7 +129,7 @@ type Props = {|
   /**
    * Mobile-only prop. Callback fired when Dropdown's in & out animations end. See the [mobile variant](https://gestalt.pinterest.systems/web/dropdown#mobile) to learn more.
    */
-  mobileOnAnimationEnd?: ({| animationState: 'in' | 'out' |}) => void,
+  mobileOnAnimationEnd?: ({ animationState: 'in' | 'out' }) => void,
   /**
    * Callback fired when the menu is closed.
    */
@@ -142,7 +142,7 @@ type Props = {|
    * An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
   zIndex?: Indexable,
-|};
+};
 
 /**
  * [Dropdown](https://gestalt.pinterest.systems/web/dropdown) displays a list of actions, options or links. It is triggered when a user interacts with a Button, Textfield or other control. Dropdown allows for complex functionality that can’t be accomplished with SelectList.
@@ -163,13 +163,13 @@ export default function Dropdown({
   maxHeight,
   mobileOnAnimationEnd,
   disableMobileUI = true,
-}: Props): Node {
+}: Props): ReactNode {
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
 
   const [hoveredItemIndex, setHoveredItemIndex] = useState<?number>(isMobile ? undefined : 0);
 
-  const dropdownChildrenArray = Children.toArray<Node>(children);
+  const dropdownChildrenArray = Children.toArray<ReactNode>(children);
   const allowedChildrenOptions = getChildrenOptions(dropdownChildrenArray);
 
   let selectedElement;
@@ -217,7 +217,7 @@ export default function Dropdown({
     }
   };
 
-  const onKeyDown = ({ event }: {| event: SyntheticKeyboardEvent<HTMLElement> |}) => {
+  const onKeyDown = ({ event }: { event: SyntheticKeyboardEvent<HTMLElement> }) => {
     const { keyCode } = event;
     if (keyCode === UP_ARROW) {
       handleKeyNavigation(event, KEYS.UP);
@@ -251,7 +251,12 @@ export default function Dropdown({
           >
             {headerContent}
             <DropdownContextProvider
-              value={{ id, hoveredItemIndex, setHoveredItemIndex, setOptionRef }}
+              value={{
+                id,
+                hoveredItemIndex,
+                setHoveredItemIndex,
+                setOptionRef,
+              }}
             >
               {renderChildrenWithIndex(dropdownChildrenArray)}
             </DropdownContextProvider>

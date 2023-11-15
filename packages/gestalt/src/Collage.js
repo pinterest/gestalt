@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import Collection from './Collage/Collection.js';
 
 type Column = 2 | 3 | 4;
@@ -52,7 +52,12 @@ const columnLayout = (numOfColumns: 1 | Column) => {
 
 const paddingAll = (
   gutter: number,
-  positions: $ReadOnlyArray<{| height: number, left: number, top: number, width: number |}>,
+  positions: $ReadOnlyArray<{
+    height: number,
+    left: number,
+    top: number,
+    width: number,
+  }>,
 ) =>
   positions.map(({ top, left, width, height }) => ({
     top,
@@ -73,14 +78,14 @@ function getCollageLayout({
   height: h,
   width: w,
   layoutKey,
-}: {|
+}: {
   gutter: number,
   cover: boolean,
   columns: Column,
   height: number,
   width: number,
   layoutKey: number,
-|}) {
+}) {
   let positions = [];
   const width = w + gutter;
   const height = h + gutter;
@@ -142,7 +147,7 @@ function getCollageLayout({
   return positions;
 }
 
-type Props = {|
+type Props = {
   /**
    * Number of columns (2 - 4). Note that Collage assumes at least 2 * `columns` images will be provided. If fewer images are provided, care will be needed to avoid TypeErrors. See [Columns example](https://gestalt.pinterest.systems#columns) for more details.
    */
@@ -166,16 +171,16 @@ type Props = {|
   /**
    * Callback to render the collage images.
    */
-  renderImage: ({|
+  renderImage: ({
     width: number,
     height: number,
     index: number,
-  |}) => Node,
+  }) => ReactNode,
   /**
    * Width of the collage.
    */
   width: number,
-|};
+};
 
 /**
  *  [Collage](https://gestalt.pinterest.systems/web/collage), similarly to [Masonry](https://gestalt.pinterest.systems/web/masonry), creates a deterministic grid layout that can absolutely position and virtualize images.
@@ -184,7 +189,7 @@ type Props = {|
  * ![Collage dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Collage-dark.spec.mjs-snapshots/Collage-dark-chromium-darwin.png)
  *
  */
-export default function Collage(props: Props): Node {
+export default function Collage(props: Props): ReactNode {
   const { columns, cover, gutter, height, layoutKey, renderImage, width } = props;
   const positions = getCollageLayout({
     columns,

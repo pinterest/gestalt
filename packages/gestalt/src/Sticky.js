@@ -1,30 +1,30 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import layout from './Layout.css';
 import { FixedZIndex, type Indexable } from './zIndex.js';
 
 type PositionType = number | string;
 
 type Threshold =
-  | {| top: PositionType |}
-  | {| bottom: PositionType |}
-  | {| left: PositionType |}
-  | {| right: PositionType |}
-  | {| top: PositionType, bottom: PositionType |}
-  | {| left: PositionType, right: PositionType |}
-  | {|
+  | { top: PositionType }
+  | { bottom: PositionType }
+  | { left: PositionType }
+  | { right: PositionType }
+  | { top: PositionType, bottom: PositionType }
+  | { left: PositionType, right: PositionType }
+  | {
       top: PositionType,
       left: PositionType,
       right: PositionType,
       bottom: PositionType,
-    |};
+    };
 
-type Props = {|
+type Props = {
   ...Threshold,
   /**
    * The content to display.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * The height of the sticky container in pixels. This is useful when the sticky container and its content need to have different heights.
    */
@@ -33,7 +33,7 @@ type Props = {|
    * An object representing the z-index of the sticky container. See the [zIndex Classes](https://gestalt.pinterest.systems/web/zindex_classes) page for more information.
    */
   zIndex?: Indexable,
-|};
+};
 
 const DEFAULT_ZINDEX = new FixedZIndex(1);
 
@@ -55,7 +55,7 @@ export default function Sticky({
   // $FlowExpectedError[prop-missing]
   top, // eslint-disable-line react/prop-types
   zIndex,
-}: Props): Node {
+}: Props): ReactNode {
   const style = {
     ...(height !== undefined ? { height } : {}),
     top: top != null ? top : undefined,

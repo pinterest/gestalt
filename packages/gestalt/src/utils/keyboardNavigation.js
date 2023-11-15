@@ -6,11 +6,11 @@ export const KEYS = {
 };
 
 export type DirectionOptionType = -1 | 0 | 1;
-type Props = {|
+type Props = {
   direction: DirectionOptionType,
-  containerRef?: {| current: null | HTMLElement |},
+  containerRef?: { current: null | HTMLElement },
   currentHoveredOption: ?HTMLElement,
-|};
+};
 
 const handleContainerScrolling = ({ direction, containerRef, currentHoveredOption }: Props) => {
   const container = containerRef?.current;

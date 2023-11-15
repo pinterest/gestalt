@@ -1,14 +1,14 @@
 // @flow strict
-import { Children, cloneElement, type Node, useEffect, useRef, useState } from 'react';
+import { Children, cloneElement, type Node as ReactNode, useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
 import { useTableContext } from './contexts/TableContext.js';
 import styles from './Table.css';
 
-type Props = {|
+type Props = {
   /**
    * Must be instances of Table.Cell, Table.HeaderCell, or Table.SortableHeaderCell components. See the [Subcomponent section](https://gestalt.pinterest.systems/web/table#Subcomponents) to learn more.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * Sets the background color on hover over the row. See the [selected and hovered state variant](https://gestalt.pinterest.systems/web/table#Selected-and-hovered-state) to learn more.
    */
@@ -17,12 +17,12 @@ type Props = {|
    * Indicates if Table.Row is currently selected or unselected. See the [selected and hovered state variant](https://gestalt.pinterest.systems/web/table#Selected-and-hovered-state) to learn more.
    */
   selected?: 'selected' | 'unselected',
-|};
+};
 
 /**
  * Use [Table.Row](https://gestalt.pinterest.systems/web/table#Table.Row) to define a row in Table.
  */
-export default function TableRow({ children, hoverStyle = 'none', selected }: Props): Node {
+export default function TableRow({ children, hoverStyle = 'none', selected }: Props): ReactNode {
   const { stickyColumns } = useTableContext();
   const rowRef = useRef<?HTMLTableRowElement>();
   const [columnWidths, setColumnWidths] = useState<$ReadOnlyArray<number>>([]);
@@ -34,7 +34,7 @@ export default function TableRow({ children, hoverStyle = 'none', selected }: Pr
     }
   }, [stickyColumns]);
 
-  const renderCellWithIndex = (child: Node, index: number) => {
+  const renderCellWithIndex = (child: ReactNode, index: number) => {
     const shouldBeSticky = stickyColumns ? stickyColumns >= 0 && index < stickyColumns : false;
     const shouldHaveShadow = stickyColumns ? stickyColumns - 1 === index : false;
     const previousWidths = columnWidths.slice(0, index);
@@ -42,7 +42,11 @@ export default function TableRow({ children, hoverStyle = 'none', selected }: Pr
       previousWidths.length > 0 ? previousWidths.reduce((a, b) => a + b) : 0;
     // $FlowFixMe[incompatible-exact]
     // $FlowFixMe[incompatible-type]
-    return cloneElement(child, { shouldBeSticky, previousTotalWidth, shouldHaveShadow });
+    return cloneElement(child, {
+      shouldBeSticky,
+      previousTotalWidth,
+      shouldHaveShadow,
+    });
   };
 
   const rowStyle = classnames({

@@ -64,47 +64,47 @@ html[dir="rtl"] .borderLeft {
 /* Border radius */
 
 .circle {
-  border-radius: 50%;
+  border-radius: var(--rounding-circle);
 }
 
 .pill {
-  border-radius: 999px;
+  border-radius: var(--rounding-pill);
 }
 
 .rounding0 {
-  border-radius: 0;
+  border-radius: var(--rounding-0);
 }
 
 .rounding1 {
-  border-radius: 4px;
+  border-radius: var(--rounding-100);
 }
 
 .rounding2 {
-  border-radius: 8px;
+  border-radius: var(--rounding-200);
 }
 
 .rounding3 {
-  border-radius: 12px;
+  border-radius: var(--rounding-300);
 }
 
 .rounding4 {
-  border-radius: 16px;
+  border-radius: var(--rounding-400);
 }
 
 .rounding5 {
-  border-radius: 20px;
+  border-radius: var(--rounding-500);
 }
 
 .rounding6 {
-  border-radius: 24px;
+  border-radius: var(--rounding-600);
 }
 
 .rounding7 {
-  border-radius: 28px;
+  border-radius: var(--rounding-700);
 }
 
 .rounding8 {
-  border-radius: 32px;
+  border-radius: var(--rounding-800);
 }
 
 .noBorder {

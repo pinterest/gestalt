@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useCallback, useEffect, useRef, useState } from 'react';
+import { type Node as ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
 import Backdrop from './Backdrop.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
@@ -16,7 +16,7 @@ import FullPage from './SheetMobile/FullPage.js';
 import Text from './Text.js';
 import { FixedZIndex } from './zIndex.js';
 
-type Props = {|
+type Props = {
   /**
    * Temporary undocumented prop to disable ScrollBoundaryContainer.
    */
@@ -32,7 +32,7 @@ type Props = {|
   /**
    * Supply the element(s) that will be used as Modal's main content. See the [Best Practices](https://gestalt.pinterest.systems/web/modal#Best-practices) for more info.
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * Close the modal when you click outside of it. See the [outside click variant](https://gestalt.pinterest.systems/web/modal#Preventing-close-on-outside-click) for more info.
    */
@@ -40,11 +40,11 @@ type Props = {|
   /**
    * Supply the element(s) that will be used as Modal's custom footer. See the [Best Practices](https://gestalt.pinterest.systems/web/modal#Best-practices) for more info.
    */
-  footer?: Node,
+  footer?: ReactNode,
   /**
    * The text used for Modal's heading. See the [Heading variant](https://gestalt.pinterest.systems/web/modal#Heading) for more info.
    */
-  heading?: Node,
+  heading?: ReactNode,
   /**
    * Callback fired when Modal is dismissed by clicking on the backdrop outside of the Modal (if `closeOnOutsideClick` is true).
    */
@@ -67,7 +67,7 @@ type Props = {|
    * Subtext for Modal, only renders with `heading` strings. See the [sub-heading variant](https://gestalt.pinterest.systems/web/modal#Sub-heading) for more info.
    */
   subHeading?: string,
-|};
+};
 
 const SIZE_WIDTH_MAP = {
   sm: 540,
@@ -79,11 +79,11 @@ function Header({
   align,
   heading,
   subHeading,
-}: {|
+}: {
   align: 'start' | 'center',
   heading: string,
   subHeading?: string,
-|}) {
+}) {
   return (
     <Box justifyContent={align} padding={6}>
       <Heading size="500" accessibilityLevel={1} align={align}>
@@ -119,7 +119,7 @@ export default function Modal({
   role = 'dialog',
   size = 'sm',
   subHeading,
-}: Props): Node {
+}: Props): ReactNode {
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
 
@@ -128,7 +128,7 @@ export default function Modal({
   const contentRef = useRef<?HTMLElement>(null);
 
   useEffect(() => {
-    function handleKeyUp(event: {| keyCode: number |}) {
+    function handleKeyUp(event: { keyCode: number }) {
       if (event.keyCode === ESCAPE) {
         onDismiss();
       }

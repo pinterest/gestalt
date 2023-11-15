@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useRef, useState } from 'react';
+import { Fragment, type Node as ReactNode, useRef, useState } from 'react';
 import {
   Button,
   Divider,
@@ -12,18 +12,18 @@ import {
   Tooltip,
 } from 'gestalt';
 
-export default function PrimaryActionExample(): Node {
+export default function PrimaryActionExample(): ReactNode {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<
-    $ReadOnlyArray<{| label: string, subtext?: string, value: string |}>,
+    $ReadOnlyArray<{ label: string, subtext?: string, value: string }>,
   >([]);
   const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
   const handleSelect = ({
     item,
-  }: {|
+  }: {
     event: SyntheticInputEvent<HTMLInputElement>,
-    item: {| label: string, subtext?: string, value: string |},
-  |}) => {
+    item: { label: string, subtext?: string, value: string },
+  }) => {
     if (selected.some((selectedItem) => selectedItem.value === item.value)) {
       setSelected((localSelected) =>
         localSelected.filter((selectedItem) => selectedItem.value !== item.value),

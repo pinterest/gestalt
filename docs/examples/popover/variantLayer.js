@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useEffect, useRef, useState } from 'react';
+import { Fragment, type Node as ReactNode, useEffect, useRef, useState } from 'react';
 import {
   Box,
   Button,
@@ -38,7 +38,7 @@ function SearchBoardField() {
   const ref = useRef<null | HTMLInputElement>(null);
 
   useEffect(() => {
-    ref.current?.focus();
+    if (ref.current) ref.current.focus();
   }, []);
 
   return (
@@ -56,10 +56,10 @@ function SearchBoardField() {
 function List({
   handleImageTap,
   title,
-}: {|
+}: {
   handleImageTap: (imageTitle: string) => void,
   title: string,
-|}) {
+}) {
   return (
     <Flex direction="column" gap={{ column: 4, row: 0 }}>
       <Text color="default" size="100">
@@ -157,7 +157,7 @@ function SelectBoard() {
   );
 }
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [showSheet, setShowSheet] = useState(false);
 
   return (

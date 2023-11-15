@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Heading } from 'gestalt';
 import MainSection from '../../docs-components/MainSection.js';
 import Markdown from '../../docs-components/Markdown.js';
@@ -9,7 +9,7 @@ import HarmoniousVisual from '../../graphics/about_us/harmonious.svg';
 import InclusiveVisual from '../../graphics/about_us/inclusive.svg';
 import VelocityVisual from '../../graphics/about_us/velocity.svg';
 
-export default function DocsPage(): Node {
+export default function DocsPage(): ReactNode {
   return (
     <Page title="About us" hideSideNav>
       <PageHeader name="About us" type="guidelines" />

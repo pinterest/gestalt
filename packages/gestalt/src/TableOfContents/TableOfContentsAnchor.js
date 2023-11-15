@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import classNames from 'classnames';
 import styles from './TableOfContentsAnchor.css';
 import Box from '../Box.js';
@@ -7,7 +7,7 @@ import Colors from '../Colors.css';
 import { useNesting } from '../contexts/NestingProvider.js';
 import Flex from '../Flex.js';
 import Layout from '../Layout.css';
-import TapArea, { type OnTapType } from '../TapArea.js';
+import TapAreaLink from '../TapAreaLink.js';
 import Text from '../Text.js';
 import useInteractiveStates from '../utils/useInteractiveStates.js';
 
@@ -19,32 +19,25 @@ const NESTING_MARGIN_START_MAP = {
   '5': '92px',
 };
 
-type Props = {|
+type Props = {
   label: string,
   href: string,
   active: boolean,
-  onClick?: OnTapType,
-|};
+  onClick?: $ElementType<React$ElementConfig<typeof TapAreaLink>, 'onTap'>,
+};
 
-export default function TableOfContentsAnchor({ label, active, href, onClick }: Props): Node {
+export default function TableOfContentsAnchor({ label, active, href, onClick }: Props): ReactNode {
   const { nestedLevel } = useNesting();
-  const {
-    handleOnFocus,
-    handleOnBlur,
-    handleOnMouseEnter,
-    handleOnMouseLeave,
-    isFocused,
-    isHovered,
-  } = useInteractiveStates();
-  const hasMarker = active || isFocused || isHovered;
-  const markerColor = active || isFocused ? 'inverse' : 'tertiary';
+  const { handleOnFocus, handleOnBlur, handleOnMouseEnter, handleOnMouseLeave, isHovered } =
+    useInteractiveStates();
+  const hasMarker = active || isHovered;
+  const markerColor = active ? 'inverse' : 'tertiary';
   const nestingPadding = NESTING_MARGIN_START_MAP[nestedLevel];
   const nestingFontSize = nestedLevel === 1 ? '300' : '200';
 
   return (
-    <TapArea
+    <TapAreaLink
       tapStyle="compress"
-      role="link"
       href={href}
       onMouseEnter={handleOnMouseEnter}
       onMouseLeave={handleOnMouseLeave}
@@ -54,7 +47,7 @@ export default function TableOfContentsAnchor({ label, active, href, onClick }: 
       rounding={2}
     >
       <Flex>
-        <Box minWidth={4} color={hasMarker ? markerColor : 'default'} rounding="pill" />
+        <Box minWidth={4} color={hasMarker ? markerColor : 'transparent'} rounding="pill" />
         <div
           className={classNames(styles.item, Layout.flexGrow, {
             [Colors.secondary]: isHovered,
@@ -68,6 +61,6 @@ export default function TableOfContentsAnchor({ label, active, href, onClick }: 
           </Text>
         </div>
       </Flex>
-    </TapArea>
+    </TapAreaLink>
   );
 }

@@ -2,6 +2,7 @@
   composes: block from "./Layout.css";
   composes: borderTop solid from "./Borders.css";
   composes: m0 from "./Whitespace.css";
+  composes: borderColorLightGray from "./Borders.css";
   border-bottom: 0;
   border-left: 0;
 }

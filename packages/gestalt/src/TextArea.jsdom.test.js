@@ -14,14 +14,14 @@ const renderTextArea = ({
   onFocus = jest.fn(),
   onBlur = jest.fn(),
   maxLength,
-}: {|
+}: {
   id?: $ElementType<React$ElementConfig<typeof TextArea>, 'id'>,
   onChange?: $ElementType<React$ElementConfig<typeof TextArea>, 'onChange'>,
   onFocus?: $ElementType<React$ElementConfig<typeof TextArea>, 'onFocus'>,
   onBlur?: $ElementType<React$ElementConfig<typeof TextArea>, 'onBlur'>,
   id?: $ElementType<React$ElementConfig<typeof TextArea>, 'id'>,
   maxLength?: $ElementType<React$ElementConfig<typeof TextArea>, 'maxLength'>,
-|}) =>
+}) =>
   render(
     <TextArea
       id={id}
@@ -81,12 +81,11 @@ describe('TextArea', () => {
   });
 
   it('TextArea with errorMessage prop change', () => {
-    const { getByText, rerender } = render(
+    const { rerender } = render(
       <TextArea id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
     );
     expect(() => {
-      // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-      getByText('Error message');
+      screen.getByText('Error message');
     }).toThrow('Unable to find an element with the text: Error message');
 
     rerender(
@@ -98,27 +97,23 @@ describe('TextArea', () => {
         onBlur={jest.fn()}
       />,
     );
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    expect(getByText('Error message')).toBeVisible();
+    expect(screen.getByText('Error message')).toBeVisible();
   });
 
   it('handles blur events', () => {
     const mockBlur = jest.fn<
-      [{| event: SyntheticFocusEvent<HTMLTextAreaElement>, value: string |}],
+      [{ event: SyntheticFocusEvent<HTMLTextAreaElement>, value: string }],
       void,
     >();
-    const { getByDisplayValue } = render(
-      <TextArea id="test" onBlur={mockBlur} onChange={jest.fn()} value="TextArea Text" />,
-    );
+    render(<TextArea id="test" onBlur={mockBlur} onChange={jest.fn()} value="TextArea Text" />);
 
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    fireEvent.blur(getByDisplayValue('TextArea Text'));
+    fireEvent.blur(screen.getByDisplayValue('TextArea Text'));
     expect(mockBlur).toHaveBeenCalled();
   });
 
   it('handles change events', () => {
     const mockChange = jest.fn<
-      [{| event: SyntheticInputEvent<HTMLTextAreaElement>, value: string |}],
+      [{ event: SyntheticInputEvent<HTMLTextAreaElement>, value: string }],
       void,
     >();
     const { container } = render(
@@ -139,21 +134,18 @@ describe('TextArea', () => {
 
   it('handles focus events', () => {
     const mockFocus = jest.fn<
-      [{| event: SyntheticFocusEvent<HTMLTextAreaElement>, value: string |}],
+      [{ event: SyntheticFocusEvent<HTMLTextAreaElement>, value: string }],
       void,
     >();
-    const { getByDisplayValue } = render(
-      <TextArea id="test" onChange={jest.fn()} onFocus={mockFocus} value="TextArea Text" />,
-    );
+    render(<TextArea id="test" onChange={jest.fn()} onFocus={mockFocus} value="TextArea Text" />);
 
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    fireEvent.focus(getByDisplayValue('TextArea Text'));
+    fireEvent.focus(screen.getByDisplayValue('TextArea Text'));
     expect(mockFocus).toHaveBeenCalled();
   });
 
   it('handles key down events', () => {
     const mockKeyDown = jest.fn<
-      [{| event: SyntheticKeyboardEvent<HTMLTextAreaElement>, value: string |}],
+      [{ event: SyntheticKeyboardEvent<HTMLTextAreaElement>, value: string }],
       void,
     >();
     const { container } = render(
@@ -189,7 +181,7 @@ describe('TextArea', () => {
   });
 
   it('shows a label for the text area', () => {
-    const { getByText } = render(
+    render(
       <TextArea
         id="test"
         label="Label for the text area"
@@ -197,12 +189,11 @@ describe('TextArea', () => {
         value="TextArea Text"
       />,
     );
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    expect(getByText('Label for the text area')).toBeVisible();
+    expect(screen.getByText('Label for the text area')).toBeVisible();
   });
 
   it('shows helper text for the text area', () => {
-    const { getByText } = render(
+    render(
       <TextArea
         id="test"
         label="Label for the text area"
@@ -211,12 +202,11 @@ describe('TextArea', () => {
         value="TextArea Text"
       />,
     );
-    // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-    expect(getByText('Helper text for the text area')).toBeVisible();
+    expect(screen.getByText('Helper text for the text area')).toBeVisible();
   });
 
   it('hides the helper text for the text area when an error message is shown', () => {
-    const { getByText } = render(
+    render(
       <TextArea
         id="test"
         label="Label for the text area"
@@ -227,8 +217,7 @@ describe('TextArea', () => {
       />,
     );
     expect(() => {
-      // eslint-disable-next-line testing-library/prefer-screen-queries -- Please fix the next time this file is touched!
-      getByText('Helper text for the text area');
+      screen.getByText('Helper text for the text area');
     }).toThrow('Unable to find an element with the text: Helper text for the text area');
   });
 });

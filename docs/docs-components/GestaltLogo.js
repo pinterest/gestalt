@@ -1,12 +1,12 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 
-type Props = {|
+type Props = {
   height?: number,
   width?: number,
-|};
+};
 
-export default function GestaltLogo({ height, width }: Props): Node {
+export default function GestaltLogo({ height, width }: Props): ReactNode {
   return (
     <svg
       aria-label="Home"

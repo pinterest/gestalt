@@ -1,17 +1,17 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { IconButton } from 'gestalt';
 import trackButtonClick from './trackButtonClick.js';
 
-type Props = {|
+type Props = {
   currentTextDirection: 'ltr' | 'rtl',
   onClick: () => void,
-|};
+};
 
 export default function CodeExampleTextDirectionButton({
   currentTextDirection,
   onClick,
-}: Props): Node {
+}: Props): ReactNode {
   const label = 'Toggle text direction for code example';
 
   return (

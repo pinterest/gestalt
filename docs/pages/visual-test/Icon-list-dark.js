@@ -1,13 +1,13 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Flex, Icon } from 'gestalt';
 
-export default function Snapshot(): Node {
+export default function Snapshot(): ReactNode {
   const { icons } = Icon;
 
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <Box height={375} width={575} color="default">
+      <Box height={450} width={575} color="default">
         <Flex
           gap={{
             row: 1,

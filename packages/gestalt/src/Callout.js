@@ -1,8 +1,9 @@
 // @flow strict
-import { Children, type Element, type Node } from 'react';
+import { Children, type Element, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Button from './Button.js';
+import ButtonLink from './ButtonLink.js';
 import styles from './Callout.css';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
 import Icon from './Icon.js';
@@ -11,33 +12,35 @@ import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES.js';
 import Text from './Text.js';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 
-export type ActionDataType = {|
-  accessibilityLabel: string,
-  disabled?: boolean,
-  href?: string,
-  label: string,
-  onClick?: ({|
-    event:
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>,
-    dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
-  rel?: 'none' | 'nofollow',
-  target?: null | 'self' | 'blank',
-|};
+export type ActionDataType =
+  | {
+      accessibilityLabel: string,
+      disabled?: boolean,
+      href: string,
+      label: string,
+      onClick?: $ElementType<React$ElementConfig<typeof ButtonLink>, 'onClick'>,
+      rel?: 'none' | 'nofollow',
+      role: 'link',
+      target?: null | 'self' | 'blank',
+    }
+  | {
+      accessibilityLabel: string,
+      disabled?: boolean,
+      label: string,
+      onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
+      role?: 'button',
+    };
 
-type Props = {|
+type Props = {
   /**
    * Adds a dismiss button to Callout. See the [Dismissible variant](https://gestalt.pinterest.systems/web/callout#Dismissible) for more info.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility).
    */
-  dismissButton?: {| accessibilityLabel?: string, onDismiss: () => void |},
+  dismissButton?: { accessibilityLabel?: string, onDismiss: () => void },
   /**
    * Label to describe the icon’s purpose. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility) for details on proper usage.
    */
-  iconAccessibilityLabel: string,
+  iconAccessibilityLabel?: string,
   /**
    * Main content of Callout. Content should be [localized](https://gestalt.pinterest.systems/web/callout#Localization).
    *
@@ -49,43 +52,47 @@ type Props = {|
    * If no `href` is supplied, the action will be a button.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility).
    */
-  primaryAction?: {|
-    accessibilityLabel: string,
-    disabled?: boolean,
-    href?: string,
-    label: string,
-    onClick?: ({|
-      event:
-        | SyntheticMouseEvent<HTMLButtonElement>
-        | SyntheticMouseEvent<HTMLAnchorElement>
-        | SyntheticKeyboardEvent<HTMLAnchorElement>
-        | SyntheticKeyboardEvent<HTMLButtonElement>,
-      dangerouslyDisableOnNavigation: () => void,
-    |}) => void,
-    rel?: 'none' | 'nofollow',
-    target?: null | 'self' | 'blank',
-  |},
+  primaryAction?:
+    | {
+        role: 'link',
+        accessibilityLabel: string,
+        disabled?: boolean,
+        href: string,
+        label: string,
+        onClick?: $ElementType<React$ElementConfig<typeof ButtonLink>, 'onClick'>,
+        rel?: 'none' | 'nofollow',
+        target?: null | 'self' | 'blank',
+      }
+    | {
+        role?: 'button',
+        accessibilityLabel: string,
+        disabled?: boolean,
+        label: string,
+        onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
+      },
   /**
-   * Secondary action for users to take on Callout. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
-   * If no `href` is supplied, the action will be a button.
+   * Secondary action for users to take on Callout. If role='link', the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
+   * If role='button' (or undefined), the action will be a button.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/callout#Accessibility).
    */
-  secondaryAction?: {|
-    accessibilityLabel: string,
-    disabled?: boolean,
-    href?: string,
-    label: string,
-    onClick?: ({|
-      event:
-        | SyntheticMouseEvent<HTMLButtonElement>
-        | SyntheticMouseEvent<HTMLAnchorElement>
-        | SyntheticKeyboardEvent<HTMLAnchorElement>
-        | SyntheticKeyboardEvent<HTMLButtonElement>,
-      dangerouslyDisableOnNavigation: () => void,
-    |}) => void,
-    rel?: 'none' | 'nofollow',
-    target?: null | 'self' | 'blank',
-  |},
+  secondaryAction?:
+    | {
+        role: 'link',
+        accessibilityLabel: string,
+        disabled?: boolean,
+        href: string,
+        label: string,
+        onClick?: $ElementType<React$ElementConfig<typeof ButtonLink>, 'onClick'>,
+        rel?: 'none' | 'nofollow',
+        target?: null | 'self' | 'blank',
+      }
+    | {
+        role?: 'button',
+        accessibilityLabel: string,
+        disabled?: boolean,
+        label: string,
+        onClick?: $ElementType<React$ElementConfig<typeof Button>, 'onClick'>,
+      },
   /**
    * The category of Callout. See [Variants](https://gestalt.pinterest.systems/web/callout#Variants) to learn more.
    */
@@ -94,19 +101,20 @@ type Props = {|
    * Brief title summarizing Callout. Content should be [localized](https://gestalt.pinterest.systems/web/callout#Localization).
    */
   title?: string,
-|};
+};
 
 function CalloutAction({
   data,
   stacked,
   type,
-}: {|
+}: {
   data: ActionDataType,
   stacked?: boolean,
   type: string,
-|}): Node {
+}): ReactNode {
   const color = type === 'primary' ? 'white' : 'transparent';
-  const { accessibilityLabel, disabled, label, onClick, href, rel, target } = data;
+
+  const { accessibilityLabel, disabled, label } = data;
 
   return (
     <Box
@@ -119,18 +127,17 @@ function CalloutAction({
       smMarginTop="auto"
       smMarginBottom="auto"
     >
-      {href ? (
-        <Button
+      {data.role === 'link' ? (
+        <ButtonLink
           accessibilityLabel={accessibilityLabel}
           color={color}
           disabled={disabled}
-          href={href}
+          href={data.href}
           fullWidth
-          onClick={onClick}
-          rel={rel}
-          role="link"
+          onClick={data.onClick}
+          rel={data.rel}
           size="lg"
-          target={target}
+          target={data.target}
           text={label}
         />
       ) : (
@@ -138,9 +145,8 @@ function CalloutAction({
           accessibilityLabel={accessibilityLabel}
           disabled={disabled}
           color={color}
-          onClick={onClick}
+          onClick={data.onClick}
           fullWidth
-          role="button"
           size="lg"
           text={label}
         />
@@ -164,7 +170,7 @@ export default function Callout({
   secondaryAction,
   type,
   title,
-}: Props): Node {
+}: Props): ReactNode {
   const responsiveMinWidth = useResponsiveMinWidth();
   const {
     accessibilityDismissButtonLabel,

@@ -20,7 +20,9 @@ import getRandomNumberGenerator from './items-utils/getRandomNumberGenerator.js'
 
 const TWO_COL_MINDEX = 50;
 
-type Props = {|
+type MasonryProps<T> = $PropertyType<Masonry<T>, 'props'>;
+
+type Props<T> = {
   // The actual Masonry component to be used (if using an experimental version of Masonry).
   MasonryComponent: typeof Masonry,
   // Experimental prop to batch paints of measured items.
@@ -36,21 +38,21 @@ type Props = {|
   // Grid items should have flexible width.
   flexible?: boolean,
   // The initial data from the server side render.
-  // $FlowFixMe[unclear-type]
-  initialItems?: $ReadOnlyArray<?Object>,
+  initialItems?: $PropertyType<MasonryProps<T>, 'items'>,
   // Whether or not to log whitespace.
   logWhitespace?: boolean,
   // Whether or not to require tests to trigger fetch completion manually.
   manualFetch?: boolean,
   // External measurement store.
-  // $FlowFixMe[unclear-type]
-  measurementStore: Object,
+  measurementStore: $PropertyType<MasonryProps<T>, 'measurementStore'>,
   // Prevent scrolling on Masonry
   noScroll?: boolean,
   // Positions the element inside of a relative container, offset from the top.
   offsetTop?: number,
   // An array of realistic pin heights as sampled from actual Pin data.
   pinHeightsSample?: $ReadOnlyArray<number>,
+  // External position store
+  positionStore: $PropertyType<MasonryProps<T>, 'positionStore'>,
   // If we should position the grid within a scrollContainer besides the window.
   scrollContainer?: boolean,
   // Insert two-column items into the feed
@@ -61,18 +63,18 @@ type Props = {|
   virtualBoundsTop?: number,
   // The relative amount in pixel to extend the virtualized viewport bottom value.
   virtualBoundsBottom?: number,
-|};
+};
 
-type State = {|
+type State = {
   expanded: boolean,
   hasScrollContainer: boolean,
   // $FlowFixMe[unclear-type]
   items: $ReadOnlyArray<Object>,
   mountGrid: boolean,
   mounted: boolean,
-|};
+};
 
-export default class MasonryContainer extends Component<Props, State> {
+export default class MasonryContainer extends Component<Props<{ ... }>, State> {
   state: State = {
     expanded: false,
     hasScrollContainer: !!this.props.scrollContainer,
@@ -82,7 +84,7 @@ export default class MasonryContainer extends Component<Props, State> {
   };
 
   // $FlowFixMe[unclear-type]
-  gridRef: {| current: any | null |} = createRef();
+  gridRef: { current: any | null } = createRef();
 
   randomNumberSeed: number = 0;
 
@@ -133,7 +135,11 @@ export default class MasonryContainer extends Component<Props, State> {
 
   handleAddItems: () => void = () => {
     const { items } = this.state;
-    this.customLoadItems({ name: 'Manual Fetch Pin', from: items.length, force: true });
+    this.customLoadItems({
+      name: 'Manual Fetch Pin',
+      from: items.length,
+      force: true,
+    });
   };
 
   handleShuffleItems: () => void = () => {
@@ -201,13 +207,7 @@ export default class MasonryContainer extends Component<Props, State> {
     }));
   };
 
-  pushFirstItemDown: () => void = () => {
-    const { measurementStore } = this.props;
-    measurementStore.setItemPosition(measurementStore.getGridCell(0, 0), { top: 100, row: 1 });
-    this.forceUpdate();
-  };
-
-  customLoadItems: ({| force: boolean, from?: number, name?: string |}) => void = ({
+  customLoadItems: ({ force: boolean, from?: number, name?: string }) => void = ({
     name,
     from = 0,
     force = false,
@@ -318,6 +318,7 @@ export default class MasonryContainer extends Component<Props, State> {
       measurementStore,
       noScroll,
       offsetTop,
+      positionStore,
       twoColItems,
       virtualBoundsBottom,
       virtualBoundsTop,
@@ -326,14 +327,14 @@ export default class MasonryContainer extends Component<Props, State> {
 
     const { hasScrollContainer, mountGrid, items } = this.state;
 
-    const dynamicGridProps: {|
+    const dynamicGridProps: {
       minCols: $ElementType<React$ElementConfig<typeof Masonry>, 'minCols'>,
       gutterWidth: $ElementType<React$ElementConfig<typeof Masonry>, 'gutterWidth'>,
       loadItems: $ElementType<React$ElementConfig<typeof Masonry>, 'loadItems'>,
       virtualBoundsTop: $ElementType<React$ElementConfig<typeof Masonry>, 'virtualBoundsBottom'>,
       virtualBoundsBottom: $ElementType<React$ElementConfig<typeof Masonry>, 'virtualBoundsBottom'>,
       scrollContainer: $ElementType<React$ElementConfig<typeof Masonry>, 'scrollContainer'>,
-    |} = {
+    } = {
       minCols: undefined,
       gutterWidth: undefined,
       loadItems: undefined,
@@ -342,10 +343,10 @@ export default class MasonryContainer extends Component<Props, State> {
       scrollContainer: undefined,
     };
 
-    const gridStyle: {|
+    const gridStyle: {
       margin: ?string,
       width: ?string | number,
-    |} = {
+    } = {
       margin: undefined,
       width: undefined,
     };
@@ -412,6 +413,7 @@ export default class MasonryContainer extends Component<Props, State> {
             items={items}
             layout={flexible ? 'flexible' : undefined}
             measurementStore={externalCache ? measurementStore : undefined}
+            positionStore={externalCache ? positionStore : undefined}
             ref={this.gridRef}
             renderItem={this.renderItem}
             virtualize={virtualize}
@@ -449,11 +451,6 @@ export default class MasonryContainer extends Component<Props, State> {
           <button id="insert-null-items" onClick={this.handleInsertNullItems} type="submit">
             Insert null items
           </button>
-          {externalCache && (
-            <button id="push-first-down" onClick={this.pushFirstItemDown} type="submit">
-              Push first item down
-            </button>
-          )}
           <button id="push-grid-down" onClick={this.handlePushGridDown} type="submit">
             Push grid down
           </button>

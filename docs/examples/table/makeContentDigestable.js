@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Table, Text } from 'gestalt';
 
 function HeaderRow() {
@@ -23,12 +23,12 @@ function BaseRow({
   subtext,
   total,
   lineClamp,
-}: {|
+}: {
   name: string,
   subtext: string,
   total: string,
   lineClamp?: number,
-|}) {
+}) {
   return (
     <Table.Row>
       <Table.Cell>
@@ -44,7 +44,7 @@ function BaseRow({
   );
 }
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const tableID = "Example of a 'do' for table content";
 
   return (

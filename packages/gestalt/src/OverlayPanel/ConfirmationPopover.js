@@ -1,6 +1,6 @@
 // @flow strict
 
-import { type Node, useEffect, useRef } from 'react';
+import { type Node as ReactNode, useEffect, useRef } from 'react';
 import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext.js';
 import TrapFocusBehavior from '../behaviors/TrapFocusBehavior.js';
 import Box from '../Box.js';
@@ -11,34 +11,34 @@ import { ESCAPE } from '../keyCodes.js';
 import Popover from '../Popover.js';
 import Text from '../Text.js';
 
-type Props = {|
+type Props = {
   anchor: ?HTMLElement,
   message?: string,
   onDismiss: () => void,
-  primaryAction?: {|
+  primaryAction?: {
     accessibilityLabel?: string,
     text?: string,
-    onClick?: ({|
+    onClick?: ({
       event:
         | SyntheticMouseEvent<HTMLButtonElement>
         | SyntheticMouseEvent<HTMLAnchorElement>
         | SyntheticKeyboardEvent<HTMLAnchorElement>
         | SyntheticKeyboardEvent<HTMLButtonElement>,
-    |}) => void,
-  |},
-  secondaryAction?: {|
+    }) => void,
+  },
+  secondaryAction?: {
     accessibilityLabel?: string,
     text?: string,
-    onClick?: ({|
+    onClick?: ({
       event:
         | SyntheticMouseEvent<HTMLButtonElement>
         | SyntheticMouseEvent<HTMLAnchorElement>
         | SyntheticKeyboardEvent<HTMLAnchorElement>
         | SyntheticKeyboardEvent<HTMLButtonElement>,
-    |}) => void,
-  |},
+    }) => void,
+  },
   subtext?: string,
-|};
+};
 
 export default function ConfirmationPopover({
   anchor,
@@ -47,7 +47,7 @@ export default function ConfirmationPopover({
   primaryAction,
   secondaryAction,
   onDismiss,
-}: Props): Node {
+}: Props): ReactNode {
   const confirmationButtonRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   const { onExternalDismiss } = useRequestAnimationFrame();

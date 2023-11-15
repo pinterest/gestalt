@@ -1,12 +1,12 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { IconButton } from 'gestalt';
 
-type Props = {|
+type Props = {
   size?: 'xs' | 'sm',
-|};
+};
 
-export default function InternalOnlyIconButton({ size = 'xs' }: Props): Node {
+export default function InternalOnlyIconButton({ size = 'xs' }: Props): ReactNode {
   return (
     <IconButton
       accessibilityLabel="Internal only"

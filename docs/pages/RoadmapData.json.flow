@@ -1,14 +1,14 @@
 // @flow strict
-import { type Platform, type Status } from './roadmap.js';
+import { type Platform, type Status } from "./roadmap.js";
 
-declare module.exports: {|
+declare module.exports: {
   +year: string,
-  +tasks: $ReadOnlyArray<{|
+  +tasks: $ReadOnlyArray<{
     +task: string,
     +deadline: string,
     +status: Status,
     +platforms: $ReadOnlyArray<Platform>,
     +description: string,
     +link: string,
-  |}>,
-|};
+  }>,
+};

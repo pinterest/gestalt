@@ -2,7 +2,7 @@
 import {
   type AbstractComponent,
   forwardRef,
-  type Node,
+  type Node as ReactNode,
   useEffect,
   useImperativeHandle,
   useRef,
@@ -20,27 +20,33 @@ import FormHelperText from '../shared/FormHelperText.js';
 import Text from '../Text.js';
 import useFocusVisible from '../useFocusVisible.js';
 
-type Props = {|
+type Props = {
   checked?: boolean,
   disabled?: boolean,
   errorMessage?: string,
   helperText?: string,
   id: string,
-  image?: Node,
+  image?: ReactNode,
   indeterminate?: boolean,
   label?: string,
   labelDisplay?: 'visible' | 'hidden',
   name?: string,
-  onChange?: ({| event: SyntheticInputEvent<HTMLInputElement>, checked: boolean |}) => void,
-  onClick?: ({| event: SyntheticInputEvent<HTMLInputElement>, checked: boolean |}) => void,
+  onChange?: ({
+    event: SyntheticInputEvent<HTMLInputElement>,
+    checked: boolean,
+  }) => void,
+  onClick?: ({
+    event: SyntheticInputEvent<HTMLInputElement>,
+    checked: boolean,
+  }) => void,
   /**
    * Make the checkbox readonly. Interactivity is disabled, but it can be used as a visual indicator. Click handler events are also disabled
    */
   readOnly?: boolean,
   ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
   size?: 'sm' | 'md',
-  style?: {| borderColor?: string, backgroundColor?: string |},
-|};
+  style?: { borderColor?: string, backgroundColor?: string },
+};
 
 const InternalCheckboxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
@@ -64,7 +70,7 @@ const InternalCheckboxWithForwardRef: AbstractComponent<Props, HTMLInputElement>
     style,
   }: Props,
   ref,
-): Node {
+): ReactNode {
   const innerRef = useRef<null | HTMLInputElement>(null);
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <Checkbox ref={inputRef} /> to call inputRef.current.focus()
@@ -183,7 +189,9 @@ const InternalCheckboxWithForwardRef: AbstractComponent<Props, HTMLInputElement>
           <Box
             display={labelDisplay === 'hidden' ? 'visuallyHidden' : 'block'}
             //  marginTop: '-1px'/'2px' is needed to  visually align the label text & radiobutton input
-            dangerouslySetInlineStyle={{ __style: { marginTop: size === 'md' ? '2px' : '-1px' } }}
+            dangerouslySetInlineStyle={{
+              __style: { marginTop: size === 'md' ? '2px' : '-1px' },
+            }}
           >
             <Label htmlFor={id}>
               <Box paddingX={1}>

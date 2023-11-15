@@ -1,31 +1,31 @@
 // @flow strict
-import { type Node, useCallback, useMemo, useState } from 'react';
+import { type Node as ReactNode, useCallback, useMemo, useState } from 'react';
 import {
   Box,
   ButtonLink,
   Divider,
   Flex,
   GlobalEventsHandlerProvider,
-  IconButton,
+  IconButtonLink,
   Image,
   Link,
   Mask,
   RadioGroup,
-  TapArea,
+  TapAreaLink,
   Text,
 } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [onNavigationMode, setOnNavigationMode] = useState<'default' | 'custom'>('default');
 
   const useOnNavigation = useCallback(
     ({
       href,
-    }: {|
+    }: {
       href: $ElementType<React$ElementConfig<typeof Link>, 'href'>,
       target?: $ElementType<React$ElementConfig<typeof Link>, 'target'>,
-    |}) => {
-      const onNavigationClick = ({ event }: {| +event: SyntheticEvent<> |}) => {
+    }) => {
+      const onNavigationClick = ({ event }: { +event: SyntheticEvent<> }) => {
         event.preventDefault();
         // eslint-disable-next-line no-alert
         alert(`Disabled link: ${href}. Opening help.pinterest.com instead.`);
@@ -37,7 +37,9 @@ export default function Example(): Node {
   );
 
   const linkHandlers = useMemo(
-    () => ({ onNavigation: onNavigationMode === 'custom' ? useOnNavigation : undefined }),
+    () => ({
+      onNavigation: onNavigationMode === 'custom' ? useOnNavigation : undefined,
+    }),
     [onNavigationMode, useOnNavigation],
   );
 
@@ -74,17 +76,16 @@ export default function Example(): Node {
 
             <ButtonLink href="#" text="Visit pinterest.com" />
 
-            <IconButton
+            <IconButtonLink
               href="#"
               accessibilityLabel="Link IconButton"
               icon="visit"
               iconColor="darkGray"
-              role="link"
               size="lg"
             />
 
             <Box width={100}>
-              <TapArea href="#" role="link" rounding={2}>
+              <TapAreaLink href="#" rounding={2}>
                 <Box color="tertiary" rounding={4} borderStyle="sm">
                   <Mask rounding={2}>
                     <Image
@@ -95,7 +96,7 @@ export default function Example(): Node {
                     />
                   </Mask>
                 </Box>
-              </TapArea>
+              </TapAreaLink>
             </Box>
           </Flex>
         </Flex>

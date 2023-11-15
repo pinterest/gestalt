@@ -1,5 +1,5 @@
 // @flow strict
-import { type ElementProps, type Node, useState } from 'react';
+import { type ElementProps, type Node as ReactNode, useState } from 'react';
 import {
   Box,
   Flex,
@@ -40,11 +40,11 @@ function IconTile({
   iconName,
   iconDescription = 'Description coming soon',
   onTap,
-}: {|
+}: {
   iconName: $NonMaybeType<$ElementType<ElementProps<typeof Icon>, 'icon'>>,
   iconDescription: string,
   onTap: () => void,
-|}) {
+}) {
   const [hovered, setHovered] = useState<?boolean>();
 
   return (
@@ -90,7 +90,9 @@ function IconTile({
             bottom
             right
             display={hovered ? 'block' : 'none'}
-            dangerouslySetInlineStyle={{ __style: { bottom: '8px', right: '8px' } }}
+            dangerouslySetInlineStyle={{
+              __style: { bottom: '8px', right: '8px' },
+            }}
           >
             <Pog
               icon="copy-to-clipboard"
@@ -125,7 +127,7 @@ function iconHasKeyword(iconName?: string, searchTerm: string) {
   );
 }
 
-export default function IconPage(): Node {
+export default function IconPage(): ReactNode {
   const [showToastText, setShowToastText] = useState<void | string>();
 
   const iconOptions = icons
@@ -145,10 +147,10 @@ export default function IconPage(): Node {
 
   const handleOnChange = ({
     value,
-  }: {|
+  }: {
     syntheticEvent: SyntheticEvent<HTMLInputElement>,
     value: string,
-  |}) => {
+  }) => {
     setInputValue(value);
     setSuggestedOptions(
       value

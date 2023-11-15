@@ -33,7 +33,7 @@
   font-size: var(--font-size-300);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  padding: var(--space-200) var(--space-300);
+  padding: var(--space-200) var(--space-400);
   width: calc(12 / var(--g-ncols) * 100%);
 }
 
@@ -48,6 +48,7 @@
 
 .formElementBase {
   appearance: none;
+  border-color: var(--color-border-container);
   border-radius: 16px;
   border-style: solid;
   border-width: 2px;
@@ -58,7 +59,7 @@
   outline: 0;
 }
 
-.formElementBase .formElementNormal {
+.formElementNormal {
   border-color: var(--color-border-container);
 }
 
@@ -97,6 +98,10 @@
   white-space: nowrap;
 }
 
+.layoutMedium {
+  min-height: 40px;
+}
+
 .layoutLarge {
   min-height: 48px;
 }
@@ -116,9 +121,9 @@ html[dir="rtl"] .actionButtonWrapper {
 }
 
 html:not([dir="rtl"]) .actionButton {
-  padding-right: var(--space-500);
+  padding-right: var(--space-800);
 }
 
 html[dir="rtl"] .actionButton {
-  padding-left: var(--space-500);
+  padding-left: var(--space-800);
 }

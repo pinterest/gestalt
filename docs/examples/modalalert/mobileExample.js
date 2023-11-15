@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Button, DeviceTypeProvider, Layer, ModalAlert, Text } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [showComponent, setShowComponent] = useState(true);
 
   return (
@@ -26,11 +26,13 @@ export default function Example(): Node {
               accessibilityLabel: 'Confirm delete board',
               label: 'Yes, delete',
               onClick: () => {},
+              role: 'button',
             }}
             secondaryAction={{
               accessibilityLabel: 'Cancel board deletion',
               label: 'No, keep',
               onClick: () => {},
+              role: 'button',
             }}
           >
             <Box>{Array(100).fill(<Text>Content</Text>)}</Box>

@@ -1,13 +1,13 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import cx from 'classnames';
 import styles from './Table.css';
 
-type Props = {|
+type Props = {
   /**
    * The content of the table cell.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * `colSpan` defines the number of columns a cell should span.
    */
@@ -32,7 +32,7 @@ type Props = {|
    * Private prop required for sticky columns
    */
   shouldHaveShadow?: boolean,
-|};
+};
 
 /**
  * Use [Table.HeaderCell](https://gestalt.pinterest.systems/web/table#Table.HeaderCell) to define a header cell in Table.
@@ -45,7 +45,7 @@ export default function TableHeaderCell({
   scope,
   shouldBeSticky,
   shouldHaveShadow,
-}: Props): Node {
+}: Props): ReactNode {
   const cs = cx(
     styles.th,
     shouldBeSticky && styles.columnSticky,

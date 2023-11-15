@@ -1,10 +1,11 @@
 // @flow strict
-import { Children, type Element, type Node } from 'react';
+import { Children, type Element, type Node as ReactNode } from 'react';
 import Box from './Box.js';
 import Button from './Button.js';
+import ButtonLink from './ButtonLink.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import Flex from './Flex.js';
-import InternalPopover from './Popover/InternalPopover.js';
+import InternalPopover from './Popover/LegacyInternalPopover.js';
 import styles from './PopoverEducational.css';
 import Text from './Text.js';
 import { type Indexable } from './zIndex.js';
@@ -12,55 +13,55 @@ import { type Indexable } from './zIndex.js';
 type Size = 'sm' | 'flexible';
 type IdealDirection = 'up' | 'right' | 'down' | 'left';
 type Role = 'dialog' | 'tooltip';
-type PrimaryActionType = {|
-  accessibilityLabel?: string,
-  href?: string,
-  text: string,
-  onClick?: ({|
-    event:
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>,
-    dangerouslyDisableOnNavigation: () => void,
-  |}) => void,
-  rel?: 'none' | 'nofollow',
-  target?: null | 'self' | 'blank',
-|};
+type PrimaryActionType =
+  | {
+      accessibilityLabel?: string,
+      href: string,
+      onClick?: ({
+        event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+        dangerouslyDisableOnNavigation: () => void,
+      }) => void,
+      rel?: 'none' | 'nofollow',
+      role: 'link',
+      target?: null | 'self' | 'blank',
+      text: string,
+    }
+  | {
+      accessibilityLabel?: string,
+      onClick?: ({
+        event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>,
+      }) => void,
+      role?: 'button',
+      text: string,
+    };
 
-function PrimaryAction({
-  accessibilityLabel,
-  href,
-  text,
-  onClick,
-  rel,
-  target,
-}: PrimaryActionType) {
-  return href ? (
+function PrimaryAction(props: PrimaryActionType) {
+  if (props.role === 'link') {
+    return (
+      <ButtonLink
+        accessibilityLabel={props.accessibilityLabel}
+        color="white"
+        fullWidth={false}
+        href={props.href}
+        onClick={props.onClick}
+        rel={props.rel}
+        target={props.target}
+        text={props.text}
+      />
+    );
+  }
+  return (
     <Button
-      accessibilityLabel={accessibilityLabel}
+      accessibilityLabel={props.accessibilityLabel}
       color="white"
       fullWidth={false}
-      href={href}
-      onClick={onClick}
-      rel={rel}
-      role="link"
-      target={target}
-      text={text}
-    />
-  ) : (
-    <Button
-      accessibilityLabel={accessibilityLabel}
-      color="white"
-      fullWidth={false}
-      onClick={onClick}
-      role="button"
-      text={text}
+      onClick={props.onClick}
+      text={props.text}
     />
   );
 }
 
-type Props = {|
+type Props = {
   /**
    * Unique label to describe each PopoverEducational. See the [accessibility section](https://gestalt.pinterest.systems/web/popovereducational#ARIA-attributes) for more guidance.
    */
@@ -72,7 +73,7 @@ type Props = {|
   /**
    * The optional content shown in PopoverEducational. See the [custom content section](https://gestalt.pinterest.systems/web/popovereducational#Custom-content) for more guidance.
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * Unique id to identify each PopoverEducational. Used for [accessibility](https://gestalt.pinterest.systems/web/popovereducational#ARIA-attributes) purposes.
    */
@@ -113,7 +114,7 @@ type Props = {|
    * An object representing the zIndex value of PopoverEducational. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
   zIndex?: Indexable,
-|};
+};
 
 /**
  * [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducationaleducational) is a floating container that introduces users to elements on the screen. Used for education or onboarding experiences.
@@ -133,7 +134,7 @@ export default function PopoverEducational({
   shouldFocus = false,
   size = 'sm',
   zIndex,
-}: Props): Node {
+}: Props): ReactNode {
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
