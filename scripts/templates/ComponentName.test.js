@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import ComponentName from './ComponentName.js';
+import ComponentName from './ComponentName';
 
 describe('ComponentName', () => {
   it('renders', () => {

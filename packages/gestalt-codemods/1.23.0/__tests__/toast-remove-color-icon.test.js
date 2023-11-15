@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../toast-remove-color-icon', () =>
   Object.assign(jest.requireActual('../toast-remove-color-icon'), {

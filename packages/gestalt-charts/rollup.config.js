@@ -1,11 +1,11 @@
 // eslint-disable-next-line flowtype/require-valid-file-annotation, import/no-relative-packages
-import plugins from '../gestalt-core/build.js';
+import plugins from '../gestalt-core/build';
 
 const rollupConfig = {
-  input: 'src/index.js',
+  input: 'src/index',
   output: [
     {
-      file: 'dist/gestalt-charts.js',
+      file: 'dist/gestalt-charts',
       format: 'umd',
       name: 'gestalt-charts',
       exports: 'named',
@@ -19,7 +19,7 @@ const rollupConfig = {
       sourcemap: true,
     },
     {
-      file: 'dist/gestalt-charts.es.js',
+      file: 'dist/gestalt-charts.es',
       format: 'es',
       name: 'gestalt-charts',
       exports: 'named',

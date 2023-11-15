@@ -1,6 +1,6 @@
 // @flow strict
 import renderer from 'react-test-renderer';
-import TableCell from './TableCell.js';
+import TableCell from './TableCell';
 
 test('renders correctly', () => {
   const tree = renderer.create(<TableCell>cell content</TableCell>).toJSON();

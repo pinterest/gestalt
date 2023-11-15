@@ -3,8 +3,8 @@ import { type Node as ReactNode } from 'react';
 import classNames from 'classnames';
 import boxWhitespace from './boxWhitespace.css';
 import ListStyles from './List.css';
-import TableOfContentsAnchor from './TableOfContents/TableOfContentsAnchor.js';
-import TableOfContentsItemList from './TableOfContents/TableOfContentsItemList.js';
+import TableOfContentsAnchor from './TableOfContents/TableOfContentsAnchor';
+import TableOfContentsItemList from './TableOfContents/TableOfContentsItemList';
 
 type Props = {
   /**

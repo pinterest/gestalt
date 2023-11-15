@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../touchable-to-taparea', () =>
   Object.assign(jest.requireActual('../touchable-to-taparea'), {

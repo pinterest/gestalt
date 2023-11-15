@@ -1,20 +1,20 @@
 // @flow strict
 import { Component as ReactComponent, type Node as ReactNode } from 'react';
-import debounce, { type DebounceReturn } from './debounce.js';
-import FetchItems from './FetchItems.js';
+import debounce, { type DebounceReturn } from './debounce';
+import FetchItems from './FetchItems';
 import styles from './Masonry.css';
-import { type Cache } from './Masonry/Cache.js';
-import defaultLayout from './Masonry/defaultLayout.js';
-import defaultTwoColumnModuleLayout from './Masonry/defaultTwoColumnModuleLayout.js';
-import fullWidthLayout from './Masonry/fullWidthLayout.js';
-import HeightsStore, { type HeightsStoreInterface } from './Masonry/HeightsStore.js';
-import MeasureItems from './Masonry/MeasureItems.js';
-import MeasurementStore from './Masonry/MeasurementStore.js';
-import ScrollContainer from './Masonry/ScrollContainer.js';
-import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils.js';
-import { type Position } from './Masonry/types.js';
-import uniformRowLayout from './Masonry/uniformRowLayout.js';
-import throttle, { type ThrottleReturn } from './throttle.js';
+import { type Cache } from './Masonry/Cache';
+import defaultLayout from './Masonry/defaultLayout';
+import defaultTwoColumnModuleLayout from './Masonry/defaultTwoColumnModuleLayout';
+import fullWidthLayout from './Masonry/fullWidthLayout';
+import HeightsStore, { type HeightsStoreInterface } from './Masonry/HeightsStore';
+import MeasureItems from './Masonry/MeasureItems';
+import MeasurementStore from './Masonry/MeasurementStore';
+import ScrollContainer from './Masonry/ScrollContainer';
+import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
+import { type Position } from './Masonry/types';
+import uniformRowLayout from './Masonry/uniformRowLayout';
+import throttle, { type ThrottleReturn } from './throttle';
 
 const RESIZE_DEBOUNCE = 300;
 

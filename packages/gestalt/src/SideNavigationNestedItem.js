@@ -1,6 +1,6 @@
 // @flow strict
 import { type AbstractComponent, forwardRef, type Node as ReactNode } from 'react';
-import SideNavigationTopItem from './SideNavigationTopItem.js';
+import SideNavigationTopItem from './SideNavigationTopItem';
 
 type Props = {
   /**

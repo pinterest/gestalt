@@ -1,5 +1,5 @@
 // @flow strict
-import Letterbox from './Letterbox.js';
+import Letterbox from './Letterbox';
 
 const Valid = (
   <Letterbox width={50} height={50} contentAspectRatio={564 / 806}>

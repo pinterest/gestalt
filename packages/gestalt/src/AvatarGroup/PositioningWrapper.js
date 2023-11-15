@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { type Size, SIZE_MAP } from './constants.js';
-import Box from '../Box.js';
+import { type Size, SIZE_MAP } from './constants';
+import Box from '../Box';
 
 type Props = {
   children: ReactNode,

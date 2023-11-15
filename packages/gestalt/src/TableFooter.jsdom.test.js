@@ -1,7 +1,7 @@
 // @flow strict
 import { render } from '@testing-library/react';
-import Table from './Table.js';
-import Text from './Text.js';
+import Table from './Table';
+import Text from './Text';
 
 describe('Table.Footer', () => {
   test('renders correctly', () => {

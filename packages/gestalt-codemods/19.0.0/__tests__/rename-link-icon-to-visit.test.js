@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../rename-link-icon-to-visit', () =>
   Object.assign(jest.requireActual('../rename-link-icon-to-visit'), {

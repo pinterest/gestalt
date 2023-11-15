@@ -1,8 +1,8 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Box from './Box.js';
-import Image from './Image.js';
-import RadioButton from './RadioButton.js';
+import Box from './Box';
+import Image from './Image';
+import RadioButton from './RadioButton';
 
 test('RadioButton', () => {
   const tree = create(<RadioButton id="id" label="Name" onChange={() => {}} value="" />).toJSON();

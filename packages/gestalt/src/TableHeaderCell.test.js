@@ -1,6 +1,6 @@
 // @flow strict
 import renderer from 'react-test-renderer';
-import TableHeaderCell from './TableHeaderCell.js';
+import TableHeaderCell from './TableHeaderCell';
 
 test('renders correctly', () => {
   const tree = renderer.create(<TableHeaderCell>column name</TableHeaderCell>).toJSON();

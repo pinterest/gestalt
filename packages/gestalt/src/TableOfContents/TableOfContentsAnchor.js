@@ -2,14 +2,14 @@
 import { type Node as ReactNode } from 'react';
 import classNames from 'classnames';
 import styles from './TableOfContentsAnchor.css';
-import Box from '../Box.js';
+import Box from '../Box';
 import Colors from '../Colors.css';
-import { useNesting } from '../contexts/NestingProvider.js';
-import Flex from '../Flex.js';
+import { useNesting } from '../contexts/NestingProvider';
+import Flex from '../Flex';
 import Layout from '../Layout.css';
-import TapAreaLink from '../TapAreaLink.js';
-import Text from '../Text.js';
-import useInteractiveStates from '../utils/useInteractiveStates.js';
+import TapAreaLink from '../TapAreaLink';
+import Text from '../Text';
+import useInteractiveStates from '../utils/useInteractiveStates';
 
 const NESTING_MARGIN_START_MAP = {
   '1': '12px',

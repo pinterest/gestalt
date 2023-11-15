@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import Mask from './Mask.js';
+import Mask from './Mask';
 
 /*
   Much of the math and understanding about this component comes from @vjeaux's

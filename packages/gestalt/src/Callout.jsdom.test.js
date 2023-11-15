@@ -1,6 +1,6 @@
 // @flow strict
 import { render, screen } from '@testing-library/react';
-import Callout from './Callout.js';
+import Callout from './Callout';
 
 test('Callout handles onDismiss callback', () => {
   const mockOnDismiss = jest.fn<[], void>();

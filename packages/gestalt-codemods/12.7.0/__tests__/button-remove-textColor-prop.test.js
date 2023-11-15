@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../button-remove-textColor-prop', () =>
   Object.assign(jest.requireActual('../button-remove-textColor-prop'), {

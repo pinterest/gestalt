@@ -1,10 +1,10 @@
 // @flow strict
 import { create } from 'react-test-renderer';
 import { fireEvent, render, screen } from '@testing-library/react';
-import Link from './Link.js';
-import Text from './Text.js';
-import Tooltip from './Tooltip.js';
-import { FixedZIndex } from './zIndex.js';
+import Link from './Link';
+import Text from './Text';
+import Tooltip from './Tooltip';
+import { FixedZIndex } from './zIndex';
 
 test('Tooltip renders', () => {
   const component = create(

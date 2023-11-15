@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import cx from 'classnames';
-import getRoundingClassName from './getRoundingClassName.js';
+import getRoundingClassName from './getRoundingClassName';
 import styles from './Mask.css';
 
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle';

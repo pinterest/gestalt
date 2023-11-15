@@ -1,7 +1,7 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Tag from './Tag.js';
-import TextArea from './TextArea.js';
+import Tag from './Tag';
+import TextArea from './TextArea';
 
 describe('TextArea', () => {
   it('Renders an FormErrorMessage if an error message is passed in', () => {

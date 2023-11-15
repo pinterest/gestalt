@@ -1,13 +1,13 @@
 // @flow strict
 import { type Element, type Node as ReactNode } from 'react';
-import Badge from '../Badge.js';
-import Box from '../Box.js';
-import Flex from '../Flex.js';
-import Icon from '../Icon.js';
-import IconButton from '../IconButton.js';
-import IconButtonLink from '../IconButtonLink.js';
-import icons from '../icons/index.js';
-import Text from '../Text.js';
+import Badge from '../Badge';
+import Box from '../Box';
+import Flex from '../Flex';
+import Icon from '../Icon';
+import IconButton from '../IconButton';
+import IconButtonLink from '../IconButtonLink';
+import icons from '../icons/index';
+import Text from '../Text';
 
 type BadgeType = {
   text: string,

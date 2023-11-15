@@ -1,14 +1,14 @@
 // @flow strict
 import { type Element, type Node as ReactNode, useId } from 'react';
 import classnames from 'classnames';
-import getChildrenToArray from './getChildrenToArray.js';
-import ListText from './Message.js';
-import Box from '../Box.js';
-import { ListProvider, useList } from '../contexts/ListProvider.js';
-import { NestingProvider, useNesting } from '../contexts/NestingProvider.js';
-import Flex from '../Flex.js';
+import getChildrenToArray from './getChildrenToArray';
+import ListText from './Message';
+import Box from '../Box';
+import { ListProvider, useList } from '../contexts/ListProvider';
+import { NestingProvider, useNesting } from '../contexts/NestingProvider';
+import Flex from '../Flex';
 import styles from '../List.css';
-import Text from '../Text.js';
+import Text from '../Text';
 
 const UNORDERED_SEQUENCE = ['desc', 'circle'];
 const ORDERED_SEQUENCE = ['decimal', 'upper-latin', 'lower-latin'];

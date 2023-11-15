@@ -9,7 +9,7 @@ import {
   useRef,
 } from 'react';
 import { useGlobalEventsHandler } from 'gestalt';
-import InternalDatePicker from './DatePicker/InternalDatePicker.js';
+import InternalDatePicker from './DatePicker/InternalDatePicker';
 
 // LocaleData type from https://github.com/date-fns/date-fns/blob/81ab18785146405ca2ae28710cdfbb13a294ec50/src/locale/af/index.js.flow
 // NOTE: DO NOT USE PER-LINE FLOW SUPPRESSIONS HERE

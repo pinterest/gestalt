@@ -6,10 +6,10 @@ import boxWhitespaceStyles from '../boxWhitespace.css';
 import colorStyles from '../Colors.css';
 import flexStyles from '../Flex.css';
 import focusStyles from '../Focus.css';
-import Icon from '../Icon.js';
+import Icon from '../Icon';
 import layoutStyles from '../Layout.css';
 import touchableStyles from '../TapArea.css';
-import Text from '../Text.js';
+import Text from '../Text';
 
 export type ComboBoxItemType = {
   label: string,

@@ -7,17 +7,17 @@ import {
   useRef,
   useState,
 } from 'react';
-import Badge, { type TypeOptions } from '../Badge.js';
-import Box from '../Box.js';
-import Dropdown from '../Dropdown.js';
-import Flex from '../Flex.js';
-import Heading from '../Heading.js';
-import IconButton from '../IconButton.js';
-import Image from '../Image.js';
-import Link from '../Link.js';
-import Mask from '../Mask.js';
-import { type ActionType } from '../PageHeader.js';
-import Text from '../Text.js';
+import Badge, { type TypeOptions } from '../Badge';
+import Box from '../Box';
+import Dropdown from '../Dropdown';
+import Flex from '../Flex';
+import Heading from '../Heading';
+import IconButton from '../IconButton';
+import Image from '../Image';
+import Link from '../Link';
+import Mask from '../Mask';
+import { type ActionType } from '../PageHeader';
+import Text from '../Text';
 
 export function PageHeaderTitle({
   marginTop,

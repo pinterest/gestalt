@@ -1,12 +1,12 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
-import Box from './Box.js';
+import Box from './Box';
 import focusStyles from './Focus.css';
 import layout from './Layout.css';
 import styles from './SegmentedControl.css';
-import Text from './Text.js';
-import useFocusVisible from './useFocusVisible.js';
+import Text from './Text';
+import useFocusVisible from './useFocusVisible';
 
 type OnChange = ({
   event: SyntheticMouseEvent<HTMLButtonElement>,

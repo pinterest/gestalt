@@ -7,12 +7,12 @@ import {
   useEffect,
   useState,
 } from 'react';
-import Box from './Box.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import Divider from './Divider.js';
-import IconButton from './IconButton.js';
-import icons from './icons/index.js';
-import ModuleExpandableItem from './Module/ExpandableItem.js';
+import Box from './Box';
+import { useColorScheme } from './contexts/ColorSchemeProvider';
+import Divider from './Divider';
+import IconButton from './IconButton';
+import icons from './icons/index';
+import ModuleExpandableItem from './Module/ExpandableItem';
 
 function getExpandedId(expandedIndex: ?number): ?number {
   return Number.isFinite(expandedIndex) ? expandedIndex : null;

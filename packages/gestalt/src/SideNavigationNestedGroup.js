@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import SideNavigationGroup from './SideNavigationGroup.js';
+import SideNavigationGroup from './SideNavigationGroup';
 
 type Props = {
   /**

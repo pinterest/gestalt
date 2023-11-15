@@ -1,16 +1,16 @@
 // @flow strict
 import { Children, type Element, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
-import Box from './Box.js';
-import Button from './Button.js';
-import ButtonLink from './ButtonLink.js';
+import Box from './Box';
+import Button from './Button';
+import ButtonLink from './ButtonLink';
 import styles from './Callout.css';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import Icon from './Icon.js';
-import IconButton from './IconButton.js';
-import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES.js';
-import Text from './Text.js';
-import useResponsiveMinWidth from './useResponsiveMinWidth.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import Icon from './Icon';
+import IconButton from './IconButton';
+import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES';
+import Text from './Text';
+import useResponsiveMinWidth from './useResponsiveMinWidth';
 
 export type ActionDataType =
   | {

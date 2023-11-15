@@ -1,9 +1,9 @@
 // @flow strict
 import { Children, type Node as ReactNode } from 'react';
-import { buildStyles } from './boxTransforms.js';
+import { buildStyles } from './boxTransforms';
 import styles from './Flex.css';
-import FlexItem from './FlexItem.js';
-import wrapWithComponent from './utils/wrapWithComponent.js';
+import FlexItem from './FlexItem';
+import wrapWithComponent from './utils/wrapWithComponent';
 
 type Dimension = number | string;
 type Gap = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;

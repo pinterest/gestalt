@@ -1,7 +1,7 @@
 // @flow strict
 import { Fragment, type Node as ReactNode, useLayoutEffect, useMemo } from 'react';
-import { type Cache } from './Cache.js';
-import { type Position } from './types.js';
+import { type Cache } from './Cache';
+import { type Position } from './types';
 
 const layoutNumberToCssDimension = (n: number) => (n !== Infinity ? n : undefined);
 

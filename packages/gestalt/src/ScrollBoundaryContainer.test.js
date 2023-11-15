@@ -1,7 +1,7 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Box from './Box.js';
-import ScrollBoundaryContainer from './ScrollBoundaryContainer.js';
+import Box from './Box';
+import ScrollBoundaryContainer from './ScrollBoundaryContainer';
 
 describe('ScrollBoundaryContainer', () => {
   it('renders', () => {

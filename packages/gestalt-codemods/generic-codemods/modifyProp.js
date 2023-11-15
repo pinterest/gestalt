@@ -31,7 +31,7 @@
  * REMOVE E.g. yarn codemod modifyProp ~/code/pinboard/webapp --component=Box --previousProp=size
  */
 
-import { type ApiType, type FileType } from './flowtypes.js';
+import { type ApiType, type FileType } from './flowtypes';
 import {
   buildReplaceWithModifiedAttributes,
   filterJSXByAttribute,
@@ -42,7 +42,7 @@ import {
   initialize,
   saveToSource,
   throwErrorIfSpreadProps,
-} from './utils.js';
+} from './utils';
 
 type OptionsType = {
   component: string,

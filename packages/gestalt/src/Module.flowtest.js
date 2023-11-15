@@ -1,6 +1,6 @@
 // @flow strict
-import IconButton from './IconButton.js';
-import Module from './Module.js';
+import IconButton from './IconButton';
+import Module from './Module';
 
 const ValidWithMinimumProps = <Module id="module-id" />;
 

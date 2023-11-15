@@ -1,7 +1,7 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Tag from './Tag.js';
-import TextField from './TextField.js';
+import Tag from './Tag';
+import TextField from './TextField';
 
 describe('TextField', () => {
   it('Renders an FormErrorMessage if an error message is passed in', () => {

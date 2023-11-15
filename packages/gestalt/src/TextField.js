@@ -7,10 +7,10 @@ import {
   useEffect,
   useState,
 } from 'react';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import Tag from './Tag.js';
-import InternalTextField from './TextField/InternalTextField.js';
-import InternalTextFieldIconButton from './TextField/InternalTextFieldIconButton.js';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import Tag from './Tag';
+import InternalTextField from './TextField/InternalTextField';
+import InternalTextFieldIconButton from './TextField/InternalTextFieldIconButton';
 
 export type MaxLength = {
   characterCount: number,

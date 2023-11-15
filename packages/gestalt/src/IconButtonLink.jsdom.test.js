@@ -1,7 +1,7 @@
 // @flow strict
 import { createRef } from 'react';
 import { render, screen } from '@testing-library/react';
-import IconButtonLink from './IconButtonLink.js';
+import IconButtonLink from './IconButtonLink';
 
 describe('IconButtonLink', () => {
   it('handles click', () => {

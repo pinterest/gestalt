@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../convert-font-weight', () =>
   Object.assign(jest.requireActual('../convert-font-weight'), {

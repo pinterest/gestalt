@@ -1,6 +1,6 @@
 // @flow strict
 import { useEffect, useState } from 'react';
-import { addListener, removeListener } from './utils/matchMedia.js';
+import { addListener, removeListener } from './utils/matchMedia';
 
 /**
  * https://gestalt.pinterest.systems/web/utilities/usereducedmotion

@@ -1,15 +1,15 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import DatapointTrend from './Trend.js';
-import AccessibilityPause from '../accessibility/AccessibilityPause.js';
-import Badge from '../Badge.js';
-import Box from '../Box.js';
-import Flex from '../Flex.js';
-import Icon from '../Icon.js';
-import TapArea from '../TapArea.js';
-import Text from '../Text.js';
-import Tooltip from '../Tooltip.js';
-import { type Indexable } from '../zIndex.js';
+import DatapointTrend from './Trend';
+import AccessibilityPause from '../accessibility/AccessibilityPause';
+import Badge from '../Badge';
+import Box from '../Box';
+import Flex from '../Flex';
+import Icon from '../Icon';
+import TapArea from '../TapArea';
+import Text from '../Text';
+import Tooltip from '../Tooltip';
+import { type Indexable } from '../zIndex';
 
 type BadgeObject = {
   text: string,

@@ -1,6 +1,6 @@
 // @flow strict
-import TextField from './TextField.js';
-import UpsellForm from './UpsellForm.js';
+import TextField from './TextField';
+import UpsellForm from './UpsellForm';
 
 const Valid = (
   <UpsellForm

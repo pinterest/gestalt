@@ -2,11 +2,11 @@
 import { type ElementConfig, type Node as ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import styles from './InternalTextField.css';
-import Box from '../Box.js';
-import { ENTER, SPACE, TAB } from '../keyCodes.js';
-import Pog from '../Pog.js';
-import TapArea from '../TapArea.js';
-import Tooltip from '../Tooltip.js';
+import Box from '../Box';
+import { ENTER, SPACE, TAB } from '../keyCodes';
+import Pog from '../Pog';
+import TapArea from '../TapArea';
+import Tooltip from '../Tooltip';
 
 function MaybeTooltip({ children, tooltipText }: { children: ReactNode, tooltipText: ?string }) {
   return tooltipText ? (

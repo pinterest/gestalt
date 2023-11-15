@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Layer from './Layer.js';
+import Layer from './Layer';
 
 describe('Layer in server render', () => {
   it('does not use createPortal or render content', () => {

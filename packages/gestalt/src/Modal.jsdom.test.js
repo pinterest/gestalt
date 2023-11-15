@@ -1,9 +1,9 @@
 // @flow strict
 import { render, screen } from '@testing-library/react';
-import Button from './Button.js';
-import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
-import Flex from './Flex.js';
-import Modal from './Modal.js';
+import Button from './Button';
+import DeviceTypeProvider from './contexts/DeviceTypeProvider';
+import Flex from './Flex';
+import Modal from './Modal';
 
 describe('Modal', () => {
   test('Desktop Modal renders', () => {

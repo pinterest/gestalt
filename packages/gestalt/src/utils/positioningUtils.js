@@ -10,7 +10,7 @@ import {
   type Offset,
   type PopoverDir,
   type Window,
-} from './positioningTypes.js';
+} from './positioningTypes';
 
 // CONSTANTS
 export const CARET_HEIGHT = 4;

@@ -1,6 +1,6 @@
 // @flow strict
 import { render, screen } from '@testing-library/react';
-import SegmentedControl from './SegmentedControl.js';
+import SegmentedControl from './SegmentedControl';
 
 describe('<SegmentedControl />', () => {
   it('handles a click', () => {

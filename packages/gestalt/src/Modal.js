@@ -1,20 +1,20 @@
 // @flow strict
 import { type Node as ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
-import Backdrop from './Backdrop.js';
-import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
-import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
-import Box from './Box.js';
-import { useDeviceType } from './contexts/DeviceTypeProvider.js';
-import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainerProvider.js';
+import Backdrop from './Backdrop';
+import StopScrollBehavior from './behaviors/StopScrollBehavior';
+import TrapFocusBehavior from './behaviors/TrapFocusBehavior';
+import Box from './Box';
+import { useDeviceType } from './contexts/DeviceTypeProvider';
+import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainerProvider';
 import focusStyles from './Focus.css';
-import Heading from './Heading.js';
-import { ESCAPE } from './keyCodes.js';
+import Heading from './Heading';
+import { ESCAPE } from './keyCodes';
 import modalStyles from './Modal.css';
-import InternalScrollBoundaryContainer from './ScrollBoundaryContainer/InternalScrollBoundaryContainerWithForwardRef.js';
-import FullPage from './SheetMobile/FullPage.js';
-import Text from './Text.js';
-import { FixedZIndex } from './zIndex.js';
+import InternalScrollBoundaryContainer from './ScrollBoundaryContainer/InternalScrollBoundaryContainerWithForwardRef';
+import FullPage from './SheetMobile/FullPage';
+import Text from './Text';
+import { FixedZIndex } from './zIndex';
 
 type Props = {
   /**

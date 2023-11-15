@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import VisuallyHidden from './VisuallyHidden.js';
-import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
+import VisuallyHidden from './VisuallyHidden';
+import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 
 export default function NewTabAccessibilityLabel({
   target,

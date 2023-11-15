@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { DropdownContextConsumer } from './Dropdown/Context.js';
-import OptionItem from './Dropdown/OptionItem.js';
+import { DropdownContextConsumer } from './Dropdown/Context';
+import OptionItem from './Dropdown/OptionItem';
 
 type BadgeType = {
   text: string,
