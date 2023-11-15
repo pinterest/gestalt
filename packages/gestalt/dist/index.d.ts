@@ -2954,7 +2954,12 @@ export function useGlobalEventsHandler(): {
   datePickerHandlers?: { onRender?: () => void };
   dateRangeHandlers?: { onRender?: () => void };
   sheetMobileHandlers?: { onOpen?: () => void; onClose?: () => void };
-  linkHandlers?: { onNavigation?: any };
+  linkHandlers?: {
+    onNavigation?: (args: {
+      href: string;
+      target?: null | 'self' | 'blank';
+    }) => AbstractEventHandler<React.SyntheticEvent<HTMLElement>>;
+  };
   radioGroupHandlers?: { onRender?: () => void };
 } | void;
 
@@ -2966,7 +2971,7 @@ export function useDeviceType(): 'desktop' | 'mobile';
 /**
  * Undocumented
  */
-export function useDefaultLabel(k: string): { [k: string]: string };
+export function useDefaultLabel(componentName: string): { [k: string]: string };
 
 /**
  * Undocumented
