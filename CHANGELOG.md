@@ -1,3 +1,9 @@
+## 128.2.1 (Nov 15, 2023)
+
+### Patch
+
+- Internal: Fixed TypeScript declaration file ([#3301](https://github.com/pinterest/gestalt/pull/3301)) - [Preview link](https://deploy-preview-3301--gestalt.netlify.app?devexample=true)
+
 ## 128.2.0 (Nov 15, 2023)
 
 ### Minor
