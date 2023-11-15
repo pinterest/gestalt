@@ -1,3 +1,9 @@
+## 128.2.0 (Nov 15, 2023)
+
+### Minor
+
+- Docs: Stackblitz Support ([#3279](https://github.com/pinterest/gestalt/pull/3279)) - [Preview link](https://deploy-preview-3279--gestalt.netlify.app?devexample=true)
+
 ## 128.1.5 (Nov 14, 2023)
 
 ### Patch
