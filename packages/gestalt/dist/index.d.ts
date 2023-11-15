@@ -28,11 +28,6 @@ type ReactForwardRef<T, P> = React.ForwardRefExoticComponent<
 type FourDirections = 'up' | 'right' | 'down' | 'left';
 type PopoverDirections = 'up' | 'right' | 'down' | 'left' | 'forceDown';
 
-type TapAreaLinkEventHandlerType = AbstractEventHandler<
-  React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-  { dangerouslydangerouslyDisableOnNavigation?: (() => void) | undefined }
->;
-
 type TapAreaEventHandlerType = AbstractEventHandler<
   React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>
 >;
@@ -44,21 +39,13 @@ type BareButtonEventHandlerType = AbstractEventHandler<
   | React.KeyboardEvent<HTMLButtonElement>
 >;
 
-type IconButtonEventHandlerType = AbstractEventHandler<
-  | React.MouseEvent<HTMLButtonElement>
-  | React.MouseEvent<HTMLAnchorElement>
-  | React.KeyboardEvent<HTMLAnchorElement>
-  | React.KeyboardEvent<HTMLButtonElement>,
-  { dangerouslyDisableOnNavigation?: (() => void) | undefined }
->;
-
 type ButtonEventHandlerType = AbstractEventHandler<
   React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>
 >;
 
 type ButtonLinkEventHandlerType = AbstractEventHandler<
   React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-  { dangerouslyDisableOnNavigation?: (() => void) | undefined }
+  { dangerouslyDisableOnNavigation: (() => void) | undefined }
 >;
 
 type VideoEventHandlerType = AbstractEventHandler<React.SyntheticEvent<HTMLVideoElement>>;
@@ -149,6 +136,7 @@ type Icons =
   | 'cancel'
   | 'canonical-pin'
   | 'captions'
+  | 'captions-outline'
   | 'color-picker'
   | 'check'
   | 'check-circle'
@@ -256,8 +244,8 @@ type Icons =
   | 'pinterest'
   | 'play'
   | 'protect'
-  | 'refresh'
   | 'question-mark'
+  | 'refresh'
   | 'remove'
   | 'reorder-images'
   | 'replace'
@@ -284,6 +272,7 @@ type Icons =
   | 'star-outline'
   | 'star'
   | 'star-half'
+  | 'sticker'
   | 'sun'
   | 'switch-account'
   | 'table'
@@ -307,6 +296,7 @@ type Icons =
   | 'target'
   | 'trending'
   | 'twitter'
+  | 'upload-feed'
   | 'video-advance-10-seconds'
   | 'video-camera'
   | 'video-rewind-10-seconds'
@@ -882,7 +872,6 @@ interface ComboBoxProps {
   accessibilityClearButtonLabel?: string | undefined;
   disabled?: boolean | undefined;
   errorMessage?: string | undefined;
-
   helperText?: string | undefined;
   inputValue?: string | null | undefined;
   labelDisplay?: 'visible' | 'hidden' | undefined;
@@ -1146,7 +1135,7 @@ interface IconButtonLinkProps {
   onClick?:
     | AbstractEventHandler<
         React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-        { dangerouslydangerouslyDisableOnNavigation?: (() => void) | undefined }
+        { dangerouslyDisableOnNavigation: (() => void) | undefined }
       >
     | undefined;
   padding?: 1 | 2 | 3 | 4 | 5 | undefined;
@@ -2126,7 +2115,12 @@ interface TapAreaLinkProps {
   onMouseUp?: AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>> | undefined;
   onMouseEnter?: AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>> | undefined;
   onMouseLeave?: AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>> | undefined;
-  onTap?: TapAreaLinkEventHandlerType | undefined;
+  onTap?:
+    | AbstractEventHandler<
+        React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
+        { dangerouslyDisableOnNavigation: (() => void) | undefined }
+      >
+    | undefined;
   rel?: RelType | undefined;
   rounding?: RoundingType | undefined;
   tabIndex?: -1 | 0 | undefined;
@@ -2662,7 +2656,7 @@ export const Popover: React.FunctionComponent<PopoverProps>;
 /**
  * https://gestalt.pinterest.systems/web/popovereducational
  */
-export const Popovereducational: React.FunctionComponent<PopoverEducationalProps>;
+export const PopoverEducational: React.FunctionComponent<PopoverEducationalProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/pulsar
@@ -2924,3 +2918,85 @@ export function useReducedMotion(): boolean;
  * https://gestalt.pinterest.systems/web/utilities/usefocusvisible
  */
 export function useFocusVisible(): { isFocusVisible: boolean };
+
+/**
+ * Undocumented
+ */
+interface ScrollFetchProps {
+  container?: HTMLElement;
+  isAtEnd?: boolean;
+  isFetching: boolean;
+  fetchMore?: () => void;
+  renderHeight?: () => number;
+}
+
+export const ScrollFetch: React.FunctionComponent<ScrollFetchProps>;
+
+/**
+ * Undocumented
+ */
+interface ExperimentProviderProps {
+  children: Node;
+  colorScheme: 'light' | 'dark' | 'userPreference';
+  fullDimensions?: boolean;
+  id?: string | undefined;
+}
+
+export const ExperimentProvider: React.FunctionComponent<
+  React.PropsWithChildren<ExperimentProviderProps>
+>;
+
+/**
+ * Undocumented
+ */
+export function useGlobalEventsHandler(): {
+  dateFieldHandlers?: { onRender?: () => void };
+  datePickerHandlers?: { onRender?: () => void };
+  dateRangeHandlers?: { onRender?: () => void };
+  sheetMobileHandlers?: { onOpen?: () => void; onClose?: () => void };
+  linkHandlers?: { onNavigation?: any };
+  radioGroupHandlers?: { onRender?: () => void };
+} | void;
+
+/**
+ * Undocumented
+ */
+export function useDeviceType(): 'desktop' | 'mobile';
+
+/**
+ * Undocumented
+ */
+export function useDefaultLabel(k: string): { [k: string]: string };
+
+/**
+ * Undocumented
+ */
+export function useColorScheme(): {
+  name: string;
+  colorRed0: string;
+  colorRed100: string;
+  colorRed100Active: string;
+  colorRed100Hovered: string;
+  colorGray0: string;
+  colorGray0Active: string;
+  colorGray0Hovered: string;
+  colorGray50: string;
+  colorGray100: string;
+  colorGray100Active: string;
+  colorGray100Hovered: string;
+  colorGray150: string;
+  colorGray150Hovered: string;
+  colorGray200: string;
+  colorGray200Active: string;
+  colorGray200Hovered: string;
+  colorGray300: string;
+  colorGray400: string;
+  colorTransparentDarkGray: string;
+  colorTransparentGray60: string;
+  colorTransparentGray100: string;
+  colorTransparentGray500: string;
+  colorTransparentWhite: string;
+  blueHovered: string;
+  blueActive: string;
+  [tokenName: string]: string;
+};
