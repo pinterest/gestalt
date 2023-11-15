@@ -8,17 +8,17 @@ import {
   useRef,
 } from 'react';
 import classnames from 'classnames';
-import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
+import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
 import styles from './Button.css';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import Flex from './Flex.js';
+import { useColorScheme } from './contexts/ColorSchemeProvider';
+import Flex from './Flex';
 import focusStyles from './Focus.css';
-import Icon, { type IconColor } from './Icon.js';
-import icons from './icons/index.js';
+import Icon, { type IconColor } from './Icon';
+import icons from './icons/index';
 import touchableStyles from './TapArea.css';
-import Text from './Text.js';
-import useFocusVisible from './useFocusVisible.js';
-import useTapFeedback from './useTapFeedback.js';
+import Text from './Text';
+import useFocusVisible from './useFocusVisible';
+import useTapFeedback from './useTapFeedback';
 
 const DEFAULT_TEXT_COLORS = {
   blue: 'inverse',

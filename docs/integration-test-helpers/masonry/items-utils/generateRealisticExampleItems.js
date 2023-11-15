@@ -1,6 +1,6 @@
 // @flow strict
-import getRandomColor from './getRandomColor.js';
-import getRandomNumberGenerator from './getRandomNumberGenerator.js';
+import getRandomColor from './getRandomColor';
+import getRandomNumberGenerator from './getRandomNumberGenerator';
 
 type Args = {
   name?: string,

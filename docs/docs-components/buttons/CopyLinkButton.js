@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { IconButton } from 'gestalt';
-import trackButtonClick from './trackButtonClick.js';
+import trackButtonClick from './trackButtonClick';
 
 type Props = {
   name: string,

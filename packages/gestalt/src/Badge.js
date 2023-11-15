@@ -2,12 +2,12 @@
 import { type Node as ReactNode } from 'react';
 import cx from 'classnames';
 import styles from './Badge.css';
-import Box from './Box.js';
+import Box from './Box';
 import colors from './Colors.css';
-import Flex from './Flex.js';
-import Icon from './Icon.js';
-import Tooltip from './Tooltip.js';
-import { type Indexable } from './zIndex.js';
+import Flex from './Flex';
+import Icon from './Icon';
+import Tooltip from './Tooltip';
+import { type Indexable } from './zIndex';
 
 type Position = 'middle' | 'top';
 

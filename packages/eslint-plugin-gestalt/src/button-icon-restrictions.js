@@ -7,7 +7,7 @@
  */
 
 // @flow strict
-import { type ESLintRule } from './helpers/eslintFlowTypes.js';
+import { type ESLintRule } from './helpers/eslintFlowTypes';
 
 export const errorMessage = 'Buttons with="link" using iconEnd must use the "visit" icon';
 

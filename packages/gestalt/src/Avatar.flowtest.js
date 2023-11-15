@@ -1,5 +1,5 @@
 // @flow strict
-import Avatar from './Avatar.js';
+import Avatar from './Avatar';
 
 const Valid = <Avatar name="Yen-Wei" />;
 

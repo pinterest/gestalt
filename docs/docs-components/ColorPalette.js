@@ -2,7 +2,7 @@
 import { type Node as ReactNode } from 'react';
 import { Box, Text } from 'gestalt';
 import tokens from 'gestalt-design-tokens/dist/json/variables.json';
-import ColorTile from './ColorTile.js';
+import ColorTile from './ColorTile';
 
 type Props = {
   name: string,

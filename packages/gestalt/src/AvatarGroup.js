@@ -6,13 +6,13 @@ import {
   useCallback,
   useState,
 } from 'react';
-import AddCollaboratorsButton from './AvatarGroup/AddCollaboratorsButton.js';
-import CollaboratorAvatar from './AvatarGroup/CollaboratorAvatar.js';
-import CollaboratorsCount from './AvatarGroup/CollaboratorsCount.js';
-import Box from './Box.js';
-import Flex from './Flex.js';
-import TapArea from './TapArea.js';
-import TapAreaLink from './TapAreaLink.js';
+import AddCollaboratorsButton from './AvatarGroup/AddCollaboratorsButton';
+import CollaboratorAvatar from './AvatarGroup/CollaboratorAvatar';
+import CollaboratorsCount from './AvatarGroup/CollaboratorsCount';
+import Box from './Box';
+import Flex from './Flex';
+import TapArea from './TapArea';
+import TapAreaLink from './TapAreaLink';
 
 const MAX_COLLABORATOR_AVATARS = 3;
 

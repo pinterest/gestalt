@@ -1,32 +1,32 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
 // Examples
-import bestPracticesDoErrorMessage from '../../examples/numberfield/bestPractices-do-errorMessage.js';
-import bestPracticesDoHelperText from '../../examples/numberfield/bestPractices-do-helperText.js';
-import bestPracticesDoLabel from '../../examples/numberfield/bestPractices-do-label.js';
-import bestPracticesDoRelated from '../../examples/numberfield/bestPractices-do-related.js';
-import bestPracticesDoRequired from '../../examples/numberfield/bestPractices-do-required.js';
-import bestPracticesDontErrorMessage from '../../examples/numberfield/bestPractices-dont-errorMessage.js';
-import bestPracticesDontLabel from '../../examples/numberfield/bestPractices-dont-label.js';
-import bestPracticesDontPlaceholder from '../../examples/numberfield/bestPractices-dont-placeholder.js';
-import bestPracticesDontRelated from '../../examples/numberfield/bestPractices-dont-related.js';
-import bestPracticesDontRequired from '../../examples/numberfield/bestPractices-dont-required.js';
-import disabled from '../../examples/numberfield/disabled.js';
-import enterKeyHint from '../../examples/numberfield/enterKeyHint.js';
-import errorMessage from '../../examples/numberfield/errorMessage.js';
-import helperText from '../../examples/numberfield/helperText.js';
-import main from '../../examples/numberfield/main.js';
-import minMaxStep from '../../examples/numberfield/minMaxStep.js';
-import ref from '../../examples/numberfield/ref.js';
+import bestPracticesDoErrorMessage from '../../examples/numberfield/bestPractices-do-errorMessage';
+import bestPracticesDoHelperText from '../../examples/numberfield/bestPractices-do-helperText';
+import bestPracticesDoLabel from '../../examples/numberfield/bestPractices-do-label';
+import bestPracticesDoRelated from '../../examples/numberfield/bestPractices-do-related';
+import bestPracticesDoRequired from '../../examples/numberfield/bestPractices-do-required';
+import bestPracticesDontErrorMessage from '../../examples/numberfield/bestPractices-dont-errorMessage';
+import bestPracticesDontLabel from '../../examples/numberfield/bestPractices-dont-label';
+import bestPracticesDontPlaceholder from '../../examples/numberfield/bestPractices-dont-placeholder';
+import bestPracticesDontRelated from '../../examples/numberfield/bestPractices-dont-related';
+import bestPracticesDontRequired from '../../examples/numberfield/bestPractices-dont-required';
+import disabled from '../../examples/numberfield/disabled';
+import enterKeyHint from '../../examples/numberfield/enterKeyHint';
+import errorMessage from '../../examples/numberfield/errorMessage';
+import helperText from '../../examples/numberfield/helperText';
+import main from '../../examples/numberfield/main';
+import minMaxStep from '../../examples/numberfield/minMaxStep';
+import ref from '../../examples/numberfield/ref';
 
 const previewHeightPx = 235;
 

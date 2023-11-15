@@ -3,12 +3,12 @@ import { type Node as ReactNode, useEffect, useState } from 'react';
 import LazyHydrate from 'react-lazy-hydration';
 import { useRouter } from 'next/router';
 import { ColorSchemeProvider, Masonry } from 'gestalt';
-import generateExampleItems from '../../integration-test-helpers/masonry/items-utils/generateExampleItems.js';
-import generateRealisticExampleItems from '../../integration-test-helpers/masonry/items-utils/generateRealisticExampleItems.js';
+import generateExampleItems from '../../integration-test-helpers/masonry/items-utils/generateExampleItems';
+import generateRealisticExampleItems from '../../integration-test-helpers/masonry/items-utils/generateRealisticExampleItems';
 import pinHeights, {
   type PinHeight,
-} from '../../integration-test-helpers/masonry/items-utils/pinHeights.js';
-import MasonryContainer from '../../integration-test-helpers/masonry/MasonryContainer.js';
+} from '../../integration-test-helpers/masonry/items-utils/pinHeights';
+import MasonryContainer from '../../integration-test-helpers/masonry/MasonryContainer';
 
 // This can get bumped up another order of magnitude or so if needed…perf drops off pretty rapidly after that
 const REALISTIC_PINS_DATASET_SIZE = 1000;

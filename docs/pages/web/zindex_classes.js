@@ -1,13 +1,13 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import foundationalComponentsExample from '../../examples/zindex_classes/foundationalComponentsExample.js';
-import layerExample from '../../examples/zindex_classes/layerExample.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import foundationalComponentsExample from '../../examples/zindex_classes/foundationalComponentsExample';
+import layerExample from '../../examples/zindex_classes/layerExample';
 
 export default function DocsPage(): ReactNode {
   return (
@@ -68,7 +68,7 @@ import { FixedZIndex } from 'gestalt';
 export const BaseZIndex = = new FixedZIndex(1);
 
 // importing file
-import { BaseZIndex } from './path/to/your/zindex/file.js';
+import { BaseZIndex } from './path/to/your/zindex/file';
 
 const BoxWithZIndex = <Box zIndex={BaseZIndex}/>
 ~~~
@@ -84,7 +84,7 @@ Export constant z-index values to create FixedZIndex and CompositeZIndex.
 export const BaseZIndex = 1;
 
 // importing file
-import { BaseZIndex } from './path/to/your/zindex/file.js';
+import { BaseZIndex } from './path/to/your/zindex/file';
 import { FixedZIndex } from 'gestalt';
 
 const BoxZIndex = new FixedZIndex(BaseZIndex);
@@ -109,7 +109,7 @@ export const BaseZIndex = = new FixedZIndex(1);
 // importing file
 import { CompositeZIndex } from 'gestalt';
 
-import { BaseZIndex } from './path/to/your/zindex/file.js';
+import { BaseZIndex } from './path/to/your/zindex/file';
 
 const composedZIndex = new CompositeZIndex([BaseZIndex]);
 
@@ -128,7 +128,7 @@ export const BaseZIndex = 1;
 
 // importing file
 import { FixedZIndex } from 'gestalt';
-import { BaseZIndex } from './path/to/your/zindex/file.js';
+import { BaseZIndex } from './path/to/your/zindex/file';
 
 const composedZIndex = new FixedZIndex(BaseZIndex + 1);
 

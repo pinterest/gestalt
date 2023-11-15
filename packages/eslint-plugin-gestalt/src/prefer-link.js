@@ -3,7 +3,7 @@
  */
 
 // @flow strict
-import { renameTagWithPropsFixer, updateGestaltImportFixer } from './helpers/eslintASTFixers.js';
+import { renameTagWithPropsFixer, updateGestaltImportFixer } from './helpers/eslintASTFixers';
 import {
   buildKeyValueTypeArray,
   buildProps,
@@ -15,9 +15,9 @@ import {
   hasSpreadAttributes,
   hasUnsupportedAttributes,
   isTag,
-} from './helpers/eslintASTHelpers.js';
-import { type ESLintRule } from './helpers/eslintFlowTypes.js';
-import preferLinkReducer from './helpers/preferLinkReducer.js';
+} from './helpers/eslintASTHelpers';
+import { type ESLintRule } from './helpers/eslintFlowTypes';
+import preferLinkReducer from './helpers/preferLinkReducer';
 
 export const MESSAGES = {
   fixMessageLink: `Use Link from Gestalt (default autofix): <Link href="">Text</Link>\n

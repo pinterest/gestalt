@@ -1,5 +1,5 @@
 // @flow strict
-import { type Platform } from '../types.js';
+import { type Platform } from '../types';
 
 const prettyPlatforms = {
   android: 'Android',

@@ -16,8 +16,8 @@ import {
   Tooltip,
 } from 'gestalt';
 import iconCategoryData from './ICON_DATA.json';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
+import Page from '../../../docs-components/Page';
+import PageHeader from '../../../docs-components/PageHeader';
 
 const { icons } = Icon;
 const CATEGORIES = [

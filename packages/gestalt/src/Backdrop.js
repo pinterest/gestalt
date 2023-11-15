@@ -1,7 +1,7 @@
 // @flow strict
 import { Fragment, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
-import { ANIMATION_STATE, useAnimation } from './animation/AnimationContext.js';
+import { ANIMATION_STATE, useAnimation } from './animation/AnimationContext';
 import styles from './Backdrop.css';
 
 type Props = {

@@ -1,30 +1,30 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { SlimBanner } from 'gestalt';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import SheetMobileHandlers from '../../examples/globaleventshandlerprovider/sheetMobileHandlers.js';
-import animation from '../../examples/sheetmobile/animation.js';
-import autoSize from '../../examples/sheetmobile/autoSize.js';
-import defaultSize from '../../examples/sheetmobile/defaultSize.js';
-import differentSize from '../../examples/sheetmobile/differentSize.js';
-import dismissButtonHeader from '../../examples/sheetmobile/dismissButtonHeader.js';
-import footer from '../../examples/sheetmobile/footer.js';
-import fullSize from '../../examples/sheetmobile/fullSize.js';
-import localizationLabels from '../../examples/sheetmobile/localizationLabels.js';
-import main from '../../examples/sheetmobile/main.js';
-import navigationHeader from '../../examples/sheetmobile/navigationHeader.js';
-import outsideClick from '../../examples/sheetmobile/outsideClick.js';
-import textOnlyHeader from '../../examples/sheetmobile/textOnlyHeader.js';
-import withPrimaryActionHeader from '../../examples/sheetmobile/withPrimaryActionHeader.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import { type DocGen, multipleDocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import SheetMobileHandlers from '../../examples/globaleventshandlerprovider/sheetMobileHandlers';
+import animation from '../../examples/sheetmobile/animation';
+import autoSize from '../../examples/sheetmobile/autoSize';
+import defaultSize from '../../examples/sheetmobile/defaultSize';
+import differentSize from '../../examples/sheetmobile/differentSize';
+import dismissButtonHeader from '../../examples/sheetmobile/dismissButtonHeader';
+import footer from '../../examples/sheetmobile/footer';
+import fullSize from '../../examples/sheetmobile/fullSize';
+import localizationLabels from '../../examples/sheetmobile/localizationLabels';
+import main from '../../examples/sheetmobile/main';
+import navigationHeader from '../../examples/sheetmobile/navigationHeader';
+import outsideClick from '../../examples/sheetmobile/outsideClick';
+import textOnlyHeader from '../../examples/sheetmobile/textOnlyHeader';
+import withPrimaryActionHeader from '../../examples/sheetmobile/withPrimaryActionHeader';
 
 export default function SheetMobilePage({
   generatedDocGen,

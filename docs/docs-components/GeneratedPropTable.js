@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { type DocGen } from './docgen.js';
-import PropTable from './PropTable.js';
+import { type DocGen } from './docgen';
+import PropTable from './PropTable';
 
 // Note if the prop has responsive versions (e.g. margin, smMargin, mdMargin, lgMargin)
 function getResponsive(description?: string): {

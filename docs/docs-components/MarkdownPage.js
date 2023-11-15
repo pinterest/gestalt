@@ -4,13 +4,13 @@ import { type Node as ReactNode } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import Image from 'next/image';
 import { Box, ButtonLink, Datapoint, Flex, Icon, Link, List, Text } from 'gestalt';
-import { DOCS_COPY_MAX_WIDTH_PX } from './consts.js';
-import Highlighter from './highlight.js';
-import IllustrationCard from './IllustrationCard.js';
-import InternalOnlyIconButton from './InternalOnlyIconButton.js';
-import MainSection from './MainSection.js';
-import Page from './Page.js';
-import PageHeader from './PageHeader.js';
+import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
+import Highlighter from './highlight';
+import IllustrationCard from './IllustrationCard';
+import InternalOnlyIconButton from './InternalOnlyIconButton';
+import MainSection from './MainSection';
+import Page from './Page';
+import PageHeader from './PageHeader';
 
 type Props = {
   children: ReactNode,

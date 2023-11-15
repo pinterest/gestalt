@@ -1,15 +1,15 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Link, Table, Text } from 'gestalt';
-import docGen, { type DocGen } from '../../../docs-components/docgen.js';
-import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
-import InternalDocumentationSection from '../../../docs-components/InternalDocumentationSection.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import SandpackExample from '../../../docs-components/SandpackExample.js';
-import noTranslations from '../../../examples/defaultlabelprovider/no-translations.js';
-import translations from '../../../examples/defaultlabelprovider/translations.js';
+import docGen, { type DocGen } from '../../../docs-components/docgen';
+import GeneratedPropTable from '../../../docs-components/GeneratedPropTable';
+import InternalDocumentationSection from '../../../docs-components/InternalDocumentationSection';
+import MainSection from '../../../docs-components/MainSection';
+import Page from '../../../docs-components/Page';
+import PageHeader from '../../../docs-components/PageHeader';
+import SandpackExample from '../../../docs-components/SandpackExample';
+import noTranslations from '../../../examples/defaultlabelprovider/no-translations';
+import translations from '../../../examples/defaultlabelprovider/translations';
 
 // Function to generate the table below - need access to fallbackLabels to actually do so
 function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */) {

@@ -1,8 +1,8 @@
 // @flow strict
 
 import { create } from 'react-test-renderer';
-import Button from './Button.js';
-import ButtonGroup from './ButtonGroup.js';
+import Button from './Button';
+import ButtonGroup from './ButtonGroup';
 
 describe('ButtonGroup', () => {
   test('Renders nothing when no children are passed in', () => {

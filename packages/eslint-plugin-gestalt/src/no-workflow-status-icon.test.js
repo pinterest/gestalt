@@ -2,8 +2,8 @@
 import { readFileSync } from 'fs';
 import path from 'path';
 import { RuleTester } from 'eslint';
-import { parserOptions } from './helpers/testHelpers.js';
-import rule, { errorMessage as defaultOutputMessage } from './no-workflow-status-icon.js';
+import { parserOptions } from './helpers/testHelpers';
+import rule, { errorMessage as defaultOutputMessage } from './no-workflow-status-icon';
 
 const ruleTester = new RuleTester({ parserOptions });
 

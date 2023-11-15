@@ -1,18 +1,18 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import main from '../../examples/masonry/main.js';
-import variantsBasic from '../../examples/masonry/variantsBasic.js';
-import variantsFlexible from '../../examples/masonry/variantsFlexible.js';
-import variantsUniform from '../../examples/masonry/variantsUniform.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import main from '../../examples/masonry/main';
+import variantsBasic from '../../examples/masonry/variantsBasic';
+import variantsFlexible from '../../examples/masonry/variantsFlexible';
+import variantsUniform from '../../examples/masonry/variantsUniform';
 
 const PREVIEW_HEIGHT = 400;
 

@@ -3,14 +3,14 @@ import { type Element, type Node as ReactNode } from 'react';
 import { Badge, Box, Flex, Heading, Link, SlimBanner, Text } from 'gestalt';
 import * as gestaltChart from 'gestalt-charts'; // eslint-disable-line import/no-namespace
 import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
-import trackButtonClick from './buttons/trackButtonClick.js';
-import { DOCS_COPY_MAX_WIDTH_PX } from './consts.js';
-import componentData from './data/components.js';
-import getByPlatform from './data/utils/getByPlatform.js';
-import InternalOnlyIconButton from './InternalOnlyIconButton.js';
-import Markdown from './Markdown.js';
-import PageHeaderQualitySummary from './PageHeaderQualitySummary.js';
-import { SlimBannerExperiment } from './SlimBannerExperiment.js';
+import trackButtonClick from './buttons/trackButtonClick';
+import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
+import componentData from './data/components';
+import getByPlatform from './data/utils/getByPlatform';
+import InternalOnlyIconButton from './InternalOnlyIconButton';
+import Markdown from './Markdown';
+import PageHeaderQualitySummary from './PageHeaderQualitySummary';
+import { SlimBannerExperiment } from './SlimBannerExperiment';
 
 const webComponentData = getByPlatform(componentData, { platform: 'web' });
 

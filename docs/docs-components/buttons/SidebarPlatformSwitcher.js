@@ -2,10 +2,10 @@
 import React, { type Node as ReactNode } from 'react';
 import { useRouter } from 'next/router';
 import { SegmentedControl } from 'gestalt';
-import trackButtonClick from './trackButtonClick.js';
+import trackButtonClick from './trackButtonClick';
 import AndroidLogo from '../../graphics/home-page/android-logo.svg';
 import AppleLogo from '../../graphics/home-page/apple-logo.svg';
-import { type ComponentPlatformFilteredBy } from '../navigationContext.js';
+import { type ComponentPlatformFilteredBy } from '../navigationContext';
 
 type Props = {
   onClick: (platform: 'web' | 'android' | 'ios') => void,

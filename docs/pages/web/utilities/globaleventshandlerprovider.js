@@ -1,18 +1,18 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { SlimBanner } from 'gestalt';
-import docGen, { type DocGen } from '../../../docs-components/docgen.js';
-import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
-import InternalDocumentationSection from '../../../docs-components/InternalDocumentationSection.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import SandpackExample from '../../../docs-components/SandpackExample.js';
-import linkHandlersCalloutUpsell from '../../../examples/globaleventshandlerprovider/linkHandlersCalloutUpsell.js';
-import linkHandlersDangerouslyDisableOnNavigation from '../../../examples/globaleventshandlerprovider/linkHandlersDangerouslyDisableOnNavigation.js';
-import linkHandlersDropdown from '../../../examples/globaleventshandlerprovider/linkHandlersDropdown.js';
-import linkHandlersLinkButton from '../../../examples/globaleventshandlerprovider/linkHandlersLinkButton.js';
-import sheetMobileHandlers from '../../../examples/globaleventshandlerprovider/sheetMobileHandlers.js';
+import docGen, { type DocGen } from '../../../docs-components/docgen';
+import GeneratedPropTable from '../../../docs-components/GeneratedPropTable';
+import InternalDocumentationSection from '../../../docs-components/InternalDocumentationSection';
+import MainSection from '../../../docs-components/MainSection';
+import Page from '../../../docs-components/Page';
+import PageHeader from '../../../docs-components/PageHeader';
+import SandpackExample from '../../../docs-components/SandpackExample';
+import linkHandlersCalloutUpsell from '../../../examples/globaleventshandlerprovider/linkHandlersCalloutUpsell';
+import linkHandlersDangerouslyDisableOnNavigation from '../../../examples/globaleventshandlerprovider/linkHandlersDangerouslyDisableOnNavigation';
+import linkHandlersDropdown from '../../../examples/globaleventshandlerprovider/linkHandlersDropdown';
+import linkHandlersLinkButton from '../../../examples/globaleventshandlerprovider/linkHandlersLinkButton';
+import sheetMobileHandlers from '../../../examples/globaleventshandlerprovider/sheetMobileHandlers';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (

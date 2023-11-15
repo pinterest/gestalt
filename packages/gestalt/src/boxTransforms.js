@@ -20,10 +20,10 @@ import {
   type Padding,
   type Position,
   type UserSelect,
-} from './boxTypes.js';
+} from './boxTypes';
 import whitespace from './boxWhitespace.css';
 import colors from './Colors.css';
-import { getRoundingStyle } from './getRoundingClassName.js';
+import { getRoundingStyle } from './getRoundingClassName';
 import layout from './Layout.css';
 import {
   concat,
@@ -33,10 +33,10 @@ import {
   mapClassName,
   toProps,
   type ToPropsOutput,
-} from './style.js';
-import { bind, type Functor, mapping, range, rangeWithZero, toggle, union } from './transforms.js';
-import omit from './utils/omit.js';
-import { type Indexable } from './zIndex.js';
+} from './style';
+import { bind, type Functor, mapping, range, rangeWithZero, toggle, union } from './transforms';
+import omit from './utils/omit';
+import { type Indexable } from './zIndex';
 
 /*
 

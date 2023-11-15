@@ -1,23 +1,23 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import autoplayAndErrorDetectionExample from '../../examples/video/autoplayAndErrorDetectionExample.js';
-import captionsExample from '../../examples/video/captionsExample.js';
-import controlsExample from '../../examples/video/controlsExample.js';
-import localizationLabels from '../../examples/video/localizationLabels.js';
-import mainExample from '../../examples/video/mainExample.js';
-import multipleSourcesExample from '../../examples/video/multipleSourcesExample.js';
-import updatesExample from '../../examples/video/updatesExample.js';
-import withChildrenExample from '../../examples/video/withChildrenExample.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import autoplayAndErrorDetectionExample from '../../examples/video/autoplayAndErrorDetectionExample';
+import captionsExample from '../../examples/video/captionsExample';
+import controlsExample from '../../examples/video/controlsExample';
+import localizationLabels from '../../examples/video/localizationLabels';
+import mainExample from '../../examples/video/mainExample';
+import multipleSourcesExample from '../../examples/video/multipleSourcesExample';
+import updatesExample from '../../examples/video/updatesExample';
+import withChildrenExample from '../../examples/video/withChildrenExample';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
