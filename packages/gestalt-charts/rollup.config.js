@@ -19,7 +19,7 @@ const rollupConfig = {
       sourcemap: true,
     },
     {
-      file: 'dist/gestalt-charts.es',
+      file: 'dist/gestalt-charts.es.js',
       format: 'es',
       name: 'gestalt-charts',
       exports: 'named',
