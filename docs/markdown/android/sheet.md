@@ -59,7 +59,7 @@ fullwidth: true
 
 ## Accessibility
 
-- Always include a grabber for partial sheets, it aides in resizability but is also tab-accessible and usable with non-touch inputs like keyboard or switch controls.
+- Always include a grabber for resizable sheets, it aides in adjustability affordance but is also tab-accessible and usable with non-touch inputs like keyboard or switch controls.
 - The accessibility role for a Sheet is "bottom sheet." When a Sheet is triggered and focus is moved to the first element in it, a screen reader will announce "bottom sheet" due to its role.
   
 People use Android’s accessibility features, such as TalkBack and dynamic text sizing to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Material Design and development documentation about accessibility for Android:
