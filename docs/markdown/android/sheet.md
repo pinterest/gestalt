@@ -111,9 +111,9 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 Sheets are available in two sizes.
 
 1. **Partial sheet**
-   The content of a partial sheet should align with the primary screen content. Partial Sheet includes a background wash that enables the user to view the content behind, but not interact with it. Partial sheets are flexible and can vary in height. Users can tap outside of the Sheet to dismiss.
+   The content of a partial sheet should align with the primary screen content. Partial Sheet includes a background wash that enables the user to view the content behind, but not interact with it. Partial sheets can be set to be either resizable or non-resizable. Users can tap outside of the Sheet to dismiss.
 2. **Full sheet**
-   A full sheet does not directly relate to the primary screen. The full Sheet occupies the entire viewport’s full height and must be closed to access underlying content. 
+   A full sheet does not directly relate to the primary screen. The full Sheet occupies the entire viewport’s full height, is not resizable and must be closed to access underlying content. 
 
 <TwoCol>
 <Group>
@@ -128,8 +128,14 @@ Sheets are available in two sizes.
 </TwoCol>
 <br/>
 
+### Resizing
+1. **Resizable sheet**
+   Resizable sheets are flexible. A user can hold on to the grabber at the top of the header and resize the sheet to a larger or smaller view port.  This can happen with either partial or full sheets. 
+2. **Fixed sheet**
+   Fixed sheets cannot be changed by the user. They have a fixed size, and cannot be expanded or shrunk. These sheets do not have a grabber and can be either partial or full sheets.
+
 ### Scrolling
-Both partial and full sheet content can be vertically scrolled when it’s content exceeds the initial viewable height, independent of the rest of the screen’s content.
+You can vertically scroll both partial, resizable sheets and full sheets of content that are too tall. 
 <br/>
 
 ### Header
