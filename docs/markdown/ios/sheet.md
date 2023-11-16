@@ -96,6 +96,7 @@ Sheets are available in two sizes.
    Resizable sheets are flexible. A user can hold on to the grabber at the top of the header and resize the sheet to a larger or smaller view port.  This can happen with either partial or full sheets. 
 2. **Fixed sheet**
    Fixed sheets cannot be changed by the user. They have a fixed size, and cannot be expanded or shrunk. These sheets do not have a grabber and can be either partial or full sheets.
+<br/>
 
 ### Scrolling
 You can vertically scroll both partial, resizable sheets and full sheets of content that are too tall. 

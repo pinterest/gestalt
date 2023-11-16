@@ -114,6 +114,7 @@ Sheets are available in two sizes.
    The content of a partial sheet should align with the primary screen content. Partial Sheet includes a background wash that enables the user to view the content behind, but not interact with it. Partial sheets can be set to be either resizable or non-resizable. Users can tap outside of the Sheet to dismiss.
 2. **Full sheet**
    A full sheet does not directly relate to the primary screen. The full Sheet occupies the entire viewport’s full height, is not resizable and must be closed to access underlying content. 
+<br/>
 
 <TwoCol>
 <Group>
