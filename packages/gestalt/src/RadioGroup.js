@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode, useEffect } from 'react';
-import { useGlobalEventsHandler } from 'gestalt';
+import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider.js';
 import Fieldset from './Fieldset.js';
 import Flex from './Flex.js';
 import { RadioGroupContextProvider } from './RadioGroup/Context.js';
@@ -52,7 +52,7 @@ function RadioGroup({
   legendDisplay = 'visible',
 }: Props): ReactNode {
   // Consume GlobalEventsHandlerProvider
-  const { radioGroupHandlers } = useGlobalEventsHandler() ?? {
+  const { radioGroupHandlers } = useGlobalEventsHandlerContext() ?? {
     radioGroupHandlers: undefined,
   };
 
