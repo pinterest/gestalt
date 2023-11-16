@@ -48,7 +48,7 @@ fullwidth: true
   <Group>
     <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/98/f8/4d/98f84d38ef9dde66333830eead6fda9e.png" alt="a partial sheet with a grabber to help resize"/>
     <Do title="Do" />
-    Always Include a grabber for partial sheets to signal resizability and provide better accessibility.
+    Include a grabber for resizable sheets to signal adjustability and to provide better accessibility.
   </Group>
   <Group>
     <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/03/c9/bb/03c9bb88c3746ce74bdacfe68fa9727c.png" alt="a full sheet with rounded corners"/>
