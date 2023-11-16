@@ -1,3 +1,9 @@
+## 128.2.2 (Nov 16, 2023)
+
+### Patch
+
+- Internal: fix ([#3302](https://github.com/pinterest/gestalt/pull/3302)) - [Preview link](https://deploy-preview-3302--gestalt.netlify.app?devexample=true)
+
 ## 128.2.1 (Nov 15, 2023)
 
 ### Patch
