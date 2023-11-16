@@ -1,4 +1,3 @@
-import { ChartGraph } from '../../gestalt-charts/dist/index';
 import React = require('react');
 
 /**
