@@ -241,6 +241,8 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           status: 'planned',
         },
       },
+    },
+  },
   {
     id: 'Badge',
     platform: {
@@ -466,6 +468,9 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           status: 'ready',
         },
       },
+    },
+  },
+
   {
     id: 'Callout',
     platform: {
@@ -1234,6 +1239,8 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           status: 'ready',
         },
       },
+    },
+  },
   {
     id: 'Image',
     platform: {
