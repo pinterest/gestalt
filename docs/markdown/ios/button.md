@@ -39,11 +39,9 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 - [Accessible development on iOS](https://developer.apple.com/accessibility/)
 
 ## Design tokens
-<iframe style={{border:0}} width="100%" height="1500" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244-1656&mode=design&t=iHJEURtTWzEJEX0J-11" allowFullScreen></iframe>
-
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="1500" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A1656%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe>
 ## Anatomy
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244-1540&mode=design&t=iHJEURtTWzEJEX0J-11" allowFullScreen></iframe>
-
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A1540%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe>
 ## Variants
 
 ### Size
@@ -59,8 +57,7 @@ Mobile buttons are available in 2 sizes. The Button text always use [$font-size-
 2. **sm (44px)**
    Small should be used sparingly and only in places where the UI is very dense.
 
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244%3A1227&mode=design&t=4mUA4440vnGBOLOp-1" allowFullScreen></iframe>
-
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A1227%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe>
 ### Width
 
 1. **Inline (default)**
@@ -70,12 +67,10 @@ Mobile buttons are available in 2 sizes. The Button text always use [$font-size-
 
 <TwoCol>
 <Group>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244-1299&mode=design&t=iHJEURtTWzEJEX0J-11" allowFullScreen></iframe>
-</Group>
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A1299%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe></Group>
 
 <Group>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244-1870&mode=design&t=iHJEURtTWzEJEX0J-11" allowFullScreen></iframe>
-</Group>
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A1870%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe></Group>
 </TwoCol>
 
 ### Styling
@@ -91,28 +86,24 @@ Low emphasis when placed on dark/image backgrounds, used for tertiary actions in
 <br/>
 <TwoCol>
 <Group>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244-1403&mode=design&t=iHJEURtTWzEJEX0J-11" allowFullScreen></iframe>
-
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A1403%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe>
 **Primary**
 </Group>
 
 <Group>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244-1423&mode=design&t=iHJEURtTWzEJEX0J-11" allowFullScreen></iframe>
-
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A1423%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe>
 **Shopping**
 </Group>
 </TwoCol>
 
 <TwoCol>
 <Group>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244-1419&mode=design&t=iHJEURtTWzEJEX0J-11" allowFullScreen></iframe>
-
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A1419%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe>
 **Secondary**
 </Group>
 
 <Group>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244-1421&mode=design&t=iHJEURtTWzEJEX0J-11" allowFullScreen></iframe>
-
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A1421%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe>
 **Tertiary**
 </Group>
 </TwoCol>
@@ -124,20 +115,17 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
 When Button is used to toggle a boolean state or control the visibility of other elements (e.g. Dropdown).
 <TwoCol>
 <Group>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244-1427&mode=design&t=iHJEURtTWzEJEX0J-11" allowFullScreen></iframe>
-**Disabled**
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A1427%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe>**Disabled**
 </Group>
 
 <Group>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244-1425&mode=design&t=iHJEURtTWzEJEX0J-11" allowFullScreen></iframe>
-**Selected**
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A1425%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe>**Selected**
 </Group>
 </TwoCol>
 
 
 ## Color
-<iframe style={{border:0}} width="100%" height="640" src="https://www.figma.com/file/REw1COFYAktmVWrUBh3Ov8/Gestalt-for-Android?type=design&node-id=21497-48071&mode=design&t=A74e8VTyPPg6OSkF-11" allowFullScreen></iframe>
-
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="640" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A1405%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe>
 ## Writing
 <TwoCol>
   <Group>
