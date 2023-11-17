@@ -41,13 +41,13 @@ For writing best practices, refer to the [Button documentation](/ios/button).
 
 Use these tokens for applying size, weight and color styles to ButtonGroups.
 <br/>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244%3A751&mode=design&t=rpzG2JbQK3dHaeE6-1" allowFullScreen></iframe>
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A751%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe>
 
 ## Anatomy
 
 See below how the ButtonGroup component is constructed.
 <br/>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244%3A900&mode=design&t=rpzG2JbQK3dHaeE6-1" allowFullScreen></iframe>
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A900%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe>
 
 ## Variants
 
@@ -56,12 +56,10 @@ See below how the ButtonGroup component is constructed.
 Mobile buttons are available in 2 sizes. The Button text always use [$font-size-300 token](/foundations/design_tokens#Font-size) (16sp).
 <br/>
 
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244%3A603&mode=design&t=rpzG2JbQK3dHaeE6-1" allowFullScreen></iframe>
-
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A603%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe>
 <br/>
 
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244%3A529&mode=design&t=rpzG2JbQK3dHaeE6-1" allowFullScreen></iframe>
-
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A529%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe>
 1. **lg (60px)**
    Large should be primarily used on Pinner, business and internal surfaces.
 2. **sm (48px)**
@@ -70,8 +68,7 @@ Mobile buttons are available in 2 sizes. The Button text always use [$font-size-
 <br/>
 ### Orientation use cases
 
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244%3A677&mode=design&t=rpzG2JbQK3dHaeE6-1" allowFullScreen></iframe>
-
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A677%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe>
 1. **Horizontal**
    By default, a ButtonGroup is horizontal.
 2. **Vertical**
@@ -80,8 +77,7 @@ Mobile buttons are available in 2 sizes. The Button text always use [$font-size-
 <br/>
 
 ## Dark mode
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS?type=design&node-id=39244%3A329&mode=design&t=rpzG2JbQK3dHaeE6-1" allowFullScreen></iframe>
-
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A329%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe>
 ## Styling
 
 For information on color, icons, roles, and states, refer to the [Button documentation](/ios/button).
