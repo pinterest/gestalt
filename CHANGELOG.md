@@ -1,3 +1,9 @@
+## 128.2.3 (Nov 17, 2023)
+
+### Patch
+
+- Docs: Updated px to dp on avatar.md ([#3304](https://github.com/pinterest/gestalt/pull/3304)) - [Preview link](https://deploy-preview-3304--gestalt.netlify.app?devexample=true)
+
 ## 128.2.2 (Nov 16, 2023)
 
 ### Patch
