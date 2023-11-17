@@ -1,3 +1,9 @@
+## 128.3.1 (Nov 17, 2023)
+
+### Patch
+
+- Docs: updated Tag description ([#3306](https://github.com/pinterest/gestalt/pull/3306)) - [Preview link](https://deploy-preview-3306--gestalt.netlify.app?devexample=true)
+
 ## 128.3.0 (Nov 17, 2023)
 
 ### Minor
