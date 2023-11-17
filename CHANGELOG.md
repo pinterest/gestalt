@@ -1,3 +1,9 @@
+## 128.3.0 (Nov 17, 2023)
+
+### Minor
+
+- Internal: Fix eventhandler import ([#3303](https://github.com/pinterest/gestalt/pull/3303)) - [Preview link](https://deploy-preview-3303--gestalt.netlify.app?devexample=true)
+
 ## 128.2.3 (Nov 17, 2023)
 
 ### Patch
