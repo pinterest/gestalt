@@ -24,7 +24,7 @@ fullwidth: true
 </Group>
 </TwoCol>
 
-## Mobile best practices
+## Best practices
 
 - Trigger sheets via user actions, like button taps
 - Include a header title. Headers can be center or start-aligned, but they should remain consistent.
