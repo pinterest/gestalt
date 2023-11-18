@@ -25,7 +25,7 @@ fullwidth: true
   </Group>
 </TwoCol>
 
-## Mobile best practices
+## Best practices
 
 - Avoid using a floating IconButton if it obscures important information on the screen 
 - IconButton on mobile should primarily utilize the LG (44px) size as the increased size will better accommodate tapping with a finger

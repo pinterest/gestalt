@@ -2298,7 +2298,8 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           svg: <Tag />,
         },
         alias: ['Chip', 'Pill', 'Filter Tag'],
-        description: 'Tags are objects that hold text and have a delete icon to remove them.',
+        description:
+          'Tags can be used to categorize, classify or filter content, usually via keywords.',
         category: ['Navigation'],
         status: {
           accessible: {
