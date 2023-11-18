@@ -39,6 +39,7 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 - [Accessible development on iOS](https://developer.apple.com/accessibility/)
 
 ## Design tokens
+
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="1500" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A1656%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe>
 ## Anatomy
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A1540%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe>
@@ -74,13 +75,15 @@ Mobile buttons are available in 2 sizes. The Button text always use [$font-size-
 </TwoCol>
 
 ### Styling
+
 For more information on color, icons, roles, and states, refer to the [web Button documentation](/web/button)
+
 1. **Red (Primary)**
-High emphasis, used for primary actions.
+   High emphasis, used for primary actions.
 2. **Blue (Primary in shopping context)**
-The blue Button is only intended for the shopping experience and is used for primary shopping actions.
+   The blue Button is only intended for the shopping experience and is used for primary shopping actions.
 3. **Gray (Secondary)**
-Medium emphasis, used for secondary actions.
+   Medium emphasis, used for secondary actions.
 4. **Transparent (Tertiary)**
 Low emphasis when placed on dark/image backgrounds, used for tertiary actions in that context. Note, this treatment should be used with caution as it has potential color contrast issues.
 <br/>
@@ -109,8 +112,9 @@ Low emphasis when placed on dark/image backgrounds, used for tertiary actions in
 </TwoCol>
 
 ### States
+
 1. **Disabled**
-Used to block user interaction such as hover, focus and click. Disabled Buttons are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled Buttons.
+   Used to block user interaction such as hover, focus and click. Disabled Buttons are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled Buttons.
 2. **Selected**
 When Button is used to toggle a boolean state or control the visibility of other elements (e.g. Dropdown).
 <TwoCol>
@@ -123,8 +127,8 @@ When Button is used to toggle a boolean state or control the visibility of other
 </Group>
 </TwoCol>
 
-
 ## Color
+
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="640" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A1405%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe>
 ## Writing
 <TwoCol>
@@ -142,7 +146,6 @@ When Button is used to toggle a boolean state or control the visibility of other
 </TwoCol>
 For writing best practices, refer to the [web Button documentation](/web/button).
 
-
 ## Localization
 
 For RTL (right-to-left) languages, the layout of the button is mirrored. The icon is placed on the right side of the text.
@@ -150,6 +153,6 @@ For RTL (right-to-left) languages, the layout of the button is mirrored. The ico
 ## Related
 
 - [ButtonGroup](/web/button)
-ButtonGroup is used to display a series of buttons with similar actions.
+  ButtonGroup is used to display a series of buttons with similar actions.
 - [IconButton](/web/button)
-IconButton allows users to take actions and make choices with a single click or tap.
+  IconButton allows users to take actions and make choices with a single click or tap.

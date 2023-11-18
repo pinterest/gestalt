@@ -20,28 +20,30 @@ fullwidth: true
 </TwoCol>
 
 ## Best practices
+
 For general Avatar best practices, refer to the [Avatar web documentation](/web/avatar).
+
 - Use the default alternative if no image source is available. This will be the first character of the provided name.
 - Don’t place elements like washes, text or icons on Avatar.
 - Don’t use Avatar to represent metaphorical ideas, like a Board.
-<br/>
-<TwoCol>
+  <br/>
+  <TwoCol>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/83/4c/85/834c85d6296e37c23cbae448168cb5aa.png" alt="example profile with correct avatar size"/>
-    <Do title="Do" />
-    Use round Avatars in the appropriate size for your need.
+  <ImgContainer src="https://i.pinimg.com/originals/83/4c/85/834c85d6296e37c23cbae448168cb5aa.png" alt="example profile with correct avatar size"/>
+  <Do title="Do" />
+  Use round Avatars in the appropriate size for your need.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/30/ef/9d/30ef9d831e6b7b548699da80c0522cc8.png" alt="example of triangle avatar"/>
-    <Dont title="Don't" />
-    Scale or change the shape of Avatar. Instead use the designated Avatar sizes and style.
+  <ImgContainer src="https://i.pinimg.com/originals/30/ef/9d/30ef9d831e6b7b548699da80c0522cc8.png" alt="example of triangle avatar"/>
+  <Dont title="Don't" />
+  Scale or change the shape of Avatar. Instead use the designated Avatar sizes and style.
   </Group>
   <Group>
-    <ImgContainer src="https://i.pinimg.com/originals/6a/83/92/6a83922c62920e546b682a27042b7d57.png" alt="avatar with a name underneath"/>
-    <Do title="Do" />
-    Use the collaborator’s name nearby or in an alternative view if possible.
+  <ImgContainer src="https://i.pinimg.com/originals/6a/83/92/6a83922c62920e546b682a27042b7d57.png" alt="avatar with a name underneath"/>
+  <Do title="Do" />
+  Use the collaborator’s name nearby or in an alternative view if possible.
   </Group>
-</TwoCol>
+  </TwoCol>
 
 ## Accessibility
 
@@ -51,9 +53,11 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 [Accessible development on iOS](https://developer.apple.com/accessibility/ios/)
 
 ## Design tokens
+
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="560" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39390%253A1240%26mode%3Ddesign%26t%3D8hM8hUptq2PvLuyA-1" allowfullscreen></iframe>
 
 ## Anatomy
+
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39390%253A783%26mode%3Ddesign%26t%3D8hM8hUptq2PvLuyA-1" allowfullscreen></iframe>
 
 ## Variants
@@ -72,6 +76,7 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 ### Without an image
 
 If there is no image source provided for the Avatar, the first character of the name provided will be used as a placeholder.
+
 1. With image
 2. Without image
 
@@ -86,13 +91,15 @@ If there is no image source provided for the Avatar, the first character of the 
   </TwoCol>
 
 ### Stroke
-The avatar has an optional 1px border. 
+
+The avatar has an optional 1px border.
 <br/>
 <TwoCol>
-  <Group>
-    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39390%253A1101%26mode%3Ddesign%26t%3D8hM8hUptq2PvLuyA-1" allowfullscreen></iframe>
-  </Group>
-  <Group>
-    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39390%253A1471%26mode%3Ddesign%26t%3D8hM8hUptq2PvLuyA-1" allowfullscreen></iframe>
-  </Group>
-  </TwoCol>
+<Group>
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39390%253A1101%26mode%3Ddesign%26t%3D8hM8hUptq2PvLuyA-1" allowfullscreen></iframe>
+</Group>
+<Group>
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39390%253A1471%26mode%3Ddesign%26t%3D8hM8hUptq2PvLuyA-1" allowfullscreen></iframe>
+</Group>
+</TwoCol>

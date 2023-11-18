@@ -22,7 +22,7 @@ fullwidth: true
 
 ## Mobile best practices
 
-Keep primary actions (ex: submitting a form) on the right and secondary actions (ex: cancel) on the left. When used vertically, keep the primary action at the top. 
+Keep primary actions (ex: submitting a form) on the right and secondary actions (ex: cancel) on the left. When used vertically, keep the primary action at the top.
 
 For general Button best practices on color usage and states, refer to the [Button documentation](/ios/button).
 
@@ -41,12 +41,14 @@ For writing best practices, refer to the [Button documentation](/ios/button).
 
 Use these tokens for applying size, weight and color styles to ButtonGroups.
 <br/>
+
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A751%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe>
 
 ## Anatomy
 
 See below how the ButtonGroup component is constructed.
 <br/>
+
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A900%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe>
 
 ## Variants
@@ -77,12 +79,14 @@ Mobile buttons are available in 2 sizes. The Button text always use [$font-size-
 <br/>
 
 ## Dark mode
+
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D39244%253A329%26mode%3Ddesign%26t%3DKmwVNK2zlshOfSby-1" allowfullscreen></iframe>
 ## Styling
 
 For information on color, icons, roles, and states, refer to the [Button documentation](/ios/button).
 
 ## Writing
+
 <TwoCol>
   <Group>
     <Do title="Do" />
