@@ -6,7 +6,7 @@ fullwidth: true
 
 <ImgContainer src="https://i.pinimg.com/originals/28/1a/d1/281ad184c9d118598c3617c87f444b11.png" alt="a red button that says Save" />
 
-## Mobile best practices
+## Best practices
 
 - Place primary buttons to the right or top of other buttons when in a button group.
 - Keep elements inside a button container grouped. Label text and icons should remain centered when the Button width increases.

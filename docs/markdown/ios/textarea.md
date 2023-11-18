@@ -19,7 +19,7 @@ fullwidth: true
   </Group>
 </TwoCol>
 
-## Mobile best practices
+## Best practices
 
 - Use a label to clearly denote what information the user should input. Use placeholder sparingly as they can erode usability of form fields
 - Use helper text to provide additional context that will aid the user in most effectively inputting information
