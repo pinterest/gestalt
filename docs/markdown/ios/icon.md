@@ -161,8 +161,6 @@ arrow-back
 </Group>
 </TwoCol>
 
-{/\*
-
 ## Related
 
 <TwoCol>
@@ -182,4 +180,3 @@ arrow-back
 />
 
 </TwoCol>
-*/}
