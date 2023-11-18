@@ -1,3 +1,9 @@
+## 128.3.4 (Nov 18, 2023)
+
+### Patch
+
+- Docs: new or updated iOS docs for Avatar, AvatarGroup, Button, ButtonGroup, IconFloatingButton ([#3308](https://github.com/pinterest/gestalt/pull/3308)) - [Preview link](https://deploy-preview-3308--gestalt.netlify.app?devexample=true)
+
 ## 128.3.3 (Nov 18, 2023)
 
 ### Patch
