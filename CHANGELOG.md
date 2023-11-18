@@ -1,3 +1,9 @@
+## 128.3.3 (Nov 18, 2023)
+
+### Patch
+
+- Docs: Updates to sheet language ([#3305](https://github.com/pinterest/gestalt/pull/3305)) - [Preview link](https://deploy-preview-3305--gestalt.netlify.app?devexample=true)
+
 ## 128.3.2 (Nov 18, 2023)
 
 ### Patch
