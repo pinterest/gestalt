@@ -1,3 +1,9 @@
+## 128.3.2 (Nov 18, 2023)
+
+### Patch
+
+- Docs: Update best practices headings ([#3307](https://github.com/pinterest/gestalt/pull/3307)) - [Preview link](https://deploy-preview-3307--gestalt.netlify.app?devexample=true)
+
 ## 128.3.1 (Nov 17, 2023)
 
 ### Patch
