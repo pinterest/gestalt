@@ -6,7 +6,6 @@ fullwidth: true
 
 <ImgContainer src="https://i.pinimg.com/originals/1d/52/31/1d5231c99699e72628135de682fede30.jpg" alt="Five example icons in a row. Icons include share, check, back, filter, and menu." />
 
-
 ## Usage guidelines
 
 <TwoCol>
@@ -50,6 +49,7 @@ Use these tokens for applying size and color styles to Icon.
 <iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D19236%253A74851%26t%3DD3hNy73JBEb5S9mN-1" allowFullScreen></iframe>
 
 ## Anatomy
+
 ### Dimensions
 
 Icon's container dimensions are the same for all icons regardless of the size of the vector asset inside of the container.
@@ -59,8 +59,10 @@ Icon's container dimensions are the same for all icons regardless of the size of
 <iframe style={{border:0}} width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D19236%253A74590%26t%3DD3hNy73JBEb5S9mN-1" allowFullScreen></iframe>
 
 ### Touch target
+
 If an icon is interactive, use the built-in 44 x 44px touch target.
 <br />
+
 <iframe style={{border:0}} width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fnode-id%3D19297%253A72581%26t%3DD3hNy73JBEb5S9mN-1" allowFullScreen></iframe>
 
 ## Variants
@@ -76,15 +78,15 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
 ### Size use cases
 
 1. **12px**
-Used only for Pins and Boards
+   Used only for Pins and Boards
 2. **16px**
-Default icon size. Used often, whenever an icon is needed, i.e., icons in headers, close icons, etc.
+   Default icon size. Used often, whenever an icon is needed, i.e., icons in headers, close icons, etc.
 3. **20px**
-Used only when pairing with 16pt (Size200) text
+   Used only when pairing with 16pt (Size200) text
 4. **24px**
-Used for navigation bar elements or when a larger icon is needed
+   Used for navigation bar elements or when a larger icon is needed
 5. **32px**
-Used sparingly to draw attention to an icon that might otherwise be missed
+   Used sparingly to draw attention to an icon that might otherwise be missed
 
 <TwoCol>
 <Group>
@@ -112,11 +114,11 @@ Icon colors are semantic—they have a specific meaning and aren't arbitrary. Th
 ### Platform-specific icons
 
 1. **Share**
-On iOS, use the icon-share icon to indicate the ability to share an element.
+   On iOS, use the icon-share icon to indicate the ability to share an element.
 2. **Check**
-Instead of a radio button on iOS, use the check icon.
+   Instead of a radio button on iOS, use the check icon.
 3. **Back**
-On iOS, use the chevron icon titled arrow-back to indicate backward movement.
+   On iOS, use the chevron icon titled arrow-back to indicate backward movement.
 
 <ThreeCol>
 <Group>
@@ -134,6 +136,7 @@ arrow-back
 </ThreeCol>
 
 ## Naming
+
 - Follow the [web icon naming convention](http://pinch.pinadmin.com/new-icon-naming) when possible
 - Names should be kebab-case: all lowercase, with multiple words separated by a dash
 - Start with the primary function first&mdash;instead of `circle-arrow`, use `arrow-circle`
@@ -158,7 +161,8 @@ arrow-back
 </Group>
 </TwoCol>
 
-{/*
+{/\*
+
 ## Related
 
 <TwoCol>
