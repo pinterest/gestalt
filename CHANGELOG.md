@@ -1,3 +1,9 @@
+## 128.3.5 (Nov 20, 2023)
+
+### Patch
+
+- Internal: Changed config in .eslintrc.js to set import/extensions to never require .js extension ([#3300](https://github.com/pinterest/gestalt/pull/3300)) - [Preview link](https://deploy-preview-3300--gestalt.netlify.app?devexample=true)
+
 ## 128.3.4 (Nov 18, 2023)
 
 ### Patch
