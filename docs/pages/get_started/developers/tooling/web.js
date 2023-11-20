@@ -342,54 +342,89 @@ The following table lists the currently available metrics to track Gestalt adopt
             <Table.Body>
               {[
                 [
-                  'Gestalt Components',
+                  'Gestalt components',
                   '# total Gestalt components / (# native DOM elements + # total Gestalt component); % per site',
-                  'http://go/metrics_gestalt_percentage',
+                  'https://statsboard.pinadmin.com/share/ne646',
                 ],
                 [
-                  'Non-building-block Gestalt Components',
-                  '# total non-building-block Gestalt components / (# native DOM elements + # total Gestalt component)',
-                  'http://go/metrics_gestalt_highorder_percentage',
+                  '% HTML coverage',
+                  '# total Gestalt components with HTML equivalent/ (# native DOM elements with Gestalt equivalent + # total Gestalt components with HTML equivalent);',
+                  'https://statsboard.pinadmin.com/share/9pgew',
+                ],
+                [
+                  '% HTML coverage',
+                  '# total Gestalt components with HTML equivalent/ (# native DOM elements with Gestalt equivalent + # total Gestalt components with HTML equivalent); per HTML tag',
+                  'https://statsboard.pinadmin.com/share/9pgew',
+                ],
+                [
+                  'HTML detailed coverage',
+                  '# total Gestalt components with HTML equivalent, # total HTML components with Gestalt equivalent',
+                  'https://statsboard.pinadmin.com/share/zhum5',
                 ],
                 [
                   'Gestalt Components: component level',
                   '# total Gestalt components; # per component',
-                  'http://go/metrics_gestalt_component',
+                  'https://statsboard.pinadmin.com/share/m7k6n',
                 ],
                 [
                   'Gestalt Components: prop level',
                   '# total Gestalt components; # per prop & component',
-                  'http://go/metrics_gestalt_prop',
+                  'https://statsboard.pinadmin.com/share/c2s7c',
                 ],
                 [
                   'Gestalt Components: prop value level',
                   '# total Gestalt components; # per prop value & prop & component',
-                  'http://go/metrics_gestalt_value',
+                  'https://statsboard.pinadmin.com/share/6kvbj',
                 ],
                 [
                   'Native DOM Elements: tag level',
                   '# total native DOM elements; # per tag',
-                  'http://go/metrics_nativeDom_element',
+                  'https://statsboard.pinadmin.com/share/9fn8q',
                 ],
                 [
                   'Native DOM Elements: attribute level',
                   '# total native DOM elements; # per attribute & tag',
-                  'http://go/metrics_nativeDom_attribute',
+                  'https://statsboard.pinadmin.com/share/bvnsx',
                 ],
                 [
                   'Native DOM Elements: attribute value level',
                   '# total native DOM elements; # per attribute value & attribute & tag',
-                  'http://go/metrics_nativeDom_value',
+                  'https://statsboard.pinadmin.com/share/jgukh',
                 ],
                 [
                   'Boxes with dangerouslySetInlineStyle',
                   '# Gestalt Box with dangerouslySetInlineStyle prop / (# total Gestalt Box); % per site',
-                  'http://go/metrics_dangerouslySetInlineStyle',
+                  'https://statsboard.pinadmin.com/share/rqsye',
                 ],
                 [
                   'Top dangerouslySetInlineStyle style attribute keys',
                   '# most used CSS attributes passed to dangerouslySetInlineStyle; # per site',
-                  'http://go/metrics_dangerouslySetInlineStyle_keys',
+                  'https://statsboard.pinadmin.com/d/gestalt/dangerouslyInlineStyle/Top%20dangerous%20style%20keys',
+                ],
+                [
+                  'Non-building-block Gestalt Components',
+                  '# total non-building-block Gestalt components / (# native DOM elements + # total Gestalt component)',
+                  'https://statsboard.pinadmin.com/share/rgnur',
+                ],
+                [
+                  'Usage by import source (direct import, subcomponent, Pinboard extension)',
+                  '# total Gestalt components; # per source',
+                  'https://statsboard.pinadmin.com/share/rgnur',
+                ],
+                [
+                  'Usage by component category (Html equivalent, industry standard, Pinterest specific)',
+                  '# total Gestalt components; # per category',
+                  'https://statsboard.pinadmin.com/share/rgnur',
+                ],
+                [
+                  'Usage by component type (utility, building block, UI)',
+                  '# total Gestalt components; # per type',
+                  'https://statsboard.pinadmin.com/share/rgnur',
+                ],
+                [
+                  'Component impressions',
+                  '# component impressions; # per component',
+                  'https://statsboard.pinadmin.com/share/rgnur',
                 ],
               ].map((item) => (
                 <TableEntry
