@@ -1,6 +1,6 @@
 // @flow strict
 import { render, screen } from '@testing-library/react';
-import InternalLink from './InternalLink.js';
+import InternalLink from './InternalLink';
 
 test('InternalLink handles onClick callback', () => {
   const mockOnClick = jest.fn<

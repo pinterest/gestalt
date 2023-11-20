@@ -2,8 +2,8 @@
 import { readFileSync } from 'fs';
 import path from 'path';
 import { RuleTester } from 'eslint';
-import { parserOptions } from './helpers/testHelpers.js';
-import rule, { SUPPORTED_HTML_TAGS } from './prefer-box-as-tag.js';
+import { parserOptions } from './helpers/testHelpers';
+import rule, { SUPPORTED_HTML_TAGS } from './prefer-box-as-tag';
 
 const ruleTester = new RuleTester({ parserOptions });
 

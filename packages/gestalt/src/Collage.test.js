@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Collage from './Collage.js';
+import Collage from './Collage';
 
 type CollageImageProps = {
   width: number,

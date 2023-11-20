@@ -1,5 +1,5 @@
 // @flow strict
-import PageHeader from './PageHeader.js';
+import PageHeader from './PageHeader';
 
 const Valid = <PageHeader title="Settings" />;
 

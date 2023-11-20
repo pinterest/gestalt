@@ -1,6 +1,6 @@
 // @flow strict
 import { type AbstractComponent, forwardRef, type Node as ReactNode } from 'react';
-import InternalCheckbox from './Checkbox/InternalCheckbox.js';
+import InternalCheckbox from './Checkbox/InternalCheckbox';
 
 type Props = {
   /**

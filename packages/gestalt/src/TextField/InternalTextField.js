@@ -10,16 +10,16 @@ import {
 } from 'react';
 import classnames from 'classnames';
 import styles from './InternalTextField.css';
-import InternalTextFieldIconButton from './InternalTextFieldIconButton.js';
-import Box from '../Box.js';
+import InternalTextFieldIconButton from './InternalTextFieldIconButton';
+import Box from '../Box';
 import focusStyles from '../Focus.css';
 import layout from '../Layout.css';
 import formElement from '../shared/FormElement.css';
-import FormErrorMessage from '../shared/FormErrorMessage.js';
-import FormHelperText from '../shared/FormHelperText.js';
-import FormLabel from '../shared/FormLabel.js';
-import Tag from '../Tag.js';
-import { type MaxLength } from '../TextField.js';
+import FormErrorMessage from '../shared/FormErrorMessage';
+import FormHelperText from '../shared/FormHelperText';
+import FormLabel from '../shared/FormLabel';
+import Tag from '../Tag';
+import { type MaxLength } from '../TextField';
 import typography from '../Typography.css';
 
 type Props = {

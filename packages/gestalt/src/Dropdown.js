@@ -1,19 +1,19 @@
 // @flow strict
 import { Children, cloneElement, Fragment, type Node as ReactNode, useState } from 'react';
-import AnimationProvider from './animation/AnimationContext.js';
-import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext.js';
-import Box from './Box.js';
-import { useDeviceType } from './contexts/DeviceTypeProvider.js';
-import { DropdownContextProvider } from './Dropdown/Context.js';
-import DropdownItem from './DropdownItem.js';
-import DropdownLink from './DropdownLink.js';
-import DropdownSection from './DropdownSection.js';
-import { DOWN_ARROW, ENTER, ESCAPE, SPACE, TAB, UP_ARROW } from './keyCodes.js';
-import Layer from './Layer.js';
-import Popover from './Popover.js';
-import PartialPage from './SheetMobile/PartialPage.js';
-import { type DirectionOptionType } from './utils/keyboardNavigation.js';
-import { type Indexable } from './zIndex.js';
+import AnimationProvider from './animation/AnimationContext';
+import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext';
+import Box from './Box';
+import { useDeviceType } from './contexts/DeviceTypeProvider';
+import { DropdownContextProvider } from './Dropdown/Context';
+import DropdownItem from './DropdownItem';
+import DropdownLink from './DropdownLink';
+import DropdownSection from './DropdownSection';
+import { DOWN_ARROW, ENTER, ESCAPE, SPACE, TAB, UP_ARROW } from './keyCodes';
+import Layer from './Layer';
+import Popover from './Popover';
+import PartialPage from './SheetMobile/PartialPage';
+import { type DirectionOptionType } from './utils/keyboardNavigation';
+import { type Indexable } from './zIndex';
 
 const KEYS = {
   UP: -1,

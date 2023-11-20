@@ -1,10 +1,10 @@
 // @flow strict
 import { type Node as ReactNode, useEffect } from 'react';
-import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider.js';
-import Fieldset from './Fieldset.js';
-import Flex from './Flex.js';
-import { RadioGroupContextProvider } from './RadioGroup/Context.js';
-import RadioGroupButton from './RadioGroupButton.js';
+import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider';
+import Fieldset from './Fieldset';
+import Flex from './Flex';
+import { RadioGroupContextProvider } from './RadioGroup/Context';
+import RadioGroupButton from './RadioGroupButton';
 
 type Props = {
   /**

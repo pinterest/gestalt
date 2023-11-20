@@ -3,7 +3,7 @@ import { type AbstractComponent, type Element, forwardRef, type Node as ReactNod
 import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Text.css';
-import { semanticColors } from './textTypes.js';
+import { semanticColors } from './textTypes';
 import typography from './Typography.css';
 
 function isNotNullish(val: ?number): boolean {

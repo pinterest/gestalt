@@ -1,9 +1,9 @@
 // @flow strict
 import { Children, type Node as ReactNode, useEffect } from 'react';
 import { Box, Flex, Link, Text } from 'gestalt';
-import { CONTENT_MAX_WIDTH_PX } from './AppLayout.js';
-import SearchContent from './SearchContent.js';
-import Toc from './Toc.js';
+import { CONTENT_MAX_WIDTH_PX } from './AppLayout';
+import SearchContent from './SearchContent';
+import Toc from './Toc';
 
 const DETAIL_PAGE_MAX_WIDTH = 894;
 

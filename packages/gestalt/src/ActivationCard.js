@@ -2,13 +2,13 @@
 import { Fragment, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import styles from './ActivationCard.css';
-import Box from './Box.js';
-import ButtonLink from './ButtonLink.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import Icon from './Icon.js';
-import IconButton from './IconButton.js';
-import Text from './Text.js';
+import Box from './Box';
+import ButtonLink from './ButtonLink';
+import { useColorScheme } from './contexts/ColorSchemeProvider';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import Icon from './Icon';
+import IconButton from './IconButton';
+import Text from './Text';
 
 const STATUS_ICONS = {
   notStarted: undefined,

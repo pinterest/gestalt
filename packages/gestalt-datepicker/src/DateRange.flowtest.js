@@ -1,5 +1,5 @@
 // @flow strict-local
-import DateRange from './DateRange.js';
+import DateRange from './DateRange';
 
 const Valid = (
   <DateRange

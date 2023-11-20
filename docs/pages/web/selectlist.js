@@ -1,28 +1,28 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import controlledComponentExample from '../../examples/selectlist/controlledComponentExample.js';
-import customLabelVisibilityExample from '../../examples/selectlist/customLabelVisibilityExample.js';
-import dontMixDropdownAndItemListInGroup from '../../examples/selectlist/dontMixDropdownAndItemListInGroup.js';
-import dontUseIfAdditionalFeaturesNeeded from '../../examples/selectlist/dontUseIfAdditionalFeaturesNeeded.js';
-import dontUseIfLessThanFourItems from '../../examples/selectlist/dontUseIfLessThanFourItems.js';
-import errorMessageExample from '../../examples/selectlist/errorMessageExample.js';
-import groupingRelatedOptionsExample from '../../examples/selectlist/groupingRelatedOptionsExample.js';
-import helperTextExample from '../../examples/selectlist/helperTextExample.js';
-import labelsWithBuiltInFeaturesExample from '../../examples/selectlist/labelsWithBuiltInFeaturesExample.js';
-import largeSizeExample from '../../examples/selectlist/largeSizeExample.js';
-import main from '../../examples/selectlist/main.js';
-import maintainSelectionTypeForGroup from '../../examples/selectlist/maintainSelectionTypeForGroup.js';
-import mediumSizeExample from '../../examples/selectlist/mediumSizeExample.js';
-import orderItemsByAlphabetOrUsage from '../../examples/selectlist/orderItemsByAlphabetOrUsage.js';
-import useForSimpleItemList from '../../examples/selectlist/useForSimpleItemList.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import { type DocGen, multipleDocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import controlledComponentExample from '../../examples/selectlist/controlledComponentExample';
+import customLabelVisibilityExample from '../../examples/selectlist/customLabelVisibilityExample';
+import dontMixDropdownAndItemListInGroup from '../../examples/selectlist/dontMixDropdownAndItemListInGroup';
+import dontUseIfAdditionalFeaturesNeeded from '../../examples/selectlist/dontUseIfAdditionalFeaturesNeeded';
+import dontUseIfLessThanFourItems from '../../examples/selectlist/dontUseIfLessThanFourItems';
+import errorMessageExample from '../../examples/selectlist/errorMessageExample';
+import groupingRelatedOptionsExample from '../../examples/selectlist/groupingRelatedOptionsExample';
+import helperTextExample from '../../examples/selectlist/helperTextExample';
+import labelsWithBuiltInFeaturesExample from '../../examples/selectlist/labelsWithBuiltInFeaturesExample';
+import largeSizeExample from '../../examples/selectlist/largeSizeExample';
+import main from '../../examples/selectlist/main';
+import maintainSelectionTypeForGroup from '../../examples/selectlist/maintainSelectionTypeForGroup';
+import mediumSizeExample from '../../examples/selectlist/mediumSizeExample';
+import orderItemsByAlphabetOrUsage from '../../examples/selectlist/orderItemsByAlphabetOrUsage';
+import useForSimpleItemList from '../../examples/selectlist/useForSimpleItemList';
 
 export default function DocsPage({
   generatedDocGen,

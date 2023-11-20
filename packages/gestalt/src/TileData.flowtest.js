@@ -1,5 +1,5 @@
 // @flow strict
-import TileData from './TileData.js';
+import TileData from './TileData';
 
 const Valid = <TileData title="Text Impressions" value="1.23M" selected onTap={() => {}} />;
 

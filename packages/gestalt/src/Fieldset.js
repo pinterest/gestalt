@@ -5,9 +5,9 @@ import boxStyles from './Box.css';
 import boxWhitespaceStyles from './boxWhitespace.css';
 import labelStyles from './Label/InternalLabel.css';
 import formStyles from './shared/FormElement.css';
-import FormErrorMessage from './shared/FormErrorMessage.js';
+import FormErrorMessage from './shared/FormErrorMessage';
 import formLabelStyles from './shared/FormLabel.css';
-import Text from './Text.js';
+import Text from './Text';
 import whitespaceStyles from './Whitespace.css';
 
 type Props = {

@@ -1,14 +1,14 @@
 // @flow strict
 import { type Element, type Node as ReactNode } from 'react';
-import Box from './Box.js';
-import { type Dimension } from './boxTypes.js';
-import Button from './Button.js';
-import ButtonLink from './ButtonLink.js';
-import Dropdown from './Dropdown.js';
-import Flex from './Flex.js';
-import IconButton from './IconButton.js';
-import Image from './Image.js';
-import Link from './Link.js';
+import Box from './Box';
+import { type Dimension } from './boxTypes';
+import Button from './Button';
+import ButtonLink from './ButtonLink';
+import Dropdown from './Dropdown';
+import Flex from './Flex';
+import IconButton from './IconButton';
+import Image from './Image';
+import Link from './Link';
 import styles from './PageHeader.css';
 import {
   PageHeaderActionBlock,
@@ -18,9 +18,9 @@ import {
   PageHeaderSubtext,
   PageHeaderThumbnail,
   PageHeaderTitle,
-} from './PageHeader/components.js';
-import Text from './Text.js';
-import Tooltip from './Tooltip.js';
+} from './PageHeader/components';
+import Text from './Text';
+import Tooltip from './Tooltip';
 
 export type ActionType = Element<
   | typeof Button

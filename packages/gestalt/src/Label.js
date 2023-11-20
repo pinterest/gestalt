@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import InternalLabel from './Label/InternalLabel.js';
+import InternalLabel from './Label/InternalLabel';
 
 type Props = {
   /**

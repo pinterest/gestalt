@@ -1,13 +1,13 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, Flex, Heading, Image, Text } from 'gestalt';
-import { DOCS_COPY_MAX_WIDTH_PX } from '../../../../docs-components/consts.js';
-import MainSection from '../../../../docs-components/MainSection.js';
-import Markdown from '../../../../docs-components/Markdown.js';
-import Page from '../../../../docs-components/Page.js';
-import PageHeader from '../../../../docs-components/PageHeader.js';
-import SandpackExample from '../../../../docs-components/SandpackExample.js';
-import mobilegraphExample from '../../../../examples/datavisualization/mobilegraphExample.js';
+import { DOCS_COPY_MAX_WIDTH_PX } from '../../../../docs-components/consts';
+import MainSection from '../../../../docs-components/MainSection';
+import Markdown from '../../../../docs-components/Markdown';
+import Page from '../../../../docs-components/Page';
+import PageHeader from '../../../../docs-components/PageHeader';
+import SandpackExample from '../../../../docs-components/SandpackExample';
+import mobilegraphExample from '../../../../examples/datavisualization/mobilegraphExample';
 
 export default function GeneralGuidelines(): ReactNode {
   return (

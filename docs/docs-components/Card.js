@@ -2,9 +2,9 @@
 import { type Node as ReactNode } from 'react';
 import slugify from 'slugify';
 import { Badge, Box, Flex, Heading, Tooltip } from 'gestalt';
-import CopyLinkButton from './buttons/CopyLinkButton.js';
-import { DOCS_COPY_MAX_WIDTH_PX } from './consts.js';
-import Markdown from './Markdown.js';
+import CopyLinkButton from './buttons/CopyLinkButton';
+import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
+import Markdown from './Markdown';
 
 type Props = {
   children?: ReactNode,

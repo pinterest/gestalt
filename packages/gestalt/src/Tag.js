@@ -1,16 +1,16 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
-import Box from './Box.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import Flex from './Flex.js';
+import Box from './Box';
+import { useColorScheme } from './contexts/ColorSchemeProvider';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import Flex from './Flex';
 import focusStyles from './Focus.css';
-import Icon from './Icon.js';
+import Icon from './Icon';
 import styles from './Tag.css';
 import touchableStyles from './TapArea.css';
-import Text from './Text.js';
-import useFocusVisible from './useFocusVisible.js';
+import Text from './Text';
+import useFocusVisible from './useFocusVisible';
 
 const backgroundColorByType = Object.freeze({
   default: 'secondary',

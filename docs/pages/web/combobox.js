@@ -1,25 +1,25 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import controlled from '../../examples/combobox/controlled.js';
-import error from '../../examples/combobox/error.js';
-import helperText from '../../examples/combobox/helperText.js';
-import labels from '../../examples/combobox/labels.js';
-import localizationLabels from '../../examples/combobox/localizationLabels.js';
-import main from '../../examples/combobox/main.js';
-import programmatic from '../../examples/combobox/programmatic.js';
-import ref from '../../examples/combobox/ref.js';
-import subtext from '../../examples/combobox/subtext.js';
-import tags from '../../examples/combobox/tags.js';
-import uncontrolled from '../../examples/combobox/uncontrolled.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import controlled from '../../examples/combobox/controlled';
+import error from '../../examples/combobox/error';
+import helperText from '../../examples/combobox/helperText';
+import labels from '../../examples/combobox/labels';
+import localizationLabels from '../../examples/combobox/localizationLabels';
+import main from '../../examples/combobox/main';
+import programmatic from '../../examples/combobox/programmatic';
+import ref from '../../examples/combobox/ref';
+import subtext from '../../examples/combobox/subtext';
+import tags from '../../examples/combobox/tags';
+import uncontrolled from '../../examples/combobox/uncontrolled';
 
 const PREVIEW_HEIGHT = 320;
 

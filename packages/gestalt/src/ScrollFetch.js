@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node as ReactNode, PureComponent } from 'react';
-import FetchItems from './FetchItems.js';
-import ScrollContainer from './Masonry/ScrollContainer.js';
-import { getElementHeight, getScrollHeight, getScrollPos } from './Masonry/scrollUtils.js';
-import throttle, { type ThrottleReturn } from './throttle.js';
+import FetchItems from './FetchItems';
+import ScrollContainer from './Masonry/ScrollContainer';
+import { getElementHeight, getScrollHeight, getScrollPos } from './Masonry/scrollUtils';
+import throttle, { type ThrottleReturn } from './throttle';
 
 type Props = {
   /**

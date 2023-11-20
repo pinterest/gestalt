@@ -6,7 +6,7 @@ import {
   type FilterOrderType,
   type SortChangeType,
   type TransformedTabularDataType,
-} from './useTabularData.js';
+} from './useTabularData';
 
 type Props = {
   title: string,

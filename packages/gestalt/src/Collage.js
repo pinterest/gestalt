@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import Collection from './Collage/Collection.js';
+import Collection from './Collage/Collection';
 
 type Column = 2 | 3 | 4;
 

@@ -4,7 +4,7 @@ import {
   type GenerateDefaultMessageType,
   type GenericType,
   type ReducerType,
-} from './reducerTypes.js';
+} from './reducerTypes';
 import {
   dimensionFormatting,
   kebabToCamelCase,
@@ -21,7 +21,7 @@ import {
   validateBorderRadius,
   validateBoxShadow,
   validateFlex,
-} from './styleValidators.js';
+} from './styleValidators';
 
 /** This function returns the default messages for all change suggestions
  */

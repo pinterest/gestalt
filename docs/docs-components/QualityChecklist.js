@@ -1,12 +1,12 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Flex, Link, SlimBanner, Status, Table, Text } from 'gestalt';
-import componentData from './data/components.js';
-import { COMPONENT_STATUS_MESSAGING, STATUS_DESCRIPTION } from './data/componentStatusMessaging.js';
-import getByPlatform from './data/utils/getByPlatform.js';
-import InternalOnlyIconButton from './InternalOnlyIconButton.js';
-import MainSection from './MainSection.js';
-import StatusData from './StatusData.js';
+import componentData from './data/components';
+import { COMPONENT_STATUS_MESSAGING, STATUS_DESCRIPTION } from './data/componentStatusMessaging';
+import getByPlatform from './data/utils/getByPlatform';
+import InternalOnlyIconButton from './InternalOnlyIconButton';
+import MainSection from './MainSection';
+import StatusData from './StatusData';
 
 const webComponentData = getByPlatform(componentData, { platform: 'web' });
 

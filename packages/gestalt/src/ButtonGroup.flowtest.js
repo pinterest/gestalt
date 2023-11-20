@@ -1,5 +1,5 @@
 // @flow strict
-import ButtonGroup from './ButtonGroup.js';
+import ButtonGroup from './ButtonGroup';
 
 const ButtonGroupValidNoChildren = <ButtonGroup />;
 

@@ -5,9 +5,9 @@ import { Box, Flex, HelpButton, Link, Text } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import * as gestaltChart from 'gestalt-charts'; // eslint-disable-line import/no-namespace
 import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
-import { useAppContext } from './appContext.js';
-import theme from './atomDark.js';
-import ExampleCode from './ExampleCode.js';
+import { useAppContext } from './appContext';
+import theme from './atomDark';
+import ExampleCode from './ExampleCode';
 
 const reactImports = [
   'Children',

@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import Box from './Box.js';
-import Button from './Button.js';
-import Flex from './Flex.js';
-import useResponsiveMinWidth from './useResponsiveMinWidth.js';
+import Box from './Box';
+import Button from './Button';
+import Flex from './Flex';
+import useResponsiveMinWidth from './useResponsiveMinWidth';
 
 type Props = {
   /**

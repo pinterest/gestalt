@@ -13,12 +13,12 @@ import {
   Tabs,
   Text,
 } from 'gestalt';
-import { useAppContext } from './appContext.js';
-import trackButtonClick from './buttons/trackButtonClick.js';
-import DocSearch from './DocSearch.js';
-import { convertNamesForURL, isComponentsActiveSection } from './DocsSideNavigation.js';
-import GestaltLogo from './GestaltLogo.js';
-import { useNavigationContext } from './navigationContext.js';
+import { useAppContext } from './appContext';
+import trackButtonClick from './buttons/trackButtonClick';
+import DocSearch from './DocSearch';
+import { convertNamesForURL, isComponentsActiveSection } from './DocsSideNavigation';
+import GestaltLogo from './GestaltLogo';
+import { useNavigationContext } from './navigationContext';
 
 const PAGE_HEADER_ZINDEX: FixedZIndex = new FixedZIndex(10);
 

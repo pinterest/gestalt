@@ -1,6 +1,6 @@
 // @flow strict
 import { fireEvent, render, screen } from '@testing-library/react';
-import ModuleExpandableItem from './ExpandableItem.js';
+import ModuleExpandableItem from './ExpandableItem';
 
 describe('ModuleExpandableItem', () => {
   const baseProps = {

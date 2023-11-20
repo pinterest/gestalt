@@ -1,17 +1,17 @@
 // @flow strict
 import { type ElementConfig, Fragment, type Node as ReactNode, useEffect, useRef } from 'react';
-import PrimaryAction from './PrimaryAction.js';
-import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext.js';
-import Box from '../Box.js';
-import Button from '../Button.js';
-import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
-import Flex from '../Flex.js';
-import Heading from '../Heading.js';
-import IconButton from '../IconButton.js';
-import Link from '../Link.js';
-import InternalDismissButton from '../shared/InternalDismissButton.js';
-import TapArea from '../TapArea.js';
-import Text from '../Text.js';
+import PrimaryAction from './PrimaryAction';
+import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext';
+import Box from '../Box';
+import Button from '../Button';
+import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
+import Flex from '../Flex';
+import Heading from '../Heading';
+import IconButton from '../IconButton';
+import Link from '../Link';
+import InternalDismissButton from '../shared/InternalDismissButton';
+import TapArea from '../TapArea';
+import Text from '../Text';
 
 type OnClickType = ({
   event:

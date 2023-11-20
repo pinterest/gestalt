@@ -1,10 +1,10 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import Box from '../Box.js';
-import Flex from '../Flex.js';
-import Heading from '../Heading.js';
-import Icon from '../Icon.js';
-import IconButton from '../IconButton.js';
+import Box from '../Box';
+import Flex from '../Flex';
+import Heading from '../Heading';
+import Icon from '../Icon';
+import IconButton from '../IconButton';
 
 const ICON_COLOR_MAP = {
   error: {

@@ -1,15 +1,15 @@
 // @flow strict
 import { type Element, type Node as ReactNode, useEffect, useState } from 'react';
-import PrimaryActionIconButton from './PrimaryActionIconButton.js';
-import Badge from '../Badge.js';
-import Box from '../Box.js';
-import { useDeviceType } from '../contexts/DeviceTypeProvider.js';
-import Dropdown from '../Dropdown.js';
-import Flex from '../Flex.js';
-import Icon from '../Icon.js';
-import icons from '../icons/index.js';
-import Text from '../Text.js';
-import { type Indexable } from '../zIndex.js';
+import PrimaryActionIconButton from './PrimaryActionIconButton';
+import Badge from '../Badge';
+import Box from '../Box';
+import { useDeviceType } from '../contexts/DeviceTypeProvider';
+import Dropdown from '../Dropdown';
+import Flex from '../Flex';
+import Icon from '../Icon';
+import icons from '../icons/index';
+import Text from '../Text';
+import { type Indexable } from '../zIndex';
 
 type IconType = $Keys<typeof icons> | { __path: string };
 type Display = 'expandable' | 'static';

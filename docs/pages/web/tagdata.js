@@ -1,29 +1,29 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import baseColor from '../../examples/tagdata/baseColor.js';
-import colors from '../../examples/tagdata/colors.js';
-import disabled from '../../examples/tagdata/disabled.js';
-import dismissible from '../../examples/tagdata/dismissible.js';
-import doChangeBaseColor from '../../examples/tagdata/doChangeBaseColor.js';
-import dontChangeBaseColor from '../../examples/tagdata/dontChangeBaseColor.js';
-import dontMixStyles from '../../examples/tagdata/dontMixStyles.js';
-import dontUseLongLabels from '../../examples/tagdata/dontUseLongLabels.js';
-import doUseSameStyle from '../../examples/tagdata/doUseSameStyle.js';
-import doUseShortLabels from '../../examples/tagdata/doUseShortLabels.js';
-import group from '../../examples/tagdata/group.js';
-import localizationLabels from '../../examples/tagdata/localizationLabels.js';
-import main from '../../examples/tagdata/main.js';
-import sizes from '../../examples/tagdata/sizes.js';
-import tooltip from '../../examples/tagdata/tooltip.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import baseColor from '../../examples/tagdata/baseColor';
+import colors from '../../examples/tagdata/colors';
+import disabled from '../../examples/tagdata/disabled';
+import dismissible from '../../examples/tagdata/dismissible';
+import doChangeBaseColor from '../../examples/tagdata/doChangeBaseColor';
+import dontChangeBaseColor from '../../examples/tagdata/dontChangeBaseColor';
+import dontMixStyles from '../../examples/tagdata/dontMixStyles';
+import dontUseLongLabels from '../../examples/tagdata/dontUseLongLabels';
+import doUseSameStyle from '../../examples/tagdata/doUseSameStyle';
+import doUseShortLabels from '../../examples/tagdata/doUseShortLabels';
+import group from '../../examples/tagdata/group';
+import localizationLabels from '../../examples/tagdata/localizationLabels';
+import main from '../../examples/tagdata/main';
+import sizes from '../../examples/tagdata/sizes';
+import tooltip from '../../examples/tagdata/tooltip';
 
 export default function TagDataPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (

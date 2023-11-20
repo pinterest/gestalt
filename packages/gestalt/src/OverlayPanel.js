@@ -1,10 +1,10 @@
 // @flow strict
 
 import { type Node as ReactNode } from 'react';
-import AnimationProvider from './animation/AnimationContext.js';
-import DismissingElement from './animation/DismissingElement.js';
-import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext.js';
-import InternalOverlayPanel from './OverlayPanel/InternalOverlayPanel.js';
+import AnimationProvider from './animation/AnimationContext';
+import DismissingElement from './animation/DismissingElement';
+import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext';
+import InternalOverlayPanel from './OverlayPanel/InternalOverlayPanel';
 
 type NodeOrRenderProp = ReactNode | (({ onDismissStart: () => void }) => ReactNode);
 

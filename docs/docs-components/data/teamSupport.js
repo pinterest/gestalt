@@ -1,5 +1,5 @@
 // @flow strict
-import { type DesignOverview } from './types.js';
+import { type DesignOverview } from './types';
 import AdvocateTile from '../../graphics/team_support/advocate.svg';
 import ComponentRequest from '../../graphics/team_support/component-request.svg';
 import ContributionsTile from '../../graphics/team_support/contributions.svg';

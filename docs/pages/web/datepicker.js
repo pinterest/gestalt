@@ -40,27 +40,27 @@ import {
 } from 'date-fns/locale';
 import { Flex, SelectList } from 'gestalt';
 import { DatePicker } from 'gestalt-datepicker';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import CombinationNew from '../../docs-components/CombinationNew.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import controlled from '../../examples/datepicker/controlled.js';
-import disable from '../../examples/datepicker/disable.js';
-import disabled from '../../examples/datepicker/disabled.js';
-import disableSelected from '../../examples/datepicker/disableSelected.js';
-import error from '../../examples/datepicker/error.js';
-import helperText from '../../examples/datepicker/helperText.js';
-import main from '../../examples/datepicker/main.js';
-import preselected from '../../examples/datepicker/preselected.js';
-import range from '../../examples/datepicker/range.js';
-import selectLists from '../../examples/datepicker/selectLists.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import CombinationNew from '../../docs-components/CombinationNew';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import controlled from '../../examples/datepicker/controlled';
+import disable from '../../examples/datepicker/disable';
+import disabled from '../../examples/datepicker/disabled';
+import disableSelected from '../../examples/datepicker/disableSelected';
+import error from '../../examples/datepicker/error';
+import helperText from '../../examples/datepicker/helperText';
+import main from '../../examples/datepicker/main';
+import preselected from '../../examples/datepicker/preselected';
+import range from '../../examples/datepicker/range';
+import selectLists from '../../examples/datepicker/selectLists';
 
 const localeMap = {
   af: { localeData: af, lang: 'Afrikaans' },

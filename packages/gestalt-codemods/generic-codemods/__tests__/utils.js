@@ -4,7 +4,7 @@
 /* eslint-disable import/no-dynamic-require */
 import fs from 'fs';
 import path from 'path';
-import { applyTransform } from 'jscodeshift/dist/testUtils.js';
+import { applyTransform } from 'jscodeshift/dist/testUtils';
 
 export function buildInputPath({ test }: { test: string }): string {
   const dirName = __dirname;

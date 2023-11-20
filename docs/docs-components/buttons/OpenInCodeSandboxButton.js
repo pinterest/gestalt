@@ -2,7 +2,7 @@
 import { type Node as ReactNode } from 'react';
 import { useSandpack } from '@codesandbox/sandpack-react';
 import LZString from 'lz-string';
-import OpenSandboxButton from './OpenSandboxButton.js';
+import OpenSandboxButton from './OpenSandboxButton';
 
 const getParameters = (parameters: { files: { ... }, template?: string }): string =>
   LZString.compressToBase64(JSON.stringify(parameters))

@@ -1,5 +1,5 @@
 // @flow strict
-import Pulsar from './Pulsar.js';
+import Pulsar from './Pulsar';
 
 const Valid = <Pulsar size={400} />;
 

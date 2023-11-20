@@ -40,18 +40,18 @@ import {
 } from 'date-fns/locale';
 import { Flex, SelectList, SlimBanner } from 'gestalt';
 import { DateField } from 'gestalt-datepicker';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import disabled from '../../examples/datefield/disabled.js';
-import error from '../../examples/datefield/error.js';
-import main from '../../examples/datefield/main.js';
-import states from '../../examples/datefield/states.js';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import SandpackExample from '../../docs-components/SandpackExample';
+import disabled from '../../examples/datefield/disabled';
+import error from '../../examples/datefield/error';
+import main from '../../examples/datefield/main';
+import states from '../../examples/datefield/states';
 
 const localeMap = {
   af: { localeData: af, lang: 'Afrikaans' },

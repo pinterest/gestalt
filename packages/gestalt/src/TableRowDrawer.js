@@ -9,10 +9,10 @@ import {
   useState,
 } from 'react';
 import classnames from 'classnames';
-import Box from './Box.js';
-import { useTableContext } from './contexts/TableContext.js';
+import Box from './Box';
+import { useTableContext } from './contexts/TableContext';
 import styles from './Table.css';
-import getChildrenCount from './Table/getChildrenCount.js';
+import getChildrenCount from './Table/getChildrenCount';
 
 type Props = {
   /**

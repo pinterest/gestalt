@@ -1,5 +1,5 @@
 // @flow strict
-import Video from './Video.js';
+import Video from './Video';
 
 const Valid = (
   <Video

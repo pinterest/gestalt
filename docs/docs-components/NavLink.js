@@ -2,7 +2,7 @@
 import { type Node as ReactNode } from 'react';
 import { useRouter } from 'next/router';
 import { Box, Link, Text } from 'gestalt';
-import { useNavigationContext } from './navigationContext.js';
+import { useNavigationContext } from './navigationContext';
 
 type Props = {
   href: string,

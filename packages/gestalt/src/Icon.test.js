@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Icon from './Icon.js';
+import Icon from './Icon';
 
 test('Icon renders', () => {
   const tree = create(<Icon icon="add" accessibilityLabel="Add" />).toJSON();

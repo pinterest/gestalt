@@ -8,10 +8,10 @@ import {
 } from 'react';
 import classnames from 'classnames';
 import focusStyles from './Focus.css';
-import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
+import getRoundingClassName, { type Rounding } from './getRoundingClassName';
 import styles from './TapArea.css';
-import useFocusVisible from './useFocusVisible.js';
-import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
+import useFocusVisible from './useFocusVisible';
+import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback';
 
 type FocusEventHandler = ({
   event: SyntheticFocusEvent<HTMLDivElement>,

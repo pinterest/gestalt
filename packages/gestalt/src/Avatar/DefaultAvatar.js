@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import AvatarFoundation from './Foundation.js';
+import AvatarFoundation from './Foundation';
 
 type Props = {
   accessibilityLabel?: string,

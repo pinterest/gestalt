@@ -1,30 +1,30 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import actionsVariant from '../../examples/upsell/actionsVariant.js';
-import dontShowSameOnceDismissed from '../../examples/upsell/dontShowSameOnceDismissed.js';
-import dontStack from '../../examples/upsell/dontStack.js';
-import dontUseForCriticalInfo from '../../examples/upsell/dontUseForCriticalInfo.js';
-import iconVariant from '../../examples/upsell/iconVariant.js';
-import imageVariant from '../../examples/upsell/imageVariant.js';
-import labelsExample from '../../examples/upsell/labelsExample.js';
-import localizationLabels from '../../examples/upsell/localizationLabels.js';
-import mainExample from '../../examples/upsell/mainExample.js';
-import messagePropForVisualStyle from '../../examples/upsell/messagePropForVisualStyle.js';
-import multipleTextField from '../../examples/upsell/multipleTextField.js';
-import placeAtTopOfPage from '../../examples/upsell/placeAtTopOfPage.js';
-import planTiming from '../../examples/upsell/planTiming.js';
-import singleTextField from '../../examples/upsell/singleTextField.js';
-import textVariant from '../../examples/upsell/textVariant.js';
-import useForMarketing from '../../examples/upsell/useForMarketing.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import { type DocGen, multipleDocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import actionsVariant from '../../examples/upsell/actionsVariant';
+import dontShowSameOnceDismissed from '../../examples/upsell/dontShowSameOnceDismissed';
+import dontStack from '../../examples/upsell/dontStack';
+import dontUseForCriticalInfo from '../../examples/upsell/dontUseForCriticalInfo';
+import iconVariant from '../../examples/upsell/iconVariant';
+import imageVariant from '../../examples/upsell/imageVariant';
+import labelsExample from '../../examples/upsell/labelsExample';
+import localizationLabels from '../../examples/upsell/localizationLabels';
+import mainExample from '../../examples/upsell/mainExample';
+import messagePropForVisualStyle from '../../examples/upsell/messagePropForVisualStyle';
+import multipleTextField from '../../examples/upsell/multipleTextField';
+import placeAtTopOfPage from '../../examples/upsell/placeAtTopOfPage';
+import planTiming from '../../examples/upsell/planTiming';
+import singleTextField from '../../examples/upsell/singleTextField';
+import textVariant from '../../examples/upsell/textVariant';
+import useForMarketing from '../../examples/upsell/useForMarketing';
 
 export default function DocsPage({
   generatedDocGen,

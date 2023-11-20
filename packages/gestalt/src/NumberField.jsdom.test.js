@@ -1,7 +1,7 @@
 // @flow strict
 import { createRef } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
-import NumberField from './NumberField.js';
+import NumberField from './NumberField';
 
 describe('NumberField', () => {
   it('renders error message on errorMessage prop change', () => {

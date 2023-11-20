@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Flex from './Flex.js';
+import Flex from './Flex';
 
 test('Flex renders', () => {
   const tree = create(

@@ -10,24 +10,24 @@ import {
   useState,
 } from 'react';
 import classnames from 'classnames';
-import ConfirmationPopover from './ConfirmationPopover.js';
+import ConfirmationPopover from './ConfirmationPopover';
 import animation from '../animation/animation.css';
-import { ANIMATION_STATE, useAnimation } from '../animation/AnimationContext.js';
-import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext.js';
-import Backdrop from '../Backdrop.js';
-import StopScrollBehavior from '../behaviors/StopScrollBehavior.js';
-import TrapFocusBehavior from '../behaviors/TrapFocusBehavior.js';
-import Box from '../Box.js';
-import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
-import { ScrollBoundaryContainerProvider } from '../contexts/ScrollBoundaryContainerProvider.js';
-import Flex from '../Flex.js';
+import { ANIMATION_STATE, useAnimation } from '../animation/AnimationContext';
+import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext';
+import Backdrop from '../Backdrop';
+import StopScrollBehavior from '../behaviors/StopScrollBehavior';
+import TrapFocusBehavior from '../behaviors/TrapFocusBehavior';
+import Box from '../Box';
+import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
+import { ScrollBoundaryContainerProvider } from '../contexts/ScrollBoundaryContainerProvider';
+import Flex from '../Flex';
 import focusStyles from '../Focus.css';
-import Heading from '../Heading.js';
-import { ESCAPE } from '../keyCodes.js';
+import Heading from '../Heading';
+import { ESCAPE } from '../keyCodes';
 import overlayPanelStyles from '../OverlayPanel.css';
-import InternalScrollBoundaryContainer from '../ScrollBoundaryContainer/InternalScrollBoundaryContainerWithForwardRef.js';
-import InternalDismissButton from '../shared/InternalDismissButton.js';
-import { FixedZIndex } from '../zIndex.js';
+import InternalScrollBoundaryContainer from '../ScrollBoundaryContainer/InternalScrollBoundaryContainerWithForwardRef';
+import InternalDismissButton from '../shared/InternalDismissButton';
+import { FixedZIndex } from '../zIndex';
 
 export const PADDING_BOINTS = 6;
 

@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import Box from './Box.js';
+// eslint-disable-next-line import/extensions
+import Box from './Box';
 import styles from './ComponentName.css';
 
 type Props = {

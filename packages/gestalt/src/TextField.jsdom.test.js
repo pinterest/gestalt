@@ -2,8 +2,8 @@
 import { createRef } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import TextField from './TextField.js';
-import expectToThrow from './utils/testing/expectToThrow.js';
+import TextField from './TextField';
+import expectToThrow from './utils/testing/expectToThrow';
 
 const LABEL = 'textfieldLabel';
 

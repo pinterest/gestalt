@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, Flex, Heading, Link, Text } from 'gestalt';
-import InternalOnlyIconButton from './InternalOnlyIconButton.js';
+import InternalOnlyIconButton from './InternalOnlyIconButton';
 
 const figmaLibraries = [
   {

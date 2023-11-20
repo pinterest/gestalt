@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import RadioGroup from './RadioGroup.js';
+import RadioGroup from './RadioGroup';
 
 describe('RadioGroup', () => {
   it('renders', () => {

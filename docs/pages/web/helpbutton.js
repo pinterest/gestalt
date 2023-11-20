@@ -1,18 +1,18 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import endGuideElement from '../../examples/helpbutton/endGuideElement.js';
-import intermixedBlocks from '../../examples/helpbutton/intermixedBlocks.js';
-import localizationLabels from '../../examples/helpbutton/localizationLabels.js';
-import main from '../../examples/helpbutton/main.js';
-import withLink from '../../examples/helpbutton/withLink.js';
-import withText from '../../examples/helpbutton/withText.js';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import SandpackExample from '../../docs-components/SandpackExample';
+import endGuideElement from '../../examples/helpbutton/endGuideElement';
+import intermixedBlocks from '../../examples/helpbutton/intermixedBlocks';
+import localizationLabels from '../../examples/helpbutton/localizationLabels';
+import main from '../../examples/helpbutton/main';
+import withLink from '../../examples/helpbutton/withLink';
+import withText from '../../examples/helpbutton/withText';
 
 type DocsType = {
   generatedDocGen: DocGen,

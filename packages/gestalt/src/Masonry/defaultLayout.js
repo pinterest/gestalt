@@ -1,7 +1,7 @@
 // @flow strict
-import { type Cache } from './Cache.js';
-import mindex from './mindex.js';
-import { type Position } from './types.js';
+import { type Cache } from './Cache';
+import mindex from './mindex';
+import { type Position } from './types';
 
 const offscreen = (width: number, height: number = Infinity) => ({
   top: -9999,

@@ -1,12 +1,12 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Flex } from 'gestalt';
-import teamSupportTiles from '../../docs-components/data/teamSupport.js';
-import IllustrationCard from '../../docs-components/IllustrationCard.js';
-import IllustrationContainer from '../../docs-components/IllustrationContainer.js';
-import IllustrationSection from '../../docs-components/IllustrationSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
+import teamSupportTiles from '../../docs-components/data/teamSupport';
+import IllustrationCard from '../../docs-components/IllustrationCard';
+import IllustrationContainer from '../../docs-components/IllustrationContainer';
+import IllustrationSection from '../../docs-components/IllustrationSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
 
 export default function TeamSupportOverview(): ReactNode {
   return (

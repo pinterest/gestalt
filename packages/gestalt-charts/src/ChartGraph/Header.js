@@ -1,7 +1,7 @@
 // @flow strict
 import { type Element, type Node as ReactNode } from 'react';
 import { Box, Flex, Heading, HelpButton, IconButton, Text, useDefaultLabel } from 'gestalt';
-import { useChartContext } from './ChartGraphContext.js';
+import { useChartContext } from './ChartGraphContext';
 
 export default function Header({
   title,

@@ -1,7 +1,7 @@
 // @flow strict-local
 import { type Node as ReactNode, useEffect } from 'react';
 import { useGlobalEventsHandler } from 'gestalt';
-import InternalDateField from './DateField/InternalDateField.js';
+import InternalDateField from './DateField/InternalDateField';
 
 // LocaleData type from https://github.com/date-fns/date-fns/blob/81ab18785146405ca2ae28710cdfbb13a294ec50/src/locale/af/index.js.flow
 // NOTE: DO NOT USE PER-LINE FLOW SUPPRESSIONS HERE

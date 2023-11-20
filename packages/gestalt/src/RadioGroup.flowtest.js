@@ -1,5 +1,5 @@
 // @flow strict
-import RadioGroup from './RadioGroup.js';
+import RadioGroup from './RadioGroup';
 
 const Valid = (
   <RadioGroup legend="testing" id="testing-valid">

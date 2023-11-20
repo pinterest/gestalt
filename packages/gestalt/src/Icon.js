@@ -3,7 +3,7 @@ import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import colors from './Colors.css';
 import styles from './Icon.css';
-import icons from './icons/index.js';
+import icons from './icons/index';
 
 export type IconColor =
   | 'default'

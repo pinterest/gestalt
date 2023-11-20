@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box } from 'gestalt';
-import { type Token } from '../pages/foundations/design_tokens.js';
+import { type Token } from '../pages/foundations/design_tokens';
 
 type BaseProps = {
   token: Token,

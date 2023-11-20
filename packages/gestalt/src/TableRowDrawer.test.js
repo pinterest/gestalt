@@ -1,8 +1,8 @@
 // @flow strict
 import renderer from 'react-test-renderer';
-import SlimBanner from './SlimBanner.js';
-import Table from './Table.js';
-import Text from './Text.js';
+import SlimBanner from './SlimBanner';
+import Table from './Table';
+import Text from './Text';
 
 test('renders correctly with drawer', () => {
   const tree = renderer

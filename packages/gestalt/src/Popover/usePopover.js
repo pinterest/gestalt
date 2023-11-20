@@ -13,7 +13,7 @@ import {
   useFloating,
   type UseFloatingReturn,
 } from '@floating-ui/react';
-import { type MainDirections } from '../utils/positioningTypes.js';
+import { type MainDirections } from '../utils/positioningTypes';
 
 export const DIRECTIONS_MAP: Record<MainDirections, Side | 'forceDown'> = {
   down: 'bottom',

@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, Flex, Icon, Link, Text } from 'gestalt';
-import trackButtonClick from './buttons/trackButtonClick.js';
+import trackButtonClick from './buttons/trackButtonClick';
 
 const links: $ReadOnlyArray<{
   external: boolean,

@@ -1,10 +1,10 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, Flex, Image, SlimBanner } from 'gestalt';
-import ColorTile from '../../../../docs-components/ColorTile.js';
-import MainSection from '../../../../docs-components/MainSection.js';
-import Page from '../../../../docs-components/Page.js';
-import PageHeader from '../../../../docs-components/PageHeader.js';
+import ColorTile from '../../../../docs-components/ColorTile';
+import MainSection from '../../../../docs-components/MainSection';
+import Page from '../../../../docs-components/Page';
+import PageHeader from '../../../../docs-components/PageHeader';
 import DataViz2Colors from '../../../../graphics/data-viz-color-examples/dataViz2Colors.svg';
 import DataViz3Colors from '../../../../graphics/data-viz-color-examples/dataViz3Colors.svg';
 import DataViz4Colors from '../../../../graphics/data-viz-color-examples/dataViz4Colors.svg';

@@ -1,16 +1,16 @@
 // @flow strict
 import { type Node as ReactNode, useState } from 'react';
 import classnames from 'classnames';
-import Box from './Box.js';
-import Icon from './Icon.js';
+import Box from './Box';
+import Icon from './Icon';
 import layout from './Layout.css';
 import styles from './SelectList.css';
-import SelectListGroup from './SelectList/SelectListGroup.js';
-import SelectListOption from './SelectList/SelectListOption.js';
+import SelectListGroup from './SelectList/SelectListGroup';
+import SelectListOption from './SelectList/SelectListOption';
 import formElement from './shared/FormElement.css';
-import FormErrorMessage from './shared/FormErrorMessage.js';
-import FormHelperText from './shared/FormHelperText.js';
-import FormLabel from './shared/FormLabel.js';
+import FormErrorMessage from './shared/FormErrorMessage';
+import FormHelperText from './shared/FormHelperText';
+import FormLabel from './shared/FormLabel';
 
 type Props = {
   /**

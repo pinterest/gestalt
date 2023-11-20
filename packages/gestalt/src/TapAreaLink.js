@@ -6,10 +6,10 @@ import {
   useImperativeHandle,
   useRef,
 } from 'react';
-import getAriaLabel from './accessibility/getAriaLabel.js';
-import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import InternalLink from './Link/InternalLink.js';
+import getAriaLabel from './accessibility/getAriaLabel';
+import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import InternalLink from './Link/InternalLink';
 
 type FocusEventHandler = ({
   event: SyntheticFocusEvent<HTMLAnchorElement>,

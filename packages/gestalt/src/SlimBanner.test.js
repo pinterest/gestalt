@@ -1,8 +1,8 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Link from './Link.js';
-import SlimBanner from './SlimBanner.js';
-import Text from './Text.js';
+import Link from './Link';
+import SlimBanner from './SlimBanner';
+import Text from './Text';
 
 describe('SlimBanner', () => {
   it('renders neutral type with message', () => {

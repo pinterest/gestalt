@@ -1,12 +1,12 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Badge, Box, Flex, IconButton, Link, Text, Tooltip } from 'gestalt';
-import { useAppContext } from './appContext.js';
-import trackButtonClick from './buttons/trackButtonClick.js';
-import Card from './Card.js';
-import clipboardCopy from './clipboardCopy.js';
-import Markdown from './Markdown.js';
-import capitalizeFirstLetter from '../utils/capitalizeFirstLetter.js';
+import { useAppContext } from './appContext';
+import trackButtonClick from './buttons/trackButtonClick';
+import Card from './Card';
+import clipboardCopy from './clipboardCopy';
+import Markdown from './Markdown';
+import capitalizeFirstLetter from '../utils/capitalizeFirstLetter';
 
 const unifyQuotes = (input: string): string => input.replace(/'/g, '"');
 

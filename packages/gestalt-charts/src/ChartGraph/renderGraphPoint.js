@@ -1,7 +1,7 @@
 // @flow strict-local
 import { type Node as ReactNode } from 'react';
-import { type DataVisualizationColors } from './types.js';
-import { useHexColor } from './usePatterns.js';
+import { type DataVisualizationColors } from './types';
+import { useHexColor } from './usePatterns';
 
 type Props = {
   noReposition?: boolean,

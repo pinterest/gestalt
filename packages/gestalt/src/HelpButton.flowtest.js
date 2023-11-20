@@ -1,5 +1,5 @@
 // @flow strict
-import HelpButton from './HelpButton.js';
+import HelpButton from './HelpButton';
 
 const ValidDefaultHelpButton = (
   <HelpButton

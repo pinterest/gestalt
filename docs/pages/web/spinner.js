@@ -1,23 +1,23 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import delay from '../../examples/spinner/delay.js';
-import doLocation from '../../examples/spinner/doLocation.js';
-import dontLabel from '../../examples/spinner/dontLabel.js';
-import dontMultiple from '../../examples/spinner/dontMultiple.js';
-import dontWait from '../../examples/spinner/dontWait.js';
-import doOverlay from '../../examples/spinner/doOverlay.js';
-import doWait from '../../examples/spinner/doWait.js';
-import localizationLabels from '../../examples/spinner/localizationLabels.js';
-import main from '../../examples/spinner/main.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import delay from '../../examples/spinner/delay';
+import doLocation from '../../examples/spinner/doLocation';
+import dontLabel from '../../examples/spinner/dontLabel';
+import dontMultiple from '../../examples/spinner/dontMultiple';
+import dontWait from '../../examples/spinner/dontWait';
+import doOverlay from '../../examples/spinner/doOverlay';
+import doWait from '../../examples/spinner/doWait';
+import localizationLabels from '../../examples/spinner/localizationLabels';
+import main from '../../examples/spinner/main';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (

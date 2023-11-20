@@ -1,12 +1,5 @@
 // @flow strict
-import {
-  concat,
-  fromClassName,
-  fromInlineStyle,
-  identity,
-  mapClassName,
-  toProps,
-} from './style.js';
+import { concat, fromClassName, fromInlineStyle, identity, mapClassName, toProps } from './style';
 
 test('identity', () => {
   expect(identity()).toEqual({ className: new Set(), inlineStyle: {} });

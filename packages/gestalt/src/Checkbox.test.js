@@ -1,8 +1,8 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Box from './Box.js';
-import Checkbox from './Checkbox.js';
-import Image from './Image.js';
+import Box from './Box';
+import Checkbox from './Checkbox';
+import Image from './Image';
 
 test('Checkbox', () => {
   const tree = create(<Checkbox id="id" label="Name" onChange={() => {}} />).toJSON();

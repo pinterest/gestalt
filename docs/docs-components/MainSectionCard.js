@@ -5,13 +5,13 @@ import { Box, Text } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import * as gestaltChart from 'gestalt-charts'; // eslint-disable-line import/no-namespace
 import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
-import theme from './atomDark.js';
-import OpenSandboxButton from './buttons/OpenSandboxButton.js';
-import { DOCS_COPY_MAX_WIDTH_PX } from './consts.js';
-import ExampleCode from './ExampleCode.js';
-import handleCodeSandbox from './handleCodeSandbox.js';
-import Markdown from './Markdown.js';
-import capitalizeFirstLetter from '../utils/capitalizeFirstLetter.js';
+import theme from './atomDark';
+import OpenSandboxButton from './buttons/OpenSandboxButton';
+import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
+import ExampleCode from './ExampleCode';
+import handleCodeSandbox from './handleCodeSandbox';
+import Markdown from './Markdown';
+import capitalizeFirstLetter from '../utils/capitalizeFirstLetter';
 
 type Props = {
   cardSize?: 'xs' | 'sm' | 'md' | 'lg',

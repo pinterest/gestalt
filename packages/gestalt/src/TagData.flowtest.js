@@ -1,5 +1,5 @@
 // @flow strict
-import TagData from './TagData.js';
+import TagData from './TagData';
 
 const Valid = <TagData text="Text Impressions" selected onTap={() => {}} />;
 

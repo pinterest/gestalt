@@ -1,18 +1,18 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, Flex, Heading } from 'gestalt';
-import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import Markdown from '../../../docs-components/Markdown.js';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import SandpackExample from '../../../docs-components/SandpackExample.js';
-import celebrationExample from '../../../examples/animation/celebrationExample.js';
-import easeExample from '../../../examples/animation/easeExample.js';
-import educationExample from '../../../examples/animation/educationExample.js';
-import feedbackExample from '../../../examples/animation/feedbackExample.js';
-import transitionExample from '../../../examples/animation/transitionExample.js';
-import useExample from '../../../examples/animation/useExample.js';
+import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts';
+import MainSection from '../../../docs-components/MainSection';
+import Markdown from '../../../docs-components/Markdown';
+import Page from '../../../docs-components/Page';
+import PageHeader from '../../../docs-components/PageHeader';
+import SandpackExample from '../../../docs-components/SandpackExample';
+import celebrationExample from '../../../examples/animation/celebrationExample';
+import easeExample from '../../../examples/animation/easeExample';
+import educationExample from '../../../examples/animation/educationExample';
+import feedbackExample from '../../../examples/animation/feedbackExample';
+import transitionExample from '../../../examples/animation/transitionExample';
+import useExample from '../../../examples/animation/useExample';
 
 type Props = {
   children: ReactNode,

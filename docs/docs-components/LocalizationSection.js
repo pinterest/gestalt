@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { SlimBanner } from 'gestalt';
-import MainSection from './MainSection.js';
-import SandpackExample from './SandpackExample.js';
+import MainSection from './MainSection';
+import SandpackExample from './SandpackExample';
 
 type Props = {
   notes?: string,

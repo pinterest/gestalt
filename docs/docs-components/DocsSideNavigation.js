@@ -2,11 +2,11 @@
 import { type Node as ReactNode, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Flex, SelectList, SideNavigation } from 'gestalt';
-import SidebarPlatformSwitcher from './buttons/SidebarPlatformSwitcher.js';
-import { useDocsConfig } from './contexts/DocsConfigProvider.js';
-import { useNavigationContext } from './navigationContext.js';
-import newSidebarIndex, { type siteIndexType } from './siteIndex.js';
-import useGetSideNavItems from './useGetSideNavItems.js';
+import SidebarPlatformSwitcher from './buttons/SidebarPlatformSwitcher';
+import { useDocsConfig } from './contexts/DocsConfigProvider';
+import { useNavigationContext } from './navigationContext';
+import newSidebarIndex, { type siteIndexType } from './siteIndex';
+import useGetSideNavItems from './useGetSideNavItems';
 
 export const MIN_NAV_WIDTH_PX = 280;
 

@@ -1,6 +1,6 @@
 // @flow strict
 import { Fragment, type Node as ReactNode } from 'react';
-import { useRequestAnimationFrame } from './RequestAnimationFrameContext.js';
+import { useRequestAnimationFrame } from './RequestAnimationFrameContext';
 
 type Props = {
   /**

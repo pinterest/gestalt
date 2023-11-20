@@ -1,13 +1,13 @@
 // @flow strict
 import { type Element, type Node as ReactNode } from 'react';
-import Box from './Box.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import Flex from './Flex.js';
-import IconButton from './IconButton.js';
-import IconButtonLink from './IconButtonLink.js';
-import icons from './icons/index.js';
-import ModuleTitle from './Module/Title.js';
-import ModuleExpandable from './ModuleExpandable.js';
+import Box from './Box';
+import { useColorScheme } from './contexts/ColorSchemeProvider';
+import Flex from './Flex';
+import IconButton from './IconButton';
+import IconButtonLink from './IconButtonLink';
+import icons from './icons/index';
+import ModuleTitle from './Module/Title';
+import ModuleExpandable from './ModuleExpandable';
 
 type BadgeType = {
   text: string,

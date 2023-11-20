@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Badge, Box, Flex, Heading, TapAreaLink, Text, WashAnimated } from 'gestalt';
-import { MIN_SVG_ILLUSTRATION_WIDTH } from './IllustrationSection.js';
-import illustrations, { type Illustrations } from '../graphics/index.js';
+import { MIN_SVG_ILLUSTRATION_WIDTH } from './IllustrationSection';
+import illustrations, { type Illustrations } from '../graphics/index';
 
 export type Props = {
   color: string,
