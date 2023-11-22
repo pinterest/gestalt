@@ -1,3 +1,9 @@
+## 128.3.6 (Nov 22, 2023)
+
+### Patch
+
+- Docs: listing more Gestalt metrics graphs ([#3309](https://github.com/pinterest/gestalt/pull/3309)) - [Preview link](https://deploy-preview-3309--gestalt.netlify.app?devexample=true)
+
 ## 128.3.5 (Nov 20, 2023)
 
 ### Patch
