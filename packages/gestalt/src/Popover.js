@@ -50,7 +50,7 @@ type Props = {
    */
   positionRelativeToAnchor?: boolean,
   /**
-   * EXPERIMENTAL: Disables portalling and Popover will be under the DOM hierarchy of the parent component.
+   * *EXPERIMENTAL*: Disables portalling and Popover will be under the DOM hierarchy of the parent component.
    */
   disablePortal?: boolean,
   /**
