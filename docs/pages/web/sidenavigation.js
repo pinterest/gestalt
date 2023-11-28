@@ -394,20 +394,19 @@ To prevent visual overload, do not include counters in the parent if the childre
           title="Group display"
           columns={2}
           description="Group display can be \:
-1. static: group items are visible and there isn't expanding/collapsing behavior
-2. expandable: group items aren't visible un;ess one children is active and there is expanding/collapsing behavior
-3. expanded: group items are all visible and there is expanding/collapsing behavior
-"
+1. static: groups are expanded by default and there isn't expanding/collapsing behavior
+2. expandable: group is expandable and all items are initially collapsed except groups with active children
+3. expandableExpanded: group is expandable and all items are initially expanded"
         >
           <MainSection.Card
-            title="Static display"
+            title="display='static'"
             cardSize="lg"
             sandpackExample={
               <SandpackExample code={displayStatic} name="Static display example" layout="column" />
             }
           />
           <MainSection.Card
-            title="Expandable display"
+            title="display='expandable'"
             cardSize="lg"
             sandpackExample={
               <SandpackExample
@@ -418,7 +417,7 @@ To prevent visual overload, do not include counters in the parent if the childre
             }
           />
           <MainSection.Card
-            title="Expanded display"
+            title="display='expandableExpanded'"
             cardSize="lg"
             sandpackExample={
               <SandpackExample
