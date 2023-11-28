@@ -1278,7 +1278,9 @@ exports[`SideNavigation renders expanded group 1`] = `
                 className="liItem"
               >
                 <div
+                  aria-controls=":rm:"
                   aria-disabled={false}
+                  aria-expanded={true}
                   className="hideOutline tapTransition rounding2 accessibilityOutline fullWidth pointer"
                   onBlur={[Function]}
                   onClick={[Function]}
@@ -1435,7 +1437,9 @@ exports[`SideNavigation renders expanded group 1`] = `
                     className="liItem"
                   >
                     <div
+                      aria-controls=":ro:"
                       aria-disabled={false}
+                      aria-expanded={true}
                       className="hideOutline tapTransition rounding2 accessibilityOutline fullWidth pointer"
                       onBlur={[Function]}
                       onClick={[Function]}
