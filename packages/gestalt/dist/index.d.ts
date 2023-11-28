@@ -1792,7 +1792,7 @@ interface SideNavigationGroupProps {
   label: string;
   badge?: BadgeProps | undefined;
   counter?: { number: string; accessibilityLabel: string } | undefined;
-  display?: 'expandable' | 'static' | undefined;
+  display?: 'expandable' | 'static' | 'expanded'|  undefined;
   icon?: Icons | undefined;
   notificationAccessibilityLabel?: string | undefined;
   primaryAction?: PrimaryActionType | undefined;
@@ -1802,7 +1802,7 @@ interface SideNavigationNestedGroupProps {
   children: Node;
   label: string;
   counter?: { number: string; accessibilityLabel: string } | undefined;
-  display?: 'expandable' | 'static' | undefined;
+  display?: 'expandable' | 'static' | 'expanded'| undefined;
 }
 
 interface SlimBannerProps {
