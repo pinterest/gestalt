@@ -14,7 +14,7 @@ type Props = {
   /**
    * Nested directories can be static or expandable. See [nested directory](#Nested-directory) variant for more information.
    */
-  display?: 'expandable' | 'expanded' | 'static',
+  display?: 'expandable' | 'expandableExpanded' | 'static',
   /**
    * Label for the group. See [nested directory](#Nested-directory) variant for more information.
    */

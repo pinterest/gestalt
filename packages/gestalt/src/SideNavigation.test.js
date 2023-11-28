@@ -162,13 +162,13 @@ describe('SideNavigation', () => {
   it('renders expanded group', () => {
     const tree = create(
       <SideNavigation accessibilityLabel="Nested items example">
-        <SideNavigation.Group label="Christmas" icon="people" display="expanded">
+        <SideNavigation.Group label="Christmas" icon="people" display="expandableExpanded">
           <SideNavigation.NestedItem
             href="#"
             onClick={({ event }) => event.preventDefault()}
             label="Luxury Christmas"
           />
-          <SideNavigation.NestedGroup label="Classic Christmas" display="expanded">
+          <SideNavigation.NestedGroup label="Classic Christmas" display="expandableExpanded">
             <SideNavigation.NestedItem
               href="#"
               onClick={({ event }) => event.preventDefault()}

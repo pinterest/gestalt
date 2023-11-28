@@ -12,7 +12,7 @@ import Text from '../Text';
 import { type Indexable } from '../zIndex';
 
 type IconType = $Keys<typeof icons> | { __path: string };
-type Display = 'expandable' | 'expanded' | 'static';
+type Display = 'expandable' | 'expandableExpanded' | 'static';
 type BadgeType = {
   text: string,
   type?: 'info' | 'error' | 'warning' | 'success' | 'neutral',
@@ -191,7 +191,7 @@ export default function SideNavigationGroupContent({
             </Box>
           </Flex.Item>
         ) : null}
-        {['expandable', 'expanded'].includes(display) || isMobile ? (
+        {['expandable', 'expandableExpanded'].includes(display) || isMobile ? (
           <Flex.Item flex="none" alignSelf="center">
             {/* marginEnd={-2} is a hack to correctly position the counter as Flex + gap + width="100%" doean't expand to full width */}
             <Box aria-hidden marginEnd={-2} marginStart={2} tabIndex={-1} rounding="circle">

@@ -6,7 +6,7 @@ import Dropdown from './Dropdown';
 import SideNavigation from './SideNavigation';
 
 describe('SideNavigation desktop', () => {
-  function Component({ display }: { display?: 'static' | 'expandable' | 'expanded' }) {
+  function Component({ display }: { display?: 'static' | 'expandable' | 'expandableExpanded' }) {
     return (
       <SideNavigation accessibilityLabel="example1" dismissButton={{ onDismiss: () => {} }}>
         <SideNavigation.Group
@@ -233,8 +233,8 @@ describe('SideNavigation desktop', () => {
     ).toBeNull();
   });
 
-  test('renders display expanded correctly', () => {
-    render(<Component display="expanded" />);
+  test('renders display expandableExpanded correctly', () => {
+    render(<Component display="expandableExpanded" />);
 
     expect(
       screen.getByText('test', {

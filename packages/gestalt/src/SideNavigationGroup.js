@@ -15,7 +15,7 @@ import TapArea from './TapArea';
 import { type Indexable } from './zIndex';
 
 type IconType = $Keys<typeof icons> | { __path: string };
-type Display = 'expandable' | 'expanded' | 'static';
+type Display = 'expandable' | 'expandableExpanded' | 'static';
 
 type BadgeType = {
   text: string,
@@ -126,7 +126,7 @@ export default function SideNavigationGroup({
   const hasAnyActiveChild =
     !!hasActiveChildren || (!!hasActiveGrandChildren && !!hasActiveGrandChildren[0]);
 
-  const [expanded, setExpanded] = useState(display === 'expanded' || hasAnyActiveChild);
+  const [expanded, setExpanded] = useState(display === 'expandableExpanded' || hasAnyActiveChild);
 
   const itemColor = hovered ? 'secondary' : undefined;
 
@@ -152,13 +152,15 @@ export default function SideNavigationGroup({
     );
   }
 
+  const isExpandable = ['expandable', 'expandableExpanded'].includes(display);
+
   return (
     <li className={classnames(styles.liItem)}>
       <NestingProvider componentName="SideNavigation" maxNestedLevels={2}>
-        {['expandable', 'expanded'].includes(display) ? (
+        {isExpandable ? (
           <TapArea
-            accessibilityControls={display === 'expandable' ? itemId : undefined}
-            accessibilityExpanded={display === 'expandable' ? expanded : undefined}
+            accessibilityControls={itemId}
+            accessibilityExpanded={expanded}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             onFocus={() => setFocused(true)}
