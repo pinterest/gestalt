@@ -78,6 +78,9 @@ exports[`VideoControls for double digit minutes 1`] = `
         onMouseLeave={[Function]}
         onMouseMove={[Function]}
         onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
         role="progressbar"
         tabIndex="-1"
       >
@@ -244,6 +247,9 @@ exports[`VideoControls for double digit seconds 1`] = `
         onMouseLeave={[Function]}
         onMouseMove={[Function]}
         onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
         role="progressbar"
         tabIndex="-1"
       >
@@ -410,6 +416,9 @@ exports[`VideoControls for single digit minutes 1`] = `
         onMouseLeave={[Function]}
         onMouseMove={[Function]}
         onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
         role="progressbar"
         tabIndex="-1"
       >
@@ -576,6 +585,9 @@ exports[`VideoControls for single digit seconds 1`] = `
         onMouseLeave={[Function]}
         onMouseMove={[Function]}
         onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
         role="progressbar"
         tabIndex="-1"
       >
@@ -742,6 +754,9 @@ exports[`VideoControls rounds for partial seconds 1`] = `
         onMouseLeave={[Function]}
         onMouseMove={[Function]}
         onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
         role="progressbar"
         tabIndex="-1"
       >
