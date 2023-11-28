@@ -6,10 +6,11 @@ import Dropdown from './Dropdown';
 import SideNavigation from './SideNavigation';
 
 describe('SideNavigation desktop', () => {
-  function Component() {
+  function Component({ display }: { display?: 'static' | 'expandable' | 'expanded' }) {
     return (
       <SideNavigation accessibilityLabel="example1" dismissButton={{ onDismiss: () => {} }}>
         <SideNavigation.Group
+          display={display}
           label="Group item"
           counter={{ number: '123', accessibilityLabel: '123 counter' }}
           primaryAction={{
@@ -207,6 +208,36 @@ describe('SideNavigation desktop', () => {
 
     expect(
       screen.queryByText('More options', {
+        exact: true,
+      }),
+    ).toBeVisible();
+  });
+
+  test('renders display static correctly', () => {
+    render(<Component display="static" />);
+
+    expect(
+      screen.getByText('test', {
+        exact: true,
+      }),
+    ).toBeVisible();
+  });
+
+  test('renders display expandable correctly', () => {
+    render(<Component />);
+
+    expect(
+      screen.queryByText('test', {
+        exact: true,
+      }),
+    ).toBeNull();
+  });
+
+  test('renders display expanded correctly', () => {
+    render(<Component display="expanded" />);
+
+    expect(
+      screen.getByText('test', {
         exact: true,
       }),
     ).toBeVisible();

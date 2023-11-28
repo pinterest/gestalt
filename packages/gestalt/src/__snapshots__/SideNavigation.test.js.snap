@@ -728,7 +728,7 @@ exports[`SideNavigation renders basic Item 1`] = `
 </div>
 `;
 
-exports[`SideNavigation renders nested directory 1`] = `
+exports[`SideNavigation renders expandable nested directory 1`] = `
 <div
   className="box overflowAuto paddingX0 paddingY0 relative"
   style={
@@ -1126,60 +1126,390 @@ exports[`SideNavigation renders nested directory 1`] = `
                     className="liItem"
                   >
                     <div
-                      className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
-                      style={
-                        Object {
-                          "minHeight": 44,
-                          "paddingInlineEnd": "16px",
-                          "paddingInlineStart": "16px",
-                        }
-                      }
+                      aria-controls=":re:"
+                      aria-disabled={false}
+                      aria-expanded={false}
+                      className="hideOutline tapTransition rounding2 accessibilityOutline fullWidth pointer"
+                      onBlur={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      onKeyPress={[Function]}
+                      onMouseDown={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseUp={[Function]}
+                      onTouchCancel={[Function]}
+                      onTouchEnd={[Function]}
+                      onTouchMove={[Function]}
+                      onTouchStart={[Function]}
+                      role="button"
+                      tabIndex={0}
                     >
                       <div
-                        className="Flex rowGap2 columnGap0 xsDirectionRow"
+                        className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
                         style={
                           Object {
-                            "height": "100%",
-                            "width": "100%",
+                            "minHeight": 44,
+                            "paddingInlineEnd": "16px",
+                            "paddingInlineStart": "16px",
                           }
                         }
                       >
                         <div
-                          className="FlexItem selfCenter"
+                          className="Flex rowGap2 columnGap0 xsDirectionRow"
+                          style={
+                            Object {
+                              "height": "100%",
+                              "width": "100%",
+                            }
+                          }
                         >
                           <div
-                            aria-hidden={true}
-                            className="box"
+                            className="FlexItem selfCenter"
                           >
-                            <svg
+                            <div
                               aria-hidden={true}
-                              aria-label=""
-                              className="icon defaultIcon"
-                              height={16}
-                              role="img"
-                              viewBox="0 0 24 24"
-                              width={16}
+                              className="box"
                             >
-                              <path
-                                d="test-file-stub"
-                              />
-                            </svg>
+                              <svg
+                                aria-hidden={true}
+                                aria-label=""
+                                className="icon defaultIcon"
+                                height={16}
+                                role="img"
+                                viewBox="0 0 24 24"
+                                width={16}
+                              >
+                                <path
+                                  d="test-file-stub"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                          <div
+                            className="FlexItem flexGrow selfCenter"
+                          >
+                            <span
+                              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                            >
+                              Halloween
+                            </span>
+                          </div>
+                          <div
+                            className="FlexItem flexNone selfCenter"
+                          >
+                            <div
+                              aria-hidden={true}
+                              className="box circle marginEndN2 marginStart2"
+                              tabIndex={-1}
+                            >
+                              <svg
+                                aria-hidden={true}
+                                aria-label=""
+                                className="icon defaultIcon iconBlock"
+                                height={12}
+                                role="img"
+                                viewBox="0 0 24 24"
+                                width={12}
+                              >
+                                <path
+                                  d="test-file-stub"
+                                />
+                              </svg>
+                            </div>
                           </div>
                         </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`SideNavigation renders expanded group 1`] = `
+<div
+  className="box overflowAuto paddingX0 paddingY0 relative"
+  style={
+    Object {
+      "height": "100%",
+      "width": undefined,
+    }
+  }
+>
+  <nav
+    aria-label="Nested items example"
+    className="box"
+    style={
+      Object {
+        "height": "100%",
+        "minWidth": 280,
+        "width": 280,
+      }
+    }
+  >
+    <div>
+      <div
+        className="box default paddingX2 paddingY2"
+        style={
+          Object {
+            "height": "100%",
+            "paddingBottom": 24,
+          }
+        }
+      >
+        <div
+          className="Flex rowGap0 columnGap4 xsDirectionColumn"
+        >
+          <div
+            className="FlexItem"
+          >
+            <ul
+              className="ulItem"
+            >
+              <li
+                className="liItem"
+              >
+                <div
+                  aria-disabled={false}
+                  className="hideOutline tapTransition rounding2 accessibilityOutline fullWidth pointer"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onKeyPress={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchCancel={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchMove={[Function]}
+                  onTouchStart={[Function]}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <div
+                    className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                    style={
+                      Object {
+                        "minHeight": 44,
+                        "paddingInlineEnd": "16px",
+                        "paddingInlineStart": "16px",
+                      }
+                    }
+                  >
+                    <div
+                      className="Flex rowGap2 columnGap0 xsDirectionRow"
+                      style={
+                        Object {
+                          "height": "100%",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <div
+                        className="FlexItem selfCenter"
+                      >
                         <div
-                          className="FlexItem flexGrow selfCenter"
+                          aria-hidden={true}
+                          className="box"
                         >
-                          <span
-                            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                          <svg
+                            aria-hidden={true}
+                            aria-label=""
+                            className="icon defaultIcon"
+                            height={16}
+                            role="img"
+                            viewBox="0 0 24 24"
+                            width={16}
                           >
-                            Halloween
-                          </span>
+                            <path
+                              d="test-file-stub"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      <div
+                        className="FlexItem flexGrow selfCenter"
+                      >
+                        <span
+                          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                        >
+                          Christmas
+                        </span>
+                      </div>
+                      <div
+                        className="FlexItem flexNone selfCenter"
+                      >
+                        <div
+                          aria-hidden={true}
+                          className="box circle marginEndN2 marginStart2"
+                          tabIndex={-1}
+                        >
+                          <svg
+                            aria-hidden={true}
+                            aria-label=""
+                            className="icon defaultIcon iconBlock"
+                            height={12}
+                            role="img"
+                            viewBox="0 0 24 24"
+                            width={12}
+                          >
+                            <path
+                              d="test-file-stub"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <ul
+                  className="ulItem"
+                  id=":rm:"
+                >
+                  <li
+                    className="liItem"
+                  >
+                    <a
+                      className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                      href="#"
+                      onBlur={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      onKeyPress={[Function]}
+                      onMouseDown={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseUp={[Function]}
+                      onTouchCancel={[Function]}
+                      onTouchEnd={[Function]}
+                      onTouchMove={[Function]}
+                      onTouchStart={[Function]}
+                      rel=""
+                      tabIndex={0}
+                      target={null}
+                    >
+                      <div
+                        className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                        style={
+                          Object {
+                            "minHeight": 44,
+                            "paddingInlineEnd": "16px",
+                            "paddingInlineStart": "48px",
+                          }
+                        }
+                      >
+                        <div
+                          className="Flex rowGap2 columnGap0 xsDirectionRow"
+                          style={
+                            Object {
+                              "height": "100%",
+                              "width": "100%",
+                            }
+                          }
+                        >
+                          <div
+                            className="FlexItem flexGrow selfCenter"
+                          >
+                            <span
+                              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                            >
+                              Luxury Christmas
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li
+                    className="liItem"
+                  >
+                    <div
+                      aria-disabled={false}
+                      className="hideOutline tapTransition rounding2 accessibilityOutline fullWidth pointer"
+                      onBlur={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      onKeyPress={[Function]}
+                      onMouseDown={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseUp={[Function]}
+                      onTouchCancel={[Function]}
+                      onTouchEnd={[Function]}
+                      onTouchMove={[Function]}
+                      onTouchStart={[Function]}
+                      role="button"
+                      tabIndex={0}
+                    >
+                      <div
+                        className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                        style={
+                          Object {
+                            "minHeight": 44,
+                            "paddingInlineEnd": "16px",
+                            "paddingInlineStart": "48px",
+                          }
+                        }
+                      >
+                        <div
+                          className="Flex rowGap2 columnGap0 xsDirectionRow"
+                          style={
+                            Object {
+                              "height": "100%",
+                              "width": "100%",
+                            }
+                          }
+                        >
+                          <div
+                            className="FlexItem flexGrow selfCenter"
+                          >
+                            <span
+                              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                            >
+                              Classic Christmas
+                            </span>
+                          </div>
+                          <div
+                            className="FlexItem flexNone selfCenter"
+                          >
+                            <div
+                              aria-hidden={true}
+                              className="box circle marginEndN2 marginStart2"
+                              tabIndex={-1}
+                            >
+                              <svg
+                                aria-hidden={true}
+                                aria-label=""
+                                className="icon defaultIcon iconBlock"
+                                height={12}
+                                role="img"
+                                viewBox="0 0 24 24"
+                                width={12}
+                              >
+                                <path
+                                  d="test-file-stub"
+                                />
+                              </svg>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                     <ul
                       className="ulItem"
-                      id=":re:"
+                      id=":ro:"
                     >
                       <li
                         className="liItem"
@@ -1210,7 +1540,7 @@ exports[`SideNavigation renders nested directory 1`] = `
                               Object {
                                 "minHeight": 44,
                                 "paddingInlineEnd": "16px",
-                                "paddingInlineStart": "48px",
+                                "paddingInlineStart": "68px",
                               }
                             }
                           >
@@ -1229,7 +1559,7 @@ exports[`SideNavigation renders nested directory 1`] = `
                                 <span
                                   className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
                                 >
-                                  East Coast
+                                  West Coast
                                 </span>
                               </div>
                             </div>
@@ -1265,7 +1595,266 @@ exports[`SideNavigation renders nested directory 1`] = `
                               Object {
                                 "minHeight": 44,
                                 "paddingInlineEnd": "16px",
-                                "paddingInlineStart": "48px",
+                                "paddingInlineStart": "68px",
+                              }
+                            }
+                          >
+                            <div
+                              className="Flex rowGap2 columnGap0 xsDirectionRow"
+                              style={
+                                Object {
+                                  "height": "100%",
+                                  "width": "100%",
+                                }
+                              }
+                            >
+                              <div
+                                className="FlexItem flexGrow selfCenter"
+                              >
+                                <span
+                                  className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                                >
+                                  East Coast
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`SideNavigation renders static group 1`] = `
+<div
+  className="box overflowAuto paddingX0 paddingY0 relative"
+  style={
+    Object {
+      "height": "100%",
+      "width": undefined,
+    }
+  }
+>
+  <nav
+    aria-label="Nested items example"
+    className="box"
+    style={
+      Object {
+        "height": "100%",
+        "minWidth": 280,
+        "width": 280,
+      }
+    }
+  >
+    <div>
+      <div
+        className="box default paddingX2 paddingY2"
+        style={
+          Object {
+            "height": "100%",
+            "paddingBottom": 24,
+          }
+        }
+      >
+        <div
+          className="Flex rowGap0 columnGap4 xsDirectionColumn"
+        >
+          <div
+            className="FlexItem"
+          >
+            <ul
+              className="ulItem"
+            >
+              <li
+                className="liItem"
+              >
+                <div
+                  className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                  style={
+                    Object {
+                      "minHeight": 44,
+                      "paddingInlineEnd": "16px",
+                      "paddingInlineStart": "16px",
+                    }
+                  }
+                >
+                  <div
+                    className="Flex rowGap2 columnGap0 xsDirectionRow"
+                    style={
+                      Object {
+                        "height": "100%",
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    <div
+                      className="FlexItem selfCenter"
+                    >
+                      <div
+                        aria-hidden={true}
+                        className="box"
+                      >
+                        <svg
+                          aria-hidden={true}
+                          aria-label=""
+                          className="icon defaultIcon"
+                          height={16}
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width={16}
+                        >
+                          <path
+                            d="test-file-stub"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      className="FlexItem flexGrow selfCenter"
+                    >
+                      <span
+                        className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                      >
+                        Christmas
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <ul
+                  className="ulItem"
+                  id=":rg:"
+                >
+                  <li
+                    className="liItem"
+                  >
+                    <a
+                      className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                      href="#"
+                      onBlur={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      onKeyPress={[Function]}
+                      onMouseDown={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseUp={[Function]}
+                      onTouchCancel={[Function]}
+                      onTouchEnd={[Function]}
+                      onTouchMove={[Function]}
+                      onTouchStart={[Function]}
+                      rel=""
+                      tabIndex={0}
+                      target={null}
+                    >
+                      <div
+                        className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                        style={
+                          Object {
+                            "minHeight": 44,
+                            "paddingInlineEnd": "16px",
+                            "paddingInlineStart": "48px",
+                          }
+                        }
+                      >
+                        <div
+                          className="Flex rowGap2 columnGap0 xsDirectionRow"
+                          style={
+                            Object {
+                              "height": "100%",
+                              "width": "100%",
+                            }
+                          }
+                        >
+                          <div
+                            className="FlexItem flexGrow selfCenter"
+                          >
+                            <span
+                              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                            >
+                              Luxury Christmas
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li
+                    className="liItem"
+                  >
+                    <div
+                      className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                      style={
+                        Object {
+                          "minHeight": 44,
+                          "paddingInlineEnd": "16px",
+                          "paddingInlineStart": "48px",
+                        }
+                      }
+                    >
+                      <div
+                        className="Flex rowGap2 columnGap0 xsDirectionRow"
+                        style={
+                          Object {
+                            "height": "100%",
+                            "width": "100%",
+                          }
+                        }
+                      >
+                        <div
+                          className="FlexItem flexGrow selfCenter"
+                        >
+                          <span
+                            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                          >
+                            Classic Christmas
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <ul
+                      className="ulItem"
+                      id=":ri:"
+                    >
+                      <li
+                        className="liItem"
+                      >
+                        <a
+                          className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                          href="#"
+                          onBlur={[Function]}
+                          onClick={[Function]}
+                          onFocus={[Function]}
+                          onKeyDown={[Function]}
+                          onKeyPress={[Function]}
+                          onMouseDown={[Function]}
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                          onMouseUp={[Function]}
+                          onTouchCancel={[Function]}
+                          onTouchEnd={[Function]}
+                          onTouchMove={[Function]}
+                          onTouchStart={[Function]}
+                          rel=""
+                          tabIndex={0}
+                          target={null}
+                        >
+                          <div
+                            className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                            style={
+                              Object {
+                                "minHeight": 44,
+                                "paddingInlineEnd": "16px",
+                                "paddingInlineStart": "68px",
                               }
                             }
                           >
@@ -1285,6 +1874,61 @@ exports[`SideNavigation renders nested directory 1`] = `
                                   className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
                                 >
                                   West Coast
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <li
+                        className="liItem"
+                      >
+                        <a
+                          className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                          href="#"
+                          onBlur={[Function]}
+                          onClick={[Function]}
+                          onFocus={[Function]}
+                          onKeyDown={[Function]}
+                          onKeyPress={[Function]}
+                          onMouseDown={[Function]}
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                          onMouseUp={[Function]}
+                          onTouchCancel={[Function]}
+                          onTouchEnd={[Function]}
+                          onTouchMove={[Function]}
+                          onTouchStart={[Function]}
+                          rel=""
+                          tabIndex={0}
+                          target={null}
+                        >
+                          <div
+                            className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                            style={
+                              Object {
+                                "minHeight": 44,
+                                "paddingInlineEnd": "16px",
+                                "paddingInlineStart": "68px",
+                              }
+                            }
+                          >
+                            <div
+                              className="Flex rowGap2 columnGap0 xsDirectionRow"
+                              style={
+                                Object {
+                                  "height": "100%",
+                                  "width": "100%",
+                                }
+                              }
+                            >
+                              <div
+                                className="FlexItem flexGrow selfCenter"
+                              >
+                                <span
+                                  className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                                >
+                                  East Coast
                                 </span>
                               </div>
                             </div>
