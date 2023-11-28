@@ -54,8 +54,28 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
   handleMouseDown: (
     event: SyntheticMouseEvent<HTMLDivElement> | SyntheticTouchEvent<HTMLDivElement>,
   ) => void = (event) => {
+    // https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md#feature-detection
+    // Test via a getter in the options object to see if the passive property is accessed
+    let supportsPassive = false;
+    try {
+      // $FlowFixMe[prop-missing]
+      const opts = Object.defineProperty({}, 'passive', {
+        // eslint-disable-next-line getter-return
+        get() {
+          supportsPassive = true;
+        },
+      });
+      window.addEventListener('testPassive', null, opts);
+      window.removeEventListener('testPassive', null, opts);
+    } catch (e) {
+      // do nothing
+    }
+
     // Chrome, starting with version 56 (desktop, Chrome for Android, and Android webview), where the default value for the passive option for touchstart and touchmove is true and calls to preventDefault() will have no effect.
-    if (!!event?.clientX && !event?.touches) event.preventDefault();
+    if (!supportsPassive) {
+      console.log('event.preventDefault');
+      event.preventDefault();
+    }
 
     const { onPlayheadDown } = this.props;
     onPlayheadDown(event);
@@ -83,8 +103,28 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
   handleMouseMove: (
     event: SyntheticMouseEvent<HTMLDivElement> | SyntheticTouchEvent<HTMLDivElement>,
   ) => void = (event) => {
+    // https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md#feature-detection
+    // Test via a getter in the options object to see if the passive property is accessed
+    let supportsPassive = false;
+    try {
+      // $FlowFixMe[prop-missing]
+      const opts = Object.defineProperty({}, 'passive', {
+        // eslint-disable-next-line getter-return
+        get() {
+          supportsPassive = true;
+        },
+      });
+      window.addEventListener('testPassive', null, opts);
+      window.removeEventListener('testPassive', null, opts);
+    } catch (e) {
+      // do nothing
+    }
+
     // Chrome, starting with version 56 (desktop, Chrome for Android, and Android webview), where the default value for the passive option for touchstart and touchmove is true and calls to preventDefault() will have no effect.
-    if (!!event?.clientX && !event?.touches) event.preventDefault();
+
+    if (!supportsPassive) {
+      event.preventDefault();
+    }
 
     const { seeking } = this.state;
     if (seeking && !!event?.clientX && typeof event?.clientX === 'number') {

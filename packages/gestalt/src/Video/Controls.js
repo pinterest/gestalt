@@ -17,8 +17,12 @@ type Props = {
   onFullscreenChange: () => void,
   onPause: (event: SyntheticEvent<HTMLDivElement>) => void,
   onPlay: (event: SyntheticEvent<HTMLDivElement>) => void,
-  onPlayheadDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
-  onPlayheadUp: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
+  onPlayheadDown: (
+    event: SyntheticMouseEvent<HTMLDivElement> | SyntheticTouchEvent<HTMLDivElement>,
+  ) => void,
+  onPlayheadUp: (
+    event: SyntheticMouseEvent<HTMLDivElement> | SyntheticTouchEvent<HTMLDivElement>,
+  ) => void,
   onVolumeChange: (event: SyntheticEvent<HTMLDivElement>) => void,
   playing: boolean,
   seek: (time: number) => void,
