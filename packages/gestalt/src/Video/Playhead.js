@@ -123,7 +123,7 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
           onMouseLeave={this.handleMouseLeave}
           onMouseMove={this.handleMouseMove}
           onMouseUp={this.handleMouseUp}
-          // ontouch events take on on mobile
+          // ontouch events handle scrubber on mobile
           onTouchStart={this.handleMouseDown}
           onTouchMove={this.handleMouseMove}
           onTouchEnd={this.handleMouseUp}
