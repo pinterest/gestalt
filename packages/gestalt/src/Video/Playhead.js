@@ -7,8 +7,12 @@ type Props = {
   accessibilityProgressBarLabel: string,
   currentTime: number,
   duration: number,
-  onPlayheadDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
-  onPlayheadUp: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
+  onPlayheadDown: (
+    event: SyntheticMouseEvent<HTMLDivElement> | SyntheticTouchEvent<HTMLDivElement>,
+  ) => void,
+  onPlayheadUp: (
+    event: SyntheticMouseEvent<HTMLDivElement> | SyntheticTouchEvent<HTMLDivElement>,
+  ) => void,
   seek: (time: number) => void,
 };
 
@@ -47,12 +51,22 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
   // eslint-disable-next-line class-methods-use-this
   stopClick: (event: SyntheticEvent<HTMLDivElement>) => void = (event) => event.stopPropagation();
 
-  handleMouseDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) => {
-    event.preventDefault();
+  handleMouseDown: (
+    event: SyntheticMouseEvent<HTMLDivElement> | SyntheticTouchEvent<HTMLDivElement>,
+  ) => void = (event) => {
+    if (!!event?.clientX && !event?.touches) event.preventDefault();
+
     const { onPlayheadDown } = this.props;
     onPlayheadDown(event);
     this.setState({ seeking: true });
-    this.seek(event.clientX);
+
+    if (!!event?.clientX && typeof event?.clientX === 'number') {
+      this.seek(event.clientX);
+    }
+    if (event?.touches) {
+      // $FlowFixMe[incompatible-use]
+      this.seek(event.touches[0].clientX);
+    }
   };
 
   handleMouseLeave: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) => {
@@ -65,15 +79,24 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     }
   };
 
-  handleMouseMove: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) => {
-    event.preventDefault();
+  handleMouseMove: (
+    event: SyntheticMouseEvent<HTMLDivElement> | SyntheticTouchEvent<HTMLDivElement>,
+  ) => void = (event) => {
+    if (!!event?.clientX && !event?.touches) event.preventDefault();
+
     const { seeking } = this.state;
-    if (seeking) {
+    if (seeking && !!event?.clientX && typeof event?.clientX === 'number') {
       this.seek(event.clientX);
+    }
+    if (seeking && event?.touches) {
+      // $FlowFixMe[incompatible-use]
+      this.seek(event.touches[0].clientX);
     }
   };
 
-  handleMouseUp: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) => {
+  handleMouseUp: (
+    event: SyntheticMouseEvent<HTMLDivElement> | SyntheticTouchEvent<HTMLDivElement>,
+  ) => void = (event) => {
     const { onPlayheadUp } = this.props;
     this.setState({ seeking: false });
     onPlayheadUp(event);
@@ -97,6 +120,9 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
           onMouseLeave={this.handleMouseLeave}
           onMouseMove={this.handleMouseMove}
           onMouseUp={this.handleMouseUp}
+          onTouchStart={this.handleMouseDown}
+          onTouchMove={this.handleMouseMove}
+          onTouchEnd={this.handleMouseUp}
           ref={this.setPlayheadRef}
           role="progressbar"
           tabIndex="-1"
