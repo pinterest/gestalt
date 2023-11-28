@@ -197,9 +197,7 @@ export default function DocsPage({
         >
           <MainSection.Card
             cardSize="lg"
-            sandpackExample={
-              <SandpackExample name="Expandable With Error Type" code={sizesExample} />
-            }
+            sandpackExample={<SandpackExample name="Density Example" code={sizesExample} />}
           />
         </MainSection.Subsection>
 

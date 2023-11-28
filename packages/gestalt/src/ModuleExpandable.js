@@ -75,8 +75,7 @@ export default function ModuleExpandable({
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
-  const density = applyModuleDensityStyle(size);
-  const { rounding } = density;
+  const { rounding } = applyModuleDensityStyle(size);
 
   useEffect(() => {
     setExpandedId(getExpandedId(expandedIndex));

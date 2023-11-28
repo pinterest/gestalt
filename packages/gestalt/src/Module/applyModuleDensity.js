@@ -6,7 +6,7 @@ type Gap = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 const applyModuleDensityStyle = (
   size: 'sm' | 'md' | 'lg',
 ): {
-  gap: Gap,
+  gap: $ElementType<React$ElementConfig<typeof Flex>, 'gap'>,
   padding: $ElementType<React$ElementConfig<typeof Box>, 'padding'>,
   rounding: $ElementType<React$ElementConfig<typeof Box>, 'rounding'>,
   titleGap: Gap,

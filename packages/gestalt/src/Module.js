@@ -52,10 +52,6 @@ type Props = {
    * If set to `error`, displays error icon and changes title to red text. Be sure to provide an `iconAccessibilityLabel` when set to `error`. See the [error variant](https://gestalt.pinterest.systems/web/module#Static-Error) for more details.
    */
   type?: 'error' | 'info',
-  /**
-   * If set to `error`, displays error icon and changes title to red text. Be sure to provide an `iconAccessibilityLabel` when set to `error`. See the [error variant](https://gestalt.pinterest.systems/web/module#Static-Error) for more details.
-   */
-  type?: 'error' | 'info',
 };
 
 /**
