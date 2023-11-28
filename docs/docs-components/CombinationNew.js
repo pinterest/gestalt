@@ -1,9 +1,9 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex } from 'gestalt';
-import { useAppContext } from './appContext.js';
-import Checkerboard from './Checkerboard.js';
-import MainSectionCard from './MainSectionCard.js';
+import { useAppContext } from './appContext';
+import Checkerboard from './Checkerboard';
+import MainSectionCard from './MainSectionCard';
 
 const combinations = (variationsByField: { ... }) => {
   const fieldNames = Object.keys(variationsByField);
@@ -48,7 +48,7 @@ const toReactAttribute = (key: string, value: any) => {
 
 type Props = {
   // $FlowFixMe[unclear-type]
-  children: (props: { [key: string]: any, ... }, index?: number) => Node,
+  children: (props: { [key: string]: any, ... }, index?: number) => ReactNode,
   hideTitle?: boolean,
   hasCheckerboard?: boolean,
   cardSize?: 'xs',
@@ -61,7 +61,7 @@ export default function CombinationNew({
   hasCheckerboard,
   cardSize,
   ...props
-}: Props): Node {
+}: Props): ReactNode {
   const { helixBot } = useAppContext();
 
   const CardArray = combinations(props).map((combination, i) => {

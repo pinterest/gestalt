@@ -5,7 +5,7 @@ import {
   getNamedImportsComponents,
   getOpeningElement,
   getTextNodeFromSourceCode,
-} from './eslintASTHelpers.js';
+} from './eslintASTHelpers';
 
 // $FlowFixMe[unclear-type]
 type GenericNode = { [string]: any };

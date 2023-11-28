@@ -1,12 +1,12 @@
 // @flow strict
-import { generateDefaultMessage } from './helpers/noBoxDangerousStyleDuplicatesReducer.js';
+import { generateDefaultMessage } from './helpers/noBoxDangerousStyleDuplicatesReducer';
 import {
   getPathFormatterByRuleName,
   getRuleTester,
   getTestTypePrepender,
   readTestByPath,
-} from './helpers/testHelpers.js';
-import rule from './no-box-dangerous-style-duplicates.js';
+} from './helpers/testHelpers';
+import rule from './no-box-dangerous-style-duplicates';
 
 const ruleName = 'no-box-dangerous-style-duplicates';
 const ruleTester = getRuleTester();

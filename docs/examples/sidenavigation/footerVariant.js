@@ -1,9 +1,9 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Fieldset, Flex, SideNavigation, Text } from 'gestalt';
 import { DatePicker } from 'gestalt-datepicker';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   return (
     <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
       <Box width="100%" height="100%">

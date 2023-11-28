@@ -1,22 +1,22 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Heading, Link, Table, Text } from 'gestalt';
-import { DOCS_COPY_MAX_WIDTH_PX } from '../../docs-components/consts.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Markdown from '../../docs-components/Markdown.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import alignAndSpaceTextForReadability from '../../examples/typography/alignAndSpaceTextForReadability.js';
-import dontCenterTextWithTightLeading from '../../examples/typography/dontCenterTextWithTightLeading.js';
-import dontTruncateParagraphText from '../../examples/typography/dontTruncateParagraphText.js';
-import dontTruncateTextInControls from '../../examples/typography/dontTruncateTextInControls.js';
-import dontUseFixedSizeLineHeightAndCaps from '../../examples/typography/dontUseFixedSizeLineHeightAndCaps.js';
-import dontUseSmallSizes from '../../examples/typography/dontUseSmallSizes.js';
-import truncateForSecondaryText from '../../examples/typography/truncateForSecondaryText.js';
-import useProperFontSize from '../../examples/typography/useProperFontSize.js';
-import useStandardsForLanguageTranslation from '../../examples/typography/useStandardsForLanguageTranslation.js';
-import wrapTextWhenNeeded from '../../examples/typography/wrapTextWhenNeeded.js';
+import { DOCS_COPY_MAX_WIDTH_PX } from '../../docs-components/consts';
+import MainSection from '../../docs-components/MainSection';
+import Markdown from '../../docs-components/Markdown';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import SandpackExample from '../../docs-components/SandpackExample';
+import alignAndSpaceTextForReadability from '../../examples/typography/alignAndSpaceTextForReadability';
+import dontCenterTextWithTightLeading from '../../examples/typography/dontCenterTextWithTightLeading';
+import dontTruncateParagraphText from '../../examples/typography/dontTruncateParagraphText';
+import dontTruncateTextInControls from '../../examples/typography/dontTruncateTextInControls';
+import dontUseFixedSizeLineHeightAndCaps from '../../examples/typography/dontUseFixedSizeLineHeightAndCaps';
+import dontUseSmallSizes from '../../examples/typography/dontUseSmallSizes';
+import truncateForSecondaryText from '../../examples/typography/truncateForSecondaryText';
+import useProperFontSize from '../../examples/typography/useProperFontSize';
+import useStandardsForLanguageTranslation from '../../examples/typography/useStandardsForLanguageTranslation';
+import wrapTextWhenNeeded from '../../examples/typography/wrapTextWhenNeeded';
 import AlignmentCenter from '../../graphics/typography/alignmentCenter.svg';
 import AlignmentEnd from '../../graphics/typography/alignmentEnd.svg';
 import AlignmentStart from '../../graphics/typography/alignmentStart.svg';
@@ -29,7 +29,7 @@ import LineHeightLatin from '../../graphics/typography/lineHeightLatin.svg';
 import LineLength from '../../graphics/typography/lineLength.svg';
 import ParagraphSpacing from '../../graphics/typography/paragraphSpacing.svg';
 
-export default function TypographyPage(): Node {
+export default function TypographyPage(): ReactNode {
   return (
     <Page title="Typography">
       <PageHeader

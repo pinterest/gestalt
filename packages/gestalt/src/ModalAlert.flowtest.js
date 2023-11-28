@@ -1,6 +1,6 @@
 // @flow strict
-import ModalAlert from './ModalAlert.js';
-import Text from './Text.js';
+import ModalAlert from './ModalAlert';
+import Text from './Text';
 
 const Valid = (
   <ModalAlert

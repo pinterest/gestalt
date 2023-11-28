@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Button, Datapoint, Dropdown, PageHeader } from 'gestalt';
 
-export default function PageHeaderLocalizationExample(): Node {
+export default function PageHeaderLocalizationExample(): ReactNode {
   return (
     <PageHeader
       title="Anzeigenübersicht"

@@ -1,7 +1,7 @@
 // @flow strict
-import { type Node } from 'react';
-import InternalTooltip from '../Tooltip/InternalTooltip.js';
-import { type Indexable } from '../zIndex.js';
+import { type Node as ReactNode } from 'react';
+import InternalTooltip from '../Tooltip/InternalTooltip';
+import { type Indexable } from '../zIndex';
 
 type TooltipProps = {
   accessibilityLabel?: string,
@@ -16,10 +16,10 @@ export default function MaybeTooltip({
   disabled,
   tooltip,
 }: {
-  children: Node,
+  children: ReactNode,
   disabled?: boolean,
   tooltip?: TooltipProps,
-}): Node {
+}): ReactNode {
   if (!tooltip) return children;
 
   return (

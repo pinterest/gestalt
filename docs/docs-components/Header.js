@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { type Node as ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import {
   Badge,
@@ -13,12 +13,12 @@ import {
   Tabs,
   Text,
 } from 'gestalt';
-import { useAppContext } from './appContext.js';
-import trackButtonClick from './buttons/trackButtonClick.js';
-import DocSearch from './DocSearch.js';
-import { convertNamesForURL, isComponentsActiveSection } from './DocsSideNavigation.js';
-import GestaltLogo from './GestaltLogo.js';
-import { useNavigationContext } from './navigationContext.js';
+import { useAppContext } from './appContext';
+import trackButtonClick from './buttons/trackButtonClick';
+import DocSearch from './DocSearch';
+import { convertNamesForURL, isComponentsActiveSection } from './DocsSideNavigation';
+import GestaltLogo from './GestaltLogo';
+import { useNavigationContext } from './navigationContext';
 
 const PAGE_HEADER_ZINDEX: FixedZIndex = new FixedZIndex(10);
 
@@ -246,7 +246,7 @@ function Header() {
 
 const isReducedHeight = () => typeof window !== 'undefined' && window.innerHeight < 709;
 
-export default function StickyHeader(): Node {
+export default function StickyHeader(): ReactNode {
   const [reducedHeight, setReducedHeight] = useState(false);
 
   const handleResizeHeight = useCallback(() => {

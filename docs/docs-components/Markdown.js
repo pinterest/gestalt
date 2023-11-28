@@ -1,6 +1,6 @@
 // @flow strict
 import 'highlight.js/styles/a11y-light.css';
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import highlightjs from 'highlight.js';
 import { marked, Renderer } from 'marked';
 import { Text } from 'gestalt';
@@ -38,7 +38,7 @@ const stripIndent = (str: string): string => {
   return str.replace(re, '');
 };
 
-export default function Markdown({ textColor, text }: Props): Node {
+export default function Markdown({ textColor, text }: Props): ReactNode {
   const renderer = new Renderer();
 
   renderer.link = (href, title, linktext) => `

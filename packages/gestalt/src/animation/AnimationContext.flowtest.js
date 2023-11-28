@@ -1,5 +1,5 @@
 // @flow strict
-import AnimationProvider from './AnimationContext.js';
+import AnimationProvider from './AnimationContext';
 
 const Valid = (
   <AnimationProvider>

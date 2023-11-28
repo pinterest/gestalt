@@ -1,17 +1,17 @@
 // @flow strict
-import { type Node, useEffect } from 'react';
-import { useGlobalEventsHandler } from 'gestalt';
-import Fieldset from './Fieldset.js';
-import Flex from './Flex.js';
-import { RadioGroupContextProvider } from './RadioGroup/Context.js';
-import RadioGroupButton from './RadioGroupButton.js';
+import { type Node as ReactNode, useEffect } from 'react';
+import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider';
+import Fieldset from './Fieldset';
+import Flex from './Flex';
+import { RadioGroupContextProvider } from './RadioGroup/Context';
+import RadioGroupButton from './RadioGroupButton';
 
 type Props = {
   /**
    * A collection of RadioGroup.RadioButtons representing the available options, as well as any Labels or layout components (Box, Flex, etc.), if needed. Other components such as Checkboxes should not be included. Note that children can be grouped into organizational components if desired.
    *
    */
-  children: Node,
+  children: ReactNode,
   /**
    * A unique identifier for this RadioGroup.
    *
@@ -50,9 +50,9 @@ function RadioGroup({
   id,
   legend,
   legendDisplay = 'visible',
-}: Props): Node {
+}: Props): ReactNode {
   // Consume GlobalEventsHandlerProvider
-  const { radioGroupHandlers } = useGlobalEventsHandler() ?? {
+  const { radioGroupHandlers } = useGlobalEventsHandlerContext() ?? {
     radioGroupHandlers: undefined,
   };
 

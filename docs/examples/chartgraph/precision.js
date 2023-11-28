@@ -1,9 +1,9 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { FixedZIndex, Flex } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const data = [
     { name: new Date(2023, 0, 1).getTime(), 'Actual data': 1000 },
     { name: new Date(2023, 1, 1).getTime(), 'Actual data': 1567 },

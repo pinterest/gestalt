@@ -1,12 +1,12 @@
 // @flow strict
-import { Children, type Node } from 'react';
-import Box from './Box.js';
+import { Children, type Node as ReactNode } from 'react';
+import Box from './Box';
 
 type Props = {
   /**
    * One or more Buttons and/or IconButtons.
    */
-  children?: Node,
+  children?: ReactNode,
 };
 
 /**
@@ -16,7 +16,7 @@ type Props = {
  * ![ButtonGroup dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ButtonGroup-dark.spec.mjs-snapshots/ButtonGroup-dark-chromium-darwin.png)
  *
  */
-function ButtonGroup({ children }: Props): Node {
+function ButtonGroup({ children }: Props): ReactNode {
   if (Children.count(children) === 0) {
     return null;
   }

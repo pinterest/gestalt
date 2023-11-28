@@ -1,11 +1,11 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Flex, Heading, Text } from 'gestalt';
-import ColorTile from '../../../../docs-components/ColorTile.js';
-import MainSection from '../../../../docs-components/MainSection.js';
-import Page from '../../../../docs-components/Page.js';
-import PageHeader from '../../../../docs-components/PageHeader.js';
-import capitalizeFirstLetter from '../../../../utils/capitalizeFirstLetter.js';
+import ColorTile from '../../../../docs-components/ColorTile';
+import MainSection from '../../../../docs-components/MainSection';
+import Page from '../../../../docs-components/Page';
+import PageHeader from '../../../../docs-components/PageHeader';
+import capitalizeFirstLetter from '../../../../utils/capitalizeFirstLetter';
 
 const MAIN_STEPS = [
   { name: '01', lightText: 'light', darkText: 'light' },
@@ -27,7 +27,7 @@ const EXTENDED_STEPS = [
 type ColorCardProps = {
   colorScheme: 'light' | 'dark',
 };
-function SemanticThemeExample({ colorScheme }: ColorCardProps): Node {
+function SemanticThemeExample({ colorScheme }: ColorCardProps): ReactNode {
   return (
     <ColorSchemeProvider colorScheme={colorScheme} id={colorScheme}>
       <Box color="default" padding={4}>
@@ -73,7 +73,7 @@ function SemanticThemeExample({ colorScheme }: ColorCardProps): Node {
 function getColorTiles(
   colors: $ReadOnlyArray<{ darkText: string, lightText: string, name: string }>,
   mode: string = 'light',
-): Node {
+): ReactNode {
   return (
     <Flex
       direction="column"
@@ -94,7 +94,7 @@ function getColorTiles(
   );
 }
 
-export default function ColorPage(): Node {
+export default function ColorPage(): ReactNode {
   return (
     <Page title="Data visualization color palette">
       <PageHeader

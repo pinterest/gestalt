@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useEffect, useRef } from 'react';
+import { type Node as ReactNode, useEffect, useRef } from 'react';
 import { Flex, TextField } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const ref = useRef<null | HTMLInputElement>(null);
 
   useEffect(() => {

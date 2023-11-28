@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useEffect, useState } from 'react';
+import { type Node as ReactNode, useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { useRouter } from 'next/router';
-import createHydra, { type Hydra } from './createHydra.js';
+import createHydra, { type Hydra } from './createHydra';
 
 const colorSchemeKey = 'gestalt-color-scheme';
 const propTableVariantKey = 'gestalt-propTable-variant';
@@ -36,7 +36,7 @@ const {
   useHook: useAppContext,
 }: Hydra<AppContextType> = createHydra<AppContextType>('AppContext');
 
-function AppContextProvider({ children }: { children?: Node }): Node {
+function AppContextProvider({ children }: { children?: ReactNode }): ReactNode {
   const [cookies, setCookies] = useCookies([
     colorSchemeKey,
     propTableVariantKey,

@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Badge, Box, Flex } from 'gestalt';
 
-export default function Snapshot(): Node {
+export default function Snapshot(): ReactNode {
   return (
     <Box color="default" padding={1}>
       <Flex gap={{ row: 4, column: 2 }} wrap width={400}>

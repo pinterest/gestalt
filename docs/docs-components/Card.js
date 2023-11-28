@@ -1,19 +1,19 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import slugify from 'slugify';
 import { Badge, Box, Flex, Heading, Tooltip } from 'gestalt';
-import CopyLinkButton from './buttons/CopyLinkButton.js';
-import { DOCS_COPY_MAX_WIDTH_PX } from './consts.js';
-import Markdown from './Markdown.js';
+import CopyLinkButton from './buttons/CopyLinkButton';
+import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
+import Markdown from './Markdown';
 
 type Props = {
-  children?: Node,
+  children?: ReactNode,
   badge?: { text: string, tooltipText: string },
   description?: string,
   headingSize?: '400' | '500',
   id?: string,
   name: string,
-  toggle?: Node,
+  toggle?: ReactNode,
   stacked?: boolean,
   showHeading?: boolean,
 };
@@ -44,7 +44,7 @@ export default function Card({
   toggle,
   stacked = false,
   showHeading = true,
-}: Props): Node {
+}: Props): ReactNode {
   const slugifiedId = id ?? slugify(name);
 
   return (

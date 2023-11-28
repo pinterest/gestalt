@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Flex, TextField } from 'gestalt';
 
-export default function TextFieldExample(): Node {
+export default function TextFieldExample(): ReactNode {
   const [valueA, setValueA] = useState('Delicious vegan soup');
   const [valueB, setValueB] = useState('Delicious vegan noodle soup');
 

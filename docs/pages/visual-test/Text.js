@@ -1,8 +1,8 @@
 // @flow strict
-import { Fragment, type Node } from 'react';
+import { Fragment, type Node as ReactNode } from 'react';
 import { Box, Text } from 'gestalt';
 
-export default function Snapshot(): Node {
+export default function Snapshot(): ReactNode {
   return (
     <Fragment>
       <Box padding={1}>

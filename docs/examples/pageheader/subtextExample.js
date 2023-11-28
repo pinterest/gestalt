@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Button, Dropdown, PageHeader } from 'gestalt';
 
-export default function IncludeImageExample(): Node {
+export default function IncludeImageExample(): ReactNode {
   return (
     <PageHeader
       title="Create product group"

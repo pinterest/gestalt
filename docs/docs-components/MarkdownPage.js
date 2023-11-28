@@ -1,19 +1,19 @@
 // @flow strict
 import 'highlight.js/styles/a11y-light.css';
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import Image from 'next/image';
 import { Box, ButtonLink, Datapoint, Flex, Icon, Link, List, Text } from 'gestalt';
-import { DOCS_COPY_MAX_WIDTH_PX } from './consts.js';
-import Highlighter from './highlight.js';
-import IllustrationCard from './IllustrationCard.js';
-import InternalOnlyIconButton from './InternalOnlyIconButton.js';
-import MainSection from './MainSection.js';
-import Page from './Page.js';
-import PageHeader from './PageHeader.js';
+import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
+import Highlighter from './highlight';
+import IllustrationCard from './IllustrationCard';
+import InternalOnlyIconButton from './InternalOnlyIconButton';
+import MainSection from './MainSection';
+import Page from './Page';
+import PageHeader from './PageHeader';
 
 type Props = {
-  children: Node,
+  children: ReactNode,
   meta: {
     title: string,
     badge: 'pilot' | 'deprecated',
@@ -217,18 +217,18 @@ const components = {
       />
     );
   },
-  Group: ({ children }: { children: Node }) => <Box marginBottom={12}>{children}</Box>,
-  Do: (props: { children?: Node, title: string }) => (
+  Group: ({ children }: { children: ReactNode }) => <Box marginBottom={12}>{children}</Box>,
+  Do: (props: { children?: ReactNode, title: string }) => (
     <MainSection.Card type="do" title={props.title || 'Do'} marginBottom="none">
       {props.children}
     </MainSection.Card>
   ),
-  Dont: (props: { children?: Node, title: string }) => (
+  Dont: (props: { children?: ReactNode, title: string }) => (
     <MainSection.Card type="don't" title={props.title || "Don't"} marginBottom="none">
       {props.children}
     </MainSection.Card>
   ),
-  TwoCol: ({ children }: { children: Node }) => (
+  TwoCol: ({ children }: { children: ReactNode }) => (
     <MainSection.Subsection columns={2}>{children}</MainSection.Subsection>
   ),
   ImgHero: ({
@@ -314,7 +314,7 @@ const components = {
     children,
     spacing = 'default',
   }: {
-    children: Node,
+    children: ReactNode,
     spacing?: 'default' | 'expanded',
   }) => (
     <div
@@ -329,7 +329,7 @@ const components = {
   ),
 };
 
-export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): Node {
+export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): ReactNode {
   const maxWidth = meta?.fullwidth ? 'none' : `${DOCS_COPY_MAX_WIDTH_PX}px`;
 
   return (

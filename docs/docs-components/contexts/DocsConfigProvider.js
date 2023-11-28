@@ -1,12 +1,19 @@
 // @flow strict
-import { type Context, createContext, type Element, type Node, useContext, useState } from 'react';
+import {
+  type Context,
+  createContext,
+  type Element,
+  type Node as ReactNode,
+  useContext,
+  useState,
+} from 'react';
 
 type DocsConfigContextType = {
   isMobile: boolean,
 };
 
 type Props = {
-  children: Node,
+  children: ReactNode,
   isMobile: boolean,
 };
 

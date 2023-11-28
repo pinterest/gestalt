@@ -1,5 +1,5 @@
 // @flow strict
-import Icon from './Icon.js';
+import Icon from './Icon';
 
 const Valid = <Icon icon="add" accessibilityLabel="Add" />;
 

@@ -1,6 +1,6 @@
 // @flow strict
-import { type AbstractComponent, forwardRef, type Node } from 'react';
-import InternalTextField from './TextField/InternalTextField.js';
+import { type AbstractComponent, forwardRef, type Node as ReactNode } from 'react';
+import InternalTextField from './TextField/InternalTextField';
 
 // <input> deals with strings, but we only want numbers for this component.
 // So we parse what we get from InternalTextField and we stringify what we give it.
@@ -36,7 +36,7 @@ type Props = {
   /**
    * For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in [Link](https://gestalt.pinterest.systems/web/link) or [TapArea](https://gestalt.pinterest.systems/web/taparea).
    */
-  errorMessage?: Node,
+  errorMessage?: ReactNode,
   /**
    * More information for the user about how to complete the form field.
    */
@@ -153,7 +153,7 @@ const NumberFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = fo
     value,
   }: Props,
   ref,
-): Node {
+): ReactNode {
   return (
     <InternalTextField
       autoComplete={autoComplete}

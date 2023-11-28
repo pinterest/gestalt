@@ -73,8 +73,10 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Overview',
       'Component status',
       'Avatar',
+      'AvatarGroup',
       'Badge',
       'Button',
+      'ButtonGroup',
       {
         sectionName: 'Card',
         pages: ['Card', 'Card.Header', 'Card.Boards', 'Card.Pins'],
@@ -82,6 +84,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Checkbox',
       'Icon',
       'IconButton',
+      'IconButtonFloating',
       'ListAction',
       'SearchField',
       'Sheet',

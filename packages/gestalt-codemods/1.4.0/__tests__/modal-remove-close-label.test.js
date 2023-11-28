@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../modal-remove-close-label', () =>
   Object.assign(jest.requireActual('../modal-remove-close-label'), {

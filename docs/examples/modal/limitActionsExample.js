@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Button, CompositeZIndex, FixedZIndex, Flex, Layer, Modal, Text } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [showComponent, setShowComponent] = useState(true);
   const HEADER_ZINDEX = new FixedZIndex(10);
   const modalZIndex = new CompositeZIndex([HEADER_ZINDEX]);

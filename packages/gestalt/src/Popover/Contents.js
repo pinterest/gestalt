@@ -1,14 +1,14 @@
 // @flow strict
-import { type Node, useEffect, useRef } from 'react';
+import { type Node as ReactNode, useEffect, useRef } from 'react';
 import { FloatingFocusManager } from '@floating-ui/react';
 import classnames from 'classnames';
-import usePopover, { DIRECTIONS_MAP, SIDES_MAP } from './usePopover.js';
+import usePopover, { DIRECTIONS_MAP, SIDES_MAP } from './usePopover';
 import borders from '../Borders.css';
-import Caret from '../Caret.js';
+import Caret from '../Caret';
 import colors from '../Colors.css';
 import styles from '../Contents.css';
-import { type MainDirections } from '../utils/positioningTypes.js';
-import { CARET_HEIGHT, CARET_WIDTH } from '../utils/positioningUtils.js';
+import { type MainDirections } from '../utils/positioningTypes';
+import { CARET_HEIGHT, CARET_WIDTH } from '../utils/positioningUtils';
 
 export type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 
@@ -18,7 +18,7 @@ type Props = {
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
   border?: boolean,
   caret?: boolean,
-  children?: Node,
+  children?: ReactNode,
   id: ?string,
   idealDirection?: MainDirections,
   onKeyDown: (event: SyntheticKeyboardEvent<HTMLElement>) => void,
@@ -46,7 +46,7 @@ export default function Contents({
   onKeyDown,
   scrollBoundary,
   hideWhenReferenceHidden = true,
-}: Props): Node {
+}: Props): ReactNode {
   const caretRef = useRef<HTMLElement | null>(null);
   const idealPlacement = idealDirection ? DIRECTIONS_MAP[idealDirection] : 'top';
 

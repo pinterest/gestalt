@@ -1,11 +1,11 @@
 // @flow strict
-import { Fragment, type Node, useEffect, useReducer, useRef } from 'react';
-import Box from '../Box.js';
-import Layer from '../Layer.js';
-import LegacyController from '../LegacyController.js';
-import Text from '../Text.js';
-import useDebouncedCallback from '../useDebouncedCallback.js';
-import { type Indexable } from '../zIndex.js';
+import { Fragment, type Node as ReactNode, useEffect, useReducer, useRef } from 'react';
+import Box from '../Box';
+import Layer from '../Layer';
+import LegacyController from '../LegacyController';
+import Text from '../Text';
+import useDebouncedCallback from '../useDebouncedCallback';
+import { type Indexable } from '../zIndex';
 
 const noop = () => {};
 const TIMEOUT = 100;
@@ -52,14 +52,14 @@ const reducer = (
 
 type Props = {
   accessibilityLabel?: string,
-  children?: Node,
+  children?: ReactNode,
   /**
    * Whether to show the tooltip or not
    */
   disabled?: boolean,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   inline?: boolean,
-  link?: Node,
+  link?: ReactNode,
   text: string | $ReadOnlyArray<string>,
   zIndex?: Indexable,
 };
@@ -73,7 +73,7 @@ export default function InternalTooltip({
   inline,
   text,
   zIndex,
-}: Props): Node {
+}: Props): ReactNode {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { isOpen } = state;
 

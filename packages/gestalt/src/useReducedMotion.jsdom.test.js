@@ -1,6 +1,6 @@
 // @flow strict
 import { act, renderHook } from '@testing-library/react-hooks';
-import useReducedMotion from './useReducedMotion.js';
+import useReducedMotion from './useReducedMotion';
 
 const mediaqueryDefaults = {
   matches: false,

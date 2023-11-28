@@ -1,5 +1,5 @@
 // @flow strict
-import TableRowExpandable from './TableRowExpandable.js';
+import TableRowExpandable from './TableRowExpandable';
 
 const Valid = (
   <TableRowExpandable

@@ -1,5 +1,5 @@
 // @flow strict
-import Label from './Label.js';
+import Label from './Label';
 
 const Valid = <Label htmlFor="foo" />;
 

@@ -1,24 +1,24 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, TapAreaLink } from 'gestalt';
-import CombinationNew from '../../docs-components/CombinationNew.js';
-import docGen, { type DocGen, type DocType } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import compressBehavior from '../../examples/taparealink/compressBehavior.js';
-import heightWidth from '../../examples/taparealink/heightWidth.js';
-import inlineUsage from '../../examples/taparealink/inlineUsage.js';
-import localizationLabels from '../../examples/taparealink/localizationLabels.js';
-import main from '../../examples/taparealink/main.js';
-import mouseCursor from '../../examples/taparealink/mouseCursor.js';
+import CombinationNew from '../../docs-components/CombinationNew';
+import docGen, { type DocGen, type DocType } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import compressBehavior from '../../examples/taparealink/compressBehavior';
+import heightWidth from '../../examples/taparealink/heightWidth';
+import inlineUsage from '../../examples/taparealink/inlineUsage';
+import localizationLabels from '../../examples/taparealink/localizationLabels';
+import main from '../../examples/taparealink/main';
+import mouseCursor from '../../examples/taparealink/mouseCursor';
 
-export default function DocsPage({ generatedDocGen }: DocType): Node {
+export default function DocsPage({ generatedDocGen }: DocType): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader

@@ -1,5 +1,5 @@
 // @flow strict
-import Image from './Image.js';
+import Image from './Image';
 
 const Valid = <Image alt="foo" naturalHeight={50} naturalWidth={50} src="foo.png" />;
 

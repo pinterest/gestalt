@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Avatar, Box, TapArea, Text } from 'gestalt';
 
-export default function TapAreaExample(): Node {
+export default function TapAreaExample(): ReactNode {
   return (
     <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
       <Box rounding={4} borderStyle="sm" width={170}>

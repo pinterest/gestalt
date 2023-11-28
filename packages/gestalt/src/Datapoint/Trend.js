@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
-import Flex from '../Flex.js';
-import Icon from '../Icon.js';
-import Text from '../Text.js';
+import { type Node as ReactNode } from 'react';
+import Flex from '../Flex';
+import Icon from '../Icon';
+import Text from '../Text';
 
 const TREND_COLOR_MAP = {
   good: 'success',
@@ -34,7 +34,7 @@ export default function Trend({
   iconAccessibilityLabel,
   sentiment = 'auto',
   value,
-}: Props): Node {
+}: Props): ReactNode {
   const color = disabled ? 'subtle' : getValueColor({ sentiment, value });
 
   return (

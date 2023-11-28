@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useCallback, useEffect, useState } from 'react';
+import { Fragment, type Node as ReactNode, useCallback, useEffect, useState } from 'react';
 import { Box, FixedZIndex, Flex, TapArea, Text } from 'gestalt';
 
 /**
@@ -7,7 +7,7 @@ import { Box, FixedZIndex, Flex, TapArea, Text } from 'gestalt';
  *
  * Note: This TapArea will only show when people are tabbing through (for accessibility purposes)
  */
-export default function SkipToContent(): Node {
+export default function SkipToContent(): ReactNode {
   const [focused, setFocused] = useState(false);
   const [mainContent, setMainContent] = useState<null | HTMLElement>(null);
 

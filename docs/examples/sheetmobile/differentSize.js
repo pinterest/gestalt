@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import {
   Box,
   Button,
@@ -12,7 +12,7 @@ import {
   TextField,
 } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [showComponent, setShowComponent] = useState(true);
   const [showComponentData, setShowComponentData] = useState<?string>(null);
   const [showNextData, setShowNextData] = useState<?string>(null);

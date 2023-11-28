@@ -1,19 +1,27 @@
 // @flow strict
-import { Fragment, type Node, useCallback, useEffect, useId, useMemo, useState } from 'react';
+import {
+  Fragment,
+  type Node as ReactNode,
+  useCallback,
+  useEffect,
+  useId,
+  useMemo,
+  useState,
+} from 'react';
 import classnames from 'classnames';
-import getChildrenToArray from './getChildrenToArray.js';
-import SideNavigationGroupContent from './GroupContent.js';
-import Box from '../Box.js';
-import { NestingProvider, useNesting } from '../contexts/NestingProvider.js';
-import { useSideNavigation } from '../contexts/SideNavigationProvider.js';
-import Flex from '../Flex.js';
-import Heading from '../Heading.js';
-import IconButton from '../IconButton.js';
-import InternalDismissButton from '../shared/InternalDismissButton.js';
+import getChildrenToArray from './getChildrenToArray';
+import SideNavigationGroupContent from './GroupContent';
+import Box from '../Box';
+import { NestingProvider, useNesting } from '../contexts/NestingProvider';
+import { useSideNavigation } from '../contexts/SideNavigationProvider';
+import Flex from '../Flex';
+import Heading from '../Heading';
+import IconButton from '../IconButton';
+import InternalDismissButton from '../shared/InternalDismissButton';
 import styles from '../SideNavigation.css';
-import { type Props } from '../SideNavigationGroup.js';
-import { NESTING_MARGIN_START_MAP } from '../SideNavigationTopItem.js';
-import TapArea from '../TapArea.js';
+import { type Props } from '../SideNavigationGroup';
+import { NESTING_MARGIN_START_MAP } from '../SideNavigationTopItem';
+import TapArea from '../TapArea';
 
 type SideNavigationGroupMobileProps = { ...Props, hasActiveChild: boolean };
 
@@ -27,7 +35,7 @@ export default function SideNavigationGroupMobile({
   label,
   primaryAction,
   notificationAccessibilityLabel,
-}: SideNavigationGroupMobileProps): Node {
+}: SideNavigationGroupMobileProps): ReactNode {
   // Manages PrimaryAction
   const [compression, setCompression] = useState<'compress' | 'none'>('compress');
   const [hovered, setHovered] = useState(false);

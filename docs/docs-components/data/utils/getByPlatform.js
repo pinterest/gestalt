@@ -1,5 +1,5 @@
 // @flow strict
-import { type ComponentData, type Platform, type PlatformData } from '../types.js';
+import { type ComponentData, type Platform, type PlatformData } from '../types';
 
 /**
  * Gets all components for a given platform, returning an array of just the data for that platform.

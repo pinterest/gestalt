@@ -1,7 +1,7 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Flex from './Flex.js';
-import TagData from './TagData.js';
+import Flex from './Flex';
+import TagData from './TagData';
 
 describe('TagData', () => {
   it('TagData has a tooltip', () => {

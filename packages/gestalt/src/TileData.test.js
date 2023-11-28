@@ -1,7 +1,7 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Flex from './Flex.js';
-import TileData from './TileData.js';
+import Flex from './Flex';
+import TileData from './TileData';
 
 describe('TileData', () => {
   it('renders', () => {

@@ -1,8 +1,8 @@
 // @flow strict
-import { Fragment, type Node, useState } from 'react';
+import { Fragment, type Node as ReactNode, useState } from 'react';
 import { Button, Datapoint, Dropdown, OverlayPanel, PageHeader, Text } from 'gestalt';
 
-export default function IncludeImageExample(): Node {
+export default function IncludeImageExample(): ReactNode {
   const [open, setOpen] = useState(false);
 
   return (

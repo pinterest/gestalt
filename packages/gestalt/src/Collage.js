@@ -1,6 +1,6 @@
 // @flow strict
-import { type Node } from 'react';
-import Collection from './Collage/Collection.js';
+import { type Node as ReactNode } from 'react';
+import Collection from './Collage/Collection';
 
 type Column = 2 | 3 | 4;
 
@@ -175,7 +175,7 @@ type Props = {
     width: number,
     height: number,
     index: number,
-  }) => Node,
+  }) => ReactNode,
   /**
    * Width of the collage.
    */
@@ -189,7 +189,7 @@ type Props = {
  * ![Collage dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Collage-dark.spec.mjs-snapshots/Collage-dark-chromium-darwin.png)
  *
  */
-export default function Collage(props: Props): Node {
+export default function Collage(props: Props): ReactNode {
   const { columns, cover, gutter, height, layoutKey, renderImage, width } = props;
   const positions = getCollageLayout({
     columns,

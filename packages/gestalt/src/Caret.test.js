@@ -1,6 +1,6 @@
 // @flow strict
 import renderer from 'react-test-renderer';
-import Caret from './Caret.js';
+import Caret from './Caret';
 
 test('Caret renders with direction up', () => {
   const component = renderer.create(<Caret direction="up" height={4} width={12} />);

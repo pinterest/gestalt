@@ -1,5 +1,5 @@
 // @flow strict
-import { type ElementProps, type Node, useState } from 'react';
+import { type ElementProps, type Node as ReactNode, useState } from 'react';
 import {
   Box,
   Flex,
@@ -16,8 +16,8 @@ import {
   Tooltip,
 } from 'gestalt';
 import iconCategoryData from './ICON_DATA.json';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
+import Page from '../../../docs-components/Page';
+import PageHeader from '../../../docs-components/PageHeader';
 
 const { icons } = Icon;
 const CATEGORIES = [
@@ -127,7 +127,7 @@ function iconHasKeyword(iconName?: string, searchTerm: string) {
   );
 }
 
-export default function IconPage(): Node {
+export default function IconPage(): ReactNode {
   const [showToastText, setShowToastText] = useState<void | string>();
 
   const iconOptions = icons

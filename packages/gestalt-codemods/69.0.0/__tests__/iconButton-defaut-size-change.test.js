@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../iconButton-defaut-size-change', () =>
   Object.assign(jest.requireActual('../iconButton-defaut-size-change'), {

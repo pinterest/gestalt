@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
-import InternalPopover from './Popover/InternalPopover.js';
-import LegacyInternalPopover from './Popover/LegacyInternalPopover.js';
-import useInExperiment from './useInExperiment.js';
+import { type Node as ReactNode } from 'react';
+import InternalPopover from './Popover/InternalPopover';
+import LegacyInternalPopover from './Popover/LegacyInternalPopover';
+import useInExperiment from './useInExperiment';
 
 type Color = 'deprecatedBlue' | 'red' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
@@ -24,7 +24,7 @@ type Props = {
   /**
    * The content shown in Popover.
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * This field is deprecated and will be removed soon. Please do not use. See [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducational).
    */
@@ -114,7 +114,7 @@ export default function Popover({
   scrollBoundary,
   hideWhenReferenceHidden,
   __dangerouslySetMaxHeight,
-}: Props): null | Node {
+}: Props): null | ReactNode {
   const isInExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_popover_v2',
     mwebExperimentName: 'mweb_gestalt_popover_v2',

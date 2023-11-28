@@ -2,26 +2,26 @@
 import {
   type Element,
   type ElementConfig,
-  type Node,
+  type Node as ReactNode,
   type Ref,
   useId,
   useRef,
   useState,
 } from 'react';
-import Box from './Box.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import Flex from './Flex.js';
+import Box from './Box';
+import { useColorScheme } from './contexts/ColorSchemeProvider';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import Flex from './Flex';
 import styles from './HelpButton.css';
-import Icon from './Icon.js';
-import { ESCAPE, TAB } from './keyCodes.js';
-import Layer from './Layer.js';
-import Link from './Link.js';
-import Popover from './Popover.js';
-import TapArea from './TapArea.js';
-import Text from './Text.js';
-import Tooltip from './Tooltip.js';
-import { CompositeZIndex, FixedZIndex, type Indexable } from './zIndex.js';
+import Icon from './Icon';
+import { ESCAPE, TAB } from './keyCodes';
+import Layer from './Layer';
+import Link from './Link';
+import Popover from './Popover';
+import TapArea from './TapArea';
+import Text from './Text';
+import Tooltip from './Tooltip';
+import { CompositeZIndex, FixedZIndex, type Indexable } from './zIndex';
 
 type LinkType = {
   accessibilityLabel?: string,
@@ -98,7 +98,7 @@ export default function HelpButton({
   onClick,
   text,
   zIndex,
-}: Props): Node {
+}: Props): ReactNode {
   const tapAreaRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
   const textRef = useRef<null | HTMLElement>(null);
   const [open, setOpen] = useState(false);

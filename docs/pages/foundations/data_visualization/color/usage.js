@@ -1,10 +1,10 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Image, SlimBanner } from 'gestalt';
-import ColorTile from '../../../../docs-components/ColorTile.js';
-import MainSection from '../../../../docs-components/MainSection.js';
-import Page from '../../../../docs-components/Page.js';
-import PageHeader from '../../../../docs-components/PageHeader.js';
+import ColorTile from '../../../../docs-components/ColorTile';
+import MainSection from '../../../../docs-components/MainSection';
+import Page from '../../../../docs-components/Page';
+import PageHeader from '../../../../docs-components/PageHeader';
 import DataViz2Colors from '../../../../graphics/data-viz-color-examples/dataViz2Colors.svg';
 import DataViz3Colors from '../../../../graphics/data-viz-color-examples/dataViz3Colors.svg';
 import DataViz4Colors from '../../../../graphics/data-viz-color-examples/dataViz4Colors.svg';
@@ -45,7 +45,7 @@ type ColorCardProps = {
   count: number,
 };
 
-function PaletteGenerator({ count }: ColorCardProps): Node {
+function PaletteGenerator({ count }: ColorCardProps): ReactNode {
   return [...Array(count)].map((step, idx) => {
     const tokenStep = idx + 1;
 
@@ -66,7 +66,7 @@ type PairSetProps = {
   color2: number,
 };
 
-function DoNotPairSet({ color1, color2 }: PairSetProps): Node {
+function DoNotPairSet({ color1, color2 }: PairSetProps): ReactNode {
   const firstColor = color1 < 10 ? `0${color1}` : `${color1}`;
   const secondColor = color2 < 10 ? `0${color2}` : `${color2}`;
   return (
@@ -91,7 +91,7 @@ function DoNotPairSet({ color1, color2 }: PairSetProps): Node {
   );
 }
 
-export default function ColorPage(): Node {
+export default function ColorPage(): ReactNode {
   return (
     <Page title="Data visualization guidelines">
       <PageHeader

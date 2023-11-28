@@ -1,25 +1,25 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Icon, Text } from 'gestalt';
-import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import Markdown from '../../../docs-components/Markdown.js';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import PrincipleItem from '../../../docs-components/PrincipleItem.js';
-import SandpackExample from '../../../docs-components/SandpackExample.js';
-import centerAlignWithText from '../../../examples/iconography/centerAlignWithText.js';
-import dontBaselineWithText from '../../../examples/iconography/dontBaselineWithText.js';
-import dontModifyIconDesignSpecs from '../../../examples/iconography/dontModifyIconDesignSpecs.js';
-import dontUseIconsWithoutLabels from '../../../examples/iconography/dontUseIconsWithoutLabels.js';
-import dontUseLowContrastColors from '../../../examples/iconography/dontUseLowContrastColors.js';
-import stickToOurDesignTokens from '../../../examples/iconography/stickToOurDesignTokens.js';
-import useIconsFollowingDesignSpecs from '../../../examples/iconography/useIconsFollowingDesignSpecs.js';
-import useIconsSemantically from '../../../examples/iconography/useIconsSemantically.js';
+import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts';
+import MainSection from '../../../docs-components/MainSection';
+import Markdown from '../../../docs-components/Markdown';
+import Page from '../../../docs-components/Page';
+import PageHeader from '../../../docs-components/PageHeader';
+import PrincipleItem from '../../../docs-components/PrincipleItem';
+import SandpackExample from '../../../docs-components/SandpackExample';
+import centerAlignWithText from '../../../examples/iconography/centerAlignWithText';
+import dontBaselineWithText from '../../../examples/iconography/dontBaselineWithText';
+import dontModifyIconDesignSpecs from '../../../examples/iconography/dontModifyIconDesignSpecs';
+import dontUseIconsWithoutLabels from '../../../examples/iconography/dontUseIconsWithoutLabels';
+import dontUseLowContrastColors from '../../../examples/iconography/dontUseLowContrastColors';
+import stickToOurDesignTokens from '../../../examples/iconography/stickToOurDesignTokens';
+import useIconsFollowingDesignSpecs from '../../../examples/iconography/useIconsFollowingDesignSpecs';
+import useIconsSemantically from '../../../examples/iconography/useIconsSemantically';
 import CreditCards from '../../../graphics/iconography/creditCards.svg';
 import Layout from '../../../graphics/iconography/layout.svg';
 
-export default function IconographyPage(): Node {
+export default function IconographyPage(): ReactNode {
   return (
     <Page title="Iconography usage">
       <PageHeader

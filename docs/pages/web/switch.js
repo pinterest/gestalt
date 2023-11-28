@@ -1,23 +1,23 @@
 // @flow strict
-import { type Node } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import doDisabled from '../../examples/switch/doDisabled.js';
-import doLabel from '../../examples/switch/doLabel.js';
-import dontAlternative from '../../examples/switch/dontAlternative.js';
-import dontTruncate from '../../examples/switch/dontTruncate.js';
-import main from '../../examples/switch/main.js';
-import variantCombinations from '../../examples/switch/variantCombinations.js';
-import variantLabel from '../../examples/switch/variantLabel.js';
+import { type Node as ReactNode } from 'react';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import doDisabled from '../../examples/switch/doDisabled';
+import doLabel from '../../examples/switch/doLabel';
+import dontAlternative from '../../examples/switch/dontAlternative';
+import dontTruncate from '../../examples/switch/dontTruncate';
+import main from '../../examples/switch/main';
+import variantCombinations from '../../examples/switch/variantCombinations';
+import variantLabel from '../../examples/switch/variantLabel';
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>

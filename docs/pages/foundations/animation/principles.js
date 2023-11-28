@@ -1,12 +1,12 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Flex, Text } from 'gestalt';
-import MainSection from '../../../docs-components/MainSection.js';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import PrincipleItem from '../../../docs-components/PrincipleItem.js';
+import MainSection from '../../../docs-components/MainSection';
+import Page from '../../../docs-components/Page';
+import PageHeader from '../../../docs-components/PageHeader';
+import PrincipleItem from '../../../docs-components/PrincipleItem';
 
-export default function AnimationPrinciples(): Node {
+export default function AnimationPrinciples(): ReactNode {
   return (
     <Page title="Animation principles">
       <PageHeader

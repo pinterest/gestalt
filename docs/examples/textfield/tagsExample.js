@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useRef, useState } from 'react';
+import { type Node as ReactNode, useRef, useState } from 'react';
 import { Box, Tag, TextField } from 'gestalt';
 
 type ChangeTagHandler = ({
@@ -12,7 +12,7 @@ type KeyDownHandler = ({
   value: string,
 }) => void;
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [value, setValue] = useState('');
   const [tags, setTags] = useState(['a@pinterest.com', 'b@pinterest.com']);
   const ref = useRef<HTMLElement | null>(null);

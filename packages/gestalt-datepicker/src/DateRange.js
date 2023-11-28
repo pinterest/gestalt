@@ -1,5 +1,5 @@
 // @flow strict-local
-import { Children, type Element, type Node, useEffect, useId } from 'react';
+import { Children, type Element, type Node as ReactNode, useEffect, useId } from 'react';
 import {
   Box,
   Button,
@@ -11,9 +11,9 @@ import {
   useDeviceType,
   useGlobalEventsHandler,
 } from 'gestalt';
-import InternalDateField from './DateField/InternalDateField.js';
+import InternalDateField from './DateField/InternalDateField';
 import borderStyles from './DateRange.css';
-import InternalDatePicker from './DateRange/InternalDatePicker.js';
+import InternalDatePicker from './DateRange/InternalDatePicker';
 
 const MOBILE_DATEFIELD_WIDTH = 171;
 const DATEFIELD_WIDTH = 280;
@@ -168,7 +168,7 @@ function DateRange({
   radioGroup,
   startDateValue,
   startDateErrorMessage,
-}: Props): Node {
+}: Props): ReactNode {
   const componentId = useId();
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';

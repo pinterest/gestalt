@@ -1,7 +1,7 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import TextField from './TextField.js';
-import UpsellForm from './UpsellForm.js';
+import TextField from './TextField';
+import UpsellForm from './UpsellForm';
 
 describe('UpsellForm', () => {
   it('renders', () => {

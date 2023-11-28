@@ -1,10 +1,10 @@
 // @flow strict
-import { type Node } from 'react';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
+import { type Node as ReactNode } from 'react';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
 
-export default function DocsPage(): Node {
+export default function DocsPage(): ReactNode {
   return (
     <Page title="Get started as a designer">
       <PageHeader name="Get started as a designer" description="" type="guidelines" />
@@ -86,7 +86,7 @@ Wondering how a component works? The dos and dont's of its use?
 
 All of Gestalt’s documentation can be found right here at [gestalt.pinterest.systems](https://gestalt.pinterest.systems). This site is continuously updated and serves as the Gestalt source of truth. If you can’t find something or have ideas for our documentation, reach out or set up a meeting with the Gestalt team.
 
-Access the Gestalt documentation without leaving Figma, by using the [Pinterest Design plugin](https://www.figma.com/community/plugin/1215463263194174399)! 
+Access the Gestalt documentation without leaving Figma, by using the [Pinterest Design plugin](https://www.figma.com/community/plugin/1215463263194174399)!
 
           `}
         />

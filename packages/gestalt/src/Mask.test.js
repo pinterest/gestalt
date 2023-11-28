@@ -1,6 +1,6 @@
 // @flow strict
 import renderer from 'react-test-renderer';
-import Mask from './Mask.js';
+import Mask from './Mask';
 
 test('Mask renders', () => {
   const component = renderer.create(

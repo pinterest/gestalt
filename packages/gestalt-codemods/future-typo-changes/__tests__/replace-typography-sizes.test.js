@@ -1,4 +1,4 @@
-import { defineTest, runTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest, runTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../replace-typography-sizes', () =>
   Object.assign(jest.requireActual('../replace-typography-sizes'), {

@@ -20,7 +20,7 @@ fullwidth: true
   </Group>
 </TwoCol>
 
-## Mobile best practices
+## Best practices
 
 Keep primary actions (ex: submitting a form) on the right and secondary actions (ex: cancel) on the left. When used vertically, keep the primary action at the top. 
 

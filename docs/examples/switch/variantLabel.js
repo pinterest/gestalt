@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Flex, Heading, Label, Switch, Text } from 'gestalt';
 
-export default function SwitchExample(): Node {
+export default function SwitchExample(): ReactNode {
   const [switched1, setSwitched1] = useState(false);
   const [switched2, setSwitched2] = useState(true);
   const [switched3, setSwitched3] = useState(true);

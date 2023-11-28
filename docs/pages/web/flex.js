@@ -1,22 +1,22 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box } from 'gestalt';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import CombinationNew from '../../docs-components/CombinationNew.js';
-import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import flexBasis from '../../examples/flex/flexBasis.js';
-import flexItem from '../../examples/flex/flexItem.js';
-import gap from '../../examples/flex/gap.js';
-import main from '../../examples/flex/main.js';
-import menu from '../../examples/flex/menu.js';
-import overflowing from '../../examples/flex/overflowing.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import CombinationNew from '../../docs-components/CombinationNew';
+import { type DocGen, multipleDocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import flexBasis from '../../examples/flex/flexBasis';
+import flexItem from '../../examples/flex/flexItem';
+import gap from '../../examples/flex/gap';
+import main from '../../examples/flex/main';
+import menu from '../../examples/flex/menu';
+import overflowing from '../../examples/flex/overflowing';
 
 const ignoredProps = ['smAlignItems', 'mdAlignItems', 'lgAlignItems'];
 
@@ -24,7 +24,7 @@ export default function DocsPage({
   generatedDocGen,
 }: {
   generatedDocGen: { [string]: DocGen },
-}): Node {
+}): ReactNode {
   return (
     <Page title={generatedDocGen?.Flex?.displayName}>
       <PageHeader

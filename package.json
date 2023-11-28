@@ -193,5 +193,8 @@
     "type": "git",
     "url": "https://github.com/pinterest/gestalt"
   },
+  "stackblitz": {
+    "startCommand": "./scripts/stackblitz.sh"
+  },
   "sideEffects": false
 }

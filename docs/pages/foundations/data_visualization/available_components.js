@@ -1,14 +1,14 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Image } from 'gestalt';
-import MainSection from '../../../docs-components/MainSection.js';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import SandpackExample from '../../../docs-components/SandpackExample.js';
-import chartgraph from '../../../examples/chartgraph/main.js';
-import tiledata from '../../../examples/tiledata/main.js';
+import MainSection from '../../../docs-components/MainSection';
+import Page from '../../../docs-components/Page';
+import PageHeader from '../../../docs-components/PageHeader';
+import SandpackExample from '../../../docs-components/SandpackExample';
+import chartgraph from '../../../examples/chartgraph/main';
+import tiledata from '../../../examples/tiledata/main';
 
-export default function DocsPage(): Node {
+export default function DocsPage(): ReactNode {
   return (
     <Page title="Available data visualization components">
       <PageHeader name="Available data visualization components" type="guidelines" />

@@ -1,8 +1,8 @@
 // @flow strict
-import { type Element, Fragment, type Node, useState } from 'react';
+import { type Element, Fragment, type Node as ReactNode, useState } from 'react';
 import { Box, Button, Flex, Tag } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   // eslint-disable-next-line no-use-before-define
   const [tags, setTags] = useState<$ReadOnlyArray<Element<typeof Tag>>>([generateTag()]);
 

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useCallback, useMemo, useRef, useState } from 'react';
+import { type Node as ReactNode, useCallback, useMemo, useRef, useState } from 'react';
 import {
   Button,
   Divider,
@@ -10,7 +10,7 @@ import {
   RadioGroup,
 } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [onNavigationMode, setOnNavigationMode] = useState<'default' | 'custom'>('default');
   const [open, setOpen] = useState(false);
   const anchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);

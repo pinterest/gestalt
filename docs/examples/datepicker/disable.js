@@ -1,9 +1,9 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Flex } from 'gestalt';
 import { DatePicker } from 'gestalt-datepicker';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [dateValueDisableFuture, setDateValueDisableFuture] = useState<Date | null>(null);
   const [dateValueDisablePast, setDatealueDisablePast] = useState<Date | null>(null);
 

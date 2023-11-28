@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Flex, TagData } from 'gestalt';
 
 type DataVisualizationColors =
@@ -16,7 +16,7 @@ type DataVisualizationColors =
   | '11'
   | '12';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const allColors: $ReadOnlyArray<DataVisualizationColors> = [
     '01',
     '02',

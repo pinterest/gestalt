@@ -1,14 +1,14 @@
 // @flow strict
-import { Children, type Node, useEffect } from 'react';
+import { Children, type Node as ReactNode, useEffect } from 'react';
 import { Box, Flex, Link, Text } from 'gestalt';
-import { CONTENT_MAX_WIDTH_PX } from './AppLayout.js';
-import SearchContent from './SearchContent.js';
-import Toc from './Toc.js';
+import { CONTENT_MAX_WIDTH_PX } from './AppLayout';
+import SearchContent from './SearchContent';
+import Toc from './Toc';
 
 const DETAIL_PAGE_MAX_WIDTH = 894;
 
 type Props = {
-  children: Node,
+  children: ReactNode,
   title: string,
   hideSideNav?: boolean,
   hideEditLink?: boolean,
@@ -21,8 +21,8 @@ export default function Page({
   hideSideNav = false,
   hideEditLink = false,
   pageSourceUrl,
-}: Props): Node {
-  const sections = Children.toArray<Node>(children);
+}: Props): ReactNode {
+  const sections = Children.toArray<ReactNode>(children);
 
   const editPageUrl =
     pageSourceUrl ??

@@ -1,22 +1,22 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import classnames from 'classnames';
-import Box from './Box.js';
-import Icon from './Icon.js';
+import Box from './Box';
+import Icon from './Icon';
 import layout from './Layout.css';
 import styles from './SelectList.css';
-import SelectListGroup from './SelectList/SelectListGroup.js';
-import SelectListOption from './SelectList/SelectListOption.js';
+import SelectListGroup from './SelectList/SelectListGroup';
+import SelectListOption from './SelectList/SelectListOption';
 import formElement from './shared/FormElement.css';
-import FormErrorMessage from './shared/FormErrorMessage.js';
-import FormHelperText from './shared/FormHelperText.js';
-import FormLabel from './shared/FormLabel.js';
+import FormErrorMessage from './shared/FormErrorMessage';
+import FormHelperText from './shared/FormHelperText';
+import FormLabel from './shared/FormLabel';
 
 type Props = {
   /**
    * One or more SelectList.Option components, which may be grouped using SelectList.Group.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * Used to disable the entire SelectList.
    */
@@ -86,7 +86,7 @@ function SelectList({
   placeholder,
   size = 'md',
   value,
-}: Props): Node {
+}: Props): ReactNode {
   const [focused, setFocused] = useState(false);
 
   const handleOnChange: (event: SyntheticInputEvent<HTMLSelectElement>) => void = (event) => {

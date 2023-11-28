@@ -7,7 +7,7 @@
  */
 
 // @flow strict
-import { renameTagWithPropsFixer, updateGestaltImportFixer } from './helpers/eslintASTFixers.js';
+import { renameTagWithPropsFixer, updateGestaltImportFixer } from './helpers/eslintASTFixers';
 import {
   buildKeyValueTypeArray,
   buildProps,
@@ -19,9 +19,9 @@ import {
   getVariableNodeInScopeFromName,
   hasImport,
   isGestaltComponent,
-} from './helpers/eslintASTHelpers.js';
-import { type ESLintRule } from './helpers/eslintFlowTypes.js';
-import { buildNoBoxDangerousStyleDuplicatesReducer } from './helpers/noBoxDangerousStyleDuplicatesReducer.js';
+} from './helpers/eslintASTHelpers';
+import { type ESLintRule } from './helpers/eslintFlowTypes';
+import { buildNoBoxDangerousStyleDuplicatesReducer } from './helpers/noBoxDangerousStyleDuplicatesReducer';
 
 const rule: ESLintRule = {
   meta: {

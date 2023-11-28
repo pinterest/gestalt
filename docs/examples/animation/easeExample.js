@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Button, Divider, Flex, Text } from 'gestalt';
 
 function GestaltLogo() {
@@ -29,7 +29,7 @@ function GestaltLogo() {
   );
 }
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [motionEnabled, setMotionEnabled] = useState(true);
   return (
     <Box padding={6} width={550}>

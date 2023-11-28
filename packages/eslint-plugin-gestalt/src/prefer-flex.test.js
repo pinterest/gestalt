@@ -4,8 +4,8 @@ import {
   getRuleTester,
   getTestTypePrepender,
   readTestByPath,
-} from './helpers/testHelpers.js';
-import rule, { errorMessage } from './prefer-flex.js';
+} from './helpers/testHelpers';
+import rule, { errorMessage } from './prefer-flex';
 
 const ruleName = 'prefer-flex';
 const ruleTester = getRuleTester();

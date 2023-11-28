@@ -1,5 +1,5 @@
 // @flow strict
-import { concat, fromClassName, identity, mapClassName, type Style } from './style.js';
+import { concat, fromClassName, identity, mapClassName, type Style } from './style';
 
 /*
 

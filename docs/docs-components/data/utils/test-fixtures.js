@@ -1,5 +1,5 @@
 // @flow strict
-import { type ComponentData } from '../types.js';
+import { type ComponentData } from '../types';
 
 const mockComponentList: $ReadOnlyArray<ComponentData> = [
   {

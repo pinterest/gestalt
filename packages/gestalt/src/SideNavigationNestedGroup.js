@@ -1,12 +1,12 @@
 // @flow strict
-import { type Node } from 'react';
-import SideNavigationGroup from './SideNavigationGroup.js';
+import { type Node as ReactNode } from 'react';
+import SideNavigationGroup from './SideNavigationGroup';
 
 type Props = {
   /**
    * Content of the group. See [nested directory](#Nested-directory) variant for more information.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * When supplied, will display a counter. See the [Counter](https://gestalt.pinterest.systems/web/sidenavigation#Counter) variant to learn more.
    */
@@ -29,7 +29,7 @@ export default function SideNavigationNestedGroup({
   counter,
   display = 'expandable',
   label,
-}: Props): Node {
+}: Props): ReactNode {
   return (
     <SideNavigationGroup counter={counter} label={label} display={display}>
       {children}

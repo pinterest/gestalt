@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Checkbox, Fieldset, Flex } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [checkedEn, setCheckedEn] = useState(false);
   const [checkedSp, setCheckedSp] = useState(false);
   const [checkedPo, setCheckedPo] = useState(false);

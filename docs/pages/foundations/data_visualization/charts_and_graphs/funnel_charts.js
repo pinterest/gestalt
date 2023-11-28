@@ -1,10 +1,10 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Image, SlimBanner } from 'gestalt';
-import Page from '../../../../docs-components/Page.js';
-import PageHeader from '../../../../docs-components/PageHeader.js';
+import Page from '../../../../docs-components/Page';
+import PageHeader from '../../../../docs-components/PageHeader';
 
-export default function FunnelChartsPage(): Node {
+export default function FunnelChartsPage(): ReactNode {
   return (
     <Page title="Funnel charts" hideSideNav>
       <PageHeader

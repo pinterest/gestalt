@@ -1,15 +1,15 @@
 // @flow strict-local
-import { type Node, useCallback, useState } from 'react';
+import { type Node as ReactNode, useCallback, useState } from 'react';
 import { Layer, Modal, useDefaultLabel } from 'gestalt';
-import TabularDataModalFooter from './TabularDataModalFooter.js';
-import TabularDataModalHeading from './TabularDataModalHeading.js';
-import TabularDataModalTable from './TabularDataModalTable.js';
+import TabularDataModalFooter from './TabularDataModalFooter';
+import TabularDataModalHeading from './TabularDataModalHeading';
+import TabularDataModalTable from './TabularDataModalTable';
 import useTabularData, {
   type FilterIdType,
   type FilterOrderType,
   type SortChangeType,
   type TransformedTabularDataType,
-} from './useTabularData.js';
+} from './useTabularData';
 
 interface Indexable {
   index(): number;
@@ -42,7 +42,7 @@ export default function TabularDataModal({
   labelMap,
   modalZIndex,
   isHorizontalLayout,
-}: Props): Node {
+}: Props): ReactNode {
   const { tabularData } = useDefaultLabel('ChartGraph');
 
   const [sortOrder, setSortOrder] = useState<FilterOrderType>('desc');

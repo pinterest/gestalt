@@ -2,19 +2,19 @@
 import {
   type AbstractComponent,
   forwardRef,
-  type Node,
+  type Node as ReactNode,
   useImperativeHandle,
   useRef,
   useState,
 } from 'react';
 import classnames from 'classnames';
-import Box from './Box.js';
-import Icon from './Icon.js';
+import Box from './Box';
+import Icon from './Icon';
 import layout from './Layout.css';
 import styles from './SearchField.css';
 import formElement from './shared/FormElement.css';
-import FormErrorMessage from './shared/FormErrorMessage.js';
-import FormLabel from './shared/FormLabel.js';
+import FormErrorMessage from './shared/FormErrorMessage';
+import FormLabel from './shared/FormLabel';
 
 type UnionRefs = HTMLDivElement | HTMLAnchorElement;
 
@@ -116,7 +116,7 @@ const SearchFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = fo
     errorMessage,
   }: Props,
   ref,
-): Node {
+): ReactNode {
   const [hovered, setHovered] = useState<boolean>(false);
   const [focused, setFocused] = useState<boolean>(false);
 

@@ -1,35 +1,39 @@
 // @flow strict
-import { type Node } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import doClearCommunicate from '../../examples/modalalert/doClearCommunicate.js';
-import doExplainWhy from '../../examples/modalalert/doExplainWhy.js';
-import doLimitContent from '../../examples/modalalert/doLimitContent.js';
-import dontDoubleOverlay from '../../examples/modalalert/dontDoubleOverlay.js';
-import dontHardLanguage from '../../examples/modalalert/dontHardLanguage.js';
-import dontLeaveOutAction from '../../examples/modalalert/dontLeaveOutAction.js';
-import dontLeaveOutExplanation from '../../examples/modalalert/dontLeaveOutExplanation.js';
-import dontLongContent from '../../examples/modalalert/dontLongContent.js';
-import doProvideAction from '../../examples/modalalert/doProvideAction.js';
-import errorMultiAction from '../../examples/modalalert/errorMultiAction.js';
-import errorSingleAction from '../../examples/modalalert/errorSingleAction.js';
-import main from '../../examples/modalalert/main.js';
-import mobileExample from '../../examples/modalalert/mobileExample.js';
-import multipleActions from '../../examples/modalalert/multipleActions.js';
-import warningMultiAction from '../../examples/modalalert/warningMultiAction.js';
-import warningSingleAction from '../../examples/modalalert/warningSingleAction.js';
-import withCheckbox from '../../examples/modalalert/withCheckbox.js';
+import { type Node as ReactNode } from 'react';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import doClearCommunicate from '../../examples/modalalert/doClearCommunicate';
+import doExplainWhy from '../../examples/modalalert/doExplainWhy';
+import doLimitContent from '../../examples/modalalert/doLimitContent';
+import dontDoubleOverlay from '../../examples/modalalert/dontDoubleOverlay';
+import dontHardLanguage from '../../examples/modalalert/dontHardLanguage';
+import dontLeaveOutAction from '../../examples/modalalert/dontLeaveOutAction';
+import dontLeaveOutExplanation from '../../examples/modalalert/dontLeaveOutExplanation';
+import dontLongContent from '../../examples/modalalert/dontLongContent';
+import doProvideAction from '../../examples/modalalert/doProvideAction';
+import errorMultiAction from '../../examples/modalalert/errorMultiAction';
+import errorSingleAction from '../../examples/modalalert/errorSingleAction';
+import main from '../../examples/modalalert/main';
+import mobileExample from '../../examples/modalalert/mobileExample';
+import multipleActions from '../../examples/modalalert/multipleActions';
+import warningMultiAction from '../../examples/modalalert/warningMultiAction';
+import warningSingleAction from '../../examples/modalalert/warningSingleAction';
+import withCheckbox from '../../examples/modalalert/withCheckbox';
 
 const PREVIEW_HEIGHT = 450;
 
-export default function ModalAlertPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function ModalAlertPage({
+  generatedDocGen,
+}: {
+  generatedDocGen: DocGen,
+}): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>

@@ -1,34 +1,34 @@
 // @flow strict
-import { type Node } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import dontUseForOneSelection from '../../examples/checkbox/dontUseForOneSelection.js';
-import dontUseNumerousInTableRows from '../../examples/checkbox/dontUseNumerousInTableRows.js';
-import dontUseToToggleState from '../../examples/checkbox/dontUseToToggleState.js';
-import dontUseTruncatedText from '../../examples/checkbox/dontUseTruncatedText.js';
-import dontVerticallyCenterInputs from '../../examples/checkbox/dontVerticallyCenterInputs.js';
-import errorMessageExample from '../../examples/checkbox/errorMessageExample.js';
-import keepLabelsAndLegendsClear from '../../examples/checkbox/keepLabelsAndLegendsClear.js';
-import labelVisibilityExample from '../../examples/checkbox/labelVisibilityExample.js';
-import legendsExample from '../../examples/checkbox/legendsExample.js';
-import main from '../../examples/checkbox/main.js';
-import sizeExample from '../../examples/checkbox/sizeExample.js';
-import stateExample from '../../examples/checkbox/stateExample.js';
-import useAtStartOfTableRow from '../../examples/checkbox/useAtStartOfTableRow.js';
-import useForMultiSelection from '../../examples/checkbox/useForMultiSelection.js';
-import useSingleInForms from '../../examples/checkbox/useSingleInForms.js';
-import useVerticalAlignment from '../../examples/checkbox/useVerticalAlignment.js';
-import withHelperTextExample from '../../examples/checkbox/withHelperTextExample.js';
-import withImageExample from '../../examples/checkbox/withImageExample.js';
+import { type Node as ReactNode } from 'react';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import dontUseForOneSelection from '../../examples/checkbox/dontUseForOneSelection';
+import dontUseNumerousInTableRows from '../../examples/checkbox/dontUseNumerousInTableRows';
+import dontUseToToggleState from '../../examples/checkbox/dontUseToToggleState';
+import dontUseTruncatedText from '../../examples/checkbox/dontUseTruncatedText';
+import dontVerticallyCenterInputs from '../../examples/checkbox/dontVerticallyCenterInputs';
+import errorMessageExample from '../../examples/checkbox/errorMessageExample';
+import keepLabelsAndLegendsClear from '../../examples/checkbox/keepLabelsAndLegendsClear';
+import labelVisibilityExample from '../../examples/checkbox/labelVisibilityExample';
+import legendsExample from '../../examples/checkbox/legendsExample';
+import main from '../../examples/checkbox/main';
+import sizeExample from '../../examples/checkbox/sizeExample';
+import stateExample from '../../examples/checkbox/stateExample';
+import useAtStartOfTableRow from '../../examples/checkbox/useAtStartOfTableRow';
+import useForMultiSelection from '../../examples/checkbox/useForMultiSelection';
+import useSingleInForms from '../../examples/checkbox/useSingleInForms';
+import useVerticalAlignment from '../../examples/checkbox/useVerticalAlignment';
+import withHelperTextExample from '../../examples/checkbox/withHelperTextExample';
+import withImageExample from '../../examples/checkbox/withImageExample';
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>

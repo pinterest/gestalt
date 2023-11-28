@@ -1,9 +1,9 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { type Node as ReactNode } from 'react';
 import { Fieldset, Flex, SideNavigation, Text } from 'gestalt';
 import { DatePicker } from 'gestalt-datepicker';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   return (
     <SideNavigation
       accessibilityLabel="Footer example"

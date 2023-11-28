@@ -1,6 +1,6 @@
 // @flow strict
-import Modal from './Modal.js';
-import Text from './Text.js';
+import Modal from './Modal';
+import Text from './Text';
 
 const Valid = <Modal accessibilityModalLabel="Modal" onDismiss={() => {}} />;
 

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import {
   Box,
   Flex,
@@ -11,7 +11,7 @@ import {
   Tooltip,
 } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [content, setContent] = useState<null | string>(null);
   const [claimed, setClaimed] = useState<null | string>(null);
   const [device, setDevice] = useState<null | string>(null);

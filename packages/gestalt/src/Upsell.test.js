@@ -1,8 +1,8 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Icon from './Icon.js';
-import TextField from './TextField.js';
-import Upsell from './Upsell.js';
+import Icon from './Icon';
+import TextField from './TextField';
+import Upsell from './Upsell';
 
 describe('<Upsell />', () => {
   test('Basic Upsell', () => {

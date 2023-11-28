@@ -1,3 +1,81 @@
+## 128.3.6 (Nov 22, 2023)
+
+### Patch
+
+- Docs: listing more Gestalt metrics graphs ([#3309](https://github.com/pinterest/gestalt/pull/3309)) - [Preview link](https://deploy-preview-3309--gestalt.netlify.app?devexample=true)
+
+## 128.3.5 (Nov 20, 2023)
+
+### Patch
+
+- Internal: Changed config in .eslintrc.js to set import/extensions to never require .js extension ([#3300](https://github.com/pinterest/gestalt/pull/3300)) - [Preview link](https://deploy-preview-3300--gestalt.netlify.app?devexample=true)
+
+## 128.3.4 (Nov 18, 2023)
+
+### Patch
+
+- Docs: new or updated iOS docs for Avatar, AvatarGroup, Button, ButtonGroup, IconFloatingButton ([#3308](https://github.com/pinterest/gestalt/pull/3308)) - [Preview link](https://deploy-preview-3308--gestalt.netlify.app?devexample=true)
+
+## 128.3.3 (Nov 18, 2023)
+
+### Patch
+
+- Docs: Updates to sheet language ([#3305](https://github.com/pinterest/gestalt/pull/3305)) - [Preview link](https://deploy-preview-3305--gestalt.netlify.app?devexample=true)
+
+## 128.3.2 (Nov 18, 2023)
+
+### Patch
+
+- Docs: Update best practices headings ([#3307](https://github.com/pinterest/gestalt/pull/3307)) - [Preview link](https://deploy-preview-3307--gestalt.netlify.app?devexample=true)
+
+## 128.3.1 (Nov 17, 2023)
+
+### Patch
+
+- Docs: updated Tag description ([#3306](https://github.com/pinterest/gestalt/pull/3306)) - [Preview link](https://deploy-preview-3306--gestalt.netlify.app?devexample=true)
+
+## 128.3.0 (Nov 17, 2023)
+
+### Minor
+
+- Internal: Fix eventhandler import ([#3303](https://github.com/pinterest/gestalt/pull/3303)) - [Preview link](https://deploy-preview-3303--gestalt.netlify.app?devexample=true)
+
+## 128.2.3 (Nov 17, 2023)
+
+### Patch
+
+- Docs: Updated px to dp on avatar.md ([#3304](https://github.com/pinterest/gestalt/pull/3304)) - [Preview link](https://deploy-preview-3304--gestalt.netlify.app?devexample=true)
+
+## 128.2.2 (Nov 16, 2023)
+
+### Patch
+
+- Internal: fix ([#3302](https://github.com/pinterest/gestalt/pull/3302)) - [Preview link](https://deploy-preview-3302--gestalt.netlify.app?devexample=true)
+
+## 128.2.1 (Nov 15, 2023)
+
+### Patch
+
+- Internal: Fixed TypeScript declaration file ([#3301](https://github.com/pinterest/gestalt/pull/3301)) - [Preview link](https://deploy-preview-3301--gestalt.netlify.app?devexample=true)
+
+## 128.2.0 (Nov 15, 2023)
+
+### Minor
+
+- Docs: Stackblitz Support ([#3279](https://github.com/pinterest/gestalt/pull/3279)) - [Preview link](https://deploy-preview-3279--gestalt.netlify.app?devexample=true)
+
+## 128.1.5 (Nov 14, 2023)
+
+### Patch
+
+- Icon: new icons for comments, captions and conversions ([#3298](https://github.com/pinterest/gestalt/pull/3298)) - [Preview link](https://deploy-preview-3298--gestalt.netlify.app?devexample=true)
+
+## 128.1.4 (Nov 14, 2023)
+
+### Patch
+
+- Internal: Renamed `type Node` to `type Node as ReactNode` ([#3296](https://github.com/pinterest/gestalt/pull/3296)) - [Preview link](https://deploy-preview-3296--gestalt.netlify.app?devexample=true)
+
 ## 128.1.3 (Nov 7, 2023)
 
 ### Patch

@@ -1,6 +1,6 @@
 // @flow strict
 import renderer from 'react-test-renderer';
-import Link from './Link.js';
+import Link from './Link';
 
 it('default', () =>
   expect(renderer.create(<Link href="https://example.com">Link</Link>).toJSON()).toMatchSnapshot());

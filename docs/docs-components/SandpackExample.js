@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useEffect, useState } from 'react';
+import { Fragment, type Node as ReactNode, useEffect, useState } from 'react';
 import {
   SandpackCodeEditor,
   SandpackLayout,
@@ -8,15 +8,15 @@ import {
   useSandpack,
 } from '@codesandbox/sandpack-react';
 import { Box, Flex } from 'gestalt';
-import { useAppContext } from './appContext.js';
-import CodeExampleDarkModeButton from './buttons/CodeExampleDarkModeButton.js';
-import CodeExampleTextDirectionButton from './buttons/CodeExampleTextDirectionButton.js';
-import CopyCodeButton from './buttons/CopyCodeButton.js';
-import OpenInCodeSandboxButton from './buttons/OpenInCodeSandboxButton.js';
-import ShowHideEditorButton from './buttons/ShowHideEditorButton.js';
-import clipboardCopy from './clipboardCopy.js';
-import { useLocalFiles } from './contexts/LocalFilesProvider.js';
-import DevelopmentEditor from './DevelopmentEditor.js';
+import { useAppContext } from './appContext';
+import CodeExampleDarkModeButton from './buttons/CodeExampleDarkModeButton';
+import CodeExampleTextDirectionButton from './buttons/CodeExampleTextDirectionButton';
+import CopyCodeButton from './buttons/CopyCodeButton';
+import OpenInCodeSandboxButton from './buttons/OpenInCodeSandboxButton';
+import ShowHideEditorButton from './buttons/ShowHideEditorButton';
+import clipboardCopy from './clipboardCopy';
+import { useLocalFiles } from './contexts/LocalFilesProvider';
+import DevelopmentEditor from './DevelopmentEditor';
 
 const MIN_EDITOR_HEIGHT = 350;
 const MAX_EDITOR_IPHONE_SE_MOBILE_WIDTH = 375;
@@ -148,13 +148,13 @@ export default function SandpackExample({
   hideControls,
   hideEditor,
 }: {
-  code: ?string | (() => Node),
+  code: ?string | (() => ReactNode),
   layout?: 'row' | 'column' | 'mobileRow' | 'mobileColumn',
   name: string,
   previewHeight?: number,
   hideControls?: boolean,
   hideEditor?: boolean,
-}): Node {
+}): ReactNode {
   const { files } = useLocalFiles();
   const { colorScheme, devExampleMode, helixBot, textDirection } = useAppContext();
   const [exampleColorScheme, setExampleColorScheme] = useState<'light' | 'dark'>(colorScheme);

@@ -1,20 +1,20 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
-import { type Size, SIZE_MAP } from './constants.js';
+import { type Size, SIZE_MAP } from './constants';
 import styles from '../AvatarGroup.css';
-import Box from '../Box.js';
-import { FixedZIndex } from '../zIndex.js';
+import Box from '../Box';
+import { FixedZIndex } from '../zIndex';
 
 type Props = {
-  children: Node,
+  children: ReactNode,
   hovered: boolean,
   size: Size,
 };
 
 // HoverOverlay adds a pseudo-element on hover so that avatars get covered in a darker wash individually.
 
-export default function AvatarGroupHoverOverlay({ children, hovered, size }: Props): Node {
+export default function AvatarGroupHoverOverlay({ children, hovered, size }: Props): ReactNode {
   return (
     <Box
       height={SIZE_MAP[size]}
