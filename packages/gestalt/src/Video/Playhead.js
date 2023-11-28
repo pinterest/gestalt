@@ -54,6 +54,7 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
   handleMouseDown: (
     event: SyntheticMouseEvent<HTMLDivElement> | SyntheticTouchEvent<HTMLDivElement>,
   ) => void = (event) => {
+    // Chrome, starting with version 56 (desktop, Chrome for Android, and Android webview), where the default value for the passive option for touchstart and touchmove is true and calls to preventDefault() will have no effect.
     if (!!event?.clientX && !event?.touches) event.preventDefault();
 
     const { onPlayheadDown } = this.props;
@@ -82,6 +83,7 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
   handleMouseMove: (
     event: SyntheticMouseEvent<HTMLDivElement> | SyntheticTouchEvent<HTMLDivElement>,
   ) => void = (event) => {
+    // Chrome, starting with version 56 (desktop, Chrome for Android, and Android webview), where the default value for the passive option for touchstart and touchmove is true and calls to preventDefault() will have no effect.
     if (!!event?.clientX && !event?.touches) event.preventDefault();
 
     const { seeking } = this.state;
@@ -116,10 +118,12 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
           className={styles.playhead}
           onClick={this.stopClick}
           onKeyPress={this.stopClick}
+          // onmouse events don't get correctly triggered on mobile
           onMouseDown={this.handleMouseDown}
           onMouseLeave={this.handleMouseLeave}
           onMouseMove={this.handleMouseMove}
           onMouseUp={this.handleMouseUp}
+          // ontouch events take on on mobile
           onTouchStart={this.handleMouseDown}
           onTouchMove={this.handleMouseMove}
           onTouchEnd={this.handleMouseUp}
