@@ -18,6 +18,9 @@ import correctIconExample from '../../examples/sidenavigation/correctIconExample
 import correctLengthExample from '../../examples/sidenavigation/correctLengthExample';
 import counterExample from '../../examples/sidenavigation/counterExample';
 import customIconsExample from '../../examples/sidenavigation/customIconsExample';
+import displayExpandable from '../../examples/sidenavigation/displayExpandable';
+import displayExpanded from '../../examples/sidenavigation/displayExpanded';
+import displayStatic from '../../examples/sidenavigation/displayStatic';
 import footerVariant from '../../examples/sidenavigation/footerVariant';
 import headerExample from '../../examples/sidenavigation/headerExample';
 import iconsExample from '../../examples/sidenavigation/iconsExample';
@@ -383,8 +386,46 @@ To prevent visual overload, do not include counters in the parent if the childre
           description="SideNavigation supports three navigation levels. The top level is composed of [SideNavigation.TopItem](#SideNavigation.TopItem) and [SideNavigation.Group](#SideNavigation.Group). The second nested level is composed of [SideNavigation.NestedGroup](#SideNavigation.NestedGroup) and [SideNavigation.Item](#SideNavigation.Item). The third nested level is composed of SideNavigation.Item"
         >
           <MainSection.Card
+            sandpackExample={<SandpackExample code={nestedExample} name="Nested example" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Group display"
+          columns={2}
+          description="Group display can be \:
+1. static: group items are visible and there isn't expanding/collapsing behavior
+2. expandable: group items aren't visible un;ess one children is active and there is expanding/collapsing behavior
+3. expanded: group items are all visible and there is expanding/collapsing behavior
+"
+        >
+          <MainSection.Card
+            title="Static display"
+            cardSize="lg"
             sandpackExample={
-              <SandpackExample code={nestedExample} name="Nested directory example" />
+              <SandpackExample code={displayStatic} name="Static display example" layout="column" />
+            }
+          />
+          <MainSection.Card
+            title="Expandable display"
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                layout="column"
+                code={displayExpandable}
+                name="Expandable display example"
+              />
+            }
+          />
+          <MainSection.Card
+            title="Expanded display"
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                layout="column"
+                code={displayExpanded}
+                name="Expanded display example"
+              />
             }
           />
         </MainSection.Subsection>

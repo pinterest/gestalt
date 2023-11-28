@@ -15,7 +15,7 @@ import TapArea from './TapArea';
 import { type Indexable } from './zIndex';
 
 type IconType = $Keys<typeof icons> | { __path: string };
-type Display = 'expandable' | 'static';
+type Display = 'expandable' | 'expanded' | 'static';
 
 type BadgeType = {
   text: string,
@@ -126,7 +126,7 @@ export default function SideNavigationGroup({
   const hasAnyActiveChild =
     !!hasActiveChildren || (!!hasActiveGrandChildren && !!hasActiveGrandChildren[0]);
 
-  const [expanded, setExpanded] = useState(hasAnyActiveChild);
+  const [expanded, setExpanded] = useState(display === 'expanded' || hasAnyActiveChild);
 
   const itemColor = hovered ? 'secondary' : undefined;
 
@@ -155,7 +155,7 @@ export default function SideNavigationGroup({
   return (
     <li className={classnames(styles.liItem)}>
       <NestingProvider componentName="SideNavigation" maxNestedLevels={2}>
-        {display === 'expandable' ? (
+        {['expandable', 'expanded'].includes(display) ? (
           <TapArea
             accessibilityControls={display === 'expandable' ? itemId : undefined}
             accessibilityExpanded={display === 'expandable' ? expanded : undefined}
