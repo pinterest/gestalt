@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Spinner from './Spinner.js';
+import Spinner from './Spinner';
 
 const baseProps = {
   accessibilityLabel: 'Test',

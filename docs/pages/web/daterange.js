@@ -1,5 +1,5 @@
 // @flow strict-local
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import {
   af,
   arSA,
@@ -40,24 +40,24 @@ import {
 } from 'date-fns/locale';
 import { Flex, SelectList, SlimBanner } from 'gestalt';
 import { DateRange } from 'gestalt-datepicker';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import disabledFuture from '../../examples/daterange/disabledFuture.js';
-import disabledPast from '../../examples/daterange/disabledPast.js';
-import errorMessaging from '../../examples/daterange/errorMessaging.js';
-import futureRadiogroup from '../../examples/daterange/futureRadioGroup.js';
-import implementation from '../../examples/daterange/implementation.js';
-import localizationLabels from '../../examples/daterange/localizationLabels.js';
-import main from '../../examples/daterange/main.js';
-import mobile from '../../examples/daterange/mobile.js';
-import pastRadiogroup from '../../examples/daterange/pastRadioGroup.js';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import disabledFuture from '../../examples/daterange/disabledFuture';
+import disabledPast from '../../examples/daterange/disabledPast';
+import errorMessaging from '../../examples/daterange/errorMessaging';
+import futureRadiogroup from '../../examples/daterange/futureRadioGroup';
+import implementation from '../../examples/daterange/implementation';
+import localizationLabels from '../../examples/daterange/localizationLabels';
+import main from '../../examples/daterange/main';
+import mobile from '../../examples/daterange/mobile';
+import pastRadiogroup from '../../examples/daterange/pastRadioGroup';
 
 const PREVIEW_HEIGHT = 600;
 
@@ -100,7 +100,11 @@ const localeMap = {
   'zh-TW': { localeData: zhTW, lang: 'Chinese (Traditional)' },
 };
 
-export default function DatePickerPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DatePickerPage({
+  generatedDocGen,
+}: {
+  generatedDocGen: DocGen,
+}): ReactNode {
   const [locale, setLocale] = useState<string | null>(null);
 
   return (
@@ -297,12 +301,14 @@ The \`onEndDateError\`, \`onStartDateError\` event are very noisy. If the date f
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Disable past & future dates"
-          description="DateField supports disabling future and past dates from being selected. Use `minDate` for disabling past dates and `maxDate` for disabling futures dates."
+          description={`DateField supports disabling future and past dates from being selected. Use \`minDate\` for disabling past dates and \`maxDate\` for disabling futures dates.
+ 1. Disable past. Disable the past when the user should select dates ranges in the future. For example, activation dates for a new campaign.
+ 2. Disable future. Disable the future when the user should select dates ranges in the past. For example, date ranges to analize performance metrics in ongoing campaigns.
+        `}
         >
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             title="Disable past"
-            description="Disable the past when the user should select dates ranges in the future. For example, activation dates for a new campaign."
             sandpackExample={
               <SandpackExample
                 code={disabledPast}
@@ -313,9 +319,8 @@ The \`onEndDateError\`, \`onStartDateError\` event are very noisy. If the date f
             }
           />
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             title="Disable future"
-            description="Disable the future when the user should select dates ranges in the past. For example, date ranges to analize performance metrics in ongoing campaigns."
             sandpackExample={
               <SandpackExample
                 code={disabledFuture}
@@ -333,9 +338,9 @@ The \`onEndDateError\`, \`onStartDateError\` event are very noisy. If the date f
 
 Handlers:
 
-- [onMount](/web/utilities/globaleventshandlerprovider#onMount): executed when DateField mounts for the first time
+- [onRender](/web/utilities/globaleventshandlerprovider#onRender): executed when DateField mounts for the first time
 
-See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onMount) for more information.
+See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onRender) for more information.
 `}
         />
 

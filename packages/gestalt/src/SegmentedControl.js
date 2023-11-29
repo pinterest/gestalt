@@ -1,12 +1,12 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
-import Box from './Box.js';
+import Box from './Box';
 import focusStyles from './Focus.css';
 import layout from './Layout.css';
 import styles from './SegmentedControl.css';
-import Text from './Text.js';
-import useFocusVisible from './useFocusVisible.js';
+import Text from './Text';
+import useFocusVisible from './useFocusVisible';
 
 type OnChange = ({
   event: SyntheticMouseEvent<HTMLButtonElement>,
@@ -17,7 +17,7 @@ type Props = {|
   /**
    * Items for selection. Though typically strings, React.Node is accepted to allow for Icons or other custom UI.
    */
-  items: $ReadOnlyArray<Node>,
+  items: $ReadOnlyArray<ReactNode>,
   /**
    * Callback triggered when the user selects an item.
    */
@@ -31,7 +31,7 @@ type Props = {|
    */
   selectedItemIndex: number,
   /**
-   * Size of the Segmented Control. Default is `md`.
+   * Size of the Segmented Control.
    */
   size?: 'sm' | 'md' | 'lg',
 |};
@@ -51,7 +51,7 @@ function SegmentedControlItem({
   width,
 }: {|
   index: number,
-  item: Node,
+  item: ReactNode,
   isSelected: boolean,
   onChange: OnChange,
   width: ?string,
@@ -106,7 +106,7 @@ export default function SegmentedControl({
   responsive,
   selectedItemIndex,
   size = 'md',
-}: Props): Node {
+}: Props): ReactNode {
   const buttonWidth = responsive ? undefined : `${Math.floor(100 / Math.max(1, items.length))}%`;
   return (
     <div

@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, ComboBox, Flex, Heading, Link, Text } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const CATEGORIES = [
     'All Categories',
     'Food and drinks',
@@ -52,7 +52,7 @@ export default function Example(): Node {
     <Box padding={2}>
       <Flex direction="column" gap={4}>
         <Heading size="500">
-          Discover this week`&apos;`s top searched trends across all categories
+          Discover this week&apos;s top searched trends across all categories
         </Heading>
         <Text inline>
           Wanna learn how trends work?

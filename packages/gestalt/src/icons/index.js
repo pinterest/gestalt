@@ -49,6 +49,7 @@ import cameraRoll from './camera-roll.svg';
 import cancel from './cancel.svg';
 import canonicalPin from './canonical-pin.svg';
 import captions from './captions.svg';
+import captionsOutline from './captions-outline.svg';
 import check from './check.svg';
 import checkCircle from './check-circle.svg';
 import circleOutline from './circle-outline.svg';
@@ -184,6 +185,7 @@ import speechOutline from './speech-outline.svg';
 import star from './star.svg';
 import starHalf from './star-half.svg';
 import starOutline from './star-outline.svg';
+import sticker from './sticker.svg';
 import sun from './sun.svg';
 import switchAccount from './switch-account.svg';
 import table from './table.svg';
@@ -207,6 +209,7 @@ import thumbsUp from './thumbs-up.svg';
 import trashCan from './trash-can.svg';
 import trending from './trending.svg';
 import twitter from './twitter.svg';
+import uploadFeed from './upload-feed.svg';
 import videoAdvance10Seconds from './video-advance-10-seconds.svg';
 import videoCamera from './video-camera.svg';
 import videoRewind10Seconds from './video-rewind-10-seconds.svg';
@@ -277,6 +280,7 @@ const icons = Object.freeze({
   cancel,
   'canonical-pin': canonicalPin,
   captions,
+  'captions-outline': captionsOutline,
   'color-picker': colorPicker,
   check,
   'check-circle': checkCircle,
@@ -412,6 +416,7 @@ const icons = Object.freeze({
   'star-outline': starOutline,
   star,
   'star-half': starHalf,
+  sticker,
   sun,
   'switch-account': switchAccount,
   table,
@@ -435,6 +440,7 @@ const icons = Object.freeze({
   target,
   trending,
   twitter,
+  'upload-feed': uploadFeed,
   'video-advance-10-seconds': videoAdvance10Seconds,
   'video-camera': videoCamera,
   'video-rewind-10-seconds': videoRewind10Seconds,

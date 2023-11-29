@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import styles from './Column.css';
 
@@ -9,7 +9,7 @@ type ColumnProps = {
   /**
    * The content to be laid out.
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * The number of units in a 12-unit width that this element will occupy.
    *
@@ -36,7 +36,7 @@ type ColumnProps = {
  * ![Column light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Column.spec.mjs-snapshots/Column-chromium-darwin.png)
  *
  */
-export default function Column(props: ColumnProps): Node {
+export default function Column(props: ColumnProps): ReactNode {
   const { children } = props;
   const cs = classnames(
     props.span != null && styles[`xsCol${props.span}`],

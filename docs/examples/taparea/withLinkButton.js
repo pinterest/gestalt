@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Image, Link, Mask, TapArea, Text } from 'gestalt';
 
-export default function TapAreaExample(): Node {
+export default function TapAreaExample(): ReactNode {
   const [touches, setTouches] = useState(0);
 
   return (

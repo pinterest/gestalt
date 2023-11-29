@@ -1,5 +1,5 @@
 // @flow strict
-import InternalLabel from './InternalLabel.js';
+import InternalLabel from './InternalLabel';
 
 const Valid = <InternalLabel _labelDisplay="hidden" htmlFor="foo" />;
 

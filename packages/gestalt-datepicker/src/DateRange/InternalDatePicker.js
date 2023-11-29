@@ -10,8 +10,8 @@ import {
 } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { Icon, useDeviceType } from 'gestalt';
+import { type Props } from '../DatePicker';
 import styles from '../DatePicker.css';
-import { type Props } from '../DatePicker.js';
 
 type ModifiedProps = {
   ...Props,

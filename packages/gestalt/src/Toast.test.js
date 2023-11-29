@@ -1,10 +1,10 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Button from './Button.js';
-import Image from './Image.js';
-import Link from './Link.js';
-import Text from './Text.js';
-import Toast from './Toast.js';
+import Button from './Button';
+import Image from './Image';
+import Link from './Link';
+import Text from './Text';
+import Toast from './Toast';
 
 describe('<Toast />', () => {
   test('Text Only', () => {

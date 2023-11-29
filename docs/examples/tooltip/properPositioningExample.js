@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import {
   Box,
   Flex,
@@ -11,7 +11,7 @@ import {
   Tooltip,
 } from 'gestalt';
 
-export default function ScrollBoundaryContainerExample(): Node {
+export default function ScrollBoundaryContainerExample(): ReactNode {
   const [content, setContent] = useState<string | null>(null);
   const [claimed, setClaimed] = useState<string | null>(null);
   const [device, setDevice] = useState<string | null>(null);

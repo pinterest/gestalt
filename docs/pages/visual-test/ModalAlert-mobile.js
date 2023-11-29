@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, ColorSchemeProvider, DeviceTypeProvider, ModalAlert, Text } from 'gestalt';
 
-export default function Snapshot(): Node {
+export default function Snapshot(): ReactNode {
   return (
     <DeviceTypeProvider deviceType="mobile">
       <ColorSchemeProvider colorScheme="light">

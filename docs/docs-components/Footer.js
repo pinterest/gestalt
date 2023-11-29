@@ -1,7 +1,7 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Icon, Link, Text } from 'gestalt';
-import trackButtonClick from './buttons/trackButtonClick.js';
+import trackButtonClick from './buttons/trackButtonClick';
 
 const links: $ReadOnlyArray<{
   external: boolean,
@@ -25,7 +25,7 @@ const links: $ReadOnlyArray<{
   },
 ];
 
-export default function Footer(): Node {
+export default function Footer(): ReactNode {
   return (
     <Box padding={4}>
       <Flex direction="row" alignItems="center" wrap>

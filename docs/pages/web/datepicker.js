@@ -1,5 +1,5 @@
 // @flow strict-local
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import {
   af,
   arSA,
@@ -40,27 +40,27 @@ import {
 } from 'date-fns/locale';
 import { Flex, SelectList } from 'gestalt';
 import { DatePicker } from 'gestalt-datepicker';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import CombinationNew from '../../docs-components/CombinationNew.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import controlled from '../../examples/datepicker/controlled.js';
-import disable from '../../examples/datepicker/disable.js';
-import disabled from '../../examples/datepicker/disabled.js';
-import disableSelected from '../../examples/datepicker/disableSelected.js';
-import error from '../../examples/datepicker/error.js';
-import helperText from '../../examples/datepicker/helperText.js';
-import main from '../../examples/datepicker/main.js';
-import preselected from '../../examples/datepicker/preselected.js';
-import range from '../../examples/datepicker/range.js';
-import selectLists from '../../examples/datepicker/selectLists.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import CombinationNew from '../../docs-components/CombinationNew';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import controlled from '../../examples/datepicker/controlled';
+import disable from '../../examples/datepicker/disable';
+import disabled from '../../examples/datepicker/disabled';
+import disableSelected from '../../examples/datepicker/disableSelected';
+import error from '../../examples/datepicker/error';
+import helperText from '../../examples/datepicker/helperText';
+import main from '../../examples/datepicker/main';
+import preselected from '../../examples/datepicker/preselected';
+import range from '../../examples/datepicker/range';
+import selectLists from '../../examples/datepicker/selectLists';
 
 const localeMap = {
   af: { localeData: af, lang: 'Afrikaans' },
@@ -103,7 +103,7 @@ const localeMap = {
 
 const PREVIEW_HEIGHT = 480;
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   const [locale, setLocale] = useState<string | null>('en-US');
   const [date, setDate] = useState<Date | null>(new Date());
 
@@ -204,13 +204,15 @@ Use the SelectList to try out different locales by passing in the \`localeData\`
 DatePicker is a controlled component. Use \`value\`, \`onChange\`, \`onClearInput\` and \`onError\` to implement it correctly.
 
 DatePicker is controlled when \`value\` is not "undefined". When \`value\` is "undefined", it stays uncontrolled.
+
+1. Empty input. If DatePicker doesn't present pre-selected date values, initialize \`value\` with "null" so the component is controlled.\
+
+2. Pre-selected date values. If DatePicker presents pre-selected date values, initialize \`value\` with the pre-selected date so the component is controlled.
         `}
         >
           <MainSection.Card
             title="Empty input"
-            description={`
-If DatePicker doesn't present pre-selected date values, initialize \`value\` with "null" so the component is controlled.
-`}
+            cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={controlled}
@@ -221,9 +223,9 @@ If DatePicker doesn't present pre-selected date values, initialize \`value\` wit
             }
           />
           <MainSection.Card
+            cardSize="lg"
             title="Pre-selected date values"
             description={`
-If DatePicker presents pre-selected date values, initialize \`value\` with the pre-selected date so the component is controlled.
 `}
             sandpackExample={
               <SandpackExample
@@ -235,9 +237,17 @@ If DatePicker presents pre-selected date values, initialize \`value\` with the p
             }
           />
         </MainSection.Subsection>
-        <MainSection.Subsection columns={2} title="States">
+        <MainSection.Subsection
+          columns={2}
+          title="States"
+          description={`
+1. Disabled
+2. Error. Display an error message. Error message overrides the helper text.
+        `}
+        >
           <MainSection.Card
             title="Disabled"
+            cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={disabled}
@@ -249,7 +259,7 @@ If DatePicker presents pre-selected date values, initialize \`value\` with the p
           />
           <MainSection.Card
             title="Error"
-            description="Display an error message. Error message overrides the helper text."
+            cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={error}
@@ -288,6 +298,7 @@ If DatePicker presents pre-selected date values, initialize \`value\` with the p
           description="DatePicker supports disabling future & past dates as well as an array of selected dates."
         >
           <MainSection.Card
+            cardSize="lg"
             title="Disable past & future dates"
             sandpackExample={
               <SandpackExample
@@ -299,6 +310,7 @@ If DatePicker presents pre-selected date values, initialize \`value\` with the p
             }
           />
           <MainSection.Card
+            cardSize="lg"
             title="Disable selected dates"
             sandpackExample={
               <SandpackExample
@@ -347,9 +359,9 @@ If DatePicker presents pre-selected date values, initialize \`value\` with the p
 
 Handlers:
 
-- [onMount](/web/utilities/globaleventshandlerprovider#onMount): executed when DateField mounts for the first time
+- [onRender](/web/utilities/globaleventshandlerprovider#onRender): executed when DateField mounts for the first time
 
-See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onMount) for more information.
+See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onRender) for more information.
 `}
         />
       </MainSection>

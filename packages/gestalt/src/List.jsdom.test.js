@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { render, screen } from '@testing-library/react';
-import List from './List.js';
-import Text from './Text.js';
+import List from './List';
+import Text from './Text';
 
 describe('List', () => {
   function Component({
@@ -13,7 +13,7 @@ describe('List', () => {
     labelDisplay?: 'hidden' | 'visible',
     type?: 'unordered' | 'bare' | 'ordered',
     text?: boolean,
-  }): Node {
+  }): ReactNode {
     return (
       <List labelDisplay={labelDisplay} label={text ? <Text>Numbers</Text> : 'Numbers'} type={type}>
         <List.Item text={text ? <Text>1</Text> : '1'}>

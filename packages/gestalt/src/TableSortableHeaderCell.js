@@ -1,9 +1,9 @@
 // @flow strict
-import { type Node, useState } from 'react';
-import Box from './Box.js';
-import Icon from './Icon.js';
-import TableHeaderCell from './TableHeaderCell.js';
-import TapArea from './TapArea.js';
+import { type Node as ReactNode, useState } from 'react';
+import Box from './Box';
+import Icon from './Icon';
+import TableHeaderCell from './TableHeaderCell';
+import TapArea from './TapArea';
 
 type Props = {
   /**
@@ -13,7 +13,7 @@ type Props = {
   /**
    * The content of the table cell.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * `colSpan` defines the number of columns a cell should span.
    */
@@ -97,7 +97,7 @@ export default function TableSortableHeaderCell({
   shouldHaveShadow,
   status,
   sortOrder,
-}: Props): Node {
+}: Props): ReactNode {
   const [isFocused, setFocused] = useState(false);
   const [isHovered, setHovered] = useState(false);
 

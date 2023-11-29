@@ -1,6 +1,6 @@
 // @flow strict
 import { fireEvent, render, screen } from '@testing-library/react';
-import OptionItem from './OptionItem.js';
+import OptionItem from './OptionItem';
 
 describe('OptionItem', () => {
   const props = {

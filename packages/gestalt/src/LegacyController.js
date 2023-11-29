@@ -1,11 +1,11 @@
 // @flow strict
 import { Component, type Node as ReactNode } from 'react';
-import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
-import Contents, { type Role } from './Contents.js';
-import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider.js';
-import { ESCAPE } from './keyCodes.js';
-import { type ClientRect, type Coordinates } from './utils/positioningTypes.js';
-import { getTriggerRect } from './utils/positioningUtils.js';
+import OutsideEventBehavior from './behaviors/OutsideEventBehavior';
+import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider';
+import { ESCAPE } from './keyCodes';
+import LegacyContents, { type Role } from './LegacyContents';
+import { type ClientRect, type Coordinates } from './utils/positioningTypes';
+import { getTriggerRect } from './utils/positioningUtils';
 
 const SIZE_WIDTH_MAP = {
   xs: 180,
@@ -44,7 +44,7 @@ type State = {
   triggerBoundingRect: ?ClientRect,
 };
 
-class Controller extends Component<Props, State> {
+class LegacyController extends Component<Props, State> {
   static defaultProps: {
     size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
   } = {
@@ -142,7 +142,7 @@ class Controller extends Component<Props, State> {
 
     return (
       <OutsideEventBehavior onClick={this.handlePageClick}>
-        <Contents
+        <LegacyContents
           accessibilityLabel={accessibilityLabel}
           anchor={anchor}
           bgColor={bgColor}
@@ -164,15 +164,15 @@ class Controller extends Component<Props, State> {
           }
         >
           {children}
-        </Contents>
+        </LegacyContents>
       </OutsideEventBehavior>
     );
   }
 }
 
-function WrappedController(props: OwnProps): ReactNode {
+function WrappedLegacyController(props: OwnProps): ReactNode {
   const { scrollBoundaryContainerRef = null } = useScrollBoundaryContainer();
-  return <Controller {...props} scrollBoundaryContainerRef={scrollBoundaryContainerRef} />;
+  return <LegacyController {...props} scrollBoundaryContainerRef={scrollBoundaryContainerRef} />;
 }
 
-export default WrappedController;
+export default WrappedLegacyController;

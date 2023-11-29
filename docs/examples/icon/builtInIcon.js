@@ -1,13 +1,11 @@
 // @flow strict
-import { type Node } from 'react';
-import { Flex, Icon, Tooltip } from 'gestalt';
+import { type Node as ReactNode } from 'react';
+import { Flex, Icon } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-      <Tooltip text="Built-in Gestalt Icon">
-        <Icon accessibilityLabel="Go to next steps" icon="directional-arrow-right" />
-      </Tooltip>
+      <Icon accessibilityLabel="Go to next steps" icon="directional-arrow-right" />
     </Flex>
   );
 }

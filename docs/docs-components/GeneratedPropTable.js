@@ -1,7 +1,7 @@
 // @flow strict
-import { type Node } from 'react';
-import { type DocGen } from './docgen.js';
-import PropTable from './PropTable.js';
+import { type Node as ReactNode } from 'react';
+import { type DocGen } from './docgen';
+import PropTable from './PropTable';
 
 // Note if the prop has responsive versions (e.g. margin, smMargin, mdMargin, lgMargin)
 function getResponsive(description?: string): {
@@ -69,7 +69,7 @@ export default function GeneratedPropTable({
   generatedDocGen,
   id,
   name,
-}: Props): Node {
+}: Props): ReactNode {
   // Using Object.keys because of https://github.com/facebook/flow/issues/2174
   const props = Object.keys(generatedDocGen.props)
     .map((key: string) => {
@@ -106,7 +106,7 @@ export default function GeneratedPropTable({
         ''
       )
         // Replace "Node" with "React.Node" to match docs convention
-        .replace(/Node/g, 'React.Node')
+        .replace(/ReactNode/g, 'React.Node')
         // Replace "ComponentType" with "React.ComponentType" to match docs convention
         .replace(/ComponentType/g, 'React.ComponentType')
         // Replace "Element" with "React.Element" to match docs convention

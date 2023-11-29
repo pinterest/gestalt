@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../select-list-options-to-children', () =>
   Object.assign(jest.requireActual('../select-list-options-to-children'), {

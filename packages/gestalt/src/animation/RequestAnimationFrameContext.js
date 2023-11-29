@@ -4,18 +4,18 @@ import {
   type Context,
   createContext,
   type Element,
-  type Node,
+  type Node as ReactNode,
   useCallback,
   useContext,
   useEffect,
   useMemo,
   useRef,
 } from 'react';
-import { ANIMATION_STATE, useAnimation } from './AnimationContext.js';
-import useReducedMotion from '../useReducedMotion.js';
+import { ANIMATION_STATE, useAnimation } from './AnimationContext';
+import useReducedMotion from '../useReducedMotion';
 
 type RequestAnimationFrameProviderProps = {
-  children: Node,
+  children: ReactNode,
 };
 
 type RequestAnimationFrameType = {

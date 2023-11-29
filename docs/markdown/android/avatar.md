@@ -61,12 +61,12 @@ People use Android’s accessibility features, such as TalkBack and dynamic text
 
 ### Size
 
-1. **xxl** **(120px)**
-2. **xl** **(60px)**
-3. **lg** **(44px)**
-4. **md** **(32px)**
-5. **sm** **(24px)**
-6. **xs** **(16px)**
+1. **xxl** **(120dp)**
+2. **xl** **(60dp)**
+3. **lg** **(44dp)**
+4. **md** **(32dp)**
+5. **sm** **(24dp)**
+6. **xs** **(16dp)**
 <br/>
 <iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D19031%253A33199%26t%3DF4E0KD9MxAS99vGZ-1" allowFullScreen></iframe>
 Avatar comes in 6 different sizes.

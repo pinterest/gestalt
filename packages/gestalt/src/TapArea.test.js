@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import TapArea from './TapArea.js';
+import TapArea from './TapArea';
 
 test('TapArea renders', () => {
   const tree = create(<TapArea onTap={() => {}}>TapArea</TapArea>).toJSON();

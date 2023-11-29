@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useRef, useState } from 'react';
+import { type Node as ReactNode, useRef, useState } from 'react';
 import { Box, Dropdown, Heading, IconButton, Tooltip } from 'gestalt';
 
-export default function SectionsIconButtonDropdownExample(): Node {
+export default function SectionsIconButtonDropdownExample(): ReactNode {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef<HTMLElement | null>(null);
 

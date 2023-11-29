@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { type Node as ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Box, TableOfContents } from 'gestalt';
 
 const HEADER_HEIGHT_PX = 60;
@@ -85,10 +85,10 @@ type HandleClickParameters = {
 };
 
 type Props = {
-  cards: $ReadOnlyArray<Node>,
+  cards: $ReadOnlyArray<ReactNode>,
 };
 
-export default function Toc({ cards }: Props): Node {
+export default function Toc({ cards }: Props): ReactNode {
   const [anchors, setAnchors] = useState<$ReadOnlyArray<HTMLElement>>([]);
   const [activeState, setActiveState] = useState<null | string>(null);
   const clickedRef = useRef<boolean>(false);

@@ -1,6 +1,6 @@
 // @flow strict
 import { useEffect, useState } from 'react';
-import { ENTER, SPACE } from './keyCodes.js';
+import { ENTER, SPACE } from './keyCodes';
 
 const SCROLL_DISTANCE = 10;
 

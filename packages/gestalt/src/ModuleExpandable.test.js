@@ -1,6 +1,6 @@
 // @flow strict
 import renderer from 'react-test-renderer';
-import ModuleExpandable from './ModuleExpandable.js';
+import ModuleExpandable from './ModuleExpandable';
 
 describe('Module Expandable', () => {
   test('renders correctly with one item', () => {

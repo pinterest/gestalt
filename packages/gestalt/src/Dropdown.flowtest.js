@@ -1,5 +1,5 @@
 // @flow strict
-import Dropdown from './Dropdown.js';
+import Dropdown from './Dropdown';
 
 const Valid = (
   <Dropdown id="dropdown-1" onDismiss={() => {}}>

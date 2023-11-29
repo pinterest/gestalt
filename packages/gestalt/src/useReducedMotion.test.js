@@ -1,6 +1,6 @@
 // @flow strict
 import { renderHook } from '@testing-library/react-hooks';
-import useReducedMotion from './useReducedMotion.js';
+import useReducedMotion from './useReducedMotion';
 
 describe('useReducedMotion', () => {
   test('Returns false during SSR (Server Side Render)', () => {

@@ -1,40 +1,40 @@
 // @flow strict
-import { type Node } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import avatar from '../../examples/toast/avatar.js';
-import dismissable from '../../examples/toast/dismissable.js';
-import doConcise from '../../examples/toast/doConcise.js';
-import doDismiss from '../../examples/toast/doDismiss.js';
-import doInteraction from '../../examples/toast/doInteraction.js';
-import dontMultiple from '../../examples/toast/dontMultiple.js';
-import dontPermanent from '../../examples/toast/dontPermanent.js';
-import dontRequest from '../../examples/toast/dontRequest.js';
-import dontWordy from '../../examples/toast/dontWordy.js';
-import doOne from '../../examples/toast/doOne.js';
-import error from '../../examples/toast/error.js';
-import helperLink from '../../examples/toast/helperLink.js';
-import howTo from '../../examples/toast/howto.js';
-import icon from '../../examples/toast/icon.js';
-import image from '../../examples/toast/image.js';
-import localizationLabels from '../../examples/toast/localizationLabels.js';
-import main from '../../examples/toast/main.js';
-import message from '../../examples/toast/message.js';
-import primaryAction from '../../examples/toast/primaryAction.js';
-import processing from '../../examples/toast/processing.js';
-import richMessage from '../../examples/toast/richMessage.js';
-import success from '../../examples/toast/success.js';
-import textOnly from '../../examples/toast/textOnly.js';
+import { type Node as ReactNode } from 'react';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import avatar from '../../examples/toast/avatar';
+import dismissable from '../../examples/toast/dismissable';
+import doConcise from '../../examples/toast/doConcise';
+import doDismiss from '../../examples/toast/doDismiss';
+import doInteraction from '../../examples/toast/doInteraction';
+import dontMultiple from '../../examples/toast/dontMultiple';
+import dontPermanent from '../../examples/toast/dontPermanent';
+import dontRequest from '../../examples/toast/dontRequest';
+import dontWordy from '../../examples/toast/dontWordy';
+import doOne from '../../examples/toast/doOne';
+import error from '../../examples/toast/error';
+import helperLink from '../../examples/toast/helperLink';
+import howTo from '../../examples/toast/howto';
+import icon from '../../examples/toast/icon';
+import image from '../../examples/toast/image';
+import localizationLabels from '../../examples/toast/localizationLabels';
+import main from '../../examples/toast/main';
+import message from '../../examples/toast/message';
+import primaryAction from '../../examples/toast/primaryAction';
+import processing from '../../examples/toast/processing';
+import richMessage from '../../examples/toast/richMessage';
+import success from '../../examples/toast/success';
+import textOnly from '../../examples/toast/textOnly';
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader

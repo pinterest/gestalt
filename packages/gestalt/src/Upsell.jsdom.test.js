@@ -1,6 +1,6 @@
 // @flow strict
 import { render, screen } from '@testing-library/react';
-import Upsell from './Upsell.js';
+import Upsell from './Upsell';
 
 test('Upsell handles onDismiss callback', () => {
   const mockOnDismiss = jest.fn<[], void>();

@@ -1,6 +1,6 @@
 // @flow strict
-import getCheckboxColor from './getCheckboxColor.js';
-import getDataVisualizationColor from './getDataVisualizationColor.js';
+import getCheckboxColor from './getCheckboxColor';
+import getDataVisualizationColor from './getDataVisualizationColor';
 
 const theme = {
   name: 'lightMode',

@@ -1,5 +1,5 @@
 // @flow strict
-import ActivationCard from './ActivationCard.js';
+import ActivationCard from './ActivationCard';
 
 const Valid = (
   <ActivationCard

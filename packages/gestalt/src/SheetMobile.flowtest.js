@@ -1,5 +1,5 @@
 // @flow strict
-import SheetMobile from './SheetMobile.js';
+import SheetMobile from './SheetMobile';
 
 const Valid = <SheetMobile heading="test" onDismiss={() => {}} />;
 

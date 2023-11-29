@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node } from 'react';
+import { Fragment, type Node as ReactNode } from 'react';
 import { Box, Flex, Spinner, Table, Text } from 'gestalt';
 
 function DataTable() {
@@ -16,7 +16,7 @@ function DataTable() {
       </Table.Header>
 
       <Table.Body>
-        {[...new Array<void | Node>(8)].map((_, i) => (
+        {[...new Array<void | ReactNode>(8)].map((_, i) => (
           // eslint-disable-next-line react/no-array-index-key
           <Table.Row key={i}>
             {['$0.00', '0 clicks', '$0.00 CPC', '0', '$0.00'].map((item) => (
@@ -35,7 +35,7 @@ function Overlay() {
   );
 }
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   return (
     <Fragment>
       <DataTable />

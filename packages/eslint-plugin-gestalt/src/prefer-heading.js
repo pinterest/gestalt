@@ -7,7 +7,7 @@ import {
   renameTagFixer,
   renameTagWithPropsFixer,
   updateGestaltImportFixer,
-} from './helpers/eslintASTFixers.js';
+} from './helpers/eslintASTFixers';
 import {
   getHtmlTag,
   hasAttributes,
@@ -15,8 +15,8 @@ import {
   hasSpreadAttributes,
   hasUnsupportedAttributes,
   isTag,
-} from './helpers/eslintASTHelpers.js';
-import { type ESLintRule } from './helpers/eslintFlowTypes.js';
+} from './helpers/eslintASTHelpers';
+import { type ESLintRule } from './helpers/eslintFlowTypes';
 
 export const MESSAGES = {
   fixMessageHeading: `Use Heading from Gestalt with accessibilityLevel (default autofix):\n

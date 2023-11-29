@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Collage, Flex, Image, Mask } from 'gestalt';
 
 const coverImage = {
@@ -23,7 +23,7 @@ const nonCoverImages = [
   },
 ];
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Box color="secondary" width={300} height={300}>

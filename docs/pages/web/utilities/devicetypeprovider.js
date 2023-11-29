@@ -1,16 +1,16 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { SlimBanner } from 'gestalt';
-import docGen, { type DocGen } from '../../../docs-components/docgen.js';
-import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
-import InternalDocumentationSection from '../../../docs-components/InternalDocumentationSection.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import SandpackExample from '../../../docs-components/SandpackExample.js';
-import implementation from '../../../examples/devicetypeprovider/implementation.js';
+import docGen, { type DocGen } from '../../../docs-components/docgen';
+import GeneratedPropTable from '../../../docs-components/GeneratedPropTable';
+import InternalDocumentationSection from '../../../docs-components/InternalDocumentationSection';
+import MainSection from '../../../docs-components/MainSection';
+import Page from '../../../docs-components/Page';
+import PageHeader from '../../../docs-components/PageHeader';
+import SandpackExample from '../../../docs-components/SandpackExample';
+import implementation from '../../../examples/devicetypeprovider/implementation';
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader

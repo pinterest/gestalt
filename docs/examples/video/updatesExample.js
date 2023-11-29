@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Button, Flex, Label, Text, TextField, Video } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [input, setInput] = useState(
     'https://v.pinimg.com/videos/mc/expMp4/ce/b4/cc/ceb4cc8c4889a86432a65884c147021f_t1.mp4',
   );

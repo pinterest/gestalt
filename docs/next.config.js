@@ -19,7 +19,7 @@ type RedirectsReturn = Promise<
 */
 
 const path = require('path');
-const redirects = require('./redirects.js');
+const redirects = require('./redirects');
 
 const root /*: string */ = path.join(__dirname, '../');
 

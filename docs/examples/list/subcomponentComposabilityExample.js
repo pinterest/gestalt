@@ -1,8 +1,8 @@
 // @flow strict
-import { Fragment, type Node } from 'react';
+import { Fragment, type Node as ReactNode } from 'react';
 import { Box, List } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const someCondition = true;
 
   return (

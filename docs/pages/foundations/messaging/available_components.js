@@ -1,16 +1,16 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Link, Text } from 'gestalt';
-import MainSection from '../../../docs-components/MainSection.js';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import SandpackExample from '../../../docs-components/SandpackExample.js';
-import callout from '../../../examples/callout/main.js';
-import modalalert from '../../../examples/modalalert/main.js';
-import slimbanner from '../../../examples/slimbanner/main.js';
-import toast from '../../../examples/toast/main.js';
+import MainSection from '../../../docs-components/MainSection';
+import Page from '../../../docs-components/Page';
+import PageHeader from '../../../docs-components/PageHeader';
+import SandpackExample from '../../../docs-components/SandpackExample';
+import callout from '../../../examples/callout/main';
+import modalalert from '../../../examples/modalalert/main';
+import slimbanner from '../../../examples/slimbanner/main';
+import toast from '../../../examples/toast/main';
 
-export default function DocsPage(): Node {
+export default function DocsPage(): ReactNode {
   return (
     <Page title="Available messaging components">
       <PageHeader name="Available messaging components" type="guidelines" />

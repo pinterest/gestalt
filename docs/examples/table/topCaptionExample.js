@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Checkbox, Flex, Label, Status, Table, Text } from 'gestalt';
 
 function HeaderRow({ id }: { id: string }) {
@@ -68,7 +68,7 @@ function BaseRow({
   );
 }
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const tableID = 'Example of correct accessibility with top caption';
 
   return (

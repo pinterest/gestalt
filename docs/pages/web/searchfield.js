@@ -1,28 +1,32 @@
 // @flow strict
-import { type Node } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import accessibilityExample from '../../examples/searchfield/accessibilityExample.js';
-import dontAddCriticalInfoToPlaceholder from '../../examples/searchfield/dontAddCriticalInfoToPlaceholder.js';
-import dontHideBehindIcon from '../../examples/searchfield/dontHideBehindIcon.js';
-import dontTruncateText from '../../examples/searchfield/dontTruncateText.js';
-import errorExample from '../../examples/searchfield/errorExample.js';
-import localizationExample from '../../examples/searchfield/localizationExample.js';
-import mainExample from '../../examples/searchfield/mainExample.js';
-import makePlaceholderSpecific from '../../examples/searchfield/makePlaceholderSpecific.js';
-import makeSearchFieldWide from '../../examples/searchfield/makeSearchFieldWide.js';
-import placeAboveContent from '../../examples/searchfield/placeAboveContent.js';
-import sizesExample from '../../examples/searchfield/sizesExample.js';
-import variantsExample from '../../examples/searchfield/variantsExample.js';
+import { type Node as ReactNode } from 'react';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import accessibilityExample from '../../examples/searchfield/accessibilityExample';
+import dontAddCriticalInfoToPlaceholder from '../../examples/searchfield/dontAddCriticalInfoToPlaceholder';
+import dontHideBehindIcon from '../../examples/searchfield/dontHideBehindIcon';
+import dontTruncateText from '../../examples/searchfield/dontTruncateText';
+import errorExample from '../../examples/searchfield/errorExample';
+import localizationExample from '../../examples/searchfield/localizationExample';
+import mainExample from '../../examples/searchfield/mainExample';
+import makePlaceholderSpecific from '../../examples/searchfield/makePlaceholderSpecific';
+import makeSearchFieldWide from '../../examples/searchfield/makeSearchFieldWide';
+import placeAboveContent from '../../examples/searchfield/placeAboveContent';
+import sizesExample from '../../examples/searchfield/sizesExample';
+import variantsExample from '../../examples/searchfield/variantsExample';
 
-export default function SearchFieldPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function SearchFieldPage({
+  generatedDocGen,
+}: {
+  generatedDocGen: DocGen,
+}): ReactNode {
   return (
     <Page title="SearchField">
       <PageHeader name="SearchField" description={generatedDocGen?.description}>

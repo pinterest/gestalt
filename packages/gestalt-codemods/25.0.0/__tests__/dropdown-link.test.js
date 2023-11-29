@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../dropdown-link', () =>
   Object.assign(jest.requireActual('../dropdown-link'), {

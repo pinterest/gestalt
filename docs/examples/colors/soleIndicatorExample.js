@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Label, SelectList, Text } from 'gestalt';
 
-export default function SoleIndicatorExample(): Node {
+export default function SoleIndicatorExample(): ReactNode {
   return (
     <Flex
       direction="column"

@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, TextField } from 'gestalt';
 
-export default function TextFieldExample(): Node {
+export default function TextFieldExample(): ReactNode {
   const [value, setValue] = useState('');
   const characterCount = 20;
 

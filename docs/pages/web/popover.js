@@ -1,25 +1,25 @@
 // @flow strict
-import { type Node } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import a11y from '../../examples/popover/a11y.js';
-import dontCritical from '../../examples/popover/dontCritical.js';
-import localizationLabels from '../../examples/popover/localizationLabels.js';
-import main from '../../examples/popover/main.js';
-import variantAnchor from '../../examples/popover/variantAnchor.js';
-import variantIdealDirection from '../../examples/popover/variantIdealDirection.js';
-import variantLayer from '../../examples/popover/variantLayer.js';
-import variantScrollingContainers from '../../examples/popover/variantScrollingContainers.js';
-import variantVisibility from '../../examples/popover/variantVisibility.js';
+import { type Node as ReactNode } from 'react';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import a11y from '../../examples/popover/a11y';
+import dontCritical from '../../examples/popover/dontCritical';
+import localizationLabels from '../../examples/popover/localizationLabels';
+import main from '../../examples/popover/main';
+import variantAnchor from '../../examples/popover/variantAnchor';
+import variantIdealDirection from '../../examples/popover/variantIdealDirection';
+import variantLayer from '../../examples/popover/variantLayer';
+import variantScrollingContainers from '../../examples/popover/variantScrollingContainers';
+import variantVisibility from '../../examples/popover/variantVisibility';
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>

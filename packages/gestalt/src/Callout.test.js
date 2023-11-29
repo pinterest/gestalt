@@ -1,7 +1,7 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Callout from './Callout.js';
-import Text from './Text.js';
+import Callout from './Callout';
+import Text from './Text';
 
 describe('<Callout />', () => {
   test('Error Callout', () => {

@@ -1,13 +1,13 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { type Node as ReactNode } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { Box, Callout, Flex, Heading, Image, Mask, Text } from 'gestalt';
-import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
+import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts';
+import MainSection from '../../../docs-components/MainSection';
+import Page from '../../../docs-components/Page';
+import PageHeader from '../../../docs-components/PageHeader';
 
-export default function FormsLayoutOverview(): Node {
+export default function FormsLayoutOverview(): ReactNode {
   return (
     <Page title="Typography">
       <PageHeader

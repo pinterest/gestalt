@@ -1,5 +1,5 @@
 // @flow strict
-import Status from './Status.js';
+import Status from './Status';
 
 const Valid = <Status type="unstarted" title="Unstarted" />;
 

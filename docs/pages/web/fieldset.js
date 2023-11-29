@@ -1,20 +1,20 @@
 // @flow strict
-import { type Node } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import accessibility from '../../examples/fieldset/accessibility.js';
-import main from '../../examples/fieldset/main.js';
-import variantsError from '../../examples/fieldset/variantsError.js';
-import variantsLegend from '../../examples/fieldset/variantsLegend.js';
+import { type Node as ReactNode } from 'react';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import accessibility from '../../examples/fieldset/accessibility';
+import main from '../../examples/fieldset/main';
+import variantsError from '../../examples/fieldset/variantsError';
+import variantsLegend from '../../examples/fieldset/variantsLegend';
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -76,11 +76,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                code={variantsLegend}
-                name="Variants - Legend visibility"
-                layout="column"
-              />
+              <SandpackExample code={variantsLegend} name="Variants - Legend visibility" />
             }
           />
         </MainSection.Subsection>
@@ -88,11 +84,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                code={variantsError}
-                name="Variants - Error message"
-                layout="column"
-              />
+              <SandpackExample code={variantsError} name="Variants - Error message" />
             }
           />
         </MainSection.Subsection>

@@ -1,9 +1,9 @@
 // @flow strict
-import { type Node, useId, useRef, useState } from 'react';
+import { type Node as ReactNode, useId, useRef, useState } from 'react';
 import { Box, Flex, Label, RadioGroup, Text } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const labelId = useId();
   const [width, setWidth] = useState<number>(700);
   const scrollContainerRef = useRef<?HTMLDivElement>();

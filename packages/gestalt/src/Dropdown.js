@@ -1,19 +1,19 @@
 // @flow strict
-import { Children, cloneElement, Fragment, type Node, useState } from 'react';
-import AnimationProvider from './animation/AnimationContext.js';
-import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext.js';
-import Box from './Box.js';
-import { useDeviceType } from './contexts/DeviceTypeProvider.js';
-import { DropdownContextProvider } from './Dropdown/Context.js';
-import DropdownItem from './DropdownItem.js';
-import DropdownLink from './DropdownLink.js';
-import DropdownSection from './DropdownSection.js';
-import { DOWN_ARROW, ENTER, ESCAPE, SPACE, TAB, UP_ARROW } from './keyCodes.js';
-import Layer from './Layer.js';
-import Popover from './Popover.js';
-import PartialPage from './SheetMobile/PartialPage.js';
-import { type DirectionOptionType } from './utils/keyboardNavigation.js';
-import { type Indexable } from './zIndex.js';
+import { Children, cloneElement, Fragment, type Node as ReactNode, useState } from 'react';
+import AnimationProvider from './animation/AnimationContext';
+import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext';
+import Box from './Box';
+import { useDeviceType } from './contexts/DeviceTypeProvider';
+import { DropdownContextProvider } from './Dropdown/Context';
+import DropdownItem from './DropdownItem';
+import DropdownLink from './DropdownLink';
+import DropdownSection from './DropdownSection';
+import { DOWN_ARROW, ENTER, ESCAPE, SPACE, TAB, UP_ARROW } from './keyCodes';
+import Layer from './Layer';
+import Popover from './Popover';
+import PartialPage from './SheetMobile/PartialPage';
+import { type DirectionOptionType } from './utils/keyboardNavigation';
+import { type Indexable } from './zIndex';
 
 const KEYS = {
   UP: -1,
@@ -80,7 +80,7 @@ const renderChildrenWithIndex = (childrenArray) => {
       (subSectionChildren && childDisplayName === 'Dropdown.Section') ||
       child.type === Fragment
     ) {
-      const sectionChildrenArray = Children.toArray<Node>(subSectionChildren).flat();
+      const sectionChildrenArray = Children.toArray<ReactNode>(subSectionChildren).flat();
 
       const childWithIndex = cloneElement(child, {
         children: renderDropdownItemsWithIndex(sectionChildrenArray, numItemsRendered),
@@ -105,7 +105,7 @@ type Props = {
   /**
    * Must be instances of [Dropdown.Item](https://gestalt.pinterest.systems/web/dropdown#Types-of-items), [Dropdown.Link](https://gestalt.pinterest.systems/web/dropdown#Types-of-items) or [Dropdown.Section](https://gestalt.pinterest.systems/web/dropdown#Sections) components. See the [Types of items](https://gestalt.pinterest.systems/web/dropdown#Types-of-items) variant to learn more.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * Enables correct behavior when Dropdown is used within a fixed container. To achieve this it removes the Layer component around Popover and enables positioning relative to its anchor element. Should only be used in cases where Layer breaks the Dropdown positionings such as when the anchor element is within a sticky component.
    */
@@ -113,7 +113,7 @@ type Props = {
   /**
    * Content to display at the top of the Dropdown before any items or sections. See the [Custom header](https://gestalt.pinterest.systems/web/dropdown#Custom-header) variant to learn more.
    */
-  headerContent?: Node,
+  headerContent?: ReactNode,
   /**
    * Unique id to identify each Dropdown. Used for [Accessibility](https://gestalt.pinterest.systems/web/dropdown#Accessibility) purposes.
    */
@@ -163,13 +163,13 @@ export default function Dropdown({
   maxHeight,
   mobileOnAnimationEnd,
   disableMobileUI = true,
-}: Props): Node {
+}: Props): ReactNode {
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
 
   const [hoveredItemIndex, setHoveredItemIndex] = useState<?number>(isMobile ? undefined : 0);
 
-  const dropdownChildrenArray = Children.toArray<Node>(children);
+  const dropdownChildrenArray = Children.toArray<ReactNode>(children);
   const allowedChildrenOptions = getChildrenOptions(dropdownChildrenArray);
 
   let selectedElement;

@@ -2,8 +2,8 @@
 import { readFileSync } from 'fs';
 import path from 'path';
 import { RuleTester } from 'eslint';
-import rule, { errorMessage, errorMessage2 } from './button-icon-restrictions.js';
-import { parserOptions } from './helpers/testHelpers.js';
+import rule, { errorMessage, errorMessage2 } from './button-icon-restrictions';
+import { parserOptions } from './helpers/testHelpers';
 
 const ruleTester = new RuleTester({ parserOptions });
 

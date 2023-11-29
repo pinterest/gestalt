@@ -144,6 +144,11 @@ const misc = [
     permanent: true,
   },
   {
+    source: '/foundations/data_visualization/charts_and_graphs',
+    destination: '/foundations/data_visualization/charts_and_graphs/general_guidelines',
+    permanent: true,
+  },
+  {
     source: '/development',
     destination: '/get_started/developers/contributing/development_process',
     permanent: true,
@@ -195,7 +200,7 @@ const misc = [
   },
   {
     source: '/typography',
-    destination: '/foundations/typography/guidelines',
+    destination: '/foundations/typography',
     permanent: true,
   },
   {

@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, CompositeZIndex, FixedZIndex, Sticky, Text } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const HEADER_ZINDEX = new FixedZIndex(100);
   const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
   return (

@@ -1,6 +1,6 @@
 // @flow strict
 import { renderHook } from '@testing-library/react-hooks';
-import useResponsiveMinWidth from './useResponsiveMinWidth.js';
+import useResponsiveMinWidth from './useResponsiveMinWidth';
 
 describe('useResponsiveMinWidth', () => {
   test('Returns false during SSR (Server Side Render)', () => {

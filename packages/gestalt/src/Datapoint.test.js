@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Datapoint from './Datapoint.js';
+import Datapoint from './Datapoint';
 
 describe('Datapoint', () => {
   it('renders', () => {

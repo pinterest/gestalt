@@ -1,10 +1,10 @@
 // @flow strict
-import { Fragment, type Node } from 'react';
+import { Fragment, type Node as ReactNode } from 'react';
 import { Box, Flex, Heading, Link, List, Text } from 'gestalt';
-import Card from '../../docs-components/Card.js';
-import Markdown from '../../docs-components/Markdown.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
+import Card from '../../docs-components/Card';
+import Markdown from '../../docs-components/Markdown';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
 
 function InlineLink({ children, href }: { children: string, href: string }) {
   return (
@@ -17,7 +17,7 @@ function InlineLink({ children, href }: { children: string, href: string }) {
   );
 }
 
-export default function DocsPage(): Node {
+export default function DocsPage(): ReactNode {
   return (
     <Page title="Frequently asked questions">
       <PageHeader name="Frequently asked questions" type="guidelines" />

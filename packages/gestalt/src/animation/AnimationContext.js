@@ -4,14 +4,14 @@ import {
   type Context,
   createContext,
   type Element,
-  type Node,
+  type Node as ReactNode,
   useCallback,
   useContext,
   useMemo,
   useState,
 } from 'react';
 import ReactDOM from 'react-dom';
-import useReducedMotion from '../useReducedMotion.js';
+import useReducedMotion from '../useReducedMotion';
 
 export const ANIMATION_STATE = {
   animatedOpening: 'animatedOpening',
@@ -40,7 +40,7 @@ type UseAnimationType = {
 };
 
 type AnimationProviderProps = {
-  children: Node,
+  children: ReactNode,
 };
 
 // CONTEXT

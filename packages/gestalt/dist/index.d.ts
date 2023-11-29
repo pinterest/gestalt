@@ -1,4 +1,3 @@
-import { ChartGraph } from '../../gestalt-charts/dist/index';
 import React = require('react');
 
 /**
@@ -28,11 +27,6 @@ type ReactForwardRef<T, P> = React.ForwardRefExoticComponent<
 type FourDirections = 'up' | 'right' | 'down' | 'left';
 type PopoverDirections = 'up' | 'right' | 'down' | 'left' | 'forceDown';
 
-type TapAreaLinkEventHandlerType = AbstractEventHandler<
-  React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-  { dangerouslydangerouslyDisableOnNavigation?: (() => void) | undefined }
->;
-
 type TapAreaEventHandlerType = AbstractEventHandler<
   React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>
 >;
@@ -44,21 +38,13 @@ type BareButtonEventHandlerType = AbstractEventHandler<
   | React.KeyboardEvent<HTMLButtonElement>
 >;
 
-type IconButtonEventHandlerType = AbstractEventHandler<
-  | React.MouseEvent<HTMLButtonElement>
-  | React.MouseEvent<HTMLAnchorElement>
-  | React.KeyboardEvent<HTMLAnchorElement>
-  | React.KeyboardEvent<HTMLButtonElement>,
-  { dangerouslyDisableOnNavigation?: (() => void) | undefined }
->;
-
 type ButtonEventHandlerType = AbstractEventHandler<
   React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>
 >;
 
 type ButtonLinkEventHandlerType = AbstractEventHandler<
   React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-  { dangerouslyDisableOnNavigation?: (() => void) | undefined }
+  { dangerouslyDisableOnNavigation: (() => void) | undefined }
 >;
 
 type VideoEventHandlerType = AbstractEventHandler<React.SyntheticEvent<HTMLVideoElement>>;
@@ -99,12 +85,16 @@ interface Indexable {
 }
 
 type Icons =
+  | '3D'
+  | '3D-move'
+  | 'accessibility'
   | 'ad'
   | 'ad-group'
   | 'add'
   | 'add-circle'
   | 'add-layout'
   | 'add-pin'
+  | 'add-section'
   | 'ads-stats'
   | 'ads-overview'
   | 'alert'
@@ -119,24 +109,33 @@ type Icons =
   | 'align-top'
   | 'android-share'
   | 'angled-pin'
+  | 'api'
+  | 'apple'
   | 'apps'
   | 'arrow-back'
+  | 'arrow-circle-back'
   | 'arrow-circle-down'
   | 'arrow-circle-forward'
   | 'arrow-circle-up'
   | 'arrow-down'
   | 'arrow-end'
   | 'arrow-forward'
+  | 'arrow-left-curved'
   | 'arrow-start'
   | 'arrow-up'
   | 'arrow-up-right'
   | 'bell'
+  | 'board'
+  | 'briefcase'
+  | 'business-hierarchy'
   | 'calendar'
+  | 'calendar-check'
   | 'camera'
   | 'camera-roll'
   | 'cancel'
   | 'canonical-pin'
   | 'captions'
+  | 'captions-outline'
   | 'color-picker'
   | 'check'
   | 'check-circle'
@@ -144,12 +143,16 @@ type Icons =
   | 'clear'
   | 'clock'
   | 'code'
+  | 'code-checked'
   | 'cog'
   | 'compass'
   | 'compose'
   | 'copy-to-clipboard'
   | 'crop'
+  | 'data-source'
   | 'dash'
+  | 'desktop'
+  | 'diagnostics'
   | 'conversion-tag'
   | 'credit-card'
   | 'directional-arrow-left'
@@ -173,6 +176,7 @@ type Icons =
   | 'fill-transparent'
   | 'filter'
   | 'flag'
+  | 'flame'
   | 'flash'
   | 'flashlight'
   | 'flipHorizontal'
@@ -188,23 +192,30 @@ type Icons =
   | 'heart'
   | 'heart-outline'
   | 'heart-broken'
+  | 'heart-health'
   | 'history'
   | 'home'
   | 'idea-pin'
+  | 'image-portrait'
   | 'impressum'
   | 'insights-audience'
   | 'insights-conversions'
+  | 'instagram'
+  | 'invoice'
   | 'info-circle'
   | 'key'
   | 'knoop'
   | 'lightbulb'
   | 'lightning-bolt-circle'
   | 'link'
+  | 'live'
   | 'location'
   | 'lock'
   | 'logo-large'
   | 'logo-small'
   | 'logout'
+  | 'manage-access'
+  | 'magic-pen'
   | 'margins-large'
   | 'margins-medium'
   | 'margins-small'
@@ -212,9 +223,11 @@ type Icons =
   | 'megaphone'
   | 'menu'
   | 'minimize'
+  | 'mobile'
   | 'moon'
   | 'move'
   | 'mute'
+  | 'move-pin'
   | 'music-off'
   | 'music-on'
   | 'overlay-text'
@@ -230,13 +243,15 @@ type Icons =
   | 'pinterest'
   | 'play'
   | 'protect'
-  | 'refresh'
   | 'question-mark'
+  | 'refresh'
   | 'remove'
   | 'reorder-images'
   | 'replace'
   | 'report'
   | 'rotate'
+  | 'save-outline'
+  | 'saved'
   | 'scale'
   | 'search'
   | 'security'
@@ -251,10 +266,15 @@ type Icons =
   | 'sparkle'
   | 'speech'
   | 'speech-ellipsis'
+  | 'speech-exclamation-point'
+  | 'speech-outline'
+  | 'star-outline'
   | 'star'
   | 'star-half'
+  | 'sticker'
   | 'sun'
   | 'switch-account'
+  | 'table'
   | 'tag'
   | 'terms'
   | 'text-align-left'
@@ -269,20 +289,29 @@ type Icons =
   | 'text-size'
   | 'text-small'
   | 'text-spacing'
+  | 'thumbs-down'
+  | 'thumbs-up'
   | 'trash-can'
+  | 'target'
   | 'trending'
   | 'twitter'
+  | 'upload-feed'
+  | 'video-advance-10-seconds'
   | 'video-camera'
+  | 'video-rewind-10-seconds'
   | 'view-type-default'
   | 'view-type-dense'
   | 'view-type-list'
   | 'visit'
+  | 'whats-app'
+  | 'wifi-no'
   | 'workflow-status-all'
   | 'workflow-status-canceled'
   | 'workflow-status-halted'
   | 'workflow-status-in-progress'
   | 'workflow-status-ok'
   | 'workflow-status-problem'
+  | 'workflow-status-queued'
   | 'workflow-status-unstarted'
   | 'workflow-status-warning';
 
@@ -478,6 +507,10 @@ interface DeviceTypeProviderProps {
 
 interface GlobalEventsHandlerProviderProps {
   children: Node;
+  dateFieldHandlers?: { onRender?: (() => void) | undefined } | undefined;
+  datePickerHandlers?: { onRender?: (() => void) | undefined } | undefined;
+  dateRangeHandlers?: { onRender?: (() => void) | undefined } | undefined;
+  radioGroupHandlers?: { onRender?: (() => void) | undefined } | undefined;
   linkHandlers?: {
     onNavigation: (arg: {
       href: string;
@@ -838,7 +871,6 @@ interface ComboBoxProps {
   accessibilityClearButtonLabel?: string | undefined;
   disabled?: boolean | undefined;
   errorMessage?: string | undefined;
-
   helperText?: string | undefined;
   inputValue?: string | null | undefined;
   labelDisplay?: 'visible' | 'hidden' | undefined;
@@ -1102,7 +1134,7 @@ interface IconButtonLinkProps {
   onClick?:
     | AbstractEventHandler<
         React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-        { dangerouslydangerouslyDisableOnNavigation?: (() => void) | undefined }
+        { dangerouslyDisableOnNavigation: (() => void) | undefined }
       >
     | undefined;
   padding?: 1 | 2 | 3 | 4 | 5 | undefined;
@@ -1346,6 +1378,7 @@ interface NumberFieldProps {
   errorMessage?: Node | undefined;
   helperText?: string | undefined;
   label?: string | undefined;
+  labelDisplay?: 'visible' | 'hidden' | undefined;
   max?: number | undefined;
   min?: number | undefined;
   mobileEnterKeyHint?: MobileEnterKeyHintType | undefined;
@@ -2081,7 +2114,12 @@ interface TapAreaLinkProps {
   onMouseUp?: AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>> | undefined;
   onMouseEnter?: AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>> | undefined;
   onMouseLeave?: AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>> | undefined;
-  onTap?: TapAreaLinkEventHandlerType | undefined;
+  onTap?:
+    | AbstractEventHandler<
+        React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
+        { dangerouslyDisableOnNavigation: (() => void) | undefined }
+      >
+    | undefined;
   rel?: RelType | undefined;
   rounding?: RoundingType | undefined;
   tabIndex?: -1 | 0 | undefined;
@@ -2617,7 +2655,7 @@ export const Popover: React.FunctionComponent<PopoverProps>;
 /**
  * https://gestalt.pinterest.systems/web/popovereducational
  */
-export const Popovereducational: React.FunctionComponent<PopoverEducationalProps>;
+export const PopoverEducational: React.FunctionComponent<PopoverEducationalProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/pulsar
@@ -2879,3 +2917,90 @@ export function useReducedMotion(): boolean;
  * https://gestalt.pinterest.systems/web/utilities/usefocusvisible
  */
 export function useFocusVisible(): { isFocusVisible: boolean };
+
+/**
+ * Undocumented
+ */
+interface ScrollFetchProps {
+  container?: HTMLElement;
+  isAtEnd?: boolean;
+  isFetching: boolean;
+  fetchMore?: () => void;
+  renderHeight?: () => number;
+}
+
+export const ScrollFetch: React.FunctionComponent<ScrollFetchProps>;
+
+/**
+ * Undocumented
+ */
+interface ExperimentProviderProps {
+  children: Node;
+  colorScheme: 'light' | 'dark' | 'userPreference';
+  fullDimensions?: boolean;
+  id?: string | undefined;
+}
+
+export const ExperimentProvider: React.FunctionComponent<
+  React.PropsWithChildren<ExperimentProviderProps>
+>;
+
+/**
+ * Undocumented
+ */
+export function useGlobalEventsHandler(): {
+  dateFieldHandlers?: { onRender?: () => void };
+  datePickerHandlers?: { onRender?: () => void };
+  dateRangeHandlers?: { onRender?: () => void };
+  sheetMobileHandlers?: { onOpen?: () => void; onClose?: () => void };
+  linkHandlers?: {
+    onNavigation?: (args: {
+      href: string;
+      target?: null | 'self' | 'blank';
+    }) => AbstractEventHandler<React.SyntheticEvent<HTMLElement>>;
+  };
+  radioGroupHandlers?: { onRender?: () => void };
+} | void;
+
+/**
+ * Undocumented
+ */
+export function useDeviceType(): 'desktop' | 'mobile';
+
+/**
+ * Undocumented
+ */
+export function useDefaultLabel(componentName: string): { [k: string]: string };
+
+/**
+ * Undocumented
+ */
+export function useColorScheme(): {
+  name: string;
+  colorRed0: string;
+  colorRed100: string;
+  colorRed100Active: string;
+  colorRed100Hovered: string;
+  colorGray0: string;
+  colorGray0Active: string;
+  colorGray0Hovered: string;
+  colorGray50: string;
+  colorGray100: string;
+  colorGray100Active: string;
+  colorGray100Hovered: string;
+  colorGray150: string;
+  colorGray150Hovered: string;
+  colorGray200: string;
+  colorGray200Active: string;
+  colorGray200Hovered: string;
+  colorGray300: string;
+  colorGray400: string;
+  colorTransparentDarkGray: string;
+  colorTransparentGray60: string;
+  colorTransparentGray100: string;
+  colorTransparentGray500: string;
+  colorTransparentWhite: string;
+  blueHovered: string;
+  blueActive: string;
+  [tokenName: string]: string;
+};

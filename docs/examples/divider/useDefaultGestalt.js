@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Divider, Flex, Heading, Link, Text } from 'gestalt';
 
 function Block({ title, text }: { title: string, text: $ReadOnlyArray<string> }) {
@@ -19,7 +19,7 @@ function Block({ title, text }: { title: string, text: $ReadOnlyArray<string> })
   );
 }
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   return (
     <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
       <Flex direction="column" gap={{ column: 10, row: 0 }} width={300}>

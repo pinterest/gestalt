@@ -43,7 +43,7 @@
  * REMOVE E.g. yarn codemod modifyPropValue ~/code/pinboard/webapp --component=Box --previousProp=color --previousValue=red
  */
 
-import { type ApiType, type FileType } from './flowtypes.js';
+import { type ApiType, type FileType } from './flowtypes';
 import {
   buildReplaceWithModifiedAttributes,
   deepCloneNode,
@@ -56,7 +56,7 @@ import {
   isNullOrUndefined,
   saveToSource,
   throwErrorIfSpreadProps,
-} from './utils.js';
+} from './utils';
 
 type OptionsType = {
   component: string,

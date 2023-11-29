@@ -1,19 +1,19 @@
 // @flow strict
-import { type Node } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import defaultExample from '../../examples/segmentedcontrol/defaultExample.js';
-import mainExample from '../../examples/segmentedcontrol/mainExample.js';
-import responsiveExample from '../../examples/segmentedcontrol/responsiveExample.js';
-import sizeExample from '../../examples/segmentedcontrol/sizeExample.js';
+import { type Node as ReactNode } from 'react';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import defaultExample from '../../examples/segmentedcontrol/defaultExample';
+import mainExample from '../../examples/segmentedcontrol/mainExample';
+import responsiveExample from '../../examples/segmentedcontrol/responsiveExample';
+import sizeExample from '../../examples/segmentedcontrol/sizeExample';
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title="SegmentedControl">
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen.description}>

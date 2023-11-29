@@ -1,10 +1,10 @@
 // @flow strict
 import { useState } from 'react';
 import { act, render, screen } from '@testing-library/react';
-import DeviceTypeProvider from './DeviceTypeProvider.js';
-import GlobalEventsHandlerProvider from './GlobalEventsHandlerProvider.js';
-import SheetMobile from '../SheetMobile.js';
-import * as useReducedMotionHook from '../useReducedMotion.js';
+import DeviceTypeProvider from './DeviceTypeProvider';
+import GlobalEventsHandlerProvider from './GlobalEventsHandlerProvider';
+import SheetMobile from '../SheetMobile';
+import * as useReducedMotionHook from '../useReducedMotion';
 
 jest.mock('../useReducedMotion.js');
 

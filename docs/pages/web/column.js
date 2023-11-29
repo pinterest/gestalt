@@ -1,25 +1,25 @@
 // @flow strict
-import { type Node } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import variantBasic from '../../examples/column/variantBasic.js';
-import variantEqualHeight from '../../examples/column/variantEqualHeight.js';
-import variantGutters from '../../examples/column/variantGutters.js';
-import variantResizingColumns from '../../examples/column/variantResizingColumns.js';
-import variantStackingColumns from '../../examples/column/variantStackingColumns.js';
-import variantThreeColumn from '../../examples/column/variantThreeColumn.js';
-import variantTwoColumn from '../../examples/column/variantTwoColumn.js';
-import variantTwoColumnUnequal from '../../examples/column/variantTwoColumnUnequal.js';
+import { type Node as ReactNode } from 'react';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import variantBasic from '../../examples/column/variantBasic';
+import variantEqualHeight from '../../examples/column/variantEqualHeight';
+import variantGutters from '../../examples/column/variantGutters';
+import variantResizingColumns from '../../examples/column/variantResizingColumns';
+import variantStackingColumns from '../../examples/column/variantStackingColumns';
+import variantThreeColumn from '../../examples/column/variantThreeColumn';
+import variantTwoColumn from '../../examples/column/variantTwoColumn';
+import variantTwoColumnUnequal from '../../examples/column/variantTwoColumnUnequal';
 
 const ignoredProps = ['smSpan', 'mdSpan', 'lgSpan'];
 
-export default function ColumnPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function ColumnPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />

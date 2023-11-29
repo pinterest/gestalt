@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useRef, useState } from 'react';
+import { type Node as ReactNode, useRef, useState } from 'react';
 import {
   Avatar,
   Box,
@@ -13,7 +13,7 @@ import {
   Text,
 } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
 
   const [open, setOpen] = useState(false);

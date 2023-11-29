@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Flex, Text, useFocusVisible } from 'gestalt';
 
-export default function UseFocusVisibleExample(): Node {
+export default function UseFocusVisibleExample(): ReactNode {
   const { isFocusVisible } = useFocusVisible();
   const [focusedButton1, setFocusedButton1] = useState(false);
   const [focusedButton2, setFocusedButton2] = useState(false);

@@ -1,25 +1,25 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Flex, Link, Text } from 'gestalt';
-import MainSection from '../../../docs-components/MainSection.js';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import PrincipleItem from '../../../docs-components/PrincipleItem.js';
-import SandpackExample from '../../../docs-components/SandpackExample.js';
-import alternativeColors from '../../../examples/colors/alternativeColorsExample.js';
-import alternativeColorTextExample from '../../../examples/colors/alternativeColorTextExample.js';
-import alternativeColorTokensExample from '../../../examples/colors/alternativeColorTokensExample.js';
-import appropriateColorTokensExample from '../../../examples/colors/appropriateColorTokensExample.js';
-import communicateStatusExample from '../../../examples/colors/communicateStatusExample.js';
-import distinctionExample from '../../../examples/colors/distinctionExample.js';
-import establishedExample from '../../../examples/colors/establishedExample.js';
-import extendedColors from '../../../examples/colors/extendedColorsExample.js';
-import invalidElevationExample from '../../../examples/colors/invalidElevationExample.js';
-import repurposeExample from '../../../examples/colors/repurposeExample.js';
-import soleIndicatorExample from '../../../examples/colors/soleIndicatorExample.js';
-import validElevationExample from '../../../examples/colors/validElevationExample.js';
+import MainSection from '../../../docs-components/MainSection';
+import Page from '../../../docs-components/Page';
+import PageHeader from '../../../docs-components/PageHeader';
+import PrincipleItem from '../../../docs-components/PrincipleItem';
+import SandpackExample from '../../../docs-components/SandpackExample';
+import alternativeColors from '../../../examples/colors/alternativeColorsExample';
+import alternativeColorTextExample from '../../../examples/colors/alternativeColorTextExample';
+import alternativeColorTokensExample from '../../../examples/colors/alternativeColorTokensExample';
+import appropriateColorTokensExample from '../../../examples/colors/appropriateColorTokensExample';
+import communicateStatusExample from '../../../examples/colors/communicateStatusExample';
+import distinctionExample from '../../../examples/colors/distinctionExample';
+import establishedExample from '../../../examples/colors/establishedExample';
+import extendedColors from '../../../examples/colors/extendedColorsExample';
+import invalidElevationExample from '../../../examples/colors/invalidElevationExample';
+import repurposeExample from '../../../examples/colors/repurposeExample';
+import soleIndicatorExample from '../../../examples/colors/soleIndicatorExample';
+import validElevationExample from '../../../examples/colors/validElevationExample';
 
-export default function ColorExamplesPage(): Node {
+export default function ColorExamplesPage(): ReactNode {
   return (
     <Page title="Color examples">
       <PageHeader

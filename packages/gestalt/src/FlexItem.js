@@ -1,6 +1,6 @@
 // @flow strict
-import { type Node } from 'react';
-import { buildStyles } from './boxTransforms.js';
+import { type Node as ReactNode } from 'react';
+import { buildStyles } from './boxTransforms';
 import styles from './Flex.css';
 
 type Dimension = number | string;
@@ -13,7 +13,7 @@ export type Props = {
   /**
    *
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * Used to identify the element for testing purposes.
    */
@@ -42,7 +42,7 @@ const allowedProps = ['alignSelf', 'children', 'flex', 'flexBasis', 'maxWidth', 
 /**
  * Use [Flex.Item](https://gestalt.pinterest.systems/web/flex) within a Flex container for more precise control over the child element. Flex children that are not explicitly wrapped in Flex.Item will be wrapped in the the component automatically to apply `gap` spacing.
  */
-export default function FlexItem({ dataTestId, ...rest }: Props): Node {
+export default function FlexItem({ dataTestId, ...rest }: Props): ReactNode {
   const { passthroughProps, propsStyles } = buildStyles<Props>({
     baseStyles: styles.FlexItem,
     props: rest,

@@ -1,14 +1,14 @@
 // @flow strict
-import { type Element, type Node, useId } from 'react';
+import { type Element, type Node as ReactNode, useId } from 'react';
 import classnames from 'classnames';
-import getChildrenToArray from './getChildrenToArray.js';
-import ListText from './Message.js';
-import Box from '../Box.js';
-import { ListProvider, useList } from '../contexts/ListProvider.js';
-import { NestingProvider, useNesting } from '../contexts/NestingProvider.js';
-import Flex from '../Flex.js';
+import getChildrenToArray from './getChildrenToArray';
+import ListText from './Message';
+import Box from '../Box';
+import { ListProvider, useList } from '../contexts/ListProvider';
+import { NestingProvider, useNesting } from '../contexts/NestingProvider';
+import Flex from '../Flex';
 import styles from '../List.css';
-import Text from '../Text.js';
+import Text from '../Text';
 
 const UNORDERED_SEQUENCE = ['desc', 'circle'];
 const ORDERED_SEQUENCE = ['decimal', 'upper-latin', 'lower-latin'];
@@ -27,7 +27,7 @@ type Props = {
   /**
    * Use List.Item to build lists. See [subcomponents](https://gestalt.pinterest.systems/web/list#List.Item).
    */
-  children: Node,
+  children: ReactNode,
   /**
    * The label for the list. Be sure to localize the text. See the [label variant](https://gestalt.pinterest.systems/web/list#Text-and-label) for guidance.
    */
@@ -52,7 +52,7 @@ function InternalList({
   spacing = 'regular',
   type,
   children,
-}: Props): Node {
+}: Props): ReactNode {
   const id = useId();
   const { nestedLevel } = useNesting();
   const { type: inheritedType, style: inheritedStyle } = useList();

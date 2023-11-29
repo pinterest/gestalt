@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Checkbox, Label, Table, Text } from 'gestalt';
 
 function BaseRow({
@@ -36,7 +36,7 @@ function BaseRow({
   );
 }
 
-export default function Snapshot(): Node {
+export default function Snapshot(): ReactNode {
   return (
     <Box color="default" display="inlineBlock" padding={4} width={400}>
       <Table accessibilityLabel="A table example">

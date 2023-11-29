@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import IconButton from './IconButton.js';
+import IconButton from './IconButton';
 
 describe('IconButton', () => {
   it('accessibilityControls', () => {

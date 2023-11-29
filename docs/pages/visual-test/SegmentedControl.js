@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Flex, Heading, SegmentedControl } from 'gestalt';
 
-export default function SegmentedControlSnapshot(): Node {
+export default function SegmentedControlSnapshot(): ReactNode {
   const [item1Index, setItem1Index] = useState(0);
   const [item2Index, setItem2Index] = useState(0);
   const [item3Index, setItem3Index] = useState(0);

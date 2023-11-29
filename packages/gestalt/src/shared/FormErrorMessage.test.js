@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import FormErrorMessage from './FormErrorMessage.js';
+import FormErrorMessage from './FormErrorMessage';
 
 describe('FormErrorMessage', () => {
   it('with errorMessage', () => {

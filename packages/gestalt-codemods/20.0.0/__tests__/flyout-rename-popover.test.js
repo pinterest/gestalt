@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../flyout-rename-popover', () =>
   Object.assign(jest.requireActual('../flyout-rename-popover'), {
