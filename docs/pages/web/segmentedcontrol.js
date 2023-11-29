@@ -48,7 +48,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          description="Segmented Control is a naive component, meaning you need to wire any additional behavior when the user clicks on an item. If you'd like the tabs to control hiding or showing content, that state should live in a parent component."
+          description="SegmentedControl is a naive component, meaning you need to wire any additional behavior when the user clicks on an item. If you'd like the tabs to control hiding or showing content, that state should live in a parent component."
           title="Default"
         >
           <MainSection.Card
@@ -57,7 +57,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="Segmented Control can have responsive widths where the width of an item is based on its content."
+          description="SegmentedControl can have responsive widths where the width of an item is based on its content."
           title="Responsive"
         >
           <MainSection.Card
@@ -67,9 +67,9 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Size"
-          description={`Segmented Control is available in 3 fixed sizes:
+          description={`SegmentedControl is available in 3 fixed sizes:
           1. \`lg\` (48px)
-              Large should be used when Segmented Control needs to span larger areas. he font is 16px.
+              Large should be used when SegmentedControl needs to span larger areas. The font is 16px.
           2. \`md\` (40px)
               Medium is the default size, and should be used on most pinner surfaces. The font is 16px.
           3. \`sm\` (32px)
