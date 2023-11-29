@@ -72,7 +72,7 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     }
 
     // Chrome, starting with version 56 (desktop, Chrome for Android, and Android webview), where the default value for the passive option for touchstart and touchmove is true and calls to preventDefault() will have no effect.
-    if (!supportsPassive) {
+    if (!!event?.clientX || !supportsPassive) {
       event.preventDefault();
     }
 
@@ -120,8 +120,7 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     }
 
     // Chrome, starting with version 56 (desktop, Chrome for Android, and Android webview), where the default value for the passive option for touchstart and touchmove is true and calls to preventDefault() will have no effect.
-
-    if (!supportsPassive) {
+    if (!!event?.clientX || !supportsPassive) {
       event.preventDefault();
     }
 
@@ -163,9 +162,18 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
           onMouseMove={this.handleMouseMove}
           onMouseUp={this.handleMouseUp}
           // ontouch events handle scrubber on mobile
-          onTouchStart={this.handleMouseDown}
-          onTouchMove={this.handleMouseMove}
-          onTouchEnd={this.handleMouseUp}
+          onTouchStart={(event) => {
+            console.log('onTouchStart');
+            this.handleMouseDown(event);
+          }}
+          onTouchMove={(event) => {
+            console.log('onTouchMove');
+            this.handleMouseMove(event);
+          }}
+          onTouchEnd={(event) => {
+            console.log('onTouchEnd');
+            this.handleMouseUp(event);
+          }}
           ref={this.setPlayheadRef}
           role="progressbar"
           tabIndex="-1"
