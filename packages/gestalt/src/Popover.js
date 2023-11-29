@@ -9,29 +9,6 @@ type Color = 'deprecatedBlue' | 'red' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
 type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 
-export function ExperimentalPopover({
-  enableExperiment,
-  ...props
-}: {
-  enableExperiment: boolean,
-  ...Props,
-}): ReactNode {
-  return (
-    <ExperimentProvider
-      value={
-        enableExperiment
-          ? {
-              'web_gestalt_popover_v2': { anyEnabled: true, group: 'enabled' },
-              'mweb_gestalt_popover_v2': { anyEnabled: true, group: 'enabled' },
-            }
-          : {}
-      }
-    >
-      <Popover {...props} />
-    </ExperimentProvider>
-  );
-}
-
 type Props = {
   /**
    * Unique label to describe each Popover. Used for [accessibility](https://gestalt.pinterest.systems/web/popover#ARIA-attributes) purposes.
@@ -118,7 +95,6 @@ type Props = {
  * ![Popover dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Popover-dark.spec.mjs-snapshots/Popover-dark-chromium-darwin.png)
  *
  */
-
 export default function Popover({
   accessibilityLabel = 'Popover',
   accessibilityDismissButtonLabel,
@@ -190,5 +166,28 @@ export default function Popover({
     >
       {children}
     </InternalPopover>
+  );
+}
+
+export function ExperimentalPopover({
+  enableExperiment,
+  ...props
+}: {
+  enableExperiment: boolean,
+  ...Props,
+}): ReactNode {
+  return (
+    <ExperimentProvider
+      value={
+        enableExperiment
+          ? {
+              'web_gestalt_popover_v2': { anyEnabled: true, group: 'enabled' },
+              'mweb_gestalt_popover_v2': { anyEnabled: true, group: 'enabled' },
+            }
+          : {}
+      }
+    >
+      <Popover {...props} />
+    </ExperimentProvider>
   );
 }
