@@ -127,7 +127,7 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     }
 
     // Chrome, starting with version 56 (desktop, Chrome for Android, and Android webview), where the default value for the passive option for touchstart and touchmove is true and calls to preventDefault() will have no effect.
-    // supportsPassive is false for mouse events as well as touch events when passive is not supported
+    // supportsPassive is false for mouse events and touch events when passive is not supported
     if (!supportsPassive) {
       event.preventDefault();
     }
