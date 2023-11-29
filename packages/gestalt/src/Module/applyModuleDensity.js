@@ -1,12 +1,12 @@
 // @flow strict
-import Box from '../Box.js';
+import Box from '../Box';
 
 type Gap = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
 const applyModuleDensityStyle = (
   size: 'sm' | 'md' | 'lg',
 ): {
-  gap: $ElementType<React$ElementConfig<typeof Flex>, 'gap'>,
+  gap: Gap,
   padding: $ElementType<React$ElementConfig<typeof Box>, 'padding'>,
   rounding: $ElementType<React$ElementConfig<typeof Box>, 'rounding'>,
   titleGap: Gap,
