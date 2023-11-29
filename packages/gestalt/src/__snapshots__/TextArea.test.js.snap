@@ -262,7 +262,7 @@ exports[`TextArea renders tags when supplied 1`] = `
     >
       <div
         aria-disabled={false}
-        className="box rounding2 secondary xsDisplayInlineBlock"
+        className="box paddingX2 paddingY2 relative rounding2 secondary xsDisplayInlineBlock"
         style={
           Object {
             "height": 32,
@@ -271,7 +271,7 @@ exports[`TextArea renders tags when supplied 1`] = `
         }
       >
         <div
-          className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+          className="box marginEnd5 xsDisplayFlex xsItemsCenter"
           style={
             Object {
               "height": "100%",
@@ -279,44 +279,49 @@ exports[`TextArea renders tags when supplied 1`] = `
           }
         >
           <div
-            className="box marginEnd2 marginStart0"
+            className="box marginEnd0 marginStart0"
           />
-          <div
+          <span
+            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+            style={
+              Object {
+                "WebkitLineClamp": 1,
+              }
+            }
             title="a@pinterest.com"
           >
-            <span
-              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-              style={
-                Object {
-                  "WebkitLineClamp": 1,
-                }
-              }
-              title="a@pinterest.com"
-            >
-              a@pinterest.com
-            </span>
-          </div>
+            a@pinterest.com
+          </span>
           <div
-            className="box marginStart1"
+            className="box"
           >
             <button
-              className="button secondary hideOutline tapTransition accessibilityOutline"
+              className="button secondary hideOutline tapTransition accessibilityOutline md"
               onClick={[Function]}
               type="button"
             >
-              <svg
-                aria-hidden={null}
-                aria-label="Remove email tag"
-                className="icon defaultIcon iconBlock"
-                height={8}
-                role="img"
-                viewBox="0 0 24 24"
-                width={8}
+              <div
+                className="box justifyCenter xsDisplayFlex xsItemsCenter"
+                style={
+                  Object {
+                    "width": "100%",
+                  }
+                }
               >
-                <path
-                  d="test-file-stub"
-                />
-              </svg>
+                <svg
+                  aria-hidden={null}
+                  aria-label="Remove email tag"
+                  className="icon defaultIcon iconBlock"
+                  height={8}
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width={8}
+                >
+                  <path
+                    d="test-file-stub"
+                  />
+                </svg>
+              </div>
             </button>
           </div>
         </div>
@@ -327,7 +332,7 @@ exports[`TextArea renders tags when supplied 1`] = `
     >
       <div
         aria-disabled={false}
-        className="box rounding2 secondary xsDisplayInlineBlock"
+        className="box paddingX2 paddingY2 relative rounding2 secondary xsDisplayInlineBlock"
         style={
           Object {
             "height": 32,
@@ -336,7 +341,7 @@ exports[`TextArea renders tags when supplied 1`] = `
         }
       >
         <div
-          className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+          className="box marginEnd5 xsDisplayFlex xsItemsCenter"
           style={
             Object {
               "height": "100%",
@@ -344,44 +349,49 @@ exports[`TextArea renders tags when supplied 1`] = `
           }
         >
           <div
-            className="box marginEnd2 marginStart0"
+            className="box marginEnd0 marginStart0"
           />
-          <div
+          <span
+            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+            style={
+              Object {
+                "WebkitLineClamp": 1,
+              }
+            }
             title="b@pinterest.com"
           >
-            <span
-              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-              style={
-                Object {
-                  "WebkitLineClamp": 1,
-                }
-              }
-              title="b@pinterest.com"
-            >
-              b@pinterest.com
-            </span>
-          </div>
+            b@pinterest.com
+          </span>
           <div
-            className="box marginStart1"
+            className="box"
           >
             <button
-              className="button secondary hideOutline tapTransition accessibilityOutline"
+              className="button secondary hideOutline tapTransition accessibilityOutline md"
               onClick={[Function]}
               type="button"
             >
-              <svg
-                aria-hidden={null}
-                aria-label="Remove email tag"
-                className="icon defaultIcon iconBlock"
-                height={8}
-                role="img"
-                viewBox="0 0 24 24"
-                width={8}
+              <div
+                className="box justifyCenter xsDisplayFlex xsItemsCenter"
+                style={
+                  Object {
+                    "width": "100%",
+                  }
+                }
               >
-                <path
-                  d="test-file-stub"
-                />
-              </svg>
+                <svg
+                  aria-hidden={null}
+                  aria-label="Remove email tag"
+                  className="icon defaultIcon iconBlock"
+                  height={8}
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width={8}
+                >
+                  <path
+                    d="test-file-stub"
+                  />
+                </svg>
+              </div>
             </button>
           </div>
         </div>
@@ -392,7 +402,7 @@ exports[`TextArea renders tags when supplied 1`] = `
     >
       <div
         aria-disabled={false}
-        className="box rounding2 secondary xsDisplayInlineBlock"
+        className="box paddingX2 paddingY2 relative rounding2 secondary xsDisplayInlineBlock"
         style={
           Object {
             "height": 32,
@@ -401,7 +411,7 @@ exports[`TextArea renders tags when supplied 1`] = `
         }
       >
         <div
-          className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+          className="box marginEnd5 xsDisplayFlex xsItemsCenter"
           style={
             Object {
               "height": "100%",
@@ -409,44 +419,49 @@ exports[`TextArea renders tags when supplied 1`] = `
           }
         >
           <div
-            className="box marginEnd2 marginStart0"
+            className="box marginEnd0 marginStart0"
           />
-          <div
+          <span
+            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+            style={
+              Object {
+                "WebkitLineClamp": 1,
+              }
+            }
             title="c@pinterest.com"
           >
-            <span
-              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-              style={
-                Object {
-                  "WebkitLineClamp": 1,
-                }
-              }
-              title="c@pinterest.com"
-            >
-              c@pinterest.com
-            </span>
-          </div>
+            c@pinterest.com
+          </span>
           <div
-            className="box marginStart1"
+            className="box"
           >
             <button
-              className="button secondary hideOutline tapTransition accessibilityOutline"
+              className="button secondary hideOutline tapTransition accessibilityOutline md"
               onClick={[Function]}
               type="button"
             >
-              <svg
-                aria-hidden={null}
-                aria-label="Remove email tag"
-                className="icon defaultIcon iconBlock"
-                height={8}
-                role="img"
-                viewBox="0 0 24 24"
-                width={8}
+              <div
+                className="box justifyCenter xsDisplayFlex xsItemsCenter"
+                style={
+                  Object {
+                    "width": "100%",
+                  }
+                }
               >
-                <path
-                  d="test-file-stub"
-                />
-              </svg>
+                <svg
+                  aria-hidden={null}
+                  aria-label="Remove email tag"
+                  className="icon defaultIcon iconBlock"
+                  height={8}
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width={8}
+                >
+                  <path
+                    d="test-file-stub"
+                  />
+                </svg>
+              </div>
             </button>
           </div>
         </div>

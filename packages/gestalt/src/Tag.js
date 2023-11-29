@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import Box from './Box.js';
 import { useColorScheme } from './contexts/ColorSchemeProvider.js';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import Flex from './Flex.js';
 import focusStyles from './Focus.css';
 import Icon from './Icon.js';
 import styles from './Tag.css';
@@ -75,7 +74,7 @@ const applyDensityTheme = (s: 'sm' | 'md' | 'lg') => {
         paddingY: 3,
         height: 48,
         removeIconGap: 4,
-        removeIconSize: 10,
+        removeIconSize: 12,
         fontSize: '200',
       };
     case 'md':
@@ -86,7 +85,7 @@ const applyDensityTheme = (s: 'sm' | 'md' | 'lg') => {
         paddingY: 1,
         height: 32,
         removeIconGap: 3,
-        removeIconSize: 10,
+        removeIconSize: 8,
         fontSize: '200',
       };
   }
@@ -132,9 +131,10 @@ export default function Tag({
     {
       [focusStyles.accessibilityOutline]: isFocusVisible,
     },
+    styles[size],
   );
 
-  const { height, rounding, paddingX, paddingY, removeIconGap, fontSize, removeIconSize } =
+  const { height, rounding, paddingX, paddingY, fontSize, removeIconSize } =
     applyDensityTheme(size);
 
   return (
@@ -149,10 +149,10 @@ export default function Tag({
       height={height}
       rounding={rounding}
       paddingX={paddingX}
-      paddingY={paddingY}
+      paddingY={paddingX}
       maxWidth={300}
     >
-      <Flex alignItems="center" height="100%">
+      <Box display="flex" alignItems="center" height="100%" marginEnd={5}>
         <Box marginStart={hasIcon ? 1 : 0} marginEnd={hasIcon ? 1 : 0}>
           {/* Not using hasIcon to appease Flow */}
           {(type === 'error' || type === 'warning') && (
@@ -165,26 +165,14 @@ export default function Tag({
           )}
         </Box>
 
-        <Box title={text} marginEnd={!disabled ? removeIconGap + 2 : 0}>
-          <Text color={fgColor} inline size={fontSize} lineClamp={1}>
-            {text}
-          </Text>
-        </Box>
+        <Text color={fgColor} inline size={fontSize} lineClamp={1}>
+          {text}
+        </Text>
 
         <Box>
           {!disabled && (
             <button className={removeIconClasses} onClick={onRemove} type="button">
-              <Box
-                dangerouslySetInlineStyle={{
-                  __style: {
-                    paddingInlineEnd: paddingX,
-                  },
-                }}
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-                width="100%"
-              >
+              <Box display="flex" justifyContent="center" alignItems="center" width="100%">
                 <Icon
                   accessibilityLabel={
                     accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault
@@ -197,7 +185,7 @@ export default function Tag({
             </button>
           )}
         </Box>
-      </Flex>
+      </Box>
     </Box>
   );
 }

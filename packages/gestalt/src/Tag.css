@@ -11,18 +11,52 @@
   position: absolute;
 }
 
+.button.sm {
+  width: 20px;
+}
+
+.button.md {
+  width: 24px;
+}
+
+.button.lg {
+  width: 32px;
+}
+
 html[dir="rtl"] .button {
-  border-radius: var(--rounding-200) 0 0 var(--rounding-200);
   left: 0;
   right: unset;
   top: 0;
 }
 
+html[dir="rtl"] .button.sm {
+  border-radius: var(--rounding-100) 0 0 var(--rounding-100);
+}
+
+html[dir="rtl"] .button.md {
+  border-radius: var(--rounding-200) 0 0 var(--rounding-200);
+}
+
+html[dir="rtl"] .button.lg {
+  border-radius: var(--rounding-300) 0 0 var(--rounding-300);
+}
+
 html:not([dir="rtl"]) .button {
-  border-radius: 0 var(--rounding-200) var(--rounding-200) 0;
   left: unset;
   right: 0;
   top: 0;
+}
+
+html:not([dir="rtl"]) .button.sm {
+  border-radius: 0 var(--rounding-100) var(--rounding-100) 0;
+}
+
+html:not([dir="rtl"]) .button.md {
+  border-radius: 0 var(--rounding-200) var(--rounding-200) 0;
+}
+
+html:not([dir="rtl"]) .button.lg {
+  border-radius: 0 var(--rounding-300) var(--rounding-300) 0;
 }
 
 .secondary {
@@ -53,11 +87,6 @@ html:not([dir="rtl"]) .button {
 
 .warningBase {
   composes: warningBase from "./Colors.css";
-}
-
-.warningBase:hover,
-.warningBase:focus {
-  background-color: var(--g-colorYellow100Hovered);
 }
 
 .warningBase:active {
