@@ -393,10 +393,15 @@ To prevent visual overload, do not include counters in the parent if the childre
         <MainSection.Subsection
           title="Group display"
           columns={2}
-          description="Group display can be \:
-1. static: groups are expanded by default and there isn't expanding/collapsing behavior
-2. expandable: group is expandable and all items are initially collapsed except groups with active children
-3. expandableExpanded: group is expandable and all items are initially expanded"
+          description={`Group display can be:
+
+1. static: Group is expanded by default and there isn't expanding/collapsing behavior
+2. expandable: Group is expandable and all items are initially collapsed except groups with active children.
+
+When we set \`expand\` to a boolean value, SideNavigation.Group and SideNavigation.NestedGroup become a controlled component. If not passed or set to "undefined", it stays uncontrolled.
+
+When \`display='expandable'\`, we can manage the state of each group's collapsing/expanded state by setting  SideNavigation.Group and SideNavigation.NestedGroup as controlled components.
+`}
         >
           <MainSection.Card
             title="display='static'"
@@ -417,13 +422,13 @@ To prevent visual overload, do not include counters in the parent if the childre
             }
           />
           <MainSection.Card
-            title="display='expandableExpanded'"
+            title="Controlled group display"
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 layout="column"
                 code={displayExpanded}
-                name="Expanded display example"
+                name="Controlled group display"
               />
             }
           />

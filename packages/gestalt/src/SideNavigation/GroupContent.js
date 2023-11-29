@@ -12,7 +12,7 @@ import Text from '../Text';
 import { type Indexable } from '../zIndex';
 
 type IconType = $Keys<typeof icons> | { __path: string };
-type Display = 'expandable' | 'expandableExpanded' | 'static';
+type Display = 'expandable' | 'static';
 type BadgeType = {
   text: string,
   type?: 'info' | 'error' | 'warning' | 'success' | 'neutral',

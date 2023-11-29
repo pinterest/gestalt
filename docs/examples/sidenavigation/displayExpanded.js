@@ -1,18 +1,46 @@
 // @flow strict
-import React, { type Node as ReactNode } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, SideNavigation } from 'gestalt';
 
 export default function Example(): ReactNode {
+  const [expandedElements, setExpandedElements] = useState<$ReadOnlyArray<string>>([
+    'Christmas',
+    'Classic Christmas',
+  ]);
+
   return (
     <Box height={362} width={280} overflow="scroll">
       <SideNavigation accessibilityLabel="Nested items example">
-        <SideNavigation.Group label="Christmas" icon="people" display="expandableExpanded">
+        <SideNavigation.Group
+          label="Christmas"
+          icon="people"
+          display="expandable"
+          expanded={expandedElements.includes('Christmas')}
+          onExpand={({ expanded }) => {
+            if (expanded) {
+              setExpandedElements(expandedElements.filter((value) => value !== 'Christmas'));
+            } else {
+              setExpandedElements([...expandedElements, 'Christmas']);
+            }
+          }}
+        >
           <SideNavigation.NestedItem
             href="#"
             onClick={({ event }) => event.preventDefault()}
             label="Luxury Christmas"
           />
-          <SideNavigation.NestedGroup label="Classic Christmas" display="expandableExpanded">
+          <SideNavigation.NestedGroup
+            label="Classic Christmas"
+            display="expandable"
+            expanded={expandedElements.includes('Classic Christmas')}
+            onExpand={({ expanded }) =>
+              expanded
+                ? setExpandedElements(
+                    expandedElements.filter((value) => value !== 'Classic Christmas'),
+                  )
+                : setExpandedElements([...expandedElements, 'Classic Christmas'])
+            }
+          >
             <SideNavigation.NestedItem
               href="#"
               onClick={({ event }) => event.preventDefault()}

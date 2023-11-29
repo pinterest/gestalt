@@ -14,11 +14,19 @@ type Props = {
   /**
    * Nested directories can be static or expandable. See [nested directory](#Nested-directory) variant for more information.
    */
-  display?: 'expandable' | 'expandableExpanded' | 'static',
+  display?: 'expandable' | 'static',
+  /**
+   * When passed SideNavigation.NestedGroup becomes a controlled component. If not passed, it stays uncontrolled. See the [controlled/uncontrolled Table.RowExpandable section](https://gestalt.pinterest.systems/web/table#ControlledUncontrolled-Table.RowExpandable) to learn more.
+   */
+  expanded?: boolean,
   /**
    * Label for the group. See [nested directory](#Nested-directory) variant for more information.
    */
   label: string,
+  /**
+   * Callback fired when the expand button component is clicked.
+   */
+  onExpand?: ({ expanded: boolean }) => void,
 };
 
 /**
@@ -28,10 +36,18 @@ export default function SideNavigationNestedGroup({
   children,
   counter,
   display = 'expandable',
+  expanded,
   label,
+  onExpand,
 }: Props): ReactNode {
   return (
-    <SideNavigationGroup counter={counter} label={label} display={display}>
+    <SideNavigationGroup
+      counter={counter}
+      label={label}
+      display={display}
+      expanded={expanded}
+      onExpand={onExpand}
+    >
       {children}
     </SideNavigationGroup>
   );
