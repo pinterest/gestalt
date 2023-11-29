@@ -12,7 +12,7 @@ import { useColorScheme } from './contexts/ColorSchemeProvider';
 import Divider from './Divider';
 import IconButton from './IconButton';
 import icons from './icons/index';
-import applyModuleDensityStyle from './module/applyModuleDensity';
+import applyModuleDensityStyle from './Module/applyModuleDensity';
 import ModuleExpandableItem from './Module/ExpandableItem';
 
 function getExpandedId(expandedIndex: ?number): ?number {
