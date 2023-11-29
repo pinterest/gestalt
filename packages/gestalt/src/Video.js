@@ -118,11 +118,15 @@ type Props = {
   /**
    * Callback triggered when mousedown event occurs on the playhead via the video control interface. See the [video controls variant](https://gestalt.pinterest.systems/web/video#Video-controls) to learn more.
    */
-  onPlayheadDown?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
+  onPlayheadDown?: ({
+    event: SyntheticMouseEvent<HTMLDivElement> | SyntheticTouchEvent<HTMLDivElement>,
+  }) => void,
   /**
    * Callback triggered when mouseup event occurs on the playhead via the video control interface. See the [video controls variant](https://gestalt.pinterest.systems/web/video#Video-controls) to learn more.
    */
-  onPlayheadUp?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
+  onPlayheadUp?: ({
+    event: SyntheticMouseEvent<HTMLDivElement> | SyntheticTouchEvent<HTMLDivElement>,
+  }) => void,
   /**
    * Callback triggered when enough data is available that the media can be played. See the [MDN Web Docs: canplay event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/canplay_event).
    */
@@ -573,14 +577,18 @@ export default class Video extends PureComponent<Props, State> {
   };
 
   // Sent when mouse down event happens on playhead
-  handlePlayheadDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) => {
+  handlePlayheadDown: (
+    event: SyntheticMouseEvent<HTMLDivElement> | SyntheticTouchEvent<HTMLDivElement>,
+  ) => void = (event) => {
     const { onPlayheadDown } = this.props;
 
     onPlayheadDown?.({ event });
   };
 
   // Sent when mouse up event happens on playhead
-  handlePlayheadUp: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) => {
+  handlePlayheadUp: (
+    event: SyntheticMouseEvent<HTMLDivElement> | SyntheticTouchEvent<HTMLDivElement>,
+  ) => void = (event) => {
     const { onPlayheadUp } = this.props;
 
     onPlayheadUp?.({ event });

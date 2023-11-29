@@ -7,8 +7,12 @@ type Props = {
   accessibilityProgressBarLabel: string,
   currentTime: number,
   duration: number,
-  onPlayheadDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
-  onPlayheadUp: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
+  onPlayheadDown: (
+    event: SyntheticMouseEvent<HTMLDivElement> | SyntheticTouchEvent<HTMLDivElement>,
+  ) => void,
+  onPlayheadUp: (
+    event: SyntheticMouseEvent<HTMLDivElement> | SyntheticTouchEvent<HTMLDivElement>,
+  ) => void,
   seek: (time: number) => void,
 };
 
@@ -47,12 +51,42 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
   // eslint-disable-next-line class-methods-use-this
   stopClick: (event: SyntheticEvent<HTMLDivElement>) => void = (event) => event.stopPropagation();
 
-  handleMouseDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) => {
-    event.preventDefault();
+  handleMouseDown: (
+    event: SyntheticMouseEvent<HTMLDivElement> | SyntheticTouchEvent<HTMLDivElement>,
+  ) => void = (event) => {
+    // https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md#feature-detection
+    // Test via a getter in the options object to see if the passive property is accessed
+    let supportsPassive = false;
+    try {
+      // $FlowFixMe[prop-missing]
+      const opts = Object.defineProperty({}, 'passive', {
+        // eslint-disable-next-line getter-return
+        get() {
+          supportsPassive = true;
+        },
+      });
+      window.addEventListener('testPassive', null, opts);
+      window.removeEventListener('testPassive', null, opts);
+    } catch (e) {
+      // do nothing
+    }
+
+    // Chrome, starting with version 56 (desktop, Chrome for Android, and Android webview), where the default value for the passive option for touchstart and touchmove is true and calls to preventDefault() will have no effect.
+    if (!supportsPassive) {
+      event.preventDefault();
+    }
+
     const { onPlayheadDown } = this.props;
     onPlayheadDown(event);
     this.setState({ seeking: true });
-    this.seek(event.clientX);
+
+    if (!!event?.clientX && typeof event?.clientX === 'number') {
+      this.seek(event.clientX);
+    }
+    if (event?.touches) {
+      // $FlowFixMe[incompatible-use]
+      this.seek(event.touches[0].clientX);
+    }
   };
 
   handleMouseLeave: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) => {
@@ -65,15 +99,45 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     }
   };
 
-  handleMouseMove: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) => {
-    event.preventDefault();
+  handleMouseMove: (
+    event: SyntheticMouseEvent<HTMLDivElement> | SyntheticTouchEvent<HTMLDivElement>,
+  ) => void = (event) => {
+    // https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md#feature-detection
+    // Test via a getter in the options object to see if the passive property is accessed
+    let supportsPassive = false;
+    try {
+      // $FlowFixMe[prop-missing]
+      const opts = Object.defineProperty({}, 'passive', {
+        // eslint-disable-next-line getter-return
+        get() {
+          supportsPassive = true;
+        },
+      });
+      window.addEventListener('testPassive', null, opts);
+      window.removeEventListener('testPassive', null, opts);
+    } catch (e) {
+      // do nothing
+    }
+
+    // Chrome, starting with version 56 (desktop, Chrome for Android, and Android webview), where the default value for the passive option for touchstart and touchmove is true and calls to preventDefault() will have no effect.
+
+    if (!supportsPassive) {
+      event.preventDefault();
+    }
+
     const { seeking } = this.state;
-    if (seeking) {
+    if (seeking && !!event?.clientX && typeof event?.clientX === 'number') {
       this.seek(event.clientX);
+    }
+    if (seeking && event?.touches) {
+      // $FlowFixMe[incompatible-use]
+      this.seek(event.touches[0].clientX);
     }
   };
 
-  handleMouseUp: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) => {
+  handleMouseUp: (
+    event: SyntheticMouseEvent<HTMLDivElement> | SyntheticTouchEvent<HTMLDivElement>,
+  ) => void = (event) => {
     const { onPlayheadUp } = this.props;
     this.setState({ seeking: false });
     onPlayheadUp(event);
@@ -93,10 +157,15 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
           className={styles.playhead}
           onClick={this.stopClick}
           onKeyPress={this.stopClick}
+          // onmouse events don't get correctly triggered on mobile
           onMouseDown={this.handleMouseDown}
           onMouseLeave={this.handleMouseLeave}
           onMouseMove={this.handleMouseMove}
           onMouseUp={this.handleMouseUp}
+          // ontouch events handle scrubber on mobile
+          onTouchStart={this.handleMouseDown}
+          onTouchMove={this.handleMouseMove}
+          onTouchEnd={this.handleMouseUp}
           ref={this.setPlayheadRef}
           role="progressbar"
           tabIndex="-1"
