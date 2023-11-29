@@ -18,9 +18,9 @@ export default function Example(): ReactNode {
           expanded={expandedElements.includes('Christmas')}
           onExpand={({ expanded }) => {
             if (expanded) {
-              setExpandedElements(expandedElements.filter((value) => value !== 'Christmas'));
-            } else {
               setExpandedElements([...expandedElements, 'Christmas']);
+            } else {
+              setExpandedElements(expandedElements.filter((value) => value !== 'Christmas'));
             }
           }}
         >
@@ -33,13 +33,15 @@ export default function Example(): ReactNode {
             label="Classic Christmas"
             display="expandable"
             expanded={expandedElements.includes('Classic Christmas')}
-            onExpand={({ expanded }) =>
-              expanded
-                ? setExpandedElements(
-                    expandedElements.filter((value) => value !== 'Classic Christmas'),
-                  )
-                : setExpandedElements([...expandedElements, 'Classic Christmas'])
-            }
+            onExpand={({ expanded }) => {
+              if (expanded) {
+                setExpandedElements([...expandedElements, 'Classic Christmas']);
+              } else {
+                setExpandedElements(
+                  expandedElements.filter((value) => value !== 'Classic Christmas'),
+                );
+              }
+            }}
           >
             <SideNavigation.NestedItem
               href="#"

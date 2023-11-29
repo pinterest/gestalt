@@ -1,5 +1,5 @@
 // @flow strict
-import { type Element, type Node as ReactNode, useId, useState } from 'react';
+import { type Element, type Node as ReactNode, useEffect, useId, useState } from 'react';
 import classnames from 'classnames';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
 import { NestingProvider, useNesting } from './contexts/NestingProvider';
@@ -38,11 +38,11 @@ export type Props = {
    */
   counter?: Counter,
   /**
-   * Nested directories can be static or expandable. See [nested directory](https://gestalt.pinterest.systems/web/sidenavigation#Nested-directory) variant for more information.
+   * Nested directories can be static or expandable.  See the [group display variant](https://gestalt.pinterest.systems/web/sidenavigation#Group-display) to learn more.
    */
   display?: Display,
   /**
-   * When passed SideNavigation.Group becomes a controlled component. If not passed, it stays uncontrolled. See the [controlled/uncontrolled Table.RowExpandable section](https://gestalt.pinterest.systems/web/table#ControlledUncontrolled-Table.RowExpandable) to learn more.
+   * When passed SideNavigation.Group becomes a controlled component. If not passed, it stays uncontrolled. See the [controlled group display variant](https://gestalt.pinterest.systems/web/sidenavigation#Group-display) to learn more.
    */
   expanded?: boolean,
   /**
@@ -58,7 +58,7 @@ export type Props = {
    */
   notificationAccessibilityLabel?: string,
   /**
-   * Callback fired when the expand button component is clicked.
+   * Callback fired when the expand button component is clicked and the component is controlled.
    */
   onExpand?: ({ expanded: boolean }) => void,
   /**
@@ -136,7 +136,20 @@ export default function SideNavigationGroup({
   const hasAnyActiveChild =
     !!hasActiveChildren || (!!hasActiveGrandChildren && !!hasActiveGrandChildren[0]);
 
-  const [expanded, setExpanded] = useState(hasAnyActiveChild ?? groupExpanded ?? false);
+  const isExpandable = display === 'expandable';
+
+  const [expanded, setExpanded] = useState<boolean>(hasAnyActiveChild);
+  const [isExpanded, setIsExpanded] = useState<boolean>(hasAnyActiveChild);
+
+  useEffect(() => {
+    if (display === 'static') {
+      setIsExpanded(true);
+    } else if (display === 'expandable' && groupExpanded === undefined) {
+      setIsExpanded(expanded);
+    } else if (display === 'expandable' && groupExpanded !== undefined) {
+      setIsExpanded(groupExpanded);
+    }
+  }, [display, expanded, groupExpanded]);
 
   const itemColor = hovered ? 'secondary' : undefined;
 
@@ -162,25 +175,13 @@ export default function SideNavigationGroup({
     );
   }
 
-  const isExpandable = display === 'expandable';
-
-  let isExpanded = false;
-
-  if (display === 'static') {
-    isExpanded = true;
-  } else if (display === 'expandable' && groupExpanded === undefined) {
-    isExpanded = expanded;
-  } else if (display === 'expandable' && groupExpanded !== undefined) {
-    isExpanded = groupExpanded;
-  }
-
   return (
     <li className={classnames(styles.liItem)}>
       <NestingProvider componentName="SideNavigation" maxNestedLevels={2}>
         {isExpandable ? (
           <TapArea
             accessibilityControls={itemId}
-            accessibilityExpanded={expanded}
+            accessibilityExpanded={isExpanded}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             onFocus={() => setFocused(true)}
@@ -188,16 +189,19 @@ export default function SideNavigationGroup({
             rounding={2}
             tapStyle={compression}
             onTap={() => {
-              setExpanded((value) => {
-                if (!value) setSelectedItemId(itemId);
-                onExpand?.({ expanded: !value });
-                return !value;
-              });
+              if (display === 'expandable' && groupExpanded === undefined) {
+                setExpanded((value) => {
+                  if (!value) setSelectedItemId(itemId);
+                  return !value;
+                });
+              } else {
+                onExpand?.({ expanded: !isExpanded });
+              }
             }}
           >
             <SideNavigationGroupContent
               itemColor={itemColor}
-              expanded={expanded}
+              expanded={isExpanded}
               selectedItemId={selectedItemId}
               itemId={itemId}
               paddingStyle={paddingStyle}

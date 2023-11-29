@@ -12,11 +12,11 @@ type Props = {
    */
   counter?: { number: string, accessibilityLabel: string },
   /**
-   * Nested directories can be static or expandable. See [nested directory](#Nested-directory) variant for more information.
+   * Nested directories can be static or expandable.  See the [group display variant](https://gestalt.pinterest.systems/web/sidenavigation#Group-display) to learn more.
    */
   display?: 'expandable' | 'static',
   /**
-   * When passed SideNavigation.NestedGroup becomes a controlled component. If not passed, it stays uncontrolled. See the [controlled/uncontrolled Table.RowExpandable section](https://gestalt.pinterest.systems/web/table#ControlledUncontrolled-Table.RowExpandable) to learn more.
+   * When passed SideNavigation.Group becomes a controlled component. If not passed, it stays uncontrolled. See the [controlled group display variant](https://gestalt.pinterest.systems/web/sidenavigation#Group-display) to learn more.
    */
   expanded?: boolean,
   /**
