@@ -1,3 +1,9 @@
+## 128.3.8 (Nov 29, 2023)
+
+### Patch
+
+- Video: preventDefault fix for mouse events ([#3313](https://github.com/pinterest/gestalt/pull/3313)) - [Preview link](https://deploy-preview-3313--gestalt.netlify.app?devexample=true)
+
 ## 128.3.7 (Nov 29, 2023)
 
 ### Patch
