@@ -1,19 +1,23 @@
 // @flow strict
-import { type Node as ReactNode } from 'react';
+import { type } from 'os';
+import { Children, cloneElement, type Element, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import focusStyles from './Focus.css';
+import Icon from './Icon';
 import layout from './Layout.css';
 import styles from './SegmentedControl.css';
 import Text from './Text';
 import useFocusVisible from './useFocusVisible';
+
+type SizeType = 'sm' | 'md' | 'lg';
 
 type OnChange = ({
   event: SyntheticMouseEvent<HTMLButtonElement>,
   activeIndex: number,
 }) => void;
 
-type Props = {|
+type Props = {
   /**
    * Items for selection. Though typically strings, React.Node is accepted to allow for Icons or other custom UI.
    */
@@ -33,11 +37,24 @@ type Props = {|
   /**
    * Size of the Segmented Control.
    */
-  size?: 'sm' | 'md' | 'lg',
-|};
+  size?: SizeType,
+};
 
-const applyDensityStyle = (s: 'sm' | 'md' | 'lg') => styles[`${s}`];
-const applyDensityLayout = (s: 'sm' | 'md' | 'lg') => {
+const getDensityStyles = (s: SizeType) => {
+  switch (s) {
+    case 'sm':
+      return { fontSize: '200', iconSize: 16 };
+    case 'lg':
+      return { fontSize: '300', iconSize: 24 };
+    case 'md':
+    default:
+      return { fontSize: '300', iconSize: 20 };
+  }
+};
+const applyDensityStyle = (s: SizeType) => styles[`${s}`];
+
+// layout.css contains a mapping of size to min-height
+const applyMinHeight = (s: SizeType) => {
   const lookup = { 'sm': 'small', 'md': 'medium', 'lg': 'large' };
   return layout[`${lookup[s]}`];
 };
@@ -49,14 +66,14 @@ function SegmentedControlItem({
   onChange,
   size = 'md',
   width,
-}: {|
+}: {
   index: number,
   item: ReactNode,
   isSelected: boolean,
   onChange: OnChange,
   width: ?string,
-  size: 'sm' | 'md' | 'lg',
-|}) {
+  size: SizeType,
+}) {
   const { isFocusVisible } = useFocusVisible();
   const cs = classnames(
     styles.item,
@@ -69,6 +86,8 @@ function SegmentedControlItem({
     applyDensityStyle(size),
   );
 
+  const { fontSize, iconSize } = getDensityStyles(size);
+
   return (
     <button
       aria-selected={isSelected}
@@ -79,12 +98,15 @@ function SegmentedControlItem({
       style={{ width }}
     >
       {typeof item === 'string' ? (
-        <Text color="default" align="center" size="200" weight="bold">
+        <Text color="default" align="center" size={fontSize} weight="bold">
           {item}
         </Text>
       ) : (
         <Box display="flex" justifyContent="center">
-          {item}
+          {typeof item === 'object' && item && item.type && item.type.displayName === 'Icon'
+            ? // $FlowExpectedError[incompatible-exact] the displayName check above ensures this is an Icon
+              cloneElement(item, { size: iconSize })
+            : item}
         </Box>
       )}
     </button>
@@ -110,11 +132,7 @@ export default function SegmentedControl({
   const buttonWidth = responsive ? undefined : `${Math.floor(100 / Math.max(1, items.length))}%`;
   return (
     <div
-      className={classnames(
-        styles.SegmentedControl,
-        applyDensityLayout(size),
-        applyDensityStyle(size),
-      )}
+      className={classnames(styles.SegmentedControl, applyMinHeight(size), applyDensityStyle(size))}
       role="tablist"
     >
       {items.map((item, i) => (
