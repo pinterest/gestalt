@@ -1,3 +1,9 @@
+## 128.3.7 (Nov 29, 2023)
+
+### Patch
+
+- Video: fix scrubber issue in mobile when mouse events don't work BUG-175963 ([#3310](https://github.com/pinterest/gestalt/pull/3310)) - [Preview link](https://deploy-preview-3310--gestalt.netlify.app?devexample=true)
+
 ## 128.3.6 (Nov 22, 2023)
 
 ### Patch
