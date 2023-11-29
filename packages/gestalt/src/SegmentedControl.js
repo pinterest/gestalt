@@ -1,10 +1,8 @@
 // @flow strict
-import { type } from 'os';
-import { Children, cloneElement, type Element, type Node as ReactNode } from 'react';
+import { cloneElement, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import focusStyles from './Focus.css';
-import Icon from './Icon';
 import layout from './Layout.css';
 import styles from './SegmentedControl.css';
 import Text from './Text';
