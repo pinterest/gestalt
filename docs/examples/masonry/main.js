@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useEffect, useRef, useState } from 'react';
+import { type Node as ReactNode, useEffect, useRef, useState } from 'react';
 import { Box, Flex, Image, Masonry, Text } from 'gestalt';
 
 type Pin = {
@@ -68,7 +68,7 @@ function GridComponent({ data }: { data: Pin, ... }) {
   );
 }
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [pins, setPins] = useState<$ReadOnlyArray<Pin>>([]);
   const scrollContainerRef = useRef<?HTMLElement>();
   const gridRef = useRef<?Masonry<Pin>>();

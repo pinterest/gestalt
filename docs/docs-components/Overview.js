@@ -1,16 +1,16 @@
 // @flow strict
-import { Fragment, type Node, useState } from 'react';
+import { Fragment, type Node as ReactNode, useState } from 'react';
 import { Box, Flex, SegmentedControl } from 'gestalt';
-import componentData from './data/components.js';
-import { type ComponentCategory, type Platform, type PlatformData } from './data/types.js';
-import getByCategory from './data/utils/getByCategory.js';
-import getByPlatform from './data/utils/getByPlatform.js';
-import prettyPrintPlatform from './data/utils/prettyPrintPlatform.js';
-import IllustrationContainer from './IllustrationContainer.js';
-import OverviewList from './OverviewList.js';
-import Page from './Page.js';
-import PageHeader from './PageHeader.js';
-import capitalizeFirstLetter from '../utils/capitalizeFirstLetter.js';
+import componentData from './data/components';
+import { type ComponentCategory, type Platform, type PlatformData } from './data/types';
+import getByCategory from './data/utils/getByCategory';
+import getByPlatform from './data/utils/getByPlatform';
+import prettyPrintPlatform from './data/utils/prettyPrintPlatform';
+import IllustrationContainer from './IllustrationContainer';
+import OverviewList from './OverviewList';
+import Page from './Page';
+import PageHeader from './PageHeader';
+import capitalizeFirstLetter from '../utils/capitalizeFirstLetter';
 
 const sortOrders = ['alphabetical', 'categorical'];
 
@@ -44,7 +44,7 @@ type Props = {
   platform: Exclude<Platform, 'figma'>,
 };
 
-export default function Overview({ platform }: Props): Node {
+export default function Overview({ platform }: Props): ReactNode {
   const [order, setOrder] = useState<'alphabetical' | 'categorical'>('alphabetical');
 
   const platformComponentData = getByPlatform(componentData, { platform });

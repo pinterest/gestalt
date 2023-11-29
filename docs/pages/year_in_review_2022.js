@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useEffect, useState } from 'react';
+import { Fragment, type Node as ReactNode, useEffect, useState } from 'react';
 import Lottie from 'lottie-react';
 import Link from 'next/link';
 import {
@@ -15,7 +15,7 @@ import {
   Text,
   useReducedMotion,
 } from 'gestalt';
-import GestaltLogo from '../docs-components/GestaltLogo.js';
+import GestaltLogo from '../docs-components/GestaltLogo';
 // SVGs
 import AsteriskFilled from '../graphics/year-in-review/asteriskFilled.svg';
 import Circle from '../graphics/year-in-review/circle.svg';
@@ -46,7 +46,7 @@ type StatsProps = {
   number: string,
 };
 
-function StatsColumn({ number, description }: StatsProps): Node {
+function StatsColumn({ number, description }: StatsProps): ReactNode {
   return (
     <Flex gap={2} alignItems="start" direction="column">
       <p className="statsNumber">{number} </p>
@@ -62,7 +62,7 @@ type GridProps = {
   number: string,
 };
 
-function StatsGrid({ number, description }: GridProps): Node {
+function StatsGrid({ number, description }: GridProps): ReactNode {
   return (
     <Fragment>
       <p className="statsNumber">{number}</p>
@@ -75,7 +75,7 @@ type AnimationProps = {
   shouldReduceMotion: boolean,
 };
 
-function DiscoAnimation({ shouldReduceMotion }: AnimationProps): Node {
+function DiscoAnimation({ shouldReduceMotion }: AnimationProps): ReactNode {
   const [animationData, setAnimationData] = useState<null | { ... }>(null);
   useEffect(() => {
     import(`../graphics/year-in-review/lottie/discoStars.json`).then((res) =>
@@ -87,7 +87,7 @@ function DiscoAnimation({ shouldReduceMotion }: AnimationProps): Node {
   return <Lottie animationData={animationData} autoplay={!shouldReduceMotion} />;
 }
 
-export default function YearInReview2022(): Node {
+export default function YearInReview2022(): ReactNode {
   const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {

@@ -1,7 +1,7 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { IconButton } from 'gestalt';
-import trackButtonClick from './trackButtonClick.js';
+import trackButtonClick from './trackButtonClick';
 
 type Props = {
   expanded: boolean,
@@ -9,7 +9,7 @@ type Props = {
   onClick: () => void,
 };
 
-export default function CollapseExpandCodeButton({ expanded, name, onClick }: Props): Node {
+export default function CollapseExpandCodeButton({ expanded, name, onClick }: Props): ReactNode {
   const label = `${expanded ? 'Collapse' : 'Expand'} code example`;
 
   return (

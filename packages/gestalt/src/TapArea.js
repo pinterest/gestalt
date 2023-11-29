@@ -1,11 +1,17 @@
 // @flow strict
-import { type AbstractComponent, forwardRef, type Node, useImperativeHandle, useRef } from 'react';
+import {
+  type AbstractComponent,
+  forwardRef,
+  type Node as ReactNode,
+  useImperativeHandle,
+  useRef,
+} from 'react';
 import classnames from 'classnames';
 import focusStyles from './Focus.css';
-import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
+import getRoundingClassName, { type Rounding } from './getRoundingClassName';
 import styles from './TapArea.css';
-import useFocusVisible from './useFocusVisible.js';
-import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
+import useFocusVisible from './useFocusVisible';
+import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback';
 
 type FocusEventHandler = ({
   event: SyntheticFocusEvent<HTMLDivElement>,
@@ -57,7 +63,7 @@ type Props = {
   /**
    * TapArea is a wrapper around non-button components (or children) that provides clicking / touching functionality as if they were a unified button area.
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * Available for testing purposes, if needed.
    * Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
@@ -180,7 +186,7 @@ const TapAreaWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwardR
     tapStyle = 'none',
   }: Props,
   ref,
-): Node {
+): ReactNode {
   const innerRef = useRef<null | HTMLDivElement>(null);
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <TapArea ref={inputRef} /> to call inputRef.current.focus()

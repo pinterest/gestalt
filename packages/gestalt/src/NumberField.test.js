@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import NumberField from './NumberField.js';
+import NumberField from './NumberField';
 
 describe('NumberField', () => {
   it('Renders an FormErrorMessage if an error message is passed in', () => {

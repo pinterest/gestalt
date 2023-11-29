@@ -1,6 +1,6 @@
 // @flow strict
-import GraphNode, { type GraphNodeInterface } from './GraphNode.js';
-import { type NodeData } from './types.js';
+import GraphNode, { type GraphNodeInterface } from './GraphNode';
+import { type NodeData } from './types';
 
 type NodesList<T> = Map<NodeData<T>, GraphNode<T>>;
 

@@ -1,8 +1,8 @@
 // @flow strict
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import ComboBox from './ComboBox.js';
-import Tag from './Tag.js';
+import ComboBox from './ComboBox';
+import Tag from './Tag';
 
 describe('ComboBox', () => {
   const PRONOUNS = [

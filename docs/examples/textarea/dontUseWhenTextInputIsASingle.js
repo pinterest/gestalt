@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, TextArea } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [value, setValue] = useState('https://www.pinterest.com/pin/768145280205600341/');
 
   return (

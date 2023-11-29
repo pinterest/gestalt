@@ -1,11 +1,11 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Image, SlimBanner } from 'gestalt';
-import MainSection from '../../../docs-components/MainSection.js';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
+import MainSection from '../../../docs-components/MainSection';
+import Page from '../../../docs-components/Page';
+import PageHeader from '../../../docs-components/PageHeader';
 
-export default function GuidelinesPage(): Node {
+export default function GuidelinesPage(): ReactNode {
   return (
     <Page title="Overview">
       <PageHeader
@@ -135,6 +135,7 @@ export default function GuidelinesPage(): Node {
       - [Adobe Spectrum: Data visualization fundamentals](https://spectrum.adobe.com/page/data-visualization-fundamentals/)
       - [Shopify Polaris: Data visualizations](https://polaris.shopify.com/design/data-visualizations)
       - [Policyviz](https://policyviz.com/)
+      - [Financial Times Visual Vocabulary](https://github.com/Financial-Times/chart-doctor/blob/main/visual-vocabulary/FT4schools_RGS.pdf)
       `}
         />
       </MainSection>

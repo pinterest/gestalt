@@ -1,33 +1,37 @@
 // @flow strict
-import { type Node } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import DocsPageHeader from '../../docs-components/PageHeader.js'; // renaming to avoid confusion
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import centerAlignedExample from '../../examples/pageheader/centerAlignedExample.js';
-import complimentaryItemsExample from '../../examples/pageheader/complimentaryItemsExample.js';
-import defaultExample from '../../examples/pageheader/defaultExample.js';
-import dontOverloadExample from '../../examples/pageheader/dontOverloadExample.js';
-import includeImageExample from '../../examples/pageheader/includeImageExample.js';
-import includeProfilePictureExample from '../../examples/pageheader/includeProfilePictureExample.js';
-import localizationExample from '../../examples/pageheader/localizationExample.js';
-import maxWidthExample from '../../examples/pageheader/maxWidthExample.js';
-import minimumButtonsExample from '../../examples/pageheader/minimumButtonsExample.js';
-import multiplePrimaryActionsExample from '../../examples/pageheader/multiplePrimaryActionsExample.js';
-import onePrimaryActionExample from '../../examples/pageheader/onePrimaryActionExample.js';
-import primaryActionExample from '../../examples/pageheader/primaryActionExample.js';
-import responsiveExample from '../../examples/pageheader/responsiveExample.js';
-import secondaryActionsExample from '../../examples/pageheader/secondaryActionExample.js';
-import subtextExample from '../../examples/pageheader/subtextExample.js';
-import titleExample from '../../examples/pageheader/titleExample.js';
+import { type Node as ReactNode } from 'react';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import DocsPageHeader from '../../docs-components/PageHeader'; // renaming to avoid confusion
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import centerAlignedExample from '../../examples/pageheader/centerAlignedExample';
+import complimentaryItemsExample from '../../examples/pageheader/complimentaryItemsExample';
+import defaultExample from '../../examples/pageheader/defaultExample';
+import dontOverloadExample from '../../examples/pageheader/dontOverloadExample';
+import includeImageExample from '../../examples/pageheader/includeImageExample';
+import includeProfilePictureExample from '../../examples/pageheader/includeProfilePictureExample';
+import localizationExample from '../../examples/pageheader/localizationExample';
+import maxWidthExample from '../../examples/pageheader/maxWidthExample';
+import minimumButtonsExample from '../../examples/pageheader/minimumButtonsExample';
+import multiplePrimaryActionsExample from '../../examples/pageheader/multiplePrimaryActionsExample';
+import onePrimaryActionExample from '../../examples/pageheader/onePrimaryActionExample';
+import primaryActionExample from '../../examples/pageheader/primaryActionExample';
+import responsiveExample from '../../examples/pageheader/responsiveExample';
+import secondaryActionsExample from '../../examples/pageheader/secondaryActionExample';
+import subtextExample from '../../examples/pageheader/subtextExample';
+import titleExample from '../../examples/pageheader/titleExample';
 
-export default function PageHeaderPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function PageHeaderPage({
+  generatedDocGen,
+}: {
+  generatedDocGen: DocGen,
+}): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <DocsPageHeader

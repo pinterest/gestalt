@@ -1,9 +1,9 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import focusStyles from './Focus.css';
 import styles from './Switch.css';
-import useFocusVisible from './useFocusVisible.js';
+import useFocusVisible from './useFocusVisible';
 
 type Props = {
   /**
@@ -43,7 +43,7 @@ export default function Switch({
   name,
   onChange,
   switched = false,
-}: Props): Node {
+}: Props): ReactNode {
   const [focused, setFocused] = useState(false);
 
   const handleChange: (event: SyntheticInputEvent<>) => void = (event: SyntheticInputEvent<>) => {

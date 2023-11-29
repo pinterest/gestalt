@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Status } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   return (
     <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
       <Flex direction="column" gap={{ column: 4, row: 0 }}>
@@ -10,6 +10,7 @@ export default function Example(): Node {
         <Status type="queued" title="Queued" />
         <Status type="inProgress" title="In progress" />
         <Status type="halted" title="Halted" />
+        <Status type="locked" title="Locked" />
         <Status type="ok" title="OK" />
         <Status type="canceled" title="Canceled" />
         <Status type="warning" title="Warning" />

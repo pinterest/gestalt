@@ -1,5 +1,5 @@
 // @flow strict
-import PopoverEducational from './PopoverEducational.js';
+import PopoverEducational from './PopoverEducational';
 
 const Valid = (
   <PopoverEducational

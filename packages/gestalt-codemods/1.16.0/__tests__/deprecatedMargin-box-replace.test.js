@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../deprecatedMargin-box-replace', () =>
   Object.assign(jest.requireActual('../deprecatedMargin-box-replace'), {

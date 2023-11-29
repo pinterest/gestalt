@@ -1,14 +1,14 @@
 // @flow strict
-import { type Element as ReactElement, type Node } from 'react';
-import applyModuleDensityStyle from './applyModuleDensity.js';
-import ModuleTitle from './Title.js';
-import Box from '../Box.js';
-import Flex from '../Flex.js';
-import Icon from '../Icon.js';
-import IconButton from '../IconButton.js';
-import icons from '../icons/index.js';
-import TapArea from '../TapArea.js';
-import Text from '../Text.js';
+import { type Element as ReactElement, type Node as ReactNode } from 'react';
+import applyModuleDensityStyle from './applyModuleDensity';
+import ModuleTitle from './Title';
+import Box from '../Box';
+import Flex from '../Flex';
+import Icon from '../Icon';
+import IconButton from '../IconButton';
+import icons from '../icons/index';
+import TapArea from '../TapArea';
+import Text from '../Text';
 
 type BadgeType = {
   text: string,
@@ -34,8 +34,7 @@ export default function ModuleExpandableItem({
   accessibilityCollapseLabel: string,
   accessibilityExpandLabel: string,
   badge?: BadgeType,
-
-  children?: Node,
+  children?: ReactNode,
   icon?: $Keys<typeof icons>,
   iconAccessibilityLabel?: string,
   iconButton?: ReactElement<typeof IconButton>,
@@ -46,7 +45,7 @@ export default function ModuleExpandableItem({
   size?: 'sm' | 'md' | 'lg',
   title: string,
   type?: 'error' | 'info',
-}): Node {
+}): ReactNode {
   const { padding, gap, summaryListGap } = applyModuleDensityStyle(size);
   return (
     <Box padding={padding}>

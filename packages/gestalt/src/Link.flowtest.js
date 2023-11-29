@@ -1,5 +1,5 @@
 // @flow strict
-import Link from './Link.js';
+import Link from './Link';
 
 const Valid = <Link href="https://example.com">content</Link>;
 

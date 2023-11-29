@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Dropdown, IconButton, Image, PageHeader } from 'gestalt';
 
-export default function IncludeProfilePictureExample(): Node {
+export default function IncludeProfilePictureExample(): ReactNode {
   return (
     <PageHeader
       title="My apps"

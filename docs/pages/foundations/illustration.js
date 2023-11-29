@@ -1,9 +1,9 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Image, Text } from 'gestalt';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
 import IllAlt1 from '../../graphics/illustration/ill-alt-1.svg';
 import IllAlt2 from '../../graphics/illustration/ill-alt-2.svg';
 import IllColor from '../../graphics/illustration/ill-color.svg';
@@ -32,7 +32,7 @@ import IllSuccessMedium2 from '../../graphics/illustration/ill-success-md-2.svg'
 import IllWebExample from '../../graphics/illustration/ill-web-example.svg';
 import IllWhitespace from '../../graphics/illustration/ill-whitespace.svg';
 
-export default function IllustrationPage(): Node {
+export default function IllustrationPage(): ReactNode {
   return (
     <Page title="Illustration">
       <PageHeader

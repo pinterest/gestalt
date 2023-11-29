@@ -6,7 +6,7 @@ import {
   type JSCodeShift,
   type JSXNodeType,
   type NodePathType,
-} from './flowtypes.js';
+} from './flowtypes';
 
 /**
  *

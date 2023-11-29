@@ -1,15 +1,15 @@
 // @flow strict
 
-import { type Node, useEffect, useRef } from 'react';
-import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext.js';
-import TrapFocusBehavior from '../behaviors/TrapFocusBehavior.js';
-import Box from '../Box.js';
-import Button from '../Button.js';
-import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
-import Flex from '../Flex.js';
-import { ESCAPE } from '../keyCodes.js';
-import Popover from '../Popover.js';
-import Text from '../Text.js';
+import { type Node as ReactNode, useEffect, useRef } from 'react';
+import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext';
+import TrapFocusBehavior from '../behaviors/TrapFocusBehavior';
+import Box from '../Box';
+import Button from '../Button';
+import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
+import Flex from '../Flex';
+import { ESCAPE } from '../keyCodes';
+import Popover from '../Popover';
+import Text from '../Text';
 
 type Props = {
   anchor: ?HTMLElement,
@@ -47,7 +47,7 @@ export default function ConfirmationPopover({
   primaryAction,
   secondaryAction,
   onDismiss,
-}: Props): Node {
+}: Props): ReactNode {
   const confirmationButtonRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   const { onExternalDismiss } = useRequestAnimationFrame();

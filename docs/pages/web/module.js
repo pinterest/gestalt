@@ -1,31 +1,31 @@
 // @flow strict
-import { type Node } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import exampleWithExternalControl from '../../examples/module/exampleWithExternalControl.js';
-import expandable from '../../examples/module/expandable.js';
-import expandableGroup from '../../examples/module/expandableGroup.js';
-import expandableWithErrorType from '../../examples/module/expandableWithErrorType.js';
-import expandableWithIconBadgeIconButton from '../../examples/module/expandableWithIconBadgeIconButton.js';
-import mainExample from '../../examples/module/mainExample.js';
-import sizesExample from '../../examples/module/sizesExample.js';
-import staticVariant from '../../examples/module/staticVariant.js';
-import staticWithBadge from '../../examples/module/staticWithBadge.js';
-import staticWithErrorType from '../../examples/module/staticWithErrorType.js';
-import staticWithIcon from '../../examples/module/staticWithIcon.js';
-import staticWithIconButton from '../../examples/module/staticWithIconButton.js';
+import { type Node as ReactNode } from 'react';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import { type DocGen, multipleDocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import exampleWithExternalControl from '../../examples/module/exampleWithExternalControl';
+import expandable from '../../examples/module/expandable';
+import expandableGroup from '../../examples/module/expandableGroup';
+import expandableWithErrorType from '../../examples/module/expandableWithErrorType';
+import expandableWithIconBadgeIconButton from '../../examples/module/expandableWithIconBadgeIconButton';
+import mainExample from '../../examples/module/mainExample';
+import sizesExample from '../../examples/module/sizesExample';
+import staticVariant from '../../examples/module/staticVariant';
+import staticWithBadge from '../../examples/module/staticWithBadge';
+import staticWithErrorType from '../../examples/module/staticWithErrorType';
+import staticWithIcon from '../../examples/module/staticWithIcon';
+import staticWithIconButton from '../../examples/module/staticWithIconButton';
 
 export default function DocsPage({
   generatedDocGen,
 }: {
   generatedDocGen: { [string]: DocGen },
-}): Node {
+}): ReactNode {
   return (
     <Page title={generatedDocGen.Module?.description}>
       <PageHeader

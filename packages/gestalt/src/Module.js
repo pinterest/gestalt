@@ -1,14 +1,14 @@
 // @flow strict
-import { type Element, type Node } from 'react';
-import Box from './Box.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import Flex from './Flex.js';
-import IconButton from './IconButton.js';
-import IconButtonLink from './IconButtonLink.js';
-import icons from './icons/index.js';
-import applyModuleDensityStyle from './Module/applyModuleDensity.js';
-import ModuleTitle from './Module/Title.js';
-import ModuleExpandable from './ModuleExpandable.js';
+import { type Element, type Node as ReactNode } from 'react';
+import Box from './Box';
+import { useColorScheme } from './contexts/ColorSchemeProvider';
+import Flex from './Flex';
+import IconButton from './IconButton';
+import IconButtonLink from './IconButtonLink';
+import icons from './icons/index';
+import applyModuleDensityStyle from './Module/applyModuleDensity';
+import ModuleTitle from './Module/Title';
+import ModuleExpandable from './ModuleExpandable';
 
 type BadgeType = {
   text: string,
@@ -23,7 +23,7 @@ type Props = {
   /**
    * Content to display underneath Module title.
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * Name of icon to display in front of title. Will not be displayed if `title` is not provided. Not to be used with `badge` or `iconButton`. For a full list of icons, see [Iconography and SVGs](https://gestalt.pinterest.systems/foundations/iconography/library#Search-icon-library). See the [icon variant](https://gestalt.pinterest.systems/web/module#Static-Icon) for more details.
    */
@@ -71,7 +71,7 @@ export default function Module({
   title,
   size = 'lg',
   type = 'info',
-}: Props): Node {
+}: Props): ReactNode {
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 

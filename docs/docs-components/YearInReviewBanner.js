@@ -1,12 +1,12 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import Lottie from 'lottie-react';
 import { Box, ButtonLink, Flex, Heading, TapAreaLink, Text, useReducedMotion } from 'gestalt';
 import Asterisk from '../graphics/year-in-review/asteriskFilled.svg';
 import DonutHalf from '../graphics/year-in-review/donutHalf.svg';
 import discoStars from '../graphics/year-in-review/lottie/discoStars.json';
 
-export default function YearInReviewBanner(): Node {
+export default function YearInReviewBanner(): ReactNode {
   const shouldReduceMotion = useReducedMotion();
 
   return (

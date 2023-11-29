@@ -1,11 +1,11 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Link, List, Module, Text } from 'gestalt';
-import Card from './Card.js';
+import Card from './Card';
 
 type Props = { items: $ReadOnlyArray<{ href: string, text: string }> };
 
-export default function InternalDocumentationSection({ items }: Props): Node {
+export default function InternalDocumentationSection({ items }: Props): ReactNode {
   return (
     <Card name="Internal documentation" showHeading>
       <Module.Expandable

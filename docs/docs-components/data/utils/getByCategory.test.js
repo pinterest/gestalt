@@ -1,6 +1,6 @@
 // @flow strict
-import getByCategory from './getByCategory.js';
-import mockComponentList from './test-fixtures.js';
+import getByCategory from './getByCategory';
+import mockComponentList from './test-fixtures';
 
 describe('getByCategory', () => {
   it('filters for Avatars on web', () => {

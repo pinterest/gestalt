@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { AvatarGroup, Box, Divider, Flex, Icon, Mask, Text } from 'gestalt';
 
 function Block({ title, url, locked }: { title: string, url: string, locked?: boolean }) {
@@ -42,7 +42,7 @@ function Block({ title, url, locked }: { title: string, url: string, locked?: bo
   );
 }
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   return (
     <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
       <Flex direction="column" gap={{ column: 10, row: 0 }} width={300}>

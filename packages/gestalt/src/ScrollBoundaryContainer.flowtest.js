@@ -1,6 +1,6 @@
 // @flow strict
-import Box from './Box.js';
-import ScrollBoundaryContainer from './ScrollBoundaryContainer.js';
+import Box from './Box';
+import ScrollBoundaryContainer from './ScrollBoundaryContainer';
 
 const Valid = (
   <ScrollBoundaryContainer>

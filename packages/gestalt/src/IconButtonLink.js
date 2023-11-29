@@ -1,15 +1,21 @@
 // @flow strict
-import { type AbstractComponent, forwardRef, type Node, useImperativeHandle, useRef } from 'react';
-import getAriaLabel from './accessibility/getAriaLabel.js';
-import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import icons from './icons/index.js';
-import InternalLink from './Link/InternalLink.js';
-import Pog from './Pog.js';
-import Tooltip from './Tooltip.js';
-import useFocusVisible from './useFocusVisible.js';
-import useInteractiveStates from './utils/useInteractiveStates.js';
-import { type Indexable } from './zIndex.js';
+import {
+  type AbstractComponent,
+  forwardRef,
+  type Node as ReactNode,
+  useImperativeHandle,
+  useRef,
+} from 'react';
+import getAriaLabel from './accessibility/getAriaLabel';
+import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import icons from './icons/index';
+import InternalLink from './Link/InternalLink';
+import Pog from './Pog';
+import Tooltip from './Tooltip';
+import useFocusVisible from './useFocusVisible';
+import useInteractiveStates from './utils/useInteractiveStates';
+import { type Indexable } from './zIndex';
 
 type Props = {
   /**
@@ -121,7 +127,7 @@ const IconButtonLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> 
     size = 'lg',
   }: Props,
   ref,
-): Node {
+): ReactNode {
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component

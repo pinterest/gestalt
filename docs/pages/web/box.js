@@ -1,33 +1,33 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { type Node as ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import CombinationNew from '../../docs-components/CombinationNew.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import absolute from '../../examples/box/absolute.js';
-import asProp from '../../examples/box/as.js';
-import autoMargins from '../../examples/box/autoMargins.js';
-import buildingBlock from '../../examples/box/buildingBlock.js';
-import divs from '../../examples/box/divs.js';
-import main from '../../examples/box/main.js';
-import notAllowed from '../../examples/box/notAllowed.js';
-import overflow from '../../examples/box/overflow.js';
-import padding from '../../examples/box/padding.js';
-import ref from '../../examples/box/ref.js';
-import responsive from '../../examples/box/responsive.js';
-import role from '../../examples/box/role.js';
-import rtl from '../../examples/box/rtl.js';
-import sizing from '../../examples/box/sizing.js';
-import visuallyHidden from '../../examples/box/visuallyHidden.js';
-import zIndex from '../../examples/box/zIndex.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import CombinationNew from '../../docs-components/CombinationNew';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import absolute from '../../examples/box/absolute';
+import asProp from '../../examples/box/as';
+import autoMargins from '../../examples/box/autoMargins';
+import buildingBlock from '../../examples/box/buildingBlock';
+import divs from '../../examples/box/divs';
+import main from '../../examples/box/main';
+import notAllowed from '../../examples/box/notAllowed';
+import overflow from '../../examples/box/overflow';
+import padding from '../../examples/box/padding';
+import ref from '../../examples/box/ref';
+import responsive from '../../examples/box/responsive';
+import role from '../../examples/box/role';
+import rtl from '../../examples/box/rtl';
+import sizing from '../../examples/box/sizing';
+import visuallyHidden from '../../examples/box/visuallyHidden';
+import zIndex from '../../examples/box/zIndex';
 
 const ignoredProps = [
   'smAlignItems',
@@ -69,9 +69,9 @@ const ignoredProps = [
 ];
 
 type ColorCardProps = {
-  children: Node,
+  children: ReactNode,
 };
-function ColorSchemeLayout({ children }: ColorCardProps): Node {
+function ColorSchemeLayout({ children }: ColorCardProps): ReactNode {
   return (
     <Flex
       gap={{
@@ -91,7 +91,7 @@ function ColorSchemeLayout({ children }: ColorCardProps): Node {
   );
 }
 
-export default function BoxPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function BoxPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader

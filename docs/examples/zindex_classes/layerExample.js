@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useState } from 'react';
+import { Fragment, type Node as ReactNode, useState } from 'react';
 import {
   Box,
   Button,
@@ -19,7 +19,7 @@ import {
 const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
 const MODAL_ZINDEX = new CompositeZIndex([PAGE_HEADER_ZINDEX]);
 
-export default function ScrollBoundaryContainerExample(): Node {
+export default function ScrollBoundaryContainerExample(): ReactNode {
   const [showModal, setShowModal] = useState(false);
   const [alignText, setAlignText] = useState('forceLeft');
 

@@ -1,13 +1,13 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box } from 'gestalt';
 
 type Props = {
-  children?: Node,
+  children?: ReactNode,
   justifyContent?: 'center' | 'start',
 };
 
-function IllustrationContainer({ children, justifyContent = 'center' }: Props): Node {
+function IllustrationContainer({ children, justifyContent = 'center' }: Props): ReactNode {
   return (
     <Box
       smMarginEnd={0}

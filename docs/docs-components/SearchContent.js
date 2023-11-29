@@ -1,11 +1,11 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 
 type Props = {
-  children?: Node,
+  children?: ReactNode,
 };
 
-function SearchContent({ children }: Props): Node {
+function SearchContent({ children }: Props): ReactNode {
   return <div className="docSearch-content">{children}</div>;
 }
 

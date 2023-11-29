@@ -1,5 +1,5 @@
 // @flow strict
-import WashAnimated from './WashAnimated.js';
+import WashAnimated from './WashAnimated';
 
 const Valid = <WashAnimated />;
 

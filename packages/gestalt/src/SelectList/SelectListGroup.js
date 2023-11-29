@@ -1,11 +1,11 @@
 // @flow strict
-import { type Element, type Node } from 'react';
+import { type Element, type Node as ReactNode } from 'react';
 
 type Props = {
   /**
    * One or more SelectList.Option components.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * Used to disable the entire group of options.
    */

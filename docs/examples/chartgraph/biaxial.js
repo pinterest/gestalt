@@ -1,36 +1,36 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { FixedZIndex, Flex } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [visualPatternSelected, setVisualPatternSelected] = useState('default');
 
   const data = [
     {
       name: new Date(2023, 0, 1).getTime(),
-      'Spend': 350000,
+      'Spend': 40000,
       'Total ROAS (Checkout)': 570000,
     },
     {
       name: new Date(2023, 1, 1).getTime(),
-      'Spend': 800000,
+      'Spend': 45000,
       'Total ROAS (Checkout)': 690000,
     },
     {
       name: new Date(2023, 2, 1).getTime(),
-      'Spend': 890000,
+      'Spend': 55000,
       'Total ROAS (Checkout)': 850000,
     },
     {
       name: new Date(2023, 3, 1).getTime(),
-      'Spend': 870000,
+      'Spend': 70000,
       'Total ROAS (Checkout)': 550000,
     },
     {
       name: new Date(2023, 4, 1).getTime(),
       'Spend': 830000,
-      'Total ROAS (Checkout)': 84000,
+      'Total ROAS (Checkout)': 1000000,
     },
   ];
 
@@ -53,7 +53,10 @@ export default function Example(): Node {
         type="line"
         tickFormatter={{
           yAxisLeft: (value) => {
-            if (value >= 1000000) return `${value / 1000000}m`;
+            if (value >= 500) return `$${value / 500}k`;
+            return value;
+          },
+          yAxisRight: (value) => {
             if (value >= 1000) return `${value / 1000}k`;
             return value;
           },

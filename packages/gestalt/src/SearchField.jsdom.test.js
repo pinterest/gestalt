@@ -1,7 +1,7 @@
 // @flow strict
 import { create } from 'react-test-renderer';
 import { fireEvent, render, screen } from '@testing-library/react';
-import SearchField from './SearchField.js';
+import SearchField from './SearchField';
 
 describe('<SearchField />', () => {
   it('adds a "medium" classname by default', () => {

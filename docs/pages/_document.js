@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { getSandpackCssText } from '@codesandbox/sandpack-react';
 import Document, { type DocumentContext, Head, Html, Main, NextScript } from 'next/document';
 import Cookies from 'universal-cookie';
@@ -16,7 +16,7 @@ class GestaltDocument extends Document {
     return { ...initialProps };
   }
 
-  render(): Node {
+  render(): ReactNode {
     const { props } = this;
     const cookies = new Cookies(props.cookieHeader);
     const dir = cookies.cookies['gestalt-text-direction'];

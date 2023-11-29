@@ -27,7 +27,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
         pages: [
           {
             sectionName: 'Contributing',
-            pages: ['Creating and updating pages', 'Development process'],
+            pages: ['Creating and updating pages', 'Development process', 'Experimentation'],
           },
           'ESLint plugin',
           'Hacking Gestalt',
@@ -73,8 +73,10 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Overview',
       'Component status',
       'Avatar',
+      'AvatarGroup',
       'Badge',
       'Button',
+      'ButtonGroup',
       {
         sectionName: 'Card',
         pages: ['Card', 'Card.Header', 'Card.Boards', 'Card.Pins'],
@@ -82,12 +84,14 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Checkbox',
       'Icon',
       'IconButton',
+      'IconButtonFloating',
       'ListAction',
       'SearchField',
       'Sheet',
       'Switch',
       'Tabs',
       'Text',
+      'TextArea',
       'TextField',
       'Toast',
     ],
@@ -220,7 +224,17 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
         sectionName: 'Data visualization',
         pages: [
           'Overview',
-          'Charts and graphs',
+          {
+            sectionName: 'Charts and graphs',
+            pages: [
+              'General guidelines',
+              'Bar graphs',
+              'Line graphs',
+              'Combo graphs',
+              'Donut charts',
+              'Funnel charts',
+            ],
+          },
           'Micro visualizations',
           'Available components',
           {
@@ -256,11 +270,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
         ],
       },
       'Screen sizes',
-
-      {
-        sectionName: 'Typography',
-        pages: ['Guidelines'],
-      },
+      'Typography',
     ],
   },
   {

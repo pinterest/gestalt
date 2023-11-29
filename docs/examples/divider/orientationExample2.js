@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Divider, Flex, Heading, Text } from 'gestalt';
 
 function Block({ title, text }: { title: string, text: string }) {
@@ -13,7 +13,7 @@ function Block({ title, text }: { title: string, text: string }) {
   );
 }
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   return (
     <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
       <Flex>

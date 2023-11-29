@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Badge, Flex, Label, Switch, Text } from 'gestalt';
 
-export default function RepurposeExample(): Node {
+export default function RepurposeExample(): ReactNode {
   return (
     <Flex justifyContent="center" alignItems="center" height="100%">
       <Flex

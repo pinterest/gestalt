@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Button, Flex, IconButton } from 'gestalt';
 
-export default function DistinctionExample(): Node {
+export default function DistinctionExample(): ReactNode {
   return (
     <Flex
       gap={{

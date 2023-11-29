@@ -1,6 +1,6 @@
 // @flow strict
 import renderer from 'react-test-renderer';
-import Divider from './Divider.js';
+import Divider from './Divider';
 
 test('Divider renders', () => {
   const component = renderer.create(<Divider />);

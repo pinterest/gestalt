@@ -1,6 +1,6 @@
 // @flow strict
-import Sticky from './Sticky.js';
-import { FixedZIndex } from './zIndex.js';
+import Sticky from './Sticky';
+import { FixedZIndex } from './zIndex';
 
 const ValidDefaultStickyType = <Sticky top={0}>Content</Sticky>;
 

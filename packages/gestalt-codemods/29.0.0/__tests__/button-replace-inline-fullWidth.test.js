@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../button-replace-inline-fullWidth', () =>
   Object.assign(jest.requireActual('../button-replace-inline-fullWidth'), {

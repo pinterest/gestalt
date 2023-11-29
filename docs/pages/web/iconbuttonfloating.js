@@ -1,22 +1,22 @@
 // @flow strict
-import { type Node } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import doForScroll from '../../examples/iconbuttonfloating/doForScroll.js';
-import dontNegative from '../../examples/iconbuttonfloating/dontNegative.js';
-import dontNotification from '../../examples/iconbuttonfloating/dontNotification.js';
-import main from '../../examples/iconbuttonfloating/main.js';
-import variantsA11y from '../../examples/iconbuttonfloating/variantsA11y.js';
-import variantsWithTooltip from '../../examples/iconbuttonfloating/variantsWithTooltip.js';
+import { type Node as ReactNode } from 'react';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import doForScroll from '../../examples/iconbuttonfloating/doForScroll';
+import dontNegative from '../../examples/iconbuttonfloating/dontNegative';
+import dontNotification from '../../examples/iconbuttonfloating/dontNotification';
+import main from '../../examples/iconbuttonfloating/main';
+import variantsA11y from '../../examples/iconbuttonfloating/variantsA11y';
+import variantsWithTooltip from '../../examples/iconbuttonfloating/variantsWithTooltip';
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>

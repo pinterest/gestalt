@@ -1,27 +1,33 @@
 // @flow strict
-import { Children, type Element, type ElementConfig, isValidElement, type Node } from 'react';
-import Avatar from './Avatar.js';
-import Box from './Box.js';
-import Button from './Button.js';
-import ButtonLink from './ButtonLink.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import Flex from './Flex.js';
-import Icon from './Icon.js';
-import Image from './Image.js';
-import Link from './Link.js';
-import InternalDismissButton from './shared/InternalDismissButton.js';
-import Text from './Text.js';
+import {
+  Children,
+  type Element,
+  type ElementConfig,
+  isValidElement,
+  type Node as ReactNode,
+} from 'react';
+import Avatar from './Avatar';
+import Box from './Box';
+import Button from './Button';
+import ButtonLink from './ButtonLink';
+import { useColorScheme } from './contexts/ColorSchemeProvider';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import Flex from './Flex';
+import Icon from './Icon';
+import Image from './Image';
+import Link from './Link';
+import InternalDismissButton from './shared/InternalDismissButton';
+import Text from './Text';
 import styles from './Toast.css';
-import PrimaryAction from './Toast/PrimaryAction.js';
+import PrimaryAction from './Toast/PrimaryAction';
 import {
   ToastAvatarThumbnail,
   ToastIconThumbnail,
   ToastImageThumbnail,
   ToastMessage,
   ToastTypeThumbnail,
-} from './Toast/subcomponents.js';
-import useResponsiveMinWidth from './useResponsiveMinWidth.js';
+} from './Toast/subcomponents';
+import useResponsiveMinWidth from './useResponsiveMinWidth';
 
 const DEFAULT_COLORS = {
   containerColor: 'inverse',
@@ -44,11 +50,11 @@ type Props = {
   /**
    * Allows to insert a custom button for user interaction. Do not use except for allowed cases where primaryAction doesn't support functionality required in it.
    */
-  _dangerouslySetPrimaryAction?: Node,
+  _dangerouslySetPrimaryAction?: ReactNode,
   /**
    * Allows to insert a custom thumbnail. Do not use except for allowed cases where thumbnail doesn't support functionality required in it or legacy code.
    */
-  _dangerouslySetThumbnail?: Node,
+  _dangerouslySetThumbnail?: ReactNode,
   /**
    * Adds a dismiss button to Toast. See the [Dismissible variant](https://gestalt.pinterest.systems/web/toast#Dismissible) for more info.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/toast#Accessibility).
@@ -125,7 +131,7 @@ export default function Toast({
   text,
   thumbnail,
   type = 'default',
-}: Props): Node {
+}: Props): ReactNode {
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 

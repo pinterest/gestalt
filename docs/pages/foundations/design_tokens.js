@@ -1,13 +1,13 @@
 // @flow strict
 
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Flex, Table, Text } from 'gestalt';
-import dataVizTokens from 'gestalt-design-tokens/dist/js/data-viz-tokens.js';
-import tokens from 'gestalt-design-tokens/dist/js/tokens.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import { TokenExample } from '../../docs-components/TokenExample.js';
+import dataVizTokens from 'gestalt-design-tokens/dist/js/data-viz-tokens';
+import tokens from 'gestalt-design-tokens/dist/js/tokens';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import { TokenExample } from '../../docs-components/TokenExample';
 
 export type Token = {
   name: string,
@@ -62,7 +62,7 @@ const tokenCategories = [
     name: 'Font family',
     category: 'font-family',
     id: 'font-family',
-    infoPage: { name: 'Typography', path: 'foundations/typography/guidelines' },
+    infoPage: { name: 'Typography', path: 'foundations/typography' },
   },
   {
     name: 'Opacity',
@@ -102,7 +102,7 @@ const sortedDataTokens = dataVizTokens.sort((a, b) =>
   }),
 );
 
-const tableHeaders = (category: string): Node => (
+const tableHeaders = (category: string): ReactNode => (
   <Table.Header>
     <Table.Row>
       {headers.map((header) => {
@@ -119,7 +119,7 @@ const tableHeaders = (category: string): Node => (
   </Table.Header>
 );
 
-export default function DesignTokensPage(): Node {
+export default function DesignTokensPage(): ReactNode {
   return (
     <Page title="Design tokens guidelines">
       <PageHeader

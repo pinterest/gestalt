@@ -1,14 +1,14 @@
 // @flow strict
-import { Children, type Element, type Node } from 'react';
-import Box from './Box.js';
-import Button from './Button.js';
-import ButtonLink from './ButtonLink.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import Flex from './Flex.js';
-import InternalPopover from './Popover/InternalPopover.js';
+import { Children, type Element, type Node as ReactNode } from 'react';
+import Box from './Box';
+import Button from './Button';
+import ButtonLink from './ButtonLink';
+import { useColorScheme } from './contexts/ColorSchemeProvider';
+import Flex from './Flex';
+import InternalPopover from './Popover/LegacyInternalPopover';
 import styles from './PopoverEducational.css';
-import Text from './Text.js';
-import { type Indexable } from './zIndex.js';
+import Text from './Text';
+import { type Indexable } from './zIndex';
 
 type Size = 'sm' | 'flexible';
 type IdealDirection = 'up' | 'right' | 'down' | 'left';
@@ -73,7 +73,7 @@ type Props = {
   /**
    * The optional content shown in PopoverEducational. See the [custom content section](https://gestalt.pinterest.systems/web/popovereducational#Custom-content) for more guidance.
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * Unique id to identify each PopoverEducational. Used for [accessibility](https://gestalt.pinterest.systems/web/popovereducational#ARIA-attributes) purposes.
    */
@@ -134,7 +134,7 @@ export default function PopoverEducational({
   shouldFocus = false,
   size = 'sm',
   zIndex,
-}: Props): Node {
+}: Props): ReactNode {
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 

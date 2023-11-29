@@ -1,6 +1,6 @@
 // @flow strict
 import { render, screen } from '@testing-library/react';
-import SelectList from './SelectList.js';
+import SelectList from './SelectList';
 
 describe('<SelectList />', () => {
   const options = [

@@ -1,15 +1,15 @@
 // @flow strict
-import { Children, type Node } from 'react';
+import { Children, type Node as ReactNode } from 'react';
 import slugify from 'slugify';
 import { Badge, Box, Flex, Heading } from 'gestalt';
-import CopyLinkButton from './buttons/CopyLinkButton.js';
-import { copyToClipboard } from './Card.js';
-import { DOCS_COPY_MAX_WIDTH_PX } from './consts.js';
-import Markdown from './Markdown.js';
+import CopyLinkButton from './buttons/CopyLinkButton';
+import { copyToClipboard } from './Card';
+import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
+import Markdown from './Markdown';
 
 type Props = {
   badge?: 'alpha' | 'experimental',
-  children?: Node,
+  children?: ReactNode,
   columns?: 1 | 2,
   description?: string,
   title?: string,
@@ -23,9 +23,9 @@ function MainSectionSubsection({
   description,
   title,
   marginBottom = 'default',
-}: Props): Node {
+}: Props): ReactNode {
   const slugifiedId = slugify(title || '');
-  const arrayChildren = Children.toArray<Node>(children);
+  const arrayChildren = Children.toArray<ReactNode>(children);
 
   let defaultBottomMargin = title || description ? 8 : 0;
 

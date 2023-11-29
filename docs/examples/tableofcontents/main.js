@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, TableOfContents } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const { hash } = window.location;
 
   return (

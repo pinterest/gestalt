@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../text-align-rename', () =>
   Object.assign(jest.requireActual('../text-align-rename'), {

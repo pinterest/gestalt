@@ -1,11 +1,11 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, CompositeZIndex, FixedZIndex, Sticky, Text } from 'gestalt';
 
 const BOX_ZINDEX = new FixedZIndex(1);
 const STICKY_ZINDEX = new CompositeZIndex([BOX_ZINDEX]);
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   return (
     <Box color="default" height={200} overflow="scroll" tabIndex={0}>
       <Box height={500} marginTop={10}>

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Status, Table, Text } from 'gestalt';
 
 function HeaderRow() {
@@ -34,7 +34,7 @@ function BaseRow({ disabled, type, title, subtext, rate }: any) {
   );
 }
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const tableID = "Another Example of a 'Dont' do for table alignment";
 
   return (

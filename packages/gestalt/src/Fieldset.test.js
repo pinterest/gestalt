@@ -1,7 +1,7 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Checkbox from './Checkbox.js';
-import Fieldset from './Fieldset.js';
+import Checkbox from './Checkbox';
+import Fieldset from './Fieldset';
 
 describe('Fieldset', () => {
   it('renders', () => {

@@ -1,31 +1,31 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { SlimBanner } from 'gestalt';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import avoidRepetitiveLabeling1 from '../../examples/tooltip/avoidRepetitiveLabeling1.js';
-import avoidRepetitiveLabeling2 from '../../examples/tooltip/avoidRepetitiveLabeling2.js';
-import displayLinkAtBottom from '../../examples/tooltip/displayLinkAtBottom.js';
-import dontPairWithDisabledElement from '../../examples/tooltip/dontPairWithDisabledElement.js';
-import dontUseToCommunicateCriticalInfo from '../../examples/tooltip/dontUseToCommunicateCriticalInfo.js';
-import dontUseToRestateVisibleText from '../../examples/tooltip/dontUseToRestateVisibleText.js';
-import mainExample from '../../examples/tooltip/mainExample.js';
-import positionRelativeToInlineElement from '../../examples/tooltip/positionRelativeToInlineElement.js';
-import properPositioningExample from '../../examples/tooltip/properPositioningExample.js';
-import specifyPreferredPosition from '../../examples/tooltip/specifyPreferredPosition.js';
-import specifyZIndexOrder from '../../examples/tooltip/specifyZIndexOrder.js';
-import useToAddSupplementaryInfo from '../../examples/tooltip/useToAddSupplementaryInfo.js';
-import useToDescribeInteractiveElement from '../../examples/tooltip/useToDescribeInteractiveElement.js';
-import useToDistinguishRelatedActions from '../../examples/tooltip/useToDistinguishRelatedActions.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import avoidRepetitiveLabeling1 from '../../examples/tooltip/avoidRepetitiveLabeling1';
+import avoidRepetitiveLabeling2 from '../../examples/tooltip/avoidRepetitiveLabeling2';
+import displayLinkAtBottom from '../../examples/tooltip/displayLinkAtBottom';
+import dontPairWithDisabledElement from '../../examples/tooltip/dontPairWithDisabledElement';
+import dontUseToCommunicateCriticalInfo from '../../examples/tooltip/dontUseToCommunicateCriticalInfo';
+import dontUseToRestateVisibleText from '../../examples/tooltip/dontUseToRestateVisibleText';
+import mainExample from '../../examples/tooltip/mainExample';
+import positionRelativeToInlineElement from '../../examples/tooltip/positionRelativeToInlineElement';
+import properPositioningExample from '../../examples/tooltip/properPositioningExample';
+import specifyPreferredPosition from '../../examples/tooltip/specifyPreferredPosition';
+import specifyZIndexOrder from '../../examples/tooltip/specifyZIndexOrder';
+import useToAddSupplementaryInfo from '../../examples/tooltip/useToAddSupplementaryInfo';
+import useToDescribeInteractiveElement from '../../examples/tooltip/useToDescribeInteractiveElement';
+import useToDistinguishRelatedActions from '../../examples/tooltip/useToDistinguishRelatedActions';
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title="Tooltip">
       <PageHeader

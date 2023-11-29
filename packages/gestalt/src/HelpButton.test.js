@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import HelpButton from './HelpButton.js';
+import HelpButton from './HelpButton';
 
 test('HelpButton renders correctly', () => {
   const component = create(

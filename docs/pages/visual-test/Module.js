@@ -1,9 +1,9 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { useRouter } from 'next/router';
 import { Box, Flex, IconButton, Module, Text } from 'gestalt';
 
-export default function Screenshot(): Node {
+export default function Screenshot(): ReactNode {
   const { query } = useRouter();
 
   let size = 'lg';

@@ -1,10 +1,10 @@
 // @flow strict
 
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Flex, Text } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [visualPatternSelected, setVisualPatternSelected] = useState('default');
 
   const data = [

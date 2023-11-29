@@ -1,9 +1,9 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { ColorSchemeProvider } from 'gestalt';
-import ModuleVisualTest from './Module.js';
+import ModuleVisualTest from './Module';
 
-export default function Screenshot(): Node {
+export default function Screenshot(): ReactNode {
   return (
     <ColorSchemeProvider colorScheme="dark">
       <ModuleVisualTest />

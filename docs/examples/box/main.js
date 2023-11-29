@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   return (
     <Flex width="100%" height="100%" gap={4} wrap alignContent="center" justifyContent="center">
       <Box rounding="circle" width={100} height={100} color="infoBase" />

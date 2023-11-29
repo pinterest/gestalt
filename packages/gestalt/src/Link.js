@@ -4,27 +4,27 @@ import {
   type Element,
   type ElementConfig,
   forwardRef,
-  type Node,
+  type Node as ReactNode,
   type Ref,
   useImperativeHandle,
   useRef,
 } from 'react';
 import classnames from 'classnames';
-import getAriaLabel from './accessibility/getAriaLabel.js';
-import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
-import Box from './Box.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider.js';
+import getAriaLabel from './accessibility/getAriaLabel';
+import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
+import Box from './Box';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider';
 import focusStyles from './Focus.css';
-import getRoundingClassName from './getRoundingClassName.js';
-import Icon from './Icon.js';
+import getRoundingClassName from './getRoundingClassName';
+import Icon from './Icon';
 import layoutStyles from './Layout.css';
 import styles from './Link.css';
 import touchableStyles from './TapArea.css';
-import Text from './Text.js';
+import Text from './Text';
 import textStyles from './Typography.css';
-import useFocusVisible from './useFocusVisible.js';
-import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
+import useFocusVisible from './useFocusVisible';
+import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback';
 
 const externalLinkIconMap = {
   '100': 12,
@@ -46,7 +46,7 @@ type ExternalLinkIcon =
       size: $ElementType<ElementConfig<typeof Text>, 'size'>,
     };
 
-function ExternalIcon({ externalLinkIcon }: { externalLinkIcon: ExternalLinkIcon }): Node {
+function ExternalIcon({ externalLinkIcon }: { externalLinkIcon: ExternalLinkIcon }): ReactNode {
   return externalLinkIcon === 'none' ? null : (
     <Box aria-hidden display="inlineBlock" marginStart={1}>
       <Icon
@@ -74,7 +74,7 @@ type Props = {
   /**
    * Link is a wrapper around components (or children), most commonly text, so that they become hyperlinks. See the [Text and Link variant](https://gestalt.pinterest.systems/web/link#Link-and-Text) to learn more.
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
    */

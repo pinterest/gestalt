@@ -1,7 +1,7 @@
 // @flow strict
 import { render, screen } from '@testing-library/react';
-import Layer from './Layer.js';
-import { FixedZIndex } from './zIndex.js';
+import Layer from './Layer';
+import { FixedZIndex } from './zIndex';
 
 describe('Layer in browser render', () => {
   if (typeof document !== 'undefined') {

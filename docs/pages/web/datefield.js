@@ -1,5 +1,5 @@
 // @flow strict-local
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import {
   af,
   arSA,
@@ -40,18 +40,18 @@ import {
 } from 'date-fns/locale';
 import { Flex, SelectList, SlimBanner } from 'gestalt';
 import { DateField } from 'gestalt-datepicker';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import disabled from '../../examples/datefield/disabled.js';
-import error from '../../examples/datefield/error.js';
-import main from '../../examples/datefield/main.js';
-import states from '../../examples/datefield/states.js';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import SandpackExample from '../../docs-components/SandpackExample';
+import disabled from '../../examples/datefield/disabled';
+import error from '../../examples/datefield/error';
+import main from '../../examples/datefield/main';
+import states from '../../examples/datefield/states';
 
 const localeMap = {
   af: { localeData: af, lang: 'Afrikaans' },
@@ -92,7 +92,7 @@ const localeMap = {
   'zh-TW': { localeData: zhTW, lang: 'Chinese (Traditional)' },
 };
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   const [locale, setLocale] = useState<string | null>('en-US');
   const [date, setDate] = useState<Date | null>(new Date());
 
@@ -224,9 +224,9 @@ Use the SelectList to try out different locales by passing in the \`localeData\`
 
 Handlers:
 
-- [onMount](/web/utilities/globaleventshandlerprovider#onMount): executed when DateField mounts for the first time
+- [onRender](/web/utilities/globaleventshandlerprovider#onRender): executed when DateField mounts for the first time
 
-See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onMount) for more information.
+See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onRender) for more information.
 `}
         />
       </MainSection>

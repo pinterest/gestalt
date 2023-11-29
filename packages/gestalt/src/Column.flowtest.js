@@ -1,5 +1,5 @@
 // @flow strict
-import Column from './Column.js';
+import Column from './Column';
 
 const Valid = <Column span={1}>Hello world</Column>;
 

@@ -1,5 +1,12 @@
 // @flow strict
-import { Fragment, type Node, type Ref, useCallback, useEffect, useState } from 'react';
+import {
+  Fragment,
+  type Node as ReactNode,
+  type Ref,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 import { Box, FixedZIndex, Icon, IconButton, Tooltip } from 'gestalt';
 
 const INPUT_ID = 'algolia-doc-search';
@@ -48,7 +55,7 @@ export default function DocSearch({
   anchorRef: Ref<typeof IconButton>,
   isMobileSearchExpandedOpen: boolean,
   toggleSearchBarOpen: () => void,
-}): Node {
+}): ReactNode {
   const [isCompressedUI, setIsCompressedUI] = useState(
     typeof window !== 'undefined' && window.innerWidth < 1312,
   );

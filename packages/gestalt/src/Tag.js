@@ -1,16 +1,16 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
-import Box from './Box.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import Flex from './Flex.js';
+import Box from './Box';
+import { useColorScheme } from './contexts/ColorSchemeProvider';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import Flex from './Flex';
 import focusStyles from './Focus.css';
-import Icon from './Icon.js';
+import Icon from './Icon';
 import styles from './Tag.css';
 import touchableStyles from './TapArea.css';
-import Text from './Text.js';
-import useFocusVisible from './useFocusVisible.js';
+import Text from './Text';
+import useFocusVisible from './useFocusVisible';
 
 const backgroundColorByType = Object.freeze({
   default: 'secondary',
@@ -53,7 +53,7 @@ type Props = {
 };
 
 /**
- * [Tags](https://gestalt.pinterest.systems/web/tag) are objects that hold text and have a delete icon to remove them. They can appear within [TextFields](https://gestalt.pinterest.systems/web/textfield#tagsExample), [TextAreas](https://gestalt.pinterest.systems/web/textarea#tagsExample), [ComboBox](https://gestalt.pinterest.systems/web/combobox#Tags) or as standalone components.
+ * [Tags](https://gestalt.pinterest.systems/web/tag) can be used to categorize, classify or filter content, usually via keywords. They can appear within [TextFields](https://gestalt.pinterest.systems/web/textfield#tagsExample), [TextAreas](https://gestalt.pinterest.systems/web/textarea#tagsExample), [ComboBox](https://gestalt.pinterest.systems/web/combobox#Tags) or as standalone components.
  *
  * ![Tag light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Tag.spec.mjs-snapshots/Tag-chromium-darwin.png)
  * ![Tag dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Tag-dark.spec.mjs-snapshots/Tag-dark-chromium-darwin.png)
@@ -64,7 +64,7 @@ export default function Tag({
   onRemove,
   text,
   type = 'default',
-}: Props): Node {
+}: Props): ReactNode {
   const { colorGray200 } = useColorScheme();
 
   const hasIcon = ['error', 'warning'].includes(type);

@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useState } from 'react';
+import { Fragment, type Node as ReactNode, useState } from 'react';
 import {
   Box,
   Button,
@@ -13,7 +13,7 @@ import {
   RadioGroup,
 } from 'gestalt';
 
-export default function AccessibilityExample(): Node {
+export default function AccessibilityExample(): ReactNode {
   const [showComponent, setShowComponent] = useState(true);
   const [claim, setClaim] = useState('tag');
 

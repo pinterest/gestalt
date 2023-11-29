@@ -1,10 +1,18 @@
 // @flow strict
-import { cloneElement, type Element, type Node, useEffect, useId, useRef, useState } from 'react';
-import Dropdown from '../Dropdown.js';
-import Pog from '../Pog.js';
-import TapArea from '../TapArea.js';
-import MaybeTooltip from '../utils/MaybeTooltip.js';
-import { CompositeZIndex, FixedZIndex, type Indexable } from '../zIndex.js';
+import {
+  cloneElement,
+  type Element,
+  type Node as ReactNode,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+} from 'react';
+import Dropdown from '../Dropdown';
+import Pog from '../Pog';
+import TapArea from '../TapArea';
+import MaybeTooltip from '../utils/MaybeTooltip';
+import { CompositeZIndex, FixedZIndex, type Indexable } from '../zIndex';
 
 type Props = {
   icon?: 'ellipsis' | 'edit' | 'trash-can',
@@ -34,7 +42,7 @@ function ItemIconButton({
   forceIconButton,
   setForceIconButton,
   setCompression,
-}: Props): Node {
+}: Props): ReactNode {
   const id = useId();
 
   const innerRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);

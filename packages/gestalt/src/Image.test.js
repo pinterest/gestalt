@@ -1,6 +1,6 @@
 // @flow strict
 import renderer from 'react-test-renderer';
-import Image from './Image.js';
+import Image from './Image';
 
 test('Image matches snapshot', () => {
   const component = renderer.create(

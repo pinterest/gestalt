@@ -1,5 +1,5 @@
 // @flow strict
-import Button from './Button.js';
+import Button from './Button';
 
 const ValidDefaultButtonType = <Button text="Next" />;
 

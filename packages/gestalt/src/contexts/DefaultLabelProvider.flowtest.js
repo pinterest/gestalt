@@ -2,7 +2,7 @@
 import DefaultLabelProvider, {
   fallbackLabels,
   useDefaultLabelContext,
-} from './DefaultLabelProvider.js';
+} from './DefaultLabelProvider';
 
 const Valid = <DefaultLabelProvider labels={fallbackLabels}>Test</DefaultLabelProvider>;
 

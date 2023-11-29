@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../text-remove-semibold', () =>
   Object.assign(jest.requireActual('../text-remove-semibold'), {

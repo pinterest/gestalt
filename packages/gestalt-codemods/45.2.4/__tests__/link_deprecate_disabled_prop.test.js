@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../link_deprecate_disabled_prop', () =>
   Object.assign(jest.requireActual('../link_deprecate_disabled_prop'), {

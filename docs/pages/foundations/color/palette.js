@@ -1,11 +1,11 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
-import ColorPalette from '../../../docs-components/ColorPalette.js';
-import ColorTile from '../../../docs-components/ColorTile.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
+import ColorPalette from '../../../docs-components/ColorPalette';
+import ColorTile from '../../../docs-components/ColorTile';
+import MainSection from '../../../docs-components/MainSection';
+import Page from '../../../docs-components/Page';
+import PageHeader from '../../../docs-components/PageHeader';
 
 const colors = [
   { name: 'Pushpin', id: 'red', textColor: 'light' },
@@ -25,10 +25,10 @@ const neutrals = [
 ];
 
 type ColorCardProps = {
-  children: Node,
+  children: ReactNode,
   colorScheme: 'light' | 'dark',
 };
-function ColorSchemeCard({ children, colorScheme }: ColorCardProps): Node {
+function ColorSchemeCard({ children, colorScheme }: ColorCardProps): ReactNode {
   return (
     <Flex
       gap={{
@@ -56,7 +56,7 @@ function ColorSchemeCard({ children, colorScheme }: ColorCardProps): Node {
   );
 }
 
-export default function ColorPage(): Node {
+export default function ColorPage(): ReactNode {
   return (
     <Page title="Color palette">
       <PageHeader

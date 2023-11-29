@@ -1,6 +1,6 @@
 // @flow strict
 import { render, screen } from '@testing-library/react';
-import Dropdown from './Dropdown.js';
+import Dropdown from './Dropdown';
 
 describe('Dropdown.Item', () => {
   const onSelectMock = jest.fn<

@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../avatar-update-sizes-remove-icon', () =>
   Object.assign(jest.requireActual('../avatar-update-sizes-remove-icon'), {

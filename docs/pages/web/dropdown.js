@@ -1,38 +1,38 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { SlimBanner } from 'gestalt';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import action from '../../examples/dropdown/action.js';
-import badges from '../../examples/dropdown/badges.js';
-import composability from '../../examples/dropdown/composability.js';
-import customHeader from '../../examples/dropdown/customHeader.js';
-import customItem from '../../examples/dropdown/customItem.js';
-import doFeatures from '../../examples/dropdown/doFeatures.js';
-import doIcons from '../../examples/dropdown/doIcons.js';
-import dontCustom from '../../examples/dropdown/dontCustom.js';
-import dontSelectList from '../../examples/dropdown/dontSelectList.js';
-import dontTooltips from '../../examples/dropdown/dontTooltips.js';
-import doOrder from '../../examples/dropdown/doOrder.js';
-import link from '../../examples/dropdown/link.js';
-import main from '../../examples/dropdown/main.js';
-import mobile from '../../examples/dropdown/mobile.js';
-import sections from '../../examples/dropdown/sections.js';
-import subtext from '../../examples/dropdown/subtext.js';
-import truncation from '../../examples/dropdown/truncation.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import { type DocGen, multipleDocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import action from '../../examples/dropdown/action';
+import badges from '../../examples/dropdown/badges';
+import composability from '../../examples/dropdown/composability';
+import customHeader from '../../examples/dropdown/customHeader';
+import customItem from '../../examples/dropdown/customItem';
+import doFeatures from '../../examples/dropdown/doFeatures';
+import doIcons from '../../examples/dropdown/doIcons';
+import dontCustom from '../../examples/dropdown/dontCustom';
+import dontSelectList from '../../examples/dropdown/dontSelectList';
+import dontTooltips from '../../examples/dropdown/dontTooltips';
+import doOrder from '../../examples/dropdown/doOrder';
+import link from '../../examples/dropdown/link';
+import main from '../../examples/dropdown/main';
+import mobile from '../../examples/dropdown/mobile';
+import sections from '../../examples/dropdown/sections';
+import subtext from '../../examples/dropdown/subtext';
+import truncation from '../../examples/dropdown/truncation';
 
 export default function ComponentPage({
   generatedDocGen,
 }: {
   generatedDocGen: { [string]: DocGen },
-}): Node {
+}): ReactNode {
   return (
     <Page title={generatedDocGen.Dropdown?.displayName}>
       <PageHeader
