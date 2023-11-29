@@ -6,11 +6,18 @@ import Dropdown from './Dropdown';
 import SideNavigation from './SideNavigation';
 
 describe('SideNavigation desktop', () => {
-  function Component({ display }: { display?: 'static' | 'expandable' | 'expandableExpanded' }) {
+  function Component({
+    display,
+    expanded,
+  }: {
+    display?: 'static' | 'expandable',
+    expanded?: boolean,
+  }) {
     return (
       <SideNavigation accessibilityLabel="example1" dismissButton={{ onDismiss: () => {} }}>
         <SideNavigation.Group
           display={display}
+          expanded={expanded}
           label="Group item"
           counter={{ number: '123', accessibilityLabel: '123 counter' }}
           primaryAction={{
@@ -234,7 +241,7 @@ describe('SideNavigation desktop', () => {
   });
 
   test('renders display expandableExpanded correctly', () => {
-    render(<Component display="expandableExpanded" />);
+    render(<Component display="expandable" expanded />);
 
     expect(
       screen.getByText('test', {

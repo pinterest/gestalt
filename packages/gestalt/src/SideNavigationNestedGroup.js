@@ -16,7 +16,7 @@ type Props = {
    */
   display?: 'expandable' | 'static',
   /**
-   * When passed SideNavigation.Group becomes a controlled component. If not passed, it stays uncontrolled. See the [controlled group display variant](https://gestalt.pinterest.systems/web/sidenavigation#Group-display) to learn more.
+   * When passed SideNavigation.Group becomes a controlled component. If not passed, it stays uncontrolled. See the [controlled group display variant](https://gestalt.pinterest.systems/web/sidenavigation#Group-display) to learn more. This functionality is not supported in mobile.
    */
   expanded?: boolean,
   /**
@@ -24,7 +24,7 @@ type Props = {
    */
   label: string,
   /**
-   * Callback fired when the expand button component is clicked.
+   * Callback fired when the expand button component is clicked and the component is controlled. This functionality is not supported in mobile.
    */
   onExpand?: ({ expanded: boolean }) => void,
 };
