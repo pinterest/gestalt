@@ -19,7 +19,7 @@ import ComboBoxItem, { type ComboBoxItemType } from './ComboBox/Item';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import { DOWN_ARROW, ENTER, ESCAPE, TAB, UP_ARROW } from './keyCodes';
 import Layer from './Layer';
-import { ExperimentalPopover as Popover } from './Popover';
+import Popover from './Popover';
 import Tag from './Tag';
 import Text from './Text';
 import InternalTextField from './TextField/InternalTextField';
@@ -504,7 +504,7 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
       {showOptionsList && innerRef.current ? (
         <Layer zIndex={zIndex}>
           <Popover
-            enableExperiment={isInExperiment}
+            __experimentalPopover={isInExperiment}
             anchor={innerRef.current}
             onKeyDown={handleKeyDown}
             idealDirection="down"

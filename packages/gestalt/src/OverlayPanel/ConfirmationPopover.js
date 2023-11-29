@@ -8,7 +8,7 @@ import Button from '../Button';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import Flex from '../Flex';
 import { ESCAPE } from '../keyCodes';
-import { ExperimentalPopover as Popover } from '../Popover';
+import Popover from '../Popover';
 import Text from '../Text';
 import useInExperiment from '../useInExperiment';
 
@@ -85,7 +85,7 @@ export default function ConfirmationPopover({
 
   return (
     <Popover
-      enableExperiment={isInExperiment}
+      __experimentalPopover={isInExperiment}
       anchor={anchor}
       idealDirection="down"
       onDismiss={() => onDismiss()}

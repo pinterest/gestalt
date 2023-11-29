@@ -10,7 +10,7 @@ import DropdownLink from './DropdownLink';
 import DropdownSection from './DropdownSection';
 import { DOWN_ARROW, ENTER, ESCAPE, SPACE, TAB, UP_ARROW } from './keyCodes';
 import Layer from './Layer';
-import { ExperimentalPopover as Popover } from './Popover';
+import Popover from './Popover';
 import PartialPage from './SheetMobile/PartialPage';
 import useInExperiment from './useInExperiment';
 import { type DirectionOptionType } from './utils/keyboardNavigation';
@@ -275,7 +275,7 @@ export default function Dropdown({
 
   const dropdown = (
     <Popover
-      enableExperiment={isInExperiment}
+      __experimentalPopover={isInExperiment}
       anchor={anchor}
       color="white"
       onKeyDown={onKeyDown}

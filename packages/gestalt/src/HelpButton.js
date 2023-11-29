@@ -17,7 +17,7 @@ import Icon from './Icon';
 import { ESCAPE, TAB } from './keyCodes';
 import Layer from './Layer';
 import Link from './Link';
-import { ExperimentalPopover as Popover } from './Popover';
+import Popover from './Popover';
 import TapArea from './TapArea';
 import Text from './Text';
 import Tooltip from './Tooltip';
@@ -186,7 +186,7 @@ export default function HelpButton({
 
   const popoverElement = (
     <Popover
-      enableExperiment={isInExperiment}
+      __experimentalPopover={isInExperiment}
       id={popoverId}
       accessibilityLabel={accessibilityPopoverLabel}
       anchor={tapAreaRef.current}

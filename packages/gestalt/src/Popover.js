@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import ExperimentProvider from './contexts/ExperimentProvider';
 import InternalPopover from './Popover/InternalPopover';
 import LegacyInternalPopover from './Popover/LegacyInternalPopover';
 import useInExperiment from './useInExperiment';
@@ -84,6 +83,8 @@ type Props = {
   hideWhenReferenceHidden?: boolean,
   // This property can be set when `ScrollBoundaryContainer` is set to `overflow="visible"` but therefore limits the height of the Popover-based component. Some cases require
   __dangerouslySetMaxHeight?: '30vh',
+  // Whether to use the new experimental Popover
+  __experimentalPopover?: boolean,
 };
 
 /**
@@ -115,13 +116,14 @@ export default function Popover({
   scrollBoundary,
   hideWhenReferenceHidden,
   __dangerouslySetMaxHeight,
+  __experimentalPopover,
 }: Props): null | ReactNode {
   const isInExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_popover_v2',
     mwebExperimentName: 'mweb_gestalt_popover_v2',
   });
 
-  if (!isInExperiment) {
+  if (!isInExperiment && !__experimentalPopover) {
     return (
       <LegacyInternalPopover
         accessibilityLabel={accessibilityLabel}
@@ -166,28 +168,5 @@ export default function Popover({
     >
       {children}
     </InternalPopover>
-  );
-}
-
-export function ExperimentalPopover({
-  enableExperiment,
-  ...props
-}: {
-  enableExperiment: boolean,
-  ...Props,
-}): ReactNode {
-  return (
-    <ExperimentProvider
-      value={
-        enableExperiment
-          ? {
-              'web_gestalt_popover_v2': { anyEnabled: true, group: 'enabled' },
-              'mweb_gestalt_popover_v2': { anyEnabled: true, group: 'enabled' },
-            }
-          : {}
-      }
-    >
-      <Popover {...props} />
-    </ExperimentProvider>
   );
 }
