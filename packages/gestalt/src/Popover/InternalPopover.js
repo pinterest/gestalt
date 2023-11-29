@@ -56,12 +56,12 @@ export default function InternalPopover({
 
   useEffect(() => {
     dismissButtonRef.current?.focus();
+    console.log('new pop');
   }, []);
 
   if (!anchor) {
     return null;
   }
-
   return (
     <Controller
       accessibilityLabel={accessibilityLabel}

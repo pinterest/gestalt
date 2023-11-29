@@ -9,6 +9,7 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
+import { SlimBannerExperiment } from '../../docs-components/SlimBannerExperiment';
 import a11y from '../../examples/popover/a11y';
 import dontCritical from '../../examples/popover/dontCritical';
 import localizationLabels from '../../examples/popover/localizationLabels';
@@ -22,7 +23,17 @@ import variantVisibility from '../../examples/popover/variantVisibility';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        slimBanner={
+          <SlimBannerExperiment
+            componentName="Popover"
+            description="to fix and improve component behavior. No visual updates"
+            pullRequest={3244}
+          />
+        }
+      >
         <SandpackExample code={main} hideEditor name="Main popover example" previewHeight={600} />
       </PageHeader>
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -292,7 +303,6 @@ export async function getServerSideProps(): Promise<{
   props: { generatedDocGen: DocGen },
 }> {
   const generatedDocGen = await docGen('Popover');
-
   generatedDocGen.props.color.flowType.raw = '"red" | "white" | "darkGray"';
 
   return {

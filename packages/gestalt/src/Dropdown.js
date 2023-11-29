@@ -10,8 +10,9 @@ import DropdownLink from './DropdownLink';
 import DropdownSection from './DropdownSection';
 import { DOWN_ARROW, ENTER, ESCAPE, SPACE, TAB, UP_ARROW } from './keyCodes';
 import Layer from './Layer';
-import Popover from './Popover';
+import { ExperimentalPopover as Popover } from './Popover';
 import PartialPage from './SheetMobile/PartialPage';
+import useInExperiment from './useInExperiment';
 import { type DirectionOptionType } from './utils/keyboardNavigation';
 import { type Indexable } from './zIndex';
 
@@ -235,6 +236,12 @@ export default function Dropdown({
       event.preventDefault();
     }
   };
+
+  const isInExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_popover_v2_dropdown',
+    mwebExperimentName: 'mweb_gestalt_popover_v2_dropdown',
+  });
+
   if (isMobile && !disableMobileUI) {
     return (
       <AnimationProvider>
@@ -268,6 +275,7 @@ export default function Dropdown({
 
   const dropdown = (
     <Popover
+      enableExperiment={isInExperiment}
       anchor={anchor}
       color="white"
       onKeyDown={onKeyDown}

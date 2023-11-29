@@ -9,6 +9,7 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
+import { SlimBannerExperiment } from '../../docs-components/SlimBannerExperiment';
 import controlled from '../../examples/combobox/controlled';
 import error from '../../examples/combobox/error';
 import helperText from '../../examples/combobox/helperText';
@@ -26,7 +27,17 @@ const PREVIEW_HEIGHT = 320;
 export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        slimBanner={
+          <SlimBannerExperiment
+            componentName="ComboBox"
+            description="to fix and improve underlying Popover component behavior. No visual updates"
+            pullRequest={3244}
+          />
+        }
+      >
         <SandpackExample
           code={main}
           name="Main Combobox example"

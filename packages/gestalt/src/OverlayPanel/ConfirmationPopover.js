@@ -8,8 +8,9 @@ import Button from '../Button';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import Flex from '../Flex';
 import { ESCAPE } from '../keyCodes';
-import Popover from '../Popover';
+import { ExperimentalPopover as Popover } from '../Popover';
 import Text from '../Text';
+import useInExperiment from '../useInExperiment';
 
 type Props = {
   anchor: ?HTMLElement,
@@ -77,8 +78,14 @@ export default function ConfirmationPopover({
     };
   }, []);
 
+  const isInExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_popover_v2_confirmationpopover',
+    mwebExperimentName: 'mweb_gestalt_popover_v2_confirmationpopover',
+  });
+
   return (
     <Popover
+      enableExperiment={isInExperiment}
       anchor={anchor}
       idealDirection="down"
       onDismiss={() => onDismiss()}
