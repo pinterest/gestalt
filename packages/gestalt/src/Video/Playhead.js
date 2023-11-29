@@ -65,14 +65,18 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
           supportsPassive = true;
         },
       });
-      window.addEventListener('testPassive', null, opts);
-      window.removeEventListener('testPassive', null, opts);
+      // skip this for mouse events, keep supportsPassive as false
+      if (!event?.clientX) {
+        window.addEventListener('testPassive', null, opts);
+        window.removeEventListener('testPassive', null, opts);
+      }
     } catch (e) {
       // do nothing
     }
 
     // Chrome, starting with version 56 (desktop, Chrome for Android, and Android webview), where the default value for the passive option for touchstart and touchmove is true and calls to preventDefault() will have no effect.
-    if (!!event?.clientX || !supportsPassive) {
+    // supportsPassive is false for mouse events as well as touch events when passive is not supported
+    if (!supportsPassive) {
       event.preventDefault();
     }
 
@@ -113,14 +117,18 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
           supportsPassive = true;
         },
       });
-      window.addEventListener('testPassive', null, opts);
-      window.removeEventListener('testPassive', null, opts);
+      // skip this for mouse events, keep supportsPassive as false
+      if (!event?.clientX) {
+        window.addEventListener('testPassive', null, opts);
+        window.removeEventListener('testPassive', null, opts);
+      }
     } catch (e) {
       // do nothing
     }
 
     // Chrome, starting with version 56 (desktop, Chrome for Android, and Android webview), where the default value for the passive option for touchstart and touchmove is true and calls to preventDefault() will have no effect.
-    if (!!event?.clientX || !supportsPassive) {
+    // supportsPassive is false for mouse events as well as touch events when passive is not supported
+    if (!supportsPassive) {
       event.preventDefault();
     }
 
@@ -162,18 +170,9 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
           onMouseMove={this.handleMouseMove}
           onMouseUp={this.handleMouseUp}
           // ontouch events handle scrubber on mobile
-          onTouchStart={(event) => {
-            console.log('onTouchStart');
-            this.handleMouseDown(event);
-          }}
-          onTouchMove={(event) => {
-            console.log('onTouchMove');
-            this.handleMouseMove(event);
-          }}
-          onTouchEnd={(event) => {
-            console.log('onTouchEnd');
-            this.handleMouseUp(event);
-          }}
+          onTouchStart={this.handleMouseDown}
+          onTouchMove={this.handleMouseMove}
+          onTouchEnd={this.handleMouseUp}
           ref={this.setPlayheadRef}
           role="progressbar"
           tabIndex="-1"
