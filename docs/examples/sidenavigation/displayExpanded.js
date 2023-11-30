@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode, useState } from 'react';
-import { Box, DeviceTypeProvider, SideNavigation } from 'gestalt';
+import { Box, SideNavigation } from 'gestalt';
 
 export default function Example(): ReactNode {
   const [expandedElements, setExpandedElements] = useState<$ReadOnlyArray<string>>([
