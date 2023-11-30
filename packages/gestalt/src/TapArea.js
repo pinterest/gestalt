@@ -84,7 +84,16 @@ type Props = {
   /**
    * Select a mouse cursor type to convey the TapArea expected behavior.
    */
-  mouseCursor?: 'copy' | 'grab' | 'grabbing' | 'move' | 'noDrop' | 'pointer' | 'zoomIn' | 'zoomOut',
+  mouseCursor?:
+    | 'copy'
+    | 'default'
+    | 'grab'
+    | 'grabbing'
+    | 'move'
+    | 'noDrop'
+    | 'pointer'
+    | 'zoomIn'
+    | 'zoomOut',
   /**
    * Callback fired when a TapArea component loses focus.
    */
@@ -218,6 +227,7 @@ const TapAreaWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwardR
       [styles.fullHeight]: fullHeight,
       [styles.fullWidth]: fullWidth,
       [styles.copy]: mouseCursor === 'copy' && !disabled,
+      [styles.default]: mouseCursor === 'default' && !disabled,
       [styles.grab]: mouseCursor === 'grab' && !disabled,
       [styles.grabbing]: mouseCursor === 'grabbing' && !disabled,
       [styles.move]: mouseCursor === 'move' && !disabled,
