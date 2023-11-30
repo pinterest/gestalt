@@ -89,6 +89,11 @@ html:not([dir="rtl"]) .button.lg {
   composes: warningBase from "./Colors.css";
 }
 
+.warningBase:hover,
+.warningBase:focus {
+  background-color: var(--g-colorYellow100Hovered);
+}
+
 .warningBase:active {
   background-color: var(--g-colorYellow100Active);
 }

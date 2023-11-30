@@ -74,7 +74,7 @@ const applyDensityTheme = (s: 'sm' | 'md' | 'lg') => {
         paddingY: 3,
         height: 48,
         removeIconGap: 4,
-        removeIconSize: 12,
+        removeIconSize: 8,
         fontSize: '200',
       };
     case 'md':
