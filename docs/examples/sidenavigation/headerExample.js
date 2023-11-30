@@ -1,9 +1,9 @@
 // @flow strict
-import React, { type Node as ReactNode } from 'react';
+import { Fragment, type Node as ReactNode, useState } from 'react';
 import { Flex, RadioGroup, SideNavigation } from 'gestalt';
 
 export default function Example(): ReactNode {
-  const [organisedBy, setOrganisedBy] = React.useState('categorized');
+  const [organisedBy, setOrganisedBy] = useState('categorized');
 
   return (
     <SideNavigation
@@ -39,7 +39,7 @@ export default function Example(): ReactNode {
       }
     >
       {organisedBy === 'categorized' ? (
-        <React.Fragment>
+        <Fragment>
           <SideNavigation.Section label="Navigation">
             <SideNavigation.TopItem href="#" label="PageHeader" />
             <SideNavigation.TopItem href="#" label="Tabs" />
@@ -57,9 +57,9 @@ export default function Example(): ReactNode {
             />
             <SideNavigation.TopItem href="#" label="RadioGroup" />
           </SideNavigation.Section>
-        </React.Fragment>
+        </Fragment>
       ) : (
-        <React.Fragment>
+        <Fragment>
           <SideNavigation.TopItem href="#" label="PageHeader" />
           <SideNavigation.TopItem
             href="#"
@@ -73,7 +73,7 @@ export default function Example(): ReactNode {
             badge={{ text: 'New', type: 'info' }}
           />
           <SideNavigation.TopItem href="/web/tabs" label="Tabs" />
-        </React.Fragment>
+        </Fragment>
       )}
     </SideNavigation>
   );
