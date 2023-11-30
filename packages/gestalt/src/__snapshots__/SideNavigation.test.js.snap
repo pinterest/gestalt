@@ -1649,7 +1649,7 @@ exports[`SideNavigation renders static group 1`] = `
   }
 >
   <nav
-    aria-label="Nested items example"
+    aria-label="Static items example"
     className="box"
     style={
       Object {
