@@ -1278,7 +1278,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                 className="liItem"
               >
                 <div
-                  aria-controls=":rm:"
+                  aria-controls=":ri:"
                   aria-disabled={false}
                   aria-expanded={true}
                   className="hideOutline tapTransition rounding2 accessibilityOutline fullWidth pointer"
@@ -1376,7 +1376,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                 </div>
                 <ul
                   className="ulItem"
-                  id=":rm:"
+                  id=":ri:"
                 >
                   <li
                     className="liItem"
@@ -1437,7 +1437,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                     className="liItem"
                   >
                     <div
-                      aria-controls=":ro:"
+                      aria-controls=":rm:"
                       aria-disabled={false}
                       aria-expanded={true}
                       className="hideOutline tapTransition rounding2 accessibilityOutline fullWidth pointer"
@@ -1513,7 +1513,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                     </div>
                     <ul
                       className="ulItem"
-                      id=":ro:"
+                      id=":rm:"
                     >
                       <li
                         className="liItem"
@@ -1733,215 +1733,6 @@ exports[`SideNavigation renders static group 1`] = `
                     </div>
                   </div>
                 </div>
-                <ul
-                  className="ulItem"
-                  id=":rg:"
-                >
-                  <li
-                    className="liItem"
-                  >
-                    <a
-                      className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
-                      href="#"
-                      onBlur={[Function]}
-                      onClick={[Function]}
-                      onFocus={[Function]}
-                      onKeyDown={[Function]}
-                      onKeyPress={[Function]}
-                      onMouseDown={[Function]}
-                      onMouseEnter={[Function]}
-                      onMouseLeave={[Function]}
-                      onMouseUp={[Function]}
-                      onTouchCancel={[Function]}
-                      onTouchEnd={[Function]}
-                      onTouchMove={[Function]}
-                      onTouchStart={[Function]}
-                      rel=""
-                      tabIndex={0}
-                      target={null}
-                    >
-                      <div
-                        className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
-                        style={
-                          Object {
-                            "minHeight": 44,
-                            "paddingInlineEnd": "16px",
-                            "paddingInlineStart": "48px",
-                          }
-                        }
-                      >
-                        <div
-                          className="Flex rowGap2 columnGap0 xsDirectionRow"
-                          style={
-                            Object {
-                              "height": "100%",
-                              "width": "100%",
-                            }
-                          }
-                        >
-                          <div
-                            className="FlexItem flexGrow selfCenter"
-                          >
-                            <span
-                              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
-                            >
-                              Luxury Christmas
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li
-                    className="liItem"
-                  >
-                    <div
-                      className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
-                      style={
-                        Object {
-                          "minHeight": 44,
-                          "paddingInlineEnd": "16px",
-                          "paddingInlineStart": "48px",
-                        }
-                      }
-                    >
-                      <div
-                        className="Flex rowGap2 columnGap0 xsDirectionRow"
-                        style={
-                          Object {
-                            "height": "100%",
-                            "width": "100%",
-                          }
-                        }
-                      >
-                        <div
-                          className="FlexItem flexGrow selfCenter"
-                        >
-                          <span
-                            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
-                          >
-                            Classic Christmas
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <ul
-                      className="ulItem"
-                      id=":ri:"
-                    >
-                      <li
-                        className="liItem"
-                      >
-                        <a
-                          className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
-                          href="#"
-                          onBlur={[Function]}
-                          onClick={[Function]}
-                          onFocus={[Function]}
-                          onKeyDown={[Function]}
-                          onKeyPress={[Function]}
-                          onMouseDown={[Function]}
-                          onMouseEnter={[Function]}
-                          onMouseLeave={[Function]}
-                          onMouseUp={[Function]}
-                          onTouchCancel={[Function]}
-                          onTouchEnd={[Function]}
-                          onTouchMove={[Function]}
-                          onTouchStart={[Function]}
-                          rel=""
-                          tabIndex={0}
-                          target={null}
-                        >
-                          <div
-                            className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
-                            style={
-                              Object {
-                                "minHeight": 44,
-                                "paddingInlineEnd": "16px",
-                                "paddingInlineStart": "68px",
-                              }
-                            }
-                          >
-                            <div
-                              className="Flex rowGap2 columnGap0 xsDirectionRow"
-                              style={
-                                Object {
-                                  "height": "100%",
-                                  "width": "100%",
-                                }
-                              }
-                            >
-                              <div
-                                className="FlexItem flexGrow selfCenter"
-                              >
-                                <span
-                                  className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
-                                >
-                                  West Coast
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </li>
-                      <li
-                        className="liItem"
-                      >
-                        <a
-                          className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
-                          href="#"
-                          onBlur={[Function]}
-                          onClick={[Function]}
-                          onFocus={[Function]}
-                          onKeyDown={[Function]}
-                          onKeyPress={[Function]}
-                          onMouseDown={[Function]}
-                          onMouseEnter={[Function]}
-                          onMouseLeave={[Function]}
-                          onMouseUp={[Function]}
-                          onTouchCancel={[Function]}
-                          onTouchEnd={[Function]}
-                          onTouchMove={[Function]}
-                          onTouchStart={[Function]}
-                          rel=""
-                          tabIndex={0}
-                          target={null}
-                        >
-                          <div
-                            className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
-                            style={
-                              Object {
-                                "minHeight": 44,
-                                "paddingInlineEnd": "16px",
-                                "paddingInlineStart": "68px",
-                              }
-                            }
-                          >
-                            <div
-                              className="Flex rowGap2 columnGap0 xsDirectionRow"
-                              style={
-                                Object {
-                                  "height": "100%",
-                                  "width": "100%",
-                                }
-                              }
-                            >
-                              <div
-                                className="FlexItem flexGrow selfCenter"
-                              >
-                                <span
-                                  className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
-                                >
-                                  East Coast
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
               </li>
             </ul>
           </div>

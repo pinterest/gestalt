@@ -134,7 +134,7 @@ describe('SideNavigation', () => {
 
   it('renders static group', () => {
     const tree = create(
-      <SideNavigation accessibilityLabel="Nested items example">
+      <SideNavigation accessibilityLabel="Static items example">
         <SideNavigation.Group label="Christmas" icon="people" display="static">
           <SideNavigation.NestedItem
             href="#"
