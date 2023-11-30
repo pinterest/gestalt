@@ -1,3 +1,9 @@
+## 128.4.1 (Nov 30, 2023)
+
+### Patch
+
+- SideNavigation: TS fix ([#3314](https://github.com/pinterest/gestalt/pull/3314)) - [Preview link](https://deploy-preview-3314--gestalt.netlify.app?devexample=true)
+
 ## 128.4.0 (Nov 30, 2023)
 
 ### Minor
