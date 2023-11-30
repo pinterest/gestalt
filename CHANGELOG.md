@@ -1,3 +1,9 @@
+## 128.4.0 (Nov 30, 2023)
+
+### Minor
+
+- SideNavigation: group `expanded` & `onExpand` prop added ([#3311](https://github.com/pinterest/gestalt/pull/3311)) - [Preview link](https://deploy-preview-3311--gestalt.netlify.app?devexample=true)
+
 ## 128.3.8 (Nov 29, 2023)
 
 ### Patch
