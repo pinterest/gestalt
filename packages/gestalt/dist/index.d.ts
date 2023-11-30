@@ -1796,7 +1796,7 @@ interface SideNavigationGroupProps {
   expanded?: boolean;
   icon?: Icons | undefined;
   notificationAccessibilityLabel?: string | undefined;
-  onExpanded: (args: { expanded: boolean }) => void;
+  onExpand: (args: { expanded: boolean }) => void;
   primaryAction?: PrimaryActionType | undefined;
 }
 
@@ -1806,7 +1806,7 @@ interface SideNavigationNestedGroupProps {
   counter?: { number: string; accessibilityLabel: string } | undefined;
   display?: 'expandable' | 'static' | undefined;
   expanded?: boolean;
-  onExpanded: (args: { expanded: boolean }) => void;
+  onExpand: (args: { expanded: boolean }) => void;
 }
 
 interface SlimBannerProps {
