@@ -86,7 +86,7 @@ export default function SideNavigationGroup({
   children,
   counter,
   display = 'expandable',
-  expanded: groupExpanded,
+  expanded: expandedProp,
   icon,
   notificationAccessibilityLabel,
   label,
@@ -144,12 +144,12 @@ export default function SideNavigationGroup({
   useEffect(() => {
     if (display === 'static') {
       setIsExpanded(true);
-    } else if (display === 'expandable' && groupExpanded === undefined) {
+    } else if (display === 'expandable' && expandedProp === undefined) {
       setIsExpanded(expanded);
-    } else if (display === 'expandable' && groupExpanded !== undefined) {
-      setIsExpanded(groupExpanded);
+    } else if (display === 'expandable' && expandedProp !== undefined) {
+      setIsExpanded(expandedProp);
     }
-  }, [display, expanded, groupExpanded]);
+  }, [display, expanded, expandedProp]);
 
   const itemColor = hovered ? 'secondary' : undefined;
 
@@ -189,7 +189,7 @@ export default function SideNavigationGroup({
             rounding={2}
             tapStyle={compression}
             onTap={() => {
-              if (display === 'expandable' && groupExpanded === undefined) {
+              if (display === 'expandable' && expandedProp === undefined) {
                 setExpanded((value) => {
                   if (!value) setSelectedItemId(itemId);
                   return !value;

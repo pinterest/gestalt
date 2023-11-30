@@ -8,6 +8,16 @@ export default function Example(): ReactNode {
     'Classic Christmas',
   ]);
 
+  const handleOnExpand =
+    (name: string) =>
+    ({ expanded }: { expanded: boolean }) => {
+      if (expanded) {
+        setExpandedElements([...expandedElements, name]);
+      } else {
+        setExpandedElements(expandedElements.filter((value) => value !== name));
+      }
+    };
+
   return (
     <Box height={362} width={280} overflow="scroll">
       <SideNavigation accessibilityLabel="Nested items example">
@@ -16,13 +26,7 @@ export default function Example(): ReactNode {
           icon="people"
           display="expandable"
           expanded={expandedElements.includes('Christmas')}
-          onExpand={({ expanded }) => {
-            if (expanded) {
-              setExpandedElements([...expandedElements, 'Christmas']);
-            } else {
-              setExpandedElements(expandedElements.filter((value) => value !== 'Christmas'));
-            }
-          }}
+          onExpand={handleOnExpand('Christmas')}
         >
           <SideNavigation.NestedItem
             href="#"
@@ -33,15 +37,7 @@ export default function Example(): ReactNode {
             label="Classic Christmas"
             display="expandable"
             expanded={expandedElements.includes('Classic Christmas')}
-            onExpand={({ expanded }) => {
-              if (expanded) {
-                setExpandedElements([...expandedElements, 'Classic Christmas']);
-              } else {
-                setExpandedElements(
-                  expandedElements.filter((value) => value !== 'Classic Christmas'),
-                );
-              }
-            }}
+            onExpand={handleOnExpand('Classic Christmas')}
           >
             <SideNavigation.NestedItem
               href="#"
