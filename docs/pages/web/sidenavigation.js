@@ -398,9 +398,11 @@ To prevent visual overload, do not include counters in the parent if the childre
 1. static: Group is expanded by default and there isn't expanding/collapsing behavior
 2. expandable: Group is expandable and all items are initially collapsed except groups with active children.
 
-When we set \`expand\` to a boolean value, SideNavigation.Group and SideNavigation.NestedGroup become a controlled component. If not passed or set to "undefined", it stays uncontrolled.
+When \`display='expandable'\`, we can manage the state of each group's collapsing/expanded state by setting SideNavigation.Group and SideNavigation.NestedGroup as controlled components.
 
-When \`display='expandable'\`, we can manage the state of each group's collapsing/expanded state by setting  SideNavigation.Group and SideNavigation.NestedGroup as controlled components.
+To work as controlled components, set \`expand\` prop to a boolean value. If not passed or set to "undefined", they stay uncontrolled.
+
+Beware that when controlled, the list path to the active item is not automatically expanded.
 `}
         >
           <MainSection.Card
