@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import TapAreaLink from './TapAreaLink.js';
+import TapAreaLink from './TapAreaLink';
 
 describe('TapAreaLink', () => {
   test('renders', () => {

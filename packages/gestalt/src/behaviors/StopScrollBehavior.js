@@ -1,8 +1,8 @@
 // @flow strict
-import { Component, type Node } from 'react';
+import { Component, type Node as ReactNode } from 'react';
 
 type Props = {
-  children: Node,
+  children: ReactNode,
 };
 
 export default class NoScrollBehavior extends Component<Props> {
@@ -26,7 +26,7 @@ export default class NoScrollBehavior extends Component<Props> {
     }
   }
 
-  render(): Node {
+  render(): ReactNode {
     return this.props.children;
   }
 }

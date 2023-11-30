@@ -1,10 +1,10 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import classNames from 'classnames';
 import boxWhitespace from './boxWhitespace.css';
 import ListStyles from './List.css';
-import TableOfContentsAnchor from './TableOfContents/TableOfContentsAnchor.js';
-import TableOfContentsItemList from './TableOfContents/TableOfContentsItemList.js';
+import TableOfContentsAnchor from './TableOfContents/TableOfContentsAnchor';
+import TableOfContentsItemList from './TableOfContents/TableOfContentsItemList';
 
 type Props = {
   /**
@@ -29,13 +29,13 @@ type Props = {
   /**
    * Must be instances TableofContents.Item
    */
-  children?: Node,
+  children?: ReactNode,
 };
 
 /**
  * [TableOfContents.Item](https://gestalt.pinterest.systems/web/tableofcontents#TableOfContents.Item) is a subcomponent of [TableOfContents](https://gestalt.pinterest.systems/web/tableofcontents). Use [TableOfContents.Item](https://gestalt.pinterest.systems/web/tableofcontents#TableOfContents.Item) to redirect the user to a different section of a page.
  */
-export default function TableOfContentsItem(props: Props): Node {
+export default function TableOfContentsItem(props: Props): ReactNode {
   return (
     <li className={classNames(ListStyles.noStyle, boxWhitespace.marginTop1)}>
       <TableOfContentsAnchor

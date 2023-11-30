@@ -1,5 +1,5 @@
 // @flow strict
-import InternalLink from './InternalLink.js';
+import InternalLink from './InternalLink';
 
 const Valid = (
   <InternalLink tabIndex={0} wrappedComponent="button" href="https://example.com">

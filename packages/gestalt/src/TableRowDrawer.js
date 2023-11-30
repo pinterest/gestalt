@@ -1,20 +1,28 @@
 // @flow strict
-import { Children, cloneElement, Fragment, type Node, useEffect, useRef, useState } from 'react';
+import {
+  Children,
+  cloneElement,
+  Fragment,
+  type Node as ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import classnames from 'classnames';
-import Box from './Box.js';
-import { useTableContext } from './contexts/TableContext.js';
+import Box from './Box';
+import { useTableContext } from './contexts/TableContext';
 import styles from './Table.css';
-import getChildrenCount from './Table/getChildrenCount.js';
+import getChildrenCount from './Table/getChildrenCount';
 
 type Props = {
   /**
    * Must be instances of Table.Cell. See the [Subcomponent section](https://gestalt.pinterest.systems/web/table#Subcomponents) to learn more.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * The contents within the drawer. See the [Table.RowDrawer implementation](https://gestalt.pinterest.systems/web/table#Table.RowDrawer-implementation) to learn more.
    */
-  drawerContents: Node,
+  drawerContents: ReactNode,
   /**
    * Sets the background color on hover over the row. See the [selected and hovered state variant](https://gestalt.pinterest.systems/web/table#Selected-and-hovered-state) to learn more.
    */
@@ -39,7 +47,7 @@ export default function TableRowDrawer({
   hoverStyle = 'none',
   id,
   selected,
-}: Props): Node {
+}: Props): ReactNode {
   const { stickyColumns } = useTableContext();
   const rowRef = useRef<?HTMLTableRowElement>();
   const [columnWidths, setColumnWidths] = useState<$ReadOnlyArray<number>>([]);
@@ -51,7 +59,7 @@ export default function TableRowDrawer({
     }
   }, [stickyColumns]);
 
-  const renderCellWithAdjustedIndex = (child: Node, index: number) => {
+  const renderCellWithAdjustedIndex = (child: ReactNode, index: number) => {
     // Account for initial expandable column
     const adjustedIndex = index + 1;
     const shouldBeSticky = stickyColumns

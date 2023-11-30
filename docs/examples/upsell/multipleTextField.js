@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Image, TextField, Upsell } from 'gestalt';
 
 type SubmitHandler = ({
@@ -10,7 +10,7 @@ type SubmitHandler = ({
     | SyntheticKeyboardEvent<HTMLButtonElement>,
 }) => void;
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [nameValue, setNameValue] = useState('');
   const [emailValue, setEmailValue] = useState('');
   const handleSubmit: SubmitHandler = ({ event }) => {

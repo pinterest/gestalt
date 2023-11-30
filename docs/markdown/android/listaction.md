@@ -45,7 +45,7 @@ fullwidth: true
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/7a/68/4b/7a684b1b7c6362a03f4ac75b69c914ad.png" alt="An ListAction item with four lines or complex copy"/>
     <Dont title="Don't" />
-    Use more than three lines of subtext as it reduces scanability and can pose issues with internationalization, spacing, and comprehension.
+    Use more than two lines for headers and  three lines of subtext as it reduces scanability and can pose issues with internationalization, spacing, and comprehension.
   </Group>
 </TwoCol>
 
@@ -82,7 +82,7 @@ ListAction items can display three different start items.
 1. **Avatar**
   Commonly used to represent users, profiles, comments or messages in a list.
 2. **Icon**
-  Using icons can effectively communicate meaning or context, thereby enhancing the visual information conveyed by list items.
+  Using icons can effectively communicate meaning or context, thereby enhancing the visual information conveyed by list items. Icons sit in-line with header text. The icon start item supports all Gestalt icons. 
 3. **Image**
   This is usually used when a visual representation is necessary and can also be used to represent a Pin or board.
 <br/>
@@ -113,11 +113,11 @@ ListAction items can display a variety of end items.
   Enables users to pick a single option from a list
 4. **Switch**
   Toggles a specific feature on or off. Typically used for binary settings like activating dark mode.
-5. **Icon Button**
-  Represents an action moving the user forward or about that specific list item. Typically an arrow moving the user to a new page.
+5. **Icon**
+  Represents an action moving the user forward or about that specific list item. Typically an arrow moving the user to a new page. The icon end item supports: arrow-forward, arrow-up-right, check and add.
 6. **Text**
   Additional information at the end of the list item
-7. **Text + Icon Button**
+7. **Text + Icon**
   Additional information at the end of the list item with the addition of a specific icon button action
 <br/>
 <TwoCol>
@@ -139,7 +139,7 @@ ListAction items can display a variety of end items.
   </Group>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/b2/a3/44/b2a344d4f583e04cd286c8b9d14a6d57.png" alt="An ListAction with switches for each item."/>
-   **Icon Button**
+   **Icon**
   </Group>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/22/c6/00/22c6002ca3430a1818480b5aaf409029.png" alt="An ListAction with a list of users and their follower count."/>
@@ -147,7 +147,7 @@ ListAction items can display a variety of end items.
   </Group>
   <Group>
     <ImgContainer src="https://i.pinimg.com/originals/fa/88/52/fa88528c967ab1439c2ce4616412cb9b.png" alt="An ListAction with email and password settings links."/>
-   **Text + Icon Button**
+   **Text + Icon**
   </Group>
 </TwoCol>
 
@@ -172,6 +172,7 @@ Checkbox, Select, and Switch end items will always appear in line with the title
 - For headings use nouns or short phrases with title-style capitalization, and don't use punctuation.
 
 ## Localization
-Be sure to localize the ListAction text. Note that localization can lengthen text by 20 to 30%.
+- Be sure to localize the ListAction text. Note that localization can lengthen text by 20 to 30%.
+- Allow text to wrap as needed. However consider adjusting the text if headers are longer than two lines and subtext is longer than three lines. 
 <br/>
 <ImgContainer padding="standard" src="https://i.pinimg.com/originals/92/a5/8b/92a58b2f91f0c3bf74c6c3bfb06f19a9.png" alt="A ListAction example reversed to reflect the location."/>

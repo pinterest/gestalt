@@ -1,9 +1,9 @@
 // @flow strict
-import { type Node, useMemo, useState } from 'react';
+import { type Node as ReactNode, useMemo, useState } from 'react';
 import { Flex, RadioGroup } from 'gestalt';
 import { DateRange } from 'gestalt-datepicker';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
   const [period, setPeriod] = useState<'1' | '2' | '4' | 'custom' | null>(null);

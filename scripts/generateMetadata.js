@@ -8,6 +8,10 @@ const reactDocs = import('react-docgen'); // v6 forces to use `import`
 const root = path.join(__dirname, '../');
 const docsPath = path.join(root, '/docs');
 
+/**
+ * IMPORTANT: When migrating to TypeScript we are going to need to find a way of detecting files without appending .js
+ */
+
 // Files/components that doesn't have data to parse
 const excludedPaths = [
   '/packages/gestalt/src/contexts/ExperimentProvider.js',
@@ -79,8 +83,8 @@ function getSubcomponentPaths(componentPath) {
   );
 
   const subcomponentPathMatches = fileContent.matchAll(subcomponentPathRegExp);
-  const subcomponentPaths = [...subcomponentPathMatches].map((match) =>
-    path.join(componentPath, '../', match.groups.path),
+  const subcomponentPaths = [...subcomponentPathMatches].map(
+    (match) => `${path.join(componentPath, '../', match.groups.path)}.js`,
   );
 
   return subcomponentPaths;
@@ -92,7 +96,9 @@ function getSubcomponentPaths(componentPath) {
 function getExposedFilesFromDirectory(directoryPath) {
   const indexFile = fs.readFileSync(path.join(root, directoryPath, 'index.js'), 'utf-8');
   const importMatches = indexFile.matchAll(/from '(?<path>.+)'/g);
-  const filePaths = [...importMatches].map((match) => path.join(directoryPath, match.groups.path));
+  const filePaths = [...importMatches].map(
+    (match) => `${path.join(directoryPath, match.groups.path)}.js`,
+  );
   const subcomponentPaths = filePaths.map(getSubcomponentPaths).flat();
 
   return [...filePaths, ...subcomponentPaths];

@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useState } from 'react';
+import { Fragment, type Node as ReactNode, useState } from 'react';
 import {
   Box,
   Button,
@@ -15,7 +15,7 @@ import {
 const HEADER_ZINDEX = new FixedZIndex(10);
 const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [showComponent, setShowComponent] = useState(true);
   const [checked1, setChecked1] = useState(false);
 

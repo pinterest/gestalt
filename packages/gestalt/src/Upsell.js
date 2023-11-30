@@ -1,19 +1,19 @@
 // @flow strict
-import { Children, type Element, type Node } from 'react';
+import { Children, type Element, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
-import Box from './Box.js';
-import Button from './Button.js';
-import ButtonLink from './ButtonLink.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import Icon from './Icon.js';
-import IconButton from './IconButton.js';
-import Image from './Image.js';
-import Mask from './Mask.js';
-import Text from './Text.js';
+import Box from './Box';
+import Button from './Button';
+import ButtonLink from './ButtonLink';
+import { useColorScheme } from './contexts/ColorSchemeProvider';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import Icon from './Icon';
+import IconButton from './IconButton';
+import Image from './Image';
+import Mask from './Mask';
+import Text from './Text';
 import styles from './Upsell.css';
-import UpsellForm from './UpsellForm.js';
-import useResponsiveMinWidth from './useResponsiveMinWidth.js';
+import UpsellForm from './UpsellForm';
+import useResponsiveMinWidth from './useResponsiveMinWidth';
 
 export type ActionDataType =
   | {
@@ -40,7 +40,7 @@ type UpsellActionProps = {
   type: string,
 };
 
-function UpsellAction({ data, stacked, type }: UpsellActionProps): Node {
+function UpsellAction({ data, stacked, type }: UpsellActionProps): ReactNode {
   const color = type === 'primary' ? 'red' : 'gray';
   const { accessibilityLabel, disabled, label } = data;
 
@@ -139,7 +139,7 @@ export default function Upsell({
   primaryAction,
   secondaryAction,
   title,
-}: Props): Node {
+}: Props): ReactNode {
   const isImage = imageData?.component && imageData.component.type === Image;
   const responsiveMinWidth = useResponsiveMinWidth();
   const { accessibilityDismissButtonLabel } = useDefaultLabelContext('Upsell');

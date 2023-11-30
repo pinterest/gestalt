@@ -1,16 +1,16 @@
 // @flow strict
-import { type Element, type Node } from 'react';
+import { type Element, type Node as ReactNode } from 'react';
 import { Badge, Box, Flex, Heading, Link, SlimBanner, Text } from 'gestalt';
 import * as gestaltChart from 'gestalt-charts'; // eslint-disable-line import/no-namespace
 import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
-import trackButtonClick from './buttons/trackButtonClick.js';
-import { DOCS_COPY_MAX_WIDTH_PX } from './consts.js';
-import componentData from './data/components.js';
-import getByPlatform from './data/utils/getByPlatform.js';
-import InternalOnlyIconButton from './InternalOnlyIconButton.js';
-import Markdown from './Markdown.js';
-import PageHeaderQualitySummary from './PageHeaderQualitySummary.js';
-import { SlimBannerExperiment } from './SlimBannerExperiment.js';
+import trackButtonClick from './buttons/trackButtonClick';
+import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
+import componentData from './data/components';
+import getByPlatform from './data/utils/getByPlatform';
+import InternalOnlyIconButton from './InternalOnlyIconButton';
+import Markdown from './Markdown';
+import PageHeaderQualitySummary from './PageHeaderQualitySummary';
+import { SlimBannerExperiment } from './SlimBannerExperiment';
 
 const webComponentData = getByPlatform(componentData, { platform: 'web' });
 
@@ -36,8 +36,16 @@ const buildSourceLinkUrl = (componentName: string) =>
   );
 
 type Props = {
-  badge?: 'pilot' | 'deprecated' | 'experimental',
-  children?: Node,
+  badge?:
+    | 'pilot'
+    | 'deprecated'
+    | 'experimental'
+    | 'comparison'
+    | 'comparisontrends'
+    | 'connection'
+    | 'partstowhole'
+    | 'trends',
+  children?: ReactNode,
   description?: string,
   /**
    * Only use if name !== file name
@@ -65,7 +73,7 @@ export default function PageHeader({
   name,
   slimBanner = null,
   type = 'component',
-}: Props): Node {
+}: Props): ReactNode {
   const sourcePathName = folderName ?? fileName ?? name;
   let sourceLink = buildSourceLinkUrl(sourcePathName);
   if (folderName) {
@@ -82,12 +90,32 @@ export default function PageHeader({
     },
     experimental: {
       text: 'Experimental',
-      tooltipText: `This is an experimental version of ${name}. This component might significantly change in the future with additional breaking functionality. The component could be deprecated as well. We recommend not using it unless discuss and agreed with the Gestalt team`,
+      tooltipText: `This is an experimental version of ${name}. This component might significantly change in the future with additional breaking functionality. The component could be deprecated as well. We recommend not using it unless discuss and agreed with the Gestalt team.`,
     },
     deprecated: {
       text: 'Deprecated',
-      tooltipText: `This component is deprecated and will be removed soon`,
+      tooltipText: `This component is deprecated and will be removed soon.`,
       type: 'error',
+    },
+    comparison: {
+      text: 'Comparison',
+      tooltipText: 'Charts used to see how multiple data sets compare to each other.',
+    },
+    comparisontrends: {
+      text: 'Comparison + Trends',
+      tooltipText: 'Charts used to both see a trend over time and compare amounts in a category.',
+    },
+    connection: {
+      text: 'Connection',
+      tooltipText: 'Charts used to see the relationship between variables.',
+    },
+    partstowhole: {
+      text: 'Parts-to-whole',
+      tooltipText: 'Charts used to see how a breakdown adds up to a total.',
+    },
+    trends: {
+      text: 'Trends',
+      tooltipText: 'Charts used to see how data changes over time.',
     },
   };
 

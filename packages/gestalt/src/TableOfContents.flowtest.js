@@ -1,5 +1,5 @@
 // @flow strict
-import TableOfContents from './TableOfContents.js';
+import TableOfContents from './TableOfContents';
 
 const Valid = (
   <TableOfContents title="Title">

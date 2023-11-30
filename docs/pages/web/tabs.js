@@ -1,26 +1,26 @@
 // @flow strict
-import { type Node } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import backgroundColor from '../../examples/tabs/backgroundColor.js';
-import doAboveTarget from '../../examples/tabs/doAboveTarget.js';
-import doBeConcise from '../../examples/tabs/doBeConcise.js';
-import dontFilterContent from '../../examples/tabs/dontFilterContent.js';
-import dontHide from '../../examples/tabs/dontHide.js';
-import dontTruncateLabels from '../../examples/tabs/dontTruncateLabels.js';
-import doOrderByRelevance from '../../examples/tabs/doOrderByRelevance.js';
-import indicator from '../../examples/tabs/indicator.js';
-import mainExample from '../../examples/tabs/mainExample.js';
-import wrapping from '../../examples/tabs/wrapping.js';
+import { type Node as ReactNode } from 'react';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import backgroundColor from '../../examples/tabs/backgroundColor';
+import doAboveTarget from '../../examples/tabs/doAboveTarget';
+import doBeConcise from '../../examples/tabs/doBeConcise';
+import dontFilterContent from '../../examples/tabs/dontFilterContent';
+import dontHide from '../../examples/tabs/dontHide';
+import dontTruncateLabels from '../../examples/tabs/dontTruncateLabels';
+import doOrderByRelevance from '../../examples/tabs/doOrderByRelevance';
+import indicator from '../../examples/tabs/indicator';
+import mainExample from '../../examples/tabs/mainExample';
+import wrapping from '../../examples/tabs/wrapping';
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen.displayName} description={generatedDocGen.description}>

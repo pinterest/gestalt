@@ -1,27 +1,31 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { AvatarGroup } from 'gestalt';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import CombinationNew from '../../docs-components/CombinationNew.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import accessibility from '../../examples/avatarGroup/accessibility.js';
-import ideas from '../../examples/avatarGroup/ideas.js';
-import main from '../../examples/avatarGroup/main.js';
-import noEmoji from '../../examples/avatarGroup/noEmoji.js';
-import noImageSource from '../../examples/avatarGroup/noImageSource.js';
-import person from '../../examples/avatarGroup/person.js';
-import roleButton from '../../examples/avatarGroup/roleButton.js';
-import roleLink from '../../examples/avatarGroup/roleLink.js';
-import sizing from '../../examples/avatarGroup/sizing.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import CombinationNew from '../../docs-components/CombinationNew';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import accessibility from '../../examples/avatarGroup/accessibility';
+import ideas from '../../examples/avatarGroup/ideas';
+import main from '../../examples/avatarGroup/main';
+import noEmoji from '../../examples/avatarGroup/noEmoji';
+import noImageSource from '../../examples/avatarGroup/noImageSource';
+import person from '../../examples/avatarGroup/person';
+import roleButton from '../../examples/avatarGroup/roleButton';
+import roleLink from '../../examples/avatarGroup/roleLink';
+import sizing from '../../examples/avatarGroup/sizing';
 
-export default function AvatarGroupPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function AvatarGroupPage({
+  generatedDocGen,
+}: {
+  generatedDocGen: DocGen,
+}): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>

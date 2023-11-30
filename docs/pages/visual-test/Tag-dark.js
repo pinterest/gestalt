@@ -1,9 +1,9 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { ColorSchemeProvider } from 'gestalt';
-import TagVisualSnapshot from './Tag.js';
+import TagVisualSnapshot from './Tag';
 
-export default function Snapshot(): Node {
+export default function Snapshot(): ReactNode {
   return (
     <ColorSchemeProvider colorScheme="dark">
       <TagVisualSnapshot />

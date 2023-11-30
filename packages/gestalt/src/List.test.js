@@ -1,7 +1,7 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import List from './List.js';
-import Text from './Text.js';
+import List from './List';
+import Text from './Text';
 
 describe('List', () => {
   it('renders a bare unordered list', () => {

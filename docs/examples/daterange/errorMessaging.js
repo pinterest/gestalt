@@ -1,9 +1,9 @@
 // @flow strict
-import { type Node, useEffect, useState } from 'react';
+import { type Node as ReactNode, useEffect, useState } from 'react';
 import { Flex } from 'gestalt';
 import { DateRange } from 'gestalt-datepicker';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const date = new Date();
   const year = date.getFullYear();
 

@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../box-replace-marginleft-marginright', () =>
   Object.assign(jest.requireActual('../box-replace-marginleft-marginright'), {

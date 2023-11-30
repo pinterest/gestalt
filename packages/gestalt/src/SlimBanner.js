@@ -1,15 +1,15 @@
 // @flow strict
-import { Children, type Element, Fragment, type Node } from 'react';
-import Box from './Box.js';
-import Button from './Button.js';
-import ButtonLink from './ButtonLink.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import Flex from './Flex.js';
-import Icon from './Icon.js';
-import IconButton from './IconButton.js';
-import Link from './Link.js';
-import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES.js';
-import Text from './Text.js';
+import { Children, type Element, Fragment, type Node as ReactNode } from 'react';
+import Box from './Box';
+import Button from './Button';
+import ButtonLink from './ButtonLink';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import Flex from './Flex';
+import Icon from './Icon';
+import IconButton from './IconButton';
+import Link from './Link';
+import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES';
+import Text from './Text';
 
 type DismissButtonType = {
   accessibilityLabel?: string,
@@ -163,7 +163,7 @@ export default function SlimBanner({
   message,
   primaryAction,
   type = 'neutral',
-}: Props): Node {
+}: Props): ReactNode {
   const isBare = type.endsWith('Bare');
   const isDefault = type === 'neutral';
   const { backgroundColor, iconColor, icon } = MESSAGING_TYPE_ATTRIBUTES[type.replace('Bare', '')];

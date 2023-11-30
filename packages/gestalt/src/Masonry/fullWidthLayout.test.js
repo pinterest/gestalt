@@ -1,5 +1,5 @@
 // @flow strict
-import fullWidthLayout from './fullWidthLayout.js';
+import fullWidthLayout from './fullWidthLayout';
 
 const stubCache = (measurements?: { [item: string]: number } = {}) => {
   let cache = measurements;

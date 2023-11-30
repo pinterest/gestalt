@@ -1,10 +1,10 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, RadioGroup, Text } from 'gestalt';
 
 const noop = () => {};
 
-export default function RadioButtonExample(): Node {
+export default function RadioButtonExample(): ReactNode {
   return (
     <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
       <Flex gap={{ column: 4, row: 0 }} direction="column">

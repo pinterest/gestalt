@@ -1,5 +1,5 @@
 // @flow strict
-import Heading from './Heading.js';
+import Heading from './Heading';
 
 const Valid = <Heading size="400">Heading</Heading>;
 

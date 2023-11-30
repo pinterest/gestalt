@@ -1,5 +1,5 @@
 // @flow strict
-import { type Context, createContext, type Node, useContext } from 'react';
+import { type Context, createContext, type Node as ReactNode, useContext } from 'react';
 
 /**
  * To add new labels:
@@ -235,7 +235,7 @@ const DefaultLabelContext: Context<?DefaultLabelContextType> =
   createContext<?DefaultLabelContextType>(null);
 
 type Props = {
-  children: Node,
+  children: ReactNode,
   /**
    * An object describing the default strings to be used by supported component labels throughout your app. If your app supports i18n, don't forget to translate your strings!
    *
@@ -249,7 +249,7 @@ type Props = {
 /**
  * [DefaultLabelProvider](https://gestalt.pinterest.systems/web/utilities/defaultlabelprovider) is an optional [React Context provider](https://reactjs.org/docs/context.html#contextprovider) to provide default strings for Gestalt component labels that support it. This allows for faster development by reducing boilerplate props at the callsite.
  */
-export default function DefaultLabelProvider({ children, labels }: Props): Node {
+export default function DefaultLabelProvider({ children, labels }: Props): ReactNode {
   return <DefaultLabelContext.Provider value={labels}>{children}</DefaultLabelContext.Provider>;
 }
 

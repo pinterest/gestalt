@@ -1,81 +1,60 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Heading, Link, Table, Text } from 'gestalt';
-import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import Markdown from '../../../docs-components/Markdown.js';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import PrincipleItem from '../../../docs-components/PrincipleItem.js';
-import SandpackExample from '../../../docs-components/SandpackExample.js';
-import alignAndSpaceTextForReadability from '../../../examples/typography/alignAndSpaceTextForReadability.js';
-import dontCenterTextWithTightLeading from '../../../examples/typography/dontCenterTextWithTightLeading.js';
-import dontTruncateParagraphText from '../../../examples/typography/dontTruncateParagraphText.js';
-import dontTruncateTextInControls from '../../../examples/typography/dontTruncateTextInControls.js';
-import dontUseFixedSizeLineHeightAndCaps from '../../../examples/typography/dontUseFixedSizeLineHeightAndCaps.js';
-import dontUseSmallSizes from '../../../examples/typography/dontUseSmallSizes.js';
-import truncateForSecondaryText from '../../../examples/typography/truncateForSecondaryText.js';
-import useProperFontSize from '../../../examples/typography/useProperFontSize.js';
-import useStandardsForLanguageTranslation from '../../../examples/typography/useStandardsForLanguageTranslation.js';
-import wrapTextWhenNeeded from '../../../examples/typography/wrapTextWhenNeeded.js';
-import AlignmentCenter from '../../../graphics/typography/alignmentCenter.svg';
-import AlignmentEnd from '../../../graphics/typography/alignmentEnd.svg';
-import AlignmentStart from '../../../graphics/typography/alignmentStart.svg';
-import ContrastHigh from '../../../graphics/typography/contrastHigh.svg';
-import ContrastLow from '../../../graphics/typography/contrastLow.svg';
-import HierarchyDo from '../../../graphics/typography/hierarchyDo.svg';
-import HierarchyDont from '../../../graphics/typography/hierarchyDont.svg';
-import LineHeightCJK from '../../../graphics/typography/lineHeightCJK.svg';
-import LineHeightLatin from '../../../graphics/typography/lineHeightLatin.svg';
-import LineLength from '../../../graphics/typography/lineLength.svg';
-import ParagraphSpacing from '../../../graphics/typography/paragraphSpacing.svg';
+import { DOCS_COPY_MAX_WIDTH_PX } from '../../docs-components/consts';
+import MainSection from '../../docs-components/MainSection';
+import Markdown from '../../docs-components/Markdown';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import SandpackExample from '../../docs-components/SandpackExample';
+import alignAndSpaceTextForReadability from '../../examples/typography/alignAndSpaceTextForReadability';
+import dontCenterTextWithTightLeading from '../../examples/typography/dontCenterTextWithTightLeading';
+import dontTruncateParagraphText from '../../examples/typography/dontTruncateParagraphText';
+import dontTruncateTextInControls from '../../examples/typography/dontTruncateTextInControls';
+import dontUseFixedSizeLineHeightAndCaps from '../../examples/typography/dontUseFixedSizeLineHeightAndCaps';
+import dontUseSmallSizes from '../../examples/typography/dontUseSmallSizes';
+import truncateForSecondaryText from '../../examples/typography/truncateForSecondaryText';
+import useProperFontSize from '../../examples/typography/useProperFontSize';
+import useStandardsForLanguageTranslation from '../../examples/typography/useStandardsForLanguageTranslation';
+import wrapTextWhenNeeded from '../../examples/typography/wrapTextWhenNeeded';
+import AlignmentCenter from '../../graphics/typography/alignmentCenter.svg';
+import AlignmentEnd from '../../graphics/typography/alignmentEnd.svg';
+import AlignmentStart from '../../graphics/typography/alignmentStart.svg';
+import ContrastHigh from '../../graphics/typography/contrastHigh.svg';
+import ContrastLow from '../../graphics/typography/contrastLow.svg';
+import HierarchyDo from '../../graphics/typography/hierarchyDo.svg';
+import HierarchyDont from '../../graphics/typography/hierarchyDont.svg';
+import LineHeightCJK from '../../graphics/typography/lineHeightCJK.svg';
+import LineHeightLatin from '../../graphics/typography/lineHeightLatin.svg';
+import LineLength from '../../graphics/typography/lineLength.svg';
+import ParagraphSpacing from '../../graphics/typography/paragraphSpacing.svg';
 
-export default function TypographyPage(): Node {
+export default function TypographyPage(): ReactNode {
   return (
-    <Page title="Typography guidelines">
+    <Page title="Typography">
       <PageHeader
-        name="Typography guidelines"
+        name="Typography"
         description={`Our typographic system creates a content hierarchy that is scannable and efficient.
     `}
         type="guidelines"
       />
 
       <MainSection name="Principles">
-        <Flex gap={12} alignContent="between" wrap>
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
-            <PrincipleItem
-              heading="Speedy"
-              text={
-                <Text>
-                  Native system font families are used so that products load quickly and can be read
-                  efficiently across all devices.
-                </Text>
-              }
-            />
-          </Flex.Item>
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
-            <PrincipleItem
-              heading="Inclusive"
-              text={
-                <Text>
-                  We stick to standard line-spacing defaults or percentages to ensure text can be
-                  read regardless of a user’s preferred language or font size.
-                </Text>
-              }
-            />
-          </Flex.Item>
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
-            <PrincipleItem
-              heading="Minimal"
-              text={
-                <Text>
-                  Gestalt uses a limited number of weights and sizes to keep our interfaces focused
-                  on our customers’ rich content.
-                </Text>
-              }
-            />
-          </Flex.Item>
-        </Flex>
+        <MainSection.Subsection
+          title="Speedy"
+          description={`Native system font families are used so that products load quickly and can be read efficiently across all devices.
+`}
+        />
+        <MainSection.Subsection
+          title="Inclusive"
+          description={`We stick to standard line-spacing defaults or percentages to ensure text can be read regardless of a user’s preferred language or font size.
+`}
+        />
+        <MainSection.Subsection
+          title="Minimal"
+          description={`Gestalt uses a limited number of weights and sizes to keep our interfaces focusedon our customers’ rich content.
+`}
+        />
       </MainSection>
 
       <MainSection
@@ -860,19 +839,6 @@ Use standards that will make it easier to translate to other languages:
           />
         </MainSection.Subsection>
       </MainSection>
-
-      <MainSection
-        name="Future updates"
-        description={`
-Our guidelines and components primarily cover user interface use cases for typography. We will improve upon this by adding guidelines and components for long-form text in the future.
-
-**Long-form text components and guidelines**
-Components and guidelines for long-form text that will include better line height and line length for headings and paragraph blocks.
-
-**iOS and Android Figma updates**
-Updates to mobile components that match Apple HIG and Android Material values for line height.
-      `}
-      />
     </Page>
   );
 }

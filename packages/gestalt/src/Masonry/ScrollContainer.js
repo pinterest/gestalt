@@ -13,10 +13,10 @@
  */
 
 // @flow strict
-import { Children, Component, type Node } from 'react';
+import { Children, Component, type Node as ReactNode } from 'react';
 
 type Props = {
-  children?: Node,
+  children?: ReactNode,
   onScroll: (event: Event) => void,
   scrollContainer: ?HTMLElement | (() => ?HTMLElement),
 };
@@ -65,7 +65,7 @@ export default class ScrollContainer extends Component<Props> {
     this.scrollContainer.addEventListener('scroll', this.handleScroll);
   }
 
-  render(): Node {
+  render(): ReactNode {
     // Ensure that we only ever have a single child element
     return Children.only(this.props.children);
   }

@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Badge from './Badge.js';
+import Badge from './Badge';
 
 it('Badge renders', () => {
   const component = create(<Badge text="Badge" />);

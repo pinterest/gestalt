@@ -1,5 +1,5 @@
 // @flow strict
-import { Children, cloneElement, Fragment, type Node } from 'react';
+import { Children, cloneElement, Fragment, type Node as ReactNode } from 'react';
 
 const ALLOWED_CHILDREN_BY_PARENT = {
   List: ['List.Item'],
@@ -10,14 +10,14 @@ const getChildrenToArray = ({
   children,
   filterLevel,
 }: {
-  children: Node,
+  children: ReactNode,
   filterLevel: 'List' | 'ListItem',
   // $FlowFixMe[unclear-type] ALBERTO TO FIX FLOW TYPE HERE
 }): $ReadOnlyArray<any> => {
   const navigationChildren = [];
   let recursionLevel = 0;
 
-  const getChildren: ({ nodeChildren: Node }) => void = ({ nodeChildren }) =>
+  const getChildren: ({ nodeChildren: ReactNode }) => void = ({ nodeChildren }) =>
     // $FlowFixMe[underconstrained-implicit-instantiation]
     Children.toArray(nodeChildren).forEach((child) => {
       // We need to check for Fragment first, so we can check for display namevalid

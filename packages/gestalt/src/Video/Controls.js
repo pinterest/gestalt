@@ -1,11 +1,11 @@
 // @flow strict
-import { type Node, useEffect, useState } from 'react';
-import VideoPlayhead from './Playhead.js';
-import Box from '../Box.js';
-import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider.js';
-import Icon from '../Icon.js';
-import TapArea from '../TapArea.js';
-import Text from '../Text.js';
+import { type Node as ReactNode, useEffect, useState } from 'react';
+import VideoPlayhead from './Playhead';
+import Box from '../Box';
+import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
+import Icon from '../Icon';
+import TapArea from '../TapArea';
+import Text from '../Text';
 import styles from '../Video.css';
 
 type Props = {
@@ -49,7 +49,7 @@ function VideoControls({
   playing,
   seek,
   volume,
-}: Props): Node {
+}: Props): ReactNode {
   const handleFullscreenChange = ({
     event,
   }: {

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import {
   Box,
   Dropdown,
@@ -12,7 +12,7 @@ import {
   Tooltip,
 } from 'gestalt';
 
-export default function PageHeaderMaxWidthExample(): Node {
+export default function PageHeaderMaxWidthExample(): ReactNode {
   return (
     <Box width="100%" color="secondary" height="100%">
       <PageHeader

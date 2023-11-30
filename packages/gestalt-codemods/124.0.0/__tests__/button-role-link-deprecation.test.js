@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../button-role-link-deprecation', () =>
   Object.assign(jest.requireActual('../button-role-link-deprecation'), {

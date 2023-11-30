@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../callout-upsell-primary-secondary-action-replace-primary-secondary-link', () =>
   Object.assign(

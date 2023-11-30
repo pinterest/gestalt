@@ -1,15 +1,15 @@
 // @flow strict
-import { type AbstractComponent, forwardRef, type Node } from 'react';
+import { type AbstractComponent, forwardRef, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import bordersStyles from '../Borders.css';
 import boxWhitespaceStyles from '../boxWhitespace.css';
 import colorStyles from '../Colors.css';
 import flexStyles from '../Flex.css';
 import focusStyles from '../Focus.css';
-import Icon from '../Icon.js';
+import Icon from '../Icon';
 import layoutStyles from '../Layout.css';
 import touchableStyles from '../TapArea.css';
-import Text from '../Text.js';
+import Text from '../Text';
 
 export type ComboBoxItemType = {
   label: string,
@@ -38,7 +38,7 @@ const ComboBoxItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forwa
 >(function OptionItem(
   { isHovered, id, index, isSelected, label, onSelect, setHoveredItemIndex, subtext, value }: Props,
   ref,
-): Node {
+): ReactNode {
   const handleEventPreventDefault = (event: SyntheticInputEvent<HTMLDivElement>) =>
     event.preventDefault();
 

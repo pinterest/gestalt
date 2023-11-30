@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import cx from 'classnames';
 import boxStyles from './Box.css';
 import styles from './Table.css';
@@ -8,7 +8,7 @@ type Props = {
   /**
    * Must be an instance of Table.Row. See the [Subcomponent section](https://gestalt.pinterest.systems/web/table#Subcomponents) to learn more.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * Display `visuallyHidden` ensures the component is visually hidden but still is read by screen readers.
    */
@@ -26,7 +26,7 @@ export default function TableHeader({
   children,
   display = 'tableHeaderGroup',
   sticky = false,
-}: Props): Node {
+}: Props): ReactNode {
   return (
     <thead
       className={cx(

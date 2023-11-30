@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../rename-dropdown-dangerouslyRemoveLayer-to-isWithinFixedContainer', () =>
   Object.assign(

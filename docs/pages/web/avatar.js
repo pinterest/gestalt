@@ -1,28 +1,28 @@
 // @flow strict
-import { type Node } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import containerExample from '../../examples/avatar/containerExample.js';
-import ideasExample from '../../examples/avatar/ideasExample.js';
-import mainExample from '../../examples/avatar/mainExample.js';
-import nameExample from '../../examples/avatar/nameExample.js';
-import noEmojiExample from '../../examples/avatar/noEmojiExample.js';
-import noImageSourceExample from '../../examples/avatar/noImageSourceExample.js';
-import overExample from '../../examples/avatar/overExample.js';
-import personExample from '../../examples/avatar/personExample.js';
-import shapeExample from '../../examples/avatar/shapeExample.js';
-import sizingExample from '../../examples/avatar/sizingExample.js';
-import verifiedExample from '../../examples/avatar/verifiedExample.js';
+import { type Node as ReactNode } from 'react';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import containerExample from '../../examples/avatar/containerExample';
+import ideasExample from '../../examples/avatar/ideasExample';
+import mainExample from '../../examples/avatar/mainExample';
+import nameExample from '../../examples/avatar/nameExample';
+import noEmojiExample from '../../examples/avatar/noEmojiExample';
+import noImageSourceExample from '../../examples/avatar/noImageSourceExample';
+import overExample from '../../examples/avatar/overExample';
+import personExample from '../../examples/avatar/personExample';
+import shapeExample from '../../examples/avatar/shapeExample';
+import sizingExample from '../../examples/avatar/sizingExample';
+import verifiedExample from '../../examples/avatar/verifiedExample';
 
-export default function AvatarPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function AvatarPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader

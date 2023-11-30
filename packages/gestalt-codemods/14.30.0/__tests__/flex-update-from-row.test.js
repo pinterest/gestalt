@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../flex-update-from-row', () =>
   Object.assign(jest.requireActual('../flex-update-from-row'), {

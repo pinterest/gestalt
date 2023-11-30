@@ -1,22 +1,22 @@
 // @flow strict
-import { type Node, useEffect } from 'react';
+import { type Node as ReactNode, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { ColorSchemeProvider, GlobalEventsHandlerProvider } from 'gestalt';
-import { AppContextConsumer, AppContextProvider } from './appContext.js';
-import AppLayout from './AppLayout.js';
-import DocsExperimentProvider from './contexts/DocsExperimentProvider.js';
-import { LocalFilesProvider } from './contexts/LocalFilesProvider.js';
-import { NavigationContextProvider } from './navigationContext.js';
+import { AppContextConsumer, AppContextProvider } from './appContext';
+import AppLayout from './AppLayout';
+import DocsExperimentProvider from './contexts/DocsExperimentProvider';
+import { LocalFilesProvider } from './contexts/LocalFilesProvider';
+import { NavigationContextProvider } from './navigationContext';
 
 type Props = {
-  children?: Node,
+  children?: ReactNode,
   files?: {
     css: string,
     js: string,
   },
 };
 
-export default function App({ children, files }: Props): Node {
+export default function App({ children, files }: Props): ReactNode {
   const router = useRouter();
 
   // $FlowIssue[prop-missing]

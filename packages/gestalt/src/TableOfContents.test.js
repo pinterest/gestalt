@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import TableOfContents from './TableOfContents.js';
+import TableOfContents from './TableOfContents';
 
 describe('TableOfContents', () => {
   it('renders', () => {

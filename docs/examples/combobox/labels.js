@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, ComboBox, Flex, Heading, Link, Text } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const CATEGORIES = [
     'All Categories',
     'Food and drinks',

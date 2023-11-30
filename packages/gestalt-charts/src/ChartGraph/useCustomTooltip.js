@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useCallback } from 'react';
+import { type Node as ReactNode, useCallback } from 'react';
 import { Box } from 'gestalt';
 
 export default function useCustomTooltip({
@@ -14,12 +14,12 @@ export default function useCustomTooltip({
         active: ?boolean,
         payload: ?{ ... },
         label: string | number,
-      }) => Node),
+      }) => ReactNode),
 }): ({
   active: ?boolean,
   payload: ?{ ... },
   label: string | number,
-}) => Node {
+}) => ReactNode {
   return useCallback(
     ({
       active,

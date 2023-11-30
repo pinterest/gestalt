@@ -1,4 +1,4 @@
-import { defineTest, runTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest, runTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../toast-replace-color-variant', () =>
   Object.assign(jest.requireActual('../toast-replace-color-variant'), {

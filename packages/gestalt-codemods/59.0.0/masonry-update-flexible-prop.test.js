@@ -1,5 +1,5 @@
-import { runInlineTest } from 'jscodeshift/dist/testUtils.js';
-import masonryUpdateFlexibleProp from './masonry-update-flexible-prop.js';
+import { runInlineTest } from 'jscodeshift/dist/testUtils';
+import masonryUpdateFlexibleProp from './masonry-update-flexible-prop';
 
 describe('masonry-update-flexible-prop', () => {
   it('transforms correctly', () => {

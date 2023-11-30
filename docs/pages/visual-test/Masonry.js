@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Masonry, Text } from 'gestalt';
 
 const dataObject = [
@@ -15,7 +15,7 @@ const dataObject = [
   { height: 60, name: 'Pin 10' },
 ];
 
-function GridComponent({ data }: { data: { height: number, name: string } }): Node {
+function GridComponent({ data }: { data: { height: number, name: string } }): ReactNode {
   return (
     <Box height={data.height} width={50} color="successBase">
       <Text>{data.name}</Text>
@@ -23,7 +23,7 @@ function GridComponent({ data }: { data: { height: number, name: string } }): No
   );
 }
 
-export default function Snapshot(): Node {
+export default function Snapshot(): ReactNode {
   return (
     <ColorSchemeProvider colorScheme="light">
       <Box color="default" display="inlineBlock" width={300} padding={1}>

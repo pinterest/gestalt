@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Video from './Video.js';
+import Video from './Video';
 
 test('Video with source', () => {
   const tree = create(

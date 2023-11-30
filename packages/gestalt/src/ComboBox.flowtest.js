@@ -1,5 +1,5 @@
 // @flow strict
-import ComboBox from './ComboBox.js';
+import ComboBox from './ComboBox';
 
 const Valid = (
   <ComboBox

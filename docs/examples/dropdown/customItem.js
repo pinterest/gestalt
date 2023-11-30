@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useRef, useState } from 'react';
+import { Fragment, type Node as ReactNode, useRef, useState } from 'react';
 import {
   Avatar,
   Box,
@@ -11,7 +11,7 @@ import {
   Text,
 } from 'gestalt';
 
-export default function CustomIconButtonPopoverExample(): Node {
+export default function CustomIconButtonPopoverExample(): ReactNode {
   const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
 
   const [open, setOpen] = useState(false);

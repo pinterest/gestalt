@@ -1,9 +1,9 @@
 // @flow strict
-import { type AbstractComponent, type Element, forwardRef, type Node } from 'react';
+import { type AbstractComponent, type Element, forwardRef, type Node as ReactNode } from 'react';
 import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Text.css';
-import { semanticColors } from './textTypes.js';
+import { semanticColors } from './textTypes';
 import typography from './Typography.css';
 
 function isNotNullish(val: ?number): boolean {
@@ -22,7 +22,7 @@ type Props = {
   /**
    * The text content to be displayed.
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * The color of the text content. See the [colors variant](https://gestalt.pinterest.systems/web/text#Colors) for more details.
    */

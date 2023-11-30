@@ -1,5 +1,5 @@
 // @flow strict
-import Box from './Box.js';
+import Box from './Box';
 
 const Valid = <Box>Text</Box>;
 const ValidAs = <Box margin={3} as="aside" />;

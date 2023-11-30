@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../box-border-size-replace-border-style', () =>
   Object.assign(jest.requireActual('../box-border-size-replace-border-style'), {

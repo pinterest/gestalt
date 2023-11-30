@@ -1,7 +1,7 @@
 // @flow strict-local
-import { type Node, useCallback } from 'react';
+import { type Node as ReactNode, useCallback } from 'react';
 import { Box, Flex, Text } from 'gestalt';
-import LegendIcon from './LegendIcon.js';
+import LegendIcon from './LegendIcon';
 
 export default function useDefaultLegend({
   isHorizontalBiaxialLayout,
@@ -34,7 +34,7 @@ export default function useDefaultLegend({
       value: number,
     },
   }>,
-}) => Node {
+}) => ReactNode {
   return useCallback(
     ({ payload }) => {
       const series = payload.map(

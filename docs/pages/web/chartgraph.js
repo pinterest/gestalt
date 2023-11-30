@@ -1,53 +1,55 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, SlimBanner } from 'gestalt';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import CombinationNew from '../../docs-components/CombinationNew.js';
-import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import PatternBarFill from '../../docs-components/PatternBarFill.js';
-import PatternLineMarker from '../../docs-components/PatternLineMarker.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import accessibility from '../../examples/chartgraph/accessibility.js';
-import barColumn from '../../examples/chartgraph/barColumn.js';
-import barHorizontal from '../../examples/chartgraph/barHorizontal.js';
-import biaxial from '../../examples/chartgraph/biaxial.js';
-import colors from '../../examples/chartgraph/colors.js';
-import combo from '../../examples/chartgraph/combo.js';
-import customTooltip from '../../examples/chartgraph/customTooltip.js';
-import decalBars from '../../examples/chartgraph/decalBars.js';
-import decalLines from '../../examples/chartgraph/decalLines.js';
-import doColor from '../../examples/chartgraph/doColor.js';
-import doLimit from '../../examples/chartgraph/doLimit.js';
-import dontLimit from '../../examples/chartgraph/dontLimit.js';
-import doSameColor from '../../examples/chartgraph/doSameColor.js';
-import layout from '../../examples/chartgraph/layout.js';
-import legend from '../../examples/chartgraph/legend.js';
-import line from '../../examples/chartgraph/line.js';
-import localizationLabels from '../../examples/chartgraph/localizationLabels.js';
-import main from '../../examples/chartgraph/main.js';
-import precision from '../../examples/chartgraph/precision.js';
-import range from '../../examples/chartgraph/range.js';
-import referenceArea from '../../examples/chartgraph/referenceArea.js';
-import responsive from '../../examples/chartgraph/responsive.js';
-import tagdata from '../../examples/chartgraph/selectorTagData.js';
-import tiledata from '../../examples/chartgraph/selectorTileData.js';
-import stackedBar from '../../examples/chartgraph/stackedBar.js';
-import tickFormatter from '../../examples/chartgraph/tickFormatter.js';
-import timeseries from '../../examples/chartgraph/timeseries.js';
-import title from '../../examples/chartgraph/title.js';
-import tooltip from '../../examples/chartgraph/tooltip.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import CombinationNew from '../../docs-components/CombinationNew';
+import { type DocGen, multipleDocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import PatternBarFill from '../../docs-components/PatternBarFill';
+import PatternLineMarker from '../../docs-components/PatternLineMarker';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import accessibility from '../../examples/chartgraph/accessibility';
+import barColumn from '../../examples/chartgraph/barColumn';
+import barHorizontal from '../../examples/chartgraph/barHorizontal';
+import biaxial from '../../examples/chartgraph/biaxial';
+import colors from '../../examples/chartgraph/colors';
+import combo from '../../examples/chartgraph/combo';
+import customTooltip from '../../examples/chartgraph/customTooltip';
+import decalBars from '../../examples/chartgraph/decalBars';
+import decalLines from '../../examples/chartgraph/decalLines';
+import doBiaxial from '../../examples/chartgraph/doBiaxial';
+import doColor from '../../examples/chartgraph/doColor';
+import doLimit from '../../examples/chartgraph/doLimit';
+import dontBiaxial from '../../examples/chartgraph/dontBiaxial';
+import dontLimit from '../../examples/chartgraph/dontLimit';
+import doSameColor from '../../examples/chartgraph/doSameColor';
+import layout from '../../examples/chartgraph/layout';
+import legend from '../../examples/chartgraph/legend';
+import line from '../../examples/chartgraph/line';
+import localizationLabels from '../../examples/chartgraph/localizationLabels';
+import main from '../../examples/chartgraph/main';
+import precision from '../../examples/chartgraph/precision';
+import range from '../../examples/chartgraph/range';
+import referenceArea from '../../examples/chartgraph/referenceArea';
+import responsive from '../../examples/chartgraph/responsive';
+import tagdata from '../../examples/chartgraph/selectorTagData';
+import tiledata from '../../examples/chartgraph/selectorTileData';
+import stackedBar from '../../examples/chartgraph/stackedBar';
+import tickFormatter from '../../examples/chartgraph/tickFormatter';
+import timeseries from '../../examples/chartgraph/timeseries';
+import title from '../../examples/chartgraph/title';
+import tooltip from '../../examples/chartgraph/tooltip';
 
 export default function ComponentPage({
   generatedDocGen,
 }: {
   generatedDocGen: { [string]: DocGen },
-}): Node {
+}): ReactNode {
   const MEDIUM_HEIGHT = 300;
   const SMALL_HEIGHT = 250;
   const LARGE_HEIGHT = 400;
@@ -78,7 +80,11 @@ export default function ComponentPage({
 
       <MainSection
         name="Usage guidelines"
-        description="These are overall guidelines for using Chart. For guidelines on using specific charts, see our [Chart and graph guidelines](/foundations/data_visualization/charts_and_graphs)."
+        description={`These are overall guidelines for ChartGraph. For usage guidelines on specific graphs, see:
+        - [Bar graph usage guidelines](../foundations/data_visualization/charts_and_graphs/bar_graphs#Usage-guidelines)
+        - [Line graph usage guidelines](../foundations/data_visualization/charts_and_graphs/line_graphs#Usage-guidelines)
+        - [Charts and graphs general guidelines](../foundations/data_visualization/charts_and_graphs/general_guidelines)
+        `}
       >
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -104,7 +110,11 @@ export default function ComponentPage({
 
       <MainSection
         name="Best practices"
-        description="These are overall best practices for Chart. For best practices on specific charts, see our [Chart and graph guidelines](/foundations/data_visualization/charts_and_graphs)."
+        description={`These are overall best practices for ChartGraph. For best practices on specific graphs, see:
+        - [Bar graph best practices](../foundations/data_visualization/charts_and_graphs/bar_graphs#Best-practices)
+        - [Line graph best practices](../foundations/data_visualization/charts_and_graphs/line_graphs#Best-practices)
+        - [Charts and graphs general guidelines](../foundations/data_visualization/charts_and_graphs/general_guidelines)
+        `}
       >
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -160,6 +170,37 @@ export default function ComponentPage({
               <SandpackExample
                 name="Don't same color"
                 code={doSameColor}
+                layout="column"
+                hideEditor
+                hideControls
+                previewHeight={SMALL_HEIGHT}
+              />
+            }
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2}>
+          <MainSection.Card
+            cardSize="md"
+            type="do"
+            description="Use a biaxial chart when there is a significant difference between values. A suggestion is a 50%+ difference."
+            sandpackExample={
+              <SandpackExample
+                name="Do biaxial"
+                code={doBiaxial}
+                layout="column"
+                hideEditor
+                previewHeight={SMALL_HEIGHT}
+              />
+            }
+          />
+          <MainSection.Card
+            cardSize="md"
+            type="don't"
+            description="Use a biaxial chart when there is a very minor difference between values being compared. Use a chart with a single axis instead."
+            sandpackExample={
+              <SandpackExample
+                name="Don't biaxial"
+                code={dontBiaxial}
                 layout="column"
                 hideEditor
                 hideControls
@@ -331,7 +372,7 @@ Props:  \`type="combo"\` \`elements=[{..., type:'bar' or type:'line'}]\`
 
         <MainSection.Subsection
           title="Biaxial"
-          description={`Biaxial graphs show two y-axis. They're used when different amounts need to be displayed per each category.
+          description={`Biaxial graphs show two y-axis. They're used when either comparing two categories with mixed types of data—for example, clicks vs spend—or when there is a significant difference between values. A suggestion is to move to a biaxial chart if there is a 50%+ difference between compared values.
 
 Props:  \`layout="verticalBiaxial"\`  \`layout="horizontalBiaxial"\`
 `}

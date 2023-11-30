@@ -1,24 +1,24 @@
 // @flow strict
-import { type Node, useCallback, useEffect, useRef, useState } from 'react';
+import { type Node as ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import cx from 'classnames';
-import Box from './Box.js';
-import { TableContextProvider } from './contexts/TableContext.js';
+import Box from './Box';
+import { TableContextProvider } from './contexts/TableContext';
 import styles from './Table.css';
-import TableBody from './TableBody.js';
-import TableCell from './TableCell.js';
-import TableFooter from './TableFooter.js';
-import TableHeader from './TableHeader.js';
-import TableHeaderCell from './TableHeaderCell.js';
-import TableRow from './TableRow.js';
-import TableRowDrawer from './TableRowDrawer.js';
-import TableRowExpandable from './TableRowExpandable.js';
-import TableSortableHeaderCell from './TableSortableHeaderCell.js';
+import TableBody from './TableBody';
+import TableCell from './TableCell';
+import TableFooter from './TableFooter';
+import TableHeader from './TableHeader';
+import TableHeaderCell from './TableHeaderCell';
+import TableRow from './TableRow';
+import TableRowDrawer from './TableRowDrawer';
+import TableRowExpandable from './TableRowExpandable';
+import TableSortableHeaderCell from './TableSortableHeaderCell';
 
 type Props = {
   /**
    * Must be instances of Table.Header, Table.Body, and/or Table.Footer components. See the [Subcomponent section](https://gestalt.pinterest.systems/web/table#Subcomponents) to learn more.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * Label for screen readers to announce Table.
    */
@@ -49,7 +49,7 @@ export default function Table({
   children,
   maxHeight,
   stickyColumns,
-}: Props): Node {
+}: Props): ReactNode {
   const [showShadowScroll, setShowShadowScroll] = useState<'left' | 'right' | null>(null);
   const tableRef = useRef<?HTMLElement>(null);
 

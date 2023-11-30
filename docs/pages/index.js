@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useEffect } from 'react';
+import { type Node as ReactNode, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-export default function Index(): Node {
+export default function Index(): ReactNode {
   const router = useRouter();
 
   useEffect(() => {

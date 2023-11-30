@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, ComboBox, Flex, Text } from 'gestalt';
 
 const US_STATES = [
@@ -60,7 +60,7 @@ const US_STATES = [
   'WY - Wyoming',
 ];
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const usStatesOptions = US_STATES.map((pronoun, index) => ({
     label: pronoun,
     value: `value${index}`,

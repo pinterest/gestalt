@@ -1,9 +1,15 @@
 // @flow strict
-import { type AbstractComponent, forwardRef, type Node, useImperativeHandle, useRef } from 'react';
-import getAriaLabel from './accessibility/getAriaLabel.js';
-import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import InternalLink from './Link/InternalLink.js';
+import {
+  type AbstractComponent,
+  forwardRef,
+  type Node as ReactNode,
+  useImperativeHandle,
+  useRef,
+} from 'react';
+import getAriaLabel from './accessibility/getAriaLabel';
+import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import InternalLink from './Link/InternalLink';
 
 type FocusEventHandler = ({
   event: SyntheticFocusEvent<HTMLAnchorElement>,
@@ -39,7 +45,7 @@ type Props = {
   /**
    * TapAreaLink is a wrapper around non-button components (or children) that provides clicking / touching functionality as if they were a unified button area.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
    */
@@ -160,7 +166,7 @@ const TapAreaLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = f
     target = null,
   }: Props,
   ref,
-): Node {
+): ReactNode {
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component

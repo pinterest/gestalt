@@ -1,20 +1,20 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { SlimBanner } from 'gestalt';
-import docGen, { type DocGen } from '../../../docs-components/docgen.js';
-import GeneratedPropTable from '../../../docs-components/GeneratedPropTable.js';
-import InternalDocumentationSection from '../../../docs-components/InternalDocumentationSection.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import SandpackExample from '../../../docs-components/SandpackExample.js';
-import linkHandlersCalloutUpsell from '../../../examples/globaleventshandlerprovider/linkHandlersCalloutUpsell.js';
-import linkHandlersDangerouslyDisableOnNavigation from '../../../examples/globaleventshandlerprovider/linkHandlersDangerouslyDisableOnNavigation.js';
-import linkHandlersDropdown from '../../../examples/globaleventshandlerprovider/linkHandlersDropdown.js';
-import linkHandlersLinkButton from '../../../examples/globaleventshandlerprovider/linkHandlersLinkButton.js';
-import sheetMobileHandlers from '../../../examples/globaleventshandlerprovider/sheetMobileHandlers.js';
+import docGen, { type DocGen } from '../../../docs-components/docgen';
+import GeneratedPropTable from '../../../docs-components/GeneratedPropTable';
+import InternalDocumentationSection from '../../../docs-components/InternalDocumentationSection';
+import MainSection from '../../../docs-components/MainSection';
+import Page from '../../../docs-components/Page';
+import PageHeader from '../../../docs-components/PageHeader';
+import SandpackExample from '../../../docs-components/SandpackExample';
+import linkHandlersCalloutUpsell from '../../../examples/globaleventshandlerprovider/linkHandlersCalloutUpsell';
+import linkHandlersDangerouslyDisableOnNavigation from '../../../examples/globaleventshandlerprovider/linkHandlersDangerouslyDisableOnNavigation';
+import linkHandlersDropdown from '../../../examples/globaleventshandlerprovider/linkHandlersDropdown';
+import linkHandlersLinkButton from '../../../examples/globaleventshandlerprovider/linkHandlersLinkButton';
+import sheetMobileHandlers from '../../../examples/globaleventshandlerprovider/sheetMobileHandlers';
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -152,12 +152,12 @@ The example below demonstrates the correct use of "dangerouslyDisableOnNavigatio
       <MainSection name="Other handlers">
         <SlimBanner
           iconAccessibilityLabel="Experimental feature"
-          message={`Experimental feature: The "onMount" prop is experimental and might be removed in the future.`}
+          message={`Experimental feature: The "onRender" prop is experimental and might be removed in the future.`}
           type="warningBare"
         />
         <MainSection.Subsection
-          title="onMount"
-          description={`\`onMount\` is only called when the component mounts for the first time.
+          title="onRender"
+          description={`\`onRender\` is only called when the component mounts for the first time.
 
 It's implemented in the following components:
 

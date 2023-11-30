@@ -1,27 +1,27 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, TapArea } from 'gestalt';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import CombinationNew from '../../docs-components/CombinationNew.js';
-import docGen, { type DocGen, type DocType } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import accessibility from '../../examples/taparea/accessibility.js';
-import compressBehavior from '../../examples/taparea/compressBehavior.js';
-import fullSpace from '../../examples/taparea/fullSpace.js';
-import heightWidth from '../../examples/taparea/heightWidth.js';
-import inlineUsage from '../../examples/taparea/inlineUsage.js';
-import main from '../../examples/taparea/main.js';
-import mouseCursor from '../../examples/taparea/mouseCursor.js';
-import withLinkButton from '../../examples/taparea/withLinkButton.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import CombinationNew from '../../docs-components/CombinationNew';
+import docGen, { type DocGen, type DocType } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import accessibility from '../../examples/taparea/accessibility';
+import compressBehavior from '../../examples/taparea/compressBehavior';
+import fullSpace from '../../examples/taparea/fullSpace';
+import heightWidth from '../../examples/taparea/heightWidth';
+import inlineUsage from '../../examples/taparea/inlineUsage';
+import main from '../../examples/taparea/main';
+import mouseCursor from '../../examples/taparea/mouseCursor';
+import withLinkButton from '../../examples/taparea/withLinkButton';
 
-export default function DocsPage({ generatedDocGen }: DocType): Node {
+export default function DocsPage({ generatedDocGen }: DocType): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader

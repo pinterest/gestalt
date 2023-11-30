@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../new_badge_props', () =>
   Object.assign(jest.requireActual('../new_badge_props'), {

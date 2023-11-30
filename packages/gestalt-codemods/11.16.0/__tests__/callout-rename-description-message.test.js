@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../callout-rename-description-message', () =>
   Object.assign(jest.requireActual('../callout-rename-description-message'), {

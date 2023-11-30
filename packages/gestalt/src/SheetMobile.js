@@ -1,14 +1,14 @@
 // @flow strict
-import { type ElementConfig, type Node } from 'react';
-import AnimationProvider from './animation/AnimationContext.js';
-import DismissingElement from './animation/DismissingElement.js';
-import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext.js';
-import Button from './Button.js';
-import { useDeviceType } from './contexts/DeviceTypeProvider.js';
-import Link from './Link.js';
-import FullPage from './SheetMobile/FullPage.js';
-import PartialPage from './SheetMobile/PartialPage.js';
-import { type Indexable } from './zIndex.js';
+import { type ElementConfig, type Node as ReactNode } from 'react';
+import AnimationProvider from './animation/AnimationContext';
+import DismissingElement from './animation/DismissingElement';
+import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext';
+import Button from './Button';
+import { useDeviceType } from './contexts/DeviceTypeProvider';
+import Link from './Link';
+import FullPage from './SheetMobile/FullPage';
+import PartialPage from './SheetMobile/PartialPage';
+import { type Indexable } from './zIndex';
 
 type Props = {
   /**
@@ -32,7 +32,7 @@ type Props = {
   /**
    * Supply the element(s) that will be used as SheetMobile's main content.
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * Indicate whether clicking on the backdrop (gray area) outside of SheetMobile will dismiss it or not. See the [Preventing close on outside click variant](https://gestalt.pinterest.systems/web/sheetmobile#Preventing-close-on-outside-click) for more info.
    */
@@ -40,7 +40,7 @@ type Props = {
   /**
    * Supply the element(s) that will be used as SheetMobile's custom footer. See the [footer variant](https://gestalt.pinterest.systems/web/sheetmobile#Footer) for more info.
    */
-  footer?: Node,
+  footer?: ReactNode,
   /**
    * Adds a "forward-arrow" IconButton for user interaction at the end of the header section.. See the [header variant, back and forward navigation case](https://gestalt.pinterest.systems/web/sheetmobile#Header) for more info.
    */
@@ -146,7 +146,7 @@ function SheetMobile({
   subHeading,
   size = 'default',
   zIndex,
-}: Props): Node {
+}: Props): ReactNode {
   const deviceType = useDeviceType();
 
   const isMobile = deviceType === 'mobile';

@@ -1,6 +1,6 @@
 // @flow strict
 import { createRef } from 'react';
-import OverlayPanel from './OverlayPanel.js';
+import OverlayPanel from './OverlayPanel';
 
 const ValidWithNodeProps = (
   <OverlayPanel

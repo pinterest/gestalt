@@ -1,15 +1,15 @@
 // @flow strict
-import { Fragment, type Node, useEffect, useState } from 'react';
+import { Fragment, type Node as ReactNode, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Box, DeviceTypeProvider, Divider, FixedZIndex, Flex } from 'gestalt';
-import { useAppContext } from './appContext.js';
-import { DocsConfigProvider, useDocsConfig } from './contexts/DocsConfigProvider.js';
-import DocsSideNavigation, { MIN_NAV_WIDTH_PX } from './DocsSideNavigation.js';
-import Footer from './Footer.js';
-import Header from './Header.js';
-import { useNavigationContext } from './navigationContext.js';
-import ResourcesFooter from './ResourcesFooter.js';
-import SkipToContent from './SkipToContent.js';
+import { useAppContext } from './appContext';
+import { DocsConfigProvider, useDocsConfig } from './contexts/DocsConfigProvider';
+import DocsSideNavigation, { MIN_NAV_WIDTH_PX } from './DocsSideNavigation';
+import Footer from './Footer';
+import Header from './Header';
+import { useNavigationContext } from './navigationContext';
+import ResourcesFooter from './ResourcesFooter';
+import SkipToContent from './SkipToContent';
 
 export const CONTENT_MAX_WIDTH_PX = 1200;
 const HEADER_HEIGHT_PX = 75;
@@ -17,11 +17,11 @@ const fullWidthPages = ['home', 'whats_new', 'roadmap'];
 const fullBleedNoNavigationPages = ['/year_in_review_2022', 'integration-test'];
 
 type Props = {
-  children?: Node,
+  children?: ReactNode,
   colorScheme?: 'light' | 'dark',
 };
 
-export default function AppLayout({ children, colorScheme }: Props): Node {
+export default function AppLayout({ children, colorScheme }: Props): ReactNode {
   const { isMobile } = useDocsConfig();
   const { isSidebarOpen, setIsSidebarOpen } = useNavigationContext();
   const router = useRouter();

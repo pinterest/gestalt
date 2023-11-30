@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import ActivationCard from './ActivationCard.js';
+import ActivationCard from './ActivationCard';
 
 describe('<ActivationCard />', () => {
   test('Pending ActivationCard', () => {

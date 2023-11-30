@@ -1,12 +1,12 @@
 // @flow strict
-import { type Node, useEffect, useState } from 'react';
+import { type Node as ReactNode, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Flex, SelectList, SideNavigation } from 'gestalt';
-import SidebarPlatformSwitcher from './buttons/SidebarPlatformSwitcher.js';
-import { useDocsConfig } from './contexts/DocsConfigProvider.js';
-import { useNavigationContext } from './navigationContext.js';
-import newSidebarIndex, { type siteIndexType } from './siteIndex.js';
-import useGetSideNavItems from './useGetSideNavItems.js';
+import SidebarPlatformSwitcher from './buttons/SidebarPlatformSwitcher';
+import { useDocsConfig } from './contexts/DocsConfigProvider';
+import { useNavigationContext } from './navigationContext';
+import newSidebarIndex, { type siteIndexType } from './siteIndex';
+import useGetSideNavItems from './useGetSideNavItems';
 
 export const MIN_NAV_WIDTH_PX = 280;
 
@@ -18,7 +18,7 @@ export function isComponentsActiveSection(pathname: string): boolean {
   return pathname.includes('/web/') || pathname.includes('/ios/') || pathname.includes('/android/');
 }
 
-export default function DocsSideNavigation({ showBorder }: { showBorder?: boolean }): Node {
+export default function DocsSideNavigation({ showBorder }: { showBorder?: boolean }): ReactNode {
   const [activeSection, setActiveSection] = useState(newSidebarIndex[0]);
 
   const { isMobile } = useDocsConfig();

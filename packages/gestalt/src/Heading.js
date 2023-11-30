@@ -1,9 +1,9 @@
 // @flow strict
-import { createElement, type Node } from 'react';
+import { createElement, type Node as ReactNode } from 'react';
 import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Heading.css';
-import { semanticColors } from './textTypes.js';
+import { semanticColors } from './textTypes';
 import typography from './Typography.css';
 
 function isNotNullish(val: ?number): boolean {
@@ -35,7 +35,7 @@ type Props = {
   /**
    *
    */
-  children?: Node,
+  children?: ReactNode,
   /**
    * The color of the text. See [Text colors example](https://gestalt.pinterest.systems/foundations/design_tokens#Text-color) for more details.
    */
@@ -84,7 +84,7 @@ export default function Heading({
   id,
   overflow = 'breakWord',
   size = '600',
-}: Props): Node {
+}: Props): ReactNode {
   const getWordBreakStyle = (): string | void => {
     if (overflow === 'breakAll') {
       return typography.breakAll;

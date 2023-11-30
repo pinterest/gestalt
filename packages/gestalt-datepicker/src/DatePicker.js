@@ -3,13 +3,13 @@ import {
   type AbstractComponent,
   type Element,
   forwardRef,
-  type Node,
+  type Node as ReactNode,
   useEffect,
   useImperativeHandle,
   useRef,
 } from 'react';
 import { useGlobalEventsHandler } from 'gestalt';
-import InternalDatePicker from './DatePicker/InternalDatePicker.js';
+import InternalDatePicker from './DatePicker/InternalDatePicker';
 
 // LocaleData type from https://github.com/date-fns/date-fns/blob/81ab18785146405ca2ae28710cdfbb13a294ec50/src/locale/af/index.js.flow
 // NOTE: DO NOT USE PER-LINE FLOW SUPPRESSIONS HERE
@@ -172,15 +172,16 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElement> = for
     value,
   }: Props,
   ref,
-): Node {
+): ReactNode {
   const innerInputRef = useRef<null | HTMLInputElement>(null);
   useImperativeHandle(ref, () => innerInputRef.current);
-  const { datePickerHandlers } = useGlobalEventsHandler() || {
+  // Consume GlobalEventsHandlerProvider
+  const { datePickerHandlers } = useGlobalEventsHandler() ?? {
     datePickerHandlers: undefined,
   };
 
   useEffect(() => {
-    if (datePickerHandlers?.onMount) datePickerHandlers?.onMount();
+    if (datePickerHandlers?.onRender) datePickerHandlers?.onRender();
   }, [datePickerHandlers]);
 
   return (

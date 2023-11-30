@@ -1,15 +1,15 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Badge, Box, Column, Flex, Link, Table, Text } from 'gestalt';
-import componentData from '../../docs-components/data/components.js';
+import componentData from '../../docs-components/data/components';
 import {
   COMPONENT_STATUS_MESSAGING,
   STATUS_DESCRIPTION,
-} from '../../docs-components/data/componentStatusMessaging.js';
-import getByPlatform from '../../docs-components/data/utils/getByPlatform.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import StatusData from '../../docs-components/StatusData.js';
+} from '../../docs-components/data/componentStatusMessaging';
+import getByPlatform from '../../docs-components/data/utils/getByPlatform';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import StatusData from '../../docs-components/StatusData';
 
 function DeprecatedStatus() {
   return <StatusData text="Deprecated" status="deprecated" />;
@@ -24,7 +24,7 @@ const sortedComponentList = [...iosComponentData].sort(({ name: aName }, { name:
 
 const statusFields = ['figmaStatus', 'documentation', 'status'];
 
-export default function ComponentStatus(): Node {
+export default function ComponentStatus(): ReactNode {
   return (
     <Page title="iOS component status" hideSideNav hideEditLink>
       <PageHeader

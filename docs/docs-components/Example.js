@@ -1,12 +1,12 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { LiveError, LivePreview, LiveProvider } from 'react-live';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import * as gestaltChart from 'gestalt-charts'; // eslint-disable-line import/no-namespace
 import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
-import theme from './atomDark.js';
-import Card from './Card.js';
-import ExampleCode from './ExampleCode.js';
+import theme from './atomDark';
+import Card from './Card';
+import ExampleCode from './ExampleCode';
 
 type Props = {
   defaultCode: string,
@@ -30,7 +30,7 @@ function Example({
   showHeading,
   showCode = true,
   skipContrastCheck = false,
-}: Props): Node {
+}: Props): ReactNode {
   const code = defaultCode.trim();
   const scope = { ...gestalt, ...gestaltChart, ...gestaltDatepicker };
 

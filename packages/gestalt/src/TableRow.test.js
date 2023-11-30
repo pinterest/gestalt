@@ -1,6 +1,6 @@
 // @flow strict
 import renderer from 'react-test-renderer';
-import TableRow from './TableRow.js';
+import TableRow from './TableRow';
 
 test('renders correctly', () => {
   const tree = renderer

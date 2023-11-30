@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Controller from './Controller.js';
+import Controller from './LegacyController';
 
 test('Controller renders', () => {
   const element = document.createElement('div');

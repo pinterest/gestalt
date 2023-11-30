@@ -1,16 +1,16 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
-import Box from './Box.js';
+import Box from './Box';
 import styles from './SideNavigation.css';
-import getChildrenToArray from './SideNavigation/getChildrenToArray.js';
-import Text from './Text.js';
+import getChildrenToArray from './SideNavigation/getChildrenToArray';
+import Text from './Text';
 
 type Props = {
   /**
    * Any [SideNavigation.TopItem](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.TopItem) to be rendered
    */
-  children: Node,
+  children: ReactNode,
   /**
    * Label for the section. See the [Sections](https://gestalt.pinterest.systems/web/sidenavigation#Sections) variant for more info.
    */
@@ -20,7 +20,7 @@ type Props = {
 /**
  * Use [SideNavigation.Section](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.Section) to categorize navigation menu items into groups and also avoid redundant language in labels.
  */
-export default function SideNavigationSection({ children, label }: Props): Node {
+export default function SideNavigationSection({ children, label }: Props): ReactNode {
   const navigationChildren = getChildrenToArray({
     children,
     filterLevel: 'main',

@@ -1,11 +1,11 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Heading, Image, List } from 'gestalt';
-import MainSection from '../../../docs-components/MainSection.js';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
+import MainSection from '../../../docs-components/MainSection';
+import Page from '../../../docs-components/Page';
+import PageHeader from '../../../docs-components/PageHeader';
 
-export default function MessagingComponentsPage(): Node {
+export default function MessagingComponentsPage(): ReactNode {
   return (
     <Page title="Brand expression">
       <PageHeader

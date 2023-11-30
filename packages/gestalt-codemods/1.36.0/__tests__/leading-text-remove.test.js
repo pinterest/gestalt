@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../leading-text-remove', () =>
   Object.assign(jest.requireActual('../leading-text-remove'), {

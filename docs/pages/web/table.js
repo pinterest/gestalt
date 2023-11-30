@@ -1,44 +1,44 @@
 // @flow strict
-import { type Node } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import { type DocGen, multipleDocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import alignContent from '../../examples/table/alignContent.js';
-import avoidOverStylingText from '../../examples/table/avoidOverStylingText.js';
-import bottomCaptionExample from '../../examples/table/bottomCaptionExample.js';
-import controlledExpandable from '../../examples/table/controlledExpandable.js';
-import dontAddSoMuchContent from '../../examples/table/dontAddSoMuchContent.js';
-import dontAlignContent from '../../examples/table/dontAlignContent.js';
-import dontMixTextAndGraphics from '../../examples/table/dontMixTextAndGraphics.js';
-import dontOverStyleText from '../../examples/table/dontOverStyleText.js';
-import dontUseExpandForDenseContent from '../../examples/table/dontUseExpandForDenseContent.js';
-import drawerRowExample from '../../examples/table/drawerRowExample.js';
-import expandRows from '../../examples/table/expandRows.js';
-import main from '../../examples/table/main.js';
-import makeContentDigestable from '../../examples/table/makeContentDigestable.js';
-import multipleStickyColumnsExample from '../../examples/table/multipleStickyColumnsExample.js';
-import rowExpandableWithStickyColumns from '../../examples/table/rowExpandableWithStickyColumns.js';
-import selected from '../../examples/table/selected.js';
-import separateUnitType from '../../examples/table/separateUnitType.js';
-import sortableHeaderCellsWithStickyColumns from '../../examples/table/sortableHeaderCellsWithStickyColumns.js';
-import sortableTableCells from '../../examples/table/sortableTableCells.js';
-import stickyColumnExample from '../../examples/table/stickyColumnExample.js';
-import stickyHeaderColumnExample from '../../examples/table/stickyHeaderColumnExample.js';
-import stickyHeaderFooterExample from '../../examples/table/stickyHeaderFooterExample.js';
-import topCaptionExample from '../../examples/table/topCaptionExample.js';
-import uncontrolledExpandable from '../../examples/table/uncontrolledExpandable.js';
+import { type Node as ReactNode } from 'react';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import { type DocGen, multipleDocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import alignContent from '../../examples/table/alignContent';
+import avoidOverStylingText from '../../examples/table/avoidOverStylingText';
+import bottomCaptionExample from '../../examples/table/bottomCaptionExample';
+import controlledExpandable from '../../examples/table/controlledExpandable';
+import dontAddSoMuchContent from '../../examples/table/dontAddSoMuchContent';
+import dontAlignContent from '../../examples/table/dontAlignContent';
+import dontMixTextAndGraphics from '../../examples/table/dontMixTextAndGraphics';
+import dontOverStyleText from '../../examples/table/dontOverStyleText';
+import dontUseExpandForDenseContent from '../../examples/table/dontUseExpandForDenseContent';
+import drawerRowExample from '../../examples/table/drawerRowExample';
+import expandRows from '../../examples/table/expandRows';
+import main from '../../examples/table/main';
+import makeContentDigestable from '../../examples/table/makeContentDigestable';
+import multipleStickyColumnsExample from '../../examples/table/multipleStickyColumnsExample';
+import rowExpandableWithStickyColumns from '../../examples/table/rowExpandableWithStickyColumns';
+import selected from '../../examples/table/selected';
+import separateUnitType from '../../examples/table/separateUnitType';
+import sortableHeaderCellsWithStickyColumns from '../../examples/table/sortableHeaderCellsWithStickyColumns';
+import sortableTableCells from '../../examples/table/sortableTableCells';
+import stickyColumnExample from '../../examples/table/stickyColumnExample';
+import stickyHeaderColumnExample from '../../examples/table/stickyHeaderColumnExample';
+import stickyHeaderFooterExample from '../../examples/table/stickyHeaderFooterExample';
+import topCaptionExample from '../../examples/table/topCaptionExample';
+import uncontrolledExpandable from '../../examples/table/uncontrolledExpandable';
 
 export default function DocsPage({
   generatedDocGen,
 }: {
   generatedDocGen: { [string]: DocGen },
-}): Node {
+}): ReactNode {
   return (
     <Page title={generatedDocGen.Table?.displayName}>
       <PageHeader

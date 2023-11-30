@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import cx from 'classnames';
 import styles from './Table.css';
 
@@ -7,7 +7,7 @@ type Props = {
   /**
    * The content of the table cell.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * `colSpan` defines the number of columns a cell should span.
    */
@@ -40,7 +40,7 @@ export default function TableCell({
   shouldBeSticky,
   previousTotalWidth,
   shouldHaveShadow,
-}: Props): Node {
+}: Props): ReactNode {
   const cs = cx(
     styles.td,
     shouldBeSticky && styles.columnSticky,

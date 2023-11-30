@@ -1,19 +1,19 @@
 // @flow strict
-import { type AbstractComponent, forwardRef, Fragment, type Node } from 'react';
+import { type AbstractComponent, forwardRef, Fragment, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
-import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext.js';
-import Badge from '../Badge.js';
-import Box from '../Box.js';
-import { useDeviceType } from '../contexts/DeviceTypeProvider.js';
-import Flex from '../Flex.js';
+import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext';
+import Badge from '../Badge';
+import Box from '../Box';
+import { useDeviceType } from '../contexts/DeviceTypeProvider';
+import Flex from '../Flex';
 import focusStyles from '../Focus.css';
-import getRoundingClassName from '../getRoundingClassName.js';
-import Icon from '../Icon.js';
-import Link from '../Link.js';
+import getRoundingClassName from '../getRoundingClassName';
+import Icon from '../Icon';
+import Link from '../Link';
 import styles from '../TapArea.css';
-import Text from '../Text.js';
-import { type FontWeight } from '../textTypes.js';
-import useFocusVisible from '../useFocusVisible.js';
+import Text from '../Text';
+import { type FontWeight } from '../textTypes';
+import useFocusVisible from '../useFocusVisible';
 
 export type OptionItemType = {
   label: string,
@@ -28,7 +28,7 @@ type BadgeType = {
 
 type Props = {
   badge?: BadgeType,
-  children?: Node,
+  children?: ReactNode,
   dataTestId?: string,
   hoveredItemIndex: ?number,
   href?: string,
@@ -71,7 +71,7 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
     textWeight = 'normal',
   }: Props,
   ref,
-): Node {
+): ReactNode {
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
 

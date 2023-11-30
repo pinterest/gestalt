@@ -1,5 +1,5 @@
 // @flow strict
-import Tag from './Tag.js';
+import Tag from './Tag';
 
 const Valid = <Tag text="New" onRemove={() => {}} accessibilityRemoveIconLabel="Remove" />;
 

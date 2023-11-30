@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useCallback, useMemo, useState } from 'react';
+import { type Node as ReactNode, useCallback, useMemo, useState } from 'react';
 import {
   ActivationCard,
   Callout,
@@ -12,7 +12,7 @@ import {
   Upsell,
 } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [onNavigationMode, setOnNavigationMode] = useState<'default' | 'custom'>('default');
 
   const useOnNavigation = useCallback(

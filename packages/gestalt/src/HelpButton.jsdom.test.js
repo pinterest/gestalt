@@ -1,6 +1,6 @@
 // @flow strict
 import { act, render, screen } from '@testing-library/react';
-import HelpButton from './HelpButton.js';
+import HelpButton from './HelpButton';
 
 describe('HelpButton', () => {
   it('renders a icon', () => {

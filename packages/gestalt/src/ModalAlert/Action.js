@@ -1,7 +1,7 @@
 // @flow strict
-import { type Node } from 'react';
-import Button from '../Button.js';
-import ButtonLink from '../ButtonLink.js';
+import { type Node as ReactNode } from 'react';
+import Button from '../Button';
+import ButtonLink from '../ButtonLink';
 
 type LinkDataType = {
   accessibilityLabel: string,
@@ -34,7 +34,7 @@ export default function ModalAlertAction({
   disabled,
   label,
   ...props
-}: Props): Node {
+}: Props): ReactNode {
   const color = type === 'primary' ? 'red' : 'gray';
 
   return props.role === 'link' ? (

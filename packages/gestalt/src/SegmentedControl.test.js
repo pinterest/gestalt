@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import SegmentedControl from './SegmentedControl.js';
+import SegmentedControl from './SegmentedControl';
 
 test('SegmentedControl renders', () => {
   const tree = create(

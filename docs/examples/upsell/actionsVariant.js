@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import {
   Box,
   Button,
@@ -15,7 +15,7 @@ import {
   Upsell,
 } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [showModal, setShowModal] = useState(false);
 
   return (

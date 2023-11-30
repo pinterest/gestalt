@@ -8,7 +8,7 @@ import {
   CARET_WIDTH,
   getCaretDir,
   getPopoverDir,
-} from './utils/positioningUtils.js';
+} from './utils/positioningUtils';
 
 const windowSize = {
   height: 900,

@@ -1,13 +1,13 @@
 // @flow strict
-import { type Node } from 'react';
-import Button from './Button.js';
-import ButtonLink from './ButtonLink.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import DeviceTypeProvider from './contexts/DeviceTypeProvider.js';
-import Flex from './Flex.js';
-import Modal from './Modal.js';
-import ModalAlertAction from './ModalAlert/Action.js';
-import ModalAlertHeader from './ModalAlert/Header.js';
+import { type Node as ReactNode } from 'react';
+import Button from './Button';
+import ButtonLink from './ButtonLink';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import DeviceTypeProvider from './contexts/DeviceTypeProvider';
+import Flex from './Flex';
+import Modal from './Modal';
+import ModalAlertAction from './ModalAlert/Action';
+import ModalAlertHeader from './ModalAlert/Header';
 
 export type ActionDataType =
   | {
@@ -42,7 +42,7 @@ type Props = {
   /**
    * Supply the element(s) that will be used as ModalAlert's main content. See the [Best Practices](https://gestalt.pinterest.systems/web/modalalert#Best-practices) for more info.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * The text used for ModalAlert's heading.
    */
@@ -86,7 +86,7 @@ export default function ModalAlert({
   heading,
   primaryAction,
   secondaryAction,
-}: Props): Node {
+}: Props): ReactNode {
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Modal');
 

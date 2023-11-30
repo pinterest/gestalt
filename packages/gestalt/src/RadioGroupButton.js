@@ -1,16 +1,16 @@
 // @flow strict
-import { type AbstractComponent, forwardRef, type Node, useState } from 'react';
+import { type AbstractComponent, forwardRef, type Node as ReactNode, useState } from 'react';
 import classnames from 'classnames';
-import Box from './Box.js';
-import Flex from './Flex.js';
+import Box from './Box';
+import Flex from './Flex';
 import focusStyles from './Focus.css';
-import Label from './Label.js';
+import Label from './Label';
 import styles from './RadioButton.css';
 import controlStyles from './RadioButtonCheckbox.css';
-import { useRadioGroupContext } from './RadioGroup/Context.js';
-import FormHelperText from './shared/FormHelperText.js';
-import Text from './Text.js';
-import useFocusVisible from './useFocusVisible.js';
+import { useRadioGroupContext } from './RadioGroup/Context';
+import FormHelperText from './shared/FormHelperText';
+import Text from './Text';
+import useFocusVisible from './useFocusVisible';
 
 type Props = {
   /**
@@ -28,7 +28,7 @@ type Props = {
   /**
    * An optional [Image](https://gestalt.pinterest.systems/web/image) component can be supplied to add an image to each radio button. Spacing is already accounted for — simply specify the width and height. See the [images example](https://gestalt.pinterest.systems/web/radiogroup#With-Image) for more details.
    */
-  image?: Node,
+  image?: ReactNode,
   /**
    * The displayed label for the input.
    */
@@ -86,7 +86,7 @@ const RadioGroupButtonWithForwardRef: AbstractComponent<Props, HTMLInputElement>
     size = 'md',
   }: Props,
   ref,
-): Node {
+): ReactNode {
   const [focused, setFocused] = useState(false);
   const [hovered, setHover] = useState(false);
 

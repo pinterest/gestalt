@@ -1,6 +1,6 @@
 // @flow strict
 import renderer from 'react-test-renderer';
-import InternalLabel from './InternalLabel.js';
+import InternalLabel from './InternalLabel';
 
 test('InternalLabel renders', () => {
   const component = renderer.create(<InternalLabel htmlFor="email">Email</InternalLabel>);

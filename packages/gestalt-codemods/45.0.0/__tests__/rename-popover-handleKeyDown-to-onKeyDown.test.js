@@ -1,4 +1,4 @@
-import { runTest } from 'jscodeshift/dist/testUtils.js';
+import { runTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../rename-popover-handleKeyDown-to-onKeyDown', () =>
   Object.assign(jest.requireActual('../rename-popover-handleKeyDown-to-onKeyDown'), {

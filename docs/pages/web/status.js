@@ -1,27 +1,27 @@
 // @flow strict
-import { type Node } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import ariaAttributesExample1 from '../../examples/status/ariaAttributesExample1.js';
-import ariaAttributesExample2 from '../../examples/status/ariaAttributesExample2.js';
-import dontPlaceFarAwayFromItsSubject from '../../examples/status/dontPlaceFarAwayFromItsSubject.js';
-import dontUseSubText from '../../examples/status/dontUseSubText.js';
-import dontUseSVGsOrImages from '../../examples/status/dontUseSVGsOrImages.js';
-import mainExample from '../../examples/status/mainExample.js';
-import placeCloseToItsSubject from '../../examples/status/placeCloseToItsSubject.js';
-import textAdditionsExample1 from '../../examples/status/textAdditionsExample1.js';
-import textAdditionsExample2 from '../../examples/status/textAdditionsExample2.js';
-import useTitleWhenItRepresents from '../../examples/status/useTitleWhenItRepresents.js';
-import useToCommunicateAStepIn from '../../examples/status/useToCommunicateAStepIn.js';
+import { type Node as ReactNode } from 'react';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import ariaAttributesExample1 from '../../examples/status/ariaAttributesExample1';
+import ariaAttributesExample2 from '../../examples/status/ariaAttributesExample2';
+import dontPlaceFarAwayFromItsSubject from '../../examples/status/dontPlaceFarAwayFromItsSubject';
+import dontUseSubText from '../../examples/status/dontUseSubText';
+import dontUseSVGsOrImages from '../../examples/status/dontUseSVGsOrImages';
+import mainExample from '../../examples/status/mainExample';
+import placeCloseToItsSubject from '../../examples/status/placeCloseToItsSubject';
+import textAdditionsExample1 from '../../examples/status/textAdditionsExample1';
+import textAdditionsExample2 from '../../examples/status/textAdditionsExample2';
+import useTitleWhenItRepresents from '../../examples/status/useTitleWhenItRepresents';
+import useToCommunicateAStepIn from '../../examples/status/useToCommunicateAStepIn';
 
-export default function StatusPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function StatusPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title="Status">
       <PageHeader name="Status" description={generatedDocGen?.description}>

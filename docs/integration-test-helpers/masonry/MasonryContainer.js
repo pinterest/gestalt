@@ -1,12 +1,12 @@
 // @flow strict
 import { Component, createRef, type Element } from 'react';
 import { Masonry } from 'gestalt';
-import ExampleGridItem from './ExampleGridItem.js';
-import getClassicGridServerStyles from './getClassicGridServerStyles.js';
-import getFlexibleGridServerStyles from './getFlexibleGridServerStyles.js';
-import generateExampleItems from './items-utils/generateExampleItems.js';
-import generateRealisticExampleItems from './items-utils/generateRealisticExampleItems.js';
-import getRandomNumberGenerator from './items-utils/getRandomNumberGenerator.js';
+import ExampleGridItem from './ExampleGridItem';
+import getClassicGridServerStyles from './getClassicGridServerStyles';
+import getFlexibleGridServerStyles from './getFlexibleGridServerStyles';
+import generateExampleItems from './items-utils/generateExampleItems';
+import generateRealisticExampleItems from './items-utils/generateRealisticExampleItems';
+import getRandomNumberGenerator from './items-utils/getRandomNumberGenerator';
 
 // MasonryContainer is a simulation of a web page that contains a Masonry grid
 // on it. It allows for a ton of configuration and also has a number of buttons

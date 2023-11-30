@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Flex, Text, Video } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [playing, setPlaying] = useState(false);
 
   return (

@@ -1,5 +1,5 @@
 // @flow strict
-import SlimBanner from './SlimBanner.js';
+import SlimBanner from './SlimBanner';
 
 const Valid = <SlimBanner message="test" />;
 

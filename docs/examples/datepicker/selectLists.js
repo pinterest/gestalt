@@ -1,9 +1,9 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Flex, SegmentedControl } from 'gestalt';
 import { DatePicker } from 'gestalt-datepicker';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const mapOptions = { '0': ['month'], '1': ['year'], '2': ['year', 'month'] };
   const items = ['Month', 'Year', 'Month & Year'];
   const [itemIndex, setItemIndex] = useState(0);

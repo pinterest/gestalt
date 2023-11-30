@@ -1,5 +1,11 @@
 // @flow strict
-import { type Context, createContext, type Element, type Node, useContext } from 'react';
+import {
+  type Context,
+  createContext,
+  type Element,
+  type Node as ReactNode,
+  useContext,
+} from 'react';
 
 export type NoopType = () => void;
 
@@ -11,30 +17,31 @@ type OnLinkNavigationType = ({
 }) => void;
 
 type GlobalEventsHandlerContextType = {
-  dateFieldHandlers?: { onMount?: NoopType },
-  datePickerHandlers?: { onMount?: NoopType },
-  dateRangeHandlers?: { onMount?: NoopType },
+  dateFieldHandlers?: { onRender?: NoopType },
+  datePickerHandlers?: { onRender?: NoopType },
+  dateRangeHandlers?: { onRender?: NoopType },
   sheetMobileHandlers?: { onOpen?: NoopType, onClose?: NoopType },
   linkHandlers?: { onNavigation?: OnLinkNavigationType },
+  radioGroupHandlers?: { onRender?: NoopType },
 } | void;
 
 type Props = {
   /**
    * Context lets a parent component provide data to the entire tree below it. Only components within the GlobalEventsHandlerProvider tree will be able to subscribe to it.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * Handlers consumed by [DateField](https://gestalt.pinterest.systems/web/datefield).
    */
-  dateFieldHandlers?: { onMount?: () => void },
+  dateFieldHandlers?: { onRender?: () => void },
   /**
    * Handlers consumed by [DatePicker](https://gestalt.pinterest.systems/web/datepicker).
    */
-  datePickerHandlers?: { onMount?: () => void },
+  datePickerHandlers?: { onRender?: () => void },
   /**
    * Handlers consumed by [DateRange](https://gestalt.pinterest.systems/web/daterange).
    */
-  dateRangeHandlers?: { onMount?: () => void },
+  dateRangeHandlers?: { onRender?: () => void },
   /**
    * Handlers consumed by [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile#External-handlers).
    */
@@ -50,6 +57,7 @@ type Props = {
       +event: SyntheticEvent<>,
     }) => void,
   },
+  radioGroupHandlers?: { onRender?: () => void },
 };
 
 const GlobalEventsHandlerContext: Context<GlobalEventsHandlerContextType> =
@@ -67,6 +75,7 @@ export default function GlobalEventsHandlerProvider({
   dateRangeHandlers,
   sheetMobileHandlers,
   linkHandlers,
+  radioGroupHandlers,
 }: Props): Element<typeof Provider> {
   return (
     <Provider
@@ -76,6 +85,7 @@ export default function GlobalEventsHandlerProvider({
         dateRangeHandlers,
         sheetMobileHandlers,
         linkHandlers,
+        radioGroupHandlers,
       }}
     >
       {children}

@@ -1,5 +1,5 @@
 // @flow strict
-import Flex from './Flex.js';
+import Flex from './Flex';
 
 const Valid = (
   <Flex>
