@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-gestalt",
-  "version": "128.4.2",
+  "version": "128.4.3",
   "license": "Apache-2.0",
   "homepage": "https://gestalt.pinterest.systems/",
   "description": "ESLint rules for Pinterest's design language Gestalt",
