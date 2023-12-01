@@ -3,6 +3,71 @@
     "year": "2023",
     "digests": [
       {
+        "month": "November",
+        "summary": "",
+        "posts": [
+          {
+            "title": "Gestalt November Newsletter",
+            "audience": ["Engineering", "Design"],
+            "content": "A recap of significant changes from November."
+          },
+          {
+            "title": "More, better PDocs for Gestalt!",
+            "audience": ["Engineering"],
+            "content": "Check our new PDocs sections: [Best practices for Flow typing Gestalt components](https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-types#best-practices-for-flow-typing-gestalt-components), [CSS](https://pdocs.pinadmin.com/docs/webapp/docs/css), [accessibility](https://pdocs.pinadmin.com/docs/webapp/docs/accessibility), and [Gestalt metrics](https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-metrics)."
+          },
+          {
+            "title": "Other component updates",
+            "audience": ["Engineering"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/8a79b408-ae17-4257-a8f2-6b23067afb00",
+            "imageAltText": "Image of the new icons",
+            "content": "- **Status** supports new 'locked' status. \n - **SideNavigation** supports controlled group display for collapsing/expanding groups. \n - **Icons**. We added 4 new cross-platform icons to our [iconography collection](https://gestalt.pinterest.systems/foundations/iconography/library): captions, captoins-outlined, sticker, upload-feed."
+          },
+          {
+            "title": "Color variables full rollout",
+            "audience": ["Design"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/fdf83eb8-509f-4783-ac99-c95bc2c27c85",
+            "imageAltText": "Examples of variables matching our library cover",
+            "content": "We migrated ALL of our components to use color variables instead of styles so that you can enable modes, meaning it is super easy to switch between light and dark modes without relying on extra variants. You can use variables in your files by enabling our [variables library](https://shorturl.at/cdknU) in your Figma files."
+          },
+          {
+            "title": "More chart guidelines",
+            "audience": ["Design"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/2cf34e05-9aae-4b99-a46d-eaf1e12d1c4d",
+            "imageAltText": "Line and Bar chart examples in geometric shapes'",
+            "content": "New [Bar graph](https://gestalt.pinterest.systems/foundations/data_visualization/charts_and_graphs/bar_graphs) and [Line graph](https://gestalt.pinterest.systems/foundations/data_visualization/charts_and_graphs/line_graphs) guidelines are available!"
+          },
+          {
+            "title": "Locked Status",
+            "audience": ["Design"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/3cf27526-bf63-49f0-a878-950f052cc9ab",
+            "imageAltText": "New lock icon and deprecated sunset icon",
+            "content": "[New status variant](https://gestalt.pinterest.systems/web/status#Text-additions) for campaigns and workflows in a locked status. In addition, we deprecated the workflow-status-sunset icon as it isn’t part of our status component."
+          },
+          {
+            "title": "DateField",
+            "audience": ["Design"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/cc9e31d3-d292-4c1c-a978-aedef7b5c85d",
+            "imageAltText": "DateField component graphic",
+            "content": "[DateField component](https://shorturl.at/azGHT) added to the Figma web library."
+          },
+          {
+            "title": "More iOS docs!",
+            "audience": ["Design"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/136543db-254d-4008-ba1e-363da2031680",
+            "imageAltText": "iOS textArea component along the iOS apple logo",
+            "content": "New docs for [iOS TextArea](https://gestalt.pinterest.systems/ios/textarea)"
+          },
+          {
+            "title": "and more Figme web component improvements!",
+            "audience": ["Design"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/1cfc25e2-bee9-4b3c-902a-3876b0a1576a",
+            "imageAltText": "Web library Figma cover",
+            "content": "We revamped our web components (Figma) to better match our web docs. Keep your Figma files updated with Gestalt’s libraries to get our latest fixes!"
+          }
+        ]
+      },
+      {
         "month": "October",
         "summary": "",
         "posts": [
@@ -38,11 +103,6 @@
             "imageSrc": "https://i.pinimg.com/originals/e2/15/52/e21552b93b2034c0f6438a7e11c20c3a.png",
             "imageAltText": "Image of the new icons",
             "content": "- **Link** finally supports dataTestId prop. In Pinboard, we also deprecated SterlingLink and added Link to the [adsLoggingExtension extension](https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-ads-logging-extension#gestalt-components-with-ads-logging) \n - **TagData, TileData** support multi-line Tooltips. \n - **NumberField** support labelDisplay prop for consistency with TextField. \n - **Icons**. We added 6 new icons added to our [iconography collection](https://gestalt.pinterest.systems/foundations/iconography/library). They are: \n **Cross-platform icons**: speech-outline, speech-exclamation-point \n **Web-only icons** (campaign insights, media planing and measurement): api, data-source, hearth-health, diagnostics."
-          },
-          {
-            "title": "Gestalt Design October Newsletter",
-            "audience": ["Design"],
-            "content": "A recap of significant changes from September."
           },
           {
             "title": "RTL and international design guidelines",
