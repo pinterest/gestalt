@@ -1,3 +1,9 @@
+## 128.4.2 (Dec 1, 2023)
+
+### Patch
+
+- Internal: Bump @adobe/css-tools from 4.3.1 to 4.3.2 ([#3316](https://github.com/pinterest/gestalt/pull/3316)) - [Preview link](https://deploy-preview-3316--gestalt.netlify.app?devexample=true)
+
 ## 128.4.1 (Nov 30, 2023)
 
 ### Patch
