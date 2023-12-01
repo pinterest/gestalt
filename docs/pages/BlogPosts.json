@@ -2,7 +2,7 @@
   {
     "year": "2023",
     "digests": [
-            {
+      {
         "month": "November",
         "summary": "",
         "posts": [
@@ -58,7 +58,7 @@
             "imageAltText": "iOS textArea component along the iOS apple logo",
             "content": "New docs for [iOS TextArea](https://gestalt.pinterest.systems/ios/textarea)"
           },
-           {
+          {
             "title": "and more Figme web component improvements!",
             "audience": ["Design"],
             "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/1cfc25e2-bee9-4b3c-902a-3876b0a1576a",
