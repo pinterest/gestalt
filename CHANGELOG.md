@@ -1,3 +1,9 @@
+## 128.4.4 (Dec 4, 2023)
+
+### Patch
+
+- Popover: Add experiment hooks to components (rollout phase 1) ([#3312](https://github.com/pinterest/gestalt/pull/3312)) - [Preview link](https://deploy-preview-3312--gestalt.netlify.app?devexample=true)
+
 ## 128.4.3 (Dec 1, 2023)
 
 ### Patch
