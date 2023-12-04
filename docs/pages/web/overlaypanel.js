@@ -10,6 +10,7 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
+import { SlimBannerExperiment } from '../../docs-components/SlimBannerExperiment';
 import animationExample from '../../examples/overlaypanel/animationExample';
 import confirmationExample from '../../examples/overlaypanel/confirmationExample';
 import defaultExample from '../../examples/overlaypanel/defaultExample';
@@ -32,6 +33,13 @@ export default function SheetPage({
       <PageHeader
         name={generatedDocGen?.OverlayPanel.displayName}
         description={generatedDocGen?.OverlayPanel.description}
+        slimBanner={
+          <SlimBannerExperiment
+            componentName="OverlayPanel"
+            description="to fix and improve underlying Popover component behavior. No visual updates"
+            pullRequest={3244}
+          />
+        }
       >
         <SandpackExample
           code={defaultExample}

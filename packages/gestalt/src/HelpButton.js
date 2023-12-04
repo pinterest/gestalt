@@ -21,6 +21,7 @@ import Popover from './Popover';
 import TapArea from './TapArea';
 import Text from './Text';
 import Tooltip from './Tooltip';
+import useInExperiment from './useInExperiment';
 import { CompositeZIndex, FixedZIndex, type Indexable } from './zIndex';
 
 type LinkType = {
@@ -178,8 +179,14 @@ export default function HelpButton({
       <span className={textColorOverrideStyles}>{text}</span>
     );
 
+  const isInExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_popover_v2_helpbutton',
+    mwebExperimentName: 'mweb_gestalt_popover_v2_helpbutton',
+  });
+
   const popoverElement = (
     <Popover
+      __experimentalPopover={isInExperiment}
       id={popoverId}
       accessibilityLabel={accessibilityPopoverLabel}
       anchor={tapAreaRef.current}

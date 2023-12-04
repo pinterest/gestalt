@@ -24,6 +24,7 @@ import Tag from './Tag';
 import Text from './Text';
 import InternalTextField from './TextField/InternalTextField';
 import InternalTextFieldIconButton from './TextField/InternalTextFieldIconButton';
+import useInExperiment from './useInExperiment';
 import handleContainerScrolling, {
   type DirectionOptionType,
   KEYS,
@@ -432,6 +433,11 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
     ],
   );
 
+  const isInExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_popover_v2_combobox',
+    mwebExperimentName: 'mweb_gestalt_popover_v2_combobox',
+  });
+
   return (
     <Fragment>
       <Box
@@ -498,6 +504,7 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
       {showOptionsList && innerRef.current ? (
         <Layer zIndex={zIndex}>
           <Popover
+            __experimentalPopover={isInExperiment}
             anchor={innerRef.current}
             onKeyDown={handleKeyDown}
             idealDirection="down"
