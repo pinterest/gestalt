@@ -1,4 +1,5 @@
 // @flow strict
+import { useEffect } from 'react';
 import {
   arrow,
   autoUpdate,
@@ -57,6 +58,10 @@ interface Props {
    * Whether to hide Popover when reference element gets out of viewport.
    */
   hideWhenReferenceHidden?: boolean;
+  /**
+   * Callback fired when Popover is correctly positioned after it's mounted.
+   */
+  onPositioned?: () => void;
 }
 
 export default function usePopover({
@@ -66,6 +71,7 @@ export default function usePopover({
   strategy,
   scrollBoundary,
   hideWhenReferenceHidden,
+  onPositioned,
 }: Props): UseFloatingReturn {
   const isForceDown = direction === 'forceDown';
   const placement = isForceDown ? 'bottom' : direction;
@@ -109,6 +115,10 @@ export default function usePopover({
       hideWhenReferenceHidden && popoverHide,
     ],
   });
+
+  useEffect(() => {
+    if (floating.isPositioned && onPositioned) onPositioned();
+  }, [onPositioned, floating.isPositioned]);
 
   return floating;
 }

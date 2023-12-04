@@ -31,6 +31,7 @@ type Props = {
   disablePortal?: boolean,
   scrollBoundary?: HTMLElement,
   hideWhenReferenceHidden?: boolean,
+  onPositioned?: () => void,
 };
 
 export default function Controller({
@@ -51,6 +52,7 @@ export default function Controller({
   disablePortal,
   scrollBoundary,
   hideWhenReferenceHidden,
+  onPositioned,
 }: Props): ReactNode {
   const width = typeof size === 'string' ? SIZE_WIDTH_MAP[size] : size;
 
@@ -84,6 +86,7 @@ export default function Controller({
         width={width}
         scrollBoundary={scrollBoundary}
         hideWhenReferenceHidden={hideWhenReferenceHidden}
+        onPositioned={onPositioned}
       >
         {children}
       </Contents>

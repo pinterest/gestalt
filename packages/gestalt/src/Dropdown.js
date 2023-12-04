@@ -165,6 +165,12 @@ export default function Dropdown({
   mobileOnAnimationEnd,
   disableMobileUI = true,
 }: Props): ReactNode {
+  const isInExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_popover_v2_dropdown',
+    mwebExperimentName: 'mweb_gestalt_popover_v2_dropdown',
+  });
+
+  const [isPopoverPositioned, setIsPopoverPositioned] = useState(false);
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
 
@@ -175,6 +181,9 @@ export default function Dropdown({
 
   let selectedElement;
   const setOptionRef = (optionRef: ?HTMLElement) => {
+    // Prevent focusing on element until Popover is correctly positioned
+    if (isInExperiment && !isPopoverPositioned) return;
+
     selectedElement = optionRef;
     const linkElement = selectedElement?.getElementsByTagName('a')[0];
     if (linkElement) {
@@ -237,11 +246,6 @@ export default function Dropdown({
     }
   };
 
-  const isInExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_popover_v2_dropdown',
-    mwebExperimentName: 'mweb_gestalt_popover_v2_dropdown',
-  });
-
   if (isMobile && !disableMobileUI) {
     return (
       <AnimationProvider>
@@ -287,6 +291,7 @@ export default function Dropdown({
       shouldFocus
       size="xl"
       __dangerouslySetMaxHeight={maxHeight}
+      __onPositioned={() => setIsPopoverPositioned(true)}
     >
       <Box
         alignItems="center"

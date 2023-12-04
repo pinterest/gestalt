@@ -85,6 +85,8 @@ type Props = {
   __dangerouslySetMaxHeight?: '30vh',
   // Whether to use the new experimental Popover
   __experimentalPopover?: boolean,
+  // Callback fired when Popover is correctly positioned after it's mounted.
+  __onPositioned?: () => void,
 };
 
 /**
@@ -117,6 +119,7 @@ export default function Popover({
   hideWhenReferenceHidden,
   __dangerouslySetMaxHeight,
   __experimentalPopover,
+  __onPositioned,
 }: Props): null | ReactNode {
   const isInExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_popover_v2',
@@ -165,6 +168,7 @@ export default function Popover({
       size={size}
       scrollBoundary={scrollBoundary}
       hideWhenReferenceHidden={hideWhenReferenceHidden}
+      onPositioned={__onPositioned}
     >
       {children}
     </InternalPopover>
