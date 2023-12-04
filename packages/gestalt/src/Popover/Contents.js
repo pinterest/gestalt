@@ -79,7 +79,7 @@ export default function Contents({
   }, [onKeyDown]);
 
   return (
-    <FloatingFocusManager context={context}>
+    <FloatingFocusManager context={context} returnFocus={false}>
       <div
         ref={refs.setFloating}
         tabIndex={-1}
