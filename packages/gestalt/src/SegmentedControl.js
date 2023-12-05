@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node as ReactNode } from 'react';
+import { cloneElement, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import focusStyles from './Focus.css';
@@ -7,6 +7,8 @@ import layout from './Layout.css';
 import styles from './SegmentedControl.css';
 import Text from './Text';
 import useFocusVisible from './useFocusVisible';
+
+type SizeType = 'sm' | 'md' | 'lg';
 
 type OnChange = ({
   event: SyntheticMouseEvent<HTMLButtonElement>,
@@ -30,6 +32,29 @@ type Props = {
    * Index of element in `items` that is currently selected.
    */
   selectedItemIndex: number,
+  /**
+   * Size of the Segmented Control.
+   */
+  size?: SizeType,
+};
+
+const getDensityStyles = (s: SizeType) => {
+  switch (s) {
+    case 'sm':
+      return { fontSize: '200', iconSize: 16 };
+    case 'lg':
+      return { fontSize: '300', iconSize: 24 };
+    case 'md':
+    default:
+      return { fontSize: '300', iconSize: 20 };
+  }
+};
+const applyDensityStyle = (s: SizeType) => styles[`${s}`];
+
+// layout.css contains a mapping of size to min-height
+const applyMinHeight = (s: SizeType) => {
+  const lookup = { 'sm': 'small', 'md': 'medium', 'lg': 'large' };
+  return layout[`${lookup[s]}`];
 };
 
 function SegmentedControlItem({
@@ -37,6 +62,7 @@ function SegmentedControlItem({
   item,
   isSelected,
   onChange,
+  size = 'md',
   width,
 }: {
   index: number,
@@ -44,13 +70,21 @@ function SegmentedControlItem({
   isSelected: boolean,
   onChange: OnChange,
   width: ?string,
+  size: SizeType,
 }) {
   const { isFocusVisible } = useFocusVisible();
-  const cs = classnames(styles.item, focusStyles.hideOutline, {
-    [styles.itemIsNotSelected]: !isSelected,
-    [styles.itemIsSelected]: isSelected,
-    [focusStyles.accessibilityOutline]: isFocusVisible,
-  });
+  const cs = classnames(
+    styles.item,
+    focusStyles.hideOutline,
+    {
+      [styles.itemIsNotSelected]: !isSelected,
+      [styles.itemIsSelected]: isSelected,
+      [focusStyles.accessibilityOutline]: isFocusVisible,
+    },
+    applyDensityStyle(size),
+  );
+
+  const { fontSize, iconSize } = getDensityStyles(size);
 
   return (
     <button
@@ -62,12 +96,15 @@ function SegmentedControlItem({
       style={{ width }}
     >
       {typeof item === 'string' ? (
-        <Text color="default" align="center" size="200" weight="bold">
+        <Text color="default" align="center" size={fontSize} weight="bold">
           {item}
         </Text>
       ) : (
         <Box display="flex" justifyContent="center">
-          {item}
+          {typeof item === 'object' && item && item.type && item.type.displayName === 'Icon'
+            ? // $FlowExpectedError[incompatible-exact] the displayName check above ensures this is an Icon
+              cloneElement(item, { size: iconSize })
+            : item}
         </Box>
       )}
     </button>
@@ -88,10 +125,14 @@ export default function SegmentedControl({
   onChange,
   responsive,
   selectedItemIndex,
+  size = 'md',
 }: Props): ReactNode {
   const buttonWidth = responsive ? undefined : `${Math.floor(100 / Math.max(1, items.length))}%`;
   return (
-    <div className={classnames(styles.SegmentedControl, layout.medium)} role="tablist">
+    <div
+      className={classnames(styles.SegmentedControl, applyMinHeight(size), applyDensityStyle(size))}
+      role="tablist"
+    >
       {items.map((item, i) => (
         <SegmentedControlItem
           // eslint-disable-next-line react/no-array-index-key
@@ -100,6 +141,7 @@ export default function SegmentedControl({
           item={item}
           isSelected={i === selectedItemIndex}
           onChange={onChange}
+          size={size}
           width={buttonWidth}
         />
       ))}

@@ -3,9 +3,22 @@
   composes: lightGrayBg from "./Colors.css";
   composes: flex from "./Layout.css";
   composes: justifyBetween from "./Layout.css";
-  composes: rounding4 from "./Borders.css";
-  padding: 2px;
   user-select: none;
+}
+
+.SegmentedControl.sm {
+  border-radius: var(--rounding-200);
+  padding: var(--space-100);
+}
+
+.SegmentedControl.md {
+  border-radius: var(--rounding-300);
+  padding: var(--space-100);
+}
+
+.SegmentedControl.lg {
+  border-radius: var(--rounding-400);
+  padding: var(--space-100);
 }
 
 .item {
@@ -13,10 +26,23 @@
   composes: m0 from "./Whitespace.css";
   composes: noBorder from "./Borders.css";
   composes: pointer from "./Cursor.css";
-  border-radius: var(--rounding-300);
   flex-basis: 0;
   flex-shrink: 1;
-  padding: 4px 14px;
+}
+
+.item.sm {
+  border-radius: var(--rounding-100);
+  padding: var(--space-0) var(--space-200);
+}
+
+.item.md {
+  border-radius: var(--rounding-200);
+  padding: var(--space-100) var(--space-300);
+}
+
+.item.lg {
+  border-radius: var(--rounding-300);
+  padding: var(--space-200) var(--space-400);
 }
 
 .itemIsNotSelected {
