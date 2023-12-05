@@ -1,11 +1,6 @@
 .button {
   composes: noBorder from "./Borders.css";
   composes: pointer from "./Cursor.css";
-
-  /*
-  Since the button is on an already transparent bg, it appears darker. This adjusts the background color to be a tad brighter since it's layered on top.
-  */
-  backdrop-filter: brightness(1.1);
   height: 100%;
   outline: none;
   position: absolute;
@@ -65,7 +60,6 @@ html:not([dir="rtl"]) .button.lg {
 
 .button.secondary:hover,
 .button.secondary:focus {
-  backdrop-filter: brightness(0.9);
   background-color: var(--g-colorGray100Hovered);
 }
 
