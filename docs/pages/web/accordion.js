@@ -3,6 +3,7 @@ import { type Node as ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import { type DocGen, multipleDocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
 import MainSection from '../../docs-components/MainSection';
 import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
@@ -13,6 +14,7 @@ import expandable from '../../examples/accordion/expandable';
 import expandableGroup from '../../examples/accordion/expandableGroup';
 import expandableWithErrorType from '../../examples/accordion/expandableWithErrorType';
 import expandableWithIconBadgeIconButton from '../../examples/accordion/expandableWithIconBadgeIconButton';
+import localizationLabels from '../../examples/accordion/localizationLabels';
 import mainExample from '../../examples/accordion/mainExample';
 import sizesExample from '../../examples/accordion/sizesExample';
 import staticVariant from '../../examples/accordion/staticVariant';
@@ -64,6 +66,12 @@ export default function DocsPage({
       </MainSection>
 
       <AccessibilitySection name={generatedDocGen.Accordion?.description} />
+
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen.Accordion?.displayName}
+        notes={`Note that \`accessibilityCollapseLabel\` and \`accessibilityExpandLabel\` are optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.`}
+      />
 
       <MainSection name="Subcomponents">
         <MainSection.Subsection
