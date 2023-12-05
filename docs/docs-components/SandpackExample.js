@@ -15,6 +15,7 @@ import CopyCodeButton from './buttons/CopyCodeButton';
 import OpenInCodeSandboxButton from './buttons/OpenInCodeSandboxButton';
 import ShowHideEditorButton from './buttons/ShowHideEditorButton';
 import clipboardCopy from './clipboardCopy';
+import { useDocsExperiments } from './contexts/DocsExperimentProvider';
 import { useLocalFiles } from './contexts/LocalFilesProvider';
 import DevelopmentEditor from './DevelopmentEditor';
 
@@ -159,7 +160,7 @@ export default function SandpackExample({
   const { colorScheme, devExampleMode, helixBot, textDirection } = useAppContext();
   const [exampleColorScheme, setExampleColorScheme] = useState<'light' | 'dark'>(colorScheme);
   const [exampleTextDirection, setExampleTextDirection] = useState<'ltr' | 'rtl'>(textDirection);
-
+  const experimentsObj = useDocsExperiments();
   // If the user changes the color scheme or text direction, update examples
   useEffect(() => {
     setExampleColorScheme(colorScheme);
@@ -236,7 +237,7 @@ export default function SandpackExample({
           code: `import React, { StrictMode } from "react";
           import { createRoot } from "react-dom/client";
           import "./styles.css";
-          import { Box, ColorSchemeProvider } from 'gestalt';
+          import { Box, ColorSchemeProvider, ExperimentProvider } from 'gestalt';
           import App from "./App";
 
           const html = document.querySelector('html');
@@ -245,11 +246,13 @@ export default function SandpackExample({
           const root = createRoot(document.getElementById("root"));
           root.render(
             <StrictMode>
-              <ColorSchemeProvider colorScheme="${exampleColorScheme}" fullDimensions>
-                <Box color="default" height="100%" width="100%">
-                  <App />
-                </Box>
-              </ColorSchemeProvider>
+              <ExperimentProvider value={${JSON.stringify(experimentsObj)}}>
+                <ColorSchemeProvider colorScheme="${exampleColorScheme}" fullDimensions>
+                  <Box color="default" height="100%" width="100%">
+                    <App />
+                  </Box>
+                </ColorSchemeProvider>
+              </ExperimentProvider>
             </StrictMode>
           );`,
         },

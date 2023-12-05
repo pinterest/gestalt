@@ -35,7 +35,7 @@ export default function Example(): ReactNode {
               accessibilityLabel="An Bord speichern."
               anchor={anchorRef.current}
               idealDirection="down"
-              onDismiss={() => {}}
+              onDismiss={() => setOpen(false)}
               positionRelativeToAnchor
               size={240}
               showDismissButton
