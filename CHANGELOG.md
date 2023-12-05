@@ -1,3 +1,9 @@
+## 128.4.5 (Dec 5, 2023)
+
+### Patch
+
+- ComboBox: Disable Popover auto focus ([#3319](https://github.com/pinterest/gestalt/pull/3319)) - [Preview link](https://deploy-preview-3319--gestalt.netlify.app?devexample=true)
+
 ## 128.4.4 (Dec 4, 2023)
 
 ### Patch
