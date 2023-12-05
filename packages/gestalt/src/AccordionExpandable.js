@@ -11,6 +11,7 @@ import applyModuleDensityStyle from './Accordion/applyModuleDensity';
 import AccordionExpandableItem from './Accordion/ExpandableItem';
 import Box from './Box';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Divider from './Divider';
 import IconButton from './IconButton';
 import icons from './icons/index';
@@ -29,11 +30,11 @@ type Props = {
    * Label used to communicate to screen readers which accordion will be collapsed when interacting with the title button. Should be something clear, like "Collapse Security Policies Accordion". Be sure to localize the label. See [Expandable](https://gestalt.pinterest.systems/web/accordion#Expandable) variant to learn more.
    *
    */
-  accessibilityCollapseLabel: string,
+  accessibilityCollapseLabel?: string,
   /**
    * Label used to communicate to screen readers which accordion will be expanded when interacting with the title button. Should be something clear, like "Expand Security Policies Accordion". Be sure to localize the label. See [Expandable](https://gestalt.pinterest.systems/web/accordion#Expandable) variant to learn more.
    */
-  accessibilityExpandLabel: string,
+  accessibilityExpandLabel?: string,
   /**
    * The 0-based index indicating the item that should currently be expanded. This must be updated via `onExpandedChange` to ensure the correct item is expanded. See [Expandable](https://gestalt.pinterest.systems/web/accordion#Expandable) variant to learn more.
    */
@@ -78,6 +79,10 @@ export default function AccordionExpandable({
   size = 'lg',
 }: Props): ReactNode {
   const [expandedId, setExpandedId] = useState<?number>(getExpandedId(expandedIndex));
+  const {
+    accessibilityCollapseLabel: defaultAccessibilityCollapseLabel,
+    accessibilityExpandLabel: defaultAccessibilityExpandLabel,
+  } = useDefaultLabelContext('Accordion');
 
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
@@ -114,8 +119,10 @@ export default function AccordionExpandable({
           <Fragment key={index}>
             {index > 0 && <Divider />}
             <AccordionExpandableItem
-              accessibilityCollapseLabel={accessibilityCollapseLabel}
-              accessibilityExpandLabel={accessibilityExpandLabel}
+              accessibilityCollapseLabel={
+                accessibilityCollapseLabel ?? defaultAccessibilityCollapseLabel
+              }
+              accessibilityExpandLabel={accessibilityExpandLabel ?? defaultAccessibilityExpandLabel}
               badge={badge}
               icon={icon}
               iconAccessibilityLabel={iconAccessibilityLabel}

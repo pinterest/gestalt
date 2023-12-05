@@ -104,8 +104,6 @@ export default function Example(): ReactNode {
                 </Flex.Item>
               </Flex>
               <Accordion.Expandable
-                accessibilityExpandLabel="Expand the accordion"
-                accessibilityCollapseLabel="Collapse the accordion"
                 id="accordionExample - default"
                 expandedIndex={0}
                 items={[
@@ -157,8 +155,6 @@ export default function Example(): ReactNode {
                 ]}
               />
               <Accordion.Expandable
-                accessibilityExpandLabel="Expand the accordion"
-                accessibilityCollapseLabel="Collapse the accordion"
                 id="ModuleExample - preview"
                 items={[
                   {

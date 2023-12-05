@@ -8,8 +8,6 @@ export default function Example(): ReactNode {
       <Box column={12} maxWidth={800} padding={2}>
         <Accordion.Expandable
           id="AccordionExample "
-          accessibilityExpandLabel="Expand the accordion"
-          accessibilityCollapseLabel="Collapse the accordion"
           items={[
             {
               children: <Text size="200">Children1</Text>,

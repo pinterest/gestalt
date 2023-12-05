@@ -21,8 +21,6 @@ export default function Example(): ReactNode {
             </Box>
 
             <Accordion.Expandable
-              accessibilityExpandLabel="Expand the accordion"
-              accessibilityCollapseLabel="Collapse the accordion"
               expandedIndex={
                 typeof extExpandedId === 'string' ? mapIds[extExpandedId] : extExpandedId
               }
@@ -52,8 +50,6 @@ export default function Example(): ReactNode {
 
             <Accordion.Expandable
               id="AccordionExampleStep2"
-              accessibilityExpandLabel="Expand the accordion"
-              accessibilityCollapseLabel="Collapse the accordion"
               expandedIndex={
                 typeof extExpandedId === 'string' ? mapIds[extExpandedId] : extExpandedId
               }

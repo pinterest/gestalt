@@ -8,8 +8,6 @@ describe('Module Expandable', () => {
       .create(
         <AccordionExpandable
           id="uniqueTestID"
-          accessibilityExpandLabel="click to expand"
-          accessibilityCollapseLabel="click to collapse"
           items={[
             {
               title: 'Title',
@@ -28,8 +26,6 @@ describe('Module Expandable', () => {
       .create(
         <AccordionExpandable
           id="uniqueTestID"
-          accessibilityExpandLabel="click to expand"
-          accessibilityCollapseLabel="click to collapse"
           items={[
             {
               title: 'Title1',

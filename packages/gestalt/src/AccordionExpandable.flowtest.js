@@ -1,21 +1,12 @@
 // @flow strict
-import ModuleExpandable from './AccordionExpandable';
+import AccordionExpandable from './AccordionExpandable';
 import IconButton from './IconButton';
 
-const ValidWithMinimumProps = (
-  <ModuleExpandable
-    accessibilityExpandLabel="click to expand"
-    accessibilityCollapseLabel="click to collapse"
-    id="module-expandable-id"
-    items={[]}
-  />
-);
+const ValidWithMinimumProps = <AccordionExpandable id="module-expandable-id" items={[]} />;
 
 const ValidWithBaseProps = (
-  <ModuleExpandable
+  <AccordionExpandable
     id="module-expandable-id"
-    accessibilityExpandLabel="click to expand"
-    accessibilityCollapseLabel="click to collapse"
     expandedIndex={0}
     onExpandedChange={() => {}}
     items={[
@@ -30,10 +21,8 @@ const ValidWithBaseProps = (
 );
 
 const ValidWithBadgeTextProps = (
-  <ModuleExpandable
+  <AccordionExpandable
     id="module-expandable-id"
-    accessibilityExpandLabel="click to expand"
-    accessibilityCollapseLabel="click to collapse"
     expandedIndex={0}
     onExpandedChange={() => {}}
     items={[
@@ -49,10 +38,8 @@ const ValidWithBadgeTextProps = (
 );
 
 const ValidWithIconProps = (
-  <ModuleExpandable
+  <AccordionExpandable
     id="module-expandable-id"
-    accessibilityExpandLabel="click to expand"
-    accessibilityCollapseLabel="click to collapse"
     expandedIndex={0}
     onExpandedChange={() => {}}
     items={[
@@ -69,10 +56,8 @@ const ValidWithIconProps = (
 );
 
 const ValidWithIconButtonProps = (
-  <ModuleExpandable
+  <AccordionExpandable
     id="module-expandable-id"
-    accessibilityExpandLabel="click to expand"
-    accessibilityCollapseLabel="click to collapse"
     expandedIndex={0}
     onExpandedChange={() => {}}
     items={[
@@ -97,22 +82,15 @@ const ValidWithIconButtonProps = (
 );
 
 // $FlowExpectedError[prop-missing]
-const InvalidWithMissingProps = <ModuleExpandable />;
+const InvalidWithMissingProps = <AccordionExpandable />;
 
 const InvalidWithNonExistingProp = (
   // $FlowExpectedError[prop-missing]
-  <ModuleExpandable
-    accessibilityExpandLabel="click to expand"
-    accessibilityCollapseLabel="click to collapse"
-    id="module-id"
-    nonexisting={33}
-  />
+  <AccordionExpandable id="module-id" nonexisting={33} />
 );
 
 const InvalidTypeProp = (
-  <ModuleExpandable
-    accessibilityExpandLabel="click to expand"
-    accessibilityCollapseLabel="click to collapse"
+  <AccordionExpandable
     // $FlowExpectedError[incompatible-type]
     id={123}
     // $FlowExpectedError[incompatible-type]

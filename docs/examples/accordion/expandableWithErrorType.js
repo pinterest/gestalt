@@ -12,8 +12,6 @@ export default function Example(): ReactNode {
     <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
       <Box column={12} maxWidth={800} padding={2}>
         <Accordion.Expandable
-          accessibilityExpandLabel="Expand the accordion"
-          accessibilityCollapseLabel="Collapse the accordion"
           id="accordionExample"
           items={[
             {

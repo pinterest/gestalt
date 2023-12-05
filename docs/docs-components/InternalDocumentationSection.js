@@ -9,8 +9,6 @@ export default function InternalDocumentationSection({ items }: Props): ReactNod
   return (
     <Card name="Internal documentation" showHeading>
       <Accordion.Expandable
-        accessibilityExpandLabel="Expand the accordion"
-        accessibilityCollapseLabel="Collapse the accordion"
         id="internal-documentation-accordion"
         items={[
           {

@@ -5,8 +5,6 @@ export default function Test() {
 
   return (
       <Accordion.Expandable
-        accessibilityExpandLabel="Expand the accordion"
-        accessibilityCollapseLabel="Collapse the accordion"
         id="ModuleExample3"
         items={[
           {

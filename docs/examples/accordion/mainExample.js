@@ -15,8 +15,6 @@ export default function Example(): ReactNode {
           <Text size="200">This is example content.</Text>
         </Accordion>
         <Accordion.Expandable
-          accessibilityExpandLabel="Expand the accordion"
-          accessibilityCollapseLabel="Collapse the accordion"
           id="accordionExample - header expandable"
           items={[
             {

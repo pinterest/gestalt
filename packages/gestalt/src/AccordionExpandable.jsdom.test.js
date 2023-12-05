@@ -1,13 +1,11 @@
 // @flow strict
 import { fireEvent, render, screen } from '@testing-library/react';
-import ModuleExpandable from './AccordionExpandable';
+import AccordionExpandable from './AccordionExpandable';
 import IconButton from './IconButton';
 
-describe('ModuleExpandable', () => {
+describe('AccordionExpandable', () => {
   const props = {
     id: 'uniqueTestID',
-    accessibilityExpandLabel: 'click to expand',
-    accessibilityCollapseLabel: 'click to collapse',
     items: [
       {
         title: 'Title1',
@@ -53,7 +51,7 @@ describe('ModuleExpandable', () => {
   };
 
   it('should render the collapsed state correctly', () => {
-    render(<ModuleExpandable {...props} />);
+    render(<AccordionExpandable {...props} />);
 
     expect(screen.getByText(/Title1/i)).toBeInTheDocument();
     expect(screen.getByRole('img', { name: /lock icon label/i })).toBeInTheDocument();
@@ -86,9 +84,9 @@ describe('ModuleExpandable', () => {
   });
 
   it('should expand the module correctly when clicked', () => {
-    render(<ModuleExpandable {...props} />);
+    render(<AccordionExpandable {...props} />);
     const expandButtons = screen.getAllByRole('button', {
-      name: /click to expand/i,
+      name: /Expand section/i,
     });
 
     fireEvent.click(expandButtons[0]);
@@ -119,7 +117,7 @@ describe('ModuleExpandable', () => {
       expandedIndex: 0,
       onExpandedChange: jest.fn<[?number], void>(),
     };
-    render(<ModuleExpandable {...newProps} />);
+    render(<AccordionExpandable {...newProps} />);
 
     // Item with index 0 is default to be expanded
     expect(screen.getByText(/Children1/i)).toBeInTheDocument();
@@ -130,14 +128,14 @@ describe('ModuleExpandable', () => {
 
     // Click on Item with index 0 to collapse the item
     const button1 = screen.getByRole('button', {
-      name: /click to collapse/i,
+      name: /Collapse section/i,
     });
     fireEvent.click(button1);
     expect(newProps.onExpandedChange).toHaveBeenCalledWith(null);
 
     // Click on with index 1 to expand it
     const expandButtons = screen.getAllByRole('button', {
-      name: /click to expand/i,
+      name: /Expand section/i,
     });
     expect(expandButtons).toHaveLength(5);
     fireEvent.click(expandButtons[1]);
