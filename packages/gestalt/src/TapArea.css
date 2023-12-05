@@ -6,10 +6,6 @@
   composes: xsCol12 from "./Column.css";
 }
 
-.default {
-  composes: default from "./Cursor.css";
-}
-
 .pointer {
   composes: pointer from "./Cursor.css";
 }

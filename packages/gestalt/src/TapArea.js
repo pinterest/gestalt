@@ -227,7 +227,6 @@ const TapAreaWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwardR
       [styles.fullHeight]: fullHeight,
       [styles.fullWidth]: fullWidth,
       [styles.copy]: mouseCursor === 'copy' && !disabled,
-      [styles.default]: mouseCursor === 'default' && !disabled,
       [styles.grab]: mouseCursor === 'grab' && !disabled,
       [styles.grabbing]: mouseCursor === 'grabbing' && !disabled,
       [styles.move]: mouseCursor === 'move' && !disabled,
