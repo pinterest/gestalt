@@ -1,0 +1,25 @@
+.textColorOverrideLight * {
+  /* stylelint-disable-next-line declaration-no-important */
+  color: var(--color-text-dark) !important;
+}
+
+.textErrorColorOverrideLight * {
+  /* stylelint-disable-next-line declaration-no-important */
+  color: var(--color-text-dark) !important;
+  /* stylelint-disable-next-line declaration-no-important */
+  font-weight: var(--font-weight-semibold) !important;
+}
+
+.textColorOverrideDark * {
+  /* stylelint-disable-next-line declaration-no-important */
+  color: var(--color-text-dark) !important;
+}
+
+.parentButton {
+  composes: noBorder from "./Borders.css";
+  composes: p0 from "./Whitespace.css";
+  composes: paddingX0 from "./boxWhitespace.css";
+  composes: paddingY0 from "./boxWhitespace.css";
+  composes: transparentBg from "./Colors.css";
+}
+

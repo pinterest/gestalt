@@ -5,6 +5,7 @@ import ActivationCard from './ActivationCard';
 import Avatar from './Avatar';
 import AvatarGroup from './AvatarGroup';
 import Badge from './Badge';
+import BannerOverlay from './BannerOverlay';
 import Box from './Box';
 import Button from './Button';
 import ButtonGroup from './ButtonGroup';
@@ -90,6 +91,7 @@ export {
   Avatar,
   AvatarGroup,
   Badge,
+  BannerOverlay,
   Box,
   Button,
   ButtonGroup,

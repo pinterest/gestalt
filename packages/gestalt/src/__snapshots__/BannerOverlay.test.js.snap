@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BannerOverlay /> Text + Image + Button 1`] = `<div />`;
+
+exports[`<BannerOverlay /> Text + Image 1`] = `<div />`;
+
+exports[`<BannerOverlay /> Text Only 1`] = `<div />`;
