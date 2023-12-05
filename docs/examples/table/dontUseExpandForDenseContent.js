@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode, useState } from 'react';
 import {
+  Accordion,
   Box,
   Button,
   Collage,
@@ -11,7 +12,6 @@ import {
   Image,
   Label,
   Mask,
-  Accordion,
   NumberField,
   Switch,
   Table,

@@ -1,12 +1,12 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import {
+  Accordion,
   Box,
   Checkbox,
   Divider,
   Fieldset,
   Flex,
-  Accordion,
   RadioButton,
   SelectList,
   SlimBanner,
