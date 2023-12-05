@@ -15,7 +15,7 @@ import CopyCodeButton from './buttons/CopyCodeButton';
 import OpenInCodeSandboxButton from './buttons/OpenInCodeSandboxButton';
 import ShowHideEditorButton from './buttons/ShowHideEditorButton';
 import clipboardCopy from './clipboardCopy';
-import { useDocsExperimentProviderValue } from './contexts/DocsExperimentProvider';
+import { useDocsExperiments } from './contexts/DocsExperimentProvider';
 import { useLocalFiles } from './contexts/LocalFilesProvider';
 import DevelopmentEditor from './DevelopmentEditor';
 
@@ -160,7 +160,7 @@ export default function SandpackExample({
   const { colorScheme, devExampleMode, helixBot, textDirection } = useAppContext();
   const [exampleColorScheme, setExampleColorScheme] = useState<'light' | 'dark'>(colorScheme);
   const [exampleTextDirection, setExampleTextDirection] = useState<'ltr' | 'rtl'>(textDirection);
-  const experimentsObj = useDocsExperimentProviderValue();
+  const experimentsObj = useDocsExperiments();
   // If the user changes the color scheme or text direction, update examples
   useEffect(() => {
     setExampleColorScheme(colorScheme);
