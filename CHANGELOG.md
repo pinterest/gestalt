@@ -1,3 +1,9 @@
+## 128.5.0 (Dec 5, 2023)
+
+### Minor
+
+- SegmentedControl: Add Density Variants ([#3275](https://github.com/pinterest/gestalt/pull/3275)) - [Preview link](https://deploy-preview-3275--gestalt.netlify.app?devexample=true)
+
 ## 128.4.5 (Dec 5, 2023)
 
 ### Patch
