@@ -304,7 +304,7 @@
             "imageColor": "blue-skycicle-100",
             "imageSrc": "https://i.pinimg.com/originals/9f/11/03/9f110366d82bad1caba83d9a7d941f79.png",
             "imageAltText": "A Module with a panel showing that a max width has been added.",
-            "content": "Our Figma component was having issues with text alignment. That has been fixed, and we've also added a max width to be more consistent with code and help with alignment.\n \n[Go to the Figma Module component](http://pinch.pinadmin.com/module)"
+            "content": "Our Figma component was having issues with text alignment. That has been fixed, and we've also added a max width to be more consistent with code and help with alignment.\n \n[Go to the Figma Accordion component](http://pinch.pinadmin.com/accordion)"
           },
           {
             "title": "Figma Popover update",
@@ -1872,7 +1872,7 @@
             "audience": ["Design"],
             "imageSrc": "https://i.pinimg.com/originals/1b/b0/9c/1bb09c1d2196588143ff79afa1e342e2.png",
             "imageAltText": "examples of the Gestalt Figma components",
-            "content": "On top of _all of that good stuff_, we also fixed a ton of things in our Figma libraries. Given this update is already running long, we're going to cram all the updates in this one post.\n\nFor our Android Figma library we fixed the height of our tappable components (e.g. Button, IconButton, etc.) to be 48dp.\n\nFor our Web library, we significantly simplified our Callout, ComboBox, Module, TextArea, TextField, SelectList components. This should make these components easier for you all to use and easier for us to maintain.\n\nLastly, for our Foundations library, we added some missing icons to our library. Specifically ads-overview, dash, file-unknown, folder, heart-outline and history."
+            "content": "On top of _all of that good stuff_, we also fixed a ton of things in our Figma libraries. Given this update is already running long, we're going to cram all the updates in this one post.\n\nFor our Android Figma library we fixed the height of our tappable components (e.g. Button, IconButton, etc.) to be 48dp.\n\nFor our Web library, we significantly simplified our Callout, ComboBox, Accordion, TextArea, TextField, SelectList components. This should make these components easier for you all to use and easier for us to maintain.\n\nLastly, for our Foundations library, we added some missing icons to our library. Specifically ads-overview, dash, file-unknown, folder, heart-outline and history."
           }
         ]
       },

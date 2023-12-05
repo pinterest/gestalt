@@ -6598,7 +6598,7 @@
 
 ### Patch
 
-- Link, Module, NumberField, RadioButton, SearchField, SelectList, Status, Switch , TextArea, TextField: add visual diff testing and screenshot to description in VSCode (Flow extension) [#1972](https://github.com/pinterest/gestalt/pull/1972) - [PREVIEW URL](https://deploy-preview-1972--gestalt.netlify.app)
+- Link, Accordion, NumberField, RadioButton, SearchField, SelectList, Status, Switch , TextArea, TextField: add visual diff testing and screenshot to description in VSCode (Flow extension) [#1972](https://github.com/pinterest/gestalt/pull/1972) - [PREVIEW URL](https://deploy-preview-1972--gestalt.netlify.app)
 
 ## 45.10.1 (Mar 9, 2022)
 
@@ -6730,7 +6730,7 @@
 
 ### Patch
 
-- Dropdown, Module, Table: use autogen descriptions for subcomponents [#1950](https://github.com/pinterest/gestalt/pull/1950) - [PREVIEW URL](https://deploy-preview-1950--gestalt.netlify.app)
+- Dropdown, Accordion, Table: use autogen descriptions for subcomponents [#1950](https://github.com/pinterest/gestalt/pull/1950) - [PREVIEW URL](https://deploy-preview-1950--gestalt.netlify.app)
 
 ## 45.5.7 (Feb 22, 2022)
 

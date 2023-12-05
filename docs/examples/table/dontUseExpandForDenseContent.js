@@ -11,7 +11,7 @@ import {
   Image,
   Label,
   Mask,
-  Module,
+  Accordion,
   NumberField,
   Switch,
   Table,
@@ -165,7 +165,7 @@ function ExpandedContents() {
         </Flex>
       ) : (
         <Flex gap={{ column: 0, row: 3 }}>
-          <Module id="Analitycs Overview" title="Analitycs Overview">
+          <Accordion id="Analitycs Overview" title="Analitycs Overview">
             <Box width={300}>
               <Datapoint
                 size="lg"
@@ -189,9 +189,9 @@ function ExpandedContents() {
                 trend={{ value: 10, accessibilityLabel: 'Trending up' }}
               />
             </Box>
-          </Module>
+          </Accordion>
           <Flex direction="column" gap={{ column: 2, row: 0 }} maxWidth={800}>
-            <Module
+            <Accordion
               id="Ads Overview"
               title="Ads Overview"
               iconButton={
@@ -210,12 +210,12 @@ function ExpandedContents() {
               <Box width={300}>
                 <Text size="200">Content</Text>
               </Box>
-            </Module>
-            <Module id="Top Pins" title="Top Pins">
+            </Accordion>
+            <Accordion id="Top Pins" title="Top Pins">
               <Box width={300}>
                 <Text size="200">Content</Text>
               </Box>
-            </Module>
+            </Accordion>
           </Flex>
         </Flex>
       )}

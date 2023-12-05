@@ -1,5 +1,6 @@
 // @flow strict
 import 'gestalt-design-tokens/dist/css/variables.css';
+import Accordion from './Accordion';
 import ActivationCard from './ActivationCard';
 import Avatar from './Avatar';
 import AvatarGroup from './AvatarGroup';
@@ -42,7 +43,6 @@ import Mask from './Mask';
 import Masonry from './Masonry';
 import Modal from './Modal';
 import ModalAlert from './ModalAlert';
-import Module from './Module';
 import NumberField from './NumberField';
 import OverlayPanel from './OverlayPanel';
 import PageHeader from './PageHeader';
@@ -85,6 +85,7 @@ import WashAnimated from './WashAnimated';
 import { CompositeZIndex, FixedZIndex } from './zIndex';
 
 export {
+  Accordion,
   ActivationCard,
   Avatar,
   AvatarGroup,
@@ -127,7 +128,6 @@ export {
   Masonry,
   Modal,
   ModalAlert,
-  Module,
   NumberField,
   OverlayPanel,
   PageHeader,

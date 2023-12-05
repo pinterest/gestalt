@@ -6,7 +6,7 @@ import {
   Divider,
   Fieldset,
   Flex,
-  Module,
+  Accordion,
   RadioButton,
   SelectList,
   SlimBanner,
@@ -21,7 +21,7 @@ export default function Example(): ReactNode {
         <Text weight="bold" size="500">
           Ads overview
         </Text>
-        <Module id="doExample" title="Campaign optimization & delivery">
+        <Accordion id="doExample" title="Campaign optimization & delivery">
           <Flex direction="column" width="100%" gap={{ column: 8, row: 0 }}>
             <TextField
               id="tag-readonly"
@@ -73,7 +73,7 @@ export default function Example(): ReactNode {
               iconAccessibilityLabel="Information"
             />
           </Flex>
-        </Module>
+        </Accordion>
       </Flex>
     </Box>
   );

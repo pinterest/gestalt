@@ -1,6 +1,7 @@
 // @flow strict
 import { Fragment, type Node as ReactNode, useState } from 'react';
 import {
+  Accordion,
   Box,
   Button,
   CompositeZIndex,
@@ -8,7 +9,6 @@ import {
   FixedZIndex,
   Flex,
   Layer,
-  Module,
   OverlayPanel,
   RadioButton,
   Text,
@@ -67,10 +67,10 @@ export default function Example(): ReactNode {
                   <Button text="Reset bids" disabled />
                 </Flex.Item>
               </Flex>
-              <Module.Expandable
-                accessibilityExpandLabel="Expand the module"
-                accessibilityCollapseLabel="Collapse the module"
-                id="ModuleExample - default"
+              <Accordion.Expandable
+                accessibilityExpandLabel="Expand the accordion"
+                accessibilityCollapseLabel="Collapse the accordion"
+                id="AccordionExample - default"
                 expandedIndex={0}
                 items={[
                   {
@@ -120,10 +120,10 @@ export default function Example(): ReactNode {
                   },
                 ]}
               />
-              <Module.Expandable
-                accessibilityExpandLabel="Expand the module"
-                accessibilityCollapseLabel="Collapse the module"
-                id="ModuleExample - preview"
+              <Accordion.Expandable
+                accessibilityExpandLabel="Expand the accordion"
+                accessibilityCollapseLabel="Collapse the accordion"
+                id="accordionExample - preview"
                 items={[
                   {
                     children: <Text> Preview table of changes here</Text>,

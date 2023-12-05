@@ -1336,7 +1336,7 @@ interface ModalAlertProps {
   type?: 'default' | 'warning' | 'error' | undefined;
 }
 
-interface ModuleProps {
+interface AccordionProps {
   id: string;
   badge?: BadgeObject | undefined;
   children?: Node | undefined;
@@ -1348,7 +1348,7 @@ interface ModuleProps {
   type?: 'error' | 'info' | undefined;
 }
 
-interface ModuleExpandableProps {
+interface AccordionExpandableProps {
   accessibilityCollapseLabel: string;
   accessibilityExpandLabel: string;
   id: string;
@@ -2610,17 +2610,17 @@ export const Modal: ReactForwardRef<HTMLDivElement, ModalProps>;
  */
 export const ModalAlert: React.FunctionComponent<React.PropsWithChildren<ModalAlertProps>>;
 
-export interface ModuleSubComponents {
-  Expandable: React.FunctionComponent<ModuleExpandableProps>;
+export interface AccordionSubComponents {
+  Expandable: React.FunctionComponent<AccordionExpandableProps>;
 }
 
 /**
- * https://gestalt.pinterest.systems/web/module
+ * https://gestalt.pinterest.systems/web/accordion
  * Subcomponents:
- * https://gestalt.pinterest.systems/web/module#Module.Expandable
+ * https://gestalt.pinterest.systems/web/accordion#Accordion.Expandable
  */
-export const Module: React.FunctionComponent<React.PropsWithChildren<ModuleProps>> &
-  ModuleSubComponents;
+export const Accordion: React.FunctionComponent<React.PropsWithChildren<AccordionProps>> &
+  AccordionSubComponents;
 
 /**
  * https://gestalt.pinterest.systems/web/numberfield
