@@ -65,6 +65,7 @@ html:not([dir="rtl"]) .button.lg {
 
 .button.secondary:hover,
 .button.secondary:focus {
+  backdrop-filter: brightness(0.9);
   background-color: var(--g-colorGray100Hovered);
 }
 
@@ -78,6 +79,7 @@ html:not([dir="rtl"]) .button.lg {
 
 .errorBase:hover,
 .errorBase:focus {
+  backdrop-filter: brightness(0.9);
   background-color: var(--g-colorRed100Hovered);
 }
 
@@ -91,6 +93,7 @@ html:not([dir="rtl"]) .button.lg {
 
 .warningBase:hover,
 .warningBase:focus {
+  backdrop-filter: brightness(0.9);
   background-color: var(--g-colorYellow100Hovered);
 }
 
