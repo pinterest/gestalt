@@ -61,8 +61,9 @@ const applyDensityTheme = (s: 'sm' | 'md' | 'lg') => {
       return {
         rounding: 1,
         paddingX: 1,
-        paddingY: 0,
+        paddingY: undefined,
         height: 24,
+        iconSize: 12,
         removeIconGap: 2,
         removeIconSize: 8,
         fontSize: '100',
@@ -73,6 +74,7 @@ const applyDensityTheme = (s: 'sm' | 'md' | 'lg') => {
         paddingX: 4,
         paddingY: 3,
         height: 48,
+        iconSize: 16,
         removeIconGap: 4,
         removeIconSize: 8,
         fontSize: '200',
@@ -84,6 +86,7 @@ const applyDensityTheme = (s: 'sm' | 'md' | 'lg') => {
         paddingX: 2,
         paddingY: 1,
         height: 32,
+        iconSize: 12,
         removeIconGap: 3,
         removeIconSize: 8,
         fontSize: '200',
@@ -134,7 +137,8 @@ export default function Tag({
     styles[size],
   );
 
-  const { height, rounding, paddingX, fontSize, removeIconSize } = applyDensityTheme(size);
+  const { height, rounding, paddingX, paddingY, fontSize, iconSize, removeIconSize } =
+    applyDensityTheme(size);
 
   return (
     <Box
@@ -148,21 +152,20 @@ export default function Tag({
       height={height}
       rounding={rounding}
       paddingX={paddingX}
-      paddingY={paddingX}
+      paddingY={paddingY}
       maxWidth={300}
     >
       <Box display="flex" alignItems="center" height="100%" marginEnd={5}>
-        <Box marginStart={hasIcon ? 1 : 0} marginEnd={hasIcon ? 1 : 0}>
-          {/* Not using hasIcon to appease Flow */}
-          {(type === 'error' || type === 'warning') && (
+        {(type === 'error' || type === 'warning') && (
+          <Box marginStart={1} marginEnd={1}>
             <Icon
               accessibilityLabel={accessibilityLabels[type]}
               color={fgColor}
               icon={iconsByType[type]}
-              size={12}
+              size={iconSize}
             />
-          )}
-        </Box>
+          </Box>
+        )}
 
         <Text color={fgColor} inline size={fontSize} lineClamp={1}>
           {text}
