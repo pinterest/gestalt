@@ -262,7 +262,7 @@ exports[`TextArea renders tags when supplied 1`] = `
     >
       <div
         aria-disabled={false}
-        className="box paddingX2 paddingY2 relative rounding2 secondary xsDisplayInlineBlock"
+        className="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
         style={
           Object {
             "height": 32,
@@ -278,9 +278,6 @@ exports[`TextArea renders tags when supplied 1`] = `
             }
           }
         >
-          <div
-            className="box marginEnd0 marginStart0"
-          />
           <span
             className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
             style={
@@ -332,7 +329,7 @@ exports[`TextArea renders tags when supplied 1`] = `
     >
       <div
         aria-disabled={false}
-        className="box paddingX2 paddingY2 relative rounding2 secondary xsDisplayInlineBlock"
+        className="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
         style={
           Object {
             "height": 32,
@@ -348,9 +345,6 @@ exports[`TextArea renders tags when supplied 1`] = `
             }
           }
         >
-          <div
-            className="box marginEnd0 marginStart0"
-          />
           <span
             className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
             style={
@@ -402,7 +396,7 @@ exports[`TextArea renders tags when supplied 1`] = `
     >
       <div
         aria-disabled={false}
-        className="box paddingX2 paddingY2 relative rounding2 secondary xsDisplayInlineBlock"
+        className="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
         style={
           Object {
             "height": 32,
@@ -418,9 +412,6 @@ exports[`TextArea renders tags when supplied 1`] = `
             }
           }
         >
-          <div
-            className="box marginEnd0 marginStart0"
-          />
           <span
             className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
             style={

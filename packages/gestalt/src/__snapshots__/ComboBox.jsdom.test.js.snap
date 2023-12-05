@@ -117,16 +117,13 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box paddingX2 paddingY2 relative rounding2 secondary xsDisplayInlineBlock"
+                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
                   class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
-                  <div
-                    class="box marginEnd0 marginStart0"
-                  />
                   <span
                     class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="ey / em"
@@ -167,16 +164,13 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box paddingX2 paddingY2 relative rounding2 secondary xsDisplayInlineBlock"
+                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
                   class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
-                  <div
-                    class="box marginEnd0 marginStart0"
-                  />
                   <span
                     class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="he / him"
@@ -217,16 +211,13 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box paddingX2 paddingY2 relative rounding2 secondary xsDisplayInlineBlock"
+                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
                   class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
-                  <div
-                    class="box marginEnd0 marginStart0"
-                  />
                   <span
                     class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="ne / nem"
@@ -267,16 +258,13 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box paddingX2 paddingY2 relative rounding2 secondary xsDisplayInlineBlock"
+                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
                   class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
-                  <div
-                    class="box marginEnd0 marginStart0"
-                  />
                   <span
                     class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="she / her"
@@ -317,16 +305,13 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box paddingX2 paddingY2 relative rounding2 secondary xsDisplayInlineBlock"
+                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
                   class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
-                  <div
-                    class="box marginEnd0 marginStart0"
-                  />
                   <span
                     class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="they / them"
@@ -367,16 +352,13 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box paddingX2 paddingY2 relative rounding2 secondary xsDisplayInlineBlock"
+                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
                   class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
-                  <div
-                    class="box marginEnd0 marginStart0"
-                  />
                   <span
                     class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="ve / ver"
@@ -417,16 +399,13 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box paddingX2 paddingY2 relative rounding2 secondary xsDisplayInlineBlock"
+                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
                   class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
-                  <div
-                    class="box marginEnd0 marginStart0"
-                  />
                   <span
                     class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="xe / xem"
@@ -467,16 +446,13 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box paddingX2 paddingY2 relative rounding2 secondary xsDisplayInlineBlock"
+                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
                   class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
-                  <div
-                    class="box marginEnd0 marginStart0"
-                  />
                   <span
                     class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="xie / xem"
@@ -517,16 +493,13 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box paddingX2 paddingY2 relative rounding2 secondary xsDisplayInlineBlock"
+                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
                   class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
-                  <div
-                    class="box marginEnd0 marginStart0"
-                  />
                   <span
                     class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="zie / zem"
