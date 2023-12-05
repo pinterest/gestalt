@@ -511,7 +511,8 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
             onDismiss={handleOnDismiss}
             positionRelativeToAnchor={false}
             size="flexible"
-            key={suggestedOptions.length}
+            key={isInExperiment ? undefined : suggestedOptions.length}
+            shouldFocus={false}
           >
             <Box
               aria-expanded={showOptionsList}
