@@ -24,17 +24,11 @@ const enabledExperiments = {
   ],
 };
 
+type Experiment = { anyEnabled: boolean, group: string };
+
 function buildExperimentsObj(experiments: $ReadOnlyArray<string>) {
   return experiments.reduce(
-    (
-      acc: {
-        [string]: {
-          anyEnabled: boolean,
-          group: string,
-        },
-      },
-      cur: string,
-    ) => ({
+    (acc: Record<string, Experiment>, cur: string) => ({
       ...acc,
       [cur]: { anyEnabled: true, group: 'enabled' },
     }),
@@ -42,7 +36,7 @@ function buildExperimentsObj(experiments: $ReadOnlyArray<string>) {
   );
 }
 
-export function useDocsExperiments() {
+export function useDocsExperiments(): Record<string, Experiment> {
   const { experiments } = useAppContext();
 
   return buildExperimentsObj(!experiments ? [] : enabledExperiments[experiments] ?? []);
