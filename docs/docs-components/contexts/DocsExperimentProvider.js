@@ -42,16 +42,15 @@ function buildExperimentsObj(experiments: $ReadOnlyArray<string>) {
   );
 }
 
+export function useDocsExperimentProviderValue() {
+  const { experiments } = useAppContext();
+
+  return buildExperimentsObj(!experiments ? [] : enabledExperiments[experiments] ?? []);
+}
+
 type Props = { children: ReactNode };
 
 export default function DocsExperimentProvider({ children }: Props): ReactNode {
-  const { experiments } = useAppContext();
-
-  return (
-    <ExperimentProvider
-      value={buildExperimentsObj(!experiments ? [] : enabledExperiments[experiments] ?? [])}
-    >
-      {children}
-    </ExperimentProvider>
-  );
+  const experiments = useDocsExperimentProviderValue();
+  return <ExperimentProvider value={experiments}>{children}</ExperimentProvider>;
 }
