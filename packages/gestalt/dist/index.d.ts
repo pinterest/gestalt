@@ -396,6 +396,10 @@ interface DefaultLabelProviderProps {
   children: Node;
   labels?:
     | {
+        Accordion: {
+          accessibilityCollapseLabel: string;
+          accessibilityExpandLabel: string;
+        };
         ActivationCard: {
           accessibilityDismissButtonLabel: string;
         };
