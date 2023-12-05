@@ -512,6 +512,7 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
             positionRelativeToAnchor={false}
             size="flexible"
             key={suggestedOptions.length}
+            shouldFocus={false}
           >
             <Box
               aria-expanded={showOptionsList}
