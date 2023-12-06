@@ -1,3 +1,9 @@
+## 128.6.0 (Dec 6, 2023)
+
+### Minor
+
+- Module: Add Density Sizing ([#3283](https://github.com/pinterest/gestalt/pull/3283)) - [Preview link](https://deploy-preview-3283--gestalt.netlify.app?devexample=true)
+
 ## 128.5.0 (Dec 5, 2023)
 
 ### Minor
