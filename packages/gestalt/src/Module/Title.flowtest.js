@@ -28,5 +28,5 @@ const MissingProp = <ModuleTitle />;
 // $FlowExpectedError[prop-missing]
 const NonExistingProp = <ModuleTitle nonexisting={33} />;
 
-// $FlowExpectedError[prop-missing]
-const InvalidTypeProp = <ModuleTitle size="xxl" />;
+// $FlowExpectedError[incompatible-type]
+const InvalidTypeProp = <ModuleTitle title="" size="xxl" />;

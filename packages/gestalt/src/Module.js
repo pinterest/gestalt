@@ -6,6 +6,7 @@ import Flex from './Flex';
 import IconButton from './IconButton';
 import IconButtonLink from './IconButtonLink';
 import icons from './icons/index';
+import applyModuleDensityStyle from './Module/applyModuleDensity';
 import ModuleTitle from './Module/Title';
 import ModuleExpandable from './ModuleExpandable';
 
@@ -40,6 +41,10 @@ type Props = {
    */
   id: string,
   /**
+   * Sets the size of the Module. See the [size variant](https://gestalt.pinterest.systems.com/web/module#size) to learn more.
+   */
+  size?: 'sm' | 'md' | 'lg',
+  /**
    * Title of this Module. Be sure to localize the text.
    */
   title?: string,
@@ -64,20 +69,23 @@ export default function Module({
   iconButton,
   id,
   title,
+  size = 'lg',
   type = 'info',
 }: Props): ReactNode {
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
+
+  const { gap, padding, rounding } = applyModuleDensityStyle(size);
 
   return (
     <Box
       borderStyle="shadow"
       color={isDarkMode ? 'elevationFloating' : 'default'}
       id={id}
-      padding={6}
-      rounding={4}
+      padding={padding}
+      rounding={rounding}
     >
-      <Flex direction="column" gap={{ column: 6, row: 0 }}>
+      <Flex direction="column" gap={{ column: gap, row: 0 }}>
         {title && (
           <ModuleTitle
             badge={badge}
@@ -86,6 +94,7 @@ export default function Module({
             iconButton={iconButton}
             title={title}
             type={type}
+            size={size}
           />
         )}
         {/* Flex.Item necessary to prevent gap from being applied to each child */}

@@ -14,6 +14,7 @@ import expandableGroup from '../../examples/module/expandableGroup';
 import expandableWithErrorType from '../../examples/module/expandableWithErrorType';
 import expandableWithIconBadgeIconButton from '../../examples/module/expandableWithIconBadgeIconButton';
 import mainExample from '../../examples/module/mainExample';
+import sizesExample from '../../examples/module/sizesExample';
 import staticVariant from '../../examples/module/staticVariant';
 import staticWithBadge from '../../examples/module/staticWithBadge';
 import staticWithErrorType from '../../examples/module/staticWithErrorType';
@@ -188,6 +189,15 @@ export default function DocsPage({
             sandpackExample={
               <SandpackExample name="Expandable With Error Type" code={expandableWithErrorType} />
             }
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Sizes"
+          description={`Module can have different sizes. The default size is large with a padding of 24px (\`$space-600\`). For a dense variant, use the \`sm\` size with a padding of 8px (\`$space-200\`).`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={<SandpackExample name="Density Example" code={sizesExample} />}
           />
         </MainSection.Subsection>
 

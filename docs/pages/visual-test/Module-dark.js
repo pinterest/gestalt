@@ -1,28 +1,12 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { Box, ColorSchemeProvider, IconButton, Module, Text } from 'gestalt';
+import { ColorSchemeProvider } from 'gestalt';
+import ModuleVisualTest from './Module';
 
 export default function Screenshot(): ReactNode {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <Box color="default" display="inlineBlock" padding={1}>
-        <Module
-          iconButton={
-            <IconButton
-              bgColor="lightGray"
-              icon="question-mark"
-              iconColor="darkGray"
-              accessibilityLabel="Get help"
-              size="xs"
-              onClick={() => {}}
-            />
-          }
-          id="ModuleExample - iconButton"
-          title="Title"
-        >
-          <Text size="200">This is example content.</Text>
-        </Module>
-      </Box>
+      <ModuleVisualTest />
     </ColorSchemeProvider>
   );
 }

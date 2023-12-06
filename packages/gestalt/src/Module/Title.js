@@ -1,5 +1,6 @@
 // @flow strict
 import { type Element, type Node as ReactNode } from 'react';
+import applyModuleDensityStyle from './applyModuleDensity';
 import Badge from '../Badge';
 import Box from '../Box';
 import Flex from '../Flex';
@@ -21,16 +22,19 @@ export default function ModuleTitle(props: {
   iconButton?: Element<typeof IconButton | typeof IconButtonLink>,
   title: string,
   type?: 'error' | 'info',
+  size?: 'sm' | 'md' | 'lg',
 }): ReactNode {
-  const { iconAccessibilityLabel = '', title, type = 'info' } = props;
+  const { iconAccessibilityLabel = '', title, type = 'info', size = 'lg' } = props;
 
   const decoration = ['icon', 'badge', 'iconButton'].find((prop) => !!props[prop]);
   const hasError = type === 'error';
   const hasIcon = hasError || decoration === 'icon';
   const textAndIconColor = hasError ? 'error' : 'default';
 
+  const { titleGap } = applyModuleDensityStyle(size);
+
   return (
-    <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
+    <Flex alignItems="center" gap={{ row: titleGap, column: 0 }}>
       {hasIcon && (
         <Flex.Item minWidth={0}>
           <Icon
@@ -51,11 +55,7 @@ export default function ModuleTitle(props: {
 
       {decoration === 'badge' && props.badge && (
         <Flex.Item minWidth={0}>
-          <Box
-            dangerouslySetInlineStyle={{ __style: { top: '1px' } }}
-            marginStart={2}
-            position="relative"
-          >
+          <Box dangerouslySetInlineStyle={{ __style: { top: '1px' } }} position="relative">
             <Badge text={props.badge.text} type={props.badge.type || 'info'} />
           </Box>
         </Flex.Item>

@@ -1,5 +1,6 @@
 // @flow strict
 import { type Element as ReactElement, type Node as ReactNode } from 'react';
+import applyModuleDensityStyle from './applyModuleDensity';
 import ModuleTitle from './Title';
 import Box from '../Box';
 import Flex from '../Flex';
@@ -27,6 +28,7 @@ export default function ModuleExpandableItem({
   onModuleClicked,
   summary,
   title,
+  size = 'lg',
   type = 'info',
 }: {
   accessibilityCollapseLabel: string,
@@ -40,12 +42,14 @@ export default function ModuleExpandableItem({
   isCollapsed: boolean,
   onModuleClicked: (boolean) => void,
   summary?: $ReadOnlyArray<string>,
+  size?: 'sm' | 'md' | 'lg',
   title: string,
   type?: 'error' | 'info',
 }): ReactNode {
+  const { padding, gap, summaryListGap } = applyModuleDensityStyle(size);
   return (
-    <Box padding={6}>
-      <Flex direction="column" gap={{ column: 6, row: 0 }}>
+    <Box padding={padding}>
+      <Flex direction="column" gap={{ column: gap, row: 0 }}>
         <TapArea
           accessibilityControls={id}
           accessibilityExpanded={!isCollapsed}
@@ -63,6 +67,7 @@ export default function ModuleExpandableItem({
                 <ModuleTitle
                   badge={badge}
                   icon={icon}
+                  size={size}
                   iconAccessibilityLabel={iconAccessibilityLabel}
                   iconButton={iconButton}
                   title={title}
@@ -71,8 +76,8 @@ export default function ModuleExpandableItem({
               </Box>
 
               {summary && isCollapsed && (
-                <Box column={6} marginStart={6}>
-                  <Flex direction="column" gap={{ column: 2, row: 0 }}>
+                <Box column={padding} marginStart={padding}>
+                  <Flex direction="column" gap={{ column: summaryListGap, row: 0 }}>
                     {summary.map((item, i) => (
                       // eslint-disable-next-line react/no-array-index-key
                       <Text key={i} size="200" lineClamp={1}>

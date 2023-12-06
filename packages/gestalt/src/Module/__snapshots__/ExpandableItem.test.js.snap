@@ -42,7 +42,7 @@ exports[`ModuleExpandableItem renders correctly 1`] = `
               className="box xsCol12"
             >
               <div
-                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
+                className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -116,7 +116,7 @@ exports[`ModuleExpandableItem renders correctly with badge 1`] = `
               className="box xsCol12"
             >
               <div
-                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
+                className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -147,7 +147,7 @@ exports[`ModuleExpandableItem renders correctly with badge 1`] = `
                   }
                 >
                   <div
-                    className="box marginStart2 relative"
+                    className="box relative"
                     style={
                       Object {
                         "top": "1px",
@@ -230,7 +230,7 @@ exports[`ModuleExpandableItem renders correctly with children 1`] = `
               className="box xsCol12"
             >
               <div
-                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
+                className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -304,7 +304,7 @@ exports[`ModuleExpandableItem renders correctly with error 1`] = `
               className="box xsCol12"
             >
               <div
-                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
+                className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -400,7 +400,7 @@ exports[`ModuleExpandableItem renders correctly with icon 1`] = `
               className="box xsCol12"
             >
               <div
-                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
+                className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -496,7 +496,7 @@ exports[`ModuleExpandableItem renders correctly with icon button 1`] = `
               className="box xsCol12"
             >
               <div
-                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
+                className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -624,7 +624,7 @@ exports[`ModuleExpandableItem renders correctly with summary 1`] = `
               className="box xsCol6"
             >
               <div
-                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
+                className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -751,7 +751,7 @@ exports[`ModuleExpandableItem renders correctly with when expanded 1`] = `
               className="box xsCol12"
             >
               <div
-                className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
+                className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"

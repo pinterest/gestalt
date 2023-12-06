@@ -1343,6 +1343,7 @@ interface ModuleProps {
   icon?: Icons | undefined;
   iconAccessibilityLabel?: string | undefined;
   iconButton?: React.ReactElement<typeof IconButton> | undefined;
+  size: 'sm' | 'md' | 'lg';
   title?: string | undefined;
   type?: 'error' | 'info' | undefined;
 }
@@ -1640,6 +1641,7 @@ interface SegmentedControlProps {
   onChange: AbstractEventHandler<React.MouseEvent<HTMLButtonElement>, { activeIndex: number }>;
   selectedItemIndex: number;
   responsive?: boolean | undefined;
+  size: 'sm' | 'md' | 'lg';
 }
 
 interface SelectListProps {
