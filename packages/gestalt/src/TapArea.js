@@ -84,7 +84,16 @@ type Props = {
   /**
    * Select a mouse cursor type to convey the TapArea expected behavior.
    */
-  mouseCursor?: 'copy' | 'grab' | 'grabbing' | 'move' | 'noDrop' | 'pointer' | 'zoomIn' | 'zoomOut',
+  mouseCursor?:
+    | 'copy'
+    | 'default'
+    | 'grab'
+    | 'grabbing'
+    | 'move'
+    | 'noDrop'
+    | 'pointer'
+    | 'zoomIn'
+    | 'zoomOut',
   /**
    * Callback fired when a TapArea component loses focus.
    */

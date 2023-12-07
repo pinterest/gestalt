@@ -2054,6 +2054,7 @@ interface TapAreaProps {
   fullHeight?: boolean | undefined;
   fullWidth?: boolean | undefined;
   mouseCursor?:
+    | 'default'
     | 'copy'
     | 'grab'
     | 'grabbing'
