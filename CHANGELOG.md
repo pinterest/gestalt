@@ -1,3 +1,9 @@
+## 128.7.0 (Dec 7, 2023)
+
+### Minor
+
+- TapArea: Add default cursor to TapArea ([#3315](https://github.com/pinterest/gestalt/pull/3315)) - [Preview link](https://deploy-preview-3315--gestalt.netlify.app?devexample=true)
+
 ## 128.6.0 (Dec 6, 2023)
 
 ### Minor
