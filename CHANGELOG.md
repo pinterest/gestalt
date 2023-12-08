@@ -1,3 +1,9 @@
+## 128.7.1 (Dec 8, 2023)
+
+### Patch
+
+- PopoverEducational: Add `disablePortal` ([#3321](https://github.com/pinterest/gestalt/pull/3321)) - [Preview link](https://deploy-preview-3321--gestalt.netlify.app?devexample=true)
+
 ## 128.7.0 (Dec 7, 2023)
 
 ### Minor
