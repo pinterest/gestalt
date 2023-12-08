@@ -2010,6 +2010,7 @@ interface TagProps {
   text: string;
   accessibilityRemoveIconLabel?: string | undefined;
   disabled?: boolean | undefined;
+  size?:'sm'|'md'|'lg';
   type?: 'default' | 'error' | 'warning' | undefined;
 }
 
