@@ -210,6 +210,7 @@ export default function PopoverEducational({
         id={id}
         idealDirection={idealDirection}
         onDismiss={onDismiss}
+        disablePortal
         showCaret
         shouldFocus={shouldFocus}
         role={primaryAction && !children ? 'dialog' : role}
