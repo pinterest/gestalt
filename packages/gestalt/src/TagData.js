@@ -251,7 +251,7 @@ export default function TagData({
               }
               color={fgColor}
               icon="cancel"
-              size={8}
+              size={10}
             />
           </Box>
         </button>

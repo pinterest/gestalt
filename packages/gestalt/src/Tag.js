@@ -55,8 +55,8 @@ type Props = {
   type?: 'default' | 'error' | 'warning',
 };
 
-const applyDensityTheme = (s: 'sm' | 'md' | 'lg') => {
-  switch (s) {
+const applyDensityTheme = (size: 'sm' | 'md' | 'lg') => {
+  switch (size) {
     case 'sm':
       return {
         rounding: 1,
