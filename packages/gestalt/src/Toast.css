@@ -17,8 +17,8 @@
 
 .toast {
   border-radius: var(--rounding-400);
-  margin-left: 32px;
-  margin-right: 32px;
+  margin-left: 16px;
+  margin-right: 16px;
 
   /*  Ensure that maxWidth isn't greater than viewport width (for small screens)  */
   max-width: min(716px, 100vw);
@@ -28,8 +28,8 @@
   .toast {
     border-radius: var(--rounding-400);
     display: inline-block;
-    margin-left: 32px;
-    margin-right: 32px;
+    margin-left: 16px;
+    margin-right: 16px;
 
     /*  Ensure that maxWidth isn't greater than viewport width (for small screens)  */
     max-width: "min(716px, 100vw)";
