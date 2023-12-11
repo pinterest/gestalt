@@ -55,7 +55,7 @@ type Props = {
 };
 
 /**
- * [Accordion](https://gestalt.pinterest.systems/web/accordion) is a container that holds content about one subject. Its contents can be visible at all times, or expand and collapse as individual accordion or a group of accordions.
+ * [Accordion](https://gestalt.pinterest.systems/web/accordion) is a container that can be expanded and collapsed to show content about a single subject. Its contents can be visible at all items, or expand and collapse as an individual item or a group of items.
  *
  * ![Accordion light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Accordion.spec.mjs-snapshots/Accordion-chromium-darwin.png)
  * ![Accordion dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Accordion-dark.spec.mjs-snapshots/Accordion-dark-chromium-darwin.png)
