@@ -1,3 +1,9 @@
+## 128.8.0 (Dec 11, 2023)
+
+### Minor
+
+- Tag: Add Density Variants ([#3284](https://github.com/pinterest/gestalt/pull/3284)) - [Preview link](https://deploy-preview-3284--gestalt.netlify.app?devexample=true)
+
 ## 128.7.1 (Dec 8, 2023)
 
 ### Patch
