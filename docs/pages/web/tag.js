@@ -17,6 +17,7 @@ import dontIntermix from '../../examples/tag/dontIntermix';
 import doSuccinct from '../../examples/tag/doSuccinct';
 import localizationLabels from '../../examples/tag/localizationLabels';
 import main from '../../examples/tag/main';
+import sizesExample from '../../examples/tag/sizes';
 import variantDisabled from '../../examples/tag/variantDisabled';
 import variantDismissable from '../../examples/tag/variantDismissable';
 import variantError from '../../examples/tag/variantError';
@@ -181,6 +182,16 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         >
           <MainSection.Card
             sandpackExample={<SandpackExample code={variantMaxWidth} name="Max width variant" />}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          description={`
+        Tag is available in three sizes: small (24px), medium(32px), large(48px). Use the \`sm\` tag for denser surfaces.
+        `}
+          title="Size"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={sizesExample} name="Sizes variant" />}
           />
         </MainSection.Subsection>
       </MainSection>

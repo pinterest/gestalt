@@ -1,16 +1,57 @@
 .button {
   composes: noBorder from "./Borders.css";
-  composes: paddingX2 from "./boxWhitespace.css";
-  composes: paddingY3 from "./boxWhitespace.css";
   composes: pointer from "./Cursor.css";
+  height: 100%;
+  outline: none;
+  position: absolute;
+}
+
+.button.sm {
+  width: 20px;
+}
+
+.button.md {
+  width: 24px;
+}
+
+.button.lg {
+  width: 32px;
 }
 
 html[dir="rtl"] .button {
+  left: 0;
+  right: unset;
+  top: 0;
+}
+
+html[dir="rtl"] .button.sm {
+  border-radius: var(--rounding-100) 0 0 var(--rounding-100);
+}
+
+html[dir="rtl"] .button.md {
   border-radius: var(--rounding-200) 0 0 var(--rounding-200);
 }
 
+html[dir="rtl"] .button.lg {
+  border-radius: var(--rounding-300) 0 0 var(--rounding-300);
+}
+
 html:not([dir="rtl"]) .button {
+  left: unset;
+  right: 0;
+  top: 0;
+}
+
+html:not([dir="rtl"]) .button.sm {
+  border-radius: 0 var(--rounding-100) var(--rounding-100) 0;
+}
+
+html:not([dir="rtl"]) .button.md {
   border-radius: 0 var(--rounding-200) var(--rounding-200) 0;
+}
+
+html:not([dir="rtl"]) .button.lg {
+  border-radius: 0 var(--rounding-300) var(--rounding-300) 0;
 }
 
 .secondary {
@@ -32,6 +73,7 @@ html:not([dir="rtl"]) .button {
 
 .errorBase:hover,
 .errorBase:focus {
+  backdrop-filter: brightness(0.9);
   background-color: var(--g-colorRed100Hovered);
 }
 
@@ -45,6 +87,7 @@ html:not([dir="rtl"]) .button {
 
 .warningBase:hover,
 .warningBase:focus {
+  backdrop-filter: brightness(0.9);
   background-color: var(--g-colorYellow100Hovered);
 }
 
