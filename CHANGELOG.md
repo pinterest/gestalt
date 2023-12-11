@@ -1,3 +1,9 @@
+## 129.1.0 (Dec 11, 2023)
+
+### Minor
+
+- Toast: reduce side margins from 32 to 16 px ([#3322](https://github.com/pinterest/gestalt/pull/3322)) - [Preview link](https://deploy-preview-3322--gestalt.netlify.app?devexample=true)
+
 ## 129.0.0 (Dec 11, 2023)
 
 ### Major
