@@ -1,3 +1,9 @@
+## 129.0.0 (Dec 11, 2023)
+
+### Major
+
+- Module: renaming Module to Accordion ([#3320](https://github.com/pinterest/gestalt/pull/3320)) - [Preview link](https://deploy-preview-3320--gestalt.netlify.app?devexample=true)
+
 ## 128.8.0 (Dec 11, 2023)
 
 ### Minor
