@@ -19,23 +19,23 @@ import { type Indexable } from './zIndex';
 
 type Props = {
   /**
-   * Label for screen readers to announce IconButton. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   * Label for screen readers to announce IconButton. See the [Accessibility](https://gestalt.pinterest.systems/web/iconbutton#ARIA-attributes) guidelines for details on proper usage.
    */
   accessibilityLabel: string,
   /**
-   * Specifies the `id` of an associated element (or elements) whose contents or visibility are controlled by IconButton so that screen reader users can identify the relationship between elements. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   * Specifies the `id` of an associated element (or elements) whose contents or visibility are controlled by IconButton so that screen reader users can identify the relationship between elements. See the [Accessibility](https://gestalt.pinterest.systems/web/iconbutton#ARIA-attributes) guidelines for details on proper usage.
    */
   accessibilityControls?: string,
   /**
-   * Indicates that IconButton hides or exposes collapsible components and expose whether they are currently expanded or collapsed. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   * Indicates that IconButton hides or exposes collapsible components and expose whether they are currently expanded or collapsed. See the [Accessibility](https://gestalt.pinterest.systems/web/iconbutton#ARIA-attributes) guidelines for details on proper usage.
    */
   accessibilityExpanded?: boolean,
   /**
-   * Indicates that a component controls the appearance of interactive popup elements, such as menu or dialog. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   * Indicates that a component controls the appearance of interactive popup elements, such as menu or dialog. See the [Accessibility](https://gestalt.pinterest.systems/web/iconbutton#ARIA-attributes) guidelines for details on proper usage.
    */
   accessibilityHaspopup?: boolean,
   /**
-   * Indicates whether this component displays a menu, such as Dropdown, or a dialog, like Popover, Modal or ModalAlert. See the [Accessibility](#ARIA-attributes) guidelines for details on proper usage.
+   * Indicates whether this component displays a menu, such as Dropdown, or a dialog, like Popover, Modal or ModalAlert. See the [Accessibility](https://gestalt.pinterest.systems/web/iconbutton#ARIA-attributes) guidelines for details on proper usage.
    */
   accessibilityPopupRole?: 'menu' | 'dialog',
   /**
@@ -66,7 +66,7 @@ type Props = {
    */
   icon?: $Keys<typeof icons>,
   /**
-   * Primary color to apply to the [Icon](/web/icon). See [icon color](#Icon-color) variant to learn more.
+   * Primary color to apply to the [Icon](/web/icon). See [icon color](https://gestalt.pinterest.systems/web/iconbutton#Icon-color) variant to learn more.
    */
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary',
   /**
@@ -89,15 +89,15 @@ type Props = {
   // eslint-disable-next-line react/no-unused-prop-types
   ref?: HTMLButtonElement,
   /**
-   * Toggles between binary states: on/off, selected/unselected, open/closed. See the [selected](#Selected-state) variant to learn more.
+   * Toggles between binary states: on/off, selected/unselected, open/closed. See the [selected](https://gestalt.pinterest.systems/web/iconbutton#Selected-state) variant to learn more.
    */
   selected?: boolean,
   /**
-   * The maximum height and width of IconButton. See the [size](#Size) variant to learn more.
+   * The maximum height and width of IconButton. See the [size](https://gestalt.pinterest.systems/web/iconbutton#Size) variant to learn more.
    */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
   /**
-   * Removes IconButton from sequential keyboard navigation to improve accessibility. See the [Accessibility](#Keyboard-interaction) guidelines for details on proper usage.
+   * Removes IconButton from sequential keyboard navigation to improve accessibility. See the [Accessibility](https://gestalt.pinterest.systems/web/iconbutton#Keyboard-interaction) guidelines for details on proper usage.
    */
   tabIndex?: -1 | 0,
   /**
