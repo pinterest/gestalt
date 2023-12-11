@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { Box, Module, Table, Text } from 'gestalt';
+import { Accordion, Box, Table, Text } from 'gestalt';
 import componentData from './data/components';
 import {
   COMPONENT_A11Y_STATUS_MESSAGING,
@@ -77,10 +77,8 @@ export default function AccessibilityChecklist({ component }: Props): ReactNode 
   const a11ySummaryNotAvailable = a11ySummary === 'notAvailable';
 
   return (
-    <Module.Expandable
-      accessibilityExpandLabel="Expand the module"
-      accessibilityCollapseLabel="Collapse the module"
-      id="accessibility-module"
+    <Accordion.Expandable
+      id="accessibility-accordion"
       items={[
         {
           children: a11ySummaryNotAvailable ? (

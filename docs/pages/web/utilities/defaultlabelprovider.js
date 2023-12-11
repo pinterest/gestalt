@@ -15,6 +15,16 @@ import translations from '../../../examples/defaultlabelprovider/translations';
 function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */) {
   return [
     {
+      component: 'Accordion',
+      prop: 'accessibilityCollapseLabel',
+      label: 'Collapse section',
+    },
+    {
+      component: 'Accordion',
+      prop: 'accessibilityExpandLabel',
+      label: 'Expand section',
+    },
+    {
       component: 'ActivationCard',
       prop: 'accessibilityDismissButtonLabel',
       label: 'Dismiss',

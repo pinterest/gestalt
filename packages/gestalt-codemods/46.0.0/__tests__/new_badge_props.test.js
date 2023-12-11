@@ -7,7 +7,9 @@ jest.mock('../new_badge_props', () =>
 );
 
 describe('new_badge_props', () => {
-  ['module_badge_prop', 'module_expandable_badge_prop', 'dropdown_badge_prop'].forEach((test) => {
-    defineTest(__dirname, 'new_badge_props', { quote: 'single' }, test);
-  });
+  ['accordion_badge_prop', 'accordion_expandable_badge_prop', 'dropdown_badge_prop'].forEach(
+    (test) => {
+      defineTest(__dirname, 'new_badge_props', { quote: 'single' }, test);
+    },
+  );
 });

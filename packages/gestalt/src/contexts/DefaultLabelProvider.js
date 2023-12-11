@@ -14,6 +14,10 @@ import { type Context, createContext, type Node as ReactNode, useContext } from 
  */
 
 export type DefaultLabelContextType = {
+  Accordion: {
+    accessibilityCollapseLabel: string,
+    accessibilityExpandLabel: string,
+  },
   ActivationCard: {
     accessibilityDismissButtonLabel: string,
   },
@@ -123,6 +127,10 @@ export type DefaultLabelContextType = {
 };
 
 export const fallbackLabels: DefaultLabelContextType = {
+  Accordion: {
+    accessibilityCollapseLabel: 'Collapse section',
+    accessibilityExpandLabel: 'Expand section',
+  },
   ActivationCard: {
     accessibilityDismissButtonLabel: 'Dismiss',
   },

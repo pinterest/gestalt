@@ -34,7 +34,6 @@ const webComponents = [
   'mask',
   'masonry',
   'modal',
-  'module',
   'numberfield',
   'overlaypanel',
   'overview',
@@ -201,6 +200,11 @@ const misc = [
   {
     source: '/typography',
     destination: '/foundations/typography',
+    permanent: true,
+  },
+  {
+    source: '/web/module',
+    destination: '/web/accordion',
     permanent: true,
   },
   {

@@ -122,7 +122,7 @@ export default function SheetPage({
           <MainSection.Card
             cardSize="lg"
             type="don't"
-            description="Use OverlayPanel if edits or sub-tasks require more than two steps. Bring users to a full page experience or consider using [Modules](/web/module) to section out content."
+            description="Use OverlayPanel if edits or sub-tasks require more than two steps. Bring users to a full page experience or consider using [Accordions](/web/accordion) to section out content."
           />
           <MainSection.Card
             cardSize="lg"
