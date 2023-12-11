@@ -2,11 +2,11 @@
 import Accordion from './Accordion';
 import IconButton from './IconButton';
 
-const ValidWithMinimumProps = <Accordion id="module-id" />;
+const ValidWithMinimumProps = <Accordion id="accordion-id" />;
 
 const ValidWithBaseProps = (
   <Accordion
-    id="module-id"
+    id="accordion-id"
     iconAccessibilityLabel="There is an error"
     title="Accordion Title"
     type="error"
@@ -19,7 +19,7 @@ const ValidWithBadgeTextProps = (
   <Accordion
     badge={{ text: 'badge-text' }}
     iconAccessibilityLabel="There is an error"
-    id="module-id"
+    id="accordion-id"
     title="Accordion Title"
     type="error"
   >
@@ -31,7 +31,7 @@ const ValidWithIconProps = (
   <Accordion
     icon="lock"
     iconAccessibilityLabel="Accordion is Locked"
-    id="module-id"
+    id="accordion-id"
     title="Accordion Title"
     type="error"
   >
@@ -52,7 +52,7 @@ const ValidWithIconButtonProps = (
         onClick={() => {}}
       />
     }
-    id="module-id"
+    id="accordion-id"
     title="Accordion Title"
     type="error"
   >
@@ -64,9 +64,9 @@ const ValidWithIconButtonProps = (
 const InvalidWithMissingProps = <Accordion />;
 
 // $FlowExpectedError[prop-missing]
-const InvalidWithNonExistingProp = <Accordion id="module-id" nonexisting={33} />;
+const InvalidWithNonExistingProp = <Accordion id="accordion-id" nonexisting={33} />;
 
 const InvalidTypeProp = (
   // $FlowExpectedError[incompatible-type]
-  <Accordion id="module-id" title={<h1>Accordion Title</h1>} />
+  <Accordion id="accordion-id" title={<h1>Accordion Title</h1>} />
 );

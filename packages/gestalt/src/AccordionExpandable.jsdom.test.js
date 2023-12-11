@@ -83,7 +83,7 @@ describe('AccordionExpandable', () => {
     expect(screen.queryByText(/Children5/i)).toBeNull();
   });
 
-  it('should expand the module correctly when clicked', () => {
+  it('should expand the accordion correctly when clicked', () => {
     render(<AccordionExpandable {...props} />);
     const expandButtons = screen.getAllByRole('button', {
       name: /Expand section/i,
@@ -111,7 +111,7 @@ describe('AccordionExpandable', () => {
     expect(screen.queryByText(/Children5/i)).toBeNull();
   });
 
-  it('should expand the module correctly with expandedId', () => {
+  it('should expand the accordion correctly with expandedId', () => {
     const newProps = {
       ...props,
       expandedIndex: 0,

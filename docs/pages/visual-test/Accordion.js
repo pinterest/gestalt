@@ -25,17 +25,17 @@ export default function Screenshot(): ReactNode {
               onClick={() => {}}
             />
           }
-          iconAccessibilityLabel="Module Locked - check permission settings"
-          id="ModuleExample - header"
+          iconAccessibilityLabel="Accordion Locked - check permission settings"
+          id="AccordionExample - header"
           size={size}
-          title="Module Title"
+          title="Accordion Title"
         >
           <Text size="200">This is example content.</Text>
         </Accordion>
         <Accordion.Expandable
-          accessibilityExpandLabel="Expand the module"
-          accessibilityCollapseLabel="Collapse the module"
-          id="ModuleExample - header expandable"
+          accessibilityExpandLabel="Expand section"
+          accessibilityCollapseLabel="Collapse section"
+          id="AccordionExample - header expandable"
           size={size}
           items={[
             {

@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useState } from 'react';
-import { Box, Flex, IconButton, Module, SegmentedControl, Text } from 'gestalt';
+import { Accordion, Box, Flex, IconButton, SegmentedControl, Text } from 'gestalt';
 
 export default function Example(): Node {
   const sizes = ['sm', 'md', 'lg'];
@@ -16,7 +16,7 @@ export default function Example(): Node {
             setSize(sizes[activeIndex]);
           }}
         />
-        <Module
+        <Accordion
           icon="lock"
           iconButton={
             <IconButton
@@ -29,17 +29,17 @@ export default function Example(): Node {
             />
           }
           badge={{ text: 'Beta' }}
-          iconAccessibilityLabel="Module Locked - check permission settings"
-          id="ModuleExample - header"
+          iconAccessibilityLabel="Accordion Locked - check permission settings"
+          id="AccordionExample - header"
           size={size}
           title="Title"
         >
           <Text size="200">This is example content.</Text>
-        </Module>
-        <Module.Expandable
-          accessibilityExpandLabel="Expand the module"
-          accessibilityCollapseLabel="Collapse the module"
-          id="ModuleExample - header expandable"
+        </Accordion>
+        <Accordion.Expandable
+          accessibilityExpandLabel="Expand section"
+          accessibilityCollapseLabel="Collapse section"
+          id="AccordionExample - header expandable"
           size={size}
           items={[
             {

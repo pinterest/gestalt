@@ -2,11 +2,11 @@
 import AccordionExpandable from './AccordionExpandable';
 import IconButton from './IconButton';
 
-const ValidWithMinimumProps = <AccordionExpandable id="module-expandable-id" items={[]} />;
+const ValidWithMinimumProps = <AccordionExpandable id="accordion-expandable-id" items={[]} />;
 
 const ValidWithBaseProps = (
   <AccordionExpandable
-    id="module-expandable-id"
+    id="accordion-expandable-id"
     expandedIndex={0}
     onExpandedChange={() => {}}
     items={[
@@ -22,7 +22,7 @@ const ValidWithBaseProps = (
 
 const ValidWithBadgeTextProps = (
   <AccordionExpandable
-    id="module-expandable-id"
+    id="accordion-expandable-id"
     expandedIndex={0}
     onExpandedChange={() => {}}
     items={[
@@ -39,7 +39,7 @@ const ValidWithBadgeTextProps = (
 
 const ValidWithIconProps = (
   <AccordionExpandable
-    id="module-expandable-id"
+    id="accordion-expandable-id"
     expandedIndex={0}
     onExpandedChange={() => {}}
     items={[
@@ -57,7 +57,7 @@ const ValidWithIconProps = (
 
 const ValidWithIconButtonProps = (
   <AccordionExpandable
-    id="module-expandable-id"
+    id="accordion-expandable-id"
     expandedIndex={0}
     onExpandedChange={() => {}}
     items={[
@@ -86,7 +86,7 @@ const InvalidWithMissingProps = <AccordionExpandable />;
 
 const InvalidWithNonExistingProp = (
   // $FlowExpectedError[prop-missing]
-  <AccordionExpandable id="module-id" nonexisting={33} />
+  <AccordionExpandable id="accordion-id" nonexisting={33} />
 );
 
 const InvalidTypeProp = (

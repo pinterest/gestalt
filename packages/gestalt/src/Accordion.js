@@ -1,8 +1,8 @@
 // @flow strict
 import { type Element, type Node as ReactNode } from 'react';
-import AccordionExpandable from './Accordion/AccordionExpandable';
 import applyModuleDensityStyle from './Accordion/applyModuleDensity';
 import AccordionTitle from './Accordion/Title';
+import AccordionExpandable from './AccordionExpandable';
 import Box from './Box';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import Flex from './Flex';
