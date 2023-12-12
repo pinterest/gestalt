@@ -1,3 +1,9 @@
+## 129.1.2 (Dec 12, 2023)
+
+### Patch
+
+- Docs: update description of Accordion ([#3324](https://github.com/pinterest/gestalt/pull/3324)) - [Preview link](https://deploy-preview-3324--gestalt.netlify.app?devexample=true)
+
 ## 129.1.1 (Dec 12, 2023)
 
 ### Patch
