@@ -22,9 +22,10 @@ class GestaltDocument extends Document {
     const { props } = this;
     const cookies = new Cookies(props.cookieHeader);
     const dir = cookies.cookies['gestalt-text-direction'];
-    const gestaltBuildDirectory = path.join(process.cwd(), '..', 'packages', 'gestalt', 'dist');
+    // const gestaltBuildDirectory = path.join(process.cwd(), '..', 'packages', 'gestalt', 'dist');
+    // eslint-disable-next-line no-console
     console.log('ALBERTO', process.cwd());
-    const gestaltCssText = readFileSync(path.join(gestaltBuildDirectory, 'gestalt.css'), 'utf8');
+    // const gestaltCssText = readFileSync(path.join(gestaltBuildDirectory, 'gestalt.css'), 'utf8');
 
     return (
       <Html lang="en" dir={dir}>
@@ -58,8 +59,7 @@ gtag('config', 'UA-12967896-44');
                 : '/gestalt_favicon.png'
             }
           />
-          {/* eslint-disable-next-line react/no-danger */}
-          <style dangerouslySetInnerHTML={{ __html: gestaltCssText }} id="gestalt" />
+          {/* <style dangerouslySetInnerHTML={{ __html: gestaltCssText }} id="gestalt" /> */}
           {/* eslint-disable-next-line react/no-danger */}
           <style dangerouslySetInnerHTML={{ __html: getSandpackCssText() }} id="sandpack" />
         </Head>
