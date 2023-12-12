@@ -1547,7 +1547,8 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           svg: <Accordion />,
         },
         alias: ['Section', 'Expandable Section', 'Module', 'Disclosure', 'Stack View', 'Expander'],
-        description: 'Accordion is a container that can be expanded and collapsed to show content about a single subject.',
+        description:
+          'Accordion is a container that can be expanded and collapsed to show content about a single subject.',
         category: ['Structure'],
         status: {
           accessible: {
