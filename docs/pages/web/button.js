@@ -4,16 +4,15 @@ import { Button, SlimBanner } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { type DocGen, type DocType } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
 import LocalizationSection from '../../docs-components/LocalizationSection';
 import MainSection from '../../docs-components/MainSection';
 import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
-import PropTable from '../../docs-components/PropTable';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
 import accessibilityDropdownExample from '../../examples/button/accessibilityDropdownExample';
-import buttonPopoverExample from '../../examples/button/buttonPopoverExample';
 import defaultStateExample from '../../examples/button/defaultStateExample';
 import disabledStateExample from '../../examples/button/disabledStateExample';
 import iconEndExample from '../../examples/button/iconEndExample';
@@ -40,146 +39,9 @@ export default function DocsPage({ generatedDocGen }: DocType): ReactNode {
       >
         <SandpackExample code={main} name="Main Button example" hideEditor previewHeight={150} />
       </PageHeader>
-      <PropTable
-        componentName={generatedDocGen?.displayName}
-        props={[
-          {
-            name: 'accessibilityLabel',
-            type: 'string',
-            required: false,
-            description: [
-              'Label to provide more context around Button’s function or purpose. See the [Accessibility guidelines](/foundations/accessibility) to learn more.',
-            ],
-          },
-          {
-            name: 'accessibilityControls',
-            type: 'string',
-            required: false,
-            description: [
-              'A unique id indicating the element or elements whose contents or visibility are controlled by Button. See the [Accessibility guidelines](/foundations/accessibility) to learn more.',
-            ],
-          },
-          {
-            name: 'accessibilityExpanded',
-            type: 'boolean',
-            required: false,
-            description: [
-              'Needed if Button controls the visibility of other elements, e.g. Dropdown or Flyout. This is used to indicate if the controlled grouping is currently expanded or collapsed. See the [Accessibility guidelines](/foundations/accessibility) to learn more.',
-            ],
-          },
-          {
-            name: 'accessibilityHaspopup',
-            type: 'boolean',
-            required: false,
-            description: [
-              'Set as true if Button controls one or more interactive popup elements, such as a menu or dialog. See the [Accessibility guidelines](/foundations/accessibility) to learn more.',
-            ],
-          },
-          {
-            name: 'color',
-            type: `'gray' | 'red' | 'blue' | 'transparent' |  'semiTransparentWhite' | 'transparentWhiteText' | 'white'`,
-            required: false,
-            defaultValue: 'gray',
-            description: ['The background color of Button.'],
-          },
-          {
-            name: 'dataTestId',
-            type: 'string',
-            required: false,
-            description: [
-              'Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.',
-            ],
-          },
-          {
-            name: 'disabled',
-            type: 'boolean',
-            required: false,
-            defaultValue: false,
-            description: [
-              'Indicates if Button is disabled. Disabled Buttons are inactive and cannot be interacted with.',
-            ],
-          },
-          {
-            name: 'iconEnd',
-            type: '$Keys<typeof icons>',
-            required: false,
-            description: [
-              'An icon displayed after the text to help clarify the usage of Button. See the [icon variant](#Icons) to learn more.',
-            ],
-          },
-          {
-            name: 'fullWidth',
-            type: 'boolean',
-            required: false,
-            defaultValue: false,
-            description: [
-              'Default Buttons are sized by the text within the Button whereas full-width Buttons expand to the full width of their container.',
-            ],
-          },
-          {
-            name: 'name',
-            type: 'string',
-            description: [
-              'The name attribute specifies the name of the <button> element.',
 
-              'The name attribute is used to reference form-data after the form has been submitted.',
-            ],
-          },
-          {
-            name: 'onClick',
-            type: '({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| dangerouslyDisableOnNavigation: () => void |}> }) => void',
-            required: false,
-            description: [
-              'Callback invoked when the user clicks (press and release) on Button with the mouse or keyboard.',
-              'See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.',
-            ],
-          },
-          {
-            name: 'size',
-            type: `'sm' | 'md' | 'lg'`,
-            required: false,
-            defaultValue: 'md',
-            description: ['sm: 32px, md: 40px, lg: 48px'],
-          },
-          {
-            name: 'text',
-            type: 'string',
-            required: true,
-            description: [
-              'Text to render inside the Button to convey the function and purpose of the Button.',
-            ],
-          },
-          {
-            name: 'type',
-            type: `'submit' | 'button'`,
-            required: false,
-            defaultValue: 'button',
-            description: ['Use “submit” if Button is used within or associated with a form.'],
-          },
-          {
-            name: 'selected',
-            type: 'boolean',
-            required: false,
-            defaultValue: false,
-            description: ['Indicates if Button is currently selected.'],
-          },
-          {
-            name: 'ref',
-            type: `React.Ref<'button'> | React.Ref<'a'>`,
-            required: false,
-            description: ['A React ref to forward to the underlying element.'],
-          },
-          {
-            name: 'tabIndex',
-            type: `-1 | 0`,
-            required: false,
-            defaultValue: 0,
-            description: [
-              'Use "-1" to remove Button from keyboard navigation. See the [Accessibility guidelines](/foundations/accessibility) to learn more.',
-            ],
-          },
-        ]}
-      />
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -337,7 +199,17 @@ If Button is used as a control Button to show/hide a Popover-based component, we
 - \`accessibilityHaspopup\`: informs the screen reader that there’s a Popover-based component attached to Button. It populates [aria-haspopup](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
 - \`accessibilityExpanded\`: informs the screen reader whether the button-anchored Popover-based component is currently open or closed. It populates [aria-expanded](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
 `}
-        />
+        >
+          <MainSection.Card
+            cardSize="md"
+            sandpackExample={
+              <SandpackExample
+                code={accessibilityDropdownExample}
+                name="Accessibility dropdown example."
+              />
+            }
+          />
+        </MainSection.Subsection>
       </AccessibilitySection>
 
       <LocalizationSection
@@ -500,32 +372,6 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
                 name="Selected state button example."
                 previewHeight={150}
               />
-            }
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection title="Accessibility props: controls, expanded, & popup">
-          <MainSection.Card
-            cardSize="md"
-            sandpackExample={
-              <SandpackExample
-                code={accessibilityDropdownExample}
-                name="Accessibility dropdown example."
-              />
-            }
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection
-          title="Ref"
-          description={`
-To control focus or position anchored components relative to Button, use \`ref\` as shown in the example below.
-`}
-        >
-          <MainSection.Card
-            cardSize="md"
-            sandpackExample={
-              <SandpackExample code={buttonPopoverExample} name="Button with Popover example." />
             }
           />
         </MainSection.Subsection>
