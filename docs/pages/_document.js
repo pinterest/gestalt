@@ -1,5 +1,6 @@
 // @flow strict
 import { readFileSync } from 'fs';
+import path from 'path';
 import { type Node as ReactNode } from 'react';
 import { getSandpackCssText } from '@codesandbox/sandpack-react';
 import Document, { type DocumentContext, Head, Html, Main, NextScript } from 'next/document';
@@ -21,7 +22,9 @@ class GestaltDocument extends Document {
     const { props } = this;
     const cookies = new Cookies(props.cookieHeader);
     const dir = cookies.cookies['gestalt-text-direction'];
-    const gestaltCssText = readFileSync('../node_modules/gestalt/dist/gestalt.css', 'utf-8');
+
+    const gestaltBuildDirectory = path.join(process.cwd(), '..', 'node_modules', 'gestalt', 'dist');
+    const gestaltCssText = readFileSync(path.join(gestaltBuildDirectory, 'gestalt.css'), 'utf8');
 
     return (
       <Html lang="en" dir={dir}>
