@@ -1,4 +1,5 @@
 // @flow strict
+import { readFileSync } from 'fs';
 import { type Node as ReactNode } from 'react';
 import { getSandpackCssText } from '@codesandbox/sandpack-react';
 import Document, { type DocumentContext, Head, Html, Main, NextScript } from 'next/document';
@@ -20,6 +21,7 @@ class GestaltDocument extends Document {
     const { props } = this;
     const cookies = new Cookies(props.cookieHeader);
     const dir = cookies.cookies['gestalt-text-direction'];
+    const gestaltCssText = readFileSync('../node_modules/gestalt/dist/gestalt.css', 'utf-8');
 
     return (
       <Html lang="en" dir={dir}>
@@ -53,6 +55,8 @@ gtag('config', 'UA-12967896-44');
                 : '/gestalt_favicon.png'
             }
           />
+          {/* eslint-disable-next-line react/no-danger */}
+          <style dangerouslySetInnerHTML={{ __html: gestaltCssText }} id="gestalt" />
           {/* eslint-disable-next-line react/no-danger */}
           <style dangerouslySetInnerHTML={{ __html: getSandpackCssText() }} id="sandpack" />
         </Head>

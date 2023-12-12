@@ -26,7 +26,7 @@ export default function Example(): ReactNode {
               alignItems="center"
               justifyContent="center"
             >
-              <Box color="light" padding={3} display="flex" alignItems="center">
+              <Box padding={3} display="flex" alignItems="center">
                 <Text>Layer Content</Text>
                 <Box marginStart={2}>
                   <IconButton
