@@ -1,6 +1,6 @@
 // @flow strict
-import { readFileSync } from 'fs';
-import path from 'path';
+// import { readFileSync } from 'fs';
+// import path from 'path';
 import { type Node as ReactNode } from 'react';
 import { getSandpackCssText } from '@codesandbox/sandpack-react';
 import Document, { type DocumentContext, Head, Html, Main, NextScript } from 'next/document';
