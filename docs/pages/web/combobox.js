@@ -33,7 +33,7 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
         slimBanner={
           <SlimBannerExperiment
             componentName="ComboBox"
-            description="to fix and improve underlying Popover component behavior. No visual updates"
+            description="fix and improve underlying Popover component behavior. No visual updates"
             pullRequest={3244}
           />
         }

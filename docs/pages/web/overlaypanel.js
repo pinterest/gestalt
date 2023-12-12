@@ -36,7 +36,7 @@ export default function SheetPage({
         slimBanner={
           <SlimBannerExperiment
             componentName="OverlayPanel"
-            description="to fix and improve underlying Popover component behavior. No visual updates"
+            description="fix and improve underlying Popover component behavior. No visual updates"
             pullRequest={3244}
           />
         }
