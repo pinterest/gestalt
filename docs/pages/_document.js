@@ -22,8 +22,8 @@ class GestaltDocument extends Document {
     const { props } = this;
     const cookies = new Cookies(props.cookieHeader);
     const dir = cookies.cookies['gestalt-text-direction'];
-
     const gestaltBuildDirectory = path.join(process.cwd(), '..', 'packages', 'gestalt', 'dist');
+    console.log('ALBERTO', process.cwd());
     const gestaltCssText = readFileSync(path.join(gestaltBuildDirectory, 'gestalt.css'), 'utf8');
 
     return (
