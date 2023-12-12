@@ -71,7 +71,7 @@ export default function App({ children, files }: Props): ReactNode {
       <DocsExperimentProvider>
         <AppContextConsumer>
           {({ colorScheme }) => (
-            <ColorSchemeProvider colorScheme={colorScheme} id="gestalt-docs">
+            <ColorSchemeProvider colorScheme={colorScheme}>
               <GlobalEventsHandlerProvider linkHandlers={{ onNavigation: useOnNavigation }}>
                 <NavigationContextProvider>
                   <LocalFilesProvider files={files}>
