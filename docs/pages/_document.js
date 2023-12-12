@@ -22,14 +22,7 @@ class GestaltDocument extends Document {
     const { props } = this;
     const cookies = new Cookies(props.cookieHeader);
     const dir = cookies.cookies['gestalt-text-direction'];
-    const gestaltBuildDirectory = path.join(
-      process.cwd(),
-      '..',
-      '..',
-      'node_modules',
-      'gestalt',
-      'dist',
-    );
+    const gestaltBuildDirectory = path.join(process.cwd(), '..', 'node_modules', 'gestalt', 'dist');
 
     const gestaltCssText = readFileSync(path.join(gestaltBuildDirectory, 'gestalt.css'), 'utf8');
     // eslint-disable-next-line no-console
