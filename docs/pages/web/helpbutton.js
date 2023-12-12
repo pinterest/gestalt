@@ -28,7 +28,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): ReactNode {
         slimBanner={
           <SlimBannerExperiment
             componentName="HelpButton"
-            description="to fix and improve underlying Popover component behavior. No visual updates"
+            description="fix and improve underlying Popover component behavior. No visual updates"
             pullRequest={3244}
           />
         }

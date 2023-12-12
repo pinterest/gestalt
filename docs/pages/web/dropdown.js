@@ -42,7 +42,7 @@ export default function ComponentPage({
         slimBanner={
           <SlimBannerExperiment
             componentName="Dropdown"
-            description="to fix and improve underlying Popover component behavior. No visual updates"
+            description="fix and improve underlying Popover component behavior. No visual updates"
             pullRequest={3244}
           />
         }

@@ -29,7 +29,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         slimBanner={
           <SlimBannerExperiment
             componentName="PopoverEducational"
-            description="to fix and improve underlying Popover component behavior. No visual updates"
+            description="fix and improve underlying Popover component behavior. No visual updates"
             pullRequest={3244}
           />
         }
