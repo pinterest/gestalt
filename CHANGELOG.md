@@ -1,3 +1,9 @@
+## 129.1.3 (Dec 12, 2023)
+
+### Patch
+
+- Docs: Removed redundant "to" in description attribute that SlimBannerExperiment already includes (for ComboBox, Dropdown, HelpButton, OverlayPanel, Popover, and PopoverEducational) ([#3329](https://github.com/pinterest/gestalt/pull/3329)) - [Preview link](https://deploy-preview-3329--gestalt.netlify.app?devexample=true)
+
 ## 129.1.2 (Dec 12, 2023)
 
 ### Patch
