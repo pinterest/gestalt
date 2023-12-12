@@ -42,7 +42,7 @@ function MainSectionSubsection({
             maxWidth={DOCS_COPY_MAX_WIDTH_PX}
             dangerouslySetInlineStyle={{
               __style: {
-                scrollMarginTop: 60,
+                scrollMarginTop: 90,
               },
             }}
             id={slugifiedId}
