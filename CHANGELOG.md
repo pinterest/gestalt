@@ -1,3 +1,9 @@
+## 129.1.4 (Dec 13, 2023)
+
+### Patch
+
+- ColorSchemeProvider: fix in docs and better documentation ([#3328](https://github.com/pinterest/gestalt/pull/3328)) - [Preview link](https://deploy-preview-3328--gestalt.netlify.app?devexample=true)
+
 ## 129.1.3 (Dec 12, 2023)
 
 ### Patch
