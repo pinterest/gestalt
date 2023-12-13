@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import Box from './Box';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
-import Flex from './Flex';
 import focusStyles from './Focus.css';
 import Icon from './Icon';
 import styles from './Tag.css';
@@ -43,6 +42,10 @@ type Props = {
    */
   onRemove: ({ event: SyntheticMouseEvent<HTMLButtonElement> }) => void,
   /**
+   * Size of the Tag. Default is `md`. See [size variant](https://gestalt.pinterest.systems/web/tag#Size) for more details.
+   */
+  size?: 'sm' | 'md' | 'lg',
+  /**
    * Short text to render inside the Tag.
    */
   text: string,
@@ -52,6 +55,44 @@ type Props = {
   type?: 'default' | 'error' | 'warning',
 };
 
+const applyDensityTheme = (size: 'sm' | 'md' | 'lg') => {
+  switch (size) {
+    case 'sm':
+      return {
+        rounding: 1,
+        paddingX: 1,
+        paddingY: undefined,
+        height: 24,
+        iconSize: 12,
+        removeIconGap: 2,
+        removeIconSize: 8,
+        fontSize: '100',
+      };
+    case 'lg':
+      return {
+        rounding: 3,
+        paddingX: 4,
+        paddingY: 3,
+        height: 48,
+        iconSize: 16,
+        removeIconGap: 4,
+        removeIconSize: 8,
+        fontSize: '200',
+      };
+    case 'md':
+    default:
+      return {
+        rounding: 2,
+        paddingX: 2,
+        paddingY: 1,
+        height: 32,
+        iconSize: 12,
+        removeIconGap: 3,
+        removeIconSize: 8,
+        fontSize: '200',
+      };
+  }
+};
 /**
  * [Tags](https://gestalt.pinterest.systems/web/tag) can be used to categorize, classify or filter content, usually via keywords. They can appear within [TextFields](https://gestalt.pinterest.systems/web/textfield#tagsExample), [TextAreas](https://gestalt.pinterest.systems/web/textarea#tagsExample), [ComboBox](https://gestalt.pinterest.systems/web/combobox#Tags) or as standalone components.
  *
@@ -62,6 +103,7 @@ export default function Tag({
   accessibilityRemoveIconLabel,
   disabled = false,
   onRemove,
+  size = 'md',
   text,
   type = 'default',
 }: Props): ReactNode {
@@ -92,54 +134,60 @@ export default function Tag({
     {
       [focusStyles.accessibilityOutline]: isFocusVisible,
     },
+    styles[size],
   );
+
+  const { height, rounding, paddingX, paddingY, fontSize, iconSize, removeIconSize } =
+    applyDensityTheme(size);
 
   return (
     <Box
+      position="relative"
       aria-disabled={disabled}
       color={bgColor}
       dangerouslySetInlineStyle={{
         __style: disabled && !hasIcon ? { border: `solid 1px ${colorGray200}` } : {},
       }}
       display="inlineBlock"
-      height={32}
+      height={height}
+      rounding={rounding}
+      paddingX={paddingX}
+      paddingY={paddingY}
       maxWidth={300}
-      rounding={2}
     >
-      <Flex alignItems="center" height="100%">
-        <Box marginStart={hasIcon ? 2 : 0} marginEnd={2}>
-          {/* Not using hasIcon to appease Flow */}
-          {(type === 'error' || type === 'warning') && (
+      <Box display="flex" alignItems="center" height="100%" marginEnd={5}>
+        {(type === 'error' || type === 'warning') && (
+          <Box marginStart={1} marginEnd={1}>
             <Icon
               accessibilityLabel={accessibilityLabels[type]}
               color={fgColor}
               icon={iconsByType[type]}
-              size={12}
+              size={iconSize}
             />
-          )}
-        </Box>
+          </Box>
+        )}
 
-        <div title={text}>
-          <Text color={fgColor} inline size="200" lineClamp={1}>
-            {text}
-          </Text>
-        </div>
+        <Text color={fgColor} inline size={fontSize} lineClamp={1}>
+          {text}
+        </Text>
 
-        <Box marginStart={disabled ? 2 : 1}>
+        <Box>
           {!disabled && (
             <button className={removeIconClasses} onClick={onRemove} type="button">
-              <Icon
-                accessibilityLabel={
-                  accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault
-                }
-                color={fgColor}
-                icon="cancel"
-                size={8}
-              />
+              <Box display="flex" justifyContent="center" alignItems="center" width="100%">
+                <Icon
+                  accessibilityLabel={
+                    accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault
+                  }
+                  color={fgColor}
+                  icon="cancel"
+                  size={removeIconSize}
+                />
+              </Box>
             </button>
           )}
         </Box>
-      </Flex>
+      </Box>
     </Box>
   );
 }

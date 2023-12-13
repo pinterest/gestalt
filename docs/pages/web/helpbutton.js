@@ -7,6 +7,7 @@ import MainSection from '../../docs-components/MainSection';
 import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import SandpackExample from '../../docs-components/SandpackExample';
+import { SlimBannerExperiment } from '../../docs-components/SlimBannerExperiment';
 import endGuideElement from '../../examples/helpbutton/endGuideElement';
 import intermixedBlocks from '../../examples/helpbutton/intermixedBlocks';
 import localizationLabels from '../../examples/helpbutton/localizationLabels';
@@ -21,7 +22,17 @@ type DocsType = {
 export default function DocsPage({ generatedDocGen }: DocsType): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader
+        name={generatedDocGen?.displayName}
+        description={generatedDocGen?.description}
+        slimBanner={
+          <SlimBannerExperiment
+            componentName="HelpButton"
+            description="fix and improve underlying Popover component behavior. No visual updates"
+            pullRequest={3244}
+          />
+        }
+      >
         <SandpackExample code={main} name="Main example" hideEditor previewHeight={200} />
       </PageHeader>
 

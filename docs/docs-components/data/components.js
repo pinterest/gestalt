@@ -13,6 +13,7 @@ import SheetMobile from '../../graphics/building-blocks/SheetMobile.svg';
 import Sticky from '../../graphics/building-blocks/Sticky.svg';
 import TapArea from '../../graphics/building-blocks/TapArea.svg';
 import ZIndexClasses from '../../graphics/building-blocks/ZIndexClasses.svg';
+import Accordion from '../../graphics/general/Accordion.svg';
 import ActivationCard from '../../graphics/general/ActivationCard.svg';
 import Avatar from '../../graphics/general/Avatar.svg';
 import AvatarGroup from '../../graphics/general/AvatarGroup.svg';
@@ -46,7 +47,6 @@ import ListAction from '../../graphics/general/ListAction.svg';
 import Masonry from '../../graphics/general/Masonry.svg';
 import Modal from '../../graphics/general/Modal.svg';
 import ModalAlert from '../../graphics/general/ModalAlert.svg';
-import Module from '../../graphics/general/Module.svg';
 import NumberField from '../../graphics/general/NumberField.svg';
 import OverlayPanel from '../../graphics/general/OverlayPanel.svg';
 import PageHeader from '../../graphics/general/PageHeader.svg';
@@ -508,7 +508,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           svg: <Card />,
         },
         path: '/ios/card/card',
-        alias: ['Entry Card', 'Module', 'Panel', 'Teaser'],
+        alias: ['Entry Card', 'Accordion', 'Panel', 'Teaser'],
         description:
           'Card is a semi-modular container used to house Card.Header and a variant of the available preview blocks.',
         category: ['Pins and imagery'],
@@ -1539,22 +1539,16 @@ const componentData: $ReadOnlyArray<ComponentData> = [
     },
   },
   {
-    id: 'Module',
+    id: 'Accordion',
     platform: {
       web: {
-        name: 'Module',
+        name: 'Accordion',
         visual: {
-          svg: <Module />,
+          svg: <Accordion />,
         },
-        alias: [
-          'Accordion',
-          'Section',
-          'Expandable Section',
-          'Disclosure',
-          'Stack View',
-          'Expander',
-        ],
-        description: 'Module is a container that holds content about one subject.',
+        alias: ['Section', 'Expandable Section', 'Module', 'Disclosure', 'Stack View', 'Expander'],
+        description:
+          'Accordion is a container that can be expanded and collapsed to show content about a single subject.',
         category: ['Structure'],
         status: {
           accessible: {

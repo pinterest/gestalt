@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode, useState } from 'react';
-import { ComboBox, Flex } from 'gestalt';
+import { Box, ComboBox, Flex } from 'gestalt';
 
 export default function Example(): ReactNode {
   const PRONOUNS = [
@@ -34,20 +34,22 @@ export default function Example(): ReactNode {
   const resetErrorMessage = errorMessage ? () => setErrorMessage() : () => {};
 
   return (
-    <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
-      <ComboBox
-        accessibilityClearButtonLabel="Clear the current value"
-        errorMessage={errorMessage}
-        helperText="Choose your pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
-        id="header"
-        label="Pronouns"
-        noResultText="No results for your selection"
-        onBlur={handleOnBlur}
-        onChange={resetErrorMessage}
-        onClear={resetErrorMessage}
-        options={options}
-        placeholder="Add your pronouns"
-      />
+    <Flex justifyContent="center" alignItems="center" gap={4} height="100%" width="100%">
+      <Box width={300} height={100}>
+        <ComboBox
+          accessibilityClearButtonLabel="Clear the current value"
+          errorMessage={errorMessage}
+          helperText="Choose your pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
+          id="header"
+          label="Pronouns"
+          noResultText="No results for your selection"
+          onBlur={handleOnBlur}
+          onChange={resetErrorMessage}
+          onClear={resetErrorMessage}
+          options={options}
+          placeholder="Add your pronouns"
+        />
+      </Box>
     </Flex>
   );
 }

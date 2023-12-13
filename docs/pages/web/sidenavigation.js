@@ -18,6 +18,9 @@ import correctIconExample from '../../examples/sidenavigation/correctIconExample
 import correctLengthExample from '../../examples/sidenavigation/correctLengthExample';
 import counterExample from '../../examples/sidenavigation/counterExample';
 import customIconsExample from '../../examples/sidenavigation/customIconsExample';
+import displayExpandable from '../../examples/sidenavigation/displayExpandable';
+import displayExpanded from '../../examples/sidenavigation/displayExpanded';
+import displayStatic from '../../examples/sidenavigation/displayStatic';
 import footerVariant from '../../examples/sidenavigation/footerVariant';
 import headerExample from '../../examples/sidenavigation/headerExample';
 import iconsExample from '../../examples/sidenavigation/iconsExample';
@@ -383,8 +386,52 @@ To prevent visual overload, do not include counters in the parent if the childre
           description="SideNavigation supports three navigation levels. The top level is composed of [SideNavigation.TopItem](#SideNavigation.TopItem) and [SideNavigation.Group](#SideNavigation.Group). The second nested level is composed of [SideNavigation.NestedGroup](#SideNavigation.NestedGroup) and [SideNavigation.Item](#SideNavigation.Item). The third nested level is composed of SideNavigation.Item"
         >
           <MainSection.Card
+            sandpackExample={<SandpackExample code={nestedExample} name="Nested example" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Group display"
+          columns={2}
+          description={`Group display can be:
+
+1. static: Group is expanded by default and there isn't expanding/collapsing behavior
+2. expandable: Group is expandable and all items are initially collapsed except groups with active children.
+
+When \`display='expandable'\`, we can manage the state of each group's collapsing/expanded state by setting SideNavigation.Group and SideNavigation.NestedGroup as controlled components.
+
+To work as controlled components, set \`expand\` prop to a boolean value. If not passed or set to "undefined", they stay uncontrolled.
+
+Beware that when controlled, the list path to the active item is not automatically expanded.
+`}
+        >
+          <MainSection.Card
+            title="display='static'"
+            cardSize="lg"
             sandpackExample={
-              <SandpackExample code={nestedExample} name="Nested directory example" />
+              <SandpackExample code={displayStatic} name="Static display example" layout="column" />
+            }
+          />
+          <MainSection.Card
+            title="display='expandable'"
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                layout="column"
+                code={displayExpandable}
+                name="Expandable display example"
+              />
+            }
+          />
+          <MainSection.Card
+            title="Controlled group display"
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                layout="column"
+                code={displayExpanded}
+                name="Controlled group display"
+              />
             }
           />
         </MainSection.Subsection>

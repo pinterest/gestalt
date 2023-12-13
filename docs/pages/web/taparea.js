@@ -91,7 +91,11 @@ TapArea with link interaction can be paired with GlobalEventsHandlerProvider. Se
             sandpackExample={<SandpackExample name="Inline Usage Example" code={inlineUsage} />}
           />
         </MainSection.Subsection>
-        <MainSection.Subsection title="Mouse cursor">
+        <MainSection.Subsection
+          title="Mouse cursor"
+          description={`Change the cursor on TapArea for different click interactions. <br/>
+          The default cursor should be used sparingly when there are actions that only have hover actions or part of complex elements where there are other interactive elements.`}
+        >
           <MainSection.Card
             sandpackExample={<SandpackExample name="Mouse cursor" code={mouseCursor} />}
           />

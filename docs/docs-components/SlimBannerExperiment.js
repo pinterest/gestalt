@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
+import { useRouter } from 'next/router';
 import { SlimBanner } from 'gestalt';
 import { useAppContext } from './appContext';
 
@@ -37,8 +38,9 @@ export function SlimBannerExperiment({
   componentName: string,
   description: string,
   pullRequest: number,
-  section: string,
+  section?: string,
 }): ReactNode {
+  const router = useRouter();
   const { experiments, setExperiments } = useAppContext();
 
   return (
@@ -59,9 +61,15 @@ export function SlimBannerExperiment({
             ? 'Deactivate component experiments in the Docs'
             : 'Activate component experiments in the Docs',
         label: experiments === componentName ? 'Deactivate experiments' : 'Activate experiments',
-        onClick: () => setExperiments(experiments === componentName ? '' : componentName),
-        href: section,
-        role: 'link',
+        onClick: () => {
+          setExperiments(experiments === componentName ? '' : componentName);
+          // $FlowIssue[prop-missing]
+          if (!section) router.reload();
+        },
+        ...(!!section && {
+          href: section,
+          role: 'link',
+        }),
       }}
     />
   );

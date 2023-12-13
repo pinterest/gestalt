@@ -5,6 +5,10 @@ import { Box, ComboBox, DefaultLabelProvider, Flex, Heading } from 'gestalt';
 const myI18nTranslator = (val: string) => val.toUpperCase();
 
 const labels = {
+  Accordion: {
+    accessibilityCollapseLabel: myI18nTranslator('Collapse section'),
+    accessibilityExpandLabel: myI18nTranslator('Expand section'),
+  },
   ActivationCard: {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss'),
   },

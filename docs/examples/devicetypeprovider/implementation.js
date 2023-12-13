@@ -1,9 +1,9 @@
 // @flow strict
-import React, { type Node as ReactNode } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Button, DeviceTypeProvider, Flex, SideNavigation } from 'gestalt';
 
 export default function Example(): ReactNode {
-  const [deviceType, setDeviceType] = React.useState('desktop');
+  const [deviceType, setDeviceType] = useState('desktop');
 
   return (
     <Flex>

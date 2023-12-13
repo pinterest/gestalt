@@ -3,7 +3,7 @@
 exports[`Tag clips long strings 1`] = `
 <div
   aria-disabled={false}
-  className="box rounding2 secondary xsDisplayInlineBlock"
+  className="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
   style={
     Object {
       "height": 32,
@@ -12,52 +12,54 @@ exports[`Tag clips long strings 1`] = `
   }
 >
   <div
-    className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+    className="box marginEnd5 xsDisplayFlex xsItemsCenter"
     style={
       Object {
         "height": "100%",
       }
     }
   >
-    <div
-      className="box marginEnd2 marginStart0"
-    />
-    <div
+    <span
+      className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+      style={
+        Object {
+          "WebkitLineClamp": 1,
+        }
+      }
       title="The quick brown fox jumps over the lazy dog"
     >
-      <span
-        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-        style={
-          Object {
-            "WebkitLineClamp": 1,
-          }
-        }
-        title="The quick brown fox jumps over the lazy dog"
-      >
-        The quick brown fox jumps over the lazy dog
-      </span>
-    </div>
+      The quick brown fox jumps over the lazy dog
+    </span>
     <div
-      className="box marginStart1"
+      className="box"
     >
       <button
-        className="button secondary hideOutline tapTransition accessibilityOutline"
+        className="button secondary hideOutline tapTransition accessibilityOutline md"
         onClick={[Function]}
         type="button"
       >
-        <svg
-          aria-hidden={null}
-          aria-label="Remove long example tag"
-          className="icon defaultIcon iconBlock"
-          height={8}
-          role="img"
-          viewBox="0 0 24 24"
-          width={8}
+        <div
+          className="box justifyCenter xsDisplayFlex xsItemsCenter"
+          style={
+            Object {
+              "width": "100%",
+            }
+          }
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden={null}
+            aria-label="Remove long example tag"
+            className="icon defaultIcon iconBlock"
+            height={8}
+            role="img"
+            viewBox="0 0 24 24"
+            width={8}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </button>
     </div>
   </div>
@@ -67,7 +69,7 @@ exports[`Tag clips long strings 1`] = `
 exports[`Tag renders 1`] = `
 <div
   aria-disabled={false}
-  className="box rounding2 secondary xsDisplayInlineBlock"
+  className="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
   style={
     Object {
       "height": 32,
@@ -76,52 +78,54 @@ exports[`Tag renders 1`] = `
   }
 >
   <div
-    className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+    className="box marginEnd5 xsDisplayFlex xsItemsCenter"
     style={
       Object {
         "height": "100%",
       }
     }
   >
-    <div
-      className="box marginEnd2 marginStart0"
-    />
-    <div
+    <span
+      className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+      style={
+        Object {
+          "WebkitLineClamp": 1,
+        }
+      }
       title="New"
     >
-      <span
-        className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-        style={
-          Object {
-            "WebkitLineClamp": 1,
-          }
-        }
-        title="New"
-      >
-        New
-      </span>
-    </div>
+      New
+    </span>
     <div
-      className="box marginStart1"
+      className="box"
     >
       <button
-        className="button secondary hideOutline tapTransition accessibilityOutline"
+        className="button secondary hideOutline tapTransition accessibilityOutline md"
         onClick={[Function]}
         type="button"
       >
-        <svg
-          aria-hidden={null}
-          aria-label="Remove New tag"
-          className="icon defaultIcon iconBlock"
-          height={8}
-          role="img"
-          viewBox="0 0 24 24"
-          width={8}
+        <div
+          className="box justifyCenter xsDisplayFlex xsItemsCenter"
+          style={
+            Object {
+              "width": "100%",
+            }
+          }
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden={null}
+            aria-label="Remove New tag"
+            className="icon defaultIcon iconBlock"
+            height={8}
+            role="img"
+            viewBox="0 0 24 24"
+            width={8}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </button>
     </div>
   </div>
@@ -131,7 +135,7 @@ exports[`Tag renders 1`] = `
 exports[`Tag renders a disabled tag 1`] = `
 <div
   aria-disabled={true}
-  className="box rounding2 secondary xsDisplayInlineBlock"
+  className="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
   style={
     Object {
       "border": "solid 1px #767676",
@@ -141,33 +145,26 @@ exports[`Tag renders a disabled tag 1`] = `
   }
 >
   <div
-    className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+    className="box marginEnd5 xsDisplayFlex xsItemsCenter"
     style={
       Object {
         "height": "100%",
       }
     }
   >
-    <div
-      className="box marginEnd2 marginStart0"
-    />
-    <div
+    <span
+      className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
+      style={
+        Object {
+          "WebkitLineClamp": 1,
+        }
+      }
       title="New"
     >
-      <span
-        className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
-        style={
-          Object {
-            "WebkitLineClamp": 1,
-          }
-        }
-        title="New"
-      >
-        New
-      </span>
-    </div>
+      New
+    </span>
     <div
-      className="box marginStart2"
+      className="box"
     />
   </div>
 </div>
@@ -176,7 +173,7 @@ exports[`Tag renders a disabled tag 1`] = `
 exports[`Tag renders a tag with a warning state 1`] = `
 <div
   aria-disabled={false}
-  className="box rounding2 warningBase xsDisplayInlineBlock"
+  className="box paddingX2 paddingY1 relative rounding2 warningBase xsDisplayInlineBlock"
   style={
     Object {
       "height": 32,
@@ -185,7 +182,7 @@ exports[`Tag renders a tag with a warning state 1`] = `
   }
 >
   <div
-    className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+    className="box marginEnd5 xsDisplayFlex xsItemsCenter"
     style={
       Object {
         "height": "100%",
@@ -193,7 +190,7 @@ exports[`Tag renders a tag with a warning state 1`] = `
     }
   >
     <div
-      className="box marginEnd2 marginStart2"
+      className="box marginEnd1 marginStart1"
     >
       <svg
         aria-hidden={null}
@@ -209,42 +206,47 @@ exports[`Tag renders a tag with a warning state 1`] = `
         />
       </svg>
     </div>
-    <div
+    <span
+      className="Text fontSize200 inverseText alignStart breakWord fontWeightNormal lineClamp"
+      style={
+        Object {
+          "WebkitLineClamp": 1,
+        }
+      }
       title="New"
     >
-      <span
-        className="Text fontSize200 inverseText alignStart breakWord fontWeightNormal lineClamp"
-        style={
-          Object {
-            "WebkitLineClamp": 1,
-          }
-        }
-        title="New"
-      >
-        New
-      </span>
-    </div>
+      New
+    </span>
     <div
-      className="box marginStart1"
+      className="box"
     >
       <button
-        className="button warningBase hideOutline tapTransition accessibilityOutline"
+        className="button warningBase hideOutline tapTransition accessibilityOutline md"
         onClick={[Function]}
         type="button"
       >
-        <svg
-          aria-hidden={null}
-          aria-label="Remove tag"
-          className="icon inverseIcon iconBlock"
-          height={8}
-          role="img"
-          viewBox="0 0 24 24"
-          width={8}
+        <div
+          className="box justifyCenter xsDisplayFlex xsItemsCenter"
+          style={
+            Object {
+              "width": "100%",
+            }
+          }
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden={null}
+            aria-label="Remove tag"
+            className="icon inverseIcon iconBlock"
+            height={8}
+            role="img"
+            viewBox="0 0 24 24"
+            width={8}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </button>
     </div>
   </div>
@@ -254,7 +256,7 @@ exports[`Tag renders a tag with a warning state 1`] = `
 exports[`Tag renders a tag with an error state 1`] = `
 <div
   aria-disabled={false}
-  className="box errorBase rounding2 xsDisplayInlineBlock"
+  className="box errorBase paddingX2 paddingY1 relative rounding2 xsDisplayInlineBlock"
   style={
     Object {
       "height": 32,
@@ -263,7 +265,7 @@ exports[`Tag renders a tag with an error state 1`] = `
   }
 >
   <div
-    className="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+    className="box marginEnd5 xsDisplayFlex xsItemsCenter"
     style={
       Object {
         "height": "100%",
@@ -271,7 +273,7 @@ exports[`Tag renders a tag with an error state 1`] = `
     }
   >
     <div
-      className="box marginEnd2 marginStart2"
+      className="box marginEnd1 marginStart1"
     >
       <svg
         aria-hidden={null}
@@ -287,42 +289,47 @@ exports[`Tag renders a tag with an error state 1`] = `
         />
       </svg>
     </div>
-    <div
+    <span
+      className="Text fontSize200 inverseText alignStart breakWord fontWeightNormal lineClamp"
+      style={
+        Object {
+          "WebkitLineClamp": 1,
+        }
+      }
       title="New"
     >
-      <span
-        className="Text fontSize200 inverseText alignStart breakWord fontWeightNormal lineClamp"
-        style={
-          Object {
-            "WebkitLineClamp": 1,
-          }
-        }
-        title="New"
-      >
-        New
-      </span>
-    </div>
+      New
+    </span>
     <div
-      className="box marginStart1"
+      className="box"
     >
       <button
-        className="button errorBase hideOutline tapTransition accessibilityOutline"
+        className="button errorBase hideOutline tapTransition accessibilityOutline md"
         onClick={[Function]}
         type="button"
       >
-        <svg
-          aria-hidden={null}
-          aria-label="Remove tag"
-          className="icon inverseIcon iconBlock"
-          height={8}
-          role="img"
-          viewBox="0 0 24 24"
-          width={8}
+        <div
+          className="box justifyCenter xsDisplayFlex xsItemsCenter"
+          style={
+            Object {
+              "width": "100%",
+            }
+          }
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden={null}
+            aria-label="Remove tag"
+            className="icon inverseIcon iconBlock"
+            height={8}
+            role="img"
+            viewBox="0 0 24 24"
+            width={8}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </button>
     </div>
   </div>

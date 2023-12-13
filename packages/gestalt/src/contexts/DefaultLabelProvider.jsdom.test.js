@@ -16,6 +16,10 @@ describe('useDefaultLabelContext', () => {
     render(
       <DefaultLabelProvider
         labels={{
+          Accordion: {
+            accessibilityCollapseLabel: 'Collapse section',
+            accessibilityExpandLabel: 'Expand section',
+          },
           ActivationCard: {
             accessibilityDismissButtonLabel: 'Dismiss',
           },

@@ -9,19 +9,26 @@ import { useAppContext } from '../appContext';
  * - Unless you want the experimental behavior live on the docs for everyone, REMOVE YOUR EXPERIMENT HERE before merging your PR!
  * */
 
-const enabledExperiments = {};
+const enabledExperiments = {
+  ComboBox: ['web_gestalt_popover_v2_combobox', 'mweb_gestalt_popover_v2_combobox'],
+  Dropdown: ['web_gestalt_popover_v2_dropdown', 'mweb_gestalt_popover_v2_dropdown'],
+  HelpButton: ['web_gestalt_popover_v2_helpbutton', 'mweb_gestalt_popover_v2_helpbutton'],
+  OverlayPanel: [
+    'web_gestalt_popover_v2_confirmationpopover',
+    'mweb_gestalt_popover_v2_confirmationpopover',
+  ],
+  Popover: ['web_gestalt_popover_v2', 'mweb_gestalt_popover_v2'],
+  PopoverEducational: [
+    'web_gestalt_popover_v2_popovereducational',
+    'mweb_gestalt_popover_v2_popovereducational',
+  ],
+};
+
+type Experiment = { anyEnabled: boolean, group: string };
 
 function buildExperimentsObj(experiments: $ReadOnlyArray<string>) {
   return experiments.reduce(
-    (
-      acc: {
-        [string]: {
-          anyEnabled: boolean,
-          group: string,
-        },
-      },
-      cur: string,
-    ) => ({
+    (acc: Record<string, Experiment>, cur: string) => ({
       ...acc,
       [cur]: { anyEnabled: true, group: 'enabled' },
     }),
@@ -29,16 +36,15 @@ function buildExperimentsObj(experiments: $ReadOnlyArray<string>) {
   );
 }
 
+export function useDocsExperiments(): Record<string, Experiment> {
+  const { experiments } = useAppContext();
+
+  return buildExperimentsObj(!experiments ? [] : enabledExperiments[experiments] ?? []);
+}
+
 type Props = { children: ReactNode };
 
 export default function DocsExperimentProvider({ children }: Props): ReactNode {
-  const { experiments } = useAppContext();
-
-  return (
-    <ExperimentProvider
-      value={buildExperimentsObj(!experiments ? [] : enabledExperiments[experiments] ?? [])}
-    >
-      {children}
-    </ExperimentProvider>
-  );
+  const experiments = useDocsExperiments();
+  return <ExperimentProvider value={experiments}>{children}</ExperimentProvider>;
 }

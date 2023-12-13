@@ -10,6 +10,7 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
+import { SlimBannerExperiment } from '../../docs-components/SlimBannerExperiment';
 import action from '../../examples/dropdown/action';
 import badges from '../../examples/dropdown/badges';
 import composability from '../../examples/dropdown/composability';
@@ -38,6 +39,13 @@ export default function ComponentPage({
       <PageHeader
         name={generatedDocGen?.Dropdown.displayName}
         description={generatedDocGen?.Dropdown.description}
+        slimBanner={
+          <SlimBannerExperiment
+            componentName="Dropdown"
+            description="fix and improve underlying Popover component behavior. No visual updates"
+            pullRequest={3244}
+          />
+        }
       >
         <SandpackExample code={main} hideEditor name="Main Dropdown example" />
       </PageHeader>

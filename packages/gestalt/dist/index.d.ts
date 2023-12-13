@@ -396,6 +396,10 @@ interface DefaultLabelProviderProps {
   children: Node;
   labels?:
     | {
+        Accordion: {
+          accessibilityCollapseLabel: string;
+          accessibilityExpandLabel: string;
+        };
         ActivationCard: {
           accessibilityDismissButtonLabel: string;
         };
@@ -1336,18 +1340,19 @@ interface ModalAlertProps {
   type?: 'default' | 'warning' | 'error' | undefined;
 }
 
-interface ModuleProps {
+interface AccordionProps {
   id: string;
   badge?: BadgeObject | undefined;
   children?: Node | undefined;
   icon?: Icons | undefined;
   iconAccessibilityLabel?: string | undefined;
   iconButton?: React.ReactElement<typeof IconButton> | undefined;
+  size: 'sm' | 'md' | 'lg';
   title?: string | undefined;
   type?: 'error' | 'info' | undefined;
 }
 
-interface ModuleExpandableProps {
+interface AccordionExpandableProps {
   accessibilityCollapseLabel: string;
   accessibilityExpandLabel: string;
   id: string;
@@ -1640,6 +1645,7 @@ interface SegmentedControlProps {
   onChange: AbstractEventHandler<React.MouseEvent<HTMLButtonElement>, { activeIndex: number }>;
   selectedItemIndex: number;
   responsive?: boolean | undefined;
+  size: 'sm' | 'md' | 'lg';
 }
 
 interface SelectListProps {
@@ -1793,8 +1799,10 @@ interface SideNavigationGroupProps {
   badge?: BadgeProps | undefined;
   counter?: { number: string; accessibilityLabel: string } | undefined;
   display?: 'expandable' | 'static' | undefined;
+  expanded?: boolean;
   icon?: Icons | undefined;
   notificationAccessibilityLabel?: string | undefined;
+  onExpand: (args: { expanded: boolean }) => void;
   primaryAction?: PrimaryActionType | undefined;
 }
 
@@ -1803,6 +1811,8 @@ interface SideNavigationNestedGroupProps {
   label: string;
   counter?: { number: string; accessibilityLabel: string } | undefined;
   display?: 'expandable' | 'static' | undefined;
+  expanded?: boolean;
+  onExpand: (args: { expanded: boolean }) => void;
 }
 
 interface SlimBannerProps {
@@ -2010,6 +2020,7 @@ interface TagProps {
   text: string;
   accessibilityRemoveIconLabel?: string | undefined;
   disabled?: boolean | undefined;
+  size?:'sm'|'md'|'lg';
   type?: 'default' | 'error' | 'warning' | undefined;
 }
 
@@ -2048,6 +2059,7 @@ interface TapAreaProps {
   fullHeight?: boolean | undefined;
   fullWidth?: boolean | undefined;
   mouseCursor?:
+    | 'default'
     | 'copy'
     | 'grab'
     | 'grabbing'
@@ -2603,17 +2615,17 @@ export const Modal: ReactForwardRef<HTMLDivElement, ModalProps>;
  */
 export const ModalAlert: React.FunctionComponent<React.PropsWithChildren<ModalAlertProps>>;
 
-export interface ModuleSubComponents {
-  Expandable: React.FunctionComponent<ModuleExpandableProps>;
+export interface AccordionSubComponents {
+  Expandable: React.FunctionComponent<AccordionExpandableProps>;
 }
 
 /**
- * https://gestalt.pinterest.systems/web/module
+ * https://gestalt.pinterest.systems/web/accordion
  * Subcomponents:
- * https://gestalt.pinterest.systems/web/module#Module.Expandable
+ * https://gestalt.pinterest.systems/web/accordion#Accordion.Expandable
  */
-export const Module: React.FunctionComponent<React.PropsWithChildren<ModuleProps>> &
-  ModuleSubComponents;
+export const Accordion: React.FunctionComponent<React.PropsWithChildren<AccordionProps>> &
+  AccordionSubComponents;
 
 /**
  * https://gestalt.pinterest.systems/web/numberfield

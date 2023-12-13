@@ -28,6 +28,7 @@ type Props = {
   width: ?number,
   scrollBoundary?: HTMLElement,
   hideWhenReferenceHidden?: boolean,
+  onPositioned?: () => void,
 };
 
 export default function Contents({
@@ -46,16 +47,18 @@ export default function Contents({
   onKeyDown,
   scrollBoundary,
   hideWhenReferenceHidden = true,
+  onPositioned,
 }: Props): ReactNode {
   const caretRef = useRef<HTMLElement | null>(null);
   const idealPlacement = idealDirection ? DIRECTIONS_MAP[idealDirection] : 'top';
 
-  const { refs, placement, floatingStyles, middlewareData, context } = usePopover({
+  const { refs, placement, floatingStyles, middlewareData, context, isPositioned } = usePopover({
     anchor,
     caretElement: caretRef.current,
     direction: idealPlacement,
     scrollBoundary,
     hideWhenReferenceHidden,
+    onPositioned,
   });
 
   const caretOffset = middlewareData.arrow;
@@ -65,10 +68,10 @@ export default function Contents({
   const isCaretVertical = placement === 'top' || placement === 'bottom';
 
   useEffect(() => {
-    if (shouldFocus && refs.floating.current) {
+    if (shouldFocus && refs.floating.current && isPositioned) {
       refs.floating.current.focus();
     }
-  }, [refs.floating, shouldFocus]);
+  }, [isPositioned, refs.floating, shouldFocus]);
 
   useEffect(() => {
     window.addEventListener('keydown', onKeyDown);
@@ -76,7 +79,7 @@ export default function Contents({
   }, [onKeyDown]);
 
   return (
-    <FloatingFocusManager context={context}>
+    <FloatingFocusManager context={context} returnFocus={false}>
       <div
         ref={refs.setFloating}
         tabIndex={-1}

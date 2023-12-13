@@ -1,12 +1,12 @@
 /*
  * Converts
- *  <Module badgeText="new" /> to <Module badge={{ text: 'New"}} />
+ *  <Accordion badgeText="new" /> to <Accordion badge={{ text: 'New"}} />
  *  <Dropdown.Item || .Link badgeText="new" {...} /> to <Dropdown.Item || .Link badge={{ text: 'New"}} {...} />
  */
 
 // yarn codemod --parser=flow -t=packages/gestalt-codemods/46.0.0/new_badge_props.js relative/path/to/your/code
 
-// Run "yarn codemod detectManualReplacement ~/path/to/your/code --component=Module --subcomponent=Expandable --prop=badgeText" to find locations of badgeText inside Module.Expandable
+// Run "yarn codemod detectManualReplacement ~/path/to/your/code --component=Accordion --subcomponent=Expandable --prop=badgeText" to find locations of badgeText inside Accordion.Expandable
 
 export default function transformer(file, api) {
   const j = api.jscodeshift;
@@ -21,13 +21,13 @@ export default function transformer(file, api) {
       return;
     }
 
-    // Find the local names of Dropdown and Module imports
+    // Find the local names of Dropdown and Accordion imports
     localIdentifierNames = decl.specifiers
-      .filter((node) => ['Dropdown', 'Module'].includes(node.imported.name))
+      .filter((node) => ['Dropdown', 'Accordion'].includes(node.imported.name))
       .map((node) => node.local.name);
   });
 
-  // No Module or Dropdown imports, bail
+  // No Accordion or Dropdown imports, bail
   if (!localIdentifierNames || localIdentifierNames.length === 0) {
     return null;
   }
@@ -39,7 +39,7 @@ export default function transformer(file, api) {
       const nodeName = node.openingElement.name.name;
       const nodeObjectName = node.openingElement.name.object?.name;
 
-      // If it's not Module or Dropdown.___
+      // If it's not Accordion or Dropdown.___
       if (
         !localIdentifierNames.includes(nodeName) &&
         !localIdentifierNames.includes(nodeObjectName)

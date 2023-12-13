@@ -11,6 +11,7 @@ import SandpackExample from '../../docs-components/SandpackExample';
 import defaultExample from '../../examples/segmentedcontrol/defaultExample';
 import mainExample from '../../examples/segmentedcontrol/mainExample';
 import responsiveExample from '../../examples/segmentedcontrol/responsiveExample';
+import sizeExample from '../../examples/segmentedcontrol/sizeExample';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
@@ -47,12 +48,8 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <MainSection name="Variants">
         <MainSection.Subsection
+          description="SegmentedControl is a naive component, meaning you need to wire any additional behavior when the user clicks on an item. If you'd like the tabs to control hiding or showing content, that state should live in a parent component."
           title="Default"
-          description={`Segmented Control is a naive component, meaning you need to wire any additional behavior when the user clicks on an item.
-
-    If you'd like the tabs to control hiding or showing content, that state should
-    live in a parent component.
-    `}
         >
           <MainSection.Card
             cardSize="lg"
@@ -60,12 +57,27 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           />
         </MainSection.Subsection>
         <MainSection.Subsection
+          description="SegmentedControl can have responsive widths where the width of an item is based on its content."
           title="Responsive"
-          description="Segmented Control can have responsive widths where the width of an item is based on its content."
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={<SandpackExample name="Responsive Example" code={responsiveExample} />}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Size"
+          description={`SegmentedControl is available in 3 fixed sizes:
+          1. \`lg\` (48px)
+              Large should be used when SegmentedControl needs to span larger areas. The font is 16px.
+          2. \`md\` (40px)
+              Medium is the default size, and should be used on most pinner surfaces. The font is 16px.
+          3. \`sm\` (32px)
+              Small should be used in places where the UI is very dense. The font is 14px.`}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={<SandpackExample name="Sizes Example" code={sizeExample} />}
           />
         </MainSection.Subsection>
       </MainSection>

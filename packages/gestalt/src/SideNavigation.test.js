@@ -61,7 +61,7 @@ describe('SideNavigation', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders nested directory', () => {
+  it('renders expandable nested directory', () => {
     const tree = create(
       <SideNavigation accessibilityLabel="Nested items example">
         <SideNavigation.TopItem
@@ -114,7 +114,7 @@ describe('SideNavigation', () => {
               />
             </SideNavigation.NestedGroup>
           </SideNavigation.Group>
-          <SideNavigation.Group label="Halloween" icon="people" display="static">
+          <SideNavigation.Group label="Halloween" icon="people">
             <SideNavigation.NestedItem
               href="#"
               onClick={({ event }) => event.preventDefault()}
@@ -127,6 +127,60 @@ describe('SideNavigation', () => {
             />
           </SideNavigation.Group>
         </SideNavigation.Section>
+      </SideNavigation>,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('renders static group', () => {
+    const tree = create(
+      <SideNavigation accessibilityLabel="Static items example">
+        <SideNavigation.Group label="Christmas" icon="people" display="static">
+          <SideNavigation.NestedItem
+            href="#"
+            onClick={({ event }) => event.preventDefault()}
+            label="Luxury Christmas"
+          />
+          <SideNavigation.NestedGroup label="Classic Christmas" display="static">
+            <SideNavigation.NestedItem
+              href="#"
+              onClick={({ event }) => event.preventDefault()}
+              label="West Coast"
+            />
+            <SideNavigation.NestedItem
+              href="#"
+              onClick={({ event }) => event.preventDefault()}
+              label="East Coast"
+            />
+          </SideNavigation.NestedGroup>
+        </SideNavigation.Group>
+      </SideNavigation>,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('renders expanded group', () => {
+    const tree = create(
+      <SideNavigation accessibilityLabel="Nested items example">
+        <SideNavigation.Group label="Christmas" icon="people" display="expandable" expanded>
+          <SideNavigation.NestedItem
+            href="#"
+            onClick={({ event }) => event.preventDefault()}
+            label="Luxury Christmas"
+          />
+          <SideNavigation.NestedGroup label="Classic Christmas" display="expandable" expanded>
+            <SideNavigation.NestedItem
+              href="#"
+              onClick={({ event }) => event.preventDefault()}
+              label="West Coast"
+            />
+            <SideNavigation.NestedItem
+              href="#"
+              onClick={({ event }) => event.preventDefault()}
+              label="East Coast"
+            />
+          </SideNavigation.NestedGroup>
+        </SideNavigation.Group>
       </SideNavigation>,
     ).toJSON();
     expect(tree).toMatchSnapshot();

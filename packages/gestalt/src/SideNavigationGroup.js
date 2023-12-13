@@ -1,5 +1,5 @@
 // @flow strict
-import { type Element, type Node as ReactNode, useId, useState } from 'react';
+import { type Element, type Node as ReactNode, useEffect, useId, useState } from 'react';
 import classnames from 'classnames';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
 import { NestingProvider, useNesting } from './contexts/NestingProvider';
@@ -38,9 +38,13 @@ export type Props = {
    */
   counter?: Counter,
   /**
-   * Nested directories can be static or expandable. See [nested directory](https://gestalt.pinterest.systems/web/sidenavigation#Nested-directory) variant for more information.
+   * Nested directories can be static or expandable.  See the [group display variant](https://gestalt.pinterest.systems/web/sidenavigation#Group-display) to learn more.
    */
   display?: Display,
+  /**
+   * When passed SideNavigation.Group becomes a controlled component. If not passed, it stays uncontrolled. See the [controlled group display variant](https://gestalt.pinterest.systems/web/sidenavigation#Group-display) to learn more. This functionality is not supported in mobile.
+   */
+  expanded?: boolean,
   /**
    * When supplied, will display Icon. See the [Icon](https://gestalt.pinterest.systems/web/sidenavigation#Icon) variant to learn more.
    */
@@ -53,6 +57,10 @@ export type Props = {
    *  When supplied, will display a notification dot. See the [Notification](https://gestalt.pinterest.systems/web/sidenavigation#Notification) variant to learn more.
    */
   notificationAccessibilityLabel?: string,
+  /**
+   * Callback fired when the expand button component is clicked and the component is controlled.This functionality is not supported in mobile.
+   */
+  onExpand?: ({ expanded: boolean }) => void,
   /**
    * The primary action for each group. See the [primary action variant](https://gestalt.pinterest.systems/web/sidenavigation#Primary-action) to learn more.
    */
@@ -78,9 +86,11 @@ export default function SideNavigationGroup({
   children,
   counter,
   display = 'expandable',
+  expanded: expandedProp,
   icon,
   notificationAccessibilityLabel,
   label,
+  onExpand,
   primaryAction,
 }: Props): ReactNode {
   // Manages adaptiveness
@@ -126,7 +136,20 @@ export default function SideNavigationGroup({
   const hasAnyActiveChild =
     !!hasActiveChildren || (!!hasActiveGrandChildren && !!hasActiveGrandChildren[0]);
 
-  const [expanded, setExpanded] = useState(hasAnyActiveChild);
+  const isExpandable = display === 'expandable';
+
+  const [expanded, setExpanded] = useState<boolean>(hasAnyActiveChild);
+  const [isExpanded, setIsExpanded] = useState<boolean>(hasAnyActiveChild);
+
+  useEffect(() => {
+    if (display === 'static') {
+      setIsExpanded(true);
+    } else if (display === 'expandable' && expandedProp === undefined) {
+      setIsExpanded(expanded);
+    } else if (display === 'expandable' && expandedProp !== undefined) {
+      setIsExpanded(expandedProp);
+    }
+  }, [display, expanded, expandedProp]);
 
   const itemColor = hovered ? 'secondary' : undefined;
 
@@ -155,26 +178,30 @@ export default function SideNavigationGroup({
   return (
     <li className={classnames(styles.liItem)}>
       <NestingProvider componentName="SideNavigation" maxNestedLevels={2}>
-        {display === 'expandable' ? (
+        {isExpandable ? (
           <TapArea
-            accessibilityControls={display === 'expandable' ? itemId : undefined}
-            accessibilityExpanded={display === 'expandable' ? expanded : undefined}
+            accessibilityControls={itemId}
+            accessibilityExpanded={isExpanded}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
             rounding={2}
             tapStyle={compression}
-            onTap={() =>
-              setExpanded((value) => {
-                if (!value) setSelectedItemId(itemId);
-                return !value;
-              })
-            }
+            onTap={() => {
+              if (display === 'expandable' && expandedProp === undefined) {
+                setExpanded((value) => {
+                  if (!value) setSelectedItemId(itemId);
+                  return !value;
+                });
+              } else {
+                onExpand?.({ expanded: !isExpanded });
+              }
+            }}
           >
             <SideNavigationGroupContent
               itemColor={itemColor}
-              expanded={expanded}
+              expanded={isExpanded}
               selectedItemId={selectedItemId}
               itemId={itemId}
               paddingStyle={paddingStyle}
@@ -195,7 +222,7 @@ export default function SideNavigationGroup({
             hovered={hovered}
             focused={focused}
             itemColor={itemColor}
-            expanded={expanded}
+            expanded={isExpanded}
             selectedItemId={selectedItemId}
             itemId={itemId}
             paddingStyle={paddingStyle}
@@ -209,7 +236,7 @@ export default function SideNavigationGroup({
             setCompression={setCompression}
           />
         )}
-        {expanded || display === 'static' ? (
+        {isExpanded ? (
           <ul id={itemId} className={classnames(styles.ulItem)}>
             {navigationChildren}
           </ul>

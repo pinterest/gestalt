@@ -119,19 +119,17 @@ function Td({
   );
 }
 
-type Props = {
-  componentName: string,
-  id?: string,
-  name?: string,
-  props: $ReadOnlyArray<Prop>,
-};
-
 export default function PropTable({
   componentName,
   id = '',
   name: proptableName,
   props: properties,
-}: Props): ReactNode {
+}: {
+  componentName: string,
+  id?: string,
+  name?: string,
+  props: $ReadOnlyArray<Prop>,
+}): ReactNode {
   const { propTableVariant, setPropTableVariant } = useAppContext();
   const propsId = `${id}Props`;
 

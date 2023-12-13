@@ -117,45 +117,43 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box rounding2 secondary xsDisplayInlineBlock"
+                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
-                  class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                  class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
-                  <div
-                    class="box marginEnd2 marginStart0"
-                  />
-                  <div
+                  <span
+                    class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="ey / em"
                   >
-                    <span
-                      class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                      title="ey / em"
-                    >
-                      ey / em
-                    </span>
-                  </div>
+                    ey / em
+                  </span>
                   <div
-                    class="box marginStart1"
+                    class="box"
                   >
                     <button
-                      class="button secondary hideOutline tapTransition accessibilityOutline"
+                      class="button secondary hideOutline tapTransition accessibilityOutline md"
                       type="button"
                     >
-                      <svg
-                        aria-label="Remove tag"
-                        class="icon defaultIcon iconBlock"
-                        height="8"
-                        role="img"
-                        viewBox="0 0 24 24"
-                        width="8"
+                      <div
+                        class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                        style="width: 100%;"
                       >
-                        <path
-                          d="test-file-stub"
-                        />
-                      </svg>
+                        <svg
+                          aria-label="Remove tag"
+                          class="icon defaultIcon iconBlock"
+                          height="8"
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width="8"
+                        >
+                          <path
+                            d="test-file-stub"
+                          />
+                        </svg>
+                      </div>
                     </button>
                   </div>
                 </div>
@@ -166,45 +164,43 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box rounding2 secondary xsDisplayInlineBlock"
+                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
-                  class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                  class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
-                  <div
-                    class="box marginEnd2 marginStart0"
-                  />
-                  <div
+                  <span
+                    class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="he / him"
                   >
-                    <span
-                      class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                      title="he / him"
-                    >
-                      he / him
-                    </span>
-                  </div>
+                    he / him
+                  </span>
                   <div
-                    class="box marginStart1"
+                    class="box"
                   >
                     <button
-                      class="button secondary hideOutline tapTransition accessibilityOutline"
+                      class="button secondary hideOutline tapTransition accessibilityOutline md"
                       type="button"
                     >
-                      <svg
-                        aria-label="Remove tag"
-                        class="icon defaultIcon iconBlock"
-                        height="8"
-                        role="img"
-                        viewBox="0 0 24 24"
-                        width="8"
+                      <div
+                        class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                        style="width: 100%;"
                       >
-                        <path
-                          d="test-file-stub"
-                        />
-                      </svg>
+                        <svg
+                          aria-label="Remove tag"
+                          class="icon defaultIcon iconBlock"
+                          height="8"
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width="8"
+                        >
+                          <path
+                            d="test-file-stub"
+                          />
+                        </svg>
+                      </div>
                     </button>
                   </div>
                 </div>
@@ -215,45 +211,43 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box rounding2 secondary xsDisplayInlineBlock"
+                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
-                  class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                  class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
-                  <div
-                    class="box marginEnd2 marginStart0"
-                  />
-                  <div
+                  <span
+                    class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="ne / nem"
                   >
-                    <span
-                      class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                      title="ne / nem"
-                    >
-                      ne / nem
-                    </span>
-                  </div>
+                    ne / nem
+                  </span>
                   <div
-                    class="box marginStart1"
+                    class="box"
                   >
                     <button
-                      class="button secondary hideOutline tapTransition accessibilityOutline"
+                      class="button secondary hideOutline tapTransition accessibilityOutline md"
                       type="button"
                     >
-                      <svg
-                        aria-label="Remove tag"
-                        class="icon defaultIcon iconBlock"
-                        height="8"
-                        role="img"
-                        viewBox="0 0 24 24"
-                        width="8"
+                      <div
+                        class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                        style="width: 100%;"
                       >
-                        <path
-                          d="test-file-stub"
-                        />
-                      </svg>
+                        <svg
+                          aria-label="Remove tag"
+                          class="icon defaultIcon iconBlock"
+                          height="8"
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width="8"
+                        >
+                          <path
+                            d="test-file-stub"
+                          />
+                        </svg>
+                      </div>
                     </button>
                   </div>
                 </div>
@@ -264,45 +258,43 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box rounding2 secondary xsDisplayInlineBlock"
+                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
-                  class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                  class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
-                  <div
-                    class="box marginEnd2 marginStart0"
-                  />
-                  <div
+                  <span
+                    class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="she / her"
                   >
-                    <span
-                      class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                      title="she / her"
-                    >
-                      she / her
-                    </span>
-                  </div>
+                    she / her
+                  </span>
                   <div
-                    class="box marginStart1"
+                    class="box"
                   >
                     <button
-                      class="button secondary hideOutline tapTransition accessibilityOutline"
+                      class="button secondary hideOutline tapTransition accessibilityOutline md"
                       type="button"
                     >
-                      <svg
-                        aria-label="Remove tag"
-                        class="icon defaultIcon iconBlock"
-                        height="8"
-                        role="img"
-                        viewBox="0 0 24 24"
-                        width="8"
+                      <div
+                        class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                        style="width: 100%;"
                       >
-                        <path
-                          d="test-file-stub"
-                        />
-                      </svg>
+                        <svg
+                          aria-label="Remove tag"
+                          class="icon defaultIcon iconBlock"
+                          height="8"
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width="8"
+                        >
+                          <path
+                            d="test-file-stub"
+                          />
+                        </svg>
+                      </div>
                     </button>
                   </div>
                 </div>
@@ -313,45 +305,43 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box rounding2 secondary xsDisplayInlineBlock"
+                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
-                  class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                  class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
-                  <div
-                    class="box marginEnd2 marginStart0"
-                  />
-                  <div
+                  <span
+                    class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="they / them"
                   >
-                    <span
-                      class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                      title="they / them"
-                    >
-                      they / them
-                    </span>
-                  </div>
+                    they / them
+                  </span>
                   <div
-                    class="box marginStart1"
+                    class="box"
                   >
                     <button
-                      class="button secondary hideOutline tapTransition accessibilityOutline"
+                      class="button secondary hideOutline tapTransition accessibilityOutline md"
                       type="button"
                     >
-                      <svg
-                        aria-label="Remove tag"
-                        class="icon defaultIcon iconBlock"
-                        height="8"
-                        role="img"
-                        viewBox="0 0 24 24"
-                        width="8"
+                      <div
+                        class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                        style="width: 100%;"
                       >
-                        <path
-                          d="test-file-stub"
-                        />
-                      </svg>
+                        <svg
+                          aria-label="Remove tag"
+                          class="icon defaultIcon iconBlock"
+                          height="8"
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width="8"
+                        >
+                          <path
+                            d="test-file-stub"
+                          />
+                        </svg>
+                      </div>
                     </button>
                   </div>
                 </div>
@@ -362,45 +352,43 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box rounding2 secondary xsDisplayInlineBlock"
+                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
-                  class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                  class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
-                  <div
-                    class="box marginEnd2 marginStart0"
-                  />
-                  <div
+                  <span
+                    class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="ve / ver"
                   >
-                    <span
-                      class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                      title="ve / ver"
-                    >
-                      ve / ver
-                    </span>
-                  </div>
+                    ve / ver
+                  </span>
                   <div
-                    class="box marginStart1"
+                    class="box"
                   >
                     <button
-                      class="button secondary hideOutline tapTransition accessibilityOutline"
+                      class="button secondary hideOutline tapTransition accessibilityOutline md"
                       type="button"
                     >
-                      <svg
-                        aria-label="Remove tag"
-                        class="icon defaultIcon iconBlock"
-                        height="8"
-                        role="img"
-                        viewBox="0 0 24 24"
-                        width="8"
+                      <div
+                        class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                        style="width: 100%;"
                       >
-                        <path
-                          d="test-file-stub"
-                        />
-                      </svg>
+                        <svg
+                          aria-label="Remove tag"
+                          class="icon defaultIcon iconBlock"
+                          height="8"
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width="8"
+                        >
+                          <path
+                            d="test-file-stub"
+                          />
+                        </svg>
+                      </div>
                     </button>
                   </div>
                 </div>
@@ -411,45 +399,43 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box rounding2 secondary xsDisplayInlineBlock"
+                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
-                  class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                  class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
-                  <div
-                    class="box marginEnd2 marginStart0"
-                  />
-                  <div
+                  <span
+                    class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="xe / xem"
                   >
-                    <span
-                      class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                      title="xe / xem"
-                    >
-                      xe / xem
-                    </span>
-                  </div>
+                    xe / xem
+                  </span>
                   <div
-                    class="box marginStart1"
+                    class="box"
                   >
                     <button
-                      class="button secondary hideOutline tapTransition accessibilityOutline"
+                      class="button secondary hideOutline tapTransition accessibilityOutline md"
                       type="button"
                     >
-                      <svg
-                        aria-label="Remove tag"
-                        class="icon defaultIcon iconBlock"
-                        height="8"
-                        role="img"
-                        viewBox="0 0 24 24"
-                        width="8"
+                      <div
+                        class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                        style="width: 100%;"
                       >
-                        <path
-                          d="test-file-stub"
-                        />
-                      </svg>
+                        <svg
+                          aria-label="Remove tag"
+                          class="icon defaultIcon iconBlock"
+                          height="8"
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width="8"
+                        >
+                          <path
+                            d="test-file-stub"
+                          />
+                        </svg>
+                      </div>
                     </button>
                   </div>
                 </div>
@@ -460,45 +446,43 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box rounding2 secondary xsDisplayInlineBlock"
+                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
-                  class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                  class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
-                  <div
-                    class="box marginEnd2 marginStart0"
-                  />
-                  <div
+                  <span
+                    class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="xie / xem"
                   >
-                    <span
-                      class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                      title="xie / xem"
-                    >
-                      xie / xem
-                    </span>
-                  </div>
+                    xie / xem
+                  </span>
                   <div
-                    class="box marginStart1"
+                    class="box"
                   >
                     <button
-                      class="button secondary hideOutline tapTransition accessibilityOutline"
+                      class="button secondary hideOutline tapTransition accessibilityOutline md"
                       type="button"
                     >
-                      <svg
-                        aria-label="Remove tag"
-                        class="icon defaultIcon iconBlock"
-                        height="8"
-                        role="img"
-                        viewBox="0 0 24 24"
-                        width="8"
+                      <div
+                        class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                        style="width: 100%;"
                       >
-                        <path
-                          d="test-file-stub"
-                        />
-                      </svg>
+                        <svg
+                          aria-label="Remove tag"
+                          class="icon defaultIcon iconBlock"
+                          height="8"
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width="8"
+                        >
+                          <path
+                            d="test-file-stub"
+                          />
+                        </svg>
+                      </div>
                     </button>
                   </div>
                 </div>
@@ -509,45 +493,43 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box rounding2 secondary xsDisplayInlineBlock"
+                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
                 style="height: 32px; max-width: 300px;"
               >
                 <div
-                  class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
+                  class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
-                  <div
-                    class="box marginEnd2 marginStart0"
-                  />
-                  <div
+                  <span
+                    class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="zie / zem"
                   >
-                    <span
-                      class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
-                      title="zie / zem"
-                    >
-                      zie / zem
-                    </span>
-                  </div>
+                    zie / zem
+                  </span>
                   <div
-                    class="box marginStart1"
+                    class="box"
                   >
                     <button
-                      class="button secondary hideOutline tapTransition accessibilityOutline"
+                      class="button secondary hideOutline tapTransition accessibilityOutline md"
                       type="button"
                     >
-                      <svg
-                        aria-label="Remove tag"
-                        class="icon defaultIcon iconBlock"
-                        height="8"
-                        role="img"
-                        viewBox="0 0 24 24"
-                        width="8"
+                      <div
+                        class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                        style="width: 100%;"
                       >
-                        <path
-                          d="test-file-stub"
-                        />
-                      </svg>
+                        <svg
+                          aria-label="Remove tag"
+                          class="icon defaultIcon iconBlock"
+                          height="8"
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width="8"
+                        >
+                          <path
+                            d="test-file-stub"
+                          />
+                        </svg>
+                      </div>
                     </button>
                   </div>
                 </div>

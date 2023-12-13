@@ -55,7 +55,7 @@ export default function App({ children, files }: Props): ReactNode {
       if (!window.gtag) {
         return;
       }
-      window.gtag('config', 'UA-12967896-44', {
+      window.gtag('config', 'G-EYTY1WTV8B', {
         page_path: window.location.pathname + window.location.search + window.location.hash,
       });
     };
@@ -71,7 +71,7 @@ export default function App({ children, files }: Props): ReactNode {
       <DocsExperimentProvider>
         <AppContextConsumer>
           {({ colorScheme }) => (
-            <ColorSchemeProvider colorScheme={colorScheme} id="gestalt-docs">
+            <ColorSchemeProvider colorScheme={colorScheme}>
               <GlobalEventsHandlerProvider linkHandlers={{ onNavigation: useOnNavigation }}>
                 <NavigationContextProvider>
                   <LocalFilesProvider files={files}>

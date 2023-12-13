@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
 
-const reactDocs = import('react-docgen'); // v6 forces to use `import`
+const reactDocsImport = import('react-docgen'); // v6 forces to use `import`
 
 const root = path.join(__dirname, '../');
 const docsPath = path.join(root, '/docs');
@@ -36,10 +36,13 @@ async function docgen(filePath) {
   }
 
   const contents = await fs.promises.readFile(filePath, 'utf-8');
+  const reactDocs = await reactDocsImport;
+  const resolver = new reactDocs.builtinResolvers.FindExportedDefinitionsResolver();
 
   // Not all files have data to parse
   try {
-    const [parsed] = (await reactDocs).parse(contents);
+    // Take only the first exported component
+    const [parsed] = reactDocs.parse(contents, { resolver });
 
     if (parsed.description) {
       parsed.description = parsed.description

@@ -2,12 +2,12 @@
 
 exports[`SegmentedControl renders 1`] = `
 <div
-  className="SegmentedControl medium"
+  className="SegmentedControl medium md"
   role="tablist"
 >
   <button
     aria-selected={true}
-    className="item hideOutline itemIsSelected accessibilityOutline"
+    className="item hideOutline itemIsSelected accessibilityOutline md"
     onClick={[Function]}
     role="tab"
     style={
@@ -18,14 +18,14 @@ exports[`SegmentedControl renders 1`] = `
     type="button"
   >
     <div
-      className="Text fontSize200 defaultText alignCenter breakWord fontWeightSemiBold"
+      className="Text fontSize300 defaultText alignCenter breakWord fontWeightSemiBold"
     >
       News
     </div>
   </button>
   <button
     aria-selected={false}
-    className="item hideOutline itemIsNotSelected accessibilityOutline"
+    className="item hideOutline itemIsNotSelected accessibilityOutline md"
     onClick={[Function]}
     role="tab"
     style={
@@ -36,14 +36,14 @@ exports[`SegmentedControl renders 1`] = `
     type="button"
   >
     <div
-      className="Text fontSize200 defaultText alignCenter breakWord fontWeightSemiBold"
+      className="Text fontSize300 defaultText alignCenter breakWord fontWeightSemiBold"
     >
       You
     </div>
   </button>
   <button
     aria-selected={false}
-    className="item hideOutline itemIsNotSelected accessibilityOutline"
+    className="item hideOutline itemIsNotSelected accessibilityOutline md"
     onClick={[Function]}
     role="tab"
     style={
@@ -54,14 +54,14 @@ exports[`SegmentedControl renders 1`] = `
     type="button"
   >
     <div
-      className="Text fontSize200 defaultText alignCenter breakWord fontWeightSemiBold"
+      className="Text fontSize300 defaultText alignCenter breakWord fontWeightSemiBold"
     >
       Messages
     </div>
   </button>
   <button
     aria-selected={false}
-    className="item hideOutline itemIsNotSelected accessibilityOutline"
+    className="item hideOutline itemIsNotSelected accessibilityOutline md"
     onClick={[Function]}
     role="tab"
     style={
@@ -82,12 +82,12 @@ exports[`SegmentedControl renders 1`] = `
 
 exports[`SegmentedControl with responsive widths renders 1`] = `
 <div
-  className="SegmentedControl medium"
+  className="SegmentedControl medium md"
   role="tablist"
 >
   <button
     aria-selected={true}
-    className="item hideOutline itemIsSelected accessibilityOutline"
+    className="item hideOutline itemIsSelected accessibilityOutline md"
     onClick={[Function]}
     role="tab"
     style={
@@ -98,14 +98,14 @@ exports[`SegmentedControl with responsive widths renders 1`] = `
     type="button"
   >
     <div
-      className="Text fontSize200 defaultText alignCenter breakWord fontWeightSemiBold"
+      className="Text fontSize300 defaultText alignCenter breakWord fontWeightSemiBold"
     >
       Short
     </div>
   </button>
   <button
     aria-selected={false}
-    className="item hideOutline itemIsNotSelected accessibilityOutline"
+    className="item hideOutline itemIsNotSelected accessibilityOutline md"
     onClick={[Function]}
     role="tab"
     style={
@@ -116,7 +116,7 @@ exports[`SegmentedControl with responsive widths renders 1`] = `
     type="button"
   >
     <div
-      className="Text fontSize200 defaultText alignCenter breakWord fontWeightSemiBold"
+      className="Text fontSize300 defaultText alignCenter breakWord fontWeightSemiBold"
     >
       Really really really long title
     </div>
