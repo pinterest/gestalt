@@ -1,8 +1,8 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { type Node as ReactNode } from 'react';
 import { SideNavigation } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   return (
     <SideNavigation accessibilityLabel="Incorrect icon example">
       <SideNavigation.TopItem

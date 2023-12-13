@@ -1,9 +1,9 @@
 // @flow strict
 import { createRef } from 'react';
 import { render, screen } from '@testing-library/react';
-import Box from './Box.js';
-import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider.js';
-import ScrollBoundaryContainer from './ScrollBoundaryContainer.js';
+import Box from './Box';
+import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider';
+import ScrollBoundaryContainer from './ScrollBoundaryContainer';
 
 describe('ScrollBoundaryContainer', () => {
   it('renders successfully', () => {

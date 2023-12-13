@@ -2,20 +2,20 @@
 import {
   type AbstractComponent,
   forwardRef,
-  type Node,
+  type Node as ReactNode,
   useImperativeHandle,
   useRef,
   useState,
 } from 'react';
 import classnames from 'classnames';
 import styles from './IconButton.css';
-import icons from './icons/index.js';
-import Pog from './Pog.js';
+import icons from './icons/index';
+import Pog from './Pog';
 import touchableStyles from './TapArea.css';
-import Tooltip from './Tooltip.js';
-import useFocusVisible from './useFocusVisible.js';
-import useTapFeedback from './useTapFeedback.js';
-import { type Indexable } from './zIndex.js';
+import Tooltip from './Tooltip';
+import useFocusVisible from './useFocusVisible';
+import useTapFeedback from './useTapFeedback';
+import { type Indexable } from './zIndex';
 
 type Props = {
   /**
@@ -150,7 +150,7 @@ const IconButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = fo
     size = 'lg',
   }: Props,
   ref,
-): Node {
+): ReactNode {
   const innerRef = useRef<null | HTMLButtonElement>(null);
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()

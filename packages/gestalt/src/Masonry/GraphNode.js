@@ -1,5 +1,5 @@
 // @flow strict
-import { type NodeData } from './types.js';
+import { type NodeData } from './types';
 
 type Edge<T> = {
   score: number,

@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../button-href-to-buttonlink', () =>
   Object.assign(jest.requireActual('../button-href-to-buttonlink'), {

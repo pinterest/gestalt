@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { useRouter } from 'next/router';
-import createHydra, { type Hydra } from './createHydra.js';
+import createHydra, { type Hydra } from './createHydra';
 
 const localStorageOrganizedByKey = 'gestalt-sidebar-organized-by-platform';
 
@@ -29,7 +29,7 @@ const {
   useHook: useNavigationContext,
 }: Hydra<NavigationContextType> = createHydra<NavigationContextType>('NavigationContext');
 
-function NavigationContextProvider({ children }: { children?: Node }): Node {
+function NavigationContextProvider({ children }: { children?: ReactNode }): ReactNode {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const [cookies, setCookies] = useCookies([localStorageOrganizedByKey]);

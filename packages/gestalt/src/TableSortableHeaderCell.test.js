@@ -1,6 +1,6 @@
 // @flow strict
 import renderer from 'react-test-renderer';
-import TableSortableHeaderCell from './TableSortableHeaderCell.js';
+import TableSortableHeaderCell from './TableSortableHeaderCell';
 
 test('renders correctly when inactive', () => {
   const tree = renderer

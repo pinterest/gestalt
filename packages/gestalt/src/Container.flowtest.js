@@ -1,5 +1,5 @@
 // @flow strict
-import Container from './Container.js';
+import Container from './Container';
 
 const Valid = <Container />;
 

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import {
   Box,
   Button,
@@ -13,7 +13,7 @@ import {
   Text,
 } from 'gestalt';
 
-export default function OnePrimaryActionExample(): Node {
+export default function OnePrimaryActionExample(): ReactNode {
   const tableID = 'Audience table';
 
   return (

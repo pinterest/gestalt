@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../column_deprecate_size_props', () =>
   Object.assign(jest.requireActual('../column_deprecate_size_props'), {

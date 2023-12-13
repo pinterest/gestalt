@@ -1,21 +1,21 @@
 // @flow strict
-import { type Node } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import main from '../../examples/letterbox/main.js';
-import variantSquare from '../../examples/letterbox/variantSquare.js';
-import variantSquareHorizontalFrame from '../../examples/letterbox/variantSquareHorizontalFrame.js';
-import variantSquareVerticalFrame from '../../examples/letterbox/variantSquareVerticalFrame.js';
-import variantTall from '../../examples/letterbox/variantTall.js';
-import variantWide from '../../examples/letterbox/variantWide.js';
+import { type Node as ReactNode } from 'react';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import main from '../../examples/letterbox/main';
+import variantSquare from '../../examples/letterbox/variantSquare';
+import variantSquareHorizontalFrame from '../../examples/letterbox/variantSquareHorizontalFrame';
+import variantSquareVerticalFrame from '../../examples/letterbox/variantSquareVerticalFrame';
+import variantTall from '../../examples/letterbox/variantTall';
+import variantWide from '../../examples/letterbox/variantWide';
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>

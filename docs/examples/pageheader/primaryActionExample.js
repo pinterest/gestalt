@@ -1,5 +1,5 @@
 // @flow strict
-import { Fragment, type Node, useRef, useState } from 'react';
+import { Fragment, type Node as ReactNode, useRef, useState } from 'react';
 import {
   Button,
   Divider,
@@ -12,7 +12,7 @@ import {
   Tooltip,
 } from 'gestalt';
 
-export default function PrimaryActionExample(): Node {
+export default function PrimaryActionExample(): ReactNode {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<
     $ReadOnlyArray<{ label: string, subtext?: string, value: string }>,

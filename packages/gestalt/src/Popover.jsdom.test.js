@@ -1,7 +1,7 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import PopoverEducational from './PopoverEducational.js';
-import Text from './Text.js';
+import PopoverEducational from './PopoverEducational';
+import Text from './Text';
 
 describe('PopoverEducational', () => {
   it('renders correctly', () => {

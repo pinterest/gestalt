@@ -1,5 +1,5 @@
 // @flow strict
-import { type DesignOverview } from './types.js';
+import { type DesignOverview } from './types';
 import Accessibility from '../../graphics/foundations/accessibility.svg';
 import Animation from '../../graphics/foundations/animation.svg';
 import BrandExpression from '../../graphics/foundations/brand_expression.svg';
@@ -120,7 +120,7 @@ const foundationsTiles: $ReadOnlyArray<DesignOverview> = [
     svg: <Typography />,
     title: 'Typography',
     description: 'A typographic system for a content hierarchy that is scannable and efficient',
-    path: '/foundations/typography/guidelines',
+    path: '/foundations/typography',
   },
 ];
 

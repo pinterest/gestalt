@@ -1,7 +1,7 @@
 // @flow strict-local
-import { type Node } from 'react';
-import { type DataVisualizationColors } from './types.js';
-import { useHexColor } from './usePatterns.js';
+import { type Node as ReactNode } from 'react';
+import { type DataVisualizationColors } from './types';
+import { useHexColor } from './usePatterns';
 
 type Props = {
   noReposition?: boolean,
@@ -11,7 +11,7 @@ type Props = {
   cy: number,
 };
 
-export function GraphPoint(props: Props): Node {
+export function GraphPoint(props: Props): ReactNode {
   // eslint-disable-next-line no-unused-vars
   const { color, cx, cy, active, noReposition = false } = props;
   const hexColor = useHexColor();
@@ -57,12 +57,12 @@ const renderGraphPoint: ({
   cx: number,
   cy: number,
   ...
-}) => Node = (props) => {
+}) => ReactNode = (props) => {
   const renderPoint: ({
     cx: number,
     cy: number,
     ...
-  }) => Node = ({ cx, cy }) => (
+  }) => ReactNode = ({ cx, cy }) => (
     <GraphPoint
       key={props.color + cy + cx}
       color={props.color}

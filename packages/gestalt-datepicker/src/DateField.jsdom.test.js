@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { af, hu } from 'date-fns/locale';
-import DateField from './DateField.js';
+import DateField from './DateField';
 
 const initialDate = new Date(2018, 11, 14);
 

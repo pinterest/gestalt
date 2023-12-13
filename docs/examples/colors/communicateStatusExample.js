@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Badge, Flex } from 'gestalt';
 
-export default function CommunicateStatusExample(): Node {
+export default function CommunicateStatusExample(): ReactNode {
   return (
     <Flex
       direction="column"

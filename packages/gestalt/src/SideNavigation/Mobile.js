@@ -1,16 +1,16 @@
 // @flow strict
-import { Fragment, type Node, useEffect, useRef } from 'react';
+import { Fragment, type Node as ReactNode, useEffect, useRef } from 'react';
 import classnames from 'classnames';
-import getChildrenToArray from './getChildrenToArray.js';
+import getChildrenToArray from './getChildrenToArray';
 import borderStyles from '../Borders.css';
-import Box from '../Box.js';
-import { useSideNavigation } from '../contexts/SideNavigationProvider.js';
-import Divider from '../Divider.js';
-import Flex from '../Flex.js';
-import Heading from '../Heading.js';
-import InternalDismissButton from '../shared/InternalDismissButton.js';
+import Box from '../Box';
+import { useSideNavigation } from '../contexts/SideNavigationProvider';
+import Divider from '../Divider';
+import Flex from '../Flex';
+import Heading from '../Heading';
+import InternalDismissButton from '../shared/InternalDismissButton';
+import { type Props as SideNavigationProps } from '../SideNavigation';
 import styles from '../SideNavigation.css';
-import { type Props as SideNavigationProps } from '../SideNavigation.js';
 
 type Props = { ...SideNavigationProps, id: string };
 
@@ -23,7 +23,7 @@ export default function SideNavigationMobile({
   mobileTitle,
   dismissButton,
   showBorder,
-}: Props): Node {
+}: Props): ReactNode {
   const dismissButtonRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   const navigationChildren = getChildrenToArray({

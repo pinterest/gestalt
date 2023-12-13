@@ -1,13 +1,13 @@
 // @flow strict
-import { type Node, useEffect, useRef, useState } from 'react';
+import { type Node as ReactNode, useEffect, useRef, useState } from 'react';
 import { LiveEditor } from 'react-live';
 import { Box, Flex, Text } from 'gestalt';
-import { useAppContext } from './appContext.js';
-import CollapseExpandCodeButton from './buttons/CollapseExpandCodeButton.js';
-import CopyCodeButton from './buttons/CopyCodeButton.js';
-import OpenSandboxButton from './buttons/OpenSandboxButton.js';
-import clipboardCopy from './clipboardCopy.js';
-import handleCodeSandbox from './handleCodeSandbox.js';
+import { useAppContext } from './appContext';
+import CollapseExpandCodeButton from './buttons/CollapseExpandCodeButton';
+import CopyCodeButton from './buttons/CopyCodeButton';
+import OpenSandboxButton from './buttons/OpenSandboxButton';
+import clipboardCopy from './clipboardCopy';
+import handleCodeSandbox from './handleCodeSandbox';
 
 const CODE_EXAMPLE_HEIGHT = 162;
 
@@ -34,7 +34,7 @@ export default function ExampleCode({
   readOnly,
   name,
   developmentEditor,
-}: Props): Node {
+}: Props): ReactNode {
   const { devExampleMode } = useAppContext();
 
   const [expanded, setExpanded] = useState(developmentEditor);

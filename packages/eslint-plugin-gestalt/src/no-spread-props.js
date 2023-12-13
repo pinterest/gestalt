@@ -10,8 +10,8 @@ import {
   getPropertiesFromVariable,
   getVariableNodeInScopeFromName,
   hasImport,
-} from './helpers/eslintASTHelpers.js';
-import { type ESLintRule } from './helpers/eslintFlowTypes.js';
+} from './helpers/eslintASTHelpers';
+import { type ESLintRule } from './helpers/eslintFlowTypes';
 
 const rule: ESLintRule = {
   meta: {

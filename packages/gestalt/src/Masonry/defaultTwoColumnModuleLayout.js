@@ -1,9 +1,9 @@
 // @flow strict
-import { type Cache } from './Cache.js';
-import Graph from './Graph.js';
-import { type HeightsStoreInterface } from './HeightsStore.js';
-import mindex from './mindex.js';
-import { type NodeData, type Position } from './types.js';
+import { type Cache } from './Cache';
+import Graph from './Graph';
+import { type HeightsStoreInterface } from './HeightsStore';
+import mindex from './mindex';
+import { type NodeData, type Position } from './types';
 
 function isNil(value: mixed): boolean %checks {
   return value === null || value === undefined;

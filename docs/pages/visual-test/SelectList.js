@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, SelectList } from 'gestalt';
 
-export default function Screenshot(): Node {
+export default function Screenshot(): ReactNode {
   return (
     <Box color="default" display="inlineBlock" padding={1}>
       <SelectList id="selectlistexample11" onChange={() => {}} size="md" label="Country">

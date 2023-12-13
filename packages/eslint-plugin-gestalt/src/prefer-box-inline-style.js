@@ -7,13 +7,13 @@
  */
 
 // @flow strict
-import { type ESLintRule } from './helpers/eslintFlowTypes.js';
-import { generateDefaultMessage } from './helpers/noBoxDangerousStyleDuplicatesReducer.js';
+import { type ESLintRule } from './helpers/eslintFlowTypes';
+import { generateDefaultMessage } from './helpers/noBoxDangerousStyleDuplicatesReducer';
 import {
   validateBackgroundColor,
   validateBorder,
   validateBorderRadius,
-} from './helpers/styleValidators.js';
+} from './helpers/styleValidators';
 
 // $FlowFixMe[missing-local-annot]
 function getInlineDefinedStyles(attr) {

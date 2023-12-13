@@ -1,5 +1,5 @@
 // @flow strict
-import getDataVisualizationColor from './getDataVisualizationColor.js';
+import getDataVisualizationColor from './getDataVisualizationColor';
 
 const theme = {
   name: 'lightMode',

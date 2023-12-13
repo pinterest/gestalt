@@ -1,4 +1,4 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
 
 jest.mock('../text-replace-truncate-lineClamp', () =>
   Object.assign(jest.requireActual('../text-replace-truncate-lineClamp'), {

@@ -1,14 +1,14 @@
 // @flow strict
-import { Fragment, type Node } from 'react';
+import { Fragment, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import styles from './ActivationCard.css';
-import Box from './Box.js';
-import ButtonLink from './ButtonLink.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import Icon from './Icon.js';
-import IconButton from './IconButton.js';
-import Text from './Text.js';
+import Box from './Box';
+import ButtonLink from './ButtonLink';
+import { useColorScheme } from './contexts/ColorSchemeProvider';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import Icon from './Icon';
+import IconButton from './IconButton';
+import Text from './Text';
 
 const STATUS_ICONS = {
   notStarted: undefined,
@@ -70,7 +70,7 @@ type Props = {
   title: string,
 };
 
-function ActivationCardLink({ data }: { data: LinkData }): Node {
+function ActivationCardLink({ data }: { data: LinkData }): ReactNode {
   const { accessibilityLabel, href, label, onClick, rel, target } = data;
 
   return (
@@ -104,7 +104,13 @@ type CardProps = {
     onDismiss: () => void,
   },
 };
-function CompletedCard({ dismissButton, message, status, statusMessage, title }: CardProps): Node {
+function CompletedCard({
+  dismissButton,
+  message,
+  status,
+  statusMessage,
+  title,
+}: CardProps): ReactNode {
   const icon = STATUS_ICONS[status];
 
   return (
@@ -160,7 +166,7 @@ function UncompletedCard({
   status,
   statusMessage,
   title,
-}: CardProps): Node {
+}: CardProps): ReactNode {
   const isStarted = status !== 'notStarted';
   const icon = STATUS_ICONS[status];
 
@@ -230,7 +236,7 @@ export default function ActivationCard({
   status,
   statusMessage,
   title,
-}: Props): Node {
+}: Props): ReactNode {
   const isCompleted = status === 'complete';
   const { accessibilityDismissButtonLabel } = useDefaultLabelContext('ActivationCard');
 

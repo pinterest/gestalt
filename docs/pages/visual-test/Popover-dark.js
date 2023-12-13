@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useRef, useState } from 'react';
+import { type Node as ReactNode, useRef, useState } from 'react';
 import { Box, ColorSchemeProvider, Flex, IconButton, Popover, Text } from 'gestalt';
 
-export default function Snapshot(): Node {
+export default function Snapshot(): ReactNode {
   const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
   const [open, setOpen] = useState(false);
 

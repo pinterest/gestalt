@@ -4,8 +4,8 @@ import {
   getRuleTester,
   getTestTypePrepender,
   readTestByPath,
-} from './helpers/testHelpers.js';
-import rule from './prefer-link.js';
+} from './helpers/testHelpers';
+import rule from './prefer-link';
 
 const ruleName = 'prefer-link';
 const ruleTester = getRuleTester();

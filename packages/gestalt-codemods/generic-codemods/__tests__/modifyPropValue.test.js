@@ -1,5 +1,5 @@
-import { defineTest } from 'jscodeshift/dist/testUtils.js';
-import buildCustomApplyTransform, { buildInputPath } from './utils.js';
+import { defineTest } from 'jscodeshift/dist/testUtils';
+import buildCustomApplyTransform, { buildInputPath } from './utils';
 
 jest.mock('../modifyPropValue', () =>
   Object.assign(jest.requireActual('../modifyPropValue'), {

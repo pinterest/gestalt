@@ -1,21 +1,21 @@
 // @flow strict
 /* eslint-disable import/no-import-module-exports */
-import buttonIconRestrictions from './button-icon-restrictions.js';
-import noBoxDangerousStyleDuplicates from './no-box-dangerous-style-duplicates.js';
-import noBoxDisallowedProps from './no-box-disallowed-props.js';
-import noBoxMarginleftMarginright from './no-box-marginleft-marginright.js';
-import noBoxUselessProps from './no-box-useless-props.js';
-import noMediumFormfields from './no-medium-formfields.js';
-import noRoleLinkComponents from './no-role-link-components.js';
-import noSpreadProps from './no-spread-props.js';
-import noWorkflowStatusIcon from './no-workflow-status-icon.js';
-import preferBoxAsTag from './prefer-box-as-tag.js';
-import preferBoxInlineStyle from './prefer-box-inline-style.js';
-import preferBoxNoClassname from './prefer-box-no-disallowed.js';
-import preferFlex from './prefer-flex.js';
-import preferHeading from './prefer-heading.js';
-import preferLink from './prefer-link.js';
-import preferList from './prefer-list.js';
+import buttonIconRestrictions from './button-icon-restrictions';
+import noBoxDangerousStyleDuplicates from './no-box-dangerous-style-duplicates';
+import noBoxDisallowedProps from './no-box-disallowed-props';
+import noBoxMarginleftMarginright from './no-box-marginleft-marginright';
+import noBoxUselessProps from './no-box-useless-props';
+import noMediumFormfields from './no-medium-formfields';
+import noRoleLinkComponents from './no-role-link-components';
+import noSpreadProps from './no-spread-props';
+import noWorkflowStatusIcon from './no-workflow-status-icon';
+import preferBoxAsTag from './prefer-box-as-tag';
+import preferBoxInlineStyle from './prefer-box-inline-style';
+import preferBoxNoClassname from './prefer-box-no-disallowed';
+import preferFlex from './prefer-flex';
+import preferHeading from './prefer-heading';
+import preferLink from './prefer-link';
+import preferList from './prefer-list';
 
 module.exports = {
   rules: {

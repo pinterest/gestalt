@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Status from './Status.js';
+import Status from './Status';
 
 describe('Status', () => {
   it('renders with title', () => {

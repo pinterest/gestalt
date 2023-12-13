@@ -1,5 +1,5 @@
 // @flow strict
-import uniformRowLayout from './uniformRowLayout.js';
+import uniformRowLayout from './uniformRowLayout';
 
 const stubCache = (measurements?: { [item: string]: number, ... } = {}) => {
   let cache = measurements;

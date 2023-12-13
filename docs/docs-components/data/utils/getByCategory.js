@@ -1,11 +1,11 @@
 // @flow strict
-import getByPlatform from './getByPlatform.js';
+import getByPlatform from './getByPlatform';
 import {
   type ComponentCategory,
   type ComponentData,
   type Platform,
   type PlatformData,
-} from '../types.js';
+} from '../types';
 
 /**
  * Gets all components for a given platform and category, returning an array of just the data for that platform.

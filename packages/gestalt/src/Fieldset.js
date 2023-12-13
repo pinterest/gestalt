@@ -1,20 +1,20 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import boxStyles from './Box.css';
 import boxWhitespaceStyles from './boxWhitespace.css';
 import labelStyles from './Label/InternalLabel.css';
 import formStyles from './shared/FormElement.css';
-import FormErrorMessage from './shared/FormErrorMessage.js';
+import FormErrorMessage from './shared/FormErrorMessage';
 import formLabelStyles from './shared/FormLabel.css';
-import Text from './Text.js';
+import Text from './Text';
 import whitespaceStyles from './Whitespace.css';
 
 type Props = {
   /**
    * The content of Fieldset, typically [RadioButtons](https://gestalt.pinterest.systems/web/radiobutton), [Checkboxes](https://gestalt.pinterest.systems/web/checkbox) or [TextFields](https://gestalt.pinterest.systems/web/textfield).
    */
-  children: Node,
+  children: ReactNode,
   /**
    * A unique identifier for this Fieldset. `id` must be specified when an errorMessage is added.
    */
@@ -46,7 +46,7 @@ export default function Fieldset({
   legend,
   legendDisplay = 'visible',
   children,
-}: Props): Node {
+}: Props): ReactNode {
   if (errorMessage && id === '') {
     // eslint-disable-next-line no-console
     console.error('Please provide an id property to <Fieldset />');

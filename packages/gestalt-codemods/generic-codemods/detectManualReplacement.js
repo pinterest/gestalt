@@ -22,7 +22,7 @@ yarn codemod detectManualReplacement ~/path/to/your/code \
  *
  */
 
-import { type ApiType, type FileType } from './flowtypes.js';
+import { type ApiType, type FileType } from './flowtypes';
 import {
   filterJSXByAttribute,
   filterJSXByTargetLocalName,
@@ -34,7 +34,7 @@ import {
   saveToSource,
   throwErrorIfSpreadProps,
   throwErrorMessageWithNodesData,
-} from './utils.js';
+} from './utils';
 
 type OptionsType = {
   component: string,

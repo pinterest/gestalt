@@ -1,11 +1,11 @@
 // @flow strict
-import { Component, type Node } from 'react';
+import { Component, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import borders from './Borders.css';
-import Caret from './Caret.js';
+import Caret from './Caret';
 import colors from './Colors.css';
 import styles from './Contents.css';
-import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider.js';
+import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider';
 import {
   type CaretOffset,
   type ClientRect,
@@ -13,7 +13,7 @@ import {
   type DerivedState,
   type MainDirections,
   type PopoverDir,
-} from './utils/positioningTypes.js';
+} from './utils/positioningTypes';
 import {
   adjustOffsets,
   baseOffsets,
@@ -23,7 +23,7 @@ import {
   getCaretDir,
   getContainerNode,
   getPopoverDir,
-} from './utils/positioningUtils.js';
+} from './utils/positioningUtils';
 
 export type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 
@@ -33,7 +33,7 @@ type OwnProps = {
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
   border?: boolean,
   caret?: boolean,
-  children?: Node,
+  children?: ReactNode,
   id: ?string,
   idealDirection?: MainDirections,
   onKeyDown: (event: SyntheticKeyboardEvent<HTMLElement>) => void,
@@ -64,7 +64,7 @@ type State = {
   popoverRef: ?HTMLElement,
 };
 
-class Contents extends Component<Props, State> {
+class LegacyContents extends Component<Props, State> {
   static defaultProps: { border: boolean, caret: boolean } = {
     border: true,
     caret: true,
@@ -237,7 +237,7 @@ class Contents extends Component<Props, State> {
     };
   }
 
-  render(): Node {
+  render(): ReactNode {
     const { accessibilityLabel, bgColor, border, caret, children, id, role, rounding, width } =
       this.props;
     const { caretOffset, popoverOffset, popoverDir } = this.state;
@@ -303,8 +303,8 @@ class Contents extends Component<Props, State> {
   }
 }
 
-export default function WrappedContents(props: OwnProps): Node {
+export default function WrappedLegacyContents(props: OwnProps): ReactNode {
   const { scrollBoundaryContainerRef = null } = useScrollBoundaryContainer();
 
-  return <Contents {...props} scrollBoundaryContainerRef={scrollBoundaryContainerRef} />;
+  return <LegacyContents {...props} scrollBoundaryContainerRef={scrollBoundaryContainerRef} />;
 }

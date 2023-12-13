@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Flex, Heading, Tag, TextField } from 'gestalt';
 
-export default function TextFieldScreenshot(): Node {
+export default function TextFieldScreenshot(): ReactNode {
   const [input1text, setInput1Text] = useState('');
   const [input2text, setInput2Text] = useState('');
   const [input3text, setInput3Text] = useState('');

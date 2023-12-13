@@ -5,7 +5,7 @@ import {
   type Element,
   forwardRef,
   Fragment,
-  type Node,
+  type Node as ReactNode,
   type Ref,
   useCallback,
   useEffect,
@@ -14,21 +14,21 @@ import {
   useRef,
   useState,
 } from 'react';
-import Box from './Box.js';
-import ComboBoxItem, { type ComboBoxItemType } from './ComboBox/Item.js';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider.js';
-import { DOWN_ARROW, ENTER, ESCAPE, TAB, UP_ARROW } from './keyCodes.js';
-import Layer from './Layer.js';
-import Popover from './Popover.js';
-import Tag from './Tag.js';
-import Text from './Text.js';
-import InternalTextField from './TextField/InternalTextField.js';
-import InternalTextFieldIconButton from './TextField/InternalTextFieldIconButton.js';
+import Box from './Box';
+import ComboBoxItem, { type ComboBoxItemType } from './ComboBox/Item';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import { DOWN_ARROW, ENTER, ESCAPE, TAB, UP_ARROW } from './keyCodes';
+import Layer from './Layer';
+import Popover from './Popover';
+import Tag from './Tag';
+import Text from './Text';
+import InternalTextField from './TextField/InternalTextField';
+import InternalTextFieldIconButton from './TextField/InternalTextFieldIconButton';
 import handleContainerScrolling, {
   type DirectionOptionType,
   KEYS,
-} from './utils/keyboardNavigation.js';
-import { type Indexable } from './zIndex.js';
+} from './utils/keyboardNavigation';
+import { type Indexable } from './zIndex';
 
 type Size = 'md' | 'lg';
 
@@ -50,7 +50,7 @@ type Props = {
   /**
    * Provide feedback when an error on selection occurs. See [error message variant](https://gestalt.pinterest.systems/web/combobox#Error-message).
    */
-  errorMessage?: Node,
+  errorMessage?: ReactNode,
   /**
    * Provides additional information about how to select a ComboBox option. See [helper text variant](https://gestalt.pinterest.systems/web/combobox#Helper-text).
    */
@@ -190,7 +190,7 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
     zIndex,
   }: Props,
   ref,
-): Node {
+): ReactNode {
   const {
     accessibilityClearButtonLabel: accessibilityClearButtonLabelDefault,
     noResultText: noResultTextDefault,

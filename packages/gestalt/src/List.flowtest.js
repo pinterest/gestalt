@@ -1,5 +1,5 @@
 // @flow strict
-import List from './List.js';
+import List from './List';
 
 // const Valid = <List />;
 

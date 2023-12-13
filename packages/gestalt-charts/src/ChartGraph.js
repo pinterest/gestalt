@@ -1,5 +1,12 @@
 // @flow strict-local
-import { type Element, type Node, useCallback, useEffect, useMemo, useState } from 'react';
+import {
+  type Element,
+  type Node as ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import {
   BarChart,
   CartesianGrid,
@@ -10,18 +17,18 @@ import {
   Tooltip,
 } from 'recharts';
 import { Box, Flex, HelpButton, TagData, TileData, useColorScheme, useDefaultLabel } from 'gestalt';
-import { ChartProvider } from './ChartGraph/ChartGraphContext.js';
-import EmptyBox from './ChartGraph/EmptyBox.js';
-import Header from './ChartGraph/Header.js';
-import LegendIcon from './ChartGraph/LegendIcon.js';
-import renderAxis from './ChartGraph/renderAxis.js';
-import renderElements from './ChartGraph/renderElements.js';
-import renderReferenceAreas from './ChartGraph/renderReferenceAreas.js';
-import TabularDataModal from './ChartGraph/TabularDataModal.js';
-import useCustomTooltip from './ChartGraph/useCustomTooltip.js';
-import useDefaultLegend from './ChartGraph/useDefaultLegend.js';
-import useDefaultTooltip from './ChartGraph/useDefaultTooltip.js';
-import usePatterns, { useHexColor } from './ChartGraph/usePatterns.js';
+import { ChartProvider } from './ChartGraph/ChartGraphContext';
+import EmptyBox from './ChartGraph/EmptyBox';
+import Header from './ChartGraph/Header';
+import LegendIcon from './ChartGraph/LegendIcon';
+import renderAxis from './ChartGraph/renderAxis';
+import renderElements from './ChartGraph/renderElements';
+import renderReferenceAreas from './ChartGraph/renderReferenceAreas';
+import TabularDataModal from './ChartGraph/TabularDataModal';
+import useCustomTooltip from './ChartGraph/useCustomTooltip';
+import useDefaultLegend from './ChartGraph/useDefaultLegend';
+import useDefaultTooltip from './ChartGraph/useDefaultTooltip';
+import usePatterns, { useHexColor } from './ChartGraph/usePatterns';
 
 interface Indexable {
   index(): number;
@@ -165,7 +172,7 @@ type Props = {
         active: ?boolean,
         payload: ?{ ... },
         label: string | number,
-      }) => Node),
+      }) => ReactNode),
   /**
    * When set to "true", bars are stacked.
    *
@@ -240,7 +247,7 @@ function ChartGraph({
   type = 'bar',
   referenceAreas = [],
   renderTooltip = 'auto',
-}: Props): Node {
+}: Props): ReactNode {
   // CONSTANTS
 
   const SMALL_BREAKPOINT = 576;

@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { useSandpack } from '@codesandbox/sandpack-react';
 import LZString from 'lz-string';
-import OpenSandboxButton from './OpenSandboxButton.js';
+import OpenSandboxButton from './OpenSandboxButton';
 
 const getParameters = (parameters: { files: { ... }, template?: string }): string =>
   LZString.compressToBase64(JSON.stringify(parameters))
@@ -47,7 +47,7 @@ async function handleCodeSandbox(parameters: string) {
   window.open(url);
 }
 
-export default function OpenInCodeSandboxButton(): Node {
+export default function OpenInCodeSandboxButton(): ReactNode {
   // Based on
   // https://github.com/codesandbox/sandpack/blob/53811bb4fdfb66ea95b9881ff18c93307f12ce0d/sandpack-react/src/common/OpenInCodeSandboxButton/UnstyledOpenInCodeSandboxButton.tsx#L84
 

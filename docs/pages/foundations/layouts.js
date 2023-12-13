@@ -1,12 +1,12 @@
 // @flow strict
-import { type Node } from 'react';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import LayoutsExample from '../../examples/layouts/layoutsExample.js';
+import { type Node as ReactNode } from 'react';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import SandpackExample from '../../docs-components/SandpackExample';
+import LayoutsExample from '../../examples/layouts/layoutsExample';
 
-export default function DocsPage(): Node {
+export default function DocsPage(): ReactNode {
   return (
     <Page title="Layouts guidelines">
       <PageHeader

@@ -1,7 +1,7 @@
 // @flow strict
 import { createRef } from 'react';
 import { render } from '@testing-library/react';
-import RadioButton from './RadioButton.js';
+import RadioButton from './RadioButton';
 
 const mockOnChange = jest.fn<
   [{ checked: boolean, event: SyntheticInputEvent<HTMLInputElement> }],

@@ -1,11 +1,11 @@
 // @flow strict
 import { fireEvent, render, screen } from '@testing-library/react';
-import Box from './Box.js';
-import Table from './Table.js';
-import TableBody from './TableBody.js';
-import TableCell from './TableCell.js';
-import TableRowExpandable from './TableRowExpandable.js';
-import Text from './Text.js';
+import Box from './Box';
+import Table from './Table';
+import TableBody from './TableBody';
+import TableCell from './TableCell';
+import TableRowExpandable from './TableRowExpandable';
+import Text from './Text';
 
 const mockOnExpand = jest.fn<
   [

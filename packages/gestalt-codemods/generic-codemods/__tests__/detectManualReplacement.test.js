@@ -1,7 +1,7 @@
 import buildCustomApplyTransform, {
   buildInputPath,
   buildManualAttentionErrorMessage,
-} from './utils.js';
+} from './utils';
 
 jest.mock('../detectManualReplacement', () =>
   Object.assign(jest.requireActual('../detectManualReplacement'), {

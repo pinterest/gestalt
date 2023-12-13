@@ -1,5 +1,11 @@
 // @flow strict
-import { type Context, createContext, type Element, type Node, useContext } from 'react';
+import {
+  type Context,
+  createContext,
+  type Element,
+  type Node as ReactNode,
+  useContext,
+} from 'react';
 
 type ListTypeContextValues = 'bare' | 'ordered' | 'unordered';
 type ListSpacingContextValues = 'regular' | 'condensed';
@@ -15,7 +21,7 @@ type ListContextType = {
 };
 
 type Props = {
-  children: Node,
+  children: ReactNode,
   type: ?ListTypeContextValues,
   spacing: ?ListSpacingContextValues,
   style: ?ListStyleContextValues,

@@ -1,6 +1,6 @@
 // @flow strict
 import { fireEvent, render, screen } from '@testing-library/react';
-import TableSortableHeaderCell from './TableSortableHeaderCell.js';
+import TableSortableHeaderCell from './TableSortableHeaderCell';
 
 test('mouse click calls onSortChange', () => {
   const mockOnSortChange = jest.fn<

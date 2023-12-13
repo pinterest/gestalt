@@ -1,5 +1,5 @@
 // @flow strict
-import Fieldset from './Fieldset.js';
+import Fieldset from './Fieldset';
 
 const Valid = (
   <Fieldset legend="Favorite Animal">

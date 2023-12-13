@@ -1,25 +1,25 @@
 // @flow strict
-import { type Node } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import color from '../../examples/tiledata/color.js';
-import disabled from '../../examples/tiledata/disabled.js';
-import group from '../../examples/tiledata/group.js';
-import main from '../../examples/tiledata/main.js';
-import multipleCheckboxDo from '../../examples/tiledata/multipleCheckboxDo.js';
-import multipleCheckboxDont from '../../examples/tiledata/multipleCheckboxDont.js';
-import singleTileDo from '../../examples/tiledata/singleTileDo.js';
-import singleTileDont from '../../examples/tiledata/singleTileDont.js';
-import tooltip from '../../examples/tiledata/tooltip.js';
+import { type Node as ReactNode } from 'react';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import color from '../../examples/tiledata/color';
+import disabled from '../../examples/tiledata/disabled';
+import group from '../../examples/tiledata/group';
+import main from '../../examples/tiledata/main';
+import multipleCheckboxDo from '../../examples/tiledata/multipleCheckboxDo';
+import multipleCheckboxDont from '../../examples/tiledata/multipleCheckboxDont';
+import singleTileDo from '../../examples/tiledata/singleTileDo';
+import singleTileDont from '../../examples/tiledata/singleTileDont';
+import tooltip from '../../examples/tiledata/tooltip';
 
-export default function TileDataPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function TileDataPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>

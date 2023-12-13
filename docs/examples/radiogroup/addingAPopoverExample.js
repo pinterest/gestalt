@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useRef, useState } from 'react';
+import { type Node as ReactNode, useRef, useState } from 'react';
 import { Box, Layer, Link, Popover, RadioGroup, Text } from 'gestalt';
 
-export default function RadioButtonPopoverExample(): Node {
+export default function RadioButtonPopoverExample(): ReactNode {
   const [open, setOpen] = useState(false);
   const [option, setOption] = useState('');
   const anchorCatRef = useRef<HTMLElement | null>(null);

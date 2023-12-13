@@ -1,7 +1,7 @@
 // @flow strict
 import { createRef } from 'react';
 import { render, screen } from '@testing-library/react';
-import Checkbox from './Checkbox.js';
+import Checkbox from './Checkbox';
 
 const mockOnClick = jest.fn<
   [{ checked: boolean, event: SyntheticInputEvent<HTMLInputElement> }],

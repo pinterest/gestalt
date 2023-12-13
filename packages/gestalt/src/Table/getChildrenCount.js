@@ -1,7 +1,7 @@
 // @flow strict
-import { Children, Fragment, type Node } from 'react';
+import { Children, Fragment, type Node as ReactNode } from 'react';
 
-function getChildrenCount(children: Node): number {
+function getChildrenCount(children: ReactNode): number {
   // $FlowFixMe[underconstrained-implicit-instantiation]
   const topChildren = Children.toArray(children);
   let nestedChildrenCount = 0;

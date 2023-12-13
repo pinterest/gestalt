@@ -1,25 +1,25 @@
 // @flow strict
-import { type Node } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import accessibilityExample from '../../examples/modal/accessibilityExample.js';
-import createBoardExample from '../../examples/modal/createBoardExample.js';
-import limitActionsExample from '../../examples/modal/limitActionsExample.js';
-import localizationLabels from '../../examples/modal/localizationLabels.js';
-import mobileExample from '../../examples/modal/mobileExample.js';
-import preventCloseExample from '../../examples/modal/preventCloseExample.js';
-import roleAlertDialogExample from '../../examples/modal/roleAlertDialogExample.js';
-import sizesExample from '../../examples/modal/sizesExample.js';
+import { type Node as ReactNode } from 'react';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import accessibilityExample from '../../examples/modal/accessibilityExample';
+import createBoardExample from '../../examples/modal/createBoardExample';
+import limitActionsExample from '../../examples/modal/limitActionsExample';
+import localizationLabels from '../../examples/modal/localizationLabels';
+import mobileExample from '../../examples/modal/mobileExample';
+import preventCloseExample from '../../examples/modal/preventCloseExample';
+import roleAlertDialogExample from '../../examples/modal/roleAlertDialogExample';
+import sizesExample from '../../examples/modal/sizesExample';
 
-export default function ModalPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function ModalPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   const PREVIEW_HEIGHT = 450;
 
   return (

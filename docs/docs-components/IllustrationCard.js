@@ -1,15 +1,15 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Badge, Box, Flex, Heading, TapAreaLink, Text, WashAnimated } from 'gestalt';
-import { MIN_SVG_ILLUSTRATION_WIDTH } from './IllustrationSection.js';
-import illustrations, { type Illustrations } from '../graphics/index.js';
+import { MIN_SVG_ILLUSTRATION_WIDTH } from './IllustrationSection';
+import illustrations, { type Illustrations } from '../graphics/index';
 
 export type Props = {
   color: string,
   description?: string,
   headingLevel: 2 | 3,
   href: string,
-  image: Node | Illustrations,
+  image: ReactNode | Illustrations,
   isNew?: boolean,
   title: string,
 };
@@ -22,7 +22,7 @@ export default function IllustrationCard({
   image,
   isNew,
   title,
-}: Props): Node {
+}: Props): ReactNode {
   // we either render the svg string, or use our lookup table to render the right illustration component
   const Illustration =
     typeof image === 'string' && illustrations[image] ? illustrations[image] : undefined;

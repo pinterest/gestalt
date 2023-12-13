@@ -1,7 +1,7 @@
 // @flow strict-local
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Button, ButtonGroup, Flex, useDefaultLabel } from 'gestalt';
-import { type TransformedTabularDataType, useBuildCsvData } from './useTabularData.js';
+import { type TransformedTabularDataType, useBuildCsvData } from './useTabularData';
 
 type Props = {
   title: string,
@@ -15,7 +15,7 @@ export default function TabularDataModalFooter({
   toggleTabularDataModal,
   isHorizontalLayout,
   transformedTabularData,
-}: Props): Node {
+}: Props): ReactNode {
   const { downloadCsvButtonText, cancelButtonText } = useDefaultLabel('ChartGraph');
 
   const csvData = useBuildCsvData({

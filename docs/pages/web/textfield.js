@@ -1,44 +1,44 @@
 // @flow strict
-import { type Node } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import GeneratedPropTable from '../../docs-components/GeneratedPropTable.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import considerAllFieldsAsRequired from '../../examples/textfield/considerAllFieldsAsRequired.js';
-import disabledExample from '../../examples/textfield/disabledExample.js';
-import dontDisplayGenericErrorMessages from '../../examples/textfield/dontDisplayGenericErrorMessages.js';
-import dontMarkFieldsAsRequired from '../../examples/textfield/dontMarkFieldsAsRequired.js';
-import dontPlaceUnrelatedFieldsSameLine from '../../examples/textfield/dontPlaceUnrelatedFieldsSameLine.js';
-import dontPutEssentialInformationPlaceholder from '../../examples/textfield/dontPutEssentialInformationPlaceholder.js';
-import dontRemoveLabel from '../../examples/textfield/dontRemoveLabel.js';
-import ensureVisibleLabel from '../../examples/textfield/ensureVisibleLabel.js';
-import errorMessageExample from '../../examples/textfield/errorMessageExample.js';
-import helperTextExplainOptionalInfo from '../../examples/textfield/helperTextExplainOptionalInfo.js';
-import labelsExample from '../../examples/textfield/labelsExample.js';
-import labelVisibilityExample from '../../examples/textfield/labelVisibilityExample.js';
-import localizationLabels from '../../examples/textfield/localizationLabels.js';
-import main from '../../examples/textfield/main.js';
-import maximumLengthExample from '../../examples/textfield/maximumLengthExample.js';
-import maximumLengthExampleSingleLine from '../../examples/textfield/maximumLengthExampleSingleLine.js';
-import mobileExample1 from '../../examples/textfield/mobileExample1.js';
-import mobileExample2 from '../../examples/textfield/mobileExample2.js';
-import mobileExample3 from '../../examples/textfield/mobileExample3.js';
-import mobileExample4 from '../../examples/textfield/mobileExample4.js';
-import onlyPlaceRelatedFieldsSameLine from '../../examples/textfield/onlyPlaceRelatedFieldsSameLine.js';
-import passwordExample from '../../examples/textfield/passwordExample.js';
-import provideClearUsefulErrorMessages from '../../examples/textfield/provideClearUsefulErrorMessages.js';
-import readOnlyExample from '../../examples/textfield/readOnlyExample.js';
-import TextFieldSizes from '../../examples/textfield/sizesExample.js';
-import tagsExample from '../../examples/textfield/tagsExample.js';
-import textFieldRefAnchorPopover from '../../examples/textfield/textFieldRefAnchorPopover.js';
-import useHelperTextImportantInformation from '../../examples/textfield/useHelperTextImportantInformation.js';
+import { type Node as ReactNode } from 'react';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import considerAllFieldsAsRequired from '../../examples/textfield/considerAllFieldsAsRequired';
+import disabledExample from '../../examples/textfield/disabledExample';
+import dontDisplayGenericErrorMessages from '../../examples/textfield/dontDisplayGenericErrorMessages';
+import dontMarkFieldsAsRequired from '../../examples/textfield/dontMarkFieldsAsRequired';
+import dontPlaceUnrelatedFieldsSameLine from '../../examples/textfield/dontPlaceUnrelatedFieldsSameLine';
+import dontPutEssentialInformationPlaceholder from '../../examples/textfield/dontPutEssentialInformationPlaceholder';
+import dontRemoveLabel from '../../examples/textfield/dontRemoveLabel';
+import ensureVisibleLabel from '../../examples/textfield/ensureVisibleLabel';
+import errorMessageExample from '../../examples/textfield/errorMessageExample';
+import helperTextExplainOptionalInfo from '../../examples/textfield/helperTextExplainOptionalInfo';
+import labelsExample from '../../examples/textfield/labelsExample';
+import labelVisibilityExample from '../../examples/textfield/labelVisibilityExample';
+import localizationLabels from '../../examples/textfield/localizationLabels';
+import main from '../../examples/textfield/main';
+import maximumLengthExample from '../../examples/textfield/maximumLengthExample';
+import maximumLengthExampleSingleLine from '../../examples/textfield/maximumLengthExampleSingleLine';
+import mobileExample1 from '../../examples/textfield/mobileExample1';
+import mobileExample2 from '../../examples/textfield/mobileExample2';
+import mobileExample3 from '../../examples/textfield/mobileExample3';
+import mobileExample4 from '../../examples/textfield/mobileExample4';
+import onlyPlaceRelatedFieldsSameLine from '../../examples/textfield/onlyPlaceRelatedFieldsSameLine';
+import passwordExample from '../../examples/textfield/passwordExample';
+import provideClearUsefulErrorMessages from '../../examples/textfield/provideClearUsefulErrorMessages';
+import readOnlyExample from '../../examples/textfield/readOnlyExample';
+import textFieldSizes from '../../examples/textfield/sizesExample';
+import tagsExample from '../../examples/textfield/tagsExample';
+import textFieldRefAnchorPopover from '../../examples/textfield/textFieldRefAnchorPopover';
+import useHelperTextImportantInformation from '../../examples/textfield/useHelperTextImportantInformation';
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
@@ -473,7 +473,7 @@ The first example shows an empty Textfield with \`maxLength\` set to 20 characte
           description="TextField can have different sizes. The default size is medium (40px). The large size is 48px. For a dense variant, use the `sm` (32px) variant."
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample name="TextField Sizes" code={TextFieldSizes} />}
+            sandpackExample={<SandpackExample name="TextField Sizes" code={textFieldSizes} />}
           />
         </MainSection.Subsection>
       </MainSection>

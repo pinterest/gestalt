@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useRef, useState } from 'react';
+import { type Node as ReactNode, useRef, useState } from 'react';
 import { Box, Tag, TextArea } from 'gestalt';
 
 type ChangeTagHandler = ({
@@ -14,7 +14,7 @@ type KeyDownHandler = ({
 
 const CITIES = ['San Francisco', 'New York'];
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [value, setValue] = useState('');
   const [tags, setTags] = useState(CITIES);
 

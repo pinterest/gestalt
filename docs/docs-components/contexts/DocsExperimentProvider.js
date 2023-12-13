@@ -1,7 +1,7 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { ExperimentProvider } from 'gestalt';
-import { useAppContext } from '../appContext.js';
+import { useAppContext } from '../appContext';
 
 /**
  * To implement experimental behavior in the docs:
@@ -29,9 +29,9 @@ function buildExperimentsObj(experiments: $ReadOnlyArray<string>) {
   );
 }
 
-type Props = { children: Node };
+type Props = { children: ReactNode };
 
-export default function DocsExperimentProvider({ children }: Props): Node {
+export default function DocsExperimentProvider({ children }: Props): ReactNode {
   const { experiments } = useAppContext();
 
   return (

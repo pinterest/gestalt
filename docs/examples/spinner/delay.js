@@ -1,8 +1,8 @@
 // @flow strict
-import { Fragment, type Node, useState } from 'react';
+import { Fragment, type Node as ReactNode, useState } from 'react';
 import { Box, Button, Flex, Spinner } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [show, setShow] = useState(true);
   const [hasDelay, setHasDelay] = useState(true);
 

@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import PopoverEducational from './PopoverEducational.js';
+import PopoverEducational from './PopoverEducational';
 
 test('PopoverEducational renders', () => {
   const element = document.createElement('div');

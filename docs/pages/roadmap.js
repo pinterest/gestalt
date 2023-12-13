@@ -1,11 +1,11 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Flex, Link, Text } from 'gestalt';
 import roadmapData from './RoadmapData.json';
-import InternalOnlyIconButton from '../docs-components/InternalOnlyIconButton.js';
-import MainSection from '../docs-components/MainSection.js';
-import Page from '../docs-components/Page.js';
-import PageHeader from '../docs-components/PageHeader.js';
+import InternalOnlyIconButton from '../docs-components/InternalOnlyIconButton';
+import MainSection from '../docs-components/MainSection';
+import Page from '../docs-components/Page';
+import PageHeader from '../docs-components/PageHeader';
 
 export type Platform = 'Android' | 'iOS' | 'Mobile web' | 'Web';
 export type Status = 'inProgress' | 'problem' | 'ok' | 'unstarted';
@@ -47,7 +47,7 @@ function Task({
   );
 }
 
-export default function RoadmapPage(): Node {
+export default function RoadmapPage(): ReactNode {
   const [inProgressItems, futureItems, completeItems, abandonedItems] = [
     inProgress,
     future,

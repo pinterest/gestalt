@@ -1,9 +1,9 @@
 // @flow strict
 import { act, fireEvent, render, screen } from '@testing-library/react';
-import * as AnimationControllerModule from './animation/AnimationContext.js';
-import { ESCAPE } from './keyCodes.js';
-import OverlayPanel from './OverlayPanel.js';
-import * as useReducedMotionHook from './useReducedMotion.js';
+import * as AnimationControllerModule from './animation/AnimationContext';
+import { ESCAPE } from './keyCodes';
+import OverlayPanel from './OverlayPanel';
+import * as useReducedMotionHook from './useReducedMotion';
 
 jest.mock('./useReducedMotion.js');
 

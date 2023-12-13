@@ -1,5 +1,5 @@
 // @flow strict
-import Masonry from './Masonry.js';
+import Masonry from './Masonry';
 
 function Item() {
   return <div />;

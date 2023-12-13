@@ -1,15 +1,15 @@
 // @flow strict
-import { type Node } from 'react';
-import MainSection from '../../../docs-components/MainSection.js';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import SandpackExample from '../../../docs-components/SandpackExample.js';
+import { type Node as ReactNode } from 'react';
+import MainSection from '../../../docs-components/MainSection';
+import Page from '../../../docs-components/Page';
+import PageHeader from '../../../docs-components/PageHeader';
+import SandpackExample from '../../../docs-components/SandpackExample';
 // Examples
-import dangerouslySetInlineStyle from '../../../examples/hacking_gestalt/dangerouslySetInlineStyle.js';
-import ref from '../../../examples/hacking_gestalt/ref.js';
-import wrappingComponents from '../../../examples/hacking_gestalt/wrappingComponents.js';
+import dangerouslySetInlineStyle from '../../../examples/hacking_gestalt/dangerouslySetInlineStyle';
+import ref from '../../../examples/hacking_gestalt/ref';
+import wrappingComponents from '../../../examples/hacking_gestalt/wrappingComponents';
 
-export default function DocsPage(): Node {
+export default function DocsPage(): ReactNode {
   return (
     <Page title="How to hack around Gestalt">
       <PageHeader

@@ -1,6 +1,6 @@
 // @flow strict
 import renderer from 'react-test-renderer';
-import Table from './Table.js';
+import Table from './Table';
 
 test('renders correctly', () => {
   const tree = renderer

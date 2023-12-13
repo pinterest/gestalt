@@ -1,6 +1,6 @@
 // @flow strict
 import renderer from 'react-test-renderer';
-import Container from './Container.js';
+import Container from './Container';
 
 test('Container renders', () => {
   const component = renderer.create(<Container />);

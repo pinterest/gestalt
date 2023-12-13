@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Flex, Icon, Link, Status, Text } from 'gestalt';
-import { STATUS_DESCRIPTION, STATUS_EQUIVALENCY_MAP } from './data/componentStatusMessaging.js';
-import { type StatusType } from './data/types.js';
+import { STATUS_DESCRIPTION, STATUS_EQUIVALENCY_MAP } from './data/componentStatusMessaging';
+import { type StatusType } from './data/types';
 
 type Props = {
   status: StatusType | 'deprecated',
@@ -10,7 +10,7 @@ type Props = {
   href?: string,
 };
 
-export default function StatusData({ status, text, href }: Props): Node {
+export default function StatusData({ status, text, href }: Props): ReactNode {
   const label = text || STATUS_DESCRIPTION[status].title;
 
   if (!status) return null;

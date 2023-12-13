@@ -1,7 +1,7 @@
 // @flow strict
-import { type Node } from 'react';
-import VisuallyHidden from './VisuallyHidden.js';
+import { type Node as ReactNode } from 'react';
+import VisuallyHidden from './VisuallyHidden';
 
-export default function AccessibilityPause(): Node {
+export default function AccessibilityPause(): ReactNode {
   return <VisuallyHidden>,</VisuallyHidden>;
 }

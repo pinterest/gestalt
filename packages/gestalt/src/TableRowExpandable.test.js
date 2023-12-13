@@ -1,6 +1,6 @@
 // @flow strict
 import renderer from 'react-test-renderer';
-import TableRowExpandable from './TableRowExpandable.js';
+import TableRowExpandable from './TableRowExpandable';
 
 test('renders correctly', () => {
   const tree = renderer

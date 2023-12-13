@@ -9,17 +9,17 @@ import {
   type AbstractComponent,
   type ElementConfig,
   forwardRef,
-  type Node,
+  type Node as ReactNode,
   useImperativeHandle,
   useRef,
   useState,
 } from 'react';
 import classnames from 'classnames';
 import styles from '../IconButton.css';
-import Pog from '../Pog.js';
+import Pog from '../Pog';
 import touchableStyles from '../TapArea.css';
-import useFocusVisible from '../useFocusVisible.js';
-import useTapFeedback from '../useTapFeedback.js';
+import useFocusVisible from '../useFocusVisible';
+import useTapFeedback from '../useTapFeedback';
 
 type Props = {
   accessibilityLabel: string,
@@ -42,7 +42,7 @@ const InternalDismissIconButtonWithForwardRef: AbstractComponent<Props, HTMLButt
       size = 'lg',
     }: Props,
     ref,
-  ): Node {
+  ): ReactNode {
     const innerRef = useRef<HTMLButtonElement | null>(null);
 
     // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component

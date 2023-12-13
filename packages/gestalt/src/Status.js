@@ -1,9 +1,9 @@
 // @flow strict
-import { type Node } from 'react';
-import Box from './Box.js';
-import Flex from './Flex.js';
-import Icon from './Icon.js';
-import Text from './Text.js';
+import { type Node as ReactNode } from 'react';
+import Box from './Box';
+import Flex from './Flex';
+import Icon from './Icon';
+import Text from './Text';
 
 const ICON_COLOR_MAP = {
   canceled: {
@@ -17,6 +17,10 @@ const ICON_COLOR_MAP = {
   inProgress: {
     icon: 'workflow-status-in-progress',
     color: 'success',
+  },
+  locked: {
+    icon: 'lock',
+    color: 'subtle',
   },
   ok: {
     icon: 'workflow-status-ok',
@@ -45,6 +49,7 @@ type StatusType =
   | 'queued'
   | 'inProgress'
   | 'halted'
+  | 'locked'
   | 'ok'
   | 'problem'
   | 'canceled'
@@ -76,7 +81,7 @@ type Props = {
  * ![Status dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Status-dark.spec.mjs-snapshots/Status-dark-chromium-darwin.png)
  *
  */
-export default function Status({ accessibilityLabel, subtext, title, type }: Props): Node {
+export default function Status({ accessibilityLabel, subtext, title, type }: Props): ReactNode {
   const { icon, color } = ICON_COLOR_MAP[type];
 
   return (

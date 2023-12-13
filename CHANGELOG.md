@@ -1,3 +1,183 @@
+## 128.3.6 (Nov 22, 2023)
+
+### Patch
+
+- Docs: listing more Gestalt metrics graphs ([#3309](https://github.com/pinterest/gestalt/pull/3309)) - [Preview link](https://deploy-preview-3309--gestalt.netlify.app?devexample=true)
+
+## 128.3.5 (Nov 20, 2023)
+
+### Patch
+
+- Internal: Changed config in .eslintrc.js to set import/extensions to never require .js extension ([#3300](https://github.com/pinterest/gestalt/pull/3300)) - [Preview link](https://deploy-preview-3300--gestalt.netlify.app?devexample=true)
+
+## 128.3.4 (Nov 18, 2023)
+
+### Patch
+
+- Docs: new or updated iOS docs for Avatar, AvatarGroup, Button, ButtonGroup, IconFloatingButton ([#3308](https://github.com/pinterest/gestalt/pull/3308)) - [Preview link](https://deploy-preview-3308--gestalt.netlify.app?devexample=true)
+
+## 128.3.3 (Nov 18, 2023)
+
+### Patch
+
+- Docs: Updates to sheet language ([#3305](https://github.com/pinterest/gestalt/pull/3305)) - [Preview link](https://deploy-preview-3305--gestalt.netlify.app?devexample=true)
+
+## 128.3.2 (Nov 18, 2023)
+
+### Patch
+
+- Docs: Update best practices headings ([#3307](https://github.com/pinterest/gestalt/pull/3307)) - [Preview link](https://deploy-preview-3307--gestalt.netlify.app?devexample=true)
+
+## 128.3.1 (Nov 17, 2023)
+
+### Patch
+
+- Docs: updated Tag description ([#3306](https://github.com/pinterest/gestalt/pull/3306)) - [Preview link](https://deploy-preview-3306--gestalt.netlify.app?devexample=true)
+
+## 128.3.0 (Nov 17, 2023)
+
+### Minor
+
+- Internal: Fix eventhandler import ([#3303](https://github.com/pinterest/gestalt/pull/3303)) - [Preview link](https://deploy-preview-3303--gestalt.netlify.app?devexample=true)
+
+## 128.2.3 (Nov 17, 2023)
+
+### Patch
+
+- Docs: Updated px to dp on avatar.md ([#3304](https://github.com/pinterest/gestalt/pull/3304)) - [Preview link](https://deploy-preview-3304--gestalt.netlify.app?devexample=true)
+
+## 128.2.2 (Nov 16, 2023)
+
+### Patch
+
+- Internal: fix ([#3302](https://github.com/pinterest/gestalt/pull/3302)) - [Preview link](https://deploy-preview-3302--gestalt.netlify.app?devexample=true)
+
+## 128.2.1 (Nov 15, 2023)
+
+### Patch
+
+- Internal: Fixed TypeScript declaration file ([#3301](https://github.com/pinterest/gestalt/pull/3301)) - [Preview link](https://deploy-preview-3301--gestalt.netlify.app?devexample=true)
+
+## 128.2.0 (Nov 15, 2023)
+
+### Minor
+
+- Docs: Stackblitz Support ([#3279](https://github.com/pinterest/gestalt/pull/3279)) - [Preview link](https://deploy-preview-3279--gestalt.netlify.app?devexample=true)
+
+## 128.1.5 (Nov 14, 2023)
+
+### Patch
+
+- Icon: new icons for comments, captions and conversions ([#3298](https://github.com/pinterest/gestalt/pull/3298)) - [Preview link](https://deploy-preview-3298--gestalt.netlify.app?devexample=true)
+
+## 128.1.4 (Nov 14, 2023)
+
+### Patch
+
+- Internal: Renamed `type Node` to `type Node as ReactNode` ([#3296](https://github.com/pinterest/gestalt/pull/3296)) - [Preview link](https://deploy-preview-3296--gestalt.netlify.app?devexample=true)
+
+## 128.1.3 (Nov 7, 2023)
+
+### Patch
+
+- Docs: implement `?helixbot=boolean` in the url to enable a site without code examples to facilitate the crawling of the helix-bot to integrate AI ([#3294](https://github.com/pinterest/gestalt/pull/3294)) - [Preview link](https://deploy-preview-3294--gestalt.netlify.app?devexample=true)
+
+## 128.1.2 (Nov 3, 2023)
+
+### Patch
+
+- Status: Add locked status ([#3293](https://github.com/pinterest/gestalt/pull/3293)) - [Preview link](https://deploy-preview-3293--gestalt.netlify.app?devexample=true)
+
+## 128.1.1 (Nov 3, 2023)
+
+### Patch
+
+- Docs: Newsletter October ([#3292](https://github.com/pinterest/gestalt/pull/3292)) - [Preview link](https://deploy-preview-3292--gestalt.netlify.app?devexample=true)
+
+## 128.1.0 (Nov 3, 2023)
+
+### Minor
+
+- NumberField: added `labelDisplay` prop ([#3291](https://github.com/pinterest/gestalt/pull/3291)) - [Preview link](https://deploy-preview-3291--gestalt.netlify.app?devexample=true)
+
+## 128.0.6 (Nov 2, 2023)
+
+### Patch
+
+- Popover: Base implementation using Floating-UI ([#3244](https://github.com/pinterest/gestalt/pull/3244)) - [Preview link](https://deploy-preview-3244--gestalt.netlify.app?devexample=true)
+
+## 128.0.5 (Nov 1, 2023)
+
+### Patch
+
+- Docs: fixes in Markdown links and links ([#3290](https://github.com/pinterest/gestalt/pull/3290)) - [Preview link](https://deploy-preview-3290--gestalt.netlify.app?devexample=true)
+
+## 128.0.4 (Nov 1, 2023)
+
+### Patch
+
+- Docs: fixed paragraph typo ([#3289](https://github.com/pinterest/gestalt/pull/3289)) - [Preview link](https://deploy-preview-3289--gestalt.netlify.app?devexample=true)
+
+## 128.0.3 (Oct 31, 2023)
+
+### Patch
+
+- Docs: Experimentation section ([#3288](https://github.com/pinterest/gestalt/pull/3288)) - [Preview link](https://deploy-preview-3288--gestalt.netlify.app?devexample=true)
+
+## 128.0.2 (Oct 31, 2023)
+
+### Patch
+
+- Docs: foundations-data-visualization-updates ([#3287](https://github.com/pinterest/gestalt/pull/3287)) - [Preview link](https://deploy-preview-3287--gestalt.netlify.app?devexample=true)
+
+## 128.0.1 (Oct 30, 2023)
+
+### Patch
+
+- TextArea: iOS Publishing docs ([#3286](https://github.com/pinterest/gestalt/pull/3286)) - [Preview link](https://deploy-preview-3286--gestalt.netlify.app?devexample=true)
+
+## 128.0.0 (Oct 30, 2023)
+
+### Major
+
+- RadioGroup/DatePicker/DateField/DateRange: Updating GlobalEventsHandlerProvider for impression logging hooks ([#3260](https://github.com/pinterest/gestalt/pull/3260)) - [Preview link](https://deploy-preview-3260--gestalt.netlify.app?devexample=true)
+
+## 127.5.6 (Oct 30, 2023)
+
+### Patch
+
+- Internal: Bump browserify-sign from 4.0.4 to 4.2.2 ([#3282](https://github.com/pinterest/gestalt/pull/3282)) - [Preview link](https://deploy-preview-3282--gestalt.netlify.app?devexample=true)
+
+## 127.5.5 (Oct 27, 2023)
+
+### Patch
+
+- Icon: updated TS types ([#3285](https://github.com/pinterest/gestalt/pull/3285)) - [Preview link](https://deploy-preview-3285--gestalt.netlify.app?devexample=true)
+
+## 127.5.4 (Oct 25, 2023)
+
+### Patch
+
+- Docs: Add iOS Badge docs ([#3277](https://github.com/pinterest/gestalt/pull/3277)) - [Preview link](https://deploy-preview-3277--gestalt.netlify.app?devexample=true)
+
+## 127.5.3 (Oct 25, 2023)
+
+### Patch
+
+- Docs: Clarifying updates to ListAction docs ([#3278](https://github.com/pinterest/gestalt/pull/3278)) - [Preview link](https://deploy-preview-3278--gestalt.netlify.app?devexample=true)
+
+## 127.5.2 (Oct 24, 2023)
+
+### Patch
+
+- Docs: layout and general cleanups ([#3272](https://github.com/pinterest/gestalt/pull/3272)) - [Preview link](https://deploy-preview-3272--gestalt.netlify.app?devexample=true)
+
+## 127.5.1 (Oct 24, 2023)
+
+### Patch
+
+- Divider: make vertical border lightgray ([#3262](https://github.com/pinterest/gestalt/pull/3262)) - [Preview link](https://deploy-preview-3262--gestalt.netlify.app?devexample=true)
+
 ## 127.5.0 (Oct 20, 2023)
 
 ### Minor

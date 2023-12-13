@@ -1,14 +1,14 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Flex } from 'gestalt';
-import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts.js';
-import MainSection from '../../../docs-components/MainSection.js';
-import Page from '../../../docs-components/Page.js';
-import PageHeader from '../../../docs-components/PageHeader.js';
-import SandpackExample from '../../../docs-components/SandpackExample.js';
-import useExample from '../../../examples/animation/useExample.js';
+import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts';
+import MainSection from '../../../docs-components/MainSection';
+import Page from '../../../docs-components/Page';
+import PageHeader from '../../../docs-components/PageHeader';
+import SandpackExample from '../../../docs-components/SandpackExample';
+import useExample from '../../../examples/animation/useExample';
 
-export default function AnimationImplementation(): Node {
+export default function AnimationImplementation(): ReactNode {
   return (
     <Page title="Implementing animations">
       <PageHeader

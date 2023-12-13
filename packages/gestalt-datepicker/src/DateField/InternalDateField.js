@@ -1,7 +1,7 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable react/display-name */
 // @flow strict-local
-import { forwardRef, type Node, useState } from 'react';
+import { forwardRef, type Node as ReactNode, useState } from 'react';
 import { StyledEngineProvider } from '@mui/material/styles';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { unstable_useDateField as useDateField } from '@mui/x-date-pickers/DateField';
@@ -89,7 +89,7 @@ const CustomTextField = forwardRef(
       ownerState,
     }: CustomTextFieldProps,
     inputRef: ((null | HTMLInputElement) => mixed) | { current: null | HTMLInputElement, ... },
-  ): Node => {
+  ): ReactNode => {
     const [iconFocused, setIconFocused] = useState(false);
 
     const styledClasses = classnames(
@@ -171,7 +171,7 @@ function CustomDateField({
   slots,
   slotProps,
   ...textFieldProps
-}: CustomDateFieldProps): Node {
+}: CustomDateFieldProps): ReactNode {
   return (
     <CustomTextField
       {...useDateField({
@@ -258,7 +258,7 @@ type InternalDateFieldProps = {
   autoComplete?: 'bday' | 'off',
   disabled?: boolean,
   disableRange?: 'disableFuture' | 'disablePast',
-  errorMessage?: Node,
+  errorMessage?: ReactNode,
   helperText?: string,
   id: string,
   label?: string,
@@ -310,7 +310,7 @@ function InternalDateField({
   readOnly = false,
   size,
   value,
-}: InternalDateFieldProps): Node {
+}: InternalDateFieldProps): ReactNode {
   let translations = getTranslationsFromMUIJS(localeData);
 
   if (!translations) {

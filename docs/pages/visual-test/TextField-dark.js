@@ -1,9 +1,9 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { ColorSchemeProvider } from 'gestalt';
-import TextFieldScreenshot from './TextField.js';
+import TextFieldScreenshot from './TextField';
 
-export default function Screenshot(): Node {
+export default function Screenshot(): ReactNode {
   return (
     <ColorSchemeProvider colorScheme="dark">
       <TextFieldScreenshot />

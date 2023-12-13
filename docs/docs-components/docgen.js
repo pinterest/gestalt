@@ -1,5 +1,5 @@
 // @flow strict
-import metadata from './metadata.js';
+import metadata from './metadata';
 
 export type DocGen = {
   description: string,

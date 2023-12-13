@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import SelectList from './SelectList.js';
+import SelectList from './SelectList';
 
 const options = [
   { label: 'option1', value: 'value1' },

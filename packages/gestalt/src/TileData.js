@@ -1,18 +1,18 @@
 // @flow strict
-import { type Node, useId } from 'react';
+import { type Node as ReactNode, useId } from 'react';
 import classnames from 'classnames';
-import Box from './Box.js';
-import InternalCheckbox from './Checkbox/InternalCheckbox.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import InternalDatapoint from './Datapoint/InternalDatapoint.js';
-import Flex from './Flex.js';
-import TapArea from './TapArea.js';
+import Box from './Box';
+import InternalCheckbox from './Checkbox/InternalCheckbox';
+import { useColorScheme } from './contexts/ColorSchemeProvider';
+import InternalDatapoint from './Datapoint/InternalDatapoint';
+import Flex from './Flex';
+import TapArea from './TapArea';
 import styles from './TileData.css';
-import getCheckboxColors from './utils/datavizcolors/getCheckboxColor.js';
-import getDataVisualizationColor from './utils/datavizcolors/getDataVisualizationColor.js';
-import MaybeTooltip from './utils/MaybeTooltip.js';
-import useInteractiveStates from './utils/useInteractiveStates.js';
-import { type Indexable } from './zIndex.js';
+import getCheckboxColors from './utils/datavizcolors/getCheckboxColor';
+import getDataVisualizationColor from './utils/datavizcolors/getDataVisualizationColor';
+import MaybeTooltip from './utils/MaybeTooltip';
+import useInteractiveStates from './utils/useInteractiveStates';
+import { type Indexable } from './zIndex';
 
 type TooltipProps = {
   accessibilityLabel?: string,
@@ -117,7 +117,7 @@ export default function TileData({
   trend,
   trendSentiment,
   value,
-}: Props): Node {
+}: Props): ReactNode {
   const theme = useColorScheme();
   const borderColor = getDataVisualizationColor(theme, color);
   const bgColor = getDataVisualizationColor(theme, color, { lighten: true });

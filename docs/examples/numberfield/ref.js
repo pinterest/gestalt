@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useEffect, useRef, useState } from 'react';
+import { type Node as ReactNode, useEffect, useRef, useState } from 'react';
 import { Box, Flex, NumberField } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [currentValue, setCurrentValue] = useState<void | number>();
   const [errorMessage, setErrorMessage] = useState<void | string>(undefined);
   const ref = useRef<null | HTMLInputElement>(null);

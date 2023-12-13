@@ -1,5 +1,5 @@
 // @flow strict
-import Datapoint from './Datapoint.js';
+import Datapoint from './Datapoint';
 
 const Valid = (
   <Datapoint

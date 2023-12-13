@@ -1,18 +1,18 @@
 // @flow strict
-import { type Element, type Node, useId, useState } from 'react';
+import { type Element, type Node as ReactNode, useId, useState } from 'react';
 import classnames from 'classnames';
-import { useDeviceType } from './contexts/DeviceTypeProvider.js';
-import { NestingProvider, useNesting } from './contexts/NestingProvider.js';
-import { useSideNavigation } from './contexts/SideNavigationProvider.js';
-import Dropdown from './Dropdown.js';
-import icons from './icons/index.js';
+import { useDeviceType } from './contexts/DeviceTypeProvider';
+import { NestingProvider, useNesting } from './contexts/NestingProvider';
+import { useSideNavigation } from './contexts/SideNavigationProvider';
+import Dropdown from './Dropdown';
+import icons from './icons/index';
 import styles from './SideNavigation.css';
-import getChildrenToArray from './SideNavigation/getChildrenToArray.js';
-import SideNavigationGroupContent from './SideNavigation/GroupContent.js';
-import SideNavigationGroupMobile from './SideNavigation/GroupMobile.js';
-import { NESTING_MARGIN_START_MAP } from './SideNavigationTopItem.js';
-import TapArea from './TapArea.js';
-import { type Indexable } from './zIndex.js';
+import getChildrenToArray from './SideNavigation/getChildrenToArray';
+import SideNavigationGroupContent from './SideNavigation/GroupContent';
+import SideNavigationGroupMobile from './SideNavigation/GroupMobile';
+import { NESTING_MARGIN_START_MAP } from './SideNavigationTopItem';
+import TapArea from './TapArea';
+import { type Indexable } from './zIndex';
 
 type IconType = $Keys<typeof icons> | { __path: string };
 type Display = 'expandable' | 'static';
@@ -32,7 +32,7 @@ export type Props = {
   /**
    * Content of the group. See [nested directory](https://gestalt.pinterest.systems/web/sidenavigation#Nested-directory) variant for more information.
    */
-  children: Node,
+  children: ReactNode,
   /**
    * When supplied, will display a counter. See the [Counter](https://gestalt.pinterest.systems/web/sidenavigation#Counter) variant to learn more.
    */
@@ -82,7 +82,7 @@ export default function SideNavigationGroup({
   notificationAccessibilityLabel,
   label,
   primaryAction,
-}: Props): Node {
+}: Props): ReactNode {
   // Manages adaptiveness
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';

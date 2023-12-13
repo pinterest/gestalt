@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useRef } from 'react';
+import { type Node as ReactNode, useRef } from 'react';
 import { Box, ComboBox, Flex } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const ref = useRef<null | HTMLInputElement>(null);
 
   return (

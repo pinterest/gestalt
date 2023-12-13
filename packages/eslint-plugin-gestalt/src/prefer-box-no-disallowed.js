@@ -7,7 +7,7 @@ import {
   renameTagFixer,
   renameTagWithPropsFixer,
   updateGestaltImportFixer,
-} from './helpers/eslintASTFixers.js';
+} from './helpers/eslintASTFixers';
 import {
   buildProps,
   getNodeFromPropName,
@@ -19,9 +19,9 @@ import {
   hasSpreadAttributes,
   hasUnsupportedAttributes,
   isTag,
-} from './helpers/eslintASTHelpers.js';
-import { type ESLintRule } from './helpers/eslintFlowTypes.js';
-import { allowedBaseProps } from './no-box-disallowed-props.js';
+} from './helpers/eslintASTHelpers';
+import { type ESLintRule } from './helpers/eslintFlowTypes';
+import { allowedBaseProps } from './no-box-disallowed-props';
 
 const rule: ESLintRule = {
   meta: {

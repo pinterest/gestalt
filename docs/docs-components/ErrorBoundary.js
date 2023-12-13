@@ -1,9 +1,9 @@
 // @flow strict
 
-import React, { type Node } from 'react';
+import React, { type Node as ReactNode } from 'react';
 import { Button, Text } from 'gestalt';
 
-class ErrorBoundary extends React.Component<{ children: Node }, { hasError: boolean }> {
+class ErrorBoundary extends React.Component<{ children: ReactNode }, { hasError: boolean }> {
   state: { hasError: boolean } = { hasError: false };
 
   static getDerivedStateFromError(): { hasError: boolean } {
@@ -17,7 +17,7 @@ class ErrorBoundary extends React.Component<{ children: Node }, { hasError: bool
     console.log({ error, errorInfo });
   }
 
-  render(): Node {
+  render(): ReactNode {
     // Check if the error is thrown
     if (this.state.hasError) {
       // You can render any custom fallback UI

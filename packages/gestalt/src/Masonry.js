@@ -1,20 +1,20 @@
 // @flow strict
-import { Component as ReactComponent, type Node } from 'react';
-import debounce, { type DebounceReturn } from './debounce.js';
-import FetchItems from './FetchItems.js';
+import { Component as ReactComponent, type Node as ReactNode } from 'react';
+import debounce, { type DebounceReturn } from './debounce';
+import FetchItems from './FetchItems';
 import styles from './Masonry.css';
-import { type Cache } from './Masonry/Cache.js';
-import defaultLayout from './Masonry/defaultLayout.js';
-import defaultTwoColumnModuleLayout from './Masonry/defaultTwoColumnModuleLayout.js';
-import fullWidthLayout from './Masonry/fullWidthLayout.js';
-import HeightsStore, { type HeightsStoreInterface } from './Masonry/HeightsStore.js';
-import MeasureItems from './Masonry/MeasureItems.js';
-import MeasurementStore from './Masonry/MeasurementStore.js';
-import ScrollContainer from './Masonry/ScrollContainer.js';
-import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils.js';
-import { type Position } from './Masonry/types.js';
-import uniformRowLayout from './Masonry/uniformRowLayout.js';
-import throttle, { type ThrottleReturn } from './throttle.js';
+import { type Cache } from './Masonry/Cache';
+import defaultLayout from './Masonry/defaultLayout';
+import defaultTwoColumnModuleLayout from './Masonry/defaultTwoColumnModuleLayout';
+import fullWidthLayout from './Masonry/fullWidthLayout';
+import HeightsStore, { type HeightsStoreInterface } from './Masonry/HeightsStore';
+import MeasureItems from './Masonry/MeasureItems';
+import MeasurementStore from './Masonry/MeasurementStore';
+import ScrollContainer from './Masonry/ScrollContainer';
+import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
+import { type Position } from './Masonry/types';
+import uniformRowLayout from './Masonry/uniformRowLayout';
+import throttle, { type ThrottleReturn } from './throttle';
 
 const RESIZE_DEBOUNCE = 300;
 
@@ -81,7 +81,7 @@ type Props<T> = {
     +data: T,
     +itemIdx: number,
     +isMeasuring: boolean,
-  }) => Node,
+  }) => ReactNode,
   /**
    * A function that returns a DOM node that Masonry uses for scroll event subscription. This DOM node is intended to be the most immediate ancestor of Masonry in the DOM that will have a scroll bar; in most cases this will be the `window` itself, although sometimes Masonry is used inside containers that have `overflow: auto`. `scrollContainer` is optional, although it is required for features such as `virtualize` and `loadItems`.
    *
@@ -418,7 +418,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     this.forceUpdate();
   }
 
-  renderMasonryComponent: (itemData: T, idx: number, position: Position) => Node = (
+  renderMasonryComponent: (itemData: T, idx: number, position: Position) => ReactNode = (
     itemData,
     idx,
     position,
@@ -475,7 +475,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     return virtualize ? (isVisible && itemComponent) || null : itemComponent;
   };
 
-  render(): Node {
+  render(): ReactNode {
     const {
       columnWidth,
       gutterWidth: gutter,

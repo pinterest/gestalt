@@ -1,36 +1,36 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Button, SlimBanner } from 'gestalt';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import CombinationNew from '../../docs-components/CombinationNew.js';
-import docGen, { type DocGen, type DocType } from '../../docs-components/docgen.js';
-import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import PropTable from '../../docs-components/PropTable.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import accessibilityDropdownExample from '../../examples/button/accessibilityDropdownExample.js';
-import buttonPopoverExample from '../../examples/button/buttonPopoverExample.js';
-import defaultStateExample from '../../examples/button/defaultStateExample.js';
-import disabledStateExample from '../../examples/button/disabledStateExample.js';
-import iconEndExample from '../../examples/button/iconEndExample.js';
-import iconTooltipToExplainDo from '../../examples/button/iconTooltipToExplainDo.js';
-import iconTooltipToExplainDont from '../../examples/button/iconTooltipToExplainDont.js';
-import keepSimpleTextDo from '../../examples/button/keepSimpleTextDo.js';
-import keepSimpleTextDont from '../../examples/button/keepSimpleTextDont.js';
-import main from '../../examples/button/main.js';
-import placePrimaryButtonDo from '../../examples/button/placePrimaryButtonDo.js';
-import placePrimaryButtonDont from '../../examples/button/placePrimaryButtonDont.js';
-import selectedStateExample from '../../examples/button/selectedStateExample.js';
-import showFullTextDo from '../../examples/button/showFullTextDo.js';
-import showFullTextDont from '../../examples/button/showFullTextDont.js';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import CombinationNew from '../../docs-components/CombinationNew';
+import docGen, { type DocGen, type DocType } from '../../docs-components/docgen';
+import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import PropTable from '../../docs-components/PropTable';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import accessibilityDropdownExample from '../../examples/button/accessibilityDropdownExample';
+import buttonPopoverExample from '../../examples/button/buttonPopoverExample';
+import defaultStateExample from '../../examples/button/defaultStateExample';
+import disabledStateExample from '../../examples/button/disabledStateExample';
+import iconEndExample from '../../examples/button/iconEndExample';
+import iconTooltipToExplainDo from '../../examples/button/iconTooltipToExplainDo';
+import iconTooltipToExplainDont from '../../examples/button/iconTooltipToExplainDont';
+import keepSimpleTextDo from '../../examples/button/keepSimpleTextDo';
+import keepSimpleTextDont from '../../examples/button/keepSimpleTextDont';
+import main from '../../examples/button/main';
+import placePrimaryButtonDo from '../../examples/button/placePrimaryButtonDo';
+import placePrimaryButtonDont from '../../examples/button/placePrimaryButtonDont';
+import selectedStateExample from '../../examples/button/selectedStateExample';
+import showFullTextDo from '../../examples/button/showFullTextDo';
+import showFullTextDont from '../../examples/button/showFullTextDont';
 
 const PREVIEW_HEIGHT = 300;
 
-export default function DocsPage({ generatedDocGen }: DocType): Node {
+export default function DocsPage({ generatedDocGen }: DocType): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader

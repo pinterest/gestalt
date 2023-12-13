@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Avatar, Box, Link, Table, Text, WashAnimated } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [textShown, setTextShown] = useState(false);
   const showTextOnExpand = () => <Text>Row expanded</Text>;
 

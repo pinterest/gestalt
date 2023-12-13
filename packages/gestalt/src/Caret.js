@@ -1,5 +1,6 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
+import { type MainDirections } from './utils/positioningTypes';
 
 const PATHS = {
   down: 'M0 4c.694 0 1.36-.278 1.846-.773L4.376.66c.806-.819 2.187-.885 3.083-.148.057.047.111.096.163.148l2.526 2.565A2.6 2.6 0 0012 4',
@@ -10,12 +11,12 @@ const PATHS = {
 };
 
 type Props = {
-  direction: 'up' | 'right' | 'down' | 'left' | 'forceDown',
+  direction: MainDirections,
   height: 4 | 12,
   width: 4 | 12,
 };
 
-export default function Caret(props: Props): Node {
+export default function Caret(props: Props): ReactNode {
   const { direction, height, width } = props;
 
   const path = PATHS[direction === 'forceDown' ? 'down' : direction];

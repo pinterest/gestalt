@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, SelectList } from 'gestalt';
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [country, setCountry] = useState('');
   return (
     <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">

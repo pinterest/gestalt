@@ -1,26 +1,26 @@
 // @flow strict
-import { type Node } from 'react';
-import AccessibilitySection from '../../docs-components/AccessibilitySection.js';
-import docGen, { type DocGen } from '../../docs-components/docgen.js';
-import LocalizationSection from '../../docs-components/LocalizationSection.js';
-import MainSection from '../../docs-components/MainSection.js';
-import Page from '../../docs-components/Page.js';
-import PageHeader from '../../docs-components/PageHeader.js';
-import QualityChecklist from '../../docs-components/QualityChecklist.js';
-import SandpackExample from '../../docs-components/SandpackExample.js';
-import dontCreateYourOwn from '../../examples/divider/dontCreateYourOwn.js';
-import dontInset from '../../examples/divider/dontInset.js';
-import dontOveruse from '../../examples/divider/dontOveruse.js';
-import dontUseForDecoration from '../../examples/divider/dontUseForDecoration.js';
-import mainExample from '../../examples/divider/mainExample.js';
-import orientationExample1 from '../../examples/divider/orientationExample1.js';
-import orientationExample2 from '../../examples/divider/orientationExample2.js';
-import useDefaultGestalt from '../../examples/divider/useDefaultGestalt.js';
-import useFromEdgeToEdge from '../../examples/divider/useFromEdgeToEdge.js';
-import useToSeparateCollections from '../../examples/divider/useToSeparateCollections.js';
-import useWhitespaceToSeparateGroups from '../../examples/divider/useWhitespaceToSeparateGroups.js';
+import { type Node as ReactNode } from 'react';
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
+import LocalizationSection from '../../docs-components/LocalizationSection';
+import MainSection from '../../docs-components/MainSection';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import dontCreateYourOwn from '../../examples/divider/dontCreateYourOwn';
+import dontInset from '../../examples/divider/dontInset';
+import dontOveruse from '../../examples/divider/dontOveruse';
+import dontUseForDecoration from '../../examples/divider/dontUseForDecoration';
+import mainExample from '../../examples/divider/mainExample';
+import orientationExample1 from '../../examples/divider/orientationExample1';
+import orientationExample2 from '../../examples/divider/orientationExample2';
+import useDefaultGestalt from '../../examples/divider/useDefaultGestalt';
+import useFromEdgeToEdge from '../../examples/divider/useFromEdgeToEdge';
+import useToSeparateCollections from '../../examples/divider/useToSeparateCollections';
+import useWhitespaceToSeparateGroups from '../../examples/divider/useWhitespaceToSeparateGroups';
 
-export default function DividerPage({ generatedDocGen }: { generatedDocGen: DocGen }): Node {
+export default function DividerPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>

@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { id } from 'date-fns/locale';
-import DateRange from './DateRange.js';
+import DateRange from './DateRange';
 
 function DateRangeWrap({
   initialStartDate,

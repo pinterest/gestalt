@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Text, useColorScheme } from 'gestalt';
 import tokens from 'gestalt-design-tokens/dist/json/variables.json';
 import darkModeTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
@@ -11,7 +11,7 @@ type Props = {
   textColor?: 'dark' | 'light' | 'default' | 'inverse',
 };
 
-function ColorTile({ description, fullTokenName, number = 400, textColor }: Props): Node {
+function ColorTile({ description, fullTokenName, number = 400, textColor }: Props): ReactNode {
   const newTextColor = textColor || (number > 400 ? 'light' : 'dark');
   const borderNeeded = fullTokenName?.includes('white') || fullTokenName?.includes('inverse');
   const { name: colorSchemeName } = useColorScheme();

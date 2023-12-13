@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node, useState } from 'react';
+import { type Node as ReactNode, useState } from 'react';
 import { Box, Flex, Link, NumberField, Text } from 'gestalt';
 
 function TextExample({
@@ -8,7 +8,7 @@ function TextExample({
 }: {
   linkDisplay: 'inline' | 'inlineBlock',
   maxWidth: number,
-}): Node {
+}): ReactNode {
   return (
     <Box borderStyle="sm" maxWidth={maxWidth} padding={2} rounding={2}>
       <Text>
@@ -24,7 +24,7 @@ function TextExample({
   );
 }
 
-export default function Example(): Node {
+export default function Example(): ReactNode {
   const [containerWidth, setContainerWidth] = useState(250);
 
   return (

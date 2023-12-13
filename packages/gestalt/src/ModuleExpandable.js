@@ -1,11 +1,18 @@
 // @flow strict
-import { type Element, Fragment, type Node, useCallback, useEffect, useState } from 'react';
-import Box from './Box.js';
-import { useColorScheme } from './contexts/ColorSchemeProvider.js';
-import Divider from './Divider.js';
-import IconButton from './IconButton.js';
-import icons from './icons/index.js';
-import ModuleExpandableItem from './Module/ExpandableItem.js';
+import {
+  type Element,
+  Fragment,
+  type Node as ReactNode,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
+import Box from './Box';
+import { useColorScheme } from './contexts/ColorSchemeProvider';
+import Divider from './Divider';
+import IconButton from './IconButton';
+import icons from './icons/index';
+import ModuleExpandableItem from './Module/ExpandableItem';
 
 function getExpandedId(expandedIndex: ?number): ?number {
   return Number.isFinite(expandedIndex) ? expandedIndex : null;
@@ -39,7 +46,7 @@ type Props = {
    */
   items: $ReadOnlyArray<{
     badge?: BadgeType,
-    children?: Node,
+    children?: ReactNode,
     icon?: $Keys<typeof icons>,
     iconAccessibilityLabel?: string,
     iconButton?: Element<typeof IconButton>,
@@ -63,7 +70,7 @@ export default function ModuleExpandable({
   id,
   items,
   onExpandedChange,
-}: Props): Node {
+}: Props): ReactNode {
   const [expandedId, setExpandedId] = useState<?number>(getExpandedId(expandedIndex));
 
   const { name: colorSchemeName } = useColorScheme();

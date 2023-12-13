@@ -3,7 +3,9 @@
   "tasks": [
     {
       "type": "shell",
-      "command": "yarn start",
+      "osx": {
+        "command": "yarn start"
+      },
       "problemMatcher": [],
       "label": "Run yarn start on startup",
       "presentation": {

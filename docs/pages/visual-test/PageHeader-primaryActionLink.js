@@ -1,8 +1,8 @@
 // @flow strict
-import { type Node } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, Dropdown, Link, PageHeader, Text } from 'gestalt';
 
-export default function Snapshot(): Node {
+export default function Snapshot(): ReactNode {
   return (
     <Box width="100vw" height={170}>
       <PageHeader

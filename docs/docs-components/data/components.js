@@ -1,5 +1,5 @@
 // @flow strict
-import { type ComponentData } from './types.js';
+import { type ComponentData } from './types';
 import Box from '../../graphics/building-blocks/Box.svg';
 import Column from '../../graphics/building-blocks/Column.svg';
 import Container from '../../graphics/building-blocks/Container.svg';
@@ -219,6 +219,28 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           status: 'planned',
         },
       },
+      ios: {
+        name: 'AvatarGroup',
+        visual: {
+          svg: <AvatarGroup />,
+        },
+        alias: [
+          'Pinner reps',
+          'Personas',
+          'Facepile',
+          'User Images',
+          'Identification Group',
+          'Identicons',
+        ],
+        description:
+          'AvatarGroup is used to both display a group of user avatars and, optionally, control actions related to the users group.',
+        category: ['Avatars'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          status: 'planned',
+        },
+      },
     },
   },
   {
@@ -247,6 +269,20 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         },
       },
       android: {
+        name: 'Badge',
+        visual: {
+          svg: <Badge />,
+        },
+        alias: ['Lozenge', 'Label', 'Stamp', 'Flag'],
+        description: 'Badge is a label that indicates status or importance.',
+        category: ['Indicators'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          status: 'planned',
+        },
+      },
+      ios: {
         name: 'Badge',
         visual: {
           svg: <Badge />,
@@ -418,8 +454,23 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           status: 'ready',
         },
       },
+      ios: {
+        name: 'ButtonGroup',
+        visual: {
+          svg: <ButtonGroup />,
+        },
+        alias: ['Button Row', 'Action Bar'],
+        description: 'ButtonGroup is used to display a series of buttons.',
+        category: ['Actions'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          status: 'ready',
+        },
+      },
     },
   },
+
   {
     id: 'Callout',
     platform: {
@@ -1159,6 +1210,21 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         },
       },
       android: {
+        name: 'IconButtonFloating',
+        visual: {
+          svg: <IconButtonFloating />,
+        },
+        alias: ['Glyph button', 'Floating action button', 'FAB', 'Quick create'],
+        description:
+          'IconButtonFloating provides an action that floats over the content and remains in place when scrolled.',
+        category: ['Actions'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          status: 'ready',
+        },
+      },
+      ios: {
         name: 'IconButtonFloating',
         visual: {
           svg: <IconButtonFloating />,
@@ -2284,7 +2350,8 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           svg: <Tag />,
         },
         alias: ['Chip', 'Pill', 'Filter Tag'],
-        description: 'Tags are objects that hold text and have a delete icon to remove them.',
+        description:
+          'Tags can be used to categorize, classify or filter content, usually via keywords.',
         category: ['Navigation'],
         status: {
           accessible: {
@@ -2459,6 +2526,20 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           documentation: 'ready',
           figmaStatus: 'ready',
           status: 'ready',
+        },
+      },
+      ios: {
+        name: 'TextArea',
+        visual: {
+          svg: <TextArea />,
+        },
+        alias: ['Multi-line Input'],
+        description: 'TextArea allows for multi-line input.',
+        category: ['Fields and forms'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          status: 'planned',
         },
       },
     },

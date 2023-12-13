@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import IconButtonLink from './IconButtonLink.js';
+import IconButtonLink from './IconButtonLink';
 
 describe('IconButtonLink', () => {
   test('renders', () => {
