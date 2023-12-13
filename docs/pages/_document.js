@@ -31,7 +31,7 @@ class GestaltDocument extends Document {
             src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"
           />
           {/* eslint-disable-next-line @next/next/next-script-for-ga */}
-          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-12967896-44" />
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-EYTY1WTV8B" />
           <script
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
@@ -41,7 +41,7 @@ function gtag() {
   dataLayer.push(arguments);
 }
 gtag('js', new Date());
-gtag('config', 'UA-12967896-44');
+gtag('config', 'G-EYTY1WTV8B');
 `,
             }}
           />
