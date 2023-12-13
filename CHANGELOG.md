@@ -1,3 +1,9 @@
+## 129.1.6 (Dec 13, 2023)
+
+### Patch
+
+- Docs: fix GA4 property ([#3326](https://github.com/pinterest/gestalt/pull/3326)) - [Preview link](https://deploy-preview-3326--gestalt.netlify.app?devexample=true)
+
 ## 129.1.5 (Dec 13, 2023)
 
 ### Patch
