@@ -1,6 +1,5 @@
 // @flow strict
 import { Children, type Element, type ElementConfig, type Node as ReactNode } from 'react';
-import classnames from 'classnames';
 import Avatar from './Avatar';
 import styles from './BannerOverlay.css';
 import PrimaryAction from './BannerOverlay/PrimaryAction';
@@ -16,6 +15,7 @@ import ButtonLink from './ButtonLink';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import Flex from './Flex';
 import Icon from './Icon';
+import IconButton from './IconButton';
 import Image from './Image';
 import Layer from './Layer';
 import Link from './Link';
@@ -35,7 +35,7 @@ type Props = {
    */
   message: string | Element<typeof Text>,
   /**
-   * Secndary content of BannerOverlay. Content should be [localized](https://gestalt.pinterest.systems/web/banneroverlay#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/banneroverlay#Text) to learn more.
+   *  Heading of BannerOverlay. Content should be [localized](https://gestalt.pinterest.systems/web/banneroverlay#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/banneroverlay#Text) to learn more.
    */
   title?: string | Element<typeof Text>,
   /**
@@ -60,7 +60,11 @@ type Props = {
     }) => void,
   },
   /**
-   * Adds an optional button for user interaction. Generally not recommended given the ephemeral nature of BannerOverlays.
+   * Adds an optional primary button for user interaction.
+   * Main action for users to take on BannerOverlay. If href is supplied, the action will serve as a link. See OnLinkNavigationProvider to learn more about link navigation.
+   * If no href is supplied, the action will be a button.
+   * The accessibilityLabel should follow the Accessibility guidelines.
+   * See the Primary action variant to learn more.
    */
   primaryAction?:
     | {
@@ -139,6 +143,19 @@ export default function BannerOverlay({
 
   const { lightModeBackground, darkModeBackground, textColor } = DEFAULT_COLORS;
 
+  const dismissButtonComponent = dismissButton && (
+    <Flex.Item flex="none" alignSelf={isMobileWidth ? 'end' : 'center'}>
+      <IconButton
+        accessibilityLabel={
+          dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabelDefault
+        }
+        icon="cancel"
+        iconColor="darkGray"
+        onClick={dismissButton.onDismiss}
+        size="xs"
+      />
+    </Flex.Item>
+  );
   return (
     <Layer>
       <Box
@@ -156,25 +173,14 @@ export default function BannerOverlay({
         }}
         position="fixed"
         display="flex"
-        justifyContent="center"
-        direction="column"
+        justifyContent={isMobileWidth ? 'center' : 'between'}
+        alignContent={isMobileWidth ? 'stretch' : 'center'}
+        direction={isMobileWidth ? 'column' : 'row'}
+        smPaddingY={4}
         fit
         minWidth={isMobileWidth ? 348 : 900}
       >
-        {dismissButton ? (
-          <Flex.Item flex="none" alignSelf="end">
-            <button
-              aria-label={
-                dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabelDefault
-              }
-              className={classnames(styles.parentButton)}
-              onClick={dismissButton.onDismiss}
-              type="button"
-            >
-              X
-            </button>
-          </Flex.Item>
-        ) : null}
+        {isMobileWidth && dismissButtonComponent}
         <Flex alignItems="center" gap={4}>
           {!!thumbnail?.image &&
           Children.only<Element<typeof Image>>(thumbnail.image).type.displayName === 'Image' ? (
@@ -207,34 +213,37 @@ export default function BannerOverlay({
             />
           </Flex.Item>
         </Flex>
-        {primaryAction ? (
-          // Allow button text to wrap on mobile
-          <Flex.Item flex={isMobileWidth ? 'shrink' : 'none'} alignSelf="end">
-            {primaryAction?.accessibilityLabel && primaryAction?.label
-              ? (primaryAction.role === 'link' && (
-                  <PrimaryAction
-                    accessibilityLabel={primaryAction.accessibilityLabel}
-                    href={primaryAction.href}
-                    label={primaryAction.label}
-                    onClick={primaryAction.onClick}
-                    rel={primaryAction?.rel}
-                    role="link"
-                    size="sm"
-                    target={primaryAction?.target}
-                  />
-                ),
-                primaryAction.role !== 'link' && (
-                  <PrimaryAction
-                    accessibilityLabel={primaryAction.accessibilityLabel}
-                    label={primaryAction.label}
-                    onClick={primaryAction.onClick}
-                    role="button"
-                    size="sm"
-                  />
-                ))
-              : null}
-          </Flex.Item>
-        ) : null}
+        <Flex direction="row" alignSelf={isMobileWidth ? 'end' : 'center'} gap={4}>
+          {primaryAction ? (
+            // Allow button text to wrap on mobile
+            <Flex.Item flex={isMobileWidth ? 'shrink' : 'none'}>
+              {primaryAction?.accessibilityLabel && primaryAction?.label
+                ? (primaryAction.role === 'link' && (
+                    <PrimaryAction
+                      accessibilityLabel={primaryAction.accessibilityLabel}
+                      href={primaryAction.href}
+                      label={primaryAction.label}
+                      onClick={primaryAction.onClick}
+                      rel={primaryAction?.rel}
+                      role="link"
+                      size="sm"
+                      target={primaryAction?.target}
+                    />
+                  ),
+                  primaryAction.role !== 'link' && (
+                    <PrimaryAction
+                      accessibilityLabel={primaryAction.accessibilityLabel}
+                      label={primaryAction.label}
+                      onClick={primaryAction.onClick}
+                      role="button"
+                      size="sm"
+                    />
+                  ))
+                : null}
+            </Flex.Item>
+          ) : null}
+          {!isMobileWidth && dismissButtonComponent}
+        </Flex>
       </Box>
     </Layer>
   );
