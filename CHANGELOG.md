@@ -1,3 +1,9 @@
+## 129.1.5 (Dec 13, 2023)
+
+### Patch
+
+- Docs: Fix subsection scroll-magin-top ([#3327](https://github.com/pinterest/gestalt/pull/3327)) - [Preview link](https://deploy-preview-3327--gestalt.netlify.app?devexample=true)
+
 ## 129.1.4 (Dec 13, 2023)
 
 ### Patch
