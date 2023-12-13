@@ -3,16 +3,9 @@
   color: var(--color-text-dark) !important;
 }
 
-.textErrorColorOverrideLight * {
-  /* stylelint-disable-next-line declaration-no-important */
-  color: var(--color-text-dark) !important;
-  /* stylelint-disable-next-line declaration-no-important */
-  font-weight: var(--font-weight-semibold) !important;
-}
-
 .textColorOverrideDark * {
   /* stylelint-disable-next-line declaration-no-important */
-  color: var(--color-text-dark) !important;
+  color: var(--color-text-light) !important;
 }
 
 .parentButton {

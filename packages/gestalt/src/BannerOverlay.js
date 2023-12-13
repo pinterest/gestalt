@@ -9,7 +9,6 @@ import {
   BannerOverlayIconThumbnail,
   BannerOverlayImageThumbnail,
   BannerOverlayMessage,
-  BannerOverlayTypeThumbnail,
 } from './BannerOverlay/subcomponents';
 import Box from './Box';
 import Button from './Button';
@@ -24,21 +23,11 @@ import Text from './Text';
 import useResponsiveMinWidth from './useResponsiveMinWidth';
 
 const DEFAULT_COLORS = {
-  containerColor: 'default',
+  lightModeBackground: 'default',
+  darkModeBackground: 'elevationRaised',
   textColor: 'default',
   iconColor: 'white',
 };
-
-const COLORS_BY_TYPE = Object.freeze({
-  default: DEFAULT_COLORS,
-  success: DEFAULT_COLORS,
-  error: { ...DEFAULT_COLORS, containerColor: 'errorBase' },
-  progress: {
-    containerColor: 'secondary',
-    textColor: 'default',
-    iconColor: 'darkGray',
-  },
-});
 
 type Props = {
   /**
@@ -48,7 +37,7 @@ type Props = {
   /**
    * Secndary content of BannerOverlay. Content should be [localized](https://gestalt.pinterest.systems/web/banneroverlay#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/banneroverlay#Text) to learn more.
    */
-  title: string | Element<typeof Text>,
+  title?: string | Element<typeof Text>,
   /**
    * Adds a dismiss button to BannerOverlay. See the [Dismissible variant](https://gestalt.pinterest.systems/web/banneroverlay#Dismissible) for more info.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/banneroverlay#Accessibility).
@@ -99,10 +88,6 @@ type Props = {
     | { image: Element<typeof Image> }
     | { avatar: Element<typeof Avatar> }
     | { icon: Element<typeof Icon> },
-  /**
-   * See the [type variant](https://gestalt.pinterest.systems/web/banneroverlay#Type) to learn more.
-   */
-  type?: 'default' | 'success' | 'error' | 'progress',
 };
 
 /**
@@ -118,7 +103,6 @@ export default function BannerOverlay({
   helperLink,
   primaryAction,
   thumbnail,
-  type = 'default',
 }: Props): ReactNode {
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
@@ -153,21 +137,18 @@ export default function BannerOverlay({
   //   useDefaultLabelContext('BannerOverlay');
   const accessibilityDismissButtonLabelDefault = '';
 
-  const { containerColor, textColor } = COLORS_BY_TYPE[type];
-
-  const isDefaultBannerOverlay = type === 'default';
-  const isNotDefaultBannerOverlay = ['success', 'error', 'progress'].includes(type);
+  const { lightModeBackground, darkModeBackground, textColor } = DEFAULT_COLORS;
 
   return (
     <Layer>
       <Box
-        color={containerColor}
+        color={isDarkMode ? darkModeBackground : lightModeBackground}
         paddingX={4}
         paddingY={3}
         rounding={4}
+        borderStyle="shadow"
         dangerouslySetInlineStyle={{
           __style: {
-            border: '1px solid var(--color-gray-roboflow-200)',
             bottom: 50,
             left: '50%',
             transform: 'translateX(-50%)',
@@ -195,33 +176,24 @@ export default function BannerOverlay({
           </Flex.Item>
         ) : null}
         <Flex alignItems="center" gap={4}>
-          {isDefaultBannerOverlay &&
-          !!thumbnail?.image &&
+          {!!thumbnail?.image &&
           Children.only<Element<typeof Image>>(thumbnail.image).type.displayName === 'Image' ? (
             <Flex.Item flex="none">
               <BannerOverlayImageThumbnail thumbnail={thumbnail.image} />
             </Flex.Item>
           ) : null}
 
-          {isDefaultBannerOverlay &&
-          !!thumbnail?.icon &&
+          {!!thumbnail?.icon &&
           Children.only<Element<typeof Icon>>(thumbnail.icon).type.displayName === 'Icon' ? (
             <Flex.Item flex="none">
               <BannerOverlayIconThumbnail thumbnail={thumbnail.icon} />
             </Flex.Item>
           ) : null}
 
-          {isDefaultBannerOverlay &&
-          !!thumbnail?.avatar &&
+          {!!thumbnail?.avatar &&
           Children.only<Element<typeof Avatar>>(thumbnail.avatar).type.displayName === 'Avatar' ? (
             <Flex.Item flex="none">
               <BannerOverlayAvatarThumbnail thumbnail={thumbnail.avatar} />
-            </Flex.Item>
-          ) : null}
-
-          {isNotDefaultBannerOverlay ? (
-            <Flex.Item flex="none">
-              <BannerOverlayTypeThumbnail type={type} />
             </Flex.Item>
           ) : null}
 
@@ -232,7 +204,6 @@ export default function BannerOverlay({
               textElement={messageIsTextNode ? messageTextElement : undefined}
               helperLink={helperLink}
               textColor={textColor}
-              type={type}
             />
           </Flex.Item>
         </Flex>

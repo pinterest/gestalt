@@ -12,13 +12,10 @@ import {
 } from 'react';
 import Avatar from '../Avatar';
 import Box from '../Box';
-import ColorSchemeProvider, { useColorScheme } from '../contexts/ColorSchemeProvider';
-import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import Icon from '../Icon';
 import Image from '../Image';
 import Link from '../Link';
 import Mask from '../Mask';
-import Spinner from '../Spinner';
 import Text from '../Text';
 
 const SIZE_THUMBNAIL = 40;
@@ -29,7 +26,6 @@ export function BannerOverlayMessage({
   textElement,
   helperLink,
   textColor,
-  type,
 }: {
   text: ?string | Element<'span'>,
   textElement: ?string | Element<'span'>,
@@ -43,9 +39,7 @@ export function BannerOverlayMessage({
       dangerouslyDisableOnNavigation: () => void,
     }) => void,
   },
-  type: 'default' | 'success' | 'error' | 'progress',
 }): ReactNode {
-  const isError = type === 'error';
   const textRef = useRef<null | HTMLElement>(null);
   const [ellipsisActive, setEllipsisActive] = useState(false);
 
@@ -82,7 +76,6 @@ export function BannerOverlayMessage({
           inline
           align="start"
           color={textColor}
-          weight={isError ? 'bold' : undefined}
           lineClamp={2}
           ref={textRef}
           // Set title prop manually if text is truncated
@@ -92,7 +85,7 @@ export function BannerOverlayMessage({
           {helperLink ? (
             <Fragment>
               {' '}
-              <Text inline color={textColor} weight={isError ? 'bold' : undefined}>
+              <Text inline color={textColor}>
                 <Link
                   accessibilityLabel={helperLink.accessibilityLabel}
                   href={helperLink.href}
@@ -107,9 +100,8 @@ export function BannerOverlayMessage({
           ) : null}
         </Text>
       ) : null}
-      {/* Should the helkper link */}
       {isTruncatedWithHelperLink ? (
-        <Text color={textColor} weight={isError ? 'bold' : undefined}>
+        <Text color={textColor}>
           <Link
             accessibilityLabel={helperLink?.accessibilityLabel ?? ''}
             href={helperLink?.href ?? ''}
@@ -153,46 +145,4 @@ export function BannerOverlayAvatarThumbnail({
   thumbnail: Element<typeof Avatar>,
 }): ReactNode {
   return <Box aria-hidden>{cloneElement(thumbnail, { size: 'sm' })}</Box>;
-}
-
-export function BannerOverlayTypeThumbnail({
-  type,
-}: {
-  type: 'default' | 'success' | 'error' | 'progress',
-}): ReactNode {
-  const { name: colorSchemeName } = useColorScheme();
-  const {
-    accessibilityIconSuccessLabel,
-    accessibilityIconErrorLabel,
-    accessibilityProcessingLabel,
-  } = useDefaultLabelContext('Toast');
-
-  return (
-    <Fragment>
-      {type === 'error' ? (
-        <Icon
-          color="inverse"
-          icon="workflow-status-problem"
-          accessibilityLabel={accessibilityIconErrorLabel}
-          size={SIZE_ICON}
-        />
-      ) : null}
-      {type === 'success' ? (
-        <ColorSchemeProvider
-          colorScheme={colorSchemeName === 'darkMode' ? 'light' : 'dark'}
-          id="icon-BannerOverlay-success"
-        >
-          <Icon
-            color="success"
-            icon="workflow-status-ok"
-            accessibilityLabel={accessibilityIconSuccessLabel}
-            size={SIZE_ICON}
-          />
-        </ColorSchemeProvider>
-      ) : null}
-      {type === 'progress' ? (
-        <Spinner accessibilityLabel={accessibilityProcessingLabel} color="default" show size="sm" />
-      ) : null}
-    </Fragment>
-  );
 }
