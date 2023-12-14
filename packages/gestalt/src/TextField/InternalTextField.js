@@ -12,6 +12,7 @@ import {
 import classnames from 'classnames';
 import styles from './InternalTextField.css';
 import InternalTextFieldIconButton from './InternalTextFieldIconButton';
+import { type Size } from '../AvatarGroup/constants';
 import Box from '../Box';
 import focusStyles from '../Focus.css';
 import layout from '../Layout.css';
@@ -22,6 +23,8 @@ import FormLabel from '../shared/FormLabel';
 import Tag from '../Tag';
 import { type MaxLength } from '../TextField';
 import typography from '../Typography.css';
+
+type SizeType = 'sm' | 'md' | 'lg';
 
 type Props = {
   // REQUIRED
@@ -65,14 +68,14 @@ type Props = {
   }) => void,
   placeholder?: string,
   readOnly?: boolean,
-  size?: 'sm' | 'md' | 'lg',
+  size?: SizeType,
   step?: number,
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
   type?: 'date' | 'email' | 'number' | 'password' | 'tel' | 'text' | 'url',
   value?: string,
 };
 
-const applyDensityStyle = (s: 'sm' | 'md' | 'lg') => styles[`${s}`];
+const applyDensityStyle = (size: SizeType) => styles[`${size}`];
 
 const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,

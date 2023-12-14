@@ -141,7 +141,7 @@ type Props = {
    */
   selectedOption?: OptionType,
   /**
-   * Defines the height of ComboBox: md: 40px, lg: 48px. Width is defined by parent component.
+   * Sets the size of the ComboBox: sm:'32px', md: 40px, lg: 48px. See the [size variant](https://gestalt.pinterest.systems/web/ComboBox#Size) for more details.
    */
   size?: Size,
   /**
