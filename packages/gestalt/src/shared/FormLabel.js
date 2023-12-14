@@ -14,7 +14,7 @@ type Props = {
   size?: SizeType,
 };
 
-const applyDensityStyle = (size: SizeType) => (size === 'lg' ? styles[`${size}`] : null);
+const applyDensityStyle = (size?: SizeType) => (size === 'lg' ? styles[`${size}`] : null);
 
 export default function FormLabel({ id, label, labelDisplay, size }: Props): ReactNode {
   const cs = classnames(styles.formLabel, applyDensityStyle(size));

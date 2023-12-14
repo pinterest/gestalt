@@ -5,7 +5,7 @@ import { Box, ComboBox, Flex } from 'gestalt';
 export default function Snapshot(): ReactNode {
   return (
     <Box color="default" padding={1} width={400}>
-      <Flex display="flex" direction="column" gap={4}>
+      <Flex direction="column" gap={4}>
         <ComboBox
           accessibilityClearButtonLabel="Clear the current values"
           label="Select your favorite shape"

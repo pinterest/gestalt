@@ -16,7 +16,7 @@ type Props = {
   size?: SizeType,
 };
 
-const applyDensityMargin = (size: SizeType) => (size === 'sm' || size === 'md' ? 1 : 2);
+const applyDensityMargin = (size?: SizeType): 1 | 2 => (size === 'sm' || size === 'md' ? 1 : 2);
 
 export default function FormHelperText({
   id,
