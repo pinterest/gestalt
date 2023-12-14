@@ -27,6 +27,7 @@ import helperText from '../../examples/numberfield/helperText';
 import main from '../../examples/numberfield/main';
 import minMaxStep from '../../examples/numberfield/minMaxStep';
 import ref from '../../examples/numberfield/ref';
+import sizes from '../../examples/numberfield/sizes';
 
 const previewHeightPx = 235;
 
@@ -331,6 +332,15 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             sandpackExample={
               <SandpackExample code={enterKeyHint} name="Variants - Enter Key Hint" />
             }
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          description="NumberField can have different sizes. The default size is medium (40px). The large size is 48px. For a dense variant, use the `sm` (32px) variant."
+          title="Sizes"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={<SandpackExample code={sizes} name="sizes" />}
           />
         </MainSection.Subsection>
 

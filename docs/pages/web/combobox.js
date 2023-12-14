@@ -207,7 +207,7 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={sizes} name="subtext" previewHeight={PREVIEW_HEIGHT} />
+              <SandpackExample code={sizes} name="ComboBox Sizes" previewHeight={PREVIEW_HEIGHT} />
             }
           />
         </MainSection.Subsection>
