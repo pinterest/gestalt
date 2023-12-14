@@ -336,7 +336,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         </MainSection.Subsection>
         <MainSection.Subsection
           description="NumberField can have different sizes. The default size is medium (40px). The large size is 48px. For a dense variant, use the `sm` (32px) variant."
-          title="Sizes"
+          title="Size"
         >
           <MainSection.Card
             cardSize="lg"
