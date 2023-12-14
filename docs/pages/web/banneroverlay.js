@@ -1,6 +1,6 @@
 // @flow strict
 import { Fragment, type Node as ReactNode } from 'react';
-import { BannerOverlay, Image, Text } from 'gestalt';
+import { BannerOverlay, FixedZIndex, Image, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { type DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -32,13 +32,14 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         thumbnail={{
           image: (
             <Image
-              alt="Small kitten"
+              alt="Flamingos"
               naturalHeight={40}
               naturalWidth={40}
-              src="https://placekitten.com/40/40"
+              src="https://i.pinimg.com/564x/39/b7/5e/39b75ec3211d0efe8e727da2c2af1966.jpg"
             />
           ),
         }}
+        zIndex={new FixedZIndex(100)}
       />
       <Page title={generatedDocGen?.displayName}>
         <PageHeader

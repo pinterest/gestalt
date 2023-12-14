@@ -13,6 +13,7 @@ import Box from './Box';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
+import { useDeviceType } from './contexts/DeviceTypeProvider';
 import Flex from './Flex';
 import Icon from './Icon';
 import IconButton from './IconButton';
@@ -20,7 +21,7 @@ import Image from './Image';
 import Layer from './Layer';
 import Link from './Link';
 import Text from './Text';
-import useResponsiveMinWidth from './useResponsiveMinWidth';
+import { type Indexable } from './zIndex';
 
 const DEFAULT_COLORS = {
   lightModeBackground: 'default',
@@ -31,14 +32,6 @@ const DEFAULT_COLORS = {
 
 type Props = {
   /**
-   * Main content of BannerOverlay. Content should be [localized](https://gestalt.pinterest.systems/web/banneroverlay#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/banneroverlay#Text) to learn more.
-   */
-  message: string | Element<typeof Text>,
-  /**
-   *  Heading of BannerOverlay. Content should be [localized](https://gestalt.pinterest.systems/web/banneroverlay#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/banneroverlay#Text) to learn more.
-   */
-  title?: string | Element<typeof Text>,
-  /**
    * Adds a dismiss button to BannerOverlay. See the [Dismissible variant](https://gestalt.pinterest.systems/web/banneroverlay#Dismissible) for more info.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/banneroverlay#Accessibility).
    *
@@ -47,6 +40,18 @@ type Props = {
     accessibilityLabel?: string,
     onDismiss: () => void,
   },
+  /**
+   * Main content of BannerOverlay. Content should be [localized](https://gestalt.pinterest.systems/web/banneroverlay#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/banneroverlay#Text) to learn more.
+   */
+  message: string | Element<typeof Text>,
+  /**
+   * Distance (in pixels) from the viewport edge (offsetTop will be used, if desktop, offsetBottom will be used, if mobile).
+   */
+  offsetTop?: number,
+  /**
+   * Distance (in pixels) from the viewport edge (offsetTop will be used, if desktop, offsetBottom will be used, if mobile).
+   */
+  offsetBottom?: number,
   /**
    * Helper [Link](https://gestalt.pinterest.systems/web/link) to be placed after the subtext. See the [helper link variant](https://gestalt.pinterest.systems/web/banneroverlay#helperLink) to learn more.
    */
@@ -84,7 +89,6 @@ type Props = {
         role?: 'button',
         size?: $ElementType<ElementConfig<typeof Button>, 'size'>,
       },
-
   /**
    * An optional thumbnail to display next to the text.
    */
@@ -92,6 +96,14 @@ type Props = {
     | { image: Element<typeof Image> }
     | { avatar: Element<typeof Avatar> }
     | { icon: Element<typeof Icon> },
+  /**
+   *  Heading of BannerOverlay. Content should be [localized](https://gestalt.pinterest.systems/web/banneroverlay#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/banneroverlay#Text) to learn more.
+   */
+  title?: string | Element<typeof Text>,
+  /**
+   *  zIndex of BannerOverlay. See the [zIndex guidelines](https://gestalt.pinterest.systems/web/banneroverlay#zIndex) to learn more.
+   */
+  zIndex?: Indexable,
 };
 
 /**
@@ -106,13 +118,15 @@ export default function BannerOverlay({
   dismissButton,
   helperLink,
   primaryAction,
+  offsetTop = 130,
+  offsetBottom = 24,
   thumbnail,
+  zIndex,
 }: Props): ReactNode {
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
-  const responsiveMinWidth = useResponsiveMinWidth();
-  const isMobileWidth = responsiveMinWidth === 'xs';
+  const isMobileWidth = useDeviceType() === 'mobile';
 
   let messageTextElement: Element<'span'> | string;
 
@@ -156,21 +170,70 @@ export default function BannerOverlay({
       />
     </Flex.Item>
   );
+  const messageComponent = (
+    <Flex.Item flex="grow">
+      <Text weight="bold">{title}</Text>
+      <BannerOverlayMessage
+        text={messageIsTextNode ? undefined : messageTextElement}
+        textElement={messageIsTextNode ? messageTextElement : undefined}
+        helperLink={helperLink}
+        textColor={textColor}
+      />
+    </Flex.Item>
+  );
+  const CTAComponent = primaryAction && (
+    <Flex.Item flex={isMobileWidth ? 'shrink' : 'none'}>
+      {primaryAction?.accessibilityLabel && primaryAction?.label
+        ? (primaryAction.role === 'link' && (
+            <PrimaryAction
+              accessibilityLabel={primaryAction.accessibilityLabel}
+              href={primaryAction.href}
+              label={primaryAction.label}
+              onClick={primaryAction.onClick}
+              rel={primaryAction?.rel}
+              role="link"
+              size="sm"
+              target={primaryAction?.target}
+            />
+          ),
+          primaryAction.role !== 'link' && (
+            <PrimaryAction
+              accessibilityLabel={primaryAction.accessibilityLabel}
+              label={primaryAction.label}
+              onClick={primaryAction.onClick}
+              role="button"
+              size="sm"
+            />
+          ))
+        : null}
+    </Flex.Item>
+  );
   return (
     <Layer>
       <Box
+        zIndex={zIndex}
         color={isDarkMode ? darkModeBackground : lightModeBackground}
         paddingX={4}
         paddingY={3}
         rounding={4}
         borderStyle="shadow"
-        dangerouslySetInlineStyle={{
-          __style: {
-            bottom: 50,
-            left: '50%',
-            transform: 'translateX(-50%)',
-          },
-        }}
+        dangerouslySetInlineStyle={
+          isMobileWidth
+            ? {
+                __style: {
+                  bottom: offsetBottom,
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                },
+              }
+            : {
+                __style: {
+                  top: offsetTop,
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                },
+              }
+        }
         position="fixed"
         display="flex"
         justifyContent={isMobileWidth ? 'center' : 'between'}
@@ -202,46 +265,10 @@ export default function BannerOverlay({
               <BannerOverlayAvatarThumbnail thumbnail={thumbnail.avatar} />
             </Flex.Item>
           ) : null}
-
-          <Flex.Item flex="grow">
-            <Text weight="bold">{title}</Text>
-            <BannerOverlayMessage
-              text={messageIsTextNode ? undefined : messageTextElement}
-              textElement={messageIsTextNode ? messageTextElement : undefined}
-              helperLink={helperLink}
-              textColor={textColor}
-            />
-          </Flex.Item>
+          {messageComponent}
         </Flex>
         <Flex direction="row" alignSelf={isMobileWidth ? 'end' : 'center'} gap={4}>
-          {primaryAction ? (
-            // Allow button text to wrap on mobile
-            <Flex.Item flex={isMobileWidth ? 'shrink' : 'none'}>
-              {primaryAction?.accessibilityLabel && primaryAction?.label
-                ? (primaryAction.role === 'link' && (
-                    <PrimaryAction
-                      accessibilityLabel={primaryAction.accessibilityLabel}
-                      href={primaryAction.href}
-                      label={primaryAction.label}
-                      onClick={primaryAction.onClick}
-                      rel={primaryAction?.rel}
-                      role="link"
-                      size="sm"
-                      target={primaryAction?.target}
-                    />
-                  ),
-                  primaryAction.role !== 'link' && (
-                    <PrimaryAction
-                      accessibilityLabel={primaryAction.accessibilityLabel}
-                      label={primaryAction.label}
-                      onClick={primaryAction.onClick}
-                      role="button"
-                      size="sm"
-                    />
-                  ))
-                : null}
-            </Flex.Item>
-          ) : null}
+          {CTAComponent}
           {!isMobileWidth && dismissButtonComponent}
         </Flex>
       </Box>
