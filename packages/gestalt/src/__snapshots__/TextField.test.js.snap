@@ -111,7 +111,7 @@ exports[`TextField TextField with error 1`] = `
     />
   </div>
   <div
-    className="box marginTop2"
+    className="box marginTop1"
   >
     <div
       className="Text fontSize100 errorText alignStart breakWord fontWeightNormal"
@@ -213,7 +213,7 @@ exports[`TextField TextField with maxLength character counter 1`] = `
     />
   </div>
   <div
-    className="box marginTop2"
+    className="box marginTop1"
     id="test-helperText"
   >
     <div

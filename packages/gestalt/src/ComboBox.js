@@ -31,7 +31,7 @@ import handleContainerScrolling, {
 } from './utils/keyboardNavigation';
 import { type Indexable } from './zIndex';
 
-type Size = 'md' | 'lg';
+type Size = 'sm' | 'md' | 'lg';
 
 type OptionType = {
   label: string,

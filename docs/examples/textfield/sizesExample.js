@@ -10,43 +10,49 @@ export default function TextFieldSizes(): Node {
   return (
     <Box padding={8}>
       <Flex direction="column" gap={{ column: 6, row: 0 }}>
-        <Flex direction="column" gap={{ column: 2, row: 0 }}>
-          <Heading size="300">sm</Heading>
+        <Flex direction="column" gap={{ column: 3, row: 0 }}>
+          <Heading size="300">Small</Heading>
           <TextField
             id="field1"
+            helperText="Enter a title that captures the imagination of Pinners"
+            label="Email Address"
             onChange={({ value }) => {
               setInput1Text(value);
             }}
-            placeholder="Placeholder"
+            placeholder="Enter your pin title"
             type="text"
             size="sm"
             value={input1text}
           />
         </Flex>
 
-        <Flex direction="column" gap={{ column: 2, row: 0 }}>
-          <Heading size="300">md</Heading>
+        <Flex direction="column" gap={{ column: 3, row: 0 }}>
+          <Heading size="300">Medium</Heading>
           <TextField
             id="field2"
+            helperText="Enter a title that captures the imagination of Pinners"
+            label="Title"
             onChange={({ value }) => {
               setInput2Text(value);
             }}
-            placeholder="Placeholder"
-            type="text"
             size="md"
+            placeholder="Enter your pin title"
+            type="text"
             value={input2text}
           />
         </Flex>
-        <Flex direction="column" gap={{ column: 2, row: 0 }}>
-          <Heading size="300">lg</Heading>
+        <Flex direction="column" gap={{ column: 3, row: 0 }}>
+          <Heading size="300">Large</Heading>
           <TextField
             id="field3"
+            helperText="Enter a title that captures the imagination of Pinners"
+            label="Title"
             onChange={({ value }) => {
               setInput3Text(value);
             }}
-            placeholder="Placeholder"
+            placeholder="Enter your pin title"
             type="text"
-            size="md"
+            size="lg"
             value={input3text}
           />
         </Flex>

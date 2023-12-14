@@ -900,7 +900,7 @@ interface ComboBoxProps {
     | undefined;
   placeholder?: string | undefined;
   selectedOption?: ComboBoxItemType | undefined;
-  size?: 'md' | 'lg' | undefined;
+  size?: 'sm' | 'md' | 'lg' | undefined;
   tags?: ReadonlyArray<React.ReactElement<TagProps, typeof Tag>> | undefined;
   zIndex?: Indexable | undefined;
 }
@@ -1413,7 +1413,7 @@ interface NumberFieldProps {
       >
     | undefined;
   placeholder?: string | undefined;
-  size?: 'md' | 'lg' | undefined;
+  size?: 'sm' | 'md' | 'lg' | undefined;
   step?: number | undefined;
   value?: number | undefined;
 }
@@ -2208,7 +2208,7 @@ interface TextFieldProps {
     | AbstractEventHandler<React.KeyboardEvent<HTMLInputElement>, { value: string }>
     | undefined;
   placeholder?: string | undefined;
-  size?: 'md' | 'lg' | undefined;
+  size?: 'sm' | 'md' | 'lg' | undefined;
   tags?: ReadonlyArray<React.ReactElement<TagProps, typeof Tag>> | undefined;
   type?: 'date' | 'email' | 'password' | 'text' | 'url' | 'tel' | undefined;
   value?: string | undefined;

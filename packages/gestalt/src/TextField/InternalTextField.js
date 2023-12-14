@@ -1,6 +1,7 @@
 // @flow strict
 import {
   type AbstractComponent,
+  cloneElement,
   type Element,
   forwardRef,
   type Node as ReactNode,
@@ -152,7 +153,7 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
     (hasError || hasErrorMessage) && !focused ? formElement.errored : formElement.normal,
     {
       // note: layout CSS controls min-height of element
-      [layout.small]: !tags && size === 'sm',
+      [layout.small]: size === 'sm',
       [layout.medium]: size === 'md',
       [layout.large]: size === 'lg',
       [styles.actionButton]: iconButton,
@@ -220,7 +221,7 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
 
   return (
     <span>
-      {label ? <FormLabel id={id} label={label} labelDisplay={labelDisplay} /> : null}
+      {label ? <FormLabel id={id} label={label} labelDisplay={labelDisplay} size={size} /> : null}
 
       <Box position="relative">
         {tags ? (
@@ -228,7 +229,7 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
             {tags.map((tag, tagIndex) => (
               // eslint-disable-next-line react/no-array-index-key
               <Box key={tagIndex} marginEnd={1} marginBottom={1}>
-                {tag}
+                {cloneElement(tag, { size })}
               </Box>
             ))}
             <Box flex="grow" marginEnd={2} maxWidth="100%" position="relative">
@@ -255,10 +256,13 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
           text={helperText}
           maxLength={maxLength}
           currentLength={currentLength}
+          size={size}
         />
       ) : null}
 
-      {hasErrorMessage ? <FormErrorMessage id={`${id}-error`} text={errorMessage} /> : null}
+      {hasErrorMessage ? (
+        <FormErrorMessage id={`${id}-error`} size={size} text={errorMessage} />
+      ) : null}
     </span>
   );
 });

@@ -1,23 +1,25 @@
 .textField {
   composes: borderBox from "../Layout.css";
   composes: Text from "../Text.css";
-  composes: fontSize300 from "../Typography.css";
   composes: xsCol12 from "../Column.css";
 }
 
 .textField.sm {
   border-radius: var(--rounding-200);
   padding: var(--space-100) var(--space-200);
+  font-size: var(--font-size-200);
 }
 
 .textField.md {
   border-radius: var(--rounding-300);
   padding: var(--space-200) var(--space-300);
+  font-size: var(--font-size-300);
 }
 
 .textField.lg {
   border-radius: var(--rounding-400);
   padding: var(--space-300) var(--space-400);
+  font-size: var(--font-size-300);
 }
 
 .textField::placeholder {

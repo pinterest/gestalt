@@ -109,7 +109,7 @@ type Props = {
   /**
    * md: 40px, lg: 48px
    */
-  size?: 'md' | 'lg',
+  size?: 'sm' | 'md' | 'lg',
   /**
    * Indicates the amount the value will increase or decrease when using the input's arrows.
    */

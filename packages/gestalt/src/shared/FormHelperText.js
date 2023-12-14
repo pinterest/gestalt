@@ -6,17 +6,28 @@ import Flex from '../Flex';
 import Text from '../Text';
 import { type MaxLength } from '../TextField';
 
+type SizeType = 'sm' | 'md' | 'lg';
+
 type Props = {
   id?: string,
   text: ?string,
   maxLength?: ?MaxLength,
   currentLength?: number,
+  size?: SizeType,
 };
 
-export default function FormHelperText({ id, currentLength, text, maxLength }: Props): ReactNode {
+const applyDensityMargin = (size: SizeType) => (size === 'sm' || size === 'md' ? 1 : 2);
+
+export default function FormHelperText({
+  id,
+  currentLength,
+  text,
+  maxLength,
+  size,
+}: Props): ReactNode {
   return (
     // id is required for all helper texts accompanying an individual form element, not for groups of form elements such as RadioGroup.
-    <Box marginTop={2} id={id}>
+    <Box marginTop={applyDensityMargin(size)} id={id}>
       <Flex gap={4}>
         <Flex.Item flex="grow">
           {text ? (

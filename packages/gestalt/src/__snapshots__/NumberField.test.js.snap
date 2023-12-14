@@ -89,7 +89,7 @@ exports[`NumberField NumberField with error 1`] = `
     />
   </div>
   <div
-    className="box marginTop2"
+    className="box marginTop1"
   >
     <div
       className="Text fontSize100 errorText alignStart breakWord fontWeightNormal"

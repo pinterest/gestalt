@@ -6,14 +6,19 @@ import Flex from '../Flex';
 import Status from '../Status';
 import Text from '../Text';
 
+type SizeType = 'sm' | 'md' | 'lg';
+
 type Props = {
   id: string,
   text?: ReactNode,
+  size?: SizeType,
 };
 
-export default function FormErrorMessage({ id, text = '' }: Props): ReactNode {
+const applyDensityMargin = (size: SizeType) => (size === 'sm' || size === 'md' ? 1 : 2);
+
+export default function FormErrorMessage({ id, size, text = '' }: Props): ReactNode {
   return (
-    <Box marginTop={2}>
+    <Box marginTop={applyDensityMargin(size)}>
       <Text color="error" size="100">
         {/* Class used to ensure all children are font size "sm" */}
         <span className={styles.formErrorMessage} id={id}>

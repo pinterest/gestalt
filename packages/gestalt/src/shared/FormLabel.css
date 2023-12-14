@@ -1,3 +1,7 @@
 .formLabel {
+  padding-bottom: var(--space-100);
+}
+
+.formLabel.lg {
   padding-bottom: var(--space-200);
 }

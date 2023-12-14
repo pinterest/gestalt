@@ -23,8 +23,9 @@ export default function TextFieldScreenshot(): ReactNode {
       <Box padding={8}>
         <Flex direction="column" gap={{ column: 6, row: 0 }}>
           <Flex direction="column" gap={{ column: 2, row: 0 }}>
-            <Heading size="300">sm</Heading>
             <TextField
+              label="small field"
+              helperText="Helper text"
               id="field0"
               onChange={({ value }) => {
                 setInput1Text(value);
@@ -37,8 +38,9 @@ export default function TextFieldScreenshot(): ReactNode {
           </Flex>
 
           <Flex direction="column" gap={{ column: 2, row: 0 }}>
-            <Heading size="300">md</Heading>
             <TextField
+              label="medium field"
+              helperText="Helper text"
               id="field1"
               onChange={({ value }) => {
                 setInput2Text(value);
@@ -50,8 +52,9 @@ export default function TextFieldScreenshot(): ReactNode {
             />
           </Flex>
           <Flex direction="column" gap={{ column: 2, row: 0 }}>
-            <Heading size="300">lg</Heading>
             <TextField
+              label="large field"
+              helperText="Helper text"
               id="field2"
               onChange={({ value }) => {
                 setInput3Text(value);
@@ -65,11 +68,32 @@ export default function TextFieldScreenshot(): ReactNode {
           <Flex direction="column" gap={{ column: 2, row: 0 }}>
             <Heading size="300">Tags</Heading>
             <TextField
+              name="small"
+              helperText="Helper text"
+              id="field2"
+              onChange={() => {}}
+              tags={renderedTags.concat(renderedTags)}
+              type="text"
+              size="sm"
+              value={input3text}
+            />
+            <TextField
+              name="medium"
               id="field3"
+              onChange={() => {}}
+              tags={renderedTags.concat(renderedTags)}
+              type="text"
+              size="md"
+              value={input3text}
+            />
+            <TextField
+              name="large"
+              helperText="Helper text"
+              id="field1"
               onChange={() => {}}
               tags={renderedTags}
               type="text"
-              size="md"
+              size="lg"
               value={input3text}
             />
           </Flex>

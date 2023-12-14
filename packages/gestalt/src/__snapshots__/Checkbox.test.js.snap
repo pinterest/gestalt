@@ -529,7 +529,7 @@ exports[`Checkbox with error 1`] = `
         className="box paddingX1"
       >
         <div
-          className="box marginTop2"
+          className="box marginTop1"
         >
           <div
             className="Text fontSize100 errorText alignStart breakWord fontWeightNormal"
@@ -644,7 +644,7 @@ exports[`Checkbox with helperText 1`] = `
         className="box paddingX1"
       >
         <div
-          className="box marginTop2"
+          className="box marginTop1"
           id="id-helperText"
         >
           <div
