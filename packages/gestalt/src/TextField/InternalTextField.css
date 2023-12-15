@@ -59,18 +59,27 @@ Overriding the default bottom padding with important because tags need less padd
 */
 
 .sm.textFieldWrapper {
+  /* The tag's margin bottom adds the other 2px */
   /* stylelint-disable-next-line declaration-no-important */
   padding-bottom: var(--space-0) !important;
+  /* stylelint-disable-next-line declaration-no-important */
+  padding-top: 2px !important;
 }
 
 .md.textFieldWrapper {
+  /* The tag's margin bottom adds the other 2px */
   /* stylelint-disable-next-line declaration-no-important */
   padding-bottom: var(--space-100) !important;
+  /* stylelint-disable-next-line declaration-no-important */
+  padding-top: 6px !important;
 }
 
 .lg.textFieldWrapper {
+  /* The larger tag's extra height and margin add the other 6px */
   /* stylelint-disable-next-line declaration-no-important */
-  padding-bottom: var(--space-200) !important;
+  padding-bottom: var(--space-0) !important;
+  /* stylelint-disable-next-line declaration-no-important */
+  padding-top: 6px !important;
 }
 
 html:not([dir="rtl"]) .actionButton {

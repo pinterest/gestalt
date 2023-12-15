@@ -222,8 +222,8 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
     />
   );
 
-    // Explicit margin for the small size, we don't have a token for 2px
-    const tagMarginY = size === 'sm' ? '2px' : 'var(--space-100)';
+  // Explicit margin for the small size, we don't have a token for 2px
+  const tagMarginY = size === 'sm' || size === 'md' ? '2px' : 'var(--space-100)';
 
   return (
     <span>
@@ -233,10 +233,14 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
         {tags ? (
           <div className={styledClasses} {...(tags ? { ref: innerRef } : {})}>
             {tags.map((tag, tagIndex) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <Box key={tagIndex} marginEnd={1}   dangerouslySetInlineStyle={{
-                __style: { marginBottom: tagMarginY },
-              }} >
+              <Box
+                // eslint-disable-next-line react/no-array-index-key
+                key={tagIndex}
+                marginEnd={1}
+                dangerouslySetInlineStyle={{
+                  __style: { marginBottom: tagMarginY },
+                }}
+              >
                 {cloneElement(tag, { size: size === 'lg' ? 'md' : 'sm' })}
               </Box>
             ))}
