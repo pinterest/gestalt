@@ -1,5 +1,4 @@
 // @flow strict
-import ReactDOM from 'react-dom';
 import { create } from 'react-test-renderer';
 import BannerOverlay from './BannerOverlay';
 import Image from './Image';
@@ -8,10 +7,6 @@ import Text from './Text';
 
 describe('<BannerOverlay />', () => {
   test('Text Only', () => {
-    // (ReactDOM.createPortal: JestMockFn<[Element], Element).mockImplementation(
-    //   (e) => e,
-    // );
-
     const tree = create(
       <BannerOverlay
         title="Profile"

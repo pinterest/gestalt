@@ -13,6 +13,7 @@ import Box from './Box';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
 import Flex from './Flex';
 import Icon from './Icon';
@@ -150,10 +151,8 @@ export default function BannerOverlay({
     messageTextElement = <span className={textColorOverrideStyles}>{message}</span>;
   }
 
-  // TODO: Add BannerOverlay to DefautlLabelProvider
-  // const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
-  //   useDefaultLabelContext('BannerOverlay');
-  const accessibilityDismissButtonLabelDefault = '';
+  const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
+    useDefaultLabelContext('BannerOverlay');
 
   const { lightModeBackground, darkModeBackground, textColor } = DEFAULT_COLORS;
 
