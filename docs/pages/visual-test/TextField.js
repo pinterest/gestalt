@@ -72,7 +72,7 @@ export default function TextFieldScreenshot(): ReactNode {
               helperText="Helper text"
               id="field2"
               onChange={() => {}}
-              tags={renderedTags.concat(renderedTags)}
+              tags={renderedTags}
               type="text"
               size="sm"
               value={input3text}
@@ -81,7 +81,7 @@ export default function TextFieldScreenshot(): ReactNode {
               name="medium"
               id="field3"
               onChange={() => {}}
-              tags={renderedTags.concat(renderedTags)}
+              tags={renderedTags}
               type="text"
               size="md"
               value={input3text}

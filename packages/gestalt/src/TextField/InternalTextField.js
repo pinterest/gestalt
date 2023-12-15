@@ -12,7 +12,6 @@ import {
 import classnames from 'classnames';
 import styles from './InternalTextField.css';
 import InternalTextFieldIconButton from './InternalTextFieldIconButton';
-import { type Size } from '../AvatarGroup/constants';
 import Box from '../Box';
 import focusStyles from '../Focus.css';
 import layout from '../Layout.css';
