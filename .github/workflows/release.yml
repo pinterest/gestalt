@@ -10,10 +10,11 @@ on:
       - master
 
 jobs:
-  release:
-    name: Release gestalt
+  extract_labels:
+    name: Extract PR labels
     runs-on: ubuntu-latest
-    if: contains(github.event.head_commit.message, 'Version bump:') == false && github.repository == 'pinterest/gestalt'
+    outputs:
+      labels: ${{ steps.extract_labels.outputs.labels }}
     steps:
       - uses: octokit/graphql-action@v2.0.0
         id: query_labels
@@ -54,6 +55,13 @@ jobs:
         run: |
           LABELS=$(echo "${JSON_DATA}" | jq '.repository.object.associatedPullRequests.edges[0].node.labels.edges[].node.name' | tr '\n' ', ')
           echo "::set-output name=labels::${LABELS}"
+
+  release:
+    name: Release gestalt
+    needs: [extract_labels]
+    runs-on: ubuntu-latest
+    if: contains(needs.extract_labels.outputs.labels, 'docs-update') == 'false' && contains(github.event.head_commit.message, 'Version bump:') == false && github.repository == 'pinterest/gestalt'
+    steps:
       - name: Checkout the repo
         uses: actions/checkout@v2
         with:
