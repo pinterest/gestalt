@@ -338,14 +338,19 @@ exports[`TextField TextField with tags 1`] = `
       className="textField base enabled normal medium md textFieldWrapper"
     >
       <div
-        className="box marginBottom1 marginEnd1"
+        className="box marginEnd1"
+        style={
+          Object {
+            "marginBottom": "2px",
+          }
+        }
       >
         <div
           aria-disabled={false}
-          className="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
+          className="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
           style={
             Object {
-              "height": 32,
+              "height": 24,
               "maxWidth": 300,
             }
           }
@@ -359,7 +364,7 @@ exports[`TextField TextField with tags 1`] = `
             }
           >
             <span
-              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+              className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal lineClamp"
               style={
                 Object {
                   "WebkitLineClamp": 1,
@@ -373,7 +378,7 @@ exports[`TextField TextField with tags 1`] = `
               className="box"
             >
               <button
-                className="button secondary hideOutline tapTransition accessibilityOutline md"
+                className="button secondary hideOutline tapTransition accessibilityOutline sm"
                 onClick={[Function]}
                 type="button"
               >
@@ -405,14 +410,19 @@ exports[`TextField TextField with tags 1`] = `
         </div>
       </div>
       <div
-        className="box marginBottom1 marginEnd1"
+        className="box marginEnd1"
+        style={
+          Object {
+            "marginBottom": "2px",
+          }
+        }
       >
         <div
           aria-disabled={false}
-          className="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
+          className="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
           style={
             Object {
-              "height": 32,
+              "height": 24,
               "maxWidth": 300,
             }
           }
@@ -426,7 +436,7 @@ exports[`TextField TextField with tags 1`] = `
             }
           >
             <span
-              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+              className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal lineClamp"
               style={
                 Object {
                   "WebkitLineClamp": 1,
@@ -440,7 +450,7 @@ exports[`TextField TextField with tags 1`] = `
               className="box"
             >
               <button
-                className="button secondary hideOutline tapTransition accessibilityOutline md"
+                className="button secondary hideOutline tapTransition accessibilityOutline sm"
                 onClick={[Function]}
                 type="button"
               >
@@ -472,14 +482,19 @@ exports[`TextField TextField with tags 1`] = `
         </div>
       </div>
       <div
-        className="box marginBottom1 marginEnd1"
+        className="box marginEnd1"
+        style={
+          Object {
+            "marginBottom": "2px",
+          }
+        }
       >
         <div
           aria-disabled={false}
-          className="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
+          className="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
           style={
             Object {
-              "height": 32,
+              "height": 24,
               "maxWidth": 300,
             }
           }
@@ -493,7 +508,7 @@ exports[`TextField TextField with tags 1`] = `
             }
           >
             <span
-              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+              className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal lineClamp"
               style={
                 Object {
                   "WebkitLineClamp": 1,
@@ -507,7 +522,7 @@ exports[`TextField TextField with tags 1`] = `
               className="box"
             >
               <button
-                className="button secondary hideOutline tapTransition accessibilityOutline md"
+                className="button secondary hideOutline tapTransition accessibilityOutline sm"
                 onClick={[Function]}
                 type="button"
               >

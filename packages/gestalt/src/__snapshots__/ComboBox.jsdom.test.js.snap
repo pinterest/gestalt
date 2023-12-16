@@ -113,19 +113,20 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             class="textField base enabled normal medium actionButton md textFieldWrapper"
           >
             <div
-              class="box marginBottom1 marginEnd1"
+              class="box marginEnd1"
+              style="margin-bottom: 2px;"
             >
               <div
                 aria-disabled="false"
-                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
-                style="height: 32px; max-width: 300px;"
+                class="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
+                style="height: 24px; max-width: 300px;"
               >
                 <div
                   class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                    class="Text fontSize100 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="ey / em"
                   >
                     ey / em
@@ -134,7 +135,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     class="box"
                   >
                     <button
-                      class="button secondary hideOutline tapTransition accessibilityOutline md"
+                      class="button secondary hideOutline tapTransition accessibilityOutline sm"
                       type="button"
                     >
                       <div
@@ -160,19 +161,20 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
               </div>
             </div>
             <div
-              class="box marginBottom1 marginEnd1"
+              class="box marginEnd1"
+              style="margin-bottom: 2px;"
             >
               <div
                 aria-disabled="false"
-                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
-                style="height: 32px; max-width: 300px;"
+                class="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
+                style="height: 24px; max-width: 300px;"
               >
                 <div
                   class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                    class="Text fontSize100 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="he / him"
                   >
                     he / him
@@ -181,7 +183,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     class="box"
                   >
                     <button
-                      class="button secondary hideOutline tapTransition accessibilityOutline md"
+                      class="button secondary hideOutline tapTransition accessibilityOutline sm"
                       type="button"
                     >
                       <div
@@ -207,19 +209,20 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
               </div>
             </div>
             <div
-              class="box marginBottom1 marginEnd1"
+              class="box marginEnd1"
+              style="margin-bottom: 2px;"
             >
               <div
                 aria-disabled="false"
-                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
-                style="height: 32px; max-width: 300px;"
+                class="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
+                style="height: 24px; max-width: 300px;"
               >
                 <div
                   class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                    class="Text fontSize100 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="ne / nem"
                   >
                     ne / nem
@@ -228,7 +231,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     class="box"
                   >
                     <button
-                      class="button secondary hideOutline tapTransition accessibilityOutline md"
+                      class="button secondary hideOutline tapTransition accessibilityOutline sm"
                       type="button"
                     >
                       <div
@@ -254,19 +257,20 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
               </div>
             </div>
             <div
-              class="box marginBottom1 marginEnd1"
+              class="box marginEnd1"
+              style="margin-bottom: 2px;"
             >
               <div
                 aria-disabled="false"
-                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
-                style="height: 32px; max-width: 300px;"
+                class="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
+                style="height: 24px; max-width: 300px;"
               >
                 <div
                   class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                    class="Text fontSize100 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="she / her"
                   >
                     she / her
@@ -275,7 +279,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     class="box"
                   >
                     <button
-                      class="button secondary hideOutline tapTransition accessibilityOutline md"
+                      class="button secondary hideOutline tapTransition accessibilityOutline sm"
                       type="button"
                     >
                       <div
@@ -301,19 +305,20 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
               </div>
             </div>
             <div
-              class="box marginBottom1 marginEnd1"
+              class="box marginEnd1"
+              style="margin-bottom: 2px;"
             >
               <div
                 aria-disabled="false"
-                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
-                style="height: 32px; max-width: 300px;"
+                class="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
+                style="height: 24px; max-width: 300px;"
               >
                 <div
                   class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                    class="Text fontSize100 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="they / them"
                   >
                     they / them
@@ -322,7 +327,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     class="box"
                   >
                     <button
-                      class="button secondary hideOutline tapTransition accessibilityOutline md"
+                      class="button secondary hideOutline tapTransition accessibilityOutline sm"
                       type="button"
                     >
                       <div
@@ -348,19 +353,20 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
               </div>
             </div>
             <div
-              class="box marginBottom1 marginEnd1"
+              class="box marginEnd1"
+              style="margin-bottom: 2px;"
             >
               <div
                 aria-disabled="false"
-                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
-                style="height: 32px; max-width: 300px;"
+                class="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
+                style="height: 24px; max-width: 300px;"
               >
                 <div
                   class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                    class="Text fontSize100 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="ve / ver"
                   >
                     ve / ver
@@ -369,7 +375,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     class="box"
                   >
                     <button
-                      class="button secondary hideOutline tapTransition accessibilityOutline md"
+                      class="button secondary hideOutline tapTransition accessibilityOutline sm"
                       type="button"
                     >
                       <div
@@ -395,19 +401,20 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
               </div>
             </div>
             <div
-              class="box marginBottom1 marginEnd1"
+              class="box marginEnd1"
+              style="margin-bottom: 2px;"
             >
               <div
                 aria-disabled="false"
-                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
-                style="height: 32px; max-width: 300px;"
+                class="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
+                style="height: 24px; max-width: 300px;"
               >
                 <div
                   class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                    class="Text fontSize100 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="xe / xem"
                   >
                     xe / xem
@@ -416,7 +423,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     class="box"
                   >
                     <button
-                      class="button secondary hideOutline tapTransition accessibilityOutline md"
+                      class="button secondary hideOutline tapTransition accessibilityOutline sm"
                       type="button"
                     >
                       <div
@@ -442,19 +449,20 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
               </div>
             </div>
             <div
-              class="box marginBottom1 marginEnd1"
+              class="box marginEnd1"
+              style="margin-bottom: 2px;"
             >
               <div
                 aria-disabled="false"
-                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
-                style="height: 32px; max-width: 300px;"
+                class="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
+                style="height: 24px; max-width: 300px;"
               >
                 <div
                   class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                    class="Text fontSize100 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="xie / xem"
                   >
                     xie / xem
@@ -463,7 +471,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     class="box"
                   >
                     <button
-                      class="button secondary hideOutline tapTransition accessibilityOutline md"
+                      class="button secondary hideOutline tapTransition accessibilityOutline sm"
                       type="button"
                     >
                       <div
@@ -489,19 +497,20 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
               </div>
             </div>
             <div
-              class="box marginBottom1 marginEnd1"
+              class="box marginEnd1"
+              style="margin-bottom: 2px;"
             >
               <div
                 aria-disabled="false"
-                class="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
-                style="height: 32px; max-width: 300px;"
+                class="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
+                style="height: 24px; max-width: 300px;"
               >
                 <div
                   class="box marginEnd5 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                    class="Text fontSize100 defaultText alignStart breakWord fontWeightNormal lineClamp"
                     title="zie / zem"
                   >
                     zie / zem
@@ -510,7 +519,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     class="box"
                   >
                     <button
-                      class="button secondary hideOutline tapTransition accessibilityOutline md"
+                      class="button secondary hideOutline tapTransition accessibilityOutline sm"
                       type="button"
                     >
                       <div
