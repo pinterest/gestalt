@@ -1,3 +1,9 @@
+## 129.1.7 (Dec 16, 2023)
+
+### Patch
+
+- Internal: ts typo fix ([#3331](https://github.com/pinterest/gestalt/pull/3331)) - [Preview link](https://deploy-preview-3331--gestalt.netlify.app?devexample=true)
+
 ## 129.1.6 (Dec 13, 2023)
 
 ### Patch
