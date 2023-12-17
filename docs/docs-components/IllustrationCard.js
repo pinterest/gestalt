@@ -34,6 +34,7 @@ export default function IllustrationCard({
           <Flex direction="column" height={320}>
             <Box
               display="flex"
+              rounding={2}
               alignItems="center"
               justifyContent="center"
               height="60%"
