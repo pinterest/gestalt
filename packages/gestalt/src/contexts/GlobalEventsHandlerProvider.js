@@ -57,6 +57,21 @@ type Props = {
       +event: SyntheticEvent<>,
     }) => void,
   },
+  /**
+   * Handlers consumed by [BannerOverlay](https://gestalt.pinterest.systems/web/BannerOverlay).
+   */
+  bannerOverlayHandlers?: {
+    text: string,
+    accessibilityLabel: string,
+    href: string,
+    onClick?: ({
+      event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+      dangerouslyDisableOnNavigation: () => void,
+    }) => void,
+  },
+  /**
+   * Handlers consumed by [RadioGroup](https://gestalt.pinterest.systems/web/RadioGroup).
+   */
   radioGroupHandlers?: { onRender?: () => void },
 };
 

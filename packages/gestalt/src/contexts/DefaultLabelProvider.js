@@ -135,7 +135,7 @@ export const fallbackLabels: DefaultLabelContextType = {
     accessibilityExpandLabel: 'Expand section',
   },
   BannerOverlay: {
-    accessibilityDismissButtonLabel: 'Dismiss',
+    accessibilityDismissButtonLabel: 'Dismiss Banner',
   },
   ActivationCard: {
     accessibilityDismissButtonLabel: 'Dismiss',
