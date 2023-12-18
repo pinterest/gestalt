@@ -30,7 +30,7 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
       <PageHeader
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
-        slimBanner={
+        slimBannerExperiment={
           <SlimBannerExperiment
             componentName="ComboBox"
             description="fix and improve underlying Popover component behavior. No visual updates"

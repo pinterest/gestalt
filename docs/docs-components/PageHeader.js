@@ -57,8 +57,8 @@ type Props = {
   folderName?: string,
   margin?: 'default' | 'none',
   name: string,
-  slimBanner?: Element<typeof SlimBanner | typeof SlimBannerExperiment> | null,
-  slimBannerExperiment?: Element<typeof SlimBanner | typeof SlimBannerExperiment> | null,
+  slimBanner?: Element<typeof SlimBanner> | null,
+  slimBannerExperiment?: Element<typeof SlimBannerExperiment> | null,
   type?: 'guidelines' | 'component' | 'utility',
   pdocsLink?: boolean,
 };
