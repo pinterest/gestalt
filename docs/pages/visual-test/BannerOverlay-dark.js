@@ -17,6 +17,10 @@ export default function Example(): ReactNode {
             </Link>
           </Text>
         }
+        primaryAction={{
+          label: 'Save to board',
+          href: 'https://www.pinterest.com/',
+        }}
         onDismiss={() => {}}
         thumbnail={{
           image: (
