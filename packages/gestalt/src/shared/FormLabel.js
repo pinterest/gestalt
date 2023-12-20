@@ -14,10 +14,11 @@ type Props = {
   size?: SizeType,
 };
 
-const applyDensityStyle = (size?: SizeType) => (size === 'lg' ? styles[`${size}`] : null);
+const applyDensityStyle = (size?: SizeType) =>
+  size === 'lg' ? styles.formLabelLarge : styles.formLabel;
 
 export default function FormLabel({ id, label, labelDisplay, size }: Props): ReactNode {
-  const cs = classnames(styles.formLabel, applyDensityStyle(size));
+  const cs = classnames(applyDensityStyle(size));
 
   return (
     <InternalLabel _labelDisplay={labelDisplay} htmlFor={id}>

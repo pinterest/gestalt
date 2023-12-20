@@ -36,7 +36,6 @@ export default function TextFieldScreenshot(): ReactNode {
               value={input1text}
             />
           </Flex>
-
           <Flex direction="column" gap={{ column: 2, row: 0 }}>
             <TextField
               label="medium field"
@@ -69,6 +68,43 @@ export default function TextFieldScreenshot(): ReactNode {
             <Heading size="300">Tags</Heading>
             <TextField
               name="small"
+              label="small field"
+              helperText="Helper text"
+              id="field2"
+              errorMessage="This field has an error"
+              onChange={() => {}}
+              type="text"
+              size="sm"
+              value={input3text}
+            />
+            <TextField
+              name="medium"
+              label="medium field"
+              helperText="Helper text"
+              id="field2"
+              errorMessage="This field has an error"
+              onChange={() => {}}
+              type="text"
+              size="md"
+              value={input3text}
+            />
+            <TextField
+              name="large"
+              label="large field"
+              helperText="Helper text"
+              id="field2"
+              errorMessage="This field has an error"
+              onChange={() => {}}
+              type="text"
+              size="md"
+              value={input3text}
+            />
+          </Flex>
+          <Flex direction="column" gap={{ column: 2, row: 0 }}>
+            <Heading size="300">Tags</Heading>
+            <TextField
+              name="small"
+              label="small field"
               helperText="Helper text"
               id="field2"
               onChange={() => {}}
@@ -79,15 +115,18 @@ export default function TextFieldScreenshot(): ReactNode {
             />
             <TextField
               name="medium"
+              label="medium field"
               id="field3"
               onChange={() => {}}
               tags={renderedTags}
+              helperText="Helper text"
               type="text"
               size="md"
               value={input3text}
             />
             <TextField
               name="large"
+              label="large field"
               helperText="Helper text"
               id="field1"
               onChange={() => {}}
