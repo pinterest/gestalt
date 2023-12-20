@@ -56,7 +56,7 @@ type Props = {
   },
   /**
    * Adds an optional primary button for user interaction.
-   * Main action for users to take on BannerOverlay. If href is supplied, the action will serve as a link. See OnLinkNavigationProvider to learn more about link navigation.
+   * Main action for users to take on BannerOverlay. If href is supplied, the action will serve as a link.
    * If no href is supplied, the action will be a button.
    * The accessibilityLabel should follow the Accessibility guidelines.
    * See the Primary action variant to learn more.
