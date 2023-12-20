@@ -22,7 +22,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at iaculis est!
           </Text>
         }
-        dismissButton={{ onDismiss: () => {} }}
+        onDismiss={() => {}}
         primaryAction={{
           accessibilityLabel: 'TEST',
           label: 'TEST',

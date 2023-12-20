@@ -145,7 +145,7 @@ export default function BannerOverlay({
 
   const { lightModeBackground, darkModeBackground, textColor } = DEFAULT_COLORS;
 
-  const dismissButtonComponent = onDismiss && (
+  const dismissButtonComponent = !!onDismiss && (
     <Flex.Item flex="none" alignSelf={isMobileDevice ? 'end' : 'center'}>
       <IconButton
         accessibilityLabel={accessibilityDismissButtonLabelDefault}
@@ -215,7 +215,8 @@ export default function BannerOverlay({
         direction={isMobileDevice ? 'column' : 'row'}
         smPaddingY={4}
         fit
-        minWidth={isMobileDevice ? 348 : 900}
+        maxWidth={isMobileDevice ? 348 : 900}
+        width="100%"
       >
         {isMobileDevice && dismissButtonComponent}
         <Flex alignItems="center" gap={4}>
