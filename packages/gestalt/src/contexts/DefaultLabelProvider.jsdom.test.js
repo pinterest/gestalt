@@ -23,6 +23,9 @@ describe('useDefaultLabelContext', () => {
           ActivationCard: {
             accessibilityDismissButtonLabel: 'Dismiss',
           },
+          BannerOverlay: {
+            accessibilityDismissButtonLabel: 'Dismiss Banner',
+          },
           Callout: {
             accessibilityDismissButtonLabel: 'Dismiss Banner',
             iconAccessibilityLabelError: 'Error',
