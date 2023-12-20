@@ -543,7 +543,7 @@ exports[`Checkbox with error 1`] = `
                 role="alert"
               >
                 <div
-                  className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+                  className="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
                 >
                   <div
                     className="FlexItem"
