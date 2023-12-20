@@ -15,7 +15,7 @@ type Props = {
 };
 
 const applyDensityMargin = (size?: SizeType): 1 | 2 => (size === 'sm' || size === 'md' ? 1 : 2);
-const applyDensityIcon = (size?: SizeType): 1 | 2 => (size === 'sm' ? 12 : 16);
+const applyDensityIcon = (size?: SizeType): 12 | 16 => (size === 'sm' ? 12 : 16);
 
 const icon = 'workflow-status-problem';
 const color = 'error';
