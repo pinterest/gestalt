@@ -403,6 +403,9 @@ interface DefaultLabelProviderProps {
         ActivationCard: {
           accessibilityDismissButtonLabel: string;
         };
+        BannerOverlay: {
+          accessibilityDismissButtonLabel: string;
+        }
         Callout: {
           accessibilityDismissButtonLabel: string;
           iconAccessibilityLabelError: string;
@@ -589,6 +592,48 @@ interface AvatarGroupProps {
     | undefined;
   role?: 'button' | 'link' | undefined;
   size?: 'xs' | 'sm' | 'md' | 'fit' | undefined;
+}
+
+interface BannerOverlayProps {
+  onDismiss: () => void;
+  message: string | React.ReactElement<typeof Text>;
+  offset?: { bottom: number, top: number },
+  helperLink?:
+  | {
+      text: string;
+      accessibilityLabel: string;
+      href: string;
+      onClick?: AbstractEventHandler<
+        React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>,
+        { dangerouslyDisableOnNavigation: () => void }
+      >;
+    }
+  | undefined;
+  primaryAction?:
+  | {
+      accessibilityLabel: string;
+      label: string;
+      href: string | undefined;
+      onClick?: ButtonEventHandlerType | undefined;
+      rel?: RelType | undefined;
+      role: 'link';
+      size?: 'sm' | 'md' | 'lg' | undefined;
+      target?: TargetType | undefined;
+    }
+  | {
+      accessibilityLabel: string;
+      label: string;
+      onClick: ButtonEventHandlerType | undefined;
+      role?: 'button';
+      size?: 'sm' | 'md' | 'lg' | undefined;
+    };
+  thumbnail?:
+  | { image: React.ReactElement<typeof Image> }
+  | { avatar: React.ReactElement<typeof Avatar> }
+  | { icon: React.ReactElement<typeof Icon> }
+  | undefined;
+  title?: string,
+  zIndex?: Indexable,
 }
 
 interface BadgeProps {
@@ -2416,6 +2461,11 @@ export const AvatarGroup: React.FunctionComponent<AvatarGroupProps>;
  * https://gestalt.pinterest.systems/web/badge
  */
 export const Badge: React.FunctionComponent<BadgeProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/banneroverlay
+ */
+export const BannerOverlay: React.FunctionComponent<BannerOverlayProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/box
