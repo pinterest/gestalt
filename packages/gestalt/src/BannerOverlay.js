@@ -3,12 +3,6 @@ import { Children, type Element, type ElementConfig, type Node as ReactNode } fr
 import Avatar from './Avatar';
 import styles from './BannerOverlay.css';
 import PrimaryAction from './BannerOverlay/PrimaryAction';
-import {
-  BannerOverlayAvatarThumbnail,
-  BannerOverlayIconThumbnail,
-  BannerOverlayImageThumbnail,
-  BannerOverlayMessage,
-} from './BannerOverlay/subcomponents';
 import Box from './Box';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
@@ -20,6 +14,12 @@ import Icon from './Icon';
 import IconButton from './IconButton';
 import Image from './Image';
 import Layer from './Layer';
+import {
+  ToastAvatarThumbnail,
+  ToastIconThumbnail,
+  ToastImageThumbnail,
+  ToastMessage,
+} from './Shared/ToastSubcomponents';
 import Text from './Text';
 import { type Indexable } from './zIndex';
 
@@ -158,8 +158,8 @@ export default function BannerOverlay({
   );
   const CTAComponent = primaryAction && (
     <Flex.Item flex={isMobileDevice ? 'shrink' : 'none'}>
-      {[
-        primaryAction.role === 'link' && (
+      {
+        (primaryAction.role === 'link' && (
           <PrimaryAction
             accessibilityLabel={primaryAction.accessibilityLabel}
             href={primaryAction.href}
@@ -179,8 +179,8 @@ export default function BannerOverlay({
             role="button"
             size="sm"
           />
-        ),
-      ]}
+        ))
+      }
     </Flex.Item>
   );
   return (
@@ -222,26 +222,26 @@ export default function BannerOverlay({
           {!!thumbnail?.image &&
           Children.only<Element<typeof Image>>(thumbnail.image).type.displayName === 'Image' ? (
             <Flex.Item flex="none">
-              <BannerOverlayImageThumbnail thumbnail={thumbnail.image} />
+              <ToastImageThumbnail thumbnail={thumbnail.image} />
             </Flex.Item>
           ) : null}
 
           {!!thumbnail?.icon &&
           Children.only<Element<typeof Icon>>(thumbnail.icon).type.displayName === 'Icon' ? (
             <Flex.Item flex="none">
-              <BannerOverlayIconThumbnail thumbnail={thumbnail.icon} />
+              <ToastIconThumbnail thumbnail={thumbnail.icon} />
             </Flex.Item>
           ) : null}
 
           {!!thumbnail?.avatar &&
           Children.only<Element<typeof Avatar>>(thumbnail.avatar).type.displayName === 'Avatar' ? (
             <Flex.Item flex="none">
-              <BannerOverlayAvatarThumbnail thumbnail={thumbnail.avatar} />
+              <ToastAvatarThumbnail thumbnail={thumbnail.avatar} />
             </Flex.Item>
           ) : null}
           <Flex.Item flex="grow">
             <Text weight="bold">{title}</Text>
-            <BannerOverlayMessage
+            <ToastMessage
               text={messageIsTextNode ? undefined : messageTextElement}
               textElement={messageIsTextNode ? messageTextElement : undefined}
               helperLink={helperLink}

@@ -61,9 +61,6 @@ type Props = {
    * Handlers consumed by [BannerOverlay](https://gestalt.pinterest.systems/web/BannerOverlay).
    */
   bannerOverlayHandlers?: {
-    text: string,
-    accessibilityLabel: string,
-    href: string,
     onClick?: ({
       event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
       dangerouslyDisableOnNavigation: () => void,

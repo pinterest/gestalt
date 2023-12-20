@@ -73,13 +73,6 @@ describe('<BannerOverlay />', () => {
             </Link>
           </Text>
         }
-        primaryAction={{
-          accessibilityLabel: 'Undo undo action',
-          label: 'Undo',
-          size: 'lg',
-          role: 'button',
-          onClick: () => {},
-        }}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();

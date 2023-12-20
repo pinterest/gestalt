@@ -17,16 +17,16 @@ import Icon from './Icon';
 import Image from './Image';
 import Link from './Link';
 import InternalDismissButton from './shared/InternalDismissButton';
-import Text from './Text';
-import styles from './Toast.css';
-import PrimaryAction from './Toast/PrimaryAction';
 import {
   ToastAvatarThumbnail,
   ToastIconThumbnail,
   ToastImageThumbnail,
   ToastMessage,
   ToastTypeThumbnail,
-} from './Toast/subcomponents';
+} from './Shared/ToastSubcomponents';
+import Text from './Text';
+import styles from './Toast.css';
+import PrimaryAction from './Toast/PrimaryAction';
 import useResponsiveMinWidth from './useResponsiveMinWidth';
 
 const DEFAULT_COLORS = {

@@ -15,7 +15,7 @@ export default function Example(): ReactNode {
             </Link>
           </Text>
         }
-        dismissButton={{ onDismiss: () => {} }}
+        onDismiss = {() => {}}
         thumbnail={{
           image: (
             <Image
