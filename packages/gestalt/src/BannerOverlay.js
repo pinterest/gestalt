@@ -13,7 +13,6 @@ import Flex from './Flex';
 import Icon from './Icon';
 import IconButton from './IconButton';
 import Image from './Image';
-import Layer from './Layer';
 import {
   ToastAvatarThumbnail,
   ToastIconThumbnail,
@@ -181,77 +180,78 @@ export default function BannerOverlay({
     </Flex.Item>
   );
   return (
-    <Layer zIndex={zIndex}>
-      <Box
-        color={isDarkMode ? darkModeBackground : lightModeBackground}
-        paddingX={4}
-        paddingY={3}
-        rounding={4}
-        borderStyle="shadow"
-        dangerouslySetInlineStyle={
-          isMobileDevice
-            ? {
-                __style: {
-                  bottom: offset.bottom,
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                },
-              }
-            : {
-                __style: {
-                  top: offset.top,
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                },
-              }
-        }
-        position="fixed"
-        display="flex"
-        justifyContent={isMobileDevice ? 'center' : 'between'}
-        alignContent={isMobileDevice ? 'stretch' : 'center'}
-        direction={isMobileDevice ? 'column' : 'row'}
-        smPaddingY={4}
-        fit
-        maxWidth={isMobileDevice ? 348 : 900}
-        width="100%"
-      >
-        {isMobileDevice && dismissButtonComponent}
-        <Flex alignItems="center" gap={4}>
-          {!!thumbnail?.image &&
-          Children.only<Element<typeof Image>>(thumbnail.image).type.displayName === 'Image' ? (
-            <Flex.Item flex="none">
-              <ToastImageThumbnail thumbnail={thumbnail.image} />
-            </Flex.Item>
-          ) : null}
-
-          {!!thumbnail?.icon &&
-          Children.only<Element<typeof Icon>>(thumbnail.icon).type.displayName === 'Icon' ? (
-            <Flex.Item flex="none">
-              <ToastIconThumbnail thumbnail={thumbnail.icon} />
-            </Flex.Item>
-          ) : null}
-
-          {!!thumbnail?.avatar &&
-          Children.only<Element<typeof Avatar>>(thumbnail.avatar).type.displayName === 'Avatar' ? (
-            <Flex.Item flex="none">
-              <ToastAvatarThumbnail thumbnail={thumbnail.avatar} />
-            </Flex.Item>
-          ) : null}
-          <Flex.Item flex="grow">
-            <Text weight="bold">{title}</Text>
-            <ToastMessage
-              text={messageIsTextNode ? undefined : messageTextElement}
-              textElement={messageIsTextNode ? messageTextElement : undefined}
-              helperLink={helperLink}
-              textColor={textColor}
-            />
+    <Box
+      color={isDarkMode ? darkModeBackground : lightModeBackground}
+      paddingX={4}
+      paddingY={3}
+      rounding={4}
+      borderStyle="shadow"
+      dangerouslySetInlineStyle={
+        isMobileDevice
+          ? {
+              __style: {
+                position: 'fixed',
+                bottom: offset.bottom,
+                left: '50%',
+                transform: 'translateX(-50%)',
+              },
+            }
+          : {
+              __style: {
+                position: 'fixed',
+                top: offset.top,
+                left: '50%',
+                transform: 'translateX(-50%)',
+              },
+            }
+      }
+      position="fixed"
+      display="flex"
+      justifyContent={isMobileDevice ? 'center' : 'between'}
+      alignContent={isMobileDevice ? 'stretch' : 'center'}
+      direction={isMobileDevice ? 'column' : 'row'}
+      smPaddingY={4}
+      fit
+      maxWidth={isMobileDevice ? 348 : 900}
+      width="100%"
+      zIndex={zIndex}
+    >
+      {isMobileDevice && dismissButtonComponent}
+      <Flex alignItems="center" gap={4}>
+        {!!thumbnail?.image &&
+        Children.only<Element<typeof Image>>(thumbnail.image).type.displayName === 'Image' ? (
+          <Flex.Item flex="none">
+            <ToastImageThumbnail thumbnail={thumbnail.image} />
           </Flex.Item>
-        </Flex>
-        <Flex direction="row" alignSelf={isMobileDevice ? 'end' : 'center'} gap={4}>
-          {CTAComponent}
-          {!isMobileDevice && dismissButtonComponent}
-        </Flex>
-      </Box>
-    </Layer>
+        ) : null}
+
+        {!!thumbnail?.icon &&
+        Children.only<Element<typeof Icon>>(thumbnail.icon).type.displayName === 'Icon' ? (
+          <Flex.Item flex="none">
+            <ToastIconThumbnail thumbnail={thumbnail.icon} />
+          </Flex.Item>
+        ) : null}
+
+        {!!thumbnail?.avatar &&
+        Children.only<Element<typeof Avatar>>(thumbnail.avatar).type.displayName === 'Avatar' ? (
+          <Flex.Item flex="none">
+            <ToastAvatarThumbnail thumbnail={thumbnail.avatar} />
+          </Flex.Item>
+        ) : null}
+        <Flex.Item flex="grow">
+          <Text weight="bold">{title}</Text>
+          <ToastMessage
+            text={messageIsTextNode ? undefined : messageTextElement}
+            textElement={messageIsTextNode ? messageTextElement : undefined}
+            helperLink={helperLink}
+            textColor={textColor}
+          />
+        </Flex.Item>
+      </Flex>
+      <Flex direction="row" alignSelf={isMobileDevice ? 'end' : 'center'} gap={4}>
+        {CTAComponent}
+        {!isMobileDevice && dismissButtonComponent}
+      </Flex>
+    </Box>
   );
 }
