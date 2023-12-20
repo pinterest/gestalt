@@ -158,29 +158,26 @@ export default function BannerOverlay({
   );
   const CTAComponent = primaryAction && (
     <Flex.Item flex={isMobileDevice ? 'shrink' : 'none'}>
-      {
-        (primaryAction.role === 'link' && (
-          <PrimaryAction
-            accessibilityLabel={primaryAction.accessibilityLabel}
-            href={primaryAction.href}
-            label={primaryAction.label}
-            onClick={primaryAction.onClick}
-            rel={primaryAction?.rel}
-            role="link"
-            size="sm"
-            target={primaryAction?.target}
-          />
-        ),
-        primaryAction.role !== 'link' && (
-          <PrimaryAction
-            accessibilityLabel={primaryAction.accessibilityLabel}
-            label={primaryAction.label}
-            onClick={primaryAction.onClick}
-            role="button"
-            size="sm"
-          />
-        ))
-      }
+      {primaryAction.role === 'link' ? (
+        <PrimaryAction
+          accessibilityLabel={primaryAction.accessibilityLabel}
+          href={primaryAction.href}
+          label={primaryAction.label}
+          onClick={primaryAction.onClick}
+          rel={primaryAction?.rel}
+          role="link"
+          size="sm"
+          target={primaryAction?.target}
+        />
+      ) : (
+        <PrimaryAction
+          accessibilityLabel={primaryAction.accessibilityLabel}
+          label={primaryAction.label}
+          onClick={primaryAction.onClick}
+          role="button"
+          size="sm"
+        />
+      )}
     </Flex.Item>
   );
   return (
