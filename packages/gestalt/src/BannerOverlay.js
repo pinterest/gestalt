@@ -127,17 +127,20 @@ export default function BannerOverlay({
   }
 
   // If `message` is a Text component, we need to override any text colors within to ensure they all match
-  const messageIsTextNode =
-    typeof message !== 'string' &&
-    Children.only<Element<typeof Text>>(message).type.displayName === 'Text';
+  const checkTextNode = () => {
+    const messageIsTextNode =
+      typeof message !== 'string' &&
+      Children.only<Element<typeof Text>>(message).type.displayName === 'Text';
 
-  if (messageIsTextNode) {
-    const textColorOverrideStyles = isDarkMode
-      ? styles.textColorOverrideDark
-      : styles.textColorOverrideLight;
+    if (messageIsTextNode) {
+      const textColorOverrideStyles = isDarkMode
+        ? styles.textColorOverrideDark
+        : styles.textColorOverrideLight;
 
-    messageTextElement = <span className={textColorOverrideStyles}>{message}</span>;
-  }
+      messageTextElement = <span className={textColorOverrideStyles}>{message}</span>;
+    }
+    return messageIsTextNode;
+  };
 
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('BannerOverlay');
@@ -179,6 +182,8 @@ export default function BannerOverlay({
       )}
     </Flex.Item>
   );
+
+  const isMessageTextNode = checkTextNode();
   return (
     <Box
       color={isDarkMode ? darkModeBackground : lightModeBackground}
@@ -241,8 +246,8 @@ export default function BannerOverlay({
         <Flex.Item flex="grow">
           <Text weight="bold">{title}</Text>
           <ToastMessage
-            text={messageIsTextNode ? undefined : messageTextElement}
-            textElement={messageIsTextNode ? messageTextElement : undefined}
+            text={isMessageTextNode ? undefined : messageTextElement}
+            textElement={isMessageTextNode ? messageTextElement : undefined}
             helperLink={helperLink}
             textColor={textColor}
           />
