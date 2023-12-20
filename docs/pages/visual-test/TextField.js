@@ -64,7 +64,7 @@ export default function TextFieldScreenshot(): ReactNode {
               value={input3text}
             />
           </Flex>
-          <Flex direction="column" gap={{ column: 2, row: 0 }}>
+          <Flex direction="column" gap={{ column: 4, row: 0 }}>
             <Heading size="300">Tags</Heading>
             <TextField
               name="small"
@@ -96,11 +96,11 @@ export default function TextFieldScreenshot(): ReactNode {
               errorMessage="This field has an error"
               onChange={() => {}}
               type="text"
-              size="md"
+              size="lg"
               value={input3text}
             />
           </Flex>
-          <Flex direction="column" gap={{ column: 2, row: 0 }}>
+          <Flex direction="column" gap={{ column: 4, row: 0 }}>
             <Heading size="300">Tags</Heading>
             <TextField
               name="small"
