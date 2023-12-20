@@ -315,6 +315,27 @@ const componentData: $ReadOnlyArray<ComponentData> = [
     },
   },
   {
+    id: 'BannerOverlay',
+    platform: {
+      web: {
+        name: 'BannerOverlay',
+        visual: {
+          svg: <Toast />,
+        },
+        alias: ['UpsellOverlay'],
+        description:
+          'BannerOverlay displays short educational messages when users have performed actions that indicate some intent.',
+        category: ['Messaging'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          responsive: 'ready',
+          status: 'ready',
+        },
+      },
+    },
+  },
+  {
     id: 'Box',
     platform: {
       web: {
