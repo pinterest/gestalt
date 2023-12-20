@@ -15,4 +15,3 @@
   composes: paddingY0 from "./boxWhitespace.css";
   composes: transparentBg from "./Colors.css";
 }
-
