@@ -15,7 +15,7 @@ export default function FoundationsOverview(): ReactNode {
         <IllustrationContainer justifyContent="start">
           <PageHeader
             name="Foundations overview"
-            description="Here you will find the foundational elements for designing UI components, surfaces and patterns. These include graphic elements like iconography, color and typography to structural. They also cover elevation, layout and accessibility."
+            description="Use this as a guide for styling and structuring inclusive interfaces while leveraging common interaction patterns for all Pinterest products."
             type="guidelines"
           />
         </IllustrationContainer>
