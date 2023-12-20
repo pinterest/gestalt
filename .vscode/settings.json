@@ -7,7 +7,7 @@
   "editor.formatOnSave": true,
   "eslint.packageManager": "yarn",
   "grunt.autoDetect": "off",
-  "javascript.validate.enable": false,
+  "javascript.validate.enable": true,
   "npm.packageManager": "yarn",
   "typescript.validate.enable": true
 }
