@@ -1,6 +1,6 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import BannerOverlay from './BannerOverlay';
+import BannerOverlay from './BannerOverlay.1';
 import Image from './Image';
 import Link from './Link';
 import Text from './Text';
