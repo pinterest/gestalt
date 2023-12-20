@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { BannerOverlay, FixedZIndex, Image, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { type DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -22,33 +21,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
       >
         <SandpackExample code={main} name="Main BannerOverlay example" hideEditor />
       </PageHeader>
-      <BannerOverlay
-        title="BannerOverlay Test Title!"
-        message={
-          <Text inline>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at iaculis est!
-          </Text>
-        }
-        onDismiss={() => {}}
-        primaryAction={{
-          accessibilityLabel: 'TEST',
-          label: 'TEST',
-          role: 'button',
-          onClick: () => {},
-        }}
-        offset={{ top: 130, bottom: 24 }}
-        thumbnail={{
-          image: (
-            <Image
-              alt="Flamingos"
-              naturalHeight={40}
-              naturalWidth={40}
-              src="https://i.pinimg.com/564x/39/b7/5e/39b75ec3211d0efe8e727da2c2af1966.jpg"
-            />
-          ),
-        }}
-        zIndex={new FixedZIndex(100)}
-      />
+
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <MainSection name="Usage guidelines">
