@@ -1,3 +1,9 @@
+## 129.1.8 (Dec 20, 2023)
+
+### Patch
+
+- Docs: RTL to International design ([#3336](https://github.com/pinterest/gestalt/pull/3336)) - [Preview link](https://deploy-preview-3336--gestalt.netlify.app?devexample=true)
+
 ## 129.1.7 (Dec 16, 2023)
 
 ### Patch
