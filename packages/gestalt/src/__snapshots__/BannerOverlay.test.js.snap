@@ -5,6 +5,7 @@ exports[`<BannerOverlay /> Text + Image + Button 1`] = `
   className="box contentCenter default fit fixed justifyBetween paddingX4 paddingY3 rounding4 shadow smPaddingY4 xsDirectionRow xsDisplayFlex"
   style={
     Object {
+      "bottom": "unset",
       "left": "50%",
       "maxWidth": 900,
       "position": "fixed",
@@ -104,6 +105,7 @@ exports[`<BannerOverlay /> Text + Image 1`] = `
   className="box contentCenter default fit fixed justifyBetween paddingX4 paddingY3 rounding4 shadow smPaddingY4 xsDirectionRow xsDisplayFlex"
   style={
     Object {
+      "bottom": "unset",
       "left": "50%",
       "maxWidth": 900,
       "position": "fixed",
@@ -203,6 +205,7 @@ exports[`<BannerOverlay /> Text Only 1`] = `
   className="box contentCenter default fit fixed justifyBetween paddingX4 paddingY3 rounding4 shadow smPaddingY4 xsDirectionRow xsDisplayFlex"
   style={
     Object {
+      "bottom": "unset",
       "left": "50%",
       "maxWidth": 900,
       "position": "fixed",
