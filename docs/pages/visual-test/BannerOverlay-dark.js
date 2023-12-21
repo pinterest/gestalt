@@ -18,6 +18,8 @@ export default function Example(): ReactNode {
           </Text>
         }
         primaryAction={{
+          role: 'link',
+          accessibilityLabel: `Save to board`,
           label: 'Save to board',
           href: 'https://www.pinterest.com/',
         }}
