@@ -43,6 +43,7 @@ export default function DocsPage({
     <Page title={generatedDocGen.Table?.displayName}>
       <PageHeader
         name={generatedDocGen.Table?.displayName}
+        packageFileLocation={generatedDocGen.Table?.packageFileLocation}
         description={generatedDocGen.Table?.description}
       >
         <SandpackExample code={main} name="Main Table example" hideEditor />

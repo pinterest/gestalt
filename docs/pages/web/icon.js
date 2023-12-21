@@ -24,7 +24,7 @@ const HEIGHT = 150;
 export default function IconPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader name={generatedDocGen?.displayName} packageFileLocation={generatedDocGen?.packageFileLocation} description={generatedDocGen?.description}>
         <SandpackExample code={main} name="Main Button example" hideEditor previewHeight={HEIGHT} />
       </PageHeader>
 

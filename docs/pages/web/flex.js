@@ -29,6 +29,7 @@ export default function DocsPage({
     <Page title={generatedDocGen?.Flex?.displayName}>
       <PageHeader
         name={generatedDocGen?.Flex?.displayName}
+        packageFileLocation={generatedDocGen?.Flex?.packageFileLocation}
         description={generatedDocGen?.Flex?.description}
         pdocsLink
       >

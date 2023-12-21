@@ -30,6 +30,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
     <Page title="Tooltip">
       <PageHeader
         name="Tooltip"
+        packageFileLocation={generatedDocGen.packageFileLocation}
         description={generatedDocGen?.description}
         slimBanner={
           <SlimBanner

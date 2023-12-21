@@ -20,7 +20,7 @@ export default function ScrollBoundaryContainerPage({
 }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
+      <PageHeader name={generatedDocGen?.displayName} packageFileLocation={generatedDocGen.packageFileLocation} description={generatedDocGen?.description} />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

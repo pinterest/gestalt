@@ -24,7 +24,7 @@ import useToCommunicateAStepIn from '../../examples/status/useToCommunicateAStep
 export default function StatusPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title="Status">
-      <PageHeader name="Status" description={generatedDocGen?.description}>
+      <PageHeader name="Status" description={generatedDocGen?.description} packageFileLocation={generatedDocGen?.packageFileLocation}>
         <SandpackExample
           name="Main Example"
           code={mainExample}

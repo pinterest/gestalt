@@ -16,7 +16,7 @@ import sizeExample from '../../examples/segmentedcontrol/sizeExample';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title="SegmentedControl">
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen.description}>
+      <PageHeader name={generatedDocGen?.displayName} packageFileLocation={generatedDocGen?.packageFileLocation} description={generatedDocGen.description}>
         <SandpackExample code={mainExample} name="SegmentedControl Main Example" hideEditor />
       </PageHeader>
 

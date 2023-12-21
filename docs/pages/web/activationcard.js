@@ -23,7 +23,7 @@ export default function ActivationCardPage({
 }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader name={generatedDocGen?.displayName} packageFileLocation={generatedDocGen?.packageFileLocation} description={generatedDocGen?.description}>
         <SandpackExample name="Main Example" code={mainExample} layout="column" hideEditor />
       </PageHeader>
       <GeneratedPropTable generatedDocGen={generatedDocGen} />

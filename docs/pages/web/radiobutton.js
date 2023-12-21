@@ -12,6 +12,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
       <PageHeader
         name="RadioButton"
         badge="deprecated"
+        packageFileLocation={generatedDocGen?.packageFileLocation}
         description="Use RadioButtons when you have a few options that a user can choose from. Never use radio buttons if the user can select more than one option from a list."
         slimBanner={
           <SlimBanner

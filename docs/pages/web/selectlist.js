@@ -33,6 +33,7 @@ export default function DocsPage({
     <Page title={generatedDocGen?.SelectList?.displayName}>
       <PageHeader
         name={generatedDocGen?.SelectList?.displayName}
+        packageFileLocation={generatedDocGen?.SelectList?.packageFileLocation}
         description={generatedDocGen?.SelectList?.description}
       >
         <SandpackExample

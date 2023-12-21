@@ -23,7 +23,7 @@ import useWhitespaceToSeparateGroups from '../../examples/divider/useWhitespaceT
 export default function DividerPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader name={generatedDocGen?.displayName} packageFileLocation={generatedDocGen?.packageFileLocation} description={generatedDocGen?.description}>
         <SandpackExample
           name="Main Example"
           code={mainExample}

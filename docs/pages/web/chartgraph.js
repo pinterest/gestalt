@@ -59,6 +59,7 @@ export default function ComponentPage({
     <Page title={generatedDocGen.ChartGraph?.displayName}>
       <PageHeader
         name={generatedDocGen.ChartGraph?.displayName}
+        packageFileLocation={generatedDocGen?.ChartGraph?.packageFileLocation}
         description={generatedDocGen.ChartGraph?.description}
         slimBanner={
           <SlimBanner

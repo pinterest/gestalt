@@ -14,6 +14,7 @@ export default function DocsPage(): ReactNode {
     <Page title="Z-Index Classes">
       <PageHeader
         name="Z-Index Classes"
+        packageFileLocation="gestalt/src/zIndex.js"
         description="FixedZIndex and CompositeZIndex are utility classes that generate z-indices for Gestalt components."
       />
 

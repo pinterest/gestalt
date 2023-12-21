@@ -24,6 +24,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): ReactNode {
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
         name={generatedDocGen?.displayName}
+        packageFileLocation={generatedDocGen?.packageFileLocation}
         description={generatedDocGen?.description}
         slimBanner={
           <SlimBannerExperiment

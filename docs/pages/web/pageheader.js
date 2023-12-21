@@ -36,6 +36,7 @@ export default function PageHeaderPage({
     <Page title={generatedDocGen?.displayName}>
       <DocsPageHeader
         name={generatedDocGen?.displayName}
+        packageFileLocation={generatedDocGen?.packageFileLocation}
         description={generatedDocGen?.description}
         pdocsLink
       >

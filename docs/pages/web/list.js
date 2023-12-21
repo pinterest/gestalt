@@ -37,6 +37,7 @@ export default function ListPage({
     <Page title={generatedDocGen?.List.displayName}>
       <PageHeader
         name={generatedDocGen?.List.displayName}
+        packageFileLocation={generatedDocGen?.List?.packageFileLocation}
         description={generatedDocGen?.List.description}
       >
         <SandpackExample

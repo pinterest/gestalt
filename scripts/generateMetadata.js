@@ -43,6 +43,9 @@ async function docgen(filePath) {
   try {
     // Take only the first exported component
     const [parsed] = reactDocs.parse(contents, { resolver });
+    const [, packageFileLocation] = filePath.split("/packages/");
+
+    parsed.packageFileLocation = packageFileLocation;
 
     if (parsed.description) {
       parsed.description = parsed.description

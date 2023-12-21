@@ -22,7 +22,7 @@ import withChildrenExample from '../../examples/video/withChildrenExample';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title="Video">
-      <PageHeader name="Video" description={generatedDocGen?.description} pdocsLink>
+      <PageHeader name="Video" packageFileLocation={generatedDocGen.packageFileLocation} description={generatedDocGen?.description} pdocsLink>
         <SandpackExample
           name="Main Example"
           code={mainExample}

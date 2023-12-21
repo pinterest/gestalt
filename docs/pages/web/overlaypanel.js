@@ -32,6 +32,7 @@ export default function SheetPage({
     <Page title={generatedDocGen?.OverlayPanel.displayName}>
       <PageHeader
         name={generatedDocGen?.OverlayPanel.displayName}
+        packageFileLocation={generatedDocGen?.OverlayPanel?.packageFileLocation}
         description={generatedDocGen?.OverlayPanel.description}
         slimBanner={
           <SlimBannerExperiment

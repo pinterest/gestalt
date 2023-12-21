@@ -36,6 +36,7 @@ export default function SheetMobilePage({
       <PageHeader
         badge="pilot"
         name={generatedDocGen?.SheetMobile.displayName}
+        packageFileLocation={generatedDocGen?.SheetMobile.packageFileLocation}
         description={generatedDocGen?.SheetMobile.description}
         pdocsLink
         slimBanner={

@@ -38,6 +38,7 @@ export default function ComponentPage({
     <Page title={generatedDocGen.Dropdown?.displayName}>
       <PageHeader
         name={generatedDocGen?.Dropdown.displayName}
+        packageFileLocation={generatedDocGen?.Dropdown?.packageFileLocation}
         description={generatedDocGen?.Dropdown.description}
         slimBanner={
           <SlimBannerExperiment

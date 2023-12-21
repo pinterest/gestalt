@@ -96,6 +96,7 @@ export default function BoxPage({ generatedDocGen }: { generatedDocGen: DocGen }
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
         name={generatedDocGen?.displayName}
+        packageFileLocation={generatedDocGen?.packageFileLocation}
         description={generatedDocGen?.description}
         pdocsLink
       >

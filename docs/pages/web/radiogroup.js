@@ -34,6 +34,7 @@ export default function DocsPage({
     <Page title={generatedDocGen?.RadioGroup?.displayName}>
       <PageHeader
         name={generatedDocGen?.RadioGroup?.displayName}
+        packageFileLocation={generatedDocGen?.RadioGroup?.packageFileLocation}
         description={generatedDocGen?.RadioGroup.description}
       >
         <SandpackExample

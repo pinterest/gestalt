@@ -29,6 +29,7 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
         name={generatedDocGen?.displayName}
+        packageFileLocation={generatedDocGen?.packageFileLocation}
         description={generatedDocGen?.description}
         slimBanner={
           <SlimBannerExperiment

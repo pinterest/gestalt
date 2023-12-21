@@ -102,6 +102,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         badge="experimental"
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
+        packageFileLocation={generatedDocGen?.packageFileLocation}
         slimBanner={
           <SlimBanner
             type="warning"

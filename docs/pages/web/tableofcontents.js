@@ -25,6 +25,7 @@ export default function TableOfContentsPage({
     <Page title={generatedDocGen?.TableOfContents.displayName}>
       <PageHeader
         name={generatedDocGen?.TableOfContents.displayName}
+        packageFileLocation={generatedDocGen.TableOfContents?.packageFileLocation}
         description={generatedDocGen?.TableOfContents.description}
       >
         <SandpackExample code={main} hideEditor name="Main TableOfContents example" />

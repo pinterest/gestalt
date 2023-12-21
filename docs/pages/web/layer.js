@@ -14,7 +14,7 @@ import stackingUsingZIndexExample from '../../examples/layer/stackingUsingZIndex
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title="Layer">
-      <PageHeader name="Layer" description={generatedDocGen?.description} />
+      <PageHeader name="Layer" packageFileLocation={generatedDocGen?.packageFileLocation} description={generatedDocGen?.description} />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 

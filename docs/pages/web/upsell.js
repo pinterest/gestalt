@@ -35,6 +35,7 @@ export default function DocsPage({
     <Page title={generatedDocGen?.Upsell?.displayName}>
       <PageHeader
         name={generatedDocGen?.Upsell?.displayName}
+        packageFileLocation={generatedDocGen.Upsell?.packageFileLocation}
         description={generatedDocGen?.Upsell?.description}
       >
         <SandpackExample

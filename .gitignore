@@ -8,6 +8,7 @@ docs/docs-components/metadata.js
 stats.html
 screenshots
 .DS_Store
+.idea
 # We use yarn, not npm
 package-lock.json
 

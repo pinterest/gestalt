@@ -24,7 +24,7 @@ export default function ModalPage({ generatedDocGen }: { generatedDocGen: DocGen
 
   return (
     <Page title="Modal">
-      <PageHeader name="Modal" description={generatedDocGen?.description} pdocsLink>
+      <PageHeader name="Modal" packageFileLocation={generatedDocGen?.packageFileLocation} description={generatedDocGen?.description} pdocsLink>
         <SandpackExample
           code={accessibilityExample}
           name="Modal Main Example"

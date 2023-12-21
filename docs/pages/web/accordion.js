@@ -32,6 +32,7 @@ export default function DocsPage({
     <Page title={generatedDocGen.Accordion?.description}>
       <PageHeader
         name={generatedDocGen.Accordion?.displayName}
+        packageFileLocation={generatedDocGen.Accordion?.packageFileLocation}
         description={generatedDocGen.Accordion?.description}
       >
         <SandpackExample name="Main Example" code={mainExample} layout="column" hideEditor />

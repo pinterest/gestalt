@@ -1,8 +1,6 @@
 // @flow strict
 import { type Element, type Node as ReactNode } from 'react';
 import { Badge, Box, Flex, Heading, Link, SlimBanner, Text } from 'gestalt';
-import * as gestaltChart from 'gestalt-charts'; // eslint-disable-line import/no-namespace
-import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
 import trackButtonClick from './buttons/trackButtonClick';
 import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
 import componentData from './data/components';
@@ -14,24 +12,8 @@ import { SlimBannerExperiment } from './SlimBannerExperiment';
 
 const webComponentData = getByPlatform(componentData, { platform: 'web' });
 
-const gestaltChartComponents = Object.keys(gestaltChart);
-const gestaltDatepickerComponents = Object.keys(gestaltDatepicker);
-
-const buildSourceLinkPath = (componentName: string) => {
-  let packageName = 'gestalt';
-
-  if (gestaltChartComponents.includes(componentName)) {
-    packageName = 'gestalt-charts';
-  }
-
-  if (gestaltDatepickerComponents.includes(componentName)) {
-    packageName = 'gestalt-datepicker';
-  }
-  return `packages/${packageName}/src/${componentName}.js`;
-};
-
-const buildSourceLinkUrl = (componentName: string) =>
-  ['https://github.com/pinterest/gestalt/blob/master', buildSourceLinkPath(componentName)].join(
+const buildSourceLinkUrl = (packageFileLocation: string) =>
+  ['https://github.com/pinterest/gestalt/blob/master', `packages/${packageFileLocation}`].join(
     '/',
   );
 
@@ -47,10 +29,7 @@ type Props = {
     | 'trends',
   children?: ReactNode,
   description?: string,
-  /**
-   * Only use if name !== file name
-   */
-  fileName?: string,
+  packageFileLocation?: string,
   /**
    * Only use if name !== file name and the link should point to a directory
    */
@@ -66,7 +45,7 @@ export default function PageHeader({
   badge,
   children,
   description = '',
-  fileName,
+  packageFileLocation,
   folderName,
   pdocsLink = false,
   margin = 'default',
@@ -74,8 +53,9 @@ export default function PageHeader({
   slimBanner = null,
   type = 'component',
 }: Props): ReactNode {
-  const sourcePathName = folderName ?? fileName ?? name;
+  const sourcePathName = folderName ?? packageFileLocation;
   let sourceLink = buildSourceLinkUrl(sourcePathName);
+
   if (folderName) {
     // Strip the file extension if linking to a folder
     sourceLink = sourceLink.replace(/\.js$/, '');

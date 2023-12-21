@@ -27,6 +27,7 @@ export default function AvatarPage({ generatedDocGen }: { generatedDocGen: DocGe
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
         name={generatedDocGen?.displayName}
+        packageFileLocation={generatedDocGen?.packageFileLocation}
         description={generatedDocGen?.description}
         pdocsLink
       >

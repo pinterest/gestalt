@@ -29,7 +29,7 @@ export default function SearchFieldPage({
 }): ReactNode {
   return (
     <Page title="SearchField">
-      <PageHeader name="SearchField" description={generatedDocGen?.description}>
+      <PageHeader name="SearchField" packageFileLocation={generatedDocGen?.packageFileLocation} description={generatedDocGen?.description}>
         <SandpackExample
           name="Main example"
           code={mainExample}

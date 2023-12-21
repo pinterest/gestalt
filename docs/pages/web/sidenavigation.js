@@ -46,6 +46,7 @@ export default function SideNavigationPage({
     <Page title={generatedDocGen.SideNavigation?.displayName ?? ''}>
       <PageHeader
         name={generatedDocGen.SideNavigation?.displayName}
+        packageFileLocation={generatedDocGen?.SideNavigation.packageFileLocation}
         description={generatedDocGen.SideNavigation?.description}
       >
         <SandpackExample

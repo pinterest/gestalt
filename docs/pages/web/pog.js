@@ -15,7 +15,7 @@ import main from '../../examples/pog/main';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title="Pog">
-      <PageHeader name="Pog" description={generatedDocGen?.description}>
+      <PageHeader name="Pog" description={generatedDocGen?.description} packageFileLocation={generatedDocGen?.packageFileLocation}>
         <SandpackExample
           name="Main Example"
           code={main}

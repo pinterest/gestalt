@@ -112,6 +112,7 @@ export default function DatePickerPage({
       <PageHeader
         badge="pilot"
         name={generatedDocGen?.displayName}
+        packageFileLocation={generatedDocGen?.packageFileLocation}
         description={generatedDocGen?.description}
         slimBanner={
           <SlimBanner

@@ -109,7 +109,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
   return (
     <Page title="DatePicker">
-      <PageHeader name="DatePicker" description={generatedDocGen?.description} pdocsLink>
+      <PageHeader name="DatePicker" packageFileLocation={generatedDocGen?.packageFileLocation} description={generatedDocGen?.description} pdocsLink>
         <SandpackExample
           code={main}
           name={`Main ${generatedDocGen?.displayName} example`}
