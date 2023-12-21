@@ -1,3 +1,9 @@
+## 129.1.9 (Dec 21, 2023)
+
+### Patch
+
+- Icon: Added scissors icon ([#3337](https://github.com/pinterest/gestalt/pull/3337)) - [Preview link](https://deploy-preview-3337--gestalt.netlify.app?devexample=true)
+
 ## 129.1.8 (Dec 20, 2023)
 
 ### Patch
