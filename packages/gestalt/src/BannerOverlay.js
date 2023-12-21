@@ -147,7 +147,7 @@ export default function BannerOverlay({
 
   const { lightModeBackground, darkModeBackground, textColor } = DEFAULT_COLORS;
 
-  const dismissButtonComponent = !!onDismiss && (
+  const dismissButtonComponent = (
     <Flex.Item flex="none" alignSelf={isMobileDevice ? 'end' : 'center'}>
       <IconButton
         accessibilityLabel={accessibilityDismissButtonLabelDefault}
@@ -191,25 +191,15 @@ export default function BannerOverlay({
       paddingY={3}
       rounding={4}
       borderStyle="shadow"
-      dangerouslySetInlineStyle={
-        isMobileDevice
-          ? {
-              __style: {
-                position: 'fixed',
-                bottom: offset.bottom,
-                left: '50%',
-                transform: 'translateX(-50%)',
-              },
-            }
-          : {
-              __style: {
-                position: 'fixed',
-                top: offset.top,
-                left: '50%',
-                transform: 'translateX(-50%)',
-              },
-            }
-      }
+      dangerouslySetInlineStyle={{
+        __style: {
+          position: 'fixed',
+          bottom: isMobileDevice ? offset.bottom : 'unset',
+          top: !isMobileDevice ? offset.top : 'unset',
+          left: '50%',
+          transform: 'translateX(-50%)',
+        },
+      }}
       position="fixed"
       display="flex"
       justifyContent={isMobileDevice ? 'center' : 'between'}
@@ -221,7 +211,7 @@ export default function BannerOverlay({
       width="100%"
       zIndex={zIndex}
     >
-      {isMobileDevice && dismissButtonComponent}
+      {isMobileDevice && !!onDismiss && dismissButtonComponent}
       <Flex alignItems="center" gap={4}>
         {!!thumbnail?.image &&
         Children.only<Element<typeof Image>>(thumbnail.image).type.displayName === 'Image' ? (
@@ -254,8 +244,8 @@ export default function BannerOverlay({
         </Flex.Item>
       </Flex>
       <Flex direction="row" alignSelf={isMobileDevice ? 'end' : 'center'} gap={4}>
-        {CTAComponent}
-        {!isMobileDevice && dismissButtonComponent}
+        {primaryAction && CTAComponent}
+        {!isMobileDevice && !!onDismiss && dismissButtonComponent}
       </Flex>
     </Box>
   );
