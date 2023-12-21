@@ -1,3 +1,9 @@
+## 129.1.10 (Dec 21, 2023)
+
+### Patch
+
+- Docs: Cosmetic fixes ([#3335](https://github.com/pinterest/gestalt/pull/3335)) - [Preview link](https://deploy-preview-3335--gestalt.netlify.app?devexample=true)
+
 ## 129.1.9 (Dec 21, 2023)
 
 ### Patch
