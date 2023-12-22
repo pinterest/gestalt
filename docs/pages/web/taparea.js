@@ -93,7 +93,7 @@ TapArea with link interaction can be paired with GlobalEventsHandlerProvider. Se
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Mouse cursor"
-          description={`Change the cursor on TapArea for different click interactions`}
+          description="Change the cursor on TapArea for different click interactions"
         >
           <MainSection.Card
             sandpackExample={<SandpackExample name="Mouse cursor" code={mouseCursor} hideEditor />}
