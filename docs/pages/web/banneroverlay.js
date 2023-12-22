@@ -3,19 +3,22 @@ import { type Node as ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { type DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
-import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
 import MainSection from '../../docs-components/MainSection';
 import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
-import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
+import avatar from '../../examples/banneroverlay/avatar';
+import desktop from '../../examples/banneroverlay/desktop';
 import doConcise from '../../examples/banneroverlay/doConcise';
 import doEducate from '../../examples/banneroverlay/doEducate';
 import doNavigate from '../../examples/banneroverlay/doNavigate';
 import dontCritical from '../../examples/banneroverlay/dontCritical';
 import dontLong from '../../examples/banneroverlay/dontLong';
 import dontStack from '../../examples/banneroverlay/dontStack';
+import icon from '../../examples/banneroverlay/icon';
+import image from '../../examples/banneroverlay/image';
 import main from '../../examples/banneroverlay/main';
+import mobile from '../../examples/banneroverlay/mobile';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
@@ -27,9 +30,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
       >
         <SandpackExample code={main} name="Main BannerOverlay example" hideEditor />
       </PageHeader>
-
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
-
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -48,13 +49,12 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             title="When not to use"
             description={`
 - If there is a need to block the content underneath Use Modal instead
-- To replace the Toast
+- To replace Toast
 - For lengthy messages, forms, or blocks of information. Consider OverlayPanel or new page instead
         `}
           />
         </MainSection.Subsection>
       </MainSection>
-
       <MainSection name="Best Practices">
         <MainSection.Subsection columns={1}>
           <MainSection.Card
@@ -109,20 +109,56 @@ On mobile devices, the BannerOverlay should appear at the bottom of the screen. 
           />
         </MainSection.Subsection>
       </MainSection>
+      <MainSection name="Variants">
+        <MainSection.Subsection title="Image">
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={image} name="Image" layout="column" />}
+            description="With an image for Pin or Board actions, or the Pinterest logo."
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Avatar">
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={avatar} name="avatar" layout="column" />}
+            description="With an Avatar for Profile or Pinner-related messaging."
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Icon">
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={icon} name="icon" layout="column" />}
+            description="For when an icon is needed to represent content that isn’t a pin or a profile."
+          />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Responsive">
+        <MainSection.Subsection>
+          <MainSection.Card
+            description={`UpsellOverlay is responsive to different devices. Therefore, OverlayUpsell dweb is set to a max width of 900 px to preserve a great usability experience and consistency with other components.
+
+On desktop devices, the BannerOverlay should appear at the top of the screen (below navigation). The BannerOverlay shouldn't block navigation.
+On mobile devices, the BannerOverlay should appear at the bottom of the screen. The 'offset' prop can be used to adjust the position of the BannerOverlay.`}
+          />
+          <SandpackExample code={mobile} name="Main BannerOverlay example" hideEditor />
+          <SandpackExample code={desktop} name="Main BannerOverlay example" hideEditor />
+        </MainSection.Subsection>
+      </MainSection>
 
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           title="Labels"
           description={`
-          dismissButton, primaryAction, helperLink require a short, descriptive label for screen readers, which should also be localized.
+          \`dismissButton\` and \`primaryAction\`, require a short, descriptive label for screen readers, which should also be localized.
 
-          Icons and thumbnails on BannerOverlay are purely decorative, and can therefore have an empty string as the accessibilityLabel. The thumbnail (Image) or Icon should supply an alt or accessibilityLabel, respectively, if the Image or Icon supplies extra context or information.
+          Icons and thumbnails on BannerOverlay are purely decorative, and can therefore have an empty string as the \`accessibilityLabel\`. The thumbnail (Image) or Icon should supply an alt or accessibilityLabel, respectively, if the Image or Icon supplies extra context or information.`}
+        />
+        <MainSection.Subsection
+          title="Localization"
+          description={`Remember to localize text and any string within \`primaryAction\` or \`dismissButton\`, as well as title and message.
 
-
-          `}
+<b>Please note</b>: Start aligned text is the primary alignment for our Business products. It will be left-aligned in left-to-right languages and right-aligned in right-to-left languages.`}
         />
       </AccessibilitySection>
-
       <MainSection name="Writing">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -143,18 +179,6 @@ On mobile devices, the BannerOverlay should appear at the bottom of the screen. 
           />
         </MainSection.Subsection>
       </MainSection>
-
-      <QualityChecklist component={generatedDocGen?.displayName} />
-
-      <InternalDocumentationSection
-        items={[
-          {
-            href: 'https://pdocs.pinadmin.com/docs/webapp/docs/gestalt-extensions#banneroverlay',
-            text: 'BannerOverlay extension',
-          },
-        ]}
-      />
-
       <MainSection name="Related">
         <MainSection.Subsection
           description={`

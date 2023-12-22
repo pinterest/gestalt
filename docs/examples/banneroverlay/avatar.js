@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode, useState } from 'react';
-import { BannerOverlay, Button, FixedZIndex, Image, Link, Text } from 'gestalt';
+import { Avatar, BannerOverlay, Button, FixedZIndex, Link, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   const [showComponent, setShowComponent] = useState(true);
@@ -34,24 +34,11 @@ export default function Example(): ReactNode {
         label: 'Get the app',
         accessibilityLabel: 'Get the app',
       }}
-      secondaryAction={{
-        role: 'button',
-        onClick: () => {},
-        label: 'Not now',
-        accessibilityLabel: 'Not now',
-      }}
       onDismiss={() => {
         setShowComponent(false);
       }}
       thumbnail={{
-        image: (
-          <Image
-            alt="Pinterest Logo"
-            naturalHeight={1}
-            naturalWidth={1}
-            src="https://i.ibb.co/LQc8ynn/image.png"
-          />
-        ),
+        avatar: <Avatar src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" name="Keerthi" />,
       }}
     />
   );

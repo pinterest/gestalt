@@ -34,12 +34,6 @@ export default function Example(): ReactNode {
         label: 'Get the app',
         accessibilityLabel: 'Get the app',
       }}
-      secondaryAction={{
-        role: 'button',
-        onClick: () => {},
-        label: 'Not now',
-        accessibilityLabel: 'Not now',
-      }}
       onDismiss={() => {
         setShowComponent(false);
       }}
