@@ -156,18 +156,25 @@ export default function BannerOverlay({
   const { lightModeBackground, darkModeBackground, textColor } = DEFAULT_COLORS;
 
   const dismissButtonComponent = (
-    <Flex.Item alignSelf={isMobileDevice ? 'end' : 'center'}>
-      <IconButton
-        accessibilityLabel={accessibilityDismissButtonLabelDefault}
-        icon="cancel"
-        iconColor="darkGray"
-        onClick={onDismiss}
-        size="xs"
-      />
-    </Flex.Item>
+    <IconButton
+      accessibilityLabel={accessibilityDismissButtonLabelDefault}
+      icon="cancel"
+      iconColor="darkGray"
+      onClick={onDismiss}
+      size="xs"
+    />
   );
 
   const isMessageTextNode = checkTextNode();
+  const messageComponent = (
+    <Box marginBottom={isMobileDevice ? 2 : 0}>
+      <ToastMessage
+        text={isMessageTextNode ? undefined : messageTextElement}
+        textElement={isMessageTextNode ? messageTextElement : undefined}
+        textColor={textColor}
+      />
+    </Box>
+  );
   return (
     <Box
       color={isDarkMode ? darkModeBackground : lightModeBackground}
@@ -218,16 +225,12 @@ export default function BannerOverlay({
         ) : null}
         <Flex.Item flex="grow">
           <Flex direction="row" justifyContent="between">
-            <Text weight="bold">{title}</Text>
-            {isMobileDevice && !!onDismiss && dismissButtonComponent}
+            {title ? <Text weight="bold">{title}</Text> : messageComponent}
+            {isMobileDevice && !!onDismiss && (
+              <Flex.Item alignSelf={title ? 'end' : 'start'}>{dismissButtonComponent}</Flex.Item>
+            )}
           </Flex>
-          <Box marginBottom={isMobileDevice ? 2 : 0}>
-            <ToastMessage
-              text={isMessageTextNode ? undefined : messageTextElement}
-              textElement={isMessageTextNode ? messageTextElement : undefined}
-              textColor={textColor}
-            />
-          </Box>
+          {title && messageComponent}
         </Flex.Item>
       </Flex>
       <Flex direction="row" alignSelf={isMobileDevice ? 'end' : 'center'} gap={4}>
@@ -285,7 +288,9 @@ export default function BannerOverlay({
             </Flex.Item>
           )}
         </ButtonGroup>
-        {!isMobileDevice && !!onDismiss && dismissButtonComponent}
+        {!isMobileDevice && !!onDismiss && (
+          <Flex.Item alignSelf="center">{dismissButtonComponent}</Flex.Item>
+        )}
       </Flex>
     </Box>
   );
