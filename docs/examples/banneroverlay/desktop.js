@@ -1,6 +1,14 @@
 // @flow strict
 import { type Node as ReactNode, useState } from 'react';
-import { Avatar, BannerOverlay, Button, FixedZIndex, Link, Text } from 'gestalt';
+import {
+  Avatar,
+  BannerOverlay,
+  Button,
+  DeviceTypeProvider,
+  FixedZIndex,
+  Link,
+  Text,
+} from 'gestalt';
 
 export default function Example(): ReactNode {
   const [showComponent, setShowComponent] = useState(true);
@@ -13,33 +21,35 @@ export default function Example(): ReactNode {
       text="Show desktop variant"
     />
   ) : (
-    <BannerOverlay
-      zIndex={new FixedZIndex(100)}
-      offset={{ top: 130, bottom: 24 }}
-      title="More to Explore"
-      message={
-        <Text inline>
-          Discover trending
-          <Link display="inlineBlock" target="self" href="#">
-            fashion
-          </Link>{' '}
-          ideas in the app!
-        </Text>
-      }
-      primaryAction={{
-        role: 'button',
-        onClick: () => {
+    <DeviceTypeProvider deviceType="desktop">
+      <BannerOverlay
+        zIndex={new FixedZIndex(100)}
+        offset={{ top: 130, bottom: 24 }}
+        title="More to Explore"
+        message={
+          <Text inline>
+            Discover trending
+            <Link display="inlineBlock" target="self" href="#">
+              fashion
+            </Link>{' '}
+            ideas in the app!
+          </Text>
+        }
+        primaryAction={{
+          role: 'button',
+          onClick: () => {
+            setShowComponent(false);
+          },
+          label: 'Get the app',
+          accessibilityLabel: 'Get the app',
+        }}
+        onDismiss={() => {
           setShowComponent(false);
-        },
-        label: 'Get the app',
-        accessibilityLabel: 'Get the app',
-      }}
-      onDismiss={() => {
-        setShowComponent(false);
-      }}
-      thumbnail={{
-        avatar: <Avatar src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" name="Keerthi" />,
-      }}
-    />
+        }}
+        thumbnail={{
+          avatar: <Avatar src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" name="Keerthi" />,
+        }}
+      />
+    </DeviceTypeProvider>
   );
 }
