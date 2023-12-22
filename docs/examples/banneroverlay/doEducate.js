@@ -26,20 +26,6 @@ export default function Example(): ReactNode {
           ideas in the app!
         </Text>
       }
-      primaryAction={{
-        role: 'button',
-        onClick: () => {
-          setShowComponent(false);
-        },
-        label: 'Not now',
-        accessibilityLabel: 'Not now',
-      }}
-      secondaryAction={{
-        role: 'button',
-        onClick: () => {},
-        label: 'Get the app',
-        accessibilityLabel: 'Get the app',
-      }}
       onDismiss={() => {
         setShowComponent(false);
       }}

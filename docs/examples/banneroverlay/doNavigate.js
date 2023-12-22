@@ -23,23 +23,9 @@ export default function Example(): ReactNode {
           <Link display="inlineBlock" target="self" href="#">
             fashion
           </Link>{' '}
-          ideas in the app!
+          ideas in the app! <b>Get the app</b>
         </Text>
       }
-      primaryAction={{
-        role: 'button',
-        onClick: () => {
-          setShowComponent(false);
-        },
-        label: 'Not now',
-        accessibilityLabel: 'Not now',
-      }}
-      secondaryAction={{
-        role: 'button',
-        onClick: () => {},
-        label: 'Get the app',
-        accessibilityLabel: 'Get the app',
-      }}
       onDismiss={() => {
         setShowComponent(false);
       }}

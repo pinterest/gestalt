@@ -9,6 +9,12 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
+import doConcise from '../../examples/banneroverlay/doConcise';
+import doEducate from '../../examples/banneroverlay/doEducate';
+import doNavigate from '../../examples/banneroverlay/doNavigate';
+import dontCritical from '../../examples/banneroverlay/dontCritical';
+import dontLong from '../../examples/banneroverlay/dontLong';
+import dontStack from '../../examples/banneroverlay/dontStack';
 import main from '../../examples/banneroverlay/main';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
@@ -45,6 +51,61 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 - To replace the Toast
 - For lengthy messages, forms, or blocks of information. Consider OverlayPanel or new page instead
         `}
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
+      <MainSection name="Best Practices">
+        <MainSection.Subsection columns={1}>
+          <MainSection.Card
+            type="do"
+            sandpackExample={<SandpackExample code={doEducate} name="Do - Educate" hideEditor />}
+            description="Use BannerOverlay to educate and provide additional information to users when they have performed actions that indicate some intent, such as a related pin tap or idea pin swipe."
+          />
+          <MainSection.Card
+            type="don't"
+            sandpackExample={
+              <SandpackExample
+                code={dontCritical}
+                name="Don't - Critical"
+                hideEditor
+                hideControls
+              />
+            }
+            description="Use BannerOverlay for critical information, such as errors or warnings. Use Callout instead."
+          />
+          <MainSection.Card
+            type="do"
+            sandpackExample={<SandpackExample code={doConcise} name="Do - Concise" hideEditor />}
+            description="Be concise when writing the content. The BannerOverlay is intended to display short messages. Ideally max of 3 lines.
+Please consider localization. "
+          />
+          <MainSection.Card
+            type="don't"
+            sandpackExample={
+              <SandpackExample
+                code={dontLong}
+                name="Don't - Long messages"
+                hideEditor
+                hideControls
+              />
+            }
+            description="Display long messages inside the BannerOverlay as it isn't the intent of this component, and it could lead to readability issues considering the component size and space. "
+          />
+          <MainSection.Card
+            type="do"
+            sandpackExample={<SandpackExample code={doNavigate} name="Do - Navigate" hideEditor />}
+            description={`Place BannerOverlay out of the way so a user can still navigate and complete tasks.
+
+<b>Please note</b>: On desktop devices, the BannerOverlay should appear at the top of the screen (below navigation). The BannerOverlay shouldn't block navigation.
+On mobile devices, the BannerOverlay should appear at the bottom of the screen. The 'offset' prop can be used to adjust the position of the BannerOverlay.`}
+          />
+          <MainSection.Card
+            type="don't"
+            sandpackExample={
+              <SandpackExample code={dontStack} name="Don't - Stack" hideEditor hideControls />
+            }
+            description="Stack multiple UpsellOverlays; only one UpsellOverlay should appear on the screen per time."
           />
         </MainSection.Subsection>
       </MainSection>

@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode, useState } from 'react';
-import { BannerOverlay, Button, FixedZIndex, Image, Link, Text } from 'gestalt';
+import { BannerOverlay, Button, FixedZIndex, Icon, Link, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   const [showComponent, setShowComponent] = useState(true);
@@ -19,39 +19,32 @@ export default function Example(): ReactNode {
       title="More to Explore"
       message={
         <Text inline>
-          Discover trending
+          Discover trending fashion ideas
           <Link display="inlineBlock" target="self" href="#">
-            fashion
-          </Link>{' '}
-          ideas in the app!
+            in the app
+          </Link>
+          !
         </Text>
       }
+      onDismiss={() => {
+        setShowComponent(false);
+      }}
       primaryAction={{
         role: 'button',
         onClick: () => {
           setShowComponent(false);
         },
-        label: 'Not now',
-        accessibilityLabel: 'Not now',
+        label: 'Get the app',
+        accessibilityLabel: 'Get the app',
       }}
       secondaryAction={{
         role: 'button',
         onClick: () => {},
-        label: 'Get the app',
-        accessibilityLabel: 'Get the app',
-      }}
-      onDismiss={() => {
-        setShowComponent(false);
+        label: 'Not now',
+        accessibilityLabel: 'Not now',
       }}
       thumbnail={{
-        image: (
-          <Image
-            alt="Pinterest Logo"
-            naturalHeight={1}
-            naturalWidth={1}
-            src="https://i.ibb.co/LQc8ynn/image.png"
-          />
-        ),
+        icon: <Icon accessibilityLabel="Sparkle" icon="sparkle" color="recommendation" />,
       }}
     />
   );

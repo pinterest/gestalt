@@ -16,30 +16,15 @@ export default function Example(): ReactNode {
     <BannerOverlay
       zIndex={new FixedZIndex(100)}
       offset={{ top: 130, bottom: 24 }}
-      title="More to Explore"
       message={
         <Text inline>
-          Discover trending
+          Oops, something went wrong!
           <Link display="inlineBlock" target="self" href="#">
-            fashion
+            Download the app
           </Link>{' '}
-          ideas in the app!
+          instead.
         </Text>
       }
-      primaryAction={{
-        role: 'button',
-        onClick: () => {
-          setShowComponent(false);
-        },
-        label: 'Not now',
-        accessibilityLabel: 'Not now',
-      }}
-      secondaryAction={{
-        role: 'button',
-        onClick: () => {},
-        label: 'Get the app',
-        accessibilityLabel: 'Get the app',
-      }}
       onDismiss={() => {
         setShowComponent(false);
       }}
