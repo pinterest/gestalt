@@ -1,3 +1,9 @@
+## 129.1.11 (Dec 22, 2023)
+
+### Patch
+
+- TapArea: Add cursor doc changes ([#3339](https://github.com/pinterest/gestalt/pull/3339)) - [Preview link](https://deploy-preview-3339--gestalt.netlify.app?devexample=true)
+
 ## 129.1.10 (Dec 21, 2023)
 
 ### Patch
