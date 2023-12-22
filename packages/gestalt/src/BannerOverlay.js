@@ -233,7 +233,7 @@ export default function BannerOverlay({
           {title && messageComponent}
         </Flex.Item>
       </Flex>
-      <Flex direction="row" alignSelf={isMobileDevice ? 'end' : 'center'} gap={4} flex="grow">
+      <Flex direction="row" alignSelf={isMobileDevice ? 'end' : 'center'} gap={4}>
         <ButtonGroup>
           {secondaryAction && (
             <Flex.Item>
