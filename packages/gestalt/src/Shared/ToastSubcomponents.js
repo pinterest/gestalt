@@ -139,6 +139,14 @@ export function ToastImageThumbnail({
   );
 }
 
+export function BannerOverlayIconThumbnail({
+  thumbnail,
+}: {
+  thumbnail: Element<typeof Icon>,
+}): ReactNode {
+  return <Box aria-hidden>{cloneElement(thumbnail, { size: SIZE_ICON })}</Box>;
+}
+
 export function ToastIconThumbnail({ thumbnail }: { thumbnail: Element<typeof Icon> }): ReactNode {
   return <Box aria-hidden>{cloneElement(thumbnail, { size: SIZE_ICON, color: 'inverse' })}</Box>;
 }
