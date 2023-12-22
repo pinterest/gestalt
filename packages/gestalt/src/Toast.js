@@ -192,7 +192,7 @@ export default function Toast({
           !!thumbnail?.icon &&
           Children.only<Element<typeof Icon>>(thumbnail.icon).type.displayName === 'Icon' ? (
             <Flex.Item flex="none">
-              <ToastIconThumbnail thumbnail={thumbnail.icon} />
+              <ToastIconThumbnail thumbnail={thumbnail.icon} overrideColor="inverse" />
             </Flex.Item>
           ) : null}
 

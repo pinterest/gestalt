@@ -8,6 +8,8 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import SandpackExample from '../../docs-components/SandpackExample';
 import avatar from '../../examples/banneroverlay/avatar';
+import callToAction from '../../examples/banneroverlay/callToAction';
+import ctaDismiss from '../../examples/banneroverlay/ctaDismiss';
 import desktop from '../../examples/banneroverlay/desktop';
 import doConcise from '../../examples/banneroverlay/doConcise';
 import doEducate from '../../examples/banneroverlay/doEducate';
@@ -48,7 +50,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             type="don't"
             title="When not to use"
             description={`
-- If there is a need to block the content underneath Use Modal instead
+- If there is a need to block the content underneath use Modal instead
 - To replace Toast
 - For lengthy messages, forms, or blocks of information. Consider OverlayPanel or new page instead
         `}
@@ -109,6 +111,25 @@ On mobile devices, the BannerOverlay should appear at the bottom of the screen. 
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <AccessibilitySection name={generatedDocGen?.displayName}>
+        <MainSection.Subsection
+          title="Labels"
+          description={`
+          \`dismissButton\` and \`primaryAction\`, require a short, descriptive label for screen readers, which should also be localized.
+
+          Icons and thumbnails on BannerOverlay are purely decorative, and can therefore have an empty string as the \`accessibilityLabel\`. The thumbnail (Image) or Icon should supply an alt or accessibilityLabel, respectively, if the Image or Icon supplies extra context or information.`}
+        />
+      </AccessibilitySection>
+
+      <MainSection name="Variants">
+        <MainSection.Subsection
+          description={`Remember to localize text and any string within \`primaryAction\` or \`dismissButton\`, as well as title and message.
+
+<b>Please note</b>: Start aligned text is the primary alignment for our Business products. It will be left-aligned in left-to-right languages and right-aligned in right-to-left languages.`}
+        />
+      </MainSection>
+
       <MainSection name="Variants">
         <MainSection.Subsection title="Image">
           <MainSection.Card
@@ -130,6 +151,20 @@ On mobile devices, the BannerOverlay should appear at the bottom of the screen. 
             description="For when an icon is needed to represent content that isn’t a pin or a profile."
           />
         </MainSection.Subsection>
+        <MainSection.Subsection title="Call to Action">
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={callToAction} name="icon" layout="column" />}
+            description="You can have zero, one or two actions using the props `primaryAction` and `secondaryAction`."
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection title="Dismissed by CTA">
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={ctaDismiss} name="icon" layout="column" />}
+            description={`You can optionally have the Call to Action dismiss the BannerOverlay by not setting the dismissButton prop.
+
+<b>Please note:</b> Make sure to either set the CTA to dismiss the BannerOverlay or set the dismissButton prop. Otherwise, the BannerOverlay will be stuck on the screen.`}
+          />
+        </MainSection.Subsection>
       </MainSection>
       <MainSection name="Responsive">
         <MainSection.Subsection>
@@ -144,21 +179,6 @@ On mobile devices, the BannerOverlay should appear at the bottom of the screen. 
         </MainSection.Subsection>
       </MainSection>
 
-      <AccessibilitySection name={generatedDocGen?.displayName}>
-        <MainSection.Subsection
-          title="Labels"
-          description={`
-          \`dismissButton\` and \`primaryAction\`, require a short, descriptive label for screen readers, which should also be localized.
-
-          Icons and thumbnails on BannerOverlay are purely decorative, and can therefore have an empty string as the \`accessibilityLabel\`. The thumbnail (Image) or Icon should supply an alt or accessibilityLabel, respectively, if the Image or Icon supplies extra context or information.`}
-        />
-        <MainSection.Subsection
-          title="Localization"
-          description={`Remember to localize text and any string within \`primaryAction\` or \`dismissButton\`, as well as title and message.
-
-<b>Please note</b>: Start aligned text is the primary alignment for our Business products. It will be left-aligned in left-to-right languages and right-aligned in right-to-left languages.`}
-        />
-      </AccessibilitySection>
       <MainSection name="Writing">
         <MainSection.Subsection columns={2}>
           <MainSection.Card

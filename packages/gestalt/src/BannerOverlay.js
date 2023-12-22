@@ -15,8 +15,8 @@ import Icon from './Icon';
 import IconButton from './IconButton';
 import Image from './Image';
 import {
-  BannerOverlayIconThumbnail,
   ToastAvatarThumbnail,
+  ToastIconThumbnail,
   ToastImageThumbnail,
   ToastMessage,
 } from './Shared/ToastSubcomponents';
@@ -213,7 +213,7 @@ export default function BannerOverlay({
         {!!thumbnail?.icon &&
         Children.only<Element<typeof Icon>>(thumbnail.icon).type.displayName === 'Icon' ? (
           <Flex.Item alignSelf={isMobileDevice ? 'baseline' : 'center'}>
-            <BannerOverlayIconThumbnail thumbnail={thumbnail.icon} />
+            <ToastIconThumbnail thumbnail={thumbnail.icon} />
           </Flex.Item>
         ) : null}
 
@@ -233,7 +233,7 @@ export default function BannerOverlay({
           {title && messageComponent}
         </Flex.Item>
       </Flex>
-      <Flex direction="row" alignSelf={isMobileDevice ? 'end' : 'center'} gap={4}>
+      <Flex direction="row" alignSelf={isMobileDevice ? 'end' : 'center'} gap={4} flex="grow">
         <ButtonGroup>
           {secondaryAction && (
             <Flex.Item>

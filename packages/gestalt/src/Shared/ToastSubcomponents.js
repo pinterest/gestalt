@@ -14,7 +14,7 @@ import Avatar from '../Avatar';
 import Box from '../Box';
 import ColorSchemeProvider, { useColorScheme } from '../contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
-import Icon from '../Icon';
+import Icon, { type IconColor } from '../Icon';
 import Image from '../Image';
 import Link from '../Link';
 import Mask from '../Mask';
@@ -139,16 +139,21 @@ export function ToastImageThumbnail({
   );
 }
 
-export function BannerOverlayIconThumbnail({
+export function ToastIconThumbnail({
   thumbnail,
+  overrideColor,
 }: {
   thumbnail: Element<typeof Icon>,
+  overrideColor?: IconColor,
 }): ReactNode {
-  return <Box aria-hidden>{cloneElement(thumbnail, { size: SIZE_ICON })}</Box>;
-}
-
-export function ToastIconThumbnail({ thumbnail }: { thumbnail: Element<typeof Icon> }): ReactNode {
-  return <Box aria-hidden>{cloneElement(thumbnail, { size: SIZE_ICON, color: 'inverse' })}</Box>;
+  return (
+    <Box aria-hidden>
+      {cloneElement(thumbnail, {
+        size: SIZE_ICON,
+        color: overrideColor ?? thumbnail.props.color,
+      })}
+    </Box>
+  );
 }
 
 export function ToastAvatarThumbnail({
