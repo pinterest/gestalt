@@ -19,7 +19,7 @@ exports[`<BannerOverlay /> Text + Image + Button 1`] = `
     className="Flex rowGap4 columnGap4 xsDirectionRow xsItemsCenter"
   >
     <div
-      className="FlexItem flexNone"
+      className="FlexItem selfCenter"
     >
       <div
         aria-hidden={true}
@@ -60,43 +60,59 @@ exports[`<BannerOverlay /> Text + Image + Button 1`] = `
       className="FlexItem flexGrow"
     >
       <div
-        className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+        className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
       >
-        Text, image and button
-      </div>
-      <span
-        className="textColorOverrideLight"
-      >
-        <span
+        <div
           className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
         >
-          Saved to
-           
-          <a
-            className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
-            href="https://www.pinterest.com/search/pins/?q=home%20decor"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            rel=""
-            target={null}
+          Text, image and button
+        </div>
+      </div>
+      <div
+        className="box marginBottom0"
+      >
+        <span
+          className="textColorOverrideLight"
+        >
+          <span
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
           >
-            Home decor
-          </a>
+            Saved to
+             
+            <a
+              className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+              href="https://www.pinterest.com/search/pins/?q=home%20decor"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyPress={[Function]}
+              onMouseDown={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              rel=""
+              target={null}
+            >
+              Home decor
+            </a>
+          </span>
         </span>
-      </span>
+      </div>
     </div>
   </div>
   <div
     className="Flex rowGap4 columnGap4 selfCenter xsDirectionRow"
-  />
+  >
+    <div
+      className="FlexItem"
+    >
+      <div
+        className="box flexWrap marginBottomN1 marginEndN1 marginStartN1 marginTopN1 xsDisplayFlex"
+      />
+    </div>
+  </div>
 </div>
 `;
 
@@ -119,7 +135,7 @@ exports[`<BannerOverlay /> Text + Image 1`] = `
     className="Flex rowGap4 columnGap4 xsDirectionRow xsItemsCenter"
   >
     <div
-      className="FlexItem flexNone"
+      className="FlexItem selfCenter"
     >
       <div
         aria-hidden={true}
@@ -160,43 +176,59 @@ exports[`<BannerOverlay /> Text + Image 1`] = `
       className="FlexItem flexGrow"
     >
       <div
-        className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+        className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
       >
-        Text and Image
-      </div>
-      <span
-        className="textColorOverrideLight"
-      >
-        <span
+        <div
           className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
         >
-          Saved to
-           
-          <a
-            className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
-            href="https://www.pinterest.com/search/pins/?q=home%20decor"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            rel=""
-            target={null}
+          Text and Image
+        </div>
+      </div>
+      <div
+        className="box marginBottom0"
+      >
+        <span
+          className="textColorOverrideLight"
+        >
+          <span
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
           >
-            Home decor
-          </a>
+            Saved to
+             
+            <a
+              className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+              href="https://www.pinterest.com/search/pins/?q=home%20decor"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyPress={[Function]}
+              onMouseDown={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              rel=""
+              target={null}
+            >
+              Home decor
+            </a>
+          </span>
         </span>
-      </span>
+      </div>
     </div>
   </div>
   <div
     className="Flex rowGap4 columnGap4 selfCenter xsDirectionRow"
-  />
+  >
+    <div
+      className="FlexItem"
+    >
+      <div
+        className="box flexWrap marginBottomN1 marginEndN1 marginStartN1 marginTopN1 xsDisplayFlex"
+      />
+    </div>
+  </div>
 </div>
 `;
 
@@ -222,24 +254,40 @@ exports[`<BannerOverlay /> Text Only 1`] = `
       className="FlexItem flexGrow"
     >
       <div
-        className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+        className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
       >
-        Profile
+        <div
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+        >
+          Profile
+        </div>
       </div>
-      <span
-        className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal lineClamp"
-        style={
-          Object {
-            "WebkitLineClamp": 2,
-          }
-        }
+      <div
+        className="box marginBottom0"
       >
-        Profile
-      </span>
+        <span
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 2,
+            }
+          }
+        >
+          Same great profile, slightly new look. Learn more?
+        </span>
+      </div>
     </div>
   </div>
   <div
     className="Flex rowGap4 columnGap4 selfCenter xsDirectionRow"
-  />
+  >
+    <div
+      className="FlexItem"
+    >
+      <div
+        className="box flexWrap marginBottomN1 marginEndN1 marginStartN1 marginTopN1 xsDisplayFlex"
+      />
+    </div>
+  </div>
 </div>
 `;

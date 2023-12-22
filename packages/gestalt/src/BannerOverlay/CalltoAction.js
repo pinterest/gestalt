@@ -6,6 +6,7 @@ import ButtonLink from '../ButtonLink';
 type Props =
   | {
       accessibilityLabel: string,
+      color: 'red' | 'gray',
       href: string,
       label: string,
       onClick?: $ElementType<ElementConfig<typeof ButtonLink>, 'onClick'>,
@@ -16,13 +17,14 @@ type Props =
     }
   | {
       accessibilityLabel: string,
+      color: 'red' | 'gray',
       label: string,
       onClick: $ElementType<ElementConfig<typeof Button>, 'onClick'>,
       role: 'button',
       size?: $ElementType<ElementConfig<typeof Button>, 'size'>,
     };
 
-export default function PrimaryAction({
+export default function CallToAction({
   accessibilityLabel,
   label,
   size = 'lg',
@@ -32,7 +34,7 @@ export default function PrimaryAction({
     return (
       <ButtonLink
         accessibilityLabel={accessibilityLabel}
-        color="red"
+        color={props.color}
         href={props.href ?? ''}
         onClick={props.onClick}
         rel={props.rel}
@@ -44,8 +46,8 @@ export default function PrimaryAction({
 
   return (
     <Button
-      color="red"
       accessibilityLabel={accessibilityLabel}
+      color={props.color}
       onClick={props.onClick}
       size={size}
       text={label}

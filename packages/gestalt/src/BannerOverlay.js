@@ -2,9 +2,10 @@
 import { Children, type Element, type ElementConfig, type Node as ReactNode } from 'react';
 import Avatar from './Avatar';
 import styles from './BannerOverlay.css';
-import PrimaryAction from './BannerOverlay/PrimaryAction';
+import CallToAction from './BannerOverlay/CalltoAction';
 import Box from './Box';
 import Button from './Button';
+import ButtonGroup from './ButtonGroup';
 import ButtonLink from './ButtonLink';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
@@ -24,7 +25,7 @@ import { type Indexable } from './zIndex';
 
 const DEFAULT_COLORS = {
   lightModeBackground: 'default',
-  darkModeBackground: 'elevationRaised',
+  darkModeBackground: 'elevationFloating',
   textColor: 'default',
   iconColor: 'white',
 };
@@ -43,18 +44,6 @@ type Props = {
    */
   offset?: { bottom: number, top: number },
   /**
-   * Helper [Link](https://gestalt.pinterest.systems/web/link) to be placed after the subtext. See the [helper link variant](https://gestalt.pinterest.systems/web/banneroverlay#helperLink) to learn more.
-   */
-  helperLink?: {
-    text: string,
-    accessibilityLabel: string,
-    href: string,
-    onClick?: ({
-      event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-      dangerouslyDisableOnNavigation: () => void,
-    }) => void,
-  },
-  /**
    * Adds an optional primary button for user interaction.
    * Main action for users to take on BannerOverlay. If href is supplied, the action will serve as a link.
    * If no href is supplied, the action will be a button.
@@ -62,6 +51,28 @@ type Props = {
    * See the Primary action variant to learn more.
    */
   primaryAction?:
+    | {
+        accessibilityLabel: string,
+        href: string,
+        label: string,
+        onClick?: $ElementType<ElementConfig<typeof ButtonLink>, 'onClick'>,
+        rel?: $ElementType<ElementConfig<typeof ButtonLink>, 'rel'>,
+        role: 'link',
+        size?: $ElementType<ElementConfig<typeof ButtonLink>, 'size'>,
+        target?: $ElementType<ElementConfig<typeof ButtonLink>, 'target'>,
+      }
+    | {
+        accessibilityLabel: string,
+        label: string,
+        onClick: $ElementType<ElementConfig<typeof Button>, 'onClick'>,
+        role?: 'button',
+        size?: $ElementType<ElementConfig<typeof Button>, 'size'>,
+      },
+  /**
+   * Adds an optional button for user interaction.
+   * In this case, we use our ButtonGroup component.
+   */
+  secondaryAction?:
     | {
         accessibilityLabel: string,
         href: string,
@@ -106,8 +117,8 @@ export default function BannerOverlay({
   message,
   title,
   onDismiss,
-  helperLink,
   primaryAction,
+  secondaryAction,
   offset = { top: 0, bottom: 0 },
   thumbnail,
   zIndex,
@@ -121,9 +132,6 @@ export default function BannerOverlay({
 
   if (typeof message === 'string') {
     messageTextElement = message;
-  }
-  if (typeof title === 'string') {
-    messageTextElement = title;
   }
 
   // If `message` is a Text component, we need to override any text colors within to ensure they all match
@@ -148,7 +156,7 @@ export default function BannerOverlay({
   const { lightModeBackground, darkModeBackground, textColor } = DEFAULT_COLORS;
 
   const dismissButtonComponent = (
-    <Flex.Item flex="none" alignSelf={isMobileDevice ? 'end' : 'center'}>
+    <Flex.Item alignSelf={isMobileDevice ? 'end' : 'center'}>
       <IconButton
         accessibilityLabel={accessibilityDismissButtonLabelDefault}
         icon="cancel"
@@ -156,30 +164,6 @@ export default function BannerOverlay({
         onClick={onDismiss}
         size="xs"
       />
-    </Flex.Item>
-  );
-  const CTAComponent = primaryAction && (
-    <Flex.Item flex={isMobileDevice ? 'shrink' : 'none'}>
-      {primaryAction.role === 'link' ? (
-        <PrimaryAction
-          accessibilityLabel={primaryAction.accessibilityLabel}
-          href={primaryAction.href}
-          label={primaryAction.label}
-          onClick={primaryAction.onClick}
-          rel={primaryAction?.rel}
-          role="link"
-          size="sm"
-          target={primaryAction?.target}
-        />
-      ) : (
-        <PrimaryAction
-          accessibilityLabel={primaryAction.accessibilityLabel}
-          label={primaryAction.label}
-          onClick={primaryAction.onClick}
-          role="button"
-          size="sm"
-        />
-      )}
     </Flex.Item>
   );
 
@@ -211,40 +195,96 @@ export default function BannerOverlay({
       width="100%"
       zIndex={zIndex}
     >
-      {isMobileDevice && !!onDismiss && dismissButtonComponent}
       <Flex alignItems="center" gap={4}>
         {!!thumbnail?.image &&
         Children.only<Element<typeof Image>>(thumbnail.image).type.displayName === 'Image' ? (
-          <Flex.Item flex="none">
+          <Flex.Item alignSelf={isMobileDevice ? 'baseline' : 'center'}>
             <ToastImageThumbnail thumbnail={thumbnail.image} />
           </Flex.Item>
         ) : null}
 
         {!!thumbnail?.icon &&
         Children.only<Element<typeof Icon>>(thumbnail.icon).type.displayName === 'Icon' ? (
-          <Flex.Item flex="none">
+          <Flex.Item alignSelf={isMobileDevice ? 'baseline' : 'center'}>
             <ToastIconThumbnail thumbnail={thumbnail.icon} />
           </Flex.Item>
         ) : null}
 
         {!!thumbnail?.avatar &&
         Children.only<Element<typeof Avatar>>(thumbnail.avatar).type.displayName === 'Avatar' ? (
-          <Flex.Item flex="none">
+          <Flex.Item alignSelf={isMobileDevice ? 'baseline' : 'center'}>
             <ToastAvatarThumbnail thumbnail={thumbnail.avatar} />
           </Flex.Item>
         ) : null}
         <Flex.Item flex="grow">
-          <Text weight="bold">{title}</Text>
-          <ToastMessage
-            text={isMessageTextNode ? undefined : messageTextElement}
-            textElement={isMessageTextNode ? messageTextElement : undefined}
-            helperLink={helperLink}
-            textColor={textColor}
-          />
+          <Flex direction="row" justifyContent="between">
+            <Text weight="bold">{title}</Text>
+            {isMobileDevice && !!onDismiss && dismissButtonComponent}
+          </Flex>
+          <Box marginBottom={isMobileDevice ? 2 : 0}>
+            <ToastMessage
+              text={isMessageTextNode ? undefined : messageTextElement}
+              textElement={isMessageTextNode ? messageTextElement : undefined}
+              textColor={textColor}
+            />
+          </Box>
         </Flex.Item>
       </Flex>
       <Flex direction="row" alignSelf={isMobileDevice ? 'end' : 'center'} gap={4}>
-        {primaryAction && CTAComponent}
+        <ButtonGroup>
+          {primaryAction && (
+            <Flex.Item>
+              {primaryAction.role === 'link' ? (
+                <CallToAction
+                  accessibilityLabel={primaryAction.accessibilityLabel}
+                  color="red"
+                  href={primaryAction.href}
+                  label={primaryAction.label}
+                  onClick={primaryAction.onClick}
+                  rel={primaryAction?.rel}
+                  role="link"
+                  size="sm"
+                  target={primaryAction?.target}
+                />
+              ) : (
+                <CallToAction
+                  accessibilityLabel={primaryAction.accessibilityLabel}
+                  color="red"
+                  label={primaryAction.label}
+                  onClick={primaryAction.onClick}
+                  role="button"
+                  size="sm"
+                />
+              )}
+            </Flex.Item>
+          )}
+          {secondaryAction && (
+            <Flex.Item>
+              {secondaryAction.role === 'link' ? (
+                <CallToAction
+                  accessibilityLabel={secondaryAction.accessibilityLabel}
+                  color="gray"
+                  href={secondaryAction.href}
+                  label={secondaryAction.label}
+                  onClick={secondaryAction.onClick}
+                  rel={secondaryAction?.rel}
+                  role="link"
+                  size="sm"
+                  target={secondaryAction?.target}
+                />
+              ) : (
+                <CallToAction
+                  accessibilityLabel={secondaryAction.accessibilityLabel}
+                  color="gray"
+                  label={secondaryAction.label}
+                  onClick={secondaryAction.onClick}
+                  role="button"
+                  size="sm"
+                />
+              )}
+            </Flex.Item>
+          )}
+        </ButtonGroup>
         {!isMobileDevice && !!onDismiss && dismissButtonComponent}
       </Flex>
     </Box>

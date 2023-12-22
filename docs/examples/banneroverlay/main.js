@@ -16,25 +16,38 @@ export default function Example(): ReactNode {
     <BannerOverlay
       zIndex={new FixedZIndex(100)}
       offset={{ top: 130, bottom: 24 }}
-      title="BannerOverlay"
+      title="More to Explore"
       message={
         <Text inline>
-          Saved to{' '}
-          <Link display="inlineBlock" target="blank" href="#">
-            Sushi time
+          Discover trending fashion ideas
+          <Link display="inlineBlock" target="self" href="#">
+            in the app
           </Link>
+          !
         </Text>
       }
+      primaryAction={{
+        role: 'button',
+        onClick: () => {},
+        label: 'Not now',
+        accessibilityLabel: 'Not now',
+      }}
+      secondaryAction={{
+        role: 'button',
+        onClick: () => {},
+        label: 'Get the app',
+        accessibilityLabel: 'Get the app',
+      }}
       onDismiss={() => {
         setShowComponent(false);
       }}
       thumbnail={{
         image: (
           <Image
-            alt="Vegan Teriyaki Sushi Burrito"
+            alt="Discover trending fashion ideas in the app!"
             naturalHeight={1}
             naturalWidth={1}
-            src="https://i.pinimg.com/564x/ff/ee/52/ffee52eac6cd0f2f5dac8af3899a9f41.jpg"
+            src="https://i.ibb.co/LQc8ynn/image.png"
           />
         ),
       }}
