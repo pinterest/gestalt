@@ -235,32 +235,6 @@ export default function BannerOverlay({
       </Flex>
       <Flex direction="row" alignSelf={isMobileDevice ? 'end' : 'center'} gap={4}>
         <ButtonGroup>
-          {primaryAction && (
-            <Flex.Item>
-              {primaryAction.role === 'link' ? (
-                <CallToAction
-                  accessibilityLabel={primaryAction.accessibilityLabel}
-                  color="red"
-                  href={primaryAction.href}
-                  label={primaryAction.label}
-                  onClick={primaryAction.onClick}
-                  rel={primaryAction?.rel}
-                  role="link"
-                  size="sm"
-                  target={primaryAction?.target}
-                />
-              ) : (
-                <CallToAction
-                  accessibilityLabel={primaryAction.accessibilityLabel}
-                  color="red"
-                  label={primaryAction.label}
-                  onClick={primaryAction.onClick}
-                  role="button"
-                  size="sm"
-                />
-              )}
-            </Flex.Item>
-          )}
           {secondaryAction && (
             <Flex.Item>
               {secondaryAction.role === 'link' ? (
@@ -281,6 +255,32 @@ export default function BannerOverlay({
                   color="gray"
                   label={secondaryAction.label}
                   onClick={secondaryAction.onClick}
+                  role="button"
+                  size="sm"
+                />
+              )}
+            </Flex.Item>
+          )}
+          {primaryAction && (
+            <Flex.Item>
+              {primaryAction.role === 'link' ? (
+                <CallToAction
+                  accessibilityLabel={primaryAction.accessibilityLabel}
+                  color="red"
+                  href={primaryAction.href}
+                  label={primaryAction.label}
+                  onClick={primaryAction.onClick}
+                  rel={primaryAction?.rel}
+                  role="link"
+                  size="sm"
+                  target={primaryAction?.target}
+                />
+              ) : (
+                <CallToAction
+                  accessibilityLabel={primaryAction.accessibilityLabel}
+                  color="red"
+                  label={primaryAction.label}
+                  onClick={primaryAction.onClick}
                   role="button"
                   size="sm"
                 />
