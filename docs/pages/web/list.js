@@ -10,7 +10,6 @@ import SandpackExample from '../../docs-components/SandpackExample';
 import dontUseIfDisplayingFewerThanTwo from '../../examples/list/dontUseIfDisplayingFewerThanTwo';
 import dontUseIfWholeItemIsSelectable from '../../examples/list/dontUseIfWholeItemIsSelectable';
 import fontSize from '../../examples/list/fontSize';
-import sizingExample from '../../examples/list/fontSize';
 import includeLinksIfRelevant from '../../examples/list/includeLinksIfRelevant';
 import labelsExample from '../../examples/list/labelsExample';
 import labelsExample1 from '../../examples/list/labelsExample1';
