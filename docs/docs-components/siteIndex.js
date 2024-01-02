@@ -247,7 +247,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Elevation',
       {
         sectionName: 'Forms',
-        pages: ['Overview', 'Structure and behavior', 'Available components'],
+        pages: ['Overview', 'Structure and behavior', 'Example code', 'Available components'],
       },
       {
         sectionName: 'Iconography',
@@ -265,7 +265,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
           },
         ],
       },
-      'Layouts',
+      'Layout',
       {
         sectionName: 'Messaging',
         pages: ['Overview', 'Priority and placement', 'Available components'],

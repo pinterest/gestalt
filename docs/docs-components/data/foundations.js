@@ -12,7 +12,7 @@ import Forms from '../../graphics/foundations/forms.svg';
 import Iconography from '../../graphics/foundations/iconography.svg';
 import Illustration from '../../graphics/foundations/illustration.svg';
 import InternationalDesign from '../../graphics/foundations/international-design.svg';
-import Layouts from '../../graphics/foundations/layouts.svg';
+import Layout from '../../graphics/foundations/layout.svg';
 import Messaging from '../../graphics/foundations/messaging.svg';
 import ScreenSizes from '../../graphics/foundations/screen-size.svg';
 import Typography from '../../graphics/foundations/typography.svg';
@@ -97,11 +97,10 @@ const foundationsTiles: $ReadOnlyArray<DesignOverview> = [
     path: '/foundations/international_design/about_international_design',
   },
   {
-    svg: <Layouts />,
-    title: 'Layouts',
-    description:
-      'How to create accessible designs and components that contribute to an accessible product',
-    path: '/foundations/layouts',
+    svg: <Layout />,
+    title: 'Layout',
+    description: 'Layout guidelines for mobile and tablet surfaces',
+    path: '/foundations/layout',
   },
   {
     svg: <Messaging />,
