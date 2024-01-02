@@ -9,6 +9,8 @@ import PageHeader from '../../docs-components/PageHeader';
 import SandpackExample from '../../docs-components/SandpackExample';
 import dontUseIfDisplayingFewerThanTwo from '../../examples/list/dontUseIfDisplayingFewerThanTwo';
 import dontUseIfWholeItemIsSelectable from '../../examples/list/dontUseIfWholeItemIsSelectable';
+import fontSize from '../../examples/list/fontSize';
+import sizingExample from '../../examples/list/fontSize';
 import includeLinksIfRelevant from '../../examples/list/includeLinksIfRelevant';
 import labelsExample from '../../examples/list/labelsExample';
 import labelsExample1 from '../../examples/list/labelsExample1';
@@ -294,6 +296,16 @@ List's \`label\` prop is used for accessibility purposes. See the [accessibility
                 layout="column"
               />
             }
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Size"
+          description={`
+          List can be used with different font sizes. The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/foundations/design_tokens#Font-size). See the [Text sizes variant](https://gestalt.pinterest.systems/web/text#Sizes) for more details. `}
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={<SandpackExample name="Font Sizing" code={fontSize} />}
           />
         </MainSection.Subsection>
 

@@ -25,11 +25,11 @@ type Props = {
    */
   spacing?: 'regular' | 'condensed',
   /**
-   *The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/foundations/design_tokens#Font-size). See the [Text sizes variant](https://gestalt.pinterest.systems/web/text#Sizes) for more details.
+   *The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/foundations/design_tokens#Font-size). See the [Text sizes variant](https://gestalt.pinterest.systems/web/List#Size) for more details.
    */
   size?: Size,
   /**
-   * Determines the style of the list. See the [type variant](https://gestalt.pinterest.systems/web/list#Type) to learn more.
+   * Determines the style of the list. See the [type variant](https://gestalt.pinterest.systems/web/list#Type) to learn more about how sizing is applied.
    */
   type?: ListType,
 };
