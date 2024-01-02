@@ -5,6 +5,7 @@ import ListItem from './ListItem'; // eslint-disable import/no-cycle
 import Text from './Text';
 
 type ListType = 'bare' | 'ordered' | 'unordered';
+type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
 type Props = {
   /**
@@ -24,6 +25,10 @@ type Props = {
    */
   spacing?: 'regular' | 'condensed',
   /**
+   *The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/foundations/design_tokens#Font-size). See the [Text sizes variant](https://gestalt.pinterest.systems/web/text#Sizes) for more details.
+   */
+  size?: Size,
+  /**
    * Determines the style of the list. See the [type variant](https://gestalt.pinterest.systems/web/list#Type) to learn more.
    */
   type?: ListType,
@@ -38,12 +43,19 @@ function List({
   label,
   labelDisplay = 'visible',
   spacing = 'regular',
+  size = '300',
   type,
   children,
 }: Props): ReactNode {
   return (
     // We need this InternalList to avoid the circular dependency src/List.js -> src/ListItem.js -> src/List.js
-    <InternalList type={type} spacing={spacing} label={label} labelDisplay={labelDisplay}>
+    <InternalList
+      type={type}
+      spacing={spacing}
+      size={size}
+      label={label}
+      labelDisplay={labelDisplay}
+    >
       {children}
     </InternalList>
   );
