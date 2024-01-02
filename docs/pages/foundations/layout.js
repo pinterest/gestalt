@@ -469,7 +469,7 @@ export default function DocsPage(): ReactNode {
         >
           <Box
             width="100%"
-            minHeight={386}
+            maxHeight={386}
             marginTop={-4}
             marginBottom={3}
             overflow="hidden"
@@ -482,7 +482,7 @@ export default function DocsPage(): ReactNode {
               alt="A spec showing 8px spacing around banners and Toasts."
               naturalWidth={1792}
               naturalHeight={772}
-              src="https://www.pinterest-assets.com/AssetLink/3uj566lpqm1v0x15416qatxii416j7yl/phone-layout-spacing-png.jpg"
+              src="https://www.pinterest-assets.com/AssetLink/d5nf4r0d564mm3p0ve167f30s6nto2s5/phone-layout-spacing-png.png"
             />
           </Box>
         </MainSection.Subsection>
@@ -495,7 +495,7 @@ export default function DocsPage(): ReactNode {
             width="100%"
             marginTop={-4}
             marginBottom={3}
-            minHeight={386}
+            maxHeight={386}
             overflow="hidden"
             rounding={2}
             borderStyle="sm"
@@ -504,9 +504,9 @@ export default function DocsPage(): ReactNode {
           >
             <Image
               alt="A spec showing a Toast on a tablet portrait screen with a note saying 64% of 720=461."
-              naturalWidth={1792}
-              naturalHeight={772}
-              src="https://www.pinterest-assets.com/AssetLink/mr128g0ax3023022mnbi47bwxfuygb32/tablet-layout-spacing-png.jpg"
+              naturalWidth={2688}
+              naturalHeight={1158}
+              src="https://www.pinterest-assets.com/AssetLink/nx0p18ele3pa6xc7e2x08c5wpxp5pwc2/Tablet-layout-spacing.png"
             />
           </Box>
         </MainSection.Subsection>
