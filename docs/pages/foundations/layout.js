@@ -429,6 +429,33 @@ export default function DocsPage(): ReactNode {
                     </List>
                   </Table.Cell>
                 </Table.Row>
+                <Table.Row>
+                  <Table.Cell>
+                    <Heading size="300" accessibilityLevel={3}>
+                      $space-200
+                    </Heading>
+                    <Text size="200">8px/dp</Text>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <List>
+                      <List.Item text="Between Pin reps (without metadata) on grid" />
+                      <List.Item text="Between elements/text within the same content block" />
+                    </List>
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>
+                    <Heading size="300" accessibilityLevel={3}>
+                      Token pending
+                    </Heading>
+                    <Text size="200">2px/dp</Text>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <List>
+                      <List.Item text="Between stacked modules (e.g. closeup)" />
+                    </List>
+                  </Table.Cell>
+                </Table.Row>
               </Table.Body>
             </Table>
           </Box>
