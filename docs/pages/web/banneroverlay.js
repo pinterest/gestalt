@@ -128,9 +128,6 @@ On mobile devices, the BannerOverlay should appear at the bottom of the screen. 
 
 <b>Please note</b>: Start aligned text is the primary alignment for our Business products. It will be left-aligned in left-to-right languages and right-aligned in right-to-left languages.`}
         />
-      </MainSection>
-
-      <MainSection name="Variants">
         <MainSection.Subsection title="Image">
           <MainSection.Card
             sandpackExample={<SandpackExample code={image} name="Image" layout="column" />}
