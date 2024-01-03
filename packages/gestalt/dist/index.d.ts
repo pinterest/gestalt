@@ -587,7 +587,7 @@ interface AvatarGroupProps {
         | React.KeyboardEvent<HTMLDivElement>
         | React.MouseEvent<HTMLAnchorElement>
         | React.KeyboardEvent<HTMLAnchorElement>,
-        { dangerouslydangerouslyDisableOnNavigation?: (() => void) | undefined }
+        { dangerouslyDisableOnNavigation?: (() => void) | undefined }
       >
     | undefined;
   role?: 'button' | 'link' | undefined;
@@ -2047,7 +2047,7 @@ interface TabsProps {
   activeTabIndex: number;
   onChange: AbstractEventHandler<
     React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-    { activeTabIndex: number; dangerouslydangerouslyDisableOnNavigation?: (() => void) | undefined }
+    { activeTabIndex: number; dangerouslyDisableOnNavigation?: (() => void) | undefined }
   >;
   tabs: ReadonlyArray<{
     href: string;

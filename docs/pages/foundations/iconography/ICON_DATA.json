@@ -1132,6 +1132,12 @@
       "keywords": ["enlarge", "amplify", "grow", "full size"]
     },
     {
+      "name": "scissors",
+      "categories": ["Utility and tools"],
+      "description": "Indicates the ability to select and cut part of an image to create a collage",
+      "keywords": ["collage", "cut", "edit"]
+    },
+    {
       "name": "search",
       "categories": ["Utility and tools"],
       "description": "Indicates the ability to reorder images",

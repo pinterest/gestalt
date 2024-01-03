@@ -33,7 +33,7 @@ export default function IllustrationSection({
               display: 'grid',
               gridTemplateColumns: `repeat(${grid}, minmax(${min}px, 1fr))`,
               columnGap: '24px',
-              rowGap: '24px',
+              rowGap: '40px',
             },
           }}
         >

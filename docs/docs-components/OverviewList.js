@@ -20,7 +20,7 @@ const getIllustrationCardColor = (category: ComponentCategory, hasDarkBackground
     return 'gray-roboflow-100';
   }
 
-  return 'green-matchacado-0';
+  return 'green-matchacado-50';
 };
 
 type Props = {

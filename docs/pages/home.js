@@ -34,7 +34,7 @@ export default function HomePage(): ReactNode {
                   they love
                 </Text>
 
-                <ButtonLink text="View road map" href="/roadmap" />
+                <ButtonLink text="See what's new" href="/whats_new" />
               </Flex>
               <Box
                 minWidth="60%"

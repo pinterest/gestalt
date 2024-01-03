@@ -255,20 +255,21 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
         pages: ['Library', 'Custom and brand icons', 'Usage', 'Creating icons'],
       },
       'Illustration',
+      {
+        sectionName: 'International Design',
+        pages: [
+          'About international design',
+          'Icon localization',
+          {
+            sectionName: 'RTL guidelines',
+            pages: ['RTL overview', 'Layout and text direction', 'Iconography', 'Typography'],
+          },
+        ],
+      },
       'Layouts',
       {
         sectionName: 'Messaging',
         pages: ['Overview', 'Priority and placement', 'Available components'],
-      },
-      {
-        sectionName: 'RTL guidelines',
-        pages: [
-          'About international design',
-          'RTL overview',
-          'Layout and text direction',
-          'Icons',
-          'Typography',
-        ],
       },
       'Screen sizes',
       'Typography',
