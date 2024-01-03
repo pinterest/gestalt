@@ -22,7 +22,7 @@ export default function DocsPage(): ReactNode {
           <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
             <Box
               width="100%"
-              minHeight={164}
+              maxHeight={386}
               overflow="hidden"
               rounding={2}
               borderStyle="sm"
@@ -49,7 +49,7 @@ export default function DocsPage(): ReactNode {
           <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
             <Box
               width="100%"
-              minHeight={164}
+              maxHeight={386}
               overflow="hidden"
               rounding={2}
               borderStyle="sm"
@@ -76,7 +76,7 @@ export default function DocsPage(): ReactNode {
           <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
             <Box
               width="100%"
-              minHeight={164}
+              maxHeight={386}
               overflow="hidden"
               rounding={2}
               borderStyle="sm"
@@ -107,7 +107,7 @@ export default function DocsPage(): ReactNode {
           <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
             <Box
               width="100%"
-              minHeight={164}
+              maxHeight={386}
               overflow="hidden"
               rounding={2}
               borderStyle="sm"
@@ -134,7 +134,7 @@ export default function DocsPage(): ReactNode {
           <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
             <Box
               width="100%"
-              minHeight={164}
+              maxHeight={386}
               overflow="hidden"
               rounding={2}
               borderStyle="sm"
@@ -161,7 +161,7 @@ export default function DocsPage(): ReactNode {
           <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
             <Box
               width="100%"
-              minHeight={164}
+              maxHeight={386}
               overflow="hidden"
               rounding={2}
               borderStyle="sm"
@@ -192,7 +192,7 @@ export default function DocsPage(): ReactNode {
           <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
             <Box
               width="100%"
-              minHeight={164}
+              maxHeight={386}
               overflow="hidden"
               rounding={2}
               borderStyle="sm"
@@ -219,7 +219,7 @@ export default function DocsPage(): ReactNode {
           <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
             <Box
               width="100%"
-              minHeight={164}
+              maxHeight={386}
               overflow="hidden"
               rounding={2}
               borderStyle="sm"
@@ -246,12 +246,12 @@ export default function DocsPage(): ReactNode {
           <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
             <Box
               width="100%"
-              minHeight={164}
+              maxHeight={386}
               overflow="hidden"
               rounding={2}
               borderStyle="sm"
-              marginBottom={3}
               display="inlineBlock"
+              marginBottom={3}
               justifyContent="center"
             >
               <Image
