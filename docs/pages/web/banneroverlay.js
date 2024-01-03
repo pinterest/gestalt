@@ -107,7 +107,7 @@ On mobile devices, the BannerOverlay should appear at the bottom of the screen. 
             sandpackExample={
               <SandpackExample code={dontStack} name="Don't - Stack" hideEditor hideControls />
             }
-            description="Stack multiple UpsellOverlays; only one UpsellOverlay should appear on the screen per time."
+            description="Stack multiple BannerOverlays; only one UpsellOverlay should appear on the screen per time."
           />
         </MainSection.Subsection>
       </MainSection>
