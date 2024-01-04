@@ -1,3 +1,9 @@
+## 130.0.0 (Jan 4, 2024)
+
+### Major
+
+- BannerOverlay: New Component ([#3332](https://github.com/pinterest/gestalt/pull/3332)) - [Preview link](https://deploy-preview-3332--gestalt.netlify.app?devexample=true)
+
 ## 129.2.0 (Jan 4, 2024)
 
 ### Minor
