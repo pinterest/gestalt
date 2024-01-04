@@ -527,7 +527,7 @@ export default function DocsPage(): ReactNode {
         />
         <MainSection.Subsection
           description={`
-          **[Form layout example code](forms/example_code)**
+          **[Form layout example code](https://gestalt.pinterest.systems/foundations/forms/example_code)**
           Code that developers can copy and paste to layout a form quickly
           `}
         />

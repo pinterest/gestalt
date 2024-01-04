@@ -1,8 +1,8 @@
 {
   "css.lint.validProperties": ["composes"],
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
-    "source.fixAll.shellcheck": "explicit"
+    "source.fixAll.eslint": true,
+    "source.fixAll.shellcheck": true
   },
   "editor.formatOnSave": true,
   "eslint.packageManager": "yarn",

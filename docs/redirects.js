@@ -158,6 +158,11 @@ const misc = [
     permanent: true,
   },
   {
+    source: '/foundations/layouts',
+    destination: '/foundations/layout',
+    permanent: true,
+  },
+  {
     source: '/foundations/rtl_guidelines/about_international_design',
     destination: '/foundations/international_design/about_international_design',
     permanent: true,
