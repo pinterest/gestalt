@@ -166,7 +166,7 @@ On mobile devices, the BannerOverlay should appear at the bottom of the screen. 
       <MainSection name="Responsive">
         <MainSection.Subsection>
           <MainSection.Card
-            description={`BannerOverlay. Therefore, BannerOverlay dweb is set to a max width of 900 px to preserve a great usability experience and consistency with other components.
+            description={`BannerOverlay is responsive to different devices. Therefore, BannerOverlay dweb is set to a max width of 900 px to preserve a great usability experience and consistency with other components.
 
 On desktop devices, the BannerOverlay should appear at the top of the screen (below navigation). The BannerOverlay shouldn't block navigation.
 On mobile devices, the BannerOverlay should appear at the bottom of the screen. The 'offset' prop can be used to adjust the position of the BannerOverlay.`}
