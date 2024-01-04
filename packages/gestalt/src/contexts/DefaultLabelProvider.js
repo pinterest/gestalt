@@ -21,6 +21,9 @@ export type DefaultLabelContextType = {
   ActivationCard: {
     accessibilityDismissButtonLabel: string,
   },
+  BannerOverlay: {
+    accessibilityDismissButtonLabel: string,
+  },
   Callout: {
     accessibilityDismissButtonLabel: string,
     iconAccessibilityLabelError: string,
@@ -130,6 +133,9 @@ export const fallbackLabels: DefaultLabelContextType = {
   Accordion: {
     accessibilityCollapseLabel: 'Collapse section',
     accessibilityExpandLabel: 'Expand section',
+  },
+  BannerOverlay: {
+    accessibilityDismissButtonLabel: 'Dismiss Banner',
   },
   ActivationCard: {
     accessibilityDismissButtonLabel: 'Dismiss',

@@ -12,6 +12,9 @@ const labels = {
   ActivationCard: {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss'),
   },
+  BannerOverlay: {
+    accessibilityDismissButtonLabel: myI18nTranslator('Dismiss Banner'),
+  },
   Callout: {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss Banner'),
     iconAccessibilityLabelError: myI18nTranslator('Error'),

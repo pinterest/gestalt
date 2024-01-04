@@ -57,6 +57,9 @@ type Props = {
       +event: SyntheticEvent<>,
     }) => void,
   },
+  /**
+   * Handlers consumed by [RadioGroup](https://gestalt.pinterest.systems/web/RadioGroup).
+   */
   radioGroupHandlers?: { onRender?: () => void },
 };
 

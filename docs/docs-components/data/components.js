@@ -17,6 +17,7 @@ import ActivationCard from '../../graphics/general/ActivationCard.svg';
 import Avatar from '../../graphics/general/Avatar.svg';
 import AvatarGroup from '../../graphics/general/AvatarGroup.svg';
 import Badge from '../../graphics/general/Badge.svg';
+import BannerOverlay from '../../graphics/general/BannerOverlay.svg';
 import Button from '../../graphics/general/Button.svg';
 import ButtonGroup from '../../graphics/general/ButtonGroup.svg';
 import ButtonLink from '../../graphics/general/ButtonLink.svg';
@@ -309,6 +310,27 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: [],
         status: {
           documentation: 'notAvailable',
+          status: 'ready',
+        },
+      },
+    },
+  },
+  {
+    id: 'BannerOverlay',
+    platform: {
+      web: {
+        name: 'BannerOverlay',
+        visual: {
+          svg: <BannerOverlay />,
+        },
+        alias: ['UpsellOverlay'],
+        description:
+          'BannerOverlay displays short educational messages when users have performed actions that indicate some intent.',
+        category: ['Messaging'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          responsive: 'ready',
           status: 'ready',
         },
       },
