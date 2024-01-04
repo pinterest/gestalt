@@ -1,3 +1,9 @@
+## 130.0.1 (Jan 4, 2024)
+
+### Patch
+
+- Docs: Layout guidelines ([#3341](https://github.com/pinterest/gestalt/pull/3341)) - [Preview link](https://deploy-preview-3341--gestalt.netlify.app?devexample=true)
+
 ## 130.0.0 (Jan 4, 2024)
 
 ### Major
