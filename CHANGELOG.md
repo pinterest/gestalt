@@ -1,3 +1,9 @@
+## 129.2.0 (Jan 4, 2024)
+
+### Minor
+
+- List: Add Font Sizing to List ([#3340](https://github.com/pinterest/gestalt/pull/3340)) - [Preview link](https://deploy-preview-3340--gestalt.netlify.app?devexample=true)
+
 ## 129.1.11 (Dec 22, 2023)
 
 ### Patch
