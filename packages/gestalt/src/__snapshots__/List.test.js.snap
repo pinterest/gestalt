@@ -23,6 +23,11 @@ exports[`List renders a bare unordered list 1`] = `
     >
       <li
         className="noStyle listItem"
+        style={
+          Object {
+            "fontSize": "var(--font-size-300)",
+          }
+        }
       >
         <div
           className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -35,6 +40,11 @@ exports[`List renders a bare unordered list 1`] = `
         >
           <li
             className="noStyle listItem"
+            style={
+              Object {
+                "fontSize": "var(--font-size-300)",
+              }
+            }
           >
             <div
               className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -47,6 +57,11 @@ exports[`List renders a bare unordered list 1`] = `
             >
               <li
                 className="noStyle listItem"
+                style={
+                  Object {
+                    "fontSize": "var(--font-size-300)",
+                  }
+                }
               >
                 <div
                   className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -59,6 +74,11 @@ exports[`List renders a bare unordered list 1`] = `
                 >
                   <li
                     className="noStyle listItem"
+                    style={
+                      Object {
+                        "fontSize": "var(--font-size-300)",
+                      }
+                    }
                   >
                     <div
                       className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -71,6 +91,11 @@ exports[`List renders a bare unordered list 1`] = `
                     >
                       <li
                         className="noStyle listItem"
+                        style={
+                          Object {
+                            "fontSize": "var(--font-size-300)",
+                          }
+                        }
                       >
                         <div
                           className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -83,6 +108,11 @@ exports[`List renders a bare unordered list 1`] = `
                         >
                           <li
                             className="noStyle listItem"
+                            style={
+                              Object {
+                                "fontSize": "var(--font-size-300)",
+                              }
+                            }
                           >
                             <div
                               className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -128,6 +158,11 @@ exports[`List renders an condensed list 1`] = `
     >
       <li
         className="listItemCondensed olItem1"
+        style={
+          Object {
+            "fontSize": "var(--font-size-300)",
+          }
+        }
       >
         <div
           className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -163,6 +198,11 @@ exports[`List renders an list item with custom text 1`] = `
     >
       <li
         className="listItemCondensed olItem1"
+        style={
+          Object {
+            "fontSize": "var(--font-size-300)",
+          }
+        }
       >
         <span
           className="textColorOverrideDark"
@@ -206,6 +246,11 @@ exports[`List renders an list with a custom label 1`] = `
     >
       <li
         className="listItem olItem1"
+        style={
+          Object {
+            "fontSize": "var(--font-size-300)",
+          }
+        }
       >
         <div
           className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -241,6 +286,11 @@ exports[`List renders an list with a hidden label 1`] = `
     >
       <li
         className="listItem olItem1"
+        style={
+          Object {
+            "fontSize": "var(--font-size-300)",
+          }
+        }
       >
         <div
           className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -276,6 +326,11 @@ exports[`List renders an mixed list 1`] = `
     >
       <li
         className="listItem olItem1"
+        style={
+          Object {
+            "fontSize": "var(--font-size-300)",
+          }
+        }
       >
         <div
           className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -285,6 +340,11 @@ exports[`List renders an mixed list 1`] = `
       </li>
       <li
         className="listItem olItem1"
+        style={
+          Object {
+            "fontSize": "var(--font-size-300)",
+          }
+        }
       >
         <div
           className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -297,6 +357,11 @@ exports[`List renders an mixed list 1`] = `
         >
           <li
             className="listItem ulItemDot"
+            style={
+              Object {
+                "fontSize": "var(--font-size-300)",
+              }
+            }
           >
             <div
               className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -306,6 +371,11 @@ exports[`List renders an mixed list 1`] = `
           </li>
           <li
             className="listItem ulItemDot"
+            style={
+              Object {
+                "fontSize": "var(--font-size-300)",
+              }
+            }
           >
             <div
               className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -318,6 +388,11 @@ exports[`List renders an mixed list 1`] = `
             >
               <li
                 className="listItem ulItemCircle"
+                style={
+                  Object {
+                    "fontSize": "var(--font-size-300)",
+                  }
+                }
               >
                 <div
                   className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -327,6 +402,11 @@ exports[`List renders an mixed list 1`] = `
               </li>
               <li
                 className="listItem ulItemCircle"
+                style={
+                  Object {
+                    "fontSize": "var(--font-size-300)",
+                  }
+                }
               >
                 <div
                   className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -339,6 +419,11 @@ exports[`List renders an mixed list 1`] = `
                 >
                   <li
                     className="listItem olItem1"
+                    style={
+                      Object {
+                        "fontSize": "var(--font-size-300)",
+                      }
+                    }
                   >
                     <div
                       className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -348,6 +433,11 @@ exports[`List renders an mixed list 1`] = `
                   </li>
                   <li
                     className="listItem olItem1"
+                    style={
+                      Object {
+                        "fontSize": "var(--font-size-300)",
+                      }
+                    }
                   >
                     <div
                       className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -361,6 +451,11 @@ exports[`List renders an mixed list 1`] = `
           </li>
           <li
             className="listItem ulItemDot"
+            style={
+              Object {
+                "fontSize": "var(--font-size-300)",
+              }
+            }
           >
             <div
               className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -372,6 +467,11 @@ exports[`List renders an mixed list 1`] = `
       </li>
       <li
         className="listItem olItem1"
+        style={
+          Object {
+            "fontSize": "var(--font-size-300)",
+          }
+        }
       >
         <div
           className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -407,6 +507,11 @@ exports[`List renders an ordered list 1`] = `
     >
       <li
         className="listItem olItem1"
+        style={
+          Object {
+            "fontSize": "var(--font-size-300)",
+          }
+        }
       >
         <div
           className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -419,6 +524,11 @@ exports[`List renders an ordered list 1`] = `
         >
           <li
             className="listItem olItemA"
+            style={
+              Object {
+                "fontSize": "var(--font-size-300)",
+              }
+            }
           >
             <div
               className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -431,6 +541,11 @@ exports[`List renders an ordered list 1`] = `
             >
               <li
                 className="listItem olItema"
+                style={
+                  Object {
+                    "fontSize": "var(--font-size-300)",
+                  }
+                }
               >
                 <div
                   className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -443,6 +558,11 @@ exports[`List renders an ordered list 1`] = `
                 >
                   <li
                     className="listItem olItem1"
+                    style={
+                      Object {
+                        "fontSize": "var(--font-size-300)",
+                      }
+                    }
                   >
                     <div
                       className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -455,6 +575,11 @@ exports[`List renders an ordered list 1`] = `
                     >
                       <li
                         className="listItem olItemA"
+                        style={
+                          Object {
+                            "fontSize": "var(--font-size-300)",
+                          }
+                        }
                       >
                         <div
                           className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -467,6 +592,11 @@ exports[`List renders an ordered list 1`] = `
                         >
                           <li
                             className="listItem olItema"
+                            style={
+                              Object {
+                                "fontSize": "var(--font-size-300)",
+                              }
+                            }
                           >
                             <div
                               className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -512,6 +642,11 @@ exports[`List renders an unordered list 1`] = `
     >
       <li
         className="listItem ulItemDot"
+        style={
+          Object {
+            "fontSize": "var(--font-size-300)",
+          }
+        }
       >
         <div
           className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -524,6 +659,11 @@ exports[`List renders an unordered list 1`] = `
         >
           <li
             className="listItem ulItemCircle"
+            style={
+              Object {
+                "fontSize": "var(--font-size-300)",
+              }
+            }
           >
             <div
               className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -536,6 +676,11 @@ exports[`List renders an unordered list 1`] = `
             >
               <li
                 className="listItem ulItemDot"
+                style={
+                  Object {
+                    "fontSize": "var(--font-size-300)",
+                  }
+                }
               >
                 <div
                   className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -548,6 +693,11 @@ exports[`List renders an unordered list 1`] = `
                 >
                   <li
                     className="listItem ulItemCircle"
+                    style={
+                      Object {
+                        "fontSize": "var(--font-size-300)",
+                      }
+                    }
                   >
                     <div
                       className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -560,6 +710,11 @@ exports[`List renders an unordered list 1`] = `
                     >
                       <li
                         className="listItem ulItemDot"
+                        style={
+                          Object {
+                            "fontSize": "var(--font-size-300)",
+                          }
+                        }
                       >
                         <div
                           className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -572,6 +727,11 @@ exports[`List renders an unordered list 1`] = `
                         >
                           <li
                             className="listItem ulItemCircle"
+                            style={
+                              Object {
+                                "fontSize": "var(--font-size-300)",
+                              }
+                            }
                           >
                             <div
                               className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"

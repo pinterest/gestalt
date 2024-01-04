@@ -26,7 +26,12 @@ type Props = {
  *
  */
 function ListItem({ text, children }: Props): ReactNode {
-  const { type: inheritedType, spacing: inheritedSpacing, style: inheritedStyle } = useList();
+  const {
+    type: inheritedType,
+    spacing: inheritedSpacing,
+    style: inheritedStyle,
+    size: inheritedFontSize,
+  } = useList();
 
   const isOrdered = inheritedType === 'ordered';
   const isUnordered = inheritedType === 'unordered';
@@ -67,8 +72,11 @@ function ListItem({ text, children }: Props): ReactNode {
   });
 
   return (
-    <li className={className}>
-      <ListText text={text} />
+    <li
+      className={className}
+      style={{ fontSize: inheritedFontSize && `var(--font-size-${inheritedFontSize})` }}
+    >
+      <ListText text={text} size={inheritedFontSize || undefined} />
       {listChildren}
     </li>
   );

@@ -22,6 +22,7 @@ const STYLE_SEQUENCE_UNORDERED = Object.freeze([
 const STYLE_SEQUENCE_ORDERED = Object.freeze([...ORDERED_SEQUENCE, ...ORDERED_SEQUENCE]);
 
 type ListType = 'bare' | 'ordered' | 'unordered';
+type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
 type Props = {
   /**
@@ -41,6 +42,10 @@ type Props = {
    */
   spacing?: 'regular' | 'condensed',
   /**
+   *The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/foundations/design_tokens#Font-size). See the [sizes variant](https://gestalt.pinterest.systems/web/text#Sizes) for more details.
+   */
+  size?: Size,
+  /**
    * Determines the style of the list. See the [type variant](https://gestalt.pinterest.systems/web/list#Type) to learn more.
    */
   type?: ListType,
@@ -50,12 +55,13 @@ function InternalList({
   label,
   labelDisplay = 'visible',
   spacing = 'regular',
+  size = '300',
   type,
   children,
 }: Props): ReactNode {
   const id = useId();
   const { nestedLevel } = useNesting();
-  const { type: inheritedType, style: inheritedStyle } = useList();
+  const { type: inheritedType, style: inheritedStyle, size: inheritedFontSize } = useList();
 
   const listType = type ?? inheritedType ?? 'unordered';
 
@@ -97,6 +103,7 @@ function InternalList({
     <ListProvider
       type={listType}
       spacing={spacing}
+      size={size}
       style={
         isListParent
           ? { ol: STYLE_SEQUENCE_ORDERED, ul: STYLE_SEQUENCE_UNORDERED }
@@ -111,7 +118,7 @@ function InternalList({
               display={hiddenLabel ? 'visuallyHidden' : 'block'}
               marginBottom={hiddenLabel ? 0 : 4}
             >
-              <ListText text={label} />
+              <ListText text={label} size={inheritedFontSize} />
             </Box>
             {formattedListElement}
           </Flex>
