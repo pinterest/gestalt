@@ -31,6 +31,7 @@ module.exports = {
       'codahosted.io',
       'i.pinimg.com',
       'github.com',
+      'pinterest-assets.com',
     ],
   },
   reactStrictMode: true,

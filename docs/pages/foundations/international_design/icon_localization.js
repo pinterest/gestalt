@@ -66,25 +66,25 @@ Some icons might need to be removed because they don’t apply to an RTL languag
         <MainSection.Subsection
           description={`
         **[RTL iconography](rtl_guidelines/iconography)**
-        See how to use icons in right-to-left and bi-directional languages.
+        See how to use icons in right-to-left and bi-directional languages
       `}
         />
         <MainSection.Subsection
           description={`
           **[Iconography guidelines](https://gestalt.pinterest.systems/foundations/iconography/library)**
-          Usage guidelines and best practices for our product icon library.
+          Usage guidelines and best practices for our product icon library
           `}
         />
         <MainSection.Subsection
           description={`
           **[Icon component](https://gestalt.pinterest.systems/web/icon)**
-          A component for using icons in product interfaces.
+          A component for using icons in product interfaces
           `}
         />
         <MainSection.Subsection
           description={`
           **[Icon requests](https://gestalt.pinterest.systems/team_support/component_request#Filling-a-request-form)**
-          How to request an icon if it doesn't exist in our library.
+          How to request an icon if it doesn't exist in our library
           `}
         />
       </MainSection>
