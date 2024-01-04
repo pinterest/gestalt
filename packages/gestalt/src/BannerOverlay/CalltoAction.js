@@ -1,5 +1,6 @@
 // @flow strict
 import { type ElementConfig, type Node as ReactNode } from 'react';
+import styles from '../BannerOverlay.css';
 import Button from '../Button';
 import ButtonLink from '../ButtonLink';
 
@@ -32,25 +33,29 @@ export default function CallToAction({
 }: Props): ReactNode {
   if (props.role === 'link')
     return (
-      <ButtonLink
-        accessibilityLabel={accessibilityLabel}
-        color={props.color}
-        href={props.href ?? ''}
-        onClick={props.onClick}
-        rel={props.rel}
-        target={props.target}
-        text={label}
-        size={size}
-      />
+      <div className={styles.parentButton}>
+        <ButtonLink
+          accessibilityLabel={accessibilityLabel}
+          color={props.color}
+          href={props.href ?? ''}
+          onClick={props.onClick}
+          rel={props.rel}
+          target={props.target}
+          text={label}
+          size={size}
+        />
+      </div>
     );
 
   return (
-    <Button
-      accessibilityLabel={accessibilityLabel}
-      color={props.color}
-      onClick={props.onClick}
-      size={size}
-      text={label}
-    />
+    <div className={styles.parentButton}>
+      <Button
+        accessibilityLabel={accessibilityLabel}
+        color={props.color}
+        onClick={props.onClick}
+        size={size}
+        text={label}
+      />
+    </div>
   );
 }

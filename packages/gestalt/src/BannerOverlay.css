@@ -14,4 +14,5 @@
   composes: paddingX0 from "./boxWhitespace.css";
   composes: paddingY0 from "./boxWhitespace.css";
   composes: transparentBg from "./Colors.css";
+  text-wrap: nowrap;
 }
