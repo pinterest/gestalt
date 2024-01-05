@@ -28,7 +28,7 @@ export default function Example(): ReactNode {
         title="More to Explore"
         message={
           <Text inline>
-            Discover trending
+            Discover trending{' '}
             <Link display="inlineBlock" target="self" href="#">
               fashion
             </Link>{' '}
