@@ -18,7 +18,7 @@ export default function Example(): ReactNode {
       offset={{ top: 130, bottom: 24 }}
       message={
         <Text inline>
-          Oops, something went wrong!
+          Oops, something went wrong!{' '}
           <Link display="inlineBlock" target="self" href="#">
             Download the app
           </Link>{' '}
