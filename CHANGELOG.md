@@ -1,3 +1,9 @@
+## 130.1.0 (Jan 5, 2024)
+
+### Minor
+
+- BannerOverlay: fixing trailing space in link examples ([#3342](https://github.com/pinterest/gestalt/pull/3342)) - [Preview link](https://deploy-preview-3342--gestalt.netlify.app?devexample=true)
+
 ## 130.0.1 (Jan 4, 2024)
 
 ### Patch
