@@ -194,7 +194,9 @@ export default function PropTable({
 
             <tbody>
               {properties.length > 0 ? (
-                sortBy(properties, ({ required, name }) => `${required ? 'a' : 'b'}${name}`).reduce(
+                sortBy(properties, ({ required, name }) => `${required ? 'a' : 'b'}${name}`).reduce<
+                  $ReadOnlyArray<ReactNode>,
+                >(
                   (
                     acc,
                     {
@@ -208,11 +210,10 @@ export default function PropTable({
                       type,
                     },
                   ) => {
+                    const newAcc = [...acc];
                     const propNameHasSecondRow = description || responsive;
                     const transformedDefaultValue = transformDefaultValue(defaultValue);
-                    // $FlowFixMe[incompatible-use]
-                    // $FlowFixMe[prop-missing]
-                    acc.push(
+                    newAcc.push(
                       <tr key={name}>
                         <Td shrink border={!propNameHasSecondRow}>
                           <Box
@@ -285,9 +286,7 @@ export default function PropTable({
                     );
 
                     if (propNameHasSecondRow) {
-                      // $FlowFixMe[incompatible-use]
-                      // $FlowFixMe[prop-missing]
-                      acc.push(
+                      newAcc.push(
                         <tr key={`${name}-second-row`}>
                           <Td colspan={1}>
                             {responsive && (
@@ -317,7 +316,7 @@ export default function PropTable({
                         </tr>,
                       );
                     }
-                    return acc;
+                    return newAcc;
                   },
                   [],
                 )
