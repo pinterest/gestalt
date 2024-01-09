@@ -1,3 +1,9 @@
+## 130.1.1 (Jan 9, 2024)
+
+### Patch
+
+- Tooltip: Add experiment hooks for using Popover v2 ([#3333](https://github.com/pinterest/gestalt/pull/3333)) - [Preview link](https://deploy-preview-3333--gestalt.netlify.app?devexample=true)
+
 ## 130.1.0 (Jan 5, 2024)
 
 ### Minor
