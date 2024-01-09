@@ -32,8 +32,7 @@ jobs:
       - name: Print New Labels
         id: extract_labels
         run: |
-          echo "${{ steps.add-label.outputs }}"
-          echo "${{ steps.add-label.outputs.all-labels}}"
+          echo "All Labels: ${{ steps.add-label.outputs.all-labels}}"
   requireLabel:
     name: Require Label
     runs-on: ubuntu-latest
