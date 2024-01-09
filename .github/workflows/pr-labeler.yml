@@ -18,4 +18,4 @@ jobs:
         with:
           sync-labels: true
           configuration-path: .github/labeler.yml
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.RYAN_GITHUB_PERSONAL_TOKEN }}
