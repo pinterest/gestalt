@@ -1,3 +1,9 @@
+## 130.1.3 (Jan 9, 2024)
+
+### Patch
+
+- Docs: Add a docs-update label to non-package related changes ([#3344](https://github.com/pinterest/gestalt/pull/3344)) - [Preview link](https://deploy-preview-3344--gestalt.netlify.app?devexample=true)
+
 ## 130.1.2 (Jan 9, 2024)
 
 ### Patch
