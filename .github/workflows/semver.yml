@@ -21,7 +21,7 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     outputs:
-      labels: ${{ steps.extract_labels.outputs.all-labels }}
+      labels: ${{ steps.extract_labels.outputs.new-labels }}
     steps:
       - name: add-label
         id: add-label
