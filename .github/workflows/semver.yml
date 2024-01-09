@@ -13,6 +13,7 @@ jobs:
   requireLabel:
     name: Require Label
     runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'docs-update') == false
     steps:
       - uses: zwaldowski/match-label-action@v2
         with:
