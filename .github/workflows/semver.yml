@@ -10,11 +10,62 @@ on:
       - synchronize
       - opened
       - edited
+  workflow_run:
+    workflows: ['Label Docs Updates']
+    types:
+      - completed
+
 jobs:
+  extract_labels:
+    name: Extract PR labels
+    runs-on: ubuntu-latest
+    outputs:
+      labels: ${{ steps.extract_labels.outputs.labels }}
+    steps:
+      - uses: octokit/graphql-action@v2.0.0
+        id: query_labels
+        with:
+          query: |
+            query labels($owner:String!, $name:String!, $oid:GitObjectID!) {
+              repository(owner: $owner, name: $name) {
+                object(oid: $oid) {
+                  ... on Commit {
+                    message
+                    associatedPullRequests(first: 1) {
+                      edges {
+                        node {
+                          title
+                          labels(first: 5) {
+                            edges {
+                              node {
+                                name
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          owner: ${{ github.event.repository.owner.name }}
+          name: ${{ github.event.repository.name }}
+          oid: ${{ github.event.head_commit.id }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Extract labels
+        id: extract_labels
+        env:
+          JSON_DATA: ${{ steps.query_labels.outputs.data }}
+        run: |
+          LABELS=$(echo "${JSON_DATA}" | jq '.repository.object.associatedPullRequests.edges[0].node.labels.edges[].node.name' | tr '\n' ', ')
+          echo "::set-output name=labels::${LABELS}"
   requireLabel:
     name: Require Label
     runs-on: ubuntu-latest
-    if: contains(github.event.pull_request.labels.*.name, 'docs-update') == false
+    needs: [extract_labels]
+    if: contains(needs.extract_labels.outputs.labels, 'docs-update') == 'false'
     steps:
       - uses: zwaldowski/match-label-action@v2
         with:
