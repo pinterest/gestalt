@@ -10,62 +10,33 @@ on:
       - synchronize
       - opened
       - edited
-  workflow_run:
-    workflows: ['Label Docs Updates']
-    types:
-      - completed
 
 jobs:
-  extract_labels:
-    name: Extract PR labels
+  labeler:
+    permissions:
+      contents: read
+      pull-requests: write
     runs-on: ubuntu-latest
     outputs:
       labels: ${{ steps.extract_labels.outputs.labels }}
     steps:
-      - uses: octokit/graphql-action@v2.0.0
-        id: query_labels
+      - name: add-label
+        id: add-label
+        uses: actions/labeler@v5
         with:
-          query: |
-            query labels($owner:String!, $name:String!, $oid:GitObjectID!) {
-              repository(owner: $owner, name: $name) {
-                object(oid: $oid) {
-                  ... on Commit {
-                    message
-                    associatedPullRequests(first: 1) {
-                      edges {
-                        node {
-                          title
-                          labels(first: 5) {
-                            edges {
-                              node {
-                                name
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          owner: ${{ github.event.repository.owner.name }}
-          name: ${{ github.event.repository.name }}
-          oid: ${{ github.event.head_commit.id || github.event.workflow_run.head_commit.id }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Extract labels
+          sync-labels: true
+          configuration-path: .github/labeler.yml
+      - name: Print New Labels
         id: extract_labels
-        env:
-          JSON_DATA: ${{ steps.query_labels.outputs.data }}
         run: |
-          LABELS=$(echo "${JSON_DATA}" | jq '.repository.object.associatedPullRequests.edges[0].node.labels.edges[].node.name' | tr '\n' ', ')
+          echo "${{ steps.add-label.outputs }}"
+          echo "${{ steps.add-label.outputs.new-labels }}"
           echo "::set-output name=labels::${LABELS}"
   requireLabel:
     name: Require Label
     runs-on: ubuntu-latest
-    needs: [extract_labels]
-    if: contains(needs.extract_labels.outputs.labels, 'docs-update') == 'false'
+    needs: [labeler]
+    if: contains(needs.labeler.outputs.labels, 'docs-update') == 'false'
     steps:
       - uses: zwaldowski/match-label-action@v2
         with:

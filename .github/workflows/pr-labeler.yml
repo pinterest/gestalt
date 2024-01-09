@@ -17,7 +17,4 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/labeler@v5
-        with:
-          sync-labels: true
-          configuration-path: .github/labeler.yml
+      - run: "echo 'Hello, world!'"
