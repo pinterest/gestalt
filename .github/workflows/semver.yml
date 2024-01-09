@@ -31,6 +31,6 @@ jobs:
           echo "New Labels: ${{ steps.add-label.outputs.new-labels}}"
           echo "All Labels: ${{ steps.add-label.outputs.all-labels}}"
       - uses: zwaldowski/match-label-action@v2
-        if: contains(steps.add-label.outputs.all-labels, 'docs-update') == 'false'
+        if: contains(steps.add-label.outputs.new-labels, 'docs-update') == 'false'
         with:
           allowed: major release, minor release, patch release
