@@ -7,7 +7,6 @@ on:
       - synchronize
       - labeled
       - unlabeled
-
 jobs:
   labeler:
     permissions:

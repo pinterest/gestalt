@@ -8,7 +8,8 @@ on:
       - labeled
       - unlabeled
       - synchronize
-
+      - opened
+      - edited
 jobs:
   requireLabel:
     name: Require Label
