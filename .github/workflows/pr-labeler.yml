@@ -1,4 +1,4 @@
-name: 'Docs PR Title Checker'
+name: 'Label Docs Updates'
 on:
   pull_request_target:
     types:
