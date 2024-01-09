@@ -1,4 +1,3 @@
 docs-update:
-  - all:
-      - changed-files:
-          - any-glob-to-any-file: '!packages/*'
+  - changed-files:
+      - any-glob-to-any-file: '!packages/**/*'
