@@ -13,7 +13,7 @@ jobs:
         id: add-label
         uses: actions/labeler@v5
         with:
-          sync-labels: ''
+          sync-labels: true
           configuration-path: ./labeler.yml
       - name: Print New Labels
         id: extract_labels
