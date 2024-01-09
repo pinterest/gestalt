@@ -32,6 +32,6 @@ jobs:
           echo "All Labels: ${{ steps.add-label.outputs.all-labels}}"
           echo "Removed Labels: ${{contains(steps.add-label.outputs.new-labels, 'docs-update')}}"
       - uses: zwaldowski/match-label-action@v2
-        if: contains(steps.add-label.outputs.new-labels, 'docs-update') == 'false'
+        if: contains(steps.add-label.outputs.new-labels, 'docs-update') == false
         with:
           allowed: major release, minor release, patch release
