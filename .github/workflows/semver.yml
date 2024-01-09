@@ -1,18 +1,7 @@
 name: Semver
 # https://semver.org/
 
-on:
-  pull_request:
-    types:
-      - opened
-      - labeled
-      - unlabeled
-      - synchronize
-      - opened
-      - edited
-  push:
-    branches:
-      - master
+on: pull_request_target
 
 jobs:
   requireLabel:
