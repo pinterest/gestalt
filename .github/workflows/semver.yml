@@ -19,6 +19,7 @@ jobs:
     name: Require Label
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4 # Uploads repository content to the runner
       - name: add-label
         id: add-label
         uses: actions/labeler@v5
