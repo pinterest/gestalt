@@ -102,7 +102,7 @@ TapArea with link interaction can be paired with GlobalEventsHandlerProvider. Se
 
         <MainSection.Subsection
           title="Rounding"
-          description="In ordee to observe TapArea's border radius, focus on each component below navigating with the keyboard. `fullWidth={false}` might be required to wrap to the children component. Make the sure the children components match the rounding as well."
+          description="In order to observe TapArea's border radius, focus on each component below navigating with the keyboard. `fullWidth={false}` might be required to wrap to the children component. Make the sure the children components match the rounding as well."
         >
           <CombinationNew cardSize="xs" rounding={[0, 1, 2, 3, 4, 5, 6, 7, 8, 'circle', 'pill']}>
             {({ rounding }) => (
