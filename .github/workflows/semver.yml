@@ -51,7 +51,7 @@ jobs:
             }
           owner: ${{ github.event.repository.owner.name }}
           name: ${{ github.event.repository.name }}
-          oid: ${{ github.event.head_commit.id }}
+          oid: ${{ github.event.head_commit.id || github.event.workflow_run.head_commit.id }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Extract labels

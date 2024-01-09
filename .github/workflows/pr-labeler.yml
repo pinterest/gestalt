@@ -1,5 +1,8 @@
 name: 'Label Docs Updates'
 on:
+  push:
+    branches:
+      - master
   pull_request_target:
     types:
       - opened
