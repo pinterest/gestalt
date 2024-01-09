@@ -21,7 +21,7 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     outputs:
-      labels: ${{ steps.extract_labels.outputs.labels }}
+      labels: ${{ steps.extract_labels.outputs.all-labels }}
     steps:
       - name: add-label
         id: add-label
@@ -33,8 +33,7 @@ jobs:
         id: extract_labels
         run: |
           echo "${{ steps.add-label.outputs }}"
-          echo "${{ steps.add-label.outputs.new-labels }}"
-          echo "::set-output name=labels::${LABELS}"
+          echo "${{ steps.add-label.outputs.all-labels}}"
   requireLabel:
     name: Require Label
     runs-on: ubuntu-latest
