@@ -26,7 +26,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
       <PageHeader
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
-        slimBanner={
+        slimBannerExperiment={
           <SlimBannerExperiment
             componentName="Popover"
             description="fix and improve component behavior. No visual updates"

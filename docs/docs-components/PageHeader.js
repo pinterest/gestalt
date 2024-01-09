@@ -57,7 +57,8 @@ type Props = {
   folderName?: string,
   margin?: 'default' | 'none',
   name: string,
-  slimBanner?: Element<typeof SlimBanner | typeof SlimBannerExperiment> | null,
+  slimBanner?: Element<typeof SlimBanner> | null,
+  slimBannerExperiment?: Element<typeof SlimBannerExperiment> | null,
   type?: 'guidelines' | 'component' | 'utility',
   pdocsLink?: boolean,
 };
@@ -72,6 +73,7 @@ export default function PageHeader({
   margin = 'default',
   name,
   slimBanner = null,
+  slimBannerExperiment = null,
   type = 'component',
 }: Props): ReactNode {
   const sourcePathName = folderName ?? fileName ?? name;
@@ -211,7 +213,12 @@ export default function PageHeader({
                 </h2>
               )}
             </Flex>
-            {slimBanner}
+
+            <Flex direction="column" gap={4}>
+              {slimBanner}
+              {slimBannerExperiment}
+            </Flex>
+
             {type === 'component' ? <PageHeaderQualitySummary name={name} /> : null}
 
             {children ? <Box marginTop={2}>{children}</Box> : null}

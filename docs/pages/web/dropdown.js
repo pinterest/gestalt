@@ -39,7 +39,7 @@ export default function ComponentPage({
       <PageHeader
         name={generatedDocGen?.Dropdown.displayName}
         description={generatedDocGen?.Dropdown.description}
-        slimBanner={
+        slimBannerExperiment={
           <SlimBannerExperiment
             componentName="Dropdown"
             description="fix and improve underlying Popover component behavior. No visual updates"

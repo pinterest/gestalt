@@ -33,7 +33,7 @@ export default function SheetPage({
       <PageHeader
         name={generatedDocGen?.OverlayPanel.displayName}
         description={generatedDocGen?.OverlayPanel.description}
-        slimBanner={
+        slimBannerExperiment={
           <SlimBannerExperiment
             componentName="OverlayPanel"
             description="fix and improve underlying Popover component behavior. No visual updates"
