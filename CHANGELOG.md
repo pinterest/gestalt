@@ -1,3 +1,9 @@
+## 130.1.2 (Jan 9, 2024)
+
+### Patch
+
+- Internal: fix Flow suppressions in docs PropTable ([#3343](https://github.com/pinterest/gestalt/pull/3343)) - [Preview link](https://deploy-preview-3343--gestalt.netlify.app?devexample=true)
+
 ## 130.1.1 (Jan 9, 2024)
 
 ### Patch
