@@ -10,6 +10,9 @@ on:
       - synchronize
       - opened
       - edited
+  push:
+    branches:
+      - master
 
 jobs:
   labeler:
