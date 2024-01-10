@@ -1,3 +1,9 @@
+## 130.1.5 (Jan 10, 2024)
+
+### Patch
+
+- Docs: Revert Labeler changes ([#3348](https://github.com/pinterest/gestalt/pull/3348)) - [Preview link](https://deploy-preview-3348--gestalt.netlify.app?devexample=true)
+
 ## 130.1.4 (Jan 10, 2024)
 
 ### Patch
