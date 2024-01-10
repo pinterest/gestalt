@@ -1,4 +1,0 @@
-docs-update:
-  - all:
-      - changed-files:
-          - all-globs-to-all-files: '!packages/*'
