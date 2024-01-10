@@ -1848,7 +1848,7 @@ interface SideNavigationGroupProps {
   expanded?: boolean;
   icon?: Icons | undefined;
   notificationAccessibilityLabel?: string | undefined;
-  onExpand: (args: { expanded: boolean }) => void;
+  onExpand: (args: { label:string, expanded: boolean }) => void;
   primaryAction?: PrimaryActionType | undefined;
 }
 
