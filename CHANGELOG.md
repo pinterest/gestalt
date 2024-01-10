@@ -1,3 +1,9 @@
+## 130.1.6 (Jan 10, 2024)
+
+### Patch
+
+- Docs: Remove extra space link ([#3350](https://github.com/pinterest/gestalt/pull/3350)) - [Preview link](https://deploy-preview-3350--gestalt.netlify.app?devexample=true)
+
 ## 130.1.5 (Jan 10, 2024)
 
 ### Patch
