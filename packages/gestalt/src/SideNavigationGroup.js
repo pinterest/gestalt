@@ -60,7 +60,7 @@ export type Props = {
   /**
    * Callback fired when the expand button component is clicked and the component is controlled.This functionality is not supported in mobile.
    */
-  onExpand?: ({ expanded: boolean }) => void,
+  onExpand?: ({ label: string, expanded: boolean }) => void,
   /**
    * The primary action for each group. See the [primary action variant](https://gestalt.pinterest.systems/web/sidenavigation#Primary-action) to learn more.
    */
@@ -195,7 +195,7 @@ export default function SideNavigationGroup({
                   return !value;
                 });
               } else {
-                onExpand?.({ expanded: !isExpanded });
+                onExpand?.({ label, expanded: !isExpanded });
               }
             }}
           >

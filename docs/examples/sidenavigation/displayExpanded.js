@@ -8,15 +8,13 @@ export default function Example(): ReactNode {
     'Classic Christmas',
   ]);
 
-  const handleOnExpand =
-    (name: string) =>
-    ({ expanded }: { expanded: boolean }) => {
-      if (expanded) {
-        setExpandedElements([...expandedElements, name]);
-      } else {
-        setExpandedElements(expandedElements.filter((value) => value !== name));
-      }
-    };
+  const handleOnExpand = ({ label, expanded }: { label: string, expanded: boolean }) => {
+    if (expanded) {
+      setExpandedElements([...expandedElements, label]);
+    } else {
+      setExpandedElements(expandedElements.filter((value) => value !== label));
+    }
+  };
 
   return (
     <Box height={362} width={280} overflow="scroll">
@@ -26,7 +24,7 @@ export default function Example(): ReactNode {
           icon="people"
           display="expandable"
           expanded={expandedElements.includes('Christmas')}
-          onExpand={handleOnExpand('Christmas')}
+          onExpand={handleOnExpand}
         >
           <SideNavigation.NestedItem
             href="#"
@@ -37,7 +35,7 @@ export default function Example(): ReactNode {
             label="Classic Christmas"
             display="expandable"
             expanded={expandedElements.includes('Classic Christmas')}
-            onExpand={handleOnExpand('Classic Christmas')}
+            onExpand={handleOnExpand}
           >
             <SideNavigation.NestedItem
               href="#"

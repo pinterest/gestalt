@@ -26,7 +26,7 @@ type Props = {
   /**
    * Callback fired when the expand button component is clicked and the component is controlled. This functionality is not supported in mobile.
    */
-  onExpand?: ({ expanded: boolean }) => void,
+  onExpand?: ({ label: string, expanded: boolean }) => void,
 };
 
 /**
