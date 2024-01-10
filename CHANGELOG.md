@@ -1,3 +1,9 @@
+## 130.1.4 (Jan 10, 2024)
+
+### Patch
+
+- Internal: fixes to .ts files ([#3347](https://github.com/pinterest/gestalt/pull/3347)) - [Preview link](https://deploy-preview-3347--gestalt.netlify.app?devexample=true)
+
 ## 130.1.3 (Jan 9, 2024)
 
 ### Patch
