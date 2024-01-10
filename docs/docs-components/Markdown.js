@@ -44,10 +44,7 @@ export default function Markdown({ textColor, text }: Props): ReactNode {
   renderer.link = (href, title, linktext) => `
               <a class="anchor" ${
                 href.startsWith('https://') || href.startsWith('http://') ? "target='blank'" : ''
-              }
-              } href="${href}">
-               ${`${linktext}`}
-              </a>`;
+              }} href="${href}">${`${linktext}`}</a>`;
 
   renderer.heading = (input, level) => {
     const escapedText = input
