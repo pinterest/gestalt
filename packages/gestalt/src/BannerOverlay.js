@@ -18,8 +18,8 @@ import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
 import Flex from './Flex';
 import Icon from './Icon';
-import IconButton from './IconButton';
 import Image from './Image';
+import InternalDismissButton from './shared/InternalDismissButton';
 import {
   ToastAvatarThumbnail,
   ToastIconThumbnail,
@@ -162,9 +162,8 @@ export default function BannerOverlay({
   const { lightModeBackground, darkModeBackground, textColor } = DEFAULT_COLORS;
 
   const dismissButtonComponent = (
-    <IconButton
+    <InternalDismissButton
       accessibilityLabel={accessibilityDismissButtonLabelDefault}
-      icon="cancel"
       iconColor="darkGray"
       onClick={onDismiss}
       size="xs"
