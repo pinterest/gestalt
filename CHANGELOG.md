@@ -1,3 +1,9 @@
+## 130.1.7 (Jan 11, 2024)
+
+### Patch
+
+- Internal: Bump follow-redirects from 1.14.8 to 1.15.4 ([#3345](https://github.com/pinterest/gestalt/pull/3345)) - [Preview link](https://deploy-preview-3345--gestalt.netlify.app?devexample=true)
+
 ## 130.1.6 (Jan 10, 2024)
 
 ### Patch
