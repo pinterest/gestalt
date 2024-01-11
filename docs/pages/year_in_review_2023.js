@@ -496,7 +496,7 @@ export default function YearInReview2023(): ReactNode {
                     . We hope to continue to provide more components with density variants in 2024.
                   </Text>
 
-                  <Box marginTop={10} width="100%" position="relative">
+                  <Box marginTop={10} marginBottom={12} width="100%" position="relative">
                     <Flex justifyContent="center" gap={0}>
                       <Box marginTop="auto" marginBottom="auto">
                         <TokenLines />
@@ -533,14 +533,6 @@ export default function YearInReview2023(): ReactNode {
                     </Flex>
                   </Box>
                 </Flex>
-
-                <Box paddingY={12}>
-                  <div className="statsGrid">
-                    <StatsGrid number="1.92M" description="Total Gestalt Figma component insert" />
-                    <StatsGrid number="0.56%" description="Component detach rate" />
-                    <StatsGrid number="45%" description="Peak design adoption rate" />
-                  </div>
-                </Box>
               </Flex>
             </Box>
           </Box>
