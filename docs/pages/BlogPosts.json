@@ -3,6 +3,32 @@
     "year": "2023",
     "digests": [
       {
+        "month": "December",
+        "summary": "",
+        "posts": [
+          {
+            "title": "Gestalt December Newsletter",
+            "audience": ["Engineering"],
+            "content": "A recap of significant changes from December."
+          },
+          {
+            "title": "Support for denser Gestalt components",
+            "audience": ["Engineering"],
+            "content": "Denser layouts can be accomplished with new small sizes for Accordion (renamed from Module), SegmentedControl, and Tag. Additional denser components are on the way, Stay tuned!"
+          },
+          {
+            "title": "Default cursor pointer available in TapArea",
+            "audience": ["Engineering"],
+            "content": "The 'default' cursor should be used sparingly when there are actions that only have hover actions or part of complex elements where there are other interactive elements."
+          },
+          {
+            "title": "New icons",
+            "audience": ["Engineering"],
+            "content": "- **Icons**. We added 1 new cross-platform icons to our [iconography collection](https://gestalt.pinterest.systems/foundations/iconography/library): scissors."
+          }
+        ]
+      },
+      {
         "month": "November",
         "summary": "",
         "posts": [
