@@ -260,6 +260,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
         pages: [
           'About international design',
           'Icon localization',
+          'Pluralization',
           {
             sectionName: 'RTL guidelines',
             pages: ['RTL overview', 'Layout and text direction', 'Iconography', 'Typography'],
