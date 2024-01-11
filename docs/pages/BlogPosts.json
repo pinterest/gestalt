@@ -14,7 +14,7 @@
           {
             "title": "Support for denser Gestalt components",
             "audience": ["Engineering"],
-            "content": "Denser layouts can be accomplished with new small sizes for Accordion (renamed from Module), SegmentedControl, and Tag. Additional denser components are on the way, Stay tuned!"
+            "content": "Denser layouts are supported with new small sizes for Accordion (renamed from Module), SegmentedControl, and Tag. Additional denser components are on the way, Stay tuned!"
           },
           {
             "title": "Default cursor pointer available in TapArea",
