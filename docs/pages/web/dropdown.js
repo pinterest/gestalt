@@ -326,7 +326,7 @@ When building a Dropdown, we might want to render different combinations of subc
           name="Mobile"
           description={`Dropdown requires [DeviceTypeProvider](/web/utilities/devicetypeprovider) to enable its mobile user interface. The example below shows the mobile platform UI and its implementation.
 
-SheetMobile has animation. To learn more about Dropdown.Link´s \`mobileOnDismissStart\`, see the [animation variant in SheetMobile](https://deploy-preview-2879--gestalt.netlify.app/web/sheetmobile#Animation). \`mobileOnDismissStart\` is the equivalent of \`onDismissStart\` in SheetMobile.
+SheetMobile has animation. To learn more about Dropdown.Link´s \`mobileOnDismissStart\`, see the [animation variant in SheetMobile](/web/sheetmobile#Animation). \`mobileOnDismissStart\` is the equivalent of \`onDismissStart\` in SheetMobile.
 `}
         >
           <MainSection.Card
