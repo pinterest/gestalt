@@ -1,3 +1,9 @@
+## 130.1.8 (Jan 12, 2024)
+
+### Patch
+
+- BannerOverlay: Fixing responsiveness and margin for small desktop viewports ([#3349](https://github.com/pinterest/gestalt/pull/3349)) - [Preview link](https://deploy-preview-3349--gestalt.netlify.app?devexample=true)
+
 ## 130.1.7 (Jan 11, 2024)
 
 ### Patch
