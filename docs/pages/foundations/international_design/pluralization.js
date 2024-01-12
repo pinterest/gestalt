@@ -494,8 +494,8 @@ export default function FormsLayoutOverview(): ReactNode {
         </Box>
 
         <MainSection.Subsection
-          title="Pending title"
-          description="pending"
+          title="Java Code Snippet"
+          description="Also see the full documentation at [L10nMessages](https://l10nmessages.io/docs/icu4j/#pluralization---message-with-quantity), a Pinterest open source project."
         />
         <Box marginTop={0} marginBottom={10}>
           <embed
