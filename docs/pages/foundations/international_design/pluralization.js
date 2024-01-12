@@ -305,7 +305,7 @@ export default function FormsLayoutOverview(): ReactNode {
                     </Box>
                   </Table.Cell>
                   <Table.Cell>
-                    <Text size="200">We haven't created any pins</Text>
+                    <Text size="200">We have not created any pins</Text>
                   </Table.Cell>
                 </Table.Row>
 
