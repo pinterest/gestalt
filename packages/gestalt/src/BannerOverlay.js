@@ -1,5 +1,11 @@
 // @flow strict
-import { Children, type Element, type ElementConfig, type Node as ReactNode } from 'react';
+import {
+  Children,
+  type Element,
+  type ElementConfig,
+  Fragment,
+  type Node as ReactNode,
+} from 'react';
 import Avatar from './Avatar';
 import styles from './BannerOverlay.css';
 import CallToAction from './BannerOverlay/CalltoAction';
@@ -12,8 +18,8 @@ import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
 import Flex from './Flex';
 import Icon from './Icon';
-import IconButton from './IconButton';
 import Image from './Image';
+import InternalDismissButton from './shared/InternalDismissButton';
 import {
   ToastAvatarThumbnail,
   ToastIconThumbnail,
@@ -156,9 +162,8 @@ export default function BannerOverlay({
   const { lightModeBackground, darkModeBackground, textColor } = DEFAULT_COLORS;
 
   const dismissButtonComponent = (
-    <IconButton
+    <InternalDismissButton
       accessibilityLabel={accessibilityDismissButtonLabelDefault}
-      icon="cancel"
       iconColor="darkGray"
       onClick={onDismiss}
       size="xs"
@@ -166,132 +171,274 @@ export default function BannerOverlay({
   );
 
   const isMessageTextNode = checkTextNode();
-  const messageComponent = (
-    <Box marginBottom={isMobileDevice ? 2 : 0}>
-      <ToastMessage
-        text={isMessageTextNode ? undefined : messageTextElement}
-        textElement={isMessageTextNode ? messageTextElement : undefined}
-        textColor={textColor}
-      />
-    </Box>
-  );
   return (
-    <Box
-      color={isDarkMode ? darkModeBackground : lightModeBackground}
-      paddingX={4}
-      paddingY={3}
-      rounding={4}
-      borderStyle="shadow"
-      dangerouslySetInlineStyle={{
-        __style: {
-          position: 'fixed',
-          bottom: isMobileDevice ? offset.bottom : 'unset',
-          top: !isMobileDevice ? offset.top : 'unset',
-          left: '50%',
-          transform: 'translateX(-50%)',
-        },
-      }}
-      position="fixed"
-      display="flex"
-      justifyContent={isMobileDevice ? 'center' : 'between'}
-      alignContent={isMobileDevice ? 'stretch' : 'center'}
-      direction={isMobileDevice ? 'column' : 'row'}
-      smPaddingY={4}
-      fit
-      maxWidth={isMobileDevice ? 348 : 900}
-      width="100%"
-      zIndex={zIndex}
-    >
-      <Flex alignItems="center" gap={4}>
-        {!!thumbnail?.image &&
-        Children.only<Element<typeof Image>>(thumbnail.image).type.displayName === 'Image' ? (
-          <Flex.Item alignSelf={isMobileDevice ? 'baseline' : 'center'}>
-            <ToastImageThumbnail thumbnail={thumbnail.image} />
-          </Flex.Item>
-        ) : null}
+    <Fragment>
+      <Box display="none" smDisplay="flex">
+        <Box
+          color={isDarkMode ? darkModeBackground : lightModeBackground}
+          paddingX={4}
+          paddingY={3}
+          rounding={4}
+          borderStyle="shadow"
+          dangerouslySetInlineStyle={{
+            __style: {
+              position: 'fixed',
+              bottom: isMobileDevice ? offset.bottom : 'unset',
+              top: !isMobileDevice ? offset.top : 'unset',
+              left: '50%',
+              transform: 'translateX(-50%)',
+            },
+          }}
+          position="fixed"
+          display="flex"
+          justifyContent="between"
+          alignContent="center"
+          direction="row"
+          smPaddingY={4}
+          fit
+          maxWidth={900}
+          width="calc(100% - 32px)"
+          zIndex={zIndex}
+        >
+          <Flex alignItems="center" gap={4}>
+            {!!thumbnail?.image &&
+            Children.only<Element<typeof Image>>(thumbnail.image).type.displayName === 'Image' ? (
+              <Flex.Item alignSelf="center">
+                <ToastImageThumbnail thumbnail={thumbnail.image} />
+              </Flex.Item>
+            ) : null}
 
-        {!!thumbnail?.icon &&
-        Children.only<Element<typeof Icon>>(thumbnail.icon).type.displayName === 'Icon' ? (
-          <Flex.Item alignSelf={isMobileDevice ? 'baseline' : 'center'}>
-            <ToastIconThumbnail thumbnail={thumbnail.icon} />
-          </Flex.Item>
-        ) : null}
+            {!!thumbnail?.icon &&
+            Children.only<Element<typeof Icon>>(thumbnail.icon).type.displayName === 'Icon' ? (
+              <Flex.Item alignSelf="center">
+                <ToastIconThumbnail thumbnail={thumbnail.icon} />
+              </Flex.Item>
+            ) : null}
 
-        {!!thumbnail?.avatar &&
-        Children.only<Element<typeof Avatar>>(thumbnail.avatar).type.displayName === 'Avatar' ? (
-          <Flex.Item alignSelf={isMobileDevice ? 'baseline' : 'center'}>
-            <ToastAvatarThumbnail thumbnail={thumbnail.avatar} />
-          </Flex.Item>
-        ) : null}
-        <Flex.Item flex="grow">
-          <Flex direction="row" justifyContent="between">
-            {title ? <Text weight="bold">{title}</Text> : messageComponent}
-            {isMobileDevice && !!onDismiss && (
-              <Flex.Item alignSelf={title ? 'end' : 'start'}>{dismissButtonComponent}</Flex.Item>
-            )}
+            {!!thumbnail?.avatar &&
+            Children.only<Element<typeof Avatar>>(thumbnail.avatar).type.displayName ===
+              'Avatar' ? (
+              <Flex.Item alignSelf="center">
+                <ToastAvatarThumbnail thumbnail={thumbnail.avatar} />
+              </Flex.Item>
+            ) : null}
+            <Flex.Item flex="grow">
+              <Flex direction="row" justifyContent="between">
+                {title ? (
+                  <Text weight="bold">{title}</Text>
+                ) : (
+                  <ToastMessage
+                    text={isMessageTextNode ? undefined : messageTextElement}
+                    textElement={isMessageTextNode ? messageTextElement : undefined}
+                    textColor={textColor}
+                  />
+                )}
+              </Flex>
+              {title && (
+                <ToastMessage
+                  text={isMessageTextNode ? undefined : messageTextElement}
+                  textElement={isMessageTextNode ? messageTextElement : undefined}
+                  textColor={textColor}
+                />
+              )}
+            </Flex.Item>
           </Flex>
-          {title && messageComponent}
-        </Flex.Item>
-      </Flex>
-      <Flex direction="row" alignSelf={isMobileDevice ? 'end' : 'center'} gap={4}>
-        <ButtonGroup>
-          {secondaryAction && (
-            <Flex.Item>
-              {secondaryAction.role === 'link' ? (
-                <CallToAction
-                  accessibilityLabel={secondaryAction.accessibilityLabel}
-                  color="gray"
-                  href={secondaryAction.href}
-                  label={secondaryAction.label}
-                  onClick={secondaryAction.onClick}
-                  rel={secondaryAction?.rel}
-                  role="link"
-                  size="sm"
-                  target={secondaryAction?.target}
-                />
-              ) : (
-                <CallToAction
-                  accessibilityLabel={secondaryAction.accessibilityLabel}
-                  color="gray"
-                  label={secondaryAction.label}
-                  onClick={secondaryAction.onClick}
-                  role="button"
-                  size="sm"
-                />
+          <Flex direction="row" alignSelf="center" gap={4}>
+            <ButtonGroup>
+              {secondaryAction && (
+                <Flex.Item>
+                  {secondaryAction.role === 'link' ? (
+                    <CallToAction
+                      accessibilityLabel={secondaryAction.accessibilityLabel}
+                      color="gray"
+                      href={secondaryAction.href}
+                      label={secondaryAction.label}
+                      onClick={secondaryAction.onClick}
+                      rel={secondaryAction?.rel}
+                      role="link"
+                      size="sm"
+                      target={secondaryAction?.target}
+                    />
+                  ) : (
+                    <CallToAction
+                      accessibilityLabel={secondaryAction.accessibilityLabel}
+                      color="gray"
+                      label={secondaryAction.label}
+                      onClick={secondaryAction.onClick}
+                      role="button"
+                      size="sm"
+                    />
+                  )}
+                </Flex.Item>
+              )}
+              {primaryAction && (
+                <Flex.Item>
+                  {primaryAction.role === 'link' ? (
+                    <CallToAction
+                      accessibilityLabel={primaryAction.accessibilityLabel}
+                      color="red"
+                      href={primaryAction.href}
+                      label={primaryAction.label}
+                      onClick={primaryAction.onClick}
+                      rel={primaryAction?.rel}
+                      role="link"
+                      size="sm"
+                      target={primaryAction?.target}
+                    />
+                  ) : (
+                    <CallToAction
+                      accessibilityLabel={primaryAction.accessibilityLabel}
+                      color="red"
+                      label={primaryAction.label}
+                      onClick={primaryAction.onClick}
+                      role="button"
+                      size="sm"
+                    />
+                  )}
+                </Flex.Item>
+              )}
+            </ButtonGroup>
+            {!!onDismiss && <Flex.Item alignSelf="center">{dismissButtonComponent}</Flex.Item>}
+          </Flex>
+        </Box>
+      </Box>
+      <Box display="flex" smDisplay="none">
+        <Box
+          color={isDarkMode ? darkModeBackground : lightModeBackground}
+          paddingX={4}
+          paddingY={3}
+          rounding={4}
+          borderStyle="shadow"
+          dangerouslySetInlineStyle={{
+            __style: {
+              position: 'fixed',
+              bottom: isMobileDevice ? offset.bottom : 'unset',
+              top: !isMobileDevice ? offset.top : 'unset',
+              left: '50%',
+              transform: 'translateX(-50%)',
+            },
+          }}
+          position="fixed"
+          display="flex"
+          justifyContent="center"
+          alignContent="stretch"
+          direction="column"
+          smPaddingY={4}
+          fit
+          maxWidth={348}
+          width="calc(100% - 32px)"
+          zIndex={zIndex}
+        >
+          <Flex alignItems="center" gap={4}>
+            {!!thumbnail?.image &&
+            Children.only<Element<typeof Image>>(thumbnail.image).type.displayName === 'Image' ? (
+              <Flex.Item alignSelf="baseline">
+                <ToastImageThumbnail thumbnail={thumbnail.image} />
+              </Flex.Item>
+            ) : null}
+
+            {!!thumbnail?.icon &&
+            Children.only<Element<typeof Icon>>(thumbnail.icon).type.displayName === 'Icon' ? (
+              <Flex.Item alignSelf="baseline">
+                <ToastIconThumbnail thumbnail={thumbnail.icon} />
+              </Flex.Item>
+            ) : null}
+
+            {!!thumbnail?.avatar &&
+            Children.only<Element<typeof Avatar>>(thumbnail.avatar).type.displayName ===
+              'Avatar' ? (
+              <Flex.Item alignSelf="baseline">
+                <ToastAvatarThumbnail thumbnail={thumbnail.avatar} />
+              </Flex.Item>
+            ) : null}
+            <Flex.Item flex="grow">
+              <Flex direction="row" justifyContent="between">
+                {title ? (
+                  <Text weight="bold">{title}</Text>
+                ) : (
+                  <Box marginBottom={2}>
+                    <ToastMessage
+                      text={isMessageTextNode ? undefined : messageTextElement}
+                      textElement={isMessageTextNode ? messageTextElement : undefined}
+                      textColor={textColor}
+                    />
+                  </Box>
+                )}
+                {!!onDismiss && (
+                  <Flex.Item alignSelf={title ? 'end' : 'start'}>
+                    {dismissButtonComponent}
+                  </Flex.Item>
+                )}
+              </Flex>
+              {title && (
+                <Box marginBottom={2}>
+                  <ToastMessage
+                    text={isMessageTextNode ? undefined : messageTextElement}
+                    textElement={isMessageTextNode ? messageTextElement : undefined}
+                    textColor={textColor}
+                  />
+                </Box>
               )}
             </Flex.Item>
-          )}
-          {primaryAction && (
-            <Flex.Item>
-              {primaryAction.role === 'link' ? (
-                <CallToAction
-                  accessibilityLabel={primaryAction.accessibilityLabel}
-                  color="red"
-                  href={primaryAction.href}
-                  label={primaryAction.label}
-                  onClick={primaryAction.onClick}
-                  rel={primaryAction?.rel}
-                  role="link"
-                  size="sm"
-                  target={primaryAction?.target}
-                />
-              ) : (
-                <CallToAction
-                  accessibilityLabel={primaryAction.accessibilityLabel}
-                  color="red"
-                  label={primaryAction.label}
-                  onClick={primaryAction.onClick}
-                  role="button"
-                  size="sm"
-                />
+          </Flex>
+          <Flex direction="row" alignSelf="end" gap={4}>
+            <ButtonGroup>
+              {secondaryAction && (
+                <Flex.Item>
+                  {secondaryAction.role === 'link' ? (
+                    <CallToAction
+                      accessibilityLabel={secondaryAction.accessibilityLabel}
+                      color="gray"
+                      href={secondaryAction.href}
+                      label={secondaryAction.label}
+                      onClick={secondaryAction.onClick}
+                      rel={secondaryAction?.rel}
+                      role="link"
+                      size="sm"
+                      target={secondaryAction?.target}
+                    />
+                  ) : (
+                    <CallToAction
+                      accessibilityLabel={secondaryAction.accessibilityLabel}
+                      color="gray"
+                      label={secondaryAction.label}
+                      onClick={secondaryAction.onClick}
+                      role="button"
+                      size="sm"
+                    />
+                  )}
+                </Flex.Item>
               )}
-            </Flex.Item>
-          )}
-        </ButtonGroup>
-        {!isMobileDevice && !!onDismiss && (
-          <Flex.Item alignSelf="center">{dismissButtonComponent}</Flex.Item>
-        )}
-      </Flex>
-    </Box>
+              {primaryAction && (
+                <Flex.Item>
+                  {primaryAction.role === 'link' ? (
+                    <CallToAction
+                      accessibilityLabel={primaryAction.accessibilityLabel}
+                      color="red"
+                      href={primaryAction.href}
+                      label={primaryAction.label}
+                      onClick={primaryAction.onClick}
+                      rel={primaryAction?.rel}
+                      role="link"
+                      size="sm"
+                      target={primaryAction?.target}
+                    />
+                  ) : (
+                    <CallToAction
+                      accessibilityLabel={primaryAction.accessibilityLabel}
+                      color="red"
+                      label={primaryAction.label}
+                      onClick={primaryAction.onClick}
+                      role="button"
+                      size="sm"
+                    />
+                  )}
+                </Flex.Item>
+              )}
+            </ButtonGroup>
+          </Flex>
+        </Box>
+      </Box>
+    </Fragment>
   );
 }
