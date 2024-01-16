@@ -388,11 +388,14 @@ export default function YearInReview2023(): ReactNode {
                 </Flex>
 
                 <Box
-                  padding={10}
+                  padding={12}
                   marginTop={10}
                   marginBottom={9}
-                  display="inlineBlock"
+                  marginStart={12}
+                  marginEnd={12}
+                  display="flex"
                   maxWidth={894}
+                  minWidth={300}
                   dangerouslySetInlineStyle={{
                     __style: {
                       border: '4px solid #111111',
@@ -410,7 +413,11 @@ export default function YearInReview2023(): ReactNode {
                       />
                     </div>
                     <Box>
-                      <Lottie animationData={Docs} autoplay={!shouldReduceMotion} />
+                      <Lottie
+                        className="docsGraphic"
+                        animationData={Docs}
+                        autoplay={!shouldReduceMotion}
+                      />
                     </Box>
                   </Flex>
                 </Box>
@@ -736,21 +743,26 @@ export default function YearInReview2023(): ReactNode {
                   direction="column"
                   gap={12}
                   maxWidth="550px"
+                  minWidth="320px"
                   alignItems="center"
                   mdAlignItems="start"
                 >
-                  <Text color="default" size="400">
-                    It&apos;s a good sign when, after saying last year was the year, we have to come
-                    back and say, “actually this was the year!” Iit was a lot of hard work that was
-                    sometimes exhausting. But it also felt great to improve the design system so
-                    that our customers can make Pinterest the home of positivity and inspiration.
-                    We&apos;re ready to keep it going for another year so that, in 2024 we can say
-                    “seriously, THIS was the best year!” Hope your 2024 is off to a great start as
-                    well!
-                  </Text>
-                  <ButtonLink href="/home" text="Head back to Gestalt" />
+                  <Box margin={12} minWidth="300px">
+                    <Box marginBottom={12}>
+                      <Text color="default" size="400">
+                        It&apos;s a good sign when, after saying last year was the year, we have to
+                        come back and say, “actually this was the year!” Iit was a lot of hard work
+                        that was sometimes exhausting. But it also felt great to improve the design
+                        system so that our customers can make Pinterest the home of positivity and
+                        inspiration. We&apos;re ready to keep it going for another year so that, in
+                        2024 we can say “seriously, THIS was the best year!” Hope your 2024 is off
+                        to a great start as well!
+                      </Text>
+                    </Box>
+                    <ButtonLink href="/home" text="Head back to Gestalt" />
+                  </Box>
                 </Flex>
-                <Box margin={12} width="300px" column={6} mdColumn={3}>
+                <Box margin={12} maxWidth="312px">
                   <Lottie animationData={EndGraphic} autoplay={!shouldReduceMotion} />
                 </Box>
               </Box>

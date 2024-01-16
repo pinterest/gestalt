@@ -1211,7 +1211,6 @@ Default table styling for MDX Pages
 }
 
 @media (prefers-reduced-motion) {
-  .docsLineLeft.animate,
   .introLineIn {
     animation: none;
     opacity: 1;
@@ -1222,10 +1221,6 @@ Default table styling for MDX Pages
 .introLineIn {
   animation: slide-in-right 1s ease-in 0s forwards;
   opacity: 0;
-}
-
-.docsLineLeft {
-  animation: diagonal-in-left 1s ease-in 0s forwards;
 }
 
 @keyframes slide-in-right {
@@ -1240,14 +1235,12 @@ Default table styling for MDX Pages
   }
 }
 
-@keyframes diagonal-in-left {
-  from {
-    opacity: 1;
-    transform: translate(-50%, -500%) rotate(45deg);
-  }
+.docsGraphic {
+  display: block;
+}
 
-  to {
-    opacity: 1;
-    transform: translate(0, 0) rotate(45deg);
+@media screen and (max-width: 728px) {
+  .docsGraphic {
+    display: none;
   }
 }
