@@ -7,6 +7,7 @@ import MainSection from '../../../docs-components/MainSection';
 import Markdown from '../../../docs-components/Markdown';
 import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';
+import text from "../../web/text";
 
 export default function FormsLayoutOverview(): ReactNode {
   return (
@@ -24,19 +25,62 @@ export default function FormsLayoutOverview(): ReactNode {
         There are [different types of plurals](https://www.unicode.org/cldr/charts/43/supplemental/language_plural_rules.html) depending on the language. English has two plural forms: singular and plural, “one Pin” and “five Pins.” Many languages share this simple duality, but quite a few don’t. Chinese has one plural form, and so does Japanese. Russian has four, and Arabic has six!"
       >
 
-        <Box maxHeight={564} marginBottom={6} borderStyle="sm" rounding={4}>
-          <Mask rounding={4}>
-            <Image
-              alt="Two examples of a Pin close-up. One shows the nav bar Back button on the top-left corner for LTR, and the other in the top-right corner for RTL."
-              naturalWidth={2688}
-              naturalHeight={1692}
-              src="https://i.pinimg.com/originals/21/97/aa/2197aac801d0540d233dc7d352731a91.png"
-            />
-          </Mask>
+
+      <Box maxHeight={564} marginBottom={6} borderStyle="sm" rounding={4} paddingX={4} paddingY={4}>
+          <Flex height="100%" alignItems="center" justifyContent="center" gap={4}>
+
+        <Flex direction="column" gap={4}>
+        <Flex gap={4} >
+          <Box borderStyle="sm" paddingX={2} paddingY={4} rounding={3} width={130}>
+        <Flex alignItems="center" direction="column" gap={4}>
+          <Text weight="bold">English</Text>
+          <Text weight="bold" color="error">0{' '}<Text inline >Pin</Text>s</Text>
+          <Text weight="bold" color="error">1{' '}<Text inline >Pin</Text></Text>
+          <Text weight="bold" color="error">2{' '}<Text inline >Pin</Text>s</Text>
+        </Flex>
+      </Box>
+      <Box borderStyle="sm" paddingX={2} paddingY={4} rounding={3} width={130}>
+        <Flex alignItems="center" direction="column" gap={4}>
+          <Text weight="bold">French</Text>
+          <Text weight="bold" color="error">0{' '}<Text inline >Epingle</Text></Text>
+          <Text weight="bold" color="error">1{' '}<Text inline >Epingle</Text></Text>
+          <Text weight="bold" color="error">2{' '}<Text inline >Epingle</Text>s</Text>
+        </Flex>
+      </Box>
+      <Box borderStyle="sm" paddingX={2} paddingY={4} rounding={3} width={130}>
+        <Flex alignItems="center" direction="column" gap={4}>
+          <Text weight="bold">Japanese</Text>
+          <Text weight="bold" color="error">0{' '}<Text inline >ピン</Text></Text>
+          <Text weight="bold" color="error">1{' '}<Text inline >ピン</Text></Text>
+          <Text weight="bold" color="error">2{' '}<Text inline >ピン</Text></Text>
+        </Flex>
+      </Box>
+      </Flex>
+
+      <Box borderStyle="sm" paddingX={2} paddingY={3} rounding={3} >
+        <Flex alignItems="center" direction="column" gap={4}>
+          <Text >{"translate ('"}{' '}<Text weight="bold" color="error" inline >{"{num}"}</Text> Pin', '<Text weight="bold" color="error" inline >{"{num}"}</Text>Pins', num) </Text>
+        </Flex>
+      </Box>
+      </Flex>
+
+      <Box borderStyle="sm" paddingX={2} paddingY={3} rounding={3} width={130}>
+        <Flex alignItems="center" direction="column" gap={4}>
+          <Text weight="bold">Russian</Text>
+          <Text weight="bold" color="error">0{' '}<Text inline >Пин</Text>ов</Text>
+          <Text weight="bold" color="error">1{' '}<Text inline >Пин</Text></Text>
+          <Text weight="bold" color="error">2{' '}<Text inline >Пин</Text>а</Text>
+          <Text weight="bold" color="error">5{' '}<Text inline >Пин</Text>ов</Text>
+          <Text weight="bold" color="error">11{' '}<Text inline >Пин</Text>ов</Text>
+          <Text weight="bold" color="error">21{' '}<Text inline >Пин</Text></Text>
+        </Flex>
+      </Box>
+          </Flex>
         </Box>
         <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginBottom={6}>
             <Text size="300">Visual representation of the term Pin and the different plural forms</Text>
         </Box>
+
 
       <MainSection
           name="What is Pluralization?"
@@ -56,6 +100,7 @@ export default function FormsLayoutOverview(): ReactNode {
           <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
             <Box
               width="100%"
+              paddingX={8}
               minHeight={164}
               overflow="hidden"
               color="light"
@@ -77,6 +122,7 @@ export default function FormsLayoutOverview(): ReactNode {
           <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
             <Box
               width="100%"
+              paddingX={8}
               minHeight={164}
               overflow="hidden"
               color="light"
