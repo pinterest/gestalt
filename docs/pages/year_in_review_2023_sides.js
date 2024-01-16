@@ -26,6 +26,7 @@ import Twinkle from '../graphics/year-in-review-2023/lottie/yir-2023-twinkle.jso
 import VariablesGraphic from '../graphics/year-in-review-2023/lottie/yir-2023-variables.json';
 // SVGs
 import HeroSVG from '../graphics/year-in-review-2023/yir-2023-intro-hero.svg';
+import DocsLineLeft from '../graphics/year-in-review-2023/yir-2023-line-left-docs.svg';
 import Quote from '../graphics/year-in-review-2023/yir-2023-quote.svg';
 import IntroLine from '../graphics/year-in-review-2023/yir-2023-single-line-intro.svg';
 
@@ -70,6 +71,23 @@ export default function YearInReview2023(): ReactNode {
     }
   }, []);
 
+  useEffect(() => {
+    const animatedDecor = [
+      ...document.querySelectorAll('.docsLineLeft'),
+      ...document.querySelectorAll('.docsLineRight'),
+    ];
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry && entry.isIntersecting) {
+        entry.target?.classList?.add('animate');
+      }
+    });
+
+    animatedDecor.forEach((obj) => {
+      observer.observe(obj);
+    });
+  }, []);
+
   return (
     <div className="year-in-review-2023">
       <ColorSchemeProvider colorScheme="light" id="gestalt-yir">
@@ -105,11 +123,8 @@ export default function YearInReview2023(): ReactNode {
               <Box marginBottom={4}>
                 <h1 className="h1Font2023">Year in review</h1>
               </Box>
-              <Box marginBottom={8} marginTop={-2}>
-                <Flex gap={3} alignItems="center" justifyContent="center">
-                  <Box opacity={0}>
-                    <Lottie animationData={Twinkle} autoplay={!shouldReduceMotion} />
-                  </Box>
+              <Box marginBottom={8}>
+                <Flex gap={3} alignItems="center">
                   <Box>
                     <h2 className="gestalt2023">Gestalt 2023 recap</h2>
                   </Box>
@@ -173,7 +188,7 @@ export default function YearInReview2023(): ReactNode {
             position="relative"
           >
             <Flex direction="column" alignItems="center" justifyContent="center">
-              <Box lgMarginTop={8}>
+              <Box marginTop={8}>
                 <Heading accessibilityLevel={2} align="center">
                   The people&apos;s choice
                 </Heading>
@@ -181,8 +196,8 @@ export default function YearInReview2023(): ReactNode {
               <Flex gap={4} maxWidth={MAX_CONTENT_WIDTH} direction="column">
                 <Box
                   maxWidth={665}
-                  marginTop={12}
-                  marginBottom={2}
+                  marginTop={10}
+                  marginBottom={10}
                   width="100%"
                   display="inlineBlock"
                   justifyContent="center"
@@ -250,39 +265,41 @@ export default function YearInReview2023(): ReactNode {
                   },
                 }}
               >
-                <Box maxWidth={56} marginBottom={2} padding={3}>
-                  <Quote />
-                </Box>
-                <Box maxWidth={644} padding={4}>
-                  <Box marginBottom={8}>
-                    <Text size="400" weight="bold">
-                      I enjoy that I&apos;m able to explore multiple explorations quickly with our
-                      Figma library. I&apos;m able to cut the time and effort.
-                      <Text size="400" align="end">
-                        —Product Designer
-                      </Text>
-                    </Text>
+                <Flex gap={4}>
+                  <Box maxWidth={56} marginBottom={2}>
+                    <Quote />
                   </Box>
+                  <Box maxWidth={644} padding={4}>
+                    <Box marginBottom={8}>
+                      <Text size="400" weight="bold">
+                        I enjoy that I&apos;m able to explore multiple explorations quickly with our
+                        Figma library. I&apos;m able to cut the time and effort.
+                        <Text size="400" align="end">
+                          —Product Designer
+                        </Text>
+                      </Text>
+                    </Box>
 
-                  <Box marginBottom={8}>
-                    <Text size="400" weight="bold">
-                      Gestalt is always my favorite team to collaborate with!
-                      <Text size="400" align="end">
-                        —Software Engineer
+                    <Box marginBottom={8}>
+                      <Text size="400" weight="bold">
+                        Gestalt is always my favorite team to collaborate with!
+                        <Text size="400" align="end">
+                          —Software Engineer
+                        </Text>
                       </Text>
-                    </Text>
-                  </Box>
-                  <Box marginBottom={8}>
-                    <Text size="400" weight="bold">
-                      You are all rockstars and it&apos;s always a great time getting all of your
-                      guidance! Thank you for all you do in making sure our product is accessible to
-                      everyone.
-                      <Text size="400" align="end">
-                        —Product Designer
+                    </Box>
+                    <Box marginBottom={8}>
+                      <Text size="400" weight="bold">
+                        You are all rockstars and it&apos;s always a great time getting all of your
+                        guidance! Thank you for all you do in making sure our product is accessible
+                        to everyone.
+                        <Text size="400" align="end">
+                          —Product Designer
+                        </Text>
                       </Text>
-                    </Text>
+                    </Box>
                   </Box>
-                </Box>
+                </Flex>
               </Box>
             </Flex>
           </Box>
@@ -299,6 +316,19 @@ export default function YearInReview2023(): ReactNode {
                   </Heading>
                 </Box>
               </Flex>
+            </Box>
+            <Box
+              width="50%"
+              position="absolute"
+              marginStart={10}
+              dangerouslySetInlineStyle={{
+                __style: {
+                  bottom: '-147%',
+                  left: '-30%',
+                },
+              }}
+            >
+              <DocsLineLeft className="docsLineLeft" width="100%" />
             </Box>
           </Box>
           <Box
@@ -390,7 +420,7 @@ export default function YearInReview2023(): ReactNode {
                 <Box
                   padding={10}
                   marginTop={10}
-                  marginBottom={9}
+                  marginBottom={12}
                   display="inlineBlock"
                   maxWidth={894}
                   dangerouslySetInlineStyle={{
@@ -436,7 +466,7 @@ export default function YearInReview2023(): ReactNode {
           >
             <Box paddingX={SIDE_GAP} position="relative" marginBottom={12}>
               <Flex direction="column" alignItems="center" justifyContent="center">
-                <Box marginBottom={8} marginTop={12} width="75%">
+                <Box marginBottom={8} marginTop={8} width="75%">
                   <Heading align="center" accessibilityLevel={2}>
                     There&apos;s still room for components and tokens
                   </Heading>
@@ -557,7 +587,7 @@ export default function YearInReview2023(): ReactNode {
                 <Box paddingY={12} align="center">
                   <Box
                     maxWidth={665}
-                    marginTop={12}
+                    marginTop={4}
                     marginBottom={12}
                     width="100%"
                     display="inlineBlock"
@@ -602,7 +632,6 @@ export default function YearInReview2023(): ReactNode {
             }}
             paddingY={12}
             paddingX={SIDE_GAP}
-            marginTop={8}
             display="flex"
             alignItems="center"
             justifyContent="center"
@@ -667,44 +696,46 @@ export default function YearInReview2023(): ReactNode {
                     },
                   }}
                 >
-                  <Box maxWidth={56} marginBottom={2} padding={3}>
-                    <Quote />
-                  </Box>
-                  <Box maxWidth={644} padding={4}>
-                    <Box marginBottom={8}>
-                      <Text size="400" weight="bold">
-                        Only Pinterest can make an online event this much fun! This Design System
-                        conference was an example of inspiration and new trends. I met a lot of
-                        people and learnt a lot at the event; it felt like I was there in person.
-                        Please continue to make it happen every year!
-                        <Text size="400" align="end">
-                          —UX/UI Designer @ Pinterest
-                        </Text>
-                      </Text>
+                  <Flex gap={4}>
+                    <Box maxWidth={56} marginBottom={2}>
+                      <Quote />
                     </Box>
+                    <Box maxWidth={644} padding={4}>
+                      <Box marginBottom={8}>
+                        <Text size="400" weight="bold">
+                          Only Pinterest can make an online event this much fun! This Design System
+                          conference was an example of inspiration and new trends. I met a lot of
+                          people and learnt a lot at the event; it felt like I was there in person.
+                          Please continue to make it happen every year!
+                          <Text size="400" align="end">
+                            —UX/UI Designer @ Pinterest
+                          </Text>
+                        </Text>
+                      </Box>
 
-                    <Box marginBottom={8}>
-                      <Text size="400" weight="bold">
-                        The space was encouraging and I felt very welcomed. It&apos;s really moving
-                        to be surrounded by so many people who genuinely care about accessibility
-                        and inclusion. I love this community!
-                        <Text size="400" align="end">
-                          —Software Engineer @ external company
+                      <Box marginBottom={8}>
+                        <Text size="400" weight="bold">
+                          The space was encouraging and I felt very welcomed. It&apos;s really
+                          moving to be surrounded by so many people who genuinely care about
+                          accessibility and inclusion. I love this community!
+                          <Text size="400" align="end">
+                            —Software Engineer @ external company
+                          </Text>
                         </Text>
-                      </Text>
-                    </Box>
-                    <Box marginBottom={8}>
-                      <Text size="400" weight="bold">
-                        Events like Design System Day are very important as the design system
-                        community evolves. It was great to connect with like-minded folks and hear
-                        their perspectives on inclusive design, accessibility, and design at scale.
-                        Sharing our struggles and victories makes us stronger!
-                        <Text size="400" align="end">
-                          —Design System Day speaker
+                      </Box>
+                      <Box marginBottom={8}>
+                        <Text size="400" weight="bold">
+                          Events like Design System Day are very important as the design system
+                          community evolves. It was great to connect with like-minded folks and hear
+                          their perspectives on inclusive design, accessibility, and design at
+                          scale. Sharing our struggles and victories makes us stronger!
+                          <Text size="400" align="end">
+                            —Design System Day speaker
+                          </Text>
                         </Text>
-                      </Text>
+                      </Box>
                     </Box>
-                  </Box>
+                  </Flex>
                 </Box>
               </Flex>
             </Box>
