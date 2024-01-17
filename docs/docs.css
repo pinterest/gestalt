@@ -765,107 +765,7 @@ Default table styling for MDX Pages
   margin-top: 1rem;
 }
 
-/* Year In Review 2023 CSS */
-
-.year-in-review-2023 {
-  background-color: var(--color-background-light);
-  overflow: hidden;
-}
-
-.year-in-review-2023 .bwj {
-  line-height: 150%;
-}
-
-.year-in-review-2023 .h1Font2023 {
-  color: var(--color-text-default);
-  font-family: PinterestSans, system-ui;
-  font-size: 48px;
-  font-style: normal;
-  font-weight: bold;
-  line-height: 110%;
-  margin: 0;
-  text-align: center;
-}
-
-.year-in-review-2023 .halfAndHalf {
-  background: linear-gradient(
-    to top,
-    var(--color-blue-skycicle-100) 0%,
-    var(--color-blue-skycicle-100) 50%,
-    var(--color-white-mochimalist-0) 50%,
-    var(--color-white-mochimalist-0) 100%
-  );
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.year-in-review-2023 h2 {
-  font-family: PinterestSans, system-ui;
-  font-size: var(--font-size-600);
-  font-style: italic;
-  font-weight: bold;
-  line-height: 110%;
-}
-
-.year-in-review-2023 .gestalt2023 {
-  color: var(--color-text-default);
-  font-family: PinterestSans, system-ui;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: bold;
-  margin: 0;
-}
-
-.year-in-review-2023 .statsGrid {
-  align-items: center;
-  display: grid;
-  grid-gap: 16px;
-  grid-template-columns: 1fr 2fr;
-  justify-content: center;
-}
-
-.year-in-review-2023 .statsNumber {
-  font-family: PinterestSans, system-ui;
-  font-size: var(--font-size-600);
-  font-weight: var(--font-weight-bold);
-  margin: 0;
-}
-
-.year-in-review-2023 .statsGrid .statsNumber {
-  justify-self: end;
-}
-
-.year-in-review-2023 .statsDescription {
-  font-family: var(--font-family-default-latin);
-  font-size: var(--font-size-100);
-  font-weight: var(--font-weight-normal);
-  line-height: 110%;
-  margin: 0;
-}
-
-.year-in-review-2023 .backButton {
-  align-items: center;
-  background-color: var(--color-background-light);
-  border: 3px solid var(--color-background-dark);
-  border-radius: 100px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  padding: 4px 12px;
-}
-
-.year-in-review-2023 .backButton:hover {
-  background-color: var(--color-background-secondary-base);
-}
-
-@font-face {
-  font-family: PinterestSans, system-ui;
-  src: local("PinterestSans"),
-    url("./public/fonts/PinterestSans/Pinterest-Sans-Pro-Regular.otf");
-}
-
-/* Year In Review 2022 CSS */
+/* Year In Review CSS */
 
 .year-in-review {
   background-color: var(--color-background-light);
@@ -965,7 +865,7 @@ Default table styling for MDX Pages
     url("./public/fonts/PinterestSans/Pinterest-Sans-Pro-Regular.otf");
 }
 
-/* Year in review 2022 animations */
+/* Year in review animations */
 
 .introAsterisk {
   animation: fly-in-right 1s ease-out 0s forwards,
@@ -1161,86 +1061,4 @@ Default table styling for MDX Pages
 .rotateIcon {
   transform: scale(-1, 1);
   transform-origin: center;
-}
-
-/* Year in review 2023 animations */
-
-@media all and (min-width: 768px) {
-  .year-in-review-2023 .h1Font2023 {
-    font-size: 96px;
-  }
-
-  .year-in-review-2023 h2 {
-    font-size: 64px;
-  }
-
-  .year-in-review-2023 .statsNumber {
-    font-size: 64px;
-  }
-
-  .year-in-review-2023 .statsDescription {
-    font-size: var(--font-size-400);
-  }
-
-  .year-in-review-2023 .backButton {
-    padding: 8px 24px;
-  }
-
-  .year-in-review-2023 .gestalt2023 {
-    font-size: 48px;
-  }
-
-  .docsLineLeft,
-  .introLineIn {
-    display: block;
-  }
-}
-
-@media all and (min-width: 1312px) {
-  .year-in-review-2023 .h1Font2023 {
-    font-size: 128px;
-  }
-
-  .year-in-review-2023 h2 {
-    font-size: 96px;
-  }
-
-  .year-in-review .gestalt2023 {
-    font-size: 64px;
-  }
-}
-
-@media (prefers-reduced-motion) {
-  .introLineIn {
-    animation: none;
-    opacity: 1;
-    transform: translate(0, 0) rotate(0);
-  }
-}
-
-.introLineIn {
-  animation: slide-in-right 1s ease-in 0s forwards;
-  opacity: 0;
-}
-
-@keyframes slide-in-right {
-  from {
-    opacity: 1;
-    transform: translate(200%, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
-}
-
-.docsGraphic {
-  display: block;
-}
-
-@media screen and (max-width: 728px) {
-  .docsGraphic {
-    display: none;
-  }
 }
