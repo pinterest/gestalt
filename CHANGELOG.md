@@ -1,3 +1,9 @@
+## 130.1.10 (Jan 17, 2024)
+
+### Patch
+
+- Docs: year-in-review-2023 ([#3352](https://github.com/pinterest/gestalt/pull/3352)) - [Preview link](https://deploy-preview-3352--gestalt.netlify.app?devexample=true)
+
 ## 130.1.9 (Jan 17, 2024)
 
 ### Patch
