@@ -31,7 +31,7 @@ export default function FormsLayoutOverview(): ReactNode {
 
         <Flex direction="column" gap={4}>
         <Flex gap={4} >
-          <Box borderStyle="sm" paddingX={2} paddingY={4} rounding={3} width={130}>
+          <Box borderStyle="sm" paddingX={2} paddingY={8} rounding={3} width={130}>
         <Flex alignItems="center" direction="column" gap={4}>
           <Text weight="bold">English</Text>
           <Text weight="bold" color="error">0{' '}<Text inline >Pin</Text>s</Text>
@@ -39,7 +39,7 @@ export default function FormsLayoutOverview(): ReactNode {
           <Text weight="bold" color="error">2{' '}<Text inline >Pin</Text>s</Text>
         </Flex>
       </Box>
-      <Box borderStyle="sm" paddingX={2} paddingY={4} rounding={3} width={130}>
+      <Box borderStyle="sm" paddingX={2} paddingY={8} rounding={3} width={130}>
         <Flex alignItems="center" direction="column" gap={4}>
           <Text weight="bold">French</Text>
           <Text weight="bold" color="error">0{' '}<Text inline >Epingle</Text></Text>
@@ -47,7 +47,7 @@ export default function FormsLayoutOverview(): ReactNode {
           <Text weight="bold" color="error">2{' '}<Text inline >Epingle</Text>s</Text>
         </Flex>
       </Box>
-      <Box borderStyle="sm" paddingX={2} paddingY={4} rounding={3} width={130}>
+      <Box borderStyle="sm" paddingX={2} paddingY={8} rounding={3} width={130}>
         <Flex alignItems="center" direction="column" gap={4}>
           <Text weight="bold">Japanese</Text>
           <Text weight="bold" color="error">0{' '}<Text inline >ピン</Text></Text>
@@ -59,7 +59,7 @@ export default function FormsLayoutOverview(): ReactNode {
 
       <Box borderStyle="sm" paddingX={2} paddingY={3} rounding={3} >
         <Flex alignItems="center" direction="column" gap={4}>
-          <Text >{"translate ('"}{' '}<Text weight="bold" color="error" inline >{"{num}"}</Text> Pin', '<Text weight="bold" color="error" inline >{"{num}"}</Text>Pins', num) </Text>
+          <Text >{"translate ('"}{' '}<Text weight="bold" color="error" inline >{"{num}"}</Text> {"Pin', ' "}<Text weight="bold" color="error" inline >{"{num}"}</Text>{"Pins', num) "}</Text>
         </Flex>
       </Box>
       </Flex>
@@ -114,7 +114,7 @@ export default function FormsLayoutOverview(): ReactNode {
                 alt="A representation of Pinterest on a cellphone showing the following message: You've created one Pin so far!"
                 naturalWidth={1107}
                 naturalHeight={888}
-                src="https://i.pinimg.com/originals/e9/1d/b9/e91db9832072c4483f9f86df769269b0.png"
+                src="https://www.pinterest-assets.com/AssetLink/s3yy1s7h2e47jplk2l5mg3ig3h2ppw42/pluralization-example-one-png.jpg"
               />
             </Box>
 
@@ -136,7 +136,7 @@ export default function FormsLayoutOverview(): ReactNode {
                 alt="A representation of Pinterest on a cellphone showing the following message: You've created thirty Pins so far!"
                 naturalWidth={1107}
                 naturalHeight={888}
-                src="https://i.pinimg.com/originals/cf/16/22/cf162203a354435ab3e74988547ae7f8.png"
+                src="https://www.pinterest-assets.com/AssetLink/730p85i75r30yvp8kbem0n4bbp302a0r/pluralization-example-other-png.jpg"
               />
             </Box>
           </Flex.Item>
@@ -571,8 +571,8 @@ export default function FormsLayoutOverview(): ReactNode {
             <Image
                 alt="Example of a table with information of old conversion tags. One of the columns shows Views: 1 days"
                 naturalWidth={2688}
-                naturalHeight={1377}
-                src="https://i.pinimg.com/originals/4b/63/75/4b637516535859edd459ac1ccec91631.png"
+                naturalHeight={1083}
+                src="https://www.pinterest-assets.com/AssetLink/m32dt1car0cl867307ae0r2m04w888jy/real-life-example-one-png.png"
             />
           </Mask>
         </Box>
@@ -589,8 +589,8 @@ export default function FormsLayoutOverview(): ReactNode {
             <Image
                 alt="Example of timestamp of a Pin wrongly pluralizared, with the output 'two minute ago'"
                 naturalWidth={2688}
-                naturalHeight={1377}
-                src="https://i.pinimg.com/originals/4b/63/75/4b637516535859edd459ac1ccec91631.png"
+                naturalHeight={1044}
+                src="https://www.pinterest-assets.com/AssetLink/7cp04j2v04ji826j1fqn43yj3lpx86rj/real-life-example-two-png.png"
             />
           </Mask>
         </Box>
