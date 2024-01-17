@@ -9,4 +9,5 @@ docs/markdown/**/*.md
 flow-typed
 node_modules
 package.json
+docs/graphics/year-in-review-2023/lottie/*.json
 
