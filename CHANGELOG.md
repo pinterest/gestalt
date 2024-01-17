@@ -1,3 +1,9 @@
+## 130.1.11 (Jan 17, 2024)
+
+### Patch
+
+- Docs: Make header always sticky for desktop ([#3357](https://github.com/pinterest/gestalt/pull/3357)) - [Preview link](https://deploy-preview-3357--gestalt.netlify.app?devexample=true)
+
 ## 130.1.10 (Jan 17, 2024)
 
 ### Patch
