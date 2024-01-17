@@ -817,19 +817,19 @@ Default table styling for MDX Pages
   margin: 0;
 }
 
-.year-in-review-2023 .statsNumber {
-  font-family: PinterestSans, system-ui;
-  font-size: var(--font-size-600);
-  font-weight: var(--font-weight-bold);
-  margin: 0;
-}
-
 .year-in-review-2023 .statsGrid {
   align-items: center;
   display: grid;
   grid-gap: 16px;
   grid-template-columns: 1fr 2fr;
   justify-content: center;
+}
+
+.year-in-review-2023 .statsNumber {
+  font-family: PinterestSans, system-ui;
+  font-size: var(--font-size-600);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
 }
 
 .year-in-review-2023 .statsGrid .statsNumber {
@@ -1226,12 +1226,12 @@ Default table styling for MDX Pages
 @keyframes slide-in-right {
   from {
     opacity: 1;
-    transform: translate(200%, 0px) rotate(0);
+    transform: translate(200%, 0);
   }
 
   to {
     opacity: 1;
-    transform: translate(0, 0) rotate(0);
+    transform: translate(0, 0);
   }
 }
 
