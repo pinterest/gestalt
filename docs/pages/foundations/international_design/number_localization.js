@@ -1,7 +1,6 @@
 // @flow strict
 import React, { type Node as ReactNode } from 'react';
-// eslint-disable-next-line no-unused-vars
-import { Box, Callout, Flex, Heading, Icon, Image, Mask, SlimBanner,Table, Text } from 'gestalt';
+import { Box, Flex, Image, Mask, SlimBanner,Table, Text } from 'gestalt';
 import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts';
 import MainSection from '../../../docs-components/MainSection';
 import Markdown from '../../../docs-components/Markdown';
@@ -135,7 +134,7 @@ export default function FormsLayoutOverview(): ReactNode {
 <MainSection.Subsection
           title="Separators: Breaking up large numbers"
           description={`When representing large numbers, it often helps with legibility to break up the numbers into digit groups. In many English locales we're used to separating thousands with a comma, and to separate the integer and fraction parts of a number with a point—like **1,234,567.89**. However, it's important to be aware that different locales separate digit groups differently. In French (and even in some English locales), for example, it's common to separate groups of thousands with space and to separate an integer and a fraction with a comma—like **1 234 567,89**. Some locales only separate the integer portion of a number, while others separate both the integer and fractional portions. </br>
-          In case you're interested in best practices on how to format numbers at Pinterest, check out our [Content Standards](https://gestalt.pinterest.systems/foundations/content_standards/voice).`}
+          In case you're interested in best practices on how to format numbers at Pinterest, check out our [Content Standards](/foundations/content_standards/voice).`}
       />
 
 <MainSection.Subsection
@@ -499,13 +498,13 @@ export default function FormsLayoutOverview(): ReactNode {
         <MainSection name="Related">
         <MainSection.Subsection
             description={`
-          **[International design](https://gestalt.pinterest.systems/foundations/international_design/about_international_design)**
+          **[International design](/foundations/international_design/about_international_design)**
           About International Design abreviations and its meaning
           `}
           />
           <MainSection.Subsection
             description={`
-          **[RTL guidelines](https://gestalt.pinterest.systems/foundations/international_design/rtl_guidelines/rtl_overview)**
+          **[RTL guidelines](/foundations/international_design/rtl_guidelines/rtl_overview)**
           A guide to designing surfaces with RTL languages in mind
           `}
           />
