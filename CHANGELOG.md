@@ -1,3 +1,9 @@
+## 130.1.9 (Jan 17, 2024)
+
+### Patch
+
+- Docs: remove preview deploy links ([#3354](https://github.com/pinterest/gestalt/pull/3354)) - [Preview link](https://deploy-preview-3354--gestalt.netlify.app?devexample=true)
+
 ## 130.1.8 (Jan 12, 2024)
 
 ### Patch
