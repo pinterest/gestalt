@@ -501,7 +501,7 @@ export default function YearInReview2023(): ReactNode {
                     >
                       overlay banners
                     </Link>
-                    —pick the one best suited for you! You want typescript support? We have it!
+                    —pick the one best suited for you! You want TypesScript support? We have it!
                   </Text>
                   <Text size="400">
                     We also addressed requests from our enterprise and internal tools customers and
@@ -751,7 +751,7 @@ export default function YearInReview2023(): ReactNode {
                     <Box marginBottom={12}>
                       <Text color="default" size="400">
                         It&apos;s a good sign when, after saying last year was the year, we have to
-                        come back and say, “actually this was the year!” Iit was a lot of hard work
+                        come back and say, “actually this was the year!” It was a lot of hard work
                         that was sometimes exhausting. But it also felt great to improve the design
                         system so that our customers can make Pinterest the home of positivity and
                         inspiration. We&apos;re ready to keep it going for another year so that, in
