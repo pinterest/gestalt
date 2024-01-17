@@ -328,13 +328,13 @@ export default function FormsLayoutOverview(): ReactNode {
       <MainSection.Subsection
           title="Time and dates"
       />
-        <Box maxHeight={564} marginBottom={6} borderStyle="sm" rounding={4}>
+        <Box marginBottom={6} borderStyle="sm" rounding={4}>
           <Mask rounding={4}>
             <Image
               alt="Two examples of DateFields, one in English and one in Russian. While date formatting in English is MM/DD/YYYY, in Russian is dd.mm.yyyy"
               naturalWidth={2688}
-              naturalHeight={1692}
-              src="https://i.pinimg.com/originals/21/97/aa/2197aac801d0540d233dc7d352731a91.png"
+              naturalHeight={729}
+              src="https://www.pinterest-assets.com/AssetLink/c44a01yn4m2dx8stf3nwgl0hxgp8p6hv/times-and-dates-png.png"
             />
           </Mask>
         </Box>
@@ -404,7 +404,7 @@ export default function FormsLayoutOverview(): ReactNode {
         </MainSection.Subsection>
 
         <MainSection
-          name="Best practices"
+          name="Design tips"
           description="Mock up a scenario where the store, presentment, payout, and billing currencies are different. This scenario is becoming more common as more merchants start selling globally."
       />
 
@@ -422,10 +422,10 @@ export default function FormsLayoutOverview(): ReactNode {
               justifyContent="center"
             >
               <Image
-                alt="A representation of Pinterest on a cellphone showing the following message: You've created one Pin so far!"
+                alt="A Datapoint showing a currency number in Japanese Yen"
                 naturalWidth={1107}
                 naturalHeight={888}
-                src="https://i.pinimg.com/originals/e9/1d/b9/e91db9832072c4483f9f86df769269b0.png"
+                src="https://www.pinterest-assets.com/AssetLink/05tt4migaba35hrbci6ocqa6654si24g/design-tips-one-png.jpg"
               />
             </Box>
             <Flex direction="column" gap={2}>
@@ -452,10 +452,10 @@ export default function FormsLayoutOverview(): ReactNode {
               justifyContent="center"
             >
               <Image
-                alt="A representation of Pinterest on a cellphone showing the following message: You've created thirty Pins so far!"
+                alt="A section of a table with data including Dollar and Japanese Yen currency values"
                 naturalWidth={1107}
                 naturalHeight={888}
-                src="https://i.pinimg.com/originals/cf/16/22/cf162203a354435ab3e74988547ae7f8.png"
+                src="https://www.pinterest-assets.com/AssetLink/34lj5h3nbhl73g02j08w0827n0641pyn/design-tips-2-png.jpg"
               />
             </Box>
             <Flex direction="column" gap={2}>
