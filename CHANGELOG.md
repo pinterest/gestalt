@@ -1,3 +1,9 @@
+## 130.1.22 (Jan 18, 2024)
+
+### Patch
+
+- Internal: upgrade cssnano to 5.1.15 ([#3369](https://github.com/pinterest/gestalt/pull/3369)) - [Preview link](https://deploy-preview-3369--gestalt.netlify.app?devexample=true)
+
 ## 130.1.21 (Jan 18, 2024)
 
 ### Patch
