@@ -1,3 +1,9 @@
+## 130.1.16 (Jan 18, 2024)
+
+### Patch
+
+- Internal: upgrade netlify-cli to 3.39.4 ([#3362](https://github.com/pinterest/gestalt/pull/3362)) - [Preview link](https://deploy-preview-3362--gestalt.netlify.app?devexample=true)
+
 ## 130.1.15 (Jan 18, 2024)
 
 ### Patch
