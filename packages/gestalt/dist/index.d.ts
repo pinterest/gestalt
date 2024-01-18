@@ -1885,25 +1885,22 @@ interface SlimBannerProps {
   primaryAction?:
     | {
         accessibilityLabel: string;
-        label: string;
         disabled?: boolean | undefined;
         href: string | undefined;
+        label: string;
         onClick?:
           | AbstractEventHandler<
-              React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-              {
-                rel?: RelType | undefined;
-                target?: TargetType | undefined;
-              }
+              React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>
             >
           | undefined;
+        rel?: RelType | undefined;
         role: 'link';
+        target?: TargetType | undefined;
       }
     | {
         accessibilityLabel: string;
-        label: string;
         disabled?: boolean | undefined;
-        href?: string | undefined;
+        label: string;
         onClick:
           | AbstractEventHandler<
               React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>
@@ -1912,6 +1909,7 @@ interface SlimBannerProps {
         role?: 'button';
       }
     | undefined;
+
   type?:
     | 'neutral'
     | 'error'
