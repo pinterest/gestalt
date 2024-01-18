@@ -1,3 +1,9 @@
+## 130.1.21 (Jan 18, 2024)
+
+### Patch
+
+- Internal: fix TS declaration for SlimBanner's primaryAction type ([#3358](https://github.com/pinterest/gestalt/pull/3358)) - [Preview link](https://deploy-preview-3358--gestalt.netlify.app?devexample=true)
+
 ## 130.1.20 (Jan 18, 2024)
 
 ### Patch
