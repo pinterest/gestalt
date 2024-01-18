@@ -1,3 +1,9 @@
+## 130.1.15 (Jan 18, 2024)
+
+### Patch
+
+- Docs: Pluralization page ([#3356](https://github.com/pinterest/gestalt/pull/3356)) - [Preview link](https://deploy-preview-3356--gestalt.netlify.app?devexample=true)
+
 ## 130.1.14 (Jan 18, 2024)
 
 ### Patch
