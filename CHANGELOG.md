@@ -1,3 +1,9 @@
+## 130.1.18 (Jan 18, 2024)
+
+### Patch
+
+- Internal: upgrade netlify-cli to 4.4.4 ([#3364](https://github.com/pinterest/gestalt/pull/3364)) - [Preview link](https://deploy-preview-3364--gestalt.netlify.app?devexample=true)
+
 ## 130.1.17 (Jan 18, 2024)
 
 ### Patch
