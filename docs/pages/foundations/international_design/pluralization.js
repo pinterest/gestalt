@@ -88,7 +88,7 @@ export default function FormsLayoutOverview(): ReactNode {
                     <Text weight="bold" color="error" inline>
                       {'{num}'}
                     </Text>
-                    {"Pins', num) "}
+                    {" Pins', num) "}
                   </Text>
                 </Flex>
               </Box>
