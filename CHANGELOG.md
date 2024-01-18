@@ -1,3 +1,9 @@
+## 130.1.17 (Jan 18, 2024)
+
+### Patch
+
+- Docs: fix spacing in Badge example ([#3363](https://github.com/pinterest/gestalt/pull/3363)) - [Preview link](https://deploy-preview-3363--gestalt.netlify.app?devexample=true)
+
 ## 130.1.16 (Jan 18, 2024)
 
 ### Patch
