@@ -1,3 +1,9 @@
+## 130.1.13 (Jan 18, 2024)
+
+### Patch
+
+- Docs: Number Localization page ([#3355](https://github.com/pinterest/gestalt/pull/3355)) - [Preview link](https://deploy-preview-3355--gestalt.netlify.app?devexample=true)
+
 ## 130.1.12 (Jan 17, 2024)
 
 ### Patch
