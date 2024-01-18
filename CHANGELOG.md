@@ -1,3 +1,9 @@
+## 130.1.14 (Jan 18, 2024)
+
+### Patch
+
+- Docs: Update contributions.md typos ([#3360](https://github.com/pinterest/gestalt/pull/3360)) - [Preview link](https://deploy-preview-3360--gestalt.netlify.app?devexample=true)
+
 ## 130.1.13 (Jan 18, 2024)
 
 ### Patch
