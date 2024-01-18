@@ -1,3 +1,9 @@
+## 130.1.20 (Jan 18, 2024)
+
+### Patch
+
+- Internal: upgrade netlify-cli to 7.1.0 ([#3368](https://github.com/pinterest/gestalt/pull/3368)) - [Preview link](https://deploy-preview-3368--gestalt.netlify.app?devexample=true)
+
 ## 130.1.19 (Jan 18, 2024)
 
 ### Patch
