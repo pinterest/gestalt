@@ -120,8 +120,8 @@ const cssModules = (options = {}) => {
       const opts = {
         preset: ['default', { calc: false }],
       };
-      cssnano
-        .process(Object.values(cssCache).join(''), { from: undefined }, opts)
+      cssnano(opts)
+        .process(Object.values(cssCache).join(''), { from: undefined })
         .then((result) => {
           const filename = `${options.output}.css`;
           writeFileSync(filename, result.css);
