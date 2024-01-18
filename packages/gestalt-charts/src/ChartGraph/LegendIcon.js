@@ -99,7 +99,7 @@ function LegendIcon({ payloadData }: Props): ReactNode {
     return (
       <svg width="14" height="14" viewBox="0 0 12 12">
         <rect x={4} style={{ fill: 'transparent' }} height={3} width={1} y={8} />
-        <GraphPoint active={false} color={colorPoint} cx={7} cy={7} />
+        <GraphPoint color={colorPoint} cx={7} cy={7} />
         <rect x={4} style={{ fill: 'transparent' }} height={3} width={1} y={8} />
       </svg>
     );
