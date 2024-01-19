@@ -67,7 +67,7 @@
     "jscodeshift": "^0.11.0",
     "lint-staged": "^10.4.0",
     "lottie-react": "^2.3.1",
-    "netlify-cli": "^8.19.3",
+    "netlify-cli": "^8.0.0",
     "nodemon": "^2.0.12",
     "postcss": "^8.4.31",
     "postcss-modules": "^4.3.0",

@@ -12819,7 +12819,7 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.1.1.tgz#26c8a3cee6cc05fbcf1e333cd2fc3e003326c0b5"
   integrity sha512-9iN1ka/9zmX1ZvLV9ewJYEk9h7RyRRtqdK0woXcqohu8EWIerfPUjYJPg0ULy0UqP7cslmdGc8xKDJcojlKiaw==
 
-netlify-cli@^8.19.3:
+netlify-cli@^8.0.0:
   version "8.19.3"
   resolved "https://registry.yarnpkg.com/netlify-cli/-/netlify-cli-8.19.3.tgz#fd58d06909c148fab75f11e5e92c7bee68182546"
   integrity sha512-hfM7KcPLt/9CSrn2AFU8fE483BtcfSJTZk9OyqqljoQdggLWgiKHuuWlYVN33mN7hP59nCtIV0e9NRGQxSrHHA==
