@@ -1,3 +1,9 @@
+## 130.1.23 (Jan 19, 2024)
+
+### Patch
+
+- Internal: upgrade cssnano to 6.0.3 ([#3372](https://github.com/pinterest/gestalt/pull/3372)) - [Preview link](https://deploy-preview-3372--gestalt.netlify.app?devexample=true)
+
 ## 130.1.22 (Jan 18, 2024)
 
 ### Patch
