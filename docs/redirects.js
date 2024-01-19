@@ -158,6 +158,36 @@ const misc = [
     permanent: true,
   },
   {
+    source: '/foundations/layouts',
+    destination: '/foundations/layout',
+    permanent: true,
+  },
+  {
+    source: '/foundations/rtl_guidelines/about_international_design',
+    destination: '/foundations/international_design/about_international_design',
+    permanent: true,
+  },
+  {
+    source: '/foundations/rtl_guidelines/rtl_overview',
+    destination: '/foundations/international_design/rtl_guidelines/rtl_overview',
+    permanent: true,
+  },
+  {
+    source: '/foundations/rtl_guidelines/layout_and_text_direction',
+    destination: '/foundations/international_design/rtl_guidelines/layout_and_text_direction',
+    permanent: true,
+  },
+  {
+    source: '/foundations/rtl_guidelines/icons',
+    destination: '/foundations/international_design/rtl_guidelines/iconography',
+    permanent: true,
+  },
+  {
+    source: '/foundations/rtl_guidelines/typography',
+    destination: '/foundations/international_design/rtl_guidelines/typography',
+    permanent: true,
+  },
+  {
     source: '/get_started/developers/development_process',
     destination: '/get_started/developers/contributing/development_process',
     permanent: true,

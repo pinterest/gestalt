@@ -118,6 +118,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Avatar',
       'AvatarGroup',
       'Badge',
+      'BannerOverlay',
       'Box',
       'Button',
       'ButtonLink',
@@ -247,27 +248,28 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'Elevation',
       {
         sectionName: 'Forms',
-        pages: ['Overview', 'Structure and behavior', 'Available components'],
+        pages: ['Overview', 'Structure and behavior', 'Example code', 'Available components'],
       },
       {
         sectionName: 'Iconography',
         pages: ['Library', 'Custom and brand icons', 'Usage', 'Creating icons'],
       },
       'Illustration',
-      'Layouts',
+      {
+        sectionName: 'International Design',
+        pages: [
+          'About international design',
+          'Icon localization',
+          {
+            sectionName: 'RTL guidelines',
+            pages: ['RTL overview', 'Layout and text direction', 'Iconography', 'Typography'],
+          },
+        ],
+      },
+      'Layout',
       {
         sectionName: 'Messaging',
         pages: ['Overview', 'Priority and placement', 'Available components'],
-      },
-      {
-        sectionName: 'RTL guidelines',
-        pages: [
-          'About international design',
-          'RTL overview',
-          'Layout and text direction',
-          'Icons',
-          'Typography',
-        ],
       },
       'Screen sizes',
       'Typography',

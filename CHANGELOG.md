@@ -1,3 +1,75 @@
+## 130.1.3 (Jan 9, 2024)
+
+### Patch
+
+- Docs: Add a docs-update label to non-package related changes ([#3344](https://github.com/pinterest/gestalt/pull/3344)) - [Preview link](https://deploy-preview-3344--gestalt.netlify.app?devexample=true)
+
+## 130.1.2 (Jan 9, 2024)
+
+### Patch
+
+- Internal: fix Flow suppressions in docs PropTable ([#3343](https://github.com/pinterest/gestalt/pull/3343)) - [Preview link](https://deploy-preview-3343--gestalt.netlify.app?devexample=true)
+
+## 130.1.1 (Jan 9, 2024)
+
+### Patch
+
+- Tooltip: Add experiment hooks for using Popover v2 ([#3333](https://github.com/pinterest/gestalt/pull/3333)) - [Preview link](https://deploy-preview-3333--gestalt.netlify.app?devexample=true)
+
+## 130.1.0 (Jan 5, 2024)
+
+### Minor
+
+- BannerOverlay: fixing trailing space in link examples ([#3342](https://github.com/pinterest/gestalt/pull/3342)) - [Preview link](https://deploy-preview-3342--gestalt.netlify.app?devexample=true)
+
+## 130.0.1 (Jan 4, 2024)
+
+### Patch
+
+- Docs: Layout guidelines ([#3341](https://github.com/pinterest/gestalt/pull/3341)) - [Preview link](https://deploy-preview-3341--gestalt.netlify.app?devexample=true)
+
+## 130.0.0 (Jan 4, 2024)
+
+### Major
+
+- BannerOverlay: New Component ([#3332](https://github.com/pinterest/gestalt/pull/3332)) - [Preview link](https://deploy-preview-3332--gestalt.netlify.app?devexample=true)
+
+## 129.2.0 (Jan 4, 2024)
+
+### Minor
+
+- List: Add Font Sizing to List ([#3340](https://github.com/pinterest/gestalt/pull/3340)) - [Preview link](https://deploy-preview-3340--gestalt.netlify.app?devexample=true)
+
+## 129.1.11 (Dec 22, 2023)
+
+### Patch
+
+- TapArea: Add cursor doc changes ([#3339](https://github.com/pinterest/gestalt/pull/3339)) - [Preview link](https://deploy-preview-3339--gestalt.netlify.app?devexample=true)
+
+## 129.1.10 (Dec 21, 2023)
+
+### Patch
+
+- Docs: Cosmetic fixes ([#3335](https://github.com/pinterest/gestalt/pull/3335)) - [Preview link](https://deploy-preview-3335--gestalt.netlify.app?devexample=true)
+
+## 129.1.9 (Dec 21, 2023)
+
+### Patch
+
+- Icon: Added scissors icon ([#3337](https://github.com/pinterest/gestalt/pull/3337)) - [Preview link](https://deploy-preview-3337--gestalt.netlify.app?devexample=true)
+
+## 129.1.8 (Dec 20, 2023)
+
+### Patch
+
+- Docs: RTL to International design ([#3336](https://github.com/pinterest/gestalt/pull/3336)) - [Preview link](https://deploy-preview-3336--gestalt.netlify.app?devexample=true)
+
+## 129.1.7 (Dec 16, 2023)
+
+### Patch
+
+- Internal: ts typo fix ([#3331](https://github.com/pinterest/gestalt/pull/3331)) - [Preview link](https://deploy-preview-3331--gestalt.netlify.app?devexample=true)
+
 ## 129.1.6 (Dec 13, 2023)
 
 ### Patch

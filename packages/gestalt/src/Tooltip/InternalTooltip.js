@@ -3,8 +3,10 @@ import { Fragment, type Node as ReactNode, useEffect, useReducer, useRef } from 
 import Box from '../Box';
 import Layer from '../Layer';
 import LegacyController from '../LegacyController';
+import Controller from '../Popover/Controller';
 import Text from '../Text';
 import useDebouncedCallback from '../useDebouncedCallback';
+import useInExperiment from '../useInExperiment';
 import { type Indexable } from '../zIndex';
 
 const noop = () => {};
@@ -123,6 +125,11 @@ export default function InternalTooltip({
     return text;
   };
 
+  const isInExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_popover_v2_tooltip',
+    mwebExperimentName: 'mweb_gestalt_popover_v2_tooltip',
+  });
+
   return (
     <Box display={inline ? 'inlineBlock' : 'block'}>
       <Box
@@ -137,34 +144,66 @@ export default function InternalTooltip({
       </Box>
       {isOpen && !!anchor && (
         <Layer zIndex={zIndex}>
-          <LegacyController
-            anchor={anchor}
-            caret={false}
-            bgColor="darkGray"
-            border={false}
-            idealDirection={idealDirection}
-            onDismiss={noop}
-            positionRelativeToAnchor={false}
-            rounding={2}
-            size={null}
-          >
-            <Box
-              maxWidth={180}
-              padding={2}
-              onBlur={link ? handleTextMouseLeave : undefined}
-              onFocus={link ? handleTextMouseEnter : undefined}
-              onMouseEnter={link ? handleTextMouseEnter : undefined}
-              onMouseLeave={link ? handleTextMouseLeave : undefined}
-              role="tooltip"
-              tabIndex={0}
+          {isInExperiment ? (
+            <Controller
+              anchor={anchor}
+              caret={false}
+              bgColor="darkGray"
+              border={false}
+              idealDirection={idealDirection}
+              onDismiss={noop}
+              disablePortal
+              rounding={2}
+              size={null}
+              shouldFocus={false}
             >
-              <Text color="inverse" size="100">
-                {getTooltipText()}
-              </Text>
+              <Box
+                maxWidth={180}
+                padding={2}
+                onBlur={link ? handleTextMouseLeave : undefined}
+                onFocus={link ? handleTextMouseEnter : undefined}
+                onMouseEnter={link ? handleTextMouseEnter : undefined}
+                onMouseLeave={link ? handleTextMouseLeave : undefined}
+                role="tooltip"
+                tabIndex={0}
+              >
+                <Text color="inverse" size="100">
+                  {getTooltipText()}
+                </Text>
 
-              {Boolean(link) && <Box marginTop={1}>{link}</Box>}
-            </Box>
-          </LegacyController>
+                {Boolean(link) && <Box marginTop={1}>{link}</Box>}
+              </Box>
+            </Controller>
+          ) : (
+            <LegacyController
+              anchor={anchor}
+              caret={false}
+              bgColor="darkGray"
+              border={false}
+              idealDirection={idealDirection}
+              onDismiss={noop}
+              positionRelativeToAnchor={false}
+              rounding={2}
+              size={null}
+            >
+              <Box
+                maxWidth={180}
+                padding={2}
+                onBlur={link ? handleTextMouseLeave : undefined}
+                onFocus={link ? handleTextMouseEnter : undefined}
+                onMouseEnter={link ? handleTextMouseEnter : undefined}
+                onMouseLeave={link ? handleTextMouseLeave : undefined}
+                role="tooltip"
+                tabIndex={0}
+              >
+                <Text color="inverse" size="100">
+                  {getTooltipText()}
+                </Text>
+
+                {Boolean(link) && <Box marginTop={1}>{link}</Box>}
+              </Box>
+            </LegacyController>
+          )}
         </Layer>
       )}
     </Box>

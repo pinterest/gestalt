@@ -10,6 +10,7 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
+import { SlimBannerExperiment } from '../../docs-components/SlimBannerExperiment';
 import avoidRepetitiveLabeling1 from '../../examples/tooltip/avoidRepetitiveLabeling1';
 import avoidRepetitiveLabeling2 from '../../examples/tooltip/avoidRepetitiveLabeling2';
 import displayLinkAtBottom from '../../examples/tooltip/displayLinkAtBottom';
@@ -42,6 +43,13 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
               href: '/web/iconbutton#With-Tooltip',
               onClick: () => {},
             }}
+          />
+        }
+        slimBannerExperiment={
+          <SlimBannerExperiment
+            componentName="Tooltip"
+            description="fix and improve component behavior. No visual updates"
+            pullRequest={3244}
           />
         }
       >

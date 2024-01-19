@@ -1,0 +1,293 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BannerOverlay /> Text + Image + Button 1`] = `
+<div
+  className="box contentCenter default fit fixed justifyBetween paddingX4 paddingY3 rounding4 shadow smPaddingY4 xsDirectionRow xsDisplayFlex"
+  style={
+    Object {
+      "bottom": "unset",
+      "left": "50%",
+      "maxWidth": 900,
+      "position": "fixed",
+      "top": 0,
+      "transform": "translateX(-50%)",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="Flex rowGap4 columnGap4 xsDirectionRow xsItemsCenter"
+  >
+    <div
+      className="FlexItem selfCenter"
+    >
+      <div
+        aria-hidden={true}
+        className="box"
+      >
+        <div
+          className="Mask rounding2 willChangeTransform"
+          style={
+            Object {
+              "height": 32,
+              "width": 32,
+            }
+          }
+        >
+          <div
+            className="box relative"
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "paddingBottom": "100%",
+              }
+            }
+          >
+            <img
+              alt=""
+              className="img"
+              fetchpriority="auto"
+              loading="auto"
+              onError={[Function]}
+              onLoad={[Function]}
+              src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="FlexItem flexGrow"
+    >
+      <div
+        className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
+      >
+        <div
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+        >
+          Text, image and button
+        </div>
+      </div>
+      <div
+        className="box marginBottom0"
+      >
+        <span
+          className="textColorOverrideLight"
+        >
+          <span
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+          >
+            Saved to
+             
+            <a
+              className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+              href="https://www.pinterest.com/search/pins/?q=home%20decor"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyPress={[Function]}
+              onMouseDown={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              rel=""
+              target={null}
+            >
+              Home decor
+            </a>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    className="Flex rowGap4 columnGap4 selfCenter xsDirectionRow"
+  >
+    <div
+      className="FlexItem"
+    >
+      <div
+        className="box flexWrap marginBottomN1 marginEndN1 marginStartN1 marginTopN1 xsDisplayFlex"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<BannerOverlay /> Text + Image 1`] = `
+<div
+  className="box contentCenter default fit fixed justifyBetween paddingX4 paddingY3 rounding4 shadow smPaddingY4 xsDirectionRow xsDisplayFlex"
+  style={
+    Object {
+      "bottom": "unset",
+      "left": "50%",
+      "maxWidth": 900,
+      "position": "fixed",
+      "top": 0,
+      "transform": "translateX(-50%)",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="Flex rowGap4 columnGap4 xsDirectionRow xsItemsCenter"
+  >
+    <div
+      className="FlexItem selfCenter"
+    >
+      <div
+        aria-hidden={true}
+        className="box"
+      >
+        <div
+          className="Mask rounding2 willChangeTransform"
+          style={
+            Object {
+              "height": 32,
+              "width": 32,
+            }
+          }
+        >
+          <div
+            className="box relative"
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "paddingBottom": "100%",
+              }
+            }
+          >
+            <img
+              alt=""
+              className="img"
+              fetchpriority="auto"
+              loading="auto"
+              onError={[Function]}
+              onLoad={[Function]}
+              src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="FlexItem flexGrow"
+    >
+      <div
+        className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
+      >
+        <div
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+        >
+          Text and Image
+        </div>
+      </div>
+      <div
+        className="box marginBottom0"
+      >
+        <span
+          className="textColorOverrideLight"
+        >
+          <span
+            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+          >
+            Saved to
+             
+            <a
+              className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+              href="https://www.pinterest.com/search/pins/?q=home%20decor"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyPress={[Function]}
+              onMouseDown={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              rel=""
+              target={null}
+            >
+              Home decor
+            </a>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    className="Flex rowGap4 columnGap4 selfCenter xsDirectionRow"
+  >
+    <div
+      className="FlexItem"
+    >
+      <div
+        className="box flexWrap marginBottomN1 marginEndN1 marginStartN1 marginTopN1 xsDisplayFlex"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<BannerOverlay /> Text Only 1`] = `
+<div
+  className="box contentCenter default fit fixed justifyBetween paddingX4 paddingY3 rounding4 shadow smPaddingY4 xsDirectionRow xsDisplayFlex"
+  style={
+    Object {
+      "bottom": "unset",
+      "left": "50%",
+      "maxWidth": 900,
+      "position": "fixed",
+      "top": 0,
+      "transform": "translateX(-50%)",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="Flex rowGap4 columnGap4 xsDirectionRow xsItemsCenter"
+  >
+    <div
+      className="FlexItem flexGrow"
+    >
+      <div
+        className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
+      >
+        <div
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+        >
+          Profile
+        </div>
+      </div>
+      <div
+        className="box marginBottom0"
+      >
+        <span
+          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 2,
+            }
+          }
+        >
+          Same great profile, slightly new look. Learn more?
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    className="Flex rowGap4 columnGap4 selfCenter xsDirectionRow"
+  >
+    <div
+      className="FlexItem"
+    >
+      <div
+        className="box flexWrap marginBottomN1 marginEndN1 marginStartN1 marginTopN1 xsDisplayFlex"
+      />
+    </div>
+  </div>
+</div>
+`;

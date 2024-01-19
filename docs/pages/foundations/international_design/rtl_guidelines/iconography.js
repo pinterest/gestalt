@@ -2,17 +2,17 @@
 import React, { type Node as ReactNode } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { Box, Callout, Flex, Heading, Icon, Image, Mask, Table, Text } from 'gestalt';
-import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts';
-import MainSection from '../../../docs-components/MainSection';
-import Markdown from '../../../docs-components/Markdown';
-import Page from '../../../docs-components/Page';
-import PageHeader from '../../../docs-components/PageHeader';
+import { DOCS_COPY_MAX_WIDTH_PX } from '../../../../docs-components/consts';
+import MainSection from '../../../../docs-components/MainSection';
+import Markdown from '../../../../docs-components/Markdown';
+import Page from '../../../../docs-components/Page';
+import PageHeader from '../../../../docs-components/PageHeader';
 
 export default function FormsLayoutOverview(): ReactNode {
   return (
-    <Page title="Icons">
+    <Page title="Iconography">
       <PageHeader
-        name="Icons"
+        name="Iconography"
         type="guidelines"
         description={`
 In addition to layout and alignment, it is also important to consider icons. When using icons for RTL web and native app development, consider factors such as icon direction and context. For example, you should use CSS transforms or SVG attributes to flip icons depending on the text direction. Additionally, it is important to make sure the icons are appropriate and relevant for the context and culture of your target audience.
@@ -588,65 +588,32 @@ representations of time. In RTL, decide whether to show circular or horizontal d
             </Mask>
           </Box>
         </MainSection>
-        <MainSection
-          name="Design considerations"
-          description="When choosing and designing icons, consider picking symbols that work well across languages and cultures without having to create new icons to adapt to each localization."
-        />
-        <MainSection.Subsection columns={2}>
-          <MainSection.Card
-            cardSize="md"
-            type="do"
-            title="Do"
-            description="Use an icon that can be universally understood. An example is showing bills to depict money without depicting a specific currency. Or a safe to depict wealth generation."
-          >
-            <Box width="100%" height="100%" overflow="hidden">
-              <Image
-                src="https://i.pinimg.com/originals/81/14/37/8114374d1792dd36686d721da69138f0.png"
-                naturalWidth={1107}
-                naturalHeight={888}
-                fit="contain"
-                alt="A simple, one-color icon of a sparkly, generic currency bill."
-              />
-            </Box>
-          </MainSection.Card>
-          <MainSection.Card
-            cardSize="md"
-            type="don't"
-            title="Don't"
-            description="Use an icon that depicts currency not used in other countries, or that may be offensive in other cultures. For example, while a piggy bank might appropriately signify wealth generation on an English site or app, it might not suit a culture where pigs have a negative connotation."
-          >
-            <Box width="100%" height="100%" overflow="hidden">
-              <Image
-                src="https://i.pinimg.com/originals/ec/59/ef/ec59efa6106579fab88f857f361d6a01.png"
-                naturalWidth={1107}
-                naturalHeight={888}
-                fit="contain"
-                alt="A one-color icon of a piggy bank with a dollar sign on it."
-              />
-            </Box>
-          </MainSection.Card>
-        </MainSection.Subsection>
-        <MainSection
-          name="Using letters and scripts in icons"
-          description={`
-In general, we avoid using text in icons so that we don’t have to adapt icons to every language. However, there are times when using a particular script is necessary in an icon. Examples are text-editing UIs that communicate a script-related concept, like font-size choice. Consider creating an adapted version of those icons that'd include an RTL script.
-
-Some icons might need to be removed because they don’t apply to a RTL language (for example, icons representing capitalization don't apply to Arabic).
-        `}
-        />
-
-        <MainSection
-          name="Additional resources"
-          description={`
-For additional information on Gestalt iconography, see the following.
-- [Icon library](../iconography/library)
-- [Custom and brand icons](../iconography/custom_and_brand_icons)
-- [Usage](../iconography/usage)
-- [Creating icons](../iconography/creating_icons)
-- [Icon component](../../web/icon)
-- [Icon requests](../../team_support/component_request#Filling-a-request-form)
-        `}
-        />
+        <MainSection name="Related">
+          <MainSection.Subsection
+            description={`
+        **[Icon localization](../icon_localization)**
+        Desing considerations for design icons with cross-cultural and linguistic differences in mind.
+      `}
+          />
+          <MainSection.Subsection
+            description={`
+          **[Iconography guidelines](https://gestalt.pinterest.systems/foundations/iconography/library)**
+          Usage guidelines and best practices for our product icon library
+          `}
+          />
+          <MainSection.Subsection
+            description={`
+          **[Icon component](https://gestalt.pinterest.systems/web/icon)**
+          A component for using icons in product interfaces
+          `}
+          />
+          <MainSection.Subsection
+            description={`
+          **[Icon requests](https://gestalt.pinterest.systems/team_support/component_request#Filling-a-request-form)**
+          How to request an icon if it doesn't exist in our library
+          `}
+          />
+        </MainSection>
       </MainSection>
     </Page>
   );

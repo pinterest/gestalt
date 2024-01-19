@@ -9,7 +9,6 @@ import Letterbox from '../../graphics/building-blocks/Letterbox.svg';
 import Mask from '../../graphics/building-blocks/Mask.svg';
 import Pog from '../../graphics/building-blocks/Pog.svg';
 import ScrollBoundaryContainer from '../../graphics/building-blocks/ScrollBoundaryContainer.svg';
-import SheetMobile from '../../graphics/building-blocks/SheetMobile.svg';
 import Sticky from '../../graphics/building-blocks/Sticky.svg';
 import TapArea from '../../graphics/building-blocks/TapArea.svg';
 import ZIndexClasses from '../../graphics/building-blocks/ZIndexClasses.svg';
@@ -18,6 +17,7 @@ import ActivationCard from '../../graphics/general/ActivationCard.svg';
 import Avatar from '../../graphics/general/Avatar.svg';
 import AvatarGroup from '../../graphics/general/AvatarGroup.svg';
 import Badge from '../../graphics/general/Badge.svg';
+import BannerOverlay from '../../graphics/general/BannerOverlay.svg';
 import Button from '../../graphics/general/Button.svg';
 import ButtonGroup from '../../graphics/general/ButtonGroup.svg';
 import ButtonLink from '../../graphics/general/ButtonLink.svg';
@@ -57,6 +57,7 @@ import RadioGroup from '../../graphics/general/RadioGroup.svg';
 import SearchField from '../../graphics/general/SearchField.svg';
 import SegmentedControl from '../../graphics/general/SegmentedControl.svg';
 import SelectList from '../../graphics/general/SelectList.svg';
+import SheetMobile from '../../graphics/general/SheetMobile.svg';
 import SideNavigation from '../../graphics/general/SideNavigation.svg';
 import SlimBanner from '../../graphics/general/SlimBanner.svg';
 import Spinner from '../../graphics/general/Spinner.svg';
@@ -309,6 +310,27 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         category: [],
         status: {
           documentation: 'notAvailable',
+          status: 'ready',
+        },
+      },
+    },
+  },
+  {
+    id: 'BannerOverlay',
+    platform: {
+      web: {
+        name: 'BannerOverlay',
+        visual: {
+          svg: <BannerOverlay />,
+        },
+        alias: ['UpsellOverlay'],
+        description:
+          'BannerOverlay displays short educational messages when users have performed actions that indicate some intent.',
+        category: ['Messaging'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          responsive: 'ready',
           status: 'ready',
         },
       },
@@ -1980,8 +2002,8 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         },
         alias: ['Panel', 'Dialog', 'Drawer', 'Tray'],
         description:
-          'SheetMobile is a mobile only component. SheetMobile is a supplementary container that sits on top of the screen’s primary content.',
-        category: ['Building blocks'],
+          'SheetMobile is a mobile-only component that is a supplementary container that sits on top of the screen’s primary content.',
+        category: ['Overlays'],
         status: {
           accessible: {
             summary: 'ready',
@@ -2037,7 +2059,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         },
         alias: ['Legend'],
         description:
-          'SideNavigation is start-aligned and arranged vertically. It is used to navigate between page urls or sections when you have too many menu items to fit in horizontal Tabs',
+          'SideNavigation is a start-aligned, vertical navigation that is used to navigate between page urls or sections.',
         category: ['Navigation'],
         status: {
           accessible: {

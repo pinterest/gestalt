@@ -17,16 +17,16 @@ import Icon from './Icon';
 import Image from './Image';
 import Link from './Link';
 import InternalDismissButton from './shared/InternalDismissButton';
-import Text from './Text';
-import styles from './Toast.css';
-import PrimaryAction from './Toast/PrimaryAction';
 import {
   ToastAvatarThumbnail,
   ToastIconThumbnail,
   ToastImageThumbnail,
   ToastMessage,
   ToastTypeThumbnail,
-} from './Toast/subcomponents';
+} from './Shared/ToastSubcomponents';
+import Text from './Text';
+import styles from './Toast.css';
+import PrimaryAction from './Toast/PrimaryAction';
 import useResponsiveMinWidth from './useResponsiveMinWidth';
 
 const DEFAULT_COLORS = {
@@ -192,7 +192,7 @@ export default function Toast({
           !!thumbnail?.icon &&
           Children.only<Element<typeof Icon>>(thumbnail.icon).type.displayName === 'Icon' ? (
             <Flex.Item flex="none">
-              <ToastIconThumbnail thumbnail={thumbnail.icon} />
+              <ToastIconThumbnail thumbnail={thumbnail.icon} overrideColor="inverse" />
             </Flex.Item>
           ) : null}
 

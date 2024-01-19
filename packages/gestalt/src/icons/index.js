@@ -167,6 +167,7 @@ import rotate from './rotate.svg';
 import saveOutline from './save-outline.svg';
 import saved from './saved.svg';
 import scale from './scale.svg';
+import scissors from './scissors.svg';
 import search from './search.svg';
 import security from './security.svg';
 import send from './send.svg';
@@ -398,6 +399,7 @@ const icons = Object.freeze({
   'save-outline': saveOutline,
   saved,
   scale,
+  scissors,
   search,
   security,
   'shopping-bag': shoppingBag,

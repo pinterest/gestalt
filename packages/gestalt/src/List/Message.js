@@ -1,14 +1,17 @@
 // @flow strict
-import { Children, type Element, type Node as ReactNode } from 'react';
+import { Children, cloneElement, type Element, type Node as ReactNode } from 'react';
 import { useColorScheme } from '../contexts/ColorSchemeProvider';
 import styles from '../List.css';
 import Text from '../Text';
 
+type Size = '100' | '200' | '300' | '400' | '500' | '600';
+
 type Props = {
+  size: ?Size,
   text: string | Element<typeof Text>,
 };
 
-export default function ListText({ text }: Props): ReactNode {
+export default function ListText({ size, text }: Props): ReactNode {
   const { name: colorSchemeName } = useColorScheme();
 
   // Flow shuold catch if text is missing. In case Flow is not enabled and text is missing, the errors are not that helpful. This surfaces the problem more explicitly.
@@ -17,7 +20,7 @@ export default function ListText({ text }: Props): ReactNode {
   }
 
   if (typeof text === 'string') {
-    return <Text>{text}</Text>;
+    return <Text size={size || undefined}>{text}</Text>;
   }
 
   // If `text` is a Text component, we need to override any text colors within to ensure they all match
@@ -31,7 +34,11 @@ export default function ListText({ text }: Props): ReactNode {
       ? styles.textColorOverrideLight
       : styles.textColorOverrideDark;
 
-    return <span className={textColorOverrideStyles}>{text}</span>;
+    return (
+      <span className={textColorOverrideStyles}>
+        {cloneElement(text, { size: size || undefined })}
+      </span>
+    );
   }
 
   throw new Error(

@@ -1,6 +1,7 @@
 {
   "css.lint.validProperties": ["composes"],
   "editor.codeActionsOnSave": {
+    "source.organizeImports": false,
     "source.fixAll.eslint": true,
     "source.fixAll.shellcheck": true
   },
