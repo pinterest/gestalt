@@ -168,8 +168,6 @@ type CustomDateFieldProps = {
 
 function CustomDateField({
   inputRef: externalInputRef,
-  slots,
-  slotProps,
   ...textFieldProps
 }: CustomDateFieldProps): ReactNode {
   return (
