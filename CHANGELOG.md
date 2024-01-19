@@ -1,3 +1,9 @@
+## 130.1.25 (Jan 19, 2024)
+
+### Patch
+
+- ESLint plugin: fix adding responsive props missing ([#3365](https://github.com/pinterest/gestalt/pull/3365)) - [Preview link](https://deploy-preview-3365--gestalt.netlify.app?devexample=true)
+
 ## 130.1.24 (Jan 19, 2024)
 
 ### Patch
