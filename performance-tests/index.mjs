@@ -1,5 +1,5 @@
 // @flow strict
-import puppeteer from 'puppeteer';
+import playwright from 'playwright';
 import waitForRenderedItems from './waitForRenderedItems.mjs';
 
 const URL = 'http://localhost:8888/integration-test/masonry';
@@ -41,7 +41,7 @@ const PAGE_HEIGHT = 1000;
       : undefined;
 
   // Launch browser and page
-  const browser = await puppeteer.launch(launchOptions);
+  const browser = await playwright.chromium.launch(launchOptions);
   const page = await browser.newPage();
 
   if (verbosityArg === 'verbose') {
@@ -51,7 +51,7 @@ const PAGE_HEIGHT = 1000;
   }
 
   // Set viewport and open the test page
-  await page.setViewport({ width: 1600, height: PAGE_HEIGHT });
+  await page.setViewportSize({ width: 1600, height: PAGE_HEIGHT });
   await page.goto(URL);
 
   const performanceTimings = [performance.now()];

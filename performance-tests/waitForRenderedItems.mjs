@@ -131,12 +131,12 @@ Success!
         return true;
       },
       {
-        timeout,
-      },
-      {
         selector: selectors.gridItem,
         args,
         debugMode: debug,
+      },
+      {
+        timeout,
       }
     )
     .catch(async (err) => {
