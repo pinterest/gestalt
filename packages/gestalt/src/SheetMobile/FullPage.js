@@ -11,6 +11,7 @@ import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import { useGlobalEventsHandlerContext } from '../contexts/GlobalEventsHandlerProvider';
 import focusStyles from '../Focus.css';
 import { ESCAPE } from '../keyCodes';
+import Layer from '../Layer';
 import Link from '../Link';
 import sheetMobileStyles from '../SheetMobile.css';
 
@@ -116,40 +117,42 @@ export default function FullPage({
   return (
     <StopScrollBehavior>
       <TrapFocusBehavior>
-        <div
-          className={classnames(sheetMobileStyles.container, sheetMobileStyles.fullPageContainer)}
-        >
-          <Backdrop closeOnOutsideClick={false}>
-            <div
-              id={id}
-              aria-label={accessibilityLabel ?? defaultAccessibilityLabel}
-              className={classnames(sheetMobileStyles.fullPageWrapper, focusStyles.hideOutline)}
-              tabIndex={-1}
-              style={{ width: '100%' }}
-              role={role}
-            >
-              <ContentContainer
-                header={
-                  <Header
-                    align={align}
-                    backIconButton={backIconButton}
-                    forwardIconButton={forwardIconButton}
-                    id={id}
-                    primaryAction={primaryAction}
-                    heading={heading}
-                    showDismissButton={showDismissButton}
-                    subHeading={subHeading}
-                    onDismiss={onDismiss}
-                  />
-                }
-                footer={footer}
-                padding={padding}
+        <Layer>
+          <div
+            className={classnames(sheetMobileStyles.container, sheetMobileStyles.fullPageContainer)}
+          >
+            <Backdrop closeOnOutsideClick={false}>
+              <div
+                id={id}
+                aria-label={accessibilityLabel ?? defaultAccessibilityLabel}
+                className={classnames(sheetMobileStyles.fullPageWrapper, focusStyles.hideOutline)}
+                tabIndex={-1}
+                style={{ width: '100%' }}
+                role={role}
               >
-                {children}
-              </ContentContainer>
-            </div>
-          </Backdrop>
-        </div>
+                <ContentContainer
+                  header={
+                    <Header
+                      align={align}
+                      backIconButton={backIconButton}
+                      forwardIconButton={forwardIconButton}
+                      id={id}
+                      primaryAction={primaryAction}
+                      heading={heading}
+                      showDismissButton={showDismissButton}
+                      subHeading={subHeading}
+                      onDismiss={onDismiss}
+                    />
+                  }
+                  footer={footer}
+                  padding={padding}
+                >
+                  {children}
+                </ContentContainer>
+              </div>
+            </Backdrop>
+          </div>
+        </Layer>
       </TrapFocusBehavior>
     </StopScrollBehavior>
   );

@@ -266,6 +266,7 @@ ${themeToStyles(theme)} }`,
           [layoutStyles.fullHeight]: fullDimensions,
           [layoutStyles.fullWidth]: fullDimensions,
         })}
+        style={{ isolation: 'isolate' }}
       >
         {children}
       </div>

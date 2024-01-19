@@ -143,7 +143,7 @@ export default function InternalTooltip({
         {children}
       </Box>
       {isOpen && !!anchor && (
-        <Layer zIndex={zIndex}>
+        <Layer>
           {isInExperiment ? (
             <Controller
               anchor={anchor}

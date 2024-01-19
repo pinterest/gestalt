@@ -21,6 +21,7 @@ import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import { useGlobalEventsHandlerContext } from '../contexts/GlobalEventsHandlerProvider';
 import focusStyles from '../Focus.css';
 import { ESCAPE } from '../keyCodes';
+import Layer from '../Layer';
 import Link from '../Link';
 import sheetMobileStyles from '../SheetMobile.css';
 import { type Indexable } from '../zIndex';
@@ -174,51 +175,54 @@ export default function PartialPage({
   return (
     <StopScrollBehavior>
       <TrapFocusBehavior>
-        <div
-          className={classnames(
-            sheetMobileStyles.container,
-            sheetMobileStyles.partialPageContainer,
-          )}
-          style={zIndex ? { zIndex: zIndex.index() } : undefined}
-        >
-          <Backdrop closeOnOutsideClick={closeOnOutsideClick} onClick={handleBackdropClick}>
-            <div
-              id={id}
-              aria-label={accessibilityLabel ?? defaultAccessibilityLabel}
-              className={classnames(sheetMobileStyles.wrapper, focusStyles.hideOutline, {
-                [sheetMobileStyles.defaultWrapper]: size === 'default',
-                [sheetMobileStyles.autoWrapper]: size === 'auto',
-                [animation.slideUpInitialize]: animationState === ANIMATION_STATE.hidden,
-                [animation.animationInBottom]: animationState === ANIMATION_STATE.animatedOpening,
-                [animation.animationOutBottom]: animationState === ANIMATION_STATE.animatedClosing,
-              })}
-              onAnimationEnd={handleOnAnimationEnd}
-              tabIndex={-1}
-              style={{ width: '100%' }}
-              role={role}
-            >
-              <ContentContainer
-                header={
-                  <Header
-                    align={align}
-                    backIconButton={backIconButton}
-                    forwardIconButton={forwardIconButton}
-                    id={id}
-                    primaryAction={primaryAction}
-                    heading={heading}
-                    showDismissButton={showDismissButton}
-                    subHeading={subHeading}
-                    showGrabber
-                  />
-                }
-                footer={footer}
-                padding={padding}
+        <Layer>
+          <div
+            className={classnames(
+              sheetMobileStyles.container,
+              sheetMobileStyles.partialPageContainer,
+            )}
+            style={zIndex ? { zIndex: zIndex.index() } : undefined}
+          >
+            <Backdrop closeOnOutsideClick={closeOnOutsideClick} onClick={handleBackdropClick}>
+              <div
+                id={id}
+                aria-label={accessibilityLabel ?? defaultAccessibilityLabel}
+                className={classnames(sheetMobileStyles.wrapper, focusStyles.hideOutline, {
+                  [sheetMobileStyles.defaultWrapper]: size === 'default',
+                  [sheetMobileStyles.autoWrapper]: size === 'auto',
+                  [animation.slideUpInitialize]: animationState === ANIMATION_STATE.hidden,
+                  [animation.animationInBottom]: animationState === ANIMATION_STATE.animatedOpening,
+                  [animation.animationOutBottom]:
+                    animationState === ANIMATION_STATE.animatedClosing,
+                })}
+                onAnimationEnd={handleOnAnimationEnd}
+                tabIndex={-1}
+                style={{ width: '100%' }}
+                role={role}
               >
-                {children}
-              </ContentContainer>
-            </div>
-          </Backdrop>
-        </div>
+                <ContentContainer
+                  header={
+                    <Header
+                      align={align}
+                      backIconButton={backIconButton}
+                      forwardIconButton={forwardIconButton}
+                      id={id}
+                      primaryAction={primaryAction}
+                      heading={heading}
+                      showDismissButton={showDismissButton}
+                      subHeading={subHeading}
+                      showGrabber
+                    />
+                  }
+                  footer={footer}
+                  padding={padding}
+                >
+                  {children}
+                </ContentContainer>
+              </div>
+            </Backdrop>
+          </div>
+        </Layer>
       </TrapFocusBehavior>
     </StopScrollBehavior>
   );

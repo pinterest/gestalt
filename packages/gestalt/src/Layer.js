@@ -1,20 +1,12 @@
 // @flow strict
-import { type Node as ReactNode, type Portal, useEffect, useRef, useState } from 'react';
+import { Fragment, type Node, type Portal, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider';
-import styles from './Layer.css';
-import { getContainerNode } from './utils/positioningUtils';
-import { type Indexable } from './zIndex';
 
 type Props = {
   /**
    *
    */
-  children: ReactNode,
-  /**
-   * An object representing the z-index value of the Layer. See the [z-index example](https://gestalt.pinterest.systems/web/layer#zIndex) for more details.
-   */
-  zIndex?: Indexable,
+  children: Node,
 };
 
 /**
@@ -22,68 +14,26 @@ type Props = {
  *
  * ![Layer](https://raw.githubusercontent.com/pinterest/gestalt/master/docs/graphics/building-blocks/Layer.svg)
  */
-export default function Layer({ children, zIndex: zIndexIndexable }: Props): Portal | ReactNode {
+export default function Layer({ children }: Props): Portal | Node {
   const [mounted, setMounted] = useState(false);
-  const portalContainer = useRef<?HTMLDivElement>(null);
-  const zIndex = zIndexIndexable?.index();
-
-  // If ScrollBoundaryContainer is parent of Layer, useScrollBoundaryContainer provides access to
-  // the  ScrollBoundaryContainer node ref.
-  const { scrollBoundaryContainerRef } = useScrollBoundaryContainer();
-
-  // initialPositionRef is a temporary-placed DOM Node from which to traverse up to find
-  // any ScrollBoundaryContainer parent. After mounting, it's replaced with a portal.
-  const initialPositionRef = useRef<?HTMLDivElement>(null);
+  const element = useRef<?HTMLDivElement>(null);
 
   useEffect(() => {
-    // After the initial mount, useEffect gets called
     setMounted(true);
 
-    // containerNode stores the ScrollBoundaryContainer node to use
-    // as container in the portal -createPortal(child, container)-.
-    const containerNode = getContainerNode({
-      scrollBoundaryContainerRef,
-      initialPositionRef: initialPositionRef?.current,
-    });
-
-    // $FlowFixMe[method-unbinding]
-    if (typeof document !== 'undefined' && document.createElement) {
-      portalContainer.current = document.createElement('div');
-    }
-
-    if (portalContainer.current) {
-      portalContainer.current.style.zIndex = zIndex === undefined ? '' : zIndex.toString();
-      // $FlowFixMe[incompatible-use]
-      portalContainer.current.className = zIndex === undefined ? '' : styles.layer;
-
-      if (containerNode) {
-        // If containerNode is found, append the portal to it
-        // $FlowFixMe[incompatible-call]
-        containerNode.appendChild(portalContainer.current);
-      } else if (typeof document !== 'undefined' && document.body) {
-        // If not, append the portal to document.body
-        // $FlowFixMe[incompatible-call]
-        document.body.appendChild(portalContainer.current);
-      }
-    }
+    element.current = document.createElement('div');
+    document?.body?.appendChild(element.current);
 
     return () => {
-      if (portalContainer.current) {
-        if (containerNode) {
-          containerNode.removeChild(portalContainer.current);
-        } else if (typeof document !== 'undefined' && document.body) {
-          document.body.removeChild(portalContainer.current);
-        }
+      if (element.current) {
+        document?.body?.removeChild(element.current);
       }
     };
-  }, [zIndex, scrollBoundaryContainerRef]);
+  }, []);
 
-  if (!mounted || !portalContainer.current) {
-    // The initial render will be this temporary div
-    // to capture the initial position of the DOM node in the DOM tree
-    return <div ref={initialPositionRef} />;
+  if (!mounted || !element.current) {
+    return null;
   }
 
-  // After useEffect, we render the children into the portal container node outside the DOM hierarchy
-  return createPortal(children, portalContainer.current);
+  return <Fragment>{createPortal(children, element.current)}</Fragment>;
 }
