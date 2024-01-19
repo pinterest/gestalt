@@ -1,3 +1,9 @@
+## 130.1.26 (Jan 19, 2024)
+
+### Patch
+
+- Internal: update pull_request_template to include semver info ([#3374](https://github.com/pinterest/gestalt/pull/3374)) - [Preview link](https://deploy-preview-3374--gestalt.netlify.app?devexample=true)
+
 ## 130.1.25 (Jan 19, 2024)
 
 ### Patch
