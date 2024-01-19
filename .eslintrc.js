@@ -80,6 +80,7 @@ module.exports = {
     'no-await-in-loop': OFF,
     'no-constant-condition': ERROR,
     'no-return-await': OFF,
+    'no-unused-vars': [ERROR, { 'args': 'after-used', 'argsIgnorePattern': '^_' }],
     'prefer-arrow-callback': OFF,
     'react-hooks/exhaustive-deps': ERROR,
     'react-hooks/rules-of-hooks': ERROR,

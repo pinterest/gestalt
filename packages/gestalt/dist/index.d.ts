@@ -253,6 +253,7 @@ type Icons =
   | 'save-outline'
   | 'saved'
   | 'scale'
+  | 'scissors'
   | 'search'
   | 'security'
   | 'shopping-bag'
@@ -405,7 +406,7 @@ interface DefaultLabelProviderProps {
         };
         BannerOverlay: {
           accessibilityDismissButtonLabel: string;
-        }
+        };
         Callout: {
           accessibilityDismissButtonLabel: string;
           iconAccessibilityLabelError: string;
@@ -597,43 +598,43 @@ interface AvatarGroupProps {
 interface BannerOverlayProps {
   onDismiss: () => void;
   message: string | React.ReactElement<typeof Text>;
-  offset?: { bottom: number, top: number },
+  offset?: { bottom: number; top: number };
   helperLink?:
-  | {
-      text: string;
-      accessibilityLabel: string;
-      href: string;
-      onClick?: AbstractEventHandler<
-        React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>,
-        { dangerouslyDisableOnNavigation: () => void }
-      >;
-    }
-  | undefined;
+    | {
+        text: string;
+        accessibilityLabel: string;
+        href: string;
+        onClick?: AbstractEventHandler<
+          React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>,
+          { dangerouslyDisableOnNavigation: () => void }
+        >;
+      }
+    | undefined;
   primaryAction?:
-  | {
-      accessibilityLabel: string;
-      label: string;
-      href: string | undefined;
-      onClick?: ButtonEventHandlerType | undefined;
-      rel?: RelType | undefined;
-      role: 'link';
-      size?: 'sm' | 'md' | 'lg' | undefined;
-      target?: TargetType | undefined;
-    }
-  | {
-      accessibilityLabel: string;
-      label: string;
-      onClick: ButtonEventHandlerType | undefined;
-      role?: 'button';
-      size?: 'sm' | 'md' | 'lg' | undefined;
-    };
+    | {
+        accessibilityLabel: string;
+        label: string;
+        href: string | undefined;
+        onClick?: ButtonEventHandlerType | undefined;
+        rel?: RelType | undefined;
+        role: 'link';
+        size?: 'sm' | 'md' | 'lg' | undefined;
+        target?: TargetType | undefined;
+      }
+    | {
+        accessibilityLabel: string;
+        label: string;
+        onClick: ButtonEventHandlerType | undefined;
+        role?: 'button';
+        size?: 'sm' | 'md' | 'lg' | undefined;
+      };
   thumbnail?:
-  | { image: React.ReactElement<typeof Image> }
-  | { avatar: React.ReactElement<typeof Avatar> }
-  | { icon: React.ReactElement<typeof Icon> }
-  | undefined;
-  title?: string,
-  zIndex?: Indexable,
+    | { image: React.ReactElement<typeof Image> }
+    | { avatar: React.ReactElement<typeof Avatar> }
+    | { icon: React.ReactElement<typeof Icon> }
+    | undefined;
+  title?: string;
+  zIndex?: Indexable;
 }
 
 interface BadgeProps {
@@ -1884,25 +1885,22 @@ interface SlimBannerProps {
   primaryAction?:
     | {
         accessibilityLabel: string;
-        label: string;
         disabled?: boolean | undefined;
         href: string | undefined;
+        label: string;
         onClick?:
           | AbstractEventHandler<
-              React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-              {
-                rel?: RelType | undefined;
-                target?: TargetType | undefined;
-              }
+              React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>
             >
           | undefined;
+        rel?: RelType | undefined;
         role: 'link';
+        target?: TargetType | undefined;
       }
     | {
         accessibilityLabel: string;
-        label: string;
         disabled?: boolean | undefined;
-        href?: string | undefined;
+        label: string;
         onClick:
           | AbstractEventHandler<
               React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>
@@ -1911,6 +1909,7 @@ interface SlimBannerProps {
         role?: 'button';
       }
     | undefined;
+
   type?:
     | 'neutral'
     | 'error'
@@ -2065,7 +2064,7 @@ interface TagProps {
   text: string;
   accessibilityRemoveIconLabel?: string | undefined;
   disabled?: boolean | undefined;
-  size?:'sm'|'md'|'lg';
+  size?: 'sm' | 'md' | 'lg';
   type?: 'default' | 'error' | 'warning' | undefined;
 }
 

@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node as ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { type Node as ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import {
   Badge,
@@ -15,6 +15,7 @@ import {
 } from 'gestalt';
 import { useAppContext } from './appContext';
 import trackButtonClick from './buttons/trackButtonClick';
+import { useDocsConfig } from './contexts/DocsConfigProvider';
 import DocSearch from './DocSearch';
 import { convertNamesForURL, isComponentsActiveSection } from './DocsSideNavigation';
 import GestaltLogo from './GestaltLogo';
@@ -244,27 +245,10 @@ function Header() {
   );
 }
 
-const isReducedHeight = () => typeof window !== 'undefined' && window.innerHeight < 709;
-
 export default function StickyHeader(): ReactNode {
-  const [reducedHeight, setReducedHeight] = useState(false);
+  const { isMobile } = useDocsConfig();
 
-  const handleResizeHeight = useCallback(() => {
-    if (isReducedHeight() !== reducedHeight) {
-      setReducedHeight(isReducedHeight());
-    }
-  }, [reducedHeight]);
-
-  useEffect(() => {
-    // Within a useEffect to ensure this only runs on the client, avoiding hydration mismatches
-    handleResizeHeight();
-    window.addEventListener('resize', handleResizeHeight);
-    return () => {
-      window.removeEventListener('resize', handleResizeHeight);
-    };
-  }, [handleResizeHeight]);
-
-  return reducedHeight ? (
+  return isMobile ? (
     <Header />
   ) : (
     <Sticky zIndex={PAGE_HEADER_ZINDEX} top={0}>

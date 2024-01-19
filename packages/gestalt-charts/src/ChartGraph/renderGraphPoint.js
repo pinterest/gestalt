@@ -3,17 +3,14 @@ import { type Node as ReactNode } from 'react';
 import { type DataVisualizationColors } from './types';
 import { useHexColor } from './usePatterns';
 
-type Props = {
+type Props = {|
   noReposition?: boolean,
-  active: boolean,
   color: DataVisualizationColors,
   cx: number,
   cy: number,
-};
+|};
 
-export function GraphPoint(props: Props): ReactNode {
-  // eslint-disable-next-line no-unused-vars
-  const { color, cx, cy, active, noReposition = false } = props;
+export function GraphPoint({ color, cx, cy, noReposition = false }: Props): ReactNode {
   const hexColor = useHexColor();
 
   const decalDotCoordCorrection = {
@@ -63,13 +60,7 @@ const renderGraphPoint: ({
     cy: number,
     ...
   }) => ReactNode = ({ cx, cy }) => (
-    <GraphPoint
-      key={props.color + cy + cx}
-      color={props.color}
-      cy={cy}
-      cx={cx}
-      active={props.active}
-    />
+    <GraphPoint key={props.color + cy + cx} color={props.color} cy={cy} cx={cx} />
   );
 
   return renderPoint;

@@ -353,7 +353,7 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#She
             type="do"
             description={`
 - Keep headings short and clear
-- Use Sentence case for headings per our [Pinterest writing standards](https://deploy-preview-2794--gestalt.netlify.app/foundations/content_standards/formatting)
+- Use Sentence case for headings per our [Pinterest writing standards](/foundations/content_standards/formatting)
 `}
           />
           <MainSection.Card

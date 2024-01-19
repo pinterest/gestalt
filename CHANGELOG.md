@@ -1,3 +1,147 @@
+## 130.1.25 (Jan 19, 2024)
+
+### Patch
+
+- ESLint plugin: fix adding responsive props missing ([#3365](https://github.com/pinterest/gestalt/pull/3365)) - [Preview link](https://deploy-preview-3365--gestalt.netlify.app?devexample=true)
+
+## 130.1.24 (Jan 19, 2024)
+
+### Patch
+
+- Internal: fixes for no-unused-vars suppressions ([#3371](https://github.com/pinterest/gestalt/pull/3371)) - [Preview link](https://deploy-preview-3371--gestalt.netlify.app?devexample=true)
+
+## 130.1.23 (Jan 19, 2024)
+
+### Patch
+
+- Internal: upgrade cssnano to 6.0.3 ([#3372](https://github.com/pinterest/gestalt/pull/3372)) - [Preview link](https://deploy-preview-3372--gestalt.netlify.app?devexample=true)
+
+## 130.1.22 (Jan 18, 2024)
+
+### Patch
+
+- Internal: upgrade cssnano to 5.1.15 ([#3369](https://github.com/pinterest/gestalt/pull/3369)) - [Preview link](https://deploy-preview-3369--gestalt.netlify.app?devexample=true)
+
+## 130.1.21 (Jan 18, 2024)
+
+### Patch
+
+- Internal: fix TS declaration for SlimBanner's primaryAction type ([#3358](https://github.com/pinterest/gestalt/pull/3358)) - [Preview link](https://deploy-preview-3358--gestalt.netlify.app?devexample=true)
+
+## 130.1.20 (Jan 18, 2024)
+
+### Patch
+
+- Internal: upgrade netlify-cli to 7.1.0 ([#3368](https://github.com/pinterest/gestalt/pull/3368)) - [Preview link](https://deploy-preview-3368--gestalt.netlify.app?devexample=true)
+
+## 130.1.19 (Jan 18, 2024)
+
+### Patch
+
+- Internal: upgrade netlify-cli to 6.15.0 ([#3366](https://github.com/pinterest/gestalt/pull/3366)) - [Preview link](https://deploy-preview-3366--gestalt.netlify.app?devexample=true)
+
+## 130.1.18 (Jan 18, 2024)
+
+### Patch
+
+- Internal: upgrade netlify-cli to 4.4.4 ([#3364](https://github.com/pinterest/gestalt/pull/3364)) - [Preview link](https://deploy-preview-3364--gestalt.netlify.app?devexample=true)
+
+## 130.1.17 (Jan 18, 2024)
+
+### Patch
+
+- Docs: fix spacing in Badge example ([#3363](https://github.com/pinterest/gestalt/pull/3363)) - [Preview link](https://deploy-preview-3363--gestalt.netlify.app?devexample=true)
+
+## 130.1.16 (Jan 18, 2024)
+
+### Patch
+
+- Internal: upgrade netlify-cli to 3.39.4 ([#3362](https://github.com/pinterest/gestalt/pull/3362)) - [Preview link](https://deploy-preview-3362--gestalt.netlify.app?devexample=true)
+
+## 130.1.15 (Jan 18, 2024)
+
+### Patch
+
+- Docs: Pluralization page ([#3356](https://github.com/pinterest/gestalt/pull/3356)) - [Preview link](https://deploy-preview-3356--gestalt.netlify.app?devexample=true)
+
+## 130.1.14 (Jan 18, 2024)
+
+### Patch
+
+- Docs: Update contributions.md typos ([#3360](https://github.com/pinterest/gestalt/pull/3360)) - [Preview link](https://deploy-preview-3360--gestalt.netlify.app?devexample=true)
+
+## 130.1.13 (Jan 18, 2024)
+
+### Patch
+
+- Docs: Number Localization page ([#3355](https://github.com/pinterest/gestalt/pull/3355)) - [Preview link](https://deploy-preview-3355--gestalt.netlify.app?devexample=true)
+
+## 130.1.12 (Jan 17, 2024)
+
+### Patch
+
+- Docs: Update year_in_review_2023.js ([#3359](https://github.com/pinterest/gestalt/pull/3359)) - [Preview link](https://deploy-preview-3359--gestalt.netlify.app?devexample=true)
+
+## 130.1.11 (Jan 17, 2024)
+
+### Patch
+
+- Docs: Make header always sticky for desktop ([#3357](https://github.com/pinterest/gestalt/pull/3357)) - [Preview link](https://deploy-preview-3357--gestalt.netlify.app?devexample=true)
+
+## 130.1.10 (Jan 17, 2024)
+
+### Patch
+
+- Docs: year-in-review-2023 ([#3352](https://github.com/pinterest/gestalt/pull/3352)) - [Preview link](https://deploy-preview-3352--gestalt.netlify.app?devexample=true)
+
+## 130.1.9 (Jan 17, 2024)
+
+### Patch
+
+- Docs: remove preview deploy links ([#3354](https://github.com/pinterest/gestalt/pull/3354)) - [Preview link](https://deploy-preview-3354--gestalt.netlify.app?devexample=true)
+
+## 130.1.8 (Jan 12, 2024)
+
+### Patch
+
+- BannerOverlay: Fixing responsiveness and margin for small desktop viewports ([#3349](https://github.com/pinterest/gestalt/pull/3349)) - [Preview link](https://deploy-preview-3349--gestalt.netlify.app?devexample=true)
+
+## 130.1.7 (Jan 11, 2024)
+
+### Patch
+
+- Internal: Bump follow-redirects from 1.14.8 to 1.15.4 ([#3345](https://github.com/pinterest/gestalt/pull/3345)) - [Preview link](https://deploy-preview-3345--gestalt.netlify.app?devexample=true)
+
+## 130.1.6 (Jan 10, 2024)
+
+### Patch
+
+- Docs: Remove extra space link ([#3350](https://github.com/pinterest/gestalt/pull/3350)) - [Preview link](https://deploy-preview-3350--gestalt.netlify.app?devexample=true)
+
+## 130.1.5 (Jan 10, 2024)
+
+### Patch
+
+- Docs: Revert Labeler changes ([#3348](https://github.com/pinterest/gestalt/pull/3348)) - [Preview link](https://deploy-preview-3348--gestalt.netlify.app?devexample=true)
+
+## 130.1.4 (Jan 10, 2024)
+
+### Patch
+
+- Internal: fixes to .ts files ([#3347](https://github.com/pinterest/gestalt/pull/3347)) - [Preview link](https://deploy-preview-3347--gestalt.netlify.app?devexample=true)
+
+## 130.1.3 (Jan 9, 2024)
+
+### Patch
+
+- Docs: Add a docs-update label to non-package related changes ([#3344](https://github.com/pinterest/gestalt/pull/3344)) - [Preview link](https://deploy-preview-3344--gestalt.netlify.app?devexample=true)
+
+## 130.1.2 (Jan 9, 2024)
+
+### Patch
+
+- Internal: fix Flow suppressions in docs PropTable ([#3343](https://github.com/pinterest/gestalt/pull/3343)) - [Preview link](https://deploy-preview-3343--gestalt.netlify.app?devexample=true)
+
 ## 130.1.1 (Jan 9, 2024)
 
 ### Patch

@@ -55,10 +55,9 @@ const rule: ESLintRule = {
           return;
         }
 
-        const isMarginLeftRightAttribute = Object.entries(
-          node.attributes,
-          // eslint-disable-next-line no-unused-vars
-        ).find(([key, value]) => disallowedProps.includes(value && value.name && value.name.name));
+        const isMarginLeftRightAttribute = Object.entries(node.attributes).find(([_key, value]) =>
+          disallowedProps.includes(value && value.name && value.name.name),
+        );
 
         // No marginLeft or marginRight attributes on Box
         if (isMarginLeftRightAttribute) {

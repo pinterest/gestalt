@@ -1,5 +1,6 @@
 // @flow strict
 import '../docs.css';
+import '../css/year-in-review-2023.css';
 // import css in the order rollut build them in the dist/
 import 'gestalt/dist/gestalt.css';
 import 'gestalt-datepicker/dist/gestalt-datepicker.css';

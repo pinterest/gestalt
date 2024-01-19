@@ -24,11 +24,10 @@ export default function Example(): ReactNode {
             <Table.Cell>
               <Flex direction="column" gap={2}>
                 <Text size="300">
-                  Ads & Campaigns
-                  <Badge text="New" type="info" />
+                  Ads & Campaigns <Badge text="New" type="info" />
                 </Text>
                 <Text size="300">
-                  Ads & Campaigns
+                  Ads & Campaigns{' '}
                   <Badge
                     text="New"
                     type="info"
