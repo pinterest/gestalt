@@ -644,7 +644,6 @@ export default function FormsLayoutOverview(): ReactNode {
             width="100%"
             height="400"
             src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fg8UzEN5Mg4kMoljbuje33y%2FInternational-Design%3Ftype%3Ddesign%26node-id%3D11%253A6%26mode%3Ddesign%26t%3DzrO9UZUaSEHo73ga-1"
-            allowFullScreen
           />
         </Box>
 
@@ -655,7 +654,6 @@ export default function FormsLayoutOverview(): ReactNode {
             width="100%"
             height="400"
             src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fg8UzEN5Mg4kMoljbuje33y%2FInternational-Design%3Ftype%3Ddesign%26node-id%3D11%253A21%26mode%3Ddesign%26t%3DzrO9UZUaSEHo73ga-1"
-            allowFullScreen
           />
         </Box>
 
@@ -666,7 +664,6 @@ export default function FormsLayoutOverview(): ReactNode {
             width="100%"
             height="400"
             src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fg8UzEN5Mg4kMoljbuje33y%2FInternational-Design%3Ftype%3Ddesign%26node-id%3D11%253A26%26mode%3Ddesign%26t%3DzrO9UZUaSEHo73ga-1"
-            allowFullScreen
           />
         </Box>
 
@@ -677,7 +674,6 @@ export default function FormsLayoutOverview(): ReactNode {
             width="100%"
             height="400"
             src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fg8UzEN5Mg4kMoljbuje33y%2FInternational-Design%3Ftype%3Ddesign%26node-id%3D11%253A31%26mode%3Ddesign%26t%3DzrO9UZUaSEHo73ga-1"
-            allowFullScreen
           />
         </Box>
 
@@ -691,7 +687,6 @@ export default function FormsLayoutOverview(): ReactNode {
             width="100%"
             height="1000"
             src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fg8UzEN5Mg4kMoljbuje33y%2FInternational-Design%3Ftype%3Ddesign%26node-id%3D11%253A33%26mode%3Ddesign%26t%3DzrO9UZUaSEHo73ga-1"
-            allowFullScreen
           />
         </Box>
 
