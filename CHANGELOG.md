@@ -1,3 +1,9 @@
+## 130.1.24 (Jan 19, 2024)
+
+### Patch
+
+- Internal: fixes for no-unused-vars suppressions ([#3371](https://github.com/pinterest/gestalt/pull/3371)) - [Preview link](https://deploy-preview-3371--gestalt.netlify.app?devexample=true)
+
 ## 130.1.23 (Jan 19, 2024)
 
 ### Patch
