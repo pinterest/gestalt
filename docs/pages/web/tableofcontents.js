@@ -167,7 +167,7 @@ export default function TableOfContentsPage({
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[SideNavigation](/web/SideNavigation)**
+**[SideNavigation](/web/sidenavigation)**
 SideNavigation is start-aligned and arranged vertically. It is used to navigate between page urls or sections when you have too many menu items to fit in horizontal [Tabs](/web/tabs).
 
 **[Tabs](/web/tabs)**

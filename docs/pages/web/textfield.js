@@ -470,7 +470,7 @@ The first example shows an empty Textfield with \`maxLength\` set to 20 characte
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Size"
-          description="TextField can have different sizes. The default size is medium (40px). The large size is 48px. For a dense variant, use the `sm` (32px) variant."
+          description="TextField can have different sizes. The default size is `md` (40px). The `lg` size is 48px. For a dense variant, use the `sm` (32px) value."
         >
           <MainSection.Card
             sandpackExample={<SandpackExample name="TextField Sizes" code={textFieldSizes} />}
