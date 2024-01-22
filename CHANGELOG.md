@@ -1,3 +1,9 @@
+## 131.0.0 (Jan 22, 2024)
+
+### Major
+
+- Dropdown: DisableMobileUI default change ([#3373](https://github.com/pinterest/gestalt/pull/3373)) - [Preview link](https://deploy-preview-3373--gestalt.netlify.app?devexample=true)
+
 ## 130.1.26 (Jan 19, 2024)
 
 ### Patch
