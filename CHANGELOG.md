@@ -1,3 +1,9 @@
+## 132.0.0 (Jan 22, 2024)
+
+### Major
+
+- TextField: Add more Density sizes ([#3276](https://github.com/pinterest/gestalt/pull/3276)) - [Preview link](https://deploy-preview-3276--gestalt.netlify.app?devexample=true)
+
 ## 131.0.0 (Jan 22, 2024)
 
 ### Major
