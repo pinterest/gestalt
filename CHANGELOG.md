@@ -1,3 +1,9 @@
+## 132.0.1 (Jan 22, 2024)
+
+### Patch
+
+- Docs: fix broken links ([#3377](https://github.com/pinterest/gestalt/pull/3377)) - [Preview link](https://deploy-preview-3377--gestalt.netlify.app?devexample=true)
+
 ## 132.0.0 (Jan 22, 2024)
 
 ### Major
