@@ -90,7 +90,7 @@ export type Props = {
    */
   selected?: boolean,
   /**
-   * Sets the size of the TagData to render. See the [size variant](https://gestalt.pinterest.systems.com/web/tagdata#size) to learn more.
+   * Defines the height of the TagData to render. See the [size variant](https://gestalt.pinterest.systems.com/web/tagdata#size) to learn more.
    */
   size?: 'sm' | 'md' | 'lg',
   /**
