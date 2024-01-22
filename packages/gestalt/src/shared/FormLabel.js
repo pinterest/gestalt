@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import classnames from 'classnames';
 import styles from './FormLabel.css';
 import InternalLabel from '../Label/InternalLabel';
 import Text from '../Text';
