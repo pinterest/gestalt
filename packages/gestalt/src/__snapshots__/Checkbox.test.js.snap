@@ -529,7 +529,7 @@ exports[`Checkbox with error 1`] = `
         className="box paddingX1"
       >
         <div
-          className="box marginTop2"
+          className="box marginTop1"
         >
           <div
             className="Text fontSize100 errorText alignStart breakWord fontWeightNormal"
@@ -543,36 +543,24 @@ exports[`Checkbox with error 1`] = `
                 role="alert"
               >
                 <div
-                  className="Flex rowGap2 columnGap2 xsDirectionRow"
+                  className="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
                 >
                   <div
                     className="FlexItem"
                   >
-                    <div
-                      className="Flex rowGap0 columnGap0 xsDirectionColumn"
+                    <svg
+                      aria-hidden={true}
+                      aria-label=""
+                      className="icon errorIcon iconBlock"
+                      height={12}
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width={12}
                     >
-                      <div
-                        className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
-                      >
-                        <div
-                          className="FlexItem"
-                        >
-                          <svg
-                            aria-hidden={true}
-                            aria-label=""
-                            className="icon errorIcon iconBlock"
-                            height={16}
-                            role="img"
-                            viewBox="0 0 24 24"
-                            width={16}
-                          >
-                            <path
-                              d="test-file-stub"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
+                      <path
+                        d="test-file-stub"
+                      />
+                    </svg>
                   </div>
                   <div
                     className="FlexItem"
@@ -644,7 +632,7 @@ exports[`Checkbox with helperText 1`] = `
         className="box paddingX1"
       >
         <div
-          className="box marginTop2"
+          className="box marginTop1"
           id="id-helperText"
         >
           <div

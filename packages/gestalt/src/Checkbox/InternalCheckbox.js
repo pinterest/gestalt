@@ -202,9 +202,11 @@ const InternalCheckboxWithForwardRef: AbstractComponent<Props, HTMLInputElement>
             </Label>
             <Box paddingX={1}>
               {helperText && !errorMessage ? (
-                <FormHelperText id={`${id}-helperText`} text={helperText} />
+                <FormHelperText id={`${id}-helperText`} size={size} text={helperText} />
               ) : null}
-              {errorMessage ? <FormErrorMessage id={`${id}-error`} text={errorMessage} /> : null}
+              {errorMessage ? (
+                <FormErrorMessage id={`${id}-error`} size={size} text={errorMessage} />
+              ) : null}
             </Box>
           </Box>
         )}

@@ -1,23 +1,12 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { Box, ColorSchemeProvider, ComboBox } from 'gestalt';
+import { ColorSchemeProvider } from 'gestalt';
+import ComboBoxClosedSnapshot from './ComboBox-closed';
 
 export default function Snapshot(): ReactNode {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <Box color="default" padding={1} width={400}>
-        <ComboBox
-          accessibilityClearButtonLabel="Clear the current values"
-          label="Select your favorite shape"
-          id="favoriteShape"
-          noResultText="No results for your selection"
-          options={[
-            { label: 'square', value: '1' },
-            { label: 'circle', value: '2' },
-          ]}
-          placeholder="Select a shape"
-        />
-      </Box>
+      <ComboBoxClosedSnapshot />
     </ColorSchemeProvider>
   );
 }

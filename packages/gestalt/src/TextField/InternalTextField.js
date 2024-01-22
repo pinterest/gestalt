@@ -1,6 +1,7 @@
 // @flow strict
 import {
   type AbstractComponent,
+  cloneElement,
   type Element,
   forwardRef,
   type Node as ReactNode,
@@ -21,6 +22,8 @@ import FormLabel from '../shared/FormLabel';
 import Tag from '../Tag';
 import { type MaxLength } from '../TextField';
 import typography from '../Typography.css';
+
+type SizeType = 'sm' | 'md' | 'lg';
 
 type Props = {
   // REQUIRED
@@ -64,12 +67,14 @@ type Props = {
   }) => void,
   placeholder?: string,
   readOnly?: boolean,
-  size?: 'md' | 'lg',
+  size?: SizeType,
   step?: number,
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
   type?: 'date' | 'email' | 'number' | 'password' | 'tel' | 'text' | 'url',
   value?: string,
 };
+
+const applyDensityStyle = (size: SizeType) => styles[`${size}`];
 
 const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
@@ -149,10 +154,13 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
     disabled ? formElement.disabled : formElement.enabled,
     (hasError || hasErrorMessage) && !focused ? formElement.errored : formElement.normal,
     {
-      [layout.medium]: !tags && size === 'md',
-      [layout.large]: tags || size === 'lg',
+      // note: layout CSS controls min-height of element
+      [layout.small]: size === 'sm',
+      [layout.medium]: size === 'md',
+      [layout.large]: size === 'lg',
       [styles.actionButton]: iconButton,
     },
+    applyDensityStyle(size),
     tags
       ? {
           [focusStyles.accessibilityOutlineFocus]: focused,
@@ -213,17 +221,26 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
     />
   );
 
+  // Explicit margin for the small size, we don't have a token for 2px
+  const tagMarginY = size === 'sm' || size === 'md' ? '2px' : 'var(--space-100)';
+
   return (
     <span>
-      {label ? <FormLabel id={id} label={label} labelDisplay={labelDisplay} /> : null}
+      {label ? <FormLabel id={id} label={label} labelDisplay={labelDisplay} size={size} /> : null}
 
       <Box position="relative">
         {tags ? (
           <div className={styledClasses} {...(tags ? { ref: innerRef } : {})}>
             {tags.map((tag, tagIndex) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <Box key={tagIndex} marginEnd={1} marginBottom={1}>
-                {tag}
+              <Box
+                // eslint-disable-next-line react/no-array-index-key
+                key={tagIndex}
+                marginEnd={1}
+                dangerouslySetInlineStyle={{
+                  __style: { marginBottom: tagMarginY },
+                }}
+              >
+                {cloneElement(tag, { size: size === 'lg' ? 'md' : 'sm' })}
               </Box>
             ))}
             <Box flex="grow" marginEnd={2} maxWidth="100%" position="relative">
@@ -250,10 +267,13 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
           text={helperText}
           maxLength={maxLength}
           currentLength={currentLength}
+          size={size}
         />
       ) : null}
 
-      {hasErrorMessage ? <FormErrorMessage id={`${id}-error`} text={errorMessage} /> : null}
+      {hasErrorMessage ? (
+        <FormErrorMessage id={`${id}-error`} size={size} text={errorMessage} />
+      ) : null}
     </span>
   );
 });

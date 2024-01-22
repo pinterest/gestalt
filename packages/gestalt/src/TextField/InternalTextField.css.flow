@@ -3,6 +3,9 @@
 declare module.exports: {|
   +'actionButton': string,
   +'actionButtonContainer': string,
+  +'lg': string,
+  +'md': string,
+  +'sm': string,
   +'textField': string,
   +'textFieldSpacer': string,
   +'textFieldWrapper': string,
