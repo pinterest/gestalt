@@ -163,7 +163,7 @@ export default function Dropdown({
   zIndex,
   maxHeight,
   mobileOnAnimationEnd,
-  disableMobileUI = true,
+  disableMobileUI = false,
 }: Props): ReactNode {
   const isInExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_popover_v2_dropdown',
