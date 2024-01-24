@@ -1,3 +1,21 @@
+## 132.1.0 (Jan 24, 2024)
+
+### Minor
+
+- Icon: new icons + update all SVGs files. ([#3380](https://github.com/pinterest/gestalt/pull/3380)) - [Preview link](https://deploy-preview-3380--gestalt.netlify.app?devexample=true)
+
+## 132.0.3 (Jan 24, 2024)
+
+### Patch
+
+- Tooltip: Fix v2 experiment name ([#3379](https://github.com/pinterest/gestalt/pull/3379)) - [Preview link](https://deploy-preview-3379--gestalt.netlify.app?devexample=true)
+
+## 132.0.2 (Jan 24, 2024)
+
+### Patch
+
+- Icon: update visual snapshot ([#3378](https://github.com/pinterest/gestalt/pull/3378)) - [Preview link](https://deploy-preview-3378--gestalt.netlify.app?devexample=true)
+
 ## 132.0.1 (Jan 22, 2024)
 
 ### Patch
