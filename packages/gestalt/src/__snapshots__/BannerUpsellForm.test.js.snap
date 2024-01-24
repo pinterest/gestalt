@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UpsellForm renders 1`] = `
+exports[`BannerUpsellForm renders 1`] = `
 <form
   onSubmit={[Function]}
   style={

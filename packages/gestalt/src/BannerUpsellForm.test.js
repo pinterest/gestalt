@@ -1,18 +1,18 @@
 // @flow strict
 import { create } from 'react-test-renderer';
+import BannerUpsellForm from './BannerUpsellForm';
 import TextField from './TextField';
-import UpsellForm from './UpsellForm';
 
-describe('UpsellForm', () => {
+describe('BannerUpsellForm', () => {
   it('renders', () => {
     const tree = create(
-      <UpsellForm
+      <BannerUpsellForm
         onSubmit={() => {}}
         submitButtonText="Submit"
         submitButtonAccessibilityLabel="Submit button"
       >
         <TextField id="name" placeholder="Name" onChange={() => {}} />
-      </UpsellForm>,
+      </BannerUpsellForm>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

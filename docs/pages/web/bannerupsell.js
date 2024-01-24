@@ -214,13 +214,13 @@ Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvid
 
       <MainSection name="Subcomponents">
         <MainSection.Subsection
-          title={generatedDocGen?.UpsellForm?.displayName}
-          description={generatedDocGen?.UpsellForm?.description}
+          title={generatedDocGen?.BannerUpsellForm?.displayName}
+          description={generatedDocGen?.BannerUpsellForm?.description}
         >
           <GeneratedPropTable
-            generatedDocGen={generatedDocGen?.UpsellForm}
-            id={generatedDocGen?.UpsellForm?.displayName}
-            name={generatedDocGen?.UpsellForm?.displayName}
+            generatedDocGen={generatedDocGen?.BannerUpsellForm}
+            id={generatedDocGen?.BannerUpsellForm?.displayName}
+            name={generatedDocGen?.BannerUpsellForm?.displayName}
           />
         </MainSection.Subsection>
       </MainSection>
@@ -374,6 +374,6 @@ export async function getServerSideProps(): Promise<{
   props: { generatedDocGen: { [string]: DocGen } },
 }> {
   return {
-    props: { generatedDocGen: await multipleDocGen(['BannerUpsell', 'UpsellForm']) },
+    props: { generatedDocGen: await multipleDocGen(['BannerUpsell', 'BannerUpsellForm']) },
   };
 }

@@ -2,6 +2,7 @@
 import { Children, type Element, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import styles from './BannerUpsell.css';
+import BannerUpsellForm from './BannerUpsellForm';
 import Box from './Box';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
@@ -12,7 +13,6 @@ import IconButton from './IconButton';
 import Image from './Image';
 import Mask from './Mask';
 import Text from './Text';
-import UpsellForm from './UpsellForm';
 import useResponsiveMinWidth from './useResponsiveMinWidth';
 
 export type ActionDataType =
@@ -83,7 +83,7 @@ type Props = {
   /**
    * To create forms within BannerUpsell, pass BannerUpsell.Form as children.
    */
-  children?: Element<typeof UpsellForm>,
+  children?: Element<typeof BannerUpsellForm>,
   /**
    * Adds a dismiss button to the BannerUpsell. The \`accessibilityLabel\` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannerupsell#Accessibility).
    */
@@ -283,4 +283,4 @@ export default function BannerUpsell({
   );
 }
 
-BannerUpsell.Form = UpsellForm;
+BannerUpsell.Form = BannerUpsellForm;

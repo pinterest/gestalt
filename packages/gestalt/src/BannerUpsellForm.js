@@ -37,7 +37,7 @@ type Props = {
 /**
  * [BannerUpsell.Form](https://gestalt.pinterest.systems/web/bannerupsell#BannerUpsell.Form) can be used to add a short form to BannerUpsell for collecting data from the user.
  */
-export default function UpsellForm({
+export default function BannerUpsellForm({
   children,
   onSubmit,
   submitButtonText,
@@ -75,4 +75,4 @@ export default function UpsellForm({
   );
 }
 
-UpsellForm.displayName = 'BannerUpsell.Form';
+BannerUpsellForm.displayName = 'BannerUpsell.Form';

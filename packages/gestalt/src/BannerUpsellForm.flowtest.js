@@ -1,19 +1,19 @@
 // @flow strict
+import BannerUpsellForm from './BannerUpsellForm';
 import TextField from './TextField';
-import UpsellForm from './UpsellForm';
 
 const Valid = (
-  <UpsellForm
+  <BannerUpsellForm
     onSubmit={() => {}}
     submitButtonText="Submit"
     submitButtonAccessibilityLabel="Submit button"
   >
     <TextField id="name" placeholder="Name" onChange={() => {}} />
-  </UpsellForm>
+  </BannerUpsellForm>
 );
 
 // $FlowExpectedError[prop-missing]
-const MissingProp = <UpsellForm />;
+const MissingProp = <BannerUpsellForm />;
 
 // $FlowExpectedError[prop-missing]
-const InvalidProps = <UpsellForm nonexisting={33} />;
+const InvalidProps = <BannerUpsellForm nonexisting={33} />;
