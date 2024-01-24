@@ -266,7 +266,6 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
             sectionName: 'RTL guidelines',
             pages: ['RTL overview', 'Layout and text direction', 'Iconography', 'Typography'],
           },
-
         ],
       },
       'Layout',

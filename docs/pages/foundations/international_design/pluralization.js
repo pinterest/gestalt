@@ -185,24 +185,55 @@ export default function FormsLayoutOverview(): ReactNode {
         </Flex>
 
         <Box marginTop={10} maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginBottom={10}>
-        <List type="unordered" label={<Text>What about languages that require multiple plural forms, like Arabic? {' '}
-        <Text inline>
-        <Link
-          href="https://www.unicode.org/cldr/charts/42/supplemental/language_plural_rules.html#ar"
-          display="inline"
-          externalLinkIcon="default"
-          target="blank"
-          rel="nofollow" >Arabic has six plural forms</Link>. If we want accurate translations for the above message, we need six versions. The localization industry has used two different approaches for pluralization in Arabic:</Text>
-
-         </Text>}>
-            <List.Item text={
-              <Text weight="bold">Approach 1, for required placeholders:{' '}<Text inline>(currently used at Pinterest) is grammatically incorrect but commonly used and acceptable. This approach has been used for in-app strings because a placeholder representing the integer is needed and can’t be omitted. This approach shouldn’t be used in site content where pluralization doesn’t require using placeholders for integers (ex: Help Center, Policy, Marketing content).</Text></Text>
-               } />
-            <List.Item text={
-              <Text weight="bold">Approach 2, when placeholders aren’t required:{' '}<Text inline> is grammatically correct but could be challenging when used for in-app strings because it requires omitting integer placeholders.</Text></Text>
+          <List
+            type="unordered"
+            label={
+              <Text>
+                What about languages that require multiple plural forms, like Arabic?{' '}
+                <Text inline>
+                  <Link
+                    href="https://www.unicode.org/cldr/charts/42/supplemental/language_plural_rules.html#ar"
+                    display="inline"
+                    externalLinkIcon="default"
+                    target="blank"
+                    rel="nofollow"
+                  >
+                    Arabic has six plural forms
+                  </Link>
+                  . If we want accurate translations for the above message, we need six versions.
+                  The localization industry has used two different approaches for pluralization in
+                  Arabic:
+                </Text>
+              </Text>
             }
-              />
-           </List>
+          >
+            <List.Item
+              text={
+                <Text weight="bold">
+                  Approach 1, for required placeholders:{' '}
+                  <Text inline>
+                    (currently used at Pinterest) is grammatically incorrect but commonly used and
+                    acceptable. This approach has been used for in-app strings because a placeholder
+                    representing the integer is needed and can’t be omitted. This approach shouldn’t
+                    be used in site content where pluralization doesn’t require using placeholders
+                    for integers (ex: Help Center, Policy, Marketing content).
+                  </Text>
+                </Text>
+              }
+            />
+            <List.Item
+              text={
+                <Text weight="bold">
+                  Approach 2, when placeholders aren’t required:{' '}
+                  <Text inline>
+                    {' '}
+                    is grammatically correct but could be challenging when used for in-app strings
+                    because it requires omitting integer placeholders.
+                  </Text>
+                </Text>
+              }
+            />
+          </List>
         </Box>
 
         <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginBottom={10}>
@@ -524,19 +555,26 @@ export default function FormsLayoutOverview(): ReactNode {
 
         <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginTop={10} marginBottom={10}>
           <List type="unordered" label={<Text weight="bold">Note:</Text>}>
-            <List.Item text={
-              <Text inline> The Internationalization Team—engineering specifically—should check {' '}
-              <Link
-                href="https://www.unicode.org/cldr/charts/44/supplemental/language_plural_rules.html"
-                display="inline"
-                externalLinkIcon="default"
-                target="blank"
-                rel="nofollow" >CLDR (Common Locale Data Repository)</Link>
-                {' '}to see how this could be implemented for in-app strings </Text>
-                } />
-            <List.Item text= 'When translating for larger contents (websites), the second approach, the grammatically correct one, should be implemented'
-              />
-           </List>
+            <List.Item
+              text={
+                <Text inline>
+                  {' '}
+                  The Internationalization Team—engineering specifically—should check{' '}
+                  <Link
+                    href="https://www.unicode.org/cldr/charts/44/supplemental/language_plural_rules.html"
+                    display="inline"
+                    externalLinkIcon="default"
+                    target="blank"
+                    rel="nofollow"
+                  >
+                    CLDR (Common Locale Data Repository)
+                  </Link>{' '}
+                  to see how this could be implemented for in-app strings{' '}
+                </Text>
+              }
+            />
+            <List.Item text="When translating for larger contents (websites), the second approach, the grammatically correct one, should be implemented" />
+          </List>
         </Box>
 
         <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginBottom={10}>
