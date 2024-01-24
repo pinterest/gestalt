@@ -7,7 +7,7 @@ exports[`NumberField NumberField normal 1`] = `
   >
     <input
       aria-invalid="false"
-      className="textField base enabled normal medium truncate"
+      className="textField base enabled normal medium md truncate"
       disabled={false}
       id="test"
       onBlur={[Function]}
@@ -30,7 +30,7 @@ exports[`NumberField NumberField with autocomplete 1`] = `
     <input
       aria-invalid="false"
       autoComplete="on"
-      className="textField base enabled normal medium truncate"
+      className="textField base enabled normal medium md truncate"
       disabled={false}
       id="test"
       name="email"
@@ -53,7 +53,7 @@ exports[`NumberField NumberField with enterKeyHint 1`] = `
   >
     <input
       aria-invalid="false"
-      className="textField base enabled normal medium truncate"
+      className="textField base enabled normal medium md truncate"
       disabled={false}
       enterKeyHint="go"
       id="test"
@@ -76,7 +76,7 @@ exports[`NumberField NumberField with error 1`] = `
   >
     <input
       aria-invalid="true"
-      className="textField base enabled errored medium truncate"
+      className="textField base enabled errored medium md truncate"
       disabled={false}
       id="test"
       onBlur={[Function]}
@@ -89,7 +89,7 @@ exports[`NumberField NumberField with error 1`] = `
     />
   </div>
   <div
-    className="box marginTop2"
+    className="box marginTop1"
   >
     <div
       className="Text fontSize100 errorText alignStart breakWord fontWeightNormal"
@@ -103,36 +103,24 @@ exports[`NumberField NumberField with error 1`] = `
           role="alert"
         >
           <div
-            className="Flex rowGap2 columnGap2 xsDirectionRow"
+            className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem"
             >
-              <div
-                className="Flex rowGap0 columnGap0 xsDirectionColumn"
+              <svg
+                aria-hidden={true}
+                aria-label=""
+                className="icon errorIcon iconBlock"
+                height={16}
+                role="img"
+                viewBox="0 0 24 24"
+                width={16}
               >
-                <div
-                  className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
-                >
-                  <div
-                    className="FlexItem"
-                  >
-                    <svg
-                      aria-hidden={true}
-                      aria-label=""
-                      className="icon errorIcon iconBlock"
-                      height={16}
-                      role="img"
-                      viewBox="0 0 24 24"
-                      width={16}
-                    >
-                      <path
-                        d="test-file-stub"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
+                <path
+                  d="test-file-stub"
+                />
+              </svg>
             </div>
             <div
               className="FlexItem"
@@ -154,7 +142,7 @@ exports[`NumberField NumberField with name 1`] = `
   >
     <input
       aria-invalid="false"
-      className="textField base enabled normal medium truncate"
+      className="textField base enabled normal medium md truncate"
       disabled={false}
       id="test"
       name="email"

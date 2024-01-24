@@ -1,3 +1,39 @@
+## 132.0.3 (Jan 24, 2024)
+
+### Patch
+
+- Tooltip: Fix v2 experiment name ([#3379](https://github.com/pinterest/gestalt/pull/3379)) - [Preview link](https://deploy-preview-3379--gestalt.netlify.app?devexample=true)
+
+## 132.0.2 (Jan 24, 2024)
+
+### Patch
+
+- Icon: update visual snapshot ([#3378](https://github.com/pinterest/gestalt/pull/3378)) - [Preview link](https://deploy-preview-3378--gestalt.netlify.app?devexample=true)
+
+## 132.0.1 (Jan 22, 2024)
+
+### Patch
+
+- Docs: fix broken links ([#3377](https://github.com/pinterest/gestalt/pull/3377)) - [Preview link](https://deploy-preview-3377--gestalt.netlify.app?devexample=true)
+
+## 132.0.0 (Jan 22, 2024)
+
+### Major
+
+- TextField: Add more Density sizes ([#3276](https://github.com/pinterest/gestalt/pull/3276)) - [Preview link](https://deploy-preview-3276--gestalt.netlify.app?devexample=true)
+
+## 131.0.0 (Jan 22, 2024)
+
+### Major
+
+- Dropdown: DisableMobileUI default change ([#3373](https://github.com/pinterest/gestalt/pull/3373)) - [Preview link](https://deploy-preview-3373--gestalt.netlify.app?devexample=true)
+
+## 130.1.26 (Jan 19, 2024)
+
+### Patch
+
+- Internal: update pull_request_template to include semver info ([#3374](https://github.com/pinterest/gestalt/pull/3374)) - [Preview link](https://deploy-preview-3374--gestalt.netlify.app?devexample=true)
+
 ## 130.1.25 (Jan 19, 2024)
 
 ### Patch

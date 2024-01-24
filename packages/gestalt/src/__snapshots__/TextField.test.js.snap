@@ -7,7 +7,7 @@ exports[`TextField TextField normal 1`] = `
   >
     <input
       aria-invalid="false"
-      className="textField base enabled normal medium truncate"
+      className="textField base enabled normal medium md truncate"
       disabled={false}
       id="test"
       onBlur={[Function]}
@@ -30,7 +30,7 @@ exports[`TextField TextField with autocomplete 1`] = `
     <input
       aria-invalid="false"
       autoComplete="email"
-      className="textField base enabled normal medium truncate"
+      className="textField base enabled normal medium md truncate"
       disabled={false}
       id="test"
       name="email"
@@ -53,7 +53,7 @@ exports[`TextField TextField with disabled 1`] = `
   >
     <input
       aria-invalid="false"
-      className="textField base disabled normal medium truncate"
+      className="textField base disabled normal medium md truncate"
       disabled={true}
       id="test"
       onBlur={[Function]}
@@ -75,7 +75,7 @@ exports[`TextField TextField with enterKeyHint 1`] = `
   >
     <input
       aria-invalid="false"
-      className="textField base enabled normal medium truncate"
+      className="textField base enabled normal medium md truncate"
       disabled={false}
       enterKeyHint="go"
       id="test"
@@ -98,7 +98,7 @@ exports[`TextField TextField with error 1`] = `
   >
     <input
       aria-invalid="true"
-      className="textField base enabled errored medium truncate"
+      className="textField base enabled errored medium md truncate"
       disabled={false}
       id="test"
       onBlur={[Function]}
@@ -111,7 +111,7 @@ exports[`TextField TextField with error 1`] = `
     />
   </div>
   <div
-    className="box marginTop2"
+    className="box marginTop1"
   >
     <div
       className="Text fontSize100 errorText alignStart breakWord fontWeightNormal"
@@ -125,36 +125,24 @@ exports[`TextField TextField with error 1`] = `
           role="alert"
         >
           <div
-            className="Flex rowGap2 columnGap2 xsDirectionRow"
+            className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem"
             >
-              <div
-                className="Flex rowGap0 columnGap0 xsDirectionColumn"
+              <svg
+                aria-hidden={true}
+                aria-label=""
+                className="icon errorIcon iconBlock"
+                height={16}
+                role="img"
+                viewBox="0 0 24 24"
+                width={16}
               >
-                <div
-                  className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
-                >
-                  <div
-                    className="FlexItem"
-                  >
-                    <svg
-                      aria-hidden={true}
-                      aria-label=""
-                      className="icon errorIcon iconBlock"
-                      height={16}
-                      role="img"
-                      viewBox="0 0 24 24"
-                      width={16}
-                    >
-                      <path
-                        d="test-file-stub"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
+                <path
+                  d="test-file-stub"
+                />
+              </svg>
             </div>
             <div
               className="FlexItem"
@@ -176,7 +164,7 @@ exports[`TextField TextField with hasError 1`] = `
   >
     <input
       aria-invalid="true"
-      className="textField base enabled errored medium truncate"
+      className="textField base enabled errored medium md truncate"
       disabled={false}
       id="test"
       onBlur={[Function]}
@@ -198,7 +186,7 @@ exports[`TextField TextField with maxLength character counter 1`] = `
   >
     <input
       aria-invalid="false"
-      className="textField base enabled normal medium truncate"
+      className="textField base enabled normal medium md truncate"
       disabled={false}
       id="test"
       maxLength={20}
@@ -213,7 +201,7 @@ exports[`TextField TextField with maxLength character counter 1`] = `
     />
   </div>
   <div
-    className="box marginTop2"
+    className="box marginTop1"
     id="test-helperText"
   >
     <div
@@ -291,7 +279,7 @@ exports[`TextField TextField with name 1`] = `
   >
     <input
       aria-invalid="false"
-      className="textField base enabled normal medium truncate"
+      className="textField base enabled normal medium md truncate"
       disabled={false}
       id="test"
       name="email"
@@ -314,7 +302,7 @@ exports[`TextField TextField with readOnly 1`] = `
   >
     <input
       aria-invalid="false"
-      className="textField base enabled normal medium truncate"
+      className="textField base enabled normal medium md truncate"
       disabled={false}
       id="test"
       onBlur={[Function]}
@@ -335,17 +323,22 @@ exports[`TextField TextField with tags 1`] = `
     className="box relative"
   >
     <div
-      className="textField base enabled normal large textFieldWrapper"
+      className="textField base enabled normal medium md textFieldWrapper"
     >
       <div
-        className="box marginBottom1 marginEnd1"
+        className="box marginEnd1"
+        style={
+          Object {
+            "marginBottom": "2px",
+          }
+        }
       >
         <div
           aria-disabled={false}
-          className="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
+          className="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
           style={
             Object {
-              "height": 32,
+              "height": 24,
               "maxWidth": 300,
             }
           }
@@ -359,7 +352,7 @@ exports[`TextField TextField with tags 1`] = `
             }
           >
             <span
-              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+              className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal lineClamp"
               style={
                 Object {
                   "WebkitLineClamp": 1,
@@ -373,7 +366,7 @@ exports[`TextField TextField with tags 1`] = `
               className="box"
             >
               <button
-                className="button secondary hideOutline tapTransition accessibilityOutline md"
+                className="button secondary hideOutline tapTransition accessibilityOutline sm"
                 onClick={[Function]}
                 type="button"
               >
@@ -405,14 +398,19 @@ exports[`TextField TextField with tags 1`] = `
         </div>
       </div>
       <div
-        className="box marginBottom1 marginEnd1"
+        className="box marginEnd1"
+        style={
+          Object {
+            "marginBottom": "2px",
+          }
+        }
       >
         <div
           aria-disabled={false}
-          className="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
+          className="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
           style={
             Object {
-              "height": 32,
+              "height": 24,
               "maxWidth": 300,
             }
           }
@@ -426,7 +424,7 @@ exports[`TextField TextField with tags 1`] = `
             }
           >
             <span
-              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+              className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal lineClamp"
               style={
                 Object {
                   "WebkitLineClamp": 1,
@@ -440,7 +438,7 @@ exports[`TextField TextField with tags 1`] = `
               className="box"
             >
               <button
-                className="button secondary hideOutline tapTransition accessibilityOutline md"
+                className="button secondary hideOutline tapTransition accessibilityOutline sm"
                 onClick={[Function]}
                 type="button"
               >
@@ -472,14 +470,19 @@ exports[`TextField TextField with tags 1`] = `
         </div>
       </div>
       <div
-        className="box marginBottom1 marginEnd1"
+        className="box marginEnd1"
+        style={
+          Object {
+            "marginBottom": "2px",
+          }
+        }
       >
         <div
           aria-disabled={false}
-          className="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
+          className="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
           style={
             Object {
-              "height": 32,
+              "height": 24,
               "maxWidth": 300,
             }
           }
@@ -493,7 +496,7 @@ exports[`TextField TextField with tags 1`] = `
             }
           >
             <span
-              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+              className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal lineClamp"
               style={
                 Object {
                   "WebkitLineClamp": 1,
@@ -507,7 +510,7 @@ exports[`TextField TextField with tags 1`] = `
               className="box"
             >
               <button
-                className="button secondary hideOutline tapTransition accessibilityOutline md"
+                className="button secondary hideOutline tapTransition accessibilityOutline sm"
                 onClick={[Function]}
                 type="button"
               >

@@ -18,6 +18,7 @@ import localizationLabels from '../../examples/combobox/localizationLabels';
 import main from '../../examples/combobox/main';
 import programmatic from '../../examples/combobox/programmatic';
 import ref from '../../examples/combobox/ref';
+import sizes from '../../examples/combobox/sizes';
 import subtext from '../../examples/combobox/subtext';
 import tags from '../../examples/combobox/tags';
 import uncontrolled from '../../examples/combobox/uncontrolled';
@@ -196,6 +197,17 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
             cardSize="lg"
             sandpackExample={
               <SandpackExample code={subtext} name="subtext" previewHeight={PREVIEW_HEIGHT} />
+            }
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          description="ComboBox can have different sizes. The default size is medium (40px). The large size is 48px. For a dense variant, use the `sm` (32px) variant."
+          title="Size"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={sizes} name="ComboBox Sizes" previewHeight={PREVIEW_HEIGHT} />
             }
           />
         </MainSection.Subsection>

@@ -54,7 +54,9 @@ export default function Example(): ReactNode {
         const newTags = [...tags];
         newTags.splice(idx, 1);
         setTags([...newTags]);
-        ref.current?.focus();
+        if (ref.current) {
+          ref.current.focus();
+        }
       }}
       accessibilityRemoveIconLabel={`Remove ${tag} tag`}
       text={tag}

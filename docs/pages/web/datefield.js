@@ -243,7 +243,7 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onR
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[DatePicker](/DatePicker)**
+**[DatePicker](/web/datepicker)**
 Use DatePicker if the user is allowed to pick a date from a calendar popup.
     `}
         />

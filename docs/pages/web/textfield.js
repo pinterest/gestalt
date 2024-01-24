@@ -33,6 +33,7 @@ import onlyPlaceRelatedFieldsSameLine from '../../examples/textfield/onlyPlaceRe
 import passwordExample from '../../examples/textfield/passwordExample';
 import provideClearUsefulErrorMessages from '../../examples/textfield/provideClearUsefulErrorMessages';
 import readOnlyExample from '../../examples/textfield/readOnlyExample';
+import textFieldSizes from '../../examples/textfield/sizesExample';
 import tagsExample from '../../examples/textfield/tagsExample';
 import textFieldRefAnchorPopover from '../../examples/textfield/textFieldRefAnchorPopover';
 import useHelperTextImportantInformation from '../../examples/textfield/useHelperTextImportantInformation';
@@ -465,6 +466,14 @@ The first example shows an empty Textfield with \`maxLength\` set to 20 characte
                 code={textFieldRefAnchorPopover}
               />
             }
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          title="Size"
+          description="TextField can have different sizes. The default size is `md` (40px). The `lg` size is 48px. For a dense variant, use the `sm` (32px) value."
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample name="TextField Sizes" code={textFieldSizes} />}
           />
         </MainSection.Subsection>
       </MainSection>

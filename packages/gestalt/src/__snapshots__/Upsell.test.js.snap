@@ -142,7 +142,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
                     >
                       <input
                         aria-invalid="false"
-                        className="textField base enabled normal medium truncate"
+                        className="textField base enabled normal medium md truncate"
                         disabled={false}
                         id="name"
                         onBlur={[Function]}

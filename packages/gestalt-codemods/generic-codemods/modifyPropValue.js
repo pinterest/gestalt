@@ -45,6 +45,7 @@
 
 import { type ApiType, type FileType } from './flowtypes';
 import {
+  buildAttributeFromValue,
   buildReplaceWithModifiedAttributes,
   deepCloneNode,
   filterJSXByAttribute,
@@ -141,7 +142,7 @@ function transform(fileInfo: FileType, api: ApiType, options: OptionsType): ?str
   if (isNullOrUndefined(previousProp) && isNullOrUndefined(previousValue)) {
     for (let idx = matchedJSXCollection.size() - 1; idx >= 0; idx -= 1) {
       matchedJSXCollection.at(idx).replaceWith((node) => {
-        const newAttribute = j.jsxAttribute(j.jsxIdentifier(nextProp), j.stringLiteral(nextValue));
+        const newAttribute = buildAttributeFromValue({ j, prop: nextProp ?? '', value: nextValue });
         const newNode = deepCloneNode({ node: node.get().node });
         newNode.openingElement.attributes.push(newAttribute);
         return newNode;
