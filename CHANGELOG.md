@@ -1,3 +1,9 @@
+## 132.0.2 (Jan 24, 2024)
+
+### Patch
+
+- Icon: update visual snapshot ([#3378](https://github.com/pinterest/gestalt/pull/3378)) - [Preview link](https://deploy-preview-3378--gestalt.netlify.app?devexample=true)
+
 ## 132.0.1 (Jan 22, 2024)
 
 ### Patch
