@@ -337,6 +337,34 @@ const componentData: $ReadOnlyArray<ComponentData> = [
     },
   },
   {
+    id: 'BannerUpsell',
+    platform: {
+      web: {
+        name: 'BannerUpsell',
+        visual: {
+          svg: <BannerUpsell />,
+        },
+        alias: ['Banner', 'Offer Banner', 'CTA Banner'],
+        description:
+          'Upsells are banners that display short messages that focus on promoting an action or upgrading something the user already has.',
+        category: ['Messaging'],
+        status: {
+          accessible: {
+            summary: 'ready',
+            a11yVisual: 'ready',
+            a11yScreenreader: 'ready',
+            a11yNavigation: 'ready',
+            a11yComprehension: 'ready',
+          },
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          responsive: 'ready',
+          status: 'ready',
+        },
+      },
+    },
+  },
+  {
     id: 'Box',
     platform: {
       web: {
@@ -2738,34 +2766,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
       },
     },
   },
-  {
-    id: 'BannerUpsell',
-    platform: {
-      web: {
-        name: 'BannerUpsell',
-        visual: {
-          svg: <BannerUpsell />,
-        },
-        alias: ['Banner', 'Offer Banner', 'CTA Banner'],
-        description:
-          'Upsells are banners that display short messages that focus on promoting an action or upgrading something the user already has.',
-        category: ['Messaging'],
-        status: {
-          accessible: {
-            summary: 'ready',
-            a11yVisual: 'ready',
-            a11yScreenreader: 'ready',
-            a11yNavigation: 'ready',
-            a11yComprehension: 'ready',
-          },
-          documentation: 'ready',
-          figmaStatus: 'ready',
-          responsive: 'ready',
-          status: 'ready',
-        },
-      },
-    },
-  },
+
   {
     id: 'useFocusVisible',
     platform: {

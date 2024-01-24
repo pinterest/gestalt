@@ -334,6 +334,9 @@ If  confirmation toast's text with more complex style is required, such as bold 
       **[Alert Modal](/web/modalalert)**
       An ModalAlert is a simple modal dialog used to alert a user of an issue, or to request confirmation after a user-generated action. ModalAlert overlays and blocks Page content until it is dismissed by the user.
 
+      **[BannerUpsell](/web/bannerupsell)**
+      BannerUpsell banners are used for paid upgrades, free trials, or marketing promotions.
+
       **[Modal](/web/modal)**
       A generic, customizable container for modals that aren’t used as alerts or acknowledgements and need more functionality like form fields.
 
@@ -342,9 +345,6 @@ If  confirmation toast's text with more complex style is required, such as bold 
 
       **[Tooltip](/web/tooltip)**
       Tooltip provides helpful information regarding an interactive UI element, typically an IconButton. It is displayed on hover or focus of a UI element, and disappears on mouse out or blur.
-
-      **[BannerUpsell](/web/bannerupsell)**
-      BannerUpsell banners are used for paid upgrades, free trials, or marketing promotions.
 
       **[Callout](/web/callout)**
       Callouts are used at the top-most level of a page to communicate highest-priority information that applies to the entire page or surface. Callouts can be dismissed and are also actionable.

@@ -30,6 +30,11 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
       label: 'Dismiss',
     },
     {
+      component: 'BannerUpsell',
+      prop: 'accessibilityDismissButtonLabel',
+      label: 'Dismiss banner',
+    },
+    {
       component: 'Callout',
       prop: 'accessibilityDismissButtonLabel',
       label: 'Dismiss Banner',
@@ -288,11 +293,6 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
       component: 'Toast',
       prop: 'accessibilityProcessingLabel',
       label: 'Processing message',
-    },
-    {
-      component: 'BannerUpsell',
-      prop: 'accessibilityDismissButtonLabel',
-      label: 'Dismiss banner',
     },
     {
       component: 'Video',
