@@ -1,3 +1,9 @@
+## 132.0.3 (Jan 24, 2024)
+
+### Patch
+
+- Tooltip: Fix v2 experiment name ([#3379](https://github.com/pinterest/gestalt/pull/3379)) - [Preview link](https://deploy-preview-3379--gestalt.netlify.app?devexample=true)
+
 ## 132.0.2 (Jan 24, 2024)
 
 ### Patch
