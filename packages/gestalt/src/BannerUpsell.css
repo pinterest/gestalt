@@ -1,0 +1,40 @@
+html[dir="rtl"] .rtlPos {
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+html:not([dir="rtl"]) .rtlPos {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.textColorOverrideLight * {
+  /* stylelint-disable-next-line declaration-no-important */
+  color: var(--color-text-dark) !important;
+  /* stylelint-disable-next-line declaration-no-important */
+  font-size: var(--font-size-300) !important;
+}
+
+.textColorOverrideDark * {
+  /* stylelint-disable-next-line declaration-no-important */
+  color: var(--color-text-light) !important;
+  /* stylelint-disable-next-line declaration-no-important */
+  font-size: var(--font-size-300) !important;
+}
+
+.textAligmentOverrideCenter * {
+  /* stylelint-disable-next-line declaration-no-important */
+  text-align: center !important;
+}
+
+html:not([dir="rtl"]) .textAligmentOverrideStart * {
+  /* stylelint-disable-next-line declaration-no-important */
+  text-align: left !important;
+}
+
+html[dir="rtl"] .textAligmentOverrideStart * {
+  /* stylelint-disable-next-line declaration-no-important */
+  text-align: right !important;
+}
