@@ -104,7 +104,7 @@ export type DefaultLabelContextType = {
     accessibilityHidePasswordLabel: string,
     accessibilityShowPasswordLabel: string,
   },
-  Upsell: {
+  BannerUpsell: {
     accessibilityDismissButtonLabel: string,
   },
   Video: {
@@ -229,7 +229,7 @@ export const fallbackLabels: DefaultLabelContextType = {
     accessibilityIconErrorLabel: 'Error message',
     accessibilityProcessingLabel: 'Processing message',
   },
-  Upsell: {
+  BannerUpsell: {
     accessibilityDismissButtonLabel: 'Dismiss banner',
   },
   Video: {

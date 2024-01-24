@@ -18,6 +18,7 @@ import Avatar from '../../graphics/general/Avatar.svg';
 import AvatarGroup from '../../graphics/general/AvatarGroup.svg';
 import Badge from '../../graphics/general/Badge.svg';
 import BannerOverlay from '../../graphics/general/BannerOverlay.svg';
+import BannerUpsell from '../../graphics/general/BannerUpsell.svg';
 import Button from '../../graphics/general/Button.svg';
 import ButtonGroup from '../../graphics/general/ButtonGroup.svg';
 import ButtonLink from '../../graphics/general/ButtonLink.svg';
@@ -74,7 +75,6 @@ import TextField from '../../graphics/general/TextField.svg';
 import TileData from '../../graphics/general/TileData.svg';
 import Toast from '../../graphics/general/Toast.svg';
 import Tooltip from '../../graphics/general/Tooltip.svg';
-import Upsell from '../../graphics/general/Upsell.svg';
 import Video from '../../graphics/general/Video.svg';
 import WashAnimated from '../../graphics/general/WashAnimated.svg';
 import GlobalEventsHandlerProvider from '../../graphics/utilities/GlobalEventsHandlerProvider.svg';
@@ -2739,12 +2739,12 @@ const componentData: $ReadOnlyArray<ComponentData> = [
     },
   },
   {
-    id: 'Upsell',
+    id: 'BannerUpsell',
     platform: {
       web: {
-        name: 'Upsell',
+        name: 'BannerUpsell',
         visual: {
-          svg: <Upsell />,
+          svg: <BannerUpsell />,
         },
         alias: ['Banner', 'Offer Banner', 'CTA Banner'],
         description:

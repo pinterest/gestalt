@@ -62,7 +62,7 @@ const webComponents = [
   'textfield',
   'toast',
   'tooltip',
-  'upsell',
+  'bannerupsell',
   'video',
   'washanimated',
   'zindex_classes',

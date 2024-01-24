@@ -186,7 +186,7 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
       'TileData',
       'Toast',
       'Tooltip',
-      'Upsell',
+      'BannerUpsell',
       'Video',
       'WashAnimated',
       'ZIndex classes',

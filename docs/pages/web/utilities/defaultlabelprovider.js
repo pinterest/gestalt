@@ -290,7 +290,7 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
       label: 'Processing message',
     },
     {
-      component: 'Upsell',
+      component: 'BannerUpsell',
       prop: 'accessibilityDismissButtonLabel',
       label: 'Dismiss banner',
     },

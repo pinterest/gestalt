@@ -333,8 +333,8 @@ export default function MessagingPriorityAndPlacementPage(): ReactNode {
                 </Link>
               </Text>
               <Text>
-                <Link href="/web/upsell" underline="always">
-                  Upsell
+                <Link href="/web/bannerupsell" underline="always">
+                  BannerUpsell
                 </Link>
               </Text>
             </Flex>

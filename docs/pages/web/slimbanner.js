@@ -192,7 +192,7 @@ Use a regular SlimBanner with a background for dense interfaces where space is a
             cardSize="lg"
             type="don't"
             description={`
-Combine SlimBanners with other components like [Callouts](/web/callout) or [Upsells](/web/upsell).`}
+Combine SlimBanners with other components like [Callouts](/web/callout) or [Upsells](/web/bannerupsell).`}
             sandpackExample={
               <SandpackExample
                 name="Don't - Combine SlimBanners with Callouts or Upsells"
@@ -444,8 +444,8 @@ SlimBanner doesn't depend on DeviceTypeProvider to display a mobile view; instea
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[Upsell](/web/upsell)**
-An Upsell is used to market new features or to encourage a user to try recommendations.
+**[BannerUpsell](/web/bannerupsell)**
+An BannerUpsell is used to market new features or to encourage a user to try recommendations.
 
 **[Callout](/web/callout)**
 Callouts are used at the top-most level of a page to communicate highest-priority information that applies to the entire page or surface. Callouts can be dismissed and are also actionable.

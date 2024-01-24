@@ -20,9 +20,9 @@ The platform name is added to the end of the component name starting with a ".";
 ### Private components 
 
 All private components should be prefixed with a period "."
-(e.g., .Upsell/Visuals.web)
+(e.g., .BannerUpsell/Visuals.web)
 <br/>
-<ImgContainer src="https://i.pinimg.com/originals/8d/21/8c/8d218ca28e35622814ce140fb21fe8d6.png" alt="An example of how we name private components, in this case, Upsell." />
+<ImgContainer src="https://i.pinimg.com/originals/8d/21/8c/8d218ca28e35622814ce140fb21fe8d6.png" alt="An example of how we name private components, in this case, BannerUpsell." />
 
 <br/>
 

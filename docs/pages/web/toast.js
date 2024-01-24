@@ -67,7 +67,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             description={`
 - When, due to an error, a user can’t even continue performing basic tasks like browsing already loaded Pins.
 - When asking a user to confirm that they want to perform an action. Use [ModalAlert](/web/modalalert) instead.
-- When you want to suggest a user spend more money or try new features; use [Upsell](/web/upsell) instead.
+- When you want to suggest a user spend more money or try new features; use [BannerUpsell](/web/bannerupsell) instead.
 - For errors that relate to a specific section or page. Use Callout(/web/callout) or SlimBanner(/web/slimbanner) instead.
 - To guide or educate the user. Use Popover(/web/popover) or Tooltip(/web/tooltip) instead.
         `}
@@ -343,8 +343,8 @@ If  confirmation toast's text with more complex style is required, such as bold 
       **[Tooltip](/web/tooltip)**
       Tooltip provides helpful information regarding an interactive UI element, typically an IconButton. It is displayed on hover or focus of a UI element, and disappears on mouse out or blur.
 
-      **[Upsell](/web/upsell)**
-      Upsell banners are used for paid upgrades, free trials, or marketing promotions.
+      **[BannerUpsell](/web/bannerupsell)**
+      BannerUpsell banners are used for paid upgrades, free trials, or marketing promotions.
 
       **[Callout](/web/callout)**
       Callouts are used at the top-most level of a page to communicate highest-priority information that applies to the entire page or surface. Callouts can be dismissed and are also actionable.

@@ -25,7 +25,7 @@ type Props = {
    */
   submitButtonText: string,
   /**
-   * Label for the submit button used for screen readers. Should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/upsell#Accessibility). Be sure to localize!
+   * Label for the submit button used for screen readers. Should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannerupsell#Accessibility). Be sure to localize!
    */
   submitButtonAccessibilityLabel: string,
   /**
@@ -35,7 +35,7 @@ type Props = {
 };
 
 /**
- * [Upsell.Form](https://gestalt.pinterest.systems/web/upsell#Upsell.Form) can be used to add a short form to Upsell for collecting data from the user.
+ * [BannerUpsell.Form](https://gestalt.pinterest.systems/web/bannerupsell#BannerUpsell.Form) can be used to add a short form to BannerUpsell for collecting data from the user.
  */
 export default function UpsellForm({
   children,
@@ -75,4 +75,4 @@ export default function UpsellForm({
   );
 }
 
-UpsellForm.displayName = 'Upsell.Form';
+UpsellForm.displayName = 'BannerUpsell.Form';

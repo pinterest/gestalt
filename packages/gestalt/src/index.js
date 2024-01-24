@@ -6,6 +6,7 @@ import Avatar from './Avatar';
 import AvatarGroup from './AvatarGroup';
 import Badge from './Badge';
 import BannerOverlay from './BannerOverlay';
+import BannerUpsell from './BannerUpsell';
 import Box from './Box';
 import Button from './Button';
 import ButtonGroup from './ButtonGroup';
@@ -78,7 +79,6 @@ import TextField from './TextField';
 import TileData from './TileData';
 import Toast from './Toast';
 import Tooltip from './Tooltip';
-import Upsell from './Upsell';
 import useFocusVisible from './useFocusVisible';
 import useReducedMotion from './useReducedMotion';
 import Video from './Video';
@@ -92,6 +92,7 @@ export {
   AvatarGroup,
   Badge,
   BannerOverlay,
+  BannerUpsell,
   Box,
   Button,
   ButtonGroup,
@@ -164,7 +165,6 @@ export {
   TileData,
   Toast,
   Tooltip,
-  Upsell,
   useColorScheme,
   useDefaultLabelContext as useDefaultLabel,
   useDeviceType,
