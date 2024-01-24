@@ -7,7 +7,7 @@ export default function Snapshot(): ReactNode {
 
   return (
     <ColorSchemeProvider colorScheme="light">
-      <Box height={450} width={575} color="default">
+      <Box height={600} width={575} color="default">
         <Flex
           gap={{
             row: 1,
