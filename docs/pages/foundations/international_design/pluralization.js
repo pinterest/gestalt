@@ -187,6 +187,7 @@ export default function FormsLayoutOverview(): ReactNode {
         <Box marginTop={10} maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginBottom={10}>
           <List
             type="unordered"
+            spacing="regular"
             label={
               <Text>
                 What about languages that require multiple plural forms, like Arabic?{' '}
@@ -554,7 +555,7 @@ export default function FormsLayoutOverview(): ReactNode {
         </Box>
 
         <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginTop={10} marginBottom={10}>
-          <List type="unordered" label={<Text weight="bold">Note:</Text>}>
+          <List type="unordered" spacing="regular" label={<Text weight="bold">Note:</Text>}>
             <List.Item
               text={
                 <Text inline>
