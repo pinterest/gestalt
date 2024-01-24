@@ -1,3 +1,9 @@
+## 132.1.0 (Jan 24, 2024)
+
+### Minor
+
+- Icon: new icons + update all SVGs files. ([#3380](https://github.com/pinterest/gestalt/pull/3380)) - [Preview link](https://deploy-preview-3380--gestalt.netlify.app?devexample=true)
+
 ## 132.0.3 (Jan 24, 2024)
 
 ### Patch
