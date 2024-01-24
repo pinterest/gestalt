@@ -3,6 +3,7 @@
     {
       "name": "360",
       "categories": ["Utility and tools"],
+      "description": "Indicates the ability to rotate an item to get a 360º view",
       "keywords": ["label", "view"]
     },
     {
@@ -237,11 +238,18 @@
       "keywords": ["back", "left", "previous", "angle"]
     },
     {
+      "name": "arrows-vertical",
+      "categories":["Arrows"],
+      "description": "Description pending",
+      "keywords": []
+    },
+    {
       "name": "arrow-start",
       "categories": ["Arrows"],
       "description": "Indicates the beginning of a sequence in a list of items or pages",
       "keywords": ["first", "start", "beginning", "rewind", "back", "skip"]
     },
+
     {
       "name": "arrow-up",
       "categories": ["Arrows"],
@@ -301,6 +309,12 @@
       "categories": ["Media controls"],
       "description": "Indicates the ability to open the camera settings",
       "keywords": ["photo", "thumbnail", "picture", "image"]
+    },
+    {
+      "name": "camera-flip",
+      "categories": ["Media controls"],
+      "description": "Description pending",
+      "keywords": []
     },
     {
       "name": "camera-roll",
@@ -379,6 +393,12 @@
       "categories": ["Utility and tools"],
       "description": "Indicates setting options are available",
       "keywords": ["settings", "gear", "nut"]
+    },
+    {
+      "name": "collapse",
+      "categories": [],
+      "description": "Description pending",
+      "keywords": []
     },
     {
       "name": "color-picker",
@@ -465,7 +485,6 @@
         "ad"
       ]
     },
-
     {
       "name": "directional-arrow-left",
       "categories": ["Arrows", "Platform specific"],
@@ -533,6 +552,12 @@
       "keywords": ["hide", "view", "privacy"]
     },
     {
+      "name": "expand",
+      "categories": [],
+      "description": "Description pending",
+      "keywords": []
+    },
+    {
       "name": "face-happy",
       "categories": ["Reactions and ratings"],
       "description": "Indicates a super happy feeling or satisfied opinion",
@@ -561,6 +586,18 @@
       "categories": ["Social"],
       "description": "Indicates a Facebook service",
       "keywords": ["logo", "social media"]
+    },
+    {
+      "name": "face-tryon",
+      "categories": ["Utility and tools"],
+      "description": "Description pending",
+      "keywords": []
+    },
+    {
+      "name": "fade",
+      "categories": [],
+      "description": "Description pending",
+      "keywords": []
     },
     {
       "name": "file-box",
@@ -784,13 +821,19 @@
       "keywords": ["assistance", "help", "more", "tooltip"]
     },
     {
+      "name": "information",
+      "categories": ["Utility and tools"],
+      "description": "Indicates more information is available",
+      "keywords": ["assistance", "help", "more", "tooltip"]
+    },
+    {
       "name": "insights-audience",
       "categories": ["Ads and measurement"],
       "description": "Indicates insights from the audience",
       "keywords": ["metrics", "users", "audience", "measurement"]
     },
     {
-      "name": "insights-conversions",
+      "name": "insights-conversion",
       "categories": ["Ads and measurement"],
       "description": "Indicates insights conversion data",
       "keywords": ["metrics", "measurement"]
@@ -988,6 +1031,12 @@
       "keywords": []
     },
     {
+      "name": "overlay-text-outline.svg",
+      "categories": ["Text"],
+      "description": "Indicates text overlay settings",
+      "keywords": []
+    },
+    {
       "name": "overview",
       "categories": ["Ads and measurement"],
       "description": "Indicates a dashboard overview",
@@ -1156,6 +1205,42 @@
       "keywords": ["direct", "paper airplane", "share"]
     },
     {
+      "name": "service-dropbox",
+      "categories": [],
+      "description": "Description pending",
+      "keywords": []
+    },
+    {
+      "name": "service-etsy",
+      "categories": [],
+      "description": "Description pending",
+      "keywords": []
+    },
+    {
+      "name": "service-messenger",
+      "categories": [],
+      "description": "Description pending",
+      "keywords": []
+    },
+    {
+      "name": "service-outlook",
+      "categories": [],
+      "description": "Description pending",
+      "keywords": []
+    },
+    {
+      "name": "service-yahoo",
+      "categories": [],
+      "description": "Description pending",
+      "keywords": []
+    },
+    {
+      "name": "service-youtube",
+      "categories": [],
+      "description": "Description pending",
+      "keywords": []
+    },
+    {
       "name": "share",
       "categories": ["Platform specific"],
       "description": "On iOS, indicates the ability to share an element",
@@ -1166,6 +1251,12 @@
       "categories": ["Utility and tools"],
       "description": "Indicates a shopping bag on shopping experience",
       "keywords": ["cart", "buying"]
+    },
+    {
+      "name": "shrink",
+      "categories": [],
+      "description": "Description pending",
+      "keywords": []
     },
     {
       "name": "skintone",
@@ -1226,6 +1317,12 @@
       "categories": ["Utility and tools"],
       "description": "Indicates the ability to comment. Use for the unselected state or when grouped with other outlined icons.",
       "keywords": ["chat", "message", "comment", "bubble"]
+    },
+    {
+      "name": "spread",
+      "categories": [],
+      "description": "Description pending",
+      "keywords": []
     },
     {
       "name": "star-outline",
@@ -1517,10 +1614,10 @@
       "keywords": []
     },
     {
-      "name": "workflow-status-warning",
-      "categories": ["Status"],
-      "description": "Indicates an element's state as warning",
-      "keywords": ["error", "alert", "exclamation", "awareness"]
+      "name": "x",
+      "categories": ["Social"],
+      "description": "Description pending",
+      "keywords": ["Twitter"]
     }
   ]
 }
