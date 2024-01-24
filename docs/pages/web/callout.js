@@ -114,7 +114,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             cardSize="lg"
             type="don't"
             description={`
-        Stack Callouts. In the case that banners must be stacked, Callouts should come before Upsells.
+        Stack Callouts. In the case that banners must be stacked, Callouts should come before BannerUpsells.
         `}
             sandpackExample={
               <SandpackExample

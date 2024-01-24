@@ -346,7 +346,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         },
         alias: ['Banner', 'Offer Banner', 'CTA Banner'],
         description:
-          'Upsells are banners that display short messages that focus on promoting an action or upgrading something the user already has.',
+          'BannerUpsells are banners that display short messages that focus on promoting an action or upgrading something the user already has.',
         category: ['Messaging'],
         status: {
           accessible: {

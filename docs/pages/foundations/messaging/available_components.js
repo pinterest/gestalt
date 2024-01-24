@@ -113,7 +113,7 @@ Toasts can be used to:
 A popover can be formatted to provide help and guidance around new features, or features a user may not be aware of.
 
 **[BannerUpsell](/web/bannerupsell)**
-Upsells are on-page banners that encourage more ad spend and upgrades. They can also be used to promote and market new features.
+BannerUpsells are on-page banners that encourage more ad spend and upgrades. They can also be used to promote and market new features.
 
 **Error message variants**
 Variants for other non-messaging components that provide a way to show an error message (simple error status indicators are not included)..

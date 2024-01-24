@@ -76,7 +76,7 @@ export default function DocsPage({
           <MainSection.Card
             cardSize="lg"
             type="do"
-            description="Use Upsells for marketing new products or encouraging upgrades."
+            description="Use BannerUpsells for marketing new products or encouraging upgrades."
             sandpackExample={
               <SandpackExample
                 name="Use for Marketing New Products & Encouraging Upgrades"
@@ -108,7 +108,7 @@ export default function DocsPage({
             cardSize="lg"
             type="do"
             description={`
-        Plan for the timing of your Upsells with new product launches. Try to create different messages for each time an BannerUpsell appears to the user.
+        Plan for the timing of your BannerUpsells with new product launches. Try to create different messages for each time an BannerUpsell appears to the user.
         `}
             sandpackExample={
               <SandpackExample
@@ -125,7 +125,7 @@ export default function DocsPage({
             cardSize="lg"
             type="don't"
             description={`
-          Use Upsells for critical information, such as errors or warnings. Use [Callout](/web/callout) instead. Upsells should not be used for general information either.
+          Use BannerUpsells for critical information, such as errors or warnings. Use [Callout](/web/callout) instead. BannerUpsells should not be used for general information either.
         `}
             sandpackExample={
               <SandpackExample
@@ -143,7 +143,7 @@ export default function DocsPage({
             cardSize="lg"
             type="don't"
             description={`
-        Stack Upsells on a page. In the case that they must be stacked, [Callouts](/web/callout) will appear above Upsells.
+        Stack BannerUpsells on a page. In the case that they must be stacked, [Callouts](/web/callout) will appear above BannerUpsells.
         `}
             sandpackExample={
               <SandpackExample
@@ -161,7 +161,7 @@ export default function DocsPage({
             cardSize="lg"
             type="don't"
             description={`
-        Keep showing the same BannerUpsell once it has been dismissed. Upsells should only appear a maximum of 2 times to the same user, as they have diminishing returns.
+        Keep showing the same BannerUpsell once it has been dismissed. BannerUpsells should only appear a maximum of 2 times to the same user, as they have diminishing returns.
         `}
             sandpackExample={
               <SandpackExample
@@ -187,7 +187,7 @@ export default function DocsPage({
 
       For the \`dismissButton\` [IconButton](/web/iconbutton), the label provided should indicate the intent, like “Dismiss this banner”.
 
-      The [Image](/web/image) or [Icon](/web/icon) supplied to \`imageData\` should only supply an \`alt\` or \`accessibilityLabel\`, respectively, if the Image or Icon supplies extra context or information. Icons in Upsells are often purely decorative, and can therefore have an empty string as the \`accessibilityLabel\`.
+      The [Image](/web/image) or [Icon](/web/icon) supplied to \`imageData\` should only supply an \`alt\` or \`accessibilityLabel\`, respectively, if the Image or Icon supplies extra context or information. Icons in BannerUpsells are often purely decorative, and can therefore have an empty string as the \`accessibilityLabel\`.
       `}
         >
           <MainSection.Card
@@ -277,7 +277,7 @@ Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvid
         <MainSection.Subsection
           title="Actions"
           description={`
-      Upsells can have either one primary action, or a primary action and a secondary action. These actions can be buttons, when no \`href\` is supplied, or links, by specifying the \`href\`  property.
+          BannerUpsells can have either one primary action, or a primary action and a secondary action. These actions can be buttons, when no \`href\` is supplied, or links, by specifying the \`href\`  property.
 
       BannerUpsell actions with link interaction can be paired with GlobalEventsHandlerProvider. See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
 
@@ -300,7 +300,7 @@ Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvid
 
         <MainSection.Subsection
           title="Forms"
-          description={`Inputs can be added to Upsells to collect information from users (ex: name or email) through the use of \`BannerUpsell.Form\`. Most Upsells should have no more than 2 inputs. If more inputs are needed, direct users to a full page using the \`primaryAction\`.`}
+          description={`Inputs can be added to BannerUpsells to collect information from users (ex: name or email) through the use of \`BannerUpsell.Form\`. Most BannerUpsells should have no more than 2 inputs. If more inputs are needed, direct users to a full page using the \`primaryAction\`.`}
         >
           <MainSection.Card
             cardSize="lg"

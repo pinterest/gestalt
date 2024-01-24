@@ -337,7 +337,7 @@ export default function ModalAlertPage({
         <MainSection.Subsection
           description={`
         **[Toast](/web/toast)**
-        Toast provides feedback shortly after a user interaction, like a confirmation that appears when a Pin has been saved. Unlike Upsells and SlimBanners, toasts overlay Page content. They also automatically disappear after a certain amount of time without being dismissed by the user.
+        Toast provides feedback shortly after a user interaction, like a confirmation that appears when a Pin has been saved. Unlike BannerUpsells and SlimBanners, toasts overlay Page content. They also automatically disappear after a certain amount of time without being dismissed by the user.
 
         **[Callout](/web/callout)**
         Callouts are used at the top-most level of a page to communicate highest-priority information that applies to the entire page or surface. Callouts can be dismissed and are also actionable.
