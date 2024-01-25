@@ -1,3 +1,9 @@
+## 132.1.1 (Jan 25, 2024)
+
+### Patch
+
+- Docs: updates in accessibility content and links URLs ([#3382](https://github.com/pinterest/gestalt/pull/3382)) - [Preview link](https://deploy-preview-3382--gestalt.netlify.app?devexample=true)
+
 ## 132.1.0 (Jan 24, 2024)
 
 ### Minor
