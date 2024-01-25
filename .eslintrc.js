@@ -31,7 +31,6 @@ module.exports = {
     'react-hooks',
     'simple-import-sort',
     'testing-library',
-    'ui-testing',
     'validate-jsx-nesting',
   ],
   'settings': {
@@ -170,13 +169,6 @@ module.exports = {
       'files': ['**/*.flowtest.js'],
       'rules': {
         'no-unused-vars': OFF,
-      },
-    },
-    {
-      'files': ['performance-tests/*.mjs'],
-      'extends': ['plugin:ui-testing/puppeteer'],
-      'rules': {
-        'no-console': OFF,
       },
     },
     {
