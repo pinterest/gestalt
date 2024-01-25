@@ -108,7 +108,7 @@ const labels = {
     accessibilityIconErrorLabel: myI18nTranslator('Error message'),
     accessibilityProcessingLabel: myI18nTranslator('Processing message'),
   },
-  Upsell: {
+  BannerUpsell: {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss banner'),
   },
   Video: {

@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BannerUpsellForm renders 1`] = `
+<form
+  onSubmit={[Function]}
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="Flex rowGap2 columnGap0 flexWrap justifyEnd xsDirectionRow"
+  >
+    <div
+      className="FlexItem flexGrow"
+    >
+      <div
+        className="box marginBottom0 smMarginBottom2"
+      >
+        <span>
+          <div
+            className="box relative"
+          >
+            <input
+              aria-invalid="false"
+              className="textField base enabled normal medium md truncate"
+              disabled={false}
+              id="name"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              placeholder="Name"
+              readOnly={false}
+              type="text"
+            />
+          </div>
+        </span>
+      </div>
+    </div>
+    <div
+      className="FlexItem"
+    >
+      <button
+        aria-label="Submit button"
+        className="button hideOutline inline accessibilityOutline tapTransition md red enabled"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="submit"
+      >
+        <div
+          className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+        >
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+            >
+              Submit
+            </div>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</form>
+`;

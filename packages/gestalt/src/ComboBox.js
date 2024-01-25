@@ -1,33 +1,33 @@
 // @flow strict
 import {
-  type AbstractComponent,
-  cloneElement,
-  type Element,
-  forwardRef,
   Fragment,
-  type Node as ReactNode,
-  type Ref,
+  cloneElement,
+  forwardRef,
   useCallback,
   useEffect,
   useImperativeHandle,
   useMemo,
   useRef,
   useState,
+  type AbstractComponent,
+  type Element,
+  type Node as ReactNode,
+  type Ref,
 } from 'react';
 import Box from './Box';
 import ComboBoxItem, { type ComboBoxItemType } from './ComboBox/Item';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
-import { DOWN_ARROW, ENTER, ESCAPE, TAB, UP_ARROW } from './keyCodes';
 import Layer from './Layer';
 import Popover from './Popover';
 import Tag from './Tag';
 import Text from './Text';
 import InternalTextField from './TextField/InternalTextField';
 import InternalTextFieldIconButton from './TextField/InternalTextFieldIconButton';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import { DOWN_ARROW, ENTER, ESCAPE, TAB, UP_ARROW } from './keyCodes';
 import useInExperiment from './useInExperiment';
 import handleContainerScrolling, {
-  type DirectionOptionType,
   KEYS,
+  type DirectionOptionType,
 } from './utils/keyboardNavigation';
 import { type Indexable } from './zIndex';
 

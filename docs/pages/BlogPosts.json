@@ -1106,11 +1106,11 @@
             "content": "Introducing our newest component, [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducational)! This component is a specialized version of Popover for use in educational or onboarding experiences. Check it out!"
           },
           {
-            "title": "Component updates: Badge, OverlayPanel, ScrollBoundaryContainer, SideNavigation, Table, Toast, Upsell, WashAnimated",
+            "title": "Component updates: Badge, OverlayPanel, ScrollBoundaryContainer, SideNavigation, Table, Toast, BannerUpsell, WashAnimated",
             "audience": ["Engineering"],
             "imageSrc": "https://i.pinimg.com/originals/ba/78/84/ba7884a773665bc2e203b55a4701067a.png",
             "imageAltText": "Screenshot of redesigned Toast",
-            "content": "We shipped new treatments for [Badge](https://gestalt.pinterest.systems/web/badge) and [Toast](https://gestalt.pinterest.systems/web/toast). We also renamed a couple of components to make room for future component development: Sheet is now [OverlayPanel](https://gestalt.pinterest.systems/web/overlaypanel), and Card is now [WashAnimated](https://gestalt.pinterest.systems/web/washanimated). OverlayPanel now also has the ability to add a [dismiss confirmation modal](https://gestalt.pinterest.systems/web/overlaypanel#Dismiss-confirmation). [ScrollBoundaryContainer's `overflow` prop](https://gestalt.pinterest.systems/web/utilities/scrollboundarycontainer#Overflow) now has a `'visible'` option, preventing visual bugs in certain situations. SideNavigation.TopItem and SideNavigation.Group [can accept a `primaryAction`](https://gestalt.pinterest.systems/web/sidenavigation#Primary-action), adding an icon button to the list item. [Table.Footer](https://gestalt.pinterest.systems/web/table#Sticky-header-and-footer) can be just as `sticky` as the header. And [Upsell's `message` prop](https://gestalt.pinterest.systems/web/upsell#Message) now accepts Text in addition to strings, allowing for more flexibility in the content."
+            "content": "We shipped new treatments for [Badge](https://gestalt.pinterest.systems/web/badge) and [Toast](https://gestalt.pinterest.systems/web/toast). We also renamed a couple of components to make room for future component development: Sheet is now [OverlayPanel](https://gestalt.pinterest.systems/web/overlaypanel), and Card is now [WashAnimated](https://gestalt.pinterest.systems/web/washanimated). OverlayPanel now also has the ability to add a [dismiss confirmation modal](https://gestalt.pinterest.systems/web/overlaypanel#Dismiss-confirmation). [ScrollBoundaryContainer's `overflow` prop](https://gestalt.pinterest.systems/web/utilities/scrollboundarycontainer#Overflow) now has a `'visible'` option, preventing visual bugs in certain situations. SideNavigation.TopItem and SideNavigation.Group [can accept a `primaryAction`](https://gestalt.pinterest.systems/web/sidenavigation#Primary-action), adding an icon button to the list item. [Table.Footer](https://gestalt.pinterest.systems/web/table#Sticky-header-and-footer) can be just as `sticky` as the header. And [BannerUpsell's `message` prop](https://gestalt.pinterest.systems/web/bannerupsell#Message) now accepts Text in addition to strings, allowing for more flexibility in the content."
           },
           {
             "title": "Docs updates",
@@ -1941,11 +1941,11 @@
             "content": "OK, we'll own up to it, our IconButton Figma components were a smidge _lacking_. We took the first step towards a better IconButton by adding background color variants to the [Web Figma library](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=2508%3A18626)."
           },
           {
-            "title": "Vastly simplified Figma Web Upsell component",
+            "title": "Vastly simplified Figma Web BannerUpsell component",
             "audience": ["Design"],
             "imageSrc": "https://i.pinimg.com/originals/1c/0c/41/1c0c41478c854761244c78ce5b9b6ae5.png",
-            "imageAltText": "Screenshot comparing before and after examples of the Figma Web Upsell simplification",
-            "content": "We don't want to oversell our work, but the [Figma Web Upsell component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=12901%3A28954) is in a _much_ better place now. We cut down the number of variants by over 32x! And to be clear, you have all the same options as before, they're now available in the component's properties panel. That said, we have a bit of retrofitting to do after this major overhaul, so expect another update to tune things up in the next two weeks."
+            "imageAltText": "Screenshot comparing before and after examples of the Figma Web BannerUpsell simplification",
+            "content": "We don't want to oversell our work, but the [Figma Web BannerUpsell component](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?node-id=12901%3A28954) is in a _much_ better place now. We cut down the number of variants by over 32x! And to be clear, you have all the same options as before, they're now available in the component's properties panel. That said, we have a bit of retrofitting to do after this major overhaul, so expect another update to tune things up in the next two weeks."
           },
           {
             "title": "Figma listening session in August's Gestalt Open Forum",

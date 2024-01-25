@@ -145,7 +145,7 @@ export default function DatePickerPage({
             title="When not to use"
             description={`
 - When users need to select one specific day. Use [DatePicker](/web/datepicker) instead
-- When users need to input a date value with a numeric keyboard, for example when adding a birthday date. Use [DateField](/datefield) instead
+- When users need to input a date value with a numeric keyboard, for example when adding a birthday date. Use [DateField](/web/datefield) instead
 `}
           />
         </MainSection.Subsection>

@@ -1,5 +1,5 @@
 // @flow strict
-import { type AbstractComponent, forwardRef, type Node as ReactNode } from 'react';
+import { forwardRef, type AbstractComponent, type Node as ReactNode } from 'react';
 import InternalTextField from './TextField/InternalTextField';
 
 // <input> deals with strings, but we only want numbers for this component.

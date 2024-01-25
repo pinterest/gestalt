@@ -142,6 +142,7 @@ type Icons =
   | 'circle-outline'
   | 'clear'
   | 'clock'
+  | 'clock-checked'
   | 'code'
   | 'code-checked'
   | 'cog'
@@ -480,7 +481,7 @@ interface DefaultLabelProviderProps {
           accessibilityHidePasswordLabel: string;
           accessibilityShowPasswordLabel: string;
         };
-        Upsell: {
+        BannerUpsell: {
           accessibilityDismissButtonLabel: string;
         };
         Video: {
@@ -2343,7 +2344,7 @@ interface ExtendedTooltipProps extends TooltipTemp {
 
 interface UpsellProps {
   message: string | React.ReactElement<typeof Text>;
-  children?: React.ReactElement<typeof Upsell.Form>;
+  children?: React.ReactElement<typeof BannerUpsell.Form>;
   dismissButton?:
     | {
         accessibilityLabel?: string;
@@ -2935,11 +2936,11 @@ export interface UpsellSubComponents {
 }
 
 /**
- * https://gestalt.pinterest.systems/web/upsell
+ * https://gestalt.pinterest.systems/web/bannerupsell
  * Subcomponents:
- * https://gestalt.pinterest.systems/web/upsell#Upsell.Form
+ * https://gestalt.pinterest.systems/web/bannerupsell#BannerUpsell.Form
  */
-export const Upsell: React.FunctionComponent<UpsellProps> & UpsellSubComponents;
+export const BannerUpsell: React.FunctionComponent<UpsellProps> & UpsellSubComponents;
 
 /**
  * https://gestalt.pinterest.systems/web/video

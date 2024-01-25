@@ -1,3 +1,57 @@
+## 133.0.0 (Jan 25, 2024)
+
+### Major
+
+- Upsell: Rename to BannerUpsell ([#3384](https://github.com/pinterest/gestalt/pull/3384)) - [Preview link](https://deploy-preview-3384--gestalt.netlify.app?devexample=true)
+
+## 132.1.4 (Jan 25, 2024)
+
+### Patch
+
+- Icon: added clock-checked icon ([#3385](https://github.com/pinterest/gestalt/pull/3385)) - [Preview link](https://deploy-preview-3385--gestalt.netlify.app?devexample=true)
+
+## 132.1.3 (Jan 25, 2024)
+
+### Patch
+
+- AvatarGroup: Fix rerenders on hover ([#3381](https://github.com/pinterest/gestalt/pull/3381)) - [Preview link](https://deploy-preview-3381--gestalt.netlify.app?devexample=true)
+
+## 132.1.2 (Jan 25, 2024)
+
+### Patch
+
+- Docs: Small fixes to i18n docs ([#3383](https://github.com/pinterest/gestalt/pull/3383)) - [Preview link](https://deploy-preview-3383--gestalt.netlify.app?devexample=true)
+
+## 132.1.1 (Jan 25, 2024)
+
+### Patch
+
+- Docs: updates in accessibility content and links URLs ([#3382](https://github.com/pinterest/gestalt/pull/3382)) - [Preview link](https://deploy-preview-3382--gestalt.netlify.app?devexample=true)
+
+## 132.1.0 (Jan 24, 2024)
+
+### Minor
+
+- Icon: new icons + update all SVGs files. ([#3380](https://github.com/pinterest/gestalt/pull/3380)) - [Preview link](https://deploy-preview-3380--gestalt.netlify.app?devexample=true)
+
+## 132.0.3 (Jan 24, 2024)
+
+### Patch
+
+- Tooltip: Fix v2 experiment name ([#3379](https://github.com/pinterest/gestalt/pull/3379)) - [Preview link](https://deploy-preview-3379--gestalt.netlify.app?devexample=true)
+
+## 132.0.2 (Jan 24, 2024)
+
+### Patch
+
+- Icon: update visual snapshot ([#3378](https://github.com/pinterest/gestalt/pull/3378)) - [Preview link](https://deploy-preview-3378--gestalt.netlify.app?devexample=true)
+
+## 132.0.1 (Jan 22, 2024)
+
+### Patch
+
+- Docs: fix broken links ([#3377](https://github.com/pinterest/gestalt/pull/3377)) - [Preview link](https://deploy-preview-3377--gestalt.netlify.app?devexample=true)
+
 ## 132.0.0 (Jan 22, 2024)
 
 ### Major

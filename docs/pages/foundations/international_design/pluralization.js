@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node as ReactNode } from 'react';
-import { Box, Flex, Image, Mask, SlimBanner, Table, Text } from 'gestalt';
+import { Box, Flex, Image, Link, List, Mask, SlimBanner, Table, Text } from 'gestalt';
 import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts';
 import MainSection from '../../../docs-components/MainSection';
 import Markdown from '../../../docs-components/Markdown';
@@ -185,13 +185,56 @@ export default function FormsLayoutOverview(): ReactNode {
         </Flex>
 
         <Box marginTop={10} maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginBottom={10}>
-          <Markdown
-            text={`
-            What about languages that require multiple plural forms, like Arabic? [Arabic has six plural forms](https://www.unicode.org/cldr/charts/42/supplemental/language_plural_rules.html#ar). If we want accurate translations for the above message, we need six versions. The localization industry has used two different approaches for pluralization in Arabic:
-
-            * **Approach 1, for required placeholders:** (currently used at Pinterest) is grammatically incorrect but commonly used and acceptable. This approach has been used for in-app strings because a placeholder representing the integer is needed and can’t be omitted. This approach shouldn’t be used in site content where pluralization doesn’t require using placeholders for integers (ex: Help Center, Policy, Marketing content …).
-            * **Approach 2, when placeholders aren’t required:** is grammatically correct but could be challenging when used for in-app strings because it requires omitting integer placeholders.`}
-          />
+          <List
+            type="unordered"
+            spacing="regular"
+            label={
+              <Text>
+                What about languages that require multiple plural forms, like Arabic?{' '}
+                <Text inline>
+                  <Link
+                    href="https://www.unicode.org/cldr/charts/42/supplemental/language_plural_rules.html#ar"
+                    display="inline"
+                    externalLinkIcon="default"
+                    target="blank"
+                    rel="nofollow"
+                  >
+                    Arabic has six plural forms
+                  </Link>
+                  . If we want accurate translations for the above message, we need six versions.
+                  The localization industry has used two different approaches for pluralization in
+                  Arabic:
+                </Text>
+              </Text>
+            }
+          >
+            <List.Item
+              text={
+                <Text weight="bold">
+                  Approach 1, for required placeholders:{' '}
+                  <Text inline>
+                    (currently used at Pinterest) is grammatically incorrect but commonly used and
+                    acceptable. This approach has been used for in-app strings because a placeholder
+                    representing the integer is needed and can’t be omitted. This approach shouldn’t
+                    be used in site content where pluralization doesn’t require using placeholders
+                    for integers (ex: Help Center, Policy, Marketing content).
+                  </Text>
+                </Text>
+              }
+            />
+            <List.Item
+              text={
+                <Text weight="bold">
+                  Approach 2, when placeholders aren’t required:{' '}
+                  <Text inline>
+                    {' '}
+                    is grammatically correct but could be challenging when used for in-app strings
+                    because it requires omitting integer placeholders.
+                  </Text>
+                </Text>
+              }
+            />
+          </List>
         </Box>
 
         <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginBottom={10}>
@@ -512,12 +555,27 @@ export default function FormsLayoutOverview(): ReactNode {
         </Box>
 
         <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginTop={10} marginBottom={10}>
-          <Markdown
-            text={`
-            **Note:**
-            * The Internationalization Team—engineering specifically—should check [CLDR (Common Locale Data Repository)](https://www.unicode.org/cldr/charts/44/supplemental/language_plural_rules.html) to see how this could be implemented for in-app strings
-            * When translating for larger contents (websites), the second approach, the grammatically correct one, should be implemented  `}
-          />
+          <List type="unordered" spacing="regular" label={<Text weight="bold">Note:</Text>}>
+            <List.Item
+              text={
+                <Text inline>
+                  {' '}
+                  The Internationalization Team—engineering specifically—should check{' '}
+                  <Link
+                    href="https://www.unicode.org/cldr/charts/44/supplemental/language_plural_rules.html"
+                    display="inline"
+                    externalLinkIcon="default"
+                    target="blank"
+                    rel="nofollow"
+                  >
+                    CLDR (Common Locale Data Repository)
+                  </Link>{' '}
+                  to see how this could be implemented for in-app strings{' '}
+                </Text>
+              }
+            />
+            <List.Item text="When translating for larger contents (websites), the second approach, the grammatically correct one, should be implemented" />
+          </List>
         </Box>
 
         <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginBottom={10}>
@@ -618,10 +676,10 @@ export default function FormsLayoutOverview(): ReactNode {
           description={`
         Each platform at Pinterest has a special function/macro to handle pluralization:
 
-        * [Pinboard Wiki page](https://w.pinadmin.com/display/GT/Internationalization+in+Pinboard)
-        * [Webapp Wiki page](https://w.pinadmin.com/display/GT/Internationalization+%28i18n%29+on+the+web+platform)
+        * [Pinboard Wiki page](https://pinch/i18n-in-pinboard)
+        * [Webapp Wiki page](https://pinhch/i18n-in-web)
         * [Android official documentation](https://developer.android.com/guide/topics/resources/string-resource#Plurals)
-        * iOS: briefly mentioned in the [Working with Localization Wiki page](https://w.pinadmin.com/display/IOS/Working+with+Localization)
+        * iOS: briefly mentioned in the [Working with Localization Wiki page](https://pinch/working-l10n)
         `}
         />
 
@@ -649,7 +707,7 @@ export default function FormsLayoutOverview(): ReactNode {
             `}
           />
         </Box>
-        <Box maxHeight={459} marginBottom={3} borderStyle="sm" rounding={4}>
+        <Box maxHeight={459} marginBottom={10} borderStyle="sm" rounding={4}>
           <Mask rounding={4}>
             <Image
               alt="Example of timestamp of a Pin wrongly pluralizared, with the output 'two minute ago'"

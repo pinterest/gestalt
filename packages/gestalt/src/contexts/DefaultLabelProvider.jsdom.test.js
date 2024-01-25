@@ -115,7 +115,7 @@ describe('useDefaultLabelContext', () => {
             accessibilityIconErrorLabel: 'Error message',
             accessibilityProcessingLabel: 'Processing message',
           },
-          Upsell: {
+          BannerUpsell: {
             accessibilityDismissButtonLabel: 'Dismiss banner',
           },
           Video: {

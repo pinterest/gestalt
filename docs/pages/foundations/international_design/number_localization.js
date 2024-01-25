@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node as ReactNode } from 'react';
-import { Box, Flex, Image, Mask, SlimBanner, Table, Text } from 'gestalt';
+import { Box, Flex, Image, Link, List, Mask, SlimBanner, Table, Text } from 'gestalt';
 import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts';
 import MainSection from '../../../docs-components/MainSection';
 import Markdown from '../../../docs-components/Markdown';
@@ -336,7 +336,7 @@ export default function FormsLayoutOverview(): ReactNode {
 
         <MainSection.Subsection
           title="Phone numbers"
-          description={`Phone numbers are formatted differently depending on the country. Use [these regional guidelines](https://docs.google.com/spreadsheets/d/1tW_Uri1CPsJiJCaq6CYFAuIB95gSvMgrPEDiyQ0JfPM/edit#gid=703821290) 18n libraries to learn how they're formatted in each language.`}
+          description={`Phone numbers are formatted differently depending on the country. Use [these regional guidelines](http://pinch/local-formats-i18n) 18n libraries to learn how they're formatted in each language.`}
         />
 
         <MainSection.Subsection title="Time and dates" />
@@ -369,21 +369,85 @@ export default function FormsLayoutOverview(): ReactNode {
 
         <MainSection.Subsection title="Follow i18n libraries" />
         <Box marginTop={-4} maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginBottom={10}>
-          <Markdown
-            text={`
-            Don't try to reinvent all of that from scratch! Instead, make your life easier by using i18n libraries that already encode all of those standards and practices:
-
-            * **[ICU](https://github.com/unicode-org/icu) - (International Components for Unicode)**: ICU is a mature, widely used set of C/C++ and Java libraries providing Unicode and Globalization support for software applications. ICU libraries (bindings) can be found for most popular languages (PyICU, ICU4J, ICU4C, etc.).
-            * **[CLDR](https://cldr.unicode.org/) (Unicode Common Locale Data Repository)**: provides locale-specific patterns for formatting and parsing:
-              * Dates
-              * Times
-              * Time zones
-              * Numbers
-              * Currency values
-              * Measurement units
-              * Translations of names (such as languages, scripts, time zones etc)
-            * **Language-specific libraries** (for example: [FormatJS](https://formatjs.io/) and [i18next](https://www.i18next.com/))`}
-          />
+          <List type="unordered" spacing="condensed">
+            <List.Item
+              text={
+                <Text inline weight="bold">
+                  <Link
+                    href="https://github.com/unicode-org/icu"
+                    display="inline"
+                    externalLinkIcon="default"
+                    target="blank"
+                    rel="nofollow"
+                  >
+                    ICU
+                  </Link>{' '}
+                  (International Components for Unicode):{' '}
+                  <Text inline>
+                    {' '}
+                    ICU is a mature, widely used set of C/C++ and Java libraries providing Unicode
+                    and Globalization support for software applications. ICU libraries (bindings)
+                    can be found for most popular languages (PyICU, ICU4J, ICU4C etc.)
+                  </Text>
+                </Text>
+              }
+            />
+            <List.Item
+              text={
+                <Text inline weight="bold">
+                  <Link
+                    href="https://cldr.unicode.org/"
+                    display="inline"
+                    externalLinkIcon="default"
+                    target="blank"
+                    rel="nofollow"
+                  >
+                    CLDR
+                  </Link>{' '}
+                  (Unicode Common Locale Data Repository):{' '}
+                  <Text inline> provides locale-specific patterns for formatting and parsing:</Text>
+                </Text>
+              }
+            >
+              <List.Item text="Dates" />
+              <List.Item text="Times" />
+              <List.Item text="Time zones" />
+              <List.Item text="Numbers" />
+              <List.Item text="Currency values" />
+              <List.Item text="Measurement units" />
+              <List.Item text="Translations of names (such as languages, scripts, time zones etc)" />
+            </List.Item>
+            <List.Item
+              text={
+                <Text inline weight="bold">
+                  {' '}
+                  Language-specific libraries,{' '}
+                  <Text inline>
+                    for example:{' '}
+                    <Link
+                      href="https://formatjs.io/"
+                      display="inline"
+                      externalLinkIcon="default"
+                      target="blank"
+                      rel="nofollow"
+                    >
+                      FormatJS
+                    </Link>{' '}
+                    and{' '}
+                    <Link
+                      href="https://www.i18next.com/"
+                      display="inline"
+                      externalLinkIcon="default"
+                      target="blank"
+                      rel="nofollow"
+                    >
+                      i18next
+                    </Link>
+                  </Text>
+                </Text>
+              }
+            />
+          </List>
         </Box>
 
         <MainSection.Subsection columns={2}>
@@ -395,7 +459,7 @@ export default function FormsLayoutOverview(): ReactNode {
             - Plan for text expansion: lay out your elements in a way where text expansion doesn't hinder your information hierarchy
             - Flexible design for varying language length and font size
             - Use pseudo-localization to find problems
-            - [Rely on local formats](https://docs.google.com/spreadsheets/d/1tW_Uri1CPsJiJCaq6CYFAuIB95gSvMgrPEDiyQ0JfPM/edit#gid=703821290) and i18n libraries
+            - [Rely on local formats](http://pinch/local-formats-i18n) and i18n libraries
         `}
           />
           <MainSection.Card
