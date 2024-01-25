@@ -1,16 +1,16 @@
 // @flow strict
 import {
-  forwardRef,
-  useEffect,
-  useState,
   type AbstractComponent,
   type Element,
+  forwardRef,
   type Node as ReactNode,
+  useEffect,
+  useState,
 } from 'react';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Tag from './Tag';
 import InternalTextField from './TextField/InternalTextField';
 import InternalTextFieldIconButton from './TextField/InternalTextFieldIconButton';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 
 export type MaxLength = {
   characterCount: number,

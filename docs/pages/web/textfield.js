@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { type DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
 import MainSection from '../../docs-components/MainSection';
@@ -8,7 +9,6 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
-import docGen, { type DocGen } from '../../docs-components/docgen';
 import considerAllFieldsAsRequired from '../../examples/textfield/considerAllFieldsAsRequired';
 import disabledExample from '../../examples/textfield/disabledExample';
 import dontDisplayGenericErrorMessages from '../../examples/textfield/dontDisplayGenericErrorMessages';
@@ -19,8 +19,8 @@ import dontRemoveLabel from '../../examples/textfield/dontRemoveLabel';
 import ensureVisibleLabel from '../../examples/textfield/ensureVisibleLabel';
 import errorMessageExample from '../../examples/textfield/errorMessageExample';
 import helperTextExplainOptionalInfo from '../../examples/textfield/helperTextExplainOptionalInfo';
-import labelVisibilityExample from '../../examples/textfield/labelVisibilityExample';
 import labelsExample from '../../examples/textfield/labelsExample';
+import labelVisibilityExample from '../../examples/textfield/labelVisibilityExample';
 import localizationLabels from '../../examples/textfield/localizationLabels';
 import main from '../../examples/textfield/main';
 import maximumLengthExample from '../../examples/textfield/maximumLengthExample';
