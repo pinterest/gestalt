@@ -1,3 +1,9 @@
+## 132.1.3 (Jan 25, 2024)
+
+### Patch
+
+- AvatarGroup: Fix rerenders on hover ([#3381](https://github.com/pinterest/gestalt/pull/3381)) - [Preview link](https://deploy-preview-3381--gestalt.netlify.app?devexample=true)
+
 ## 132.1.2 (Jan 25, 2024)
 
 ### Patch
