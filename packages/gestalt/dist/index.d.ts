@@ -142,6 +142,7 @@ type Icons =
   | 'circle-outline'
   | 'clear'
   | 'clock'
+  | 'clock-checked'
   | 'code'
   | 'code-checked'
   | 'cog'

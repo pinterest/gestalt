@@ -62,6 +62,7 @@ import chevronUpCircle from './chevron-up-circle.svg';
 import circleOutline from './circle-outline.svg';
 import clear from './clear.svg';
 import clock from './clock.svg';
+import clockChecked from './clock-checked.svg';
 import code from './code.svg';
 import codeChecked from './code-checked.svg';
 import cog from './cog.svg';
@@ -327,6 +328,7 @@ const icons = Object.freeze({
   'circle-outline': circleOutline,
   clear,
   clock,
+  'clock-checked': clockChecked,
   code,
   'code-checked': codeChecked,
   cog,
