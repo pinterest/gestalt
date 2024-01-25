@@ -2,8 +2,8 @@
 import {
   type AbstractComponent,
   forwardRef,
+  Fragment,
   type Node as ReactNode,
-  useCallback,
   useState,
 } from 'react';
 import AddCollaboratorsButton from './AvatarGroup/AddCollaboratorsButton';
@@ -131,58 +131,48 @@ const AvatarGroupWithForwardRef: AbstractComponent<Props, UnionRefs> = forwardRe
       (showCollaboratorsCount ? 1 : 0) +
       (showAddCollaboratorsButton ? 1 : 0);
 
-    let collaboratorStack: $ReadOnlyArray<ReactNode> = displayedCollaborators.map(
-      ({ src, name }, index) => (
-        <CollaboratorAvatar
-          hovered={hovered}
-          index={index}
-          // eslint-disable-next-line react/no-array-index-key
-          key={`collaboratorStack-${name}-${index}`}
-          name={name}
-          pileCount={pileCount}
-          size={size}
-          src={src || ''}
-        />
-      ),
+    const collaboratorStack = (
+      <Fragment>
+        {displayedCollaborators.map(({ src, name }, index) => (
+          <CollaboratorAvatar
+            hovered={hovered}
+            index={index}
+            key={`collaboratorStack-${name}-${index}`} // eslint-disable-line react/no-array-index-key
+            name={name}
+            pileCount={pileCount}
+            size={size}
+            src={src || ''}
+          />
+        ))}
+        {showCollaboratorsCount && (
+          <CollaboratorsCount
+            count={collaborators.length - 2}
+            showAddCollaboratorsButton={showAddCollaboratorsButton}
+            hovered={hovered}
+            key={`collaboratorStack-count-${collaborators.length}`}
+            pileCount={pileCount}
+            size={size}
+          />
+        )}
+        {showAddCollaboratorsButton && (
+          <AddCollaboratorsButton
+            hovered={hovered}
+            key={`collaboratorStack-addButton-${collaborators.length}`}
+            pileCount={pileCount}
+            size={size}
+          />
+        )}
+      </Fragment>
     );
 
-    if (showCollaboratorsCount) {
-      collaboratorStack = [
-        ...collaboratorStack,
-        <CollaboratorsCount
-          count={collaborators.length - 2}
-          showAddCollaboratorsButton={showAddCollaboratorsButton}
-          hovered={hovered}
-          key={`collaboratorStack-count-${collaborators.length}`}
-          pileCount={pileCount}
-          size={size}
-        />,
-      ];
-    }
-
-    if (showAddCollaboratorsButton) {
-      collaboratorStack = [
-        ...collaboratorStack,
-        <AddCollaboratorsButton
-          hovered={hovered}
-          key={`collaboratorStack-addButton-${collaborators.length}`}
-          pileCount={pileCount}
-          size={size}
-        />,
-      ];
-    }
-
-    const AvatarGroupStack = useCallback(
-      () => (
-        <Box
-          aria-label={isDisplayOnly ? accessibilityLabel : undefined}
-          dangerouslySetInlineStyle={{ __style: { isolation: 'isolate' } }}
-          position={isFitSize ? 'relative' : 'static'}
-        >
-          {isFitSize ? collaboratorStack : <Flex>{collaboratorStack}</Flex>}
-        </Box>
-      ),
-      [accessibilityLabel, collaboratorStack, isDisplayOnly, isFitSize],
+    const avatarGroupStack = (
+      <Box
+        aria-label={isDisplayOnly ? accessibilityLabel : undefined}
+        dangerouslySetInlineStyle={{ __style: { isolation: 'isolate' } }}
+        position={isFitSize ? 'relative' : 'static'}
+      >
+        {isFitSize ? collaboratorStack : <Flex>{collaboratorStack}</Flex>}
+      </Box>
     );
 
     if (role === 'link' && href) {
@@ -200,7 +190,7 @@ const AvatarGroupWithForwardRef: AbstractComponent<Props, UnionRefs> = forwardRe
           rounding="pill"
           tapStyle="compress"
         >
-          <AvatarGroupStack />
+          {avatarGroupStack}
         </TapAreaLink>
       );
     }
@@ -221,13 +211,13 @@ const AvatarGroupWithForwardRef: AbstractComponent<Props, UnionRefs> = forwardRe
           rounding="pill"
           tapStyle="compress"
         >
-          <AvatarGroupStack accessibilityLabel={accessibilityLabel} />
+          {avatarGroupStack}
         </TapArea>
       );
     }
 
     // Display-only role
-    return <AvatarGroupStack />;
+    return avatarGroupStack;
   },
 );
 
