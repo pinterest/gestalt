@@ -377,6 +377,12 @@
       "keywords": ["time", "schedule"]
     },
     {
+      "name": "clock-checked",
+      "categories": ["Time"],
+      "description": "Indicates that a time range has been set",
+      "keywords": ["time", "schedule", "time range", "select", "set time"]
+    },
+    {
       "name": "code",
       "categories": ["Utility and tools"],
       "description": "Indicates a code view or connection",
