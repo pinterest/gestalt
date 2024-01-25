@@ -344,7 +344,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         visual: {
           svg: <BannerUpsell />,
         },
-        alias: ['Banner', 'Offer Banner', 'CTA Banner'],
+        alias: ['Banner', 'Offer Banner', 'CTA Banner', 'Upsell'],
         description:
           'BannerUpsells are banners that display short messages that focus on promoting an action or upgrading something the user already has.',
         category: ['Messaging'],

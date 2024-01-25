@@ -252,6 +252,11 @@ const misc = [
     destination: '/web/utilities/globaleventshandlerprovider#Link-handlers',
     permanent: true,
   },
+  {
+    source: '/web/upsell',
+    destination: '/web/bannerupsell',
+    permanent: true,
+  },
 ];
 
 /*::
