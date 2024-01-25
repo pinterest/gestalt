@@ -1,3 +1,9 @@
+## 132.1.4 (Jan 25, 2024)
+
+### Patch
+
+- Icon: added clock-checked icon ([#3385](https://github.com/pinterest/gestalt/pull/3385)) - [Preview link](https://deploy-preview-3385--gestalt.netlify.app?devexample=true)
+
 ## 132.1.3 (Jan 25, 2024)
 
 ### Patch
