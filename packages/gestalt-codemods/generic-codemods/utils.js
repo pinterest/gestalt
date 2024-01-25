@@ -361,6 +361,7 @@ const saveToSource = ({ src }: { src: Collection }): string | null =>
   src.modified ? src.toSource({ quote: 'double' }) : null;
 
 export {
+  buildAttributeFromValue,
   buildReplaceWithModifiedAttributes,
   buildReplaceWithRenamedComponent,
   buildReplaceWithRenamedImport,

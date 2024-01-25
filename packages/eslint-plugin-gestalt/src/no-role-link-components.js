@@ -45,8 +45,7 @@ const rule: ESLintRule = {
         }
 
         const isRoleLink = Object.entries(node.attributes).find(
-          // eslint-disable-next-line no-unused-vars
-          ([key, value]) =>
+          ([_key, value]) =>
             value &&
             value.name &&
             value.name.name === 'role' &&

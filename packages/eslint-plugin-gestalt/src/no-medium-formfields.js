@@ -48,8 +48,7 @@ const rule: ESLintRule = {
         }
 
         const sizeAttribute = Object.entries(node.attributes).find(
-          // eslint-disable-next-line no-unused-vars
-          ([key, value]) => value && value.name && value.name.name === 'size',
+          ([_key, value]) => value && value.name && value.name.name === 'size',
         );
 
         // No size defined or size is not "lg"

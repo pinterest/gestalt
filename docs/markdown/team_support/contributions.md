@@ -8,7 +8,7 @@ fullwidth: true
 
 You can find all the components available on Gestalt on our [Components page](https://gestalt.pinterest.systems/web/overview). If you want to request a net-new component not available in our libraries or request changes to an existing component, go to [Component request](/team_support/component_request).
 
-## Making a design contribuition
+## Making a design contribution
 
 Design system is about collaboration and building blocks! Gestalt offers the elements you need to create a consistent product. If you have an idea to improve Pinterest surfaces by partnering with the Gestalt team. We would love to collaborate with you! Follow the steps below to make a design contribution:
 
@@ -48,7 +48,7 @@ We always appreciate the help and contributions of other engineers across Pinter
 5. **Release**
    Now the fun part: releasing your component! After a Gestalt team member merges your change and Pinboard has been updated, feel free to announce your component/changes on the [#gestalt-eng-web](https://pinch.pinadmin.com/gestaltSlack) Slack channel.
 
-## Other ways to contribuite
+## Other ways to contribute
 
 **Bugs**
 If you think you’ve found a bug with Gestalt components or documentation, first check our [Gestalt bugs dashboard](https://jira.pinadmin.com/secure/Dashboard.jspa?selectPageId=29639) to see if it’s already been reported. If it hasn’t, please file a bug within the [Bugs](https://pinch.pinadmin.cm/gestaltJiraBugs) Jira project and set the Component to ”gestalt”. We do not actively monitor GitHub issues, so the best way to file is through Jira.

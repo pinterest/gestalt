@@ -18,6 +18,7 @@ import Avatar from '../../graphics/general/Avatar.svg';
 import AvatarGroup from '../../graphics/general/AvatarGroup.svg';
 import Badge from '../../graphics/general/Badge.svg';
 import BannerOverlay from '../../graphics/general/BannerOverlay.svg';
+import BannerUpsell from '../../graphics/general/BannerUpsell.svg';
 import Button from '../../graphics/general/Button.svg';
 import ButtonGroup from '../../graphics/general/ButtonGroup.svg';
 import ButtonLink from '../../graphics/general/ButtonLink.svg';
@@ -74,7 +75,6 @@ import TextField from '../../graphics/general/TextField.svg';
 import TileData from '../../graphics/general/TileData.svg';
 import Toast from '../../graphics/general/Toast.svg';
 import Tooltip from '../../graphics/general/Tooltip.svg';
-import Upsell from '../../graphics/general/Upsell.svg';
 import Video from '../../graphics/general/Video.svg';
 import WashAnimated from '../../graphics/general/WashAnimated.svg';
 import GlobalEventsHandlerProvider from '../../graphics/utilities/GlobalEventsHandlerProvider.svg';
@@ -328,6 +328,34 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           'BannerOverlay displays short educational messages when users have performed actions that indicate some intent.',
         category: ['Messaging'],
         status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          responsive: 'ready',
+          status: 'ready',
+        },
+      },
+    },
+  },
+  {
+    id: 'BannerUpsell',
+    platform: {
+      web: {
+        name: 'BannerUpsell',
+        visual: {
+          svg: <BannerUpsell />,
+        },
+        alias: ['Banner', 'Offer Banner', 'CTA Banner', 'Upsell'],
+        description:
+          'BannerUpsells are banners that display short messages that focus on promoting an action or upgrading something the user already has.',
+        category: ['Messaging'],
+        status: {
+          accessible: {
+            summary: 'ready',
+            a11yVisual: 'ready',
+            a11yScreenreader: 'ready',
+            a11yNavigation: 'ready',
+            a11yComprehension: 'ready',
+          },
           documentation: 'ready',
           figmaStatus: 'ready',
           responsive: 'ready',
@@ -2738,34 +2766,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
       },
     },
   },
-  {
-    id: 'Upsell',
-    platform: {
-      web: {
-        name: 'Upsell',
-        visual: {
-          svg: <Upsell />,
-        },
-        alias: ['Banner', 'Offer Banner', 'CTA Banner'],
-        description:
-          'Upsells are banners that display short messages that focus on promoting an action or upgrading something the user already has.',
-        category: ['Messaging'],
-        status: {
-          accessible: {
-            summary: 'ready',
-            a11yVisual: 'ready',
-            a11yScreenreader: 'ready',
-            a11yNavigation: 'ready',
-            a11yComprehension: 'ready',
-          },
-          documentation: 'ready',
-          figmaStatus: 'ready',
-          responsive: 'ready',
-          status: 'ready',
-        },
-      },
-    },
-  },
+
   {
     id: 'useFocusVisible',
     platform: {

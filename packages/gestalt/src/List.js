@@ -25,7 +25,7 @@ type Props = {
    */
   spacing?: 'regular' | 'condensed',
   /**
-   *The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/foundations/design_tokens#Font-size). See the [Text sizes variant](https://gestalt.pinterest.systems/web/List#Size) for more details.
+   *The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/foundations/design_tokens#Font-size). See the [text sizes variant](https://gestalt.pinterest.systems/web/list#Size) for more details.
    */
   size?: Size,
   /**

@@ -3,6 +3,11 @@ import { type Node as ReactNode, useCallback } from 'react';
 import { Box, Flex, Text } from 'gestalt';
 import LegendIcon from './LegendIcon';
 
+type ReferenceAreaSummaryItem = {|
+  label: string,
+  style?: 'default',
+|};
+
 export default function useDefaultLegend({
   isHorizontalBiaxialLayout,
   isVerticalBiaxialLayout,
@@ -18,10 +23,7 @@ export default function useDefaultLegend({
   height: number,
   labelMap: ?{ [string]: string },
   setLegendHeight: (number) => void,
-  referenceAreaSummary: null | $ReadOnlyArray<{
-    label: string,
-    style?: 'default',
-  }>,
+  referenceAreaSummary: null | $ReadOnlyArray<ReferenceAreaSummaryItem>,
 }): ({
   payload: $ReadOnlyArray<{
     payload: {
@@ -59,9 +61,7 @@ export default function useDefaultLegend({
       );
 
       const referenceAreas =
-        // TO DO FIX
-        // eslint-disable-next-line no-unused-vars
-        referenceAreaSummary?.map(({ style, label }: { style?: 'default', label: string }) => (
+        referenceAreaSummary?.map(({ label }: ReferenceAreaSummaryItem) => (
           <Flex key={label} gap={{ row: 2, column: 0 }}>
             <LegendIcon payloadData={{ referenceArea: 'default', isLegend: true }} />
             <Text size="200">{label}</Text>

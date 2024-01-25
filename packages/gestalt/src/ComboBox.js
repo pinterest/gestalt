@@ -31,7 +31,7 @@ import handleContainerScrolling, {
 } from './utils/keyboardNavigation';
 import { type Indexable } from './zIndex';
 
-type Size = 'md' | 'lg';
+type Size = 'sm' | 'md' | 'lg';
 
 type OptionType = {
   label: string,
@@ -141,7 +141,7 @@ type Props = {
    */
   selectedOption?: OptionType,
   /**
-   * Defines the height of ComboBox: md: 40px, lg: 48px. Width is defined by parent component.
+   * Sets the size of ComboBox: sm: 32px, md: 40px, lg: 48px. See the [size variant](https://gestalt.pinterest.systems/web/combobox#Size) for more details.
    */
   size?: Size,
   /**

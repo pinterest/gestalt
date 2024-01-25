@@ -1,9 +1,25 @@
 .textField {
   composes: borderBox from "../Layout.css";
   composes: Text from "../Text.css";
-  composes: fontSize300 from "../Typography.css";
   composes: xsCol12 from "../Column.css";
-  padding: var(--space-200) var(--space-400);
+}
+
+.textField.sm {
+  border-radius: var(--rounding-200);
+  font-size: var(--font-size-200);
+  padding: var(--space-100) var(--space-200);
+}
+
+.textField.md {
+  border-radius: var(--rounding-300);
+  font-size: var(--font-size-300);
+  padding: var(--space-200) var(--space-300);
+}
+
+.textField.lg {
+  border-radius: var(--rounding-400);
+  font-size: var(--font-size-300);
+  padding: var(--space-300) var(--space-400);
 }
 
 .textField::placeholder {
@@ -36,7 +52,34 @@
 .textFieldWrapper {
   display: flex;
   flex-wrap: wrap;
-  padding-bottom: var(--space-100);
+}
+
+/*
+Overriding the default bottom padding with important because tags need less padding at the bottom
+*/
+
+.sm.textFieldWrapper {
+  /* The tag's margin bottom adds the other 2px */
+  /* stylelint-disable-next-line declaration-no-important */
+  padding-bottom: var(--space-0) !important;
+  /* stylelint-disable-next-line declaration-no-important */
+  padding-top: 2px !important;
+}
+
+.md.textFieldWrapper {
+  /* The tag's margin bottom adds the other 2px */
+  /* stylelint-disable-next-line declaration-no-important */
+  padding-bottom: var(--space-100) !important;
+  /* stylelint-disable-next-line declaration-no-important */
+  padding-top: 6px !important;
+}
+
+.lg.textFieldWrapper {
+  /* The larger tag's extra height and margin add the other 6px */
+  /* stylelint-disable-next-line declaration-no-important */
+  padding-bottom: var(--space-0) !important;
+  /* stylelint-disable-next-line declaration-no-important */
+  padding-top: 6px !important;
 }
 
 html:not([dir="rtl"]) .actionButton {

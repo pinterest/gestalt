@@ -1,7 +1,6 @@
 // @flow strict
 import React, { type Node as ReactNode } from 'react';
-// eslint-disable-next-line no-unused-vars
-import { Box, Callout, Flex, Heading, Icon, Image, Mask, Table, Text } from 'gestalt';
+import { Box, Image } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection';
 import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';

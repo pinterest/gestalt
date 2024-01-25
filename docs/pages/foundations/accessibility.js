@@ -18,14 +18,14 @@ export default function AccessibilityGuidelinesPage(): ReactNode {
       <MainSection
         name="Our approach"
         description={`
-    Everyone should be able to create the life they love with Pinterest, no matter their ability. An inclusive product is a top priority, and it relies on everyone's commitment to accessibility. Pinterest's goal as a company is to meet <a href="https://www.w3.org/TR/WCAG21/">WCAG 2.1 AA standards</a>, and Gestalt's goal is no different. By creating accessible components, we aim to help everyone create an inclusive product.
+    Everyone should be able to create the life they love with Pinterest, no matter their ability. An inclusive product is a top priority, and it relies on everyone's commitment to accessibility. Pinterest's goal as a company is to meet <a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2 AA standards</a>, and Gestalt's goal is no different. By creating accessible components, we aim to help everyone create an inclusive product.
 
     It's important to remember that accessible components are a great starting point, but there is further work to do to create a cohesive, accessible experience. Below we've highlighted some key areas to address, but for a more extensive list we recommend checking out <a href="https://www.a11yproject.com/">The A11Y Project</a> and Heydon Pickering's <a href="https://github.com/Heydon/inclusive-design-checklist">Inclusive Design Checklist</a>.
     `}
       />
       <MainSection
         name="Design considerations"
-        description="Accessibility starts at the design phase! Below are some key things to watch out for when designing inclusive products. For further detail and matching visual examples, check out our [Accessible Design deck](https://www.dropbox.com/s/m1jmveyuvv6p9pq/Pinterest%20Accessible%20Design.pdf?dl=0)."
+        description="Accessibility starts at the design phase! Below are some key things to watch out for when designing inclusive products. For further detail and matching visual examples, check out our [Accessible Design deck](https://docs.google.com/presentation/d/1b-L0tuzaMTIf1xX7j86g46QfDW3_C0Ep_Ca4TEmXPz8/edit#slide=id.gcf38b911e3_0_750)."
       >
         <MainSection.Subsection
           title="Visuals"
@@ -34,7 +34,7 @@ export default function AccessibilityGuidelinesPage(): ReactNode {
 
       - **Avoid using color as the sole indicator of information.** For instance, always supply an icon or text describing errors, rather than relying on a red outline or red text. Color-only changes do not work well for those who may be color blind or have low vision.
       - **Check your color contrast!** We follow AA guidance from the Web Content Accessibility Guidelines, so we recommend using a tool like [aremycolorsaccessible.com](https://www.aremycolorsaccessible.com/) to check the foreground color against the background color. In Figma, you can use [the Able plugin](https://www.figma.com/community/plugin/734693888346260052/Able-%E2%80%93-Friction-free-accessibility) to check color contrast in your designs.
-      - **Use appropriate text-sizes.** WCAG 2.1 suggests using text no smaller than 16pt for easy readability.
+      - **Use appropriate text-sizes.** WCAG 2.2 suggests using text no smaller than 16pt for easy readability.
       `}
         />
         <MainSection.Subsection
@@ -84,7 +84,7 @@ export default function AccessibilityGuidelinesPage(): ReactNode {
       One of the most common ways to influence the ARIA attributes in our Gestalt components is through our \`accessibilityLabel\` props. These props allow users to create concise descriptions about components and their interactive elements in order to provide the best possible experience to those using assistive technology, like a screen reader. Avoid using the words "button" or "link" in the label, as this becomes repetitive. If the action text is already descriptive, an empty string can be passed.
 
       - In [AvatarGroup](/web/avatargroup#ARIA-attributes), \`accessibilityLabel\` is used to describe an interactive Avatar face-pile that also acts as a button. A good \`accessibilityLabel\` may be "Collaborators: Keerthi, Alberto, and 10 more. Add collaborators to this board."
-      - In [Callout](/web/callout#accessibility) and [Upsell](/web/upsell#accessibility), \`accessibilityLabel\` can be specified for each primary and secondary action to create better context. If the button texts are "Learn More" and "Invite", the accessibility labels should be "Learn more about ads credit" and "Invite friends for ads credit". If the button text is already descriptive enough, the accessibilityLabel can be an empty string.
+      - In [Callout](/web/callout#accessibility) and [BannerUpsell](/web/bannerupsell#accessibility), \`accessibilityLabel\` can be specified for each primary and secondary action to create better context. If the button texts are "Learn More" and "Invite", the accessibility labels should be "Learn more about ads credit" and "Invite friends for ads credit". If the button text is already descriptive enough, the accessibilityLabel can be an empty string.
     `}
         />
         <MainSection.Subsection
@@ -108,7 +108,7 @@ export default function AccessibilityGuidelinesPage(): ReactNode {
 
           References:
           <ul>
-            <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html">WCAG 2.4.7: Focus Visible</a></li>
+            <li><a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html">WCAG 2.4.7: Focus Visible</a></li>
             <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible">:focus-visible CSS pseudo-class</a></li>
           </ul>
         `}
@@ -159,6 +159,12 @@ export default function AccessibilityGuidelinesPage(): ReactNode {
 
         **[Accessibility 101 Basecamp Session](https://w.pinadmin.com/display/EPD/Accessibility+101)**
         Reference video recordings and materials from our Accessibility 101 session for new hires.
+
+        **[Accessibility for Designers Training](https://pinterest.docebosaas.com/learn/courses/1155/gestalt-accessibility-training-for-designers/lessons)**
+        Watch our virtual training and get resources from our Accessibility training for designers.
+
+        **[Accessibility Handoff](https://shorturl.at/dgGNQ)**
+        Design checklist and annotation assets to support design handoff.
       `}
         />
         <MainSection.Subsection
@@ -173,7 +179,7 @@ export default function AccessibilityGuidelinesPage(): ReactNode {
         **[Deque aXe DevTools](https://www.deque.com/axe/devtools/)**
         Learn more about the software that powers our accessibility testing.
 
-        **[Understanding WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/)**
+        **[Understanding WCAG 2.2](https://www.w3.org/WAI/WCAG22/Understanding/)**
         Details and info about the web content accessibility guidelines.
       `}
         />

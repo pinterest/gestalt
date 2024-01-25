@@ -126,8 +126,8 @@ export default function InternalTooltip({
   };
 
   const isInExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_popover_v2_tooltip',
-    mwebExperimentName: 'mweb_gestalt_popover_v2_tooltip',
+    webExperimentName: 'web_gestalt_tooltip_v2',
+    mwebExperimentName: 'mweb_gestalt_tooltip_v2',
   });
 
   return (

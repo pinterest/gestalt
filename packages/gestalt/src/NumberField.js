@@ -107,9 +107,9 @@ type Props = {
    */
   ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
   /**
-   * md: 40px, lg: 48px
+   * Sets the size of NumberField: sm: 32px, md: 40px (default), lg: 48px. See the [size variant](https://gestalt.pinterest.systems/web/numberfield#Size) for more details.
    */
-  size?: 'md' | 'lg',
+  size?: 'sm' | 'md' | 'lg',
   /**
    * Indicates the amount the value will increase or decrease when using the input's arrows.
    */

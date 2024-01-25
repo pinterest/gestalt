@@ -5,6 +5,7 @@ const webComponents = [
   'avatar',
   'avatargroup',
   'badge',
+  'bannerupsell',
   'box',
   'button',
   'buttongroup',
@@ -62,7 +63,6 @@ const webComponents = [
   'textfield',
   'toast',
   'tooltip',
-  'upsell',
   'video',
   'washanimated',
   'zindex_classes',
@@ -250,6 +250,11 @@ const misc = [
   {
     source: '/web/utilities/onlinknavigationprovider',
     destination: '/web/utilities/globaleventshandlerprovider#Link-handlers',
+    permanent: true,
+  },
+  {
+    source: '/web/upsell',
+    destination: '/web/bannerupsell',
     permanent: true,
   },
 ];
