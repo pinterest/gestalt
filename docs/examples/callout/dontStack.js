@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { Box, Button, ButtonGroup, Callout, Divider, Flex, Icon, Upsell } from 'gestalt';
+import { BannerUpsell, Box, Button, ButtonGroup, Callout, Divider, Flex, Icon } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
@@ -20,7 +20,7 @@ export default function Example(): ReactNode {
 
         <Box marginTop={4}>
           <Flex gap={{ column: 2, row: 0 }} direction="column">
-            <Upsell
+            <BannerUpsell
               imageData={{
                 component: <Icon icon="send" accessibilityLabel="Send" color="default" size={32} />,
               }}

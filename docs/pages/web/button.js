@@ -246,7 +246,7 @@ If Button is used as a control Button to show/hide a Popover-based component, we
 1. Inline (default)
     Inline is our default Button width.  The width of an inline Button is based on the length of its text. Use in most cases where you need a Button.
 2. Full-width (\`fullWidth\`)
-    Full-width Buttons can be used in narrower content areas when the text in the Button is close to full width in the content area. This is especially common to see in components such as Callout and Upsell at their smaller breakpoints.`}
+    Full-width Buttons can be used in narrower content areas when the text in the Button is close to full width in the content area. This is especially common to see in components such as Callout and BannerUpsell at their smaller breakpoints.`}
         >
           <CombinationNew fullwidth={[false, true]}>
             {({ fullwidth }) => (

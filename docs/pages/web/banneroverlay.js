@@ -200,8 +200,8 @@ On mobile devices, the BannerOverlay should appear at the bottom of the screen. 
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-      **[Upsell](/web/upsell)**
-      Upsell banners are used for paid upgrades, free trials, or marketing promotions.
+      **[BannerUpsell](/web/bannerupsell)**
+      BannerUpsell banners are used for paid upgrades, free trials, or marketing promotions.
 
       **[Modal](/web/modal)**
       A generic, customizable container for modals that aren’t used as alerts or acknowledgements and need more functionality like form fields.

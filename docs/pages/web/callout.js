@@ -57,7 +57,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             title="When not to use"
             description={`
           - When providing messaging/guidance for specific elements or areas within a surface. [Let the team know](https://app.slack.com/client/T024LJUGB/C0HUV5J93) if this is needed.
-          - When displaying information that is intended for promotional/marketing purposes. Use [Upsell](/web/upsell) instead.
+          - When displaying information that is intended for promotional/marketing purposes. Use [BannerUpsell](/web/bannerupsell) instead.
           - When interacting with the Callout is required for the user to proceed with a task or flow. Use [Modal](/web/modal) instead.
         `}
           />
@@ -98,7 +98,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             cardSize="lg"
             type="don't"
             description={`
-        Use Callouts for marketing new products or features. Use [Upsell](/web/upsell) instead.
+        Use Callouts for marketing new products or features. Use [BannerUpsell](/web/bannerupsell) instead.
         `}
             sandpackExample={
               <SandpackExample
@@ -114,7 +114,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             cardSize="lg"
             type="don't"
             description={`
-        Stack Callouts. In the case that banners must be stacked, Callouts should come before Upsells.
+        Stack Callouts. In the case that banners must be stacked, Callouts should come before BannerUpsells.
         `}
             sandpackExample={
               <SandpackExample
@@ -321,11 +321,11 @@ The \`message\` prop accepts either a string or [Text](/web/text). Use a string 
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-      **[Upsell](/web/upsell)**
-      If marketing new products or features, or encouraging upgrades, use Upsell instead.
+      **[BannerUpsell](/web/bannerupsell)**
+      If marketing new products or features, or encouraging upgrades, use BannerUpsell instead.
 
       **[Toast](/web/toast)**
-      Toast provides feedback on a user interaction, like a confirmation that appears when a Pin has been saved. Unlike Upsell and Callout, Toasts don’t contain actions. They’re also less persistent, and disappear after a certain duration.
+      Toast provides feedback on a user interaction, like a confirmation that appears when a Pin has been saved. Unlike BannerUpsell and Callout, Toasts don’t contain actions. They’re also less persistent, and disappear after a certain duration.
 
       **[ActivationCard](/web/activationcard)**
       ActivationCards are used in groups to communicate a user’s stage in a series of steps toward an overall action.
