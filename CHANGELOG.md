@@ -1,3 +1,9 @@
+## 132.1.2 (Jan 25, 2024)
+
+### Patch
+
+- Docs: Small fixes to i18n docs ([#3383](https://github.com/pinterest/gestalt/pull/3383)) - [Preview link](https://deploy-preview-3383--gestalt.netlify.app?devexample=true)
+
 ## 132.1.1 (Jan 25, 2024)
 
 ### Patch
