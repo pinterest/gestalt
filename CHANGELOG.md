@@ -1,3 +1,9 @@
+## 133.0.1 (Jan 26, 2024)
+
+### Patch
+
+- Internal: add displayName to all top-level components ([#3386](https://github.com/pinterest/gestalt/pull/3386)) - [Preview link](https://deploy-preview-3386--gestalt.netlify.app?devexample=true)
+
 ## 133.0.0 (Jan 25, 2024)
 
 ### Major
