@@ -252,3 +252,5 @@ export default function Tabs({
     </Flex>
   );
 }
+
+Tabs.displayName = 'Tabs';

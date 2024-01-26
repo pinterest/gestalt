@@ -233,3 +233,5 @@ export default function PopoverEducational({
     </Box>
   );
 }
+
+PopoverEducational.displayName = 'PopoverEducational';

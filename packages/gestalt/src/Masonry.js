@@ -166,6 +166,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     virtualize: false,
   };
 
+  static displayName: ?string = 'Masonry';
+
   constructor(props: Props<T>) {
     super(props);
 

@@ -41,3 +41,5 @@ export default function Pulsar({ paused, size = 136 }: Props): ReactNode {
     </Box>
   );
 }
+
+Pulsar.displayName = 'Pulsar';

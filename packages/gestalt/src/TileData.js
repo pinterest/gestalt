@@ -185,3 +185,5 @@ export default function TileData({
     </MaybeTooltip>
   );
 }
+
+TileData.displayName = 'TileData';

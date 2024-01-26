@@ -23,3 +23,5 @@ type Props = {
 export default function Label({ children, htmlFor }: Props): ReactNode {
   return <InternalLabel htmlFor={htmlFor}>{children}</InternalLabel>;
 }
+
+Label.displayName = 'Label';

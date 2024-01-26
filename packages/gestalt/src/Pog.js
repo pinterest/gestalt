@@ -149,3 +149,5 @@ export default function Pog({
     </div>
   );
 }
+
+Pog.displayName = 'Pog';

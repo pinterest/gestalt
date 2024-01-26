@@ -304,6 +304,8 @@ export default class Video extends PureComponent<Props, State> {
 
   player: ?HTMLDivElement;
 
+  static displayName: ?string = 'Video';
+
   static defaultProps: {
     startTime: number,
     disableRemotePlayback: boolean,

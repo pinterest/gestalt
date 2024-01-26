@@ -24,3 +24,5 @@ export default function Container({ children }: Props): ReactNode {
     </Box>
   );
 }
+
+Container.displayName = 'Container';

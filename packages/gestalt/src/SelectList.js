@@ -178,4 +178,6 @@ function SelectList({
 SelectList.Option = SelectListOption;
 SelectList.Group = SelectListGroup;
 
+SelectList.displayName = 'SelectList';
+
 export default SelectList;

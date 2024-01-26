@@ -203,3 +203,5 @@ export default function PageHeader({
     </div>
   );
 }
+
+PageHeader.displayName = 'PageHeader';

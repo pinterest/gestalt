@@ -74,3 +74,5 @@ export default function Fieldset({
     </fieldset>
   );
 }
+
+Fieldset.displayName = 'Fieldset';

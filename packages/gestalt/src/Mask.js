@@ -59,3 +59,5 @@ export default function Mask({
     </div>
   );
 }
+
+Mask.displayName = 'Mask';

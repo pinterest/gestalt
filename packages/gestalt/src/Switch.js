@@ -95,3 +95,5 @@ export default function Switch({
     </div>
   );
 }
+
+Switch.displayName = 'Switch';

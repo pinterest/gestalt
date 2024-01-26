@@ -104,4 +104,6 @@ export default function Accordion({
   );
 }
 
+Accordion.displayName = 'Accordion';
+
 Accordion.Expandable = AccordionExpandable;

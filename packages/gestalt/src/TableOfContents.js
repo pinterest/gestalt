@@ -50,3 +50,5 @@ export default function TableOfContents({ accessibilityLabel, title, children }:
 }
 
 TableOfContents.Item = TableOfContentsItem;
+
+TableOfContents.displayName = 'TableOfContents';

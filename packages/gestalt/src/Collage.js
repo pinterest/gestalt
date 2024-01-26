@@ -212,3 +212,5 @@ export default function Collage(props: Props): ReactNode {
     />
   );
 }
+
+Collage.displayName = 'Collage';

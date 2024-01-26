@@ -270,3 +270,5 @@ export default function Toast({
     </div>
   );
 }
+
+Toast.displayName = 'Toast';

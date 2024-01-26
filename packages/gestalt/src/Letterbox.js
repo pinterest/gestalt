@@ -72,3 +72,5 @@ export default function Letterbox({
     </Mask>
   );
 }
+
+Letterbox.displayName = 'Letterbox';

@@ -46,3 +46,5 @@ export default function Column(props: ColumnProps): ReactNode {
   );
   return <div className={cs}>{children}</div>;
 }
+
+Column.displayName = 'Column';

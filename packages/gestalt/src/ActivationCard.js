@@ -291,3 +291,5 @@ export default function ActivationCard({
     </Box>
   );
 }
+
+ActivationCard.displayName = 'ActivationCard';

@@ -67,3 +67,5 @@ export default function WashAnimated({
     </Box>
   );
 }
+
+WashAnimated.displayName = 'WashAnimated';

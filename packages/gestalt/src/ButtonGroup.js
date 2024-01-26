@@ -31,4 +31,6 @@ function ButtonGroup({ children }: Props): ReactNode {
   );
 }
 
+ButtonGroup.displayName = 'ButtonGroup';
+
 export default ButtonGroup;

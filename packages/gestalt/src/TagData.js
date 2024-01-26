@@ -259,3 +259,5 @@ export default function TagData({
     </Box>
   );
 }
+
+TagData.displayName = 'TagData';
