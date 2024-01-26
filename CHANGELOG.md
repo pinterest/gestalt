@@ -1,3 +1,9 @@
+## 133.0.3 (Jan 26, 2024)
+
+### Patch
+
+- Icon: update ts declarations files with new icons ([#3387](https://github.com/pinterest/gestalt/pull/3387)) - [Preview link](https://deploy-preview-3387--gestalt.netlify.app?devexample=true)
+
 ## 133.0.2 (Jan 26, 2024)
 
 ### Patch
