@@ -275,3 +275,5 @@ export default function SlimBanner({
     </Box>
   );
 }
+
+SlimBanner.displayName = 'SlimBanner';

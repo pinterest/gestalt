@@ -543,4 +543,6 @@ function ChartGraph({
 
 ChartGraph.LegendIcon = LegendIcon;
 
+ChartGraph.displayName = 'ChartGraph';
+
 export default ChartGraph;

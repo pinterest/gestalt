@@ -134,3 +134,5 @@ export default function ModalAlert({
     </DeviceTypeProvider>
   );
 }
+
+ModalAlert.displayName = 'ModalAlert';

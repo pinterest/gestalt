@@ -284,3 +284,5 @@ export default function BannerUpsell({
 }
 
 BannerUpsell.Form = BannerUpsellForm;
+
+BannerUpsell.displayName = 'BannerUpsell';

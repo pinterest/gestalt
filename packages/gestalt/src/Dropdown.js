@@ -318,3 +318,5 @@ export default function Dropdown({
 Dropdown.Item = DropdownItem;
 Dropdown.Link = DropdownLink;
 Dropdown.Section = DropdownSection;
+
+Dropdown.displayName = 'Dropdown';

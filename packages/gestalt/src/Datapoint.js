@@ -78,3 +78,5 @@ export default function Datapoint({
     />
   );
 }
+
+Datapoint.displayName = 'Datapoint';

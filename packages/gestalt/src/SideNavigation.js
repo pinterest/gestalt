@@ -154,3 +154,5 @@ SideNavigation.NestedItem = SideNavigationNestedItem;
 
 SideNavigation.Group = SideNavigationGroup;
 SideNavigation.NestedGroup = SideNavigationNestedGroup;
+
+SideNavigation.displayName = 'SideNavigation';

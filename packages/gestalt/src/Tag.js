@@ -191,3 +191,5 @@ export default function Tag({
     </Box>
   );
 }
+
+Tag.displayName = 'Tag';

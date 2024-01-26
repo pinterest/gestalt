@@ -127,3 +127,5 @@ export default function Heading({
 
   return createElement(headingLevel === 'none' ? 'div' : `h${headingLevel}`, newProps, children);
 }
+
+Heading.displayName = 'Heading';

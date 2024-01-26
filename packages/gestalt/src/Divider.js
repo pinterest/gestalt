@@ -13,3 +13,5 @@ import styles from './Divider.css';
 export default function Divider({}: {}): ReactNode {
   return <hr className={styles.divider} />;
 }
+
+Divider.displayName = 'Divider';

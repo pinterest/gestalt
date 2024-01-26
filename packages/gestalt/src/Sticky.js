@@ -70,3 +70,5 @@ export default function Sticky({
     </div>
   );
 }
+
+Sticky.displayName = 'Sticky';

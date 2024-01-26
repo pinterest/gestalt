@@ -110,19 +110,13 @@ export default function Table({
 }
 
 Table.Body = TableBody;
-
 Table.Cell = TableCell;
-
 Table.Footer = TableFooter;
-
 Table.Header = TableHeader;
-
 Table.HeaderCell = TableHeaderCell;
-
 Table.Row = TableRow;
-
+Table.RowDrawer = TableRowDrawer;
+Table.RowExpandable = TableRowExpandable;
 Table.SortableHeaderCell = TableSortableHeaderCell;
 
-Table.RowExpandable = TableRowExpandable;
-
-Table.RowDrawer = TableRowDrawer;
+Table.displayName = 'Table';

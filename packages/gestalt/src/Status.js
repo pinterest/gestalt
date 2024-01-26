@@ -101,3 +101,5 @@ export default function Status({ accessibilityLabel, subtext, title, type }: Pro
     </Flex>
   );
 }
+
+Status.displayName = 'Status';

@@ -286,3 +286,5 @@ export default function Callout({
     </Box>
   );
 }
+
+Callout.displayName = 'Callout';

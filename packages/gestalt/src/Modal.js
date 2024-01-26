@@ -253,3 +253,5 @@ export default function Modal({
     </StopScrollBehavior>
   );
 }
+
+Modal.displayName = 'Modal';

@@ -108,3 +108,5 @@ export default function Badge({
     badgeComponent
   );
 }
+
+Badge.displayName = 'Badge';

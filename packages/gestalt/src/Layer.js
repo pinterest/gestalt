@@ -87,3 +87,5 @@ export default function Layer({ children, zIndex: zIndexIndexable }: Props): Por
   // After useEffect, we render the children into the portal container node outside the DOM hierarchy
   return createPortal(children, portalContainer.current);
 }
+
+Layer.displayName = 'Layer';

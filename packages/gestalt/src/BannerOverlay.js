@@ -442,3 +442,5 @@ export default function BannerOverlay({
     </Fragment>
   );
 }
+
+BannerOverlay.displayName = 'BannerOverlay';

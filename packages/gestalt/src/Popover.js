@@ -174,3 +174,5 @@ export default function Popover({
     </InternalPopover>
   );
 }
+
+Popover.displayName = 'Popover';

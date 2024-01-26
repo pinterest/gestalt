@@ -148,3 +148,5 @@ export default function SegmentedControl({
     </div>
   );
 }
+
+SegmentedControl.displayName = 'SegmentedControl';

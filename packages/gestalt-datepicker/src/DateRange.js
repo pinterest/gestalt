@@ -292,4 +292,6 @@ function DateRange({
   );
 }
 
+DateRange.displayName = 'DateRange';
+
 export default DateRange;
