@@ -1,3 +1,9 @@
+## 133.0.2 (Jan 26, 2024)
+
+### Patch
+
+- Docs: end-align P10n table ([#3389](https://github.com/pinterest/gestalt/pull/3389)) - [Preview link](https://deploy-preview-3389--gestalt.netlify.app?devexample=true)
+
 ## 133.0.1 (Jan 26, 2024)
 
 ### Patch
