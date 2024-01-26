@@ -284,7 +284,9 @@ export default function FormsLayoutOverview(): ReactNode {
                   </Table.Cell>
                   <Table.Cell>
                     <Box dir="rtl">
-                      <Text size="200">{' لقد أنشأنا {٠} من المنشورات '}</Text>
+                      <Text size="200" align="end">
+                        {' لقد أنشأنا {٠} من المنشورات '}
+                      </Text>
                     </Box>
                   </Table.Cell>
                   <Table.Cell>
@@ -304,7 +306,9 @@ export default function FormsLayoutOverview(): ReactNode {
                   </Table.Cell>
                   <Table.Cell>
                     <Box dir="rtl">
-                      <Text size="200">{'لقد أنشأنا منشوراً {١}'}</Text>
+                      <Text size="200" align="end">
+                        {'لقد أنشأنا منشوراً {١}'}
+                      </Text>
                     </Box>
                   </Table.Cell>
                   <Table.Cell>
@@ -324,7 +328,9 @@ export default function FormsLayoutOverview(): ReactNode {
                   </Table.Cell>
                   <Table.Cell>
                     <Box dir="rtl">
-                      <Text size="200">{'قد أنشأنا منشورين {٢} '}</Text>
+                      <Text size="200" align="end">
+                        {'قد أنشأنا منشورين {٢} '}
+                      </Text>
                     </Box>
                   </Table.Cell>
                   <Table.Cell>
@@ -344,7 +350,9 @@ export default function FormsLayoutOverview(): ReactNode {
                   </Table.Cell>
                   <Table.Cell>
                     <Box dir="rtl">
-                      <Text size="200">{'لقد  أنشأنا {٣} منشورات'}</Text>
+                      <Text size="200" align="end">
+                        {'لقد  أنشأنا {٣} منشورات'}
+                      </Text>
                     </Box>
                   </Table.Cell>
                   <Table.Cell>
@@ -364,7 +372,9 @@ export default function FormsLayoutOverview(): ReactNode {
                   </Table.Cell>
                   <Table.Cell>
                     <Box dir="rtl">
-                      <Text size="200">{'لقد  أنشأنا {١١} منشوراً'}</Text>
+                      <Text size="200" align="end">
+                        {'لقد  أنشأنا {١١} منشوراً'}
+                      </Text>
                     </Box>
                   </Table.Cell>
                   <Table.Cell>
@@ -384,7 +394,9 @@ export default function FormsLayoutOverview(): ReactNode {
                   </Table.Cell>
                   <Table.Cell>
                     <Box dir="rtl">
-                      <Text size="200">{'لقد  أنشأنا {١٠٠} منشورٍ'}</Text>
+                      <Text size="200" align="end">
+                        {'لقد  أنشأنا {١٠٠} منشورٍ'}
+                      </Text>
                     </Box>
                   </Table.Cell>
                   <Table.Cell>
@@ -442,7 +454,9 @@ export default function FormsLayoutOverview(): ReactNode {
                   </Table.Cell>
                   <Table.Cell>
                     <Box dir="rtl">
-                      <Text size="200">لم ننشئ أي منشور</Text>
+                      <Text size="200" align="end">
+                        لم ننشئ أي منشور
+                      </Text>
                     </Box>
                   </Table.Cell>
                   <Table.Cell>
@@ -462,7 +476,9 @@ export default function FormsLayoutOverview(): ReactNode {
                   </Table.Cell>
                   <Table.Cell>
                     <Box dir="rtl">
-                      <Text size="200">لقد أنشأنا منشوراً واحداً</Text>
+                      <Text size="200" align="end">
+                        لقد أنشأنا منشوراً واحداً
+                      </Text>
                     </Box>
                   </Table.Cell>
                   <Table.Cell>
@@ -482,7 +498,9 @@ export default function FormsLayoutOverview(): ReactNode {
                   </Table.Cell>
                   <Table.Cell>
                     <Box dir="rtl">
-                      <Text size="200">لقد أنشأنا منشورين اثنين</Text>
+                      <Text size="200" align="end">
+                        لقد أنشأنا منشورين اثنين
+                      </Text>
                     </Box>
                   </Table.Cell>
                   <Table.Cell>
@@ -502,7 +520,9 @@ export default function FormsLayoutOverview(): ReactNode {
                   </Table.Cell>
                   <Table.Cell>
                     <Box dir="rtl">
-                      <Text size="200">{'لقد  أنشأنا {٣} منشورات'}</Text>
+                      <Text size="200" align="end">
+                        {'لقد  أنشأنا {٣} منشورات'}
+                      </Text>
                     </Box>
                   </Table.Cell>
                   <Table.Cell>
@@ -522,7 +542,9 @@ export default function FormsLayoutOverview(): ReactNode {
                   </Table.Cell>
                   <Table.Cell>
                     <Box dir="rtl">
-                      <Text size="200">{'لقد  أنشأنا {١١} منشوراً'}</Text>
+                      <Text size="200" align="end">
+                        {'لقد  أنشأنا {١١} منشوراً'}
+                      </Text>
                     </Box>
                   </Table.Cell>
                   <Table.Cell>
@@ -542,7 +564,9 @@ export default function FormsLayoutOverview(): ReactNode {
                   </Table.Cell>
                   <Table.Cell>
                     <Box dir="rtl">
-                      <Text size="200">{'لقد  أنشأنا {١٠٠} منشورٍ'}</Text>
+                      <Text size="200" align="end">
+                        {'لقد  أنشأنا {١٠٠} منشورٍ'}
+                      </Text>
                     </Box>
                   </Table.Cell>
                   <Table.Cell>
