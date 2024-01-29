@@ -1,11 +1,5 @@
 // @flow strict
-import {
-  Children,
-  type Element,
-  type ElementConfig,
-  Fragment,
-  type Node as ReactNode,
-} from 'react';
+import { Children, type Element, type ElementConfig, type Node as ReactNode } from 'react';
 import Avatar from './Avatar';
 import styles from './BannerOverlay.css';
 import CallToAction from './BannerOverlay/CalltoAction';
@@ -19,6 +13,7 @@ import { useDeviceType } from './contexts/DeviceTypeProvider';
 import Flex from './Flex';
 import Icon from './Icon';
 import Image from './Image';
+import Layer from './Layer';
 import InternalDismissButton from './shared/InternalDismissButton';
 import {
   ToastAvatarThumbnail,
@@ -27,7 +22,6 @@ import {
   ToastMessage,
 } from './Shared/ToastSubcomponents';
 import Text from './Text';
-import { type Indexable } from './zIndex';
 
 const DEFAULT_COLORS = {
   lightModeBackground: 'default',
@@ -107,10 +101,6 @@ type Props = {
    *  Heading of BannerOverlay. Content should be [localized](https://gestalt.pinterest.systems/web/banneroverlay#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/banneroverlay#Text) to learn more.
    */
   title?: string,
-  /**
-   *  zIndex of BannerOverlay. See the [zIndex guidelines](https://gestalt.pinterest.systems/web/banneroverlay#zIndex) to learn more.
-   */
-  zIndex?: Indexable,
 };
 
 /**
@@ -127,7 +117,6 @@ export default function BannerOverlay({
   secondaryAction,
   offset = { top: 0, bottom: 0 },
   thumbnail,
-  zIndex,
 }: Props): ReactNode {
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
@@ -171,8 +160,9 @@ export default function BannerOverlay({
   );
 
   const isMessageTextNode = checkTextNode();
+
   return (
-    <Fragment>
+    <Layer>
       <Box display="none" smDisplay="flex">
         <Box
           color={isDarkMode ? darkModeBackground : lightModeBackground}
@@ -198,7 +188,6 @@ export default function BannerOverlay({
           fit
           maxWidth={900}
           width="calc(100% - 32px)"
-          zIndex={zIndex}
         >
           <Flex alignItems="center" gap={4}>
             {!!thumbnail?.image &&
@@ -327,7 +316,6 @@ export default function BannerOverlay({
           fit
           maxWidth={348}
           width="calc(100% - 32px)"
-          zIndex={zIndex}
         >
           <Flex alignItems="center" gap={4}>
             {!!thumbnail?.image &&
@@ -439,6 +427,6 @@ export default function BannerOverlay({
           </Flex>
         </Box>
       </Box>
-    </Fragment>
+    </Layer>
   );
 }

@@ -262,11 +262,10 @@ ${themeToStyles(theme)} }`,
         }}
       />
       <div
-        className={classnames(className, {
+        className={classnames(className, layoutStyles.isolate, {
           [layoutStyles.fullHeight]: fullDimensions,
           [layoutStyles.fullWidth]: fullDimensions,
         })}
-        style={{ isolation: 'isolate' }}
       >
         {children}
       </div>

@@ -87,6 +87,10 @@
   left: var(--space-0);
 }
 
+.isolate {
+  isolation: isolate;
+}
+
 /* size */
 
 .small {

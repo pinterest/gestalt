@@ -1,6 +1,9 @@
 // @flow strict
 import { Fragment, type Node, type Portal, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
+import classNames from 'classnames';
+import styles from './Layer.css';
+import layoutStyles from './Layout.css';
 
 type Props = {
   /**
@@ -21,7 +24,10 @@ export default function Layer({ children }: Props): Portal | Node {
   useEffect(() => {
     setMounted(true);
 
-    element.current = document.createElement('div');
+    const container = document.createElement('div');
+    container.setAttribute('class', classNames(styles.layer, layoutStyles.isolate));
+
+    element.current = container;
     document?.body?.appendChild(element.current);
 
     return () => {

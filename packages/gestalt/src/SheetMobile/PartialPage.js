@@ -173,9 +173,9 @@ export default function PartialPage({
   );
 
   return (
-    <StopScrollBehavior>
-      <TrapFocusBehavior>
-        <Layer>
+    <Layer>
+      <StopScrollBehavior>
+        <TrapFocusBehavior>
           <div
             className={classnames(
               sheetMobileStyles.container,
@@ -222,8 +222,8 @@ export default function PartialPage({
               </div>
             </Backdrop>
           </div>
-        </Layer>
-      </TrapFocusBehavior>
-    </StopScrollBehavior>
+        </TrapFocusBehavior>
+      </StopScrollBehavior>
+    </Layer>
   );
 }

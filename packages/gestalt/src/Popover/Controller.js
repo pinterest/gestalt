@@ -1,9 +1,9 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { FloatingPortal } from '@floating-ui/react';
 import Contents, { type Role } from './Contents';
 import OutsideEventBehavior from '../behaviors/OutsideEventBehavior';
 import { ESCAPE } from '../keyCodes';
+import Layer from '../Layer';
 
 const SIZE_WIDTH_MAP = {
   xs: 180,
@@ -28,7 +28,6 @@ type Props = {
   rounding?: 2 | 4,
   shouldFocus?: boolean,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
-  disablePortal?: boolean,
   scrollBoundary?: HTMLElement,
   hideWhenReferenceHidden?: boolean,
   onPositioned?: () => void,
@@ -49,7 +48,6 @@ export default function Controller({
   size = 'sm',
   onDismiss,
   onKeyDown,
-  disablePortal,
   scrollBoundary,
   hideWhenReferenceHidden,
   onPositioned,
@@ -69,29 +67,29 @@ export default function Controller({
     }
   };
 
-  const contents = (
-    <OutsideEventBehavior onClick={handlePageClick}>
-      <Contents
-        accessibilityLabel={accessibilityLabel}
-        anchor={anchor}
-        bgColor={bgColor}
-        border={border}
-        caret={caret}
-        id={id}
-        idealDirection={idealDirection}
-        onKeyDown={handleKeyDown}
-        role={role}
-        rounding={rounding}
-        shouldFocus={shouldFocus}
-        width={width}
-        scrollBoundary={scrollBoundary}
-        hideWhenReferenceHidden={hideWhenReferenceHidden}
-        onPositioned={onPositioned}
-      >
-        {children}
-      </Contents>
-    </OutsideEventBehavior>
+  return (
+    <Layer>
+      <OutsideEventBehavior onClick={handlePageClick}>
+        <Contents
+          accessibilityLabel={accessibilityLabel}
+          anchor={anchor}
+          bgColor={bgColor}
+          border={border}
+          caret={caret}
+          id={id}
+          idealDirection={idealDirection}
+          onKeyDown={handleKeyDown}
+          role={role}
+          rounding={rounding}
+          shouldFocus={shouldFocus}
+          width={width}
+          scrollBoundary={scrollBoundary}
+          hideWhenReferenceHidden={hideWhenReferenceHidden}
+          onPositioned={onPositioned}
+        >
+          {children}
+        </Contents>
+      </OutsideEventBehavior>
+    </Layer>
   );
-
-  return disablePortal ? contents : <FloatingPortal>{contents}</FloatingPortal>;
 }

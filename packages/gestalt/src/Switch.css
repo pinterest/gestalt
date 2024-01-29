@@ -16,6 +16,12 @@
   transition: background-color 250ms cubic-bezier(0.25, 0.375, 0.1, 0.975),
     border-color 250ms cubic-bezier(0.25, 0.375, 0.1, 0.975);
   width: var(--g-switch-width);
+
+  /* Isolating becasue input element has z-index.
+    Even though the input is hidden it captures pointer events
+    potentially interfering such events of the element
+    painted above it (i.e Popover, ComboBox) */
+  isolation: isolate;
 }
 
 html[dir="rtl"] .switch {

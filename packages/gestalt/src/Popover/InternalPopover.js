@@ -25,7 +25,6 @@ type Props = {
   showCaret?: boolean,
   showDismissButton?: boolean,
   size?: Size,
-  disablePortal?: boolean,
   scrollBoundary?: HTMLElement,
   hideWhenReferenceHidden?: boolean,
   onPositioned?: () => void,
@@ -46,7 +45,6 @@ export default function InternalPopover({
   shouldFocus,
   showCaret,
   size = 'sm',
-  disablePortal,
   scrollBoundary,
   hideWhenReferenceHidden,
   onPositioned,
@@ -63,6 +61,7 @@ export default function InternalPopover({
   if (!anchor) {
     return null;
   }
+
   return (
     <Controller
       accessibilityLabel={accessibilityLabel}
@@ -79,7 +78,6 @@ export default function InternalPopover({
       shouldFocus={shouldFocus}
       size={size === 'flexible' ? null : size}
       scrollBoundary={scrollBoundary}
-      disablePortal={disablePortal}
       hideWhenReferenceHidden={hideWhenReferenceHidden}
       onPositioned={onPositioned}
     >

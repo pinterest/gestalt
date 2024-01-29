@@ -502,7 +502,7 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
         />
       </Box>
       {showOptionsList && innerRef.current ? (
-        <Layer zIndex={zIndex}>
+        <Layer>
           <Popover
             __experimentalPopover={isInExperiment}
             anchor={innerRef.current}

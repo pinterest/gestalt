@@ -126,7 +126,7 @@ export default function Popover({
     mwebExperimentName: 'mweb_gestalt_popover_v2',
   });
 
-  if (isInExperiment && !__experimentalPopover) {
+  if (!isInExperiment && !__experimentalPopover) {
     return (
       <LegacyInternalPopover
         accessibilityLabel={accessibilityLabel}
@@ -160,7 +160,6 @@ export default function Popover({
       id={id}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
-      disablePortal={disablePortal ?? positionRelativeToAnchor}
       color={color === 'deprecatedBlue' ? 'blue' : color}
       role={role}
       shouldFocus={shouldFocus}

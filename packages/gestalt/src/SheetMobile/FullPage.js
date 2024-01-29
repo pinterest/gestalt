@@ -115,9 +115,9 @@ export default function FullPage({
   }, []);
 
   return (
-    <StopScrollBehavior>
-      <TrapFocusBehavior>
-        <Layer>
+    <Layer>
+      <StopScrollBehavior>
+        <TrapFocusBehavior>
           <div
             className={classnames(sheetMobileStyles.container, sheetMobileStyles.fullPageContainer)}
           >
@@ -152,8 +152,8 @@ export default function FullPage({
               </div>
             </Backdrop>
           </div>
-        </Layer>
-      </TrapFocusBehavior>
-    </StopScrollBehavior>
+        </TrapFocusBehavior>
+      </StopScrollBehavior>
+    </Layer>
   );
 }

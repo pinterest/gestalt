@@ -25,6 +25,7 @@ declare module.exports: {|
   +'inline': string,
   +'inlineBlock': string,
   +'inlineFlex': string,
+  +'isolate': string,
   +'justifyAround': string,
   +'justifyBetween': string,
   +'justifyCenter': string,

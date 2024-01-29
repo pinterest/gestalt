@@ -202,34 +202,31 @@ export default function PopoverEducational({
     );
 
   return (
-    <Box zIndex={zIndex} position={zIndex ? 'relative' : undefined}>
-      <InternalPopover
-        accessibilityLabel={accessibilityLabel}
-        anchor={anchor}
-        color="blue"
-        id={id}
-        idealDirection={idealDirection}
-        onDismiss={onDismiss}
-        disablePortal
-        showCaret
-        shouldFocus={shouldFocus}
-        role={primaryAction && !children ? 'dialog' : role}
-        size={size}
-      >
-        {children ??
-          (message ? (
-            <Box padding={4} tabIndex={0}>
-              <Flex direction="column" gap={3}>
-                {textElement}
-                {primaryAction ? (
-                  <Flex.Item flex="grow" alignSelf="end">
-                    <PrimaryAction {...primaryAction} />
-                  </Flex.Item>
-                ) : null}
-              </Flex>
-            </Box>
-          ) : null)}
-      </InternalPopover>
-    </Box>
+    <InternalPopover
+      accessibilityLabel={accessibilityLabel}
+      anchor={anchor}
+      color="blue"
+      id={id}
+      idealDirection={idealDirection}
+      onDismiss={onDismiss}
+      showCaret
+      shouldFocus={shouldFocus}
+      role={primaryAction && !children ? 'dialog' : role}
+      size={size}
+    >
+      {children ??
+        (message ? (
+          <Box padding={4} tabIndex={0}>
+            <Flex direction="column" gap={3}>
+              {textElement}
+              {primaryAction ? (
+                <Flex.Item flex="grow" alignSelf="end">
+                  <PrimaryAction {...primaryAction} />
+                </Flex.Item>
+              ) : null}
+            </Flex>
+          </Box>
+        ) : null)}
+    </InternalPopover>
   );
 }
