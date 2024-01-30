@@ -12,8 +12,13 @@ type Props = {
 };
 
 function ColorTile({ description, fullTokenName, number = 400, textColor }: Props): ReactNode {
+  const isTransparent = fullTokenName === 'color-transparent';
   const newTextColor = textColor || (number > 400 ? 'light' : 'dark');
-  const borderNeeded = fullTokenName?.includes('white') || fullTokenName?.includes('inverse');
+  const borderNeeded =
+    fullTokenName?.includes('white') ||
+    fullTokenName?.includes('black') ||
+    fullTokenName?.includes('inverse') ||
+    isTransparent;
   const { name: colorSchemeName } = useColorScheme();
 
   return (
