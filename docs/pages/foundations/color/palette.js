@@ -24,6 +24,8 @@ const neutrals = [
   { name: 'Cosmicore', id: 'black', textColor: 'light' },
 ];
 
+const transparent = [{ name: '', id: 'transparent', textColor: 'dark' }];
+
 type ColorCardProps = {
   children: ReactNode,
   colorScheme: 'light' | 'dark',
@@ -108,11 +110,7 @@ export default function ColorPage(): ReactNode {
               description="Roboflow 200"
               number={200}
             />
-            <ColorTile
-              fullTokenName="color-white-mochimalist-0"
-              description="Mochimalist 0"
-              number={0}
-            />
+            <ColorTile fullTokenName="color-white-mochimalist-0" description="Mochimalist 0" />
           </ColorSchemeCard>
           <ColorSchemeCard colorScheme="dark">
             <ColorTile
@@ -149,6 +147,22 @@ export default function ColorPage(): ReactNode {
         </Flex>
       </MainSection>
       <MainSection
+        name="Reserved colors"
+        description="The 450 colors are primarily reserved for Brand usage as they are among the least accessible colors. This set works best within larger brand moments, and is not commonly used for functional color pairings. While Pushpin 450 is our hero, primary product color, please only use other 450 colors when absolutely necessary while maintaining accessibility."
+      >
+        <Flex direction="column">
+          {colors.map(({ id, name, textColor }) => (
+            <ColorTile
+              key={name}
+              fullTokenName={`color-${id}-${name.toLowerCase()}-450`}
+              description={`${name} 450`}
+              textColor={textColor}
+            />
+          ))}
+        </Flex>
+      </MainSection>
+
+      <MainSection
         name="Extended palette"
         description={`
         The extended color palette displays all the available shades and tints of each color in the palette. The colors are named and numbered for easy reference. The usage of these colors varies depending on the product needs, but they come in handy for illustrations, communicating status, and brand moments.
@@ -156,7 +170,7 @@ export default function ColorPage(): ReactNode {
         We aim to meet [WCAG 2.1 AA accessibility standards](https://www.w3.org/TR/WCAG21/), and in order to ensure accessible contrast for color pairings, we require our \`darkGray\` [Text](/web/text) color to be used for any colors 400 and below. For 500 and above, we recommend using \`white\`.
         `}
       >
-        <MainSection.Subsection title="Colors">
+        <MainSection.Subsection title="Colors" description="Pinterest name (common name)">
           <Flex
             gap={{
               row: 12,
@@ -169,42 +183,36 @@ export default function ColorPage(): ReactNode {
             ))}
           </Flex>
         </MainSection.Subsection>
-
-        <MainSection.Subsection title="Neutrals">
+        <MainSection.Subsection title="Neutrals" description="Pinterest name (common name)">
           <Flex direction="column">
             {neutrals.map(({ id, name }) => (
               <ColorPalette key={name} name={name} tokenId={id} />
             ))}
           </Flex>
         </MainSection.Subsection>
-
-        <MainSection.Subsection
-          title="Reserved"
-          description="The 450 colors are primarily reserved for Brand usage as they are among the least accessible colors. This set works best within larger brand moments, and is not commonly used for functional color pairings. While Pushpin 450 is our hero, primary product color, please only use other 450 colors when absolutely necessary while maintaining accessibility."
-        >
+        <MainSection.Subsection title="Transparent" description="(common name)">
           <Flex direction="column">
-            {colors.map(({ id, name, textColor }) => (
-              <ColorTile
-                key={name}
-                fullTokenName={`color-${id}-${name.toLowerCase()}-450`}
-                description={`${name} 450`}
-                textColor={textColor}
-              />
+            {transparent.map(({ id, name }) => (
+              <ColorPalette key={name} name={name} tokenId={id} />
             ))}
           </Flex>
         </MainSection.Subsection>
-      </MainSection>
-      <MainSection
-        name="Colors in code"
-        description={`
-       All colors in this palette are available through [design tokens](https://uxdesign.cc/design-tokens-cheatsheet-927fc1404099) and follow the naming pattern of \`color-{common_name}-{pinterest_name}-{number}\`. For example:
+        <MainSection.Subsection
+          title="Colors in code"
+          description={`
+       The full extended palette of colors (colors, neutrals, and transparent) are the foundational elements of our color token system or base tokens. Base tokens are the lowest level tokens, which map directly to a value. Base tokens would likely be internal only and used to build our [semantic design tokens](/foundations/design_tokens).
+
+       The full extended palette is available through design tokens and follow the naming pattern of \`color-{common_name}-{pinterest_name}-{number}\`. For example:
 
        - JavaScript  \`$color-pink-flaminglow-400\`
-       - CSS  \`var(--color-pink-flaminglow-400)\`
+       - CSS \`var(--color-pink-flaminglow-400)\`
+
+       The transparent color is just \`color-transparent\`.
 
        Using colors that are not available through our [semantic design tokens](/foundations/design_tokens) and components directly is considered an anti-pattern and should be avoided whenever possible. If it's absolutely necessary, a [hack on Box](/get_started/developers/hacking_gestalt#Box's-dangerouslySetInlineStyle) can be used.
       `}
-      />
+        />
+      </MainSection>
     </Page>
   );
 }
