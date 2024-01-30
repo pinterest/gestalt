@@ -25,8 +25,6 @@ type MasonryProps<T> = $PropertyType<Masonry<T>, 'props'>;
 type Props<T> = {
   // The actual Masonry component to be used (if using an experimental version of Masonry).
   MasonryComponent: typeof Masonry,
-  // Experimental prop to batch paints of measured items.
-  batchPaints?: boolean,
   // Sets up props to display a collage layout.
   collage?: boolean,
   // Constrains the width of the grid rendering.
@@ -308,7 +306,6 @@ export default class MasonryContainer extends Component<Props<{ ... }>, State> {
   render(): Element<'div'> {
     const {
       MasonryComponent,
-      batchPaints,
       collage,
       constrained,
       externalCache,
@@ -400,7 +397,6 @@ export default class MasonryContainer extends Component<Props<{ ... }>, State> {
         <div id="top-sibling" />
         {mountGrid && (
           <MasonryComponent
-            _batchPaints={batchPaints}
             _logTwoColWhitespace={
               logWhitespace
                 ? // eslint-disable-next-line no-console
