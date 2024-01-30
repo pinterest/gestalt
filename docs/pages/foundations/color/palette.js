@@ -110,7 +110,11 @@ export default function ColorPage(): ReactNode {
               description="Roboflow 200"
               number={200}
             />
-            <ColorTile fullTokenName="color-white-mochimalist-0" description="Mochimalist 0" />
+            <ColorTile
+              fullTokenName="color-white-mochimalist-0"
+              description="Mochimalist 0"
+              number={0}
+            />
           </ColorSchemeCard>
           <ColorSchemeCard colorScheme="dark">
             <ColorTile
