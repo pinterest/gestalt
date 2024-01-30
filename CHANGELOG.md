@@ -1,3 +1,9 @@
+## 133.0.4 (Jan 30, 2024)
+
+### Patch
+
+- Tokens: update color token documentation ([#3392](https://github.com/pinterest/gestalt/pull/3392)) - [Preview link](https://deploy-preview-3392--gestalt.netlify.app?devexample=true)
+
 ## 133.0.3 (Jan 26, 2024)
 
 ### Patch
