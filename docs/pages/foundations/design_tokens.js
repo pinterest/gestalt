@@ -124,7 +124,11 @@ export default function DesignTokensPage(): ReactNode {
     <Page title="Design tokens guidelines">
       <PageHeader
         name="Design tokens"
-        description="Design tokens represent the values used within a design system to construct layouts and components, such as spacing and color. Because the tokens are an abstraction, the underlying value can change in different scenarios without affecting the designer or developer experience. [Learn more about Design Tokens](https://uxdesign.cc/design-tokens-cheatsheet-927fc1404099)."
+        description={`
+Design tokens represent the values used within a design system to construct layouts and components, such as spacing and color. Because the tokens are an abstraction, the underlying value can change in different scenarios without affecting the designer or developer experience. [Learn more about Design Tokens](https://uxdesign.cc/design-tokens-cheatsheet-927fc1404099).
+
+The design color tokens on this page, those that with \`$color-\` are alias (or semantic tokens) as they give semantic usage information through their name. They point to Gestalt's base color tokens (hence the name "alias"). To learm more about the complete set of Gestalt's base color tokens, read our [extended color palette section](http://localhost:8888/foundations/color/palette#Extended-palette)
+        `}
         type="guidelines"
       />
       <MainSection name="Token values">
