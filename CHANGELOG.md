@@ -1,3 +1,9 @@
+## 134.1.0 (Jan 31, 2024)
+
+### Minor
+
+- AvatarGroup: Update addCollaborators icon from 'add' to 'add-person' ([#3393](https://github.com/pinterest/gestalt/pull/3393)) - [Preview link](https://deploy-preview-3393--gestalt.netlify.app?devexample=true)
+
 ## 134.0.0 (Jan 31, 2024)
 
 ### Major
