@@ -86,7 +86,7 @@
             "imageAltText": "International design graphic representation showing pluralization and number localization",
             "content": "[Number localization](https://gestalt.pinterest.systems/foundations/international_design/number_localization) and [Pluralization guidelines](https://gestalt.pinterest.systems/foundations/international_design/pluralization) are published under International Design."
           },
-           {
+          {
             "title": "Icon fixes",
             "audience": ["Design"],
             "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/46b32784-c7d3-42a7-b9e3-e91bdf5bd28f",
@@ -2386,8 +2386,3 @@
     ]
   }
 ]
-
-
-
-
-
