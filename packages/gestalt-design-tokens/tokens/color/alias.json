@@ -7,7 +7,7 @@
         "comment": "Default text color"
       },
       "subtle": {
-        "value": "{color.gray.roboflow.550.value}",
+        "value": "{color.gray.roboflow.500.value}",
         "darkValue": "{color.gray.roboflow.400.value}",
         "comment": "Secondary, subtle text color"
       },
