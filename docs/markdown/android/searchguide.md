@@ -58,11 +58,11 @@ People use Android's accessibility features, such as TalkBack and dynamic text s
 
 <TwoCol>
 <Group>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D67823%253A333%26mode%3Ddesign%26t%3DqIclde6IgavzyBJ0-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D68089%253A419%26mode%3Ddesign%26t%3DYy6uGJnYxG1cVxAv-1" allowFullScreen></iframe>
 **Default:** 1. Container | 2. Text | 3. Trailing icon
 </Group>
 <Group>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D67823%253A410%26mode%3Ddesign%26t%3DqIclde6IgavzyBJ0-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D68089%253A420%26mode%3Ddesign%26t%3DYy6uGJnYxG1cVxAv-1" allowFullScreen></iframe>
 **Guide with image:** 1. Pin image | 2. Text
 </Group>
 </TwoCol>
@@ -73,21 +73,21 @@ People use Android's accessibility features, such as TalkBack and dynamic text s
 
 <Group>
 
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D67823%253A485%26mode%3Ddesign%26t%3DqIclde6IgavzyBJ0-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D68089%253A417%26mode%3Ddesign%26t%3DYy6uGJnYxG1cVxAv-1" allowFullScreen></iframe>
 The default SearchGuide item displays a label only.
 </Group>
 
 ### With an image
 
 <Group>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D67823%253A487%26mode%3Ddesign%26t%3DqIclde6IgavzyBJ0-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D68089%253A416%26mode%3Ddesign%26t%3DYy6uGJnYxG1cVxAv-1" allowFullScreen></iframe>
 When SearchGuide query is more precise, a Pin representation can be added to illustrate the results.
 </Group>
 
 ### Expandable
 
 <Group>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D67823%253A1498%26mode%3Ddesign%26t%3DqIclde6IgavzyBJ0-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D67914%253A2487%26mode%3Ddesign%26t%3DYy6uGJnYxG1cVxAv-1" allowFullScreen></iframe>
 When SearchGuide query is broad and can be further refined (example: Season), an **arrow-down** icon can be added at the end, to trigger a Sheet with a cluster of wrapped SearchGuides.
 </Group>
 
