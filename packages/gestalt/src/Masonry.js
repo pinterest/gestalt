@@ -8,7 +8,6 @@ import defaultLayout from './Masonry/defaultLayout';
 import defaultTwoColumnModuleLayout from './Masonry/defaultTwoColumnModuleLayout';
 import fullWidthLayout from './Masonry/fullWidthLayout';
 import HeightsStore, { type HeightsStoreInterface } from './Masonry/HeightsStore';
-import MeasureItems from './Masonry/MeasureItems';
 import MeasurementStore from './Masonry/MeasurementStore';
 import ScrollContainer from './Masonry/ScrollContainer';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
@@ -104,12 +103,6 @@ type Props<T> = {
    * Specifies whether or not Masonry dynamically adds/removes content from the grid based on the user's viewport and scroll position. Note that `scrollContainer` must be specified when virtualization is used.
    */
   virtualize?: boolean,
-  /**
-   * Experimental prop to batch paints for possible performance improvements.
-   *
-   * This is an experimental prop and may be removed in the future.
-   */
-  _batchPaints?: boolean,
   /**
    * Experimental prop to turn on support for items spanning two columns. Two-column items should include the optional `columnSpan` prop.
    *
@@ -486,7 +479,6 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       minCols,
       renderItem,
       scrollContainer,
-      _batchPaints,
       _twoColItems,
       _logTwoColWhitespace,
     } = this.props;
@@ -619,47 +611,37 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
             )}
           </div>
           <div className={styles.Masonry} style={{ width }}>
-            {_batchPaints ? (
-              <MeasureItems
-                baseIndex={itemsWithMeasurements.length}
-                getPositions={getPositions}
-                items={itemsToMeasure}
-                measurementStore={measurementStore}
-                renderItem={renderItem}
-              />
-            ) : (
-              itemsToMeasure.map((data, i) => {
-                // itemsToMeasure is always the length of minCols, so i will always be 0..minCols.length
-                // we normalize the index here relative to the item list as a whole so that itemIdx is correct
-                // and so that React doesnt reuse the measurement nodes
-                const measurementIndex = itemsWithMeasurements.length + i;
-                const position = measuringPositions[i];
-                return (
-                  <div
-                    key={`measuring-${measurementIndex}`}
-                    style={{
-                      visibility: 'hidden',
-                      position: 'absolute',
-                      top: layoutNumberToCssDimension(position.top),
-                      left: layoutNumberToCssDimension(position.left),
-                      width: layoutNumberToCssDimension(position.width),
-                      height: layoutNumberToCssDimension(position.height),
-                    }}
-                    ref={(el) => {
-                      if (el) {
-                        measurementStore.set(data, el.clientHeight);
-                      }
-                    }}
-                  >
-                    {renderItem({
-                      data,
-                      itemIdx: measurementIndex,
-                      isMeasuring: true,
-                    })}
-                  </div>
-                );
-              })
-            )}
+            {itemsToMeasure.map((data, i) => {
+              // itemsToMeasure is always the length of minCols, so i will always be 0..minCols.length
+              // we normalize the index here relative to the item list as a whole so that itemIdx is correct
+              // and so that React doesnt reuse the measurement nodes
+              const measurementIndex = itemsWithMeasurements.length + i;
+              const position = measuringPositions[i];
+              return (
+                <div
+                  key={`measuring-${measurementIndex}`}
+                  style={{
+                    visibility: 'hidden',
+                    position: 'absolute',
+                    top: layoutNumberToCssDimension(position.top),
+                    left: layoutNumberToCssDimension(position.left),
+                    width: layoutNumberToCssDimension(position.width),
+                    height: layoutNumberToCssDimension(position.height),
+                  }}
+                  ref={(el) => {
+                    if (el) {
+                      measurementStore.set(data, el.clientHeight);
+                    }
+                  }}
+                >
+                  {renderItem({
+                    data,
+                    itemIdx: measurementIndex,
+                    isMeasuring: true,
+                  })}
+                </div>
+              );
+            })}
           </div>
 
           {this.scrollContainer && (
