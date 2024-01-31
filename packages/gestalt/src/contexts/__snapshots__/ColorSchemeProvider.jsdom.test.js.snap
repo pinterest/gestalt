@@ -155,7 +155,7 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --g-colorDataVisualization08: #400387;
   --g-colorDataVisualization09: #f2681f;
   --color-text-default: #111111;
-  --color-text-subtle: #5f5f5f;
+  --color-text-subtle: #767676;
   --color-text-success: #005f3e;
   --color-text-disabled: #a5a5a5;
   --color-text-error: #cc0000;
@@ -164,7 +164,7 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-text-shopping: #0074e8;
   --color-text-link: #004ba9;
   --color-text-icon-default: #111111;
-  --color-text-icon-subtle: #5f5f5f;
+  --color-text-icon-subtle: #767676;
   --color-text-icon-success: #005f3e;
   --color-text-icon-disabled: #a5a5a5;
   --color-text-icon-error: #cc0000;
@@ -266,7 +266,7 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --g-colorDataVisualization08: #400387;
   --g-colorDataVisualization09: #f2681f;
   --color-text-default: #111111;
-  --color-text-subtle: #5f5f5f;
+  --color-text-subtle: #767676;
   --color-text-success: #005f3e;
   --color-text-disabled: #a5a5a5;
   --color-text-error: #cc0000;
@@ -275,7 +275,7 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-text-shopping: #0074e8;
   --color-text-link: #004ba9;
   --color-text-icon-default: #111111;
-  --color-text-icon-subtle: #5f5f5f;
+  --color-text-icon-subtle: #767676;
   --color-text-icon-success: #005f3e;
   --color-text-icon-disabled: #a5a5a5;
   --color-text-icon-error: #cc0000;
@@ -377,7 +377,7 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --g-colorDataVisualization08: #400387;
   --g-colorDataVisualization09: #f2681f;
   --color-text-default: #111111;
-  --color-text-subtle: #5f5f5f;
+  --color-text-subtle: #767676;
   --color-text-success: #005f3e;
   --color-text-disabled: #a5a5a5;
   --color-text-error: #cc0000;
@@ -386,7 +386,7 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-text-shopping: #0074e8;
   --color-text-link: #004ba9;
   --color-text-icon-default: #111111;
-  --color-text-icon-subtle: #5f5f5f;
+  --color-text-icon-subtle: #767676;
   --color-text-icon-success: #005f3e;
   --color-text-icon-disabled: #a5a5a5;
   --color-text-icon-error: #cc0000;
