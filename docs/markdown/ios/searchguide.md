@@ -1,6 +1,6 @@
 ---
 title: SearchGuide
-description: A SearchGuide appends and refines a search query. They appear under [SearchField](/ios/searchfield) after user submits a search input.
+description: SearchGuide appends and refines a search query. They appear under [SearchField](/ios/searchfield) after user submits a search input.
 fullwidth: true
 ---
 
@@ -16,7 +16,7 @@ fullwidth: true
 </Group>
 <Group>
 <Dont title="When not to use" />
-- To recommend related content or descriptions. Use [Tag](web/tag) instead
+- To recommend related content or descriptions. Use [Tag](/web/tag) instead
 - To switch between different, yet related views. Use [Tabs](/ios/tabs) instead
 - To start a new search based solely on the content of the SearchGuide
 </Group>
@@ -25,7 +25,7 @@ fullwidth: true
 ## Best practices
 
 - SearchGuides are serial and appear in multiples. When a query doesn’t produce enough guides of sufficient quality, they shouldn’t be shown
-- Limit the number of SearchGuides to 9 per search query. If there are less number of SearchGuides present for a give query then by default we show that number. Limiting vertical scrolling helps to enhance the user experience by reducing the effort required to navigate and locate content
+- Limit the number of SearchGuides to 9 per search query. If there are fewer SearchGuides present for a given query, then by default we show that number. Limiting vertical scrolling helps to enhance the user experience by reducing the effort required to navigate and locate content
 
 <TwoCol>
   <Group>
@@ -42,13 +42,13 @@ fullwidth: true
 
 ## Accessibility
 
-- Ensure that SearchGuide component uses the correct markup for lists. Typically screen readers announce the number of items in a list and announce each item.
+- Ensure that each SearchGuide uses the correct markup for lists. Typically screen readers announce the number of items in a list and announce each item.
 - Limit the number of SearchGuides to 9 per search query. Horizontal scrolling can be challenging to users with mobility issues, or users of assistive devices such as screen readers.
 - Include descriptive alt text for icons and labels that convey the purpose of each item.
 - SearchGuide uses color tokens dynamically generated from the 300-value and below from the [extended color palette](/foundations/color/palette#Extended-palette). These values ensure SearchGuide has minimum contrast requirements met. 
 
 
-People use Apple’s accessibility features, such as reduced transparency, VoiceOver, and increased text size to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Apple’s Human Interface Guidelines and API documentation about accessibility for iOS:
+People use Apple’s accessibility features, such as reduced transparency, VoiceOver, and increased text size, to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Apple’s Human Interface Guidelines and API documentation about accessibility for iOS:
 - [Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/accessibility)
 - [Accessible development on iOS](https://developer.apple.com/accessibility/)
 
@@ -89,7 +89,7 @@ When SearchGuide query is more precise, a Pin representation can be added to ill
 
 <Group>
 <iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D56632%253A1388%26mode%3Ddesign%26t%3DIjvWLl82iPSTkkof-1" allowFullScreen></iframe>
-When SearchGuide query is broad and can be further refined (example: Season), an **arrow-down** icon can be added at the end, to trigger a Sheet with a cluster of wrapped SearchGuides.
+When a SearchGuide query is broad and can be further refined (example: Season), an **arrow-down** icon can be added at the end, to trigger a Sheet with a cluster of wrapped SearchGuides.
 </Group>
 
 ## Writing 
