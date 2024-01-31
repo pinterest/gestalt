@@ -56,7 +56,7 @@ import PopoverEducational from '../../graphics/general/PopoverEducational.svg';
 import Pulsar from '../../graphics/general/Pulsar.svg';
 import RadioGroup from '../../graphics/general/RadioGroup.svg';
 import SearchField from '../../graphics/general/SearchField.svg';
-import SearchGuide from '../../graphics/general/SearchGuide.svg'
+import SearchGuide from '../../graphics/general/SearchGuide.svg';
 import SegmentedControl from '../../graphics/general/SegmentedControl.svg';
 import SelectList from '../../graphics/general/SelectList.svg';
 import SheetMobile from '../../graphics/general/SheetMobile.svg';
@@ -1975,8 +1975,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           svg: <SearchGuide />,
         },
         alias: ['Search filters', 'Pivots', 'Vanilla guides'],
-        description:
-          'SearchGuide appends and refines a search query.',
+        description: 'SearchGuide appends and refines a search query.',
         category: ['Actions'],
         status: {
           documentation: 'ready',
