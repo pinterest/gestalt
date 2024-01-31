@@ -106,7 +106,7 @@ export default function AvatarFoundation({
           xmlns="http://www.w3.org/2000/svg"
         >
           <title>Icon</title>
-          <path d={icons.add} />
+          <path d={icons['person-add']} />
         </svg>
       ) : null}
     </ResponsiveFitSizeBox>
