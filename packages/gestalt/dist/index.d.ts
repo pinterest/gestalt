@@ -298,6 +298,7 @@ type Icons =
   | 'speech'
   | 'speech-ellipsis'
   | 'speech-exclamation-point'
+  | 'speech-heart'
   | 'speech-outline'
   | 'spread'
   | 'star'
