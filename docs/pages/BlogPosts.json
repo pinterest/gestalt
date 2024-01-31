@@ -28,14 +28,14 @@
           {
             "title": "Default cursor pointer available in TapArea",
             "audience": ["Engineering"],
-            "content": "The 'default' cursor should be used sparingly when there are actions that only have hover actions or part of complex elements where there are other interactive elements."
+            "content": "Use the 'default' cursor over non-interactive elements. The 'default' cursor should change to a pointer if the element it hovers over is also clickable or indicates functionally."
           },
           {
             "title": "New icons",
             "audience": ["Engineering"],
             "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/a97e50d6-f51c-4c2e-b882-e78f360f79de",
             "imageAltText": "Full list of icons rendered",
-            "content": "- **Icons**. We added a while lot new cross-platform icons to our [iconography collection](https://gestalt.pinterest.systems/foundations/iconography/library): scissors, clock, clock-checked, 360, alphabetical, arrow-counter-clockwise, arrow-up-left, arrows-vertical, camera-flip, chevron-up-circle, collapse, color-solid, color-split, expand, fade, face-tryon, file-box, forward, forward, insights-conversion, layout, lips, overlay-text-outline, rewind, service-dropbox, service-etsy, service-messenger, service-outlook, service-yahoo, service-youtube, share, shrink, skintone, spread, view-type-space, and x!"
+            "content": "We added a whole lot of new cross-platform icons to our [iconography collection](https://gestalt.pinterest.systems/foundations/iconography/library): scissors, clock, clock-checked, 360, alphabetical, arrow-counter-clockwise, arrow-up-left, arrows-vertical, camera-flip, chevron-up-circle, collapse, color-solid, color-split, expand, fade, face-tryon, file-box, forward, forward, insights-conversion, layout, lips, overlay-text-outline, rewind, service-dropbox, service-etsy, service-messenger, service-outlook, service-yahoo, service-youtube, share, shrink, skintone, spread, view-type-space, and x!"
           },
           {
             "title": "Accordion",
@@ -2386,3 +2386,8 @@
     ]
   }
 ]
+
+
+
+
+
