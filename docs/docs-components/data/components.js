@@ -1983,6 +1983,20 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           status: 'planned',
         },
       },
+      ios: {
+        name: 'SearchGuide',
+        visual: {
+          svg: <SearchGuide />,
+        },
+        alias: ['Search filters', 'Pivots', 'Vanilla guides'],
+        description: 'SearchGuide appends and refines a search query.',
+        category: ['Actions'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'partial',
+          status: 'planned',
+        },
+      },
     },
   },
   {
