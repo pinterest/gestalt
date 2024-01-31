@@ -1,3 +1,9 @@
+## 134.0.0 (Jan 31, 2024)
+
+### Major
+
+- Tokens: change color-text-subtle & color-text-icon-subtle value to match Figma + Token changelog ([#3394](https://github.com/pinterest/gestalt/pull/3394)) - [Preview link](https://deploy-preview-3394--gestalt.netlify.app?devexample=true)
+
 ## 133.1.1 (Jan 31, 2024)
 
 ### Patch
