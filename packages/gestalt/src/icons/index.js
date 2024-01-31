@@ -212,6 +212,7 @@ import sparkle from './sparkle.svg';
 import speech from './speech.svg';
 import speechEllipsis from './speech-ellipsis.svg';
 import speechExclamationPoint from './speech-exclamation-point.svg';
+import speechHeart from './speech-heart.svg';
 import speechOutline from './speech-outline.svg';
 import spread from './spread.svg';
 import star from './star.svg';
@@ -477,6 +478,7 @@ const icons = Object.freeze({
   speech,
   'speech-ellipsis': speechEllipsis,
   'speech-exclamation-point': speechExclamationPoint,
+  'speech-heart': speechHeart,
   'speech-outline': speechOutline,
   spread,
   'star-outline': starOutline,
