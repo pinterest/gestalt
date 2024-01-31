@@ -1,3 +1,9 @@
+## 133.1.1 (Jan 31, 2024)
+
+### Patch
+
+- Docs: Newsletter Jan 2024 ([#3353](https://github.com/pinterest/gestalt/pull/3353)) - [Preview link](https://deploy-preview-3353--gestalt.netlify.app?devexample=true)
+
 ## 133.1.0 (Jan 30, 2024)
 
 ### Minor
