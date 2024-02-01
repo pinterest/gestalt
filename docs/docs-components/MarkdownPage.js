@@ -22,6 +22,7 @@ type Props = {
     component: boolean,
   },
   pageSourceUrl?: string,
+  platform: 'android' | 'ios' | 'web',
 };
 
 const isExternal: (string) => 'blank' | void = (href) => {
@@ -329,7 +330,12 @@ const components = {
   ),
 };
 
-export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): ReactNode {
+export default function MarkdownPage({
+  children,
+  meta,
+  pageSourceUrl,
+  platform,
+}: Props): ReactNode {
   const maxWidth = meta?.fullwidth ? 'none' : `${DOCS_COPY_MAX_WIDTH_PX}px`;
 
   return (
@@ -340,6 +346,7 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
           badge={meta.badge}
           description={meta.description}
           margin="none"
+          platform={platform}
           type={meta.component ? 'component' : 'guidelines'}
         />
         <Text>

@@ -16,6 +16,12 @@ import ErrorBoundary from '../docs-components/ErrorBoundary';
 import MarkdownPage from '../docs-components/MarkdownPage';
 import { getAllMarkdownPosts, getDocByRoute } from '../utils/mdHelper';
 
+function getPlatform(pathName: string): 'android' | 'ios' | 'web' {
+  if (pathName.startsWith('android')) return 'android';
+  if (pathName.startsWith('ios')) return 'ios';
+  return 'web';
+}
+
 type MDXRemoteSerializeResult = {
   compiledSource: string,
 
@@ -32,12 +38,13 @@ type Props = {
     component: boolean,
   },
   pageSourceUrl: string,
+  platform: 'android' | 'ios' | 'web',
 };
 
-export default function DocumentPage({ content, meta, pageSourceUrl }: Props): ReactNode {
+export default function DocumentPage({ content, meta, pageSourceUrl, platform }: Props): ReactNode {
   return (
     <ErrorBoundary>
-      <MarkdownPage meta={meta} pageSourceUrl={pageSourceUrl}>
+      <MarkdownPage meta={meta} pageSourceUrl={pageSourceUrl} platform={platform}>
         <MDXRemote {...content} />
       </MarkdownPage>
     </ErrorBoundary>
@@ -49,6 +56,7 @@ export async function getStaticProps(context: { params: { id: $ReadOnlyArray<str
     meta: { [key: string]: string },
     content: {},
     pageSourceUrl: string,
+    platform: 'android' | 'ios' | 'web',
   },
 }> {
   const { id } = context.params;
@@ -65,6 +73,7 @@ export async function getStaticProps(context: { params: { id: $ReadOnlyArray<str
       meta,
       content: mdxSource,
       pageSourceUrl: `https://github.com/pinterest/gestalt/tree/master/docs/markdown/${pathName}.md`,
+      platform: getPlatform(pathName),
     },
   };
 }

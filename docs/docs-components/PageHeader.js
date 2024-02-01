@@ -12,8 +12,6 @@ import Markdown from './Markdown';
 import PageHeaderQualitySummary from './PageHeaderQualitySummary';
 import { SlimBannerExperiment } from './SlimBannerExperiment';
 
-const webComponentData = getByPlatform(componentData, { platform: 'web' });
-
 const gestaltChartComponents = Object.keys(gestaltChart);
 const gestaltDatepickerComponents = Object.keys(gestaltDatepicker);
 
@@ -57,6 +55,7 @@ type Props = {
   folderName?: string,
   margin?: 'default' | 'none',
   name: string,
+  platform?: 'android' | 'ios' | 'web',
   slimBanner?: Element<typeof SlimBanner> | null,
   slimBannerExperiment?: Element<typeof SlimBannerExperiment> | null,
   type?: 'guidelines' | 'component' | 'utility',
@@ -72,6 +71,7 @@ export default function PageHeader({
   pdocsLink = false,
   margin = 'default',
   name,
+  platform,
   slimBanner = null,
   slimBannerExperiment = null,
   type = 'component',
@@ -83,7 +83,8 @@ export default function PageHeader({
     sourceLink = sourceLink.replace(/\.js$/, '');
   }
 
-  const { alias } = webComponentData.find((component) => component.name === name) ?? {};
+  const platformComponentData = getByPlatform(componentData, { platform: platform ?? 'web' });
+  const { alias } = platformComponentData.find((component) => component.name === name) ?? {};
 
   const badgeMap = {
     pilot: {
