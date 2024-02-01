@@ -1,3 +1,9 @@
+## 134.2.1 (Feb 1, 2024)
+
+### Patch
+
+- Docs: fix alias section on mobile pages ([#3398](https://github.com/pinterest/gestalt/pull/3398)) - [Preview link](https://deploy-preview-3398--gestalt.netlify.app?devexample=true)
+
 ## 134.2.0 (Feb 1, 2024)
 
 ### Minor
