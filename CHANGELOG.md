@@ -1,3 +1,9 @@
+## 134.2.0 (Feb 1, 2024)
+
+### Minor
+
+- Icon: added new icons ([#3397](https://github.com/pinterest/gestalt/pull/3397)) - [Preview link](https://deploy-preview-3397--gestalt.netlify.app?devexample=true)
+
 ## 134.1.1 (Feb 1, 2024)
 
 ### Patch
