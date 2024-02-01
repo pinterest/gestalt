@@ -1319,6 +1319,12 @@
       "keywords": ["chat", "message", "inbox", "bubble"]
     },
     {
+      "name": "speech-heart",
+      "categories": ["Utility and tools"],
+      "description": "Description pending",
+      "keywords": ["chat", "message", "comment", "bubble"]
+    },
+    {
       "name": "speech-outline",
       "categories": ["Utility and tools"],
       "description": "Indicates the ability to comment. Use for the unselected state or when grouped with other outlined icons.",
