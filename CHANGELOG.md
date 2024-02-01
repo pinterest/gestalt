@@ -1,3 +1,9 @@
+## 134.1.1 (Feb 1, 2024)
+
+### Patch
+
+- SearchGuide: Android and iOS docs ([#3396](https://github.com/pinterest/gestalt/pull/3396)) - [Preview link](https://deploy-preview-3396--gestalt.netlify.app?devexample=true)
+
 ## 134.1.0 (Jan 31, 2024)
 
 ### Minor
