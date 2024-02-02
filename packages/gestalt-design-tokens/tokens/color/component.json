@@ -39,12 +39,12 @@
           "comment": "Tertiary button background color."
         },
         "hover": {
-          "value": "rgb(0 0 0 / 0.06)",
+          "value": "rgba(0, 0, 0, 0.06)",
           "darkValue": "rgba(250, 250, 250, 0.5)",
           "comment": "Tertiary button background color on hover."
         },
         "active": {
-          "value": "rgb(0 0 0 / 0.1)",
+          "value": "rgba(0, 0, 0, 0.1)",
           "darkValue": "rgba(250, 250, 250, 0.6)",
           "comment": "Tertiary button background color on active."
         }
@@ -83,7 +83,7 @@
       },
       "semitransparentwhite": {
         "default": {
-          "value": "rgb(255 255 255 / 0.8)",
+          "value": "rgba(255, 255, 255, 0.8)",
           "darkValue": "rgba(51, 51, 51, 0.8)",
           "comment": "Button semi-transparent white background color for images with background"
         },
