@@ -281,7 +281,7 @@ describe('SideNavigation desktop', () => {
       }),
     ).toHaveFocus();
 
-    expect(screen.queryByText('Edit')).toBeNull();
+    expect(screen.queryByText('Edit')).not.toBeInTheDocument();
 
     await userEvent.keyboard('[Enter]');
 
@@ -289,7 +289,7 @@ describe('SideNavigation desktop', () => {
       screen.getByText('Edit', {
         exact: true,
       }),
-    ).toBeVisible();
+    ).toBeInTheDocument();
   });
 });
 
