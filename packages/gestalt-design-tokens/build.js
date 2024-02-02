@@ -122,7 +122,9 @@ StyleDictionary.registerFilter({
   matcher(token) {
     return (
       token.darkValue &&
-      (token.attributes.category === `color` || token.attributes.category === `elevation`)
+      (token.attributes.category === `color` ||
+        token.attributes.type === `color` ||
+        token.attributes.category === `elevation`)
     );
   },
 });
