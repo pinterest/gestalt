@@ -91,11 +91,6 @@
           "value": "#f0f0f0",
           "darkValue": "#121212",
           "comment": "Button semi-transparent white background color for images with background on hover."
-        },
-        "active": {
-          "value": "#e0e0e0",
-          "darkValue": "#1f1f1f",
-          "comment": "Button semi-transparent white background color for images with background on active."
         }
       },
       "disabled": {
