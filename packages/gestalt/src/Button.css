@@ -115,25 +115,17 @@
 /* COLORS ON BACKGROUND */
 
 .semiTransparentWhite {
-  background-color: var(--button-color-semitransparentwhite-default);
-}
-
-.semiTransparentWhite:hover {
-  background-color: var(--button-color-semitransparentwhite-hover);
-}
-
-.semiTransparentWhite:active {
-  background-color: var(--button-color-semitransparentwhite-active);
+  background-color: var(--button-color-semiTransparentWhite-default);
 }
 
 .white {
   background-color: var(--button-color-white-default);
 }
 
-.white:hover {
-  background-color: var(--button-color-white-hover);
+.semiTransparentWhite:hover {
+  background-color: var(--button-color-semiTransparentWhite-hover);
 }
 
-.white:active {
-  background-color: var(--button-color-white-active);
+.white:hover {
+  background-color: var(--button-color-white-hover);
 }
