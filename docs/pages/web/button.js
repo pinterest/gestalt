@@ -13,6 +13,7 @@ import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
 import accessibilityDropdownExample from '../../examples/button/accessibilityDropdownExample';
+import colors from '../../examples/button/colors';
 import defaultStateExample from '../../examples/button/defaultStateExample';
 import disabledStateExample from '../../examples/button/disabledStateExample';
 import iconEndExample from '../../examples/button/iconEndExample';
@@ -273,24 +274,12 @@ If Button is used as a control Button to show/hide a Popover-based component, we
     Low emphasis when placed on dark/image backgrounds, used for tertiary actions in that context. *Note, this treatment should be used with caution as it has potential color contrast issues.*
 `}
         >
-          <CombinationNew color={['red', 'blue', 'gray', 'transparent']}>
-            {({ color }) => {
-              const map = {
-                red: 'Save',
-                blue: 'Shop',
-                gray: 'Visit',
-                transparent: 'Learn more',
-              };
-              return (
-                <Button
-                  accessibilityLabel={`Example width ${color}`}
-                  color={color}
-                  text={map[color]}
-                  size="lg"
-                />
-              );
-            }}
-          </CombinationNew>
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={colors} name="Colors" previewHeight={500} layout="column" />
+            }
+          />
         </MainSection.Subsection>
         <MainSection.Subsection
           columns={2}
