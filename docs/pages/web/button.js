@@ -27,6 +27,7 @@ import placePrimaryButtonDont from '../../examples/button/placePrimaryButtonDont
 import selectedStateExample from '../../examples/button/selectedStateExample';
 import showFullTextDo from '../../examples/button/showFullTextDo';
 import showFullTextDont from '../../examples/button/showFullTextDont';
+import washColors from '../../examples/button/washColors';
 
 const PREVIEW_HEIGHT = 300;
 
@@ -290,7 +291,19 @@ If Button is used as a control Button to show/hide a Popover-based component, we
   2. Semi-transparent white (Secondary)
       Medium emphasis when placed on color/image backgrounds, used for secondary actions in that context.
 `}
-        />
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={washColors}
+                name="Color on color/image backgrounds"
+                previewHeight={500}
+                layout="column"
+              />
+            }
+          />
+        </MainSection.Subsection>
 
         <MainSection.Subsection
           title="Icons"
