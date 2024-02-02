@@ -1,6 +1,6 @@
 // @flow strict
 import { Fragment, type Node as ReactNode } from 'react';
-import { Box, Divider, Flex, BannerSlim, Text } from 'gestalt';
+import { BannerSlim, Box, Divider, Flex, Text } from 'gestalt';
 import componentData from './data/components';
 import { COMPONENT_STATUS_MESSAGING, STATUS_DESCRIPTION } from './data/componentStatusMessaging';
 import { type StatusType } from './data/types';

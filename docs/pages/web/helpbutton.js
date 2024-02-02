@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
+import { BannerSlimExperiment } from '../../docs-components/BannerSlimExperiment';
 import docGen, { type DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
@@ -7,7 +8,6 @@ import MainSection from '../../docs-components/MainSection';
 import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import SandpackExample from '../../docs-components/SandpackExample';
-import { BannerSlimExperiment } from '../../docs-components/BannerSlimExperiment';
 import endGuideElement from '../../examples/helpbutton/endGuideElement';
 import intermixedBlocks from '../../examples/helpbutton/intermixedBlocks';
 import localizationLabels from '../../examples/helpbutton/localizationLabels';

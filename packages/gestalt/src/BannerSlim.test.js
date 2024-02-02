@@ -1,7 +1,7 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import Link from './Link';
 import BannerSlim from './BannerSlim';
+import Link from './Link';
 import Text from './Text';
 
 describe('BannerSlim', () => {
