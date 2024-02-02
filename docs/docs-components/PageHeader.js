@@ -1,8 +1,9 @@
 // @flow strict
 import { type Element, type Node as ReactNode } from 'react';
-import { Badge, Box, Flex, Heading, Link, SlimBanner, Text } from 'gestalt';
+import { Badge, BannerSlim, Box, Flex, Heading, Link, Text } from 'gestalt';
 import * as gestaltChart from 'gestalt-charts'; // eslint-disable-line import/no-namespace
 import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
+import { BannerSlimExperiment } from './BannerSlimExperiment';
 import trackButtonClick from './buttons/trackButtonClick';
 import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
 import componentData from './data/components';
@@ -10,7 +11,6 @@ import getByPlatform from './data/utils/getByPlatform';
 import InternalOnlyIconButton from './InternalOnlyIconButton';
 import Markdown from './Markdown';
 import PageHeaderQualitySummary from './PageHeaderQualitySummary';
-import { SlimBannerExperiment } from './SlimBannerExperiment';
 
 const gestaltChartComponents = Object.keys(gestaltChart);
 const gestaltDatepickerComponents = Object.keys(gestaltDatepicker);
@@ -56,8 +56,8 @@ type Props = {
   margin?: 'default' | 'none',
   name: string,
   platform?: 'android' | 'ios' | 'web',
-  slimBanner?: Element<typeof SlimBanner> | null,
-  slimBannerExperiment?: Element<typeof SlimBannerExperiment> | null,
+  bannerSlim?: Element<typeof BannerSlim> | null,
+  bannerSlimExperiment?: Element<typeof BannerSlimExperiment> | null,
   type?: 'guidelines' | 'component' | 'utility',
   pdocsLink?: boolean,
 };
@@ -72,8 +72,8 @@ export default function PageHeader({
   margin = 'default',
   name,
   platform,
-  slimBanner = null,
-  slimBannerExperiment = null,
+  bannerSlim,
+  bannerSlimExperiment,
   type = 'component',
 }: Props): ReactNode {
   const sourcePathName = folderName ?? fileName ?? name;
@@ -216,8 +216,8 @@ export default function PageHeader({
             </Flex>
 
             <Flex direction="column" gap={4}>
-              {slimBanner}
-              {slimBannerExperiment}
+              {bannerSlim}
+              {bannerSlimExperiment}
             </Flex>
 
             {type === 'component' ? <PageHeaderQualitySummary name={name} /> : null}

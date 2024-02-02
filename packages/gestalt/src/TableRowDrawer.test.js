@@ -1,6 +1,6 @@
 // @flow strict
 import renderer from 'react-test-renderer';
-import SlimBanner from './SlimBanner';
+import BannerSlim from './BannerSlim';
 import Table from './Table';
 import Text from './Text';
 
@@ -29,10 +29,10 @@ test('renders correctly with drawer', () => {
           <Table.RowDrawer
             id="drawerTest"
             drawerContents={
-              <SlimBanner
+              <BannerSlim
                 type="recommendation"
                 iconAccessibilityLabel="test"
-                message="Test SlimBanner"
+                message="Test BannerSlim"
               />
             }
           >

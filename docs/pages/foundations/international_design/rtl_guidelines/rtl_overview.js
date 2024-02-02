@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node as ReactNode } from 'react';
-import { Box, Heading, Image, Mask, SlimBanner, Text } from 'gestalt';
+import { BannerSlim, Box, Heading, Image, Mask, Text } from 'gestalt';
 import { DOCS_COPY_MAX_WIDTH_PX } from '../../../../docs-components/consts';
 import MainSection from '../../../../docs-components/MainSection';
 import Markdown from '../../../../docs-components/Markdown';
@@ -57,7 +57,7 @@ However, there’s a group of languages where the script is written and read fro
             `}
           />
           <Box marginBottom={6} marginTop={3}>
-            <SlimBanner
+            <BannerSlim
               type="info"
               iconAccessibilityLabel="Information"
               message="Arabic speakers represent 4.3% of monthly active users (MAU) at Pinterest (19 million+)."

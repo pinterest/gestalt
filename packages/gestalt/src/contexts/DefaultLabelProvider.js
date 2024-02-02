@@ -78,7 +78,7 @@ export type DefaultLabelContextType = {
   SideNavigation: {
     accessibilityDismissButtonLabel: string,
   },
-  SlimBanner: {
+  BannerSlim: {
     accessibilityDismissButtonLabel: string,
     iconAccessibilityLabelError: string,
     iconAccessibilityLabelInfo: string,
@@ -194,7 +194,7 @@ export const fallbackLabels: DefaultLabelContextType = {
   SideNavigation: {
     accessibilityDismissButtonLabel: 'Dismiss side navigation',
   },
-  SlimBanner: {
+  BannerSlim: {
     accessibilityDismissButtonLabel: 'Dismiss banner',
     iconAccessibilityLabelError: 'Error',
     iconAccessibilityLabelInfo: 'Information',

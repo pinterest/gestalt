@@ -6,6 +6,7 @@ import Avatar from './Avatar';
 import AvatarGroup from './AvatarGroup';
 import Badge from './Badge';
 import BannerOverlay from './BannerOverlay';
+import BannerSlim from './BannerSlim';
 import BannerUpsell from './BannerUpsell';
 import Box from './Box';
 import Button from './Button';
@@ -61,7 +62,6 @@ import SegmentedControl from './SegmentedControl';
 import SelectList from './SelectList';
 import SheetMobile from './SheetMobile';
 import SideNavigation from './SideNavigation';
-import SlimBanner from './SlimBanner';
 import Spinner from './Spinner';
 import Status from './Status';
 import Sticky from './Sticky';
@@ -92,6 +92,7 @@ export {
   AvatarGroup,
   Badge,
   BannerOverlay,
+  BannerSlim,
   BannerUpsell,
   Box,
   Button,
@@ -147,7 +148,6 @@ export {
   SelectList,
   SheetMobile,
   SideNavigation,
-  SlimBanner,
   Spinner,
   Status,
   Sticky,

@@ -491,7 +491,7 @@ interface DefaultLabelProviderProps {
         SideNavigation: {
           accessibilityDismissButtonLabel: string;
         };
-        SlimBanner: {
+        BannerSlim: {
           accessibilityDismissButtonLabel: string;
           iconAccessibilityLabelError: string;
           iconAccessibilityLabelInfo: string;
@@ -1895,7 +1895,7 @@ interface SideNavigationNestedGroupProps {
   onExpand: (args: { expanded: boolean }) => void;
 }
 
-interface SlimBannerProps {
+interface BannerSlimProps {
   message: React.ReactElement<typeof Text> | string;
   dismissButton?:
     | {
@@ -2834,9 +2834,9 @@ export const SideNavigation: React.FunctionComponent<SideNavigationProps> &
   SideNavigationSubcomponents;
 
 /**
- * https://gestalt.pinterest.systems/web/slimbanner
+ * https://gestalt.pinterest.systems/web/bannerslim
  */
-export const SlimBanner: React.FunctionComponent<SlimBannerProps>;
+export const BannerSlim: React.FunctionComponent<BannerSlimProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/spinner

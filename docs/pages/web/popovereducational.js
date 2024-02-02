@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import { BannerSlimExperiment } from '../../docs-components/BannerSlimExperiment';
 import docGen, { type DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
@@ -9,7 +10,6 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
-import { SlimBannerExperiment } from '../../docs-components/SlimBannerExperiment';
 import customContent from '../../examples/popovereducational/customContent';
 import doEducate from '../../examples/popovereducational/doEducate';
 import dontDouble from '../../examples/popovereducational/dontDouble';
@@ -26,8 +26,8 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
       <PageHeader
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
-        slimBannerExperiment={
-          <SlimBannerExperiment
+        bannerSlimExperiment={
+          <BannerSlimExperiment
             componentName="PopoverEducational"
             description="fix and improve underlying Popover component behavior. No visual updates"
             pullRequest={3244}

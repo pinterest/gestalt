@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { SlimBanner } from 'gestalt';
+import { BannerSlim } from 'gestalt';
 import docGen, { type DocGen } from '../../../docs-components/docgen';
 import GeneratedPropTable from '../../../docs-components/GeneratedPropTable';
 import InternalDocumentationSection from '../../../docs-components/InternalDocumentationSection';
@@ -65,7 +65,7 @@ In this example, the \`useOnNavigation\` hook function is passed to GlobalEvents
 The returned \`onNavigationClick\` function inside the hook function uses the event access to [preventDefault()](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault). It could also be used to [stopPropagation()](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation).
       `}
         >
-          <SlimBanner
+          <BannerSlim
             iconAccessibilityLabel="Localize the default label"
             message="Accessible links in Gestalt announce to assistive technologies that the link opens in a new tab. Always make sure your external logic aligns with the 'target' prop values. For example, if your external logic opens a url in a new tab, set 'target' to 'blank'. Localize the default label with DefaultLabelProvider."
             type="warning"
@@ -150,7 +150,7 @@ The example below demonstrates the correct use of "dangerouslyDisableOnNavigatio
         </MainSection.Subsection>
       </MainSection>
       <MainSection name="Other handlers">
-        <SlimBanner
+        <BannerSlim
           iconAccessibilityLabel="Experimental feature"
           message={`Experimental feature: The "onRender" prop is experimental and might be removed in the future.`}
           type="warningBare"
