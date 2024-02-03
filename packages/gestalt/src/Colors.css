@@ -9,20 +9,7 @@
   --g-colorGray200: #767676;
   --g-colorGray300: #111;
   --g-colorGray400: #000;
-
-  /* secondary colors */
-  --g-green: #0fa573;
-  --g-pine: #0a6955;
-  --g-olive: #364a4c;
   --g-blue: #0074e8;
-  --g-navy: #004b91;
-  --g-midnight: #133a5e;
-  --g-purple: #b469eb;
-  --g-orchid: #8046a5;
-  --g-eggplant: #5b2677;
-  --g-maroon: #6e0f3c;
-  --g-watermelon: #f13535;
-  --g-orange: #e3780c;
 
   /* hover colors */
   --g-colorGray0Hovered: #f0f0f0;
@@ -31,6 +18,7 @@
   --g-colorGray200Hovered: #878787;
   --g-colorRed100Hovered: #ad081b;
   --g-blueHovered: #4a8ad4;
+
 
   /* active colors */
   --g-colorGray0Active: #e0e0e0;
@@ -326,38 +314,6 @@
   background-color: var(--g-colorGray400);
 }
 
-/** SECONDARY COLORS **/
-
-/* green */
-
-.green {
-  color: var(--g-green);
-}
-
-.greenBg {
-  background-color: var(--g-green);
-}
-
-/* pine */
-
-.pine {
-  color: var(--g-pine);
-}
-
-.pineBg {
-  background-color: var(--g-pine);
-}
-
-/* olive */
-
-.olive {
-  color: var(--g-olive);
-}
-
-.oliveBg {
-  background-color: var(--g-olive);
-}
-
 /* blue */
 
 .blue {
@@ -366,86 +322,6 @@
 
 .blueBg {
   background-color: var(--g-blue);
-}
-
-/* navy */
-
-.navy {
-  color: var(--g-navy);
-}
-
-.navyBg {
-  background-color: var(--g-navy);
-}
-
-/* midnight */
-
-.midnight {
-  color: var(--g-midnight);
-}
-
-.midnightBg {
-  background-color: var(--g-midnight);
-}
-
-/* purple */
-
-.purple {
-  color: var(--g-purple);
-}
-
-.purpleBg {
-  background-color: var(--g-purple);
-}
-
-/* orchid */
-
-.orchid {
-  color: var(--g-orchid);
-}
-
-.orchidBg {
-  background-color: var(--g-orchid);
-}
-
-/* eggplant */
-
-.eggplant {
-  color: var(--g-eggplant);
-}
-
-.eggplantBg {
-  background-color: var(--g-eggplant);
-}
-
-/* maroon */
-
-.maroon {
-  color: var(--g-maroon);
-}
-
-.maroonBg {
-  background-color: var(--g-maroon);
-}
-
-/* watermelon */
-
-.watermelon {
-  color: var(--g-watermelon);
-}
-
-.watermelonBg {
-  background-color: var(--g-watermelon);
-}
-
-/* orange */
-
-.orange {
-  color: var(--g-orange);
-}
-
-.orangeBg {
-  background-color: var(--g-orange);
 }
 
 /* transparent */
