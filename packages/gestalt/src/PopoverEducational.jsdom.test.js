@@ -1,10 +1,11 @@
 // @flow strict
-import { create } from 'react-test-renderer';
+
+import { render } from '@testing-library/react';
 import PopoverEducational from './PopoverEducational';
 
 test('PopoverEducational renders', () => {
   const element = document.createElement('div');
-  const component = create(
+  const { container } = render(
     <PopoverEducational
       accessibilityLabel="test"
       anchor={element}
@@ -13,10 +14,7 @@ test('PopoverEducational renders', () => {
       message="text"
       primaryAction={{ text: 'next', role: 'button', onClick: () => {} }}
     />,
-    {
-      createNodeMock: () => true,
-    },
   );
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
+
+  expect(container).toMatchSnapshot();
 });

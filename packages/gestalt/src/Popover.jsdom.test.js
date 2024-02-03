@@ -1,12 +1,13 @@
 // @flow strict
-import { create } from 'react-test-renderer';
+
+import { render } from '@testing-library/react';
 import PopoverEducational from './PopoverEducational';
 import Text from './Text';
 
 describe('PopoverEducational', () => {
   it('renders correctly', () => {
     const element = document.createElement('div');
-    const component = create(
+    const { container } = render(
       <PopoverEducational
         anchor={element}
         accessibilityLabel="text"
@@ -14,30 +15,24 @@ describe('PopoverEducational', () => {
         message="text"
         primaryAction={{ text: 'next', role: 'button' }}
       />,
-      {
-        createNodeMock: () => true,
-      },
     );
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+
+    expect(container).toMatchSnapshot();
   });
 
   it('renders correctly with custom children', () => {
     const element = document.createElement('div');
-    const component = create(
+    const { container } = render(
       <PopoverEducational accessibilityLabel="text" anchor={element} onDismiss={jest.fn()}>
         <Text>Custom children</Text>
       </PopoverEducational>,
-      {
-        createNodeMock: () => true,
-      },
     );
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+
+    expect(container).toMatchSnapshot();
   });
 
   it('does not render when the anchor is null', () => {
-    const tree = create(
+    const { container } = render(
       <PopoverEducational
         accessibilityLabel="text"
         anchor={null}
@@ -45,7 +40,8 @@ describe('PopoverEducational', () => {
         message="text"
         primaryAction={{ text: 'next', role: 'button' }}
       />,
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+    );
+
+    expect(container).toMatchSnapshot();
   });
 });
