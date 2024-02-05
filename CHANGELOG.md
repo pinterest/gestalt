@@ -1,3 +1,9 @@
+## 134.3.1 (Feb 5, 2024)
+
+### Patch
+
+- Button: moved Button colors to component tokens ([#3400](https://github.com/pinterest/gestalt/pull/3400)) - [Preview link](https://deploy-preview-3400--gestalt.netlify.app?devexample=true)
+
 ## 134.3.0 (Feb 5, 2024)
 
 ### Minor
