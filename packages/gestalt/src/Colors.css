@@ -189,51 +189,51 @@
 /* semantic icon colors */
 
 .inverseIcon {
-  color: var(--color-text-icon-inverse);
+  color: var(--color-icon-inverse);
 }
 
 .errorIcon {
-  color: var(--color-text-icon-error);
+  color: var(--color-icon-error);
 }
 
 .defaultIcon {
-  color: var(--color-text-icon-default);
+  color: var(--color-icon-default);
 }
 
 .subtleIcon {
-  color: var(--color-text-icon-subtle);
+  color: var(--color-icon-subtle);
 }
 
 .warningIcon {
-  color: var(--color-text-icon-warning);
+  color: var(--color-icon-warning);
 }
 
 .successIcon {
-  color: var(--color-text-icon-success);
+  color: var(--color-icon-success);
 }
 
 .recommendationIcon {
-  color: var(--color-text-icon-recommendation);
+  color: var(--color-icon-recommendation);
 }
 
 .shoppingIcon {
-  color: var(--color-text-icon-shopping);
+  color: var(--color-icon-shopping);
 }
 
 .infoIcon {
-  color: var(--color-text-icon-info);
+  color: var(--color-icon-info);
 }
 
 .brandPrimaryIcon {
-  color: var(--color-text-icon-brand-primary);
+  color: var(--color-icon-brand-primary);
 }
 
 .lightIcon {
-  color: var(--color-text-icon-light);
+  color: var(--color-icon-light);
 }
 
 .darkIcon {
-  color: var(--color-text-icon-dark);
+  color: var(--color-icon-dark);
 }
 
 /** PRIMARY COLORS **/
