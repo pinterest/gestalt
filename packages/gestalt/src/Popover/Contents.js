@@ -15,7 +15,7 @@ export type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 type Props = {
   accessibilityLabel?: string,
   anchor: HTMLElement,
-  bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
+  bgColor: 'blue' | 'darkGray' | 'red' | 'white',
   border?: boolean,
   caret?: boolean,
   children?: ReactNode,
