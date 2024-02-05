@@ -19456,9 +19456,9 @@ yargs@^17.3.1:
     yargs-parser "^21.0.0"
 
 yarn@^1.21.1:
-  version "1.22.4"
-  resolved "https://registry.npmjs.org/yarn/-/yarn-1.22.4.tgz"
-  integrity sha512-oYM7hi/lIWm9bCoDMEWgffW8aiNZXCWeZ1/tGy0DWrN6vmzjCXIKu2Y21o8DYVBUtiktwKcNoxyGl/2iKLUNGA==
+  version "1.22.21"
+  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.22.21.tgz#1959a18351b811cdeedbd484a8f86c3cc3bbaf72"
+  integrity sha512-ynXaJsADJ9JiZ84zU25XkPGOvVMmZ5b7tmTSpKURYwgELdjucAOydqIOrOfTxVYcNXe91xvLZwcRh68SR3liCg==
 
 yauzl@^2.4.2:
   version "2.10.0"
