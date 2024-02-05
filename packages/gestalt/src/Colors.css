@@ -9,7 +9,6 @@
   --g-colorGray200: #767676;
   --g-colorGray300: #111;
   --g-colorGray400: #000;
-  --g-blue: #0074e8;
 
   /* hover colors */
   --g-colorGray0Hovered: #f0f0f0;
@@ -316,11 +315,11 @@
 /* blue */
 
 .blue {
-  color: var(--g-blue);
+  color: var(--color-background-education);
 }
 
 .blueBg {
-  background-color: var(--g-blue);
+  background-color: var(--color-background-education);
 }
 
 /* transparent */
