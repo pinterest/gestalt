@@ -1,3 +1,9 @@
+## 134.2.2 (Feb 5, 2024)
+
+### Patch
+
+- Internal: removed unused deprecated colors ([#3402](https://github.com/pinterest/gestalt/pull/3402)) - [Preview link](https://deploy-preview-3402--gestalt.netlify.app?devexample=true)
+
 ## 134.2.1 (Feb 1, 2024)
 
 ### Patch
