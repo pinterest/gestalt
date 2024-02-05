@@ -1,3 +1,9 @@
+## 135.0.0 (Feb 5, 2024)
+
+### Major
+
+- ColorSchemeProvider: removed deprecated colors ([#3406](https://github.com/pinterest/gestalt/pull/3406)) - [Preview link](https://deploy-preview-3406--gestalt.netlify.app?devexample=true)
+
 ## 134.3.2 (Feb 5, 2024)
 
 ### Patch
