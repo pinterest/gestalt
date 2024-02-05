@@ -73,7 +73,7 @@
 }
 
 .red:active {
-  background-color: var(--button-color-primary-active);
+  background-color: var(--button-color-primary-act ive);
 }
 
 .gray {

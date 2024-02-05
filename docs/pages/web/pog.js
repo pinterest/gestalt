@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { Flex, Pog } from 'gestalt';
+import { Box, Flex, Pog, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { type DocGen } from '../../docs-components/docgen';
@@ -29,60 +29,120 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <AccessibilitySection name={generatedDocGen?.displayName} />
       <MainSection name="Variants">
-        <MainSection.Subsection title="States">
+        <MainSection.Subsection title="Colors & states on white backgrounds">
           <CombinationNew hovered={[false, true]} focused={[false, true]} active={[false, true]}>
             {({ hovered, focused, active }) => (
-              <Flex gap={1} wrap>
-                <Pog
-                  icon="heart"
-                  hovered={hovered}
-                  focused={focused}
-                  active={active}
-                  bgColor="red"
-                />
-                <Pog
-                  icon="heart"
-                  hovered={hovered}
-                  focused={focused}
-                  active={active}
-                  bgColor="white"
-                />
-                <Pog
-                  icon="heart"
-                  hovered={hovered}
-                  focused={focused}
-                  active={active}
-                  bgColor="lightGray"
-                />
-                <Pog
-                  icon="heart"
-                  hovered={hovered}
-                  focused={focused}
-                  active={active}
-                  bgColor="gray"
-                />
-                <Pog
-                  icon="heart"
-                  hovered={hovered}
-                  focused={focused}
-                  active={active}
-                  bgColor="transparentDarkGray"
-                />
-                <Pog
-                  icon="heart"
-                  hovered={hovered}
-                  focused={focused}
-                  active={active}
-                  bgColor="darkGray"
-                />
-                <Pog
-                  icon="heart"
-                  hovered={hovered}
-                  focused={focused}
-                  active={active}
-                  bgColor="transparent"
-                />
+              <Flex gap={2} direction="column">
+                <Flex gap={3}>
+                  <Pog
+                    icon="heart"
+                    hovered={hovered}
+                    focused={focused}
+                    active={active}
+                    bgColor="red"
+                  />
+                  <Text size="100">red - primary</Text>
+                </Flex>
+                <Flex gap={3}>
+                  <Pog
+                    icon="heart"
+                    hovered={hovered}
+                    focused={focused}
+                    active={active}
+                    bgColor="lightGray"
+                  />
+                  <Text size="100">lightGray - secondary</Text>
+                </Flex>
+                <Flex gap={3}>
+                  <Pog
+                    icon="heart"
+                    hovered={hovered}
+                    focused={focused}
+                    active={active}
+                    bgColor="transparent"
+                  />
+                  <Text size="100">transparent - tertiary</Text>
+                </Flex>
               </Flex>
+            )}
+          </CombinationNew>
+        </MainSection.Subsection>
+        <MainSection.Subsection title="Colors & states on color/image backgrounds">
+          <CombinationNew hovered={[false, true]} focused={[false, true]} active={[false, true]}>
+            {({ hovered, focused, active }) => (
+              <Box
+                borderStyle="sm"
+                display="flex"
+                width={200}
+                height={200}
+                rounding={4}
+                alignItems="center"
+                justifyContent="center"
+                dangerouslySetInlineStyle={{
+                  __style: {
+                    backgroundImage: 'url("https://i.ibb.co/d0pQsJz/stock3.jpg")',
+                  },
+                }}
+              >
+                <Flex gap={2} direction="column">
+                  <Flex gap={3}>
+                    <Pog
+                      icon="heart"
+                      hovered={hovered}
+                      focused={focused}
+                      active={active}
+                      bgColor="transparentDarkGray"
+                    />
+                    <Box color="transparentDarkGray">
+                      <Text color="inverse" weight="bold" size="100">
+                        transparentDarkGray - secondary
+                      </Text>
+                    </Box>
+                  </Flex>
+                  <Flex gap={3}>
+                    <Pog
+                      icon="heart"
+                      hovered={hovered}
+                      focused={focused}
+                      active={active}
+                      bgColor="white"
+                    />
+                    <Box color="transparentDarkGray">
+                      <Text color="inverse" weight="bold" size="100">
+                        white
+                      </Text>
+                    </Box>
+                  </Flex>
+                  <Flex gap={3}>
+                    <Pog
+                      icon="heart"
+                      hovered={hovered}
+                      focused={focused}
+                      active={active}
+                      bgColor="gray"
+                    />
+                    <Box color="transparentDarkGray">
+                      <Text color="inverse" weight="bold" size="100">
+                        gray
+                      </Text>
+                    </Box>
+                  </Flex>
+                  <Flex gap={3}>
+                    <Pog
+                      icon="heart"
+                      hovered={hovered}
+                      focused={focused}
+                      active={active}
+                      bgColor="darkGray"
+                    />
+                    <Box color="transparentDarkGray">
+                      <Text color="inverse" weight="bold" size="100">
+                        darkGray
+                      </Text>
+                    </Box>
+                  </Flex>
+                </Flex>
+              </Box>
             )}
           </CombinationNew>
         </MainSection.Subsection>
