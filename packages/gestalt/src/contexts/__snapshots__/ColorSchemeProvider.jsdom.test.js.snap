@@ -141,10 +141,17 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --g-colorGray200Hovered: #878787;
   --g-colorGray300: #111;
   --g-colorGray400: #000;
+<<<<<<< HEAD
   --g-colorTransparentDarkGray: rgb(51 51 51 / 0.8);
   --g-colorTransparentGray60: rgb(0 0 0 / 0.06);
   --g-colorTransparentGray100: rgb(0 0 0 / 0.1);
   --g-colorTransparentWhite: rgb(255 255 255 / 0.8);
+=======
+  --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
+  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
+  --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
+  --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
+>>>>>>> de4018d87 (more)
   --g-colorDataVisualization10: #005062;
   --g-colorDataVisualization11: #de2c62;
   --g-colorDataVisualization12: #660e00;
@@ -263,10 +270,17 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --g-colorGray200Hovered: #878787;
   --g-colorGray300: #111;
   --g-colorGray400: #000;
+<<<<<<< HEAD
   --g-colorTransparentDarkGray: rgb(51 51 51 / 0.8);
   --g-colorTransparentGray60: rgb(0 0 0 / 0.06);
   --g-colorTransparentGray100: rgb(0 0 0 / 0.1);
   --g-colorTransparentWhite: rgb(255 255 255 / 0.8);
+=======
+  --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
+  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
+  --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
+  --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
+>>>>>>> de4018d87 (more)
   --g-colorDataVisualization10: #005062;
   --g-colorDataVisualization11: #de2c62;
   --g-colorDataVisualization12: #660e00;
@@ -385,10 +399,17 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --g-colorGray200Hovered: #878787;
   --g-colorGray300: #111;
   --g-colorGray400: #000;
+<<<<<<< HEAD
   --g-colorTransparentDarkGray: rgb(51 51 51 / 0.8);
   --g-colorTransparentGray60: rgb(0 0 0 / 0.06);
   --g-colorTransparentGray100: rgb(0 0 0 / 0.1);
   --g-colorTransparentWhite: rgb(255 255 255 / 0.8);
+=======
+  --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
+  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
+  --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
+  --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
+>>>>>>> de4018d87 (more)
   --g-colorDataVisualization10: #005062;
   --g-colorDataVisualization11: #de2c62;
   --g-colorDataVisualization12: #660e00;
@@ -508,10 +529,17 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --g-colorGray200Hovered: #919191;
   --g-colorGray300: #efefef;
   --g-colorGray400: #fff;
+<<<<<<< HEAD
   --g-colorTransparentDarkGray: rgb(255 255 255 / 0.8);
   --g-colorTransparentGray60: rgb(250 250 250 / 0.5);
   --g-colorTransparentGray100: rgb(250 250 250 / 0.6);
   --g-colorTransparentWhite: rgb(51 51 51 / 0.8);
+=======
+  --g-colorTransparentDarkGray: rgba(255, 255, 255, 0.8);
+  --g-colorTransparentGray60: rgba(250, 250, 250, 0.5);
+  --g-colorTransparentGray100: rgba(250, 250, 250, 0.6);
+  --g-colorTransparentWhite: rgba(51, 51, 51, 0.8);
+>>>>>>> de4018d87 (more)
   --g-colorDataVisualization10: #007A72;
   --g-colorDataVisualization11: #f76593;
   --g-colorDataVisualization12: #ffc58f;
