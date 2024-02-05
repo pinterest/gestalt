@@ -1,3 +1,9 @@
+## 134.3.0 (Feb 5, 2024)
+
+### Minor
+
+- Tokens: add component tokens for Button ([#3401](https://github.com/pinterest/gestalt/pull/3401)) - [Preview link](https://deploy-preview-3401--gestalt.netlify.app?devexample=true)
+
 ## 134.2.3 (Feb 5, 2024)
 
 ### Patch
