@@ -3072,7 +3072,6 @@ export function useDefaultLabel(componentName: string): { [k: string]: string };
  */
 export function useColorScheme(): {
   name: string;
-  colorRed0: string;
   colorRed100: string;
   colorRed100Active: string;
   colorRed100Hovered: string;
@@ -3084,7 +3083,6 @@ export function useColorScheme(): {
   colorGray100Active: string;
   colorGray100Hovered: string;
   colorGray150: string;
-  colorGray150Hovered: string;
   colorGray200: string;
   colorGray200Active: string;
   colorGray200Hovered: string;
@@ -3093,9 +3091,6 @@ export function useColorScheme(): {
   colorTransparentDarkGray: string;
   colorTransparentGray60: string;
   colorTransparentGray100: string;
-  colorTransparentGray500: string;
   colorTransparentWhite: string;
-  blueHovered: string;
-  blueActive: string;
   [tokenName: string]: string;
 };
