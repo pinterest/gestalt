@@ -3,7 +3,6 @@
 exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = `
 <style>
   :root {
-  --g-colorRed0: #e60023;
   --g-colorRed100: #ff5247;
   --g-colorRed100Active: #b8001b;
   --g-colorRed100Hovered: #cf001f;
@@ -15,7 +14,6 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --g-colorGray100Active: #666;
   --g-colorGray100Hovered: #535353;
   --g-colorGray150: #585858;
-  --g-colorGray150Hovered: #535353;
   --g-colorGray200: #ababab;
   --g-colorGray200Active: #9b9b9b;
   --g-colorGray200Hovered: #919191;
@@ -24,7 +22,6 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --g-colorTransparentDarkGray: rgba(255, 255, 255, 0.8);
   --g-colorTransparentGray60: rgba(250, 250, 250, 0.5);
   --g-colorTransparentGray100: rgba(250, 250, 250, 0.6);
-  --g-colorTransparentGray500: rgba(0, 0, 0, 0.5);
   --g-colorTransparentWhite: rgba(51, 51, 51, 0.8);
   --g-colorDataVisualization10: #007A72;
   --g-colorDataVisualization11: #f76593;
@@ -128,7 +125,6 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
 exports[`ColorSchemeProvider renders styling for light mode when no color scheme specified 1`] = `
 <style>
   :root {
-  --g-colorRed0: #ff5247;
   --g-colorRed100: #e60023;
   --g-colorRed100Active: #a3081a;
   --g-colorRed100Hovered: #ad081b;
@@ -140,7 +136,6 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --g-colorGray100Active: #dadada;
   --g-colorGray100Hovered: #e2e2e2;
   --g-colorGray150: #ddd;
-  --g-colorGray150Hovered: #d0d0d0;
   --g-colorGray200: #767676;
   --g-colorGray200Active: #828282;
   --g-colorGray200Hovered: #878787;
@@ -149,7 +144,6 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
   --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
   --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
   --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
   --g-colorDataVisualization10: #005062;
   --g-colorDataVisualization11: #de2c62;
@@ -253,7 +247,6 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
 exports[`ColorSchemeProvider renders styling for light mode when specified 1`] = `
 <style>
   :root {
-  --g-colorRed0: #ff5247;
   --g-colorRed100: #e60023;
   --g-colorRed100Active: #a3081a;
   --g-colorRed100Hovered: #ad081b;
@@ -265,7 +258,6 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --g-colorGray100Active: #dadada;
   --g-colorGray100Hovered: #e2e2e2;
   --g-colorGray150: #ddd;
-  --g-colorGray150Hovered: #d0d0d0;
   --g-colorGray200: #767676;
   --g-colorGray200Active: #828282;
   --g-colorGray200Hovered: #878787;
@@ -274,7 +266,6 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
   --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
   --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
   --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
   --g-colorDataVisualization10: #005062;
   --g-colorDataVisualization11: #de2c62;
@@ -378,7 +369,6 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
 exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`] = `
 <style>
   .__gestaltThemetestId {
-  --g-colorRed0: #ff5247;
   --g-colorRed100: #e60023;
   --g-colorRed100Active: #a3081a;
   --g-colorRed100Hovered: #ad081b;
@@ -390,7 +380,6 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --g-colorGray100Active: #dadada;
   --g-colorGray100Hovered: #e2e2e2;
   --g-colorGray150: #ddd;
-  --g-colorGray150Hovered: #d0d0d0;
   --g-colorGray200: #767676;
   --g-colorGray200Active: #828282;
   --g-colorGray200Hovered: #878787;
@@ -399,7 +388,6 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
   --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
   --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
   --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
   --g-colorDataVisualization10: #005062;
   --g-colorDataVisualization11: #de2c62;
@@ -504,7 +492,6 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
 <style>
   @media(prefers-color-scheme: dark) {
   :root {
-  --g-colorRed0: #e60023;
   --g-colorRed100: #ff5247;
   --g-colorRed100Active: #b8001b;
   --g-colorRed100Hovered: #cf001f;
@@ -516,7 +503,6 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --g-colorGray100Active: #666;
   --g-colorGray100Hovered: #535353;
   --g-colorGray150: #585858;
-  --g-colorGray150Hovered: #535353;
   --g-colorGray200: #ababab;
   --g-colorGray200Active: #9b9b9b;
   --g-colorGray200Hovered: #919191;
@@ -525,7 +511,6 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --g-colorTransparentDarkGray: rgba(255, 255, 255, 0.8);
   --g-colorTransparentGray60: rgba(250, 250, 250, 0.5);
   --g-colorTransparentGray100: rgba(250, 250, 250, 0.6);
-  --g-colorTransparentGray500: rgba(0, 0, 0, 0.5);
   --g-colorTransparentWhite: rgba(51, 51, 51, 0.8);
   --g-colorDataVisualization10: #007A72;
   --g-colorDataVisualization11: #f76593;
