@@ -1,3 +1,9 @@
+## 134.3.2 (Feb 5, 2024)
+
+### Patch
+
+- Internal: Bump yarn from 1.22.4 to 1.22.21 ([#3405](https://github.com/pinterest/gestalt/pull/3405)) - [Preview link](https://deploy-preview-3405--gestalt.netlify.app?devexample=true)
+
 ## 134.3.1 (Feb 5, 2024)
 
 ### Patch
