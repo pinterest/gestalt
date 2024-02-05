@@ -4,7 +4,6 @@ import getDataVisualizationColor from './getDataVisualizationColor';
 
 const theme = {
   name: 'lightMode',
-  colorRed0: '#ff5247',
   colorRed100: '#e60023',
   colorRed100Active: '#a3081a',
   colorRed100Hovered: '#ad081b',
@@ -16,7 +15,6 @@ const theme = {
   colorGray100Active: '#dadada',
   colorGray100Hovered: '#e2e2e2',
   colorGray150: '#ddd',
-  colorGray150Hovered: '#d0d0d0',
   colorGray200: '#767676',
   colorGray200Active: '#828282',
   colorGray200Hovered: '#878787',
@@ -25,10 +23,7 @@ const theme = {
   colorTransparentDarkGray: 'rgba(51, 51, 51, 0.8)',
   colorTransparentGray60: 'rgba(0, 0, 0, 0.06)',
   colorTransparentGray100: 'rgba(0, 0, 0, 0.1)',
-  colorTransparentGray500: 'rgba(0, 0, 0, 0.1)',
   colorTransparentWhite: 'rgba(255, 255, 255, 0.8)',
-  blueHovered: '#4a8ad4',
-  blueActive: '#4a85c9',
   colorDataVisualization02: '#00000',
 };
 

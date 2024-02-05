@@ -46,7 +46,6 @@ declare module.exports: {|
   +'recommendationIcon': string,
   +'recommendationWeak': string,
   +'red': string,
-  +'red0Bg': string,
   +'redBg': string,
   +'secondary': string,
   +'selected': string,
