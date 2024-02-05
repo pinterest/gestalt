@@ -1,3 +1,9 @@
+## 136.0.0 (Feb 5, 2024)
+
+### Major
+
+- Tokens: rename alias tokens from color-text-icon-_ to color-icon-_ ([#3404](https://github.com/pinterest/gestalt/pull/3404)) - [Preview link](https://deploy-preview-3404--gestalt.netlify.app?devexample=true)
+
 ## 135.0.0 (Feb 5, 2024)
 
 ### Major
