@@ -1,3 +1,9 @@
+## 134.2.3 (Feb 5, 2024)
+
+### Patch
+
+- Internal: remove blue color replaced with color-background-education ([#3403](https://github.com/pinterest/gestalt/pull/3403)) - [Preview link](https://deploy-preview-3403--gestalt.netlify.app?devexample=true)
+
 ## 134.2.2 (Feb 5, 2024)
 
 ### Patch
