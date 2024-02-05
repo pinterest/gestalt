@@ -38,10 +38,7 @@
 }
 
 .transparentDarkGray.hovered,
-.transparentDarkGray.focused {
-  background-color: var(--g-colorGray300);
-}
-
+.transparentDarkGray.focused,
 .transparentDarkGray.active {
   background-color: var(--g-colorGray300);
 }

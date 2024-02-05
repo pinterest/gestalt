@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { Pog } from 'gestalt';
+import { Flex, Pog } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { type DocGen } from '../../docs-components/docgen';
@@ -32,7 +32,57 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection title="States">
           <CombinationNew hovered={[false, true]} focused={[false, true]} active={[false, true]}>
             {({ hovered, focused, active }) => (
-              <Pog icon="heart" hovered={hovered} focused={focused} active={active} />
+              <Flex gap={1} wrap>
+                <Pog
+                  icon="heart"
+                  hovered={hovered}
+                  focused={focused}
+                  active={active}
+                  bgColor="red"
+                />
+                <Pog
+                  icon="heart"
+                  hovered={hovered}
+                  focused={focused}
+                  active={active}
+                  bgColor="white"
+                />
+                <Pog
+                  icon="heart"
+                  hovered={hovered}
+                  focused={focused}
+                  active={active}
+                  bgColor="lightGray"
+                />
+                <Pog
+                  icon="heart"
+                  hovered={hovered}
+                  focused={focused}
+                  active={active}
+                  bgColor="gray"
+                />
+                <Pog
+                  icon="heart"
+                  hovered={hovered}
+                  focused={focused}
+                  active={active}
+                  bgColor="transparentDarkGray"
+                />
+                <Pog
+                  icon="heart"
+                  hovered={hovered}
+                  focused={focused}
+                  active={active}
+                  bgColor="darkGray"
+                />
+                <Pog
+                  icon="heart"
+                  hovered={hovered}
+                  focused={focused}
+                  active={active}
+                  bgColor="transparent"
+                />
+              </Flex>
             )}
           </CombinationNew>
         </MainSection.Subsection>
