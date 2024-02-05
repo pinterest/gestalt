@@ -1,0 +1,116 @@
+{
+  "button": {
+    "color": {
+      "primary": {
+        "default": {
+          "value": "{color.background.primary.base.value}",
+          "comment": "Primary button background color"
+        },
+        "hover": {
+          "value": "{color.background.primary.strong.value}",
+          "comment": "Primary button background color on hover"
+        },
+        "active": {
+          "value": "#a3081a",
+          "darkValue": "#b8001b",
+          "comment": "Primary button background color on active"
+        }
+      },
+      "secondary": {
+        "default": {
+          "value": "{color.background.secondary.base.value}",
+          "darkValue": "{color.gray.roboflow.600.value}",
+          "comment": "Secondary button background color."
+        },
+        "hover": {
+          "value": "#e2e2e2",
+          "darkValue": "#535353",
+          "comment": "Secondary button background color on hover."
+        },
+        "active": {
+          "value": "#dadada",
+          "darkValue": "#666",
+          "comment": "Secondary button background color on active."
+        }
+      },
+      "tertiary": {
+        "default": {
+          "value": "{color.transparent.value}",
+          "comment": "Tertiary button background color."
+        },
+        "hover": {
+          "value": "rgba(0, 0, 0, 0.06)",
+          "darkValue": "rgba(250, 250, 250, 0.5)",
+          "comment": "Tertiary button background color on hover."
+        },
+        "active": {
+          "value": "rgba(0, 0, 0, 0.1)",
+          "darkValue": "rgba(250, 250, 250, 0.6)",
+          "comment": "Tertiary button background color on active."
+        }
+      },
+      "shopping": {
+        "default": {
+          "value": "{color.background.shopping.value}",
+          "comment": "Button background color for shopping"
+        },
+        "hover": {
+          "value": "#4a8ad4",
+          "comment": "Button background color for shopping on hover."
+        },
+        "active": {
+          "value": "#4a85c9",
+          "darkValue": "#4a85c9",
+          "comment": "Button background color for shopping on active."
+        }
+      },
+      "white": {
+        "default": {
+          "value": "{color.white.mochimalist.0.value}",
+          "darkValue": "#030303",
+          "comment": "Button white background color for images with background"
+        },
+        "hover": {
+          "value": "#f0f0f0",
+          "darkValue": "#121212",
+          "comment": "Button white background color for images with background on hover."
+        },
+        "active": {
+          "value": "#e0e0e0",
+          "darkValue": "#1f1f1f",
+          "comment": "Button white background color for images with background on active."
+        }
+      },
+      "semitransparentwhite": {
+        "default": {
+          "value": "rgba(255, 255, 255, 0.8)",
+          "darkValue": "rgba(51, 51, 51, 0.8)",
+          "comment": "Button semi-transparent white background color for images with background"
+        },
+        "hover": {
+          "value": "#f0f0f0",
+          "darkValue": "#121212",
+          "comment": "Button semi-transparent white background color for images with background on hover."
+        },
+        "active": {
+          "value": "#e0e0e0",
+          "darkValue": "#1f1f1f",
+          "comment": "Button semi-transparent white background color for images with background on active."
+        }
+      },
+      "disabled": {
+        "default": {
+          "value": "{color.background.secondary.base.value}",
+          "darkValue": "{color.gray.roboflow.600.value}",
+          "comment": "Disabled button background color."
+        }
+      },
+      "selected": {
+        "default": {
+          "value": "{color.background.selected.base.value}",
+          "comment": "Disabled button background color."
+        }
+      }
+    }
+  }
+}
