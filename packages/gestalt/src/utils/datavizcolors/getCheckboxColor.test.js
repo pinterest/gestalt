@@ -20,10 +20,10 @@ const theme = {
   colorGray200Hovered: '#878787',
   colorGray300: '#111',
   colorGray400: '#000',
-  colorTransparentDarkGray: 'rgba(51, 51, 51, 0.8)',
-  colorTransparentGray60: 'rgba(0, 0, 0, 0.06)',
-  colorTransparentGray100: 'rgba(0, 0, 0, 0.1)',
-  colorTransparentWhite: 'rgba(255, 255, 255, 0.8)',
+  colorTransparentDarkGray: 'rgb(51 51 51 / 0.8)',
+  colorTransparentGray60: 'rgb(0 0 0 / 0.06)',
+  colorTransparentGray100: 'rgb(0 0 0 / 0.1)',
+  colorTransparentWhite: 'rgb(255 255 255 / 0.8)',
   colorDataVisualization02: '#00000',
 };
 
