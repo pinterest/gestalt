@@ -5,11 +5,11 @@ const webComponents = [
   'avatar',
   'avatargroup',
   'badge',
+  'bannercallout',
   'bannerupsell',
   'box',
   'button',
   'buttongroup',
-  'callout',
   'card',
   'checkbox',
   'collage',
@@ -255,6 +255,11 @@ const misc = [
   {
     source: '/web/upsell',
     destination: '/web/bannerupsell',
+    permanent: true,
+  },
+  {
+    source: '/web/callout',
+    destination: '/web/bannercallout',
     permanent: true,
   },
 ];

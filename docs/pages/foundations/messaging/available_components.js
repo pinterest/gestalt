@@ -5,7 +5,7 @@ import MainSection from '../../../docs-components/MainSection';
 import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';
 import SandpackExample from '../../../docs-components/SandpackExample';
-import callout from '../../../examples/callout/main';
+import bannercallout from '../../../examples/bannercallout/main';
 import modalalert from '../../../examples/modalalert/main';
 import slimbanner from '../../../examples/slimbanner/main';
 import toast from '../../../examples/toast/main';
@@ -17,13 +17,15 @@ export default function DocsPage(): ReactNode {
 
       <MainSection name="Components">
         <MainSection.Subsection
-          title="Callout"
-          description={`Callouts sit on a page or surface and provide status alerts, information or recommendations to a user. They are used for highest priority messages, usually at the top of a page.
+          title="BannerCallout"
+          description={`BannerCallouts sit on a page or surface and provide status alerts, information or recommendations to a user. They are used for highest priority messages, usually at the top of a page.
 
-[Go to the Callout component](/web/callout)`}
+[Go to the BannerCallout component](/web/bannercallout)`}
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={callout} name="Callout example" hideEditor />}
+            sandpackExample={
+              <SandpackExample code={bannercallout} name="BannerCallout example" hideEditor />
+            }
           />
         </MainSection.Subsection>
 
