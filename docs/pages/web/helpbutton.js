@@ -57,7 +57,7 @@ export default function DocsPage({ generatedDocGen }: DocsType): ReactNode {
             description={`
 - To provide extensive information that is longer than a short sentence. Use [BannerSlim](/web/bannerslim) instead.
 - To display recommendations for how to improve a user's experience. Use [BannerSlim](/web/bannerslim) instead.
-- To display time-sensitive information to a user. Use [Callout](/web/callout) or [BannerSlim](/web/bannerslim) instead.
+- To display time-sensitive information to a user. Use [BannerCallout](/web/bannercallout) or [BannerSlim](/web/bannerslim) instead.
         `}
           />
         </MainSection.Subsection>

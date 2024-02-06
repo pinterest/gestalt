@@ -247,8 +247,8 @@ export default function MessagingPriorityAndPlacementPage(): ReactNode {
                   <Box padding={4} width="50%">
                     <Text>
                       To provide general information and recommendations. Use{' '}
-                      <Link href="/web/callout" underline="always" display="inlineBlock">
-                        Callout
+                      <Link href="/web/bannercallout" underline="always" display="inlineBlock">
+                        BannerCallout
                       </Link>{' '}
                       instead.
                     </Text>
@@ -323,8 +323,8 @@ export default function MessagingPriorityAndPlacementPage(): ReactNode {
             <Flex gap={2}>
               <Text weight="bold">Current components:</Text>
               <Text>
-                <Link href="/web/callout" underline="always">
-                  Callout
+                <Link href="/web/bannercallout" underline="always">
+                  BannerCallout
                 </Link>
               </Text>
               <Text>

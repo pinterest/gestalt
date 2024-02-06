@@ -6,11 +6,11 @@ const webComponents = [
   'avatargroup',
   'badge',
   'bannerslim',
+  'bannercallout',
   'bannerupsell',
   'box',
   'button',
   'buttongroup',
-  'callout',
   'card',
   'checkbox',
   'collage',
@@ -260,6 +260,11 @@ const misc = [
   {
     source: '/web/slimbanner',
     destination: '/web/bannerslim',
+    permanent: true,
+  },
+  {
+    source: '/web/callout',
+    destination: '/web/bannercallout',
     permanent: true,
   },
 ];

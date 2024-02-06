@@ -13,6 +13,7 @@ import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
 import accessibilityDropdownExample from '../../examples/button/accessibilityDropdownExample';
+import colors from '../../examples/button/colors';
 import defaultStateExample from '../../examples/button/defaultStateExample';
 import disabledStateExample from '../../examples/button/disabledStateExample';
 import iconEndExample from '../../examples/button/iconEndExample';
@@ -26,6 +27,7 @@ import placePrimaryButtonDont from '../../examples/button/placePrimaryButtonDont
 import selectedStateExample from '../../examples/button/selectedStateExample';
 import showFullTextDo from '../../examples/button/showFullTextDo';
 import showFullTextDont from '../../examples/button/showFullTextDont';
+import washColors from '../../examples/button/washColors';
 
 const PREVIEW_HEIGHT = 300;
 
@@ -246,7 +248,7 @@ If Button is used as a control Button to show/hide a Popover-based component, we
 1. Inline (default)
     Inline is our default Button width.  The width of an inline Button is based on the length of its text. Use in most cases where you need a Button.
 2. Full-width (\`fullWidth\`)
-    Full-width Buttons can be used in narrower content areas when the text in the Button is close to full width in the content area. This is especially common to see in components such as Callout and BannerUpsell at their smaller breakpoints.`}
+    Full-width Buttons can be used in narrower content areas when the text in the Button is close to full width in the content area. This is especially common to see in components such as BannerCallout and BannerUpsell at their smaller breakpoints.`}
         >
           <CombinationNew fullwidth={[false, true]}>
             {({ fullwidth }) => (
@@ -273,24 +275,12 @@ If Button is used as a control Button to show/hide a Popover-based component, we
     Low emphasis when placed on dark/image backgrounds, used for tertiary actions in that context. *Note, this treatment should be used with caution as it has potential color contrast issues.*
 `}
         >
-          <CombinationNew color={['red', 'blue', 'gray', 'transparent']}>
-            {({ color }) => {
-              const map = {
-                red: 'Save',
-                blue: 'Shop',
-                gray: 'Visit',
-                transparent: 'Learn more',
-              };
-              return (
-                <Button
-                  accessibilityLabel={`Example width ${color}`}
-                  color={color}
-                  text={map[color]}
-                  size="lg"
-                />
-              );
-            }}
-          </CombinationNew>
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={colors} name="Colors" previewHeight={500} layout="column" />
+            }
+          />
         </MainSection.Subsection>
         <MainSection.Subsection
           columns={2}
@@ -301,7 +291,19 @@ If Button is used as a control Button to show/hide a Popover-based component, we
   2. Semi-transparent white (Secondary)
       Medium emphasis when placed on color/image backgrounds, used for secondary actions in that context.
 `}
-        />
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={washColors}
+                name="Color on color/image backgrounds"
+                previewHeight={500}
+                layout="column"
+              />
+            }
+          />
+        </MainSection.Subsection>
 
         <MainSection.Subsection
           title="Icons"

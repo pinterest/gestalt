@@ -1,6 +1,5 @@
 :root {
   /* primary colors */
-  --g-colorRed0: #ff5247;
   --g-colorRed100: #e60023;
   --g-colorGray0: #fff;
   --g-colorGray50: #fff;
@@ -10,42 +9,23 @@
   --g-colorGray300: #111;
   --g-colorGray400: #000;
 
-  /* secondary colors */
-  --g-green: #0fa573;
-  --g-pine: #0a6955;
-  --g-olive: #364a4c;
-  --g-blue: #0074e8;
-  --g-navy: #004b91;
-  --g-midnight: #133a5e;
-  --g-purple: #b469eb;
-  --g-orchid: #8046a5;
-  --g-eggplant: #5b2677;
-  --g-maroon: #6e0f3c;
-  --g-watermelon: #f13535;
-  --g-orange: #e3780c;
-
   /* hover colors */
   --g-colorGray0Hovered: #f0f0f0;
   --g-colorGray100Hovered: #e2e2e2;
-  --g-colorGray150Hovered: #d0d0d0;
   --g-colorGray200Hovered: #878787;
   --g-colorRed100Hovered: #ad081b;
-  --g-blueHovered: #4a8ad4;
 
   /* active colors */
   --g-colorGray0Active: #e0e0e0;
   --g-colorGray100Active: #dadada;
   --g-colorGray200Active: #828282;
   --g-colorRed100Active: #a3081a;
-  --g-blueActive: #4a85c9;
 
   /* transparent colors */
   --g-colorTransparentDarkGray: rgb(51 51 51 / 0.8);
   --g-colorTransparentWhite: rgb(255 255 255 / 0.8);
   --g-colorTransparentGray60: rgb(0 0 0 / 0.06);
   --g-colorTransparentGray100: rgb(0 0 0 / 0.1);
-  --g-colorTransparentGray500: rgb(0 0 0 / 0.1);
-  --g-colorTransparentGray800: rgb(0 0 0 / 0.8);
 }
 
 /** Design Token Colors **/
@@ -203,51 +183,51 @@
 /* semantic icon colors */
 
 .inverseIcon {
-  color: var(--color-text-icon-inverse);
+  color: var(--color-icon-inverse);
 }
 
 .errorIcon {
-  color: var(--color-text-icon-error);
+  color: var(--color-icon-error);
 }
 
 .defaultIcon {
-  color: var(--color-text-icon-default);
+  color: var(--color-icon-default);
 }
 
 .subtleIcon {
-  color: var(--color-text-icon-subtle);
+  color: var(--color-icon-subtle);
 }
 
 .warningIcon {
-  color: var(--color-text-icon-warning);
+  color: var(--color-icon-warning);
 }
 
 .successIcon {
-  color: var(--color-text-icon-success);
+  color: var(--color-icon-success);
 }
 
 .recommendationIcon {
-  color: var(--color-text-icon-recommendation);
+  color: var(--color-icon-recommendation);
 }
 
 .shoppingIcon {
-  color: var(--color-text-icon-shopping);
+  color: var(--color-icon-shopping);
 }
 
 .infoIcon {
-  color: var(--color-text-icon-info);
+  color: var(--color-icon-info);
 }
 
 .brandPrimaryIcon {
-  color: var(--color-text-icon-brand-primary);
+  color: var(--color-icon-brand-primary);
 }
 
 .lightIcon {
-  color: var(--color-text-icon-light);
+  color: var(--color-icon-light);
 }
 
 .darkIcon {
-  color: var(--color-text-icon-dark);
+  color: var(--color-icon-dark);
 }
 
 /** PRIMARY COLORS **/
@@ -260,10 +240,6 @@
 
 .redBg {
   background-color: var(--g-colorRed100);
-}
-
-.red0Bg {
-  background-color: var(--g-colorRed0);
 }
 
 /* white */
@@ -326,126 +302,14 @@
   background-color: var(--g-colorGray400);
 }
 
-/** SECONDARY COLORS **/
-
-/* green */
-
-.green {
-  color: var(--g-green);
-}
-
-.greenBg {
-  background-color: var(--g-green);
-}
-
-/* pine */
-
-.pine {
-  color: var(--g-pine);
-}
-
-.pineBg {
-  background-color: var(--g-pine);
-}
-
-/* olive */
-
-.olive {
-  color: var(--g-olive);
-}
-
-.oliveBg {
-  background-color: var(--g-olive);
-}
-
 /* blue */
 
 .blue {
-  color: var(--g-blue);
+  color: var(--color-background-education);
 }
 
 .blueBg {
-  background-color: var(--g-blue);
-}
-
-/* navy */
-
-.navy {
-  color: var(--g-navy);
-}
-
-.navyBg {
-  background-color: var(--g-navy);
-}
-
-/* midnight */
-
-.midnight {
-  color: var(--g-midnight);
-}
-
-.midnightBg {
-  background-color: var(--g-midnight);
-}
-
-/* purple */
-
-.purple {
-  color: var(--g-purple);
-}
-
-.purpleBg {
-  background-color: var(--g-purple);
-}
-
-/* orchid */
-
-.orchid {
-  color: var(--g-orchid);
-}
-
-.orchidBg {
-  background-color: var(--g-orchid);
-}
-
-/* eggplant */
-
-.eggplant {
-  color: var(--g-eggplant);
-}
-
-.eggplantBg {
-  background-color: var(--g-eggplant);
-}
-
-/* maroon */
-
-.maroon {
-  color: var(--g-maroon);
-}
-
-.maroonBg {
-  background-color: var(--g-maroon);
-}
-
-/* watermelon */
-
-.watermelon {
-  color: var(--g-watermelon);
-}
-
-.watermelonBg {
-  background-color: var(--g-watermelon);
-}
-
-/* orange */
-
-.orange {
-  color: var(--g-orange);
-}
-
-.orangeBg {
-  background-color: var(--g-orange);
+  background-color: var(--color-background-education);
 }
 
 /* transparent */

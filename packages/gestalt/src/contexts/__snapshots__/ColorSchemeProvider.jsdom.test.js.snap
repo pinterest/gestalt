@@ -3,7 +3,6 @@
 exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = `
 <style>
   :root {
-  --g-colorRed0: #e60023;
   --g-colorRed100: #ff5247;
   --g-colorRed100Active: #b8001b;
   --g-colorRed100Hovered: #cf001f;
@@ -15,17 +14,15 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --g-colorGray100Active: #666;
   --g-colorGray100Hovered: #535353;
   --g-colorGray150: #585858;
-  --g-colorGray150Hovered: #535353;
   --g-colorGray200: #ababab;
   --g-colorGray200Active: #9b9b9b;
   --g-colorGray200Hovered: #919191;
   --g-colorGray300: #efefef;
   --g-colorGray400: #fff;
-  --g-colorTransparentDarkGray: rgba(255, 255, 255, 0.8);
-  --g-colorTransparentGray60: rgba(250, 250, 250, 0.5);
-  --g-colorTransparentGray100: rgba(250, 250, 250, 0.6);
-  --g-colorTransparentGray500: rgba(0, 0, 0, 0.5);
-  --g-colorTransparentWhite: rgba(51, 51, 51, 0.8);
+  --g-colorTransparentDarkGray: rgb(255 255 255 / 0.8);
+  --g-colorTransparentGray60: rgb(250 250 250 / 0.5);
+  --g-colorTransparentGray100: rgb(250 250 250 / 0.6);
+  --g-colorTransparentWhite: rgb(51 51 51 / 0.8);
   --g-colorDataVisualization10: #007A72;
   --g-colorDataVisualization11: #f76593;
   --g-colorDataVisualization12: #ffc58f;
@@ -52,16 +49,16 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-text-inverse: #111111;
   --color-text-shopping: #75bfff;
   --color-text-link: #45a3fe;
-  --color-text-icon-default: #ffffff;
-  --color-text-icon-subtle: #a5a5a5;
-  --color-text-icon-success: #39d377;
-  --color-text-icon-disabled: #4a4a4a;
-  --color-text-icon-error: #f47171;
-  --color-text-icon-warning: #e18d00;
-  --color-text-icon-info: #75bfff;
-  --color-text-icon-recommendation: #b190ff;
-  --color-text-icon-inverse: #111111;
-  --color-text-icon-shopping: #75bfff;
+  --color-icon-default: #ffffff;
+  --color-icon-subtle: #a5a5a5;
+  --color-icon-success: #39d377;
+  --color-icon-disabled: #4a4a4a;
+  --color-icon-error: #f47171;
+  --color-icon-warning: #e18d00;
+  --color-icon-info: #75bfff;
+  --color-icon-recommendation: #b190ff;
+  --color-icon-inverse: #111111;
+  --color-icon-shopping: #75bfff;
   --color-background-default: #111111;
   --color-background-info-base: #75bfff;
   --color-background-info-weak: #003c96;
@@ -104,6 +101,20 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-data-visualization-07: #a4f9ac;
   --color-data-visualization-08: #812ae7;
   --color-data-visualization-09: #ff5b45;
+  --button-color-primary-active: #b8001b;
+  --button-color-secondary-default: #4a4a4a;
+  --button-color-secondary-hover: #535353;
+  --button-color-secondary-active: #666;
+  --button-color-tertiary-hover: rgb(250 250 250 / 0.5);
+  --button-color-tertiary-active: rgb(250 250 250 / 0.6);
+  --button-color-shopping-active: #4a85c9;
+  --button-color-white-default: #030303;
+  --button-color-white-hover: #121212;
+  --button-color-white-active: #1f1f1f;
+  --button-color-semitransparentwhite-default: rgb(51 51 51 / 0.8);
+  --button-color-semitransparentwhite-hover: #121212;
+  --button-color-semitransparentwhite-active: #1f1f1f;
+  --button-color-disabled-default: #4a4a4a;
   --elevation-floating: none;
   --elevation-raised-top: 0 0.5px 0 #f9f9f9;
   --elevation-raised-bottom: 0 -0.5px 0 #f9f9f9;
@@ -114,7 +125,6 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
 exports[`ColorSchemeProvider renders styling for light mode when no color scheme specified 1`] = `
 <style>
   :root {
-  --g-colorRed0: #ff5247;
   --g-colorRed100: #e60023;
   --g-colorRed100Active: #a3081a;
   --g-colorRed100Hovered: #ad081b;
@@ -126,17 +136,15 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --g-colorGray100Active: #dadada;
   --g-colorGray100Hovered: #e2e2e2;
   --g-colorGray150: #ddd;
-  --g-colorGray150Hovered: #d0d0d0;
   --g-colorGray200: #767676;
   --g-colorGray200Active: #828282;
   --g-colorGray200Hovered: #878787;
   --g-colorGray300: #111;
   --g-colorGray400: #000;
-  --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
-  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
-  --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
+  --g-colorTransparentDarkGray: rgb(51 51 51 / 0.8);
+  --g-colorTransparentGray60: rgb(0 0 0 / 0.06);
+  --g-colorTransparentGray100: rgb(0 0 0 / 0.1);
+  --g-colorTransparentWhite: rgb(255 255 255 / 0.8);
   --g-colorDataVisualization10: #005062;
   --g-colorDataVisualization11: #de2c62;
   --g-colorDataVisualization12: #660e00;
@@ -163,16 +171,16 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-text-inverse: #ffffff;
   --color-text-shopping: #0074e8;
   --color-text-link: #004ba9;
-  --color-text-icon-default: #111111;
-  --color-text-icon-subtle: #767676;
-  --color-text-icon-success: #005f3e;
-  --color-text-icon-disabled: #a5a5a5;
-  --color-text-icon-error: #cc0000;
-  --color-text-icon-warning: #bd5b00;
-  --color-text-icon-info: #0074e8;
-  --color-text-icon-recommendation: #812ae7;
-  --color-text-icon-inverse: #ffffff;
-  --color-text-icon-shopping: #0074e8;
+  --color-icon-default: #111111;
+  --color-icon-subtle: #767676;
+  --color-icon-success: #005f3e;
+  --color-icon-disabled: #a5a5a5;
+  --color-icon-error: #cc0000;
+  --color-icon-warning: #bd5b00;
+  --color-icon-info: #0074e8;
+  --color-icon-recommendation: #812ae7;
+  --color-icon-inverse: #ffffff;
+  --color-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
   --color-background-info-base: #0074e8;
   --color-background-info-weak: #d7edff;
@@ -215,9 +223,23 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-data-visualization-07: #00ab55;
   --color-data-visualization-08: #400387;
   --color-data-visualization-09: #f2681f;
-  --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
-  --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
-  --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
+  --button-color-primary-active: #a3081a;
+  --button-color-secondary-default: #e9e9e9;
+  --button-color-secondary-hover: #e2e2e2;
+  --button-color-secondary-active: #dadada;
+  --button-color-tertiary-hover: rgb(0 0 0 / 0.06);
+  --button-color-tertiary-active: rgb(0 0 0 / 0.1);
+  --button-color-shopping-active: #4a85c9;
+  --button-color-white-default: #ffffff;
+  --button-color-white-hover: #f0f0f0;
+  --button-color-white-active: #e0e0e0;
+  --button-color-semitransparentwhite-default: rgb(255 255 255 / 0.8);
+  --button-color-semitransparentwhite-hover: #f0f0f0;
+  --button-color-semitransparentwhite-active: #e0e0e0;
+  --button-color-disabled-default: #e9e9e9;
+  --elevation-floating: 0 0 8px rgb(0 0 0 / 0.10);
+  --elevation-raised-top: 0 2px 8px rgb(0 0 0 / 0.12);
+  --elevation-raised-bottom: 0 -2px 8px rgb(0 0 0 / 0.12);
  }
 </style>
 `;
@@ -225,7 +247,6 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
 exports[`ColorSchemeProvider renders styling for light mode when specified 1`] = `
 <style>
   :root {
-  --g-colorRed0: #ff5247;
   --g-colorRed100: #e60023;
   --g-colorRed100Active: #a3081a;
   --g-colorRed100Hovered: #ad081b;
@@ -237,17 +258,15 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --g-colorGray100Active: #dadada;
   --g-colorGray100Hovered: #e2e2e2;
   --g-colorGray150: #ddd;
-  --g-colorGray150Hovered: #d0d0d0;
   --g-colorGray200: #767676;
   --g-colorGray200Active: #828282;
   --g-colorGray200Hovered: #878787;
   --g-colorGray300: #111;
   --g-colorGray400: #000;
-  --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
-  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
-  --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
+  --g-colorTransparentDarkGray: rgb(51 51 51 / 0.8);
+  --g-colorTransparentGray60: rgb(0 0 0 / 0.06);
+  --g-colorTransparentGray100: rgb(0 0 0 / 0.1);
+  --g-colorTransparentWhite: rgb(255 255 255 / 0.8);
   --g-colorDataVisualization10: #005062;
   --g-colorDataVisualization11: #de2c62;
   --g-colorDataVisualization12: #660e00;
@@ -274,16 +293,16 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-text-inverse: #ffffff;
   --color-text-shopping: #0074e8;
   --color-text-link: #004ba9;
-  --color-text-icon-default: #111111;
-  --color-text-icon-subtle: #767676;
-  --color-text-icon-success: #005f3e;
-  --color-text-icon-disabled: #a5a5a5;
-  --color-text-icon-error: #cc0000;
-  --color-text-icon-warning: #bd5b00;
-  --color-text-icon-info: #0074e8;
-  --color-text-icon-recommendation: #812ae7;
-  --color-text-icon-inverse: #ffffff;
-  --color-text-icon-shopping: #0074e8;
+  --color-icon-default: #111111;
+  --color-icon-subtle: #767676;
+  --color-icon-success: #005f3e;
+  --color-icon-disabled: #a5a5a5;
+  --color-icon-error: #cc0000;
+  --color-icon-warning: #bd5b00;
+  --color-icon-info: #0074e8;
+  --color-icon-recommendation: #812ae7;
+  --color-icon-inverse: #ffffff;
+  --color-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
   --color-background-info-base: #0074e8;
   --color-background-info-weak: #d7edff;
@@ -326,9 +345,23 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-data-visualization-07: #00ab55;
   --color-data-visualization-08: #400387;
   --color-data-visualization-09: #f2681f;
-  --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
-  --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
-  --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
+  --button-color-primary-active: #a3081a;
+  --button-color-secondary-default: #e9e9e9;
+  --button-color-secondary-hover: #e2e2e2;
+  --button-color-secondary-active: #dadada;
+  --button-color-tertiary-hover: rgb(0 0 0 / 0.06);
+  --button-color-tertiary-active: rgb(0 0 0 / 0.1);
+  --button-color-shopping-active: #4a85c9;
+  --button-color-white-default: #ffffff;
+  --button-color-white-hover: #f0f0f0;
+  --button-color-white-active: #e0e0e0;
+  --button-color-semitransparentwhite-default: rgb(255 255 255 / 0.8);
+  --button-color-semitransparentwhite-hover: #f0f0f0;
+  --button-color-semitransparentwhite-active: #e0e0e0;
+  --button-color-disabled-default: #e9e9e9;
+  --elevation-floating: 0 0 8px rgb(0 0 0 / 0.10);
+  --elevation-raised-top: 0 2px 8px rgb(0 0 0 / 0.12);
+  --elevation-raised-bottom: 0 -2px 8px rgb(0 0 0 / 0.12);
  }
 </style>
 `;
@@ -336,7 +369,6 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
 exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`] = `
 <style>
   .__gestaltThemetestId {
-  --g-colorRed0: #ff5247;
   --g-colorRed100: #e60023;
   --g-colorRed100Active: #a3081a;
   --g-colorRed100Hovered: #ad081b;
@@ -348,17 +380,15 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --g-colorGray100Active: #dadada;
   --g-colorGray100Hovered: #e2e2e2;
   --g-colorGray150: #ddd;
-  --g-colorGray150Hovered: #d0d0d0;
   --g-colorGray200: #767676;
   --g-colorGray200Active: #828282;
   --g-colorGray200Hovered: #878787;
   --g-colorGray300: #111;
   --g-colorGray400: #000;
-  --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
-  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
-  --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
-  --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
+  --g-colorTransparentDarkGray: rgb(51 51 51 / 0.8);
+  --g-colorTransparentGray60: rgb(0 0 0 / 0.06);
+  --g-colorTransparentGray100: rgb(0 0 0 / 0.1);
+  --g-colorTransparentWhite: rgb(255 255 255 / 0.8);
   --g-colorDataVisualization10: #005062;
   --g-colorDataVisualization11: #de2c62;
   --g-colorDataVisualization12: #660e00;
@@ -385,16 +415,16 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-text-inverse: #ffffff;
   --color-text-shopping: #0074e8;
   --color-text-link: #004ba9;
-  --color-text-icon-default: #111111;
-  --color-text-icon-subtle: #767676;
-  --color-text-icon-success: #005f3e;
-  --color-text-icon-disabled: #a5a5a5;
-  --color-text-icon-error: #cc0000;
-  --color-text-icon-warning: #bd5b00;
-  --color-text-icon-info: #0074e8;
-  --color-text-icon-recommendation: #812ae7;
-  --color-text-icon-inverse: #ffffff;
-  --color-text-icon-shopping: #0074e8;
+  --color-icon-default: #111111;
+  --color-icon-subtle: #767676;
+  --color-icon-success: #005f3e;
+  --color-icon-disabled: #a5a5a5;
+  --color-icon-error: #cc0000;
+  --color-icon-warning: #bd5b00;
+  --color-icon-info: #0074e8;
+  --color-icon-recommendation: #812ae7;
+  --color-icon-inverse: #ffffff;
+  --color-icon-shopping: #0074e8;
   --color-background-default: #ffffff;
   --color-background-info-base: #0074e8;
   --color-background-info-weak: #d7edff;
@@ -437,9 +467,23 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-data-visualization-07: #00ab55;
   --color-data-visualization-08: #400387;
   --color-data-visualization-09: #f2681f;
-  --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
-  --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
-  --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
+  --button-color-primary-active: #a3081a;
+  --button-color-secondary-default: #e9e9e9;
+  --button-color-secondary-hover: #e2e2e2;
+  --button-color-secondary-active: #dadada;
+  --button-color-tertiary-hover: rgb(0 0 0 / 0.06);
+  --button-color-tertiary-active: rgb(0 0 0 / 0.1);
+  --button-color-shopping-active: #4a85c9;
+  --button-color-white-default: #ffffff;
+  --button-color-white-hover: #f0f0f0;
+  --button-color-white-active: #e0e0e0;
+  --button-color-semitransparentwhite-default: rgb(255 255 255 / 0.8);
+  --button-color-semitransparentwhite-hover: #f0f0f0;
+  --button-color-semitransparentwhite-active: #e0e0e0;
+  --button-color-disabled-default: #e9e9e9;
+  --elevation-floating: 0 0 8px rgb(0 0 0 / 0.10);
+  --elevation-raised-top: 0 2px 8px rgb(0 0 0 / 0.12);
+  --elevation-raised-bottom: 0 -2px 8px rgb(0 0 0 / 0.12);
  }
 </style>
 `;
@@ -448,7 +492,6 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
 <style>
   @media(prefers-color-scheme: dark) {
   :root {
-  --g-colorRed0: #e60023;
   --g-colorRed100: #ff5247;
   --g-colorRed100Active: #b8001b;
   --g-colorRed100Hovered: #cf001f;
@@ -460,17 +503,15 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --g-colorGray100Active: #666;
   --g-colorGray100Hovered: #535353;
   --g-colorGray150: #585858;
-  --g-colorGray150Hovered: #535353;
   --g-colorGray200: #ababab;
   --g-colorGray200Active: #9b9b9b;
   --g-colorGray200Hovered: #919191;
   --g-colorGray300: #efefef;
   --g-colorGray400: #fff;
-  --g-colorTransparentDarkGray: rgba(255, 255, 255, 0.8);
-  --g-colorTransparentGray60: rgba(250, 250, 250, 0.5);
-  --g-colorTransparentGray100: rgba(250, 250, 250, 0.6);
-  --g-colorTransparentGray500: rgba(0, 0, 0, 0.5);
-  --g-colorTransparentWhite: rgba(51, 51, 51, 0.8);
+  --g-colorTransparentDarkGray: rgb(255 255 255 / 0.8);
+  --g-colorTransparentGray60: rgb(250 250 250 / 0.5);
+  --g-colorTransparentGray100: rgb(250 250 250 / 0.6);
+  --g-colorTransparentWhite: rgb(51 51 51 / 0.8);
   --g-colorDataVisualization10: #007A72;
   --g-colorDataVisualization11: #f76593;
   --g-colorDataVisualization12: #ffc58f;
@@ -497,16 +538,16 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-text-inverse: #111111;
   --color-text-shopping: #75bfff;
   --color-text-link: #45a3fe;
-  --color-text-icon-default: #ffffff;
-  --color-text-icon-subtle: #a5a5a5;
-  --color-text-icon-success: #39d377;
-  --color-text-icon-disabled: #4a4a4a;
-  --color-text-icon-error: #f47171;
-  --color-text-icon-warning: #e18d00;
-  --color-text-icon-info: #75bfff;
-  --color-text-icon-recommendation: #b190ff;
-  --color-text-icon-inverse: #111111;
-  --color-text-icon-shopping: #75bfff;
+  --color-icon-default: #ffffff;
+  --color-icon-subtle: #a5a5a5;
+  --color-icon-success: #39d377;
+  --color-icon-disabled: #4a4a4a;
+  --color-icon-error: #f47171;
+  --color-icon-warning: #e18d00;
+  --color-icon-info: #75bfff;
+  --color-icon-recommendation: #b190ff;
+  --color-icon-inverse: #111111;
+  --color-icon-shopping: #75bfff;
   --color-background-default: #111111;
   --color-background-info-base: #75bfff;
   --color-background-info-weak: #003c96;
@@ -549,6 +590,20 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-data-visualization-07: #a4f9ac;
   --color-data-visualization-08: #812ae7;
   --color-data-visualization-09: #ff5b45;
+  --button-color-primary-active: #b8001b;
+  --button-color-secondary-default: #4a4a4a;
+  --button-color-secondary-hover: #535353;
+  --button-color-secondary-active: #666;
+  --button-color-tertiary-hover: rgb(250 250 250 / 0.5);
+  --button-color-tertiary-active: rgb(250 250 250 / 0.6);
+  --button-color-shopping-active: #4a85c9;
+  --button-color-white-default: #030303;
+  --button-color-white-hover: #121212;
+  --button-color-white-active: #1f1f1f;
+  --button-color-semitransparentwhite-default: rgb(51 51 51 / 0.8);
+  --button-color-semitransparentwhite-hover: #121212;
+  --button-color-semitransparentwhite-active: #1f1f1f;
+  --button-color-disabled-default: #4a4a4a;
   --elevation-floating: none;
   --elevation-raised-top: 0 0.5px 0 #f9f9f9;
   --elevation-raised-bottom: 0 -0.5px 0 #f9f9f9;

@@ -26,7 +26,7 @@ describe('useDefaultLabelContext', () => {
           BannerOverlay: {
             accessibilityDismissButtonLabel: 'Dismiss Banner',
           },
-          Callout: {
+          BannerCallout: {
             accessibilityDismissButtonLabel: 'Dismiss Banner',
             iconAccessibilityLabelError: 'Error',
             iconAccessibilityLabelInfo: 'Information',

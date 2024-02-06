@@ -17,13 +17,13 @@ import ActivationCard from '../../graphics/general/ActivationCard.svg';
 import Avatar from '../../graphics/general/Avatar.svg';
 import AvatarGroup from '../../graphics/general/AvatarGroup.svg';
 import Badge from '../../graphics/general/Badge.svg';
+import BannerCallout from '../../graphics/general/BannerCallout.svg';
 import BannerOverlay from '../../graphics/general/BannerOverlay.svg';
 import BannerSlim from '../../graphics/general/BannerSlim.svg';
 import BannerUpsell from '../../graphics/general/BannerUpsell.svg';
 import Button from '../../graphics/general/Button.svg';
 import ButtonGroup from '../../graphics/general/ButtonGroup.svg';
 import ButtonLink from '../../graphics/general/ButtonLink.svg';
-import Callout from '../../graphics/general/Callout.svg';
 import Card from '../../graphics/general/Card.svg';
 import ChartGraph from '../../graphics/general/ChartGraph.svg';
 import Checkbox from '../../graphics/general/Checkbox.svg';
@@ -317,6 +317,34 @@ const componentData: $ReadOnlyArray<ComponentData> = [
     },
   },
   {
+    id: 'BannerCallout',
+    platform: {
+      web: {
+        name: 'BannerCallout',
+        visual: {
+          svg: <BannerCallout />,
+        },
+        alias: ['Banner', 'Message', 'Notification', 'Notice', 'Note', 'Callout'],
+        description:
+          'BannerCallout is a banner displaying short messages with helpful information for a task on the page, or something that requires the user’s attention.',
+        category: ['Messaging'],
+        status: {
+          accessible: {
+            summary: 'ready',
+            a11yVisual: 'ready',
+            a11yScreenreader: 'ready',
+            a11yNavigation: 'ready',
+            a11yComprehension: 'ready',
+          },
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          responsive: 'ready',
+          status: 'ready',
+        },
+      },
+    },
+  },
+  {
     id: 'BannerOverlay',
     platform: {
       web: {
@@ -516,35 +544,6 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         status: {
           documentation: 'ready',
           figmaStatus: 'ready',
-          status: 'ready',
-        },
-      },
-    },
-  },
-
-  {
-    id: 'Callout',
-    platform: {
-      web: {
-        name: 'Callout',
-        visual: {
-          svg: <Callout />,
-        },
-        alias: ['Banner', 'Message', 'Notification', 'Notice', 'Note'],
-        description:
-          'Callout is a banner displaying short messages with helpful information for a task on the page, or something that requires the user’s attention.',
-        category: ['Messaging'],
-        status: {
-          accessible: {
-            summary: 'ready',
-            a11yVisual: 'ready',
-            a11yScreenreader: 'ready',
-            a11yNavigation: 'ready',
-            a11yComprehension: 'ready',
-          },
-          documentation: 'ready',
-          figmaStatus: 'ready',
-          responsive: 'ready',
           status: 'ready',
         },
       },

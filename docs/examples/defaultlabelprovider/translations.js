@@ -15,7 +15,7 @@ const labels = {
   BannerOverlay: {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss Banner'),
   },
-  Callout: {
+  BannerCallout: {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss Banner'),
     iconAccessibilityLabelError: myI18nTranslator('Error'),
     iconAccessibilityLabelInfo: myI18nTranslator('Information'),

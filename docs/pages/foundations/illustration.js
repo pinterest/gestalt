@@ -140,7 +140,7 @@ export default function IllustrationPage(): ReactNode {
           </MainSection.Card>
           <MainSection.Card
             type="don't"
-            description="Use illustrations to replace crucial or in-the-moment messaging patterns like Callout, BannerSlim or Toast. Learn more about [available messaging components](messaging/available_components)"
+            description="Use illustrations to replace crucial or in-the-moment messaging patterns like BannerCallout, BannerSlim or Toast. Learn more about [available messaging components](messaging/available_components)"
           >
             <Flex overflow="hidden">
               <IllMessaging />

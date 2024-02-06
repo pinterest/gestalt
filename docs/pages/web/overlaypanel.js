@@ -69,7 +69,7 @@ export default function SheetPage({
             title="When not to use"
             description={`
           - Getting user confirmation on an action. Use a [Modal](/web/modal) instead.
-          - Displaying system errors or notices. Consider a [Callout](/web/callout) instead.
+          - Displaying system errors or notices. Consider a [BannerCallout](/web/bannercallout) instead.
           - Any time a separate, designated URL is desired.
         `}
           />

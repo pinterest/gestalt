@@ -65,7 +65,7 @@ export default function ModalAlertPage({
             description={`
           - Requesting large forms of information. Consider [OverlayPanel](/web/overlaypanel) or new page instead.
           - Any action that should not interrupt users from their current work stream, such as saving a Pin. Use [Toast](/web/toast) instead.
-          - When alerting users of issues that can be corrected on the page or surface itself without interrupting their flow. Instead use [Callout](/web/callout) or [BannerSlim](/web/bannerslim).
+          - When alerting users of issues that can be corrected on the page or surface itself without interrupting their flow. Instead use [BannerCallout](/web/bannercallout) or [BannerSlim](/web/bannerslim).
         `}
           />
         </MainSection.Subsection>
@@ -339,8 +339,8 @@ export default function ModalAlertPage({
         **[Toast](/web/toast)**
         Toast provides feedback shortly after a user interaction, like a confirmation that appears when a Pin has been saved. Unlike BannerUpsells and BannerSlims, toasts overlay Page content. They also automatically disappear after a certain amount of time without being dismissed by the user.
 
-        **[Callout](/web/callout)**
-        Callouts are used at the top-most level of a page to communicate highest-priority information that applies to the entire page or surface. Callouts can be dismissed and are also actionable.
+        **[BannerCallout](/web/bannercallout)**
+        BannerCallouts are used at the top-most level of a page to communicate highest-priority information that applies to the entire page or surface. BannerCallouts can be dismissed and are also actionable.
 
         **[BannerSlim](/web/bannerslim)**
         BannerSlim conveys brief information related to a specific section of a page. The message can relay success, warning, error or general information.

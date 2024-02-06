@@ -1,3 +1,57 @@
+## 137.0.0 (Feb 6, 2024)
+
+### Major
+
+- Callout: Rename to BannerCallout ([#3408](https://github.com/pinterest/gestalt/pull/3408)) - [Preview link](https://deploy-preview-3408--gestalt.netlify.app?devexample=true)
+
+## 136.0.1 (Feb 6, 2024)
+
+### Patch
+
+- Internal: moved all rgba color codes instances to rbg color codes ([#3407](https://github.com/pinterest/gestalt/pull/3407)) - [Preview link](https://deploy-preview-3407--gestalt.netlify.app?devexample=true)
+
+## 136.0.0 (Feb 5, 2024)
+
+### Major
+
+- Tokens: rename alias tokens from color-text-icon-_ to color-icon-_ ([#3404](https://github.com/pinterest/gestalt/pull/3404)) - [Preview link](https://deploy-preview-3404--gestalt.netlify.app?devexample=true)
+
+## 135.0.0 (Feb 5, 2024)
+
+### Major
+
+- ColorSchemeProvider: removed deprecated colors ([#3406](https://github.com/pinterest/gestalt/pull/3406)) - [Preview link](https://deploy-preview-3406--gestalt.netlify.app?devexample=true)
+
+## 134.3.2 (Feb 5, 2024)
+
+### Patch
+
+- Internal: Bump yarn from 1.22.4 to 1.22.21 ([#3405](https://github.com/pinterest/gestalt/pull/3405)) - [Preview link](https://deploy-preview-3405--gestalt.netlify.app?devexample=true)
+
+## 134.3.1 (Feb 5, 2024)
+
+### Patch
+
+- Button: moved Button colors to component tokens ([#3400](https://github.com/pinterest/gestalt/pull/3400)) - [Preview link](https://deploy-preview-3400--gestalt.netlify.app?devexample=true)
+
+## 134.3.0 (Feb 5, 2024)
+
+### Minor
+
+- Tokens: add component tokens for Button ([#3401](https://github.com/pinterest/gestalt/pull/3401)) - [Preview link](https://deploy-preview-3401--gestalt.netlify.app?devexample=true)
+
+## 134.2.3 (Feb 5, 2024)
+
+### Patch
+
+- Internal: remove blue color replaced with color-background-education ([#3403](https://github.com/pinterest/gestalt/pull/3403)) - [Preview link](https://deploy-preview-3403--gestalt.netlify.app?devexample=true)
+
+## 134.2.2 (Feb 5, 2024)
+
+### Patch
+
+- Internal: removed unused deprecated colors ([#3402](https://github.com/pinterest/gestalt/pull/3402)) - [Preview link](https://deploy-preview-3402--gestalt.netlify.app?devexample=true)
+
 ## 134.2.1 (Feb 1, 2024)
 
 ### Patch

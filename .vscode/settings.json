@@ -1,9 +1,9 @@
 {
   "css.lint.validProperties": ["composes"],
   "editor.codeActionsOnSave": {
-    "source.organizeImports": false,
-    "source.fixAll.eslint": true,
-    "source.fixAll.shellcheck": true
+    "source.organizeImports": "never",
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.shellcheck": "explicit"
   },
   "editor.formatOnSave": true,
   "eslint.packageManager": "yarn",

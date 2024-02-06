@@ -82,7 +82,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             description={`
           - Using a separate Tooltip instance with IconButton. Use [IconButton's built-in tooltip](/web/iconbutton#With-Tooltip) instead.
           - Displaying information that is critical to the understanding of an element/feature. Use inline text instead.
-          - Offering context at the surface-level scope. Consider a [Callout](/web/callout) instead.
+          - Offering context at the surface-level scope. Consider a [BannerCallout](/web/bannercallout) instead.
         `}
           />
         </MainSection.Subsection>

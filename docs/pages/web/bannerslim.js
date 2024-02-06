@@ -12,8 +12,8 @@ import SandpackExample from '../../docs-components/SandpackExample';
 import bareBannerSlimExample from '../../examples/bannerslim/bareBannerSlimExample';
 import compactBannerSlimExample from '../../examples/bannerslim/compactBannerSlimExample';
 import dismissableExample from '../../examples/bannerslim/dismissableExample';
-import dontCombineWithCallout from '../../examples/bannerslim/dontCombineWithCallout';
-import dontUseAsCallout from '../../examples/bannerslim/dontUseAsCallout';
+import dontCombineWithBannerCallout from '../../examples/bannerslim/dontCombineWithBannerCallout';
+import dontUseAsBannerCallout from '../../examples/bannerslim/dontUseAsBannerCallout';
 import dontUseAsToast from '../../examples/bannerslim/dontUseAsToast';
 import dontUseForDenseInterfaces from '../../examples/bannerslim/dontUseForDenseInterfaces';
 import localizationLabels from '../../examples/bannerslim/localizationLabels';
@@ -66,7 +66,7 @@ export default function BannerSlimPage({
             type="don't"
             title="When not to use"
             description={`
-- When displaying information that pertains to the whole page and is of the highest priority. Use [Callout](/web/callout) instead.
+- When displaying information that pertains to the whole page and is of the highest priority. Use [BannerCallout](/web/bannercallout) instead.
 - When interacting with the BannerSlim is required for the user to proceed with a task or flow. Use [Modal](/web/modal) instead.
 - When describing the function of an interactive element that doesn’t have a text label. Use [Tooltip](/web/tooltip) instead.
 - When calling a users attention to a feature for the first time. Use [Popover](/web/popover) instead.
@@ -128,11 +128,11 @@ Use for messages generated as an immediate response to user interaction. Instead
             cardSize="lg"
             type="don't"
             description={`
-Place BannerSlim at the top of a page and use them for highest-priority messaging. Use [Callout](/web/callout) instead`}
+Place BannerSlim at the top of a page and use them for highest-priority messaging. Use [BannerCallout](/web/bannercallout) instead`}
             sandpackExample={
               <SandpackExample
                 name="Don't - Use BannerSlim for highest-priority messaging"
-                code={dontUseAsCallout}
+                code={dontUseAsBannerCallout}
                 hideEditor
                 hideControls
                 layout="column"
@@ -192,11 +192,11 @@ Use a regular BannerSlim with a background for dense interfaces where space is a
             cardSize="lg"
             type="don't"
             description={`
-Combine BannerSlims with other components like [Callouts](/web/callout) or [BannerUpsells](/web/bannerupsell).`}
+Combine BannerSlims with other components like [BannerCallouts](/web/bannercallout) or [BannerUpsells](/web/bannerupsell).`}
             sandpackExample={
               <SandpackExample
-                name="Don't - Combine BannerSlims with Callouts or BannerUpsells"
-                code={dontCombineWithCallout}
+                name="Don't - Combine BannerSlims with BannerCallouts or BannerUpsells"
+                code={dontCombineWithBannerCallout}
                 hideEditor
                 hideControls
                 layout="column"
@@ -447,8 +447,8 @@ BannerSlim doesn't depend on DeviceTypeProvider to display a mobile view; instea
 **[BannerUpsell](/web/bannerupsell)**
 An BannerUpsell is used to market new features or to encourage a user to try recommendations.
 
-**[Callout](/web/callout)**
-Callouts are used at the top-most level of a page to communicate highest-priority information that applies to the entire page or surface. Callouts can be dismissed and are also actionable.
+**[BannerCallout](/web/bannercallout)**
+BannerCallouts are used at the top-most level of a page to communicate highest-priority information that applies to the entire page or surface. BannerCallouts can be dismissed and are also actionable.
 
 **[Toast](/web/toast)**
 Toast provides feedback shortly after a user interaction, like a confirmation that appears when a Pin has been saved. Unlike BannerUpsells and BannerSlims, toasts overlay Page content. They also automatically disappear after a certain amount of time without being dismissed by the user.
