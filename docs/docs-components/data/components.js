@@ -324,7 +324,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         visual: {
           svg: <BannerCallout />,
         },
-        alias: ['Banner', 'Message', 'Notification', 'Notice', 'Note'],
+        alias: ['Banner', 'Message', 'Notification', 'Notice', 'Note', 'Callout'],
         description:
           'BannerCallout is a banner displaying short messages with helpful information for a task on the page, or something that requires the user’s attention.',
         category: ['Messaging'],

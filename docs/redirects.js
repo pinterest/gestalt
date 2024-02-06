@@ -257,6 +257,11 @@ const misc = [
     destination: '/web/bannerupsell',
     permanent: true,
   },
+  {
+    source: '/web/callout',
+    destination: '/web/bannercallout',
+    permanent: true,
+  },
 ];
 
 /*::
