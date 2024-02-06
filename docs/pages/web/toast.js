@@ -68,7 +68,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 - When, due to an error, a user can’t even continue performing basic tasks like browsing already loaded Pins.
 - When asking a user to confirm that they want to perform an action. Use [ModalAlert](/web/modalalert) instead.
 - When you want to suggest a user spend more money or try new features; use [BannerUpsell](/web/bannerupsell) instead.
-- For errors that relate to a specific section or page. Use BannerCallout(/web/bannercallout) or SlimBanner(/web/slimbanner) instead.
+- For errors that relate to a specific section or page. Use BannerCallout(/web/bannercallout) or BannerSlim(/web/bannerslim) instead.
 - To guide or educate the user. Use Popover(/web/popover) or Tooltip(/web/tooltip) instead.
         `}
           />

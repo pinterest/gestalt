@@ -38,7 +38,7 @@ import {
   zhCN,
   zhTW,
 } from 'date-fns/locale';
-import { Flex, SelectList, SlimBanner } from 'gestalt';
+import { BannerSlim, Flex, SelectList } from 'gestalt';
 import { DateField } from 'gestalt-datepicker';
 import docGen, { type DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -102,8 +102,8 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         badge="experimental"
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
-        slimBanner={
-          <SlimBanner
+        bannerSlim={
+          <BannerSlim
             type="warning"
             iconAccessibilityLabel="Warning message"
             message="DateField is an experimental component. Expect development and design iteration, breaking API changes or even component deprecation."

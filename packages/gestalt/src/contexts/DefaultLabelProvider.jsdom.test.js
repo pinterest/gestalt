@@ -80,7 +80,7 @@ describe('useDefaultLabelContext', () => {
           SideNavigation: {
             accessibilityDismissButtonLabel: 'Dismiss side navigation',
           },
-          SlimBanner: {
+          BannerSlim: {
             accessibilityDismissButtonLabel: 'Dismiss Banner',
             iconAccessibilityLabelError: 'Error',
             iconAccessibilityLabelInfo: 'Information',

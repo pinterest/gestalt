@@ -200,32 +200,32 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
       label: 'Dismiss side navigation',
     },
     {
-      component: 'SlimBanner',
+      component: 'BannerSlim',
       prop: 'accessibilityDismissButtonLabel',
       label: 'Dismiss banner',
     },
     {
-      component: 'SlimBanner',
+      component: 'BannerSlim',
       prop: 'iconAccessibilityLabelError',
       label: 'Error',
     },
     {
-      component: 'SlimBanner',
+      component: 'BannerSlim',
       prop: 'iconAccessibilityLabelInfo',
       label: 'Information',
     },
     {
-      component: 'SlimBanner',
+      component: 'BannerSlim',
       prop: 'iconAccessibilityLabelRecommendation',
       label: 'Recommendation',
     },
     {
-      component: 'SlimBanner',
+      component: 'BannerSlim',
       prop: 'iconAccessibilityLabelWarning',
       label: 'Warning',
     },
     {
-      component: 'SlimBanner',
+      component: 'BannerSlim',
       prop: 'iconAccessibilityLabelSuccess',
       label: 'Success',
     },

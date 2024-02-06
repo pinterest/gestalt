@@ -328,8 +328,8 @@ export default function MessagingPriorityAndPlacementPage(): ReactNode {
                 </Link>
               </Text>
               <Text>
-                <Link href="/web/slimbanner" underline="always">
-                  SlimBanner
+                <Link href="/web/bannerslim" underline="always">
+                  BannerSlim
                 </Link>
               </Text>
               <Text>
@@ -357,8 +357,8 @@ export default function MessagingPriorityAndPlacementPage(): ReactNode {
           <Flex gap={2}>
             <Text weight="bold">Current components:</Text>
             <Text>
-              <Link href="/web/slimbanner" underline="always">
-                SlimBanner
+              <Link href="/web/bannerslim" underline="always">
+                BannerSlim
               </Link>
             </Text>
           </Flex>

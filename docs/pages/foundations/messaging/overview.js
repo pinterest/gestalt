@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node as ReactNode } from 'react';
-import { Box, Image, SlimBanner } from 'gestalt';
+import { BannerSlim, Box, Image } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection';
 import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';
@@ -61,7 +61,7 @@ This isn’t a highly urgent issue, so we don’t display a prominent modal, ban
             src="https://i.pinimg.com/originals/72/52/51/725251998a88d92a653cc3bcd08ca2ee.png"
           />
         </Box>
-        <SlimBanner
+        <BannerSlim
           type="infoBare"
           iconAccessibilityLabel="Information"
           message="Note: Alert indicator is not currently a Gestalt component, but a Variant in other components like Tabs."

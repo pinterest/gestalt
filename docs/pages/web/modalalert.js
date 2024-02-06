@@ -65,7 +65,7 @@ export default function ModalAlertPage({
             description={`
           - Requesting large forms of information. Consider [OverlayPanel](/web/overlaypanel) or new page instead.
           - Any action that should not interrupt users from their current work stream, such as saving a Pin. Use [Toast](/web/toast) instead.
-          - When alerting users of issues that can be corrected on the page or surface itself without interrupting their flow. Instead use [BannerCallout](/web/bannercallout) or [SlimBanner](/web/slimbanner).
+          - When alerting users of issues that can be corrected on the page or surface itself without interrupting their flow. Instead use [BannerCallout](/web/bannercallout) or [BannerSlim](/web/bannerslim).
         `}
           />
         </MainSection.Subsection>
@@ -337,13 +337,13 @@ export default function ModalAlertPage({
         <MainSection.Subsection
           description={`
         **[Toast](/web/toast)**
-        Toast provides feedback shortly after a user interaction, like a confirmation that appears when a Pin has been saved. Unlike BannerUpsells and SlimBanners, toasts overlay Page content. They also automatically disappear after a certain amount of time without being dismissed by the user.
+        Toast provides feedback shortly after a user interaction, like a confirmation that appears when a Pin has been saved. Unlike BannerUpsells and BannerSlims, toasts overlay Page content. They also automatically disappear after a certain amount of time without being dismissed by the user.
 
         **[BannerCallout](/web/bannercallout)**
         BannerCallouts are used at the top-most level of a page to communicate highest-priority information that applies to the entire page or surface. BannerCallouts can be dismissed and are also actionable.
 
-        **[SlimBanner](/web/slimbanner)**
-        SlimBanner conveys brief information related to a specific section of a page. The message can relay success, warning, error or general information.
+        **[BannerSlim](/web/bannerslim)**
+        BannerSlim conveys brief information related to a specific section of a page. The message can relay success, warning, error or general information.
 
         **[Modal](/web/modal)**
         A generic, customizable container for modals that aren’t used as alerts and need more functionality, like form fields.

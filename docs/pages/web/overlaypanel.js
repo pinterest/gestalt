@@ -1,7 +1,8 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { Link, SlimBanner, Text } from 'gestalt';
+import { BannerSlim, Link, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import { BannerSlimExperiment } from '../../docs-components/BannerSlimExperiment';
 import { type DocGen, multipleDocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
@@ -10,7 +11,6 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
-import { SlimBannerExperiment } from '../../docs-components/SlimBannerExperiment';
 import animationExample from '../../examples/overlaypanel/animationExample';
 import confirmationExample from '../../examples/overlaypanel/confirmationExample';
 import defaultExample from '../../examples/overlaypanel/defaultExample';
@@ -33,8 +33,8 @@ export default function SheetPage({
       <PageHeader
         name={generatedDocGen?.OverlayPanel.displayName}
         description={generatedDocGen?.OverlayPanel.description}
-        slimBannerExperiment={
-          <SlimBannerExperiment
+        bannerSlimExperiment={
+          <BannerSlimExperiment
             componentName="OverlayPanel"
             description="fix and improve underlying Popover component behavior. No visual updates"
             pullRequest={3244}
@@ -287,7 +287,7 @@ OverlayPanel comes in 3 sizes: small (\`sm\`), medium (\`md\`), and large (\`lg\
       OverlayPanel also provides \`onAnimationEnd\`, a callback that gets triggered at the end of each animation. The callback has access to \`animationState\` to identify the end of each 'in' and 'out' animation for cases where the two events trigger different responses.
       `}
         >
-          <SlimBanner
+          <BannerSlim
             iconAccessibilityLabel="Warning"
             message={
               <Text inline>

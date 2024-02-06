@@ -5,6 +5,7 @@ const webComponents = [
   'avatar',
   'avatargroup',
   'badge',
+  'bannerslim',
   'bannercallout',
   'bannerupsell',
   'box',
@@ -49,7 +50,6 @@ const webComponents = [
   'selectlist',
   'sheet',
   'sidenavigation',
-  'slimbanner',
   'spinner',
   'status',
   'sticky',
@@ -255,6 +255,11 @@ const misc = [
   {
     source: '/web/upsell',
     destination: '/web/bannerupsell',
+    permanent: true,
+  },
+  {
+    source: '/web/slimbanner',
+    destination: '/web/bannerslim',
     permanent: true,
   },
   {

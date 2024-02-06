@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { Flex, Link, SlimBanner, Status, Table, Text } from 'gestalt';
+import { BannerSlim, Flex, Link, Status, Table, Text } from 'gestalt';
 import componentData from './data/components';
 import { COMPONENT_STATUS_MESSAGING, STATUS_DESCRIPTION } from './data/componentStatusMessaging';
 import getByPlatform from './data/utils/getByPlatform';
@@ -20,7 +20,7 @@ export default function QualityChecklist({ component }: Props): ReactNode {
   return (
     <MainSection name="Component quality checklist">
       {data?.status.status === 'deprecated' ? (
-        <SlimBanner
+        <BannerSlim
           iconAccessibilityLabel="Deprecated component"
           message="Deprecated: This component is no longer supported by Gestalt. "
           type="warningBare"

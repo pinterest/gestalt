@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode, useState } from 'react';
-import { Box, SlimBanner, Table, Text } from 'gestalt';
+import { BannerSlim, Box, Table, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   const [showdrawer, setShowDrawer] = useState(true);
@@ -42,7 +42,7 @@ export default function Example(): ReactNode {
             id="drawerExample"
             drawerContents={
               showdrawer ? (
-                <SlimBanner
+                <BannerSlim
                   type="recommendation"
                   iconAccessibilityLabel="Recommendation"
                   message="Increasing your daily spend could increase clicks by 20%"

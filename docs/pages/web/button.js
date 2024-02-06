@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { Button, SlimBanner } from 'gestalt';
+import { BannerSlim, Button } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { type DocGen, type DocType } from '../../docs-components/docgen';
@@ -311,7 +311,7 @@ If Button is used as a control Button to show/hide a Popover-based component, we
 \`iconEnd\` adds an icon after the Button text. Icons should only be used to visually reinforce a specific function or interaction of the Button. Menus and external links are a common use case. Use \`visit\` when linking to an external URL or \`arrow-down\` when displaying a Popover on click. Note that iconEnd on Button is not accessible to screen readers.
 `}
         >
-          <SlimBanner
+          <BannerSlim
             type="recommendationBare"
             iconAccessibilityLabel="Recommendation"
             message="Use Gestalt's ESLint rule to enforce the correct icons usage in Button."

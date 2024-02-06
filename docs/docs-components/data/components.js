@@ -19,6 +19,7 @@ import AvatarGroup from '../../graphics/general/AvatarGroup.svg';
 import Badge from '../../graphics/general/Badge.svg';
 import BannerCallout from '../../graphics/general/BannerCallout.svg';
 import BannerOverlay from '../../graphics/general/BannerOverlay.svg';
+import BannerSlim from '../../graphics/general/BannerSlim.svg';
 import BannerUpsell from '../../graphics/general/BannerUpsell.svg';
 import Button from '../../graphics/general/Button.svg';
 import ButtonGroup from '../../graphics/general/ButtonGroup.svg';
@@ -61,7 +62,6 @@ import SegmentedControl from '../../graphics/general/SegmentedControl.svg';
 import SelectList from '../../graphics/general/SelectList.svg';
 import SheetMobile from '../../graphics/general/SheetMobile.svg';
 import SideNavigation from '../../graphics/general/SideNavigation.svg';
-import SlimBanner from '../../graphics/general/SlimBanner.svg';
 import Spinner from '../../graphics/general/Spinner.svg';
 import Status from '../../graphics/general/Status.svg';
 import Switch from '../../graphics/general/Switch.svg';
@@ -2140,16 +2140,16 @@ const componentData: $ReadOnlyArray<ComponentData> = [
     },
   },
   {
-    id: 'SlimBanner',
+    id: 'BannerSlim',
     platform: {
       web: {
-        name: 'SlimBanner',
+        name: 'BannerSlim',
         visual: {
-          svg: <SlimBanner />,
+          svg: <BannerSlim />,
         },
-        alias: ['Notice', 'Note', 'Scoped Notification'],
+        alias: ['Notice', 'Note', 'Scoped Notification', 'SlimBanner'],
         description:
-          'SlimBanner conveys brief information related to a specific section of a page.',
+          'BannerSlim conveys brief information related to a specific section of a page.',
         category: ['Messaging'],
         status: {
           accessible: {

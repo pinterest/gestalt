@@ -73,7 +73,7 @@ const labels = {
   SideNavigation: {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss side navigation'),
   },
-  SlimBanner: {
+  BannerSlim: {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss banner'),
     iconAccessibilityLabelError: myI18nTranslator('Error'),
     iconAccessibilityLabelInfo: myI18nTranslator('Information'),

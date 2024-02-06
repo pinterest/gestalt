@@ -102,7 +102,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             cardSize="md"
             type="don't"
             description={`
-            Display Pulsar to point out an error or status update. Use [SlimBanner](/web/slimbanner) or other [messaging components](/foundations/messaging/overview) instead.
+            Display Pulsar to point out an error or status update. Use [BannerSlim](/web/bannerslim) or other [messaging components](/foundations/messaging/overview) instead.
             `}
             sandpackExample={
               <SandpackExample
