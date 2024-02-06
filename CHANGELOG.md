@@ -1,3 +1,9 @@
+## 136.0.1 (Feb 6, 2024)
+
+### Patch
+
+- Internal: moved all rgba color codes instances to rbg color codes ([#3407](https://github.com/pinterest/gestalt/pull/3407)) - [Preview link](https://deploy-preview-3407--gestalt.netlify.app?devexample=true)
+
 ## 136.0.0 (Feb 5, 2024)
 
 ### Major
