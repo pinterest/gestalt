@@ -1,3 +1,9 @@
+## 138.0.0 (Feb 6, 2024)
+
+### Major
+
+- SlimBanner: Renamed to BannerSlim ([#3399](https://github.com/pinterest/gestalt/pull/3399)) - [Preview link](https://deploy-preview-3399--gestalt.netlify.app?devexample=true)
+
 ## 137.0.0 (Feb 6, 2024)
 
 ### Major
