@@ -1,3 +1,9 @@
+## 137.0.0 (Feb 6, 2024)
+
+### Major
+
+- Callout: Rename to BannerCallout ([#3408](https://github.com/pinterest/gestalt/pull/3408)) - [Preview link](https://deploy-preview-3408--gestalt.netlify.app?devexample=true)
+
 ## 136.0.1 (Feb 6, 2024)
 
 ### Patch
