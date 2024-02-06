@@ -30,8 +30,13 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
       <AccessibilitySection name={generatedDocGen?.displayName} />
       <MainSection name="Variants">
         <MainSection.Subsection title="Colors & states on white backgrounds">
-          <CombinationNew hovered={[false, true]} focused={[false, true]} active={[false, true]}>
-            {({ hovered, focused, active }) => (
+          <CombinationNew
+            hovered={[false, true]}
+            focused={[false, true]}
+            active={[false, true]}
+            selected={[false, true]}
+          >
+            {({ hovered, focused, active, selected }) => (
               <Flex gap={2} direction="column">
                 <Flex gap={3}>
                   <Pog
@@ -40,6 +45,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                     focused={focused}
                     active={active}
                     bgColor="red"
+                    selected={selected}
                   />
                   <Text size="100">red - primary</Text>
                 </Flex>
@@ -50,6 +56,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                     focused={focused}
                     active={active}
                     bgColor="lightGray"
+                    selected={selected}
                   />
                   <Text size="100">lightGray - secondary</Text>
                 </Flex>
@@ -60,6 +67,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                     focused={focused}
                     active={active}
                     bgColor="transparent"
+                    selected={selected}
                   />
                   <Text size="100">transparent - tertiary</Text>
                 </Flex>
@@ -68,8 +76,13 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           </CombinationNew>
         </MainSection.Subsection>
         <MainSection.Subsection title="Colors & states on color/image backgrounds">
-          <CombinationNew hovered={[false, true]} focused={[false, true]} active={[false, true]}>
-            {({ hovered, focused, active }) => (
+          <CombinationNew
+            hovered={[false, true]}
+            focused={[false, true]}
+            active={[false, true]}
+            selected={[false, true]}
+          >
+            {({ hovered, focused, active, selected }) => (
               <Box
                 borderStyle="sm"
                 display="flex"
@@ -83,6 +96,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                     backgroundImage: 'url("https://i.ibb.co/d0pQsJz/stock3.jpg")',
                   },
                 }}
+                padding={2}
               >
                 <Flex gap={2} direction="column">
                   <Flex gap={3}>
@@ -92,6 +106,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                       focused={focused}
                       active={active}
                       bgColor="transparentDarkGray"
+                      selected={selected}
                     />
                     <Box color="transparentDarkGray">
                       <Text color="inverse" weight="bold" size="100">
@@ -106,6 +121,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                       focused={focused}
                       active={active}
                       bgColor="white"
+                      selected={selected}
                     />
                     <Box color="transparentDarkGray">
                       <Text color="inverse" weight="bold" size="100">
@@ -120,24 +136,11 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                       focused={focused}
                       active={active}
                       bgColor="gray"
+                      selected={selected}
                     />
                     <Box color="transparentDarkGray">
                       <Text color="inverse" weight="bold" size="100">
                         gray
-                      </Text>
-                    </Box>
-                  </Flex>
-                  <Flex gap={3}>
-                    <Pog
-                      icon="heart"
-                      hovered={hovered}
-                      focused={focused}
-                      active={active}
-                      bgColor="darkGray"
-                    />
-                    <Box color="transparentDarkGray">
-                      <Text color="inverse" weight="bold" size="100">
-                        darkGray
                       </Text>
                     </Box>
                   </Flex>

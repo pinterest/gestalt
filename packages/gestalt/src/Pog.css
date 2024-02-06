@@ -17,12 +17,6 @@
   background-color: var(--button-color-selected-default);
 }
 
-/* deprecatye in favor of selected  */
-
-.darkGray {
-  background-color: var(--button-color-selected-default);
-}
-
 .focused {
   composes: accessibilityOutlineFocus from "./Focus.css";
 }
@@ -94,17 +88,15 @@
   background-color: var(--button-color-semitransparentdark-active);
 }
 
-/* PREV */
-
 .gray {
-  composes: grayBg from "./Colors.css";
+  background-color: var(--button-color-gray-default);
 }
 
 .gray.hovered,
 .gray.focused {
-  background-color: var(--g-colorGray200Hovered);
+  background-color: var(--button-color-gray-hover);
 }
 
 .gray.active {
-  background-color: var(--g-colorGray200Active);
+  background-color: var(--button-color-gray-active);
 }

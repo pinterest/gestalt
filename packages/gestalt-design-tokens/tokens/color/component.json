@@ -81,6 +81,22 @@
           "comment": "Button white background color for images with background on active."
         }
       },
+      "gray": {
+        "default": {
+          "value": "{color.background.neutral.value}",
+          "comment": "Button gray background color for images with background"
+        },
+        "hover": {
+          "value": "#878787",
+          "darkValue": "#919191",
+          "comment": "Button gray background color for images with background on hover."
+        },
+        "active": {
+          "value": "#828282",
+          "darkValue": "#9b9b9b",
+          "comment": "Button gray background color for images with background on active."
+        }
+      },
       "semitransparentwhite": {
         "default": {
           "value": "rgb(255 255 255 / 0.8)",
@@ -98,21 +114,21 @@
           "comment": "Button semi-transparent white background color for images with background on active."
         }
       },
-       "semitransparentdark": {
+      "semitransparentdark": {
         "default": {
           "value": "rgba(51, 51, 51, 0.8)",
           "darkValue": "rgba(255, 255, 255, 0.8)",
-          "comment": "Button semi-transparent white background color for images with background"
+          "comment": "Button semi-transparent dark background color for images with background"
         },
         "hover": {
           "value": "#121212",
-          "darkValue":  "#f0f0f0",
-          "comment": "Button semi-transparent white background color for images with background on hover."
+          "darkValue": "#f0f0f0",
+          "comment": "Button semi-transparent dark background color for images with background on hover."
         },
         "active": {
           "value": "#1f1f1f",
-          "darkValue":  "#e0e0e0",
-          "comment": "Button semi-transparent white background color for images with background on active."
+          "darkValue": "#e0e0e0",
+          "comment": "Button semi-transparent dark background color for images with background on active."
         }
       },
       "disabled": {
