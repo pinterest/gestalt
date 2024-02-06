@@ -44,8 +44,8 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             type="don't"
             title="When not to use"
             description={`
-          - In the case of a user error or warning that needs attention. Use [Callout](/web/callout) or form errors states instead.
-          - When the focus of the attention is at the surface level. Use [Callout](/web/callout) instead.
+          - In the case of a user error or warning that needs attention. Use [BannerCallout](/web/bannercallout) or form errors states instead.
+          - When the focus of the attention is at the surface level. Use [BannerCallout](/web/bannercallout) instead.
         `}
           />
         </MainSection.Subsection>

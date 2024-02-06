@@ -69,13 +69,13 @@ This isn’t a highly urgent issue, so we don’t display a prominent modal, ban
       </Box>
       <Box width="100%" marginBottom={12} marginTop={-7}>
         <MainSection.Subsection
-          title="Warning callout"
+          title="Warning bannercallout"
           description="Tapping on her profile leads her to a warning banner about needing to set a password for better security. Being that it’s prominent and at the top of the page, she figures it’s important, so she taps on the primary banner button to update her password."
         />
 
         <Box maxWidth={375} maxHeight={780} marginBottom={12} marginTop={2}>
           <Image
-            alt="Mobile phone screen of a Pinner profile with a Callout Banner warning the user of an issue that needs to be fixed."
+            alt="Mobile phone screen of a Pinner profile with a BannerCallout Banner warning the user of an issue that needs to be fixed."
             naturalHeight={1680}
             naturalWidth={808}
             src="https://i.pinimg.com/originals/f5/15/d4/f515d4e36832a2637d2d5a53b32e2deb.png"

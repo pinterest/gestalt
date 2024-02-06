@@ -441,7 +441,7 @@ interface DefaultLabelProviderProps {
         BannerOverlay: {
           accessibilityDismissButtonLabel: string;
         };
-        Callout: {
+        BannerCallout: {
           accessibilityDismissButtonLabel: string;
           iconAccessibilityLabelError: string;
           iconAccessibilityLabelInfo: string;
@@ -890,7 +890,7 @@ interface ButtonGroupProps {
   children?: Node | undefined;
 }
 
-interface CalloutProps {
+interface BannerCalloutProps {
   iconAccessibilityLabel: string;
   message: string;
   type: 'error' | 'info' | 'recommendation' | 'success' | 'warning';
@@ -2521,9 +2521,9 @@ export const ButtonLink: ReactForwardRef<HTMLAnchorElement, ButtonLinkProps>;
 export const ButtonGroup: React.FunctionComponent<ButtonGroupProps>;
 
 /**
- * https://gestalt.pinterest.systems/web/callout
+ * https://gestalt.pinterest.systems/web/bannercallout
  */
-export const Callout: React.FunctionComponent<CalloutProps>;
+export const BannerCallout: React.FunctionComponent<BannerCalloutProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/checkbox

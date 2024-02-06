@@ -30,39 +30,39 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
       label: 'Dismiss',
     },
     {
-      component: 'BannerUpsell',
-      prop: 'accessibilityDismissButtonLabel',
-      label: 'Dismiss banner',
-    },
-    {
-      component: 'Callout',
+      component: 'BannerCallout',
       prop: 'accessibilityDismissButtonLabel',
       label: 'Dismiss Banner',
     },
     {
-      component: 'Callout',
+      component: 'BannerCallout',
       prop: 'iconAccessibilityLabelError',
       label: 'Error',
     },
     {
-      component: 'Callout',
+      component: 'BannerCallout',
       prop: 'iconAccessibilityLabelInfo',
       label: 'Information',
     },
     {
-      component: 'Callout',
+      component: 'BannerCallout',
       prop: 'iconAccessibilityLabelRecommendation',
       label: 'Recommendation',
     },
     {
-      component: 'Callout',
+      component: 'BannerCallout',
       prop: 'iconAccessibilityLabelWarning',
       label: 'Warning',
     },
     {
-      component: 'Callout',
+      component: 'BannerCallout',
       prop: 'iconAccessibilityLabelSuccess',
       label: 'Success',
+    },
+    {
+      component: 'BannerUpsell',
+      prop: 'accessibilityDismissButtonLabel',
+      label: 'Dismiss banner',
     },
     {
       component: 'ChartGraph',

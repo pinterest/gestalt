@@ -8,7 +8,7 @@ import MainSection from '../../../docs-components/MainSection';
 import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';
 import SandpackExample from '../../../docs-components/SandpackExample';
-import linkHandlersCalloutUpsell from '../../../examples/globaleventshandlerprovider/linkHandlersCalloutBannerUpsell';
+import linkHandlersBannerCalloutUpsell from '../../../examples/globaleventshandlerprovider/linkHandlersBannerCalloutUpsell';
 import linkHandlersDangerouslyDisableOnNavigation from '../../../examples/globaleventshandlerprovider/linkHandlersDangerouslyDisableOnNavigation';
 import linkHandlersDropdown from '../../../examples/globaleventshandlerprovider/linkHandlersDropdown';
 import linkHandlersLinkButton from '../../../examples/globaleventshandlerprovider/linkHandlersLinkButton';
@@ -120,14 +120,14 @@ The example below demonstrates the correct use of "dangerouslyDisableOnNavigatio
           />
         </MainSection.Subsection>
 
-        <MainSection.Subsection title="Implementation in Callout, BannerUpsell, ActivationCard">
+        <MainSection.Subsection title="Implementation in BannerCallout, BannerUpsell, ActivationCard">
           <MainSection.Card
-            title="Examples from top to bottom: Callout, BannerUpsell, ActivationCard"
+            title="Examples from top to bottom: BannerCallout, BannerUpsell, ActivationCard"
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                code={linkHandlersCalloutUpsell}
-                name="Example - Callout, BannerUpsell, ActivationCard"
+                code={linkHandlersBannerCalloutUpsell}
+                name="Example - BannerCallout, BannerUpsell, ActivationCard"
                 layout="column"
                 previewHeight={650}
               />

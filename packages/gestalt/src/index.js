@@ -5,13 +5,13 @@ import ActivationCard from './ActivationCard';
 import Avatar from './Avatar';
 import AvatarGroup from './AvatarGroup';
 import Badge from './Badge';
+import BannerCallout from './BannerCallout';
 import BannerOverlay from './BannerOverlay';
 import BannerUpsell from './BannerUpsell';
 import Box from './Box';
 import Button from './Button';
 import ButtonGroup from './ButtonGroup';
 import ButtonLink from './ButtonLink';
-import Callout from './Callout';
 import Checkbox from './Checkbox';
 import Collage from './Collage';
 import Column from './Column';
@@ -91,13 +91,13 @@ export {
   Avatar,
   AvatarGroup,
   Badge,
+  BannerCallout,
   BannerOverlay,
   BannerUpsell,
   Box,
   Button,
   ButtonGroup,
   ButtonLink,
-  Callout,
   Checkbox,
   Collage,
   ColorSchemeProvider,

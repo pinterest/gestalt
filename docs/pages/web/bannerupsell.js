@@ -64,7 +64,7 @@ export default function DocsPage({
             type="don't"
             title="When not to use"
             description={`
-          - Anything related to state or status within the surface. Consider a [Callout](/web/callout) instead.
+          - Anything related to state or status within the surface. Consider a [BannerCallout](/web/bannercallout) instead.
           - Promoting or highlighting specific elements / areas within a surface. [Let the team know](https://app.slack.com/client/T024LJUGB/C0HUV5J93) if this is needed.
         `}
           />
@@ -125,11 +125,11 @@ export default function DocsPage({
             cardSize="lg"
             type="don't"
             description={`
-          Use BannerUpsells for critical information, such as errors or warnings. Use [Callout](/web/callout) instead. BannerUpsells should not be used for general information either.
+          Use BannerUpsells for critical information, such as errors or warnings. Use [BannerCallout](/web/bannercallout) instead. BannerUpsells should not be used for general information either.
         `}
             sandpackExample={
               <SandpackExample
-                name="Don't Use for Critical Information, Use Callout Instead"
+                name="Don't Use for Critical Information, Use BannerCallout Instead"
                 code={dontUseForCriticalInfo}
                 layout="column"
                 previewHeight={200}
@@ -143,7 +143,7 @@ export default function DocsPage({
             cardSize="lg"
             type="don't"
             description={`
-        Stack BannerUpsells on a page. In the case that they must be stacked, [Callouts](/web/callout) will appear above BannerUpsells.
+        Stack BannerUpsells on a page. In the case that they must be stacked, [BannerCallouts](/web/bannercallout) will appear above BannerUpsells.
         `}
             sandpackExample={
               <SandpackExample
@@ -353,11 +353,11 @@ If the \`message\` text requires more complex style, such as bold text or inline
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-      **[Callout](/web/callout)**
-      Use Callout when communicating critical information, such as an error or warning. Callout can also be used to present the user with general information and further actions they can take, like the successful creation of a business account.
+      **[BannerCallout](/web/bannercallout)**
+      Use BannerCallout when communicating critical information, such as an error or warning. BannerCallout can also be used to present the user with general information and further actions they can take, like the successful creation of a business account.
 
       **[Toast](/web/toast)**
-      Toast provides feedback on a user interaction, like a confirmation that appears when a Pin has been saved. Unlike BannerUpsell and Callout, Toasts don’t contain actions. They’re also less persistent, and disappear after a certain duration.
+      Toast provides feedback on a user interaction, like a confirmation that appears when a Pin has been saved. Unlike BannerUpsell and BannerCallout, Toasts don’t contain actions. They’re also less persistent, and disappear after a certain duration.
 
 
       **[ActivationCard](/web/activationcard)**
