@@ -226,13 +226,6 @@
 
 /** PRIMARY COLORS **/
 
-/* red */
-
-.red {
-  color: var(--g-colorRed100);
-}
-
-
 /* white */
 
 .white {
@@ -293,16 +286,6 @@
   background-color: var(--g-colorGray400);
 }
 
-/* blue */
-
-.blue {
-  color: var(--color-background-education);
-}
-
-.blueBg {
-  background-color: var(--color-background-education);
-}
-
 /* transparent */
 
 .transparentBg {
@@ -317,7 +300,6 @@
   background-color: var(--g-colorTransparentDarkGray);
 }
 
-
 /* light wash */
 
 .lightWashBg {
@@ -326,4 +308,18 @@
 
 .darkWashBg {
   background-color: var(--g-colorGray100Active);
+}
+
+/* POPOVER LEGACY COLORS */
+
+.red {
+  color: var(--g-colorRed100);
+}
+
+.blue {
+  color: var(--color-background-education);
+}
+
+.blueBg {
+  background-color: var(--color-background-education);
 }
