@@ -1,3 +1,9 @@
+## 139.0.0 (Feb 7, 2024)
+
+### Major
+
+- Pog, IconButton: implemented color tokens and deprecated darkGray color (duplicated with selected state) ([#3410](https://github.com/pinterest/gestalt/pull/3410)) - [Preview link](https://deploy-preview-3410--gestalt.netlify.app?devexample=true)
+
 ## 138.0.1 (Feb 7, 2024)
 
 ### Patch
