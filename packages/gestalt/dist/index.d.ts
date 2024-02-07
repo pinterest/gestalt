@@ -1170,7 +1170,6 @@ interface IconButtonProps {
   accessibilityPopupRole?: 'menu' | 'dialog' | undefined;
   bgColor?:
     | 'transparent'
-    | 'darkGray'
     | 'transparentDarkGray'
     | 'gray'
     | 'lightGray'
@@ -1202,7 +1201,6 @@ interface IconButtonLinkProps {
   accessibilityLabel: string;
   bgColor?:
     | 'transparent'
-    | 'darkGray'
     | 'transparentDarkGray'
     | 'gray'
     | 'lightGray'
@@ -1591,7 +1589,6 @@ interface PogProps {
   active?: boolean | undefined;
   bgColor?:
     | 'transparent'
-    | 'darkGray'
     | 'transparentDarkGray'
     | 'gray'
     | 'lightGray'

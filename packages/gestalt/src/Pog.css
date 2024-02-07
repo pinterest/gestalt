@@ -9,95 +9,94 @@
   perspective: 1px;
 }
 
+/* TOKENIZED */
+
+/* STATES */
+
+.selected {
+  background-color: var(--button-color-selected-default);
+}
+
 .focused {
   composes: accessibilityOutlineFocus from "./Focus.css";
 }
 
-.selected {
-  composes: darkGrayBg from "./Colors.css";
-}
-
-.transparent {
-  composes: transparentBg from "./Colors.css";
-}
-
-.transparentDarkGray {
-  composes: transparentDarkGrayBg from "./Colors.css";
-}
-
-.transparent.hovered,
-.transparent.focused,
-.white.hovered,
-.white.focused {
-  background-color: var(--g-colorTransparentGray60);
-}
-
-.transparent.active,
-.white.active {
-  background-color: var(--g-colorTransparentGray100);
-}
-
-.transparentDarkGray.hovered,
-.transparentDarkGray.focused {
-  background-color: var(--g-colorGray300);
-}
-
-.transparentDarkGray.active {
-  background-color: var(--g-colorGray300);
-}
-
-.white {
-  composes: transparentWhiteBg from "./Colors.css";
-}
-
-.white.hovered,
-.white.focused {
-  background-color: var(--g-colorGray0Hovered);
-}
-
-.white.active {
-  background-color: var(--g-colorGray0Active);
-}
-
-.lightGray {
-  composes: lightGrayBg from "./Colors.css";
-}
-
-.lightGray.hovered,
-.lightGray.focused {
-  background-color: var(--g-colorGray100Hovered);
-}
-
-.lightGray.active {
-  background-color: var(--g-colorGray100Active);
-}
-
-.gray {
-  composes: grayBg from "./Colors.css";
-}
-
-.gray.hovered,
-.gray.focused {
-  background-color: var(--g-colorGray200Hovered);
-}
-
-.gray.active {
-  background-color: var(--g-colorGray200Active);
-}
-
-.darkGray {
-  composes: darkGrayBg from "./Colors.css";
-}
+/* COLORS */
 
 .red {
-  composes: redBg from "./Colors.css";
+  background-color: var(--button-color-primary-default);
 }
 
 .red.hovered,
 .red.focused {
-  background-color: var(--g-colorRed100Hovered);
+  background-color: var(--button-color-primary-hover);
 }
 
 .red.active {
-  background-color: var(--g-colorRed100Active);
+  background-color: var(--button-color-primary-active);
+}
+
+.lightGray {
+  background-color: var(--button-color-secondary-default);
+}
+
+.lightGray.hovered,
+.lightGray.focused {
+  background-color: var(--button-color-secondary-hover);
+}
+
+.lightGray.active {
+  background-color: var(--button-color-secondary-active);
+}
+
+.transparent {
+  background-color: var(--button-color-tertiary-default);
+}
+
+.transparent.hovered,
+.transparent.focused {
+  background-color: var(--button-color-tertiary-hover);
+}
+
+.transparent.active {
+  background-color: var(--button-color-tertiary-active);
+}
+
+.white {
+  background-color: var(--button-color-white-default);
+}
+
+.white.hovered,
+.white.focused {
+  background-color: var(--button-color-white-hover);
+}
+
+.white.active {
+  background-color: var(--button-color-white-active);
+}
+
+.transparentDarkGray {
+  background-color: var(--button-color-semitransparentdark-default);
+}
+
+.transparentDarkGray.hovered,
+.transparentDarkGray.focused {
+  background-color: var(--button-color-semitransparentdark-hover);
+}
+
+.transparentDarkGray.active {
+  background-color: var(--button-color-semitransparentdark-active);
+}
+
+.gray {
+  background-color: var(--button-color-gray-default);
+}
+
+.gray.hovered,
+.gray.focused {
+  background-color: var(--button-color-gray-hover);
+}
+
+.gray.active {
+  background-color: var(--button-color-gray-active);
 }
