@@ -1,3 +1,9 @@
+## 139.0.1 (Feb 7, 2024)
+
+### Patch
+
+- Docs, TagData, TileData: Docs, TagData, Tile to consume directly from tokens rather than ColorSchemeProvider and legacy colors ([#3411](https://github.com/pinterest/gestalt/pull/3411)) - [Preview link](https://deploy-preview-3411--gestalt.netlify.app?devexample=true)
+
 ## 139.0.0 (Feb 7, 2024)
 
 ### Major
