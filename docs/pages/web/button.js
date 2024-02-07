@@ -212,6 +212,18 @@ If Button is used as a control Button to show/hide a Popover-based component, we
             }
           />
         </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Color contrast in disabled state"
+          description={`
+Disabled Buttons do not need to pass color contrast guidelines.
+
+[From w3.org, 1.4.3 Contrast (Minimum)](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html): Text or images of text that are part of an inactive user interface component, that are pure decoration, that are not visible to anyone, or that are part of a picture that contains significant other visual content, have no contrast requirement.
+
+Our current disabled Button implementation does fail to pass color contrast on accessibility integration tests. To exclude disabled buttons from the integration tests we recomment conditionally setting a \`data-test-id={ isDisabled ? "disabled-button-<name>" : undefined }\` and excluding them from the integration test.
+
+On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved with <code>cy.a11yCheck({ exclude: [['[data-test-id="disabled-button-submit"]']] })<code>`}
+        />
       </AccessibilitySection>
 
       <LocalizationSection
