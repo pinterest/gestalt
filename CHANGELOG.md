@@ -1,3 +1,9 @@
+## 139.0.2 (Feb 7, 2024)
+
+### Patch
+
+- Internal: remove unused deprecated legacy colors ([#3412](https://github.com/pinterest/gestalt/pull/3412)) - [Preview link](https://deploy-preview-3412--gestalt.netlify.app?devexample=true)
+
 ## 139.0.1 (Feb 7, 2024)
 
 ### Patch
