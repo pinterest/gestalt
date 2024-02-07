@@ -4,26 +4,20 @@
   --g-colorGray0: #fff;
   --g-colorGray50: #fff;
   --g-colorGray100: #efefef;
-  --g-colorGray150: #ddd;
   --g-colorGray200: #767676;
   --g-colorGray300: #111;
   --g-colorGray400: #000;
 
   /* hover colors */
-  --g-colorGray0Hovered: #f0f0f0;
   --g-colorGray100Hovered: #e2e2e2;
-  --g-colorGray200Hovered: #878787;
   --g-colorRed100Hovered: #ad081b;
 
   /* active colors */
-  --g-colorGray0Active: #e0e0e0;
   --g-colorGray100Active: #dadada;
-  --g-colorGray200Active: #828282;
   --g-colorRed100Active: #a3081a;
 
   /* transparent colors */
   --g-colorTransparentDarkGray: rgb(51 51 51 / 0.8);
-  --g-colorTransparentWhite: rgb(255 255 255 / 0.8);
   --g-colorTransparentGray60: rgb(0 0 0 / 0.06);
   --g-colorTransparentGray100: rgb(0 0 0 / 0.1);
 }
@@ -238,9 +232,6 @@
   color: var(--g-colorRed100);
 }
 
-.redBg {
-  background-color: var(--g-colorRed100);
-}
 
 /* white */
 
@@ -326,9 +317,6 @@
   background-color: var(--g-colorTransparentDarkGray);
 }
 
-.transparentWhiteBg {
-  background-color: var(--g-colorTransparentWhite);
-}
 
 /* light wash */
 
