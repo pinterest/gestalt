@@ -6,15 +6,15 @@
 
 .mobileWrapper {
   composes: relative overflowAuto flex from "./Layout.css";
-  composes: whiteBgElevated from "./Colors.css";
+  background-color: var(--overlay-color-background);
   height: 100%;
 }
 
 .wrapper {
   composes: relative overflowAuto flex from "./Layout.css";
-  composes: whiteBgElevated from "./Colors.css";
   composes: rounding4 from "./Borders.css";
   composes: marginStart4 marginEnd4 from "./boxWhitespace.css";
+  background-color: var(--overlay-color-background);
   max-height: calc(100vh - 32px);
 }
 

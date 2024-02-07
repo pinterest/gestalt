@@ -145,5 +145,14 @@
         }
       }
     }
+  },
+  "overlay": {
+    "color": {
+      "background": {
+        "value": "{color.background.default.value}",
+        "darkValue": "{color.background.elevation.floating.darkValue}",
+        "comment": "Modal background color."
+      }
+    }
   }
 }

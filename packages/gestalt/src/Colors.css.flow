@@ -69,6 +69,5 @@ declare module.exports: {|
   +'washLight': string,
   +'white': string,
   +'whiteBg': string,
-  +'whiteBgElevated': string,
   +'whiteElevated': string,
 |};
