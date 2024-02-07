@@ -16,7 +16,7 @@ import layoutStyles from '../Layout.css';
 export type ColorScheme = 'light' | 'dark' | 'userPreference';
 
 export type Theme = {
-  name: string,
+  name: 'lightMode' | 'darkMode',
   colorRed100: string,
   colorRed100Active: string,
   colorRed100Hovered: string,

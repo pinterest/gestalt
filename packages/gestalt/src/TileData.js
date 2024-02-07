@@ -118,9 +118,9 @@ export default function TileData({
   trendSentiment,
   value,
 }: Props): ReactNode {
-  const theme = useColorScheme();
-  const borderColor = getDataVisualizationColor(theme, color);
-  const bgColor = getDataVisualizationColor(theme, color, { lighten: true });
+  const { name } = useColorScheme();
+  const borderColor = getDataVisualizationColor(name, color);
+  const bgColor = getDataVisualizationColor(name, color, { lighten: true });
 
   const colorStyles: { borderColor?: string, backgroundColor?: string } = {
     borderColor,
