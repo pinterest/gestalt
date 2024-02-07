@@ -16,7 +16,7 @@ import layoutStyles from '../Layout.css';
 export type ColorScheme = 'light' | 'dark' | 'userPreference';
 
 export type Theme = {
-  name: string,
+  name: 'lightMode' | 'darkMode',
   colorRed100: string,
   colorRed100Active: string,
   colorRed100Hovered: string,
@@ -87,40 +87,6 @@ const darkModeTheme = {
   colorTransparentGray100: 'rgb(250 250 250 / 0.6)',
   colorTransparentWhite: 'rgb(51 51 51 / 0.8)',
 };
-
-/**
- * Turns a token name like color-text-warning to colorTextWarning
- */
-const transformKebabToCamelCase = (tokenName: string): string => {
-  const split = tokenName.split('-');
-  return split
-    .map((w, idx) => {
-      if (idx === 0) return w;
-      const capitalized = w.charAt(0).toUpperCase() + w.slice(1);
-      return capitalized;
-    })
-    .join('');
-};
-
-/**
- * Appends additional tokens from the Gestalt Tokens Library to the context
- */
-const addTokensToThemes = () => {
-  // For now, add only the Data Visualization Tokens to the themes
-  const isDataVisualizationToken = (key: string) => key.toLowerCase().includes('data');
-  Object.keys(darkColorDesignTokens).forEach((key) => {
-    if (isDataVisualizationToken(key))
-      (darkModeTheme: Theme)[transformKebabToCamelCase(key)] = darkColorDesignTokens[key];
-  });
-
-  Object.keys(lightColorDesignTokens).forEach((key) => {
-    if (isDataVisualizationToken(key))
-      (lightModeTheme: Theme)[transformKebabToCamelCase(key)] = lightColorDesignTokens[key];
-  });
-};
-
-// runs once, statically appends more tokens to our JSON themes
-addTokensToThemes();
 
 const ThemeContext: Context<Theme> = createContext<Theme>(lightModeTheme);
 

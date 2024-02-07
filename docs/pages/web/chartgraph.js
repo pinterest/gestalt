@@ -481,7 +481,7 @@ If different graphs need to be compared simultaneously, see example below, color
               <Box
                 dangerouslySetInlineStyle={{
                   __style: {
-                    backgroundColor: `var(--g-colorDataVisualization${color})`,
+                    backgroundColor: `var((--color-data-visualization_${color})`,
                   },
                 }}
                 height={80}
@@ -494,7 +494,7 @@ If different graphs need to be compared simultaneously, see example below, color
               <Box
                 dangerouslySetInlineStyle={{
                   __style: {
-                    backgroundColor: `var(--g-colorDataVisualization${color})`,
+                    backgroundColor: `var(--color-data-visualization-${color})`,
                   },
                 }}
                 height={80}

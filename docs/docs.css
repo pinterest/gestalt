@@ -70,8 +70,8 @@ pre {
 }
 
 .Markdown code {
-  background-color: var(--g-colorGray100);
-  color: var(--g-colorGray300);
+  background-color: var(--color-background-secondary-weak);
+  color: var(--color-background-selected-strong);
   display: inline-block;
   font-family: var(--font-family-code);
   font-size: var(--font-size-200);
@@ -103,7 +103,7 @@ pre {
 }
 
 .Markdown a {
-  color: var(--g-colorGray300);
+  color: var(--color-background-selected-base);
 }
 
 .Markdown a:hover {
@@ -124,7 +124,7 @@ pre {
 .Markdown .header-link {
   background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="grey" height="14" width="14" viewBox="0 0 24 24" role="img"><path d="M21.001 7.241l-4.053 4.052-1.06-1.06.672-.672a1.5 1.5 0 10-2.121-2.121l-.671.672-1.061-1.06L16.759 3l4.242 4.241zm-9.708 9.708l-4.052 4.052-4.242-4.241 4.053-4.053 1.059 1.06-.671.672a1.5 1.5 0 002.121 2.121l.671-.672 1.061 1.061zM14.639.879l-4.053 4.052a3 3 0 000 4.242l1.061 1.06-1.415 1.414-1.06-1.061a3 3 0 00-4.241 0L.879 14.638a2.998 2.998 0 000 4.242l4.241 4.242a3 3 0 004.241 0l4.053-4.052a3 3 0 000-4.242l-1.06-1.061 1.414-1.413 1.06 1.06a3 3 0 004.241 0l4.052-4.052a2.998 2.998 0 000-4.242L18.88.879a2.997 2.997 0 00-4.241 0z"></path></svg>');
   background-size: cover;
-  color: var(--g-colorGray300);
+  color: var(--color-background-selected-base);
   display: block;
   height: 12px;
   margin-left: 4px;
@@ -166,12 +166,12 @@ pre {
 
 .searchbox__input {
   appearance: none;
-  background: var(--g-colorGray0);
-  border: var(--g-border-width) solid var(--color-border-container);
+  background: var(--color-background-default);
+  border: 1px solid var(--color-border-container);
   border-radius: 999px;
   box-sizing: border-box;
-  caret-color: var(--g-colorGray300);
-  color: var(--g-colorGray300);
+  caret-color: var(--color-background-selected-base);
+  color: var(--color-background-selected-base);
   display: inline-block;
   font-family: var(--font-family-default-latin);
   font-size: 16px;
@@ -196,7 +196,7 @@ pre {
 }
 
 .searchbox__input::placeholder {
-  color: var(--g-colorGray200);
+  color: var(--color-text-subtle);
 }
 
 .searchbox__submit {
@@ -330,7 +330,7 @@ pre {
 }
 
 .algolia-autocomplete .ds-dropdown-menu::before {
-  background: var(--g-colorGray50);
+  background: var(--color-background-default);
   border-radius: 2px;
   content: "";
   display: block;
@@ -379,7 +379,7 @@ pre {
 }
 
 .algolia-autocomplete .ds-dropdown-menu [class^="ds-dataset-"] {
-  background: var(--g-colorGray50);
+  background: var(--color-background-wash-light);
   border-radius: 4px;
   overflow: auto;
   padding: 0 8px 8px;
@@ -391,8 +391,8 @@ pre {
 }
 
 .algolia-autocomplete .algolia-docsearch-suggestion {
-  background: var(--g-colorGray50);
-  color: var(--g-colorGray300);
+  background: var(--color-background-default);
+  color: var(--color-background-selected-base);
   display: block;
   overflow: hidden;
   padding: 0 8px;
@@ -401,8 +401,8 @@ pre {
 }
 
 .algolia-autocomplete .algolia-docsearch-suggestion--highlight {
-  background: var(--g-colorTransparentGray60);
-  color: #111;
+  background: var(--color-background-inverse-base);
+  color: var(--color-text-inverse);
 
   /* stylelint-disable-next-line unit-disallowed-list */
   padding: 0 0.05em;
@@ -448,7 +448,7 @@ pre {
 }
 
 .algolia-autocomplete .algolia-docsearch-suggestion--content::before {
-  background: #ddd;
+  background: var(--color-background-inverse-strong);
   content: "";
   display: block;
   height: 100%;
@@ -463,13 +463,13 @@ pre {
   .ds-suggestion.ds-cursor
   .algolia-docsearch-suggestion
   .algolia-docsearch-suggestion--content {
-  background-color: var(--g-colorTransparentGray60);
-  color: #111;
+  background-color: var(--color-background-recommendation-weak);
+  color: var(--color-background-selected-base);
 }
 
 .algolia-autocomplete .algolia-docsearch-suggestion--category-header {
-  border-bottom: 1px solid #ddd;
-  color: var(--g-colorGray300);
+  border-bottom: 1px solid var(--color-background-inverse-strong);
+  color: var(--color-background-selected-base);
   display: none;
   /* stylelint-disable-next-line unit-disallowed-list */
   font-size: 1em;
@@ -485,7 +485,7 @@ pre {
 }
 
 .algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column {
-  color: var(--g-colorGray200);
+  color: var(--color-text-subtle);
   float: left;
   /* stylelint-disable-next-line unit-disallowed-list */
   font-size: 0.9em;
@@ -498,7 +498,7 @@ pre {
 
 .algolia-autocomplete
   .algolia-docsearch-suggestion--subcategory-column::before {
-  background: #ddd;
+  background: var(--color-background-inverse-strong);
   content: "";
   display: block;
   height: 100%;
@@ -526,7 +526,7 @@ pre {
       .algolia-docsearch-suggestion
       .algolia-docsearch-suggestion--content
   ) {
-  color: var(--g-colorGray300);
+  color: var(--color-background-selected-base);
   /* stylelint-disable-next-line unit-disallowed-list */
   font-size: 0.9em;
   font-weight: bold;
@@ -554,10 +554,10 @@ pre {
 }
 
 .algolia-autocomplete .algolia-docsearch-suggestion code {
-  background-color: #ebebeb;
+  background-color: var(--color-background-inverse-strong);
   border: none;
   border-radius: 3px;
-  color: var(--g-colorGray300);
+  color: var(--color-background-selected-base);
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   font-size: 90%;
   padding: 1px 5px;
@@ -586,7 +586,7 @@ pre {
   .algolia-autocomplete
     .algolia-docsearch-suggestion
     .algolia-docsearch-suggestion--subcategory-column {
-    color: var(--g-colorGray300);
+    color: var(--color-background-selected-base);
     display: inline-block;
     float: left;
     /* stylelint-disable-next-line unit-disallowed-list */
@@ -731,7 +731,7 @@ pre {
 .Markdown code.language-jsx,
 .Markdown code.language-bash,
 .Markdown pre.language-bash code {
-  background-color: var(--g-colorGray0);
+  background-color: var(--color-background-default);
 }
 
 /**
@@ -739,14 +739,14 @@ Default table styling for MDX Pages
 **/
 
 .mdx-page table {
-  border: 1px solid var(--g-colorGray150);
+  border: 1px solid var(--color-border-container);
   border-collapse: collapse;
   margin-bottom: 1.5rem;
   margin-top: 1.5rem;
 }
 
 .mdx-page table tr {
-  border-top: 1px solid var(--g-colorGray150);
+  border-top: 1px solid var(--color-border-container);
   vertical-align: top;
 }
 
@@ -1033,15 +1033,15 @@ Default table styling for MDX Pages
 
 @keyframes background-flash {
   0% {
-    fill: #111;
+    fill: var(--color-background-dark);
   }
 
   33% {
-    fill: #111;
+    fill: var(--color-background-dark);
   }
 
   33.33% {
-    fill: #fff;
+    fill: var(--color-background-light);
   }
 }
 

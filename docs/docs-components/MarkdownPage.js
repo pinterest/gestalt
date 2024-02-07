@@ -172,7 +172,7 @@ const components = {
       className="md-hint"
       style={{
         padding: '1rem',
-        backgroundColor: 'var(--g-colorGray100)',
+        backgroundColor: 'var(--color-background-secondary-base)',
       }}
     >
       <Flex
