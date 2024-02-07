@@ -1,3 +1,9 @@
+## 138.0.1 (Feb 7, 2024)
+
+### Patch
+
+- Button: documenting Color contrast in disabled state ([#3409](https://github.com/pinterest/gestalt/pull/3409)) - [Preview link](https://deploy-preview-3409--gestalt.netlify.app?devexample=true)
+
 ## 138.0.0 (Feb 6, 2024)
 
 ### Major
