@@ -1,6 +1,6 @@
 ---
 title: ButtonToggle
-description: The ButtonToggle is a larger alternative to selection components such as [Checkbox](/android/checkbox), [RadioButton](/web/radiobutton), and [Switch](/android/switch). It enables users to choose between two states: selected or unselected.
+description: The ButtonToggle is a larger alternative to selection components such as [Checkbox](/android/checkbox), [RadioButton](/web/radiobutton), and [Switch](/android/switch). It enables users to choose between two states - selected or unselected.
 fullwidth: true
 ---
 
