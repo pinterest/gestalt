@@ -86,7 +86,6 @@
     "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-standard": "^23.0.0",
     "stylelint-order": "^5.0.0",
-    "tesseract.js": "^5.0.4",
     "typescript": "^5.0.2",
     "xml2js": "^0.5.0"
   },
