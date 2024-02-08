@@ -113,8 +113,10 @@ test.describe('Masonry: scrolls', () => {
 
     await client.send('Tracing.end');
 
+    // We need this to wait for the tracing data to be completed
     await page.waitForTimeout(2000);
 
+    // This is only for testing purpouses
     expect(fpsAvgPerScroll.every((fps) => fps > 5)).toBeTruthy();
   });
 });
