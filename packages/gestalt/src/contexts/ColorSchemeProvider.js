@@ -17,7 +17,6 @@ export type ColorScheme = 'light' | 'dark' | 'userPreference';
 
 export type Theme = {
   name: 'lightMode' | 'darkMode',
-  colorRed100: string,
   colorRed100Active: string,
   colorRed100Hovered: string,
   colorGray0: string,
@@ -36,7 +35,6 @@ export type Theme = {
 
 const lightModeTheme = {
   name: 'lightMode',
-  colorRed100: '#e60023',
   colorRed100Active: '#a3081a',
   colorRed100Hovered: '#ad081b',
   colorGray0: '#fff',
@@ -54,7 +52,6 @@ const lightModeTheme = {
 
 const darkModeTheme = {
   name: 'darkMode',
-  colorRed100: '#ff5247',
   colorRed100Active: '#b8001b',
   colorRed100Hovered: '#cf001f',
   colorGray0: '#030303',
@@ -84,7 +81,6 @@ const themeToStyles = (theme: {
   colorGray300: string,
   colorGray400: string,
   colorGray50: string,
-  colorRed100: string,
   colorRed100Active: string,
   colorRed100Hovered: string,
   colorTransparentDarkGray: string,

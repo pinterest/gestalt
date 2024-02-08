@@ -3069,7 +3069,6 @@ export function useDefaultLabel(componentName: string): { [k: string]: string };
  */
 export function useColorScheme(): {
   name: string;
-  colorRed100: string;
   colorRed100Active: string;
   colorRed100Hovered: string;
   colorGray0: string;

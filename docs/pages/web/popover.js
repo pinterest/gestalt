@@ -11,7 +11,6 @@ import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
 import a11y from '../../examples/popover/a11y';
-import dontCritical from '../../examples/popover/dontCritical';
 import localizationLabels from '../../examples/popover/localizationLabels';
 import main from '../../examples/popover/main';
 import variantAnchor from '../../examples/popover/variantAnchor';
@@ -75,15 +74,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             cardSize="md"
             type="don't"
             description="Use Popover to communicate critical information, such as an error or interaction feedback. Instead, use the error supplied directly to the form element. See [related](#Related) to learn more."
-            sandpackExample={
-              <SandpackExample
-                code={dontCritical}
-                hideControls
-                hideEditor
-                name="Don't - Critical"
-                previewHeight={400}
-              />
-            }
           />
         </MainSection.Subsection>
       </MainSection>
