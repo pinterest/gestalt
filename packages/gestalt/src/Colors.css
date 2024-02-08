@@ -241,8 +241,6 @@
   color: var(--g-colorGray50);
 }
 
-
-
 /* lightGray */
 
 .lightGray {
@@ -300,7 +298,7 @@
 }
 
 .overlayBg {
-background-color: var(--overlay-color-background)
+  background-color: var(--overlay-color-background);
 }
 
 .lightWashBg {
