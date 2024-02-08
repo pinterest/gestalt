@@ -116,8 +116,8 @@
       },
       "semitransparentdark": {
         "default": {
-          "value": "rgba(51, 51, 51, 0.8)",
-          "darkValue": "rgba(255, 255, 255, 0.8)",
+          "value": "rgb(51 51 51 / 0.8)",
+          "darkValue": "rgb(255 255 255 / 0.8)",
           "comment": "Button semi-transparent dark background color for images with background"
         },
         "hover": {
