@@ -244,7 +244,17 @@ class LegacyContents extends Component<Props, State> {
 
     // Needed to prevent UI thrashing
     const visibility = popoverDir === null ? 'hidden' : 'visible';
-    const background = bgColor === 'white' ? 'overlayBg' : `${bgColor}Bg`;
+
+    let background = 'overlayBg';
+
+    if (bgColor === 'red') {
+      background = 'redBg';
+    } else if (bgColor === 'blue') {
+      background = 'blueBg';
+    } else if (bgColor === 'darkGray') {
+      background = 'darkGrayBg';
+    }
+
     const bgColorElevated = bgColor === 'white' ? 'whiteElevated' : bgColor;
     const isCaretVertical = ['down', 'up'].includes(popoverDir);
 
