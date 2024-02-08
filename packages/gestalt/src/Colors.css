@@ -1,3 +1,4 @@
+/* stylelint-disable rule-empty-line-before */
 :root {
   /* primary colors */
   --g-colorRed100: #e60023;
@@ -314,6 +315,10 @@ background-color: var(--overlay-color-background)
 
 .red {
   color: var(--g-colorRed100);
+}
+
+.redBg {
+  background-color: var(--g-colorRed100);
 }
 
 .blue {
