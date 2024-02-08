@@ -63,7 +63,7 @@ export default function Contents({
 
   const caretOffset = middlewareData.arrow;
   const visibility = middlewareData.hide?.referenceHidden === true ? 'hidden' : 'visible';
-  const background = bgColor === 'white' ? `${bgColor}BgElevated` : `${bgColor}Bg`;
+  const background = bgColor === 'white' ? 'overlayBg' : `${bgColor}Bg`;
   const bgColorElevated = bgColor === 'white' ? 'whiteElevated' : bgColor;
   const isCaretVertical = placement === 'top' || placement === 'bottom';
 

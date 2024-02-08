@@ -298,7 +298,9 @@
   background-color: var(--g-colorTransparentDarkGray);
 }
 
-/* light wash */
+.overlayBg {
+background-color: var(--overlay-color-background)
+}
 
 .lightWashBg {
   background-color: var(--g-colorGray100Hovered);

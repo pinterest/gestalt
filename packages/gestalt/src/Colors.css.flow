@@ -41,6 +41,7 @@ declare module.exports: {|
   +'lightText': string,
   +'lightWashBg': string,
   +'linkText': string,
+  +'overlayBg': string,
   +'primary': string,
   +'recommendationBase': string,
   +'recommendationIcon': string,
