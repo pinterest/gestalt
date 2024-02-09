@@ -1,3 +1,9 @@
+## 140.0.0 (Feb 9, 2024)
+
+### Major
+
+- Popover: deprecate red color ([#3415](https://github.com/pinterest/gestalt/pull/3415)) - [Preview link](https://deploy-preview-3415--gestalt.netlify.app?devexample=true)
+
 ## 139.1.2 (Feb 9, 2024)
 
 ### Patch
