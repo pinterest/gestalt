@@ -30,15 +30,11 @@ jobs:
       - name: Run your tests
         id: run-tests
         run: |
-          echo 'JSON_RESPONSE<<EOF' >> $GITHUB_OUTPUT
-          OUTPUT_RESULTS=`yarn run playwright:visual-test --reporter=list`
-          echo $OUTPUT_RESULTS >> $GITHUB_OUTPUT
-          sed -i '' -e '$a\' file
-          echo EOF >> $GITHUB_OUTPUT
+          OUTPUT_RESULTS=`yarn run playwright:visual-test --reporter=list` >> $GITHUB_ENV
         shell: bash
       - name: Comment PR with execution number
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
-            ${{ steps.run-tests.outputs.JSON_RESPONSE }}
+            ${{ steps.run-tests.outputs.OUTPUT_RESULTS }}
           comment_tag: visual-test
