@@ -31,8 +31,9 @@ jobs:
         id: run-tests
         run: |
           echo 'JSON_RESPONSE<<EOF' >> $GITHUB_OUTPUT
-          yarn run playwright:visual-test --workers 2 --reporter=dot --shard=${{ matrix.shard }} >> $GITHUB_OUTPUT
-          echo 'EOF' >> $GITHUB_OUTPUT
+          OUTPUT_RESULTS=`yarn run playwright:visual-test --reporter=list`
+          echo $OUTPUT_RESULTS >> $GITHUB_OUTPUT
+          echo EOF >> $GITHUB_OUTPUT
         shell: bash
       - name: Comment PR with execution number
         uses: thollander/actions-comment-pull-request@v2
