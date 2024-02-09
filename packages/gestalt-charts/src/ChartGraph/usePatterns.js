@@ -1,11 +1,16 @@
 // @flow strict-local
 import { type Node as ReactNode } from 'react';
 import { useColorScheme } from 'gestalt';
+import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
+import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-light.json';
 import { type DataVisualizationColors } from './types';
 
 export const useHexColor: () => (DataVisualizationColors) => string = () => {
-  const theme = useColorScheme();
-  return (vizColor: DataVisualizationColors) => theme[`colorDataVisualization${vizColor}`];
+  const { name } = useColorScheme();
+  return (vizColor: DataVisualizationColors) =>
+    name === 'lightMode'
+      ? lightColorDesignTokens[`color-data-visualization-${vizColor}`]
+      : darkColorDesignTokens[`color-data-visualization-${vizColor}`];
 };
 
 export default function usePatterns(): ReactNode {
