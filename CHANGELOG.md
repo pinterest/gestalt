@@ -1,3 +1,9 @@
+## 140.1.0 (Feb 9, 2024)
+
+### Minor
+
+- Tokens: fix in Android tokens ([#3420](https://github.com/pinterest/gestalt/pull/3420)) - [Preview link](https://deploy-preview-3420--gestalt.netlify.app?devexample=true)
+
 ## 140.0.0 (Feb 9, 2024)
 
 ### Major
