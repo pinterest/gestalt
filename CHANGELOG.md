@@ -1,3 +1,9 @@
+## 139.1.2 (Feb 9, 2024)
+
+### Patch
+
+- Docs: Added ButtonToggle docs and graphics ([#3416](https://github.com/pinterest/gestalt/pull/3416)) - [Preview link](https://deploy-preview-3416--gestalt.netlify.app?devexample=true)
+
 ## 139.1.1 (Feb 9, 2024)
 
 ### Patch
