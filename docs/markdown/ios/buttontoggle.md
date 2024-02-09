@@ -4,7 +4,7 @@ description: The ButtonToggle is a larger alternative to selection components su
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/94/0a/39/940a397d8bd584af4e167bfa7d96761b.png" alt="A set of three toggle buttons side by side. The third toggle button is selected." />
+<ImgContainer src="https://i.pinimg.com/originals/ad/48/75/ad48752b9446c7092c261b8c812f7ff2.png" alt="A set of three toggle buttons side by side. The third toggle button is selected." />
 
 ## Usage guidelines
 
@@ -55,7 +55,7 @@ See below how the ButtonToggle component is constructed.
 
 ### Size
 
-<TwoCol>
+<ThreeCol>
   <Group>
 <ImgContainer src="https://i.pinimg.com/originals/aa/e9/03/aae903a03401af5a805db033b7977c8c.png"  alt="Example of the large Toggle Button with one selected and the other unselected" />
 Large
@@ -64,7 +64,7 @@ Large
 <ImgContainer src="https://i.pinimg.com/originals/06/9a/17/069a1732b62ea6901db193d86390f5cc.png"  alt="Example of the small Toggle Button with one selected and the other unselected" />
 Small
 </Group>
-</TwoCol>
+</ThreeCol>
 
 1. **lg (48dp)**
    Use when a larger interactive area is required for improved usability
@@ -106,13 +106,17 @@ Full image
 
 Useful for providing additional options or actions related to the toggle functionality. Used to indicate that items have been selected.
 
+<ThreeCol>
+<Group>
 <ImgContainer src="https://i.pinimg.com/originals/86/ae/80/86ae809d93360474e527a4e42285a365.png"  alt="Example of two ToggleButtons with dropdown carets to the right of the label" />
+</Group>
+</ThreeCol>
 
 <br/>
 
 ### States
 
-<TwoCol>
+<ThreeCol>
   <Group>
 <ImgContainer src="https://i.pinimg.com/originals/3a/06/69/3a066905e2a6bc08fbc515a1c4e14ea4.png"  alt="Example of three Toggle Buttons, all in a selected state" />
 Selected
@@ -121,7 +125,7 @@ Selected
 <ImgContainer src="https://i.pinimg.com/originals/b2/b2/8e/b2b28ea688dac5fca1cfb339bd426ae9.png"  alt="Example of three Toggle Buttons, all in an unselected state" />
 Unselected
 </Group>
-</TwoCol>
+</ThreeCol>
 
 1. **Selected**
    The selected state refers to when the ButtonToggle is activated or toggled on. In this state, the outline will appear black and be 2px in size.
