@@ -1,3 +1,9 @@
+## 139.1.0 (Feb 9, 2024)
+
+### Minor
+
+- Tokens, Modal, OverlayPanel, SheetMobile, Popover: consume from overlay component tokens ([#3413](https://github.com/pinterest/gestalt/pull/3413)) - [Preview link](https://deploy-preview-3413--gestalt.netlify.app?devexample=true)
+
 ## 139.0.4 (Feb 9, 2024)
 
 ### Patch
