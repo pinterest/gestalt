@@ -10,11 +10,20 @@ NEW
 | ------------------------ | ------------------------------ | --------------------------------------------- |
 | overlay-color-background | color.background.default.value | color.background.elevation.floating.darkValue |
 
+REVERT
+
+| name                        | old value              | new value                |
+| --------------------------- | ---------------------- | ------------------------ |
+| color-background-wash-dark  | rgb(0 0 0 / 0.8)       | rgba(0, 0, 0, 0.8)       |
+| color-background-wash-light | rgb(255 255 255 / 0.9) | rgba(255, 255, 255, 0.9) |
+
 #### Why
 
 Tokenize overlay component background colors. Overlay components require a white background but a floating elevation on darkmode. We needed a custom color pairing.
 
 #### Breaking change notes
+
+Partially reverting token changes in from https://github.com/pinterest/gestalt/pull/3407
 
 --
 
@@ -38,6 +47,31 @@ Tokenize Pog colors.
 #### Breaking change notes
 
 --
+
+## 136.0.1 https://github.com/pinterest/gestalt/pull/3407
+
+### This PR introduces a BUG!
+
+### Patch
+
+| name                                      | old value                                        | new value                                    |
+| ----------------------------------------- | ------------------------------------------------ | -------------------------------------------- |
+| color-background-wash-dark                | rgba(0, 0, 0, 0.8)                               | rgb(0 0 0 / 0.8)                             |
+| color-background-wash-light               | rgba(255, 255, 255, 0.9)                         | rgb(255 255 255 / 0.9)                       |
+| button-color-tertiary-hover               | rgba(0, 0, 0, 0.06) / rgba(250, 250, 250, 0.5)   | rgb(0 0 0 / 0.06) / rgb(250 250 250 / 0.5)   |
+| button-color-tertiary-active              | rgba(0, 0, 0, 0.1) / rgba(250, 250, 250, 0.6)    | rgb(0 0 0 / 0.1) / rgb(250 250 250 / 0.6)    |
+| button-color-semitransparentwhite-default | rgba(255, 255, 255, 0.8) / rgba(51, 51, 51, 0.8) | rgb(255 255 255 / 0.8) / rgb(51 51 51 / 0.8) |
+| elevation-floating                        | 0 0 8px rgba(0, 0, 0, 0.10)                      | 0 0 8px rgb(0 0 0 / 0.10)                    |
+| elevation-raised-top                      | 0 2px 8px rgba(0, 0, 0, 0.12)                    | 0 2px 8px rgb(0 0 0 / 0.12)                  |
+| elevation-raised-bottom                   | 0 -2px 8px rgba(0, 0, 0, 0.12)                   | 0 -2px 8px rgb(0 0 0 / 0.12)                 |
+
+#### Why
+
+Modern color-functions use a comma-free syntax because functions in CSS are used to group/name a syntax chunk.
+
+#### Breaking change notes
+
+This PR introduces a bug as reported by Android where alpha values `color_background_wash_dark` and `color_background_wash_light` and now that alpha value is gone, leaving the color just black and white without opacity value assigned.
 
 ## 136.0.0 https://github.com/pinterest/gestalt/pull/3404
 

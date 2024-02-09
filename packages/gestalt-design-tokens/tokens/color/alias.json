@@ -284,11 +284,11 @@
       },
       "wash": {
         "dark": {
-          "value": "rgb(0 0 0 / 0.8)",
+          "value": "rgba(0, 0, 0, 0.8)",
           "comment": "Background color to supply a dark wash over an item"
         },
         "light": {
-          "value": "rgb(255 255 255 / 0.9)",
+          "value": "rgba(255, 255, 255 , 0.9)",
           "comment": "Background color to supply a light wash over an item"
         }
       },

@@ -144,8 +144,8 @@ const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
       >
         <Flex alignItems="center" direction="column">
           <Box
-            color={color.startsWith('rgba') ? undefined : color}
-            {...(color.startsWith('rgba')
+            color={color.startsWith('rgb') ? undefined : color}
+            {...(color.startsWith('rgb')
               ? {
                   dangerouslySetInlineStyle: {
                     __style: { backgroundColor: color },
