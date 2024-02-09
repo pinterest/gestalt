@@ -1,6 +1,6 @@
 // @flow strict
 
-const BASE_DOMAIN = 'http://localhost:8888';
+const BASE_DOMAIN = 'http://localhost:3000';
 const BASE_PATH = '/integration-test/masonry';
 
 const normalizeValue = (val /*: boolean | number */) => {
