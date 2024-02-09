@@ -116,8 +116,8 @@
       },
       "semitransparentdark": {
         "default": {
-          "value": "rgba(51, 51, 51, 0.8)",
-          "darkValue": "rgba(255, 255, 255, 0.8)",
+          "value": "rgb(51 51 51 / 0.8)",
+          "darkValue": "rgb(255 255 255 / 0.8)",
           "comment": "Button semi-transparent dark background color for images with background"
         },
         "hover": {
@@ -143,6 +143,15 @@
           "value": "{color.background.selected.base.value}",
           "comment": "Disabled button background color."
         }
+      }
+    }
+  },
+  "overlay": {
+    "color": {
+      "background": {
+        "value": "{color.background.default.value}",
+        "darkValue": "{color.background.elevation.floating.darkValue}",
+        "comment": "Modal background color."
       }
     }
   }

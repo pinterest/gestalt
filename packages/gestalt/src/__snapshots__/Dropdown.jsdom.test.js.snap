@@ -14,7 +14,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
       >
         <div
           aria-label="Popover"
-          class="border whiteBgElevated whiteElevated rounding4 innerContents maxDimensions minDimensions"
+          class="border overlayBg whiteElevated rounding4 innerContents maxDimensions minDimensions"
           id="ex-1"
           role="menu"
           style="max-width: 360px; max-height: 691.1999999999999px;"
@@ -548,7 +548,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
       >
         <div
           aria-label="Popover"
-          class="border whiteBgElevated whiteElevated rounding4 innerContents maxDimensions minDimensions"
+          class="border overlayBg whiteElevated rounding4 innerContents maxDimensions minDimensions"
           id="ex-1"
           role="menu"
           style="max-width: 360px; max-height: 691.1999999999999px;"

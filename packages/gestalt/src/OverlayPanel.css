@@ -6,7 +6,7 @@
 
 .wrapper {
   composes: relative overflowAuto flex from "./Layout.css";
-  composes: whiteBgElevated from "./Colors.css";
+  background-color: var(--overlay-color-background);
   height: 100%;
   max-height: 100%;
 }
