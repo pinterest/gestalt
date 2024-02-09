@@ -33,6 +33,7 @@ jobs:
           echo 'JSON_RESPONSE<<EOF' >> $GITHUB_OUTPUT
           OUTPUT_RESULTS=`yarn run playwright:visual-test --reporter=list`
           echo $OUTPUT_RESULTS >> $GITHUB_OUTPUT
+          sed -i '' -e '$a\' file
           echo EOF >> $GITHUB_OUTPUT
         shell: bash
       - name: Comment PR with execution number
