@@ -27,8 +27,6 @@ test.describe('Masonry: fetch more', () => {
     expect(newFetchCount).toBeGreaterThan(initialFetchCount);
   });
 
-  // TODO[@rjames]: fix this test, currently timing out
-
   test('trigger a call to "fetchMore" when scrolling far enough', async ({
     page,
   }) => {

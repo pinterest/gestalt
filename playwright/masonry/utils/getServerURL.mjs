@@ -1,6 +1,5 @@
 // @flow strict
 
-const BASE_DOMAIN = 'http://localhost:3000';
 const BASE_PATH = '/integration-test/masonry';
 
 const normalizeValue = (val /*: boolean | number */) => {
@@ -45,7 +44,7 @@ const getServerURL = (options /*: Options */) /*: string */ => {
       .join('&');
   }
 
-  return `${BASE_DOMAIN}/${BASE_PATH}?${serializedOptions}`;
+  return `${BASE_PATH}?${serializedOptions}`;
 };
 
 export default getServerURL;
