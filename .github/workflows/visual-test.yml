@@ -30,16 +30,13 @@ jobs:
       - name: Run your tests
         id: run-tests
         run: |
-          delimiter=$(openssl rand -hex 8)
-          {
-            echo "PLAYWRIGHT_RUN<<$delimiter"
-            yarn run playwright:visual-test --workers 2 --shard=${{ matrix.shard }}
-            echo "$delimiter"
-          } >> "$GITHUB_OUTPUT"
+          echo 'JSON_RESPONSE<<EOF' >> $GITHUB_OUTPUT
+          yarn run playwright:visual-test --workers 2 --reporter=dot --shard=${{ matrix.shard }} >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
         shell: bash
       - name: Comment PR with execution number
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
-            ${{ steps.run-tests.outputs.PLAYWRIGHT_RUN }}
+            ${{ steps.run-tests.outputs.JSON_RESPONSE }}
           comment_tag: visual-test
