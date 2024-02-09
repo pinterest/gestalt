@@ -1,4 +1,4 @@
-name: Integration Tests (Playwright)
+name: Visual Test (Playwright)
 on:
   pull_request:
     branches:
