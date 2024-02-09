@@ -293,7 +293,7 @@ export async function getServerSideProps(): Promise<{
   props: { generatedDocGen: DocGen },
 }> {
   const generatedDocGen = await docGen('Popover');
-  generatedDocGen.props.color.flowType.raw = '"red" | "white" | "darkGray"';
+  generatedDocGen.props.color.flowType.raw = '"white" | "darkGray"';
 
   return {
     props: {
