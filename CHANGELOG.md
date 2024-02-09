@@ -1,3 +1,9 @@
+## 139.1.1 (Feb 9, 2024)
+
+### Patch
+
+- Masonry: Fix integration tests and run in CI ([#3417](https://github.com/pinterest/gestalt/pull/3417)) - [Preview link](https://deploy-preview-3417--gestalt.netlify.app?devexample=true)
+
 ## 139.1.0 (Feb 9, 2024)
 
 ### Minor
