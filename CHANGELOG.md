@@ -1,3 +1,9 @@
+## 139.0.3 (Feb 9, 2024)
+
+### Patch
+
+- ChartGraph: fix bug from #3411 still consuming from ColorSchemeProvider ([#3418](https://github.com/pinterest/gestalt/pull/3418)) - [Preview link](https://deploy-preview-3418--gestalt.netlify.app?devexample=true)
+
 ## 139.0.2 (Feb 7, 2024)
 
 ### Patch
