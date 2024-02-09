@@ -43,13 +43,13 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 
 Use these tokens for applying size, weight and color styles to ButtonToggle.
 <br/>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D55188%253A4512%26mode%3Ddesign%26t%3D2iJqnAYR7hYB1zjh-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="800" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D55188%253A4512%26mode%3Ddesign%26t%3D2iJqnAYR7hYB1zjh-1" allowFullScreen></iframe>
 
 ## Anatomy
 
 See below how the ButtonToggle component is constructed.
 <br/>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D55188%253A4041%26mode%3Ddesign%26t%3D2iJqnAYR7hYB1zjh-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D55188%253A4041%26mode%3Ddesign%26t%3D2iJqnAYR7hYB1zjh-1" allowFullScreen></iframe>
 
 ## Variants
 

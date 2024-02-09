@@ -43,13 +43,13 @@ People use Android's accessibility features, such as TalkBack and dynamic text s
 
 Use these tokens for applying size, weight and color styles to ButtonToggle.
 <br/>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D66471%253A1273%26mode%3Ddesign%26t%3DXlUExnjr63t02kcg-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="800" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D66471%253A1273%26mode%3Ddesign%26t%3DXlUExnjr63t02kcg-1" allowFullScreen></iframe>
 
 ## Anatomy
 
 See below how the ButtonToggle component is constructed.
 <br/>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D66471%253A802%26mode%3Ddesign%26t%3DXlUExnjr63t02kcg-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="400" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D66471%253A802%26mode%3Ddesign%26t%3DXlUExnjr63t02kcg-1" allowFullScreen></iframe>
 
 ## Variants
 
