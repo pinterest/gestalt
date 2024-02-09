@@ -7,7 +7,6 @@ import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
 
 test.describe('Masonry: external cache', () => {
   test('should only mount visible items on remount', async ({ page }) => {
-    page.on('console', (msg) => console.log(msg.text()));
     await page.setViewportSize({ width: 800, height: 800 });
     await page.goto(getServerURL({ externalCache: true, virtualize: true }));
 
