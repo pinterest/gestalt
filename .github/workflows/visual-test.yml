@@ -34,7 +34,7 @@ jobs:
           delimiter=$(openssl rand -hex 8)
           {
             echo "PLAYWRIGHT_RUN<<$delimiter"
-            yarn run playwright:visual-test --reporter=list --workers 2 --shard=${{ matrix.shard }}
+            yarn run playwright:visual-test --reporter=dot --workers 2 --shard=${{ matrix.shard }}
             echo "$delimiter"
           } >> "$GITHUB_OUTPUT"
         shell: bash
