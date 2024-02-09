@@ -24,6 +24,7 @@ import BannerUpsell from '../../graphics/general/BannerUpsell.svg';
 import Button from '../../graphics/general/Button.svg';
 import ButtonGroup from '../../graphics/general/ButtonGroup.svg';
 import ButtonLink from '../../graphics/general/ButtonLink.svg';
+import ButtonToggle from '../../graphics/general/ButtonToggle.svg';
 import Card from '../../graphics/general/Card.svg';
 import ChartGraph from '../../graphics/general/ChartGraph.svg';
 import Checkbox from '../../graphics/general/Checkbox.svg';
@@ -545,6 +546,41 @@ const componentData: $ReadOnlyArray<ComponentData> = [
           documentation: 'ready',
           figmaStatus: 'ready',
           status: 'ready',
+        },
+      },
+    },
+  },
+  {
+    id: 'ButtonToggle',
+    platform: {
+      android: {
+        name: 'ButtonToggle',
+        visual: {
+          svg: <ButtonToggle />,
+        },
+        alias: ['Toggle', 'Action Button', 'Toggle Switch'],
+        description:
+          'The ButtonToggle is a larger alternative to selection components such as Checkbox, RadioButton, and Switch.',
+        category: ['Actions'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          status: 'planned',
+        },
+      },
+      ios: {
+        name: 'ButtonToggle',
+        visual: {
+          svg: <ButtonToggle />,
+        },
+        alias: ['Toggle', 'Action Button', 'Toggle Switch'],
+        description:
+          'The ButtonToggle is a larger alternative to selection components such as Checkbox, RadioButton, and Switch.',
+        category: ['Actions'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          status: 'planned',
         },
       },
     },
