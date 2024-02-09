@@ -31,11 +31,13 @@ jobs:
         id: run-tests
 
         run: |
+          delimiter=$(openssl rand -hex 8)
           {
-            echo 'PLAYWRIGHT_RUN<<EOF'
+            echo "PLAYWRIGHT_RUN<<$delimiter"
             yarn run playwright:visual-test --reporter=list --workers 2 --shard=${{ matrix.shard }}
-            echo 'EOF' 
-          } >> $GITHUB_ENV
+            echo "$delimiter"
+          } >> "$GITHUB_OUTPUT"
+        shell: bash
       - name: Comment PR with execution number
         uses: thollander/actions-comment-pull-request@v2
         with:
