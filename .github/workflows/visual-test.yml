@@ -28,13 +28,13 @@ jobs:
       - name: Build
         run: yarn build
       - name: Run your tests
-        id: run-tests
-        run: |
-          OUTPUT_RESULTS=`yarn run playwright:visual-test --reporter=list` >> $GITHUB_ENV
-        shell: bash
+        id: results
+        uses: mathiasvr/command-output@v2.0.0
+        with:
+          run: yarn run playwright:visual-test --workers 2 --reporter=dot --shard=${{ matrix.shard }}
       - name: Comment PR with execution number
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
-            ${{ steps.run-tests.outputs.OUTPUT_RESULTS }}
+            ${{ steps.results.outputs.stdout }}
           comment_tag: visual-test
