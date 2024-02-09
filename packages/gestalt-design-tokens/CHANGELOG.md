@@ -1,5 +1,22 @@
 This file is updated manually
 
+## 140.0.1 https://github.com/pinterest/gestalt/pull/3420
+
+### Minor
+
+| name       | old value | new value |
+| ---------- | --------- | --------- |
+| rounding-0 | 0         | 0px       |
+| space-0    | 0         | 0px       |
+
+#### Why
+
+0 values break in Android and rounding was not added in the config.
+
+#### Breaking change notes
+
+--
+
 ## 139.1.0 https://github.com/pinterest/gestalt/pull/3413
 
 ### Minor
