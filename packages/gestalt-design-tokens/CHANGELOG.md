@@ -1,29 +1,19 @@
 This file is updated manually
 
-## 140.0.1 https://github.com/pinterest/gestalt/pull/3413
+## 140.0.1 https://github.com/pinterest/gestalt/pull/3420
 
 ### Minor
 
-NEW
-
-| name                     | light                          | dark                                          |
-| ------------------------ | ------------------------------ | --------------------------------------------- |
-| overlay-color-background | color.background.default.value | color.background.elevation.floating.darkValue |
-
-REVERT
-
-| name                        | old value              | new value                |
-| --------------------------- | ---------------------- | ------------------------ |
-| color-background-wash-dark  | rgb(0 0 0 / 0.8)       | rgba(0, 0, 0, 0.8)       |
-| color-background-wash-light | rgb(255 255 255 / 0.9) | rgba(255, 255, 255, 0.9) |
+| name       | old value | new value |
+| ---------- | --------- | --------- |
+| rounding-0 | 0         | 0px       |
+| space-0    | 0         | 0px       |
 
 #### Why
 
-Tokenize overlay component background colors. Overlay components require a white background but a floating elevation on darkmode. We needed a custom color pairing.
+0 values break in Android and rounding was not added in the config.
 
 #### Breaking change notes
-
-Partially reverting token changes in from https://github.com/pinterest/gestalt/pull/3407
 
 --
 
