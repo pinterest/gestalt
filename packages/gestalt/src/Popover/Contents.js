@@ -15,7 +15,7 @@ export type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 type Props = {
   accessibilityLabel?: string,
   anchor: HTMLElement,
-  bgColor: 'blue' | 'darkGray' | 'red' | 'white',
+  bgColor: 'blue' | 'darkGray' | 'white',
   border?: boolean,
   caret?: boolean,
   children?: ReactNode,
@@ -64,11 +64,9 @@ export default function Contents({
   const caretOffset = middlewareData.arrow;
   const visibility = middlewareData.hide?.referenceHidden === true ? 'hidden' : 'visible';
 
-  let background: 'overlayBg' | 'redBg' | 'blueBg' | 'darkGrayBg' = 'overlayBg';
+  let background: 'overlayBg' | 'blueBg' | 'darkGrayBg' = 'overlayBg';
 
-  if (bgColor === 'red') {
-    background = 'redBg';
-  } else if (bgColor === 'blue') {
+  if (bgColor === 'blue') {
     background = 'blueBg';
   } else if (bgColor === 'darkGray') {
     background = 'darkGrayBg';
