@@ -115,16 +115,6 @@
           "format": "androidColorDark"
         },
         {
-          "destination": "space.xml",
-          "format": "android/resources",
-          "resourceType": "dimen",
-          "filter": {
-            "attributes": {
-              "category": "space"
-            }
-          }
-        },
-        {
           "destination": "font-size.xml",
           "format": "android/resources",
           "resourceType": "dimen",
@@ -142,6 +132,26 @@
           "filter": {
             "attributes": {
               "category": "opacity"
+            }
+          }
+        },
+        {
+          "destination": "rounding.xml",
+          "format": "android/resources",
+          "resourceType": "dimen",
+          "filter": {
+            "attributes": {
+              "category": "rounding"
+            }
+          }
+        },
+        {
+          "destination": "space.xml",
+          "format": "android/resources",
+          "resourceType": "dimen",
+          "filter": {
+            "attributes": {
+              "category": "space"
             }
           }
         }
