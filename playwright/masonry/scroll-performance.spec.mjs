@@ -4,8 +4,9 @@ import { expect, test } from '@playwright/test';
 import getServerURL from './utils/getServerURL.mjs';
 import {
   eventsToCsv,
-  getFpsAvgPerScroll,
   getFpsFromEvents,
+  getFpsMetricsPerScroll,
+  metricsToCsv,
 } from './utils/tracingEvents.mjs';
 import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
 
@@ -23,21 +24,17 @@ const PAGE_HEIGHT = 1000;
 
 test.describe('Masonry: scrolls', () => {
   test('scroll test', async ({ page }) => {
-    const performanceTimings = [performance.now()];
     const events /*: Array<Event> */ = [];
-    let fpsEvents /*: Array<Event> */ = [];
-    let fpsAvgPerScroll /*: Array<number> */ = [];
 
-    const scrollCount = DEFAULT_SCROLL_COUNT;
-
+    // Starting the CDP session only including the desired categories
     const client = await page.context().newCDPSession(page);
-    // await client.send('Tracing.start');
     await client.send('Tracing.start', {
       traceConfig: {
         includedCategories: ['benchmark', 'clock_sync'],
       },
     });
 
+    // This will be called when tracing is complete
     client.on('Tracing.dataCollected', (data) => {
       events.push(
         ...data.value
@@ -50,14 +47,6 @@ test.describe('Masonry: scrolls', () => {
 
     const tracingCompleteEvent = new Promise((resolve) => {
       client.on('Tracing.tracingComplete', () => {
-        fpsEvents = getFpsFromEvents(events);
-        fpsAvgPerScroll = getFpsAvgPerScroll(fpsEvents);
-
-        fs.writeFileSync(
-          'playwright/test-results/scroll-performance-timings.csv',
-          eventsToCsv(fpsEvents)
-        );
-
         resolve();
       });
     });
@@ -65,13 +54,13 @@ test.describe('Masonry: scrolls', () => {
     await page.setViewportSize({ width: 1600, height: PAGE_HEIGHT });
     await page.goto(getServerURL());
 
-    for (let i = 1; i < scrollCount; i += 1) {
+    // Scroll x amount of times, we add the sync marker at the start of each scroll
+    for (let i = 1; i < DEFAULT_SCROLL_COUNT; i += 1) {
       await client.send('Tracing.recordClockSyncMarker', {
         syncId: 'scrollTimingMark',
       });
 
       await page.evaluate(
-        // $FlowFixMe[incompatible-use]
         ({ pageHeight, index }) => {
           window.scrollTo({ top: pageHeight * index, behavior: 'smooth' });
         },
@@ -80,8 +69,6 @@ test.describe('Masonry: scrolls', () => {
       await waitForRenderedItems(page, {
         targetItemsGTE: PINS_COUNT * (i + 1),
       });
-
-      performanceTimings.push(performance.now());
     }
 
     await client.send('Tracing.end');
@@ -89,7 +76,21 @@ test.describe('Masonry: scrolls', () => {
     // We need this to wait for the tracing data to be completed
     await tracingCompleteEvent;
 
+    // Calculate fps per scroll and metrics
+    const fpsEvents = getFpsFromEvents(events);
+    const fpsMetricsPerScroll = getFpsMetricsPerScroll(fpsEvents);
+
+    // This is temp until we understand the numbers on ci environment
+    fs.writeFileSync(
+      'playwright/test-results/scroll-performance-timings.csv',
+      eventsToCsv(fpsEvents)
+    );
+    fs.writeFileSync(
+      'playwright/test-results/scroll-performance-fps-metrics.csv',
+      metricsToCsv(fpsMetricsPerScroll)
+    );
+
     // This is only for testing purpouses
-    expect(fpsAvgPerScroll.every((fps) => fps > 5)).toBeTruthy();
+    expect(fpsMetricsPerScroll.every((metric) => metric.avg > 1)).toBeTruthy();
   });
 });

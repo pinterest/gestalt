@@ -1,19 +1,40 @@
 // @flow strict
 
 /*::
-export type Event = {
+type Event = {
   name: string,
   ts: number,
   fps?: number,
 };
+
+type Metric = { avg: number, max: number, min: number };
 */
 
-export const eventsToCsv = (events /*: $ReadOnlyArray<Event> */) =>
+export const eventsToCsv = (
+  events /*: $ReadOnlyArray<Event> */
+) /*: string */ =>
   events
     .map((e) => (e.name.includes('clock_sync') ? e.name : e.fps))
     .join('\n');
 
-export const getFpsFromEvents = (events /*: $ReadOnlyArray<Event> | [] */) => {
+export const metricsToCsv = (
+  metrics /*: $ReadOnlyArray<Metric> */
+) /*: string */ => {
+  let result;
+
+  const keys = Object.keys(metrics[0]);
+  result = `${keys.join(',')}\n`;
+
+  metrics.forEach((m) => {
+    result += `${keys.map((k) => m[k]).join(',')}\n`;
+  });
+
+  return result;
+};
+
+export const getFpsFromEvents = (
+  events /*: $ReadOnlyArray<Event> | [] */
+) /*: $ReadOnlyArray<Event> */ => {
   const fpsTimings = [];
 
   const drawFrameEvents = events
@@ -33,21 +54,24 @@ export const getFpsFromEvents = (events /*: $ReadOnlyArray<Event> | [] */) => {
   return [...fpsTimings, ...clockSyncEvents].sort((a, b) => a.ts - b.ts);
 };
 
-export const getFpsAvgPerScroll = (events /*: $ReadOnlyArray<Event> */) => {
-  const fpsAvgPerScroll = [];
-  let fpsSum = 0;
-  let count = 0;
+export const getFpsMetricsPerScroll = (
+  events /*: $ReadOnlyArray<Event> */
+) /*: $ReadOnlyArray<Metric> */ => {
+  const fpsMetricsPerScroll = [];
+  let fpsPerScroll = [];
 
-  for (let i = 0; i < events.length; i += 1) {
-    if (events[i]?.name.includes('clock_sync')) {
-      fpsAvgPerScroll.push(fpsSum / count);
-      fpsSum = 0;
-      count = 0;
+  for (let i = 0; i <= events.length; i += 1) {
+    if (events[i]?.name.includes('clock_sync') || i === events.length) {
+      fpsMetricsPerScroll.push({
+        avg: fpsPerScroll.reduce((sum, x) => sum + x) / fpsPerScroll.length,
+        max: fpsPerScroll.reduce((hi, x) => (x > hi ? x : hi)),
+        min: fpsPerScroll.reduce((lo, x) => (x < lo ? x : lo)),
+      });
+      fpsPerScroll = [];
     } else if (events[i]?.fps) {
-      fpsSum += events[i].fps;
-      count += 1;
+      fpsPerScroll.push(events[i]?.fps);
     }
   }
 
-  return fpsAvgPerScroll;
+  return fpsMetricsPerScroll;
 };
