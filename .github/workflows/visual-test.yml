@@ -1,0 +1,39 @@
+name: Integration Tests (Playwright)
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+jobs:
+  playwright-run:
+    name: Test (${{ matrix.shard }})
+    timeout-minutes: 60
+    runs-on: macos-12
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: ['1/5', '2/5', '3/5', '4/5', '5/5']
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Install Playwright
+        run: npx playwright install --with-deps chromium
+      - name: Run build
+        run: yarn build
+      - name: Run your tests
+        id: run-tests
+        run: |
+          echo "PLAYWRIGHT_RUN=$(yarn run playwright:visual-test --reporter=list)" >> $GITHUB_OUTPUT
+      - name: Comment PR with execution number
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            ${{ steps.run-tests.outputs.PLAYWRIGHT_RUN }}
+          comment_tag: visual-test
