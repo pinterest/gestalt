@@ -10,7 +10,7 @@ jobs:
   playwright-run:
     name: Test (${{ matrix.shard }})
     timeout-minutes: 60
-    runs-on: macos-12
+    runs-on: macos-latest-xlarge
     strategy:
       fail-fast: false
       matrix:
@@ -29,12 +29,11 @@ jobs:
         run: yarn build
       - name: Run your tests
         id: run-tests
-
         run: |
           delimiter=$(openssl rand -hex 8)
           {
             echo "PLAYWRIGHT_RUN<<$delimiter"
-            yarn run playwright:visual-test --reporter=dot --workers 2 --shard=${{ matrix.shard }}
+            yarn run playwright:visual-test --workers 2 --shard=${{ matrix.shard }}
             echo "$delimiter"
           } >> "$GITHUB_OUTPUT"
         shell: bash
