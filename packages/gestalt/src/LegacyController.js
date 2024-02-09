@@ -17,7 +17,7 @@ const SIZE_WIDTH_MAP = {
 type OwnProps = {
   accessibilityLabel?: string,
   anchor: HTMLElement,
-  bgColor: 'blue' | 'darkGray' | 'red' | 'white',
+  bgColor: 'blue' | 'darkGray' | 'white',
   border?: boolean,
   caret?: boolean,
   children?: ReactNode,

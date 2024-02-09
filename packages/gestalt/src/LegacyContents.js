@@ -30,7 +30,7 @@ export type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 type OwnProps = {
   accessibilityLabel?: string,
   anchor: HTMLElement,
-  bgColor: 'blue' | 'darkGray' | 'red' | 'white',
+  bgColor: 'blue' | 'darkGray' | 'white',
   border?: boolean,
   caret?: boolean,
   children?: ReactNode,
