@@ -30,9 +30,11 @@ jobs:
       - name: Run your tests
         id: run-tests
         run: |
-          echo 'PLAYWRIGHT_RUN<<EOF' >> $GITHUB_ENV
-          yarn run playwright:visual-test --reporter=list --workers 2 --shard=${{ matrix.shard }} >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV
+          {
+            echo 'PLAYWRIGHT_RUN<<EOF'
+            yarn run playwright:visual-test --reporter=list --workers 2 --shard=${{ matrix.shard }}
+            echo EOF 
+          } >> $GITHUB_ENV
       - name: Comment PR with execution number
         uses: thollander/actions-comment-pull-request@v2
         with:
