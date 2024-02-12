@@ -1,3 +1,9 @@
+## 141.0.0 (Feb 12, 2024)
+
+### Major
+
+- Tokens: update style-dictionary dependency and restructure component tokens to match library ([#3421](https://github.com/pinterest/gestalt/pull/3421)) - [Preview link](https://deploy-preview-3421--gestalt.netlify.app?devexample=true)
+
 ## 140.1.0 (Feb 9, 2024)
 
 ### Minor
