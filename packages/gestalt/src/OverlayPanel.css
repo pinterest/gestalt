@@ -6,7 +6,7 @@
 
 .wrapper {
   composes: relative overflowAuto flex from "./Layout.css";
-  background-color: var(--overlay-color-background);
+  background-color: var(--color-background-overlay-background);
   height: 100%;
   max-height: 100%;
 }
