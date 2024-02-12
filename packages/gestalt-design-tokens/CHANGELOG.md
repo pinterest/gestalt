@@ -1,5 +1,42 @@
 This file is updated manually
 
+## 141.0.0 https://github.com/pinterest/gestalt/pull/3421
+
+### MAJOR
+
+RENAME
+
+| old-name                                             | new-name                                             |
+| ---------------------------------------------------- | ---------------------------------------------------- |
+| button-background-color-primary-active               | color-background-button-primary-active               |
+| button-background-color-secondary-default            | color-background-button-secondary-default            |
+| button-background-color-secondary-hover              | color-background-button-secondary-hover              |
+| button-background-color-secondary-active             | color-background-button-secondary-active             |
+| button-background-color-tertiary-hover               | color-background-button-tertiary-hover               |
+| button-background-color-tertiary-active              | color-background-button-tertiary-active              |
+| button-background-color-shopping-active              | color-background-button-shopping-active              |
+| button-background-color-white-default                | color-background-button-white-default                |
+| button-background-color-white-hover                  | color-background-button-white-hover                  |
+| button-background-color-white-active                 | color-background-button-white-active                 |
+| button-background-color-gray-hover                   | color-background-button-gray-hover                   |
+| button-background-color-gray-active                  | color-background-button-gray-active                  |
+| button-background-color-semitransparentwhite-default | color-background-button-semitransparentwhite-default |
+| button-background-color-semitransparentwhite-hover   | color-background-button-semitransparentwhite-hover   |
+| button-background-color-semitransparentwhite-active  | color-background-button-semitransparentwhite-active  |
+| button-background-color-semitransparentdark-default  | color-background-button-semitransparentdark-default  |
+| button-background-color-semitransparentdark-hover    | color-background-button-semitransparentdark-hover    |
+| button-background-color-semitransparentdark-active   | color-background-button-semitransparentdark-active   |
+| button-background-color-disabled-default             | color-background-button-disabled-default             |
+| overlay-background-color--background                 | color-background-overlay-color-background            |
+
+#### Why
+
+Component tokens now follow the token structure defined in [style-dictionary](https://amzn.github.io/style-dictionary): [Category / Type / Item](https://amzn.github.io/style-dictionary/#/tokens?id=category-type-item)
+
+#### Breaking change notes
+
+Component token name stucture chamhes from component-category-property-variant to category-type-item-subitem-state
+
 ## 140.0.1 https://github.com/pinterest/gestalt/pull/3420
 
 ### Minor
