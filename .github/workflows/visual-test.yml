@@ -1,4 +1,7 @@
 name: Visual Test (Playwright)
+permissions:
+  pull-requests: write
+  issues: write
 on:
   pull_request:
     branches:
