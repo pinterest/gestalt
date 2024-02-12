@@ -14,7 +14,7 @@
 /* STATES */
 
 .selected {
-  background-color: var(--button-color-selected-default);
+  background-color: var(--color-background-button-selected-default);
 }
 
 .focused {
@@ -24,79 +24,79 @@
 /* COLORS */
 
 .red {
-  background-color: var(--button-color-primary-default);
+  background-color: var(--color-background-button-primary-default);
 }
 
 .red.hovered,
 .red.focused {
-  background-color: var(--button-color-primary-hover);
+  background-color: var(--color-background-button-primary-hover);
 }
 
 .red.active {
-  background-color: var(--button-color-primary-active);
+  background-color: var(--color-background-button-primary-active);
 }
 
 .lightGray {
-  background-color: var(--button-color-secondary-default);
+  background-color: var(--color-background-button-secondary-default);
 }
 
 .lightGray.hovered,
 .lightGray.focused {
-  background-color: var(--button-color-secondary-hover);
+  background-color: var(--color-background-button-secondary-hover);
 }
 
 .lightGray.active {
-  background-color: var(--button-color-secondary-active);
+  background-color: var(--color-background-button-secondary-active);
 }
 
 .transparent {
-  background-color: var(--button-color-tertiary-default);
+  background-color: var(--color-background-button-tertiary-default);
 }
 
 .transparent.hovered,
 .transparent.focused {
-  background-color: var(--button-color-tertiary-hover);
+  background-color: var(--color-background-button-tertiary-hover);
 }
 
 .transparent.active {
-  background-color: var(--button-color-tertiary-active);
+  background-color: var(--color-background-button-tertiary-active);
 }
 
 .white {
-  background-color: var(--button-color-white-default);
+  background-color: var(--color-background-button-white-default);
 }
 
 .white.hovered,
 .white.focused {
-  background-color: var(--button-color-white-hover);
+  background-color: var(--color-background-button-white-hover);
 }
 
 .white.active {
-  background-color: var(--button-color-white-active);
+  background-color: var(--color-background-button-white-active);
 }
 
 .transparentDarkGray {
-  background-color: var(--button-color-semitransparentdark-default);
+  background-color: var(--color-background-button-semitransparentdark-default);
 }
 
 .transparentDarkGray.hovered,
 .transparentDarkGray.focused {
-  background-color: var(--button-color-semitransparentdark-hover);
+  background-color: var(--color-background-button-semitransparentdark-hover);
 }
 
 .transparentDarkGray.active {
-  background-color: var(--button-color-semitransparentdark-active);
+  background-color: var(--color-background-button-semitransparentdark-active);
 }
 
 .gray {
-  background-color: var(--button-color-gray-default);
+  background-color: var(--color-background-button-gray-default);
 }
 
 .gray.hovered,
 .gray.focused {
-  background-color: var(--button-color-gray-hover);
+  background-color: var(--color-background-button-gray-hover);
 }
 
 .gray.active {
-  background-color: var(--button-color-gray-active);
+  background-color: var(--color-background-button-gray-active);
 }

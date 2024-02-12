@@ -16,7 +16,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "style-dictionary": "^3.0.1"
+    "style-dictionary": "^3.8.0"
   },
   "peerDependencies": {
     "gestalt": ">0.0.0"
