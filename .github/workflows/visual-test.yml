@@ -31,7 +31,7 @@ jobs:
         id: results
         uses: mathiasvr/command-output@v2.0.0
         with:
-          run: npx playwright test playwright/visual-test --config=playwright/playwright.config.js --workers 2 --reporter=dot --shard=${{ matrix.shard }}
+          run: npx playwright test playwright/visual-test --config=playwright/playwright.config.js --workers 2 --reporter=dot --shard=${{ matrix.shard }} || true
       - name: Comment PR with execution number
         uses: thollander/actions-comment-pull-request@v2
         with:

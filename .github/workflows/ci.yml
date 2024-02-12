@@ -11,7 +11,7 @@ on:
 jobs:
   test:
     name: Tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-large
     strategy:
       matrix:
         node_version: [16, 18]
