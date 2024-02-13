@@ -1,3 +1,9 @@
+## 142.2.0 (Feb 13, 2024)
+
+### Minor
+
+- Tokens, Box: implement component background tokens ([#3424](https://github.com/pinterest/gestalt/pull/3424)) - [Preview link](https://deploy-preview-3424--gestalt.netlify.app?devexample=true)
+
 ## 142.1.0 (Feb 13, 2024)
 
 ### Minor
