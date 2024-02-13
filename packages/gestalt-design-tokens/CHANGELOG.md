@@ -1,8 +1,8 @@
 This file is updated manually
 
-## 141.0.2 https://github.com/pinterest/gestalt/pull/3423
+## 142.0.0 https://github.com/pinterest/gestalt/pull/3423
 
-### PATCH
+### MAJOR
 
 RENAME
 
