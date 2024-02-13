@@ -1,13 +1,18 @@
 // @flow strict
-import { type Node as ReactNode, useId } from 'react';
+import { Children, type Node as ReactNode, useId } from 'react';
 import classnames from 'classnames';
 import borderStyles from './Borders.css';
 import Box from './Box';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
-import { SideNavigationProvider } from './contexts/SideNavigationProvider';
+import {
+  SideNavigationConsumer,
+  SideNavigationProvider,
+  useSideNavigation,
+} from './contexts/SideNavigationProvider';
 import Divider from './Divider';
 import Flex from './Flex';
+import IconButton from './IconButton';
 import ScrollBoundaryContainer from './ScrollBoundaryContainer';
 import styles from './SideNavigation.css';
 import getChildrenToArray from './SideNavigation/getChildrenToArray';
@@ -17,6 +22,7 @@ import SideNavigationNestedGroup from './SideNavigationNestedGroup';
 import SideNavigationNestedItem from './SideNavigationNestedItem';
 import SideNavigationSection from './SideNavigationSection';
 import SideNavigationTopItem from './SideNavigationTopItem';
+import Sticky from './Sticky';
 
 export type Props = {
   /**
@@ -50,6 +56,31 @@ export type Props = {
   mobileTitle?: string,
 };
 
+function Collapser() {
+  const { isCollapsed, setCollapsed } = useSideNavigation();
+
+  return (
+    <Sticky top={0}>
+      <Box
+        display="flex"
+        justifyContent="end"
+        // margin={-2}
+        marginBottom={2}
+        // padding={2}
+        color="light"
+        // borderStyle="raisedTopShadow"
+      >
+        <IconButton
+          icon="play"
+          accessibilityLabel="expand"
+          size="xs"
+          onClick={() => setCollapsed(!isCollapsed)}
+        />
+      </Box>
+    </Sticky>
+  );
+}
+
 /**
  * [SideNavigation](https://gestalt.pinterest.systems/web/sidenavigation) is start-aligned and arranged vertically. It is used to navigate between page urls or sections when you have too many menu items to fit in horizontal [Tabs](https://gestalt.pinterest.systems/web/tabs).
  *
@@ -77,6 +108,9 @@ export default function SideNavigation({
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
 
+  Children.forEach(children, (child) => {
+    console.log(child);
+  });
   if (isMobile) {
     return (
       <SideNavigationProvider
@@ -112,36 +146,47 @@ export default function SideNavigation({
   return (
     <SideNavigationProvider>
       <ScrollBoundaryContainer>
-        <Box minWidth={280} width={280} height="100%" as="nav" aria-label={accessibilityLabel}>
-          <div
-            className={
-              showBorder ? classnames(borderStyles.borderRight, styles.fullHeight) : undefined
-            }
-          >
-            <Box
-              padding={2}
-              color="default"
-              dangerouslySetInlineStyle={{ __style: { paddingBottom: 24 } }}
-              height="100%"
-            >
-              <Flex direction="column" gap={{ column: 4, row: 0 }}>
-                {header ? (
-                  <Flex direction="column" gap={{ column: 4, row: 0 }}>
-                    <Box paddingX={4}>{header}</Box>
-                    <Divider />
-                  </Flex>
-                ) : null}
-                <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
-                {footer ? (
-                  <Flex direction="column" gap={{ column: 4, row: 0 }}>
-                    <Divider />
-                    <Box paddingX={4}>{footer}</Box>
-                  </Flex>
-                ) : null}
-              </Flex>
+        <SideNavigationConsumer>
+          {({ isCollapsed }) => (
+            <Box height="100%" as="nav" aria-label={accessibilityLabel} color="default">
+              <div
+                className={
+                  showBorder ? classnames(borderStyles.borderRight, styles.fullHeight) : undefined
+                }
+              >
+                <Box
+                  padding={2}
+                  dangerouslySetInlineStyle={{
+                    __style: {
+                      paddingBottom: 24,
+                      minWidth: isCollapsed ? 40 : 280,
+                      width: isCollapsed ? 40 : 280,
+                    },
+                  }}
+                >
+                  <Collapser />
+                  <div style={isCollapsed ? { display: 'none' } : undefined}>
+                    <Flex direction="column" gap={{ column: 4, row: 0 }}>
+                      {header ? (
+                        <Flex direction="column" gap={{ column: 4, row: 0 }}>
+                          <Box paddingX={4}>{header}</Box>
+                          <Divider />
+                        </Flex>
+                      ) : null}
+                      <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
+                      {footer ? (
+                        <Flex direction="column" gap={{ column: 4, row: 0 }}>
+                          <Divider />
+                          <Box paddingX={4}>{footer}</Box>
+                        </Flex>
+                      ) : null}
+                    </Flex>
+                  </div>
+                </Box>
+              </div>
             </Box>
-          </div>
-        </Box>
+          )}
+        </SideNavigationConsumer>
       </ScrollBoundaryContainer>
     </SideNavigationProvider>
   );

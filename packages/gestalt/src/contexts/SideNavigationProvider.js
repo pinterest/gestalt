@@ -19,6 +19,8 @@ type SideNavigationContextType = {
   setSelectedMobileChildren: (ReactNode | null) => void,
   hideActiveChildren: boolean,
   setHideActiveChildren: (boolean) => void,
+  isCollapsed: boolean,
+  setCollapsed: (boolean) => void,
   dismissButton?: {
     accessibilityLabel?: string,
     onDismiss: () => void,
@@ -43,14 +45,17 @@ const SideNavigationContext: Context<SideNavigationContextType> =
     setSelectedMobileChildren: () => {},
     hideActiveChildren: false,
     setHideActiveChildren: () => {},
+    isCollapsed: false,
+    setCollapsed: () => {},
   });
 
-const { Provider } = SideNavigationContext;
+const { Provider, Consumer: SideNavigationConsumer } = SideNavigationContext;
 
 function SideNavigationProvider({ children, dismissButton }: Props): Element<typeof Provider> {
   const [selectedItemId, setSelectedItemId] = useState('');
   const [selectedMobileChildren, setSelectedMobileChildren] = useState<ReactNode>(null);
   const [hideActiveChildren, setHideActiveChildren] = useState<boolean>(false);
+  const [isCollapsed, setCollapsed] = useState<boolean>(true);
 
   const sideNavigationContext = {
     selectedItemId,
@@ -59,6 +64,8 @@ function SideNavigationProvider({ children, dismissButton }: Props): Element<typ
     setSelectedMobileChildren,
     hideActiveChildren,
     setHideActiveChildren,
+    isCollapsed,
+    setCollapsed,
     dismissButton,
   };
 
@@ -66,24 +73,7 @@ function SideNavigationProvider({ children, dismissButton }: Props): Element<typ
 }
 
 function useSideNavigation(): SideNavigationContextType {
-  const {
-    selectedItemId,
-    setSelectedItemId,
-    selectedMobileChildren,
-    setSelectedMobileChildren,
-    hideActiveChildren,
-    setHideActiveChildren,
-    dismissButton,
-  } = useContext(SideNavigationContext);
-  return {
-    selectedItemId,
-    setSelectedItemId,
-    selectedMobileChildren,
-    setSelectedMobileChildren,
-    hideActiveChildren,
-    setHideActiveChildren,
-    dismissButton,
-  };
+  return useContext(SideNavigationContext);
 }
 
-export { SideNavigationProvider, useSideNavigation };
+export { SideNavigationConsumer, SideNavigationProvider, useSideNavigation };

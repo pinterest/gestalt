@@ -113,7 +113,7 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
 ): ReactNode {
   const { nestedLevel } = useNesting();
 
-  const { setSelectedItemId } = useSideNavigation();
+  const { isCollapsed, setSelectedItemId } = useSideNavigation();
 
   const itemId = useId();
 
