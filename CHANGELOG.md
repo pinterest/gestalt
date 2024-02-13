@@ -1,3 +1,9 @@
+## 142.0.0 (Feb 13, 2024)
+
+### Major
+
+- Tokens: fix `color-background-overlay` token bug introduced in #3421 ([#3423](https://github.com/pinterest/gestalt/pull/3423)) - [Preview link](https://deploy-preview-3423--gestalt.netlify.app?devexample=true)
+
 ## 141.0.0 (Feb 12, 2024)
 
 ### Major
