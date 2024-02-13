@@ -1,3 +1,9 @@
+## 142.1.0 (Feb 13, 2024)
+
+### Minor
+
+- Tag: implement component tokens ([#3422](https://github.com/pinterest/gestalt/pull/3422)) - [Preview link](https://deploy-preview-3422--gestalt.netlify.app?devexample=true)
+
 ## 142.0.0 (Feb 13, 2024)
 
 ### Major
