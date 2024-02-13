@@ -150,6 +150,56 @@
         "value": "{color.background.default.value}",
         "darkValue": "{color.background.elevation.floating.darkValue}",
         "comment": "Modal background color."
+      },
+      "tag": {
+        "primary": {
+          "default": {
+            "value": "{color.background.secondary.base.value}",
+            "comment": "Primary tag background color"
+          },
+          "hover": {
+            "value": "#e2e2e2",
+            "darkValue": "#535353",
+            "comment": "Primary tag's close button background color on hover"
+          },
+          "active": {
+            "value": "#dadada",
+            "darkValue": "#666",
+            "comment": "Primary tag's close button background color on active"
+          }
+        },
+        "error": {
+          "default": {
+            "value": "{color.background.error.base.value}",
+            "comment": "Error tag background color."
+          },
+          "hover": {
+            "value": "#ad081b",
+            "darkValue": "#cf001f",
+            "comment": "Error tag's close button background color on hover."
+          },
+          "active": {
+            "value": "#a3081a",
+            "darkValue": "#b8001b",
+            "comment": "Error tag's close button background color on active."
+          }
+        },
+        "warning": {
+          "default": {
+            "value": "{color.background.warning.base.value}",
+            "comment": "Warning tag background color."
+          },
+          "hover": {
+            "value": "{color.yellow.caramellow.600.value}",
+            "darkValue": "{color.yellow.caramellow.400.value}",
+            "comment": "Warning tag's close button background color on hover."
+          },
+          "active": {
+            "value": "{color.yellow.caramellow.700.value}",
+            "darkValue": "{color.yellow.caramellow.450.value}",
+            "comment": "Warning tag's close button background color on active."
+          }
+        }
       }
     }
   }

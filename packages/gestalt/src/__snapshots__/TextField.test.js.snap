@@ -366,7 +366,7 @@ exports[`TextField TextField with tags 1`] = `
               className="box"
             >
               <button
-                className="button secondary hideOutline tapTransition accessibilityOutline sm"
+                className="closeButton default hideOutline tapTransition accessibilityOutline sm"
                 onClick={[Function]}
                 type="button"
               >
@@ -438,7 +438,7 @@ exports[`TextField TextField with tags 1`] = `
               className="box"
             >
               <button
-                className="button secondary hideOutline tapTransition accessibilityOutline sm"
+                className="closeButton default hideOutline tapTransition accessibilityOutline sm"
                 onClick={[Function]}
                 type="button"
               >
@@ -510,7 +510,7 @@ exports[`TextField TextField with tags 1`] = `
               className="box"
             >
               <button
-                className="button secondary hideOutline tapTransition accessibilityOutline sm"
+                className="closeButton default hideOutline tapTransition accessibilityOutline sm"
                 onClick={[Function]}
                 type="button"
               >
