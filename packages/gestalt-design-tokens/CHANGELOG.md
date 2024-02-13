@@ -1,5 +1,31 @@
 This file is updated manually
 
+## 142.1.0 https://github.com/pinterest/gestalt/pull/3422
+
+### MINOR
+
+NEW
+
+| name                                 | light                                 | dark    |
+| ------------------------------------ | ------------------------------------- | ------- |
+| color-background-tag-primary-default | color.background.secondary.base.value |         |
+| color-background-tag-primary-hover   | #e2e2e2                               | #535353 |
+| color-background-tag-primary-active  | #dadada                               | #666    |
+| color-background-tag-error-default   | color.background.error.base.value     |         |
+| color-background-tag-error-hover     | #ad081b                               | #cf001f |
+| color-background-tag-error-active    | #a3081a                               | #b8001b |
+| color-background-tag-warning-default | color.background.warning.base.value   |         |
+| color-background-tag-warning-hover   | color.yellow.caramellow.600.value     |         |
+| color-background-tag-warning-active  | color.yellow.caramellow.700.value     |         |
+
+#### Why
+
+Tokenize Tag component background colors
+
+#### Breaking change notes
+
+--
+
 ## 142.0.0 https://github.com/pinterest/gestalt/pull/3423
 
 ### MAJOR
@@ -9,6 +35,16 @@ RENAME
 | old-name                                  | new-name                 |
 | ----------------------------------------- | ------------------------ |
 | color-background-overlay-color-background | color-background-overlay |
+
+#### Why
+
+Bug introduced in https://github.com/pinterest/gestalt/pull/3421
+
+#### Breaking change notes
+
+--
+
+## 141.0.0 https://github.com/pinterest/gestalt/pull/3421
 
 ### MAJOR
 
