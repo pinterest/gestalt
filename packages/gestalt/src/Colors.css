@@ -296,7 +296,7 @@
 }
 
 .overlayBg {
-  background-color: var(--color-background-overlay-background);
+  background-color: var(--color-background-overlay);
 }
 
 .lightWashBg {

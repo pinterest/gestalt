@@ -14,14 +14,14 @@
 
 .fullPageWrapper {
   composes: relative overflowAuto flex from "./Layout.css";
-  background-color: var(--color-background-overlay-background);
+  background-color: var(--color-background-overlay);
   height: 100%;
   max-height: 100%;
 }
 
 .wrapper {
   composes: relative overflowAuto flex from "./Layout.css";
-  background-color: var(--color-background-overlay-background);
+  background-color: var(--color-background-overlay);
   border-radius: 32px 32px 0 0;
 }
 

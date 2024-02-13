@@ -1,6 +1,14 @@
 This file is updated manually
 
-## 141.0.0 https://github.com/pinterest/gestalt/pull/3421
+## 142.0.0 https://github.com/pinterest/gestalt/pull/3423
+
+### MAJOR
+
+RENAME
+
+| old-name                                  | new-name                 |
+| ----------------------------------------- | ------------------------ |
+| color-background-overlay-color-background | color-background-overlay |
 
 ### MAJOR
 
@@ -27,7 +35,7 @@ RENAME
 | button-background-color-semitransparentdark-hover    | color-background-button-semitransparentdark-hover    |
 | button-background-color-semitransparentdark-active   | color-background-button-semitransparentdark-active   |
 | button-background-color-disabled-default             | color-background-button-disabled-default             |
-| overlay-background-color--background                 | color-background-overlay-color-background            |
+| overlay-color-background                             | color-background-overlay-color-background            |
 
 #### Why
 
@@ -36,6 +44,8 @@ Component tokens now follow the token structure defined in [style-dictionary](ht
 #### Breaking change notes
 
 Component token name stucture chamhes from component-category-property-variant to category-type-item-subitem-state
+
+This PR introduces a bug in `color-background-overlay-color-background` fixed in #3423
 
 ## 140.0.1 https://github.com/pinterest/gestalt/pull/3420
 
