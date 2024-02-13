@@ -11,7 +11,7 @@
   --g-colorTransparentGray100: rgb(0 0 0 / 0.1);
 }
 
-/** Design Token Colors **/
+/** Colors Design Token **/
 
 .infoBase {
   background-color: var(--color-background-info-base);
