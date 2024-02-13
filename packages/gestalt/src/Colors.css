@@ -6,101 +6,35 @@
   --g-colorGray200: #767676;
   --g-colorGray300: #111;
   --g-colorGray400: #000;
-
-  /* hover colors */
-  --g-colorGray100Hovered: #e2e2e2;
   --g-colorRed100Hovered: #ad081b;
-
-  /* active colors */
-  --g-colorGray100Active: #dadada;
-  --g-colorRed100Active: #a3081a;
-
-  /* transparent colors */
-  --g-colorTransparentDarkGray: rgb(51 51 51 / 0.8);
   --g-colorTransparentGray60: rgb(0 0 0 / 0.06);
   --g-colorTransparentGray100: rgb(0 0 0 / 0.1);
 }
 
 /** Design Token Colors **/
 
-.default {
-  background-color: var(--color-background-default);
-}
-
 .infoBase {
   background-color: var(--color-background-info-base);
-}
-
-.infoStrong {
-  background-color: var(--color-background-info-strong);
-}
-
-.infoWeak {
-  background-color: var(--color-background-info-weak);
 }
 
 .errorBase {
   background-color: var(--color-background-error-base);
 }
 
-.errorWeak {
-  background-color: var(--color-background-error-weak);
-}
-
 .warningBase {
   background-color: var(--color-background-warning-base);
-}
-
-.warningWeak {
-  background-color: var(--color-background-warning-weak);
 }
 
 .successBase {
   background-color: var(--color-background-success-base);
 }
 
-.successWeak {
-  background-color: var(--color-background-success-weak);
-}
-
 .recommendationBase {
   background-color: var(--color-background-recommendation-base);
 }
 
-.recommendationWeak {
-  background-color: var(--color-background-recommendation-weak);
-}
-
-.shopping {
-  background-color: var(--color-background-shopping);
-}
-
-.primary {
-  background-color: var(--color-background-primary-base);
-}
-
-.secondary {
-  background-color: var(--color-background-secondary-base);
-}
-
-.tertiary {
-  background-color: var(--color-background-tertiary-base);
-}
-
 .selected {
   background-color: var(--color-background-selected-base);
-}
-
-.inverse {
-  background-color: var(--color-background-inverse-base);
-}
-
-.brand {
-  background-color: var(--color-background-brand);
-}
-
-.education {
-  background-color: var(--color-background-education);
 }
 
 .washDark {
@@ -111,24 +45,24 @@
   background-color: var(--color-background-wash-light);
 }
 
-.dark {
-  background-color: var(--color-background-dark);
+.tertiary {
+  background-color: var(--color-background-tertiary-base);
 }
 
-.light {
-  background-color: var(--color-background-light);
+.transparent {
+  background-color: var(--color-transparent);
 }
 
-.elevationAccent {
-  background-color: var(--color-background-elevation-accent);
+.overlay {
+  background-color: var(--color-background-overlay);
 }
 
-.elevationFloating {
-  background-color: var(--color-background-elevation-floating);
+.default {
+  background-color: var(--color-background-default);
 }
 
-.elevationRaised {
-  background-color: var(--color-background-elevation-raised);
+.secondary {
+  background-color: var(--color-background-secondary-base);
 }
 
 /* semantic text colors */
@@ -223,54 +157,44 @@
   color: var(--color-icon-dark);
 }
 
-/** PRIMARY COLORS **/
+/* POPOVER LEGACY COLORS */
 
-/* white */
-
-.white {
-  color: var(--g-colorGray0);
+.blue {
+  color: var(--color-background-education);
 }
 
-.whiteBg {
-  background-color: var(--g-colorGray0);
+.blueBg {
+  background-color: var(--color-background-education);
+}
+
+/** LEGACY CUSTOM COLORS **/
+
+/** text **/
+
+.lightGray {
+  color: var(--g-colorGray100);
 }
 
 .whiteElevated {
   color: var(--g-colorGray50);
 }
 
-/* lightGray */
-
-.lightGray {
-  color: var(--g-colorGray100);
+.darkGray {
+  color: var(--g-colorGray300);
 }
-
-.lightGrayBg {
-  background-color: var(--g-colorGray100);
-}
-
-.lightGrayHoveredBg {
-  background-color: var(--g-colorGray100Hovered);
-}
-
-.lightGrayActiveBg {
-  background-color: var(--g-colorGray100Active);
-}
-
-/* gray */
 
 .gray {
   color: var(--g-colorGray200);
 }
 
-.grayBg {
-  background-color: var(--g-colorGray200);
+/** background **/
+
+.whiteBg {
+  background-color: var(--g-colorGray0);
 }
 
-/* darkGray */
-
-.darkGray {
-  color: var(--g-colorGray300);
+.lightGrayBg {
+  background-color: var(--g-colorGray100);
 }
 
 .darkGrayBg {
@@ -281,38 +205,6 @@
   background-color: var(--g-colorGray400);
 }
 
-/* transparent */
-
-.transparentBg {
-  background-color: transparent;
-}
-
-.transparentDarkGray {
-  color: var(--g-colorTransparentDarkGray);
-}
-
-.transparentDarkGrayBg {
-  background-color: var(--g-colorTransparentDarkGray);
-}
-
-.overlayBg {
-  background-color: var(--color-background-overlay);
-}
-
-.lightWashBg {
-  background-color: var(--g-colorGray100Hovered);
-}
-
-.darkWashBg {
-  background-color: var(--g-colorGray100Active);
-}
-
-/* POPOVER LEGACY COLORS */
-
-.blue {
-  color: var(--color-background-education);
-}
-
-.blueBg {
-  background-color: var(--color-background-education);
+.grayBg {
+  background-color: var(--g-colorGray200);
 }

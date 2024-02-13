@@ -245,7 +245,7 @@ class LegacyContents extends Component<Props, State> {
     // Needed to prevent UI thrashing
     const visibility = popoverDir === null ? 'hidden' : 'visible';
 
-    let background: 'overlayBg' | 'blueBg' | 'darkGrayBg' = 'overlayBg';
+    let background: 'overlay' | 'blueBg' | 'darkGrayBg' = 'overlay';
 
     if (bgColor === 'blue') {
       background = 'blueBg';

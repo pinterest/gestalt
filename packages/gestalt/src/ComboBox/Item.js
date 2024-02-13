@@ -72,7 +72,7 @@ const ComboBoxItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forwa
           boxWhitespaceStyles.paddingY2,
           {
             [colorStyles.lightGrayBg]: isHovered,
-            [colorStyles.transparentBg]: !isHovered,
+            [colorStyles.transparent]: !isHovered,
           },
         )}
       >

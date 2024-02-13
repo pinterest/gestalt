@@ -64,7 +64,7 @@ export default function Contents({
   const caretOffset = middlewareData.arrow;
   const visibility = middlewareData.hide?.referenceHidden === true ? 'hidden' : 'visible';
 
-  let background: 'overlayBg' | 'blueBg' | 'darkGrayBg' = 'overlayBg';
+  let background: 'overlay' | 'blueBg' | 'darkGrayBg' = 'overlay';
 
   if (bgColor === 'blue') {
     background = 'blueBg';

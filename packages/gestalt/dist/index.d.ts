@@ -3069,17 +3069,14 @@ export function useDefaultLabel(componentName: string): { [k: string]: string };
  */
 export function useColorScheme(): {
   name: string;
-  colorRed100Active: string;
   colorRed100Hovered: string;
   colorGray0: string;
   colorGray50: string;
   colorGray100: string;
   colorGray100Active: string;
-  colorGray100Hovered: string;
   colorGray200: string;
   colorGray300: string;
   colorGray400: string;
-  colorTransparentDarkGray: string;
   colorTransparentGray60: string;
   colorTransparentGray100: string;
   [tokenName: string]: string;
