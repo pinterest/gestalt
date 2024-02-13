@@ -1,6 +1,14 @@
 This file is updated manually
 
-## 141.0.0 https://github.com/pinterest/gestalt/pull/3421
+## 141.0.2 https://github.com/pinterest/gestalt/pull/3421
+
+### PATCH
+
+RENAME
+
+| old-name                                  | new-name                 |
+| ----------------------------------------- | ------------------------ |
+| color-background-overlay-color-background | color-background-overlay |
 
 ### MAJOR
 
@@ -27,7 +35,7 @@ RENAME
 | button-background-color-semitransparentdark-hover    | color-background-button-semitransparentdark-hover    |
 | button-background-color-semitransparentdark-active   | color-background-button-semitransparentdark-active   |
 | button-background-color-disabled-default             | color-background-button-disabled-default             |
-| overlay-background-color--background                 | color-background-overlay-color-background            |
+| overlay-color-background                             | color-background-overlay-color-background            |
 
 #### Why
 
