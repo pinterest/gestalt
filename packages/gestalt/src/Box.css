@@ -474,23 +474,23 @@
 }
 
 .primary {
-  background-color: var(--color-background-box-primary-base);
+  background-color: var(--color-background-box-primary);
 }
 
 .secondary {
-  background-color: var(--color-background-box-secondary-base);
+  background-color: var(--color-background-box-secondary);
 }
 
 .tertiary {
-  background-color: var(--color-background-box-tertiary-base);
+  background-color: var(--color-background-box-tertiary);
 }
 
 .selected {
-  background-color: var(--color-background-box-selected-base);
+  background-color: var(--color-background-box-selected);
 }
 
 .inverse {
-  background-color: var(--color-background-box-inverse-base);
+  background-color: var(--color-background-box-inverse);
 }
 
 .brand {
