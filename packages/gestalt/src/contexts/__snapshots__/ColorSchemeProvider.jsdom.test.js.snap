@@ -213,9 +213,9 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-border-container: #cdcdcd;
   --color-border-default: #767676;
   --color-border-error: #cc0000;
-  --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
-  --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
-  --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
+  --elevation-floating: 0 0 8px rgb(0 0 0 / 0.10);
+  --elevation-raised-top: 0 2px 8px rgb(0 0 0 / 0.12);
+  --elevation-raised-bottom: 0 -2px 8px rgb(0 0 0 / 0.12);
  }
 </style>
 `;
@@ -323,9 +323,9 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-border-container: #cdcdcd;
   --color-border-default: #767676;
   --color-border-error: #cc0000;
-  --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
-  --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
-  --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
+  --elevation-floating: 0 0 8px rgb(0 0 0 / 0.10);
+  --elevation-raised-top: 0 2px 8px rgb(0 0 0 / 0.12);
+  --elevation-raised-bottom: 0 -2px 8px rgb(0 0 0 / 0.12);
  }
 </style>
 `;
@@ -433,9 +433,9 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-border-container: #cdcdcd;
   --color-border-default: #767676;
   --color-border-error: #cc0000;
-  --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
-  --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
-  --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
+  --elevation-floating: 0 0 8px rgb(0 0 0 / 0.10);
+  --elevation-raised-top: 0 2px 8px rgb(0 0 0 / 0.12);
+  --elevation-raised-bottom: 0 -2px 8px rgb(0 0 0 / 0.12);
  }
 </style>
 `;
