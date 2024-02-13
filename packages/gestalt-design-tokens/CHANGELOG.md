@@ -45,6 +45,8 @@ Component tokens now follow the token structure defined in [style-dictionary](ht
 
 Component token name stucture chamhes from component-category-property-variant to category-type-item-subitem-state
 
+This PR introduces a bug in `color-background-overlay-color-background` fixed in #3423
+
 ## 140.0.1 https://github.com/pinterest/gestalt/pull/3420
 
 ### Minor
