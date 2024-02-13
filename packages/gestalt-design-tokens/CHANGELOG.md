@@ -1,6 +1,6 @@
 This file is updated manually
 
-## 141.0.2 https://github.com/pinterest/gestalt/pull/3421
+## 141.0.2 https://github.com/pinterest/gestalt/pull/3423
 
 ### PATCH
 
