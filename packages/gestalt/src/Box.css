@@ -376,7 +376,7 @@
 /* Opacity */
 
 .opacity0 {
-  opacity: 0;
+  opacity: var(--opacity-0);
 }
 
 .opacity01 {
@@ -384,7 +384,7 @@
 }
 
 .opacity02 {
-  opacity: 0.2;
+  opacity: var(--opacity-200);
 }
 
 .opacity03 {
@@ -392,7 +392,7 @@
 }
 
 .opacity04 {
-  opacity: 0.4;
+  opacity: var(--opacity-300);
 }
 
 .opacity05 {
@@ -408,13 +408,135 @@
 }
 
 .opacity08 {
-  opacity: 0.8;
+  opacity: var(--opacity-400);
 }
 
 .opacity09 {
-  opacity: 0.9;
+  opacity: var(--opacity-500);
 }
 
 .opacity1 {
   opacity: 1;
+}
+
+/* Colors */
+
+.default {
+  background-color: var(--color-background-default);
+}
+
+.infoBase {
+  background-color: var(--color-background-info-base);
+}
+
+.infoStrong {
+  background-color: var(--color-background-info-strong);
+}
+
+.infoWeak {
+  background-color: var(--color-background-info-weak);
+}
+
+.errorBase {
+  background-color: var(--color-background-error-base);
+}
+
+.errorWeak {
+  background-color: var(--color-background-error-weak);
+}
+
+.warningBase {
+  background-color: var(--color-background-warning-base);
+}
+
+.warningWeak {
+  background-color: var(--color-background-warning-weak);
+}
+
+.successBase {
+  background-color: var(--color-background-success-base);
+}
+
+.successWeak {
+  background-color: var(--color-background-success-weak);
+}
+
+.recommendationBase {
+  background-color: var(--color-background-recommendation-base);
+}
+
+.recommendationWeak {
+  background-color: var(--color-background-recommendation-weak);
+}
+
+.shopping {
+  background-color: var(--color-background-shopping);
+}
+
+.primary {
+  background-color: var(--color-background-primary-base);
+}
+
+.secondary {
+  background-color: var(--color-background-secondary-base);
+}
+
+.tertiary {
+  background-color: var(--color-background-tertiary-base);
+}
+
+.selected {
+  background-color: var(--color-background-selected-base);
+}
+
+.inverse {
+  background-color: var(--color-background-inverse-base);
+}
+
+.brand {
+  background-color: var(--color-background-brand);
+}
+
+.education {
+  background-color: var(--color-background-education);
+}
+
+.transparent {
+  background-color: var(--color-transparent);
+}
+
+.overlay {
+  background-color: var(--color-background-overlay);
+}
+
+.dark {
+  background-color: var(--color-background-dark);
+}
+
+.light {
+  background-color: var(--color-background-light);
+}
+
+.elevationAccent {
+  background-color: var(--color-background-elevation-accent);
+}
+
+.elevationFloating {
+  background-color: var(--color-background-elevation-floating);
+}
+
+.elevationRaised {
+  background-color: var(--color-background-elevation-raised);
+}
+
+.lightWash {
+  background-color: var(--color-background-box-light-wash);
+}
+
+.darkWash {
+  background-color: var(--color-background-box-dark-wash);
+}
+
+.transparentDarkGrayBg {
+  background-color: var(--color-background-box-transparent-dark-gray);
 }

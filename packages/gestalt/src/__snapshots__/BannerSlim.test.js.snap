@@ -154,7 +154,7 @@ exports[`BannerSlim renders neutral type with message 1`] = `
 
 exports[`BannerSlim renders non-neutral compact with accessibility label 1`] = `
 <div
-  className="box mdDirectionRow paddingX0 paddingY0 paddingY1 rounding4 xsDirectionColumn xsDisplayFlex xsItemsCenter"
+  className="box mdDirectionRow paddingX0 paddingY0 paddingY1 rounding4 transparent xsDirectionColumn xsDisplayFlex xsItemsCenter"
   style={
     Object {
       "width": "100%",
