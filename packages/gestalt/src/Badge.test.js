@@ -12,7 +12,7 @@ it('should render with proper styling', () => {
   const instance = create(<Badge text="Badge" type="success" />).root;
   const { className } = instance.find((element) => element.type === 'div').props;
 
-  expect(className).toContain('successBase');
+  expect(className).toContain('success');
 });
 
 it('should render with a wash', () => {

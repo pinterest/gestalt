@@ -13,56 +13,24 @@
 
 /** Colors Design Token **/
 
-.infoBase {
-  background-color: var(--color-background-info-base);
-}
-
-.errorBase {
-  background-color: var(--color-background-error-base);
-}
-
-.warningBase {
-  background-color: var(--color-background-warning-base);
-}
-
-.successBase {
-  background-color: var(--color-background-success-base);
-}
-
-.recommendationBase {
-  background-color: var(--color-background-recommendation-base);
-}
-
-.selected {
-  background-color: var(--color-background-selected-base);
-}
-
-.washDark {
-  background-color: var(--color-background-wash-dark);
-}
-
-.washLight {
-  background-color: var(--color-background-wash-light);
-}
-
-.tertiary {
-  background-color: var(--color-background-tertiary-base);
-}
-
-.transparent {
-  background-color: var(--color-transparent);
-}
-
-.overlay {
-  background-color: var(--color-background-overlay);
+.secondary {
+  background-color: var(--color-background-secondary-base);
 }
 
 .default {
   background-color: var(--color-background-default);
 }
 
-.secondary {
-  background-color: var(--color-background-secondary-base);
+.tertiary {
+  background-color: var(--color-background-tertiary-base);
+}
+
+.overlay {
+  background-color: var(--color-background-overlay);
+}
+
+.transparent {
+  background-color: var(--color-transparent);
 }
 
 /* semantic text colors */

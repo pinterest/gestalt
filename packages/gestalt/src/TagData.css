@@ -21,8 +21,16 @@
   composes: borderColorLightGray from "./Borders.css";
 }
 
+.primary {
+  background-color: var(--color-background-tagdata-primary);
+}
+
+.secondary {
+  background-color: var(--color-background-tagdata-secondary);
+}
+
 .disabled {
-  composes: lightGrayBg from "./Colors.css";
+  background-color: var(--color-background-tagdata-disabled);
   cursor: default;
   pointer-events: none;
 }

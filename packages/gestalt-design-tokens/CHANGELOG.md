@@ -1,5 +1,31 @@
 This file is updated manually
 
+## 142.3.0 https://github.com/pinterest/gestalt/pull/3427
+
+### MINOR
+
+NEW
+
+| name                                  | light                                      | dark |
+| ------------------------------------- | ------------------------------------------ | ---- |
+| color-background-badge-neutral        | color.background.tertiary.base.value       |      |
+| color-background-badge-info-default   | color.background.info.base.value           |      |
+| color-background-badge-info-hover     | color.background.info.strong.value         |      |
+| color-background-badge-error          | color.background.error.base.value          |      |
+| color-background-badge-warning        | color.background.warning.base.value        |      |
+| color-background-badge-success        | color.background.success.base.value        |      |
+| color-background-badge-recommendation | color.background.recommendation.base.value |      |
+| color-background-badge-lightwash      | color.background.wash.light.value          |      |
+| color-background-badge-darkwash       | color.background.wash.dark.value           |      |
+
+#### Why
+
+Tokenize Badge component background colors
+
+#### Breaking change notes
+
+--
+
 ## 142.2.0 https://github.com/pinterest/gestalt/pull/3422
 
 ### PATCH

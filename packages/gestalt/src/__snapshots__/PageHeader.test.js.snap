@@ -215,7 +215,7 @@ exports[`PageHeader renders badge with type 1`] = `
                             className="FlexItem"
                           >
                             <div
-                              className="Badge middle warningBase"
+                              className="Badge middle warning"
                             >
                               <div
                                 className="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"

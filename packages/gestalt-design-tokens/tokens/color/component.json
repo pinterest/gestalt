@@ -1,6 +1,53 @@
 {
   "color": {
     "background": {
+      "badge": {
+        "neutral": {
+          "value": "{color.background.tertiary.base.value}",
+          "darkValue": "{color.background.tertiary.base.darkValue}",
+          "comment": "Box component infoBase background color"
+        },
+        "info": {
+          "default": {
+            "value": "{color.background.info.base.value}",
+            "darkValue": "{color.background.info.base.darkValue}",
+            "comment": "Box component infoBase background color"
+          },
+          "hover": {
+            "value": "{color.background.info.strong.value}",
+            "darkValue": "{color.background.info.strong.darkValue}",
+            "comment": "Box component infoBase background color"
+          }
+        },
+        "error": {
+          "value": "{color.background.error.base.value}",
+          "darkValue": "{color.background.error.base.darkValue}",
+          "comment": "Box component infoBase background color"
+        },
+        "warning": {
+          "value": "{color.background.warning.base.value}",
+          "darkValue": "{color.background.warning.base.darkValue}",
+          "comment": "Box component infoBase background color"
+        },
+        "success": {
+          "value": "{color.background.success.base.value}",
+          "darkValue": "{color.background.success.base.darkValue}",
+          "comment": "Box component infoBase background color"
+        },
+        "recommendation": {
+          "value": "{color.background.recommendation.base.value}",
+          "darkValue": "{color.background.recommendation.base.darkValue}",
+          "comment": "Box component infoBase background color"
+        },
+        "lightwash": {
+          "value": "{color.background.wash.light.value}",
+          "comment": "Box component infoBase background color"
+        },
+        "darkwash": {
+          "value": "{color.background.wash.dark.value}",
+          "comment": "Box component infoBase background color"
+        }
+      },
       "box": {
         "default": {
           "value": "{color.background.default.value}",
@@ -355,6 +402,23 @@
             "darkValue": "{color.yellow.caramellow.450.value}",
             "comment": "Warning tag's close button background color on active."
           }
+        }
+      },
+      "tagdata": {
+        "primary": {
+          "value": "{color.background.secondary.base.value}",
+          "darkValue": "{color.background.secondary.base.darkValue}",
+          "comment": "TagData primary background color"
+        },
+        "secondary": {
+          "value": "{color.background.default.value}",
+          "darkValue": "{color.background.default.darkValue}",
+          "comment": "TagData secondary background color"
+        },
+        "disabled": {
+          "value": "#efefef",
+          "darkValue": "#404040",
+          "comment": "TagData disabled background color"
         }
       }
     }

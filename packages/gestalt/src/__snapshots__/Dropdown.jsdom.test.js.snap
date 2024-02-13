@@ -787,7 +787,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                             , 
                           </div>
                           <div
-                            class="Badge middle infoBase"
+                            class="Badge middle info"
                           >
                             <div
                               class="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
@@ -862,7 +862,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                               , 
                             </div>
                             <div
-                              class="Badge middle infoBase"
+                              class="Badge middle info"
                             >
                               <div
                                 class="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
