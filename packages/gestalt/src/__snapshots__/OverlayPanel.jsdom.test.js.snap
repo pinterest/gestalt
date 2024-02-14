@@ -9,12 +9,14 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
       class="container"
     >
       <div
+        aria-hidden="true"
         class="backdrop zoomOut"
+        data-floating-ui-inert=""
       />
       <div
         aria-label="Test OverlayPanel"
         class="wrapper hideOutline"
-        id=":rf:"
+        id=":ri:"
         role="dialog"
         style="width: 540px;"
         tabindex="-1"
@@ -24,14 +26,16 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
           style="width: 100%;"
         >
           <div
+            aria-hidden="true"
             class="box flexGrow justifyEnd marginBottom8 xsDisplayFlex"
+            data-floating-ui-inert=""
           >
             <div
               class="absolute box flexNone paddingX6 paddingY7"
               style="z-index: 1;"
             >
               <button
-                aria-controls=":rf:"
+                aria-controls=":ri:"
                 aria-label="Dismiss"
                 class="parentButton"
                 type="button"
@@ -62,7 +66,9 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
             </div>
           </div>
           <div
+            aria-hidden="true"
             class="box flexGrow paddingX0 paddingY0 relative xsDirectionColumn xsDisplayFlex"
+            data-floating-ui-inert=""
             style="height: 100%; width: 100%;"
           >
             <div
@@ -73,16 +79,25 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
             </div>
           </div>
           <div>
+            <span
+              aria-hidden="true"
+              data-floating-ui-focus-guard=""
+              data-floating-ui-inert=""
+              data-type="inside"
+              role="button"
+              style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+              tabindex="0"
+            />
             <div
               class="container rounding4 contents maxDimensions minDimensions"
-              style="visibility: visible; top: 8px; left: -10px;"
+              style="position: absolute; left: 0px; top: 0px; visibility: visible; transform: translate(0px, 0px);"
               tabindex="-1"
             >
               <div
                 aria-label="Popover"
                 class="border overlay whiteElevated rounding4 innerContents maxDimensions minDimensions"
                 role="dialog"
-                style="max-width: 284px; max-height: 691.1999999999999px;"
+                style="max-width: 284px;"
               >
                 <div
                   name="trap-focus"
@@ -179,6 +194,15 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
                 </div>
               </div>
             </div>
+            <span
+              aria-hidden="true"
+              data-floating-ui-focus-guard=""
+              data-floating-ui-inert=""
+              data-type="inside"
+              role="button"
+              style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+              tabindex="0"
+            />
           </div>
         </div>
       </div>

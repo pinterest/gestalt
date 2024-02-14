@@ -79,6 +79,7 @@ export default function ConfirmationPopover({
 
   return (
     <InternalPopover
+      accessibilityLabel="Popover"
       anchor={anchor}
       idealDirection="down"
       onDismiss={() => onDismiss()}
