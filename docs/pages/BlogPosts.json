@@ -255,7 +255,7 @@
             "audience": ["Engineering"],
             "imageSrc": "https://i.pinimg.com/originals/48/01/fc/4801fc8f9d06cd45eb2b126b2362ead6.png",
             "imageAltText": "Screenshot of spacing token UI'",
-            "content": "[Spacing token](https://gestalt.pinterest.systems/foundations/design_tokens#Spacing) values are changing to a new scale. This updates old and also adds new values. In order to maintain consistency with our Figma designs and offer more flexibility in spacing, we're using spacing on a 4pt scale."
+            "content": "[Spacing token](https://gestalt.pinterest.systems/foundations/design_tokens/overview#Spacing) values are changing to a new scale. This updates old and also adds new values. In order to maintain consistency with our Figma designs and offer more flexibility in spacing, we're using spacing on a 4pt scale."
           }
         ]
       },
@@ -1690,7 +1690,7 @@
             "audience": ["Design", "Engineering"],
             "imageSrc": "https://i.pinimg.com/originals/fd/6c/72/fd6c72f2a699244e3e7ad483e9f791db.png",
             "imageAltText": "a hollow circle with a dotted outline",
-            "content": "We made a minor update to our [opacity design tokens](https://gestalt.pinterest.systems/foundations/design_tokens#Opacity) with the addition of a fully transparent value."
+            "content": "We made a minor update to our [opacity design tokens](https://gestalt.pinterest.systems/foundations/design_tokens/overview#Opacity) with the addition of a fully transparent value."
           }
         ]
       },

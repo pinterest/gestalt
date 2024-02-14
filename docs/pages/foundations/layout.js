@@ -515,7 +515,7 @@ export default function DocsPage(): ReactNode {
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-        **[Spacing tokens](https://gestalt.pinterest.systems/foundations/design_tokens#Spacing)**
+        **[Spacing tokens](https://gestalt.pinterest.systems/foundations/design_tokens/overview#Spacing)**
         Alll of our cross-platform spacing tokens
       `}
         />

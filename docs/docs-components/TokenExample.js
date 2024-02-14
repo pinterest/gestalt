@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box } from 'gestalt';
-import { type Token } from '../pages/foundations/design_tokens';
+import { type Token } from '../pages/foundations/design_tokens/overview';
 
 type BaseProps = {
   token: Token,
@@ -185,27 +185,28 @@ export function FontBox({ token, type }: FontBoxProps): ReactNode {
 
 export function TokenExample({ token, category }: ExampleProps): ReactNode {
   switch (category) {
-    case 'background-color':
-    case 'data-visualization':
+    case 'color-background':
+    case 'color-data-visualization':
       return <ColorBox token={token} />;
-    case 'rounding':
-      return <RoundingBox token={token} />;
-    case 'spacing':
-      return <SpacingBox token={token} />;
-    case 'text-color':
+    case 'color-text':
+    case 'color-icon':
       return <TextColorBox token={token} />;
-    case 'font-size':
-      return <FontBox token={token} type="size" />;
-    case 'font-weight':
-      return <FontBox token={token} type="weight" />;
-    case 'font-family':
-      return <FontBox token={token} type="family" />;
     case 'color-border':
       return <BorderBox token={token} />;
     case 'elevation':
       return <ElevationBox token={token} />;
     case 'opacity':
       return <OpacityBox token={token} />;
+    case 'rounding':
+      return <RoundingBox token={token} />;
+    case 'spacing':
+      return <SpacingBox token={token} />;
+    case 'font-size':
+      return <FontBox token={token} type="size" />;
+    case 'font-weight':
+      return <FontBox token={token} type="weight" />;
+    case 'font-family':
+      return <FontBox token={token} type="family" />;
     default:
       return <Box>{token.value}</Box>;
   }

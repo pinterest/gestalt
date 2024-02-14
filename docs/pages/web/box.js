@@ -371,7 +371,7 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description="While we offer the full range of opacity options, below are usage guidelines for different values. See the [opacity design tokens](/foundations/design_tokens#Opacity)."
+          description="While we offer the full range of opacity options, below are usage guidelines for different values. See the [opacity design tokens](/foundations/design_tokens/overview#Opacity)."
           title="Opacity"
         >
           <MainSection.Card

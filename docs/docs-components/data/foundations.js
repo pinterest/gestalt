@@ -49,13 +49,12 @@ const foundationsTiles: $ReadOnlyArray<DesignOverview> = [
     description: 'When writing at Pinterest, keep these guiding words in mind',
     path: '/foundations/content_standards/voice',
   },
-
   {
     svg: <DesignTokens />,
     title: 'Design tokens',
     description:
       'An expanded color palette for charts, graphs and other data visualizations. Includes guidelines for accessibility and usage.',
-    path: '/foundations/design_tokens',
+    path: '/foundations/design_tokens/overview',
   },
   {
     svg: <DataVisualization />,

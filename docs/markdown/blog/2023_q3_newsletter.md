@@ -45,7 +45,7 @@ We’ve made it easier for developers to use a button as a link by providing a c
 <br />
 More data density for complex experiences for Enterprise and Internal Tools customers has been an issue for a while. We’ve taken the first step by updating our spacing tokens to a denser 4px grid. These will then get applied to a core set of components so that our business and dev tools customers can have more density and be more productive.
 
-**[See the updated spacing tokens](https://gestalt.pinterest.systems/foundations/design_tokens#Spacing)**
+**[See the updated spacing tokens](https://gestalt.pinterest.systems/foundations/design_tokens/overview#Spacing)**
 </Group>
 </TwoCol>
 

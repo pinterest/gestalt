@@ -99,7 +99,7 @@ export default function ColorPage(): ReactNode {
     <Page title="Data visualization color palette">
       <PageHeader
         name="Data visualization color palette"
-        description="The data visualization color palette is used to represent discrete categories of data. This palette utilizes the Gestalt color palette and is optimized for accessibility in data visualizations. The palette is comprised of a 12-color categorical palette, along with a few semantic colors. It can be implemented through our [design tokens](/foundations/design_tokens#Data-visualization)."
+        description="The data visualization color palette is used to represent discrete categories of data. This palette utilizes the Gestalt color palette and is optimized for accessibility in data visualizations. The palette is comprised of a 12-color categorical palette, along with a few semantic colors. It can be implemented through our [design tokens](/foundations/design_tokens/overview#Data-visualization)."
         type="guidelines"
       />
       <MainSection

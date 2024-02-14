@@ -230,7 +230,7 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection
           title="Sizes"
           description={`
-          You can apply \`size\` options to define the size of the text. These font sizes follow those available through our [Design Tokens](/foundations/design_tokens#Font-size). If your text needs to be a [semantic heading (H1-H6)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), use [Heading](/web/heading) instead.
+          You can apply \`size\` options to define the size of the text. These font sizes follow those available through our [Design Tokens](/foundations/design_tokens/overview#Font-size). If your text needs to be a [semantic heading (H1-H6)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), use [Heading](/web/heading) instead.
 
         `}
         >
