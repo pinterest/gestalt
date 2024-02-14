@@ -1,3 +1,9 @@
+## 142.2.1 (Feb 14, 2024)
+
+### Patch
+
+- Docs: Fixed ButtonToggle & SearchGuide information for clarity in Android/iOS ([#3429](https://github.com/pinterest/gestalt/pull/3429)) - [Preview link](https://deploy-preview-3429--gestalt.netlify.app?devexample=true)
+
 ## 142.2.0 (Feb 13, 2024)
 
 ### Minor
