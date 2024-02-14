@@ -279,6 +279,7 @@ export default function Dropdown({
 
   const dropdown = (
     <Popover
+      accessibilityLabel="Dropdown"
       __experimentalPopover={isInExperiment}
       anchor={anchor}
       color="white"
