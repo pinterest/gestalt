@@ -1,3 +1,9 @@
+## 142.3.1 (Feb 14, 2024)
+
+### Patch
+
+- Internal: Update tests for v2 of Popover and Popover-based components ([#3430](https://github.com/pinterest/gestalt/pull/3430)) - [Preview link](https://deploy-preview-3430--gestalt.netlify.app?devexample=true)
+
 ## 142.3.0 (Feb 14, 2024)
 
 ### Minor
