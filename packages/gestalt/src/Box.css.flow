@@ -69,7 +69,6 @@ declare module.exports: {|
   +'opacity08': string,
   +'opacity09': string,
   +'opacity1': string,
-  +'overlay': string,
   +'primary': string,
   +'recommendationBase': string,
   +'recommendationWeak': string,
