@@ -38,7 +38,7 @@ export function RoundingBox({ token }: BaseProps): ReactNode {
   return (
     <Box
       dangerouslySetInlineStyle={{
-        __style: { 'border-radius': `var(--${token.name})` },
+        __style: { 'borderRadius': `var(--${token.name})` },
       }}
       borderStyle="lg"
       width={64}
