@@ -1,4 +1,3 @@
-// Remove after Dropdown is fully released
 // @flow strict
 import { render } from '@testing-library/react';
 import ExperimentProvider from '../../contexts/ExperimentProvider';
