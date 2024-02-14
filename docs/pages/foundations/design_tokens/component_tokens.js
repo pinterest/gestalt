@@ -58,7 +58,11 @@ const components = ['box', 'tag', 'button', 'overlay'];
 export default function DesignTokensPage(): ReactNode {
   return (
     <Page title="Design component tokens">
-      <PageHeader name="Component tokens" description="" type="guidelines" />
+      <PageHeader
+        name="Component tokens"
+        description="Component tokens are under development. We do not recommend their direct consumption as they will be subject to change and documented as minor/patch releases"
+        type="guidelines"
+      />
       {components.map((cmp) => (
         <MainSection key={cmp} name={cmp.charAt(0).toUpperCase() + cmp.slice(1)}>
           {tokenCategories.map(({ name, id, darkValues, category }) => (

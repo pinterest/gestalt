@@ -2,40 +2,52 @@ This file is updated manually
 
 ## 142.2.0 https://github.com/pinterest/gestalt/pull/3422
 
+### PATCH
+
+RENAME
+
+| old-name                                   | new-name                                 |
+| ------------------------------------------ | ---------------------------------------- |
+| color-background-box-transparent-dark-gray | color-background-box-transparentdarkgray |
+| color-background-box-light-wash            | color-background-box-lightwash           |
+| color-background-box-dark-wash             | color-background-box-darkwash            |
+
+## 142.2.0 https://github.com/pinterest/gestalt/pull/3422
+
 ### MINOR
 
 NEW
 
-| name                                     | light                                      | dark                     |
-| ---------------------------------------- | ------------------------------------------ | ------------------------ |
-| color-background-box-default             | color.background.default.value             |                          |
-| color-background-box-info-base           | color.background.info.base.value           |                          |
-| color-background-box-info-weak           | color.background.info.weak.value           |                          |
-| color-background-box-error-base          | color.background.error.base.value          |                          |
-| color-background-box-error-weak          | color.background.error.weak.value          |                          |
-| color-background-box-warning-base        | color.background.warning.base.value        |                          |
-| color-background-box-warning-weak        | color.background.warning.weak.value        |                          |
-| color-background-box-success-base        | color.background.success.base.value        |                          |
-| color-background-box-success-weak        | color.background.success.weak.value        |                          |
-| color-background-box-recommendation-base | color.background.recommendation.base.value |                          |
-| color-background-box-recommendation-weak | color.background.recommendation.weak.value |                          |
-| color-background-box-shopping            | color.background.shopping.value            |                          |
-| color-background-box-primary             | color.background.primary.base.value        |                          |
-| color-background-box-secondary           | color.background.secondary.base.value      |                          |
-| color-background-box-tertiary            | color.background.tertiary.base.value       |                          |
-| color-background-box-selected            | color.background.selected.base.value       |                          |
-| color-background-box-inverse             | color.background.inverse.base.value        |                          |
-| color-background-box-brand               | #color.background.brand.value0074e8        |                          |
-| color-background-box-education           | color.background.education.value           |                          |
-| color-background-box-elevation-accent    | color.background.elevation.accent.value    |                          |
-| color-background-box-elevation-floating  | color.background.elevation.floating.value  |                          |
-| color-background-box-elevation-raised    | color.background.elevation.raised.value    |                          |
-| color-background-box-dark                | color.background.dark.value                |                          |
-| color-background-box-light               | color.background.light.value               |                          |
-| color-background-box-light-wash          | #e2e2e2                                    | #535353                  |
-| color-background-box-dark-wash           | #dadada                                    | #666                     |
-| color-background-box-transparent         | color.transparent.value                    |                          |
-| color-background-box-transparent         | rgba(51, 51, 51, 0.8)                      | rgba(255, 255, 255, 0.8) |
+| name                                       | light                                      | dark                     |
+| ------------------------------------------ | ------------------------------------------ | ------------------------ |
+| color-background-box-default               | color.background.default.value             |                          |
+| color-background-box-info-base             | color.background.info.base.value           |                          |
+| color-background-box-info-weak             | color.background.info.weak.value           |                          |
+| color-background-box-error-base            | color.background.error.base.value          |                          |
+| color-background-box-error-weak            | color.background.error.weak.value          |                          |
+| color-background-box-warning-base          | color.background.warning.base.value        |                          |
+| color-background-box-warning-weak          | color.background.warning.weak.value        |                          |
+| color-background-box-success-base          | color.background.success.base.value        |                          |
+| color-background-box-success-weak          | color.background.success.weak.value        |                          |
+| color-background-box-recommendation-base   | color.background.recommendation.base.value |                          |
+| color-background-box-recommendation-weak   | color.background.recommendation.weak.value |                          |
+| color-background-box-shopping              | color.background.shopping.value            |                          |
+| color-background-box-primary               | color.background.primary.base.value        |                          |
+| color-background-box-secondary             | color.background.secondary.base.value      |                          |
+| color-background-box-tertiary              | color.background.tertiary.base.value       |                          |
+| color-background-box-selected              | color.background.selected.base.value       |                          |
+| color-background-box-inverse               | color.background.inverse.base.value        |                          |
+| color-background-box-brand                 | color.background.brand.value               |                          |
+| color-background-box-education             | color.background.education.value           |                          |
+| color-background-box-elevation-accent      | color.background.elevation.accent.value    |                          |
+| color-background-box-elevation-floating    | color.background.elevation.floating.value  |                          |
+| color-background-box-elevation-raised      | color.background.elevation.raised.value    |                          |
+| color-background-box-dark                  | color.background.dark.value                |                          |
+| color-background-box-light                 | color.background.light.value               |                          |
+| color-background-box-light-wash            | #e2e2e2                                    | #535353                  |
+| color-background-box-dark-wash             | #dadada                                    | #666                     |
+| color-background-box-transparent           | color.transparent.value                    |                          |
+| color-background-box-transparent-dark-gray | rgba(51, 51, 51, 0.8)                      | rgba(255, 255, 255, 0.8) |
 
 #### Why
 
