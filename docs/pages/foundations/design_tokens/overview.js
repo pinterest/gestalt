@@ -163,7 +163,7 @@ The design color tokens on this section, those that start with \`$color-\` are a
             description={`
 Visit the [${infoPage?.name} page](/${infoPage?.path}) for guidelines and usage.`}
           >
-            <Table accessibilityLabel={`${name} Values`}>
+            <Table accessibilityLabel={`${name} values`}>
               <TableHeaders hasDarkValues={darkValues} />
               <Table.Body>
                 {(name === 'Data visualization' ? dataVizColorTokens : allTokens)
