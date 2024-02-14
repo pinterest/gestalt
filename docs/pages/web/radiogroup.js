@@ -8,7 +8,7 @@ import MainSection from '../../docs-components/MainSection';
 import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import SandpackExample from '../../docs-components/SandpackExample';
-import addingABadgeExample from '../../examples/radiogroup/addingABadgeExample';
+import badge from '../../examples/radiogroup/addingABadgeExample';
 import addingAPopoverExample from '../../examples/radiogroup/addingAPopoverExample';
 import directionExample from '../../examples/radiogroup/directionExample';
 import dontUseToSelectMultipleItems from '../../examples/radiogroup/dontUseToSelectMultipleItems';
@@ -290,16 +290,12 @@ export default function DocsPage({
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Adding a Badge"
+          title="With Badge"
           description={`
     The \`badge\` prop can be used to add a badge to the RadioButton.
   `}
         >
-          <MainSection.Card
-            sandpackExample={
-              <SandpackExample name="Adding a popover example" code={addingABadgeExample} />
-            }
-          />
+          <MainSection.Card sandpackExample={<SandpackExample name="With Badge" code={badge} />} />
         </MainSection.Subsection>
       </MainSection>
       <MainSection name="Writing">
