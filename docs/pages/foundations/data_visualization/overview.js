@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { Box, Image, SlimBanner } from 'gestalt';
+import { BannerSlim, Box, Image } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection';
 import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';
@@ -102,7 +102,7 @@ export default function GuidelinesPage(): ReactNode {
             </Box>
           </Box>
         </Box>
-        <SlimBanner
+        <BannerSlim
           type="info"
           iconAccessibilityLabel="Information"
           message="Data visualization can also be used to explain, but this is generally done via custom, hand-curated reports that aren’t automated. This isn’t part of our product UI or design system, but data visualizations in our products can help people create custom reports for presentations, blog posts and reports."

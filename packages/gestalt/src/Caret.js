@@ -23,7 +23,7 @@ export default function Caret(props: Props): ReactNode {
 
   return (
     <svg height={height} width={width}>
-      <path d={path} stroke="rgba(0, 0, 0, 0.02)" />
+      <path d={path} stroke="rgb(0 0 0 / 0.02)" />
     </svg>
   );
 }

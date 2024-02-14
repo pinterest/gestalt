@@ -38,7 +38,7 @@ import {
   zhCN,
   zhTW,
 } from 'date-fns/locale';
-import { Flex, SelectList, SlimBanner } from 'gestalt';
+import { BannerSlim, Flex, SelectList } from 'gestalt';
 import { DateRange } from 'gestalt-datepicker';
 import docGen, { type DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -113,8 +113,8 @@ export default function DatePickerPage({
         badge="pilot"
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
-        slimBanner={
-          <SlimBanner
+        bannerSlim={
+          <BannerSlim
             type="warning"
             iconAccessibilityLabel="Warning message"
             message="DateRange is an pilot component. Expect development and design iteration and breaking API changes."

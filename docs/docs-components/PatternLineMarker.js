@@ -1,6 +1,8 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, Flex, Text, useColorScheme } from 'gestalt';
+import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
+import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-light.json';
 
 type DataVisualizationColors =
   | '01'
@@ -17,8 +19,11 @@ type DataVisualizationColors =
   | '12';
 
 export const useHexColor: () => (DataVisualizationColors) => string = () => {
-  const theme = useColorScheme();
-  return (vizColor: DataVisualizationColors) => theme[`colorDataVisualization${vizColor}`];
+  const { name } = useColorScheme();
+  return (vizColor: DataVisualizationColors) =>
+    name === 'lightMode'
+      ? lightColorDesignTokens[`color-data-visualization-${vizColor}`]
+      : darkColorDesignTokens[`color-data-visualization-${vizColor}`];
 };
 
 export default function PatternBarFill(): ReactNode {

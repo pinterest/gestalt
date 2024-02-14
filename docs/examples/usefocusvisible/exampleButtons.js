@@ -17,8 +17,7 @@ export default function Example(): ReactNode {
             onFocus={() => setFocusedButton1(true)}
             style={{
               outline: 'none',
-              boxShadow:
-                isFocusVisible && focusedButton1 ? '0 0 0 4px rgba(0, 132, 255, 0.5)' : null,
+              boxShadow: isFocusVisible && focusedButton1 ? '0 0 0 4px rgb(0 132 255 / 0.5)' : null,
             }}
             type="button"
           >
@@ -33,7 +32,7 @@ export default function Example(): ReactNode {
             onFocus={() => setFocusedButton2(true)}
             style={{
               outline: 'none',
-              boxShadow: focusedButton2 ? '0 0 0 4px rgba(0, 132, 255, 0.5)' : null,
+              boxShadow: focusedButton2 ? '0 0 0 4px rgb(0 132 255 / 0.5)' : null,
             }}
             type="button"
           >

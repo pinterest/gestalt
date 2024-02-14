@@ -15,7 +15,7 @@ export type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 type Props = {
   accessibilityLabel?: string,
   anchor: HTMLElement,
-  bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
+  bgColor: 'blue' | 'darkGray' | 'white',
   border?: boolean,
   caret?: boolean,
   children?: ReactNode,
@@ -63,7 +63,15 @@ export default function Contents({
 
   const caretOffset = middlewareData.arrow;
   const visibility = middlewareData.hide?.referenceHidden === true ? 'hidden' : 'visible';
-  const background = bgColor === 'white' ? `${bgColor}BgElevated` : `${bgColor}Bg`;
+
+  let background: 'overlay' | 'blueBg' | 'darkGrayBg' = 'overlay';
+
+  if (bgColor === 'blue') {
+    background = 'blueBg';
+  } else if (bgColor === 'darkGray') {
+    background = 'darkGrayBg';
+  }
+
   const bgColorElevated = bgColor === 'white' ? 'whiteElevated' : bgColor;
   const isCaretVertical = placement === 'top' || placement === 'bottom';
 

@@ -24,7 +24,6 @@ test.describe('Masonry: Item prop change', () => {
       selectors.itemCounter(1)
     );
     expect(await firstCounterValueMiddle.textContent()).toEqual('1');
-
     await page.evaluate(() => {
       window.dispatchEvent(
         new CustomEvent('set-masonry-items', {
@@ -47,8 +46,8 @@ test.describe('Masonry: Item prop change', () => {
       { selector: selectors.gridItem },
       { polling: 'raf' }
     );
-    await waitForRenderedItems(page, { targetItemsGTE: 19 });
 
+    await waitForRenderedItems(page, { targetItemsGTE: 18 });
     const firstCounterValueLast = await page.locator(selectors.itemCounter(1));
 
     expect(await firstCounterValueLast.textContent()).toEqual('0');

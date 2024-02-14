@@ -441,7 +441,7 @@ interface DefaultLabelProviderProps {
         BannerOverlay: {
           accessibilityDismissButtonLabel: string;
         };
-        Callout: {
+        BannerCallout: {
           accessibilityDismissButtonLabel: string;
           iconAccessibilityLabelError: string;
           iconAccessibilityLabelInfo: string;
@@ -491,7 +491,7 @@ interface DefaultLabelProviderProps {
         SideNavigation: {
           accessibilityDismissButtonLabel: string;
         };
-        SlimBanner: {
+        BannerSlim: {
           accessibilityDismissButtonLabel: string;
           iconAccessibilityLabelError: string;
           iconAccessibilityLabelInfo: string;
@@ -890,7 +890,7 @@ interface ButtonGroupProps {
   children?: Node | undefined;
 }
 
-interface CalloutProps {
+interface BannerCalloutProps {
   iconAccessibilityLabel: string;
   message: string;
   type: 'error' | 'info' | 'recommendation' | 'success' | 'warning';
@@ -1170,7 +1170,6 @@ interface IconButtonProps {
   accessibilityPopupRole?: 'menu' | 'dialog' | undefined;
   bgColor?:
     | 'transparent'
-    | 'darkGray'
     | 'transparentDarkGray'
     | 'gray'
     | 'lightGray'
@@ -1202,7 +1201,6 @@ interface IconButtonLinkProps {
   accessibilityLabel: string;
   bgColor?:
     | 'transparent'
-    | 'darkGray'
     | 'transparentDarkGray'
     | 'gray'
     | 'lightGray'
@@ -1591,7 +1589,6 @@ interface PogProps {
   active?: boolean | undefined;
   bgColor?:
     | 'transparent'
-    | 'darkGray'
     | 'transparentDarkGray'
     | 'gray'
     | 'lightGray'
@@ -1895,7 +1892,7 @@ interface SideNavigationNestedGroupProps {
   onExpand: (args: { expanded: boolean }) => void;
 }
 
-interface SlimBannerProps {
+interface BannerSlimProps {
   message: React.ReactElement<typeof Text> | string;
   dismissButton?:
     | {
@@ -2521,9 +2518,9 @@ export const ButtonLink: ReactForwardRef<HTMLAnchorElement, ButtonLinkProps>;
 export const ButtonGroup: React.FunctionComponent<ButtonGroupProps>;
 
 /**
- * https://gestalt.pinterest.systems/web/callout
+ * https://gestalt.pinterest.systems/web/bannercallout
  */
-export const Callout: React.FunctionComponent<CalloutProps>;
+export const BannerCallout: React.FunctionComponent<BannerCalloutProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/checkbox
@@ -2834,9 +2831,9 @@ export const SideNavigation: React.FunctionComponent<SideNavigationProps> &
   SideNavigationSubcomponents;
 
 /**
- * https://gestalt.pinterest.systems/web/slimbanner
+ * https://gestalt.pinterest.systems/web/bannerslim
  */
-export const SlimBanner: React.FunctionComponent<SlimBannerProps>;
+export const BannerSlim: React.FunctionComponent<BannerSlimProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/spinner
@@ -3072,30 +3069,15 @@ export function useDefaultLabel(componentName: string): { [k: string]: string };
  */
 export function useColorScheme(): {
   name: string;
-  colorRed0: string;
-  colorRed100: string;
-  colorRed100Active: string;
   colorRed100Hovered: string;
   colorGray0: string;
-  colorGray0Active: string;
-  colorGray0Hovered: string;
   colorGray50: string;
   colorGray100: string;
   colorGray100Active: string;
-  colorGray100Hovered: string;
-  colorGray150: string;
-  colorGray150Hovered: string;
   colorGray200: string;
-  colorGray200Active: string;
-  colorGray200Hovered: string;
   colorGray300: string;
   colorGray400: string;
-  colorTransparentDarkGray: string;
   colorTransparentGray60: string;
   colorTransparentGray100: string;
-  colorTransparentGray500: string;
-  colorTransparentWhite: string;
-  blueHovered: string;
-  blueActive: string;
   [tokenName: string]: string;
 };

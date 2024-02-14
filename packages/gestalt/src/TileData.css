@@ -31,7 +31,7 @@
 }
 
 .transparent {
-  composes: transparentBg from "./Colors.css";
+  composes: transparent from "./Colors.css";
 }
 
 .selected {

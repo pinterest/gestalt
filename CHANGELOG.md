@@ -1,3 +1,165 @@
+## 142.3.0 (Feb 14, 2024)
+
+### Minor
+
+- RadioGroup: Add Badge prop ([#3425](https://github.com/pinterest/gestalt/pull/3425)) - [Preview link](https://deploy-preview-3425--gestalt.netlify.app?devexample=true)
+
+## 142.2.1 (Feb 14, 2024)
+
+### Patch
+
+- Docs: Fixed ButtonToggle & SearchGuide information for clarity in Android/iOS ([#3429](https://github.com/pinterest/gestalt/pull/3429)) - [Preview link](https://deploy-preview-3429--gestalt.netlify.app?devexample=true)
+
+## 142.2.0 (Feb 13, 2024)
+
+### Minor
+
+- Tokens, Box: implement component background tokens ([#3424](https://github.com/pinterest/gestalt/pull/3424)) - [Preview link](https://deploy-preview-3424--gestalt.netlify.app?devexample=true)
+
+## 142.1.0 (Feb 13, 2024)
+
+### Minor
+
+- Tag: implement component tokens ([#3422](https://github.com/pinterest/gestalt/pull/3422)) - [Preview link](https://deploy-preview-3422--gestalt.netlify.app?devexample=true)
+
+## 142.0.0 (Feb 13, 2024)
+
+### Major
+
+- Tokens: fix `color-background-overlay` token bug introduced in #3421 ([#3423](https://github.com/pinterest/gestalt/pull/3423)) - [Preview link](https://deploy-preview-3423--gestalt.netlify.app?devexample=true)
+
+## 141.0.0 (Feb 12, 2024)
+
+### Major
+
+- Tokens: update style-dictionary dependency and restructure component tokens to match library ([#3421](https://github.com/pinterest/gestalt/pull/3421)) - [Preview link](https://deploy-preview-3421--gestalt.netlify.app?devexample=true)
+
+## 140.1.0 (Feb 9, 2024)
+
+### Minor
+
+- Tokens: fix in Android tokens ([#3420](https://github.com/pinterest/gestalt/pull/3420)) - [Preview link](https://deploy-preview-3420--gestalt.netlify.app?devexample=true)
+
+## 140.0.0 (Feb 9, 2024)
+
+### Major
+
+- Popover: deprecate red color ([#3415](https://github.com/pinterest/gestalt/pull/3415)) - [Preview link](https://deploy-preview-3415--gestalt.netlify.app?devexample=true)
+
+## 139.1.2 (Feb 9, 2024)
+
+### Patch
+
+- Docs: Added ButtonToggle docs and graphics ([#3416](https://github.com/pinterest/gestalt/pull/3416)) - [Preview link](https://deploy-preview-3416--gestalt.netlify.app?devexample=true)
+
+## 139.1.1 (Feb 9, 2024)
+
+### Patch
+
+- Masonry: Fix integration tests and run in CI ([#3417](https://github.com/pinterest/gestalt/pull/3417)) - [Preview link](https://deploy-preview-3417--gestalt.netlify.app?devexample=true)
+
+## 139.1.0 (Feb 9, 2024)
+
+### Minor
+
+- Tokens, Modal, OverlayPanel, SheetMobile, Popover: consume from overlay component tokens ([#3413](https://github.com/pinterest/gestalt/pull/3413)) - [Preview link](https://deploy-preview-3413--gestalt.netlify.app?devexample=true)
+
+## 139.0.4 (Feb 9, 2024)
+
+### Patch
+
+- Internal: add test for Masonry scroll performance ([#3388](https://github.com/pinterest/gestalt/pull/3388)) - [Preview link](https://deploy-preview-3388--gestalt.netlify.app?devexample=true)
+
+## 139.0.3 (Feb 9, 2024)
+
+### Patch
+
+- ChartGraph: fix bug from #3411 still consuming from ColorSchemeProvider ([#3418](https://github.com/pinterest/gestalt/pull/3418)) - [Preview link](https://deploy-preview-3418--gestalt.netlify.app?devexample=true)
+
+## 139.0.2 (Feb 7, 2024)
+
+### Patch
+
+- Internal: remove unused deprecated legacy colors ([#3412](https://github.com/pinterest/gestalt/pull/3412)) - [Preview link](https://deploy-preview-3412--gestalt.netlify.app?devexample=true)
+
+## 139.0.1 (Feb 7, 2024)
+
+### Patch
+
+- Docs, TagData, TileData: Docs, TagData, Tile to consume directly from tokens rather than ColorSchemeProvider and legacy colors ([#3411](https://github.com/pinterest/gestalt/pull/3411)) - [Preview link](https://deploy-preview-3411--gestalt.netlify.app?devexample=true)
+
+## 139.0.0 (Feb 7, 2024)
+
+### Major
+
+- Pog, IconButton: implemented color tokens and deprecated darkGray color (duplicated with selected state) ([#3410](https://github.com/pinterest/gestalt/pull/3410)) - [Preview link](https://deploy-preview-3410--gestalt.netlify.app?devexample=true)
+
+## 138.0.1 (Feb 7, 2024)
+
+### Patch
+
+- Button: documenting Color contrast in disabled state ([#3409](https://github.com/pinterest/gestalt/pull/3409)) - [Preview link](https://deploy-preview-3409--gestalt.netlify.app?devexample=true)
+
+## 138.0.0 (Feb 6, 2024)
+
+### Major
+
+- SlimBanner: Renamed to BannerSlim ([#3399](https://github.com/pinterest/gestalt/pull/3399)) - [Preview link](https://deploy-preview-3399--gestalt.netlify.app?devexample=true)
+
+## 137.0.0 (Feb 6, 2024)
+
+### Major
+
+- Callout: Rename to BannerCallout ([#3408](https://github.com/pinterest/gestalt/pull/3408)) - [Preview link](https://deploy-preview-3408--gestalt.netlify.app?devexample=true)
+
+## 136.0.1 (Feb 6, 2024)
+
+### Patch
+
+- Internal: moved all rgba color codes instances to rbg color codes ([#3407](https://github.com/pinterest/gestalt/pull/3407)) - [Preview link](https://deploy-preview-3407--gestalt.netlify.app?devexample=true)
+
+## 136.0.0 (Feb 5, 2024)
+
+### Major
+
+- Tokens: rename alias tokens from color-text-icon-_ to color-icon-_ ([#3404](https://github.com/pinterest/gestalt/pull/3404)) - [Preview link](https://deploy-preview-3404--gestalt.netlify.app?devexample=true)
+
+## 135.0.0 (Feb 5, 2024)
+
+### Major
+
+- ColorSchemeProvider: removed deprecated colors ([#3406](https://github.com/pinterest/gestalt/pull/3406)) - [Preview link](https://deploy-preview-3406--gestalt.netlify.app?devexample=true)
+
+## 134.3.2 (Feb 5, 2024)
+
+### Patch
+
+- Internal: Bump yarn from 1.22.4 to 1.22.21 ([#3405](https://github.com/pinterest/gestalt/pull/3405)) - [Preview link](https://deploy-preview-3405--gestalt.netlify.app?devexample=true)
+
+## 134.3.1 (Feb 5, 2024)
+
+### Patch
+
+- Button: moved Button colors to component tokens ([#3400](https://github.com/pinterest/gestalt/pull/3400)) - [Preview link](https://deploy-preview-3400--gestalt.netlify.app?devexample=true)
+
+## 134.3.0 (Feb 5, 2024)
+
+### Minor
+
+- Tokens: add component tokens for Button ([#3401](https://github.com/pinterest/gestalt/pull/3401)) - [Preview link](https://deploy-preview-3401--gestalt.netlify.app?devexample=true)
+
+## 134.2.3 (Feb 5, 2024)
+
+### Patch
+
+- Internal: remove blue color replaced with color-background-education ([#3403](https://github.com/pinterest/gestalt/pull/3403)) - [Preview link](https://deploy-preview-3403--gestalt.netlify.app?devexample=true)
+
+## 134.2.2 (Feb 5, 2024)
+
+### Patch
+
+- Internal: removed unused deprecated colors ([#3402](https://github.com/pinterest/gestalt/pull/3402)) - [Preview link](https://deploy-preview-3402--gestalt.netlify.app?devexample=true)
+
 ## 134.2.1 (Feb 1, 2024)
 
 ### Patch

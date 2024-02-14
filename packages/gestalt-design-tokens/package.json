@@ -1,6 +1,6 @@
 {
   "name": "gestalt-design-tokens",
-  "version": "134.2.1",
+  "version": "142.3.0",
   "license": "Apache-2.0",
   "homepage": "https://gestalt.pinterest.systems/",
   "description": "Design tokens style dictionary for Gestalt",
@@ -16,7 +16,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "style-dictionary": "^3.0.1"
+    "style-dictionary": "^3.8.0"
   },
   "peerDependencies": {
     "gestalt": ">0.0.0"

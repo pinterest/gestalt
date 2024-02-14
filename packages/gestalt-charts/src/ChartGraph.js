@@ -501,7 +501,7 @@ function ChartGraph({
                   <Tooltip isAnimationActive={false} content={<EmptyBox />} />
                 ) : (
                   <Tooltip
-                    cursor={{ fill: 'rgba(0, 0, 0, var(--opacity-100))' }}
+                    cursor={{ fill: 'rgb(0 0 0 / var(--opacity-100))' }}
                     isAnimationActive={false}
                     content={renderTooltip === 'auto' ? defaultTooltip : customTooltip}
                   />

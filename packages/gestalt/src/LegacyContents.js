@@ -30,7 +30,7 @@ export type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 type OwnProps = {
   accessibilityLabel?: string,
   anchor: HTMLElement,
-  bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
+  bgColor: 'blue' | 'darkGray' | 'white',
   border?: boolean,
   caret?: boolean,
   children?: ReactNode,
@@ -244,7 +244,15 @@ class LegacyContents extends Component<Props, State> {
 
     // Needed to prevent UI thrashing
     const visibility = popoverDir === null ? 'hidden' : 'visible';
-    const background = bgColor === 'white' ? `${bgColor}BgElevated` : `${bgColor}Bg`;
+
+    let background: 'overlay' | 'blueBg' | 'darkGrayBg' = 'overlay';
+
+    if (bgColor === 'blue') {
+      background = 'blueBg';
+    } else if (bgColor === 'darkGray') {
+      background = 'darkGrayBg';
+    }
+
     const bgColorElevated = bgColor === 'white' ? 'whiteElevated' : bgColor;
     const isCaretVertical = ['down', 'up'].includes(popoverDir);
 

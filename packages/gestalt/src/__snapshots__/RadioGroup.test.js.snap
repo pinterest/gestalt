@@ -46,7 +46,11 @@ exports[`RadioGroup renders 1`] = `
         </div>
         <div
           className="Flex rowGap0 columnGap0 xsDirectionColumn"
-        />
+        >
+          <div
+            className="Flex rowGap0 columnGap0 xsDirectionRow"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -99,7 +103,11 @@ exports[`RadioGroup renders a hidden legend 1`] = `
         </div>
         <div
           className="Flex rowGap0 columnGap0 xsDirectionColumn"
-        />
+        >
+          <div
+            className="Flex rowGap0 columnGap0 xsDirectionRow"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -153,7 +161,11 @@ exports[`RadioGroup renders an error 1`] = `
         </div>
         <div
           className="Flex rowGap0 columnGap0 xsDirectionColumn"
-        />
+        >
+          <div
+            className="Flex rowGap0 columnGap0 xsDirectionRow"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -250,7 +262,11 @@ exports[`RadioGroup renders in different direction 1`] = `
         </div>
         <div
           className="Flex rowGap0 columnGap0 xsDirectionColumn"
-        />
+        >
+          <div
+            className="Flex rowGap0 columnGap0 xsDirectionRow"
+          />
+        </div>
       </div>
     </div>
   </div>
