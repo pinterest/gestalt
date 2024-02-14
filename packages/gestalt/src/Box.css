@@ -530,13 +530,13 @@
 }
 
 .lightWash {
-  background-color: var(--color-background-box-light-wash);
+  background-color: var(--color-background-box-lightwash);
 }
 
 .darkWash {
-  background-color: var(--color-background-box-dark-wash);
+  background-color: var(--color-background-box-darkwash);
 }
 
 .transparentDarkGrayBg {
-  background-color: var(--color-background-box-transparent-dark-gray);
+  background-color: var(--color-background-box-transparentdarkgray);
 }
