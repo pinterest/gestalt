@@ -1,10 +1,15 @@
 // @flow strict
 import { create } from 'react-test-renderer';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import Link from './Link';
 import Text from './Text';
 import Tooltip from './Tooltip';
+import renderWithExperiment from './utils/testing/renderWithExperiment';
 import { FixedZIndex } from './zIndex';
+
+// Remove experiment after Dropdown v2 is fully released
+const render = (children: React$Element<React$ElementType>) =>
+  renderWithExperiment('web_gestalt_tooltip_v2', children);
 
 test('Tooltip renders', () => {
   const component = create(
@@ -62,14 +67,22 @@ test('Tooltip should render as expected when hovered', () => {
   expect(screen.getByText('This is a tooltip')).toBeVisible();
 });
 
-test('Tooltip renders with idealDirection', () => {
-  const component = create(
+test('Tooltip renders with idealDirection', async () => {
+  const { container } = render(
     <Tooltip text="This is a tooltip" idealDirection="up">
       <div>Hi</div>
     </Tooltip>,
   );
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
+
+  // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+  const ariaContainer = container.querySelector('[aria-label]');
+  expect(ariaContainer).not.toBe(null);
+
+  if (ariaContainer) {
+    fireEvent.mouseEnter(ariaContainer);
+  }
+
+  expect(screen.getByText('This is a tooltip')).toBeVisible();
 });
 
 test('Tooltip renders with zIndex', () => {
