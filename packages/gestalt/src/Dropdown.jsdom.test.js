@@ -1,8 +1,13 @@
 // @flow strict
 import { Fragment } from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen, waitFor } from '@testing-library/react';
 import Dropdown from './Dropdown';
 import { DOWN_ARROW, ENTER, ESCAPE, TAB, UP_ARROW } from './keyCodes';
+import renderWithExperiment from './utils/testing/renderWithExperiment';
+
+// Remove experiment after Dropdown v2 is fully released
+const render = (children: React$Element<React$ElementType>) =>
+  renderWithExperiment('web_gestalt_popover_v2_dropdown', children);
 
 describe('Dropdown', () => {
   afterEach(() => {
@@ -349,7 +354,7 @@ describe('Dropdown', () => {
     expect(mockOnDismiss).toHaveBeenCalledTimes(1);
   });
 
-  it('changes active descendant when arrow keys are pressed', () => {
+  it('changes active descendant when arrow keys are pressed', async () => {
     const mockOnDismiss = jest.fn<[], void>();
     const onSelectMock = jest.fn<
       [
@@ -364,8 +369,13 @@ describe('Dropdown', () => {
 
     render(
       <Dropdown anchor={element} id="ex-6" onDismiss={mockOnDismiss}>
-        <Dropdown.Item onSelect={onSelectMock} option={{ value: 'item 1', label: 'Item 1' }} />
         <Dropdown.Item
+          dataTestId="item-1"
+          onSelect={onSelectMock}
+          option={{ value: 'item 1', label: 'Item 1' }}
+        />
+        <Dropdown.Item
+          dataTestId="item-2"
           onSelect={onSelectMock}
           option={{
             value: 'item 2',
@@ -373,6 +383,7 @@ describe('Dropdown', () => {
           }}
         />
         <Dropdown.Link
+          dataTestId="item-3"
           href="https://pinterest.com"
           isExternal
           option={{
@@ -402,29 +413,30 @@ describe('Dropdown', () => {
       </Dropdown>,
     );
 
-    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
-    expect(document.activeElement).toHaveAttribute('id', 'ex-6-item-0');
+    // Wait for state change in Dropdown so that the first item has focus
+    await waitFor(() => expect(screen.getByTestId('item-1')).toHaveFocus());
 
     fireEvent.keyDown(window.document, {
       keyCode: DOWN_ARROW,
     });
-    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
-    expect(document.activeElement).toHaveAttribute('id', 'ex-6-item-1');
+
+    expect(screen.getByTestId('item-2')).toHaveFocus();
 
     fireEvent.keyDown(window.document, {
       keyCode: DOWN_ARROW,
     });
-    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
+
+    // eslint-disable-next-line testing-library/no-node-access -- No way to pass test id for the link and no dedicated method for finding active element by testing-library
     expect(document.activeElement).toHaveAttribute('href', 'https://pinterest.com');
 
     fireEvent.keyDown(window.document, {
       keyCode: UP_ARROW,
     });
-    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
-    expect(document.activeElement).toHaveAttribute('id', 'ex-6-item-1');
+
+    expect(screen.getByTestId('item-2')).toHaveFocus();
   });
 
-  it('should call item onSelect when enter key is pressed', () => {
+  it('should call item onSelect when enter key is pressed', async () => {
     const mockOnDismiss = jest.fn<[], void>();
     const onSelectMock = jest.fn<
       [
@@ -439,8 +451,13 @@ describe('Dropdown', () => {
 
     render(
       <Dropdown anchor={element} id="ex-7" onDismiss={mockOnDismiss}>
-        <Dropdown.Item onSelect={onSelectMock} option={{ value: 'item 1', label: 'Item 1' }} />
         <Dropdown.Item
+          dataTestId="item-1"
+          onSelect={onSelectMock}
+          option={{ value: 'item 1', label: 'Item 1' }}
+        />
+        <Dropdown.Item
+          dataTestId="item-2"
           onSelect={onSelectMock}
           option={{
             value: 'item 2',
@@ -477,14 +494,14 @@ describe('Dropdown', () => {
       </Dropdown>,
     );
 
-    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
-    expect(document.activeElement).toHaveAttribute('id', 'ex-7-item-0');
+    // Wait for state change in Dropdown so that the first item has focus
+    await waitFor(() => expect(screen.getByTestId('item-1')).toHaveFocus());
 
     fireEvent.keyDown(window.document, {
       keyCode: DOWN_ARROW,
     });
-    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
-    expect(document.activeElement).toHaveAttribute('id', 'ex-7-item-1');
+
+    expect(screen.getByTestId('item-2')).toHaveFocus();
 
     fireEvent.keyDown(window.document, {
       keyCode: ENTER,
@@ -492,7 +509,7 @@ describe('Dropdown', () => {
     expect(onSelectMock).toHaveBeenCalledTimes(1);
   });
 
-  it('should call link onClick when enter key is pressed', () => {
+  it('should call link onClick when enter key is pressed', async () => {
     const mockOnDismiss = jest.fn<[], void>();
     const onSelectMock = jest.fn<
       [
@@ -517,7 +534,11 @@ describe('Dropdown', () => {
 
     render(
       <Dropdown anchor={element} id="ex-8" onDismiss={mockOnDismiss}>
-        <Dropdown.Item onSelect={onSelectMock} option={{ value: 'item 1', label: 'Item 1' }} />
+        <Dropdown.Item
+          dataTestId="item-1"
+          onSelect={onSelectMock}
+          option={{ value: 'item 1', label: 'Item 1' }}
+        />
         <Dropdown.Link
           href="https://pinterest.com/today"
           isExternal
@@ -556,8 +577,8 @@ describe('Dropdown', () => {
       </Dropdown>,
     );
 
-    // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
-    expect(document.activeElement).toHaveAttribute('id', 'ex-8-item-0');
+    // Wait for state change in Dropdown so that the first item has focus
+    await waitFor(() => expect(screen.getByTestId('item-1')).toHaveFocus());
 
     fireEvent.keyDown(window.document, {
       keyCode: DOWN_ARROW,

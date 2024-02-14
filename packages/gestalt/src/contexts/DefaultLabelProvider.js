@@ -24,7 +24,7 @@ export type DefaultLabelContextType = {
   BannerOverlay: {
     accessibilityDismissButtonLabel: string,
   },
-  Callout: {
+  BannerCallout: {
     accessibilityDismissButtonLabel: string,
     iconAccessibilityLabelError: string,
     iconAccessibilityLabelInfo: string,
@@ -78,7 +78,7 @@ export type DefaultLabelContextType = {
   SideNavigation: {
     accessibilityDismissButtonLabel: string,
   },
-  SlimBanner: {
+  BannerSlim: {
     accessibilityDismissButtonLabel: string,
     iconAccessibilityLabelError: string,
     iconAccessibilityLabelInfo: string,
@@ -140,7 +140,7 @@ export const fallbackLabels: DefaultLabelContextType = {
   ActivationCard: {
     accessibilityDismissButtonLabel: 'Dismiss',
   },
-  Callout: {
+  BannerCallout: {
     accessibilityDismissButtonLabel: 'Dismiss Banner',
     iconAccessibilityLabelError: 'Error',
     iconAccessibilityLabelInfo: 'Information',
@@ -194,7 +194,7 @@ export const fallbackLabels: DefaultLabelContextType = {
   SideNavigation: {
     accessibilityDismissButtonLabel: 'Dismiss side navigation',
   },
-  SlimBanner: {
+  BannerSlim: {
     accessibilityDismissButtonLabel: 'Dismiss banner',
     iconAccessibilityLabelError: 'Error',
     iconAccessibilityLabelInfo: 'Information',

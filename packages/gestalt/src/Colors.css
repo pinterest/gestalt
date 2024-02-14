@@ -1,133 +1,40 @@
 :root {
   /* primary colors */
-  --g-colorRed0: #ff5247;
-  --g-colorRed100: #e60023;
   --g-colorGray0: #fff;
   --g-colorGray50: #fff;
   --g-colorGray100: #efefef;
-  --g-colorGray150: #ddd;
   --g-colorGray200: #767676;
   --g-colorGray300: #111;
   --g-colorGray400: #000;
-
-  /* secondary colors */
-  --g-green: #0fa573;
-  --g-pine: #0a6955;
-  --g-olive: #364a4c;
-  --g-blue: #0074e8;
-  --g-navy: #004b91;
-  --g-midnight: #133a5e;
-  --g-purple: #b469eb;
-  --g-orchid: #8046a5;
-  --g-eggplant: #5b2677;
-  --g-maroon: #6e0f3c;
-  --g-watermelon: #f13535;
-  --g-orange: #e3780c;
-
-  /* hover colors */
-  --g-colorGray0Hovered: #f0f0f0;
-  --g-colorGray100Hovered: #e2e2e2;
-  --g-colorGray150Hovered: #d0d0d0;
-  --g-colorGray200Hovered: #878787;
   --g-colorRed100Hovered: #ad081b;
-  --g-blueHovered: #4a8ad4;
-
-  /* active colors */
-  --g-colorGray0Active: #e0e0e0;
-  --g-colorGray100Active: #dadada;
-  --g-colorGray200Active: #828282;
-  --g-colorRed100Active: #a3081a;
-  --g-blueActive: #4a85c9;
-
-  /* transparent colors */
-  --g-colorTransparentDarkGray: rgb(51 51 51 / 0.8);
-  --g-colorTransparentWhite: rgb(255 255 255 / 0.8);
   --g-colorTransparentGray60: rgb(0 0 0 / 0.06);
   --g-colorTransparentGray100: rgb(0 0 0 / 0.1);
-  --g-colorTransparentGray500: rgb(0 0 0 / 0.1);
-  --g-colorTransparentGray800: rgb(0 0 0 / 0.8);
 }
 
-/** Design Token Colors **/
-
-.default {
-  background-color: var(--color-background-default);
-}
+/** Colors Design Token **/
 
 .infoBase {
   background-color: var(--color-background-info-base);
-}
-
-.infoStrong {
-  background-color: var(--color-background-info-strong);
-}
-
-.infoWeak {
-  background-color: var(--color-background-info-weak);
 }
 
 .errorBase {
   background-color: var(--color-background-error-base);
 }
 
-.errorWeak {
-  background-color: var(--color-background-error-weak);
-}
-
 .warningBase {
   background-color: var(--color-background-warning-base);
-}
-
-.warningWeak {
-  background-color: var(--color-background-warning-weak);
 }
 
 .successBase {
   background-color: var(--color-background-success-base);
 }
 
-.successWeak {
-  background-color: var(--color-background-success-weak);
-}
-
 .recommendationBase {
   background-color: var(--color-background-recommendation-base);
 }
 
-.recommendationWeak {
-  background-color: var(--color-background-recommendation-weak);
-}
-
-.shopping {
-  background-color: var(--color-background-shopping);
-}
-
-.primary {
-  background-color: var(--color-background-primary-base);
-}
-
-.secondary {
-  background-color: var(--color-background-secondary-base);
-}
-
-.tertiary {
-  background-color: var(--color-background-tertiary-base);
-}
-
 .selected {
   background-color: var(--color-background-selected-base);
-}
-
-.inverse {
-  background-color: var(--color-background-inverse-base);
-}
-
-.brand {
-  background-color: var(--color-background-brand);
-}
-
-.education {
-  background-color: var(--color-background-education);
 }
 
 .washDark {
@@ -138,24 +45,24 @@
   background-color: var(--color-background-wash-light);
 }
 
-.dark {
-  background-color: var(--color-background-dark);
+.tertiary {
+  background-color: var(--color-background-tertiary-base);
 }
 
-.light {
-  background-color: var(--color-background-light);
+.transparent {
+  background-color: var(--color-transparent);
 }
 
-.elevationAccent {
-  background-color: var(--color-background-elevation-accent);
+.overlay {
+  background-color: var(--color-background-overlay);
 }
 
-.elevationFloating {
-  background-color: var(--color-background-elevation-floating);
+.default {
+  background-color: var(--color-background-default);
 }
 
-.elevationRaised {
-  background-color: var(--color-background-elevation-raised);
+.secondary {
+  background-color: var(--color-background-secondary-base);
 }
 
 /* semantic text colors */
@@ -203,119 +110,91 @@
 /* semantic icon colors */
 
 .inverseIcon {
-  color: var(--color-text-icon-inverse);
+  color: var(--color-icon-inverse);
 }
 
 .errorIcon {
-  color: var(--color-text-icon-error);
+  color: var(--color-icon-error);
 }
 
 .defaultIcon {
-  color: var(--color-text-icon-default);
+  color: var(--color-icon-default);
 }
 
 .subtleIcon {
-  color: var(--color-text-icon-subtle);
+  color: var(--color-icon-subtle);
 }
 
 .warningIcon {
-  color: var(--color-text-icon-warning);
+  color: var(--color-icon-warning);
 }
 
 .successIcon {
-  color: var(--color-text-icon-success);
+  color: var(--color-icon-success);
 }
 
 .recommendationIcon {
-  color: var(--color-text-icon-recommendation);
+  color: var(--color-icon-recommendation);
 }
 
 .shoppingIcon {
-  color: var(--color-text-icon-shopping);
+  color: var(--color-icon-shopping);
 }
 
 .infoIcon {
-  color: var(--color-text-icon-info);
+  color: var(--color-icon-info);
 }
 
 .brandPrimaryIcon {
-  color: var(--color-text-icon-brand-primary);
+  color: var(--color-icon-brand-primary);
 }
 
 .lightIcon {
-  color: var(--color-text-icon-light);
+  color: var(--color-icon-light);
 }
 
 .darkIcon {
-  color: var(--color-text-icon-dark);
+  color: var(--color-icon-dark);
 }
 
-/** PRIMARY COLORS **/
+/* POPOVER LEGACY COLORS */
 
-/* red */
-
-.red {
-  color: var(--g-colorRed100);
+.blue {
+  color: var(--color-background-education);
 }
 
-.redBg {
-  background-color: var(--g-colorRed100);
+.blueBg {
+  background-color: var(--color-background-education);
 }
 
-.red0Bg {
-  background-color: var(--g-colorRed0);
-}
+/** LEGACY CUSTOM COLORS **/
 
-/* white */
+/** text **/
 
-.white {
-  color: var(--g-colorGray0);
-}
-
-.whiteBg {
-  background-color: var(--g-colorGray0);
+.lightGray {
+  color: var(--g-colorGray100);
 }
 
 .whiteElevated {
   color: var(--g-colorGray50);
 }
 
-.whiteBgElevated {
-  background-color: var(--g-colorGray50);
+.darkGray {
+  color: var(--g-colorGray300);
 }
-
-/* lightGray */
-
-.lightGray {
-  color: var(--g-colorGray100);
-}
-
-.lightGrayBg {
-  background-color: var(--g-colorGray100);
-}
-
-.lightGrayHoveredBg {
-  background-color: var(--g-colorGray100Hovered);
-}
-
-.lightGrayActiveBg {
-  background-color: var(--g-colorGray100Active);
-}
-
-/* gray */
 
 .gray {
   color: var(--g-colorGray200);
 }
 
-.grayBg {
-  background-color: var(--g-colorGray200);
+/** background **/
+
+.whiteBg {
+  background-color: var(--g-colorGray0);
 }
 
-/* darkGray */
-
-.darkGray {
-  color: var(--g-colorGray300);
+.lightGrayBg {
+  background-color: var(--g-colorGray100);
 }
 
 .darkGrayBg {
@@ -326,152 +205,6 @@
   background-color: var(--g-colorGray400);
 }
 
-/** SECONDARY COLORS **/
-
-/* green */
-
-.green {
-  color: var(--g-green);
-}
-
-.greenBg {
-  background-color: var(--g-green);
-}
-
-/* pine */
-
-.pine {
-  color: var(--g-pine);
-}
-
-.pineBg {
-  background-color: var(--g-pine);
-}
-
-/* olive */
-
-.olive {
-  color: var(--g-olive);
-}
-
-.oliveBg {
-  background-color: var(--g-olive);
-}
-
-/* blue */
-
-.blue {
-  color: var(--g-blue);
-}
-
-.blueBg {
-  background-color: var(--g-blue);
-}
-
-/* navy */
-
-.navy {
-  color: var(--g-navy);
-}
-
-.navyBg {
-  background-color: var(--g-navy);
-}
-
-/* midnight */
-
-.midnight {
-  color: var(--g-midnight);
-}
-
-.midnightBg {
-  background-color: var(--g-midnight);
-}
-
-/* purple */
-
-.purple {
-  color: var(--g-purple);
-}
-
-.purpleBg {
-  background-color: var(--g-purple);
-}
-
-/* orchid */
-
-.orchid {
-  color: var(--g-orchid);
-}
-
-.orchidBg {
-  background-color: var(--g-orchid);
-}
-
-/* eggplant */
-
-.eggplant {
-  color: var(--g-eggplant);
-}
-
-.eggplantBg {
-  background-color: var(--g-eggplant);
-}
-
-/* maroon */
-
-.maroon {
-  color: var(--g-maroon);
-}
-
-.maroonBg {
-  background-color: var(--g-maroon);
-}
-
-/* watermelon */
-
-.watermelon {
-  color: var(--g-watermelon);
-}
-
-.watermelonBg {
-  background-color: var(--g-watermelon);
-}
-
-/* orange */
-
-.orange {
-  color: var(--g-orange);
-}
-
-.orangeBg {
-  background-color: var(--g-orange);
-}
-
-/* transparent */
-
-.transparentBg {
-  background-color: transparent;
-}
-
-.transparentDarkGray {
-  color: var(--g-colorTransparentDarkGray);
-}
-
-.transparentDarkGrayBg {
-  background-color: var(--g-colorTransparentDarkGray);
-}
-
-.transparentWhiteBg {
-  background-color: var(--g-colorTransparentWhite);
-}
-
-/* light wash */
-
-.lightWashBg {
-  background-color: var(--g-colorGray100Hovered);
-}
-
-.darkWashBg {
-  background-color: var(--g-colorGray100Active);
+.grayBg {
+  background-color: var(--g-colorGray200);
 }

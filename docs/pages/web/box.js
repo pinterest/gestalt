@@ -381,7 +381,7 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
           - **20% (0.2)**: Overlay wash to be used sparingly. Only use it in situations where a high-level of opacity is needed and if the 40% doesn't fit the design goal.
           - **40% (0.4)**: Overlay wash to supply a mid-range wash over an item (e.g. #FFFFFF media controls | #000000 wash behind modals, wash on images with text overlays).
           - **80% (0.8)**: Overlay wash used on most surface's scrims. Used to supply a low-level of opacity over an element (e.g. #FFFFFF image overlay | #00000 Board cover overlay) .
-          - **90% (0.9)**: Component wash applied on IconButton and other elements as needed (e.g. image overlays). In dark mode we recommend an inverse wash.  For example: Use $color-background-wash-light instead of $color-background-wash-dark.
+          - **90% (0.9)**: Component wash applied on IconButton and other elements as needed (e.g. image overlays). In dark mode we recommend an inverse wash. For example: Use $color-background-wash-light instead of $color-background-wash-dark.
           `}
           />
           <CombinationNew

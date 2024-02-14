@@ -87,7 +87,7 @@ When SearchGuide query is more precise, a Pin representation can be added to ill
 ### Expandable
 
 <Group>
-<iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D67914%253A2487%26mode%3Ddesign%26t%3DYy6uGJnYxG1cVxAv-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D74445%253A2614%26mode%3Ddesign%26t%3DHpnrn5EmkNNP29pU-1" allowFullScreen></iframe>
 When a SearchGuide query is broad and can be further refined (example: Season), an **arrow-down** icon can be added at the end, to trigger a Sheet with a cluster of wrapped SearchGuides.
 </Group>
 

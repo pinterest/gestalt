@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { SlimBanner } from 'gestalt';
+import { BannerSlim } from 'gestalt';
 import docGen, { type DocGen } from '../../../docs-components/docgen';
 import GeneratedPropTable from '../../../docs-components/GeneratedPropTable';
 import InternalDocumentationSection from '../../../docs-components/InternalDocumentationSection';
@@ -8,7 +8,7 @@ import MainSection from '../../../docs-components/MainSection';
 import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';
 import SandpackExample from '../../../docs-components/SandpackExample';
-import linkHandlersCalloutUpsell from '../../../examples/globaleventshandlerprovider/linkHandlersCalloutBannerUpsell';
+import linkHandlersBannerCalloutUpsell from '../../../examples/globaleventshandlerprovider/linkHandlersBannerCalloutUpsell';
 import linkHandlersDangerouslyDisableOnNavigation from '../../../examples/globaleventshandlerprovider/linkHandlersDangerouslyDisableOnNavigation';
 import linkHandlersDropdown from '../../../examples/globaleventshandlerprovider/linkHandlersDropdown';
 import linkHandlersLinkButton from '../../../examples/globaleventshandlerprovider/linkHandlersLinkButton';
@@ -65,7 +65,7 @@ In this example, the \`useOnNavigation\` hook function is passed to GlobalEvents
 The returned \`onNavigationClick\` function inside the hook function uses the event access to [preventDefault()](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault). It could also be used to [stopPropagation()](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation).
       `}
         >
-          <SlimBanner
+          <BannerSlim
             iconAccessibilityLabel="Localize the default label"
             message="Accessible links in Gestalt announce to assistive technologies that the link opens in a new tab. Always make sure your external logic aligns with the 'target' prop values. For example, if your external logic opens a url in a new tab, set 'target' to 'blank'. Localize the default label with DefaultLabelProvider."
             type="warning"
@@ -120,14 +120,14 @@ The example below demonstrates the correct use of "dangerouslyDisableOnNavigatio
           />
         </MainSection.Subsection>
 
-        <MainSection.Subsection title="Implementation in Callout, BannerUpsell, ActivationCard">
+        <MainSection.Subsection title="Implementation in BannerCallout, BannerUpsell, ActivationCard">
           <MainSection.Card
-            title="Examples from top to bottom: Callout, BannerUpsell, ActivationCard"
+            title="Examples from top to bottom: BannerCallout, BannerUpsell, ActivationCard"
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                code={linkHandlersCalloutUpsell}
-                name="Example - Callout, BannerUpsell, ActivationCard"
+                code={linkHandlersBannerCalloutUpsell}
+                name="Example - BannerCallout, BannerUpsell, ActivationCard"
                 layout="column"
                 previewHeight={650}
               />
@@ -150,7 +150,7 @@ The example below demonstrates the correct use of "dangerouslyDisableOnNavigatio
         </MainSection.Subsection>
       </MainSection>
       <MainSection name="Other handlers">
-        <SlimBanner
+        <BannerSlim
           iconAccessibilityLabel="Experimental feature"
           message={`Experimental feature: The "onRender" prop is experimental and might be removed in the future.`}
           type="warningBare"

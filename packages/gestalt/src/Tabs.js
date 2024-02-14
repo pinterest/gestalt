@@ -97,8 +97,8 @@ const colors = {
   transparent: {
     base: 'transparent',
     // From Colors.css, matches <Button color="transparent" />
-    pressed: 'rgba(0, 0, 0, 0.1)',
-    hover: 'rgba(0, 0, 0, 0.06)',
+    pressed: 'rgb(0 0 0 / 0.1)',
+    hover: 'rgb(0 0 0 / 0.06)',
   },
 };
 
@@ -144,8 +144,8 @@ const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
       >
         <Flex alignItems="center" direction="column">
           <Box
-            color={color.startsWith('rgba') ? undefined : color}
-            {...(color.startsWith('rgba')
+            color={color.startsWith('rgb') ? undefined : color}
+            {...(color.startsWith('rgb')
               ? {
                   dangerouslySetInlineStyle: {
                     __style: { backgroundColor: color },

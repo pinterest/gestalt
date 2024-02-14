@@ -1,8 +1,9 @@
 // @flow strict
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ComboBox from './ComboBox';
 import Tag from './Tag';
+import renderWithExperiment from './utils/testing/renderWithExperiment';
 
 describe('ComboBox', () => {
   const PRONOUNS = [
@@ -89,7 +90,10 @@ describe('ComboBox', () => {
     size?: $ElementType<React$ElementConfig<typeof ComboBox>, 'size'>,
     tags?: $ElementType<React$ElementConfig<typeof ComboBox>, 'tags'>,
   }) =>
-    render(
+    // Remove experiment after ComboxBox v2 is fully released
+    renderWithExperiment(
+      'web_gestalt_popover_v2_combobox',
+
       <ComboBox
         accessibilityClearButtonLabel={accessibilityClearButtonLabel}
         disabled={disabled}
@@ -165,19 +169,20 @@ describe('ComboBox', () => {
 
       await userEvent.type(screen.getByLabelText(LABEL), input1);
 
-      expect(screen.getAllByRole('option').length).toBe(
+      // The element is hidden as Popover uses IntersectionObserver which is not supported by testing-library
+      expect(screen.getAllByRole('option', { hidden: true }).length).toBe(
         PRONOUNS.filter((x) => x.includes(input1)).length,
       );
 
       await userEvent.type(screen.getByDisplayValue(input1), input2);
 
-      expect(screen.getAllByRole('option').length).toBe(
+      expect(screen.getAllByRole('option', { hidden: true }).length).toBe(
         PRONOUNS.filter((x) => x.includes(input1 + input2)).length,
       );
 
       await userEvent.type(screen.getByDisplayValue(input1 + input2), input3);
 
-      expect(screen.getAllByRole('option').length).toBe(
+      expect(screen.getAllByRole('option', { hidden: true }).length).toBe(
         PRONOUNS.filter((x) => x.includes(input1)).length,
       );
     });
@@ -199,9 +204,11 @@ describe('ComboBox', () => {
 
       const input = 'xxxx';
 
+      expect(screen.queryByText(NO_RESULTS)).not.toBeInTheDocument();
+
       await userEvent.type(screen.getByLabelText(LABEL), input);
 
-      expect(screen.getByText(NO_RESULTS)).toBeVisible();
+      expect(screen.getByText(NO_RESULTS)).toBeInTheDocument();
     });
 
     it('shows correct icons', async () => {
@@ -234,7 +241,8 @@ describe('ComboBox', () => {
 
       await userEvent.tab();
 
-      await userEvent.type(screen.getByRole('button', { name: CLEAR }), ENTER);
+      // The element is hidden as Popover uses IntersectionObserver which is not supported by testing-library
+      await userEvent.type(screen.getByRole('button', { name: CLEAR, hidden: true }), ENTER);
 
       expect(screen.getByDisplayValue(EMPTY_STRING)).toBeVisible();
 
@@ -244,7 +252,7 @@ describe('ComboBox', () => {
 
       await userEvent.tab();
 
-      await userEvent.type(screen.getByRole('button', { name: CLEAR }), SPACE);
+      await userEvent.type(screen.getByRole('button', { name: CLEAR, hidden: true }), SPACE);
 
       expect(screen.getByDisplayValue(EMPTY_STRING)).toBeVisible();
     });
@@ -264,9 +272,10 @@ describe('ComboBox', () => {
 
       await userEvent.tab();
 
-      expect(screen.getByRole('button', { name: CLEAR })).toHaveFocus();
+      // The element is hidden as Popover uses IntersectionObserver which is not supported by testing-library
+      expect(screen.getByRole('button', { name: CLEAR, hidden: true })).toHaveFocus();
 
-      fireEvent.click(screen.getByRole('button', { name: CLEAR }));
+      fireEvent.click(screen.getByRole('button', { name: CLEAR, hidden: true }));
 
       expect(screen.getByLabelText(LABEL)).toHaveFocus();
 
@@ -286,7 +295,8 @@ describe('ComboBox', () => {
 
       await userEvent.tab();
 
-      expect(screen.getByRole('button', { name: CLEAR })).toBeVisible();
+      // The element is hidden as Popover uses IntersectionObserver which is not supported by testing-library
+      expect(screen.getByRole('button', { name: CLEAR, hidden: true })).toBeVisible();
     });
   });
 
@@ -324,7 +334,8 @@ describe('ComboBox', () => {
 
       fireEvent.click(screen.getByDisplayValue(input1));
 
-      expect(screen.getByRole('button', { name: CLEAR })).toBeVisible();
+      // The element is hidden as Popover uses IntersectionObserver which is not supported by testing-library
+      expect(screen.getByRole('button', { name: CLEAR, hidden: true })).toBeVisible();
       expect(screen.getAllByRole('option').length).toBe(controlledOptionsLength);
       expect(screen.getByText(PRONOUNS[1])).toBeVisible();
     });

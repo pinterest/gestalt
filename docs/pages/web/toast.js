@@ -68,7 +68,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 - When, due to an error, a user can’t even continue performing basic tasks like browsing already loaded Pins.
 - When asking a user to confirm that they want to perform an action. Use [ModalAlert](/web/modalalert) instead.
 - When you want to suggest a user spend more money or try new features; use [BannerUpsell](/web/bannerupsell) instead.
-- For errors that relate to a specific section or page. Use Callout(/web/callout) or SlimBanner(/web/slimbanner) instead.
+- For errors that relate to a specific section or page. Use BannerCallout(/web/bannercallout) or BannerSlim(/web/bannerslim) instead.
 - To guide or educate the user. Use Popover(/web/popover) or Tooltip(/web/tooltip) instead.
         `}
           />
@@ -156,7 +156,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           <MainSection.Card
             type="don't"
             cardSize="md"
-            description="Make the request for user action the primary message on a Toast. If you need user action, use an [ModalAlert](/web/modalalert) or [Callout](/web/callout) instead."
+            description="Make the request for user action the primary message on a Toast. If you need user action, use an [ModalAlert](/web/modalalert) or [BannerCallout](/web/bannercallout) instead."
             sandpackExample={
               <SandpackExample code={dontRequest} name="Don't - Request" hideEditor hideControls />
             }
@@ -334,6 +334,9 @@ If  confirmation toast's text with more complex style is required, such as bold 
       **[Alert Modal](/web/modalalert)**
       An ModalAlert is a simple modal dialog used to alert a user of an issue, or to request confirmation after a user-generated action. ModalAlert overlays and blocks Page content until it is dismissed by the user.
 
+      **[BannerCallout](/web/bannercallout)**
+      BannerCallouts are used at the top-most level of a page to communicate highest-priority information that applies to the entire page or surface. BannerCallouts can be dismissed and are also actionable.
+
       **[BannerUpsell](/web/bannerupsell)**
       BannerUpsell banners are used for paid upgrades, free trials, or marketing promotions.
 
@@ -345,9 +348,6 @@ If  confirmation toast's text with more complex style is required, such as bold 
 
       **[Tooltip](/web/tooltip)**
       Tooltip provides helpful information regarding an interactive UI element, typically an IconButton. It is displayed on hover or focus of a UI element, and disappears on mouse out or blur.
-
-      **[Callout](/web/callout)**
-      Callouts are used at the top-most level of a page to communicate highest-priority information that applies to the entire page or surface. Callouts can be dismissed and are also actionable.
     `}
         />
       </MainSection>

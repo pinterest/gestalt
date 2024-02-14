@@ -22,7 +22,6 @@ import {
   type UserSelect,
 } from './boxTypes';
 import whitespace from './boxWhitespace.css';
-import colors from './Colors.css';
 import { getRoundingStyle } from './getRoundingClassName';
 import layout from './Layout.css';
 import {
@@ -165,35 +164,36 @@ const borderStyle: Functor<BorderStyle> = (value) => {
   ]);
 };
 const color: Functor<Color> = mapping({
-  lightWash: colors.lightWashBg,
-  darkWash: colors.darkWashBg,
-  transparentDarkGray: colors.transparentDarkGrayBg,
-  default: colors.default,
-  infoBase: colors.infoBase,
-  infoWeak: colors.infoWeak,
-  errorBase: colors.errorBase,
-  errorWeak: colors.errorWeak,
-  warningBase: colors.warningBase,
-  warningWeak: colors.warningWeak,
-  successBase: colors.successBase,
-  successWeak: colors.successWeak,
-  recommendationBase: colors.recommendationBase,
-  recommendationWeak: colors.recommendationWeak,
-  shopping: colors.shopping,
-  primary: colors.primary,
-  secondary: colors.secondary,
-  tertiary: colors.tertiary,
-  selected: colors.selected,
-  inverse: colors.inverse,
-  brand: colors.brand,
-  education: colors.education,
-  elevationAccent: colors.elevationAccent,
-  elevationFloating: colors.elevationFloating,
-  elevationRaised: colors.elevationRaised,
-  dark: colors.dark,
-  light: colors.light,
-  // default: transparent
+  default: styles.default,
+  infoBase: styles.infoBase,
+  infoWeak: styles.infoWeak,
+  errorBase: styles.errorBase,
+  errorWeak: styles.errorWeak,
+  warningBase: styles.warningBase,
+  warningWeak: styles.warningWeak,
+  successBase: styles.successBase,
+  successWeak: styles.successWeak,
+  recommendationBase: styles.recommendationBase,
+  recommendationWeak: styles.recommendationWeak,
+  shopping: styles.shopping,
+  primary: styles.primary,
+  secondary: styles.secondary,
+  tertiary: styles.tertiary,
+  selected: styles.selected,
+  inverse: styles.inverse,
+  brand: styles.brand,
+  education: styles.education,
+  elevationAccent: styles.elevationAccent,
+  elevationFloating: styles.elevationFloating,
+  elevationRaised: styles.elevationRaised,
+  dark: styles.dark,
+  light: styles.light,
+  lightWash: styles.lightWash,
+  darkWash: styles.darkWash,
+  transparentDarkGray: styles.transparentDarkGrayBg,
+  transparent: styles.transparent,
 });
+
 const fit: Functor<boolean> = toggle(layout.fit);
 const flex: Functor<Flex> = mapping({
   grow: layout.flexGrow,

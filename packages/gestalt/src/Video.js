@@ -682,7 +682,7 @@ export default class Video extends PureComponent<Props, State> {
     }
     const playerClasses = classnames(styles.player, {
       [colors.blackBg]: backgroundColor === 'black',
-      [colors.transparentBg]: backgroundColor === 'transparent',
+      [colors.transparent]: backgroundColor === 'transparent',
     });
     return (
       <div

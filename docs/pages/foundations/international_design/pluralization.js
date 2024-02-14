@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node as ReactNode } from 'react';
-import { Box, Flex, Image, Link, List, Mask, SlimBanner, Table, Text } from 'gestalt';
+import { BannerSlim, Box, Flex, Image, Link, List, Mask, Table, Text } from 'gestalt';
 import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts';
 import MainSection from '../../../docs-components/MainSection';
 import Markdown from '../../../docs-components/Markdown';
@@ -238,7 +238,7 @@ export default function FormsLayoutOverview(): ReactNode {
         </Box>
 
         <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginBottom={10}>
-          <SlimBanner
+          <BannerSlim
             type="recommendation"
             iconAccessibilityLabel="Recommendation"
             message="We should aim to use the pluralization libraries that use the grammatically correct forms, and not the commonly acceptable ones."
@@ -603,7 +603,7 @@ export default function FormsLayoutOverview(): ReactNode {
         </Box>
 
         <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginBottom={10}>
-          <SlimBanner
+          <BannerSlim
             type="info"
             iconAccessibilityLabel="Info"
             message="There’s no one-size-fits-all answer to plural translation. We need a solution that allows selecting the correct plural form for any given language, not just “pick from singular and plural”."

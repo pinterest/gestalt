@@ -41,14 +41,7 @@ type Props = {
   /**
    * Primary colors to apply to the IconButton background.
    */
-  bgColor?:
-    | 'transparent'
-    | 'darkGray'
-    | 'transparentDarkGray'
-    | 'gray'
-    | 'lightGray'
-    | 'white'
-    | 'red',
+  bgColor?: 'transparent' | 'transparentDarkGray' | 'gray' | 'lightGray' | 'white' | 'red',
   /**
    * Defines a new icon different from the built-in Gestalt icons.
    */

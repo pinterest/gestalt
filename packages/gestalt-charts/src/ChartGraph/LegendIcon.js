@@ -1,6 +1,8 @@
 // @flow strict-local
 import { type Node as ReactNode } from 'react';
 import { useColorScheme } from 'gestalt';
+import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
+import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-light.json';
 import { useChartContext } from './ChartGraphContext';
 import { GraphPoint } from './renderGraphPoint';
 import { type DataVisualizationColors } from './types';
@@ -32,10 +34,9 @@ type Props = {
  */
 
 function LegendIcon({ payloadData }: Props): ReactNode {
-  const theme = useColorScheme();
-
   const { decal: showVisualPattern } = useChartContext();
   const isAccessible = showVisualPattern === 'visualPattern';
+  const { name } = useColorScheme();
 
   if (payloadData.referenceArea === 'default') {
     const dimension = 16;
@@ -52,19 +53,20 @@ function LegendIcon({ payloadData }: Props): ReactNode {
     );
   }
 
+  const source = name === 'lightMode' ? lightColorDesignTokens : darkColorDesignTokens;
   const colorMap = Object.entries({
-    '01': theme.colorDataVisualization01,
-    '02': theme.colorDataVisualization02,
-    '03': theme.colorDataVisualization03,
-    '04': theme.colorDataVisualization04,
-    '05': theme.colorDataVisualization05,
-    '06': theme.colorDataVisualization06,
-    '07': theme.colorDataVisualization07,
-    '08': theme.colorDataVisualization08,
-    '09': theme.colorDataVisualization09,
-    '10': theme.colorDataVisualization10,
-    '11': theme.colorDataVisualization11,
-    '12': theme.colorDataVisualization12,
+    '01': source['color-data-visualization-01'],
+    '02': source['color-data-visualization-02'],
+    '03': source['color-data-visualization-03'],
+    '04': source['color-data-visualization-04'],
+    '05': source['color-data-visualization-05'],
+    '06': source['color-data-visualization-06'],
+    '07': source['color-data-visualization-07'],
+    '08': source['color-data-visualization-08'],
+    '09': source['color-data-visualization-09'],
+    '10': source['color-data-visualization-10'],
+    '11': source['color-data-visualization-11'],
+    '12': source['color-data-visualization-12'],
   });
 
   const isLine = payloadData.legendType === 'line' || !!payloadData.strokeWidth;

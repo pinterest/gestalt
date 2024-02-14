@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { Box, Image, SlimBanner } from 'gestalt';
+import { BannerSlim, Box, Image } from 'gestalt';
 import Page from '../../../../docs-components/Page';
 import PageHeader from '../../../../docs-components/PageHeader';
 
@@ -16,7 +16,7 @@ export default function DonutChartsPage(): ReactNode {
       />
       <Box maxWidth={892}>
         {' '}
-        <SlimBanner
+        <BannerSlim
           type="info"
           iconAccessibilityLabel="Info"
           message="Donut chart guidelines are still in development. More to come soon!"
@@ -40,7 +40,7 @@ export default function DonutChartsPage(): ReactNode {
       </Box>
       <Box maxWidth={892}>
         {' '}
-        <SlimBanner
+        <BannerSlim
           type="warningBare"
           iconAccessibilityLabel="Warning"
           message="Use donuts and pie charts only with 2–3 categories and percentage values as they can easily become hard to read. Donut charts aren’t good for conveying more complex information and allowing you to drill down; a [bar graph](bar_graphs) is better."

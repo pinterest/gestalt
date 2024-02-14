@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { Box, SlimBanner } from 'gestalt';
+import { BannerSlim, Box } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import { type DocGen, multipleDocGen } from '../../docs-components/docgen';
@@ -60,8 +60,8 @@ export default function ComponentPage({
       <PageHeader
         name={generatedDocGen.ChartGraph?.displayName}
         description={generatedDocGen.ChartGraph?.description}
-        slimBanner={
-          <SlimBanner
+        bannerSlim={
+          <BannerSlim
             type="warning"
             iconAccessibilityLabel="Warning"
             message="ChartGraph is still under development. The component API, style, and behaviour might change in follow-up releases."
@@ -481,7 +481,7 @@ If different graphs need to be compared simultaneously, see example below, color
               <Box
                 dangerouslySetInlineStyle={{
                   __style: {
-                    backgroundColor: `var(--g-colorDataVisualization${color})`,
+                    backgroundColor: `var((--color-data-visualization_${color})`,
                   },
                 }}
                 height={80}
@@ -494,7 +494,7 @@ If different graphs need to be compared simultaneously, see example below, color
               <Box
                 dangerouslySetInlineStyle={{
                   __style: {
-                    backgroundColor: `var(--g-colorDataVisualization${color})`,
+                    backgroundColor: `var(--color-data-visualization-${color})`,
                   },
                 }}
                 height={80}

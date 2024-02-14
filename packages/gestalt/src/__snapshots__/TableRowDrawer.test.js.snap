@@ -223,7 +223,7 @@ exports[`renders correctly with drawer 1`] = `
                     <span
                       className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
                     >
-                      Test SlimBanner
+                      Test BannerSlim
                     </span>
                   </div>
                 </div>

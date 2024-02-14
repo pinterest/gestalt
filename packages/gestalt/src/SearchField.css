@@ -51,7 +51,7 @@ html[dir="rtl"] .inputActive {
   composes: paddingX1 from "./boxWhitespace.css";
   composes: paddingY1 from "./boxWhitespace.css";
   composes: pointer from "./Cursor.css";
-  composes: transparentBg from "./Colors.css";
+  composes: transparent from "./Colors.css";
   composes: accessibilityOutline from "./Focus.css";
   position: absolute;
   top: 50%;

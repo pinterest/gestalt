@@ -26,7 +26,7 @@ describe('useDefaultLabelContext', () => {
           BannerOverlay: {
             accessibilityDismissButtonLabel: 'Dismiss Banner',
           },
-          Callout: {
+          BannerCallout: {
             accessibilityDismissButtonLabel: 'Dismiss Banner',
             iconAccessibilityLabelError: 'Error',
             iconAccessibilityLabelInfo: 'Information',
@@ -80,7 +80,7 @@ describe('useDefaultLabelContext', () => {
           SideNavigation: {
             accessibilityDismissButtonLabel: 'Dismiss side navigation',
           },
-          SlimBanner: {
+          BannerSlim: {
             accessibilityDismissButtonLabel: 'Dismiss Banner',
             iconAccessibilityLabelError: 'Error',
             iconAccessibilityLabelInfo: 'Information',

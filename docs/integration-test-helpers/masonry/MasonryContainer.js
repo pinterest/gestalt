@@ -325,28 +325,21 @@ export default class MasonryContainer extends Component<Props<{ ... }>, State> {
     const { hasScrollContainer, mountGrid, items } = this.state;
 
     const dynamicGridProps: {
-      minCols: $ElementType<React$ElementConfig<typeof Masonry>, 'minCols'>,
-      gutterWidth: $ElementType<React$ElementConfig<typeof Masonry>, 'gutterWidth'>,
-      loadItems: $ElementType<React$ElementConfig<typeof Masonry>, 'loadItems'>,
-      virtualBoundsTop: $ElementType<React$ElementConfig<typeof Masonry>, 'virtualBoundsBottom'>,
-      virtualBoundsBottom: $ElementType<React$ElementConfig<typeof Masonry>, 'virtualBoundsBottom'>,
-      scrollContainer: $ElementType<React$ElementConfig<typeof Masonry>, 'scrollContainer'>,
-    } = {
-      minCols: undefined,
-      gutterWidth: undefined,
-      loadItems: undefined,
-      virtualBoundsTop: undefined,
-      virtualBoundsBottom: undefined,
-      scrollContainer: undefined,
-    };
+      minCols?: $ElementType<React$ElementConfig<typeof Masonry>, 'minCols'>,
+      gutterWidth?: $ElementType<React$ElementConfig<typeof Masonry>, 'gutterWidth'>,
+      loadItems?: $ElementType<React$ElementConfig<typeof Masonry>, 'loadItems'>,
+      virtualBoundsTop?: $ElementType<React$ElementConfig<typeof Masonry>, 'virtualBoundsBottom'>,
+      virtualBoundsBottom?: $ElementType<
+        React$ElementConfig<typeof Masonry>,
+        'virtualBoundsBottom',
+      >,
+      scrollContainer?: $ElementType<React$ElementConfig<typeof Masonry>, 'scrollContainer'>,
+    } = {};
 
     const gridStyle: {
-      margin: ?string,
-      width: ?string | number,
-    } = {
-      margin: undefined,
-      width: undefined,
-    };
+      margin?: string,
+      width?: string | number,
+    } = {};
 
     if (constrained) {
       gridStyle.margin = '0px 200px';
@@ -380,11 +373,13 @@ export default class MasonryContainer extends Component<Props<{ ... }>, State> {
     if (noScroll) {
       dynamicGridProps.scrollContainer = undefined;
     } else if (hasScrollContainer) {
-      const query = document.querySelector('[data-scroll-container]');
       if (typeof document === 'undefined') {
         dynamicGridProps.scrollContainer = undefined;
-      } else if (query) {
-        dynamicGridProps.scrollContainer = () => query;
+      } else {
+        const query = document.querySelector('[data-scroll-container]');
+        if (query) {
+          dynamicGridProps.scrollContainer = () => query;
+        }
       }
     } else {
       dynamicGridProps.scrollContainer = typeof window === 'undefined' ? undefined : () => window;

@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { SlimBanner } from 'gestalt';
+import { BannerSlim } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { type DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -155,7 +155,7 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
             }
           />
         </MainSection.Subsection>
-        <SlimBanner
+        <BannerSlim
           type="info"
           iconAccessibilityLabel="Info"
           message="Gestalt's typography guidelines contain additional best practices around sizing, style and hierarchy."

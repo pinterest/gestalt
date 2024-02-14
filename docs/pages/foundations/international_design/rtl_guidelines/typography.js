@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node as ReactNode } from 'react';
-import { Box, Callout, Flex, Image, Mask, Text } from 'gestalt';
+import { BannerCallout, Box, Flex, Image, Mask, Text } from 'gestalt';
 import { DOCS_COPY_MAX_WIDTH_PX } from '../../../../docs-components/consts';
 import MainSection from '../../../../docs-components/MainSection';
 import Page from '../../../../docs-components/Page';
@@ -229,7 +229,7 @@ For example, Hebrew text uses Western Arabic numerals and Hebrew Numerals, where
             <MainSection.Subsection description="In the Pinterest app, numerals' format choice should mimic the person’s choice in their operating system settings. For instance, if a person opted for Eastern Arabic numerals, digits displayed in the app should be in that format." />
           </MainSection.Subsection>
           <Box marginBottom={10}>
-            <Callout
+            <BannerCallout
               type="warning"
               iconAccessibilityLabel="Warning"
               title="Don't release without testing"
