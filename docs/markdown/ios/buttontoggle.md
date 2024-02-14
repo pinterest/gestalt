@@ -12,7 +12,6 @@ fullwidth: true
   <Group>
     <Do title="When to use" />
     - The ButtonToggle should be used when you require a binary component with distinct on/off states
-    - If you want to offer users a dropdown menu that is associated with the toggle action
     - To demonstrate that items are actively selected for filtering
   </Group>
   <Group>
@@ -34,6 +33,8 @@ Use clear and concise labels to improve user comprehension
 
 ## Accessibility
 
+The accessibility label for a ButtonToggle uses the label text. Assistive tech (such as a screen reader) will read the UI text followed by the component’s role, which is Switch.
+
 People use Apple’s accessibility features, such as reduced transparency, VoiceOver, and increased text size to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Apple’s Human Interface Guidelines and documentation about accessibility for iOS:
 
 [Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/accessibility/overview/introduction/)
@@ -43,7 +44,7 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 
 Use these tokens for applying size, weight and color styles to ButtonToggle.
 <br/>
-<iframe style={{border:0}} width="100%" height="700" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D55188%253A4512%26mode%3Ddesign%26t%3D2iJqnAYR7hYB1zjh-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="700" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D60046%253A84204%26mode%3Ddesign%26t%3DfoF6enjZg5MAyski-1" allowFullScreen></iframe>
 
 ## Anatomy
 
@@ -94,7 +95,7 @@ Full image
 </ThreeCol>
 
 1. **Icons**
-   In situations where a concise visual cue could provide additional information, icons are placed horizontally beside the text.
+   In situations where a concise visual cue could provide additional information, icons are placed horizontally to the right of the text.
 2. **Graphics**
    For situations where a higher-fidelity visual cue enhances comprehension, for example, selecting hair patterns. Graphics sit vertically above the text and the buttons will grow to accommodate their graphics. Large is the smallest height size.
 3. **Full images**
@@ -102,13 +103,13 @@ Full image
 
 <br/>
 
-### Dropdown
+### Save
 
-Useful for providing additional options or actions related to the toggle functionality. Used to indicate that items have been selected.
+Save variant features our brand red and is only used for “Save” functionality, however it functions the same as all other ButtonToggles.
 
 <ThreeCol>
 <Group>
-<ImgContainer src="https://i.pinimg.com/originals/86/ae/80/86ae809d93360474e527a4e42285a365.png"  alt="Example of two ToggleButtons with dropdown carets to the right of the label" />
+<ImgContainer src="https://i.pinimg.com/originals/af/49/0f/af490f03d1dd5ba7ec8c79a5b86a7fe9.png"  alt="Example of two Save ToggleButtons, one selected, one unselected" />
 </Group>
 </ThreeCol>
 
@@ -130,7 +131,7 @@ Unselected
 1. **Selected**
    The selected state refers to when the ButtonToggle is activated or toggled on. In this state, the outline will appear black and be 2px in size.
 2. **Unselected**
-   The unselected state refers to when the ButtonToggle is deactivated or toggled off. In this state, the outline appears gray and is either 1px or 0px for full images.
+   The unselected state refers to when the ButtonToggle is deactivated or toggled off. For default ButtonToggles, the outline appears gray and is 1dp. For full images and Save variants, there is no border. 
 
 <br/>
 
