@@ -1,3 +1,9 @@
+## 142.3.0 (Feb 14, 2024)
+
+### Minor
+
+- RadioGroup: Add Badge prop ([#3425](https://github.com/pinterest/gestalt/pull/3425)) - [Preview link](https://deploy-preview-3425--gestalt.netlify.app?devexample=true)
+
 ## 142.2.1 (Feb 14, 2024)
 
 ### Patch
