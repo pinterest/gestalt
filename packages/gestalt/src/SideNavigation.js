@@ -64,9 +64,8 @@ function Collapser() {
       <Box
         display="flex"
         justifyContent="end"
-        // margin={-2}
-        marginBottom={2}
-        // padding={2}
+        marginBottom={-2}
+        padding={2}
         color="light"
         // borderStyle="raisedTopShadow"
       >
@@ -108,9 +107,6 @@ export default function SideNavigation({
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
 
-  Children.forEach(children, (child) => {
-    console.log(child);
-  });
   if (isMobile) {
     return (
       <SideNavigationProvider
@@ -154,7 +150,9 @@ export default function SideNavigation({
                   showBorder ? classnames(borderStyles.borderRight, styles.fullHeight) : undefined
                 }
               >
+                <Collapser />
                 <Box
+                  display={isCollapsed ? 'none' : undefined}
                   padding={2}
                   dangerouslySetInlineStyle={{
                     __style: {
@@ -164,24 +162,21 @@ export default function SideNavigation({
                     },
                   }}
                 >
-                  <Collapser />
-                  <div style={isCollapsed ? { display: 'none' } : undefined}>
-                    <Flex direction="column" gap={{ column: 4, row: 0 }}>
-                      {header ? (
-                        <Flex direction="column" gap={{ column: 4, row: 0 }}>
-                          <Box paddingX={4}>{header}</Box>
-                          <Divider />
-                        </Flex>
-                      ) : null}
-                      <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
-                      {footer ? (
-                        <Flex direction="column" gap={{ column: 4, row: 0 }}>
-                          <Divider />
-                          <Box paddingX={4}>{footer}</Box>
-                        </Flex>
-                      ) : null}
-                    </Flex>
-                  </div>
+                  <Flex direction="column" gap={{ column: 4, row: 0 }}>
+                    {header ? (
+                      <Flex direction="column" gap={{ column: 4, row: 0 }}>
+                        <Box paddingX={4}>{header}</Box>
+                        <Divider />
+                      </Flex>
+                    ) : null}
+                    <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
+                    {footer ? (
+                      <Flex direction="column" gap={{ column: 4, row: 0 }}>
+                        <Divider />
+                        <Box paddingX={4}>{footer}</Box>
+                      </Flex>
+                    ) : null}
+                  </Flex>
                 </Box>
               </div>
             </Box>
