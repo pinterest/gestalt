@@ -35,11 +35,11 @@ jobs:
         id: results
         uses: mathiasvr/command-output@v2.0.0
         with:
-          run: npx playwright test playwright/visual-test --config=playwright/playwright.config.js --workers 2 --quiet --reporter=list --shard=${{ matrix.shard }} || true
+          run: npx playwright test playwright/visual-test --config=playwright/playwright.config.js --workers=2 --quiet --reporter='playwright/reporters/reporter.js' --shard=${{ matrix.shard }} || true
       - name: Comment PR with execution number
-        uses: thollander/actions-comment-pull-request@v2
+        uses: mshick/add-pr-comment@v2
         with:
           message: |
             ${{ steps.results.outputs.stdout }}
-          comment_tag: visual-test
-          GITHUB_TOKEN: ${{ secrets.RYAN_GITHUB_PERSONAL_TOKEN }}
+          message-id: visual-test
+          repo-token: ${{ secrets.RYAN_GITHUB_PERSONAL_TOKEN }}
