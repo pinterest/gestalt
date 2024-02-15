@@ -74,7 +74,6 @@
         },
         "primary": {
           "value": "{color.background.primary.base.value}",
-          "darkValue": "{color.background.primary.base.darkValue}",
           "comment": "Box component primary background color"
         },
         "secondary": {
@@ -99,7 +98,6 @@
         },
         "brand": {
           "value": "{color.background.brand.value}",
-          "darkValue": "{color.background.brand.darkValue}",
           "comment": "Box component brand background color"
         },
         "education": {
@@ -156,12 +154,10 @@
         "primary": {
           "default": {
             "value": "{color.background.primary.base.value}",
-            "darkValue": "{color.background.primary.base.darkValue}",
             "comment": "Primary button background color"
           },
           "hover": {
             "value": "{color.background.primary.strong.value}",
-            "darkValue": "{color.background.primary.strong.darkValue}",
             "comment": "Primary button background color on hover"
           },
           "active": {
