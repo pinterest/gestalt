@@ -248,7 +248,11 @@ const siteIndex: $ReadOnlyArray<siteIndexType> = [
           },
         ],
       },
-      'Design tokens',
+      {
+        sectionName: 'Design tokens',
+        pages: ['Overview', 'Component tokens'],
+      },
+
       'Elevation',
       {
         sectionName: 'Forms',

@@ -6,45 +6,55 @@
           "value": "{color.background.default.value}",
           "comment": "Box component default background color"
         },
-        "infoBase": {
-          "value": "{color.background.info.base.value}",
-          "comment": "Box component infoBase background color"
+        "info": {
+          "base": {
+            "value": "{color.background.info.base.value}",
+            "comment": "Box component infoBase background color"
+          },
+          "weak": {
+            "value": "{color.background.info.weak.value}",
+            "comment": "Box component infoWeak background color"
+          }
         },
-        "infoWeak": {
-          "value": "{color.background.info.weak.value}",
-          "comment": "Box component infoWeak background color"
+        "error": {
+          "base": {
+            "value": "{color.background.error.base.value}",
+            "comment": "Box component errorBase background color"
+          },
+          "weak": {
+            "value": "{color.background.error.weak.value}",
+            "comment": "Box component errorWeak background color"
+          }
         },
-        "errorBase": {
-          "value": "{color.background.error.base.value}",
-          "comment": "Box component errorBase background color"
+        "warning": {
+          "base": {
+            "value": "{color.background.warning.base.value}",
+            "comment": "Box component warningBase background color"
+          },
+          "weak": {
+            "value": "{color.background.warning.weak.value}",
+            "comment": "Box component warningWeak background color"
+          }
         },
-        "errorWeak": {
-          "value": "{color.background.error.weak.value}",
-          "comment": "Box component errorWeak background color"
+        "success": {
+          "base": {
+            "value": "{color.background.success.base.value}",
+            "comment": "Box component successBase background color"
+          },
+          "weak": {
+            "value": "{color.background.success.weak.value}",
+            "comment": "Box component successWeak background color"
+          }
         },
-        "warningBase": {
-          "value": "{color.background.warning.base.value}",
-          "comment": "Box component warningBase background color"
-        },
-        "warningWeak": {
-          "value": "{color.background.warning.weak.value}",
-          "comment": "Box component warningWeak background color"
-        },
-        "successBase": {
-          "value": "{color.background.success.base.value}",
-          "comment": "Box component successBase background color"
-        },
-        "successWeak": {
-          "value": "{color.background.success.weak.value}",
-          "comment": "Box component successWeak background color"
-        },
-        "recommendationBase": {
-          "value": "{color.background.recommendation.base.value}",
-          "comment": "Box component recommendationBase background color"
-        },
-        "recommendationWeak": {
-          "value": "{color.background.recommendation.weak.value}",
-          "comment": "Box component recommendationWeak background color"
+        "recommendation": {
+          "base": {
+            "value": "{color.background.recommendation.base.value}",
+            "comment": "Box component recommendationBase background color"
+          },
+          "weak": {
+            "value": "{color.background.recommendation.weak.value}",
+            "comment": "Box component recommendationWeak background color"
+          }
         },
         "shopping": {
           "value": "{color.background.shopping.value}",
@@ -78,17 +88,19 @@
           "value": "{color.background.education.value}",
           "comment": "Box component education background color"
         },
-        "elevationAccent": {
-          "value": "{color.background.elevation.accent.value}",
-          "comment": "Box component elevationAccent background color"
-        },
-        "elevationFloating": {
-          "value": "{color.background.elevation.floating.value}",
-          "comment": "Box component elevationFloating background color"
-        },
-        "elevationRaised": {
-          "value": "{color.background.elevation.raised.value}",
-          "comment": "Box component elevationRaised background color"
+        "elevation": {
+          "accent": {
+            "value": "{color.background.elevation.accent.value}",
+            "comment": "Box component elevationAccent background color"
+          },
+          "floating": {
+            "value": "{color.background.elevation.floating.value}",
+            "comment": "Box component elevationFloating background color"
+          },
+          "raised": {
+            "value": "{color.background.elevation.raised.value}",
+            "comment": "Box component elevationRaised background color"
+          }
         },
         "dark": {
           "value": "{color.background.dark.value}",
@@ -98,12 +110,12 @@
           "value": "{color.background.light.value}",
           "comment": "Box component light background color"
         },
-        "lightWash": {
+        "lightwash": {
           "value": "#e2e2e2",
           "darkValue": "#535353",
           "comment": "Box component light wash color."
         },
-        "darkWash": {
+        "darkwash": {
           "value": "#dadada",
           "darkValue": "#666",
           "comment": "Box component dark wash color."
@@ -112,7 +124,7 @@
           "value": "{color.transparent.value}",
           "comment": "Box component transparent color."
         },
-        "transparentDarkGray": {
+        "transparentdarkgray": {
           "value": "rgba(51, 51, 51, 0.8)",
           "darkValue": "rgba(255, 255, 255, 0.8)",
           "comment": "Box component light transparent dark gray color."

@@ -97,7 +97,7 @@ export default function ColorPage(): ReactNode {
       <PageHeader
         name="Data visualization guidelines"
         type="guidelines"
-        description="Details about approved color pairings, accessibility guidelines, and pairings to avoid. The [data visualization palette](/foundations/data_visualization/color/palette) can be implemented through our [design tokens](/foundations/design_tokens#Data-visualization)."
+        description="Details about approved color pairings, accessibility guidelines, and pairings to avoid. The [data visualization palette](/foundations/data_visualization/color/palette) can be implemented through our [design tokens](/foundations/design_tokens/overview#Data-visualization)."
       />
       <MainSection
         name="Primary color"

@@ -37,7 +37,7 @@ type Props = {
    */
   children?: ReactNode,
   /**
-   * The color of the text. See [Text colors example](https://gestalt.pinterest.systems/foundations/design_tokens#Text-color) for more details.
+   * The color of the text. See [Text colors example](https://gestalt.pinterest.systems/foundations/design_tokens/overview#Text-color) for more details.
    */
   color?:
     | 'default'
@@ -63,7 +63,7 @@ type Props = {
   overflow?: Overflow,
   /**
    * The font size of the text. See [Sizes example](https://gestalt.pinterest.systems/web/heading#Size) for more details.
-   * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/foundations/design_tokens#Font-size).
+   * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/foundations/design_tokens/overview#Font-size).
    */
   size?: Size,
 };

@@ -58,7 +58,7 @@ For more information about colors, check out our [color documentation](/foundati
           title="Color fills and typography"
           description={`
 #### Headings
-Avoid using extended colors to text elements, as changing colors could lead to usability and cognitive issues due to their semantic meaning and required contrast level. Refer to our [text color tokens](/foundations/design_tokens#Text-color) for guidance.
+Avoid using extended colors to text elements, as changing colors could lead to usability and cognitive issues due to their semantic meaning and required contrast level. Refer to our [text color tokens](/foundations/design_tokens/overview#Text-color) for guidance.
 
 #### Body
 Body should always be $color-text-default (default color), $color-text-inverse (text over a dark-colored background), or $color-text-subtle (secondary color), with the exception of [status text colors](/foundations/color/usage#Background-color), as they are needed to convey a certain meaning for specific cases. Avoid using alternative colors on body content, which could lead to [accessibility](/foundations/accessibility#Visuals) issues.

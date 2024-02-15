@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box } from 'gestalt';
-import { type Token } from '../pages/foundations/design_tokens';
+import { type Token } from '../pages/foundations/design_tokens/overview';
 
 type BaseProps = {
   token: Token,
@@ -38,7 +38,7 @@ export function RoundingBox({ token }: BaseProps): ReactNode {
   return (
     <Box
       dangerouslySetInlineStyle={{
-        __style: { 'border-radius': `var(--${token.name})` },
+        __style: { 'borderRadius': `var(--${token.name})` },
       }}
       borderStyle="lg"
       width={64}
@@ -184,29 +184,59 @@ export function FontBox({ token, type }: FontBoxProps): ReactNode {
 }
 
 export function TokenExample({ token, category }: ExampleProps): ReactNode {
+  let example;
+
   switch (category) {
-    case 'background-color':
-    case 'data-visualization':
-      return <ColorBox token={token} />;
-    case 'rounding':
-      return <RoundingBox token={token} />;
-    case 'spacing':
-      return <SpacingBox token={token} />;
-    case 'text-color':
-      return <TextColorBox token={token} />;
-    case 'font-size':
-      return <FontBox token={token} type="size" />;
-    case 'font-weight':
-      return <FontBox token={token} type="weight" />;
-    case 'font-family':
-      return <FontBox token={token} type="family" />;
+    case 'color-background':
+    case 'color-data-visualization':
+      example = <ColorBox token={token} />;
+      break;
+
+    case 'color-text':
+    case 'color-icon':
+      example = <TextColorBox token={token} />;
+      break;
+
     case 'color-border':
-      return <BorderBox token={token} />;
+      example = <BorderBox token={token} />;
+      break;
+
     case 'elevation':
-      return <ElevationBox token={token} />;
+      example = <ElevationBox token={token} />;
+      break;
+
     case 'opacity':
-      return <OpacityBox token={token} />;
+      example = <OpacityBox token={token} />;
+      break;
+
+    case 'rounding':
+      example = <RoundingBox token={token} />;
+      break;
+
+    case 'spacing':
+      example = <SpacingBox token={token} />;
+      break;
+
+    case 'font-size':
+      example = <FontBox token={token} type="size" />;
+      break;
+
+    case 'font-weight':
+      example = <FontBox token={token} type="weight" />;
+      break;
+
+    case 'font-family':
+      example = <FontBox token={token} type="family" />;
+      break;
+
     default:
-      return <Box>{token.value}</Box>;
+      example = <Box>{token.value}</Box>;
+      break;
   }
+
+  return token.name.includes('disabled') ? (
+    <div className="skip-accessibility-check">{example}</div>
+  ) : (
+    example
+  );
 }
