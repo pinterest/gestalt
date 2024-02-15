@@ -1,4 +1,4 @@
-name: Visual Test (Playwright)
+name: Visual Test Results
 permissions:
   contents: write
   pull-requests: write
@@ -12,21 +12,10 @@ on:
       - master
 jobs:
   playwright-run:
-    name: Test (${{ matrix.shard }})
+    name: Visual Test
     timeout-minutes: 60
     runs-on: macos-latest-xlarge
-    strategy:
-      fail-fast: false
-      matrix:
-        shard: ['1/5', '2/5', '3/5', '4/5', '5/5']
     steps:
-      - name: Comment PR with execution number
-        uses: mshick/add-pr-comment@v2
-        with:
-          message: |
-            Visual test output will be shown!!
-          message-id: visual-test
-          proxy-url: https://ravi-gh-comment-proxy.deno.dev
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
@@ -42,7 +31,7 @@ jobs:
         id: results
         uses: mathiasvr/command-output@v2.0.0
         with:
-          run: npx playwright test playwright/visual-test --config=playwright/playwright.config.js --workers=2 --quiet --reporter='playwright/reporters/reporter.js' --shard=${{ matrix.shard }} || true
+          run: npx playwright test playwright/visual-test --config=playwright/playwright.config.js --workers=2 --retries=2 --quiet --reporter='playwright/reporters/reporter.js' || true
       - name: Comment PR with execution number
         uses: mshick/add-pr-comment@v2
         with:
