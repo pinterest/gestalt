@@ -75,10 +75,12 @@ export function SpacingBox({ token }: BaseProps): ReactNode {
 
 export function TextColorBox({ token }: BaseProps): ReactNode {
   let backgroundColor;
-  if (token.name.includes('inverse') || token.name.includes('light')) {
+  if (token.name.includes('inverse')) {
     backgroundColor = 'selected';
+  } else if (token.name.includes('light')) {
+    backgroundColor = 'dark';
   } else if (token.name.includes('dark')) {
-    backgroundColor = 'default';
+    backgroundColor = 'light';
   }
 
   return (

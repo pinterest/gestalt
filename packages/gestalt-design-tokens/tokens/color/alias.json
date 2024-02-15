@@ -307,12 +307,12 @@
           "comment": "Background color used to accent containers when shadows are not an option "
         },
         "floating": {
-          "value": "transparent",
+          "value": "{color.transparent.value}",
           "darkValue": "{color.gray.roboflow.700.value}",
           "comment": "Background color used for floating elements in dark mode (like Modal or OverlayPanel) "
         },
         "raised": {
-          "value": "transparent",
+          "value": "{color.transparent.value}",
           "darkValue": "{color.gray.roboflow.600.value}",
           "comment": "Background color used for raised elements in dark mode, like sticky headers or navigation footers "
         }

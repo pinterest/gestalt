@@ -4,60 +4,72 @@
       "box": {
         "default": {
           "value": "{color.background.default.value}",
+          "darkValue": "{color.background.default.darkValue}",
           "comment": "Box component default background color"
         },
         "info": {
           "base": {
             "value": "{color.background.info.base.value}",
-            "comment": "Box component infoBase background color"
+            "darkValue": "{color.background.info.base.darkValue}",
+            "comment": "Box component info base background color"
           },
           "weak": {
             "value": "{color.background.info.weak.value}",
-            "comment": "Box component infoWeak background color"
+            "darkValue": "{color.background.info.weak.darkValue}",
+            "comment": "Box component info weak background color"
           }
         },
         "error": {
           "base": {
             "value": "{color.background.error.base.value}",
-            "comment": "Box component errorBase background color"
+            "darkValue": "{color.background.error.base.darkValue}",
+            "comment": "Box component error base background color"
           },
           "weak": {
             "value": "{color.background.error.weak.value}",
-            "comment": "Box component errorWeak background color"
+            "darkValue": "{color.background.error.weak.darkValue}",
+            "comment": "Box component error weak background color"
           }
         },
         "warning": {
           "base": {
             "value": "{color.background.warning.base.value}",
-            "comment": "Box component warningBase background color"
+            "darkValue": "{color.background.warning.base.darkValue}",
+            "comment": "Box component warning base background color"
           },
           "weak": {
             "value": "{color.background.warning.weak.value}",
-            "comment": "Box component warningWeak background color"
+            "darkValue": "{color.background.warning.weak.darkValue}",
+            "comment": "Box component warning weak background color"
           }
         },
         "success": {
           "base": {
             "value": "{color.background.success.base.value}",
-            "comment": "Box component successBase background color"
+            "darkValue": "{color.background.success.base.darkValue}",
+            "comment": "Box component success base background color"
           },
           "weak": {
             "value": "{color.background.success.weak.value}",
-            "comment": "Box component successWeak background color"
+            "darkValue": "{color.background.success.weak.darkValue}",
+            "comment": "Box component success weak background color"
           }
         },
         "recommendation": {
           "base": {
             "value": "{color.background.recommendation.base.value}",
-            "comment": "Box component recommendationBase background color"
+            "darkValue": "{color.background.recommendation.base.darkValue}",
+            "comment": "Box component recommendation base background color"
           },
           "weak": {
             "value": "{color.background.recommendation.weak.value}",
-            "comment": "Box component recommendationWeak background color"
+            "darkValue": "{color.background.recommendation.weak.darkValue}",
+            "comment": "Box component recommendation weak background color"
           }
         },
         "shopping": {
           "value": "{color.background.shopping.value}",
+          "darkValue": "{color.background.shopping.darkValue}",
           "comment": "Box component shopping background color"
         },
         "primary": {
@@ -66,18 +78,22 @@
         },
         "secondary": {
           "value": "{color.background.secondary.base.value}",
+          "darkValue": "{color.background.secondary.base.darkValue}",
           "comment": "Box component secondary background color"
         },
         "tertiary": {
           "value": "{color.background.tertiary.base.value}",
+          "darkValue": "{color.background.tertiary.base.darkValue}",
           "comment": "Box component tertiary background color"
         },
         "selected": {
           "value": "{color.background.selected.base.value}",
+          "darkValue": "{color.background.selected.base.darkValue}",
           "comment": "Box component selected background color"
         },
         "inverse": {
           "value": "{color.background.inverse.base.value}",
+          "darkValue": "{color.background.inverse.base.darkValue}",
           "comment": "Box component inverse background color"
         },
         "brand": {
@@ -86,21 +102,40 @@
         },
         "education": {
           "value": "{color.background.education.value}",
+          "darkValue": "{color.background.education.darkValue}",
           "comment": "Box component education background color"
         },
         "elevation": {
           "accent": {
             "value": "{color.background.elevation.accent.value}",
-            "comment": "Box component elevationAccent background color"
+            "darkValue": "{color.background.elevation.accent.darkValue}",
+            "comment": "Box component elevation accent background color"
           },
           "floating": {
             "value": "{color.background.elevation.floating.value}",
-            "comment": "Box component elevationFloating background color"
+            "darkValue": "{color.background.elevation.floating.darkValue}",
+            "comment": "Box component elevation floating background color"
           },
           "raised": {
             "value": "{color.background.elevation.raised.value}",
-            "comment": "Box component elevationRaised background color"
+            "darkValue": "{color.background.elevation.raised.darkValue}",
+            "comment": "Box component elevation raised background color"
           }
+        },
+        "lightwash": {
+          "value": "#e2e2e2",
+          "darkValue": "#535353",
+          "comment": "Box component light wash background color."
+        },
+        "darkwash": {
+          "value": "#dadada",
+          "darkValue": "#666",
+          "comment": "Box component dark wash background color."
+        },
+        "transparentdarkgray": {
+          "value": "rgba(51, 51, 51, 0.8)",
+          "darkValue": "rgba(255, 255, 255, 0.8)",
+          "comment": "Box component light transparent dark gray background color."
         },
         "dark": {
           "value": "{color.background.dark.value}",
@@ -110,24 +145,9 @@
           "value": "{color.background.light.value}",
           "comment": "Box component light background color"
         },
-        "lightwash": {
-          "value": "#e2e2e2",
-          "darkValue": "#535353",
-          "comment": "Box component light wash color."
-        },
-        "darkwash": {
-          "value": "#dadada",
-          "darkValue": "#666",
-          "comment": "Box component dark wash color."
-        },
         "transparent": {
           "value": "{color.transparent.value}",
-          "comment": "Box component transparent color."
-        },
-        "transparentdarkgray": {
-          "value": "rgba(51, 51, 51, 0.8)",
-          "darkValue": "rgba(255, 255, 255, 0.8)",
-          "comment": "Box component light transparent dark gray color."
+          "comment": "Box component transparent background color."
         }
       },
       "button": {
@@ -182,10 +202,12 @@
         "shopping": {
           "default": {
             "value": "{color.background.shopping.value}",
+            "darkValue": "{color.background.shopping.darkValue}",
             "comment": "Button background color for shopping"
           },
           "hover": {
             "value": "#4a8ad4",
+            "darkValue": "#4a8ad4",
             "comment": "Button background color for shopping on hover."
           },
           "active": {
@@ -214,6 +236,7 @@
         "gray": {
           "default": {
             "value": "{color.background.neutral.value}",
+            "darkValue": "{color.background.neutral.darkValue}",
             "comment": "Button gray background color for images with background"
           },
           "hover": {
@@ -271,6 +294,7 @@
         "selected": {
           "default": {
             "value": "{color.background.selected.base.value}",
+            "darkValue": "{color.background.selected.base.darkValue}",
             "comment": "Disabled button background color."
           }
         }
@@ -280,11 +304,11 @@
         "darkValue": "{color.background.elevation.floating.darkValue}",
         "comment": "Overlay component background color."
       },
-
       "tag": {
         "primary": {
           "default": {
             "value": "{color.background.secondary.base.value}",
+            "darkValue": "{color.background.secondary.base.darkValue}",
             "comment": "Primary tag background color"
           },
           "hover": {
@@ -301,6 +325,7 @@
         "error": {
           "default": {
             "value": "{color.background.error.base.value}",
+            "darkValue": "{color.background.error.base.darkValue}",
             "comment": "Error tag background color."
           },
           "hover": {
@@ -317,6 +342,7 @@
         "warning": {
           "default": {
             "value": "{color.background.warning.base.value}",
+            "darkValue": "{color.background.warning.base.darkValue}",
             "comment": "Warning tag background color."
           },
           "hover": {

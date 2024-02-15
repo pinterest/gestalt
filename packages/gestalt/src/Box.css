@@ -422,111 +422,107 @@
 /* Colors */
 
 .default {
-  background-color: var(--color-background-default);
+  background-color: var(--color-background-box-default);
 }
 
 .infoBase {
-  background-color: var(--color-background-info-base);
+  background-color: var(--color-background-box-info-base);
 }
 
 .infoStrong {
-  background-color: var(--color-background-info-strong);
+  background-color: var(--color-background-box-info-strong);
 }
 
 .infoWeak {
-  background-color: var(--color-background-info-weak);
+  background-color: var(--color-background-box-info-weak);
 }
 
 .errorBase {
-  background-color: var(--color-background-error-base);
+  background-color: var(--color-background-box-error-base);
 }
 
 .errorWeak {
-  background-color: var(--color-background-error-weak);
+  background-color: var(--color-background-box-error-weak);
 }
 
 .warningBase {
-  background-color: var(--color-background-warning-base);
+  background-color: var(--color-background-box-warning-base);
 }
 
 .warningWeak {
-  background-color: var(--color-background-warning-weak);
+  background-color: var(--color-background-box-warning-weak);
 }
 
 .successBase {
-  background-color: var(--color-background-success-base);
+  background-color: var(--color-background-box-success-base);
 }
 
 .successWeak {
-  background-color: var(--color-background-success-weak);
+  background-color: var(--color-background-box-success-weak);
 }
 
 .recommendationBase {
-  background-color: var(--color-background-recommendation-base);
+  background-color: var(--color-background-box-recommendation-base);
 }
 
 .recommendationWeak {
-  background-color: var(--color-background-recommendation-weak);
+  background-color: var(--color-background-box-recommendation-weak);
 }
 
 .shopping {
-  background-color: var(--color-background-shopping);
+  background-color: var(--color-background-box-shopping);
 }
 
 .primary {
-  background-color: var(--color-background-primary-base);
+  background-color: var(--color-background-box-primary);
 }
 
 .secondary {
-  background-color: var(--color-background-secondary-base);
+  background-color: var(--color-background-box-secondary);
 }
 
 .tertiary {
-  background-color: var(--color-background-tertiary-base);
+  background-color: var(--color-background-box-tertiary);
 }
 
 .selected {
-  background-color: var(--color-background-selected-base);
+  background-color: var(--color-background-box-selected);
 }
 
 .inverse {
-  background-color: var(--color-background-inverse-base);
+  background-color: var(--color-background-box-inverse);
 }
 
 .brand {
-  background-color: var(--color-background-brand);
+  background-color: var(--color-background-box-brand);
 }
 
 .education {
-  background-color: var(--color-background-education);
+  background-color: var(--color-background-box-education);
 }
 
 .transparent {
-  background-color: var(--color-transparent);
-}
-
-.overlay {
-  background-color: var(--color-background-overlay);
+  background-color: var(--color-background-box-transparent);
 }
 
 .dark {
-  background-color: var(--color-background-dark);
+  background-color: var(--color-background-box-dark);
 }
 
 .light {
-  background-color: var(--color-background-light);
+  background-color: var(--color-background-box-light);
 }
 
 .elevationAccent {
-  background-color: var(--color-background-elevation-accent);
+  background-color: var(--color-background-box-elevation-accent);
 }
 
 .elevationFloating {
-  background-color: var(--color-background-elevation-floating);
+  background-color: var(--color-background-box-elevation-floating);
 }
 
 .elevationRaised {
-  background-color: var(--color-background-elevation-raised);
+  background-color: var(--color-background-box-elevation-raised);
 }
 
 .lightWash {
