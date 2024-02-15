@@ -25,6 +25,14 @@ jobs:
         with:
           node-version: '16'
           cache: 'yarn'
+      - name: Comment PR with execution number
+        uses: mshick/add-pr-comment@v2
+        with:
+          message: |
+            'This is a visual test run. The results will be posted here.'
+          message-id: visual-test
+          repo-token: ${{ secrets.RYAN_GITHUB_PERSONAL_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RYAN_GITHUB_PERSONAL_TOKEN }}
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Install Playwright
@@ -43,3 +51,4 @@ jobs:
             ${{ steps.results.outputs.stdout }}
           message-id: visual-test
           repo-token: ${{ secrets.RYAN_GITHUB_PERSONAL_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RYAN_GITHUB_PERSONAL_TOKEN }}
