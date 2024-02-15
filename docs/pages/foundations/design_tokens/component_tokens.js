@@ -95,13 +95,7 @@ export default function DesignTokensPage(): ReactNode {
                           </Table.Cell>
                         )}
                         <Table.Cell>
-                          <div
-                            className={
-                              token.name.includes('disabled') ? 'element-disabled' : undefined
-                            }
-                          >
-                            <TokenExample token={token} category={category} />
-                          </div>
+                          <TokenExample token={token} category={category} />
                         </Table.Cell>
                       </Table.Row>
                     ))}

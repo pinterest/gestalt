@@ -14,7 +14,6 @@ export default async function expectAccessiblePage(
     .exclude('.live-editor-pane')
     .exclude('.skip-accessibility-check')
     .exclude('.sp-layout')
-    .exclude('.element-disabled')
     .analyze();
 
   if (violations.length > 0) {

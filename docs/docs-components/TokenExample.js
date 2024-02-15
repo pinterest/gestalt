@@ -184,30 +184,59 @@ export function FontBox({ token, type }: FontBoxProps): ReactNode {
 }
 
 export function TokenExample({ token, category }: ExampleProps): ReactNode {
+  let example;
+
   switch (category) {
     case 'color-background':
     case 'color-data-visualization':
-      return <ColorBox token={token} />;
+      example = <ColorBox token={token} />;
+      break;
+
     case 'color-text':
     case 'color-icon':
-      return <TextColorBox token={token} />;
+      example = <TextColorBox token={token} />;
+      break;
+
     case 'color-border':
-      return <BorderBox token={token} />;
+      example = <BorderBox token={token} />;
+      break;
+
     case 'elevation':
-      return <ElevationBox token={token} />;
+      example = <ElevationBox token={token} />;
+      break;
+
     case 'opacity':
-      return <OpacityBox token={token} />;
+      example = <OpacityBox token={token} />;
+      break;
+
     case 'rounding':
-      return <RoundingBox token={token} />;
+      example = <RoundingBox token={token} />;
+      break;
+
     case 'spacing':
-      return <SpacingBox token={token} />;
+      example = <SpacingBox token={token} />;
+      break;
+
     case 'font-size':
-      return <FontBox token={token} type="size" />;
+      example = <FontBox token={token} type="size" />;
+      break;
+
     case 'font-weight':
-      return <FontBox token={token} type="weight" />;
+      example = <FontBox token={token} type="weight" />;
+      break;
+
     case 'font-family':
-      return <FontBox token={token} type="family" />;
+      example = <FontBox token={token} type="family" />;
+      break;
+
     default:
-      return <Box>{token.value}</Box>;
+      example = <Box>{token.value}</Box>;
+      break;
   }
+
+  return token.name.includes('disabled') ? (
+    <div className="skip-accessibility-check">{example}</div>
+  ) : (
+    example
+  );
 }
