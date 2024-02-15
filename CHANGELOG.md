@@ -1,3 +1,9 @@
+## 142.3.3 (Feb 15, 2024)
+
+### Patch
+
+- Box: linking to Box component tokens ([#3426](https://github.com/pinterest/gestalt/pull/3426)) - [Preview link](https://deploy-preview-3426--gestalt.netlify.app?devexample=true)
+
 ## 142.3.2 (Feb 15, 2024)
 
 ### Patch
