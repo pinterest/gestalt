@@ -6,21 +6,24 @@ This file is updated manually
 
 NEW
 
-| name                                  | light                                      | dark |
-| ------------------------------------- | ------------------------------------------ | ---- |
-| color-background-badge-neutral        | color.background.tertiary.base.value       |      |
-| color-background-badge-info-default   | color.background.info.base.value           |      |
-| color-background-badge-info-hover     | color.background.info.strong.value         |      |
-| color-background-badge-error          | color.background.error.base.value          |      |
-| color-background-badge-warning        | color.background.warning.base.value        |      |
-| color-background-badge-success        | color.background.success.base.value        |      |
-| color-background-badge-recommendation | color.background.recommendation.base.value |      |
-| color-background-badge-lightwash      | color.background.wash.light.value          |      |
-| color-background-badge-darkwash       | color.background.wash.dark.value           |      |
+| name                                  | light                                      | dark    |
+| ------------------------------------- | ------------------------------------------ | ------- |
+| color-background-badge-neutral        | color.background.tertiary.base.value       |         |
+| color-background-badge-info-default   | color.background.info.base.value           |         |
+| color-background-badge-info-hover     | color.background.info.strong.value         |         |
+| color-background-badge-error          | color.background.error.base.value          |         |
+| color-background-badge-warning        | color.background.warning.base.value        |         |
+| color-background-badge-success        | color.background.success.base.value        |         |
+| color-background-badge-recommendation | color.background.recommendation.base.value |         |
+| color-background-badge-lightwash      | color.background.wash.light.value          |         |
+| color-background-badge-darkwash       | color.background.wash.dark.value           |         |
+| color-background-tagdata-primary      | color.background.secondary.base.value      |         |
+| color-background-tagdata-secondary    | color.background.default.value             |         |
+| color-background-tagdata-disabled     | #efefef                                    | #404040 |
 
 #### Why
 
-Tokenize Badge component background colors
+Tokenize Badge / TagData component background colors
 
 #### Breaking change notes
 

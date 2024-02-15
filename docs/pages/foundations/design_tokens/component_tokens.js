@@ -53,7 +53,7 @@ function TableHeaders({ hasDarkValues }: { hasDarkValues: boolean }): ReactNode 
 
 const allTokens: $ReadOnlyArray<Token> = tokens;
 
-const components = ['badge', 'box', 'button', 'overlay', 'tag'];
+const components = ['badge', 'box', 'button', 'overlay', 'tag', 'tagdata'];
 
 export default function DesignTokensPage(): ReactNode {
   return (
