@@ -1,3 +1,9 @@
+## 142.3.2 (Feb 15, 2024)
+
+### Patch
+
+- Docs: new Design tokens/Component tokens page and updates in Design tokens/Overview ([#3428](https://github.com/pinterest/gestalt/pull/3428)) - [Preview link](https://deploy-preview-3428--gestalt.netlify.app?devexample=true)
+
 ## 142.3.1 (Feb 14, 2024)
 
 ### Patch
