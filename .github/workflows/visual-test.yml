@@ -24,7 +24,7 @@ jobs:
         uses: mshick/add-pr-comment@v2
         with:
           message: |
-            Visual test output will be shown!!!
+            Visual test output will be shown!!
           message-id: visual-test
           proxy-url: https://ravi-gh-comment-proxy.deno.dev
       - uses: actions/checkout@v3
