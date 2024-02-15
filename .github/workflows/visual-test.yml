@@ -20,11 +20,6 @@ jobs:
       matrix:
         shard: ['1/5', '2/5', '3/5', '4/5', '5/5']
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-          cache: 'yarn'
       - name: Comment PR with execution number
         uses: mshick/add-pr-comment@v2
         with:
@@ -32,7 +27,11 @@ jobs:
             'This is a visual test run. The results will be posted here.'
           message-id: visual-test
           repo-token: ${{ secrets.RYAN_GITHUB_PERSONAL_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.RYAN_GITHUB_PERSONAL_TOKEN }}
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Install Playwright
