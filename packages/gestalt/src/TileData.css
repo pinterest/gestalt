@@ -22,25 +22,62 @@
 }
 
 .hovered {
-  composes: pointer from "./Cursor.css";
-  composes: secondary from "./Colors.css";
+  background-color: var(--color-background-tiledata-hover);
 }
 
 .focused {
   composes: accessibilityOutlineFocus from "./Focus.css";
 }
 
-.transparent {
-  composes: transparent from "./Colors.css";
-}
-
-.selected {
-  composes: secondary from "./Colors.css";
-}
-
 .disabled {
-  composes: lightGrayBg from "./Colors.css";
   composes: transparentBorder from "./Borders.css";
-  cursor: default;
-  pointer-events: none;
+  background-color: var(--color-background-tiledata-disabled);
+}
+
+.dataVisualizationColor01 {
+  background-color: var(--color-background-tiledata-01);
+}
+
+.dataVisualizationColor02 {
+  background-color: var(--color-background-tiledata-02);
+}
+
+.dataVisualizationColor03 {
+  background-color: var(--color-background-tiledata-03);
+}
+
+.dataVisualizationColor04 {
+  background-color: var(--color-background-tiledata-04);
+}
+
+.dataVisualizationColor05 {
+  background-color: var(--color-background-tiledata-05);
+}
+
+.dataVisualizationColor06 {
+  background-color: var(--color-background-tiledata-06);
+}
+
+.dataVisualizationColor07 {
+  background-color: var(--color-background-tiledata-07);
+}
+
+.dataVisualizationColor08 {
+  background-color: var(--color-background-tiledata-08);
+}
+
+.dataVisualizationColor09 {
+  background-color: var(--color-background-tiledata-09);
+}
+
+.dataVisualizationColor10 {
+  background-color: var(--color-background-tiledata-10);
+}
+
+.dataVisualizationColor11 {
+  background-color: var(--color-background-tiledata-11);
+}
+
+.dataVisualizationColor12 {
+  background-color: var(--color-background-tiledata-12);
 }

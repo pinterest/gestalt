@@ -1,5 +1,38 @@
 This file is updated manually
 
+## 142.4.0 https://github.com/pinterest/gestalt/pull/3432
+
+### MINOR
+
+NEW
+
+| name                                          | light                                 | dark                                      |
+| --------------------------------------------- | ------------------------------------- | ----------------------------------------- |
+| color-background-tableofcontents-item-default | color.transparent.value               |                                           |
+| color-background-tableofcontents-item-hover   | color.background.secondary.base.value |                                           |
+| color-background-tiledata-01                  | {color.data-visualization.01.value}1A | {color.data-visualization.01.darkValue}1A |
+| color-background-tiledata-02                  | {color.data-visualization.02.value}1A | {color.data-visualization.02.darkValue}1A |
+| color-background-tiledata-03                  | {color.data-visualization.03.value}1A | {color.data-visualization.03.darkValue}1A |
+| color-background-tiledata-04                  | {color.data-visualization.04.value}1A | {color.data-visualization.04.darkValue}1A |
+| color-background-tiledata-05                  | {color.data-visualization.05.value}1A | {color.data-visualization.05.darkValue}1A |
+| color-background-tiledata-06                  | {color.data-visualization.06.value}1A | {color.data-visualization.06.darkValue}1A |
+| color-background-tiledata-07                  | {color.data-visualization.07.value}1A | {color.data-visualization.07.darkValue}1A |
+| color-background-tiledata-08                  | {color.data-visualization.08.value}1A | {color.data-visualization.08.darkValue}1A |
+| color-background-tiledata-09                  | {color.data-visualization.09.value}1A | {color.data-visualization.09.darkValue}1A |
+| color-background-tiledata-10                  | {color.data-visualization.10.value}1A | {color.data-visualization.10.darkValue}1A |
+| color-background-tiledata-11                  | {color.data-visualization.11.value}1A | {color.data-visualization.11.darkValue}1A |
+| color-background-tiledata-12                  | {color.data-visualization.12.value}1A | {color.data-visualization.12.darkValue}1A |
+| color-background-tiledata-hover               | color.background.secondary.base.value |                                           |
+| color-background-tiledata-disabled            | #efefef                               | #404040                                   |
+
+#### Why
+
+Tokenize TableOfContents, TileData component background colors
+
+#### Breaking change notes
+
+--
+
 ## 142.3.0 https://github.com/pinterest/gestalt/pull/3427
 
 ### MINOR

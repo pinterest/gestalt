@@ -53,12 +53,7 @@ exports[`TableOfContents renders 1`] = `
             }
           />
           <div
-            className="item flexGrow"
-            style={
-              Object {
-                "paddingInlineStart": "12px",
-              }
-            }
+            className="item nestingIndentation1"
           >
             <div
               className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
@@ -126,12 +121,7 @@ exports[`TableOfContents renders an accessibility label 1`] = `
             }
           />
           <div
-            className="item flexGrow"
-            style={
-              Object {
-                "paddingInlineStart": "12px",
-              }
-            }
+            className="item nestingIndentation1"
           >
             <div
               className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
@@ -190,12 +180,7 @@ exports[`TableOfContents renders nested items 1`] = `
             }
           />
           <div
-            className="item flexGrow"
-            style={
-              Object {
-                "paddingInlineStart": "12px",
-              }
-            }
+            className="item nestingIndentation1"
           >
             <div
               className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
@@ -243,12 +228,7 @@ exports[`TableOfContents renders nested items 1`] = `
                 }
               />
               <div
-                className="item flexGrow"
-                style={
-                  Object {
-                    "paddingInlineStart": "32px",
-                  }
-                }
+                className="item nestingIndentation2"
               >
                 <div
                   className="Text fontSize200 defaultText alignStart breakWord fontWeightSemiBold"
@@ -294,12 +274,7 @@ exports[`TableOfContents renders nested items 1`] = `
                 }
               />
               <div
-                className="item flexGrow"
-                style={
-                  Object {
-                    "paddingInlineStart": "32px",
-                  }
-                }
+                className="item nestingIndentation2"
               >
                 <div
                   className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
@@ -360,12 +335,7 @@ exports[`TableOfContents renders without title 1`] = `
             }
           />
           <div
-            className="item flexGrow"
-            style={
-              Object {
-                "paddingInlineStart": "12px",
-              }
-            }
+            className="item nestingIndentation1"
           >
             <div
               className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
@@ -411,12 +381,7 @@ exports[`TableOfContents renders without title 1`] = `
             }
           />
           <div
-            className="item flexGrow"
-            style={
-              Object {
-                "paddingInlineStart": "12px",
-              }
-            }
+            className="item nestingIndentation1"
           >
             <div
               className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
