@@ -1,5 +1,24 @@
 This file is updated manually
 
+## 142.4.0 https://github.com/pinterest/gestalt/pull/3432
+
+### MINOR
+
+NEW
+
+| name                                          | light                              | dark |
+| --------------------------------------------- | ---------------------------------- | ---- |
+| color-background-tableofcontents-item-default | color.transparent.value            |      |
+| color-background-tableofcontents-item-hover   | or.background.secondary.base.value |      |
+
+#### Why
+
+Tokenize TableOfContents component background colors
+
+#### Breaking change notes
+
+--
+
 ## 142.3.0 https://github.com/pinterest/gestalt/pull/3427
 
 ### MINOR
