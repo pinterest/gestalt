@@ -1,3 +1,9 @@
+## 142.5.0 (Feb 16, 2024)
+
+### Minor
+
+- Tokens, TableOfContents, TileData: implement background color tokens and some code cleanups ([#3432](https://github.com/pinterest/gestalt/pull/3432)) - [Preview link](https://deploy-preview-3432--gestalt.netlify.app?devexample=true)
+
 ## 142.4.1 (Feb 16, 2024)
 
 ### Patch
