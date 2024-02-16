@@ -27,7 +27,7 @@ NEW
 
 #### Why
 
-Tokenize TableOfContents, TagData component background colors
+Tokenize TableOfContents, TileData component background colors
 
 #### Breaking change notes
 
