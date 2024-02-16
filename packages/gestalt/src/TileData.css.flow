@@ -17,6 +17,5 @@ declare module.exports: {|
   +'disabled': string,
   +'focused': string,
   +'hovered': string,
-  +'selected': string,
   +'tileWidth': string,
 |};
