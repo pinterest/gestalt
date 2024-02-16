@@ -1,3 +1,9 @@
+## 142.4.0 (Feb 16, 2024)
+
+### Minor
+
+- Badge, TagData: tokenization background colors ([#3427](https://github.com/pinterest/gestalt/pull/3427)) - [Preview link](https://deploy-preview-3427--gestalt.netlify.app?devexample=true)
+
 ## 142.3.3 (Feb 15, 2024)
 
 ### Patch
