@@ -51,7 +51,7 @@
 }
 
 .BgEnabled {
-  background-color: var(--color-background-formfield-default);
+  background-color: var(--color-background-formfield-primary);
 }
 
 .InputEnabled {

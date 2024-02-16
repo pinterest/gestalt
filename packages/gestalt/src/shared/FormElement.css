@@ -29,7 +29,7 @@
 
 .enabled {
   composes: darkGray from "../Colors.css";
-  background-color: var(--color-background-formfield-default);
+  background-color: var(--color-background-formfield-primary);
 }
 
 .disabled {
