@@ -57,6 +57,7 @@ const components = [
   'badge',
   'box',
   'button',
+  'formfield',
   'overlay',
   'tag',
   'tableofcontents',
