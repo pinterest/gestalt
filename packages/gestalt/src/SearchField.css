@@ -20,7 +20,6 @@
 }
 
 .input:focus {
-  background-color: var(--color-background-formfield-primary);
   cursor: text;
 }
 
