@@ -40,7 +40,7 @@ exports[`TagData TagData has a tooltip 1`] = `
         tabIndex={0}
       >
         <div
-          className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+          className="solid transparentBorder tagMedium primary tagWrapperRounded"
           style={
             Object {
               "backgroundColor": "#0081fe1A",
@@ -121,7 +121,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#003c961A",
@@ -197,7 +197,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#11a69c1A",
@@ -273,7 +273,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#924af71A",
@@ -349,7 +349,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#d177111A",
@@ -425,7 +425,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#0081fe1A",
@@ -501,7 +501,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#ff53831A",
@@ -577,7 +577,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#00ab551A",
@@ -653,7 +653,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#4003871A",
@@ -729,7 +729,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#f2681f1A",
@@ -805,7 +805,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#0050621A",
@@ -881,7 +881,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#de2c621A",
@@ -957,7 +957,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#660e001A",
@@ -1040,7 +1040,7 @@ exports[`TagData renders base color as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium default tagWrapperRounded"
+              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#0081fe1A",
@@ -1170,7 +1170,7 @@ exports[`TagData renders base color as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#0081fe1A",
@@ -1301,7 +1301,7 @@ exports[`TagData renders disabled selected state 1`] = `
         tabIndex={null}
       >
         <div
-          className="solid transparentBorder tagMedium secondary disabled tagWrapperRounded"
+          className="solid transparentBorder tagMedium primary disabled tagWrapperRounded"
           style={Object {}}
         >
           <div
@@ -1425,7 +1425,7 @@ exports[`TagData renders disabled unselected state 1`] = `
         tabIndex={null}
       >
         <div
-          className="solid transparentBorder tagMedium secondary disabled tagWrapperRounded"
+          className="solid transparentBorder tagMedium primary disabled tagWrapperRounded"
           style={Object {}}
         >
           <div
@@ -1535,7 +1535,7 @@ exports[`TagData renders dismisible button with color background 1`] = `
         tabIndex={0}
       >
         <div
-          className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+          className="solid transparentBorder tagMedium primary tagWrapperRounded"
           style={
             Object {
               "backgroundColor": "#924af71A",
@@ -1622,7 +1622,7 @@ exports[`TagData renders dismisible button with color background 1`] = `
     </div>
   </div>
   <button
-    className="solid transparentBorder dismissButton dismissButtonRounding dismissButtonPosition hideOutline secondary accessibilityOutline"
+    className="solid transparentBorder dismissButton dismissButtonRounding dismissButtonPosition hideOutline primary accessibilityOutline"
     disabled={false}
     onClick={[Function]}
     onMouseEnter={[Function]}
@@ -1701,7 +1701,7 @@ exports[`TagData renders dismissable button 1`] = `
         tabIndex={0}
       >
         <div
-          className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+          className="solid transparentBorder tagMedium primary tagWrapperRounded"
           style={
             Object {
               "backgroundColor": "#0081fe1A",
@@ -1788,7 +1788,7 @@ exports[`TagData renders dismissable button 1`] = `
     </div>
   </div>
   <button
-    className="solid transparentBorder dismissButton dismissButtonRounding dismissButtonPosition hideOutline secondary accessibilityOutline"
+    className="solid transparentBorder dismissButton dismissButtonRounding dismissButtonPosition hideOutline primary accessibilityOutline"
     disabled={false}
     onClick={[Function]}
     onMouseEnter={[Function]}
@@ -1860,7 +1860,7 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
       tabIndex={0}
     >
       <div
-        className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+        className="solid transparentBorder tagMedium primary tagWrapperRounded"
         style={Object {}}
       >
         <div
@@ -1926,7 +1926,7 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
       </div>
     </div>
     <button
-      className="solid transparentBorder dismissButton dismissButtonRounding dismissButtonPosition hideOutline secondary accessibilityOutline"
+      className="solid transparentBorder dismissButton dismissButtonRounding dismissButtonPosition hideOutline primary accessibilityOutline"
       disabled={false}
       onClick={[Function]}
       onMouseEnter={[Function]}

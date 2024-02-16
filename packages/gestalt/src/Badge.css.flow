@@ -3,8 +3,14 @@
 declare module.exports: {|
   +'Badge': string,
   +'darkWash': string,
+  +'error': string,
+  +'info': string,
   +'interactiveInfo': string,
   +'lightWash': string,
   +'middle': string,
+  +'neutral': string,
+  +'recommendation': string,
+  +'success': string,
   +'top': string,
+  +'warning': string,
 |};

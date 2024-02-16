@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import borderStyles from './Borders.css';
 import Box from './Box';
 import InternalCheckbox from './Checkbox/InternalCheckbox';
-import cssColorStyles from './Colors.css';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import focusStyles from './Focus.css';
@@ -156,8 +155,8 @@ export default function TagData({
       [styles.tagLarge]: size === 'lg',
       [styles.tagMedium]: size === 'md',
       [styles.tagSmall]: size === 'sm',
-      [cssColorStyles.secondary]: baseColor === 'primary',
-      [cssColorStyles.default]: baseColor === 'secondary',
+      [styles.primary]: baseColor === 'primary',
+      [styles.secondary]: baseColor === 'secondary',
       [styles.hovered]: isHovered,
       [styles.disabled]: disabled,
       [styles.tagWrapperRounded]: true,
@@ -172,8 +171,8 @@ export default function TagData({
       styles.dismissButtonPosition,
       focusStyles.hideOutline,
       {
-        [cssColorStyles.secondary]: baseColor === 'primary',
-        [cssColorStyles.default]: baseColor === 'secondary',
+        [styles.primary]: baseColor === 'primary',
+        [styles.secondary]: baseColor === 'secondary',
         [styles.disabled]: disabled,
         [styles.dismissHovered]: isHovered,
         [focusStyles.accessibilityOutline]: isFocusVisible,
