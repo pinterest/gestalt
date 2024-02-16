@@ -1,3 +1,9 @@
+## 142.4.1 (Feb 16, 2024)
+
+### Patch
+
+- Internal: Bump undici from 5.26.3 to 5.28.3 ([#3433](https://github.com/pinterest/gestalt/pull/3433)) - [Preview link](https://deploy-preview-3433--gestalt.netlify.app?devexample=true)
+
 ## 142.4.0 (Feb 16, 2024)
 
 ### Minor
