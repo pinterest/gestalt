@@ -6,10 +6,10 @@ This file is updated manually
 
 NEW
 
-| name                                          | light                              | dark |
-| --------------------------------------------- | ---------------------------------- | ---- |
-| color-background-tableofcontents-item-default | color.transparent.value            |      |
-| color-background-tableofcontents-item-hover   | or.background.secondary.base.value |      |
+| name                                          | light                                 | dark |
+| --------------------------------------------- | ------------------------------------- | ---- |
+| color-background-tableofcontents-item-default | color.transparent.value               |      |
+| color-background-tableofcontents-item-hover   | color.background.secondary.base.value |      |
 
 #### Why
 
