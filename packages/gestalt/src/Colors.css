@@ -13,10 +13,6 @@
 
 /** Colors Design Token **/
 
-.secondary {
-  background-color: var(--color-background-secondary-base);
-}
-
 .default {
   background-color: var(--color-background-default);
 }

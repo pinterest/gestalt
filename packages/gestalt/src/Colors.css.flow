@@ -26,7 +26,6 @@ declare module.exports: {|
   +'linkText': string,
   +'overlay': string,
   +'recommendationIcon': string,
-  +'secondary': string,
   +'shoppingIcon': string,
   +'shoppingText': string,
   +'subtleIcon': string,

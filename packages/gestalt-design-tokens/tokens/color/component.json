@@ -420,6 +420,19 @@
           "darkValue": "#404040",
           "comment": "TagData disabled background color"
         }
+      },
+      "tableofcontents": {
+        "item": {
+          "default": {
+            "value": "{color.transparent.value}",
+            "comment": "Table of contents item default background color"
+          },
+          "hover": {
+            "value": "{color.background.secondary.base.value}",
+            "darkValue": "{color.background.secondary.base.darkValue}",
+            "comment": "Table of contents item background color on hover"
+          }
+        }
       }
     }
   }
