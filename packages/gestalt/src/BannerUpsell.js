@@ -44,15 +44,6 @@ function UpsellAction({ data, stacked, type }: UpsellActionProps): ReactNode {
   const color = type === 'primary' ? 'red' : 'gray';
   const { accessibilityLabel, disabled, label } = data;
 
-  const commonProps = {
-    accessibilityLabel,
-    color,
-    disabled,
-    fullWidth: true,
-    size: 'lg',
-    text: label,
-  };
-
   return (
     <Box
       display="block"
@@ -66,14 +57,27 @@ function UpsellAction({ data, stacked, type }: UpsellActionProps): ReactNode {
     >
       {data.role === 'link' ? (
         <ButtonLink
-          {...commonProps}
+          accessibilityLabel={accessibilityLabel}
+          color={color}
+          disabled={disabled}
+          fullWidth
+          size="lg"
+          text={label}
           onClick={data.onClick}
           href={data.href ?? ''}
           rel={data.rel}
           target={data.target}
         />
       ) : (
-        <Button {...commonProps} onClick={data.onClick} />
+        <Button
+          accessibilityLabel={accessibilityLabel}
+          color={color}
+          disabled={disabled}
+          fullWidth
+          size="lg"
+          text={label}
+          onClick={data.onClick}
+        />
       )}
     </Box>
   );
