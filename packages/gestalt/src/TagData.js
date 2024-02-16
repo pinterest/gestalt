@@ -183,13 +183,13 @@ export default function TagData({
 
   const tileStyle = selected && !disabled ? colorStyles : {};
 
-  const checkBoxStyle = getCheckboxColors(
-    { hovered: isHovered, selected: !!selected, disabled },
+  const checkBoxStyle = getCheckboxColors({
+    state: { hovered: isHovered, selected: !!selected, disabled },
     colorStyles,
-    {
+    opts: {
       showByDefault: true,
     },
-  );
+  });
 
   return (
     <Box display="inlineBlock" position="relative" maxWidth={300} rounding={2}>

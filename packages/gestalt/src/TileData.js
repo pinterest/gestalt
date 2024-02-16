@@ -120,11 +120,9 @@ export default function TileData({
 }: Props): ReactNode {
   const { name } = useColorScheme();
   const borderColor = getDataVisualizationColor(name, color);
-  const bgColor = getDataVisualizationColor(name, color, { lighten: true });
 
   const colorStyles: { borderColor?: string, backgroundColor?: string } = {
     borderColor,
-    backgroundColor: bgColor,
   };
 
   const { handleOnBlur, handleOnMouseEnter, handleOnMouseLeave, isHovered } =
@@ -134,17 +132,16 @@ export default function TileData({
 
   const getClasses = () =>
     classnames(styles.baseTile, styles.tileWidth, {
-      [styles.selected]: selected,
       [styles.hovered]: isHovered,
       [styles.disabled]: disabled,
+      [styles[`dataVisualizationColor${color}`]]: selected && !disabled,
     });
 
   const tileStyle = selected && !disabled ? colorStyles : {};
-
-  const checkBoxStyle = getCheckboxColors(
-    { hovered: isHovered, selected: !!selected, disabled },
+  const checkBoxStyle = getCheckboxColors({
+    state: { hovered: isHovered, selected: !!selected, disabled },
     colorStyles,
-  );
+  });
 
   return (
     <MaybeTooltip tooltip={tooltip} disabled={disabled}>

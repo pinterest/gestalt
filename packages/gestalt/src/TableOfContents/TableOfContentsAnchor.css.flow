@@ -3,4 +3,9 @@
 declare module.exports: {|
   +'item': string,
   +'itemHover': string,
+  +'nestingIndentation1': string,
+  +'nestingIndentation2': string,
+  +'nestingIndentation3': string,
+  +'nestingIndentation4': string,
+  +'nestingIndentation5': string,
 |};

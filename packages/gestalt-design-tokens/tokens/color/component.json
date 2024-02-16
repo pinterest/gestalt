@@ -433,6 +433,78 @@
             "comment": "Table of contents item background color on hover"
           }
         }
+      },
+      "tiledata": {
+        "01": {
+          "value": "{color.data-visualization.01.value}1A",
+          "darkValue": "{color.data-visualization.01.darkValue}1A",
+          "comment": "TileData background color 01"
+        },
+        "02": {
+          "value": "{color.data-visualization.02.value}1A",
+          "darkValue": "{color.data-visualization.02.darkValue}1A",
+          "comment": "TileData background color 02"
+        },
+        "03": {
+          "value": "{color.data-visualization.03.value}1A",
+          "darkValue": "{color.data-visualization.03.darkValue}1A",
+          "comment": "TileData background color 03"
+        },
+        "04": {
+          "value": "{color.data-visualization.04.value}1A",
+          "darkValue": "{color.data-visualization.04.darkValue}1A",
+          "comment": "TileData background color 04"
+        },
+        "05": {
+          "value": "{color.data-visualization.05.value}1A",
+          "darkValue": "{color.data-visualization.05.darkValue}1A",
+          "comment": "TileData background color 05"
+        },
+        "06": {
+          "value": "{color.data-visualization.06.value}1A",
+          "darkValue": "{color.data-visualization.06.darkValue}1A",
+          "comment": "TileData background color 06"
+        },
+        "07": {
+          "value": "{color.data-visualization.07.value}1A",
+          "darkValue": "{color.data-visualization.07.darkValue}1A",
+          "comment": "TileData background color 07"
+        },
+        "08": {
+          "value": "{color.data-visualization.08.value}1A",
+          "darkValue": "{color.data-visualization.08.darkValue}1A",
+          "comment": "TileData background color 08"
+        },
+        "09": {
+          "value": "{color.data-visualization.09.value}1A",
+          "darkValue": "{color.data-visualization.09.darkValue}1A",
+          "comment": "TileData background color 09"
+        },
+        "10": {
+          "value": "{color.data-visualization.10.value}1A",
+          "darkValue": "{color.data-visualization.10.darkValue}1A",
+          "comment": "TileData background color 10"
+        },
+        "11": {
+          "value": "{color.data-visualization.11.value}1A",
+          "darkValue": "{color.data-visualization.11.darkValue}1A",
+          "comment": "TileData background color 11"
+        },
+        "12": {
+          "value": "{color.data-visualization.12.value}1A",
+          "darkValue": "{color.data-visualization.12.darkValue}1A",
+          "comment": "TileData background color 12"
+        },
+        "hover": {
+          "value": "{color.background.secondary.base.value}",
+          "darkValue": "{color.background.secondary.base.darkValue}",
+          "comment": "TileData default background color on hover"
+        },
+        "disabled": {
+          "value": "#efefef",
+          "darkValue": "#404040",
+          "comment": "TileData disabled background color"
+        }
       }
     }
   }

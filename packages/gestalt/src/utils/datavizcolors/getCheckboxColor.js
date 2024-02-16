@@ -1,7 +1,5 @@
 // @flow strict
 
-type ColorStyles = { borderColor?: string, backgroundColor?: string };
-
 export type InteractionStates = {
   disabled: boolean,
   hovered: boolean,
@@ -12,11 +10,15 @@ export type InteractionStates = {
  *
  * Given an interactions state for a checkbox, returns the relevant bg and border color
  * */
-export default function getCheckboxColor(
+export default function getCheckboxColor({
+  state,
+  colorStyles,
+  opts,
+}: {
   state: InteractionStates,
-  colorStyles: ColorStyles,
+  colorStyles: { borderColor?: string, backgroundColor?: string },
   opts?: { showByDefault?: boolean },
-): ColorStyles {
+}): { borderColor?: string, backgroundColor?: string } {
   const defaultBackgroundColor = 'transparent';
   const defaultBorderColor = 'transparent';
 
