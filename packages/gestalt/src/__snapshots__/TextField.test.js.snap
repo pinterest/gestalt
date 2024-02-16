@@ -352,7 +352,7 @@ exports[`TextField TextField with tags 1`] = `
             }
           >
             <span
-              className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal lineClamp"
+              className="Text fontSize100 defaultText alignStart breakAll fontWeightNormal lineClamp"
               style={
                 Object {
                   "WebkitLineClamp": 1,
@@ -424,7 +424,7 @@ exports[`TextField TextField with tags 1`] = `
             }
           >
             <span
-              className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal lineClamp"
+              className="Text fontSize100 defaultText alignStart breakAll fontWeightNormal lineClamp"
               style={
                 Object {
                   "WebkitLineClamp": 1,
@@ -496,7 +496,7 @@ exports[`TextField TextField with tags 1`] = `
             }
           >
             <span
-              className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal lineClamp"
+              className="Text fontSize100 defaultText alignStart breakAll fontWeightNormal lineClamp"
               style={
                 Object {
                   "WebkitLineClamp": 1,
