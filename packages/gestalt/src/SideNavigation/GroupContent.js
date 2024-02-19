@@ -115,9 +115,15 @@ export default function SideNavigationGroupContent({
           <Flex.Item alignSelf="center">
             <Box aria-hidden>
               {typeof icon === 'string' ? (
-                <Icon inline icon={icon} accessibilityLabel="" color="default" />
+                <Icon size={20} inline icon={icon} accessibilityLabel="" color="default" />
               ) : (
-                <Icon inline dangerouslySetSvgPath={icon} accessibilityLabel="" color="default" />
+                <Icon
+                  size={20}
+                  inline
+                  dangerouslySetSvgPath={icon}
+                  accessibilityLabel=""
+                  color="default"
+                />
               )}
             </Box>
           </Flex.Item>

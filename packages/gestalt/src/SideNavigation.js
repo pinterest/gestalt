@@ -1,28 +1,16 @@
 // @flow strict
-import { Children, type Node as ReactNode, useId } from 'react';
-import classnames from 'classnames';
-import borderStyles from './Borders.css';
-import Box from './Box';
+import { type Node as ReactNode, useId } from 'react';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
-import {
-  SideNavigationConsumer,
-  SideNavigationProvider,
-  useSideNavigation,
-} from './contexts/SideNavigationProvider';
-import Divider from './Divider';
-import Flex from './Flex';
-import IconButton from './IconButton';
+import { SideNavigationProvider } from './contexts/SideNavigationProvider';
 import ScrollBoundaryContainer from './ScrollBoundaryContainer';
-import styles from './SideNavigation.css';
-import getChildrenToArray from './SideNavigation/getChildrenToArray';
 import SideNavigationMobile from './SideNavigation/Mobile';
+import SideNavigationContent from './SideNavigation/NavigationContent';
 import SideNavigationGroup from './SideNavigationGroup';
 import SideNavigationNestedGroup from './SideNavigationNestedGroup';
 import SideNavigationNestedItem from './SideNavigationNestedItem';
 import SideNavigationSection from './SideNavigationSection';
 import SideNavigationTopItem from './SideNavigationTopItem';
-import Sticky from './Sticky';
 
 export type Props = {
   /**
@@ -46,6 +34,9 @@ export type Props = {
    */
   dismissButton?: { accessibilityLabel?: string, onDismiss: () => void },
   /**
+   * Adds a collapser button
+   */
+  collapsible?: boolean,
   /**
    * Displays a border in SideNavigation. See the [Border](https://gestalt.pinterest.systems/web/sidenavigation#Border) variant for more info.
    */
@@ -55,30 +46,6 @@ export type Props = {
    */
   mobileTitle?: string,
 };
-
-function Collapser() {
-  const { isCollapsed, setCollapsed } = useSideNavigation();
-
-  return (
-    <Sticky top={0}>
-      <Box
-        display="flex"
-        justifyContent="end"
-        marginBottom={-2}
-        padding={2}
-        color="light"
-        // borderStyle="raisedTopShadow"
-      >
-        <IconButton
-          icon="play"
-          accessibilityLabel="expand"
-          size="xs"
-          onClick={() => setCollapsed(!isCollapsed)}
-        />
-      </Box>
-    </Sticky>
-  );
-}
 
 /**
  * [SideNavigation](https://gestalt.pinterest.systems/web/sidenavigation) is start-aligned and arranged vertically. It is used to navigate between page urls or sections when you have too many menu items to fit in horizontal [Tabs](https://gestalt.pinterest.systems/web/tabs).
@@ -95,13 +62,10 @@ export default function SideNavigation({
   dismissButton,
   footer,
   header,
+  collapsible,
   showBorder,
   mobileTitle,
 }: Props): ReactNode {
-  const navigationChildren = getChildrenToArray({
-    children,
-    filterLevel: 'main',
-  });
   const { accessibilityDismissButtonLabel } = useDefaultLabelContext('SideNavigation');
   const id = useId();
   const deviceType = useDeviceType();
@@ -132,7 +96,7 @@ export default function SideNavigation({
             mobileTitle={mobileTitle}
             id={id}
           >
-            {navigationChildren}
+            {children}
           </SideNavigationMobile>
         </ScrollBoundaryContainer>
       </SideNavigationProvider>
@@ -142,46 +106,15 @@ export default function SideNavigation({
   return (
     <SideNavigationProvider>
       <ScrollBoundaryContainer>
-        <SideNavigationConsumer>
-          {({ isCollapsed }) => (
-            <Box height="100%" as="nav" aria-label={accessibilityLabel} color="default">
-              <div
-                className={
-                  showBorder ? classnames(borderStyles.borderRight, styles.fullHeight) : undefined
-                }
-              >
-                <Collapser />
-                <Box
-                  display={isCollapsed ? 'none' : undefined}
-                  padding={2}
-                  dangerouslySetInlineStyle={{
-                    __style: {
-                      paddingBottom: 24,
-                      minWidth: isCollapsed ? 40 : 280,
-                      width: isCollapsed ? 40 : 280,
-                    },
-                  }}
-                >
-                  <Flex direction="column" gap={{ column: 4, row: 0 }}>
-                    {header ? (
-                      <Flex direction="column" gap={{ column: 4, row: 0 }}>
-                        <Box paddingX={4}>{header}</Box>
-                        <Divider />
-                      </Flex>
-                    ) : null}
-                    <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
-                    {footer ? (
-                      <Flex direction="column" gap={{ column: 4, row: 0 }}>
-                        <Divider />
-                        <Box paddingX={4}>{footer}</Box>
-                      </Flex>
-                    ) : null}
-                  </Flex>
-                </Box>
-              </div>
-            </Box>
-          )}
-        </SideNavigationConsumer>
+        <SideNavigationContent
+          accessibilityLabel={accessibilityLabel}
+          footer={footer}
+          header={header}
+          collapsible={collapsible}
+          showBorder={showBorder}
+        >
+          {children}
+        </SideNavigationContent>
       </ScrollBoundaryContainer>
     </SideNavigationProvider>
   );

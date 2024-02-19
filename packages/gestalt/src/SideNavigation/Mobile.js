@@ -35,7 +35,7 @@ export default function SideNavigationMobile({
 
   useEffect(() => {
     if (dismissButtonRef.current) {
-      dismissButtonRef.current.focus();
+      dismissButtonRef.current.focus({ preventScroll: true });
     }
   }, [dismissButtonRef]);
 

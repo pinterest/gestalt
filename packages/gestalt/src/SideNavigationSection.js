@@ -2,6 +2,8 @@
 import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
+import { useSideNavigation } from './contexts/SideNavigationProvider';
+import Divider from './Divider';
 import styles from './SideNavigation.css';
 import getChildrenToArray from './SideNavigation/getChildrenToArray';
 import Text from './Text';
@@ -25,13 +27,21 @@ export default function SideNavigationSection({ children, label }: Props): React
     children,
     filterLevel: 'main',
   });
+  const { isCollapsed } = useSideNavigation();
+
   return (
     <li className={classnames(styles.liItem, styles.section)}>
-      <Box paddingX={4} display="flex" role="presentation" marginBottom={2}>
-        <Text size="300" weight="bold" lineClamp={2}>
-          {label}
-        </Text>
-      </Box>
+      {isCollapsed ? (
+        <div className={styles.sectionDivider}>
+          <Divider />
+        </div>
+      ) : (
+        <Box paddingX={4} role="presentation" marginBottom={2}>
+          <Text size="300" weight="bold" lineClamp={2}>
+            {label}
+          </Text>
+        </Box>
+      )}
       <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
     </li>
   );

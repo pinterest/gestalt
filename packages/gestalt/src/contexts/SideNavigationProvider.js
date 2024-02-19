@@ -55,7 +55,7 @@ function SideNavigationProvider({ children, dismissButton }: Props): Element<typ
   const [selectedItemId, setSelectedItemId] = useState('');
   const [selectedMobileChildren, setSelectedMobileChildren] = useState<ReactNode>(null);
   const [hideActiveChildren, setHideActiveChildren] = useState<boolean>(false);
-  const [isCollapsed, setCollapsed] = useState<boolean>(true);
+  const [isCollapsed, setCollapsed] = useState<boolean>(false);
 
   const sideNavigationContext = {
     selectedItemId,

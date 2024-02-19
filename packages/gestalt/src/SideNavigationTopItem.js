@@ -180,26 +180,32 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
       >
         <Box
           color={itemColor}
-          paddingY={2}
+          paddingY={isCollapsed ? undefined : 2}
+          padding={isCollapsed ? 3 : undefined}
           minHeight={44}
           rounding={2}
           display="flex"
           alignItems="center"
-          dangerouslySetInlineStyle={{
-            __style: {
-              paddingInlineStart: nestingMargin,
-              paddingInlineEnd: '16px',
-            },
-          }}
+          dangerouslySetInlineStyle={
+            !isCollapsed
+              ? {
+                  __style: {
+                    paddingInlineStart: nestingMargin,
+                    paddingInlineEnd: '16px',
+                  },
+                }
+              : undefined
+          }
         >
           <Flex gap={{ row: 2, column: 0 }} height="100%" width="100%">
             {icon ? (
               <Flex.Item alignSelf="center">
                 <Box aria-hidden>
                   {typeof icon === 'string' ? (
-                    <Icon inline icon={icon} accessibilityLabel="" color={textColor} />
+                    <Icon size={20} inline icon={icon} accessibilityLabel="" color={textColor} />
                   ) : (
                     <Icon
+                      size={20}
                       inline
                       dangerouslySetSvgPath={icon}
                       accessibilityLabel=""
@@ -209,30 +215,32 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
                 </Box>
               </Flex.Item>
             ) : null}
-            <Flex.Item alignSelf="center" flex="grow">
-              <Text inline color={textColor}>
-                {label}
-                {(badge || notificationAccessibilityLabel) && (
-                  <Box marginStart={1} display="inlineBlock" height="100%">
-                    {/* Adds a pause for screen reader users between the text content */}
-                    <Box display="visuallyHidden">{`, `}</Box>
-                    {!notificationAccessibilityLabel && badge ? (
-                      <Badge text={badge.text} type={badge.type} />
-                    ) : null}
-                    {notificationAccessibilityLabel ? (
-                      <Box
-                        aria-label={notificationAccessibilityLabel}
-                        height={8}
-                        width={8}
-                        rounding="circle"
-                        color="primary"
-                        role="status"
-                      />
-                    ) : null}
-                  </Box>
-                )}
-              </Text>
-            </Flex.Item>
+            {!isCollapsed && (
+              <Flex.Item alignSelf="center" flex="grow">
+                <Text inline color={textColor}>
+                  {label}
+                  {(badge || notificationAccessibilityLabel) && (
+                    <Box marginStart={1} display="inlineBlock" height="100%">
+                      {/* Adds a pause for screen reader users between the text content */}
+                      <Box display="visuallyHidden">{`, `}</Box>
+                      {!notificationAccessibilityLabel && badge ? (
+                        <Badge text={badge.text} type={badge.type} />
+                      ) : null}
+                      {notificationAccessibilityLabel ? (
+                        <Box
+                          aria-label={notificationAccessibilityLabel}
+                          height={8}
+                          width={8}
+                          rounding="circle"
+                          color="primary"
+                          role="status"
+                        />
+                      ) : null}
+                    </Box>
+                  )}
+                </Text>
+              </Flex.Item>
+            )}
             {counter && (showIconButton === 'hide' || isMobile) ? (
               <Flex.Item flex="none" alignSelf="center">
                 <Box display="visuallyHidden">{`, `}</Box>
