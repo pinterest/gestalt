@@ -108,6 +108,7 @@ export default function SideNavigationGroupContent({
       rounding={2}
       display="flex"
       alignItems="center"
+      position="relative"
       dangerouslySetInlineStyle={{
         __style:
           expanded && selectedItemId === itemId
@@ -118,6 +119,19 @@ export default function SideNavigationGroupContent({
             : paddingStyle,
       }}
     >
+      {collapsed && notificationAccessibilityLabel ? (
+        <Box
+          aria-label={notificationAccessibilityLabel}
+          height={8}
+          width={8}
+          rounding="circle"
+          color="primary"
+          role="status"
+          position="absolute"
+          dangerouslySetInlineStyle={{ __style: { top: 4, right: 4 } }}
+        />
+      ) : null}
+
       <Flex gap={{ row: 2, column: 0 }} height="100%" width="100%">
         {icon ? (
           <Flex.Item alignSelf="center">
