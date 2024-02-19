@@ -19,8 +19,8 @@ type SideNavigationContextType = {
   setSelectedMobileChildren: (ReactNode | null) => void,
   hideActiveChildren: boolean,
   setHideActiveChildren: (boolean) => void,
-  isCollapsed: boolean,
-  setCollapsed: (boolean) => void,
+  collapsed?: boolean,
+  onCollapse?: (boolean) => void,
   dismissButton?: {
     accessibilityLabel?: string,
     onDismiss: () => void,
@@ -35,6 +35,8 @@ type Props = {
     onDismiss: () => void,
     id: string,
   },
+  collapsed?: boolean,
+  onCollapse?: (boolean) => void,
 };
 
 const SideNavigationContext: Context<SideNavigationContextType> =
@@ -45,17 +47,19 @@ const SideNavigationContext: Context<SideNavigationContextType> =
     setSelectedMobileChildren: () => {},
     hideActiveChildren: false,
     setHideActiveChildren: () => {},
-    isCollapsed: false,
-    setCollapsed: () => {},
   });
 
 const { Provider, Consumer: SideNavigationConsumer } = SideNavigationContext;
 
-function SideNavigationProvider({ children, dismissButton }: Props): Element<typeof Provider> {
+function SideNavigationProvider({
+  children,
+  dismissButton,
+  collapsed,
+  onCollapse,
+}: Props): Element<typeof Provider> {
   const [selectedItemId, setSelectedItemId] = useState('');
   const [selectedMobileChildren, setSelectedMobileChildren] = useState<ReactNode>(null);
   const [hideActiveChildren, setHideActiveChildren] = useState<boolean>(false);
-  const [isCollapsed, setCollapsed] = useState<boolean>(false);
 
   const sideNavigationContext = {
     selectedItemId,
@@ -64,9 +68,9 @@ function SideNavigationProvider({ children, dismissButton }: Props): Element<typ
     setSelectedMobileChildren,
     hideActiveChildren,
     setHideActiveChildren,
-    isCollapsed,
-    setCollapsed,
     dismissButton,
+    collapsed,
+    onCollapse,
   };
 
   return <Provider value={sideNavigationContext}>{children}</Provider>;

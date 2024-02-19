@@ -113,7 +113,7 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
 ): ReactNode {
   const { nestedLevel } = useNesting();
 
-  const { isCollapsed, setSelectedItemId } = useSideNavigation();
+  const { collapsed, setSelectedItemId } = useSideNavigation();
 
   const itemId = useId();
 
@@ -180,14 +180,14 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
       >
         <Box
           color={itemColor}
-          paddingY={isCollapsed ? undefined : 2}
-          padding={isCollapsed ? 3 : undefined}
+          paddingY={collapsed ? undefined : 2}
+          padding={collapsed ? 3 : undefined}
           minHeight={44}
           rounding={2}
           display="flex"
           alignItems="center"
           dangerouslySetInlineStyle={
-            !isCollapsed
+            !collapsed
               ? {
                   __style: {
                     paddingInlineStart: nestingMargin,
@@ -215,7 +215,8 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
                 </Box>
               </Flex.Item>
             ) : null}
-            {!isCollapsed && (
+
+            {!collapsed && (
               <Flex.Item alignSelf="center" flex="grow">
                 <Text inline color={textColor}>
                   {label}
@@ -241,7 +242,8 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
                 </Text>
               </Flex.Item>
             )}
-            {counter && (showIconButton === 'hide' || isMobile) ? (
+
+            {!collapsed && counter && (showIconButton === 'hide' || isMobile) ? (
               <Flex.Item flex="none" alignSelf="center">
                 <Box display="visuallyHidden">{`, `}</Box>
                 {/* marginEnd={-2} is a hack to correctly position the counter as Flex + gap + width="100%" doean't expand to full width */}
@@ -252,7 +254,8 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
                 </Box>
               </Flex.Item>
             ) : null}
-            {(showIconButton === 'show' || isMobile) && primaryAction ? (
+
+            {!collapsed && (showIconButton === 'show' || isMobile) && primaryAction ? (
               <Flex.Item flex="none" alignSelf="center">
                 {/* This is a workaround to announce the counter as it's replaced on focus */}
                 {counter ? (

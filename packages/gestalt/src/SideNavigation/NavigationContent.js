@@ -26,7 +26,7 @@ export default function NavigationContent({
     filterLevel: 'main',
   });
 
-  const { isCollapsed } = useSideNavigation();
+  const { collapsed } = useSideNavigation();
   const scrollContainer = useRef<HTMLDivElement | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -38,6 +38,8 @@ export default function NavigationContent({
 
     return () => element?.removeEventListener('scroll', scrollHandler);
   }, []);
+
+  if (collapsible) window.temp1 = navigationChildren;
 
   return (
     <Box height="100%" as="nav" aria-label={accessibilityLabel} color="default">
@@ -52,8 +54,8 @@ export default function NavigationContent({
           dangerouslySetInlineStyle={{
             __style: {
               paddingBottom: 24,
-              minWidth: isCollapsed ? undefined : 280,
-              // width: isCollapsed ? 40 : 280,
+              minWidth: collapsed ? undefined : 280,
+              // width: collapsed ? 40 : 280,
             },
           }}
         >

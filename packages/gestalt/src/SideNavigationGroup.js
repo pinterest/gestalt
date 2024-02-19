@@ -108,7 +108,7 @@ export default function SideNavigationGroup({
 
   const { nestedLevel } = useNesting();
 
-  const { selectedItemId, setSelectedItemId } = useSideNavigation();
+  const { collapsed, selectedItemId, setSelectedItemId } = useSideNavigation();
 
   const navigationChildren = getChildrenToArray({
     children,
@@ -237,7 +237,7 @@ export default function SideNavigationGroup({
             setCompression={setCompression}
           />
         )}
-        {isExpanded ? (
+        {!collapsed && isExpanded ? (
           <ul id={itemId} className={classnames(styles.ulItem)}>
             {navigationChildren}
           </ul>

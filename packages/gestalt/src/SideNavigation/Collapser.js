@@ -6,23 +6,23 @@ import IconButton from '../IconButton';
 import Sticky from '../Sticky';
 
 export default function Collapser({ shadow }: { shadow: boolean }): ReactNode {
-  const { isCollapsed, setCollapsed } = useSideNavigation();
+  const { collapsed, onCollapse } = useSideNavigation();
 
   return (
     <Sticky top={0}>
       <Box
         display="flex"
-        justifyContent={isCollapsed ? 'center' : 'end'}
+        justifyContent={collapsed ? 'center' : 'end'}
         marginBottom={-2}
         padding={2}
         color="light"
         borderStyle={shadow ? 'raisedTopShadow' : undefined}
       >
         <IconButton
-          icon={isCollapsed ? 'arrow-forward' : 'arrow-back'}
+          icon={collapsed ? 'arrow-double-forward' : 'arrow-double-back'}
           accessibilityLabel="expand"
           size="xs"
-          onClick={() => setCollapsed(!isCollapsed)}
+          onClick={() => onCollapse?.(!collapsed)}
         />
       </Box>
     </Sticky>

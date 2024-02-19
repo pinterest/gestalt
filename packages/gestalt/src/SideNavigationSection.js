@@ -27,11 +27,11 @@ export default function SideNavigationSection({ children, label }: Props): React
     children,
     filterLevel: 'main',
   });
-  const { isCollapsed } = useSideNavigation();
+  const { collapsed } = useSideNavigation();
 
   return (
     <li className={classnames(styles.liItem, styles.section)}>
-      {isCollapsed ? (
+      {collapsed ? (
         <div className={styles.sectionDivider}>
           <Divider />
         </div>

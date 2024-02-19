@@ -45,6 +45,8 @@ export type Props = {
    * Title for mobile navigation.
    */
   mobileTitle?: string,
+  collapsed?: boolean,
+  onCollapse?: (boolean) => void,
 };
 
 /**
@@ -65,6 +67,8 @@ export default function SideNavigation({
   collapsible,
   showBorder,
   mobileTitle,
+  collapsed,
+  onCollapse,
 }: Props): ReactNode {
   const { accessibilityDismissButtonLabel } = useDefaultLabelContext('SideNavigation');
   const id = useId();
@@ -104,7 +108,7 @@ export default function SideNavigation({
   }
 
   return (
-    <SideNavigationProvider>
+    <SideNavigationProvider collapsed={collapsed} onCollapse={onCollapse}>
       <ScrollBoundaryContainer>
         <SideNavigationContent
           accessibilityLabel={accessibilityLabel}
