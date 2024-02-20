@@ -122,6 +122,8 @@ export default function DocsSideNavigation({ showBorder }: { showBorder?: boolea
         accessibilityLabel: 'Dismiss side navigation',
       }}
       showBorder={showBorder}
+      // collapsible
+      // collapsed
     >
       {sectionItemsForSideNav}
     </SideNavigation>
