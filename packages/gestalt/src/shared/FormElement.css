@@ -29,13 +29,13 @@
 
 .enabled {
   composes: darkGray from "../Colors.css";
-  composes: whiteBg from "../Colors.css";
+  background-color: var(--color-background-formfield-primary);
 }
 
 .disabled {
   composes: gray from "../Colors.css";
-  composes: lightGrayBg from "../Colors.css";
   composes: borderColorLightGrayDisabled from "../Borders.css";
+  background-color: var(---color-background-formfield-disabled);
 }
 
 .unstyled {

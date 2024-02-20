@@ -13,6 +13,6 @@
   composes: p0 from "./Whitespace.css";
   composes: paddingX0 from "./boxWhitespace.css";
   composes: paddingY0 from "./boxWhitespace.css";
-  composes: transparent from "./Colors.css";
+  background-color: var(--color-transparent);
   text-wrap: nowrap;
 }

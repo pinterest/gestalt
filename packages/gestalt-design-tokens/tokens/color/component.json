@@ -346,6 +346,18 @@
           }
         }
       },
+      "formfield": {
+        "primary": {
+          "value": "#fff",
+          "darkValue": "#030303",
+          "comment": "Formfield default background color"
+        },
+        "disabled": {
+          "value": "#efefef",
+          "darkValue": "#404040",
+          "comment": "Formfield disabled background color"
+        }
+      },
       "overlay": {
         "value": "{color.background.default.value}",
         "darkValue": "{color.background.elevation.floating.darkValue}",

@@ -1698,7 +1698,7 @@ interface RadioGroupRadioButtonProps {
 interface SearchFieldProps {
   accessibilityLabel: string;
   id: string;
-  onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { value: string }>;
+  onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement | HTMLButtonElement>, { value: string }>;
   accessibilityClearButtonLabel?: string | undefined;
   autoComplete?: 'on' | 'off' | 'username' | 'name' | undefined;
   errorMessage?: string | undefined;

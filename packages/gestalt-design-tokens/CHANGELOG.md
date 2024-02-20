@@ -1,5 +1,22 @@
 This file is updated manually
 
+## 142.5.0 https://github.com/pinterest/gestalt/pull/3434
+
+### MINOR
+
+NEW
+
+| name                                | light   | dark    |
+| ----------------------------------- | ------- | ------- |
+| color-background-formfield-primary  | #fff    | #030303 |
+| color-background-formfield-disabled | #efefef | #404040 |
+
+#### Why
+
+Tokenize FormField component background colors
+
+#### Breaking change notes
+
 ## 142.4.0 https://github.com/pinterest/gestalt/pull/3432
 
 ### MINOR

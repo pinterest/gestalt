@@ -47,11 +47,11 @@
 }
 
 .BgDisabled {
-  composes: lightGrayBg from "./Colors.css";
+  background-color: var(---color-background-formfield-disabled);
 }
 
 .BgEnabled {
-  composes: whiteBg from "./Colors.css";
+  background-color: var(--color-background-formfield-primary);
 }
 
 .InputEnabled {

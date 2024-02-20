@@ -145,11 +145,8 @@ export default function IconPage(): ReactNode {
   const [inputValue, setInputValue] = useState<void | string>();
   const [sortedAlphabetical, setSortedAlphabetical] = useState(true);
 
-  const handleOnChange = ({
+  const handleOnChange: $ElementType<React$ElementConfig<typeof SearchField>, 'onChange'> = ({
     value,
-  }: {
-    syntheticEvent: SyntheticEvent<HTMLInputElement>,
-    value: string,
   }) => {
     setInputValue(value);
     setSuggestedOptions(

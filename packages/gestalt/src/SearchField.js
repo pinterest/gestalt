@@ -10,6 +10,7 @@ import {
 import classnames from 'classnames';
 import Box from './Box';
 import Icon from './Icon';
+import IconButton from './IconButton';
 import layout from './Layout.css';
 import styles from './SearchField.css';
 import formElement from './shared/FormElement.css';
@@ -55,14 +56,14 @@ type Props = {
    */
   onChange: ({
     value: string,
-    syntheticEvent: SyntheticEvent<HTMLInputElement>,
+    event: SyntheticEvent<HTMLInputElement | HTMLButtonElement>,
   }) => void,
   /**
    *
    */
   onFocus?: ({
     value: string,
-    syntheticEvent: SyntheticEvent<HTMLInputElement>,
+    event: SyntheticEvent<HTMLInputElement>,
   }) => void,
   /**
    * Secondary callback for keyboard events. Possible uses include validation, form submission, etc.
@@ -127,7 +128,7 @@ const SearchFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = fo
   const handleChange = (event: SyntheticEvent<HTMLInputElement>) => {
     onChange({
       value: event.currentTarget.value,
-      syntheticEvent: event,
+      event,
     });
   };
 
@@ -140,14 +141,9 @@ const SearchFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = fo
     if (onFocus) {
       onFocus({
         value: event.currentTarget.value,
-        syntheticEvent: event,
+        event,
       });
     }
-  };
-
-  const handleClear = (event: SyntheticEvent<HTMLInputElement>) => {
-    inputRef?.current?.focus();
-    onChange({ value: '', syntheticEvent: event });
   };
 
   const handleBlur = (event: SyntheticKeyboardEvent<HTMLInputElement>) => {
@@ -176,9 +172,6 @@ const SearchFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = fo
     },
     errorMessage ? formElement.errored : formElement.normal,
   );
-
-  const clearButtonSize = size === 'lg' ? 24 : 20;
-  const clearIconSize = size === 'lg' ? 12 : 10;
 
   return (
     <span>
@@ -227,24 +220,20 @@ const SearchFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = fo
         />
 
         {hasValue && (
-          <button className={styles.clear} onClick={handleClear} type="button">
-            <Box
-              alignItems="center"
-              color={focused ? 'selected' : 'transparent'}
-              display="flex"
-              height={clearButtonSize}
-              justifyContent="center"
-              rounding="circle"
-              width={clearButtonSize}
-            >
-              <Icon
-                accessibilityLabel={accessibilityClearButtonLabel || ''}
-                color={focused ? 'inverse' : 'default'}
-                icon="cancel"
-                size={clearIconSize}
-              />
-            </Box>
-          </button>
+          <div className={styles.clear}>
+            <IconButton
+              accessibilityLabel={accessibilityClearButtonLabel || ''}
+              icon="cancel"
+              size="xs"
+              padding={size === 'md' ? 1 : undefined}
+              bgColor="transparent"
+              selected={focused}
+              onClick={({ event }) => {
+                inputRef?.current?.focus();
+                onChange({ value: '', event });
+              }}
+            />
+          </div>
         )}
       </Box>
       {errorMessage && <FormErrorMessage id={`${id}-error`} text={errorMessage} />}

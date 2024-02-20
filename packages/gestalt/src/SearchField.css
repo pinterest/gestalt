@@ -3,11 +3,11 @@
   composes: border pill sizeLg from "./Borders.css";
   composes: borderBox from "./Layout.css";
   composes: darkGray from "./Colors.css";
-  composes: whiteBg from "./Colors.css";
   composes: Text from "./Text.css";
   composes: fontSize300 from "./Typography.css";
   composes: xsCol12 from "./Column.css";
   appearance: none;
+  background-color: var(--color-background-formfield-primary);
   min-width: 180px;
   padding: var(--space-200) calc(var(--space-800) + var(--space-200));
 }
@@ -20,7 +20,6 @@
 }
 
 .input:focus {
-  background-color: var(--g-colorGray0);
   cursor: text;
 }
 
@@ -47,20 +46,11 @@ html[dir="rtl"] .inputActive {
 
 .clear {
   composes: marginEnd2 from "./boxWhitespace.css";
-  composes: noBorder pill from "./Borders.css";
   composes: paddingX1 from "./boxWhitespace.css";
   composes: paddingY1 from "./boxWhitespace.css";
-  composes: pointer from "./Cursor.css";
-  composes: transparent from "./Colors.css";
-  composes: accessibilityOutline from "./Focus.css";
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-}
-
-.clear:hover {
-  background-color: var(--g-colorGray100);
-  border-radius: 50%;
 }
 
 html:not([dir="rtl"]) .clear {
