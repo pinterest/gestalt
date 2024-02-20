@@ -198,7 +198,7 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
               : undefined
           }
         >
-          {collapsed && notificationAccessibilityLabel ? (
+          {collapsed && icon && notificationAccessibilityLabel ? (
             <Box
               aria-label={notificationAccessibilityLabel}
               height={8}

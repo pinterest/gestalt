@@ -62,15 +62,17 @@ export default function NavigationContent({
           <Flex direction="column" gap={{ column: 4, row: 0 }}>
             {header ? (
               <Flex direction="column" gap={{ column: 4, row: 0 }}>
-                <Box paddingX={4}>{header}</Box>
+                <Box width={collapsed ? 44 : undefined}>{header}</Box>
                 <Divider />
               </Flex>
             ) : null}
+
             <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
+
             {footer ? (
               <Flex direction="column" gap={{ column: 4, row: 0 }}>
                 <Divider />
-                <Box paddingX={4}>{footer}</Box>
+                <Box width={collapsed ? 44 : undefined}>{footer}</Box>
               </Flex>
             ) : null}
           </Flex>

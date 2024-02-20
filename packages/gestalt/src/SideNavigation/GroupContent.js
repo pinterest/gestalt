@@ -99,27 +99,30 @@ export default function SideNavigationGroupContent({
     }
   }, [hovered, focused, primaryAction, forceIconButton, isMobile, showIconButton]);
 
+  const hasBorder = expanded && selectedItemId === itemId;
+
   return (
     <Box
       color={itemColor ?? undefined}
       paddingY={collapsed ? undefined : 2}
       padding={collapsed ? 3 : undefined}
+      width={collapsed ? 44 : undefined}
+      height={collapsed ? 44 : undefined}
       minHeight={44}
       rounding={2}
       display="flex"
       alignItems="center"
       position="relative"
       dangerouslySetInlineStyle={{
-        __style:
-          expanded && selectedItemId === itemId
-            ? {
-                border: `2px solid ${TOKEN_COLOR_BACKGROUND_SELECTED_BASE}`,
-                ...paddingStyle,
-              }
-            : paddingStyle,
+        __style: hasBorder
+          ? {
+              border: `2px solid ${TOKEN_COLOR_BACKGROUND_SELECTED_BASE}`,
+              ...paddingStyle,
+            }
+          : paddingStyle,
       }}
     >
-      {collapsed && notificationAccessibilityLabel ? (
+      {collapsed && icon && notificationAccessibilityLabel ? (
         <Box
           aria-label={notificationAccessibilityLabel}
           height={8}
