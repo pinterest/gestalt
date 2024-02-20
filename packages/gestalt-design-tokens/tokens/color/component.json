@@ -346,6 +346,30 @@
           }
         }
       },
+      "datepicker": {
+        "container": {
+          "value": "#fff",
+          "darkValue": "#212121",
+          "comment": "DatePicker component background color."
+        },
+        "button": {
+          "default": {
+            "value": "#fff",
+            "darkValue": "#212121",
+            "comment": "DatePicker component background color."
+          },
+          "hover": {
+            "value": "rgba(0, 0, 0, 0.06)",
+            "darkValue": "rgba(250, 250, 250, 0.5)",
+            "comment": "DatePicker button background color."
+          },
+          "selected": {
+            "value": "#111",
+            "darkValue": "#efefef",
+            "comment": "DatePicker button background color."
+          }
+        }
+      },
       "formfield": {
         "primary": {
           "value": "#fff",
