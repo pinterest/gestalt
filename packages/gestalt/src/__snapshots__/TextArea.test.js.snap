@@ -267,7 +267,7 @@ exports[`TextArea renders tags when supplied 1`] = `
           }
         >
           <span
-            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+            className="Text fontSize200 defaultText alignStart breakAll fontWeightNormal lineClamp"
             style={
               Object {
                 "WebkitLineClamp": 1,
@@ -334,7 +334,7 @@ exports[`TextArea renders tags when supplied 1`] = `
           }
         >
           <span
-            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+            className="Text fontSize200 defaultText alignStart breakAll fontWeightNormal lineClamp"
             style={
               Object {
                 "WebkitLineClamp": 1,
@@ -401,7 +401,7 @@ exports[`TextArea renders tags when supplied 1`] = `
           }
         >
           <span
-            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+            className="Text fontSize200 defaultText alignStart breakAll fontWeightNormal lineClamp"
             style={
               Object {
                 "WebkitLineClamp": 1,

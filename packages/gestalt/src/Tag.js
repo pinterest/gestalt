@@ -167,7 +167,7 @@ export default function Tag({
           </Box>
         )}
 
-        <Text color={fgColor} inline size={fontSize} lineClamp={1}>
+        <Text color={fgColor} inline size={fontSize} lineClamp={1} overflow="breakAll">
           {text}
         </Text>
 
