@@ -1,6 +1,6 @@
 .react-datepicker {
   background-color: var(--color-background-datepicker-container);
-  border-radius: var(--rounding-400);
+  border-radius: var(--rounding-datepicker-container);
   box-shadow: var(--elevation-datepicker);
   display: inline-block;
   font-family: var(--font-family-default-latin);
@@ -136,7 +136,7 @@ to prevent conflict with another CSS module */
     .react-datepicker__day--range-end
   )::before {
   background: var(--color-background-datepicker-button-hover);
-  border-radius: var(--rounding-datepicker-side-start);
+  border-radius: var(--rounding-datepicker-range-start);
   content: "";
   display: block;
   height: 100%;
@@ -182,7 +182,7 @@ to prevent conflict with another CSS module */
     .react-datepicker__day--range-start
   )::before {
   background: var(--color-background-datepicker-button-hover);
-  border-radius: var(--rounding-datepicker-side-end);
+  border-radius: var(--rounding-datepicker-range-end);
   content: "";
   display: block;
   height: 100%;

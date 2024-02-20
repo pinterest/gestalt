@@ -1,13 +1,21 @@
 {
   "rounding": {
     "datepicker": {
-      "side": {
+      "container": {
+        "value": "{rounding.400.value}",
+        "comment": "DatePicker semicircle rounding for start range selector"
+      },
+      "range": {
         "start": {
-          "value": "var(--rounding-circle) var(--rounding-0) var(--rounding-0) var(--rounding-circle)",
+          "value": "{rounding.circle.value} {rounding.0.value} {rounding.0.value} {rounding.circle.value}",
+          "comment": "DatePicker semicircle rounding for start range selector"
+        },
+        "middle": {
+          "value": "{rounding.0.value}",
           "comment": "DatePicker semicircle rounding for start range selector"
         },
         "end": {
-          "value": "var(--rounding-0) var(--rounding-circle) var(--rounding-circle) var(--rounding-0)",
+          "value": "{rounding.0.value} {rounding.circle.value} {rounding.circle.value} {rounding.0.value}",
           "comment": "DatePicker semicircle rounding for end range selector"
         }
       }
