@@ -138,7 +138,7 @@ exports[`Tag renders a disabled tag 1`] = `
   className="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
   style={
     Object {
-      "border": "solid 1px #767676",
+      "border": "solid 1px var(--color-border-tag-disabled)",
       "height": 32,
       "maxWidth": 300,
     }

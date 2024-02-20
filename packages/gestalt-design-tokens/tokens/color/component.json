@@ -1,6 +1,11 @@
 {
   "color": {
     "background": {
+      "avatar": {
+        "value": "#efefef",
+        "darkValue": "#404040",
+        "comment": "Avatar component background color."
+      },
       "badge": {
         "neutral": {
           "value": "{color.background.tertiary.base.value}",
@@ -540,6 +545,34 @@
           "value": "#efefef",
           "darkValue": "#404040",
           "comment": "TileData disabled background color"
+        }
+      }
+    },
+    "border": {
+      "avatar": {
+        "value": "#fff",
+        "darkValue": "#030303",
+        "comment": "Avatar component outline border color."
+      },
+      "formfield": {
+        "error": {
+          "default": {
+            "value": "{color.border.error.value}",
+            "darkValue": "{color.border.error.darkValue}",
+            "comment": "Error formfield border color."
+          },
+          "hover": {
+            "value": "#ad081b",
+            "darkValue": "#cf001f",
+            "comment": "Error formfield border color on hover."
+          }
+        }
+      },
+      "tag": {
+        "disabled": {
+          "value": "#767676",
+          "darkValue": "#ababab",
+          "comment": "Tag component disabled border color."
         }
       }
     }

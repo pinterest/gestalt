@@ -3068,16 +3068,5 @@ export function useDefaultLabel(componentName: string): { [k: string]: string };
  * Undocumented
  */
 export function useColorScheme(): {
-  name: string;
-  colorRed100Hovered: string;
-  colorGray0: string;
-  colorGray50: string;
-  colorGray100: string;
-  colorGray100Active: string;
-  colorGray200: string;
-  colorGray300: string;
-  colorGray400: string;
-  colorTransparentGray60: string;
-  colorTransparentGray100: string;
-  [tokenName: string]: string;
+  name: 'lightMode' | 'darkMode';
 };

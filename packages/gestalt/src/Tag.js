@@ -2,7 +2,6 @@
 import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
-import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import focusStyles from './Focus.css';
 import Icon from './Icon';
@@ -107,8 +106,6 @@ export default function Tag({
   text,
   type = 'default',
 }: Props): ReactNode {
-  const { colorGray200 } = useColorScheme();
-
   const hasIcon = ['error', 'warning'].includes(type);
 
   const bgColor = backgroundColorByType[type];
@@ -146,7 +143,8 @@ export default function Tag({
       aria-disabled={disabled}
       color={bgColor}
       dangerouslySetInlineStyle={{
-        __style: disabled && !hasIcon ? { border: `solid 1px ${colorGray200}` } : {},
+        __style:
+          disabled && !hasIcon ? { border: 'solid 1px var(--color-border-tag-disabled)' } : {},
       }}
       display="inlineBlock"
       height={height}

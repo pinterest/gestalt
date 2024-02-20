@@ -15,7 +15,7 @@
 }
 
 .errored {
-  composes: borderColorRed from "../Borders.css";
+  border-color: var(--color-border-formfield-error-default);
   outline: none;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .errored:hover:not(:focus) {
-  border-color: var(--g-colorRed100Hovered);
+  border-color: var(--color-border-formfield-error-hover);
 }
 
 .enabled {

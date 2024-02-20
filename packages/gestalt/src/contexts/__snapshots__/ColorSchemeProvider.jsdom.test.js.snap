@@ -3,7 +3,6 @@
 exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = `
 <style>
   :root {
-  --g-colorRed100Hovered: #cf001f;
   --g-colorGray0: #030303;
   --g-colorGray50: #212121;
   --g-colorGray100: #404040;
@@ -12,7 +11,6 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --g-colorGray300: #efefef;
   --g-colorGray400: #fff;
   --g-colorTransparentGray60: rgb(250 250 250 / 0.5);
-  --g-colorTransparentGray100: rgb(250 250 250 / 0.6);
   --color-data-visualization-10: #007A72;
   --color-data-visualization-11: #f76593;
   --color-data-visualization-12: #ffc58f;
@@ -71,6 +69,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-background-elevation-accent: #191919;
   --color-background-elevation-floating: #2b2b2b;
   --color-background-elevation-raised: #4a4a4a;
+  --color-background-avatar: #404040;
   --color-background-badge-neutral: #cdcdcd;
   --color-background-badge-info-default: #75bfff;
   --color-background-badge-info-hover: #abdbff;
@@ -161,6 +160,10 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-border-container: #767676;
   --color-border-default: #cdcdcd;
   --color-border-error: #f47171;
+  --color-border-avatar: #030303;
+  --color-border-formfield-error-default: #f47171;
+  --color-border-formfield-error-hover: #cf001f;
+  --color-border-tag-disabled: #ababab;
   --elevation-floating: none;
   --elevation-raised-top: 0 0.5px 0 #f9f9f9;
   --elevation-raised-bottom: 0 -0.5px 0 #f9f9f9;
@@ -172,7 +175,6 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
 exports[`ColorSchemeProvider renders styling for light mode when no color scheme specified 1`] = `
 <style>
   :root {
-  --g-colorRed100Hovered: #ad081b;
   --g-colorGray0: #fff;
   --g-colorGray50: #fff;
   --g-colorGray100: #efefef;
@@ -181,7 +183,6 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --g-colorGray300: #111;
   --g-colorGray400: #000;
   --g-colorTransparentGray60: rgb(0 0 0 / 0.06);
-  --g-colorTransparentGray100: rgb(0 0 0 / 0.1);
   --color-data-visualization-10: #005062;
   --color-data-visualization-11: #de2c62;
   --color-data-visualization-12: #660e00;
@@ -240,6 +241,7 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-background-elevation-accent: #f1f1f1;
   --color-background-elevation-floating: rgba(0, 0, 0, 0);
   --color-background-elevation-raised: rgba(0, 0, 0, 0);
+  --color-background-avatar: #efefef;
   --color-background-badge-neutral: #767676;
   --color-background-badge-info-default: #0074e8;
   --color-background-badge-info-hover: #005fcb;
@@ -330,6 +332,10 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-border-container: #cdcdcd;
   --color-border-default: #767676;
   --color-border-error: #cc0000;
+  --color-border-avatar: #ffffff;
+  --color-border-formfield-error-default: #cc0000;
+  --color-border-formfield-error-hover: #ad081b;
+  --color-border-tag-disabled: #767676;
   --elevation-floating: 0 0 8px rgb(0 0 0 / 0.10);
   --elevation-raised-top: 0 2px 8px rgb(0 0 0 / 0.12);
   --elevation-raised-bottom: 0 -2px 8px rgb(0 0 0 / 0.12);
@@ -341,7 +347,6 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
 exports[`ColorSchemeProvider renders styling for light mode when specified 1`] = `
 <style>
   :root {
-  --g-colorRed100Hovered: #ad081b;
   --g-colorGray0: #fff;
   --g-colorGray50: #fff;
   --g-colorGray100: #efefef;
@@ -350,7 +355,6 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --g-colorGray300: #111;
   --g-colorGray400: #000;
   --g-colorTransparentGray60: rgb(0 0 0 / 0.06);
-  --g-colorTransparentGray100: rgb(0 0 0 / 0.1);
   --color-data-visualization-10: #005062;
   --color-data-visualization-11: #de2c62;
   --color-data-visualization-12: #660e00;
@@ -409,6 +413,7 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-background-elevation-accent: #f1f1f1;
   --color-background-elevation-floating: rgba(0, 0, 0, 0);
   --color-background-elevation-raised: rgba(0, 0, 0, 0);
+  --color-background-avatar: #efefef;
   --color-background-badge-neutral: #767676;
   --color-background-badge-info-default: #0074e8;
   --color-background-badge-info-hover: #005fcb;
@@ -499,6 +504,10 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-border-container: #cdcdcd;
   --color-border-default: #767676;
   --color-border-error: #cc0000;
+  --color-border-avatar: #ffffff;
+  --color-border-formfield-error-default: #cc0000;
+  --color-border-formfield-error-hover: #ad081b;
+  --color-border-tag-disabled: #767676;
   --elevation-floating: 0 0 8px rgb(0 0 0 / 0.10);
   --elevation-raised-top: 0 2px 8px rgb(0 0 0 / 0.12);
   --elevation-raised-bottom: 0 -2px 8px rgb(0 0 0 / 0.12);
@@ -510,7 +519,6 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
 exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`] = `
 <style>
   .__gestaltThemetestId {
-  --g-colorRed100Hovered: #ad081b;
   --g-colorGray0: #fff;
   --g-colorGray50: #fff;
   --g-colorGray100: #efefef;
@@ -519,7 +527,6 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --g-colorGray300: #111;
   --g-colorGray400: #000;
   --g-colorTransparentGray60: rgb(0 0 0 / 0.06);
-  --g-colorTransparentGray100: rgb(0 0 0 / 0.1);
   --color-data-visualization-10: #005062;
   --color-data-visualization-11: #de2c62;
   --color-data-visualization-12: #660e00;
@@ -578,6 +585,7 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-background-elevation-accent: #f1f1f1;
   --color-background-elevation-floating: rgba(0, 0, 0, 0);
   --color-background-elevation-raised: rgba(0, 0, 0, 0);
+  --color-background-avatar: #efefef;
   --color-background-badge-neutral: #767676;
   --color-background-badge-info-default: #0074e8;
   --color-background-badge-info-hover: #005fcb;
@@ -668,6 +676,10 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-border-container: #cdcdcd;
   --color-border-default: #767676;
   --color-border-error: #cc0000;
+  --color-border-avatar: #ffffff;
+  --color-border-formfield-error-default: #cc0000;
+  --color-border-formfield-error-hover: #ad081b;
+  --color-border-tag-disabled: #767676;
   --elevation-floating: 0 0 8px rgb(0 0 0 / 0.10);
   --elevation-raised-top: 0 2px 8px rgb(0 0 0 / 0.12);
   --elevation-raised-bottom: 0 -2px 8px rgb(0 0 0 / 0.12);
@@ -680,7 +692,6 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
 <style>
   @media(prefers-color-scheme: dark) {
   :root {
-  --g-colorRed100Hovered: #cf001f;
   --g-colorGray0: #030303;
   --g-colorGray50: #212121;
   --g-colorGray100: #404040;
@@ -689,7 +700,6 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --g-colorGray300: #efefef;
   --g-colorGray400: #fff;
   --g-colorTransparentGray60: rgb(250 250 250 / 0.5);
-  --g-colorTransparentGray100: rgb(250 250 250 / 0.6);
   --color-data-visualization-10: #007A72;
   --color-data-visualization-11: #f76593;
   --color-data-visualization-12: #ffc58f;
@@ -748,6 +758,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-background-elevation-accent: #191919;
   --color-background-elevation-floating: #2b2b2b;
   --color-background-elevation-raised: #4a4a4a;
+  --color-background-avatar: #404040;
   --color-background-badge-neutral: #cdcdcd;
   --color-background-badge-info-default: #75bfff;
   --color-background-badge-info-hover: #abdbff;
@@ -838,6 +849,10 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-border-container: #767676;
   --color-border-default: #cdcdcd;
   --color-border-error: #f47171;
+  --color-border-avatar: #030303;
+  --color-border-formfield-error-default: #f47171;
+  --color-border-formfield-error-hover: #cf001f;
+  --color-border-tag-disabled: #ababab;
   --elevation-floating: none;
   --elevation-raised-top: 0 0.5px 0 #f9f9f9;
   --elevation-raised-bottom: 0 -0.5px 0 #f9f9f9;
