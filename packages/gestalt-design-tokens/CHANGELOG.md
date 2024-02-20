@@ -24,7 +24,7 @@ Tokenize DatePicker component colors, elevation & rounding
 
 --
 
-## 143.0.0 https://github.com/pinterest/gestalt/pull/3438
+## 143.0.0 https://github.com/pinterest/gestalt/pull/3434
 
 ### MINOR
 
