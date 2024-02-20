@@ -140,16 +140,12 @@ const ButtonLinkWithForwardRef: AbstractComponent<ButtonProps, HTMLAnchorElement
   // We need to make a few exceptions for accessibility reasons in darkMode for red buttons
   const isDarkMode = colorSchemeName === 'darkMode';
   const isDarkModeRed = isDarkMode && color === 'red';
-  const isDarkModeBlue = isDarkMode && color === 'blue';
 
-  let colorClass = color === 'transparentWhiteText' ? 'transparent' : color;
-  if (isDarkModeRed) {
-    colorClass = 'darkModeRed';
-  }
+  const colorClass = color === 'transparentWhiteText' ? 'transparent' : color;
+
   const textColor =
-    (disabled && 'subtle') ||
-    ((isDarkModeRed || isDarkModeBlue) && 'default') ||
-    DEFAULT_TEXT_COLORS[color];
+    (disabled && 'subtle') || (isDarkModeRed && 'default') || DEFAULT_TEXT_COLORS[color];
+
   const ariaLabel = getAriaLabel({
     target,
     accessibilityLabel,
