@@ -1,3 +1,9 @@
+## 143.0.0 (Feb 20, 2024)
+
+### Major
+
+- Textfield, RadioGroup, SearchField: implement background color tokens in form fields and some code cleanups ([#3434](https://github.com/pinterest/gestalt/pull/3434)) - [Preview link](https://deploy-preview-3434--gestalt.netlify.app?devexample=true)
+
 ## 142.7.1 (Feb 20, 2024)
 
 ### Patch
