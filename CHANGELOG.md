@@ -1,3 +1,9 @@
+## 142.7.0 (Feb 20, 2024)
+
+### Minor
+
+- Tag: Change tag contents to break-all ([#3435](https://github.com/pinterest/gestalt/pull/3435)) - [Preview link](https://deploy-preview-3435--gestalt.netlify.app?devexample=true)
+
 ## 142.6.0 (Feb 20, 2024)
 
 ### Minor
