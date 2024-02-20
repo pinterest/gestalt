@@ -1,6 +1,6 @@
 This file is updated manually
 
-## 143.1.0 https://github.com/pinterest/gestalt/pull/3434
+## 143.1.0 https://github.com/pinterest/gestalt/pull/3438
 
 ### MINOR
 
