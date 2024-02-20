@@ -1,3 +1,9 @@
+## 142.7.1 (Feb 20, 2024)
+
+### Patch
+
+- ButtonLink: fix on darkmode colors + more documentation ([#3436](https://github.com/pinterest/gestalt/pull/3436)) - [Preview link](https://deploy-preview-3436--gestalt.netlify.app?devexample=true)
+
 ## 142.7.0 (Feb 20, 2024)
 
 ### Minor
