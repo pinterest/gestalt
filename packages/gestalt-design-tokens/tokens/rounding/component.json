@@ -3,7 +3,7 @@
     "datepicker": {
       "container": {
         "value": "{rounding.400.value}",
-        "comment": "DatePicker semicircle rounding for start range selector"
+        "comment": "DatePicker calendar container rounding"
       },
       "range": {
         "start": {
