@@ -1,3 +1,9 @@
+## 142.6.0 (Feb 20, 2024)
+
+### Minor
+
+- ComboBox, Dropdown, HelpButton, PopoverEducational: Release v2 ([#3431](https://github.com/pinterest/gestalt/pull/3431)) - [Preview link](https://deploy-preview-3431--gestalt.netlify.app?devexample=true)
+
 ## 142.5.0 (Feb 16, 2024)
 
 ### Minor
