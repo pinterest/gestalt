@@ -1,6 +1,30 @@
 This file is updated manually
 
-## 142.5.0 https://github.com/pinterest/gestalt/pull/3434
+## 143.1.0 https://github.com/pinterest/gestalt/pull/3434
+
+### MINOR
+
+NEW
+
+| name                                        | light                                                                             | dark                             |
+| ------------------------------------------- | --------------------------------------------------------------------------------- | -------------------------------- |
+| color-background-datepicker-container       | #fff                                                                              | #212121                          |
+| color-background-datepicker-button-default  | #fff                                                                              | #212121                          |
+| color-background-datepicker-button-hover    | rgba(0, 0, 0, 0.06)                                                               | rgba(250, 250, 250, 0.5)         |
+| color-background-datepicker-button-selected | #111                                                                              | #efefef                          |
+| elevation-datepicker                        | 0 0 8px rgba(0, 0, 0, 0.1)                                                        | 0 0 8px rgba(250, 250, 250, 0.6) |
+| rounding-datepicke-side-end                 | var(--rounding-circle) var(--rounding-0) var(--rounding-0) var(--rounding-circle) | NA                               |
+| rounding-datepicke-side-start               | var(--rounding-0) var(--rounding-circle) var(--rounding-circle) var(--rounding-0) | NA                               |
+
+#### Why
+
+Tokenize DatePicker component colors, elevation & rounding
+
+#### Breaking change notes
+
+--
+
+## 143.0.0 https://github.com/pinterest/gestalt/pull/3438
 
 ### MINOR
 
@@ -16,6 +40,8 @@ NEW
 Tokenize FormField component background colors
 
 #### Breaking change notes
+
+--
 
 ## 142.4.0 https://github.com/pinterest/gestalt/pull/3432
 
