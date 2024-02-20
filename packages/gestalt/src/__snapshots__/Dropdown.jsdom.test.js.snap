@@ -7,7 +7,13 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
     data-floating-ui-inert=""
   />
   <div
+    aria-hidden="true"
     class=""
+    data-floating-ui-inert=""
+  />
+  <div
+    data-floating-ui-portal=""
+    id=":r2:"
   >
     <div>
       <span
@@ -562,7 +568,13 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
     data-floating-ui-inert=""
   />
   <div
+    aria-hidden="true"
     class=""
+    data-floating-ui-inert=""
+  />
+  <div
+    data-floating-ui-portal=""
+    id=":r0:"
   >
     <div>
       <span
