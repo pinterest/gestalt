@@ -121,7 +121,7 @@ exports[`Avatar renders the checkmark on verified default 1`] = `
       className="box relative"
       style={
         Object {
-          "backgroundColor": "var(--color-border-avatar)",
+          "backgroundColor": "var(--color-background-avatar-placeholder)",
           "paddingBottom": "100%",
         }
       }
@@ -204,7 +204,7 @@ exports[`Avatar renders the correct size - lg 1`] = `
       className="box relative"
       style={
         Object {
-          "backgroundColor": "var(--color-border-avatar)",
+          "backgroundColor": "var(--color-background-avatar-placeholder)",
           "paddingBottom": "100%",
         }
       }
@@ -250,7 +250,7 @@ exports[`Avatar renders the correct size - md 1`] = `
       className="box relative"
       style={
         Object {
-          "backgroundColor": "var(--color-border-avatar)",
+          "backgroundColor": "var(--color-background-avatar-placeholder)",
           "paddingBottom": "100%",
         }
       }
@@ -296,7 +296,7 @@ exports[`Avatar renders the correct size - sm 1`] = `
       className="box relative"
       style={
         Object {
-          "backgroundColor": "var(--color-border-avatar)",
+          "backgroundColor": "var(--color-background-avatar-placeholder)",
           "paddingBottom": "100%",
         }
       }
@@ -342,7 +342,7 @@ exports[`Avatar renders the correct size - xl 1`] = `
       className="box relative"
       style={
         Object {
-          "backgroundColor": "var(--color-border-avatar)",
+          "backgroundColor": "var(--color-background-avatar-placeholder)",
           "paddingBottom": "100%",
         }
       }
@@ -388,7 +388,7 @@ exports[`Avatar renders the correct size - xs 1`] = `
       className="box relative"
       style={
         Object {
-          "backgroundColor": "var(--color-border-avatar)",
+          "backgroundColor": "var(--color-background-avatar-placeholder)",
           "paddingBottom": "100%",
         }
       }
@@ -434,7 +434,7 @@ exports[`Avatar renders the correct src 1`] = `
       className="box relative"
       style={
         Object {
-          "backgroundColor": "var(--color-border-avatar)",
+          "backgroundColor": "var(--color-background-avatar-placeholder)",
           "paddingBottom": "100%",
         }
       }

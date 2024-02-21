@@ -78,7 +78,7 @@ function Avatar(props: Props): ReactNode {
         <Mask rounding="circle" wash>
           <Image
             alt={accessibilityLabel ?? name}
-            color="var(--color-border-avatar)"
+            color="var(--color-background-avatar-placeholder)"
             naturalHeight={1}
             naturalWidth={1}
             src={src}

@@ -2,9 +2,11 @@
   "color": {
     "background": {
       "avatar": {
-        "value": "#efefef",
-        "darkValue": "#404040",
-        "comment": "Avatar component background color."
+        "placeholder": {
+          "value": "#efefef",
+          "darkValue": "#404040",
+          "comment": "Avatar component placeholder background color."
+        }
       },
       "badge": {
         "neutral": {
