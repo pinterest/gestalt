@@ -114,6 +114,8 @@ describe('ComboBox', () => {
         selectedOption={selectedOption}
         size={size}
         tags={tags}
+        hideWhenReferenceHidden={false} // Disabling as Popover uses IntersectionObserver which is not supported by testing-library
+        __disableFocusTrap // Disabling for testing purposes as focus trap makes other elements inaccessible
       />,
     );
   describe('Uncontrolled ComboBox', () => {
@@ -169,20 +171,19 @@ describe('ComboBox', () => {
 
       await userEvent.type(screen.getByLabelText(LABEL), input1);
 
-      // The element is hidden as Popover uses IntersectionObserver which is not supported by testing-library
-      expect(screen.getAllByRole('option', { hidden: true }).length).toBe(
+      expect(screen.getAllByRole('option').length).toBe(
         PRONOUNS.filter((x) => x.includes(input1)).length,
       );
 
       await userEvent.type(screen.getByDisplayValue(input1), input2);
 
-      expect(screen.getAllByRole('option', { hidden: true }).length).toBe(
+      expect(screen.getAllByRole('option').length).toBe(
         PRONOUNS.filter((x) => x.includes(input1 + input2)).length,
       );
 
       await userEvent.type(screen.getByDisplayValue(input1 + input2), input3);
 
-      expect(screen.getAllByRole('option', { hidden: true }).length).toBe(
+      expect(screen.getAllByRole('option').length).toBe(
         PRONOUNS.filter((x) => x.includes(input1)).length,
       );
     });
@@ -242,7 +243,7 @@ describe('ComboBox', () => {
       await userEvent.tab();
 
       // The element is hidden as Popover uses IntersectionObserver which is not supported by testing-library
-      await userEvent.type(screen.getByRole('button', { name: CLEAR, hidden: true }), ENTER);
+      await userEvent.type(screen.getByRole('button', { name: CLEAR }), ENTER);
 
       expect(screen.getByDisplayValue(EMPTY_STRING)).toBeVisible();
 
@@ -252,7 +253,7 @@ describe('ComboBox', () => {
 
       await userEvent.tab();
 
-      await userEvent.type(screen.getByRole('button', { name: CLEAR, hidden: true }), SPACE);
+      await userEvent.type(screen.getByRole('button', { name: CLEAR }), SPACE);
 
       expect(screen.getByDisplayValue(EMPTY_STRING)).toBeVisible();
     });
@@ -273,9 +274,9 @@ describe('ComboBox', () => {
       await userEvent.tab();
 
       // The element is hidden as Popover uses IntersectionObserver which is not supported by testing-library
-      expect(screen.getByRole('button', { name: CLEAR, hidden: true })).toHaveFocus();
+      expect(screen.getByRole('button', { name: CLEAR })).toHaveFocus();
 
-      fireEvent.click(screen.getByRole('button', { name: CLEAR, hidden: true }));
+      fireEvent.click(screen.getByRole('button', { name: CLEAR }));
 
       expect(screen.getByLabelText(LABEL)).toHaveFocus();
 
@@ -296,7 +297,7 @@ describe('ComboBox', () => {
       await userEvent.tab();
 
       // The element is hidden as Popover uses IntersectionObserver which is not supported by testing-library
-      expect(screen.getByRole('button', { name: CLEAR, hidden: true })).toBeVisible();
+      expect(screen.getByRole('button', { name: CLEAR })).toBeVisible();
     });
   });
 
@@ -335,7 +336,7 @@ describe('ComboBox', () => {
       fireEvent.click(screen.getByDisplayValue(input1));
 
       // The element is hidden as Popover uses IntersectionObserver which is not supported by testing-library
-      expect(screen.getByRole('button', { name: CLEAR, hidden: true })).toBeVisible();
+      expect(screen.getByRole('button', { name: CLEAR })).toBeVisible();
       expect(screen.getAllByRole('option').length).toBe(controlledOptionsLength);
       expect(screen.getByText(PRONOUNS[1])).toBeVisible();
     });
