@@ -19,7 +19,7 @@ type DataVisualizationColors =
   | '12';
 
 export const useHexColor: () => (DataVisualizationColors) => string = () => {
-  const { name: colorSchemeName } = useColorScheme();
+  const { colorSchemeName } = useColorScheme();
   return (vizColor: DataVisualizationColors) =>
     colorSchemeName === 'lightMode'
       ? lightColorDesignTokens[`color-data-visualization-${vizColor}`]

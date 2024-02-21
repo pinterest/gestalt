@@ -36,7 +36,7 @@ type Props = {
 function LegendIcon({ payloadData }: Props): ReactNode {
   const { decal: showVisualPattern } = useChartContext();
   const isAccessible = showVisualPattern === 'visualPattern';
-  const { name: colorSchemeName } = useColorScheme();
+  const { colorSchemeName } = useColorScheme();
 
   if (payloadData.referenceArea === 'default') {
     const dimension = 16;

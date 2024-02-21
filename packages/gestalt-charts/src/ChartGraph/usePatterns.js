@@ -6,7 +6,7 @@ import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-li
 import { type DataVisualizationColors } from './types';
 
 export const useHexColor: () => (DataVisualizationColors) => string = () => {
-  const { name: colorSchemeName } = useColorScheme();
+  const { colorSchemeName } = useColorScheme();
   return (vizColor: DataVisualizationColors) =>
     colorSchemeName === 'lightMode'
       ? lightColorDesignTokens[`color-data-visualization-${vizColor}`]

@@ -16,7 +16,7 @@ import layoutStyles from '../Layout.css';
 export type ColorScheme = 'light' | 'dark' | 'userPreference';
 
 export type Theme = {
-  name: 'lightMode' | 'darkMode',
+  colorSchemeName: 'lightMode' | 'darkMode',
   colorGray0: string,
   colorGray50: string,
   colorGray100: string,
@@ -29,7 +29,7 @@ export type Theme = {
 };
 
 const lightModeTheme = {
-  name: 'lightMode',
+  colorSchemeName: 'lightMode',
   colorGray0: '#fff',
   colorGray50: '#fff',
   colorGray100: '#efefef',
@@ -41,7 +41,7 @@ const lightModeTheme = {
 };
 
 const darkModeTheme = {
-  name: 'darkMode',
+  colorSchemeName: 'darkMode',
   colorGray0: '#030303',
   colorGray50: '#212121',
   colorGray100: '#404040',
@@ -66,7 +66,7 @@ const themeToStyles = (theme: {
   colorGray400: string,
   colorGray50: string,
   colorTransparentGray60: string,
-  name: string,
+  colorSchemeName: 'lightMode' | 'darkMode',
 }) => {
   let styles = '';
   Object.keys(theme).forEach((key) => {
@@ -74,12 +74,12 @@ const themeToStyles = (theme: {
       styles += `  --g-${key}: ${theme[key]};\n`;
     }
   });
-  if (theme.name === 'darkMode') {
+  if (theme.colorSchemeName === 'darkMode') {
     Object.keys(darkColorDesignTokens).forEach((key) => {
       styles += `  --${key}: ${darkColorDesignTokens[key]};\n`;
     });
   }
-  if (theme.name === 'lightMode') {
+  if (theme.colorSchemeName === 'lightMode') {
     Object.keys(lightColorDesignTokens).forEach((key) => {
       styles += `  --${key}: ${lightColorDesignTokens[key]};\n`;
     });
@@ -172,8 +172,8 @@ ${themeToStyles(theme)} }`,
 }
 
 export function useColorScheme(): {
-  name: 'lightMode' | 'darkMode',
+  colorSchemeName: 'lightMode' | 'darkMode',
 } {
-  const { name } = useContext(ThemeContext);
-  return { name };
+  const { colorSchemeName } = useContext(ThemeContext);
+  return { colorSchemeName };
 }

@@ -72,7 +72,7 @@ export default function Accordion({
   size = 'lg',
   type = 'info',
 }: Props): ReactNode {
-  const { name: colorSchemeName } = useColorScheme();
+  const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
   const { gap, padding, rounding } = applyModuleDensityStyle(size);

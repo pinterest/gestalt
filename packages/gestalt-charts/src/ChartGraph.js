@@ -272,7 +272,7 @@ function ChartGraph({
   // HOOKS
   const hexColor = useHexColor();
   const patterns = usePatterns();
-  const { name: colorSchemeName } = useColorScheme();
+  const { colorSchemeName } = useColorScheme();
   const { accessibilityLabelPrefixText } = useDefaultLabel('ChartGraph');
 
   // ASSERTIONS

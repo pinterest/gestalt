@@ -3,7 +3,7 @@ import { type Node as ReactNode } from 'react';
 import { Box, useColorScheme } from 'gestalt';
 
 export default function Checkerboard(): ReactNode {
-  const { name: colorSchemeName } = useColorScheme();
+  const { colorSchemeName } = useColorScheme();
   const color =
     colorSchemeName === 'lightMode'
       ? 'var(--color-background-dark)'

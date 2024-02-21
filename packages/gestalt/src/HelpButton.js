@@ -106,7 +106,7 @@ export default function HelpButton({
   const [focused, setFocused] = useState(false);
   // Define where the focused content stays
   const [innerModalFocus, setInnerModalFocus] = useState(false);
-  const { name: colorSchemeName } = useColorScheme();
+  const { colorSchemeName } = useColorScheme();
   const popoverId = useId();
   const { tooltipMessage } = useDefaultLabelContext('HelpButton');
 
