@@ -151,6 +151,12 @@ type Props = {
    * An object representing the zIndex value of the ComboBox list box. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
   zIndex?: Indexable,
+  /**
+   * *EXPERIMENTAL:* Whether to hide ComboBox when reference element gets out of viewport.
+   */
+  hideWhenReferenceHidden?: boolean,
+  // Whether to trap focus inside ComboBox when opened.
+  __disableFocusTrap?: boolean,
 };
 
 /**
@@ -188,6 +194,8 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
     selectedOption,
     tags,
     zIndex,
+    hideWhenReferenceHidden = true,
+    __disableFocusTrap,
   }: Props,
   ref,
 ): ReactNode {
@@ -507,6 +515,8 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
             shouldFocus={false}
             role="dialog"
             color="white"
+            hideWhenReferenceHidden={hideWhenReferenceHidden}
+            disableFocusTrap={__disableFocusTrap}
           >
             <Box
               aria-expanded={showOptionsList}

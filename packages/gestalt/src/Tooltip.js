@@ -32,6 +32,10 @@ type Props = {
    * Specifies the stacking order of Tooltip along the z-axis in the current stacking context. See the [z-index](https://gestalt.pinterest.systems/web/tooltip#Z-index) variant to learn more.
    */
   zIndex?: Indexable,
+  /**
+   * *EXPERIMENTAL:* Whether to hide Tooltip when reference element gets out of viewport.
+   */
+  hideWhenReferenceHidden?: boolean,
 };
 
 /**
@@ -50,6 +54,7 @@ export default function Tooltip({
   inline,
   text,
   zIndex,
+  hideWhenReferenceHidden,
 }: Props): ReactNode {
   return (
     <InternalTooltip
@@ -59,6 +64,7 @@ export default function Tooltip({
       inline={inline}
       text={text}
       zIndex={zIndex}
+      hideWhenReferenceHidden={hideWhenReferenceHidden}
     >
       {children}
     </InternalTooltip>

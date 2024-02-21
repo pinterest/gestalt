@@ -64,6 +64,7 @@ type Props = {
   link?: ReactNode,
   text: string | $ReadOnlyArray<string>,
   zIndex?: Indexable,
+  hideWhenReferenceHidden?: boolean,
 };
 
 export default function InternalTooltip({
@@ -75,6 +76,7 @@ export default function InternalTooltip({
   inline,
   text,
   zIndex,
+  hideWhenReferenceHidden,
 }: Props): ReactNode {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { isOpen } = state;
@@ -156,6 +158,7 @@ export default function InternalTooltip({
               rounding={2}
               size={null}
               shouldFocus={false}
+              hideWhenReferenceHidden={hideWhenReferenceHidden}
             >
               <Box
                 maxWidth={180}

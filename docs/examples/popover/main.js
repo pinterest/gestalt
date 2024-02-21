@@ -45,6 +45,7 @@ export default function Example(): ReactNode {
           idealDirection="forceDown"
           onDismiss={() => setOpen(false)}
           size="xl"
+          disablePortal={false}
           showDismissButton
         >
           <Box width={300}>

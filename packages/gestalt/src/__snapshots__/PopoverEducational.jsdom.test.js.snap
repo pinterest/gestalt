@@ -6,15 +6,6 @@ exports[`PopoverEducational renders 1`] = `
     class="box"
   >
     <div>
-      <span
-        aria-hidden="true"
-        data-floating-ui-focus-guard=""
-        data-floating-ui-inert=""
-        data-type="inside"
-        role="button"
-        style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
-        tabindex="0"
-      />
       <div
         class="container rounding4 contents maxDimensions minDimensions"
         style="position: absolute; left: 0px; top: 0px; visibility: visible; transform: translate(0px, 0px);"
@@ -79,15 +70,6 @@ exports[`PopoverEducational renders 1`] = `
           </div>
         </div>
       </div>
-      <span
-        aria-hidden="true"
-        data-floating-ui-focus-guard=""
-        data-floating-ui-inert=""
-        data-type="inside"
-        role="button"
-        style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
-        tabindex="0"
-      />
     </div>
   </div>
 </div>

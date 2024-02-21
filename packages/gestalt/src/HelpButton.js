@@ -84,6 +84,12 @@ type Props = {
    * Specifies the z-index for HelpButton's tooltip and popover to resolve any layering issues with other elements. See the [zIndex variant](https://gestalt.pinterest.systems/web/helpbutton#With-Z-index) for more details.
    */
   zIndex?: Indexable,
+  /**
+   * *EXPERIMENTAL:* Whether to hide HelpButton when reference element gets out of viewport.
+   */
+  hideWhenReferenceHidden?: boolean,
+  // Whether to trap focus inside HelpButton when opened.
+  __disableFocusTrap?: boolean,
 };
 
 /**
@@ -98,6 +104,8 @@ export default function HelpButton({
   onClick,
   text,
   zIndex,
+  hideWhenReferenceHidden = true,
+  __disableFocusTrap,
 }: Props): ReactNode {
   const tapAreaRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
   const textRef = useRef<null | HTMLElement>(null);
@@ -192,6 +200,8 @@ export default function HelpButton({
       role="dialog"
       color="white"
       size="sm"
+      hideWhenReferenceHidden={hideWhenReferenceHidden}
+      disableFocusTrap={__disableFocusTrap}
     >
       <Box padding={5} rounding={4} height="auto">
         {/*

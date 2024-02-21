@@ -29,6 +29,7 @@ type Props = {
   scrollBoundary?: HTMLElement,
   hideWhenReferenceHidden?: boolean,
   onPositioned?: () => void,
+  shouldTrapFocus?: boolean,
 };
 
 export default function Contents({
@@ -46,8 +47,9 @@ export default function Contents({
   shouldFocus = true,
   onKeyDown,
   scrollBoundary,
-  hideWhenReferenceHidden = true,
+  hideWhenReferenceHidden,
   onPositioned,
+  shouldTrapFocus,
 }: Props): ReactNode {
   const caretRef = useRef<HTMLElement | null>(null);
   const idealPlacement = idealDirection ? DIRECTIONS_MAP[idealDirection] : 'top';
@@ -87,7 +89,7 @@ export default function Contents({
   }, [onKeyDown]);
 
   return (
-    <FloatingFocusManager context={context} returnFocus={false}>
+    <FloatingFocusManager context={context} modal={shouldTrapFocus ?? false}>
       <div
         ref={refs.setFloating}
         tabIndex={-1}

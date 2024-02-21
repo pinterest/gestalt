@@ -142,6 +142,12 @@ type Props = {
    * An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
   zIndex?: Indexable,
+  /**
+   * *EXPERIMENTAL:* Whether to hide Dropdown when reference element gets out of viewport.
+   */
+  hideWhenReferenceHidden?: boolean,
+  // Whether to trap focus inside Dropdown when opened.
+  __disableFocusTrap?: boolean,
 };
 
 /**
@@ -163,6 +169,8 @@ export default function Dropdown({
   maxHeight,
   mobileOnAnimationEnd,
   disableMobileUI = false,
+  hideWhenReferenceHidden = true,
+  __disableFocusTrap,
 }: Props): ReactNode {
   const [isPopoverPositioned, setIsPopoverPositioned] = useState(false);
   const deviceType = useDeviceType();
@@ -280,12 +288,14 @@ export default function Dropdown({
       id={id}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
-      disablePortal={isWithinFixedContainer}
+      disablePortal
       role="menu"
       shouldFocus
       size="xl"
       onPositioned={() => setIsPopoverPositioned(true)}
       showCaret={false}
+      hideWhenReferenceHidden={hideWhenReferenceHidden}
+      disableFocusTrap={__disableFocusTrap}
     >
       <Box
         alignItems="center"

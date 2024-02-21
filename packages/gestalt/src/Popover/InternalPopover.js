@@ -29,6 +29,7 @@ type Props = {
   scrollBoundary?: HTMLElement,
   hideWhenReferenceHidden?: boolean,
   onPositioned?: () => void,
+  disableFocusTrap?: boolean,
 };
 
 export default function InternalPopover({
@@ -50,6 +51,7 @@ export default function InternalPopover({
   scrollBoundary,
   hideWhenReferenceHidden,
   onPositioned,
+  disableFocusTrap,
 }: Props): null | ReactNode {
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Popover');
@@ -82,6 +84,7 @@ export default function InternalPopover({
       disablePortal={disablePortal}
       hideWhenReferenceHidden={hideWhenReferenceHidden}
       onPositioned={onPositioned}
+      shouldTrapFocus={!disableFocusTrap}
     >
       {showDismissButton ? (
         <Flex direction="column">

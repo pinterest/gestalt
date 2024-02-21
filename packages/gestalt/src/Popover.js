@@ -78,13 +78,15 @@ type Props = {
    */
   scrollBoundary?: HTMLElement,
   /**
-   * *EXPERIMENTAL:* Whether to hide Popover when reference element gets out of viewport.
+   * *EXPERIMENTAL:* Whether to hide Popover when reference element gets out of viewport. Default: true
    */
   hideWhenReferenceHidden?: boolean,
   // This property can be set when `ScrollBoundaryContainer` is set to `overflow="visible"` but therefore limits the height of the Popover-based component. Some cases require
   __dangerouslySetMaxHeight?: '30vh',
   // Callback fired when Popover is correctly positioned after it's mounted.
   __onPositioned?: () => void,
+  // Whether to trap focus inside Popover when opened.
+  __disableFocusTrap?: boolean,
 };
 
 /**
@@ -114,9 +116,10 @@ export default function Popover({
   _deprecatedShowCaret = false,
   size = 'sm',
   scrollBoundary,
-  hideWhenReferenceHidden,
+  hideWhenReferenceHidden = true,
   __dangerouslySetMaxHeight,
   __onPositioned,
+  __disableFocusTrap,
 }: Props): null | ReactNode {
   const isInExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_popover_v2',
@@ -166,6 +169,7 @@ export default function Popover({
       scrollBoundary={scrollBoundary}
       hideWhenReferenceHidden={hideWhenReferenceHidden}
       onPositioned={__onPositioned}
+      disableFocusTrap={__disableFocusTrap}
     >
       {children}
     </InternalPopover>

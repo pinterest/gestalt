@@ -114,6 +114,10 @@ type Props = {
    * An object representing the zIndex value of PopoverEducational. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
   zIndex?: Indexable,
+  /**
+   * *EXPERIMENTAL:* Whether to hide PopoverEducational when reference element gets out of viewport.
+   */
+  hideWhenReferenceHidden?: boolean,
 };
 
 /**
@@ -134,6 +138,7 @@ export default function PopoverEducational({
   shouldFocus = false,
   size = 'sm',
   zIndex,
+  hideWhenReferenceHidden = true,
 }: Props): ReactNode {
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
@@ -175,6 +180,8 @@ export default function PopoverEducational({
         shouldFocus={shouldFocus}
         role={primaryAction && !children ? 'dialog' : role}
         size={size}
+        hideWhenReferenceHidden={hideWhenReferenceHidden}
+        disableFocusTrap // PopoverEducational is a part of the content and should not trap focus in itself
       >
         {children ??
           (message ? (
