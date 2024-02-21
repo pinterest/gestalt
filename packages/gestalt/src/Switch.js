@@ -55,10 +55,10 @@ export default function Switch({
 
   const switchStyles = classnames(styles.switch, {
     [focusStyles.accessibilityOutlineFocus]: focused && isFocusVisible,
-    [styles.switchGray]: disabled && switched,
-    [styles.switchLightGray]: disabled && !switched,
-    [styles.switchDarkGray]: !disabled && switched,
-    [styles.switchWhite]: !disabled && !switched,
+    [styles.disabledSelected]: disabled && switched,
+    [styles.disabled]: disabled && !switched,
+    [styles.enabledSelected]: !disabled && switched,
+    [styles.enabled]: !disabled && !switched,
   });
 
   const sliderStyles = classnames(

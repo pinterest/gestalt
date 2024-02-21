@@ -1,9 +1,5 @@
 :root {
-  --g-colorGray100: #efefef;
-  --g-colorGray200: #767676;
   --g-colorGray300: #111;
-  --g-colorGray400: #000;
-  --g-colorTransparentGray60: rgb(0 0 0 / 0.06);
 }
 
 /** Colors Design Token **/
@@ -120,22 +116,6 @@
 
 /** LEGACY CUSTOM COLORS **/
 
-.lightGray {
-  color: var(--g-colorGray100);
-}
-
-.lightGrayBg {
-  background-color: var(--g-colorGray100);
-}
-
-.gray {
-  color: var(--g-colorGray200);
-}
-
-.grayBg {
-  background-color: var(--g-colorGray200);
-}
-
 .darkGray {
   color: var(--g-colorGray300);
 }
@@ -144,6 +124,4 @@
   background-color: var(--g-colorGray300);
 }
 
-.blackBg {
-  background-color: var(--g-colorGray400);
-}
+

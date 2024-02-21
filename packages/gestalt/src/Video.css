@@ -35,3 +35,11 @@
     rgb(0 0 0 / 0.7)
   );
 }
+
+.blackBg {
+  background-color: var(--color-background-video-container-primary);
+}
+
+.transparentBg {
+  background-color: var(--color-background-video-container-secondary);
+}

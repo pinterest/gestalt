@@ -10,6 +10,7 @@ declare module.exports: {|
   +'borderRadiusSm': string,
   +'borderSelected': string,
   +'check': string,
+  +'disabled': string,
   +'enabled': string,
   +'input': string,
   +'inputEnabled': string,

@@ -5,6 +5,11 @@
         "placeholder": {
           "value": "#efefef",
           "darkValue": "#404040",
+          "comment": "Avatar dark overlay wash."
+        },
+        "wash": {
+          "value": "rgb(0 0 0 / 0.06)",
+          "darkValue": "rgb(250 250 250 / 0.5)",
           "comment": "Avatar component placeholder background color."
         }
       },
@@ -353,6 +358,19 @@
           }
         }
       },
+      "combobox": {
+        "item": {
+          "default": {
+            "value": "{color.transparent.value}",
+            "comment": "ComboBox item background color"
+          },
+          "hover": {
+            "value": "#efefef",
+            "darkValue": "#404040",
+            "comment": "ComboBox item on hover background color"
+          }
+        }
+      },
       "datepicker": {
         "container": {
           "value": "#fff",
@@ -465,11 +483,16 @@
         }
       },
       "segmentedcontrol": {
+        "container": {
+          "value": "#efefef",
+          "darkValue": "#404040",
+          "comment": "SegmentedControl container background color"
+        },
         "tab": {
           "selected": {
             "value": "#fff",
             "darkValue": "#030303",
-            "comment": "SegmentedControl selected tab"
+            "comment": "SegmentedControl selected tab background color"
           }
         }
       },
@@ -478,7 +501,19 @@
           "unselected": {
             "value": "#fff",
             "darkValue": "#030303",
-            "comment": "Switch enabled unselected"
+            "comment": "Switch enabled unselected background color"
+          }
+        },
+        "disabled": {
+          "unselected": {
+            "value": "#efefef",
+            "darkValue": "#404040",
+            "comment": "Switch disabled unselected background color"
+          },
+          "selected": {
+            "value": "{color.gray.roboflow.500.value}",
+            "darkValue": "#ababab",
+            "comment": "Switch disabled selected background color"
           }
         }
       },
@@ -487,6 +522,18 @@
           "value": "#fff",
           "darkValue": "#030303",
           "comment": "Table footer background color"
+        },
+        "row": {
+          "hover": {
+            "value": "#efefef",
+            "darkValue": "#404040",
+            "comment": "Table row selected color"
+          },
+          "selected": {
+            "value": "#efefef",
+            "darkValue": "#404040",
+            "comment": "Table row selected color"
+          }
         }
       },
       "tagdata": {
@@ -590,6 +637,19 @@
           "darkValue": "#404040",
           "comment": "TileData disabled background color"
         }
+      },
+      "video": {
+        "container": {
+          "primary": {
+            "value": "{color.background.inverse.base.value}",
+            "darkValue": "{color.background.inverse.base.darkValue}",
+            "comment": "Video background primary dark color"
+          },
+          "secondary": {
+            "value": "{color.transparent.value}",
+            "comment": "Video background secondary transparent color"
+          }
+        }
       }
     },
     "border": {
@@ -610,6 +670,11 @@
             "darkValue": "#cf001f",
             "comment": "Error formfield border color on hover."
           }
+        },
+        "disabled": {
+          "value": "#efefef",
+          "darkValue": "#404040",
+          "comment": "Formfield disabled border color"
         }
       },
       "popover": {
@@ -629,11 +694,34 @@
           "comment": "Popover component secondary border color."
         }
       },
+      "table": {
+        "row": {
+          "selected": {
+            "value": "{color.black.cosmicore.900.value}",
+            "darkValue": "{color.white.mochimalist.0.value}",
+            "co}mment": "Tag component disabled border color."
+          }
+        }
+      },
       "tag": {
         "disabled": {
-          "value": "#767676",
+          "value": "{color.gray.roboflow.500.value}",
           "darkValue": "#ababab",
           "comment": "Tag component disabled border color."
+        }
+      }
+    },
+    "text": {
+      "formfield": {
+        "placeholder": {
+          "value": "{color.gray.roboflow.500.value}",
+          "darkValue": "#ababab",
+          "comment": "Formfield placeholder text color."
+        },
+        "disabled": {
+          "value": "{color.gray.roboflow.500.value}",
+          "darkValue": "#ababab",
+          "comment": "Formfield disabled text color."
         }
       }
     }

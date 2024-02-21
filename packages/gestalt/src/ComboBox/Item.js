@@ -3,7 +3,7 @@ import { type AbstractComponent, forwardRef, type Node as ReactNode } from 'reac
 import classnames from 'classnames';
 import bordersStyles from '../Borders.css';
 import boxWhitespaceStyles from '../boxWhitespace.css';
-import colorStyles from '../Colors.css';
+import styles from '../ComboBox.css';
 import flexStyles from '../Flex.css';
 import focusStyles from '../Focus.css';
 import Icon from '../Icon';
@@ -71,8 +71,8 @@ const ComboBoxItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forwa
           boxWhitespaceStyles.paddingX2,
           boxWhitespaceStyles.paddingY2,
           {
-            [colorStyles.lightGrayBg]: isHovered,
-            [colorStyles.transparent]: !isHovered,
+            [styles.hoveredItem]: isHovered,
+            [styles.item]: !isHovered,
           },
         )}
       >

@@ -22,24 +22,24 @@ html[dir="rtl"] .switch {
   transform: rotateY(180deg);
 }
 
-.switchDarkGray {
+.enabled {
+  composes: borderColorDarkGray from "./Borders.css";
+  background-color: var(--color-background-switch-default-unselected);
+}
+
+.enabledSelected {
   composes: darkGrayBg from "./Colors.css";
   composes: borderColorSelected from "./Borders.css";
 }
 
-.switchGray {
-  composes: grayBg from "./Colors.css";
-  composes: borderColorDarkGray from "./Borders.css";
-}
-
-.switchLightGray {
-  composes: lightGrayBg from "./Colors.css";
+.disabled {
   composes: borderColorLightGray from "./Borders.css";
+  background-color: var(--color-background-switch-disabled-unselected);
 }
 
-.switchWhite {
+.disabledSelected {
   composes: borderColorDarkGray from "./Borders.css";
-  background-color: var(--color-background-switch-default-unselected);
+  background-color: var(--color-background-switch-disabled-selected);
 }
 
 .slider {

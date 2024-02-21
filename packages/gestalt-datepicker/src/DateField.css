@@ -43,7 +43,7 @@
 }
 
 .textField::placeholder {
-  color: var(--g-colorGray200);
+  color: var(--color-text-formfield-placeholder);
 }
 
 .formElementBase {
@@ -86,9 +86,9 @@
 }
 
 .formElementDisabled {
-  background-color: var(--g-colorGray100);
-  border-color: var(--g-colorGray100);
-  color: var(--g-colorGray200);
+  background-color: var(--color-background-formfield-disabled);
+  border-color: var(--color-border-formfield-disabled);
+  color: var(--color-text-formfield-disabled);
 }
 
 .typographyTruncate {

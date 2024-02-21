@@ -23,7 +23,7 @@
 }
 
 .textField::placeholder {
-  color: var(--g-colorGray200);
+  color: var(--color-text-formfield-placeholder);
 }
 
 .unstyledTextField,

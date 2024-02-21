@@ -103,7 +103,7 @@ const InternalCheckboxWithForwardRef: AbstractComponent<Props, HTMLInputElement>
 
   let bgStyle = styles.enabled;
   if (disabled) {
-    bgStyle = colors.lightGrayBg;
+    bgStyle = styles.disabled;
   } else if (checked || indeterminate) {
     bgStyle = colors.darkGrayBg;
   }

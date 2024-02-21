@@ -7,6 +7,10 @@
   background-color: var(--color-background-formfield-primary);
 }
 
+.disabled {
+  background-color: var(--color-background-formfield-disabled);
+}
+
 .border {
   composes: borderColorDarkGray from "../Borders.css";
 }

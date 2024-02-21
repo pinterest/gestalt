@@ -4,13 +4,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
 <style>
   :root {
   --g-colorSchemeName: darkMode;
-  --g-colorGray50: #212121;
-  --g-colorGray100: #404040;
-  --g-colorGray100Active: #666;
-  --g-colorGray200: #ababab;
   --g-colorGray300: #efefef;
-  --g-colorGray400: #fff;
-  --g-colorTransparentGray60: rgb(250 250 250 / 0.5);
   --color-data-visualization-10: #007A72;
   --color-data-visualization-11: #f76593;
   --color-data-visualization-12: #ffc58f;
@@ -37,6 +31,8 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-text-inverse: #111111;
   --color-text-shopping: #75bfff;
   --color-text-link: #45a3fe;
+  --color-text-formfield-placeholder: #ababab;
+  --color-text-formfield-disabled: #ababab;
   --color-icon-default: #ffffff;
   --color-icon-subtle: #a5a5a5;
   --color-icon-success: #39d377;
@@ -70,6 +66,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-background-elevation-floating: #2b2b2b;
   --color-background-elevation-raised: #4a4a4a;
   --color-background-avatar-placeholder: #404040;
+  --color-background-avatar-wash: rgb(250 250 250 / 0.5);
   --color-background-badge-neutral: #cdcdcd;
   --color-background-badge-info-default: #75bfff;
   --color-background-badge-info-hover: #abdbff;
@@ -123,6 +120,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-background-button-semitransparentdark-active: #e0e0e0;
   --color-background-button-disabled-default: #4a4a4a;
   --color-background-button-selected-default: #e9e9e9;
+  --color-background-combobox-item-hover: #404040;
   --color-background-datepicker-container: #212121;
   --color-background-datepicker-button-default: #212121;
   --color-background-datepicker-button-hover: rgba(250, 250, 250, 0.5);
@@ -142,9 +140,14 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-background-tag-warning-default: #fdc900;
   --color-background-tag-warning-hover: #e18d00;
   --color-background-tag-warning-active: #d86800;
+  --color-background-segmentedcontrol-container: #404040;
   --color-background-segmentedcontrol-tab-selected: #030303;
   --color-background-switch-default-unselected: #030303;
+  --color-background-switch-disabled-unselected: #404040;
+  --color-background-switch-disabled-selected: #ababab;
   --color-background-table-footer: #030303;
+  --color-background-table-row-hover: #404040;
+  --color-background-table-row-selected: #404040;
   --color-background-tagdata-primary: #767676;
   --color-background-tagdata-secondary: #111111;
   --color-background-tagdata-disabled: #404040;
@@ -163,15 +166,18 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-background-tiledata-09: #ff5b451A;
   --color-background-tiledata-hover: #767676;
   --color-background-tiledata-disabled: #404040;
+  --color-background-video-container-primary: #f9f9f9;
   --color-border-container: #767676;
   --color-border-default: #cdcdcd;
   --color-border-error: #f47171;
   --color-border-avatar: #030303;
   --color-border-formfield-error-default: #f47171;
   --color-border-formfield-error-hover: #cf001f;
+  --color-border-formfield-disabled: #404040;
   --color-border-popover-primary: #212121;
   --color-border-popover-secondary: #efefef;
   --color-border-popover-education: #75bfff;
+  --color-border-table-row-selected: #ffffff;
   --color-border-tag-disabled: #ababab;
   --elevation-floating: none;
   --elevation-raised-top: 0 0.5px 0 #f9f9f9;
@@ -185,13 +191,7 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
 <style>
   :root {
   --g-colorSchemeName: lightMode;
-  --g-colorGray50: #fff;
-  --g-colorGray100: #efefef;
-  --g-colorGray100Active: #dadada;
-  --g-colorGray200: #767676;
   --g-colorGray300: #111;
-  --g-colorGray400: #000;
-  --g-colorTransparentGray60: rgb(0 0 0 / 0.06);
   --color-data-visualization-10: #005062;
   --color-data-visualization-11: #de2c62;
   --color-data-visualization-12: #660e00;
@@ -218,6 +218,8 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-text-inverse: #ffffff;
   --color-text-shopping: #0074e8;
   --color-text-link: #004ba9;
+  --color-text-formfield-placeholder: #767676;
+  --color-text-formfield-disabled: #767676;
   --color-icon-default: #111111;
   --color-icon-subtle: #767676;
   --color-icon-success: #005f3e;
@@ -251,6 +253,7 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-background-elevation-floating: rgba(0, 0, 0, 0);
   --color-background-elevation-raised: rgba(0, 0, 0, 0);
   --color-background-avatar-placeholder: #efefef;
+  --color-background-avatar-wash: #000000;
   --color-background-badge-neutral: #767676;
   --color-background-badge-info-default: #0074e8;
   --color-background-badge-info-hover: #005fcb;
@@ -304,6 +307,7 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-background-button-semitransparentdark-active: #1f1f1f;
   --color-background-button-disabled-default: #e9e9e9;
   --color-background-button-selected-default: #111111;
+  --color-background-combobox-item-hover: #efefef;
   --color-background-datepicker-container: #ffffff;
   --color-background-datepicker-button-default: #ffffff;
   --color-background-datepicker-button-hover: rgba(0, 0, 0, 0.06);
@@ -323,9 +327,14 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-background-tag-warning-default: #bd5b00;
   --color-background-tag-warning-hover: #aa4900;
   --color-background-tag-warning-active: #943a00;
+  --color-background-segmentedcontrol-container: #efefef;
   --color-background-segmentedcontrol-tab-selected: #ffffff;
   --color-background-switch-default-unselected: #ffffff;
+  --color-background-switch-disabled-unselected: #efefef;
+  --color-background-switch-disabled-selected: #767676;
   --color-background-table-footer: #ffffff;
+  --color-background-table-row-hover: #efefef;
+  --color-background-table-row-selected: #efefef;
   --color-background-tagdata-primary: #e9e9e9;
   --color-background-tagdata-secondary: #ffffff;
   --color-background-tagdata-disabled: #efefef;
@@ -344,15 +353,18 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-background-tiledata-09: #f2681f1A;
   --color-background-tiledata-hover: #e9e9e9;
   --color-background-tiledata-disabled: #efefef;
+  --color-background-video-container-primary: #111111;
   --color-border-container: #cdcdcd;
   --color-border-default: #767676;
   --color-border-error: #cc0000;
   --color-border-avatar: #ffffff;
   --color-border-formfield-error-default: #cc0000;
   --color-border-formfield-error-hover: #ad081b;
+  --color-border-formfield-disabled: #efefef;
   --color-border-popover-primary: #ffffff;
   --color-border-popover-secondary: #111111;
   --color-border-popover-education: #0074e8;
+  --color-border-table-row-selected: #111111;
   --color-border-tag-disabled: #767676;
   --elevation-floating: 0 0 8px rgb(0 0 0 / 0.10);
   --elevation-raised-top: 0 2px 8px rgb(0 0 0 / 0.12);
@@ -366,13 +378,7 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
 <style>
   :root {
   --g-colorSchemeName: lightMode;
-  --g-colorGray50: #fff;
-  --g-colorGray100: #efefef;
-  --g-colorGray100Active: #dadada;
-  --g-colorGray200: #767676;
   --g-colorGray300: #111;
-  --g-colorGray400: #000;
-  --g-colorTransparentGray60: rgb(0 0 0 / 0.06);
   --color-data-visualization-10: #005062;
   --color-data-visualization-11: #de2c62;
   --color-data-visualization-12: #660e00;
@@ -399,6 +405,8 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-text-inverse: #ffffff;
   --color-text-shopping: #0074e8;
   --color-text-link: #004ba9;
+  --color-text-formfield-placeholder: #767676;
+  --color-text-formfield-disabled: #767676;
   --color-icon-default: #111111;
   --color-icon-subtle: #767676;
   --color-icon-success: #005f3e;
@@ -432,6 +440,7 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-background-elevation-floating: rgba(0, 0, 0, 0);
   --color-background-elevation-raised: rgba(0, 0, 0, 0);
   --color-background-avatar-placeholder: #efefef;
+  --color-background-avatar-wash: #000000;
   --color-background-badge-neutral: #767676;
   --color-background-badge-info-default: #0074e8;
   --color-background-badge-info-hover: #005fcb;
@@ -485,6 +494,7 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-background-button-semitransparentdark-active: #1f1f1f;
   --color-background-button-disabled-default: #e9e9e9;
   --color-background-button-selected-default: #111111;
+  --color-background-combobox-item-hover: #efefef;
   --color-background-datepicker-container: #ffffff;
   --color-background-datepicker-button-default: #ffffff;
   --color-background-datepicker-button-hover: rgba(0, 0, 0, 0.06);
@@ -504,9 +514,14 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-background-tag-warning-default: #bd5b00;
   --color-background-tag-warning-hover: #aa4900;
   --color-background-tag-warning-active: #943a00;
+  --color-background-segmentedcontrol-container: #efefef;
   --color-background-segmentedcontrol-tab-selected: #ffffff;
   --color-background-switch-default-unselected: #ffffff;
+  --color-background-switch-disabled-unselected: #efefef;
+  --color-background-switch-disabled-selected: #767676;
   --color-background-table-footer: #ffffff;
+  --color-background-table-row-hover: #efefef;
+  --color-background-table-row-selected: #efefef;
   --color-background-tagdata-primary: #e9e9e9;
   --color-background-tagdata-secondary: #ffffff;
   --color-background-tagdata-disabled: #efefef;
@@ -525,15 +540,18 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-background-tiledata-09: #f2681f1A;
   --color-background-tiledata-hover: #e9e9e9;
   --color-background-tiledata-disabled: #efefef;
+  --color-background-video-container-primary: #111111;
   --color-border-container: #cdcdcd;
   --color-border-default: #767676;
   --color-border-error: #cc0000;
   --color-border-avatar: #ffffff;
   --color-border-formfield-error-default: #cc0000;
   --color-border-formfield-error-hover: #ad081b;
+  --color-border-formfield-disabled: #efefef;
   --color-border-popover-primary: #ffffff;
   --color-border-popover-secondary: #111111;
   --color-border-popover-education: #0074e8;
+  --color-border-table-row-selected: #111111;
   --color-border-tag-disabled: #767676;
   --elevation-floating: 0 0 8px rgb(0 0 0 / 0.10);
   --elevation-raised-top: 0 2px 8px rgb(0 0 0 / 0.12);
@@ -547,13 +565,7 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
 <style>
   .__gestaltThemetestId {
   --g-colorSchemeName: lightMode;
-  --g-colorGray50: #fff;
-  --g-colorGray100: #efefef;
-  --g-colorGray100Active: #dadada;
-  --g-colorGray200: #767676;
   --g-colorGray300: #111;
-  --g-colorGray400: #000;
-  --g-colorTransparentGray60: rgb(0 0 0 / 0.06);
   --color-data-visualization-10: #005062;
   --color-data-visualization-11: #de2c62;
   --color-data-visualization-12: #660e00;
@@ -580,6 +592,8 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-text-inverse: #ffffff;
   --color-text-shopping: #0074e8;
   --color-text-link: #004ba9;
+  --color-text-formfield-placeholder: #767676;
+  --color-text-formfield-disabled: #767676;
   --color-icon-default: #111111;
   --color-icon-subtle: #767676;
   --color-icon-success: #005f3e;
@@ -613,6 +627,7 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-background-elevation-floating: rgba(0, 0, 0, 0);
   --color-background-elevation-raised: rgba(0, 0, 0, 0);
   --color-background-avatar-placeholder: #efefef;
+  --color-background-avatar-wash: #000000;
   --color-background-badge-neutral: #767676;
   --color-background-badge-info-default: #0074e8;
   --color-background-badge-info-hover: #005fcb;
@@ -666,6 +681,7 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-background-button-semitransparentdark-active: #1f1f1f;
   --color-background-button-disabled-default: #e9e9e9;
   --color-background-button-selected-default: #111111;
+  --color-background-combobox-item-hover: #efefef;
   --color-background-datepicker-container: #ffffff;
   --color-background-datepicker-button-default: #ffffff;
   --color-background-datepicker-button-hover: rgba(0, 0, 0, 0.06);
@@ -685,9 +701,14 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-background-tag-warning-default: #bd5b00;
   --color-background-tag-warning-hover: #aa4900;
   --color-background-tag-warning-active: #943a00;
+  --color-background-segmentedcontrol-container: #efefef;
   --color-background-segmentedcontrol-tab-selected: #ffffff;
   --color-background-switch-default-unselected: #ffffff;
+  --color-background-switch-disabled-unselected: #efefef;
+  --color-background-switch-disabled-selected: #767676;
   --color-background-table-footer: #ffffff;
+  --color-background-table-row-hover: #efefef;
+  --color-background-table-row-selected: #efefef;
   --color-background-tagdata-primary: #e9e9e9;
   --color-background-tagdata-secondary: #ffffff;
   --color-background-tagdata-disabled: #efefef;
@@ -706,15 +727,18 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-background-tiledata-09: #f2681f1A;
   --color-background-tiledata-hover: #e9e9e9;
   --color-background-tiledata-disabled: #efefef;
+  --color-background-video-container-primary: #111111;
   --color-border-container: #cdcdcd;
   --color-border-default: #767676;
   --color-border-error: #cc0000;
   --color-border-avatar: #ffffff;
   --color-border-formfield-error-default: #cc0000;
   --color-border-formfield-error-hover: #ad081b;
+  --color-border-formfield-disabled: #efefef;
   --color-border-popover-primary: #ffffff;
   --color-border-popover-secondary: #111111;
   --color-border-popover-education: #0074e8;
+  --color-border-table-row-selected: #111111;
   --color-border-tag-disabled: #767676;
   --elevation-floating: 0 0 8px rgb(0 0 0 / 0.10);
   --elevation-raised-top: 0 2px 8px rgb(0 0 0 / 0.12);
@@ -729,13 +753,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   @media(prefers-color-scheme: dark) {
   :root {
   --g-colorSchemeName: darkMode;
-  --g-colorGray50: #212121;
-  --g-colorGray100: #404040;
-  --g-colorGray100Active: #666;
-  --g-colorGray200: #ababab;
   --g-colorGray300: #efefef;
-  --g-colorGray400: #fff;
-  --g-colorTransparentGray60: rgb(250 250 250 / 0.5);
   --color-data-visualization-10: #007A72;
   --color-data-visualization-11: #f76593;
   --color-data-visualization-12: #ffc58f;
@@ -762,6 +780,8 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-text-inverse: #111111;
   --color-text-shopping: #75bfff;
   --color-text-link: #45a3fe;
+  --color-text-formfield-placeholder: #ababab;
+  --color-text-formfield-disabled: #ababab;
   --color-icon-default: #ffffff;
   --color-icon-subtle: #a5a5a5;
   --color-icon-success: #39d377;
@@ -795,6 +815,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-background-elevation-floating: #2b2b2b;
   --color-background-elevation-raised: #4a4a4a;
   --color-background-avatar-placeholder: #404040;
+  --color-background-avatar-wash: rgb(250 250 250 / 0.5);
   --color-background-badge-neutral: #cdcdcd;
   --color-background-badge-info-default: #75bfff;
   --color-background-badge-info-hover: #abdbff;
@@ -848,6 +869,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-background-button-semitransparentdark-active: #e0e0e0;
   --color-background-button-disabled-default: #4a4a4a;
   --color-background-button-selected-default: #e9e9e9;
+  --color-background-combobox-item-hover: #404040;
   --color-background-datepicker-container: #212121;
   --color-background-datepicker-button-default: #212121;
   --color-background-datepicker-button-hover: rgba(250, 250, 250, 0.5);
@@ -867,9 +889,14 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-background-tag-warning-default: #fdc900;
   --color-background-tag-warning-hover: #e18d00;
   --color-background-tag-warning-active: #d86800;
+  --color-background-segmentedcontrol-container: #404040;
   --color-background-segmentedcontrol-tab-selected: #030303;
   --color-background-switch-default-unselected: #030303;
+  --color-background-switch-disabled-unselected: #404040;
+  --color-background-switch-disabled-selected: #ababab;
   --color-background-table-footer: #030303;
+  --color-background-table-row-hover: #404040;
+  --color-background-table-row-selected: #404040;
   --color-background-tagdata-primary: #767676;
   --color-background-tagdata-secondary: #111111;
   --color-background-tagdata-disabled: #404040;
@@ -888,15 +915,18 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-background-tiledata-09: #ff5b451A;
   --color-background-tiledata-hover: #767676;
   --color-background-tiledata-disabled: #404040;
+  --color-background-video-container-primary: #f9f9f9;
   --color-border-container: #767676;
   --color-border-default: #cdcdcd;
   --color-border-error: #f47171;
   --color-border-avatar: #030303;
   --color-border-formfield-error-default: #f47171;
   --color-border-formfield-error-hover: #cf001f;
+  --color-border-formfield-disabled: #404040;
   --color-border-popover-primary: #212121;
   --color-border-popover-secondary: #efefef;
   --color-border-popover-education: #75bfff;
+  --color-border-table-row-selected: #ffffff;
   --color-border-tag-disabled: #ababab;
   --elevation-floating: none;
   --elevation-raised-top: 0 0.5px 0 #f9f9f9;
