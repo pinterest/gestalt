@@ -1,5 +1,27 @@
 This file is updated manually
 
+## 144.0.0 https://github.com/pinterest/gestalt/pull/3439
+
+### MINOR
+
+NEW
+
+| name                                 | light                    | dark    |
+| ------------------------------------ | ------------------------ | ------- |
+| color-background-avatar-placeholder  | #efefef                  | #404040 |
+| color-border-avatar                  | #fff                     | #030303 |
+| color-border-formfield-error-default | color.border.error.value | #212121 |
+| color-border-formfield-error-hover   | #ad081b                  | #cf001f |
+| color-border-tag-disabled            | #767676                  | #ababab |
+
+#### Why
+
+Tokenize Avatar, Tag, and formfield background and border colors
+
+#### Breaking change notes
+
+--
+
 ## 143.1.0 https://github.com/pinterest/gestalt/pull/3438
 
 ### MINOR

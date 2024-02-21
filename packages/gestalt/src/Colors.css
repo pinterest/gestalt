@@ -6,12 +6,12 @@
   --g-colorGray200: #767676;
   --g-colorGray300: #111;
   --g-colorGray400: #000;
-  --g-colorRed100Hovered: #ad081b;
   --g-colorTransparentGray60: rgb(0 0 0 / 0.06);
-  --g-colorTransparentGray100: rgb(0 0 0 / 0.1);
 }
 
 /** Colors Design Token **/
+
+/* semantic background colors */
 
 .default {
   background-color: var(--color-background-default);
@@ -133,32 +133,32 @@
 
 /** LEGACY CUSTOM COLORS **/
 
-/** text **/
-
-.lightGray {
-  color: var(--g-colorGray100);
+.whiteBg {
+  background-color: var(--g-colorGray0);
 }
 
 .whiteElevated {
   color: var(--g-colorGray50);
 }
 
-.darkGray {
-  color: var(--g-colorGray300);
+.lightGray {
+  color: var(--g-colorGray100);
+}
+
+.lightGrayBg {
+  background-color: var(--g-colorGray100);
 }
 
 .gray {
   color: var(--g-colorGray200);
 }
 
-/** background **/
-
-.whiteBg {
-  background-color: var(--g-colorGray0);
+.grayBg {
+  background-color: var(--g-colorGray200);
 }
 
-.lightGrayBg {
-  background-color: var(--g-colorGray100);
+.darkGray {
+  color: var(--g-colorGray300);
 }
 
 .darkGrayBg {
@@ -167,8 +167,4 @@
 
 .blackBg {
   background-color: var(--g-colorGray400);
-}
-
-.grayBg {
-  background-color: var(--g-colorGray200);
 }

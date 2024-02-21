@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import avatarStyles from '../AvatarGroup.css';
 import Box from '../Box';
 import colors from '../Colors.css';
-import { useColorScheme } from '../contexts/ColorSchemeProvider';
 import styles from '../Icon.css';
 import icons from '../icons/index';
 import typography from '../Typography.css';
@@ -14,8 +13,6 @@ const ICON_SIZE_RATIO = (20 / 48) * 100; // For pixel perfect icon button, we us
 type ResponsiveFitSizeBoxProps = { children: ReactNode, outline: boolean };
 
 function ResponsiveFitSizeBox({ children, outline }: ResponsiveFitSizeBoxProps): ReactNode {
-  const { colorGray0 } = useColorScheme();
-
   return (
     <Box
       color="secondary"
@@ -23,7 +20,7 @@ function ResponsiveFitSizeBox({ children, outline }: ResponsiveFitSizeBoxProps):
         __style: {
           // When specifying a padding by percentage, it's always based on the width of the parent container so we get a property that's equal to the width.s
           paddingBottom: '100%',
-          boxShadow: outline ? `0 0 0 1px ${colorGray0}` : undefined,
+          boxShadow: outline ? '0 0 0 1px var(--color-border-avatar)' : undefined,
         },
       }}
       position="relative"
@@ -64,8 +61,6 @@ export default function AvatarFoundation({
   translate,
   content = 'text',
 }: Props): ReactNode {
-  const { colorGray300 } = useColorScheme();
-
   const cs = classnames(styles.icon, colors.darkGray);
 
   return (
@@ -81,7 +76,7 @@ export default function AvatarFoundation({
           {title ? <title>{title}</title> : null}
           <text
             fontSize={fontSize}
-            fill={colorGray300}
+            fill="var(--color-text-default)"
             dy="0.35em"
             textAnchor={textAnchor}
             className={[

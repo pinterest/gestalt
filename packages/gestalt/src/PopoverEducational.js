@@ -135,7 +135,7 @@ export default function PopoverEducational({
   size = 'sm',
   zIndex,
 }: Props): ReactNode {
-  const { name: colorSchemeName } = useColorScheme();
+  const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
   if (!anchor) {

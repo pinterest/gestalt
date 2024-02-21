@@ -68,7 +68,7 @@
 }
 
 .formElementErrored {
-  border-color: var(--color-border-error);
+  border-color: var(--color-border-formfield-error-default);
   outline: none;
 }
 
@@ -77,7 +77,7 @@
 }
 
 .formElementErrored:hover:not(:focus) {
-  border-color: var(--g-colorRed100Hovered);
+  border-color: var(--color-border-formfield-error-hover);
 }
 
 .formElementEnabled {

@@ -19,7 +19,7 @@ function ColorTile({ description, fullTokenName, number = 400, textColor }: Prop
     fullTokenName?.includes('black') ||
     fullTokenName?.includes('inverse') ||
     isTransparent;
-  const { name: colorSchemeName } = useColorScheme();
+  const { colorSchemeName } = useColorScheme();
 
   return (
     <Box

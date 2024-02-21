@@ -84,7 +84,7 @@ export default function AccordionExpandable({
     accessibilityExpandLabel: defaultAccessibilityExpandLabel,
   } = useDefaultLabelContext('Accordion');
 
-  const { name: colorSchemeName } = useColorScheme();
+  const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
   const { rounding } = applyModuleDensityStyle(size);
