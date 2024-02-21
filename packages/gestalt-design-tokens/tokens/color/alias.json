@@ -333,6 +333,10 @@
         "value": "{color.red.pushpin.500.value}",
         "darkValue": "{color.red.pushpin.300.value}",
         "comment": "Used to indicate an error on a contained element, like TextField or TextArea"
+      },
+      "focus": {
+        "value": "rgba(0, 132, 255, 0.5)",
+        "comment": "Used to indicate a focused state on interactive elements, like TextField or Button"
       }
     }
   }
