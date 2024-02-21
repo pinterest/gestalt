@@ -37,7 +37,7 @@ exports[`Fieldset renders 1`] = `
           type="checkbox"
         />
         <div
-          className="whiteBg border borderRadiusMd sizeMd check"
+          className="enabled border borderRadiusMd sizeMd check"
         />
       </div>
       <div
@@ -92,7 +92,7 @@ exports[`Fieldset renders 1`] = `
           type="checkbox"
         />
         <div
-          className="whiteBg border borderRadiusMd sizeMd check"
+          className="enabled border borderRadiusMd sizeMd check"
         />
       </div>
       <div
@@ -163,7 +163,7 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
           type="checkbox"
         />
         <div
-          className="whiteBg border borderRadiusMd sizeMd check"
+          className="enabled border borderRadiusMd sizeMd check"
         />
       </div>
       <div
@@ -218,7 +218,7 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
           type="checkbox"
         />
         <div
-          className="whiteBg border borderRadiusMd sizeMd check"
+          className="enabled border borderRadiusMd sizeMd check"
         />
       </div>
       <div
@@ -290,7 +290,7 @@ exports[`Fieldset renders with errorMessage 1`] = `
           type="checkbox"
         />
         <div
-          className="whiteBg border borderRadiusMd sizeMd check"
+          className="enabled border borderRadiusMd sizeMd check"
         />
       </div>
       <div
@@ -345,7 +345,7 @@ exports[`Fieldset renders with errorMessage 1`] = `
           type="checkbox"
         />
         <div
-          className="whiteBg border borderRadiusMd sizeMd check"
+          className="enabled border borderRadiusMd sizeMd check"
         />
       </div>
       <div

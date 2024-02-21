@@ -394,6 +394,23 @@
         "darkValue": "{color.background.elevation.floating.darkValue}",
         "comment": "Overlay component background color."
       },
+      "popover": {
+        "primary": {
+          "value": "{color.background.default.value}",
+          "darkValue": "{color.background.elevation.floating.darkValue}",
+          "comment": "Popover component primary background color."
+        },
+        "secondary": {
+          "value": "#111",
+          "darkValue": "#efefef",
+          "comment": "Popover component secondary background color."
+        },
+        "education": {
+          "value": "{color.background.education.value}",
+          "darkValue": "{color.background.education.darkValue}",
+          "comment": "Popover component secondary background color."
+        }
+      },
       "tag": {
         "primary": {
           "default": {
@@ -445,6 +462,31 @@
             "darkValue": "{color.yellow.caramellow.450.value}",
             "comment": "Warning tag's close button background color on active."
           }
+        }
+      },
+      "segmentedcontrol": {
+        "tab": {
+          "selected": {
+            "value": "#fff",
+            "darkValue": "#030303",
+            "comment": "SegmentedControl selected tab"
+          }
+        }
+      },
+      "switch": {
+        "default": {
+          "unselected": {
+            "value": "#fff",
+            "darkValue": "#030303",
+            "comment": "Switch enabled unselected"
+          }
+        }
+      },
+      "table": {
+        "footer": {
+          "value": "#fff",
+          "darkValue": "#030303",
+          "comment": "Table footer background color"
         }
       },
       "tagdata": {
@@ -568,6 +610,23 @@
             "darkValue": "#cf001f",
             "comment": "Error formfield border color on hover."
           }
+        }
+      },
+      "popover": {
+        "primary": {
+          "value": "#fff",
+          "darkValue": "#212121",
+          "comment": "Popover component primary border color."
+        },
+        "secondary": {
+          "value": "#111",
+          "darkValue": "#efefef",
+          "comment": "Popover component secondary border color."
+        },
+        "education": {
+          "value": "{color.background.education.value}",
+          "darkValue": "{color.background.education.darkValue}",
+          "comment": "Popover component secondary border color."
         }
       },
       "tag": {

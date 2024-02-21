@@ -22,7 +22,7 @@ describe('DataViz Color Unit Tests', () => {
       colorStyles: { borderColor, backgroundColor },
       opts: { showByDefault: true },
     });
-    expect(color.backgroundColor).toBe('var(--g-colorGray0)');
+    expect(color.backgroundColor).toBe('var(--color-background-formfield-primary)');
     expect(color.borderColor).toBe('var(--color-border-default)');
   });
 
@@ -58,7 +58,7 @@ describe('DataViz Color Unit Tests', () => {
       colorStyles: { borderColor, backgroundColor },
       opts: { showByDefault: true },
     });
-    expect(color.backgroundColor).toBe('var(--g-colorGray0)');
+    expect(color.backgroundColor).toBe('var(--color-background-formfield-primary)');
     expect(color.borderColor).toBe('var(--color-border-default)');
   });
 });

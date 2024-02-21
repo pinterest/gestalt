@@ -1,7 +1,4 @@
 :root {
-  /* primary colors */
-  --g-colorGray0: #fff;
-  --g-colorGray50: #fff;
   --g-colorGray100: #efefef;
   --g-colorGray200: #767676;
   --g-colorGray300: #111;
@@ -121,25 +118,7 @@
   color: var(--color-icon-dark);
 }
 
-/* POPOVER LEGACY COLORS */
-
-.blue {
-  color: var(--color-background-education);
-}
-
-.blueBg {
-  background-color: var(--color-background-education);
-}
-
 /** LEGACY CUSTOM COLORS **/
-
-.whiteBg {
-  background-color: var(--g-colorGray0);
-}
-
-.whiteElevated {
-  color: var(--g-colorGray50);
-}
 
 .lightGray {
   color: var(--g-colorGray100);

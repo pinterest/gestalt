@@ -25,7 +25,7 @@ exports[`Checkbox 1`] = `
         type="checkbox"
       />
       <div
-        className="whiteBg border borderRadiusMd sizeMd check"
+        className="enabled border borderRadiusMd sizeMd check"
       />
     </div>
     <div
@@ -357,7 +357,7 @@ exports[`Checkbox small 1`] = `
         type="checkbox"
       />
       <div
-        className="whiteBg border borderRadiusSm sizeSm check"
+        className="enabled border borderRadiusSm sizeSm check"
       />
     </div>
     <div
@@ -415,7 +415,7 @@ exports[`Checkbox with an image 1`] = `
         type="checkbox"
       />
       <div
-        className="whiteBg border borderRadiusSm sizeSm check"
+        className="enabled border borderRadiusSm sizeSm check"
       />
     </div>
     <div
@@ -500,7 +500,7 @@ exports[`Checkbox with error 1`] = `
         type="checkbox"
       />
       <div
-        className="whiteBg borderError borderRadiusSm sizeSm check"
+        className="enabled borderError borderRadiusSm sizeSm check"
       />
     </div>
     <div
@@ -603,7 +603,7 @@ exports[`Checkbox with helperText 1`] = `
         type="checkbox"
       />
       <div
-        className="whiteBg border borderRadiusSm sizeSm check"
+        className="enabled border borderRadiusSm sizeSm check"
       />
     </div>
     <div
@@ -680,7 +680,7 @@ exports[`Checkbox without label 1`] = `
         type="checkbox"
       />
       <div
-        className="whiteBg border borderRadiusMd sizeMd check"
+        className="enabled border borderRadiusMd sizeMd check"
       />
     </div>
   </div>

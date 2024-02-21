@@ -3,9 +3,15 @@
 declare module.exports: {|
   +'border': string,
   +'caret': string,
+  +'caretEducation': string,
+  +'caretPrimary': string,
+  +'caretSecondary': string,
   +'container': string,
   +'contents': string,
+  +'education': string,
   +'innerContents': string,
   +'maxDimensions': string,
   +'minDimensions': string,
+  +'primary': string,
+  +'secondary': string,
 |};

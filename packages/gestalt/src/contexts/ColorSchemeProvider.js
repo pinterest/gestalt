@@ -17,7 +17,6 @@ export type ColorScheme = 'light' | 'dark' | 'userPreference';
 
 export type Theme = {
   colorSchemeName: 'lightMode' | 'darkMode',
-  colorGray0: string,
   colorGray50: string,
   colorGray100: string,
   colorGray100Active: string,
@@ -30,7 +29,6 @@ export type Theme = {
 
 const lightModeTheme = {
   colorSchemeName: 'lightMode',
-  colorGray0: '#fff',
   colorGray50: '#fff',
   colorGray100: '#efefef',
   colorGray100Active: '#dadada',
@@ -42,7 +40,6 @@ const lightModeTheme = {
 
 const darkModeTheme = {
   colorSchemeName: 'darkMode',
-  colorGray0: '#030303',
   colorGray50: '#212121',
   colorGray100: '#404040',
   colorGray100Active: '#666',
@@ -58,7 +55,6 @@ const ThemeContext: Context<Theme> = createContext<Theme>(lightModeTheme);
  * Appends tokens as injected CSS tokens
  */
 const themeToStyles = (theme: {
-  colorGray0: string,
   colorGray100: string,
   colorGray100Active: string,
   colorGray200: string,

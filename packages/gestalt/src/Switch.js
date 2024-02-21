@@ -53,20 +53,13 @@ export default function Switch({
 
   const { isFocusVisible } = useFocusVisible();
 
-  const switchStyles = classnames(
-    styles.switch,
-    {
-      [focusStyles.accessibilityOutlineFocus]: focused && isFocusVisible,
-    },
-    // eslint-disable-next-line no-nested-ternary
-    disabled
-      ? switched
-        ? styles.switchGray
-        : styles.switchLightGray
-      : switched
-      ? styles.switchDarkGray
-      : styles.switchWhite,
-  );
+  const switchStyles = classnames(styles.switch, {
+    [focusStyles.accessibilityOutlineFocus]: focused && isFocusVisible,
+    [styles.switchGray]: disabled && switched,
+    [styles.switchLightGray]: disabled && !switched,
+    [styles.switchDarkGray]: !disabled && switched,
+    [styles.switchWhite]: !disabled && !switched,
+  });
 
   const sliderStyles = classnames(
     styles.slider,

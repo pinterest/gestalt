@@ -26,7 +26,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
       >
         <div
           aria-label="Dropdown"
-          class="border overlay whiteElevated rounding4 innerContents maxDimensions minDimensions"
+          class="border rounding4 innerContents maxDimensions minDimensions primary"
           id="ex-1"
           role="menu"
           style="max-width: 360px;"
@@ -581,7 +581,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
       >
         <div
           aria-label="Dropdown"
-          class="border overlay whiteElevated rounding4 innerContents maxDimensions minDimensions"
+          class="border rounding4 innerContents maxDimensions minDimensions primary"
           id="ex-1"
           role="menu"
           style="max-width: 360px;"

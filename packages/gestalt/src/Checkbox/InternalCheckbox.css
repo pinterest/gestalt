@@ -3,6 +3,10 @@
   --g-size-md: var(--space-600);
 }
 
+.enabled {
+  background-color: var(--color-background-formfield-primary);
+}
+
 .border {
   composes: borderColorDarkGray from "../Borders.css";
 }

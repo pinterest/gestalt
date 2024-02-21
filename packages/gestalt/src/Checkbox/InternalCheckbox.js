@@ -101,7 +101,7 @@ const InternalCheckboxWithForwardRef: AbstractComponent<Props, HTMLInputElement>
     setHover(!hovered);
   };
 
-  let bgStyle = colors.whiteBg;
+  let bgStyle = styles.enabled;
   if (disabled) {
     bgStyle = colors.lightGrayBg;
   } else if (checked || indeterminate) {

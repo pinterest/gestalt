@@ -1,5 +1,31 @@
 This file is updated manually
 
+## 145.1.0 https://github.com/pinterest/gestalt/pull/3441
+
+### MINOR
+
+NEW
+
+| name                                           | light                            | dark                                          |
+| ---------------------------------------------- | -------------------------------- | --------------------------------------------- |
+| color-background-popover-primary               | color.background.default.value   | color.background.elevation.floating.darkValue |
+| color-background-popover-secondary             | #111                             | #efefef                                       |
+| color-background-popover-education             | color.background.education.value |                                               |
+| color-border-popover-primary                   | #fff                             | #212121                                       |
+| color-border-popover-secondary                 | #111                             | #efefef                                       |
+| color-border-popover-education                 | color.background.education.value |                                               |
+| color-background-segmentedcontrol-tab-selected | #fff                             | #030303                                       |
+| color-background-switch-default-selected       | #fff                             | #030303                                       |
+| color-background-table-footer                  | #fff                             | #030303                                       |
+
+#### Why
+
+Popover, SegmentedControl, Switch, Table background and border colors
+
+#### Breaking change notes
+
+--
+
 ## 144.0.0 https://github.com/pinterest/gestalt/pull/3439
 
 ### MINOR

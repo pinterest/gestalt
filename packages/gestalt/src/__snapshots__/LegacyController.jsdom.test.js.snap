@@ -14,7 +14,7 @@ exports[`Controller renders 1`] = `
     tabIndex={-1}
   >
     <div
-      className="darkGray caret"
+      className="caretSecondary caret"
       style={
         Object {
           "bottom": null,
@@ -35,7 +35,7 @@ exports[`Controller renders 1`] = `
       </svg>
     </div>
     <div
-      className="border darkGrayBg darkGray innerContents maxDimensions minDimensions"
+      className="border innerContents maxDimensions minDimensions secondary"
       id=""
       style={
         Object {

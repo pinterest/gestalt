@@ -50,7 +50,7 @@
 .stickyFooter,
 .stickyHeader tr th,
 .stickyFooter tr td {
-  background-color: var(--g-colorGray0);
+  background-color: var(--color-background-table-footer);
   position: sticky;
 }
 

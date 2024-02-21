@@ -4,7 +4,6 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
 <style>
   :root {
   --g-colorSchemeName: darkMode;
-  --g-colorGray0: #030303;
   --g-colorGray50: #212121;
   --g-colorGray100: #404040;
   --g-colorGray100Active: #666;
@@ -131,6 +130,9 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-background-formfield-primary: #030303;
   --color-background-formfield-disabled: #404040;
   --color-background-overlay: #2b2b2b;
+  --color-background-popover-primary: #2b2b2b;
+  --color-background-popover-secondary: #efefef;
+  --color-background-popover-education: #75bfff;
   --color-background-tag-primary-default: #767676;
   --color-background-tag-primary-hover: #535353;
   --color-background-tag-primary-active: #666;
@@ -140,6 +142,9 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-background-tag-warning-default: #fdc900;
   --color-background-tag-warning-hover: #e18d00;
   --color-background-tag-warning-active: #d86800;
+  --color-background-segmentedcontrol-tab-selected: #030303;
+  --color-background-switch-default-unselected: #030303;
+  --color-background-table-footer: #030303;
   --color-background-tagdata-primary: #767676;
   --color-background-tagdata-secondary: #111111;
   --color-background-tagdata-disabled: #404040;
@@ -164,6 +169,9 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-border-avatar: #030303;
   --color-border-formfield-error-default: #f47171;
   --color-border-formfield-error-hover: #cf001f;
+  --color-border-popover-primary: #212121;
+  --color-border-popover-secondary: #efefef;
+  --color-border-popover-education: #75bfff;
   --color-border-tag-disabled: #ababab;
   --elevation-floating: none;
   --elevation-raised-top: 0 0.5px 0 #f9f9f9;
@@ -177,7 +185,6 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
 <style>
   :root {
   --g-colorSchemeName: lightMode;
-  --g-colorGray0: #fff;
   --g-colorGray50: #fff;
   --g-colorGray100: #efefef;
   --g-colorGray100Active: #dadada;
@@ -304,6 +311,9 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-background-formfield-primary: #ffffff;
   --color-background-formfield-disabled: #efefef;
   --color-background-overlay: #ffffff;
+  --color-background-popover-primary: #ffffff;
+  --color-background-popover-secondary: #111111;
+  --color-background-popover-education: #0074e8;
   --color-background-tag-primary-default: #e9e9e9;
   --color-background-tag-primary-hover: #e2e2e2;
   --color-background-tag-primary-active: #dadada;
@@ -313,6 +323,9 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-background-tag-warning-default: #bd5b00;
   --color-background-tag-warning-hover: #aa4900;
   --color-background-tag-warning-active: #943a00;
+  --color-background-segmentedcontrol-tab-selected: #ffffff;
+  --color-background-switch-default-unselected: #ffffff;
+  --color-background-table-footer: #ffffff;
   --color-background-tagdata-primary: #e9e9e9;
   --color-background-tagdata-secondary: #ffffff;
   --color-background-tagdata-disabled: #efefef;
@@ -337,6 +350,9 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-border-avatar: #ffffff;
   --color-border-formfield-error-default: #cc0000;
   --color-border-formfield-error-hover: #ad081b;
+  --color-border-popover-primary: #ffffff;
+  --color-border-popover-secondary: #111111;
+  --color-border-popover-education: #0074e8;
   --color-border-tag-disabled: #767676;
   --elevation-floating: 0 0 8px rgb(0 0 0 / 0.10);
   --elevation-raised-top: 0 2px 8px rgb(0 0 0 / 0.12);
@@ -350,7 +366,6 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
 <style>
   :root {
   --g-colorSchemeName: lightMode;
-  --g-colorGray0: #fff;
   --g-colorGray50: #fff;
   --g-colorGray100: #efefef;
   --g-colorGray100Active: #dadada;
@@ -477,6 +492,9 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-background-formfield-primary: #ffffff;
   --color-background-formfield-disabled: #efefef;
   --color-background-overlay: #ffffff;
+  --color-background-popover-primary: #ffffff;
+  --color-background-popover-secondary: #111111;
+  --color-background-popover-education: #0074e8;
   --color-background-tag-primary-default: #e9e9e9;
   --color-background-tag-primary-hover: #e2e2e2;
   --color-background-tag-primary-active: #dadada;
@@ -486,6 +504,9 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-background-tag-warning-default: #bd5b00;
   --color-background-tag-warning-hover: #aa4900;
   --color-background-tag-warning-active: #943a00;
+  --color-background-segmentedcontrol-tab-selected: #ffffff;
+  --color-background-switch-default-unselected: #ffffff;
+  --color-background-table-footer: #ffffff;
   --color-background-tagdata-primary: #e9e9e9;
   --color-background-tagdata-secondary: #ffffff;
   --color-background-tagdata-disabled: #efefef;
@@ -510,6 +531,9 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-border-avatar: #ffffff;
   --color-border-formfield-error-default: #cc0000;
   --color-border-formfield-error-hover: #ad081b;
+  --color-border-popover-primary: #ffffff;
+  --color-border-popover-secondary: #111111;
+  --color-border-popover-education: #0074e8;
   --color-border-tag-disabled: #767676;
   --elevation-floating: 0 0 8px rgb(0 0 0 / 0.10);
   --elevation-raised-top: 0 2px 8px rgb(0 0 0 / 0.12);
@@ -523,7 +547,6 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
 <style>
   .__gestaltThemetestId {
   --g-colorSchemeName: lightMode;
-  --g-colorGray0: #fff;
   --g-colorGray50: #fff;
   --g-colorGray100: #efefef;
   --g-colorGray100Active: #dadada;
@@ -650,6 +673,9 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-background-formfield-primary: #ffffff;
   --color-background-formfield-disabled: #efefef;
   --color-background-overlay: #ffffff;
+  --color-background-popover-primary: #ffffff;
+  --color-background-popover-secondary: #111111;
+  --color-background-popover-education: #0074e8;
   --color-background-tag-primary-default: #e9e9e9;
   --color-background-tag-primary-hover: #e2e2e2;
   --color-background-tag-primary-active: #dadada;
@@ -659,6 +685,9 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-background-tag-warning-default: #bd5b00;
   --color-background-tag-warning-hover: #aa4900;
   --color-background-tag-warning-active: #943a00;
+  --color-background-segmentedcontrol-tab-selected: #ffffff;
+  --color-background-switch-default-unselected: #ffffff;
+  --color-background-table-footer: #ffffff;
   --color-background-tagdata-primary: #e9e9e9;
   --color-background-tagdata-secondary: #ffffff;
   --color-background-tagdata-disabled: #efefef;
@@ -683,6 +712,9 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-border-avatar: #ffffff;
   --color-border-formfield-error-default: #cc0000;
   --color-border-formfield-error-hover: #ad081b;
+  --color-border-popover-primary: #ffffff;
+  --color-border-popover-secondary: #111111;
+  --color-border-popover-education: #0074e8;
   --color-border-tag-disabled: #767676;
   --elevation-floating: 0 0 8px rgb(0 0 0 / 0.10);
   --elevation-raised-top: 0 2px 8px rgb(0 0 0 / 0.12);
@@ -697,7 +729,6 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   @media(prefers-color-scheme: dark) {
   :root {
   --g-colorSchemeName: darkMode;
-  --g-colorGray0: #030303;
   --g-colorGray50: #212121;
   --g-colorGray100: #404040;
   --g-colorGray100Active: #666;
@@ -824,6 +855,9 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-background-formfield-primary: #030303;
   --color-background-formfield-disabled: #404040;
   --color-background-overlay: #2b2b2b;
+  --color-background-popover-primary: #2b2b2b;
+  --color-background-popover-secondary: #efefef;
+  --color-background-popover-education: #75bfff;
   --color-background-tag-primary-default: #767676;
   --color-background-tag-primary-hover: #535353;
   --color-background-tag-primary-active: #666;
@@ -833,6 +867,9 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-background-tag-warning-default: #fdc900;
   --color-background-tag-warning-hover: #e18d00;
   --color-background-tag-warning-active: #d86800;
+  --color-background-segmentedcontrol-tab-selected: #030303;
+  --color-background-switch-default-unselected: #030303;
+  --color-background-table-footer: #030303;
   --color-background-tagdata-primary: #767676;
   --color-background-tagdata-secondary: #111111;
   --color-background-tagdata-disabled: #404040;
@@ -857,6 +894,9 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-border-avatar: #030303;
   --color-border-formfield-error-default: #f47171;
   --color-border-formfield-error-hover: #cf001f;
+  --color-border-popover-primary: #212121;
+  --color-border-popover-secondary: #efefef;
+  --color-border-popover-education: #75bfff;
   --color-border-tag-disabled: #ababab;
   --elevation-floating: none;
   --elevation-raised-top: 0 0.5px 0 #f9f9f9;
