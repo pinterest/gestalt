@@ -78,7 +78,7 @@ type Props = {
    */
   scrollBoundary?: HTMLElement,
   /**
-   * *EXPERIMENTAL:* Whether to hide Popover when reference element gets out of viewport. Default: true
+   * *EXPERIMENTAL:* Whether to hide Popover when reference element gets out of viewport.
    */
   hideWhenReferenceHidden?: boolean,
   // This property can be set when `ScrollBoundaryContainer` is set to `overflow="visible"` but therefore limits the height of the Popover-based component. Some cases require
