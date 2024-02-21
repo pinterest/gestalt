@@ -8,7 +8,7 @@ NEW
 
 | name                                 | light                    | dark    |
 | ------------------------------------ | ------------------------ | ------- |
-| color-background-avatar              | #efefef                  | #404040 |
+| color-background-avatar-placeholder  | #efefef                  | #404040 |
 | color-border-avatar                  | #fff                     | #030303 |
 | color-border-formfield-error-default | color.border.error.value | #212121 |
 | color-border-formfield-error-hover   | #ad081b                  | #cf001f |
