@@ -3,6 +3,7 @@
 exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = `
 <style>
   :root {
+  --g-colorSchemeName: darkMode;
   --g-colorGray0: #030303;
   --g-colorGray50: #212121;
   --g-colorGray100: #404040;
@@ -175,6 +176,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
 exports[`ColorSchemeProvider renders styling for light mode when no color scheme specified 1`] = `
 <style>
   :root {
+  --g-colorSchemeName: lightMode;
   --g-colorGray0: #fff;
   --g-colorGray50: #fff;
   --g-colorGray100: #efefef;
@@ -347,6 +349,7 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
 exports[`ColorSchemeProvider renders styling for light mode when specified 1`] = `
 <style>
   :root {
+  --g-colorSchemeName: lightMode;
   --g-colorGray0: #fff;
   --g-colorGray50: #fff;
   --g-colorGray100: #efefef;
@@ -519,6 +522,7 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
 exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`] = `
 <style>
   .__gestaltThemetestId {
+  --g-colorSchemeName: lightMode;
   --g-colorGray0: #fff;
   --g-colorGray50: #fff;
   --g-colorGray100: #efefef;
@@ -692,6 +696,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
 <style>
   @media(prefers-color-scheme: dark) {
   :root {
+  --g-colorSchemeName: darkMode;
   --g-colorGray0: #030303;
   --g-colorGray50: #212121;
   --g-colorGray100: #404040;
