@@ -1,3 +1,9 @@
+## 144.0.0 (Feb 21, 2024)
+
+### Major
+
+- ColorSchemeProvider, Avatar, Tag, TextField: deprecate legacy colors from provider + tokenize background and border colors ([#3439](https://github.com/pinterest/gestalt/pull/3439)) - [Preview link](https://deploy-preview-3439--gestalt.netlify.app?devexample=true)
+
 ## 143.1.0 (Feb 21, 2024)
 
 ### Minor
