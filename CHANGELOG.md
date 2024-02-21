@@ -1,3 +1,9 @@
+## 145.0.0 (Feb 21, 2024)
+
+### Major
+
+- Revert "ComboBox, Dropdown, HelpButton, PopoverEducational: Release v… ([#3442](https://github.com/pinterest/gestalt/pull/3442)) - [Preview link](https://deploy-preview-3442--gestalt.netlify.app?devexample=true)
+
 ## 144.0.0 (Feb 21, 2024)
 
 ### Major
