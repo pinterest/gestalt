@@ -10,8 +10,9 @@ import DropdownLink from './DropdownLink';
 import DropdownSection from './DropdownSection';
 import { DOWN_ARROW, ENTER, ESCAPE, SPACE, TAB, UP_ARROW } from './keyCodes';
 import Layer from './Layer';
-import InternalPopover from './Popover/InternalPopover';
+import Popover from './Popover';
 import PartialPage from './SheetMobile/PartialPage';
+import useInExperiment from './useInExperiment';
 import { type DirectionOptionType } from './utils/keyboardNavigation';
 import { type Indexable } from './zIndex';
 
@@ -164,6 +165,11 @@ export default function Dropdown({
   mobileOnAnimationEnd,
   disableMobileUI = false,
 }: Props): ReactNode {
+  const isInExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_popover_v2_dropdown',
+    mwebExperimentName: 'mweb_gestalt_popover_v2_dropdown',
+  });
+
   const [isPopoverPositioned, setIsPopoverPositioned] = useState(false);
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
@@ -176,7 +182,7 @@ export default function Dropdown({
   let selectedElement;
   const setOptionRef = (optionRef: ?HTMLElement) => {
     // Prevent focusing on element until Popover is correctly positioned
-    if (!isPopoverPositioned) return;
+    if (isInExperiment && !isPopoverPositioned) return;
 
     selectedElement = optionRef;
     const linkElement = selectedElement?.getElementsByTagName('a')[0];
@@ -272,20 +278,21 @@ export default function Dropdown({
   }
 
   const dropdown = (
-    <InternalPopover
+    <Popover
       accessibilityLabel="Dropdown"
+      __experimentalPopover={isInExperiment}
       anchor={anchor}
       color="white"
       onKeyDown={onKeyDown}
       id={id}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
-      disablePortal={isWithinFixedContainer}
+      positionRelativeToAnchor={isWithinFixedContainer}
       role="menu"
       shouldFocus
       size="xl"
-      onPositioned={() => setIsPopoverPositioned(true)}
-      showCaret={false}
+      __dangerouslySetMaxHeight={maxHeight}
+      __onPositioned={() => setIsPopoverPositioned(true)}
     >
       <Box
         alignItems="center"
@@ -303,7 +310,7 @@ export default function Dropdown({
           {renderChildrenWithIndex(dropdownChildrenArray)}
         </DropdownContextProvider>
       </Box>
-    </InternalPopover>
+    </Popover>
   );
 
   return isWithinFixedContainer ? dropdown : <Layer zIndex={zIndex}>{dropdown}</Layer>;
