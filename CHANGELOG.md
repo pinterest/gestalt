@@ -1,3 +1,9 @@
+## 143.1.0 (Feb 21, 2024)
+
+### Minor
+
+- DatePicker: tokenize colors and other internal styles ([#3438](https://github.com/pinterest/gestalt/pull/3438)) - [Preview link](https://deploy-preview-3438--gestalt.netlify.app?devexample=true)
+
 ## 143.0.0 (Feb 20, 2024)
 
 ### Major
