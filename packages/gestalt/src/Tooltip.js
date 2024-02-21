@@ -54,7 +54,7 @@ export default function Tooltip({
   inline,
   text,
   zIndex,
-  hideWhenReferenceHidden,
+  hideWhenReferenceHidden = true,
 }: Props): ReactNode {
   return (
     <InternalTooltip

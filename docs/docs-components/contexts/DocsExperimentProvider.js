@@ -22,7 +22,7 @@ const enabledExperiments = {
     'web_gestalt_popover_v2_popovereducational',
     'mweb_gestalt_popover_v2_popovereducational',
   ],
-  Tooltip: ['web_gestalt_popover_v2_tooltip', 'mweb_gestalt_popover_v2_tooltip'],
+  Tooltip: ['web_gestalt_tooltip_v2', 'mweb_gestalt_tooltip_v2'],
 };
 
 type Experiment = { anyEnabled: boolean, group: string };
