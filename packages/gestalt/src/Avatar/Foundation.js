@@ -3,7 +3,6 @@ import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import avatarStyles from '../AvatarGroup.css';
 import Box from '../Box';
-import colors from '../Colors.css';
 import styles from '../Icon.css';
 import icons from '../icons/index';
 import typography from '../Typography.css';
@@ -61,7 +60,7 @@ export default function AvatarFoundation({
   translate,
   content = 'text',
 }: Props): ReactNode {
-  const cs = classnames(styles.icon, colors.darkGray);
+  const cs = classnames(styles.icon, avatarStyles.text);
 
   return (
     <ResponsiveFitSizeBox outline={outline}>

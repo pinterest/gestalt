@@ -8,8 +8,8 @@
           "comment": "Avatar dark overlay wash."
         },
         "wash": {
-          "value": "rgb(0 0 0 / 0.06)",
-          "darkValue": "rgb(250 250 250 / 0.5)",
+          "value": "rgba(0, 0, 0, 0.06)",
+          "darkValue": "rgba(250, 250, 250, 0.5)",
           "comment": "Avatar component placeholder background color."
         }
       },
@@ -737,6 +737,15 @@
           "value": "{color.gray.roboflow.500.value}",
           "darkValue": "#ababab",
           "comment": "Formfield placeholder text color."
+        }
+      }
+    },
+    "icon": {
+      "avatar": {
+        "default": {
+          "value": "#111",
+          "darkValue": "#efefef",
+          "comment": "Avatar default text color."
         }
       }
     }

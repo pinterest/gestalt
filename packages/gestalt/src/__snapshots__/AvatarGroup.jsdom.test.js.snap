@@ -70,7 +70,7 @@ exports[`AvatarGroup renders AvatarGroup button with addCollaborators button 1`]
                   class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
                 >
                   <svg
-                    class="icon darkGray"
+                    class="icon text"
                     preserveAspectRatio="xMidYMid meet"
                     role="img"
                     version="1.1"
@@ -173,7 +173,7 @@ exports[`AvatarGroup renders AvatarGroup link with addCollaborators button 1`] =
                     class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
                   >
                     <svg
-                      class="icon darkGray"
+                      class="icon text"
                       preserveAspectRatio="xMidYMid meet"
                       role="img"
                       version="1.1"
