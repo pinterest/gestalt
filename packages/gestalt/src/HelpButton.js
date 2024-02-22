@@ -194,6 +194,7 @@ export default function HelpButton({
       onKeyDown={handlePopoverKeyDown}
       idealDirection={idealDirection}
       positionRelativeToAnchor={isWithinFixedContainer}
+      disablePortal
     >
       <Box padding={5} rounding={4} height="auto">
         {/*

@@ -509,7 +509,7 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
             onKeyDown={handleKeyDown}
             idealDirection="down"
             onDismiss={handleOnDismiss}
-            positionRelativeToAnchor={false}
+            disablePortal
             size="flexible"
             key={isInExperiment ? undefined : suggestedOptions.length}
             shouldFocus={false}
