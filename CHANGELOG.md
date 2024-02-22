@@ -1,3 +1,9 @@
+## 145.1.1 (Feb 22, 2024)
+
+### Patch
+
+- ComboBox, Dropdown, HelpButton: Disable internal Popover portal ([#3443](https://github.com/pinterest/gestalt/pull/3443)) - [Preview link](https://deploy-preview-3443--gestalt.netlify.app?devexample=true)
+
 ## 145.1.0 (Feb 22, 2024)
 
 ### Minor
