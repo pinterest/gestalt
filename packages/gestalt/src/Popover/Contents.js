@@ -143,10 +143,13 @@ export default function Contents({
     </div>
   );
 
-  return role === 'tooltip' ? (
-    contents
-  ) : (
-    <FloatingFocusManager context={context} returnFocus={false} modal={shouldTrapFocus ?? false}>
+  return (
+    <FloatingFocusManager
+      disabled={role === 'tooltip'}
+      context={context}
+      returnFocus={false}
+      modal={shouldTrapFocus ?? false}
+    >
       {contents}
     </FloatingFocusManager>
   );
