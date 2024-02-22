@@ -1,3 +1,9 @@
+## 145.1.2 (Feb 22, 2024)
+
+### Patch
+
+- Popover, Dropdown, ComboBox, Tooltip: Disable focus trap for Tooltip + fixed a11y in Dropdown, ComboBox ([#3444](https://github.com/pinterest/gestalt/pull/3444)) - [Preview link](https://deploy-preview-3444--gestalt.netlify.app?devexample=true)
+
 ## 145.1.1 (Feb 22, 2024)
 
 ### Patch
