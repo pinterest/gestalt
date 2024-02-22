@@ -29,6 +29,7 @@ type Props = {
   scrollBoundary?: HTMLElement,
   hideWhenReferenceHidden?: boolean,
   onPositioned?: () => void,
+  shouldTrapFocus?: boolean,
 };
 
 export default function Contents({
@@ -46,8 +47,9 @@ export default function Contents({
   shouldFocus = true,
   onKeyDown,
   scrollBoundary,
-  hideWhenReferenceHidden = true,
+  hideWhenReferenceHidden,
   onPositioned,
+  shouldTrapFocus,
 }: Props): ReactNode {
   const caretRef = useRef<HTMLElement | null>(null);
   const idealPlacement = idealDirection ? DIRECTIONS_MAP[idealDirection] : 'top';
@@ -86,60 +88,66 @@ export default function Contents({
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [onKeyDown]);
 
-  return (
-    <FloatingFocusManager context={context} returnFocus={false}>
+  const contents = (
+    <div
+      ref={refs.setFloating}
+      tabIndex={-1}
+      className={classnames(
+        styles.container,
+        rounding === 2 && borders.rounding2,
+        rounding === 4 && borders.rounding4,
+        styles.contents,
+        styles.maxDimensions,
+        width !== null && styles.minDimensions,
+      )}
+      style={{ ...floatingStyles, visibility }}
+    >
+      {caret && (
+        <div
+          ref={caretRef}
+          className={classnames(colors[bgColorElevated], styles.caret)}
+          style={{
+            left: caretOffset?.x != null ? `${caretOffset.x}px` : '',
+            top: caretOffset?.y != null ? `${caretOffset.y}px` : '',
+            [placement]: '100%',
+          }}
+        >
+          <Caret
+            direction={SIDES_MAP[placement]}
+            height={isCaretVertical ? CARET_HEIGHT : CARET_WIDTH}
+            width={isCaretVertical ? CARET_WIDTH : CARET_HEIGHT}
+          />
+        </div>
+      )}
+
       <div
-        ref={refs.setFloating}
-        tabIndex={-1}
+        aria-label={accessibilityLabel}
+        id={id}
+        role={role}
         className={classnames(
-          styles.container,
+          border && styles.border,
+          colors[background],
+          colors[bgColorElevated],
           rounding === 2 && borders.rounding2,
           rounding === 4 && borders.rounding4,
-          styles.contents,
+          styles.innerContents,
           styles.maxDimensions,
           width !== null && styles.minDimensions,
         )}
-        style={{ ...floatingStyles, visibility }}
+        style={{
+          maxWidth: width,
+        }}
       >
-        {caret && (
-          <div
-            ref={caretRef}
-            className={classnames(colors[bgColorElevated], styles.caret)}
-            style={{
-              left: caretOffset?.x != null ? `${caretOffset.x}px` : '',
-              top: caretOffset?.y != null ? `${caretOffset.y}px` : '',
-              [placement]: '100%',
-            }}
-          >
-            <Caret
-              direction={SIDES_MAP[placement]}
-              height={isCaretVertical ? CARET_HEIGHT : CARET_WIDTH}
-              width={isCaretVertical ? CARET_WIDTH : CARET_HEIGHT}
-            />
-          </div>
-        )}
-
-        <div
-          aria-label={accessibilityLabel}
-          id={id}
-          role={role}
-          className={classnames(
-            border && styles.border,
-            colors[background],
-            colors[bgColorElevated],
-            rounding === 2 && borders.rounding2,
-            rounding === 4 && borders.rounding4,
-            styles.innerContents,
-            styles.maxDimensions,
-            width !== null && styles.minDimensions,
-          )}
-          style={{
-            maxWidth: width,
-          }}
-        >
-          {children}
-        </div>
+        {children}
       </div>
+    </div>
+  );
+
+  return role === 'tooltip' ? (
+    contents
+  ) : (
+    <FloatingFocusManager context={context} modal={shouldTrapFocus ?? false}>
+      {contents}
     </FloatingFocusManager>
   );
 }

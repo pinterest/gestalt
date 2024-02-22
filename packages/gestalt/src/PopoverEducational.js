@@ -215,6 +215,8 @@ export default function PopoverEducational({
         shouldFocus={shouldFocus}
         role={primaryAction && !children ? 'dialog' : role}
         size={size}
+        hideWhenReferenceHidden
+        disableFocusTrap
       >
         {children ??
           (message ? (
