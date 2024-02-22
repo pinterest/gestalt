@@ -34,7 +34,7 @@
 
 .disabled {
   composes: borderColorLightGrayDisabled from "../Borders.css";
-  background-color: var(---color-background-formfield-disabled);
+  background-color: var(--color-background-formfield-disabled);
   color: var(--color-text-formfield-disabled);
 }
 
