@@ -1,5 +1,25 @@
 This file is updated manually
 
+## 145.2.0 https://github.com/pinterest/gestalt/pull/3441
+
+### MINOR
+
+NEW
+
+| name                                     | light                                 | dark    |
+| ---------------------------------------- | ------------------------------------- | ------- |
+| color-background-mask-wash               | rgba(0, 0, 0, 0.04)                   |         |
+| color-background-mask-default-base       | color.background.default.value        |         |
+| color-background-tabs-default-hover      | color.background.secondary.base.value |         |
+| color-background-tabs-default-active     | #e2e2e2                               | #535353 |
+| color-background-tabs-transparent-base   | color.transparent.value               |         |
+| color-background-tabs-transparent-hover  | rgba(0, 0, 0, 0.06)                   |         |
+| color-background-tabs-transparent-active | rgba(0, 0, 0, 0.1)                    |         |
+| color-border-pulsar-default              | #0074e8                               |         |
+| color-border-pulsar-hover                | #dce9fa                               |         |
+
+Tokenize Mask, Mask, Pulsar background and border colors
+
 ## 145.1.0 https://github.com/pinterest/gestalt/pull/3441
 
 ### MINOR
