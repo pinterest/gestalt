@@ -198,7 +198,7 @@ exports[`renders correctly with drawer 1`] = `
                   <svg
                     aria-hidden={null}
                     aria-label="test"
-                    className="icon recommendationIcon iconBlock"
+                    className="recommendation icon iconBlock"
                     height={16}
                     role="img"
                     viewBox="0 0 24 24"

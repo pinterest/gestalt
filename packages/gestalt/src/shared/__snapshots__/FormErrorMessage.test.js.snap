@@ -24,7 +24,7 @@ exports[`FormErrorMessage with errorMessage 1`] = `
             <svg
               aria-hidden={true}
               aria-label=""
-              className="icon errorIcon iconBlock"
+              className="error icon iconBlock"
               height={16}
               role="img"
               viewBox="0 0 24 24"
@@ -71,7 +71,7 @@ exports[`FormErrorMessage with no errorMessage 1`] = `
             <svg
               aria-hidden={true}
               aria-label=""
-              className="icon errorIcon iconBlock"
+              className="error icon iconBlock"
               height={16}
               role="img"
               viewBox="0 0 24 24"

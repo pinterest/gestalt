@@ -284,7 +284,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                               <svg
                                 aria-hidden={true}
                                 aria-label=""
-                                className="icon defaultIcon"
+                                className="default icon"
                                 height={16}
                                 role="img"
                                 viewBox="0 0 24 24"
@@ -416,7 +416,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                               <svg
                                 aria-hidden={true}
                                 aria-label=""
-                                className="icon defaultIcon"
+                                className="default icon"
                                 height={16}
                                 role="img"
                                 viewBox="0 0 24 24"
@@ -820,7 +820,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           <svg
                             aria-hidden={true}
                             aria-label=""
-                            className="rtlSupport icon defaultIcon"
+                            className="rtlSupport default icon"
                             height={16}
                             role="img"
                             viewBox="0 0 24 24"
@@ -897,7 +897,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           <svg
                             aria-hidden={true}
                             aria-label=""
-                            className="icon defaultIcon"
+                            className="default icon"
                             height={16}
                             role="img"
                             viewBox="0 0 24 24"
@@ -996,7 +996,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               <svg
                                 aria-hidden={true}
                                 aria-label=""
-                                className="icon defaultIcon"
+                                className="default icon"
                                 height={16}
                                 role="img"
                                 viewBox="0 0 24 24"
@@ -1074,7 +1074,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               <svg
                                 aria-hidden={true}
                                 aria-label=""
-                                className="icon defaultIcon"
+                                className="default icon"
                                 height={16}
                                 role="img"
                                 viewBox="0 0 24 24"
@@ -1106,7 +1106,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               <svg
                                 aria-hidden={true}
                                 aria-label=""
-                                className="icon defaultIcon iconBlock"
+                                className="default icon iconBlock"
                                 height={12}
                                 role="img"
                                 viewBox="0 0 24 24"
@@ -1175,7 +1175,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               <svg
                                 aria-hidden={true}
                                 aria-label=""
-                                className="icon defaultIcon"
+                                className="default icon"
                                 height={16}
                                 role="img"
                                 viewBox="0 0 24 24"
@@ -1207,7 +1207,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               <svg
                                 aria-hidden={true}
                                 aria-label=""
-                                className="icon defaultIcon iconBlock"
+                                className="default icon iconBlock"
                                 height={12}
                                 role="img"
                                 viewBox="0 0 24 24"
@@ -1327,7 +1327,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                           <svg
                             aria-hidden={true}
                             aria-label=""
-                            className="icon defaultIcon"
+                            className="default icon"
                             height={16}
                             role="img"
                             viewBox="0 0 24 24"
@@ -1359,7 +1359,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                           <svg
                             aria-hidden={true}
                             aria-label=""
-                            className="icon defaultIcon iconBlock"
+                            className="default icon iconBlock"
                             height={12}
                             role="img"
                             viewBox="0 0 24 24"
@@ -1496,7 +1496,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                               <svg
                                 aria-hidden={true}
                                 aria-label=""
-                                className="icon defaultIcon iconBlock"
+                                className="default icon iconBlock"
                                 height={12}
                                 role="img"
                                 viewBox="0 0 24 24"
@@ -1710,7 +1710,7 @@ exports[`SideNavigation renders static group 1`] = `
                         <svg
                           aria-hidden={true}
                           aria-label=""
-                          className="icon defaultIcon"
+                          className="default icon"
                           height={16}
                           role="img"
                           viewBox="0 0 24 24"

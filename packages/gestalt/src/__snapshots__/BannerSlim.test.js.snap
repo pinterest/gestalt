@@ -23,7 +23,7 @@ exports[`BannerSlim renders an icon with accessibility label 1`] = `
       <svg
         aria-hidden={null}
         aria-label="accessibility label with error"
-        className="icon errorIcon iconBlock"
+        className="error icon iconBlock"
         height={16}
         role="img"
         viewBox="0 0 24 24"
@@ -175,7 +175,7 @@ exports[`BannerSlim renders non-neutral compact with accessibility label 1`] = `
       <svg
         aria-hidden={null}
         aria-label="accessibility label with error"
-        className="icon errorIcon iconBlock"
+        className="error icon iconBlock"
         height={16}
         role="img"
         viewBox="0 0 24 24"
@@ -312,7 +312,7 @@ exports[`BannerSlim renders primary action and dismiss button 1`] = `
                 <svg
                   aria-hidden={true}
                   aria-label=""
-                  className="icon defaultIcon iconBlock"
+                  className="default icon iconBlock"
                   height={12}
                   role="img"
                   viewBox="0 0 24 24"

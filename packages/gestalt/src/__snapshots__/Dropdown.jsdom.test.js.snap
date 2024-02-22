@@ -725,7 +725,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       <svg
                         aria-hidden="true"
                         aria-label=""
-                        class="rtlSupport icon defaultIcon iconBlock"
+                        class="rtlSupport default icon iconBlock"
                         height="12"
                         role="img"
                         viewBox="0 0 24 24"
@@ -898,7 +898,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       <svg
                         aria-hidden="true"
                         aria-label=""
-                        class="rtlSupport icon defaultIcon iconBlock"
+                        class="rtlSupport default icon iconBlock"
                         height="12"
                         role="img"
                         viewBox="0 0 24 24"
@@ -975,7 +975,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       <svg
                         aria-hidden="true"
                         aria-label=""
-                        class="rtlSupport icon defaultIcon iconBlock"
+                        class="rtlSupport default icon iconBlock"
                         height="12"
                         role="img"
                         viewBox="0 0 24 24"

@@ -49,7 +49,7 @@ exports[`Tag clips long strings 1`] = `
           <svg
             aria-hidden={null}
             aria-label="Remove long example tag"
-            className="icon defaultIcon iconBlock"
+            className="default icon iconBlock"
             height={8}
             role="img"
             viewBox="0 0 24 24"
@@ -115,7 +115,7 @@ exports[`Tag renders 1`] = `
           <svg
             aria-hidden={null}
             aria-label="Remove New tag"
-            className="icon defaultIcon iconBlock"
+            className="default icon iconBlock"
             height={8}
             role="img"
             viewBox="0 0 24 24"
@@ -195,7 +195,7 @@ exports[`Tag renders a tag with a warning state 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Warning"
-        className="icon inverseIcon iconBlock"
+        className="inverse icon iconBlock"
         height={12}
         role="img"
         viewBox="0 0 24 24"
@@ -236,7 +236,7 @@ exports[`Tag renders a tag with a warning state 1`] = `
           <svg
             aria-hidden={null}
             aria-label="Remove tag"
-            className="icon inverseIcon iconBlock"
+            className="inverse icon iconBlock"
             height={8}
             role="img"
             viewBox="0 0 24 24"
@@ -278,7 +278,7 @@ exports[`Tag renders a tag with an error state 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Error"
-        className="icon inverseIcon iconBlock"
+        className="inverse icon iconBlock"
         height={12}
         role="img"
         viewBox="0 0 24 24"
@@ -319,7 +319,7 @@ exports[`Tag renders a tag with an error state 1`] = `
           <svg
             aria-hidden={null}
             aria-label="Remove tag"
-            className="icon inverseIcon iconBlock"
+            className="inverse icon iconBlock"
             height={8}
             role="img"
             viewBox="0 0 24 24"

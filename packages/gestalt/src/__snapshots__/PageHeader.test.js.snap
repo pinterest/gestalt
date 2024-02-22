@@ -469,7 +469,7 @@ exports[`PageHeader renders primary action 1`] = `
                       <svg
                         aria-hidden={true}
                         aria-label=""
-                        className="icon defaultIcon iconBlock"
+                        className="default icon iconBlock"
                         height={20}
                         role="img"
                         viewBox="0 0 24 24"
@@ -723,7 +723,7 @@ exports[`PageHeader renders secondary action 1`] = `
                       <svg
                         aria-hidden={true}
                         aria-label=""
-                        className="icon defaultIcon iconBlock"
+                        className="default icon iconBlock"
                         height={20}
                         role="img"
                         viewBox="0 0 24 24"

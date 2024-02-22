@@ -1095,7 +1095,7 @@ exports[`TagData renders base color as expected 1`] = `
                           <svg
                             aria-hidden={true}
                             aria-label=""
-                            className="icon inverseIcon iconBlock"
+                            className="inverse icon iconBlock"
                             height={8}
                             role="img"
                             viewBox="0 0 24 24"
@@ -1225,7 +1225,7 @@ exports[`TagData renders base color as expected 1`] = `
                           <svg
                             aria-hidden={true}
                             aria-label=""
-                            className="icon inverseIcon iconBlock"
+                            className="inverse icon iconBlock"
                             height={8}
                             role="img"
                             viewBox="0 0 24 24"
@@ -1351,7 +1351,7 @@ exports[`TagData renders disabled selected state 1`] = `
                       <svg
                         aria-hidden={true}
                         aria-label=""
-                        className="icon inverseIcon iconBlock"
+                        className="inverse icon iconBlock"
                         height={8}
                         role="img"
                         viewBox="0 0 24 24"
@@ -1590,7 +1590,7 @@ exports[`TagData renders dismisible button with color background 1`] = `
                       <svg
                         aria-hidden={true}
                         aria-label=""
-                        className="icon inverseIcon iconBlock"
+                        className="inverse icon iconBlock"
                         height={8}
                         role="img"
                         viewBox="0 0 24 24"
@@ -1646,7 +1646,7 @@ exports[`TagData renders dismisible button with color background 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Remove tag"
-        className="icon defaultIcon iconBlock"
+        className="default icon iconBlock"
         height={10}
         role="img"
         viewBox="0 0 24 24"
@@ -1756,7 +1756,7 @@ exports[`TagData renders dismissable button 1`] = `
                       <svg
                         aria-hidden={true}
                         aria-label=""
-                        className="icon inverseIcon iconBlock"
+                        className="inverse icon iconBlock"
                         height={8}
                         role="img"
                         viewBox="0 0 24 24"
@@ -1812,7 +1812,7 @@ exports[`TagData renders dismissable button 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Remove tag"
-        className="icon defaultIcon iconBlock"
+        className="default icon iconBlock"
         height={10}
         role="img"
         viewBox="0 0 24 24"
@@ -1945,7 +1945,7 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
         <svg
           aria-hidden={null}
           aria-label="Remove tag"
-          className="icon defaultIcon iconBlock"
+          className="default icon iconBlock"
           height={10}
           role="img"
           viewBox="0 0 24 24"

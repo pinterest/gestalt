@@ -59,7 +59,7 @@ exports[`ComboBox Controlled ComboBox renders basic controlled components 1`] = 
                   <svg
                     aria-hidden="true"
                     aria-label=""
-                    class="icon defaultIcon iconBlock"
+                    class="default icon iconBlock"
                     height="12"
                     role="img"
                     viewBox="0 0 24 24"
@@ -144,7 +144,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                       >
                         <svg
                           aria-label="Remove tag"
-                          class="icon defaultIcon iconBlock"
+                          class="default icon iconBlock"
                           height="8"
                           role="img"
                           viewBox="0 0 24 24"
@@ -192,7 +192,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                       >
                         <svg
                           aria-label="Remove tag"
-                          class="icon defaultIcon iconBlock"
+                          class="default icon iconBlock"
                           height="8"
                           role="img"
                           viewBox="0 0 24 24"
@@ -240,7 +240,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                       >
                         <svg
                           aria-label="Remove tag"
-                          class="icon defaultIcon iconBlock"
+                          class="default icon iconBlock"
                           height="8"
                           role="img"
                           viewBox="0 0 24 24"
@@ -288,7 +288,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                       >
                         <svg
                           aria-label="Remove tag"
-                          class="icon defaultIcon iconBlock"
+                          class="default icon iconBlock"
                           height="8"
                           role="img"
                           viewBox="0 0 24 24"
@@ -336,7 +336,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                       >
                         <svg
                           aria-label="Remove tag"
-                          class="icon defaultIcon iconBlock"
+                          class="default icon iconBlock"
                           height="8"
                           role="img"
                           viewBox="0 0 24 24"
@@ -384,7 +384,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                       >
                         <svg
                           aria-label="Remove tag"
-                          class="icon defaultIcon iconBlock"
+                          class="default icon iconBlock"
                           height="8"
                           role="img"
                           viewBox="0 0 24 24"
@@ -432,7 +432,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                       >
                         <svg
                           aria-label="Remove tag"
-                          class="icon defaultIcon iconBlock"
+                          class="default icon iconBlock"
                           height="8"
                           role="img"
                           viewBox="0 0 24 24"
@@ -480,7 +480,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                       >
                         <svg
                           aria-label="Remove tag"
-                          class="icon defaultIcon iconBlock"
+                          class="default icon iconBlock"
                           height="8"
                           role="img"
                           viewBox="0 0 24 24"
@@ -528,7 +528,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                       >
                         <svg
                           aria-label="Remove tag"
-                          class="icon defaultIcon iconBlock"
+                          class="default icon iconBlock"
                           height="8"
                           role="img"
                           viewBox="0 0 24 24"
@@ -584,7 +584,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                   <svg
                     aria-hidden="true"
                     aria-label=""
-                    class="icon defaultIcon iconBlock"
+                    class="default icon iconBlock"
                     height="12"
                     role="img"
                     viewBox="0 0 24 24"
@@ -664,7 +664,7 @@ exports[`ComboBox Uncontrolled ComboBox renders default 1`] = `
                   <svg
                     aria-hidden="true"
                     aria-label=""
-                    class="icon defaultIcon iconBlock"
+                    class="default icon iconBlock"
                     height="12"
                     role="img"
                     viewBox="0 0 24 24"

@@ -2113,7 +2113,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           <svg
                             aria-hidden={true}
                             aria-label=""
-                            className="icon inverseIcon iconBlock"
+                            className="inverse icon iconBlock"
                             height={8}
                             role="img"
                             viewBox="0 0 24 24"
@@ -2314,7 +2314,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           <svg
                             aria-hidden={true}
                             aria-label=""
-                            className="icon inverseIcon iconBlock"
+                            className="inverse icon iconBlock"
                             height={8}
                             role="img"
                             viewBox="0 0 24 24"
@@ -2515,7 +2515,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           <svg
                             aria-hidden={true}
                             aria-label=""
-                            className="icon inverseIcon iconBlock"
+                            className="inverse icon iconBlock"
                             height={8}
                             role="img"
                             viewBox="0 0 24 24"
@@ -2861,7 +2861,7 @@ exports[`TileData Tiledata is disabled 1`] = `
                       <svg
                         aria-hidden={true}
                         aria-label=""
-                        className="icon inverseIcon iconBlock"
+                        className="inverse icon iconBlock"
                         height={8}
                         role="img"
                         viewBox="0 0 24 24"

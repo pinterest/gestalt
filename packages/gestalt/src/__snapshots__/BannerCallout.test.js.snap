@@ -21,7 +21,7 @@ exports[`<BannerCallout /> Error BannerCallout 1`] = `
         <svg
           aria-hidden={null}
           aria-label="error"
-          className="icon errorIcon iconBlock"
+          className="error icon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -76,7 +76,7 @@ exports[`<BannerCallout /> Info BannerCallout 1`] = `
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon infoIcon iconBlock"
+          className="info icon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -131,7 +131,7 @@ exports[`<BannerCallout /> Warning BannerCallout 1`] = `
         <svg
           aria-hidden={null}
           aria-label="warning"
-          className="icon warningIcon iconBlock"
+          className="warning icon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -186,7 +186,7 @@ exports[`<BannerCallout /> bannercallout with rich text message 1`] = `
         <svg
           aria-hidden={null}
           aria-label="Info"
-          className="icon infoIcon iconBlock"
+          className="info icon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -331,7 +331,7 @@ exports[`<BannerCallout /> bannercallout with rich text message 1`] = `
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon defaultIcon iconBlock"
+            className="default icon iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"
@@ -369,7 +369,7 @@ exports[`<BannerCallout /> message + title + primaryAction + dismissButton 1`] =
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon infoIcon iconBlock"
+          className="info icon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -487,7 +487,7 @@ exports[`<BannerCallout /> message + title + primaryAction + dismissButton 1`] =
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon defaultIcon iconBlock"
+            className="default icon iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"
@@ -525,7 +525,7 @@ exports[`<BannerCallout /> message + title + primaryAction + secondaryAction 1`]
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon infoIcon iconBlock"
+          className="info icon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -671,7 +671,7 @@ exports[`<BannerCallout /> message + title + primaryAction with href 1`] = `
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon infoIcon iconBlock"
+          className="info icon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -778,7 +778,7 @@ exports[`<BannerCallout /> message + title + primaryAction without href 1`] = `
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon infoIcon iconBlock"
+          className="info icon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"
@@ -875,7 +875,7 @@ exports[`<BannerCallout /> message + title 1`] = `
         <svg
           aria-hidden={null}
           aria-label="info"
-          className="icon infoIcon iconBlock"
+          className="info icon iconBlock"
           height={32}
           role="img"
           viewBox="0 0 24 24"

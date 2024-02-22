@@ -111,7 +111,7 @@ exports[`SheetMobile renders correctly auto size 1`] = `
                     <svg
                       aria-hidden={true}
                       aria-label=""
-                      className="icon defaultIcon iconBlock"
+                      className="default icon iconBlock"
                       height={20}
                       role="img"
                       viewBox="0 0 24 24"
@@ -272,7 +272,7 @@ exports[`SheetMobile renders correctly default size 1`] = `
                     <svg
                       aria-hidden={true}
                       aria-label=""
-                      className="icon defaultIcon iconBlock"
+                      className="default icon iconBlock"
                       height={20}
                       role="img"
                       viewBox="0 0 24 24"
@@ -394,7 +394,7 @@ exports[`SheetMobile renders correctly full size 1`] = `
                     <svg
                       aria-hidden={true}
                       aria-label=""
-                      className="icon defaultIcon iconBlock"
+                      className="default icon iconBlock"
                       height={20}
                       role="img"
                       viewBox="0 0 24 24"

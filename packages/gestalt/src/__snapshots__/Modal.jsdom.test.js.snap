@@ -164,7 +164,7 @@ exports[`Modal Mobile Modal renders 1`] = `
                         <svg
                           aria-hidden="true"
                           aria-label=""
-                          class="icon defaultIcon iconBlock"
+                          class="default icon iconBlock"
                           height="20"
                           role="img"
                           viewBox="0 0 24 24"

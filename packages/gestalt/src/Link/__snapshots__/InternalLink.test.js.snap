@@ -158,7 +158,7 @@ exports[`renders IconButton 1`] = `
     <svg
       aria-hidden={true}
       aria-label=""
-      className="icon errorIcon iconBlock"
+      className="error icon iconBlock"
       height={18}
       role="img"
       viewBox="0 0 24 24"

@@ -49,7 +49,7 @@ exports[`HelpButton renders correctly 1`] = `
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon inverseIcon iconBlock"
+            className="inverse icon iconBlock"
             height={8}
             role="img"
             viewBox="0 0 24 24"
@@ -115,7 +115,7 @@ exports[`HelpButton renders with changing direction to show the popover 1`] = `
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon inverseIcon iconBlock"
+            className="inverse icon iconBlock"
             height={8}
             role="img"
             viewBox="0 0 24 24"
@@ -181,7 +181,7 @@ exports[`HelpButton renders with default link and accessibility link label 1`] =
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon inverseIcon iconBlock"
+            className="inverse icon iconBlock"
             height={8}
             role="img"
             viewBox="0 0 24 24"
@@ -247,7 +247,7 @@ exports[`HelpButton renders with default link and no accessibility label 1`] = `
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon inverseIcon iconBlock"
+            className="inverse icon iconBlock"
             height={8}
             role="img"
             viewBox="0 0 24 24"
@@ -313,7 +313,7 @@ exports[`HelpButton renders with link and no default link label 1`] = `
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon inverseIcon iconBlock"
+            className="inverse icon iconBlock"
             height={8}
             role="img"
             viewBox="0 0 24 24"

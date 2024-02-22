@@ -66,7 +66,7 @@ exports[`ModalAlert Desktop ModalAlert renders (default) 1`] = `
                             <svg
                               aria-hidden="true"
                               aria-label=""
-                              class="icon defaultIcon iconBlock"
+                              class="default icon iconBlock"
                               height="16"
                               role="img"
                               viewBox="0 0 24 24"
@@ -174,7 +174,7 @@ exports[`ModalAlert Desktop ModalAlert renders (error) 1`] = `
                     >
                       <svg
                         aria-label="error"
-                        class="icon errorIcon iconBlock"
+                        class="error icon iconBlock"
                         height="20"
                         role="img"
                         viewBox="0 0 24 24"
@@ -288,7 +288,7 @@ exports[`ModalAlert Desktop ModalAlert renders (warning) 1`] = `
                     >
                       <svg
                         aria-label="warning"
-                        class="icon warningIcon iconBlock"
+                        class="warning icon iconBlock"
                         height="20"
                         role="img"
                         viewBox="0 0 24 24"
@@ -425,7 +425,7 @@ exports[`ModalAlert Mobile Desktop ModalAlert renders 1`] = `
                             <svg
                               aria-hidden="true"
                               aria-label=""
-                              class="icon defaultIcon iconBlock"
+                              class="default icon iconBlock"
                               height="16"
                               role="img"
                               viewBox="0 0 24 24"

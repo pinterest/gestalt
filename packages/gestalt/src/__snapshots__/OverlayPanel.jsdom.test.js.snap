@@ -46,7 +46,7 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
                     <svg
                       aria-hidden="true"
                       aria-label=""
-                      class="icon defaultIcon iconBlock"
+                      class="default icon iconBlock"
                       height="18"
                       role="img"
                       viewBox="0 0 24 24"
@@ -245,7 +245,7 @@ exports[`OverlayPanel should render all props with nodes 1`] = `
                       <svg
                         aria-hidden="true"
                         aria-label=""
-                        class="icon defaultIcon iconBlock"
+                        class="default icon iconBlock"
                         height="18"
                         role="img"
                         viewBox="0 0 24 24"
@@ -347,7 +347,7 @@ exports[`OverlayPanel should render all props with render props 1`] = `
                       <svg
                         aria-hidden="true"
                         aria-label=""
-                        class="icon defaultIcon iconBlock"
+                        class="default icon iconBlock"
                         height="18"
                         role="img"
                         viewBox="0 0 24 24"
@@ -444,7 +444,7 @@ exports[`OverlayPanel should render animation in 1`] = `
                     <svg
                       aria-hidden="true"
                       aria-label=""
-                      class="icon defaultIcon iconBlock"
+                      class="default icon iconBlock"
                       height="18"
                       role="img"
                       viewBox="0 0 24 24"
@@ -524,7 +524,7 @@ exports[`OverlayPanel should render animation out 1`] = `
                     <svg
                       aria-hidden="true"
                       aria-label=""
-                      class="icon defaultIcon iconBlock"
+                      class="default icon iconBlock"
                       height="18"
                       role="img"
                       viewBox="0 0 24 24"

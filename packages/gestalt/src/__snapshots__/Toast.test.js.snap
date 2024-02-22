@@ -22,7 +22,7 @@ exports[`<Toast /> Error Toast 1`] = `
         <svg
           aria-hidden={null}
           aria-label="Error message"
-          className="icon inverseIcon iconBlock"
+          className="inverse icon iconBlock"
           height={24}
           role="img"
           viewBox="0 0 24 24"
