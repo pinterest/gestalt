@@ -20,7 +20,7 @@ exports[`Tag clips long strings 1`] = `
     }
   >
     <span
-      className="Text fontSize200 defaultText alignStart breakAll fontWeightNormal lineClamp"
+      className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
       style={
         Object {
           "WebkitLineClamp": 1,
@@ -86,7 +86,7 @@ exports[`Tag renders 1`] = `
     }
   >
     <span
-      className="Text fontSize200 defaultText alignStart breakAll fontWeightNormal lineClamp"
+      className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
       style={
         Object {
           "WebkitLineClamp": 1,
@@ -153,7 +153,7 @@ exports[`Tag renders a disabled tag 1`] = `
     }
   >
     <span
-      className="Text fontSize200 subtleText alignStart breakAll fontWeightNormal lineClamp"
+      className="Text fontSize200 subtle alignStart breakAll fontWeightNormal lineClamp"
       style={
         Object {
           "WebkitLineClamp": 1,
@@ -207,7 +207,7 @@ exports[`Tag renders a tag with a warning state 1`] = `
       </svg>
     </div>
     <span
-      className="Text fontSize200 inverseText alignStart breakAll fontWeightNormal lineClamp"
+      className="Text fontSize200 inverse alignStart breakAll fontWeightNormal lineClamp"
       style={
         Object {
           "WebkitLineClamp": 1,
@@ -290,7 +290,7 @@ exports[`Tag renders a tag with an error state 1`] = `
       </svg>
     </div>
     <span
-      className="Text fontSize200 inverseText alignStart breakAll fontWeightNormal lineClamp"
+      className="Text fontSize200 inverse alignStart breakAll fontWeightNormal lineClamp"
       style={
         Object {
           "WebkitLineClamp": 1,

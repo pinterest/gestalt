@@ -39,7 +39,7 @@ exports[`ModalAlert Desktop ModalAlert renders (default) 1`] = `
                     class="FlexItem flexGrow"
                   >
                     <h1
-                      class="Heading fontSize400 defaultText alignStart breakWord"
+                      class="Heading fontSize400 default alignStart breakWord"
                     >
                       Delete Pin?
                     </h1>
@@ -113,7 +113,7 @@ exports[`ModalAlert Desktop ModalAlert renders (default) 1`] = `
                         class="button hideOutline block accessibilityOutline tapTransition lg red enabled childrenDiv"
                       >
                         <div
-                          class="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+                          class="Text fontSize300 inverse alignCenter fontWeightSemiBold"
                         >
                           Got it
                         </div>
@@ -190,7 +190,7 @@ exports[`ModalAlert Desktop ModalAlert renders (error) 1`] = `
                     class="FlexItem flexGrow"
                   >
                     <h1
-                      class="Heading fontSize400 defaultText alignStart breakWord"
+                      class="Heading fontSize400 default alignStart breakWord"
                     >
                       Delete Pin?
                     </h1>
@@ -227,7 +227,7 @@ exports[`ModalAlert Desktop ModalAlert renders (error) 1`] = `
                         class="button hideOutline block accessibilityOutline tapTransition lg red enabled childrenDiv"
                       >
                         <div
-                          class="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+                          class="Text fontSize300 inverse alignCenter fontWeightSemiBold"
                         >
                           Got it
                         </div>
@@ -304,7 +304,7 @@ exports[`ModalAlert Desktop ModalAlert renders (warning) 1`] = `
                     class="FlexItem flexGrow"
                   >
                     <h1
-                      class="Heading fontSize400 defaultText alignStart breakWord"
+                      class="Heading fontSize400 default alignStart breakWord"
                     >
                       Delete Pin?
                     </h1>
@@ -341,7 +341,7 @@ exports[`ModalAlert Desktop ModalAlert renders (warning) 1`] = `
                         class="button hideOutline block accessibilityOutline tapTransition lg red enabled childrenDiv"
                       >
                         <div
-                          class="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+                          class="Text fontSize300 inverse alignCenter fontWeightSemiBold"
                         >
                           Got it
                         </div>
@@ -398,7 +398,7 @@ exports[`ModalAlert Mobile Desktop ModalAlert renders 1`] = `
                     class="FlexItem flexGrow"
                   >
                     <h1
-                      class="Heading fontSize400 defaultText alignStart breakWord"
+                      class="Heading fontSize400 default alignStart breakWord"
                     >
                       Delete Pin?
                     </h1>
@@ -472,7 +472,7 @@ exports[`ModalAlert Mobile Desktop ModalAlert renders 1`] = `
                         class="button hideOutline block accessibilityOutline tapTransition lg red enabled childrenDiv"
                       >
                         <div
-                          class="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+                          class="Text fontSize300 inverse alignCenter fontWeightSemiBold"
                         >
                           Got it
                         </div>

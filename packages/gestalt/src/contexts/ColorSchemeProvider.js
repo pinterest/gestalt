@@ -17,18 +17,15 @@ export type ColorScheme = 'light' | 'dark' | 'userPreference';
 
 export type Theme = {
   colorSchemeName: 'lightMode' | 'darkMode',
-  colorGray300: string,
   [tokenName: string]: string,
 };
 
 const lightModeTheme = {
   colorSchemeName: 'lightMode',
-  colorGray300: '#111',
 };
 
 const darkModeTheme = {
   colorSchemeName: 'darkMode',
-  colorGray300: '#efefef',
 };
 
 const ThemeContext: Context<Theme> = createContext<Theme>(lightModeTheme);
@@ -36,10 +33,7 @@ const ThemeContext: Context<Theme> = createContext<Theme>(lightModeTheme);
 /**
  * Appends tokens as injected CSS tokens
  */
-const themeToStyles = (theme: {
-  colorGray300: string,
-  colorSchemeName: 'lightMode' | 'darkMode',
-}) => {
+const themeToStyles = (theme: { colorSchemeName: 'lightMode' | 'darkMode' }) => {
   let styles = '';
   Object.keys(theme).forEach((key) => {
     if (key.startsWith('color')) {

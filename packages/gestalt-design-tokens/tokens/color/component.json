@@ -405,6 +405,11 @@
           "value": "#efefef",
           "darkValue": "#404040",
           "comment": "Formfield disabled background color"
+        },
+        "selected": {
+          "value": "#111",
+          "darkValue": "#efefef",
+          "comment": "Formfield selected background color"
         }
       },
       "overlay": {
@@ -502,6 +507,11 @@
             "value": "#fff",
             "darkValue": "#030303",
             "comment": "Switch enabled unselected background color"
+          },
+          "selected": {
+            "value": "#111",
+            "darkValue": "#efefef",
+            "comment": "Switch enabled selected background color"
           }
         },
         "disabled": {
@@ -713,15 +723,20 @@
     },
     "text": {
       "formfield": {
-        "placeholder": {
-          "value": "{color.gray.roboflow.500.value}",
-          "darkValue": "#ababab",
-          "comment": "Formfield placeholder text color."
+        "default": {
+          "value": "#111",
+          "darkValue": "#efefef",
+          "comment": "Formfield default text color."
         },
         "disabled": {
           "value": "{color.gray.roboflow.500.value}",
           "darkValue": "#ababab",
           "comment": "Formfield disabled text color."
+        },
+        "placeholder": {
+          "value": "{color.gray.roboflow.500.value}",
+          "darkValue": "#ababab",
+          "comment": "Formfield placeholder text color."
         }
       }
     }

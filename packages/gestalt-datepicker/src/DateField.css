@@ -82,7 +82,7 @@
 
 .formElementEnabled {
   background-color: var(--color-background-formfield-primary);
-  color: var(--g-colorGray300);
+  color: var(--color-text-formfield-default);
 }
 
 .formElementDisabled {

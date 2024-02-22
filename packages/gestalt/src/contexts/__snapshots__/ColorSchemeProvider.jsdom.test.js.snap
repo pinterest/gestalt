@@ -4,7 +4,6 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
 <style>
   :root {
   --g-colorSchemeName: darkMode;
-  --g-colorGray300: #efefef;
   --color-data-visualization-10: #007A72;
   --color-data-visualization-11: #f76593;
   --color-data-visualization-12: #ffc58f;
@@ -31,8 +30,9 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-text-inverse: #111111;
   --color-text-shopping: #75bfff;
   --color-text-link: #45a3fe;
-  --color-text-formfield-placeholder: #ababab;
+  --color-text-formfield-default: #efefef;
   --color-text-formfield-disabled: #ababab;
+  --color-text-formfield-placeholder: #ababab;
   --color-icon-default: #ffffff;
   --color-icon-subtle: #a5a5a5;
   --color-icon-success: #39d377;
@@ -127,6 +127,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-background-datepicker-button-selected: #efefef;
   --color-background-formfield-primary: #030303;
   --color-background-formfield-disabled: #404040;
+  --color-background-formfield-selected: #efefef;
   --color-background-overlay: #2b2b2b;
   --color-background-popover-primary: #2b2b2b;
   --color-background-popover-secondary: #efefef;
@@ -143,6 +144,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-background-segmentedcontrol-container: #404040;
   --color-background-segmentedcontrol-tab-selected: #030303;
   --color-background-switch-default-unselected: #030303;
+  --color-background-switch-default-selected: #efefef;
   --color-background-switch-disabled-unselected: #404040;
   --color-background-switch-disabled-selected: #ababab;
   --color-background-table-footer: #030303;
@@ -191,7 +193,6 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
 <style>
   :root {
   --g-colorSchemeName: lightMode;
-  --g-colorGray300: #111;
   --color-data-visualization-10: #005062;
   --color-data-visualization-11: #de2c62;
   --color-data-visualization-12: #660e00;
@@ -218,8 +219,9 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-text-inverse: #ffffff;
   --color-text-shopping: #0074e8;
   --color-text-link: #004ba9;
-  --color-text-formfield-placeholder: #767676;
+  --color-text-formfield-default: #111111;
   --color-text-formfield-disabled: #767676;
+  --color-text-formfield-placeholder: #767676;
   --color-icon-default: #111111;
   --color-icon-subtle: #767676;
   --color-icon-success: #005f3e;
@@ -314,6 +316,7 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-background-datepicker-button-selected: #111111;
   --color-background-formfield-primary: #ffffff;
   --color-background-formfield-disabled: #efefef;
+  --color-background-formfield-selected: #111111;
   --color-background-overlay: #ffffff;
   --color-background-popover-primary: #ffffff;
   --color-background-popover-secondary: #111111;
@@ -330,6 +333,7 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-background-segmentedcontrol-container: #efefef;
   --color-background-segmentedcontrol-tab-selected: #ffffff;
   --color-background-switch-default-unselected: #ffffff;
+  --color-background-switch-default-selected: #111111;
   --color-background-switch-disabled-unselected: #efefef;
   --color-background-switch-disabled-selected: #767676;
   --color-background-table-footer: #ffffff;
@@ -378,7 +382,6 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
 <style>
   :root {
   --g-colorSchemeName: lightMode;
-  --g-colorGray300: #111;
   --color-data-visualization-10: #005062;
   --color-data-visualization-11: #de2c62;
   --color-data-visualization-12: #660e00;
@@ -405,8 +408,9 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-text-inverse: #ffffff;
   --color-text-shopping: #0074e8;
   --color-text-link: #004ba9;
-  --color-text-formfield-placeholder: #767676;
+  --color-text-formfield-default: #111111;
   --color-text-formfield-disabled: #767676;
+  --color-text-formfield-placeholder: #767676;
   --color-icon-default: #111111;
   --color-icon-subtle: #767676;
   --color-icon-success: #005f3e;
@@ -501,6 +505,7 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-background-datepicker-button-selected: #111111;
   --color-background-formfield-primary: #ffffff;
   --color-background-formfield-disabled: #efefef;
+  --color-background-formfield-selected: #111111;
   --color-background-overlay: #ffffff;
   --color-background-popover-primary: #ffffff;
   --color-background-popover-secondary: #111111;
@@ -517,6 +522,7 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-background-segmentedcontrol-container: #efefef;
   --color-background-segmentedcontrol-tab-selected: #ffffff;
   --color-background-switch-default-unselected: #ffffff;
+  --color-background-switch-default-selected: #111111;
   --color-background-switch-disabled-unselected: #efefef;
   --color-background-switch-disabled-selected: #767676;
   --color-background-table-footer: #ffffff;
@@ -565,7 +571,6 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
 <style>
   .__gestaltThemetestId {
   --g-colorSchemeName: lightMode;
-  --g-colorGray300: #111;
   --color-data-visualization-10: #005062;
   --color-data-visualization-11: #de2c62;
   --color-data-visualization-12: #660e00;
@@ -592,8 +597,9 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-text-inverse: #ffffff;
   --color-text-shopping: #0074e8;
   --color-text-link: #004ba9;
-  --color-text-formfield-placeholder: #767676;
+  --color-text-formfield-default: #111111;
   --color-text-formfield-disabled: #767676;
+  --color-text-formfield-placeholder: #767676;
   --color-icon-default: #111111;
   --color-icon-subtle: #767676;
   --color-icon-success: #005f3e;
@@ -688,6 +694,7 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-background-datepicker-button-selected: #111111;
   --color-background-formfield-primary: #ffffff;
   --color-background-formfield-disabled: #efefef;
+  --color-background-formfield-selected: #111111;
   --color-background-overlay: #ffffff;
   --color-background-popover-primary: #ffffff;
   --color-background-popover-secondary: #111111;
@@ -704,6 +711,7 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-background-segmentedcontrol-container: #efefef;
   --color-background-segmentedcontrol-tab-selected: #ffffff;
   --color-background-switch-default-unselected: #ffffff;
+  --color-background-switch-default-selected: #111111;
   --color-background-switch-disabled-unselected: #efefef;
   --color-background-switch-disabled-selected: #767676;
   --color-background-table-footer: #ffffff;
@@ -753,7 +761,6 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   @media(prefers-color-scheme: dark) {
   :root {
   --g-colorSchemeName: darkMode;
-  --g-colorGray300: #efefef;
   --color-data-visualization-10: #007A72;
   --color-data-visualization-11: #f76593;
   --color-data-visualization-12: #ffc58f;
@@ -780,8 +787,9 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-text-inverse: #111111;
   --color-text-shopping: #75bfff;
   --color-text-link: #45a3fe;
-  --color-text-formfield-placeholder: #ababab;
+  --color-text-formfield-default: #efefef;
   --color-text-formfield-disabled: #ababab;
+  --color-text-formfield-placeholder: #ababab;
   --color-icon-default: #ffffff;
   --color-icon-subtle: #a5a5a5;
   --color-icon-success: #39d377;
@@ -876,6 +884,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-background-datepicker-button-selected: #efefef;
   --color-background-formfield-primary: #030303;
   --color-background-formfield-disabled: #404040;
+  --color-background-formfield-selected: #efefef;
   --color-background-overlay: #2b2b2b;
   --color-background-popover-primary: #2b2b2b;
   --color-background-popover-secondary: #efefef;
@@ -892,6 +901,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-background-segmentedcontrol-container: #404040;
   --color-background-segmentedcontrol-tab-selected: #030303;
   --color-background-switch-default-unselected: #030303;
+  --color-background-switch-default-selected: #efefef;
   --color-background-switch-disabled-unselected: #404040;
   --color-background-switch-disabled-selected: #ababab;
   --color-background-table-footer: #030303;

@@ -53,7 +53,7 @@ exports[`PopoverEducational renders correctly 1`] = `
                 class="FlexItem"
               >
                 <div
-                  class="Text fontSize300 lightText alignStart breakWord fontWeightNormal"
+                  class="Text fontSize300 light alignStart breakWord fontWeightNormal"
                 >
                   text
                 </div>
@@ -70,7 +70,7 @@ exports[`PopoverEducational renders correctly 1`] = `
                     class="button hideOutline inline accessibilityOutline tapTransition md white enabled childrenDiv"
                   >
                     <div
-                      class="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+                      class="Text fontSize300 default alignCenter fontWeightSemiBold"
                     >
                       next
                     </div>
@@ -136,7 +136,7 @@ exports[`PopoverEducational renders correctly with custom children 1`] = `
           style="max-width: 230px;"
         >
           <div
-            class="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            class="Text fontSize300 default alignStart breakWord fontWeightNormal"
           >
             Custom children
           </div>

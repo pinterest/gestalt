@@ -28,8 +28,8 @@ html[dir="rtl"] .switch {
 }
 
 .enabledSelected {
-  composes: darkGrayBg from "./Colors.css";
   composes: borderColorSelected from "./Borders.css";
+  background-color: var(--color-background-switch-default-selected);
 }
 
 .disabled {

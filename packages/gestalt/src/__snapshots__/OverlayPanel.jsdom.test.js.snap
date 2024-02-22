@@ -109,7 +109,7 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
                               class="FlexItem"
                             >
                               <div
-                                class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+                                class="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
                               >
                                 Are you sure you want to dismiss?
                               </div>
@@ -118,7 +118,7 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
                               class="FlexItem"
                             >
                               <div
-                                class="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                                class="Text fontSize300 default alignStart breakWord fontWeightNormal"
                               >
                                 You will lose all of your changes. This cannot be undone
                               </div>
@@ -145,7 +145,7 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
                                 class="button hideOutline inline accessibilityOutline tapTransition md gray enabled childrenDiv"
                               >
                                 <div
-                                  class="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+                                  class="Text fontSize300 default alignCenter fontWeightSemiBold"
                                 >
                                   No, go back
                                 </div>
@@ -165,7 +165,7 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
                                 class="button hideOutline inline accessibilityOutline tapTransition md red enabled childrenDiv"
                               >
                                 <div
-                                  class="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+                                  class="Text fontSize300 inverse alignCenter fontWeightSemiBold"
                                 >
                                   Yes, dismiss
                                 </div>
@@ -221,7 +221,7 @@ exports[`OverlayPanel should render all props with nodes 1`] = `
                 class="box flexGrow paddingX6 paddingY6 xsDisplayFlex"
               >
                 <h1
-                  class="Heading fontSize500 defaultText alignStart breakWord"
+                  class="Heading fontSize500 default alignStart breakWord"
                 >
                   OverlayPanel title
                 </h1>
@@ -323,7 +323,7 @@ exports[`OverlayPanel should render all props with render props 1`] = `
                 class="box flexGrow paddingX6 paddingY6 xsDisplayFlex"
               >
                 <h1
-                  class="Heading fontSize500 defaultText alignStart breakWord"
+                  class="Heading fontSize500 default alignStart breakWord"
                 >
                   OverlayPanel title
                 </h1>

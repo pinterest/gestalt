@@ -1,8 +1,8 @@
 // @flow strict
 import { createElement, type Node as ReactNode } from 'react';
 import cx from 'classnames';
-import colors from './Colors.css';
 import styles from './Heading.css';
+import colors from './Text.css';
 import { semanticColors } from './textTypes';
 import typography from './Typography.css';
 
@@ -101,7 +101,7 @@ export default function Heading({
   const cs = cx(
     styles.Heading,
     typography[`fontSize${size}`],
-    color && semanticColors.includes(color) && colors[`${color}Text`],
+    color && semanticColors.includes(color) && colors[color],
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,
     align === 'start' && typography.alignStart,

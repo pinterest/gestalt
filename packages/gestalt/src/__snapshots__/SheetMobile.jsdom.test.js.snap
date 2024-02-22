@@ -132,7 +132,7 @@ exports[`SheetMobile renders correctly auto size 1`] = `
                 className="Flex rowGap0 columnGap0 xsDirectionColumn"
               >
                 <h1
-                  className="Heading fontSize300 defaultText alignStart breakWord lineClamp"
+                  className="Heading fontSize300 default alignStart breakWord lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 2,
@@ -143,7 +143,7 @@ exports[`SheetMobile renders correctly auto size 1`] = `
                   test
                 </h1>
                 <div
-                  className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
+                  className="Text fontSize100 default alignStart breakWord fontWeightNormal"
                 >
                   test
                 </div>
@@ -293,7 +293,7 @@ exports[`SheetMobile renders correctly default size 1`] = `
                 className="Flex rowGap0 columnGap0 xsDirectionColumn"
               >
                 <h1
-                  className="Heading fontSize300 defaultText alignStart breakWord lineClamp"
+                  className="Heading fontSize300 default alignStart breakWord lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 2,
@@ -304,7 +304,7 @@ exports[`SheetMobile renders correctly default size 1`] = `
                   test
                 </h1>
                 <div
-                  className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
+                  className="Text fontSize100 default alignStart breakWord fontWeightNormal"
                 >
                   test
                 </div>
@@ -415,7 +415,7 @@ exports[`SheetMobile renders correctly full size 1`] = `
                 className="Flex rowGap0 columnGap0 xsDirectionColumn"
               >
                 <h1
-                  className="Heading fontSize300 defaultText alignStart breakWord lineClamp"
+                  className="Heading fontSize300 default alignStart breakWord lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 2,
@@ -426,7 +426,7 @@ exports[`SheetMobile renders correctly full size 1`] = `
                   test
                 </h1>
                 <div
-                  className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
+                  className="Text fontSize100 default alignStart breakWord fontWeightNormal"
                 >
                   test
                 </div>

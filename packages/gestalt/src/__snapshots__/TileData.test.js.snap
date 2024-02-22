@@ -85,7 +85,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -122,7 +122,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+                            className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
                             <div
@@ -233,7 +233,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -270,7 +270,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+                            className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
                             <div
@@ -381,7 +381,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -418,7 +418,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+                            className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
                             <div
@@ -529,7 +529,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -566,7 +566,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+                            className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
                             <div
@@ -677,7 +677,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -714,7 +714,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+                            className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
                             <div
@@ -825,7 +825,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -862,7 +862,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+                            className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
                             <div
@@ -973,7 +973,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -1010,7 +1010,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+                            className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
                             <div
@@ -1121,7 +1121,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -1158,7 +1158,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+                            className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
                             <div
@@ -1269,7 +1269,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -1306,7 +1306,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+                            className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
                             <div
@@ -1417,7 +1417,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -1454,7 +1454,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+                            className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
                             <div
@@ -1565,7 +1565,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -1602,7 +1602,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+                            className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
                             <div
@@ -1713,7 +1713,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -1750,7 +1750,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+                            className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
                           >
                             1.23M
                             <div
@@ -1862,7 +1862,7 @@ exports[`TileData TileData renders with tooltip 1`] = `
                         }
                       >
                         <div
-                          className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                          className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 2,
@@ -1899,7 +1899,7 @@ exports[`TileData TileData renders with tooltip 1`] = `
                       className="FlexItem"
                     >
                       <div
-                        className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+                        className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
                       >
                         1.23M
                         <div
@@ -2015,7 +2015,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -2051,7 +2051,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+                            className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
                           >
                             1.43M
                             <div
@@ -2102,7 +2102,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           type="checkbox"
                         />
                         <div
-                          className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
+                          className="checked borderSelected borderRadiusSm sizeSm check"
                           style={
                             Object {
                               "backgroundColor": "#0081fe",
@@ -2216,7 +2216,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -2252,7 +2252,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+                            className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
                           >
                             1.13M
                             <div
@@ -2303,7 +2303,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           type="checkbox"
                         />
                         <div
-                          className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
+                          className="checked borderSelected borderRadiusSm sizeSm check"
                           style={
                             Object {
                               "backgroundColor": "#0081fe",
@@ -2417,7 +2417,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                              className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                               style={
                                 Object {
                                   "WebkitLineClamp": 2,
@@ -2453,7 +2453,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           className="FlexItem"
                         >
                           <div
-                            className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+                            className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
                           >
                             1.13M
                             <div
@@ -2504,7 +2504,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           type="checkbox"
                         />
                         <div
-                          className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
+                          className="checked borderSelected borderRadiusSm sizeSm check"
                           style={
                             Object {
                               "backgroundColor": "#0081fe",
@@ -2619,7 +2619,7 @@ exports[`TileData TileData title truncates when really long 1`] = `
                         }
                       >
                         <div
-                          className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                          className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 2,
@@ -2656,7 +2656,7 @@ exports[`TileData TileData title truncates when really long 1`] = `
                       className="FlexItem"
                     >
                       <div
-                        className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+                        className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
                       >
                         1.23M
                         <div
@@ -2762,7 +2762,7 @@ exports[`TileData Tiledata is disabled 1`] = `
                         }
                       >
                         <div
-                          className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
+                          className="Text fontSize200 subtle alignStart breakWord fontWeightNormal lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 2,
@@ -2799,7 +2799,7 @@ exports[`TileData Tiledata is disabled 1`] = `
                       className="FlexItem"
                     >
                       <div
-                        className="Text fontSize400 subtleText alignStart breakWord fontWeightSemiBold"
+                        className="Text fontSize400 subtle alignStart breakWord fontWeightSemiBold"
                       >
                         1.23M
                         <div
@@ -2850,7 +2850,7 @@ exports[`TileData Tiledata is disabled 1`] = `
                       type="checkbox"
                     />
                     <div
-                      className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
+                      className="checked borderSelected borderRadiusSm sizeSm check"
                       style={
                         Object {
                           "backgroundColor": "var(--color-gray-roboflow-300)",
@@ -2952,7 +2952,7 @@ exports[`TileData renders 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                      className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                       style={
                         Object {
                           "WebkitLineClamp": 2,
@@ -2989,7 +2989,7 @@ exports[`TileData renders 1`] = `
                   className="FlexItem"
                 >
                   <div
-                    className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+                    className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
                   >
                     1.23M
                     <div

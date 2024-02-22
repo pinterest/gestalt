@@ -92,7 +92,7 @@ exports[`NumberField NumberField with error 1`] = `
     className="box marginTop1"
   >
     <div
-      className="Text fontSize100 errorText alignStart breakWord fontWeightNormal"
+      className="Text fontSize100 error alignStart breakWord fontWeightNormal"
     >
       <span
         className="formErrorMessage"

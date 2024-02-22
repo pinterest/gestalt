@@ -57,7 +57,7 @@ exports[`TagData TagData has a tooltip 1`] = `
             }
           >
             <span
-              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+              className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
               style={
                 Object {
                   "WebkitLineClamp": 1,
@@ -138,7 +138,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -214,7 +214,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -290,7 +290,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -366,7 +366,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -442,7 +442,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -518,7 +518,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -594,7 +594,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -670,7 +670,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -746,7 +746,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -822,7 +822,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -898,7 +898,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -974,7 +974,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -1084,7 +1084,7 @@ exports[`TagData renders base color as expected 1`] = `
                           type="checkbox"
                         />
                         <div
-                          className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
+                          className="checked borderSelected borderRadiusSm sizeSm check"
                           style={
                             Object {
                               "backgroundColor": "#0081fe",
@@ -1111,7 +1111,7 @@ exports[`TagData renders base color as expected 1`] = `
                   </div>
                 </div>
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -1214,7 +1214,7 @@ exports[`TagData renders base color as expected 1`] = `
                           type="checkbox"
                         />
                         <div
-                          className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
+                          className="checked borderSelected borderRadiusSm sizeSm check"
                           style={
                             Object {
                               "backgroundColor": "#0081fe",
@@ -1241,7 +1241,7 @@ exports[`TagData renders base color as expected 1`] = `
                   </div>
                 </div>
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -1340,7 +1340,7 @@ exports[`TagData renders disabled selected state 1`] = `
                       type="checkbox"
                     />
                     <div
-                      className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
+                      className="checked borderSelected borderRadiusSm sizeSm check"
                       style={
                         Object {
                           "backgroundColor": "var(--color-gray-roboflow-300)",
@@ -1367,7 +1367,7 @@ exports[`TagData renders disabled selected state 1`] = `
               </div>
             </div>
             <span
-              className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
+              className="Text fontSize200 subtle alignStart breakWord fontWeightNormal lineClamp"
               style={
                 Object {
                   "WebkitLineClamp": 1,
@@ -1477,7 +1477,7 @@ exports[`TagData renders disabled unselected state 1`] = `
               </div>
             </div>
             <span
-              className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
+              className="Text fontSize200 subtle alignStart breakWord fontWeightNormal lineClamp"
               style={
                 Object {
                   "WebkitLineClamp": 1,
@@ -1579,7 +1579,7 @@ exports[`TagData renders dismisible button with color background 1`] = `
                       type="checkbox"
                     />
                     <div
-                      className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
+                      className="checked borderSelected borderRadiusSm sizeSm check"
                       style={
                         Object {
                           "backgroundColor": "#924af7",
@@ -1606,7 +1606,7 @@ exports[`TagData renders dismisible button with color background 1`] = `
               </div>
             </div>
             <span
-              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+              className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
               style={
                 Object {
                   "WebkitLineClamp": 1,
@@ -1745,7 +1745,7 @@ exports[`TagData renders dismissable button 1`] = `
                       type="checkbox"
                     />
                     <div
-                      className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
+                      className="checked borderSelected borderRadiusSm sizeSm check"
                       style={
                         Object {
                           "backgroundColor": "#0081fe",
@@ -1772,7 +1772,7 @@ exports[`TagData renders dismissable button 1`] = `
               </div>
             </div>
             <span
-              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+              className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
               style={
                 Object {
                   "WebkitLineClamp": 1,
@@ -1912,7 +1912,7 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
             </div>
           </div>
           <span
-            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+            className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
             style={
               Object {
                 "WebkitLineClamp": 1,

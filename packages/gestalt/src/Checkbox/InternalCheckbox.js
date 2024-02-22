@@ -11,7 +11,6 @@ import {
 import classnames from 'classnames';
 import styles from './InternalCheckbox.css';
 import Box from '../Box';
-import colors from '../Colors.css';
 import focusStyles from '../Focus.css';
 import Icon from '../Icon';
 import Label from '../Label';
@@ -105,7 +104,7 @@ const InternalCheckboxWithForwardRef: AbstractComponent<Props, HTMLInputElement>
   if (disabled) {
     bgStyle = styles.disabled;
   } else if (checked || indeterminate) {
-    bgStyle = colors.darkGrayBg;
+    bgStyle = styles.checked;
   }
 
   let borderStyle = styles.border;

@@ -12,7 +12,7 @@ exports[`SelectList renders an option group 1`] = `
       className="formLabel"
     >
       <div
-        className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
+        className="Text fontSize100 default alignStart breakWord fontWeightNormal"
       >
         With option group
       </div>
@@ -104,7 +104,7 @@ exports[`SelectList renders with a hidden label 1`] = `
       className="formLabel"
     >
       <div
-        className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
+        className="Text fontSize100 default alignStart breakWord fontWeightNormal"
       >
         testing
       </div>

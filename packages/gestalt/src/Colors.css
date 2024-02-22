@@ -1,17 +1,3 @@
-:root {
-  --g-colorGray300: #111;
-}
-
-/** LEGACY CUSTOM COLORS **/
-
-.darkGray {
-  color: var(--g-colorGray300);
-}
-
-.darkGrayBg {
-  background-color: var(--g-colorGray300);
-}
-
 /* semantic background colors */
 
 .default {
@@ -32,42 +18,3 @@
 
 /* semantic text colors */
 
-.inverseText {
-  color: var(--color-text-inverse);
-}
-
-.errorText {
-  color: var(--color-text-error);
-}
-
-.defaultText {
-  color: var(--color-text-default);
-}
-
-.subtleText {
-  color: var(--color-text-subtle);
-}
-
-.warningText {
-  color: var(--color-text-warning);
-}
-
-.successText {
-  color: var(--color-text-success);
-}
-
-.shoppingText {
-  color: var(--color-text-shopping);
-}
-
-.linkText {
-  color: var(--color-text-link);
-}
-
-.lightText {
-  color: var(--color-text-light);
-}
-
-.darkText {
-  color: var(--color-text-dark);
-}

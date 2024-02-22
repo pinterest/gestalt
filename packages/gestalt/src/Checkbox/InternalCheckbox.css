@@ -11,6 +11,10 @@
   background-color: var(--color-background-formfield-disabled);
 }
 
+.checked {
+  background-color: var(--color-background-formfield-selected);
+}
+
 .border {
   composes: borderColorDarkGray from "../Borders.css";
 }
