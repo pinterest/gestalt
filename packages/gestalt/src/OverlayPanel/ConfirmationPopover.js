@@ -90,6 +90,7 @@ export default function ConfirmationPopover({
       idealDirection="down"
       onDismiss={() => onDismiss()}
       positionRelativeToAnchor
+      disablePortal
       role="dialog"
       size="md"
     >
