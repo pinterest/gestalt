@@ -2267,6 +2267,7 @@ interface TextFieldProps {
     | 'off'
     | 'username'
     | undefined;
+  dataTestId?: string | undefined;
   disabled?: boolean | undefined;
   errorMessage?: Node | undefined;
   hasError?: boolean | undefined;
