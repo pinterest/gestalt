@@ -9,6 +9,26 @@ import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';
 import { TokenExample } from '../../../docs-components/TokenExample';
 
+const EXCLUSION_LIST = [
+  'avatar',
+  'badge',
+  'box',
+  'button',
+  'combobox',
+  'datepicker',
+  'formfield',
+  'overlay',
+  'popover',
+  'segmentedcontrol',
+  'switch',
+  'tag',
+  'table',
+  'tableofcontents',
+  'tagdata',
+  'tiledata',
+  'video',
+];
+
 const tokenCategories: $ReadOnlyArray<{
   name: string,
   category: string,
@@ -23,7 +43,7 @@ const tokenCategories: $ReadOnlyArray<{
     id: 'color-background',
     infoPage: { name: 'Box', path: 'web/box#Colors' },
     darkValues: true,
-    excludedItems: ['box', 'tag', 'button', 'overlay'],
+    excludedItems: EXCLUSION_LIST,
   },
   {
     name: 'Border color',

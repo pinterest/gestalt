@@ -17,3 +17,53 @@ html[dir="rtl"] .rtlSupport {
   transform: scale(-1, 1);
   transform-origin: center;
 }
+
+/* semantic icon colors */
+
+.inverse {
+  color: var(--color-icon-inverse);
+}
+
+.error {
+  color: var(--color-icon-error);
+}
+
+.default {
+  color: var(--color-icon-default);
+}
+
+.subtle {
+  color: var(--color-icon-subtle);
+}
+
+.warning {
+  color: var(--color-icon-warning);
+}
+
+.success {
+  color: var(--color-icon-success);
+}
+
+.recommendation {
+  color: var(--color-icon-recommendation);
+}
+
+.shopping {
+  color: var(--color-icon-shopping);
+}
+
+.info {
+  color: var(--color-icon-info);
+}
+
+.brandPrimary {
+  color: var(--color-icon-brand-primary);
+}
+
+.light {
+  color: var(--color-icon-light);
+}
+
+.dark {
+  color: var(--color-icon-dark);
+}

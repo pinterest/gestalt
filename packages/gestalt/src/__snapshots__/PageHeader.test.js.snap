@@ -58,7 +58,7 @@ exports[`PageHeader renders 1`] = `
                         className="box smDisplayNone xsDisplayBlock"
                       >
                         <h1
-                          className="Heading fontSize400 defaultText alignStart breakWord lineClamp"
+                          className="Heading fontSize400 default alignStart breakWord lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 1,
@@ -73,7 +73,7 @@ exports[`PageHeader renders 1`] = `
                         className="box smDisplayBlock xsDisplayNone"
                       >
                         <h1
-                          className="Heading fontSize500 defaultText alignStart breakWord lineClamp"
+                          className="Heading fontSize500 default alignStart breakWord lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 1,
@@ -179,7 +179,7 @@ exports[`PageHeader renders badge with type 1`] = `
                         className="box smDisplayNone xsDisplayBlock"
                       >
                         <h1
-                          className="Heading fontSize400 defaultText alignStart breakWord lineClamp"
+                          className="Heading fontSize400 default alignStart breakWord lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 1,
@@ -194,7 +194,7 @@ exports[`PageHeader renders badge with type 1`] = `
                         className="box smDisplayBlock xsDisplayNone"
                       >
                         <h1
-                          className="Heading fontSize500 defaultText alignStart breakWord lineClamp"
+                          className="Heading fontSize500 default alignStart breakWord lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 1,
@@ -327,7 +327,7 @@ exports[`PageHeader renders primary action 1`] = `
                         className="box smDisplayNone xsDisplayBlock"
                       >
                         <h1
-                          className="Heading fontSize400 defaultText alignStart breakWord lineClamp"
+                          className="Heading fontSize400 default alignStart breakWord lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 1,
@@ -342,7 +342,7 @@ exports[`PageHeader renders primary action 1`] = `
                         className="box smDisplayBlock xsDisplayNone"
                       >
                         <h1
-                          className="Heading fontSize500 defaultText alignStart breakWord lineClamp"
+                          className="Heading fontSize500 default alignStart breakWord lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 1,
@@ -421,7 +421,7 @@ exports[`PageHeader renders primary action 1`] = `
                           className="button hideOutline inline accessibilityOutline tapTransition lg red enabled childrenDiv"
                         >
                           <div
-                            className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+                            className="Text fontSize300 inverse alignCenter fontWeightSemiBold"
                           >
                             Create
                           </div>
@@ -469,7 +469,7 @@ exports[`PageHeader renders primary action 1`] = `
                       <svg
                         aria-hidden={true}
                         aria-label=""
-                        className="icon defaultIcon iconBlock"
+                        className="default icon iconBlock"
                         height={20}
                         role="img"
                         viewBox="0 0 24 24"
@@ -550,7 +550,7 @@ exports[`PageHeader renders secondary action 1`] = `
                         className="box smDisplayNone xsDisplayBlock"
                       >
                         <h1
-                          className="Heading fontSize400 defaultText alignStart breakWord lineClamp"
+                          className="Heading fontSize400 default alignStart breakWord lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 1,
@@ -565,7 +565,7 @@ exports[`PageHeader renders secondary action 1`] = `
                         className="box smDisplayBlock xsDisplayNone"
                       >
                         <h1
-                          className="Heading fontSize500 defaultText alignStart breakWord lineClamp"
+                          className="Heading fontSize500 default alignStart breakWord lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 1,
@@ -675,7 +675,7 @@ exports[`PageHeader renders secondary action 1`] = `
                           className="button hideOutline inline accessibilityOutline tapTransition lg red enabled childrenDiv"
                         >
                           <div
-                            className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+                            className="Text fontSize300 inverse alignCenter fontWeightSemiBold"
                           >
                             Create
                           </div>
@@ -723,7 +723,7 @@ exports[`PageHeader renders secondary action 1`] = `
                       <svg
                         aria-hidden={true}
                         aria-label=""
-                        className="icon defaultIcon iconBlock"
+                        className="default icon iconBlock"
                         height={20}
                         role="img"
                         viewBox="0 0 24 24"
@@ -804,7 +804,7 @@ exports[`PageHeader renders subtext 1`] = `
                         className="box smDisplayNone xsDisplayBlock"
                       >
                         <h1
-                          className="Heading fontSize400 defaultText alignStart breakWord lineClamp"
+                          className="Heading fontSize400 default alignStart breakWord lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 1,
@@ -819,7 +819,7 @@ exports[`PageHeader renders subtext 1`] = `
                         className="box smDisplayBlock xsDisplayNone"
                       >
                         <h1
-                          className="Heading fontSize500 defaultText alignStart breakWord lineClamp"
+                          className="Heading fontSize500 default alignStart breakWord lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 1,
@@ -846,7 +846,7 @@ exports[`PageHeader renders subtext 1`] = `
                       className="box smDisplayBlock xsDisplayNone"
                     >
                       <span
-                        className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                        className="Text fontSize300 default alignStart breakWord fontWeightNormal"
                       >
                         5 followers
                       </span>
@@ -938,7 +938,7 @@ exports[`PageHeader renders within a max width 1`] = `
                         className="box smDisplayNone xsDisplayBlock"
                       >
                         <h1
-                          className="Heading fontSize400 defaultText alignStart breakWord lineClamp"
+                          className="Heading fontSize400 default alignStart breakWord lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 1,
@@ -953,7 +953,7 @@ exports[`PageHeader renders within a max width 1`] = `
                         className="box smDisplayBlock xsDisplayNone"
                       >
                         <h1
-                          className="Heading fontSize500 defaultText alignStart breakWord lineClamp"
+                          className="Heading fontSize500 default alignStart breakWord lineClamp"
                           style={
                             Object {
                               "WebkitLineClamp": 1,
@@ -980,7 +980,7 @@ exports[`PageHeader renders within a max width 1`] = `
                       className="box smDisplayBlock xsDisplayNone"
                     >
                       <span
-                        className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                        className="Text fontSize300 default alignStart breakWord fontWeightNormal"
                       >
                         5 followers
                       </span>

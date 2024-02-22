@@ -17,39 +17,15 @@ export type ColorScheme = 'light' | 'dark' | 'userPreference';
 
 export type Theme = {
   colorSchemeName: 'lightMode' | 'darkMode',
-  colorGray0: string,
-  colorGray50: string,
-  colorGray100: string,
-  colorGray100Active: string,
-  colorGray200: string,
-  colorGray300: string,
-  colorGray400: string,
-  colorTransparentGray60: string,
   [tokenName: string]: string,
 };
 
 const lightModeTheme = {
   colorSchemeName: 'lightMode',
-  colorGray0: '#fff',
-  colorGray50: '#fff',
-  colorGray100: '#efefef',
-  colorGray100Active: '#dadada',
-  colorGray200: '#767676',
-  colorGray300: '#111',
-  colorGray400: '#000',
-  colorTransparentGray60: 'rgb(0 0 0 / 0.06)',
 };
 
 const darkModeTheme = {
   colorSchemeName: 'darkMode',
-  colorGray0: '#030303',
-  colorGray50: '#212121',
-  colorGray100: '#404040',
-  colorGray100Active: '#666',
-  colorGray200: '#ababab',
-  colorGray300: '#efefef',
-  colorGray400: '#fff',
-  colorTransparentGray60: 'rgb(250 250 250 / 0.5)',
 };
 
 const ThemeContext: Context<Theme> = createContext<Theme>(lightModeTheme);
@@ -57,17 +33,7 @@ const ThemeContext: Context<Theme> = createContext<Theme>(lightModeTheme);
 /**
  * Appends tokens as injected CSS tokens
  */
-const themeToStyles = (theme: {
-  colorGray0: string,
-  colorGray100: string,
-  colorGray100Active: string,
-  colorGray200: string,
-  colorGray300: string,
-  colorGray400: string,
-  colorGray50: string,
-  colorTransparentGray60: string,
-  colorSchemeName: 'lightMode' | 'darkMode',
-}) => {
+const themeToStyles = (theme: { colorSchemeName: 'lightMode' | 'darkMode' }) => {
   let styles = '';
   Object.keys(theme).forEach((key) => {
     if (key.startsWith('color')) {

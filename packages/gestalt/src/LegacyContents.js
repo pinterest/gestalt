@@ -3,7 +3,6 @@ import { Component, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
 import borders from './Borders.css';
 import Caret from './Caret';
-import colors from './Colors.css';
 import styles from './Contents.css';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider';
 import {
@@ -245,15 +244,6 @@ class LegacyContents extends Component<Props, State> {
     // Needed to prevent UI thrashing
     const visibility = popoverDir === null ? 'hidden' : 'visible';
 
-    let background: 'overlay' | 'blueBg' | 'darkGrayBg' = 'overlay';
-
-    if (bgColor === 'blue') {
-      background = 'blueBg';
-    } else if (bgColor === 'darkGray') {
-      background = 'darkGrayBg';
-    }
-
-    const bgColorElevated = bgColor === 'white' ? 'whiteElevated' : bgColor;
     const isCaretVertical = ['down', 'up'].includes(popoverDir);
 
     const { top, height } = this.calcTopHeight();
@@ -277,7 +267,14 @@ class LegacyContents extends Component<Props, State> {
       >
         {caret && popoverDir && (
           <div
-            className={classnames(colors[bgColorElevated], styles.caret)}
+            className={classnames(
+              {
+                [styles.caretPrimary]: bgColor === 'white',
+                [styles.caretSecondary]: bgColor === 'darkGray',
+                [styles.caretEducation]: bgColor === 'blue',
+              },
+              styles.caret,
+            )}
             // caretOffset positions the Caret on the Popover
             style={{ ...caretOffset }}
           >
@@ -294,13 +291,16 @@ class LegacyContents extends Component<Props, State> {
           role={role}
           className={classnames(
             border && styles.border,
-            colors[background],
-            colors[bgColorElevated],
             rounding === 2 && borders.rounding2,
             rounding === 4 && borders.rounding4,
             styles.innerContents,
             styles.maxDimensions,
             width !== null && styles.minDimensions,
+            {
+              [styles.primary]: bgColor === 'white',
+              [styles.secondary]: bgColor === 'darkGray',
+              [styles.education]: bgColor === 'blue',
+            },
           )}
           style={{ maxWidth: width, maxHeight: height }}
         >

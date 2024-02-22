@@ -59,9 +59,9 @@ describe('TextArea', () => {
 
     await userEvent.type(screen.getByLabelText(LABEL), userInput2);
 
-    expect(screen.getByText('20/20', { ignore: '.warningText' })).not.toBeVisible();
+    expect(screen.getByText('20/20', { ignore: '.warning' })).not.toBeVisible();
 
-    expect(screen.getByText('20/20', { ignore: '.subtleText' })).toBeVisible();
+    expect(screen.getByText('20/20', { ignore: '.subtle' })).toBeVisible();
 
     expect(screen.getByText(errorAccessibilityLabel)).toBeVisible();
   });

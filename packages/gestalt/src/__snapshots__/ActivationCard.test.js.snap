@@ -25,7 +25,7 @@ exports[`<ActivationCard /> Needs attention ActivationCard 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Needs attention"
-        className="icon errorIcon iconBlock"
+        className="error icon iconBlock"
         height={24}
         role="img"
         viewBox="0 0 24 24"
@@ -40,7 +40,7 @@ exports[`<ActivationCard /> Needs attention ActivationCard 1`] = `
       className="box marginTop0 selfCenter"
     >
       <div
-        className="Text fontSize200 defaultText alignStart breakWord fontWeightSemiBold"
+        className="Text fontSize200 default alignStart breakWord fontWeightSemiBold"
       >
         Needs attention
       </div>
@@ -50,7 +50,7 @@ exports[`<ActivationCard /> Needs attention ActivationCard 1`] = `
     className="box marginTop6"
   >
     <div
-      className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+      className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
     >
       Tag is unhealthy
     </div>
@@ -59,7 +59,7 @@ exports[`<ActivationCard /> Needs attention ActivationCard 1`] = `
     className="box contentStart flexGrow marginTop2 xsDirectionColumn"
   >
     <div
-      className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+      className="Text fontSize200 subtle alignStart breakWord fontWeightNormal"
     >
       Oops! Your tag has errors that need to be fixed
     </div>
@@ -90,7 +90,7 @@ exports[`<ActivationCard /> Not started ActivationCard 1`] = `
       className="box marginTop1 selfCenter"
     >
       <div
-        className="Text fontSize200 subtleText alignStart breakWord fontWeightSemiBold"
+        className="Text fontSize200 subtle alignStart breakWord fontWeightSemiBold"
       >
         Not started
       </div>
@@ -100,7 +100,7 @@ exports[`<ActivationCard /> Not started ActivationCard 1`] = `
     className="box marginTop6"
   >
     <div
-      className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+      className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
     >
       Claim your website
     </div>
@@ -109,7 +109,7 @@ exports[`<ActivationCard /> Not started ActivationCard 1`] = `
     className="box contentStart flexGrow marginTop2 xsDirectionColumn"
   >
     <div
-      className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+      className="Text fontSize200 subtle alignStart breakWord fontWeightNormal"
     >
       Claim your website to unlock new features
     </div>
@@ -142,7 +142,7 @@ exports[`<ActivationCard /> Pending ActivationCard 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Pending"
-        className="icon subtleIcon iconBlock"
+        className="subtle icon iconBlock"
         height={24}
         role="img"
         viewBox="0 0 24 24"
@@ -157,7 +157,7 @@ exports[`<ActivationCard /> Pending ActivationCard 1`] = `
       className="box marginTop0 selfCenter"
     >
       <div
-        className="Text fontSize200 defaultText alignStart breakWord fontWeightSemiBold"
+        className="Text fontSize200 default alignStart breakWord fontWeightSemiBold"
       >
         Pending
       </div>
@@ -167,7 +167,7 @@ exports[`<ActivationCard /> Pending ActivationCard 1`] = `
     className="box marginTop6"
   >
     <div
-      className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+      className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
     >
       Claiming your website
     </div>
@@ -176,7 +176,7 @@ exports[`<ActivationCard /> Pending ActivationCard 1`] = `
     className="box contentStart flexGrow marginTop2 xsDirectionColumn"
   >
     <div
-      className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+      className="Text fontSize200 subtle alignStart breakWord fontWeightNormal"
     >
       We will notify you via email as soon as your site has been successfully claimed
     </div>
@@ -207,7 +207,7 @@ exports[`<ActivationCard /> complete ActivationCard 1`] = `
         <svg
           aria-hidden={null}
           aria-label="Complete"
-          className="icon successIcon iconBlock"
+          className="success icon iconBlock"
           height={40}
           role="img"
           viewBox="0 0 24 24"
@@ -226,7 +226,7 @@ exports[`<ActivationCard /> complete ActivationCard 1`] = `
         className="box"
       >
         <div
-          className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+          className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
         >
           Nice work
         </div>
@@ -235,7 +235,7 @@ exports[`<ActivationCard /> complete ActivationCard 1`] = `
         className="box contentStart flexGrow marginTop2 xsDirectionColumn"
       >
         <div
-          className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+          className="Text fontSize200 subtle alignStart breakWord fontWeightNormal"
         >
           You are all done here
         </div>
@@ -270,7 +270,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Needs attention"
-        className="icon errorIcon iconBlock"
+        className="error icon iconBlock"
         height={24}
         role="img"
         viewBox="0 0 24 24"
@@ -285,7 +285,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
       className="box marginTop0 selfCenter"
     >
       <div
-        className="Text fontSize200 defaultText alignStart breakWord fontWeightSemiBold"
+        className="Text fontSize200 default alignStart breakWord fontWeightSemiBold"
       >
         Needs attention
       </div>
@@ -295,7 +295,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
     className="box marginTop6"
   >
     <div
-      className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+      className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
     >
       Tag is unhealthy
     </div>
@@ -304,7 +304,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
     className="box contentStart flexGrow marginTop2 xsDirectionColumn"
   >
     <div
-      className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+      className="Text fontSize200 subtle alignStart breakWord fontWeightNormal"
     >
       Oops! Your tag must be healthy to continue.
     </div>
@@ -343,7 +343,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
             className="FlexItem"
           >
             <div
-              className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+              className="Text fontSize300 default alignCenter fontWeightSemiBold"
             >
               Learn more
             </div>
@@ -387,7 +387,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon subtleIcon iconBlock"
+            className="subtle icon iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"
@@ -429,7 +429,7 @@ exports[`<ActivationCard /> message + title + link 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Needs attention"
-        className="icon errorIcon iconBlock"
+        className="error icon iconBlock"
         height={24}
         role="img"
         viewBox="0 0 24 24"
@@ -444,7 +444,7 @@ exports[`<ActivationCard /> message + title + link 1`] = `
       className="box marginTop0 selfCenter"
     >
       <div
-        className="Text fontSize200 defaultText alignStart breakWord fontWeightSemiBold"
+        className="Text fontSize200 default alignStart breakWord fontWeightSemiBold"
       >
         Needs attention
       </div>
@@ -454,7 +454,7 @@ exports[`<ActivationCard /> message + title + link 1`] = `
     className="box marginTop6"
   >
     <div
-      className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+      className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
     >
       Tag is unhealthy
     </div>
@@ -463,7 +463,7 @@ exports[`<ActivationCard /> message + title + link 1`] = `
     className="box contentStart flexGrow marginTop2 xsDirectionColumn"
   >
     <div
-      className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+      className="Text fontSize200 subtle alignStart breakWord fontWeightNormal"
     >
       Oops! Your tag must be healthy to continue.
     </div>
@@ -502,7 +502,7 @@ exports[`<ActivationCard /> message + title + link 1`] = `
             className="FlexItem"
           >
             <div
-              className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+              className="Text fontSize300 default alignCenter fontWeightSemiBold"
             >
               Learn more
             </div>
@@ -539,7 +539,7 @@ exports[`<ActivationCard /> message + title 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Needs attention"
-        className="icon errorIcon iconBlock"
+        className="error icon iconBlock"
         height={24}
         role="img"
         viewBox="0 0 24 24"
@@ -554,7 +554,7 @@ exports[`<ActivationCard /> message + title 1`] = `
       className="box marginTop0 selfCenter"
     >
       <div
-        className="Text fontSize200 defaultText alignStart breakWord fontWeightSemiBold"
+        className="Text fontSize200 default alignStart breakWord fontWeightSemiBold"
       >
         Needs attention
       </div>
@@ -564,7 +564,7 @@ exports[`<ActivationCard /> message + title 1`] = `
     className="box marginTop6"
   >
     <div
-      className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+      className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
     >
       Tag is unhealthy
     </div>
@@ -573,7 +573,7 @@ exports[`<ActivationCard /> message + title 1`] = `
     className="box contentStart flexGrow marginTop2 xsDirectionColumn"
   >
     <div
-      className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+      className="Text fontSize200 subtle alignStart breakWord fontWeightNormal"
     >
       Oops! Your tag must be healthy to continue.
     </div>

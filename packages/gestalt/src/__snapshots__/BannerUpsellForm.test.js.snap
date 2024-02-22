@@ -65,7 +65,7 @@ exports[`BannerUpsellForm renders 1`] = `
             className="FlexItem"
           >
             <div
-              className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+              className="Text fontSize300 inverse alignCenter fontWeightSemiBold"
             >
               Submit
             </div>

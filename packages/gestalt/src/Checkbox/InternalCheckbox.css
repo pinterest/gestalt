@@ -3,6 +3,18 @@
   --g-size-md: var(--space-600);
 }
 
+.enabled {
+  background-color: var(--color-background-formfield-primary);
+}
+
+.disabled {
+  background-color: var(--color-background-formfield-disabled);
+}
+
+.checked {
+  background-color: var(--color-background-formfield-selected);
+}
+
 .border {
   composes: borderColorDarkGray from "../Borders.css";
 }

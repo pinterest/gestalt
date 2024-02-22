@@ -23,7 +23,7 @@ exports[`Accordion renders a badge correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+            className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
             style={
               Object {
                 "WebkitLineClamp": 1,
@@ -80,7 +80,7 @@ exports[`Accordion renders a badge correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        className="Text fontSize300 default alignStart breakWord fontWeightNormal"
       >
         Testing
       </div>
@@ -112,7 +112,7 @@ exports[`Accordion renders a title correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+            className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
             style={
               Object {
                 "WebkitLineClamp": 1,
@@ -157,7 +157,7 @@ exports[`Accordion renders an error correctly 1`] = `
           <svg
             aria-hidden={null}
             aria-label="there is an error"
-            className="icon errorIcon iconBlock"
+            className="error icon iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"
@@ -177,7 +177,7 @@ exports[`Accordion renders an error correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize300 errorText alignStart breakWord fontWeightSemiBold lineClamp"
+            className="Text fontSize300 error alignStart breakWord fontWeightSemiBold lineClamp"
             style={
               Object {
                 "WebkitLineClamp": 1,
@@ -194,7 +194,7 @@ exports[`Accordion renders an error correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        className="Text fontSize300 default alignStart breakWord fontWeightNormal"
       >
         Testing
       </div>
@@ -226,7 +226,7 @@ exports[`Accordion renders an icon button correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+            className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
             style={
               Object {
                 "WebkitLineClamp": 1,
@@ -277,7 +277,7 @@ exports[`Accordion renders an icon button correctly 1`] = `
                 <svg
                   aria-hidden={true}
                   aria-label=""
-                  className="icon defaultIcon iconBlock"
+                  className="default icon iconBlock"
                   height={12}
                   role="img"
                   viewBox="0 0 24 24"
@@ -297,7 +297,7 @@ exports[`Accordion renders an icon button correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        className="Text fontSize300 default alignStart breakWord fontWeightNormal"
       >
         Testing
       </div>
@@ -331,7 +331,7 @@ exports[`Accordion renders an icon correctly 1`] = `
           <svg
             aria-hidden={null}
             aria-label="locked"
-            className="icon defaultIcon iconBlock"
+            className="default icon iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"
@@ -351,7 +351,7 @@ exports[`Accordion renders an icon correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+            className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
             style={
               Object {
                 "WebkitLineClamp": 1,
@@ -368,7 +368,7 @@ exports[`Accordion renders an icon correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        className="Text fontSize300 default alignStart breakWord fontWeightNormal"
       >
         Testing
       </div>
@@ -389,7 +389,7 @@ exports[`Accordion renders content correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+        className="Text fontSize300 default alignStart breakWord fontWeightNormal"
       >
         Testing
       </div>

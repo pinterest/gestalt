@@ -28,14 +28,14 @@
 }
 
 .enabled {
-  composes: darkGray from "../Colors.css";
   background-color: var(--color-background-formfield-primary);
+  color: var(--color-text-formfield-default);
 }
 
 .disabled {
-  composes: gray from "../Colors.css";
   composes: borderColorLightGrayDisabled from "../Borders.css";
-  background-color: var(---color-background-formfield-disabled);
+  background-color: var(--color-background-formfield-disabled);
+  color: var(--color-text-formfield-disabled);
 }
 
 .unstyled {

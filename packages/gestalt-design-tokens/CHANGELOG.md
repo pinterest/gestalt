@@ -1,5 +1,49 @@
 This file is updated manually
 
+## 145.1.0 https://github.com/pinterest/gestalt/pull/3441
+
+### MINOR
+
+NEW
+
+| name                                           | light                               | dark                                          |
+| ---------------------------------------------- | ----------------------------------- | --------------------------------------------- |
+| color-background-avatar-wash                   | rgba(0, 0, 0, 0.06)                 | rgba(250, 250, 250, 0.5)                      |
+| color-background-combobox-item-default         | color.transparent.value             | rgba(250, 250, 250, 0.5)                      |
+| color-background-combobox-item-hover           | #efefef                             | #404040                                       |
+| color-background-combobox-item-hover           | #efefef                             | #404040                                       |
+| color-background-formfield-selected            | #111                                | #efefef                                       |
+| color-background-popover-primary               | color.background.default.value      | color.background.elevation.floating.darkValue |
+| color-background-popover-secondary             | #111                                | #efefef                                       |
+| color-background-popover-education             | color.background.education.value    |                                               |
+| color-background-segmentedcontrol-tab-selected | #fff                                | #030303                                       |
+| color-background-switch-default-selected       | #111                                | #efefef                                       |
+| color-background-switch-default-unselected     | #fff                                | #030303                                       |
+| color-background-switch-disabled-selected      | color.gray.roboflow.500.value       | #ababab                                       |
+| color-background-switch-disabled-unselected    | #efefef                             | #404040                                       |
+| color-background-table-footer                  | #fff                                | #030303                                       |
+| color-background-table-row-hover               | #efefef                             | #404040                                       |
+| color-background-table-row-selected            | #efefef                             | #404040                                       |
+| color-background-video-container-primary       | color.background.inverse.base.value |                                               |
+| color-background-video-container-secondary     | color.transparent.value             |                                               |
+| color-border-formfield-disabled                | #efefef                             | #404040                                       |
+| color-border-popover-primary                   | #fff                                | #212121                                       |
+| color-border-popover-secondary                 | #111                                | #efefef                                       |
+| color-border-popover-education                 | color.background.education.value    |                                               |
+| color-border-table-row-selected                | color.black.cosmicore.900.value     | color.white.mochimalist.0.value               |
+| color-text-formfield-default                   | #111                                | #efefef                                       |
+| color-text-formfield-disabled                  | color.gray.roboflow.500.value       | #ababab                                       |
+| color-text-formfield-placeholder               | color.gray.roboflow.500.value       | #ababab                                       |
+| color-icon-avatar-default                      | #111                                | #efefef                                       |
+
+#### Why
+
+Popover, SegmentedControl, Switch, Table background and border colors
+
+#### Breaking change notes
+
+--
+
 ## 144.0.0 https://github.com/pinterest/gestalt/pull/3439
 
 ### MINOR

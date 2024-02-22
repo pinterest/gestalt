@@ -34,3 +34,30 @@
   fill: currentColor;
   pointer-events: none;
 }
+
+.caretPrimary {
+  color: var(--color-border-popover-primary);
+}
+
+.caretSecondary {
+  color: var(--color-border-popover-secondary);
+}
+
+.caretEducation {
+  color: var(--color-border-popover-education);
+}
+
+.primary {
+  background-color: var(--color-background-popover-primary);
+  color: var(--color-border-popover-primary);
+}
+
+.secondary {
+  background-color: var(--color-background-popover-secondary);
+  color: var(--color-border-popover-secondary);
+}
+
+.education {
+  background-color: var(--color-background-popover-education);
+  color: var(--color-border-popover-education);
+}

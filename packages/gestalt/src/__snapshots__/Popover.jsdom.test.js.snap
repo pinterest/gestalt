@@ -23,7 +23,7 @@ exports[`PopoverEducational renders correctly 1`] = `
         tabindex="-1"
       >
         <div
-          class="blue caret"
+          class="caret caretEducation"
           style="top: 100%;"
         >
           <svg
@@ -38,7 +38,7 @@ exports[`PopoverEducational renders correctly 1`] = `
         </div>
         <div
           aria-label="text"
-          class="border blueBg blue rounding4 innerContents maxDimensions minDimensions"
+          class="border rounding4 innerContents maxDimensions minDimensions education"
           role="dialog"
           style="max-width: 230px;"
         >
@@ -53,7 +53,7 @@ exports[`PopoverEducational renders correctly 1`] = `
                 class="FlexItem"
               >
                 <div
-                  class="Text fontSize300 lightText alignStart breakWord fontWeightNormal"
+                  class="Text fontSize300 light alignStart breakWord fontWeightNormal"
                 >
                   text
                 </div>
@@ -70,7 +70,7 @@ exports[`PopoverEducational renders correctly 1`] = `
                     class="button hideOutline inline accessibilityOutline tapTransition md white enabled childrenDiv"
                   >
                     <div
-                      class="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+                      class="Text fontSize300 default alignCenter fontWeightSemiBold"
                     >
                       next
                     </div>
@@ -116,7 +116,7 @@ exports[`PopoverEducational renders correctly with custom children 1`] = `
         tabindex="0"
       >
         <div
-          class="blue caret"
+          class="caret caretEducation"
           style="top: 100%;"
         >
           <svg
@@ -131,12 +131,12 @@ exports[`PopoverEducational renders correctly with custom children 1`] = `
         </div>
         <div
           aria-label="text"
-          class="border blueBg blue rounding4 innerContents maxDimensions minDimensions"
+          class="border rounding4 innerContents maxDimensions minDimensions education"
           role="tooltip"
           style="max-width: 230px;"
         >
           <div
-            class="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            class="Text fontSize300 default alignStart breakWord fontWeightNormal"
           >
             Custom children
           </div>

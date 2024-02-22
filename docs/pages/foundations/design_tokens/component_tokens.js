@@ -12,14 +12,30 @@ const tokenCategories: $ReadOnlyArray<{
   name: string,
   category: string,
   id: string,
-  infoPage: { name: string, path: string },
   darkValues: boolean,
 }> = [
   {
     name: 'Background color',
     category: 'color-background',
     id: 'color-background',
-    infoPage: { name: 'Box', path: 'web/box#Colors' },
+    darkValues: true,
+  },
+  {
+    name: 'Border color',
+    category: 'color-border',
+    id: 'color-border',
+    darkValues: true,
+  },
+  {
+    name: 'Text color',
+    category: 'color-text',
+    id: 'color-text',
+    darkValues: true,
+  },
+  {
+    name: 'Icon color',
+    category: 'color-icon',
+    id: 'color-icon',
     darkValues: true,
   },
 ];
@@ -54,15 +70,23 @@ function TableHeaders({ hasDarkValues }: { hasDarkValues: boolean }): ReactNode 
 const allTokens: $ReadOnlyArray<Token> = tokens;
 
 const components = [
+  'avatar',
   'badge',
   'box',
   'button',
+  'combobox',
+  'datepicker',
   'formfield',
   'overlay',
+  'popover',
+  'segmentedcontrol',
+  'switch',
   'tag',
+  'table',
   'tableofcontents',
   'tagdata',
   'tiledata',
+  'video',
 ];
 
 export default function DesignTokensPage(): ReactNode {
@@ -75,14 +99,17 @@ export default function DesignTokensPage(): ReactNode {
       />
       {components.map((cmp) => (
         <MainSection key={cmp} name={cmp.charAt(0).toUpperCase() + cmp.slice(1)}>
-          {tokenCategories.map(({ name, id, darkValues, category }) => (
-            <MainSection.Subsection key={`table${cmp}${name}`} title={`${category}-${cmp}`}>
-              <Table accessibilityLabel={`${cmp}'s ${name} values`}>
-                <TableHeaders hasDarkValues={darkValues} />
-                <Table.Body>
-                  {allTokens
-                    .filter(({ name: tokenName }) => tokenName.startsWith(`${id}-${cmp}`))
-                    .map((token) => (
+          {tokenCategories.map(({ name, id, darkValues, category }) => {
+            const existingTokens = allTokens.filter(({ name: tokenName }) =>
+              tokenName.startsWith(`${id}-${cmp}-`),
+            );
+
+            return existingTokens.length > 0 ? (
+              <MainSection.Subsection key={`table${cmp}${name}`} title={`${category}-${cmp}`}>
+                <Table accessibilityLabel={`${cmp}'s ${name} values`}>
+                  <TableHeaders hasDarkValues={darkValues} />
+                  <Table.Body>
+                    {existingTokens.map((token) => (
                       <Table.Row key={`token${token.name}`}>
                         <Table.Cell>
                           <Flex
@@ -109,10 +136,11 @@ export default function DesignTokensPage(): ReactNode {
                         </Table.Cell>
                       </Table.Row>
                     ))}
-                </Table.Body>
-              </Table>
-            </MainSection.Subsection>
-          ))}
+                  </Table.Body>
+                </Table>
+              </MainSection.Subsection>
+            ) : null;
+          })}
         </MainSection>
       ))}
     </Page>
