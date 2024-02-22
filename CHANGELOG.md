@@ -1,3 +1,9 @@
+## 145.1.0 (Feb 22, 2024)
+
+### Minor
+
+- ColorSchemeProvider: deprecated all legacy colors from provider + tokenized all legacy colors in components ([#3441](https://github.com/pinterest/gestalt/pull/3441)) - [Preview link](https://deploy-preview-3441--gestalt.netlify.app?devexample=true)
+
 ## 145.0.0 (Feb 21, 2024)
 
 ### Major
