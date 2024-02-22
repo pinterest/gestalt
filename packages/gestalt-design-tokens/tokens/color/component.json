@@ -5,12 +5,12 @@
         "placeholder": {
           "value": "#efefef",
           "darkValue": "#404040",
-          "comment": "Avatar dark overlay wash."
+          "comment": "Avatar component placeholder background color."
         },
         "wash": {
           "value": "rgba(0, 0, 0, 0.06)",
           "darkValue": "rgba(250, 250, 250, 0.5)",
-          "comment": "Avatar component placeholder background color."
+          "comment": "Avatar dark overlay wash."
         }
       },
       "badge": {
@@ -709,7 +709,7 @@
           "selected": {
             "value": "{color.black.cosmicore.900.value}",
             "darkValue": "{color.white.mochimalist.0.value}",
-            "co}mment": "Tag component disabled border color."
+            "comment": "Tag component disabled border color."
           }
         }
       },
