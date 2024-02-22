@@ -288,6 +288,7 @@ export default function Dropdown({
       idealDirection={idealDirection}
       onDismiss={onDismiss}
       positionRelativeToAnchor={isWithinFixedContainer}
+      disablePortal={isInExperiment}
       role="menu"
       shouldFocus
       size="xl"
