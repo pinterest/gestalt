@@ -10,7 +10,7 @@
 }
 
 .transparentBorder {
-  border-color: transparent;
+  border-color: var(--color-transparent);
 }
 
 .borderColorSelected {

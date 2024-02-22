@@ -3,7 +3,7 @@
   animation-duration: 5s;
   animation-iteration-count: inherit;
   animation-name: pulse-animation;
-  border: 8px solid #0074e8;
+  border: 8px solid var(--color-border-pulsar-default);
   border-radius: 50%;
   height: 100%;
   opacity: 1;
@@ -12,7 +12,7 @@
 
 .innerCircle:focus,
 .innerCircle:hover {
-  border-color: #dce9fa;
+  border-color: var(--color-border-pulsar-hover);
 }
 
 .outerCircle {
@@ -21,12 +21,12 @@
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
   animation-name: appear-animation;
-  opacity: 0;
+  opacity: var(--opacity-0);
 }
 
 @keyframes appear-animation {
   from {
-    opacity: 0;
+    opacity: var(--opacity-0);
   }
 
   to {
@@ -36,7 +36,7 @@
 
 @keyframes pulse-animation {
   0% {
-    opacity: 0;
+    opacity: var(--opacity-0);
     transform: scale(0.8);
   }
 
@@ -56,11 +56,11 @@
   }
 
   80% {
-    opacity: 0;
+    opacity: var(--opacity-0);
     transform: scale(0.8);
   }
 
   100% {
-    opacity: 0;
+    opacity: var(--opacity-0);
   }
 }

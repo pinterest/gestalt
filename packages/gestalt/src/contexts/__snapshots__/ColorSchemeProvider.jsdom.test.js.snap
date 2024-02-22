@@ -133,6 +133,9 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-background-popover-primary: #2b2b2b;
   --color-background-popover-secondary: #efefef;
   --color-background-popover-education: #75bfff;
+  --color-background-tabs-default-base: #111111;
+  --color-background-tabs-default-hover: #767676;
+  --color-background-tabs-default-active: #535353;
   --color-background-tag-primary-default: #767676;
   --color-background-tag-primary-hover: #535353;
   --color-background-tag-primary-active: #666;
@@ -323,6 +326,9 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-background-popover-primary: #ffffff;
   --color-background-popover-secondary: #111111;
   --color-background-popover-education: #0074e8;
+  --color-background-tabs-default-base: #ffffff;
+  --color-background-tabs-default-hover: #e9e9e9;
+  --color-background-tabs-default-active: #e2e2e2;
   --color-background-tag-primary-default: #e9e9e9;
   --color-background-tag-primary-hover: #e2e2e2;
   --color-background-tag-primary-active: #dadada;
@@ -372,9 +378,9 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-border-popover-education: #0074e8;
   --color-border-table-row-selected: #111111;
   --color-border-tag-disabled: #767676;
-  --elevation-floating: 0 0 8px rgb(0 0 0 / 0.10);
-  --elevation-raised-top: 0 2px 8px rgb(0 0 0 / 0.12);
-  --elevation-raised-bottom: 0 -2px 8px rgb(0 0 0 / 0.12);
+  --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
+  --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
+  --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
   --elevation-datepicker: 0 0 8px rgba(0, 0, 0, 0.1);
  }
 </style>
@@ -513,6 +519,9 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-background-popover-primary: #ffffff;
   --color-background-popover-secondary: #111111;
   --color-background-popover-education: #0074e8;
+  --color-background-tabs-default-base: #ffffff;
+  --color-background-tabs-default-hover: #e9e9e9;
+  --color-background-tabs-default-active: #e2e2e2;
   --color-background-tag-primary-default: #e9e9e9;
   --color-background-tag-primary-hover: #e2e2e2;
   --color-background-tag-primary-active: #dadada;
@@ -562,9 +571,9 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-border-popover-education: #0074e8;
   --color-border-table-row-selected: #111111;
   --color-border-tag-disabled: #767676;
-  --elevation-floating: 0 0 8px rgb(0 0 0 / 0.10);
-  --elevation-raised-top: 0 2px 8px rgb(0 0 0 / 0.12);
-  --elevation-raised-bottom: 0 -2px 8px rgb(0 0 0 / 0.12);
+  --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
+  --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
+  --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
   --elevation-datepicker: 0 0 8px rgba(0, 0, 0, 0.1);
  }
 </style>
@@ -703,6 +712,9 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-background-popover-primary: #ffffff;
   --color-background-popover-secondary: #111111;
   --color-background-popover-education: #0074e8;
+  --color-background-tabs-default-base: #ffffff;
+  --color-background-tabs-default-hover: #e9e9e9;
+  --color-background-tabs-default-active: #e2e2e2;
   --color-background-tag-primary-default: #e9e9e9;
   --color-background-tag-primary-hover: #e2e2e2;
   --color-background-tag-primary-active: #dadada;
@@ -752,9 +764,9 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-border-popover-education: #0074e8;
   --color-border-table-row-selected: #111111;
   --color-border-tag-disabled: #767676;
-  --elevation-floating: 0 0 8px rgb(0 0 0 / 0.10);
-  --elevation-raised-top: 0 2px 8px rgb(0 0 0 / 0.12);
-  --elevation-raised-bottom: 0 -2px 8px rgb(0 0 0 / 0.12);
+  --elevation-floating: 0 0 8px rgba(0, 0, 0, 0.10);
+  --elevation-raised-top: 0 2px 8px rgba(0, 0, 0, 0.12);
+  --elevation-raised-bottom: 0 -2px 8px rgba(0, 0, 0, 0.12);
   --elevation-datepicker: 0 0 8px rgba(0, 0, 0, 0.1);
  }
 </style>
@@ -894,6 +906,9 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-background-popover-primary: #2b2b2b;
   --color-background-popover-secondary: #efefef;
   --color-background-popover-education: #75bfff;
+  --color-background-tabs-default-base: #111111;
+  --color-background-tabs-default-hover: #767676;
+  --color-background-tabs-default-active: #535353;
   --color-background-tag-primary-default: #767676;
   --color-background-tag-primary-hover: #535353;
   --color-background-tag-primary-active: #666;

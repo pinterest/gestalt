@@ -20,5 +20,5 @@
 
 .delay {
   animation-delay: 0.3s;
-  opacity: 0;
+  opacity: var(--opacity-0);
 }

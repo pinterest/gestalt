@@ -77,7 +77,7 @@ html[dir="rtl"] .switch {
   composes: noBorder from "./Borders.css";
   composes: p0 from "./Whitespace.css";
   height: 100%;
-  opacity: 0;
+  opacity: var(--opacity-0);
   z-index: 2;
 }
 

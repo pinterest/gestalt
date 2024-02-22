@@ -55,7 +55,7 @@
 }
 
 .formElementBase:focus {
-  box-shadow: 0 0 0 4px rgb(0 132 255 / 0.5);
+  box-shadow: 0 0 0 4px var(--color-border-focus);
   outline: 0;
 }
 

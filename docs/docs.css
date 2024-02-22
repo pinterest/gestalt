@@ -191,7 +191,7 @@ pre {
 
 .searchbox__input:focus,
 .searchbox__input:active {
-  box-shadow: 0 0 0 4px rgb(0 132 255 / 0.5);
+  box-shadow: 0 0 0 4px var(--color-border-focus);
   outline: 0;
 }
 
@@ -280,7 +280,7 @@ pre {
 /* stylelint-disable-next-line at-rule-no-vendor-prefix */
 @-webkit-keyframes sbx-reset-in {
   0% {
-    opacity: 0;
+    opacity: var(--opacity-0);
     transform: translate3d(-20%, 0, 0);
   }
 
@@ -292,7 +292,7 @@ pre {
 
 @keyframes sbx-reset-in {
   0% {
-    opacity: 0;
+    opacity: var(--opacity-0);
     transform: translate3d(-20%, 0, 0);
   }
 
@@ -664,27 +664,27 @@ pre {
 
 .animation-1 {
   animation: appear 0.5s ease-out 0.25s forwards;
-  opacity: 0;
+  opacity: var(--opacity-0);
 }
 
 .animation-2 {
   animation: appear 0.5s ease-out 0.5s forwards;
-  opacity: 0;
+  opacity: var(--opacity-0);
 }
 
 .animation-3 {
   animation: appear 0.5s ease-out 0.75s forwards;
-  opacity: 0;
+  opacity: var(--opacity-0);
 }
 
 .animation-4 {
   animation: appear 0.5s ease-out 1s forwards;
-  opacity: 0;
+  opacity: var(--opacity-0);
 }
 
 .animation-5 {
   animation: appear 0.5s ease-out 1.25s forwards;
-  opacity: 0;
+  opacity: var(--opacity-0);
 }
 
 .animation-draw {
@@ -695,7 +695,7 @@ pre {
 
 .animation-6 {
   animation: appear 0.5s ease-out 2.25s forwards;
-  opacity: 0;
+  opacity: var(--opacity-0);
 }
 
 @keyframes appear {
@@ -870,19 +870,19 @@ Default table styling for MDX Pages
 .introAsterisk {
   animation: fly-in-right 1s ease-out 0s forwards,
     spin-counter-clockwise 2s ease-in-out 1s forwards 2;
-  opacity: 0;
+  opacity: var(--opacity-0);
 }
 
 .introHalfDonut {
   animation: fly-in-right 1s ease-out 0s forwards,
     rock 2s ease-in-out 1s forwards 2;
-  opacity: 0;
+  opacity: var(--opacity-0);
 }
 
 .fadeInRight,
 .fadeInLeft {
   display: none;
-  opacity: 0;
+  opacity: var(--opacity-0);
 }
 
 .fadeInRight.animate {

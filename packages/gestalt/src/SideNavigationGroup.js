@@ -155,7 +155,7 @@ export default function SideNavigationGroup({
 
   const paddingStyle = {
     paddingInlineStart: NESTING_MARGIN_START_MAP[nestedLevel],
-    paddingInlineEnd: '16px',
+    paddingInlineEnd: 'var(--space-400)',
   };
 
   if (isMobile) {
