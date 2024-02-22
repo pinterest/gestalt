@@ -146,6 +146,7 @@ export default function InternalTooltip({
         <Layer zIndex={zIndex}>
           {isInExperiment ? (
             <Controller
+              role="tooltip"
               anchor={anchor}
               caret={false}
               bgColor="darkGray"
@@ -156,6 +157,7 @@ export default function InternalTooltip({
               rounding={2}
               size={null}
               shouldFocus={false}
+              hideWhenReferenceHidden
             >
               <Box
                 maxWidth={180}

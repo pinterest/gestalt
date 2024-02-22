@@ -116,7 +116,7 @@ export default function Popover({
   _deprecatedShowCaret = false,
   size = 'sm',
   scrollBoundary,
-  hideWhenReferenceHidden,
+  hideWhenReferenceHidden = true,
   __dangerouslySetMaxHeight,
   __experimentalPopover,
   __onPositioned,
