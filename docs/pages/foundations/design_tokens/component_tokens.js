@@ -100,16 +100,16 @@ export default function DesignTokensPage(): ReactNode {
       {components.map((cmp) => (
         <MainSection key={cmp} name={cmp.charAt(0).toUpperCase() + cmp.slice(1)}>
           {tokenCategories.map(({ name, id, darkValues, category }) => {
-            const existing = allTokens.filter(({ name: tokenName }) =>
-              tokenName.startsWith(`${id}-${cmp}`),
+            const existingTokens = allTokens.filter(({ name: tokenName }) =>
+              tokenName.startsWith(`${id}-${cmp}-`),
             );
 
-            return existing.length > 0 ? (
+            return existingTokens.length > 0 ? (
               <MainSection.Subsection key={`table${cmp}${name}`} title={`${category}-${cmp}`}>
                 <Table accessibilityLabel={`${cmp}'s ${name} values`}>
                   <TableHeaders hasDarkValues={darkValues} />
                   <Table.Body>
-                    {existing.map((token) => (
+                    {existingTokens.map((token) => (
                       <Table.Row key={`token${token.name}`}>
                         <Table.Cell>
                           <Flex

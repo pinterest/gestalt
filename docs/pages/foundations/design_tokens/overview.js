@@ -9,7 +9,7 @@ import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';
 import { TokenExample } from '../../../docs-components/TokenExample';
 
-const EXCLUDION_LIST = [
+const EXCLUSION_LIST = [
   'avatar',
   'badge',
   'box',
@@ -43,7 +43,7 @@ const tokenCategories: $ReadOnlyArray<{
     id: 'color-background',
     infoPage: { name: 'Box', path: 'web/box#Colors' },
     darkValues: true,
-    excludedItems: EXCLUDION_LIST,
+    excludedItems: EXCLUSION_LIST,
   },
   {
     name: 'Border color',
