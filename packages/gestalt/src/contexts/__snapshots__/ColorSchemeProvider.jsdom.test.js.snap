@@ -33,7 +33,6 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-text-formfield-default: #efefef;
   --color-text-formfield-disabled: #ababab;
   --color-text-formfield-placeholder: #ababab;
-  --color-text-avatar-default: #efefef;
   --color-icon-default: #ffffff;
   --color-icon-subtle: #a5a5a5;
   --color-icon-success: #39d377;
@@ -224,7 +223,6 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-text-formfield-default: #111111;
   --color-text-formfield-disabled: #767676;
   --color-text-formfield-placeholder: #767676;
-  --color-text-avatar-default: #111111;
   --color-icon-default: #111111;
   --color-icon-subtle: #767676;
   --color-icon-success: #005f3e;
@@ -415,7 +413,6 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-text-formfield-default: #111111;
   --color-text-formfield-disabled: #767676;
   --color-text-formfield-placeholder: #767676;
-  --color-text-avatar-default: #111111;
   --color-icon-default: #111111;
   --color-icon-subtle: #767676;
   --color-icon-success: #005f3e;
@@ -606,7 +603,6 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-text-formfield-default: #111111;
   --color-text-formfield-disabled: #767676;
   --color-text-formfield-placeholder: #767676;
-  --color-text-avatar-default: #111111;
   --color-icon-default: #111111;
   --color-icon-subtle: #767676;
   --color-icon-success: #005f3e;
@@ -798,7 +794,6 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-text-formfield-default: #efefef;
   --color-text-formfield-disabled: #ababab;
   --color-text-formfield-placeholder: #ababab;
-  --color-text-avatar-default: #efefef;
   --color-icon-default: #ffffff;
   --color-icon-subtle: #a5a5a5;
   --color-icon-success: #39d377;
