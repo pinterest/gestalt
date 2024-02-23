@@ -10,7 +10,7 @@ import IconButton from './IconButton';
 import IconButtonLink from './IconButtonLink';
 import icons from './icons/index';
 
-export type BadgeType = {
+type BadgeType = {
   text: string,
   type?:
     | 'info'
