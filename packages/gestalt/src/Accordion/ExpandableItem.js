@@ -2,7 +2,6 @@
 import { type Element as ReactElement, type Node as ReactNode } from 'react';
 import applyModuleDensityStyle from './applyModuleDensity';
 import ModuleTitle from './Title';
-import { type BadgeType } from '../Accordion';
 import Box from '../Box';
 import Flex from '../Flex';
 import Icon from '../Icon';
@@ -10,6 +9,19 @@ import IconButton from '../IconButton';
 import icons from '../icons/index';
 import TapArea from '../TapArea';
 import Text from '../Text';
+
+export type BadgeType = {
+  text: string,
+  type?:
+    | 'info'
+    | 'error'
+    | 'warning'
+    | 'success'
+    | 'neutral'
+    | 'recommendation'
+    | 'darkWash'
+    | 'lightWash',
+};
 
 export default function AccordionExpandableItem({
   accessibilityCollapseLabel,

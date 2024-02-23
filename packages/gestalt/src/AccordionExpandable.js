@@ -7,7 +7,6 @@ import {
   useEffect,
   useState,
 } from 'react';
-import { type BadgeType } from './Accordion';
 import applyModuleDensityStyle from './Accordion/applyModuleDensity';
 import AccordionExpandableItem from './Accordion/ExpandableItem';
 import Box from './Box';
@@ -16,6 +15,19 @@ import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Divider from './Divider';
 import IconButton from './IconButton';
 import icons from './icons/index';
+
+export type BadgeType = {
+  text: string,
+  type?:
+    | 'info'
+    | 'error'
+    | 'warning'
+    | 'success'
+    | 'neutral'
+    | 'recommendation'
+    | 'darkWash'
+    | 'lightWash',
+};
 
 function getExpandedId(expandedIndex: ?number): ?number {
   return Number.isFinite(expandedIndex) ? expandedIndex : null;
