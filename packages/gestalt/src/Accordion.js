@@ -3,7 +3,6 @@ import { type Element, type Node as ReactNode } from 'react';
 import applyModuleDensityStyle from './Accordion/applyModuleDensity';
 import AccordionTitle from './Accordion/Title';
 import AccordionExpandable from './AccordionExpandable';
-import Badge from './Badge';
 import Box from './Box';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import Flex from './Flex';
@@ -13,7 +12,15 @@ import icons from './icons/index';
 
 export type BadgeType = {
   text: string,
-  type?: $ElementType<React$ElementConfig<typeof Badge>, 'type'>,
+  type?:
+    | 'info'
+    | 'error'
+    | 'warning'
+    | 'success'
+    | 'neutral'
+    | 'recommendation'
+    | 'darkWash'
+    | 'lightWash',
 };
 
 type Props = {
