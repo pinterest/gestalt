@@ -27,6 +27,8 @@ StyleDictionary.registerTransform({
   },
 });
 
+const regex = /(\{|\})/gi;
+
 StyleDictionary.registerFormat({
   name: 'customJSArrayFormat',
   formatter: ({ dictionary, file }) => {
@@ -34,7 +36,9 @@ StyleDictionary.registerFormat({
       JSON.stringify({
         name: token.path.join('-'),
         value: token.value,
+        originalValue: token.original.value?.replace(regex, ''),
         darkValue: token.darkValue,
+        originalDarkValue: token.original.darkValue?.replace(regex, ''),
         comment: token.comment,
         category: token.attributes.category,
       }),
