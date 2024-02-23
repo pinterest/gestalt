@@ -1,6 +1,7 @@
 // @flow strict
 import { type Element, type Node as ReactNode } from 'react';
 import applyModuleDensityStyle from './applyModuleDensity';
+import { type BadgeType } from '../Accordion';
 import Badge from '../Badge';
 import Box from '../Box';
 import Flex from '../Flex';
@@ -9,11 +10,6 @@ import IconButton from '../IconButton';
 import IconButtonLink from '../IconButtonLink';
 import icons from '../icons/index';
 import Text from '../Text';
-
-type BadgeType = {
-  text: string,
-  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
-};
 
 export default function AccordionTitle(props: {
   badge?: BadgeType,

@@ -15,7 +15,7 @@ import useFocusVisible from './useFocusVisible';
 
 type BadgeType = {
   text: string,
-  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
+  type?: $ElementType<React$ElementConfig<typeof Badge>, 'type'>,
 };
 
 type Props = {
