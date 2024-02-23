@@ -1,3 +1,9 @@
+## 145.3.1 (Feb 23, 2024)
+
+### Patch
+
+- Tokens: add original values to JSON and extend tokens table for extended metadata ([#3448](https://github.com/pinterest/gestalt/pull/3448)) - [Preview link](https://deploy-preview-3448--gestalt.netlify.app?devexample=true)
+
 ## 145.3.0 (Feb 23, 2024)
 
 ### Minor
