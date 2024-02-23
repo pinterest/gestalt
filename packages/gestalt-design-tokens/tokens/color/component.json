@@ -412,6 +412,12 @@
           "comment": "Formfield selected background color"
         }
       },
+      "mask": {
+        "wash": {
+          "value": "rgba(0, 0, 0, 0.04)",
+          "comment": "Mask component wash."
+        }
+      },
       "overlay": {
         "value": "{color.background.default.value}",
         "darkValue": "{color.background.elevation.floating.darkValue}",
@@ -434,6 +440,40 @@
           "comment": "Popover component secondary background color."
         }
       },
+      "tabs": {
+        "default": {
+          "base": {
+            "value": "{color.background.default.value}",
+            "darkValue": "{color.background.default.darkValue}",
+            "comment": "Tabs component default background color."
+          },
+          "hover": {
+            "value": "{color.background.secondary.base.value}",
+            "darkValue": "{color.background.secondary.base.darkValue}",
+            "comment": "Tabs component default background color on hover."
+          },
+          "active": {
+            "value": "#e2e2e2",
+            "darkValue": "#535353",
+            "comment": "Tabs component default background color on press."
+          }
+        },
+        "transparent": {
+          "base": {
+            "value": "{color.transparent.value}",
+            "comment": "Tabs component transparent background color."
+          },
+          "hover": {
+            "value": "rgba(0, 0, 0, 0.06)",
+            "comment": "Tabs component transparent background color on hover."
+          },
+          "active": {
+            "value": "rgba(0, 0, 0, 0.1)",
+            "comment": "Tabs component transparent background color on press."
+          }
+        }
+      },
+
       "tag": {
         "primary": {
           "default": {
@@ -702,6 +742,16 @@
           "value": "{color.background.education.value}",
           "darkValue": "{color.background.education.darkValue}",
           "comment": "Popover component secondary border color."
+        }
+      },
+      "pulsar": {
+        "default": {
+          "value": "#0074e8",
+          "comment": "Pulsar component default border color."
+        },
+        "hover": {
+          "value": "#dce9fa",
+          "comment": "Pulsar component border color on hover."
         }
       },
       "table": {

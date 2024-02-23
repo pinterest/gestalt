@@ -25,8 +25,8 @@ import Text from './Text';
 import { type Indexable } from './zIndex';
 
 export const NESTING_MARGIN_START_MAP = {
-  '0': '16px',
-  '1': '48px',
+  '0': 'var(--space-400)',
+  '1': 'var(--space-1200)',
   '2': '68px',
 };
 

@@ -69,7 +69,7 @@
   composes: absolute from "../Layout.css";
   composes: m0 from "../Whitespace.css";
   appearance: none;
-  opacity: 0;
+  opacity: var(--opacity-0);
   outline: 0;
 }
 

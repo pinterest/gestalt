@@ -288,7 +288,7 @@
           "comment": "Background color to supply a dark wash over an item"
         },
         "light": {
-          "value": "rgba(255, 255, 255 , 0.9)",
+          "value": "rgba(255, 255, 255, 0.9)",
           "comment": "Background color to supply a light wash over an item"
         }
       },

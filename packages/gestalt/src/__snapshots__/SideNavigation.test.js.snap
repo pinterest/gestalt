@@ -101,7 +101,7 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                       Object {
                         "minHeight": 44,
                         "paddingInlineEnd": "16px",
-                        "paddingInlineStart": "16px",
+                        "paddingInlineStart": "var(--space-400)",
                       }
                     }
                   >
@@ -261,7 +261,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                           Object {
                             "minHeight": 44,
                             "paddingInlineEnd": "16px",
-                            "paddingInlineStart": "16px",
+                            "paddingInlineStart": "var(--space-400)",
                           }
                         }
                       >
@@ -393,7 +393,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                           Object {
                             "minHeight": 44,
                             "paddingInlineEnd": "16px",
-                            "paddingInlineStart": "16px",
+                            "paddingInlineStart": "var(--space-400)",
                           }
                         }
                       >
@@ -587,7 +587,7 @@ exports[`SideNavigation renders Sections 1`] = `
                           Object {
                             "minHeight": 44,
                             "paddingInlineEnd": "16px",
-                            "paddingInlineStart": "16px",
+                            "paddingInlineStart": "var(--space-400)",
                           }
                         }
                       >
@@ -693,7 +693,7 @@ exports[`SideNavigation renders basic Item 1`] = `
                       Object {
                         "minHeight": 44,
                         "paddingInlineEnd": "16px",
-                        "paddingInlineStart": "16px",
+                        "paddingInlineStart": "var(--space-400)",
                       }
                     }
                   >
@@ -797,7 +797,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                       Object {
                         "minHeight": 44,
                         "paddingInlineEnd": "16px",
-                        "paddingInlineStart": "16px",
+                        "paddingInlineStart": "var(--space-400)",
                       }
                     }
                   >
@@ -874,7 +874,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                       Object {
                         "minHeight": 44,
                         "paddingInlineEnd": "16px",
-                        "paddingInlineStart": "16px",
+                        "paddingInlineStart": "var(--space-400)",
                       }
                     }
                   >
@@ -973,7 +973,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           Object {
                             "minHeight": 44,
                             "paddingInlineEnd": "16px",
-                            "paddingInlineStart": "16px",
+                            "paddingInlineStart": "var(--space-400)",
                           }
                         }
                       >
@@ -1050,8 +1050,8 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                         style={
                           Object {
                             "minHeight": 44,
-                            "paddingInlineEnd": "16px",
-                            "paddingInlineStart": "16px",
+                            "paddingInlineEnd": "var(--space-400)",
+                            "paddingInlineStart": "var(--space-400)",
                           }
                         }
                       >
@@ -1151,8 +1151,8 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                         style={
                           Object {
                             "minHeight": 44,
-                            "paddingInlineEnd": "16px",
-                            "paddingInlineStart": "16px",
+                            "paddingInlineEnd": "var(--space-400)",
+                            "paddingInlineStart": "var(--space-400)",
                           }
                         }
                       >
@@ -1303,8 +1303,8 @@ exports[`SideNavigation renders expanded group 1`] = `
                     style={
                       Object {
                         "minHeight": 44,
-                        "paddingInlineEnd": "16px",
-                        "paddingInlineStart": "16px",
+                        "paddingInlineEnd": "var(--space-400)",
+                        "paddingInlineStart": "var(--space-400)",
                       }
                     }
                   >
@@ -1407,7 +1407,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                           Object {
                             "minHeight": 44,
                             "paddingInlineEnd": "16px",
-                            "paddingInlineStart": "48px",
+                            "paddingInlineStart": "var(--space-1200)",
                           }
                         }
                       >
@@ -1462,8 +1462,8 @@ exports[`SideNavigation renders expanded group 1`] = `
                         style={
                           Object {
                             "minHeight": 44,
-                            "paddingInlineEnd": "16px",
-                            "paddingInlineStart": "48px",
+                            "paddingInlineEnd": "var(--space-400)",
+                            "paddingInlineStart": "var(--space-1200)",
                           }
                         }
                       >
@@ -1686,8 +1686,8 @@ exports[`SideNavigation renders static group 1`] = `
                   style={
                     Object {
                       "minHeight": 44,
-                      "paddingInlineEnd": "16px",
-                      "paddingInlineStart": "16px",
+                      "paddingInlineEnd": "var(--space-400)",
+                      "paddingInlineStart": "var(--space-400)",
                     }
                   }
                 >

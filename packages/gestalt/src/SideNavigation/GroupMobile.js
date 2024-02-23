@@ -80,7 +80,7 @@ export default function SideNavigationGroupMobile({
 
   const paddingStyle = {
     paddingInlineStart: nestingMargin,
-    paddingInlineEnd: '16px',
+    paddingInlineEnd: 'var(--space-400)',
   };
 
   let topLevelChildrenList;

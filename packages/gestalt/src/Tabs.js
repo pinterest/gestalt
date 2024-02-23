@@ -88,17 +88,17 @@ type TabProps = {
 
 const TAB_ROUNDING = 2;
 const TAB_INNER_PADDING = 2;
-const colors = {
+
+const COLORS = {
   default: {
-    base: 'default',
-    pressed: 'lightWash',
-    hover: 'secondary',
+    base: 'var(--color-background-tabs-default-base)',
+    active: 'var(--color-background-tabs-default-active)',
+    hover: 'var(--color-background-tabs-default-hover)',
   },
   transparent: {
-    base: 'transparent',
-    // From Colors.css, matches <Button color="transparent" />
-    pressed: 'rgb(0 0 0 / 0.1)',
-    hover: 'rgb(0 0 0 / 0.06)',
+    base: 'var(--color-background-tabs-transparent-base)',
+    active: 'var(--color-background-tabs-transparent-active)',
+    hover: 'var(--color-background-tabs-transparent-hover)',
   },
 };
 
@@ -110,14 +110,12 @@ const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
   const [focused, setFocused] = useState(false);
   const [pressed, setPressed] = useState(false);
 
-  const bgColorSet = colors[bgColor];
-
-  let color = bgColorSet.base;
+  let color = COLORS[bgColor].base;
   if (!isActive) {
     if (pressed) {
-      color = bgColorSet.pressed;
+      color = COLORS[bgColor].active;
     } else if (hovered || focused) {
-      color = bgColorSet.hover;
+      color = COLORS[bgColor].hover;
     }
   }
 
@@ -144,14 +142,7 @@ const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
       >
         <Flex alignItems="center" direction="column">
           <Box
-            color={color.startsWith('rgb') ? undefined : color}
-            {...(color.startsWith('rgb')
-              ? {
-                  dangerouslySetInlineStyle: {
-                    __style: { backgroundColor: color },
-                  },
-                }
-              : {})}
+            dangerouslySetInlineStyle={{ __style: { backgroundColor: color } }}
             padding={TAB_INNER_PADDING}
             position="relative"
             rounding={TAB_ROUNDING}
