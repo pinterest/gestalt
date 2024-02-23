@@ -17,14 +17,17 @@ type ExampleProps = {
   category: string,
 };
 
+const HEIGHT = 50;
+const WIDTH = 250;
+
 export function ColorBox({ token }: BaseProps): ReactNode {
   return (
     <Box
       dangerouslySetInlineStyle={{
         __style: { backgroundColor: `var(--${token.name})` },
       }}
-      height={50}
-      width={250}
+      height={HEIGHT}
+      width={WIDTH}
       display="flex"
       alignItems="center"
       justifyContent="between"
@@ -41,8 +44,8 @@ export function RoundingBox({ token }: BaseProps): ReactNode {
         __style: { 'borderRadius': `var(--${token.name})` },
       }}
       borderStyle="lg"
-      width={64}
-      height={64}
+      height={HEIGHT}
+      width={WIDTH}
     />
   );
 }
@@ -88,8 +91,8 @@ export function TextColorBox({ token }: BaseProps): ReactNode {
       dangerouslySetInlineStyle={{
         __style: { color: `var(--${token.name})`, fontSize: '32px' },
       }}
-      height={50}
-      width={150}
+      height={HEIGHT}
+      width={WIDTH}
       display="flex"
       alignItems="center"
       justifyContent="between"
@@ -107,8 +110,8 @@ export function BorderBox({ token }: BaseProps): ReactNode {
       dangerouslySetInlineStyle={{
         __style: { border: `2px solid var(--${token.name})` },
       }}
-      height={50}
-      width={150}
+      height={HEIGHT}
+      width={WIDTH}
       display="flex"
       alignItems="center"
       justifyContent="between"
@@ -121,8 +124,8 @@ export function OpacityBox({ token }: BaseProps): ReactNode {
   return (
     <Box
       color="recommendationWeak"
-      width={175}
-      height={75}
+      height={HEIGHT}
+      width={WIDTH}
       display="flex"
       justifyContent="center"
       alignItems="center"
@@ -131,8 +134,8 @@ export function OpacityBox({ token }: BaseProps): ReactNode {
         dangerouslySetInlineStyle={{
           __style: { opacity: `var(--${token.name})` },
         }}
-        height={50}
-        width={150}
+        height={HEIGHT}
+        width={WIDTH}
         color="inverse"
       />
     </Box>
@@ -148,8 +151,8 @@ export function ElevationBox({ token }: BaseProps): ReactNode {
           backgroundColor: token.name.includes('color') ? `var(--${token.name})` : 'transparent',
         },
       }}
-      height={50}
-      width={150}
+      height={HEIGHT}
+      width={WIDTH}
       display="flex"
       alignItems="center"
       justifyContent="between"
@@ -173,8 +176,8 @@ export function FontBox({ token, type }: FontBoxProps): ReactNode {
           color: 'var(--color-text-default)',
         },
       }}
-      height={50}
-      width={150}
+      height={HEIGHT}
+      width={WIDTH}
       display="flex"
       alignItems="center"
       justifyContent="between"
