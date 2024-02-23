@@ -1,3 +1,9 @@
+## 145.3.0 (Feb 23, 2024)
+
+### Minor
+
+- Tokens: some cleanups to increase token coverage ([#3445](https://github.com/pinterest/gestalt/pull/3445)) - [Preview link](https://deploy-preview-3445--gestalt.netlify.app?devexample=true)
+
 ## 145.2.0 (Feb 23, 2024)
 
 ### Minor
