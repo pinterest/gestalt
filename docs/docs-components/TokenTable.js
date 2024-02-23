@@ -16,7 +16,7 @@ function TableHeaders({ hasDarkValues }: { hasDarkValues: boolean }): ReactNode 
   });
 
   return (
-    <Table.Header sticky>
+    <Table.Header>
       <Table.Row>{rows}</Table.Row>
     </Table.Header>
   );
@@ -95,7 +95,7 @@ export default function TokenTable({
   );
 
   return (
-    <Table accessibilityLabel={`${name} values`} maxHeight={400}>
+    <Table accessibilityLabel={`${name} values`}>
       <colgroup>
         <col span="1" style={{ width: '50%' }} />
         {darkValues ? (
