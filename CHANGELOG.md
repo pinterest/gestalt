@@ -1,3 +1,9 @@
+## 145.2.0 (Feb 23, 2024)
+
+### Minor
+
+- TextField: Add dataTestId prop ([#3446](https://github.com/pinterest/gestalt/pull/3446)) - [Preview link](https://deploy-preview-3446--gestalt.netlify.app?devexample=true)
+
 ## 145.1.2 (Feb 22, 2024)
 
 ### Patch
