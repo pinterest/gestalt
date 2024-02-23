@@ -82,6 +82,18 @@ export default function TokenTable({
   excludedItems,
   data,
 }: Props): ReactNode {
+  const tokenData = excludedItems
+    ? data.filter(
+        ({ name: tokenName }) =>
+          tokenName.startsWith(`${id}`) &&
+          !excludedItems?.some((item) => tokenName.startsWith(`${id}-${item}`)),
+      )
+    : data;
+
+  const sortedTokens = [...tokenData].sort(({ name: tokenNameA }, { name: tokenNameB }) =>
+    tokenNameA.localeCompare(tokenNameB),
+  );
+
   return (
     <Table accessibilityLabel={`${name} values`} maxHeight={400}>
       <colgroup>
@@ -98,14 +110,7 @@ export default function TokenTable({
 
       <TableHeaders hasDarkValues={darkValues} />
       <Table.Body>
-        {(excludedItems
-          ? data.filter(
-              ({ name: tokenName }) =>
-                tokenName.startsWith(`${id}`) &&
-                !excludedItems?.some((item) => tokenName.startsWith(`${id}-${item}`)),
-            )
-          : data
-        ).map((token) => (
+        {sortedTokens.map((token) => (
           <Table.Row key={`token${token.name}`}>
             <Table.Cell>
               <Flex height={100}>
