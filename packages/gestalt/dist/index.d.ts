@@ -67,6 +67,7 @@ interface BadgeObject {
     | 'neutral'
     | 'darkWash'
     | 'lightWash'
+    | 'recommendation'
     | undefined;
 }
 
@@ -1686,6 +1687,7 @@ interface RadioGroupRadioButtonProps {
   id: string;
   onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { checked: boolean }>;
   value: string;
+  badge?: BadgeObject | undefined;
   checked?: boolean | undefined;
   disabled?: boolean | undefined;
   helperText?: string | undefined;

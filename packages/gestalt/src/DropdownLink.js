@@ -5,7 +5,15 @@ import OptionItem from './Dropdown/OptionItem';
 
 type BadgeType = {
   text: string,
-  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
+  type?:
+    | 'info'
+    | 'error'
+    | 'warning'
+    | 'success'
+    | 'neutral'
+    | 'recommendation'
+    | 'darkWash'
+    | 'lightWash',
 };
 
 type OptionItemType = {
