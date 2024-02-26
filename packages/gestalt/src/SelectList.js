@@ -98,9 +98,13 @@ function SelectList({
   const classes = classnames(
     styles.select,
     formElement.base,
-    disabled ? formElement.disabled : formElement.enabled,
-    errorMessage ? formElement.errored : formElement.normal,
     size === 'md' ? layout.medium : layout.large,
+    {
+      [formElement.normal]: !errorMessage,
+      [formElement.enabledTransparent]: !disabled,
+      [formElement.disabled]: disabled,
+      [formElement.errored]: !disabled && !!errorMessage,
+    },
   );
 
   const showPlaceholder = placeholder && !value;

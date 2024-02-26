@@ -4,6 +4,7 @@ declare module.exports: {|
   +'base': string,
   +'disabled': string,
   +'enabled': string,
+  +'enabledTransparent': string,
   +'errored': string,
   +'normal': string,
   +'unstyled': string,
