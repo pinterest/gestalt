@@ -80,7 +80,7 @@ describe('<ActivationCard />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('message + title + link + dismissButton', () => {
+  test('message + title + link + onDismiss', () => {
     const tree = create(
       <ActivationCard
         status="needsAttention"
@@ -92,10 +92,7 @@ describe('<ActivationCard />', () => {
           label: 'Learn more',
           accessibilityLabel: 'Learn more about tags',
         }}
-        dismissButton={{
-          accessibilityLabel: 'Dismiss card',
-          onDismiss: jest.fn(),
-        }}
+        onDismiss={jest.fn()}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();

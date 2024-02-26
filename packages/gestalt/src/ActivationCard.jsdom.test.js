@@ -11,10 +11,6 @@ test('ActivationCard handles onDismiss callback', () => {
       title="Claiming your website"
       message="We will notify you via email as soon as your site has been successfully claimed"
       onDismiss={mockOnDismiss}
-      dismissButton={{
-        accessibilityLabel: 'Dismiss card',
-        onDismiss: mockOnDismiss,
-      }}
     />,
   );
   screen.getByLabelText('Dismiss').click();

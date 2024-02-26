@@ -32,7 +32,7 @@ type LinkData = {
 
 type ActivationCardProps = {
   /**
-   * Adds a dismiss button to BannerOverlay. See the [Dismissible variant](https://gestalt.pinterest.systems/web/activationcard#Dismissible) for more info.
+   * Adds a dismiss button to ActivationCard.
    */
   onDismiss?: () => void,
   /**
@@ -101,8 +101,6 @@ function DismissButton({ onDismiss }: { onDismiss: () => void }): ReactNode {
         accessibilityLabel={accessibilityDismissButtonLabelDefault}
         iconColor="gray"
         onClick={onDismiss}
-        padding={12}
-        icon="cancel"
         size="sm"
       />
     </div>
