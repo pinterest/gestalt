@@ -1,3 +1,9 @@
+## 145.3.2 (Feb 26, 2024)
+
+### Patch
+
+- RadioGroup, Accordion, Datapoint, Dropdown: Fixing badge type ([#3447](https://github.com/pinterest/gestalt/pull/3447)) - [Preview link](https://deploy-preview-3447--gestalt.netlify.app?devexample=true)
+
 ## 145.3.1 (Feb 23, 2024)
 
 ### Patch
