@@ -123,11 +123,13 @@ function SelectList({
     <Box>
       {label && <FormLabel id={id} label={label} labelDisplay={labelDisplay} />}
       <Box
-        color={disabled ? 'secondary' : 'default'}
         display="flex"
         position="relative"
         rounding={4}
         width="100%"
+        dangerouslySetInlineStyle={{
+          __style: { backgroundColor: 'var(--color-background-formfield-primary)' },
+        }}
       >
         <Box
           alignItems="center"
