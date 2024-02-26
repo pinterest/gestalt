@@ -47,7 +47,7 @@
 }
 
 .BgDisabled {
-  background-color: var(---color-background-formfield-disabled);
+  background-color: var(--color-background-formfield-disabled);
 }
 
 .BgEnabled {

@@ -10,7 +10,7 @@
 }
 
 .transparentBorder {
-  border-color: transparent;
+  border-color: var(--color-transparent);
 }
 
 .borderColorSelected {
@@ -34,7 +34,7 @@
 }
 
 .borderColorLightGrayDisabled {
-  border-color: var(--g-colorGray100);
+  border-color: var(--color-border-formfield-disabled);
 }
 
 .borderTop {

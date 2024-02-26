@@ -31,7 +31,7 @@ export default function getCheckboxColor({
 
   if (state.hovered && !state.selected) {
     return {
-      backgroundColor: `var(--g-colorGray0)`,
+      backgroundColor: `var(--color-background-formfield-primary)`,
       borderColor: 'var(--color-border-default)',
     };
   }
@@ -45,7 +45,7 @@ export default function getCheckboxColor({
 
   if (opts?.showByDefault) {
     return {
-      backgroundColor: `var(--g-colorGray0)`,
+      backgroundColor: `var(--color-background-formfield-primary)`,
       borderColor: 'var(--color-border-default)',
     };
   }

@@ -33,7 +33,7 @@ exports[`Modal Desktop Modal renders 1`] = `
                 class="box justifyCenter paddingX6 paddingY6"
               >
                 <h1
-                  class="Heading fontSize500 defaultText alignCenter breakWord"
+                  class="Heading fontSize500 default alignCenter breakWord"
                 >
                   Heading
                 </h1>
@@ -41,7 +41,7 @@ exports[`Modal Desktop Modal renders 1`] = `
                   class="box marginTop1"
                 >
                   <div
-                    class="Text fontSize300 defaultText alignCenter breakWord fontWeightNormal"
+                    class="Text fontSize300 default alignCenter breakWord fontWeightNormal"
                   >
                     Subheading
                   </div>
@@ -76,7 +76,7 @@ exports[`Modal Desktop Modal renders 1`] = `
                         class="button hideOutline inline accessibilityOutline tapTransition md gray enabled childrenDiv"
                       >
                         <div
-                          class="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+                          class="Text fontSize300 default alignCenter fontWeightSemiBold"
                         >
                           Cancel
                         </div>
@@ -95,7 +95,7 @@ exports[`Modal Desktop Modal renders 1`] = `
                         class="button hideOutline inline accessibilityOutline tapTransition md red enabled childrenDiv"
                       >
                         <div
-                          class="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+                          class="Text fontSize300 inverse alignCenter fontWeightSemiBold"
                         >
                           Next
                         </div>
@@ -164,7 +164,7 @@ exports[`Modal Mobile Modal renders 1`] = `
                         <svg
                           aria-hidden="true"
                           aria-label=""
-                          class="icon defaultIcon iconBlock"
+                          class="default icon iconBlock"
                           height="20"
                           role="img"
                           viewBox="0 0 24 24"
@@ -185,13 +185,13 @@ exports[`Modal Mobile Modal renders 1`] = `
                     class="Flex rowGap0 columnGap0 xsDirectionColumn"
                   >
                     <h1
-                      class="Heading fontSize300 defaultText alignCenter breakWord lineClamp"
+                      class="Heading fontSize300 default alignCenter breakWord lineClamp"
                       title="Heading"
                     >
                       Heading
                     </h1>
                     <div
-                      class="Text fontSize100 defaultText alignCenter breakWord fontWeightNormal"
+                      class="Text fontSize100 default alignCenter breakWord fontWeightNormal"
                     >
                       Subheading
                     </div>
@@ -225,7 +225,7 @@ exports[`Modal Mobile Modal renders 1`] = `
                         class="button hideOutline inline accessibilityOutline tapTransition md gray enabled childrenDiv"
                       >
                         <div
-                          class="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+                          class="Text fontSize300 default alignCenter fontWeightSemiBold"
                         >
                           Cancel
                         </div>
@@ -244,7 +244,7 @@ exports[`Modal Mobile Modal renders 1`] = `
                         class="button hideOutline inline accessibilityOutline tapTransition md red enabled childrenDiv"
                       >
                         <div
-                          class="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+                          class="Text fontSize300 inverse alignCenter fontWeightSemiBold"
                         >
                           Next
                         </div>

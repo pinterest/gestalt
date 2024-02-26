@@ -5,7 +5,6 @@ import classnames from 'classnames';
 import usePopover, { DIRECTIONS_MAP, SIDES_MAP } from './usePopover';
 import borders from '../Borders.css';
 import Caret from '../Caret';
-import colors from '../Colors.css';
 import styles from '../Contents.css';
 import { type MainDirections } from '../utils/positioningTypes';
 import { CARET_HEIGHT, CARET_WIDTH } from '../utils/positioningUtils';
@@ -29,6 +28,7 @@ type Props = {
   scrollBoundary?: HTMLElement,
   hideWhenReferenceHidden?: boolean,
   onPositioned?: () => void,
+  shouldTrapFocus?: boolean,
 };
 
 export default function Contents({
@@ -46,8 +46,9 @@ export default function Contents({
   shouldFocus = true,
   onKeyDown,
   scrollBoundary,
-  hideWhenReferenceHidden = true,
+  hideWhenReferenceHidden,
   onPositioned,
+  shouldTrapFocus,
 }: Props): ReactNode {
   const caretRef = useRef<HTMLElement | null>(null);
   const idealPlacement = idealDirection ? DIRECTIONS_MAP[idealDirection] : 'top';
@@ -64,15 +65,6 @@ export default function Contents({
   const caretOffset = middlewareData.arrow;
   const visibility = middlewareData.hide?.referenceHidden === true ? 'hidden' : 'visible';
 
-  let background: 'overlay' | 'blueBg' | 'darkGrayBg' = 'overlay';
-
-  if (bgColor === 'blue') {
-    background = 'blueBg';
-  } else if (bgColor === 'darkGray') {
-    background = 'darkGrayBg';
-  }
-
-  const bgColorElevated = bgColor === 'white' ? 'whiteElevated' : bgColor;
   const isCaretVertical = placement === 'top' || placement === 'bottom';
 
   useEffect(() => {
@@ -87,7 +79,12 @@ export default function Contents({
   }, [onKeyDown]);
 
   return (
-    <FloatingFocusManager context={context} returnFocus={false}>
+    <FloatingFocusManager
+      disabled={role === 'tooltip'}
+      context={context}
+      returnFocus={false}
+      modal={shouldTrapFocus ?? false}
+    >
       <div
         ref={refs.setFloating}
         tabIndex={-1}
@@ -104,7 +101,11 @@ export default function Contents({
         {caret && (
           <div
             ref={caretRef}
-            className={classnames(colors[bgColorElevated], styles.caret)}
+            className={classnames(styles.caret, {
+              [styles.caretPrimary]: bgColor === 'white',
+              [styles.caretSecondary]: bgColor === 'darkGray',
+              [styles.caretEducation]: bgColor === 'blue',
+            })}
             style={{
               left: caretOffset?.x != null ? `${caretOffset.x}px` : '',
               top: caretOffset?.y != null ? `${caretOffset.y}px` : '',
@@ -125,13 +126,16 @@ export default function Contents({
           role={role}
           className={classnames(
             border && styles.border,
-            colors[background],
-            colors[bgColorElevated],
             rounding === 2 && borders.rounding2,
             rounding === 4 && borders.rounding4,
             styles.innerContents,
             styles.maxDimensions,
             width !== null && styles.minDimensions,
+            {
+              [styles.primary]: bgColor === 'white',
+              [styles.secondary]: bgColor === 'darkGray',
+              [styles.education]: bgColor === 'blue',
+            },
           )}
           style={{
             maxWidth: width,

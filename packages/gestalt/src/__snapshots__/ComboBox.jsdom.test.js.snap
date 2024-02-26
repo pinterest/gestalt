@@ -20,7 +20,7 @@ exports[`ComboBox Controlled ComboBox renders basic controlled components 1`] = 
             class="formLabel"
           >
             <div
-              class="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
+              class="Text fontSize100 default alignStart breakWord fontWeightNormal"
             >
               label
             </div>
@@ -59,7 +59,7 @@ exports[`ComboBox Controlled ComboBox renders basic controlled components 1`] = 
                   <svg
                     aria-hidden="true"
                     aria-label=""
-                    class="icon defaultIcon iconBlock"
+                    class="default icon iconBlock"
                     height="12"
                     role="img"
                     viewBox="0 0 24 24"
@@ -100,7 +100,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             class="formLabel"
           >
             <div
-              class="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
+              class="Text fontSize100 default alignStart breakWord fontWeightNormal"
             >
               label
             </div>
@@ -126,7 +126,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize100 defaultText alignStart breakAll fontWeightNormal lineClamp"
+                    class="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
                     title="ey / em"
                   >
                     ey / em
@@ -144,7 +144,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                       >
                         <svg
                           aria-label="Remove tag"
-                          class="icon defaultIcon iconBlock"
+                          class="default icon iconBlock"
                           height="8"
                           role="img"
                           viewBox="0 0 24 24"
@@ -174,7 +174,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize100 defaultText alignStart breakAll fontWeightNormal lineClamp"
+                    class="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
                     title="he / him"
                   >
                     he / him
@@ -192,7 +192,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                       >
                         <svg
                           aria-label="Remove tag"
-                          class="icon defaultIcon iconBlock"
+                          class="default icon iconBlock"
                           height="8"
                           role="img"
                           viewBox="0 0 24 24"
@@ -222,7 +222,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize100 defaultText alignStart breakAll fontWeightNormal lineClamp"
+                    class="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
                     title="ne / nem"
                   >
                     ne / nem
@@ -240,7 +240,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                       >
                         <svg
                           aria-label="Remove tag"
-                          class="icon defaultIcon iconBlock"
+                          class="default icon iconBlock"
                           height="8"
                           role="img"
                           viewBox="0 0 24 24"
@@ -270,7 +270,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize100 defaultText alignStart breakAll fontWeightNormal lineClamp"
+                    class="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
                     title="she / her"
                   >
                     she / her
@@ -288,7 +288,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                       >
                         <svg
                           aria-label="Remove tag"
-                          class="icon defaultIcon iconBlock"
+                          class="default icon iconBlock"
                           height="8"
                           role="img"
                           viewBox="0 0 24 24"
@@ -318,7 +318,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize100 defaultText alignStart breakAll fontWeightNormal lineClamp"
+                    class="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
                     title="they / them"
                   >
                     they / them
@@ -336,7 +336,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                       >
                         <svg
                           aria-label="Remove tag"
-                          class="icon defaultIcon iconBlock"
+                          class="default icon iconBlock"
                           height="8"
                           role="img"
                           viewBox="0 0 24 24"
@@ -366,7 +366,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize100 defaultText alignStart breakAll fontWeightNormal lineClamp"
+                    class="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
                     title="ve / ver"
                   >
                     ve / ver
@@ -384,7 +384,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                       >
                         <svg
                           aria-label="Remove tag"
-                          class="icon defaultIcon iconBlock"
+                          class="default icon iconBlock"
                           height="8"
                           role="img"
                           viewBox="0 0 24 24"
@@ -414,7 +414,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize100 defaultText alignStart breakAll fontWeightNormal lineClamp"
+                    class="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
                     title="xe / xem"
                   >
                     xe / xem
@@ -432,7 +432,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                       >
                         <svg
                           aria-label="Remove tag"
-                          class="icon defaultIcon iconBlock"
+                          class="default icon iconBlock"
                           height="8"
                           role="img"
                           viewBox="0 0 24 24"
@@ -462,7 +462,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize100 defaultText alignStart breakAll fontWeightNormal lineClamp"
+                    class="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
                     title="xie / xem"
                   >
                     xie / xem
@@ -480,7 +480,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                       >
                         <svg
                           aria-label="Remove tag"
-                          class="icon defaultIcon iconBlock"
+                          class="default icon iconBlock"
                           height="8"
                           role="img"
                           viewBox="0 0 24 24"
@@ -510,7 +510,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize100 defaultText alignStart breakAll fontWeightNormal lineClamp"
+                    class="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
                     title="zie / zem"
                   >
                     zie / zem
@@ -528,7 +528,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                       >
                         <svg
                           aria-label="Remove tag"
-                          class="icon defaultIcon iconBlock"
+                          class="default icon iconBlock"
                           height="8"
                           role="img"
                           viewBox="0 0 24 24"
@@ -584,7 +584,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                   <svg
                     aria-hidden="true"
                     aria-label=""
-                    class="icon defaultIcon iconBlock"
+                    class="default icon iconBlock"
                     height="12"
                     role="img"
                     viewBox="0 0 24 24"
@@ -625,7 +625,7 @@ exports[`ComboBox Uncontrolled ComboBox renders default 1`] = `
             class="formLabel"
           >
             <div
-              class="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
+              class="Text fontSize100 default alignStart breakWord fontWeightNormal"
             >
               label
             </div>
@@ -664,7 +664,7 @@ exports[`ComboBox Uncontrolled ComboBox renders default 1`] = `
                   <svg
                     aria-hidden="true"
                     aria-label=""
-                    class="icon defaultIcon iconBlock"
+                    class="default icon iconBlock"
                     height="12"
                     role="img"
                     viewBox="0 0 24 24"
@@ -705,7 +705,7 @@ exports[`ComboBox Uncontrolled ComboBox renders disabled state 1`] = `
             class="formLabel"
           >
             <div
-              class="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
+              class="Text fontSize100 default alignStart breakWord fontWeightNormal"
             >
               label
             </div>

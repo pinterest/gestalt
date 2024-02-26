@@ -4,7 +4,7 @@
   composes: top0 right0 bottom0 left0 contentBox from "./Layout.css";
   background: rgb(0 0 0 / 0.064);
   height: 100%;
-  opacity: 0;
+  opacity: var(--opacity-0);
   pointer-events: none;
   width: 100%;
 }

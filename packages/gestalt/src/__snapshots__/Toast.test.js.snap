@@ -22,7 +22,7 @@ exports[`<Toast /> Error Toast 1`] = `
         <svg
           aria-hidden={null}
           aria-label="Error message"
-          className="icon inverseIcon iconBlock"
+          className="inverse icon iconBlock"
           height={24}
           role="img"
           viewBox="0 0 24 24"
@@ -37,7 +37,7 @@ exports[`<Toast /> Error Toast 1`] = `
         className="FlexItem flexGrow"
       >
         <span
-          className="Text fontSize300 inverseText alignStart breakWord fontWeightSemiBold lineClamp"
+          className="Text fontSize300 inverse alignStart breakWord fontWeightSemiBold lineClamp"
           style={
             Object {
               "WebkitLineClamp": 2,
@@ -75,7 +75,7 @@ exports[`<Toast /> Text + _dangerouslySetPrimaryAction 1`] = `
           className="textColorOverrideLight"
         >
           <span
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+            className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
           >
             Saved to
              
@@ -122,7 +122,7 @@ exports[`<Toast /> Text + _dangerouslySetPrimaryAction 1`] = `
             className="button hideOutline inline accessibilityOutline tapTransition lg gray enabled childrenDiv"
           >
             <div
-              className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+              className="Text fontSize300 default alignCenter fontWeightSemiBold"
             >
               Undo
             </div>
@@ -195,7 +195,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
           className="textColorOverrideLight"
         >
           <span
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+            className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
           >
             Saved to
              
@@ -242,7 +242,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
             className="button hideOutline inline accessibilityOutline tapTransition sm gray enabled childrenDiv"
           >
             <div
-              className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+              className="Text fontSize300 default alignCenter fontWeightSemiBold"
             >
               Undo
             </div>
@@ -315,7 +315,7 @@ exports[`<Toast /> Text + Image 1`] = `
           className="textColorOverrideLight"
         >
           <span
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+            className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
           >
             Saved to
              
@@ -365,7 +365,7 @@ exports[`<Toast /> Text Only 1`] = `
         className="FlexItem flexGrow"
       >
         <span
-          className="Text fontSize300 inverseText alignStart breakWord fontWeightNormal lineClamp"
+          className="Text fontSize300 inverse alignStart breakWord fontWeightNormal lineClamp"
           style={
             Object {
               "WebkitLineClamp": 2,

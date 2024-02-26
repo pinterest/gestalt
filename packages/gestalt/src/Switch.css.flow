@@ -3,14 +3,14 @@
 declare module.exports: {|
   +'checkbox': string,
   +'checkboxEnabled': string,
+  +'disabled': string,
+  +'disabledSelected': string,
+  +'enabled': string,
+  +'enabledSelected': string,
   +'slider': string,
   +'sliderDark': string,
   +'sliderLeft': string,
   +'sliderLight': string,
   +'sliderRight': string,
   +'switch': string,
-  +'switchDarkGray': string,
-  +'switchGray': string,
-  +'switchLightGray': string,
-  +'switchWhite': string,
 |};

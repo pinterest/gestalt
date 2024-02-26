@@ -2,12 +2,12 @@
   composes: accessibilityOutline from "./Focus.css";
   composes: border pill sizeLg from "./Borders.css";
   composes: borderBox from "./Layout.css";
-  composes: darkGray from "./Colors.css";
   composes: Text from "./Text.css";
   composes: fontSize300 from "./Typography.css";
   composes: xsCol12 from "./Column.css";
   appearance: none;
   background-color: var(--color-background-formfield-primary);
+  color: var(--color-text-formfield-primary);
   min-width: 180px;
   padding: var(--space-200) calc(var(--space-800) + var(--space-200));
 }
@@ -28,7 +28,7 @@
 }
 
 .input::placeholder {
-  color: var(--g-colorGray200);
+  color: var(--color-text-formfield-placeholder);
 }
 
 html:not([dir="rtl"]) .inputActive {

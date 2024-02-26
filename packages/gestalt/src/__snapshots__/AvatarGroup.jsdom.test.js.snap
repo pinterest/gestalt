@@ -25,14 +25,14 @@ exports[`AvatarGroup renders AvatarGroup button with addCollaborators button 1`]
               <div
                 class="box circle relative"
                 data-test-id="gestalt-avatar-svg"
-                style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
+                style="box-shadow: 0 0 0 1px var(--color-border-avatar); width: 48px; height: 48px;"
               >
                 <div
                   class="Mask circle willChangeTransform"
                 >
                   <div
                     class="box relative"
-                    style="background-color: rgb(239, 239, 239); padding-bottom: 100%;"
+                    style="padding-bottom: 100%;"
                   >
                     <img
                       alt="Keerthi"
@@ -64,13 +64,13 @@ exports[`AvatarGroup renders AvatarGroup button with addCollaborators button 1`]
             >
               <div
                 class="box circle relative secondary"
-                style="padding-bottom: 100%; box-shadow: 0 0 0 1px #fff;"
+                style="padding-bottom: 100%; box-shadow: 0 0 0 1px var(--color-border-avatar);"
               >
                 <div
                   class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
                 >
                   <svg
-                    class="icon darkGray"
+                    class="icon text"
                     preserveAspectRatio="xMidYMid meet"
                     role="img"
                     version="1.1"
@@ -128,14 +128,14 @@ exports[`AvatarGroup renders AvatarGroup link with addCollaborators button 1`] =
                 <div
                   class="box circle relative"
                   data-test-id="gestalt-avatar-svg"
-                  style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
+                  style="box-shadow: 0 0 0 1px var(--color-border-avatar); width: 48px; height: 48px;"
                 >
                   <div
                     class="Mask circle willChangeTransform"
                   >
                     <div
                       class="box relative"
-                      style="background-color: rgb(239, 239, 239); padding-bottom: 100%;"
+                      style="padding-bottom: 100%;"
                     >
                       <img
                         alt="Keerthi"
@@ -167,13 +167,13 @@ exports[`AvatarGroup renders AvatarGroup link with addCollaborators button 1`] =
               >
                 <div
                   class="box circle relative secondary"
-                  style="padding-bottom: 100%; box-shadow: 0 0 0 1px #fff;"
+                  style="padding-bottom: 100%; box-shadow: 0 0 0 1px var(--color-border-avatar);"
                 >
                   <div
                     class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
                   >
                     <svg
-                      class="icon darkGray"
+                      class="icon text"
                       preserveAspectRatio="xMidYMid meet"
                       role="img"
                       version="1.1"
@@ -226,14 +226,14 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
               <div
                 class="box circle relative"
                 data-test-id="gestalt-avatar-svg"
-                style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
+                style="box-shadow: 0 0 0 1px var(--color-border-avatar); width: 48px; height: 48px;"
               >
                 <div
                   class="Mask circle willChangeTransform"
                 >
                   <div
                     class="box relative"
-                    style="background-color: rgb(239, 239, 239); padding-bottom: 100%;"
+                    style="padding-bottom: 100%;"
                   >
                     <img
                       alt="Keerthi"
@@ -266,14 +266,14 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
               <div
                 class="box circle relative"
                 data-test-id="gestalt-avatar-svg"
-                style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
+                style="box-shadow: 0 0 0 1px var(--color-border-avatar); width: 48px; height: 48px;"
               >
                 <div
                   class="Mask circle willChangeTransform"
                 >
                   <div
                     class="box relative"
-                    style="background-color: rgb(239, 239, 239); padding-bottom: 100%;"
+                    style="padding-bottom: 100%;"
                   >
                     <img
                       alt="Keerthi"
@@ -305,7 +305,7 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
             >
               <div
                 class="box circle relative secondary"
-                style="padding-bottom: 100%; box-shadow: 0 0 0 1px #fff;"
+                style="padding-bottom: 100%; box-shadow: 0 0 0 1px var(--color-border-avatar);"
               >
                 <div
                   class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
@@ -320,7 +320,7 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
                     <text
                       class="antialiased sansSerif fontWeightSemiBold "
                       dy="0.35em"
-                      fill="#111"
+                      fill="var(--color-text-default)"
                       font-size="40px"
                       text-anchor="middle"
                     >
@@ -364,7 +364,7 @@ exports[`AvatarGroup renders display-only AvatarGroup without image 1`] = `
               <div
                 class="box circle relative"
                 data-test-id="gestalt-avatar-svg"
-                style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
+                style="box-shadow: 0 0 0 1px var(--color-border-avatar); width: 48px; height: 48px;"
               >
                 <div
                   class="box circle relative secondary"
@@ -386,7 +386,7 @@ exports[`AvatarGroup renders display-only AvatarGroup without image 1`] = `
                       <text
                         class="antialiased sansSerif fontWeightSemiBold "
                         dy="0.35em"
-                        fill="#111"
+                        fill="var(--color-text-default)"
                         font-size="40px"
                         text-anchor="middle"
                       >
@@ -438,14 +438,14 @@ exports[`AvatarGroup renders fit display-only AvatarGroup with image 1`] = `
                 <div
                   class="box circle relative"
                   data-test-id="gestalt-avatar-svg"
-                  style="box-shadow: 0 0 0 1px #fff; width: 100%;"
+                  style="box-shadow: 0 0 0 1px var(--color-border-avatar); width: 100%;"
                 >
                   <div
                     class="Mask circle willChangeTransform"
                   >
                     <div
                       class="box relative"
-                      style="background-color: rgb(239, 239, 239); padding-bottom: 100%;"
+                      style="padding-bottom: 100%;"
                     >
                       <img
                         alt="Keerthi"
@@ -496,14 +496,14 @@ exports[`AvatarGroup renders md display-only AvatarGroup with image 1`] = `
               <div
                 class="box circle relative"
                 data-test-id="gestalt-avatar-svg"
-                style="box-shadow: 0 0 0 1px #fff; width: 48px; height: 48px;"
+                style="box-shadow: 0 0 0 1px var(--color-border-avatar); width: 48px; height: 48px;"
               >
                 <div
                   class="Mask circle willChangeTransform"
                 >
                   <div
                     class="box relative"
-                    style="background-color: rgb(239, 239, 239); padding-bottom: 100%;"
+                    style="padding-bottom: 100%;"
                   >
                     <img
                       alt="Keerthi"
@@ -553,14 +553,14 @@ exports[`AvatarGroup renders sm display-only AvatarGroup with image 1`] = `
               <div
                 class="box circle relative"
                 data-test-id="gestalt-avatar-svg"
-                style="box-shadow: 0 0 0 1px #fff; width: 32px; height: 32px;"
+                style="box-shadow: 0 0 0 1px var(--color-border-avatar); width: 32px; height: 32px;"
               >
                 <div
                   class="Mask circle willChangeTransform"
                 >
                   <div
                     class="box relative"
-                    style="background-color: rgb(239, 239, 239); padding-bottom: 100%;"
+                    style="padding-bottom: 100%;"
                   >
                     <img
                       alt="Keerthi"
@@ -610,14 +610,14 @@ exports[`AvatarGroup renders xs display-only AvatarGroup with image 1`] = `
               <div
                 class="box circle relative"
                 data-test-id="gestalt-avatar-svg"
-                style="box-shadow: 0 0 0 1px #fff; width: 24px; height: 24px;"
+                style="box-shadow: 0 0 0 1px var(--color-border-avatar); width: 24px; height: 24px;"
               >
                 <div
                   class="Mask circle willChangeTransform"
                 >
                   <div
                     class="box relative"
-                    style="background-color: rgb(239, 239, 239); padding-bottom: 100%;"
+                    style="padding-bottom: 100%;"
                   >
                     <img
                       alt="Keerthi"

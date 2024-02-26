@@ -1,3 +1,63 @@
+## 145.3.2 (Feb 26, 2024)
+
+### Patch
+
+- RadioGroup, Accordion, Datapoint, Dropdown: Fixing badge type ([#3447](https://github.com/pinterest/gestalt/pull/3447)) - [Preview link](https://deploy-preview-3447--gestalt.netlify.app?devexample=true)
+
+## 145.3.1 (Feb 23, 2024)
+
+### Patch
+
+- Tokens: add original values to JSON and extend tokens table for extended metadata ([#3448](https://github.com/pinterest/gestalt/pull/3448)) - [Preview link](https://deploy-preview-3448--gestalt.netlify.app?devexample=true)
+
+## 145.3.0 (Feb 23, 2024)
+
+### Minor
+
+- Tokens: some cleanups to increase token coverage ([#3445](https://github.com/pinterest/gestalt/pull/3445)) - [Preview link](https://deploy-preview-3445--gestalt.netlify.app?devexample=true)
+
+## 145.2.0 (Feb 23, 2024)
+
+### Minor
+
+- TextField: Add dataTestId prop ([#3446](https://github.com/pinterest/gestalt/pull/3446)) - [Preview link](https://deploy-preview-3446--gestalt.netlify.app?devexample=true)
+
+## 145.1.2 (Feb 22, 2024)
+
+### Patch
+
+- Popover, Dropdown, ComboBox, Tooltip: Disable focus trap for Tooltip + fixed a11y in Dropdown, ComboBox ([#3444](https://github.com/pinterest/gestalt/pull/3444)) - [Preview link](https://deploy-preview-3444--gestalt.netlify.app?devexample=true)
+
+## 145.1.1 (Feb 22, 2024)
+
+### Patch
+
+- ComboBox, Dropdown, HelpButton: Disable internal Popover portal ([#3443](https://github.com/pinterest/gestalt/pull/3443)) - [Preview link](https://deploy-preview-3443--gestalt.netlify.app?devexample=true)
+
+## 145.1.0 (Feb 22, 2024)
+
+### Minor
+
+- ColorSchemeProvider: deprecated all legacy colors from provider + tokenized all legacy colors in components ([#3441](https://github.com/pinterest/gestalt/pull/3441)) - [Preview link](https://deploy-preview-3441--gestalt.netlify.app?devexample=true)
+
+## 145.0.0 (Feb 21, 2024)
+
+### Major
+
+- Revert "ComboBox, Dropdown, HelpButton, PopoverEducational: Release v… ([#3442](https://github.com/pinterest/gestalt/pull/3442)) - [Preview link](https://deploy-preview-3442--gestalt.netlify.app?devexample=true)
+
+## 144.0.0 (Feb 21, 2024)
+
+### Major
+
+- ColorSchemeProvider, Avatar, Tag, TextField: deprecate legacy colors from provider + tokenize background and border colors ([#3439](https://github.com/pinterest/gestalt/pull/3439)) - [Preview link](https://deploy-preview-3439--gestalt.netlify.app?devexample=true)
+
+## 143.1.0 (Feb 21, 2024)
+
+### Minor
+
+- DatePicker: tokenize colors and other internal styles ([#3438](https://github.com/pinterest/gestalt/pull/3438)) - [Preview link](https://deploy-preview-3438--gestalt.netlify.app?devexample=true)
+
 ## 143.0.0 (Feb 20, 2024)
 
 ### Major

@@ -53,7 +53,7 @@ exports[`AccordionExpandableItem renders correctly 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                    className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -127,7 +127,7 @@ exports[`AccordionExpandableItem renders correctly with badge 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                    className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -241,7 +241,7 @@ exports[`AccordionExpandableItem renders correctly with children 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                    className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -317,7 +317,7 @@ exports[`AccordionExpandableItem renders correctly with error 1`] = `
                   <svg
                     aria-hidden={null}
                     aria-label="there is an error"
-                    className="icon errorIcon iconBlock"
+                    className="error icon iconBlock"
                     height={16}
                     role="img"
                     viewBox="0 0 24 24"
@@ -337,7 +337,7 @@ exports[`AccordionExpandableItem renders correctly with error 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize300 errorText alignStart breakWord fontWeightSemiBold lineClamp"
+                    className="Text fontSize300 error alignStart breakWord fontWeightSemiBold lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -413,7 +413,7 @@ exports[`AccordionExpandableItem renders correctly with icon 1`] = `
                   <svg
                     aria-hidden={null}
                     aria-label="lock icon label"
-                    className="icon defaultIcon iconBlock"
+                    className="default icon iconBlock"
                     height={16}
                     role="img"
                     viewBox="0 0 24 24"
@@ -433,7 +433,7 @@ exports[`AccordionExpandableItem renders correctly with icon 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                    className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -507,7 +507,7 @@ exports[`AccordionExpandableItem renders correctly with icon button 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                    className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -558,7 +558,7 @@ exports[`AccordionExpandableItem renders correctly with icon button 1`] = `
                         <svg
                           aria-hidden={true}
                           aria-label=""
-                          className="icon defaultIcon iconBlock"
+                          className="default icon iconBlock"
                           height={12}
                           role="img"
                           viewBox="0 0 24 24"
@@ -635,7 +635,7 @@ exports[`AccordionExpandableItem renders correctly with summary 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                    className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -658,7 +658,7 @@ exports[`AccordionExpandableItem renders correctly with summary 1`] = `
                   className="FlexItem"
                 >
                   <div
-                    className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                    className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -673,7 +673,7 @@ exports[`AccordionExpandableItem renders correctly with summary 1`] = `
                   className="FlexItem"
                 >
                   <div
-                    className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                    className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -688,7 +688,7 @@ exports[`AccordionExpandableItem renders correctly with summary 1`] = `
                   className="FlexItem"
                 >
                   <div
-                    className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                    className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -762,7 +762,7 @@ exports[`AccordionExpandableItem renders correctly with when expanded 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                    className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -788,7 +788,7 @@ exports[`AccordionExpandableItem renders correctly with when expanded 1`] = `
             <svg
               aria-hidden={null}
               aria-label="click to collapse"
-              className="icon defaultIcon iconBlock"
+              className="default icon iconBlock"
               height="12"
               role="img"
               viewBox="0 0 24 24"

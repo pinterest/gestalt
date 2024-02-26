@@ -148,7 +148,7 @@ export default function BannerUpsell({
   const responsiveMinWidth = useResponsiveMinWidth();
   const { accessibilityDismissButtonLabel } = useDefaultLabelContext('BannerUpsell');
   const hasActions = Boolean(primaryAction || secondaryAction);
-  const { name: colorSchemeName } = useColorScheme();
+  const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
   let messageElement: Element<'span'> | Element<typeof Text>;

@@ -135,9 +135,9 @@ export default function TagData({
   const { accessibilityRemoveIconLabel: accessibilityRemoveIconLabelDefault } =
     useDefaultLabelContext('TagData');
 
-  const { name } = useColorScheme();
-  const borderColor = getDataVisualizationColor(name, color);
-  const bgColor = getDataVisualizationColor(name, color, { lighten: true });
+  const { colorSchemeName } = useColorScheme();
+  const borderColor = getDataVisualizationColor(colorSchemeName, color);
+  const bgColor = getDataVisualizationColor(colorSchemeName, color, { lighten: true });
   const fgColor = disabled ? 'subtle' : 'default';
 
   const colorStyles: { borderColor?: string, backgroundColor?: string } = {

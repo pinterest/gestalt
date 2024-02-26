@@ -1,6 +1,18 @@
 {
   "color": {
     "background": {
+      "avatar": {
+        "placeholder": {
+          "value": "#efefef",
+          "darkValue": "#404040",
+          "comment": "Avatar component placeholder background color."
+        },
+        "wash": {
+          "value": "rgba(0, 0, 0, 0.06)",
+          "darkValue": "rgba(250, 250, 250, 0.5)",
+          "comment": "Avatar dark overlay wash."
+        }
+      },
       "badge": {
         "neutral": {
           "value": "{color.background.tertiary.base.value}",
@@ -346,6 +358,43 @@
           }
         }
       },
+      "combobox": {
+        "item": {
+          "default": {
+            "value": "{color.transparent.value}",
+            "comment": "ComboBox item background color"
+          },
+          "hover": {
+            "value": "#efefef",
+            "darkValue": "#404040",
+            "comment": "ComboBox item on hover background color"
+          }
+        }
+      },
+      "datepicker": {
+        "container": {
+          "value": "#fff",
+          "darkValue": "#212121",
+          "comment": "DatePicker component background color."
+        },
+        "button": {
+          "default": {
+            "value": "#fff",
+            "darkValue": "#212121",
+            "comment": "DatePicker date selectors background color."
+          },
+          "hover": {
+            "value": "rgba(0, 0, 0, 0.06)",
+            "darkValue": "rgba(250, 250, 250, 0.5)",
+            "comment": "DatePicker date selectors background color on hover."
+          },
+          "selected": {
+            "value": "#111",
+            "darkValue": "#efefef",
+            "comment": "DatePicker date selectors selected background color."
+          }
+        }
+      },
       "formfield": {
         "primary": {
           "value": "#fff",
@@ -356,6 +405,17 @@
           "value": "#efefef",
           "darkValue": "#404040",
           "comment": "Formfield disabled background color"
+        },
+        "selected": {
+          "value": "#111",
+          "darkValue": "#efefef",
+          "comment": "Formfield selected background color"
+        }
+      },
+      "mask": {
+        "wash": {
+          "value": "rgba(0, 0, 0, 0.04)",
+          "comment": "Mask component wash."
         }
       },
       "overlay": {
@@ -363,6 +423,57 @@
         "darkValue": "{color.background.elevation.floating.darkValue}",
         "comment": "Overlay component background color."
       },
+      "popover": {
+        "primary": {
+          "value": "{color.background.default.value}",
+          "darkValue": "{color.background.elevation.floating.darkValue}",
+          "comment": "Popover component primary background color."
+        },
+        "secondary": {
+          "value": "#111",
+          "darkValue": "#efefef",
+          "comment": "Popover component secondary background color."
+        },
+        "education": {
+          "value": "{color.background.education.value}",
+          "darkValue": "{color.background.education.darkValue}",
+          "comment": "Popover component secondary background color."
+        }
+      },
+      "tabs": {
+        "default": {
+          "base": {
+            "value": "{color.background.default.value}",
+            "darkValue": "{color.background.default.darkValue}",
+            "comment": "Tabs component default background color."
+          },
+          "hover": {
+            "value": "{color.background.secondary.base.value}",
+            "darkValue": "{color.background.secondary.base.darkValue}",
+            "comment": "Tabs component default background color on hover."
+          },
+          "active": {
+            "value": "#e2e2e2",
+            "darkValue": "#535353",
+            "comment": "Tabs component default background color on press."
+          }
+        },
+        "transparent": {
+          "base": {
+            "value": "{color.transparent.value}",
+            "comment": "Tabs component transparent background color."
+          },
+          "hover": {
+            "value": "rgba(0, 0, 0, 0.06)",
+            "comment": "Tabs component transparent background color on hover."
+          },
+          "active": {
+            "value": "rgba(0, 0, 0, 0.1)",
+            "comment": "Tabs component transparent background color on press."
+          }
+        }
+      },
+
       "tag": {
         "primary": {
           "default": {
@@ -413,6 +524,65 @@
             "value": "{color.yellow.caramellow.700.value}",
             "darkValue": "{color.yellow.caramellow.450.value}",
             "comment": "Warning tag's close button background color on active."
+          }
+        }
+      },
+      "segmentedcontrol": {
+        "container": {
+          "value": "#efefef",
+          "darkValue": "#404040",
+          "comment": "SegmentedControl container background color"
+        },
+        "tab": {
+          "selected": {
+            "value": "#fff",
+            "darkValue": "#030303",
+            "comment": "SegmentedControl selected tab background color"
+          }
+        }
+      },
+      "switch": {
+        "default": {
+          "unselected": {
+            "value": "#fff",
+            "darkValue": "#030303",
+            "comment": "Switch enabled unselected background color"
+          },
+          "selected": {
+            "value": "#111",
+            "darkValue": "#efefef",
+            "comment": "Switch enabled selected background color"
+          }
+        },
+        "disabled": {
+          "unselected": {
+            "value": "#efefef",
+            "darkValue": "#404040",
+            "comment": "Switch disabled unselected background color"
+          },
+          "selected": {
+            "value": "{color.gray.roboflow.500.value}",
+            "darkValue": "#ababab",
+            "comment": "Switch disabled selected background color"
+          }
+        }
+      },
+      "table": {
+        "footer": {
+          "value": "#fff",
+          "darkValue": "#030303",
+          "comment": "Table footer background color"
+        },
+        "row": {
+          "hover": {
+            "value": "#efefef",
+            "darkValue": "#404040",
+            "comment": "Table row selected color"
+          },
+          "selected": {
+            "value": "#efefef",
+            "darkValue": "#404040",
+            "comment": "Table row selected color"
           }
         }
       },
@@ -516,6 +686,116 @@
           "value": "#efefef",
           "darkValue": "#404040",
           "comment": "TileData disabled background color"
+        }
+      },
+      "video": {
+        "container": {
+          "primary": {
+            "value": "{color.background.inverse.base.value}",
+            "darkValue": "{color.background.inverse.base.darkValue}",
+            "comment": "Video background primary dark color"
+          },
+          "secondary": {
+            "value": "{color.transparent.value}",
+            "comment": "Video background secondary transparent color"
+          }
+        }
+      }
+    },
+    "border": {
+      "avatar": {
+        "value": "#fff",
+        "darkValue": "#030303",
+        "comment": "Avatar component outline border color."
+      },
+      "formfield": {
+        "error": {
+          "default": {
+            "value": "{color.border.error.value}",
+            "darkValue": "{color.border.error.darkValue}",
+            "comment": "Error formfield border color."
+          },
+          "hover": {
+            "value": "#ad081b",
+            "darkValue": "#cf001f",
+            "comment": "Error formfield border color on hover."
+          }
+        },
+        "disabled": {
+          "value": "#efefef",
+          "darkValue": "#404040",
+          "comment": "Formfield disabled border color"
+        }
+      },
+      "popover": {
+        "primary": {
+          "value": "#fff",
+          "darkValue": "#212121",
+          "comment": "Popover component primary border color."
+        },
+        "secondary": {
+          "value": "#111",
+          "darkValue": "#efefef",
+          "comment": "Popover component secondary border color."
+        },
+        "education": {
+          "value": "{color.background.education.value}",
+          "darkValue": "{color.background.education.darkValue}",
+          "comment": "Popover component secondary border color."
+        }
+      },
+      "pulsar": {
+        "default": {
+          "value": "#0074e8",
+          "comment": "Pulsar component default border color."
+        },
+        "hover": {
+          "value": "#dce9fa",
+          "comment": "Pulsar component border color on hover."
+        }
+      },
+      "table": {
+        "row": {
+          "selected": {
+            "value": "{color.black.cosmicore.900.value}",
+            "darkValue": "{color.white.mochimalist.0.value}",
+            "comment": "Tag component disabled border color."
+          }
+        }
+      },
+      "tag": {
+        "disabled": {
+          "value": "{color.gray.roboflow.500.value}",
+          "darkValue": "#ababab",
+          "comment": "Tag component disabled border color."
+        }
+      }
+    },
+    "text": {
+      "formfield": {
+        "default": {
+          "value": "#111",
+          "darkValue": "#efefef",
+          "comment": "Formfield default text color."
+        },
+        "disabled": {
+          "value": "{color.gray.roboflow.500.value}",
+          "darkValue": "#ababab",
+          "comment": "Formfield disabled text color."
+        },
+        "placeholder": {
+          "value": "{color.gray.roboflow.500.value}",
+          "darkValue": "#ababab",
+          "comment": "Formfield placeholder text color."
+        }
+      }
+    },
+    "icon": {
+      "avatar": {
+        "default": {
+          "value": "#111",
+          "darkValue": "#efefef",
+          "comment": "Avatar default text color."
         }
       }
     }

@@ -36,6 +36,7 @@ type Props = {
   accessibilityControls?: string,
   accessibilityActiveDescendant?: string,
   autoComplete?: 'bday' | 'current-password' | 'email' | 'new-password' | 'on' | 'off' | 'username',
+  dataTestId?: string,
   disabled?: boolean,
   errorMessage?: ReactNode,
   hasError?: boolean,
@@ -84,6 +85,7 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
     accessibilityControls,
     accessibilityActiveDescendant,
     autoComplete,
+    dataTestId,
     disabled = false,
     errorMessage,
     hasError = false,
@@ -194,6 +196,7 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
       aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
       autoComplete={autoComplete}
       className={tags ? unstyledClasses : styledClasses}
+      data-test-id={dataTestId}
       disabled={disabled}
       enterKeyHint={mobileEnterKeyHint}
       id={id}

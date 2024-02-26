@@ -36,7 +36,7 @@ type Props = {
 function LegendIcon({ payloadData }: Props): ReactNode {
   const { decal: showVisualPattern } = useChartContext();
   const isAccessible = showVisualPattern === 'visualPattern';
-  const { name } = useColorScheme();
+  const { colorSchemeName } = useColorScheme();
 
   if (payloadData.referenceArea === 'default') {
     const dimension = 16;
@@ -53,7 +53,7 @@ function LegendIcon({ payloadData }: Props): ReactNode {
     );
   }
 
-  const source = name === 'lightMode' ? lightColorDesignTokens : darkColorDesignTokens;
+  const source = colorSchemeName === 'lightMode' ? lightColorDesignTokens : darkColorDesignTokens;
   const colorMap = Object.entries({
     '01': source['color-data-visualization-01'],
     '02': source['color-data-visualization-02'],

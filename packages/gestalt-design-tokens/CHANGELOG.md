@@ -1,6 +1,116 @@
 This file is updated manually
 
-## 142.5.0 https://github.com/pinterest/gestalt/pull/3434
+## 145.2.0 https://github.com/pinterest/gestalt/pull/3441
+
+### MINOR
+
+NEW
+
+| name                                     | light                                 | dark    |
+| ---------------------------------------- | ------------------------------------- | ------- |
+| color-background-mask-wash               | rgba(0, 0, 0, 0.04)                   |         |
+| color-background-mask-default-base       | color.background.default.value        |         |
+| color-background-tabs-default-hover      | color.background.secondary.base.value |         |
+| color-background-tabs-default-active     | #e2e2e2                               | #535353 |
+| color-background-tabs-transparent-base   | color.transparent.value               |         |
+| color-background-tabs-transparent-hover  | rgba(0, 0, 0, 0.06)                   |         |
+| color-background-tabs-transparent-active | rgba(0, 0, 0, 0.1)                    |         |
+| color-border-pulsar-default              | #0074e8                               |         |
+| color-border-pulsar-hover                | #dce9fa                               |         |
+
+Tokenize Mask, Mask, Pulsar background and border colors
+
+## 145.1.0 https://github.com/pinterest/gestalt/pull/3441
+
+### MINOR
+
+NEW
+
+| name                                           | light                               | dark                                          |
+| ---------------------------------------------- | ----------------------------------- | --------------------------------------------- |
+| color-background-avatar-wash                   | rgba(0, 0, 0, 0.06)                 | rgba(250, 250, 250, 0.5)                      |
+| color-background-combobox-item-default         | color.transparent.value             | rgba(250, 250, 250, 0.5)                      |
+| color-background-combobox-item-hover           | #efefef                             | #404040                                       |
+| color-background-combobox-item-hover           | #efefef                             | #404040                                       |
+| color-background-formfield-selected            | #111                                | #efefef                                       |
+| color-background-popover-primary               | color.background.default.value      | color.background.elevation.floating.darkValue |
+| color-background-popover-secondary             | #111                                | #efefef                                       |
+| color-background-popover-education             | color.background.education.value    |                                               |
+| color-background-segmentedcontrol-tab-selected | #fff                                | #030303                                       |
+| color-background-switch-default-selected       | #111                                | #efefef                                       |
+| color-background-switch-default-unselected     | #fff                                | #030303                                       |
+| color-background-switch-disabled-selected      | color.gray.roboflow.500.value       | #ababab                                       |
+| color-background-switch-disabled-unselected    | #efefef                             | #404040                                       |
+| color-background-table-footer                  | #fff                                | #030303                                       |
+| color-background-table-row-hover               | #efefef                             | #404040                                       |
+| color-background-table-row-selected            | #efefef                             | #404040                                       |
+| color-background-video-container-primary       | color.background.inverse.base.value |                                               |
+| color-background-video-container-secondary     | color.transparent.value             |                                               |
+| color-border-formfield-disabled                | #efefef                             | #404040                                       |
+| color-border-popover-primary                   | #fff                                | #212121                                       |
+| color-border-popover-secondary                 | #111                                | #efefef                                       |
+| color-border-popover-education                 | color.background.education.value    |                                               |
+| color-border-table-row-selected                | color.black.cosmicore.900.value     | color.white.mochimalist.0.value               |
+| color-text-formfield-default                   | #111                                | #efefef                                       |
+| color-text-formfield-disabled                  | color.gray.roboflow.500.value       | #ababab                                       |
+| color-text-formfield-placeholder               | color.gray.roboflow.500.value       | #ababab                                       |
+| color-icon-avatar-default                      | #111                                | #efefef                                       |
+
+#### Why
+
+Popover, SegmentedControl, Switch, Table background and border colors
+
+#### Breaking change notes
+
+--
+
+## 144.0.0 https://github.com/pinterest/gestalt/pull/3439
+
+### MINOR
+
+NEW
+
+| name                                 | light                    | dark    |
+| ------------------------------------ | ------------------------ | ------- |
+| color-background-avatar-placeholder  | #efefef                  | #404040 |
+| color-border-avatar                  | #fff                     | #030303 |
+| color-border-formfield-error-default | color.border.error.value | #212121 |
+| color-border-formfield-error-hover   | #ad081b                  | #cf001f |
+| color-border-tag-disabled            | #767676                  | #ababab |
+
+#### Why
+
+Tokenize Avatar, Tag, and formfield background and border colors
+
+#### Breaking change notes
+
+--
+
+## 143.1.0 https://github.com/pinterest/gestalt/pull/3438
+
+### MINOR
+
+NEW
+
+| name                                        | light                                                 | dark                             |
+| ------------------------------------------- | ----------------------------------------------------- | -------------------------------- |
+| color-background-datepicker-container       | #fff                                                  | #212121                          |
+| color-background-datepicker-button-default  | #fff                                                  | #212121                          |
+| color-background-datepicker-button-hover    | rgba(0, 0, 0, 0.06)                                   | rgba(250, 250, 250, 0.5)         |
+| color-background-datepicker-button-selected | #111                                                  | #efefef                          |
+| elevation-datepicker                        | 0 0 8px rgba(0, 0, 0, 0.1)                            | 0 0 8px rgba(250, 250, 250, 0.6) |
+| rounding-datepicker-side-end                | rounding-circle rounding-0 rounding-0 rounding-circle | NA                               |
+| rounding-datepicker-side-start              | rounding-0 rounding-circle rounding-circle rounding-0 | NA                               |
+
+#### Why
+
+Tokenize DatePicker component colors, elevation & rounding
+
+#### Breaking change notes
+
+--
+
+## 143.0.0 https://github.com/pinterest/gestalt/pull/3434
 
 ### MINOR
 
@@ -16,6 +126,8 @@ NEW
 Tokenize FormField component background colors
 
 #### Breaking change notes
+
+--
 
 ## 142.4.0 https://github.com/pinterest/gestalt/pull/3432
 

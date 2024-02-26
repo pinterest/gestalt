@@ -6,22 +6,13 @@ exports[`PopoverEducational renders 1`] = `
     class="box"
   >
     <div>
-      <span
-        aria-hidden="true"
-        data-floating-ui-focus-guard=""
-        data-floating-ui-inert=""
-        data-type="inside"
-        role="button"
-        style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
-        tabindex="0"
-      />
       <div
         class="container rounding4 contents maxDimensions minDimensions"
         style="position: absolute; left: 0px; top: 0px; visibility: visible; transform: translate(0px, 0px);"
         tabindex="-1"
       >
         <div
-          class="blue caret"
+          class="caret caretEducation"
           style="top: 100%;"
         >
           <svg
@@ -36,7 +27,7 @@ exports[`PopoverEducational renders 1`] = `
         </div>
         <div
           aria-label="test"
-          class="border blueBg blue rounding4 innerContents maxDimensions minDimensions"
+          class="border rounding4 innerContents maxDimensions minDimensions education"
           role="dialog"
           style="max-width: 230px;"
         >
@@ -51,7 +42,7 @@ exports[`PopoverEducational renders 1`] = `
                 class="FlexItem"
               >
                 <div
-                  class="Text fontSize300 lightText alignStart breakWord fontWeightNormal"
+                  class="Text fontSize300 light alignStart breakWord fontWeightNormal"
                 >
                   text
                 </div>
@@ -68,7 +59,7 @@ exports[`PopoverEducational renders 1`] = `
                     class="button hideOutline inline accessibilityOutline tapTransition md white enabled childrenDiv"
                   >
                     <div
-                      class="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+                      class="Text fontSize300 default alignCenter fontWeightSemiBold"
                     >
                       next
                     </div>
@@ -79,15 +70,6 @@ exports[`PopoverEducational renders 1`] = `
           </div>
         </div>
       </div>
-      <span
-        aria-hidden="true"
-        data-floating-ui-focus-guard=""
-        data-floating-ui-inert=""
-        data-type="inside"
-        role="button"
-        style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
-        tabindex="0"
-      />
     </div>
   </div>
 </div>

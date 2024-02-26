@@ -34,7 +34,7 @@ exports[`IconButtonLink renders 1`] = `
     <svg
       aria-hidden={true}
       aria-label=""
-      className="rtlSupport icon defaultIcon iconBlock"
+      className="rtlSupport default icon iconBlock"
       height={20}
       role="img"
       viewBox="0 0 24 24"
@@ -95,7 +95,7 @@ exports[`IconButtonLink renders disabled 1`] = `
     <svg
       aria-hidden={true}
       aria-label=""
-      className="rtlSupport icon defaultIcon iconBlock"
+      className="rtlSupport default icon iconBlock"
       height={20}
       role="img"
       viewBox="0 0 24 24"
@@ -157,7 +157,7 @@ exports[`IconButtonLink renders with icon 1`] = `
     <svg
       aria-hidden={true}
       aria-label=""
-      className="rtlSupport icon defaultIcon iconBlock"
+      className="rtlSupport default icon iconBlock"
       height={20}
       role="img"
       viewBox="0 0 24 24"
@@ -219,7 +219,7 @@ exports[`IconButtonLink renders with svg 1`] = `
     <svg
       aria-hidden={true}
       aria-label=""
-      className="icon defaultIcon iconBlock"
+      className="default icon iconBlock"
       height={20}
       role="img"
       viewBox="0 0 24 24"
@@ -292,7 +292,7 @@ exports[`IconButtonLink renders with tooltip 1`] = `
         <svg
           aria-hidden={true}
           aria-label=""
-          className="icon defaultIcon iconBlock"
+          className="default icon iconBlock"
           height={20}
           role="img"
           viewBox="0 0 24 24"

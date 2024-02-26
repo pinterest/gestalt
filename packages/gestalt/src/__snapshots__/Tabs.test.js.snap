@@ -35,7 +35,12 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
+            className="box paddingX2 paddingY2 relative rounding2 userSelectNone"
+            style={
+              Object {
+                "backgroundColor": "var(--color-background-tabs-default-base)",
+              }
+            }
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
@@ -44,7 +49,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize300 defaultText alignStart noWrap fontWeightSemiBold"
+                  className="Text fontSize300 default alignStart noWrap fontWeightSemiBold"
                 >
                   News
                 </div>
@@ -105,7 +110,12 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
+            className="box paddingX2 paddingY2 relative rounding2 userSelectNone"
+            style={
+              Object {
+                "backgroundColor": "var(--color-background-tabs-default-base)",
+              }
+            }
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
@@ -114,7 +124,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize300 defaultText alignStart noWrap fontWeightSemiBold"
+                  className="Text fontSize300 default alignStart noWrap fontWeightSemiBold"
                 >
                   You
                 </div>
@@ -163,7 +173,12 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
+            className="box paddingX2 paddingY2 relative rounding2 userSelectNone"
+            style={
+              Object {
+                "backgroundColor": "var(--color-background-tabs-default-base)",
+              }
+            }
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
@@ -172,7 +187,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize300 defaultText alignStart noWrap fontWeightSemiBold"
+                  className="Text fontSize300 default alignStart noWrap fontWeightSemiBold"
                 >
                   News
                 </div>
@@ -247,7 +262,12 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
+            className="box paddingX2 paddingY2 relative rounding2 userSelectNone"
+            style={
+              Object {
+                "backgroundColor": "var(--color-background-tabs-default-base)",
+              }
+            }
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
@@ -256,7 +276,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize300 defaultText alignStart noWrap fontWeightSemiBold"
+                  className="Text fontSize300 default alignStart noWrap fontWeightSemiBold"
                 >
                   You
                 </div>
@@ -319,7 +339,12 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
+            className="box paddingX2 paddingY2 relative rounding2 userSelectNone"
+            style={
+              Object {
+                "backgroundColor": "var(--color-background-tabs-default-base)",
+              }
+            }
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
@@ -328,7 +353,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize300 defaultText alignStart noWrap fontWeightSemiBold"
+                  className="Text fontSize300 default alignStart noWrap fontWeightSemiBold"
                 >
                   News
                 </div>
@@ -389,7 +414,12 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box default paddingX2 paddingY2 relative rounding2 userSelectNone"
+            className="box paddingX2 paddingY2 relative rounding2 userSelectNone"
+            style={
+              Object {
+                "backgroundColor": "var(--color-background-tabs-default-base)",
+              }
+            }
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
@@ -398,7 +428,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize300 defaultText alignStart noWrap fontWeightSemiBold"
+                  className="Text fontSize300 default alignStart noWrap fontWeightSemiBold"
                 >
                   You
                 </div>

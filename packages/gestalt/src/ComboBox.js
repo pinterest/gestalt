@@ -19,11 +19,12 @@ import ComboBoxItem, { type ComboBoxItemType } from './ComboBox/Item';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import { DOWN_ARROW, ENTER, ESCAPE, TAB, UP_ARROW } from './keyCodes';
 import Layer from './Layer';
-import InternalPopover from './Popover/InternalPopover';
+import Popover from './Popover';
 import Tag from './Tag';
 import Text from './Text';
 import InternalTextField from './TextField/InternalTextField';
 import InternalTextFieldIconButton from './TextField/InternalTextFieldIconButton';
+import useInExperiment from './useInExperiment';
 import handleContainerScrolling, {
   type DirectionOptionType,
   KEYS,
@@ -432,6 +433,11 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
     ],
   );
 
+  const isInExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_popover_v2_combobox',
+    mwebExperimentName: 'mweb_gestalt_popover_v2_combobox',
+  });
+
   return (
     <Fragment>
       <Box
@@ -497,16 +503,17 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
       </Box>
       {showOptionsList && innerRef.current ? (
         <Layer zIndex={zIndex}>
-          <InternalPopover
+          <Popover
+            __experimentalPopover={isInExperiment}
             anchor={innerRef.current}
             onKeyDown={handleKeyDown}
             idealDirection="down"
             onDismiss={handleOnDismiss}
+            positionRelativeToAnchor={false}
             disablePortal
             size="flexible"
+            key={isInExperiment ? undefined : suggestedOptions.length}
             shouldFocus={false}
-            role="dialog"
-            color="white"
           >
             <Box
               aria-expanded={showOptionsList}
@@ -533,7 +540,7 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
                 </Box>
               )}
             </Box>
-          </InternalPopover>
+          </Popover>
         </Layer>
       ) : null}
     </Fragment>

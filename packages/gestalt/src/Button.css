@@ -48,8 +48,6 @@
   composes: pointer from "./Cursor.css";
 }
 
-/* TOKENIZED */
-
 /* STATES */
 
 .disabled {

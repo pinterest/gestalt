@@ -212,7 +212,7 @@ function UncompletedCard({
  */
 export default function ActivationCard(props: ActivationCardProps): ReactNode {
   const isCompleted = props.status === 'complete';
-  const { name: colorSchemeName } = useColorScheme();
+  const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
   return (

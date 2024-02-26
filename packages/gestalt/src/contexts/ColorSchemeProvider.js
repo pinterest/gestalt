@@ -16,46 +16,16 @@ import layoutStyles from '../Layout.css';
 export type ColorScheme = 'light' | 'dark' | 'userPreference';
 
 export type Theme = {
-  name: 'lightMode' | 'darkMode',
-  colorRed100Hovered: string,
-  colorGray0: string,
-  colorGray50: string,
-  colorGray100: string,
-  colorGray100Active: string,
-  colorGray200: string,
-  colorGray300: string,
-  colorGray400: string,
-  colorTransparentGray60: string,
-  colorTransparentGray100: string,
+  colorSchemeName: 'lightMode' | 'darkMode',
   [tokenName: string]: string,
 };
 
 const lightModeTheme = {
-  name: 'lightMode',
-  colorRed100Hovered: '#ad081b',
-  colorGray0: '#fff',
-  colorGray50: '#fff',
-  colorGray100: '#efefef',
-  colorGray100Active: '#dadada',
-  colorGray200: '#767676',
-  colorGray300: '#111',
-  colorGray400: '#000',
-  colorTransparentGray60: 'rgb(0 0 0 / 0.06)',
-  colorTransparentGray100: 'rgb(0 0 0 / 0.1)',
+  colorSchemeName: 'lightMode',
 };
 
 const darkModeTheme = {
-  name: 'darkMode',
-  colorRed100Hovered: '#cf001f',
-  colorGray0: '#030303',
-  colorGray50: '#212121',
-  colorGray100: '#404040',
-  colorGray100Active: '#666',
-  colorGray200: '#ababab',
-  colorGray300: '#efefef',
-  colorGray400: '#fff',
-  colorTransparentGray60: 'rgb(250 250 250 / 0.5)',
-  colorTransparentGray100: 'rgb(250 250 250 / 0.6)',
+  colorSchemeName: 'darkMode',
 };
 
 const ThemeContext: Context<Theme> = createContext<Theme>(lightModeTheme);
@@ -63,31 +33,19 @@ const ThemeContext: Context<Theme> = createContext<Theme>(lightModeTheme);
 /**
  * Appends tokens as injected CSS tokens
  */
-const themeToStyles = (theme: {
-  colorGray0: string,
-  colorGray100: string,
-  colorGray100Active: string,
-  colorGray200: string,
-  colorGray300: string,
-  colorGray400: string,
-  colorGray50: string,
-  colorRed100Hovered: string,
-  colorTransparentGray100: string,
-  colorTransparentGray60: string,
-  name: string,
-}) => {
+const themeToStyles = (theme: { colorSchemeName: 'lightMode' | 'darkMode' }) => {
   let styles = '';
   Object.keys(theme).forEach((key) => {
     if (key.startsWith('color')) {
       styles += `  --g-${key}: ${theme[key]};\n`;
     }
   });
-  if (theme.name === 'darkMode') {
+  if (theme.colorSchemeName === 'darkMode') {
     Object.keys(darkColorDesignTokens).forEach((key) => {
       styles += `  --${key}: ${darkColorDesignTokens[key]};\n`;
     });
   }
-  if (theme.name === 'lightMode') {
+  if (theme.colorSchemeName === 'lightMode') {
     Object.keys(lightColorDesignTokens).forEach((key) => {
       styles += `  --${key}: ${lightColorDesignTokens[key]};\n`;
     });
@@ -179,7 +137,9 @@ ${themeToStyles(theme)} }`,
   );
 }
 
-export function useColorScheme(): Theme {
-  const theme = useContext(ThemeContext);
-  return theme || lightModeTheme;
+export function useColorScheme(): {
+  colorSchemeName: 'lightMode' | 'darkMode',
+} {
+  const { colorSchemeName } = useContext(ThemeContext);
+  return { colorSchemeName };
 }

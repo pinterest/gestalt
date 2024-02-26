@@ -11,7 +11,7 @@
 
 .overlay::after {
   /* Dark overlay is achieved overposing a pseudo-element with a 6% darker wash */
-  background: var(--g-colorTransparentGray60);
+  background: var(--color-background-avatar-wash);
   border-radius: 50%;
   content: "";
   display: block;
@@ -30,4 +30,8 @@
 
 html[dir="rtl"] .translateX10 {
   transform: translateX(10%);
+}
+
+.text {
+  color: var(--color-icon-avatar-default);
 }

@@ -15,7 +15,7 @@
 }
 
 .errored {
-  composes: borderColorRed from "../Borders.css";
+  border-color: var(--color-border-formfield-error-default);
   outline: none;
 }
 
@@ -24,18 +24,18 @@
 }
 
 .errored:hover:not(:focus) {
-  border-color: var(--g-colorRed100Hovered);
+  border-color: var(--color-border-formfield-error-hover);
 }
 
 .enabled {
-  composes: darkGray from "../Colors.css";
   background-color: var(--color-background-formfield-primary);
+  color: var(--color-text-formfield-default);
 }
 
 .disabled {
-  composes: gray from "../Colors.css";
   composes: borderColorLightGrayDisabled from "../Borders.css";
-  background-color: var(---color-background-formfield-disabled);
+  background-color: var(--color-background-formfield-disabled);
+  color: var(--color-text-formfield-disabled);
 }
 
 .unstyled {

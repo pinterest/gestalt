@@ -83,6 +83,8 @@ type Props = {
   hideWhenReferenceHidden?: boolean,
   // This property can be set when `ScrollBoundaryContainer` is set to `overflow="visible"` but therefore limits the height of the Popover-based component. Some cases require
   __dangerouslySetMaxHeight?: '30vh',
+  // Whether to use the new experimental Popover
+  __experimentalPopover?: boolean,
   // Callback fired when Popover is correctly positioned after it's mounted.
   __onPositioned?: () => void,
 };
@@ -114,8 +116,9 @@ export default function Popover({
   _deprecatedShowCaret = false,
   size = 'sm',
   scrollBoundary,
-  hideWhenReferenceHidden,
+  hideWhenReferenceHidden = true,
   __dangerouslySetMaxHeight,
+  __experimentalPopover,
   __onPositioned,
 }: Props): null | ReactNode {
   const isInExperiment = useInExperiment({
@@ -123,7 +126,7 @@ export default function Popover({
     mwebExperimentName: 'mweb_gestalt_popover_v2',
   });
 
-  if (!isInExperiment) {
+  if (!isInExperiment && !__experimentalPopover) {
     return (
       <LegacyInternalPopover
         accessibilityLabel={accessibilityLabel}

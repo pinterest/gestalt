@@ -43,7 +43,7 @@
 }
 
 .textField::placeholder {
-  color: var(--g-colorGray200);
+  color: var(--color-text-formfield-placeholder);
 }
 
 .formElementBase {
@@ -55,7 +55,7 @@
 }
 
 .formElementBase:focus {
-  box-shadow: 0 0 0 4px rgb(0 132 255 / 0.5);
+  box-shadow: 0 0 0 4px var(--color-border-focus);
   outline: 0;
 }
 
@@ -68,7 +68,7 @@
 }
 
 .formElementErrored {
-  border-color: var(--color-border-error);
+  border-color: var(--color-border-formfield-error-default);
   outline: none;
 }
 
@@ -77,18 +77,18 @@
 }
 
 .formElementErrored:hover:not(:focus) {
-  border-color: var(--g-colorRed100Hovered);
+  border-color: var(--color-border-formfield-error-hover);
 }
 
 .formElementEnabled {
-  background-color: var(--g-colorGray0);
-  color: var(--g-colorGray300);
+  background-color: var(--color-background-formfield-primary);
+  color: var(--color-text-formfield-default);
 }
 
 .formElementDisabled {
-  background-color: var(--g-colorGray100);
-  border-color: var(--g-colorGray100);
-  color: var(--g-colorGray200);
+  background-color: var(--color-background-formfield-disabled);
+  border-color: var(--color-border-formfield-disabled);
+  color: var(--color-text-formfield-disabled);
 }
 
 .typographyTruncate {

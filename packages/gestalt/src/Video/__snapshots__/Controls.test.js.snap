@@ -29,7 +29,7 @@ exports[`VideoControls for double digit minutes 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Play"
-        className="icon lightIcon iconBlock"
+        className="light icon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -50,7 +50,7 @@ exports[`VideoControls for double digit minutes 1`] = `
     }
   >
     <div
-      className="Text fontSize100 lightText alignEnd fontWeightNormal"
+      className="Text fontSize100 light alignEnd fontWeightNormal"
     >
       15:05
     </div>
@@ -124,7 +124,7 @@ exports[`VideoControls for double digit minutes 1`] = `
     }
   >
     <div
-      className="Text fontSize100 lightText alignEnd fontWeightNormal"
+      className="Text fontSize100 light alignEnd fontWeightNormal"
     >
       15:05
     </div>
@@ -154,7 +154,7 @@ exports[`VideoControls for double digit minutes 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Unmute"
-        className="rtlSupport icon lightIcon iconBlock"
+        className="rtlSupport light icon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -198,7 +198,7 @@ exports[`VideoControls for double digit seconds 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Play"
-        className="icon lightIcon iconBlock"
+        className="light icon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -219,7 +219,7 @@ exports[`VideoControls for double digit seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize100 lightText alignEnd fontWeightNormal"
+      className="Text fontSize100 light alignEnd fontWeightNormal"
     >
       00:15
     </div>
@@ -293,7 +293,7 @@ exports[`VideoControls for double digit seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize100 lightText alignEnd fontWeightNormal"
+      className="Text fontSize100 light alignEnd fontWeightNormal"
     >
       00:15
     </div>
@@ -323,7 +323,7 @@ exports[`VideoControls for double digit seconds 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Unmute"
-        className="rtlSupport icon lightIcon iconBlock"
+        className="rtlSupport light icon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -367,7 +367,7 @@ exports[`VideoControls for single digit minutes 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Play"
-        className="icon lightIcon iconBlock"
+        className="light icon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -388,7 +388,7 @@ exports[`VideoControls for single digit minutes 1`] = `
     }
   >
     <div
-      className="Text fontSize100 lightText alignEnd fontWeightNormal"
+      className="Text fontSize100 light alignEnd fontWeightNormal"
     >
       01:05
     </div>
@@ -462,7 +462,7 @@ exports[`VideoControls for single digit minutes 1`] = `
     }
   >
     <div
-      className="Text fontSize100 lightText alignEnd fontWeightNormal"
+      className="Text fontSize100 light alignEnd fontWeightNormal"
     >
       01:05
     </div>
@@ -492,7 +492,7 @@ exports[`VideoControls for single digit minutes 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Unmute"
-        className="rtlSupport icon lightIcon iconBlock"
+        className="rtlSupport light icon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -536,7 +536,7 @@ exports[`VideoControls for single digit seconds 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Play"
-        className="icon lightIcon iconBlock"
+        className="light icon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -557,7 +557,7 @@ exports[`VideoControls for single digit seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize100 lightText alignEnd fontWeightNormal"
+      className="Text fontSize100 light alignEnd fontWeightNormal"
     >
       00:05
     </div>
@@ -631,7 +631,7 @@ exports[`VideoControls for single digit seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize100 lightText alignEnd fontWeightNormal"
+      className="Text fontSize100 light alignEnd fontWeightNormal"
     >
       00:05
     </div>
@@ -661,7 +661,7 @@ exports[`VideoControls for single digit seconds 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Unmute"
-        className="rtlSupport icon lightIcon iconBlock"
+        className="rtlSupport light icon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -705,7 +705,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Play"
-        className="icon lightIcon iconBlock"
+        className="light icon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -726,7 +726,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize100 lightText alignEnd fontWeightNormal"
+      className="Text fontSize100 light alignEnd fontWeightNormal"
     >
       01:07
     </div>
@@ -800,7 +800,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize100 lightText alignEnd fontWeightNormal"
+      className="Text fontSize100 light alignEnd fontWeightNormal"
     >
       01:07
     </div>
@@ -830,7 +830,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Unmute"
-        className="rtlSupport icon lightIcon iconBlock"
+        className="rtlSupport light icon iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"

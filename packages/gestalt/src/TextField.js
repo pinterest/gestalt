@@ -29,6 +29,10 @@ type Props = {
    */
   disabled?: boolean,
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string,
+  /**
    * For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in [Link](https://gestalt.pinterest.systems/web/link) or [TapArea](https://gestalt.pinterest.systems/web/taparea).
    */
   errorMessage?: ReactNode,
@@ -139,6 +143,7 @@ const TextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forw
 >(function TextField(
   {
     autoComplete,
+    dataTestId,
     disabled = false,
     errorMessage,
     hasError = false,
@@ -202,6 +207,7 @@ const TextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forw
   return (
     <InternalTextField
       autoComplete={autoComplete}
+      dataTestId={dataTestId}
       disabled={disabled}
       errorMessage={errorMessage}
       hasError={hasError}

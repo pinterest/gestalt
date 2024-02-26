@@ -8,8 +8,9 @@ import Button from '../Button';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import Flex from '../Flex';
 import { ESCAPE } from '../keyCodes';
-import InternalPopover from '../Popover/InternalPopover';
+import Popover from '../Popover';
 import Text from '../Text';
+import useInExperiment from '../useInExperiment';
 
 type Props = {
   anchor: ?HTMLElement,
@@ -77,18 +78,21 @@ export default function ConfirmationPopover({
     };
   }, []);
 
+  const isInExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_popover_v2_confirmationpopover',
+    mwebExperimentName: 'mweb_gestalt_popover_v2_confirmationpopover',
+  });
+
   return (
-    <InternalPopover
-      accessibilityLabel="Popover"
+    <Popover
+      __experimentalPopover={isInExperiment}
       anchor={anchor}
       idealDirection="down"
       onDismiss={() => onDismiss()}
+      positionRelativeToAnchor
+      disablePortal
       role="dialog"
       size="md"
-      disablePortal
-      shouldFocus
-      showCaret={false}
-      color="white"
     >
       <TrapFocusBehavior>
         <Box padding={3} width="100%">
@@ -127,6 +131,6 @@ export default function ConfirmationPopover({
           </Flex>
         </Box>
       </TrapFocusBehavior>
-    </InternalPopover>
+    </Popover>
   );
 }

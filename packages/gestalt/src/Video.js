@@ -2,7 +2,6 @@
 import { type Node as ReactNode, PureComponent } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
-import colors from './Colors.css';
 import styles from './Video.css';
 import VideoControls from './Video/Controls';
 
@@ -681,8 +680,8 @@ export default class Video extends PureComponent<Props, State> {
       }
     }
     const playerClasses = classnames(styles.player, {
-      [colors.blackBg]: backgroundColor === 'black',
-      [colors.transparent]: backgroundColor === 'transparent',
+      [styles.blackBg]: backgroundColor === 'black',
+      [styles.transparentBg]: backgroundColor === 'transparent',
     });
     return (
       <div
