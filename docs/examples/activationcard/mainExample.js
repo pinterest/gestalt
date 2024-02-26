@@ -6,10 +6,7 @@ export default function Example(): ReactNode {
   return (
     <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
       <ActivationCard
-        dismissButton={{
-          accessibilityLabel: 'Dismiss card',
-          onDismiss: () => {},
-        }}
+        onDismiss={() => { }}
         link={{
           href: 'https://pinterest.com',
           label: 'Learn more',

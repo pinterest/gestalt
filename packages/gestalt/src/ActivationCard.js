@@ -9,6 +9,7 @@ import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Icon from './Icon';
 import IconButton from './IconButton';
 import Text from './Text';
+import InternalDismissButton from './shared/InternalDismissButton';
 
 const STATUS_ICONS = {
   notStarted: undefined,
@@ -29,16 +30,11 @@ type LinkData = {
   target?: null | 'self' | 'blank',
 };
 
-type Props = {
+type ActivationCardProps = {
   /**
-   * Callback fired when the dismiss button is clicked (pressed and released) with a mouse or keyboard.
-   * Supply a short, descriptive label for screen-readers to provide sufficient context about the dismiss button action. IconButtons do not render text for screen readers to read requiring an accessibility label.
-   * Accessibility: `accessibilityLabel` populates aria-label.
+   * Adds a dismiss button to BannerOverlay. See the [Dismissible variant](https://gestalt.pinterest.systems/web/activationcard#Dismissible) for more info.
    */
-  dismissButton?: {
-    accessibilityLabel?: string,
-    onDismiss: () => void,
-  },
+  onDismiss?: () => void,
   /**
    * Link-role button to render inside the activation card as a call-to-action to the user.
    * - `label`: Text to render inside the button to convey the function and purpose of the button. The button text has a fixed size.
@@ -97,22 +93,30 @@ function ActivationCardLink({ data }: { data: LinkData }): ReactNode {
   );
 }
 
-type CardProps = {
-  ...Props,
-  dismissButton?: {
-    accessibilityLabel: string,
-    onDismiss: () => void,
-  },
-};
+function DismissButton({ onDismiss }: { onDismiss: () => void }): ReactNode {
+  const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } = useDefaultLabelContext('ActivationCard');
+  return (
+    <div className={classnames(styles.rtlPos)}>
+      <InternalDismissButton
+        accessibilityLabel={accessibilityDismissButtonLabelDefault}
+        iconColor="gray"
+        onClick={onDismiss}
+        padding={12}
+        icon="cancel"
+        size="sm"
+      />
+    </div>
+  )
+}
+
 function CompletedCard({
-  dismissButton,
+  onDismiss,
   message,
   status,
   statusMessage,
   title,
-}: CardProps): ReactNode {
+}: ActivationCardProps): ReactNode {
   const icon = STATUS_ICONS[status];
-
   return (
     <Fragment>
       <Box display="flex">
@@ -143,33 +147,21 @@ function CompletedCard({
           )}
         </Box>
       </Box>
-      {dismissButton && (
-        <div className={classnames(styles.rtlPos)}>
-          <IconButton
-            accessibilityLabel={dismissButton.accessibilityLabel}
-            icon="cancel"
-            iconColor="gray"
-            onClick={dismissButton.onDismiss}
-            padding={4}
-            size="sm"
-          />
-        </div>
-      )}
+      {onDismiss && <DismissButton onDismiss={onDismiss} />}
     </Fragment>
   );
 }
 
 function UncompletedCard({
-  dismissButton,
+  onDismiss,
   message,
   link,
   status,
   statusMessage,
   title,
-}: CardProps): ReactNode {
+}: ActivationCardProps): ReactNode {
   const isStarted = status !== 'notStarted';
   const icon = STATUS_ICONS[status];
-
   return (
     <Fragment>
       <Box display="flex" alignContent="center" height={24}>
@@ -206,18 +198,7 @@ function UncompletedCard({
           <ActivationCardLink data={link} />
         </Box>
       )}
-      {dismissButton && (
-        <div className={classnames(styles.rtlPos)}>
-          <IconButton
-            accessibilityLabel={dismissButton.accessibilityLabel}
-            icon="cancel"
-            iconColor="gray"
-            onClick={dismissButton.onDismiss}
-            padding={4}
-            size="sm"
-          />
-        </div>
-      )}
+      {onDismiss && <DismissButton onDismiss={onDismiss} />}
     </Fragment>
   );
 }
@@ -229,17 +210,8 @@ function UncompletedCard({
  * ![ActivationCard dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ActivationCard-dark.spec.mjs-snapshots/ActivationCard-dark-chromium-darwin.png)
  *
  */
-export default function ActivationCard({
-  dismissButton,
-  message,
-  link,
-  status,
-  statusMessage,
-  title,
-}: Props): ReactNode {
-  const isCompleted = status === 'complete';
-  const { accessibilityDismissButtonLabel } = useDefaultLabelContext('ActivationCard');
-
+export default function ActivationCard(props: ActivationCardProps): ReactNode {
+  const isCompleted = props.status === 'complete';
   const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
@@ -258,36 +230,7 @@ export default function ActivationCard({
       height="100%"
       width="100%"
     >
-      {isCompleted ? (
-        <CompletedCard
-          dismissButton={
-            dismissButton && {
-              onDismiss: dismissButton.onDismiss,
-              accessibilityLabel:
-                dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabel,
-            }
-          }
-          message={message}
-          status={status}
-          statusMessage={statusMessage}
-          title={title}
-        />
-      ) : (
-        <UncompletedCard
-          dismissButton={
-            dismissButton && {
-              onDismiss: dismissButton.onDismiss,
-              accessibilityLabel:
-                dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabel,
-            }
-          }
-          link={link}
-          message={message}
-          status={status}
-          statusMessage={statusMessage}
-          title={title}
-        />
-      )}
+      {isCompleted ? <CompletedCard {...props} /> : <UncompletedCard {...props} />}
     </Box>
   );
 }

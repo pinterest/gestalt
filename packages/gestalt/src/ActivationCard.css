@@ -1,11 +1,11 @@
 html[dir="rtl"] .rtlPos {
-  left: 0;
+  left: 16px;
   position: absolute;
-  top: 0;
+  top: 16px;
 }
 
 html:not([dir="rtl"]) .rtlPos {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 16px;
+  top: 16px;
 }
