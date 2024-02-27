@@ -1,3 +1,9 @@
+## 145.3.4 (Feb 27, 2024)
+
+### Patch
+
+- Popover: Remove autofocusing dismiss button ([#3452](https://github.com/pinterest/gestalt/pull/3452)) - [Preview link](https://deploy-preview-3452--gestalt.netlify.app?devexample=true)
+
 ## 145.3.3 (Feb 27, 2024)
 
 ### Patch
