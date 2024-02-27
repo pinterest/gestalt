@@ -1,3 +1,9 @@
+## 145.3.3 (Feb 27, 2024)
+
+### Patch
+
+- SelectList: fix for hidden arrow-down Icon ([#3450](https://github.com/pinterest/gestalt/pull/3450)) - [Preview link](https://deploy-preview-3450--gestalt.netlify.app?devexample=true)
+
 ## 145.3.2 (Feb 26, 2024)
 
 ### Patch
