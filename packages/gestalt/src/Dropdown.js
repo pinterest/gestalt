@@ -290,7 +290,7 @@ export default function Dropdown({
       positionRelativeToAnchor={isWithinFixedContainer}
       disablePortal
       role="menu"
-      shouldFocus
+      shouldFocus={false}
       size="xl"
       __dangerouslySetMaxHeight={maxHeight}
       __onPositioned={() => setIsPopoverPositioned(true)}
