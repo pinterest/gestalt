@@ -7,7 +7,6 @@ import ButtonLink from './ButtonLink';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Icon from './Icon';
-import IconButton from './IconButton';
 import Text from './Text';
 import InternalDismissButton from './shared/InternalDismissButton';
 
