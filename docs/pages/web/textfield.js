@@ -501,6 +501,20 @@ The first example shows an empty Textfield with \`maxLength\` set to 20 characte
 export async function getServerSideProps(): Promise<{
   props: { generatedDocGen: DocGen },
 }> {
+  const generatedDocGen = await docGen('TextField');
+
+  generatedDocGen.props.autoComplete = {
+    defaultValue: null,
+    required: false,
+    flowType: {
+      name: `'bday' | 'current-password' | 'email' | 'new-password' | 'on' | 'off' | 'username'`,
+      raw: `'bday' | 'current-password' | 'email' | 'new-password' | 'on' | 'off' | 'username'`,
+    },
+    description: `More input autocomplete values can be found [at MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values).
+
+Indicate if autocomplete should be available on the input, and the type of autocomplete. Autocomplete values are implemented upon request. [Reach out to the Gestalt team](https://gestalt.pinterest.systems/team_support/get_help#Slack-channels) if you need [additional autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values) to be supported.`,
+  };
+
   return {
     props: { generatedDocGen: await docGen('TextField') },
   };

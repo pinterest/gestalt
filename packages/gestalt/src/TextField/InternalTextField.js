@@ -25,7 +25,7 @@ import typography from '../Typography.css';
 
 type SizeType = 'sm' | 'md' | 'lg';
 
-type autoCompleteType =
+export type autoCompleteType =
   | 'on'
   | 'off'
   | 'address-line1'
