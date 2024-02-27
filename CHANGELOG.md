@@ -1,3 +1,9 @@
+## 145.3.6 (Feb 27, 2024)
+
+### Patch
+
+- SelectList, SearchField: fix token ([#3454](https://github.com/pinterest/gestalt/pull/3454)) - [Preview link](https://deploy-preview-3454--gestalt.netlify.app?devexample=true)
+
 ## 145.3.5 (Feb 27, 2024)
 
 ### Patch
