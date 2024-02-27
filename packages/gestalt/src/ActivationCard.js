@@ -7,8 +7,8 @@ import ButtonLink from './ButtonLink';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Icon from './Icon';
-import Text from './Text';
 import InternalDismissButton from './shared/InternalDismissButton';
+import Text from './Text';
 
 const STATUS_ICONS = {
   notStarted: undefined,
