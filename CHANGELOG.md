@@ -1,3 +1,9 @@
+## 145.3.5 (Feb 27, 2024)
+
+### Patch
+
+- Internal: bump es5-ext from 0.10.61 to 0.10.63 ([#3453](https://github.com/pinterest/gestalt/pull/3453)) - [Preview link](https://deploy-preview-3453--gestalt.netlify.app?devexample=true)
+
 ## 145.3.4 (Feb 27, 2024)
 
 ### Patch
