@@ -224,7 +224,13 @@ export default function TagData({
                   />
                 </Box>
               )}
-              <Text inline size={sizes[size]?.fontSize} lineClamp={1} color={fgColor}>
+              <Text
+                inline
+                size={sizes[size]?.fontSize}
+                title={tooltip && tooltip.text ? '' : text} // removes html caption if a tooltip exists
+                lineClamp={1}
+                color={fgColor}
+              >
                 {text}
               </Text>
             </Box>
