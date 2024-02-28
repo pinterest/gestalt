@@ -1,3 +1,9 @@
+## 145.4.0 (Feb 28, 2024)
+
+### Minor
+
+- TextField: Adding new autocomplete strings ([#3455](https://github.com/pinterest/gestalt/pull/3455)) - [Preview link](https://deploy-preview-3455--gestalt.netlify.app?devexample=true)
+
 ## 145.3.6 (Feb 27, 2024)
 
 ### Patch
