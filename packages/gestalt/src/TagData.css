@@ -1,14 +1,20 @@
 .tagLarge {
   padding-bottom: 14px;
   padding-top: 14px;
+  height: 48px;
+  composes: borderBox from "./Layout.css";
 }
 
 .tagMedium {
+  composes: borderBox from "./Layout.css";
   composes: paddingY3 from "./boxWhitespace.css";
+  height: 40px;
 }
 
 .tagSmall {
+  composes: borderBox from "./Layout.css";
   composes: paddingY2 from "./boxWhitespace.css";
+  height: 32px;
 }
 
 .tagWrapperRounded {
