@@ -503,75 +503,7 @@ export async function getServerSideProps(): Promise<{
 }> {
   const generatedDocGen = await docGen('TextField');
 
-  generatedDocGen.props.autoComplete = {
-    defaultValue: null,
-    required: false,
-    flowType: {
-      name: `'bday' | 'current-password' | 'email' | 'new-password' | 'on' | 'off' | 'username' | 52 more ...`,
-      raw: `| 'on'
-      | 'off'
-      | 'address-line1'
-      | 'address-line2'
-      | 'address-line3'
-      | 'address-level1'
-      | 'address-level2'
-      | 'address-level3'
-      | 'address-level4'
-      | 'street-address'
-      | 'country'
-      | 'country-name'
-      | 'postal-code'
-      | 'name'
-      | 'additional-name'
-      | 'family-name'
-      | 'given-name'
-      | 'honoric-prefix'
-      | 'honoric-suffix'
-      | 'nickname'
-      | 'organization-title'
-      | 'username'
-      | 'new-password'
-      | 'current-password'
-      | 'bday'
-      | 'bday-day'
-      | 'bday-month'
-      | 'bday-year'
-      | 'billing'
-      | 'sex'
-      | 'one-time-code'
-      | 'organization'
-      | 'cc-name'
-      | 'cc-given-name'
-      | 'cc-additional-name'
-      | 'cc-family-name'
-      | 'cc-number'
-      | 'cc-exp'
-      | 'cc-exp-month'
-      | 'cc-exp-year'
-      | 'cc-csc'
-      | 'cc-type'
-      | 'transaction-currency'
-      | 'transaction-amount'
-      | 'language'
-      | 'url'
-      | 'email'
-      | 'photo'
-      | 'shipping'
-      | 'tel'
-      | 'tel-country-code'
-      | 'tel-national'
-      | 'tel-area-code'
-      | 'tel-local'
-      | 'tel-local-prefix'
-      | 'tel-local-suffix'
-      | 'tel-extension'
-      | 'impp'
-      | 'webauthn'`,
-    },
-    description: `More input autocomplete values can be found [at MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values).
-
-Indicate if autocomplete should be available on the input, and the type of autocomplete. Autocomplete values are implemented upon request. [Reach out to the Gestalt team](https://gestalt.pinterest.systems/team_support/get_help#Slack-channels) if you need [additional autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values) to be supported.`,
-  };
+  generatedDocGen.props.autoComplete.flowType.raw = `'bday' | 'current-password' | 'email' | 'new-password' | 'on' | 'off' | 'username' | 52 more ...`;
 
   return {
     props: { generatedDocGen: await docGen('TextField') },
