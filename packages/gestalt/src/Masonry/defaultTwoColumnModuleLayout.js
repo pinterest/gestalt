@@ -219,7 +219,7 @@ const defaultTwoColumnModuleLayout = <T>({
   logWhitespace?: (number) => void,
   measurementCache: Cache<T, number>,
   minCols?: number,
-  positionCache?: Cache<T, Position>,
+  positionCache: Cache<T, Position>,
   rawItemCount: number,
   width?: ?number,
 }): ((items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>) => {
@@ -415,7 +415,7 @@ const defaultTwoColumnModuleLayout = <T>({
       logWhitespace?.(additionalWhitespaceAboveTwoColModule);
 
       finalPositions.forEach(({ item, position }) => {
-        positionCache?.set(item, position);
+        positionCache.set(item, position);
       });
       heightsCache?.setHeights(finalHeights);
 
