@@ -128,7 +128,7 @@ export default function PatternBarFill(): ReactNode {
                         href={`#points-${color}-${idx}-${palette.name}`}
                         fill={
                           decalDotCoordCorrection[color].fill === 'empty'
-                            ? { TOKEN_COLOR_WHITE_MOCHIMALIST_0 }
+                            ? TOKEN_COLOR_WHITE_MOCHIMALIST_0
                             : hexColor(color)
                         }
                         stroke={hexColor(color)}
