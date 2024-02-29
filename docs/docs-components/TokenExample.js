@@ -2,9 +2,9 @@
 import { type Node as ReactNode } from 'react';
 import { Box } from 'gestalt';
 import {
-  TOKEN_COLOR_BACKGROUND_BOX_TRANSPARENT,
   TOKEN_COLOR_TEXT_DEFAULT,
-  TOKEN_FONT_SIZE_400,
+  TOKEN_COLOR_TRANSPARENT,
+  TOKEN_FONT_SIZE_500,
   TOKEN_FONT_SIZE_600,
   TOKEN_SPACE_1600,
 } from 'gestalt-design-tokens/dist/js/constants';
@@ -96,7 +96,7 @@ export function TextColorBox({ token }: BaseProps): ReactNode {
   return (
     <Box
       dangerouslySetInlineStyle={{
-        __style: { color: `var(--${token.name})`, fontSize: TOKEN_FONT_SIZE_400 },
+        __style: { color: `var(--${token.name})`, fontSize: TOKEN_FONT_SIZE_500 },
       }}
       height={HEIGHT}
       width={WIDTH}
@@ -157,7 +157,7 @@ export function ElevationBox({ token }: BaseProps): ReactNode {
           boxShadow: `var(--${token.name})`,
           backgroundColor: token.name.includes('color')
             ? `var(--${token.name})`
-            : TOKEN_COLOR_BACKGROUND_BOX_TRANSPARENT,
+            : TOKEN_COLOR_TRANSPARENT,
         },
       }}
       height={HEIGHT}
