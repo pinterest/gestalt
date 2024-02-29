@@ -152,7 +152,13 @@
         {
           "destination": "colors-dark.xml",
           "format": "darkThemeFormat-android/resources",
-          "_filter_comment": "Custom. See packages/gestalt-design-tokens/build.js"
+          "_filter_comment": "Custom. See packages/gestalt-design-tokens/build.js",
+          "resourceType": "color",
+          "filter": {
+            "attributes": {
+              "category": "color"
+            }
+          }
         },
         {
           "destination": "font-size.xml",
