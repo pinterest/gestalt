@@ -164,6 +164,9 @@
               "category": "font",
               "type": "size"
             }
+          },
+          "options": {
+            "outputReferences": true
           }
         },
         {
@@ -174,6 +177,9 @@
             "attributes": {
               "category": "opacity"
             }
+          },
+          "options": {
+            "outputReferences": true
           }
         },
         {
@@ -184,6 +190,9 @@
             "attributes": {
               "category": "rounding"
             }
+          },
+          "options": {
+            "outputReferences": true
           }
         },
         {
@@ -194,6 +203,9 @@
             "attributes": {
               "category": "space"
             }
+          },
+          "options": {
+            "outputReferences": true
           }
         }
       ]
