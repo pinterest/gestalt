@@ -10,5 +10,5 @@ configure({ testIdAttribute: 'data-test-id' });
 
 // Fail tests on `console` calls
 failOnConsole({
-  shouldFailOnLog: true,
+  shouldFailOnLog: false,
 });

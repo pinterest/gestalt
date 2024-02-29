@@ -15,6 +15,15 @@ import { type Position } from './Masonry/types';
 import uniformRowLayout from './Masonry/uniformRowLayout';
 import throttle, { type ThrottleReturn } from './throttle';
 
+function getRandomColor(getRandomNumber?: () => number = Math.random): string {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i += 1) {
+    color += letters[Math.floor(getRandomNumber() * 16)];
+  }
+  return color;
+}
+
 const RESIZE_DEBOUNCE = 300;
 
 // When there's a 2-col item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to minimize whitespace above the 2-col item
@@ -180,6 +189,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       measurementStore,
       scrollTop: 0,
       width: undefined,
+      itemToBatchMap: new Map(),
     };
   }
 
@@ -461,6 +471,9 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
           WebkitTransform: `translateX(${isRtl ? left * -1 : left}px) translateY(${top}px)`,
           width: layoutNumberToCssDimension(width),
           height: layoutNumberToCssDimension(height),
+          backgroundColor: this.state.itemToBatchMap.has(itemData)
+            ? this.state.itemToBatchMap.get(itemData)
+            : 'white',
         }}
       >
         {renderItem({ data: itemData, itemIdx: idx, isMeasuring: false })}
@@ -590,6 +603,13 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       const itemsToMeasure = items
         .filter((item) => item && !measurementStore.has(item))
         .slice(0, itemsToMeasureCount);
+
+      const batchColor = getRandomColor();
+      itemsToMeasure.forEach((item) => {
+        if (!this.state.itemToBatchMap.has(item)) {
+          this.state.itemToBatchMap.set(item, batchColor);
+        }
+      });
 
       const positions = getPositions(itemsWithMeasurements);
       const measuringPositions = getPositions(itemsToMeasure);
