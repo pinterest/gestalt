@@ -577,21 +577,19 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       gridBody = <div style={{ width: '100%' }} ref={this.setGridWrapperRef} />;
     } else {
       // Full layout is possible
-      const itemsWithMeasurements = items.filter((item) => item && measurementStore.has(item));
-      const itemsWithPositions = items.filter((item) => item && positionStore.has(item));
-      const itemsToRender = _twoColItems ? itemsWithPositions : itemsWithMeasurements;
-
+      const itemsToRender = items.filter((item) => item && measurementStore.has(item));
       const itemsWithoutPositions = items.filter((item) => item && !positionStore.has(item));
       const hasTwoColumnItems =
         // $FlowFixMe[prop-missing] We're assuming `columnSpan` exists
         _twoColItems && itemsWithoutPositions.some((item) => item.columnSpan === 2);
+
       // If there are 2-col items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
       const itemsToMeasureCount = hasTwoColumnItems ? TWO_COL_ITEMS_MEASURE_BATCH_SIZE : minCols;
       const itemsToMeasure = items
         .filter((item) => item && !measurementStore.has(item))
         .slice(0, itemsToMeasureCount);
 
-      const positions = getPositions(itemsWithMeasurements);
+      const positions = getPositions(itemsToRender);
       const measuringPositions = getPositions(itemsToMeasure);
       // Math.max() === -Infinity when there are no positions
       const height = positions.length
@@ -606,6 +604,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
                 item,
                 i,
                 // If we have items in the positionStore (newer way of tracking positions used for 2-col support), use that. Otherwise fall back to the classic way of tracking positions
+                // this is only required atm because the two column layout doesn't not return positions in their original item order
                 positionStore.get(item) ?? positions[i],
               ),
             )}
@@ -615,7 +614,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
               // itemsToMeasure is always the length of minCols, so i will always be 0..minCols.length
               // we normalize the index here relative to the item list as a whole so that itemIdx is correct
               // and so that React doesnt reuse the measurement nodes
-              const measurementIndex = itemsWithMeasurements.length + i;
+              const measurementIndex = itemsToRender.length + i;
               const position = measuringPositions[i];
               return (
                 <div
