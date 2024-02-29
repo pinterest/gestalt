@@ -1,6 +1,7 @@
 // @flow strict
 import { type Element, type Node as ReactNode, useEffect, useId, useState } from 'react';
 import classnames from 'classnames';
+import { TOKEN_SPACE_400 } from 'gestalt-design-tokens/dist/js/constants';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
 import { NestingProvider, useNesting } from './contexts/NestingProvider';
 import { useSideNavigation } from './contexts/SideNavigationProvider';
@@ -155,7 +156,7 @@ export default function SideNavigationGroup({
 
   const paddingStyle = {
     paddingInlineStart: NESTING_MARGIN_START_MAP[nestedLevel],
-    paddingInlineEnd: 'var(--space-400)',
+    paddingInlineEnd: TOKEN_SPACE_400,
   };
 
   if (isMobile) {

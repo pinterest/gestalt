@@ -1,6 +1,20 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { BannerSlim, Box } from 'gestalt';
+import {
+  TOKEN_COLOR_DATA_VISUALIZATION_01,
+  TOKEN_COLOR_DATA_VISUALIZATION_02,
+  TOKEN_COLOR_DATA_VISUALIZATION_03,
+  TOKEN_COLOR_DATA_VISUALIZATION_04,
+  TOKEN_COLOR_DATA_VISUALIZATION_05,
+  TOKEN_COLOR_DATA_VISUALIZATION_06,
+  TOKEN_COLOR_DATA_VISUALIZATION_07,
+  TOKEN_COLOR_DATA_VISUALIZATION_08,
+  TOKEN_COLOR_DATA_VISUALIZATION_09,
+  TOKEN_COLOR_DATA_VISUALIZATION_10,
+  TOKEN_COLOR_DATA_VISUALIZATION_11,
+  TOKEN_COLOR_DATA_VISUALIZATION_12,
+} from 'gestalt-design-tokens/dist/js/constants';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import { type DocGen, multipleDocGen } from '../../docs-components/docgen';
@@ -477,30 +491,72 @@ If different graphs need to be compared simultaneously, see example below, color
         `}
         >
           <CombinationNew cardSize="xs" color={['01', '02', '03', '04', '05', '06']}>
-            {({ color }) => (
-              <Box
-                dangerouslySetInlineStyle={{
-                  __style: {
-                    backgroundColor: `var((--color-data-visualization_${color})`,
-                  },
-                }}
-                height={80}
-                width={80}
-              />
-            )}
+            {({ color }) => {
+              function getToken(value: string): string {
+                switch (value) {
+                  case '01':
+                    return TOKEN_COLOR_DATA_VISUALIZATION_01;
+                  case '02':
+                    return TOKEN_COLOR_DATA_VISUALIZATION_02;
+                  case '03':
+                    return TOKEN_COLOR_DATA_VISUALIZATION_03;
+                  case '04':
+                    return TOKEN_COLOR_DATA_VISUALIZATION_04;
+                  case '05':
+                    return TOKEN_COLOR_DATA_VISUALIZATION_05;
+                  case '06':
+                    return TOKEN_COLOR_DATA_VISUALIZATION_06;
+                  default:
+                    return TOKEN_COLOR_DATA_VISUALIZATION_01;
+                }
+              }
+
+              return (
+                <Box
+                  dangerouslySetInlineStyle={{
+                    __style: {
+                      backgroundColor: getToken(color),
+                    },
+                  }}
+                  height={80}
+                  width={80}
+                />
+              );
+            }}
           </CombinationNew>
           <CombinationNew cardSize="xs" color={['07', '08', '09', '10', '11', '12']}>
-            {({ color }) => (
-              <Box
-                dangerouslySetInlineStyle={{
-                  __style: {
-                    backgroundColor: `var(--color-data-visualization-${color})`,
-                  },
-                }}
-                height={80}
-                width={80}
-              />
-            )}
+            {({ color }) => {
+              function getToken(value: string): string {
+                switch (value) {
+                  case '07':
+                    return TOKEN_COLOR_DATA_VISUALIZATION_07;
+                  case '08':
+                    return TOKEN_COLOR_DATA_VISUALIZATION_08;
+                  case '09':
+                    return TOKEN_COLOR_DATA_VISUALIZATION_09;
+                  case '10':
+                    return TOKEN_COLOR_DATA_VISUALIZATION_10;
+                  case '11':
+                    return TOKEN_COLOR_DATA_VISUALIZATION_11;
+                  case '12':
+                    return TOKEN_COLOR_DATA_VISUALIZATION_12;
+                  default:
+                    return TOKEN_COLOR_DATA_VISUALIZATION_07;
+                }
+              }
+
+              return (
+                <Box
+                  dangerouslySetInlineStyle={{
+                    __style: {
+                      backgroundColor: getToken(color),
+                    },
+                  }}
+                  height={80}
+                  width={80}
+                />
+              );
+            }}
           </CombinationNew>
           <MainSection.Card
             cardSize="lg"

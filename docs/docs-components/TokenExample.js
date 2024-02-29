@@ -1,6 +1,13 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box } from 'gestalt';
+import {
+  TOKEN_COLOR_BACKGROUND_BOX_TRANSPARENT,
+  TOKEN_COLOR_TEXT_DEFAULT,
+  TOKEN_FONT_SIZE_400,
+  TOKEN_FONT_SIZE_600,
+  TOKEN_SPACE_1600,
+} from 'gestalt-design-tokens/dist/js/constants';
 import { type Token } from '../pages/foundations/design_tokens/overview';
 
 type BaseProps = {
@@ -68,7 +75,7 @@ export function SpacingBox({ token }: BaseProps): ReactNode {
 
   return (
     <Box
-      dangerouslySetInlineStyle={{ __style: { marginLeft: '64px' } }}
+      dangerouslySetInlineStyle={{ __style: { marginLeft: TOKEN_SPACE_1600 } }}
       color="brand"
       width={token.value}
       height={token.value}
@@ -89,7 +96,7 @@ export function TextColorBox({ token }: BaseProps): ReactNode {
   return (
     <Box
       dangerouslySetInlineStyle={{
-        __style: { color: `var(--${token.name})`, fontSize: '32px' },
+        __style: { color: `var(--${token.name})`, fontSize: TOKEN_FONT_SIZE_400 },
       }}
       height={HEIGHT}
       width={WIDTH}
@@ -148,7 +155,9 @@ export function ElevationBox({ token }: BaseProps): ReactNode {
       dangerouslySetInlineStyle={{
         __style: {
           boxShadow: `var(--${token.name})`,
-          backgroundColor: token.name.includes('color') ? `var(--${token.name})` : 'transparent',
+          backgroundColor: token.name.includes('color')
+            ? `var(--${token.name})`
+            : TOKEN_COLOR_BACKGROUND_BOX_TRANSPARENT,
         },
       }}
       height={HEIGHT}
@@ -164,7 +173,7 @@ export function ElevationBox({ token }: BaseProps): ReactNode {
 export function FontBox({ token, type }: FontBoxProps): ReactNode {
   const fontWeightStyle = type === 'weight' ? `var(--${token.name})` : undefined;
   const fontFamilyStyle = type === 'family' ? `var(--${token.name})` : undefined;
-  const fontSizeStyle = type === 'size' ? `var(--${token.name})` : `var(--font-size-600)`;
+  const fontSizeStyle = type === 'size' ? `var(--${token.name})` : TOKEN_FONT_SIZE_600;
 
   return (
     <Box
@@ -173,7 +182,7 @@ export function FontBox({ token, type }: FontBoxProps): ReactNode {
           fontWeight: fontWeightStyle,
           fontFamily: fontFamilyStyle,
           fontSize: fontSizeStyle,
-          color: 'var(--color-text-default)',
+          color: TOKEN_COLOR_TEXT_DEFAULT,
         },
       }}
       height={HEIGHT}

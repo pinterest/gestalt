@@ -15,6 +15,12 @@ import {
   Text,
   useReducedMotion,
 } from 'gestalt';
+import {
+  TOKEN_COLOR_BLUE_SKYCICLE_450,
+  TOKEN_COLOR_PURPLE_MYSTICOOL_200,
+  TOKEN_COLOR_TEAL_SPABATTICAL_100,
+  TOKEN_COLOR_TEAL_SPABATTICAL_700,
+} from 'gestalt-design-tokens/dist/js/constants';
 import GestaltLogo from '../docs-components/GestaltLogo';
 // SVGs
 import AsteriskFilled from '../graphics/year-in-review/asteriskFilled.svg';
@@ -34,6 +40,7 @@ import Vibes from '../graphics/year-in-review/lottie/vibes.json';
 import Sparkle from '../graphics/year-in-review/sparkle.svg';
 import SparkleShadow from '../graphics/year-in-review/sparkleShadow.svg';
 import Tokens from '../graphics/year-in-review/tokens.svg';
+
 // Lottie animations
 
 const INTRO_ZINDEX = new FixedZIndex(10);
@@ -137,7 +144,7 @@ export default function YearInReview2022(): ReactNode {
           <Box
             width="100%"
             dangerouslySetInlineStyle={{
-              __style: { backgroundColor: 'var(--color-blue-skycicle-450)' },
+              __style: { backgroundColor: TOKEN_COLOR_BLUE_SKYCICLE_450 },
             }}
             position="relative"
           >
@@ -214,7 +221,7 @@ export default function YearInReview2022(): ReactNode {
           </Flex>
           <Box
             dangerouslySetInlineStyle={{
-              __style: { backgroundColor: 'var(--color-purple-mysticool-200)' },
+              __style: { backgroundColor: TOKEN_COLOR_PURPLE_MYSTICOOL_200 },
             }}
             paddingY={6}
             paddingX={SIDE_GAP}
@@ -418,7 +425,7 @@ export default function YearInReview2022(): ReactNode {
           <Box
             dangerouslySetInlineStyle={{
               __style: {
-                backgroundColor: 'var(--color-teal-spabattical-100)',
+                backgroundColor: TOKEN_COLOR_TEAL_SPABATTICAL_100,
                 border: '4px solid #111',
                 borderBottom: 'none',
               },
@@ -557,7 +564,7 @@ export default function YearInReview2022(): ReactNode {
           </Box>
           <Box
             dangerouslySetInlineStyle={{
-              __style: { backgroundColor: 'var(--color-purple-mysticool-200)' },
+              __style: { backgroundColor: TOKEN_COLOR_PURPLE_MYSTICOOL_200 },
             }}
             paddingY={12}
             paddingX={SIDE_GAP}
@@ -636,7 +643,7 @@ export default function YearInReview2022(): ReactNode {
           </Box>
           <Box
             dangerouslySetInlineStyle={{
-              __style: { backgroundColor: 'var(--color-teal-spabattical-700)' },
+              __style: { backgroundColor: TOKEN_COLOR_TEAL_SPABATTICAL_700 },
             }}
             paddingY={12}
             paddingX={4}

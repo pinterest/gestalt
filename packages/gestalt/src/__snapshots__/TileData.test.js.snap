@@ -2106,7 +2106,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           style={
                             Object {
                               "backgroundColor": "#0081fe",
-                              "borderColor": "transparent",
+                              "borderColor": "var(--color-transparent)",
                             }
                           }
                         >
@@ -2307,7 +2307,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           style={
                             Object {
                               "backgroundColor": "#0081fe",
-                              "borderColor": "transparent",
+                              "borderColor": "var(--color-transparent)",
                             }
                           }
                         >
@@ -2508,7 +2508,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                           style={
                             Object {
                               "backgroundColor": "#0081fe",
-                              "borderColor": "transparent",
+                              "borderColor": "var(--color-transparent)",
                             }
                           }
                         >
@@ -2854,7 +2854,7 @@ exports[`TileData Tiledata is disabled 1`] = `
                       style={
                         Object {
                           "backgroundColor": "var(--color-gray-roboflow-300)",
-                          "borderColor": "transparent",
+                          "borderColor": "var(--color-transparent)",
                         }
                       }
                     >

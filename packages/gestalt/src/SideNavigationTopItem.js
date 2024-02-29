@@ -9,6 +9,7 @@ import {
   useState,
 } from 'react';
 import classnames from 'classnames';
+import { TOKEN_SPACE_400, TOKEN_SPACE_1200 } from 'gestalt-design-tokens/dist/js/constants';
 import Badge from './Badge';
 import Box from './Box';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
@@ -25,8 +26,8 @@ import Text from './Text';
 import { type Indexable } from './zIndex';
 
 export const NESTING_MARGIN_START_MAP = {
-  '0': 'var(--space-400)',
-  '1': 'var(--space-1200)',
+  '0': TOKEN_SPACE_400,
+  '1': TOKEN_SPACE_1200,
   '2': '68px',
 };
 

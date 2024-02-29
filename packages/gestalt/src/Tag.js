@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
+import { TOKEN_COLOR_BORDER_TAG_DISABLED } from 'gestalt-design-tokens/dist/js/constants';
 import Box from './Box';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import focusStyles from './Focus.css';
@@ -144,7 +145,7 @@ export default function Tag({
       color={bgColor}
       dangerouslySetInlineStyle={{
         __style:
-          disabled && !hasIcon ? { border: 'solid 1px var(--color-border-tag-disabled)' } : {},
+          disabled && !hasIcon ? { border: `solid 1px ${TOKEN_COLOR_BORDER_TAG_DISABLED}` } : {},
       }}
       display="inlineBlock"
       height={height}

@@ -1,5 +1,9 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
+import {
+  TOKEN_COLOR_BACKGROUND_EDUCATION,
+  TOKEN_COLOR_TEXT_INVERSE,
+} from 'gestalt-design-tokens/dist/js/constants';
 
 export default function HeroGraphic({ animate = true }: { animate?: boolean }): ReactNode {
   return (
@@ -17,7 +21,7 @@ export default function HeroGraphic({ animate = true }: { animate?: boolean }): 
       <path
         className="animation-draw"
         d="M75 269L75 391L184 391L184 365.5"
-        stroke="var(--color-background-education)"
+        stroke={TOKEN_COLOR_BACKGROUND_EDUCATION}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -25,7 +29,7 @@ export default function HeroGraphic({ animate = true }: { animate?: boolean }): 
       />
       <path
         d="M75 269L75 391L184 391L184 365.5"
-        stroke="var(--color-text-inverse)"
+        stroke={TOKEN_COLOR_TEXT_INVERSE}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"

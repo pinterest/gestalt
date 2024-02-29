@@ -1,5 +1,13 @@
 // @flow strict
 import { type AbstractComponent, forwardRef, type Node as ReactNode, useState } from 'react';
+import {
+  TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_ACTIVE,
+  TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_BASE,
+  TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_HOVER,
+  TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_ACTIVE,
+  TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_BASE,
+  TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_HOVER,
+} from 'gestalt-design-tokens/dist/js/constants';
 import Box from './Box';
 import Flex from './Flex';
 import TapAreaLink from './TapAreaLink';
@@ -91,14 +99,14 @@ const TAB_INNER_PADDING = 2;
 
 const COLORS = {
   default: {
-    base: 'var(--color-background-tabs-default-base)',
-    active: 'var(--color-background-tabs-default-active)',
-    hover: 'var(--color-background-tabs-default-hover)',
+    base: TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_BASE,
+    active: TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_ACTIVE,
+    hover: TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_HOVER,
   },
   transparent: {
-    base: 'var(--color-background-tabs-transparent-base)',
-    active: 'var(--color-background-tabs-transparent-active)',
-    hover: 'var(--color-background-tabs-transparent-hover)',
+    base: TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_BASE,
+    active: TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_ACTIVE,
+    hover: TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_HOVER,
   },
 };
 

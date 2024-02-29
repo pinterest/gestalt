@@ -10,6 +10,7 @@ import {
   useState,
 } from 'react';
 import classnames from 'classnames';
+import { TOKEN_SPACE_100 } from 'gestalt-design-tokens/dist/js/constants';
 import styles from './InternalTextField.css';
 import InternalTextFieldIconButton from './InternalTextFieldIconButton';
 import Box from '../Box';
@@ -286,7 +287,7 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
   );
 
   // Explicit margin for the small size, we don't have a token for 2px
-  const tagMarginY = size === 'sm' || size === 'md' ? '2px' : 'var(--space-100)';
+  const tagMarginY = size === 'sm' || size === 'md' ? '2px' : TOKEN_SPACE_100;
 
   return (
     <span>

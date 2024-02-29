@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, Flex, Mask, Text, useColorScheme } from 'gestalt';
+import { TOKEN_COLOR_WHITE_MOCHIMALIST_0 } from 'gestalt-design-tokens/dist/js/constants';
 import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
 import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-light.json';
 
@@ -81,7 +82,7 @@ export default function PatternBarFill(): ReactNode {
                               cx="3"
                               cy="3"
                               r="2.5"
-                              fill="var(--color-white-mochimalist-0)"
+                              fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0}
                               stroke={hexColor('04')}
                               strokeWidth="1px"
                             />
@@ -95,7 +96,7 @@ export default function PatternBarFill(): ReactNode {
                             <rect x="0" width="8" height="8" y="0" fill={hexColor('05')} />
                             <path
                               d="M 0 0 L 4 8 L 8 0"
-                              stroke="var(--color-white-mochimalist-0)"
+                              stroke={TOKEN_COLOR_WHITE_MOCHIMALIST_0}
                               strokeWidth="1"
                               fill="none"
                             />
@@ -109,7 +110,7 @@ export default function PatternBarFill(): ReactNode {
                             <rect
                               width="4"
                               height="4"
-                              fill="var(--color-white-mochimalist-0)"
+                              fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0}
                               stroke={hexColor('06')}
                               strokeWidth="1px"
                             />
@@ -183,7 +184,7 @@ export default function PatternBarFill(): ReactNode {
                               width="4"
                               height="4"
                               y="0"
-                              fill="var(--color-white-mochimalist-0)"
+                              fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0}
                             />
                           </pattern>
                         </defs>

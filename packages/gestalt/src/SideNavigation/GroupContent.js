@@ -1,5 +1,6 @@
 // @flow strict
 import { type Element, type Node as ReactNode, useEffect, useState } from 'react';
+import { TOKEN_COLOR_BACKGROUND_SELECTED_BASE } from 'gestalt-design-tokens/dist/js/constants';
 import PrimaryActionIconButton from './PrimaryActionIconButton';
 import Badge from '../Badge';
 import Box from '../Box';
@@ -103,7 +104,7 @@ export default function SideNavigationGroupContent({
         __style:
           expanded && selectedItemId === itemId
             ? {
-                border: `2px solid var(--color-background-selected-base)`,
+                border: `2px solid ${TOKEN_COLOR_BACKGROUND_SELECTED_BASE}`,
                 ...paddingStyle,
               }
             : paddingStyle,
