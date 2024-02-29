@@ -1,3 +1,9 @@
+## 145.4.1 (Feb 29, 2024)
+
+### Patch
+
+- Tokens: organized packages/gestalt-design-tokens/config.json & packages/gestalt-design-tokens/build.js + constants.js file ([#3456](https://github.com/pinterest/gestalt/pull/3456)) - [Preview link](https://deploy-preview-3456--gestalt.netlify.app?devexample=true)
+
 ## 145.4.0 (Feb 28, 2024)
 
 ### Minor
