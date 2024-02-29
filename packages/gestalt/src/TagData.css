@@ -1,8 +1,8 @@
 .tagLarge {
+  composes: borderBox from "./Layout.css";
+  height: 48px;
   padding-bottom: 14px;
   padding-top: 14px;
-  height: 48px;
-  composes: borderBox from "./Layout.css";
 }
 
 .tagMedium {
