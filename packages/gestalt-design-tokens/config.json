@@ -137,17 +137,21 @@
       "files": [
         {
           "destination": "colors.xml",
-          "format": "android/colors",
+          "format": "android/resources",
           "_format_comment": "https://amzn.github.io/style-dictionary/#/formats?id=androidcolors",
+          "resourceType": "color",
           "filter": {
             "attributes": {
               "category": "color"
             }
+          },
+          "options": {
+            "outputReferences": true
           }
         },
         {
           "destination": "colors-dark.xml",
-          "format": "darkThemeFormat-android/colors",
+          "format": "darkThemeFormat-android/resources",
           "_filter_comment": "Custom. See packages/gestalt-design-tokens/build.js"
         },
         {

@@ -94,8 +94,8 @@ StyleDictionary.registerFormat({
 });
 
 StyleDictionary.registerFormat({
-  name: 'darkThemeFormat-android/colors',
-  formatter: formatDarkTheme('android/colors'),
+  name: 'darkThemeFormat-android/resources',
+  formatter: formatDarkTheme('android/resources'),
 });
 
 StyleDictionary.registerFormat({
