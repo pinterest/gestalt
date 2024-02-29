@@ -1,3 +1,9 @@
+## 145.4.2 (Feb 29, 2024)
+
+### Patch
+
+- Tokens: set `outputReferences": true` for android/resources ([#3460](https://github.com/pinterest/gestalt/pull/3460)) - [Preview link](https://deploy-preview-3460--gestalt.netlify.app?devexample=true)
+
 ## 145.4.1 (Feb 29, 2024)
 
 ### Patch
