@@ -196,8 +196,9 @@ export default function Dropdown({
   const handleKeyNavigation = (
     event: SyntheticKeyboardEvent<HTMLElement>,
     direction: DirectionOptionType,
+    index: number,
   ) => {
-    const newIndex = direction + (hoveredItemIndex ?? 0);
+    const newIndex = direction + (index ?? 0);
     const optionsCount = allowedChildrenOptions.length - 1;
 
     // If there's an existing item, navigate from that position
@@ -216,6 +217,13 @@ export default function Dropdown({
 
     if (cursorOption) {
       const item = cursorOption.option;
+
+      if (cursorOption.disabled) {
+        // re-run the function again and try with the next cursorIndex
+        handleKeyNavigation(event, direction, cursorIndex);
+        return;
+      }
+
       setHoveredItemIndex(cursorIndex);
 
       if (direction === KEYS.ENTER) {
@@ -230,14 +238,14 @@ export default function Dropdown({
   const onKeyDown = ({ event }: { event: SyntheticKeyboardEvent<HTMLElement> }) => {
     const { keyCode } = event;
     if (keyCode === UP_ARROW) {
-      handleKeyNavigation(event, KEYS.UP);
+      handleKeyNavigation(event, KEYS.UP, hoveredItemIndex);
       event.preventDefault();
     } else if (keyCode === DOWN_ARROW) {
-      handleKeyNavigation(event, KEYS.DOWN);
+      handleKeyNavigation(event, KEYS.DOWN, hoveredItemIndex);
       event.preventDefault();
     } else if (keyCode === ENTER) {
       event.stopPropagation();
-      handleKeyNavigation(event, KEYS.ENTER);
+      handleKeyNavigation(event, KEYS.ENTER, hoveredItemIndex);
     } else if ([ESCAPE, TAB].includes(keyCode)) {
       anchor?.focus();
       onDismiss?.();

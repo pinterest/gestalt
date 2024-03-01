@@ -16,6 +16,7 @@ import badges from '../../examples/dropdown/badges';
 import composability from '../../examples/dropdown/composability';
 import customHeader from '../../examples/dropdown/customHeader';
 import customItem from '../../examples/dropdown/customItem';
+import disabled from '../../examples/dropdown/disabled';
 import doFeatures from '../../examples/dropdown/doFeatures';
 import doIcons from '../../examples/dropdown/doIcons';
 import dontCustom from '../../examples/dropdown/dontCustom';
@@ -241,6 +242,16 @@ When the text of the Dropdown.Item becomes longer than the width of the menu, ei
             description={`If an item navigates to a new page, use Dropdown.Link with the required \`href\` prop. If the item navigates to a page outside of the current context, (either a non-Pinterest site or a different Pinterest sub-site), the \`isExternal\` prop should also be specified to display the "up-right" icon. Optional additional actions to be taken on navigation are handled by \`onClick\`. Dropdown.Link can be paired with GlobalEventsHandlerProvider. See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
             `}
             sandpackExample={<SandpackExample code={link} name="Link example" layout="column" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Disabled"
+          description="Dropdown items can be marked as `disabled`. They will not receive focus and will appear inactive."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={<SandpackExample code={disabled} name="Sections example" />}
           />
         </MainSection.Subsection>
 
