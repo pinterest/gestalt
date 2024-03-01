@@ -7,7 +7,7 @@
   composes: xsCol12 from "./Column.css";
   appearance: none;
   background-color: var(--color-background-formfield-primary);
-  color: var(--color-text-formfield-primary);
+  color: var(--color-text-formfield-default);
   min-width: 180px;
   padding: var(--space-200) calc(var(--space-800) + var(--space-200));
 }

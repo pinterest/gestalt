@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node as ReactNode, useEffect, useRef } from 'react';
+import { type Node as ReactNode, useRef } from 'react';
 import Controller from './Controller';
 import Box from '../Box';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
@@ -58,13 +58,10 @@ export default function InternalPopover({
 
   const dismissButtonRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
-  useEffect(() => {
-    dismissButtonRef.current?.focus();
-  }, []);
-
   if (!anchor) {
     return null;
   }
+
   return (
     <Controller
       accessibilityLabel={accessibilityLabel}

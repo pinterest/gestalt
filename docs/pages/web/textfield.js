@@ -501,6 +501,10 @@ The first example shows an empty Textfield with \`maxLength\` set to 20 characte
 export async function getServerSideProps(): Promise<{
   props: { generatedDocGen: DocGen },
 }> {
+  const generatedDocGen = await docGen('TextField');
+
+  generatedDocGen.props.autoComplete.flowType.raw = `'bday' | 'current-password' | 'email' | 'new-password' | 'on' | 'off' | 'username' | 52 more ...`;
+
   return {
     props: { generatedDocGen: await docGen('TextField') },
   };

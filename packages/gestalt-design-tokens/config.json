@@ -3,107 +3,157 @@
   "platforms": {
     "css": {
       "transformGroup": "css",
+      "_transformGroup_comment": "https://amzn.github.io/style-dictionary/#/transform_groups?id=css",
       "buildPath": "dist/css/",
       "files": [
         {
           "destination": "variables.css",
           "format": "css/variables",
+          "_format_comment": "https://amzn.github.io/style-dictionary/#/formats?id=cssvariables",
           "options": {
+            "fileHeader": "fileHeader",
+            "_fileHeader_comment": "Custom. See packages/gestalt-design-tokens/build.js",
+            "showFileHeader": true,
             "outputReferences": true
           }
         },
         {
           "destination": "variables-dark.css",
-          "format": "cssDark",
-          "filter": "customDarkColorFilter"
+          "format": "darkThemeFormat-css/variables",
+          "_format_comment": "Custom. See packages/gestalt-design-tokens/build.js",
+          "filter": "darkThemeFilter",
+          "_filter_comment": "Custom. See packages/gestalt-design-tokens/build.js",
+          "options": {
+            "fileHeader": "fileHeader",
+            "_fileHeader_comment": "Custom. See packages/gestalt-design-tokens/build.js",
+            "showFileHeader": true,
+            "outputReferences": false
+          }
         }
       ]
     },
     "json": {
       "transformGroup": "css",
+      "_transformGroup_comment": "https://amzn.github.io/style-dictionary/#/transform_groups?id=css",
       "buildPath": "dist/json/",
       "files": [
         {
           "destination": "variables.json",
-          "format": "json/flat"
-        },
-        {
-          "destination": "variables-dark.json",
-          "format": "cssDarkJson",
-          "filter": "customDarkColorFilter"
+          "format": "json/flat",
+          "_format_comment": "https://amzn.github.io/style-dictionary/#/formats?id=jsonflat"
         },
         {
           "destination": "variables-light.json",
           "format": "json/flat",
-          "filter": "customDarkColorFilter"
+          "_format_comment": "https://amzn.github.io/style-dictionary/#/formats?id=jsonflat",
+          "filter": "darkThemeFilter",
+          "_filter_comment": "Custom. See packages/gestalt-design-tokens/build.js"
+        },
+        {
+          "destination": "variables-dark.json",
+          "format": "darkThemeFormat-json/flat",
+          "_format_comment": "Custom. See packages/gestalt-design-tokens/build.js",
+          "filter": "darkThemeFilter",
+          "_filter_comment": "Custom. See packages/gestalt-design-tokens/build.js"
         }
       ]
     },
     "jsonflow": {
       "transformGroup": "css",
+      "_transformGroup_comment": "https://amzn.github.io/style-dictionary/#/transform_groups?id=css",
       "buildPath": "dist/json/",
       "files": [
         {
           "destination": "variables.json.flow",
-          "format": "jsonFlatFlow"
-        },
-        {
-          "destination": "variables-dark.json.flow",
-          "format": "cssDarkJsonFlatFlow",
-          "filter": "customDarkColorFilter"
+          "format": "json/flat/flow",
+          "_format_comment": "Custom. See packages/gestalt-design-tokens/build.js"
         },
         {
           "destination": "variables-light.json.flow",
-          "format": "jsonFlatFlow",
-          "filter": "customDarkColorFilter"
+          "format": "json/flat/flow",
+          "_format_comment": "Custom. See packages/gestalt-design-tokens/build.js",
+          "filter": "darkThemeFilter",
+          "_filter_comment": "Custom. See packages/gestalt-design-tokens/build.js"
+        },
+        {
+          "destination": "variables-dark.json.flow",
+          "format": "darkThemeFormat-json/flat/flow",
+          "_format_comment": "Custom. See packages/gestalt-design-tokens/build.js",
+          "filter": "darkThemeFilter",
+          "_filter_comment": "Custom. See packages/gestalt-design-tokens/build.js"
         }
       ]
     },
     "js": {
       "transformGroup": "js",
-      "showFileHeader": true,
+      "_transformGroup_comment": "https://amzn.github.io/style-dictionary/#/transform_groups?id=js",
       "buildPath": "dist/js/",
+      "options": {
+        "showFileHeader": true,
+        "fileHeader": "flowFileHeader",
+        "_fileHeader_comment": "Custom. See packages/gestalt-design-tokens/build.js"
+      },
       "files": [
         {
+          "destination": "constants.js",
+          "format": "constantLibrary-javascript/es6/flow",
+          "_format_comment": "Custom. See packages/gestalt-design-tokens/build.js"
+        },
+        {
           "destination": "tokens.js",
-          "format": "customJSArrayFormat",
-          "options": {
-            "fileHeader": "flowCustomHeader"
-          }
+          "format": "commonJS/flow",
+          "_format_comment": "Custom. See packages/gestalt-design-tokens/build.js"
         },
         {
           "destination": "tokens_individual.js",
-          "format": "customJSIndividualFormat",
-          "options": {
-            "fileHeader": "flowCustomHeader"
-          }
+          "format": "javascript/es6/flow",
+          "_format_comment": "Custom. See packages/gestalt-design-tokens/build.js"
         },
         {
           "destination": "data-viz-tokens.js",
-          "format": "customJSArrayFormat",
-          "filter": "customDataVizFilter",
-          "options": {
-            "fileHeader": "flowCustomHeader"
-          }
+          "format": "commonJS/flow",
+          "_format_comment": "Custom. See packages/gestalt-design-tokens/build.js",
+          "filter": "dataVisualizationFilter",
+          "_filter_comment": "Custom. See packages/gestalt-design-tokens/build.js"
         },
         {
           "destination": "data-viz-tokens_individual.js",
-          "format": "customJSIndividualFormat",
-          "filter": "customDataVizFilter",
-          "options": {
-            "fileHeader": "flowCustomHeader"
-          }
+          "format": "javascript/es6/flow",
+          "_format_comment": "Custom. See packages/gestalt-design-tokens/build.js",
+          "filter": "dataVisualizationFilter",
+          "_filter_comment": "Custom. See packages/gestalt-design-tokens/build.js"
         }
       ]
     },
     "android": {
-      "transformGroup": "android-custom",
-      "options": { "fileHeader": "androidCustomHeader" },
+      "transformGroup": "androidTransformGroup",
+      "_format_comment": "Custom. See packages/gestalt-design-tokens/build.js",
       "buildPath": "dist/android/",
+      "options": {
+        "showFileHeader": true,
+        "fileHeader": "androidFileHeader",
+        "_fileHeader_comment": "Custom. See packages/gestalt-design-tokens/build.js"
+      },
       "files": [
         {
           "destination": "colors.xml",
-          "format": "android/colors",
+          "format": "android/resources",
+          "_format_comment": "https://amzn.github.io/style-dictionary/#/formats?id=androidcolors",
+          "resourceType": "color",
+          "filter": {
+            "attributes": {
+              "category": "color"
+            }
+          },
+          "options": {
+            "outputReferences": true
+          }
+        },
+        {
+          "destination": "colors-dark.xml",
+          "format": "darkThemeFormat-android/resources",
+          "_filter_comment": "Custom. See packages/gestalt-design-tokens/build.js",
+          "resourceType": "color",
           "filter": {
             "attributes": {
               "category": "color"
@@ -111,18 +161,18 @@
           }
         },
         {
-          "destination": "colors-dark.xml",
-          "format": "androidColorDark"
-        },
-        {
           "destination": "font-size.xml",
           "format": "android/resources",
+          "_format_comment": "https://amzn.github.io/style-dictionary/#/formats?id=androidresources",
           "resourceType": "dimen",
           "filter": {
             "attributes": {
               "category": "font",
               "type": "size"
             }
+          },
+          "options": {
+            "outputReferences": true
           }
         },
         {
@@ -133,6 +183,9 @@
             "attributes": {
               "category": "opacity"
             }
+          },
+          "options": {
+            "outputReferences": true
           }
         },
         {
@@ -143,6 +196,9 @@
             "attributes": {
               "category": "rounding"
             }
+          },
+          "options": {
+            "outputReferences": true
           }
         },
         {
@@ -153,62 +209,91 @@
             "attributes": {
               "category": "space"
             }
+          },
+          "options": {
+            "outputReferences": true
           }
         }
       ]
     },
     "ios": {
       "transformGroup": "ios",
+      "_transformGroup_comment": "https://amzn.github.io/style-dictionary/#/transform_groups?id=ios",
       "buildPath": "dist/ios/",
       "files": [
         {
           "destination": "GestaltDesignTokensColor.h",
           "format": "ios/colors.h",
+          "_format_comment": "https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsh",
           "className": "GestaltDesignTokensColor",
           "type": "GestaltDesignTokensColorName",
           "filter": {
             "attributes": {
               "category": "color"
             }
+          },
+          "options": {
+            "fileHeader": "fileHeader",
+            "_fileHeader_comment": "Custom. See packages/gestalt-design-tokens/build.js",
+            "showFileHeader": true
           }
         },
         {
           "destination": "GestaltDesignTokensColor.m",
           "format": "ios/colors.m",
+          "_format_comment": "https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsm",
           "className": "GestaltDesignTokensColor",
           "type": "GestaltDesignTokensColorName",
           "filter": {
             "attributes": {
               "category": "color"
             }
+          },
+          "options": {
+            "fileHeader": "fileHeader",
+            "_fileHeader_comment": "Custom. See packages/gestalt-design-tokens/build.js",
+            "showFileHeader": true
           }
         }
       ]
     },
     "ios-swift": {
       "transformGroup": "ios-swift",
+      "_transformGroup_comment": "https://amzn.github.io/style-dictionary/#/transform_groups?id=ios-swift",
       "buildPath": "dist/ios-swift/",
       "files": [
         {
           "destination": "GestaltDesignTokens.swift",
           "format": "ios-swift/class.swift",
+          "_format_comment": "https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftclassswift",
           "className": "GestaltDesignTokens",
-          "filter": {}
+          "options": {
+            "fileHeader": "fileHeader",
+            "_fileHeader_comment": "Custom. See packages/gestalt-design-tokens/build.js",
+            "showFileHeader": true
+          }
         }
       ]
     },
     "ios-swift-separate-enums": {
       "transformGroup": "ios-swift-separate",
+      "_transformGroup_comment": "https://amzn.github.io/style-dictionary/#/transform_groups?id=ios-swift-separate",
       "buildPath": "dist/ios-swift/",
       "files": [
         {
           "destination": "GestaltDesignTokensColor.swift",
           "format": "ios-swift/enum.swift",
+          "_format_comment": "https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftenumswift",
           "className": "GestaltDesignTokensColor",
           "filter": {
             "attributes": {
               "category": "color"
             }
+          },
+          "options": {
+            "fileHeader": "fileHeader",
+            "_fileHeader_comment": "Custom. See packages/gestalt-design-tokens/build.js",
+            "showFileHeader": true
           }
         }
       ]

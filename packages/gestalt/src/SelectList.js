@@ -98,9 +98,13 @@ function SelectList({
   const classes = classnames(
     styles.select,
     formElement.base,
-    disabled ? formElement.disabled : formElement.enabled,
-    errorMessage ? formElement.errored : formElement.normal,
     size === 'md' ? layout.medium : layout.large,
+    {
+      [formElement.normal]: !errorMessage,
+      [formElement.enabledTransparent]: !disabled,
+      [formElement.disabled]: disabled,
+      [formElement.errored]: !disabled && !!errorMessage,
+    },
   );
 
   const showPlaceholder = placeholder && !value;
@@ -119,11 +123,13 @@ function SelectList({
     <Box>
       {label && <FormLabel id={id} label={label} labelDisplay={labelDisplay} />}
       <Box
-        color={disabled ? 'secondary' : 'default'}
         display="flex"
         position="relative"
         rounding={4}
         width="100%"
+        dangerouslySetInlineStyle={{
+          __style: { backgroundColor: 'var(--color-background-formfield-primary)' },
+        }}
       >
         <Box
           alignItems="center"

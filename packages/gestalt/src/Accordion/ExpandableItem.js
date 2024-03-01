@@ -10,9 +10,17 @@ import icons from '../icons/index';
 import TapArea from '../TapArea';
 import Text from '../Text';
 
-type BadgeType = {
+export type BadgeType = {
   text: string,
-  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
+  type?:
+    | 'info'
+    | 'error'
+    | 'warning'
+    | 'success'
+    | 'neutral'
+    | 'recommendation'
+    | 'darkWash'
+    | 'lightWash',
 };
 
 export default function AccordionExpandableItem({

@@ -32,6 +32,11 @@
   color: var(--color-text-formfield-default);
 }
 
+.enabledTransparent {
+  background-color: var(--color-transparent);
+  color: var(--color-text-formfield-default);
+}
+
 .disabled {
   composes: borderColorLightGrayDisabled from "../Borders.css";
   background-color: var(--color-background-formfield-disabled);

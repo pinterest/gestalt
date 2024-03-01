@@ -1,3 +1,51 @@
+## 145.4.2 (Feb 29, 2024)
+
+### Patch
+
+- Tokens: set `outputReferences": true` for android/resources ([#3460](https://github.com/pinterest/gestalt/pull/3460)) - [Preview link](https://deploy-preview-3460--gestalt.netlify.app?devexample=true)
+
+## 145.4.1 (Feb 29, 2024)
+
+### Patch
+
+- Tokens: organized packages/gestalt-design-tokens/config.json & packages/gestalt-design-tokens/build.js + constants.js file ([#3456](https://github.com/pinterest/gestalt/pull/3456)) - [Preview link](https://deploy-preview-3456--gestalt.netlify.app?devexample=true)
+
+## 145.4.0 (Feb 28, 2024)
+
+### Minor
+
+- TextField: Adding new autocomplete strings ([#3455](https://github.com/pinterest/gestalt/pull/3455)) - [Preview link](https://deploy-preview-3455--gestalt.netlify.app?devexample=true)
+
+## 145.3.6 (Feb 27, 2024)
+
+### Patch
+
+- SelectList, SearchField: fix token ([#3454](https://github.com/pinterest/gestalt/pull/3454)) - [Preview link](https://deploy-preview-3454--gestalt.netlify.app?devexample=true)
+
+## 145.3.5 (Feb 27, 2024)
+
+### Patch
+
+- Internal: bump es5-ext from 0.10.61 to 0.10.63 ([#3453](https://github.com/pinterest/gestalt/pull/3453)) - [Preview link](https://deploy-preview-3453--gestalt.netlify.app?devexample=true)
+
+## 145.3.4 (Feb 27, 2024)
+
+### Patch
+
+- Popover: Remove autofocusing dismiss button ([#3452](https://github.com/pinterest/gestalt/pull/3452)) - [Preview link](https://deploy-preview-3452--gestalt.netlify.app?devexample=true)
+
+## 145.3.3 (Feb 27, 2024)
+
+### Patch
+
+- SelectList: fix for hidden arrow-down Icon ([#3450](https://github.com/pinterest/gestalt/pull/3450)) - [Preview link](https://deploy-preview-3450--gestalt.netlify.app?devexample=true)
+
+## 145.3.2 (Feb 26, 2024)
+
+### Patch
+
+- RadioGroup, Accordion, Datapoint, Dropdown: Fixing badge type ([#3447](https://github.com/pinterest/gestalt/pull/3447)) - [Preview link](https://deploy-preview-3447--gestalt.netlify.app?devexample=true)
+
 ## 145.3.1 (Feb 23, 2024)
 
 ### Patch

@@ -15,10 +15,22 @@ import useFocusVisible from './useFocusVisible';
 
 type BadgeType = {
   text: string,
-  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
+  type?:
+    | 'info'
+    | 'error'
+    | 'warning'
+    | 'success'
+    | 'neutral'
+    | 'recommendation'
+    | 'darkWash'
+    | 'lightWash',
 };
 
 type Props = {
+  /**
+   * An optional [Badge](https://gestalt.pinterest.systems/web/badge) component can be supplied to add a badge to each radio button. See the [badges example](https://gestalt.pinterest.systems/web/radiogroup#With-Badge) for more details.
+   */
+  badge?: BadgeType,
   /**
    * Indicates if the input is checked. See the [state example](https://gestalt.pinterest.systems/web/radiogroup#States) for more details.
    */
@@ -66,7 +78,6 @@ type Props = {
    * The value of the input.
    */
   value: string,
-  badge?: BadgeType,
 };
 
 /**
