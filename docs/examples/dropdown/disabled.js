@@ -48,14 +48,17 @@ export default function CustomDisabledDropdown(): ReactNode {
             disabled
             badge={{ text: 'New' }}
             onSelect={onSelect}
-            option={{ value: 'Hide Pin', label: 'Hide Pin' }}
+            option={{ value: 'Hide Pin', label: 'Hide Pin', subtext: `This pin is already hidden` }}
             selected={selected}
           />
           <Dropdown.Link
             disabled
             href="https://pinterest.com"
             isExternal
-            option={{ value: 'Report Pin', label: 'Report Pin' }}
+            option={{
+              value: 'Report Pin',
+              label: 'Report Pin',
+            }}
             onClick={({ event }) => event.preventDefault()}
           />
           <Dropdown.Item
