@@ -121,7 +121,7 @@ type Props = {
    */
   type?: Type,
   /**
-   * Sets the size of TextField: sm: 32px, md: 40px (default), lg: 48px. See the [size variant](https://gestalt.pinterest.systems/web/textfield#Size) for more details.
+   * Defines the height of the TextField: sm: 32px, md: 40px (default), lg: 48px. See the [size variant](https://gestalt.pinterest.systems/web/TextField#Size) for more details.
    */
   size?: 'sm' | 'md' | 'lg',
   /**

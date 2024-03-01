@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import classnames from 'classnames';
 import styles from './FormLabel.css';
 import InternalLabel from '../Label/InternalLabel';
 import Text from '../Text';
@@ -18,7 +17,7 @@ const applyDensityStyle = (size?: SizeType) =>
   size === 'lg' ? styles.formLabelLarge : styles.formLabel;
 
 export default function FormLabel({ id, label, labelDisplay, size }: Props): ReactNode {
-  const cs = classnames(applyDensityStyle(size));
+  const cs = applyDensityStyle(size);
 
   return (
     <InternalLabel _labelDisplay={labelDisplay} htmlFor={id}>
