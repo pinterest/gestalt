@@ -195,5 +195,6 @@
   "stackblitz": {
     "startCommand": "./scripts/stackblitz.sh"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "packageManager": "yarn@1.22.19"
 }

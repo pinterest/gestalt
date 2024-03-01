@@ -16,7 +16,6 @@
     "gestalt",
     "pinterest"
   ],
-  "dependencies": {},
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "build:prod": "NODE_ENV=production rollup -c rollup.config.js",
