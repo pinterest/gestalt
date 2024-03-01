@@ -1,3 +1,9 @@
+## 145.4.4 (Mar 1, 2024)
+
+### Patch
+
+- TextField: Update Docs examples and cleanup ([#3376](https://github.com/pinterest/gestalt/pull/3376)) - [Preview link](https://deploy-preview-3376--gestalt.netlify.app?devexample=true)
+
 ## 145.4.3 (Mar 1, 2024)
 
 ### Patch
