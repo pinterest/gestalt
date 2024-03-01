@@ -63,7 +63,7 @@ exports[`TagData TagData has a tooltip 1`] = `
                   "WebkitLineClamp": 1,
                 }
               }
-              title="Text Impressions"
+              title=""
             >
               Text Impressions
             </span>
@@ -144,7 +144,7 @@ exports[`TagData renders all colors as expected 1`] = `
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -220,7 +220,7 @@ exports[`TagData renders all colors as expected 1`] = `
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -296,7 +296,7 @@ exports[`TagData renders all colors as expected 1`] = `
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -372,7 +372,7 @@ exports[`TagData renders all colors as expected 1`] = `
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -448,7 +448,7 @@ exports[`TagData renders all colors as expected 1`] = `
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -524,7 +524,7 @@ exports[`TagData renders all colors as expected 1`] = `
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -600,7 +600,7 @@ exports[`TagData renders all colors as expected 1`] = `
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -676,7 +676,7 @@ exports[`TagData renders all colors as expected 1`] = `
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -752,7 +752,7 @@ exports[`TagData renders all colors as expected 1`] = `
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -828,7 +828,7 @@ exports[`TagData renders all colors as expected 1`] = `
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -904,7 +904,7 @@ exports[`TagData renders all colors as expected 1`] = `
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -980,7 +980,7 @@ exports[`TagData renders all colors as expected 1`] = `
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -1117,7 +1117,7 @@ exports[`TagData renders base color as expected 1`] = `
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -1247,7 +1247,7 @@ exports[`TagData renders base color as expected 1`] = `
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -1373,7 +1373,7 @@ exports[`TagData renders disabled selected state 1`] = `
                   "WebkitLineClamp": 1,
                 }
               }
-              title="Text Impressions"
+              title=""
             >
               Text Impressions
             </span>
@@ -1483,7 +1483,7 @@ exports[`TagData renders disabled unselected state 1`] = `
                   "WebkitLineClamp": 1,
                 }
               }
-              title="Text Impressions"
+              title=""
             >
               Text Impressions
             </span>
@@ -1612,7 +1612,7 @@ exports[`TagData renders dismisible button with color background 1`] = `
                   "WebkitLineClamp": 1,
                 }
               }
-              title="Text Impressions"
+              title=""
             >
               Text Impressions
             </span>
@@ -1778,7 +1778,7 @@ exports[`TagData renders dismissable button 1`] = `
                   "WebkitLineClamp": 1,
                 }
               }
-              title="Text Impressions"
+              title=""
             >
               Text Impressions
             </span>
