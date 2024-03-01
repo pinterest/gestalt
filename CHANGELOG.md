@@ -1,3 +1,9 @@
+## 145.4.3 (Mar 1, 2024)
+
+### Patch
+
+- Masonry: Fix initial flash for two-column mode ([#3458](https://github.com/pinterest/gestalt/pull/3458)) - [Preview link](https://deploy-preview-3458--gestalt.netlify.app?devexample=true)
+
 ## 145.4.2 (Feb 29, 2024)
 
 ### Patch

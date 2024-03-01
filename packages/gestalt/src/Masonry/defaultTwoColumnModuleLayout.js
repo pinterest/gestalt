@@ -219,7 +219,7 @@ const defaultTwoColumnModuleLayout = <T>({
   logWhitespace?: (number) => void,
   measurementCache: Cache<T, number>,
   minCols?: number,
-  positionCache?: Cache<T, Position>,
+  positionCache: Cache<T, Position>,
   rawItemCount: number,
   width?: ?number,
 }): ((items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>) => {
@@ -389,25 +389,34 @@ const defaultTwoColumnModuleLayout = <T>({
           ? lowestScoreNode
           : startNodeData;
 
-      const { positions: winningPositions } = winningNode;
+      const { positions } = winningNode;
 
       // Insert 2-col item(s)
       const twoColItem = twoColumnItems[0]; // this should always only be one
       const {
         additionalWhitespace,
-        heights: finalHeights,
+        heights: updatedHeights,
         position: twoColItemPosition,
       } = getTwoColItemPosition<T>({
         item: twoColItem,
-        heights: lowestScoreNode.heights,
+        heights: winningNode.heights,
         ...commonGetPositionArgs,
       });
 
       // Combine winning positions and 2-col item position, add to cache
-      const finalPositions = [
-        ...winningPositions,
-        { item: twoColItem, position: twoColItemPosition },
-      ];
+      const winningPositions = positions.concat({ item: twoColItem, position: twoColItemPosition });
+
+      const positionedItems = new Set(winningPositions.map(({ item }) => item));
+      // depending on where the 2-col item is positioned, there may be items that are still not positioned
+      // calculate the remaining items and add them to the list of final positions
+      const remainingItems = items.filter((item) => !positionedItems.has(item));
+      const { heights: finalHeights, positions: remainingItemPositions } =
+        getOneColumnItemPositions<T>({
+          items: remainingItems,
+          heights: updatedHeights,
+          ...commonGetPositionArgs,
+        });
+      const finalPositions = winningPositions.concat(remainingItemPositions);
 
       // Log additional whitespace shown above the 2-col module
       // This may need to be tweaked or removed if pin leveling is implemented
@@ -417,7 +426,7 @@ const defaultTwoColumnModuleLayout = <T>({
       logWhitespace?.(additionalWhitespaceAboveTwoColModule);
 
       finalPositions.forEach(({ item, position }) => {
-        positionCache?.set(item, position);
+        positionCache.set(item, position);
       });
       heightsCache?.setHeights(finalHeights);
 

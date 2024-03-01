@@ -15,15 +15,6 @@ import { type Position } from './Masonry/types';
 import uniformRowLayout from './Masonry/uniformRowLayout';
 import throttle, { type ThrottleReturn } from './throttle';
 
-function getRandomColor(getRandomNumber?: () => number = Math.random): string {
-  const letters = '0123456789ABCDEF';
-  let color = '#';
-  for (let i = 0; i < 6; i += 1) {
-    color += letters[Math.floor(getRandomNumber() * 16)];
-  }
-  return color;
-}
-
 const RESIZE_DEBOUNCE = 300;
 
 // When there's a 2-col item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to minimize whitespace above the 2-col item
@@ -189,7 +180,6 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       measurementStore,
       scrollTop: 0,
       width: undefined,
-      itemToBatchMap: new Map(),
     };
   }
 
@@ -471,9 +461,6 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
           WebkitTransform: `translateX(${isRtl ? left * -1 : left}px) translateY(${top}px)`,
           width: layoutNumberToCssDimension(width),
           height: layoutNumberToCssDimension(height),
-          backgroundColor: this.state.itemToBatchMap.has(itemData)
-            ? this.state.itemToBatchMap.get(itemData)
-            : 'white',
         }}
       >
         {renderItem({ data: itemData, itemIdx: idx, isMeasuring: false })}
@@ -590,28 +577,19 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       gridBody = <div style={{ width: '100%' }} ref={this.setGridWrapperRef} />;
     } else {
       // Full layout is possible
-      const itemsWithMeasurements = items.filter((item) => item && measurementStore.has(item));
-      const itemsWithPositions = items.filter((item) => item && positionStore.has(item));
-      const itemsToRender = _twoColItems ? itemsWithPositions : itemsWithMeasurements;
-
+      const itemsToRender = items.filter((item) => item && measurementStore.has(item));
       const itemsWithoutPositions = items.filter((item) => item && !positionStore.has(item));
       const hasTwoColumnItems =
         // $FlowFixMe[prop-missing] We're assuming `columnSpan` exists
         _twoColItems && itemsWithoutPositions.some((item) => item.columnSpan === 2);
+
       // If there are 2-col items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
       const itemsToMeasureCount = hasTwoColumnItems ? TWO_COL_ITEMS_MEASURE_BATCH_SIZE : minCols;
       const itemsToMeasure = items
         .filter((item) => item && !measurementStore.has(item))
         .slice(0, itemsToMeasureCount);
 
-      const batchColor = getRandomColor();
-      itemsToMeasure.forEach((item) => {
-        if (!this.state.itemToBatchMap.has(item)) {
-          this.state.itemToBatchMap.set(item, batchColor);
-        }
-      });
-
-      const positions = getPositions(itemsWithMeasurements);
+      const positions = getPositions(itemsToRender);
       const measuringPositions = getPositions(itemsToMeasure);
       // Math.max() === -Infinity when there are no positions
       const height = positions.length
@@ -626,6 +604,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
                 item,
                 i,
                 // If we have items in the positionStore (newer way of tracking positions used for 2-col support), use that. Otherwise fall back to the classic way of tracking positions
+                // this is only required atm because the two column layout doesn't not return positions in their original item order
                 positionStore.get(item) ?? positions[i],
               ),
             )}
@@ -635,7 +614,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
               // itemsToMeasure is always the length of minCols, so i will always be 0..minCols.length
               // we normalize the index here relative to the item list as a whole so that itemIdx is correct
               // and so that React doesnt reuse the measurement nodes
-              const measurementIndex = itemsWithMeasurements.length + i;
+              const measurementIndex = itemsToRender.length + i;
               const position = measuringPositions[i];
               return (
                 <div
