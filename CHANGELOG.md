@@ -1,3 +1,9 @@
+## 145.4.5 (Mar 1, 2024)
+
+### Patch
+
+- TagData: Fix Heights and Captions ([#3457](https://github.com/pinterest/gestalt/pull/3457)) - [Preview link](https://deploy-preview-3457--gestalt.netlify.app?devexample=true)
+
 ## 145.4.4 (Mar 1, 2024)
 
 ### Patch
