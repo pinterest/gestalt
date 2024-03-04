@@ -1,3 +1,9 @@
+## 145.5.0 (Mar 4, 2024)
+
+### Minor
+
+- TagData: Move to BreakAll ([#3462](https://github.com/pinterest/gestalt/pull/3462)) - [Preview link](https://deploy-preview-3462--gestalt.netlify.app?devexample=true)
+
 ## 145.4.6 (Mar 4, 2024)
 
 ### Patch
