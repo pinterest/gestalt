@@ -109,6 +109,7 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
     [focusStyles.accessibilityOutlineFocusWithin]: isFocusVisible,
     [styles.fullWidth]: true,
     [styles.pointer]: !disabled,
+    [styles.noDrop]: disabled,
   });
 
   const textColor = disabled ? 'subtle' : 'default';
