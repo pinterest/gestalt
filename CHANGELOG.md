@@ -1,3 +1,9 @@
+## 145.4.6 (Mar 4, 2024)
+
+### Patch
+
+- Docs: Newsletter Feb 2024 ([#3464](https://github.com/pinterest/gestalt/pull/3464)) - [Preview link](https://deploy-preview-3464--gestalt.netlify.app?devexample=true)
+
 ## 145.4.5 (Mar 1, 2024)
 
 ### Patch
