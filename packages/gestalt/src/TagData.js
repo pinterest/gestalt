@@ -230,6 +230,7 @@ export default function TagData({
                 title={tooltip && tooltip.text ? '' : text} // removes html caption if a tooltip exists
                 lineClamp={1}
                 color={fgColor}
+                overflow="breakAll"
               >
                 {text}
               </Text>
