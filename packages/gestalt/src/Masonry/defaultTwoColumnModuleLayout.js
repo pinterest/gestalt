@@ -421,6 +421,7 @@ const defaultTwoColumnModuleLayout = <T>({
 
       // FUTURE OPTIMIZATION - do we want a min threshold for an acceptably low score?
       // If so, we could save the 2-col item somehow and try again with the next batch of items
+
       return getPositionsOnly(finalPositions);
     }
 

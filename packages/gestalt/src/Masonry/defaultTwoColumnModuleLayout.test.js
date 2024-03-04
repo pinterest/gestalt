@@ -10,7 +10,7 @@ type Item = {
   color?: string,
 };
 
-describe('two column layout test cases: general cases', () => {
+describe('defaultLayout test cases', () => {
   test('empty', () => {
     const measurementStore = new MeasurementStore<{ ... }, number>();
     const positionCache = new MeasurementStore<{ ... }, Position>();
@@ -210,7 +210,7 @@ describe('two column layout test cases: general cases', () => {
   });
 });
 
-describe('two column layout test cases: with two column items', () => {
+describe('two column layout test cases', () => {
   test('returns positions for all items', () => {
     const measurementStore = new MeasurementStore<{ ... }, number>();
     const positionCache = new MeasurementStore<{ ... }, Position>();

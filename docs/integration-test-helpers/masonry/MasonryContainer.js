@@ -97,13 +97,9 @@ export default class MasonryContainer extends Component<Props<{ ... }>, State> {
     });
 
     window.addEventListener('set-masonry-items', (e) => {
-      const index = e?.detail.index;
-
-      this.setState(({ items: prevItems }) => ({
-        items: index
-          ? [...prevItems.slice(0, index), ...e.detail.items, ...prevItems.slice(index)]
-          : e.detail.items,
-      }));
+      this.setState({
+        items: e.detail.items,
+      });
     });
 
     window.ERROR_COUNT = window.ERROR_COUNT || 0;
