@@ -7,35 +7,35 @@
         "summary": "",
         "posts": [
           {
-            "title": "Gestalt January Newsletter",
+            "title": "Gestalt February Newsletter",
             "audience": ["Engineering", "Design"],
-            "content": "A recap of significant changes from January (& December!) ."
+            "content": "A recap of significant changes from February."
           },
           {
-            "title": "BannerOverlay & BannerUpsell",
+            "title": "TextField",
             "audience": ["Engineering"],
-            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/77899bde-bffa-4614-a3cc-f3ce9a5354b0",
-            "imageAltText": "Image of BannerOverlay",
-            "content": "BannerOverlay is a new component for short floating  educational messages. [Learn more about BannerOverlay](https://gestalt.pinterest.systems/web/banneroverlay). \n\nAlso, Upsell was renamed to [BannerUpsell](https://gestalt.pinterest.systems/web/bannerupsell)! More additions to the Banner family coming soon. Stay tuned!"
+            "content": "TextField now supports [all autocomplete](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values) prop values. "
           },
           {
-            "title": "Support for denser Gestalt components",
+            "title": "Small component updates",
             "audience": ["Engineering"],
-            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/8c44545a-2ca4-4abd-a03d-9a8ddbabc854",
-            "imageAltText": "Animated image changing List component sizing",
-            "content": "Denser layouts are supported with new small sizes for [Accordion](https://gestalt.pinterest.systems/web/accordion) (previously named as Module), [SegmentedControl](https://gestalt.pinterest.systems/web/segmentedcontrol), [List](https://gestalt.pinterest.systems/web/list), [Textfield](https://gestalt.pinterest.systems/web/textfield), and [Tag](https://gestalt.pinterest.systems/web/tag)."
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/50e4c977-615a-47da-9f35-4c86b27ed875",
+            "imageAltText": "Image of RadioGroup with a Banner",
+            "content": "Some component updates: \n- [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup#With-Badge) now supports Badges. \n- We deprecated 'red' [Popovers](https://gestalt.pinterest.systems/web/popover#Props)! \n- [TextField](https://gestalt.pinterest.systems/web/textfield#Props) now supports dataTestId"
           },
           {
-            "title": "Default cursor pointer available in TapArea",
-            "audience": ["Engineering"],
-            "content": "Use the 'default' cursor over non-interactive elements. The 'default' cursor should change to a pointer if the element it hovers over is also clickable or indicates functionally."
+            "title": "Banner it up!",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/6bd9f7ca-729c-4662-a547-be55f93926bf",
+            "imageAltText": "Light blue graphic with the words in navy blue: “Banner it up!",
+            "content": "Banner it up! Naming refresh: Callout is now [BannerCallout](https://gestalt.pinterest.systems/web/bannercallout), SlimBanner is now [BannerSlim](https://gestalt.pinterest.systems/web/bannerslim), Upsell is now [BannerUpsell](https://gestalt.pinterest.systems/web/bannerupsell), and UpsellOverlay (guess what?) is now [BannerOverlay](https://gestalt.pinterest.systems/web/banneroverlay)"
           },
           {
-            "title": "New icons",
-            "audience": ["Engineering"],
-            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/a97e50d6-f51c-4c2e-b882-e78f360f79de",
-            "imageAltText": "Full list of icons rendered",
-            "content": "We added a whole lot of new cross-platform icons to our [iconography collection](https://gestalt.pinterest.systems/foundations/iconography/library): scissors, clock, clock-checked, 360, alphabetical, arrow-counter-clockwise, arrow-up-left, arrows-vertical, camera-flip, chevron-up-circle, collapse, color-solid, color-split, expand, fade, face-tryon, file-box, forward, forward, insights-conversion, layout, lips, overlay-text-outline, rewind, service-dropbox, service-etsy, service-messenger, service-outlook, service-yahoo, service-youtube, share, shrink, skintone, spread, view-type-space, and x!"
+            "title": "Icons",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/8908bd9c-37fc-42a9-9d25-2c8d71d3412e",
+            "imageAltText": "Visuals in black of the six new icons added to the Gestalt iconography collection",
+            "content": "[New icons](https://gestalt.pinterest.systems/foundations/iconography/library) available for you: collapse, expand, face-tryon, fade (for animation effects), speech-heart (for commenting), and clock-checked (for time indication)"
           },
           {
             "title": "SearchGuide",
@@ -50,20 +50,6 @@
             "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/d010a5ce-3668-4e01-a147-c2ab5d348a6b",
             "imageAltText": "ButtonToggle variants on Figma",
             "content": "[ButtonToggle](https://www.figma.com/file/DlhmMWnyiYITbhfzZeqHaN/Gestalt-VR-Library?type=design&node-id=45%3A388&mode=design&t=qaRtVnZztRO1DVZF-1) specs added to Figma — docs are also available for [iOS](https://gestalt.pinterest.systems/ios/buttontoggle) and [Android](https://gestalt.pinterest.systems/android/buttontoggle)."
-          },
-          {
-            "title": "Banner it up!",
-            "audience": ["Design"],
-            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/6bd9f7ca-729c-4662-a547-be55f93926bf",
-            "imageAltText": "Light blue graphic with the words in navy blue: “Banner it up!",
-            "content": "Banner it up! Naming refresh: Callout is now [BannerCallout](https://gestalt.pinterest.systems/web/bannercallout), SlimBanner is now [BannerSlim](https://gestalt.pinterest.systems/web/bannerslim), Upsell is now [BannerUpsell](https://gestalt.pinterest.systems/web/bannerupsell), and UpsellOverlay (guess what?) is now [BannerOverlay](https://gestalt.pinterest.systems/web/banneroverlay)"
-          },
-          {
-            "title": "Icons",
-            "audience": ["Design"],
-            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/8908bd9c-37fc-42a9-9d25-2c8d71d3412e",
-            "imageAltText": "Visuals in black of the six new icons added to the Gestalt iconography collection",
-            "content": "[New icons](https://gestalt.pinterest.systems/foundations/iconography/library) available for you: collapse, expand, face-tryon, fade (for animation effects), speech-heart (for commenting), and clock-checked (for time indication)"
           },
           {
             "title": "Dark Mode updates",
