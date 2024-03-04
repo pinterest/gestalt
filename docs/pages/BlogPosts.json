@@ -3,6 +3,64 @@
     "year": "2024",
     "digests": [
       {
+        "month": "February",
+        "summary": "",
+        "posts": [
+          {
+            "title": "Gestalt February Newsletter",
+            "audience": ["Engineering", "Design"],
+            "content": "A recap of significant changes from February."
+          },
+          {
+            "title": "TextField",
+            "audience": ["Engineering"],
+            "content": "TextField now supports [all autocomplete](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values) prop values. "
+          },
+          {
+            "title": "Small component updates",
+            "audience": ["Engineering"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/50e4c977-615a-47da-9f35-4c86b27ed875",
+            "imageAltText": "Image of RadioGroup with a Banner",
+            "content": "Some component updates: \n- [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup#With-Badge) now supports Badges. \n- We deprecated 'red' [Popovers](https://gestalt.pinterest.systems/web/popover#Props)! \n- [TextField](https://gestalt.pinterest.systems/web/textfield#Props) now supports dataTestId"
+          },
+          {
+            "title": "Banner it up!",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/6bd9f7ca-729c-4662-a547-be55f93926bf",
+            "imageAltText": "Light blue graphic with the words in navy blue: “Banner it up!",
+            "content": "Banner it up! Naming refresh: Callout is now [BannerCallout](https://gestalt.pinterest.systems/web/bannercallout), SlimBanner is now [BannerSlim](https://gestalt.pinterest.systems/web/bannerslim), Upsell is now [BannerUpsell](https://gestalt.pinterest.systems/web/bannerupsell), and UpsellOverlay (guess what?) is now [BannerOverlay](https://gestalt.pinterest.systems/web/banneroverlay)"
+          },
+          {
+            "title": "Icons",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/8908bd9c-37fc-42a9-9d25-2c8d71d3412e",
+            "imageAltText": "Visuals in black of the six new icons added to the Gestalt iconography collection",
+            "content": "[New icons](https://gestalt.pinterest.systems/foundations/iconography/library) available for you: collapse, expand, face-tryon, fade (for animation effects), speech-heart (for commenting), and clock-checked (for time indication)"
+          },
+          {
+            "title": "SearchGuide",
+            "audience": ["Design"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/2edc1586-267e-4321-9caf-5cb990dd1b98",
+            "imageAltText": "SearchGuides displayed on mobile",
+            "content": "New [iOS](https://gestalt.pinterest.systems/ios/searchguide) and [Android](https://gestalt.pinterest.systems/android/searchguide) docs for SearchGuide."
+          },
+          {
+            "title": "ButtonToggle",
+            "audience": ["Design"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/d010a5ce-3668-4e01-a147-c2ab5d348a6b",
+            "imageAltText": "ButtonToggle variants on Figma",
+            "content": "[ButtonToggle](https://www.figma.com/file/DlhmMWnyiYITbhfzZeqHaN/Gestalt-VR-Library?type=design&node-id=45%3A388&mode=design&t=qaRtVnZztRO1DVZF-1) specs added to Figma — docs are also available for [iOS](https://gestalt.pinterest.systems/ios/buttontoggle) and [Android](https://gestalt.pinterest.systems/android/buttontoggle)."
+          },
+          {
+            "title": "Dark Mode updates",
+            "audience": ["Design"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/123be1b7-0af5-4577-8824-cdb7ebdb87a9",
+            "imageAltText": "Figma feature showing the option to switch between themes using variables",
+            "content": "Dark Mode variants (Figma) were deprecated. We will now rely on variables to switch between modes. New to variables? [Check out our mini-tutorial How to use variables](https://www.loom.com/share/b78e7ab541024753a0543c52ea9a4f8a?sid=b262b1e0-b639-42a7-ac4a-0da9b7b9a248)"
+          }
+        ]
+      },
+      {
         "month": "January",
         "summary": "",
         "posts": [
