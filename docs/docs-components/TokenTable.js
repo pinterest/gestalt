@@ -1,6 +1,7 @@
 // @flow strict
 import { Fragment, type Node as ReactNode } from 'react';
 import { Badge, Box, ColorSchemeProvider, Flex, Table, Text } from 'gestalt';
+import tokensDark from 'gestalt-design-tokens/dist/js/tokens_dark';
 import { TokenExample } from './TokenExample';
 
 function TableHeaders({ hasDarkValues }: { hasDarkValues: boolean }): ReactNode {
@@ -22,7 +23,33 @@ function TableHeaders({ hasDarkValues }: { hasDarkValues: boolean }): ReactNode 
   );
 }
 
-function MetaData({ value, original }: { value?: string, original?: string }): ReactNode {
+function getReferenceTokenMap() {
+  const darkTokenMap = new Map<
+    string,
+    { value: string, originalValue: string, darkModeSupport: boolean },
+  >();
+
+  tokensDark.forEach((token) => {
+    darkTokenMap.set(token.name, {
+      value: token.value,
+      originalValue: token.originalValue,
+      // eslint-disable-next-line no-underscore-dangle
+      darkModeSupport: token._darkModeSupport,
+    });
+  });
+
+  return darkTokenMap;
+}
+
+function MetaData({
+  value,
+  original,
+  darkModeSupport = true,
+}: {
+  value?: string,
+  original?: string,
+  darkModeSupport?: boolean,
+}): ReactNode {
   const isCustom = original?.startsWith('#') || original?.startsWith('rgb');
 
   const isAlias = ['background', 'border', 'text', 'icon', 'data-visualization'].some((property) =>
@@ -30,22 +57,34 @@ function MetaData({ value, original }: { value?: string, original?: string }): R
   );
 
   const isBase = !isCustom && !isAlias;
-
+  const regex = /(?<=\D)\./g;
   return (
     <Fragment>
-      <Text size="100">{`value: ${value || '--'}`}</Text>
+      <Text size="100">{`value: ${value || ''}`}</Text>
       <Flex gap={2}>
         <Flex.Item flex="grow">
-          <Text size="100">{`original: ${original || '--'}`}</Text>
+          <Text size="100">{`original: ${
+            original?.replace('.value', '').replace(regex, '-') || ''
+          }`}</Text>
         </Flex.Item>
-        {isBase && !!original && <Badge text="Base" type="neutral" />}
-        {isAlias && <Badge text="Alias" type="neutral" />}
-        {isCustom && (
+        {darkModeSupport && isBase && !!original && <Badge text="Base" type="neutral" />}
+        {darkModeSupport && isAlias && <Badge text="Alias" type="neutral" />}
+        {darkModeSupport && isCustom && (
           <Badge
             text="Custom"
             type="info"
             tooltip={{
               text: 'This token value is hard coded and does not map to a lower level token.',
+              idealDirection: 'up',
+            }}
+          />
+        )}
+        {!darkModeSupport && (
+          <Badge
+            text="No dark theme"
+            type="info"
+            tooltip={{
+              text: 'This token value is the same as the light mode.',
               idealDirection: 'up',
             }}
           />
@@ -94,6 +133,8 @@ export default function TokenTable({
     tokenNameA.localeCompare(tokenNameB),
   );
 
+  const darkTokenMap = getReferenceTokenMap();
+
   return (
     <Table accessibilityLabel={`${name} values`}>
       <colgroup>
@@ -115,7 +156,7 @@ export default function TokenTable({
             <Table.Cell>
               <Flex height={100}>
                 <Flex direction="column" gap={2}>
-                  <Text>${token.name}</Text>
+                  <Text>{token.name}</Text>
                   <Text color="subtle" size="100">
                     {token.comment || ''}
                   </Text>
@@ -145,7 +186,11 @@ export default function TokenTable({
                     <TokenExample token={token} category={category} />
                   </Box>
                 </ColorSchemeProvider>
-                <MetaData value={token.darkValue} original={token.originalDarkValue || ''} />
+                <MetaData
+                  value={darkTokenMap.get(token.name)?.value}
+                  original={darkTokenMap.get(token.name)?.originalValue || ''}
+                  darkModeSupport={darkTokenMap.get(token.name)?.darkModeSupport}
+                />
               </Table.Cell>
             )}
           </Table.Row>
