@@ -218,12 +218,6 @@ export default function Dropdown({
     if (cursorOption) {
       const item = cursorOption.option;
 
-      // if (cursorOption.disabled) {
-      //   // re-run the function again and try with the next cursorIndex
-      //   handleKeyNavigation(event, direction, cursorIndex);
-      //   return;
-      // }
-
       setHoveredItemIndex(cursorIndex);
 
       if (direction === KEYS.ENTER && !cursorOption.disabled) {
