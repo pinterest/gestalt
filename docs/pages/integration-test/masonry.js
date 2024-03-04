@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { ColorSchemeProvider, Masonry } from 'gestalt';
 import generateExampleItems from '../../integration-test-helpers/masonry/items-utils/generateExampleItems';
 import generateRealisticExampleItems from '../../integration-test-helpers/masonry/items-utils/generateRealisticExampleItems';
+import getRandomNumberGenerator from "../../integration-test-helpers/masonry/items-utils/getRandomNumberGenerator";
 import pinHeights, {
   type PinHeight,
 } from '../../integration-test-helpers/masonry/items-utils/pinHeights';
@@ -137,26 +138,13 @@ export default function TestPage({
   );
 }
 
-// Math.random(), but deterministic if the same initialSeed is used
-// Important for consistent integration tests with placement determinism
-function createSeededRandom(initialSeed: number) {
-  let seed = initialSeed;
-  return () => {
-    const a = 1664525;
-    const c = 1013904223;
-    const m = 2 ** 32;
-    seed = (a * seed + c) % m;
-    return seed / m;
-  };
-}
-
 export async function getServerSideProps(): Promise<{
   props: { randomNumberSeeds: $ReadOnlyArray<number> },
 }> {
   // This is used to ensure we're using the same dataset of realistic pins on the server and client
   const randomNumberSeeds = Array.from({
     length: REALISTIC_PINS_DATASET_SIZE,
-  }).map(createSeededRandom(12345));
+  }).map(getRandomNumberGenerator(12345));
   return {
     props: {
       randomNumberSeeds,
