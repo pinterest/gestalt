@@ -120,7 +120,7 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
         <Flex alignItems="center">
           {children || (
             <Fragment>
-              <Text color={textColor} inline lineClamp={1} weight={textWeight}>
+              <Text color={textColor} inline lineClamp={1} weight={textWeight} title="">
                 {option?.label}
               </Text>
               {badge && !disabled && (
