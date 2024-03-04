@@ -72,8 +72,6 @@ type State = {
   mounted: boolean,
 };
 
-let eventsSet = false;
-
 export default class MasonryContainer extends Component<Props<{ ... }>, State> {
   state: State = {
     expanded: false,
@@ -91,36 +89,32 @@ export default class MasonryContainer extends Component<Props<{ ... }>, State> {
   componentDidMount() {
     window.TEST_FETCH_COUNTS = 0;
 
-    if (!eventsSet) {
-      window.addEventListener('trigger-reflow', () => {
-        if (this.gridRef.current) {
-          this.gridRef.current.reflow();
-          this.forceUpdate();
-        }
-      });
+    window.addEventListener('trigger-reflow', () => {
+      if (this.gridRef.current) {
+        this.gridRef.current.reflow();
+        this.forceUpdate();
+      }
+    });
 
-      window.addEventListener('set-masonry-items', (e) => {
-        const index = e?.detail.index;
+    window.addEventListener('set-masonry-items', (e) => {
+      const index = e?.detail.index;
 
-        this.setState(({ items: prevItems }) => ({
-          items: index
-            ? [...prevItems.slice(0, index), ...e.detail.items, ...prevItems.slice(index)]
-            : e.detail.items,
-        }));
-      });
+      this.setState(({ items: prevItems }) => ({
+        items: index
+          ? [...prevItems.slice(0, index), ...e.detail.items, ...prevItems.slice(index)]
+          : e.detail.items,
+      }));
+    });
 
-      window.ERROR_COUNT = window.ERROR_COUNT || 0;
-      window.addEventListener('error', () => {
-        window.ERROR_COUNT += 1;
-      });
+    window.ERROR_COUNT = window.ERROR_COUNT || 0;
+    window.addEventListener('error', () => {
+      window.ERROR_COUNT += 1;
+    });
 
-      // Trigger a re-render in case we need to render /w scrollContainer.
-      setTimeout(() => {
-        this.setState({ mounted: true }); // eslint-disable-line react/no-unused-state
-      });
-
-      eventsSet = true;
-    }
+    // Trigger a re-render in case we need to render /w scrollContainer.
+    setTimeout(() => {
+      this.setState({ mounted: true }); // eslint-disable-line react/no-unused-state
+    });
   }
 
   handleToggleScrollContainer: () => void = () => {

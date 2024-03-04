@@ -268,15 +268,6 @@ const defaultTwoColumnModuleLayout = <T>({
       (item) => !item.columnSpan || item.columnSpan === 1,
     );
 
-    console.log({
-      heights,
-      itemsWithPositions,
-      itemsWithoutPositions,
-      twoColumnItems,
-      hasTwoColumnItems,
-      oneColumnItems,
-    });
-
     const commonGetPositionArgs = {
       centerOffset,
       columnWidth,
@@ -347,8 +338,6 @@ const defaultTwoColumnModuleLayout = <T>({
 
         const adjacentColumnHeightDeltas = getAdjacentColumnHeightDeltas(updatedHeights);
         const lowestAdjacentColumnHeightDelta = Math.min(...adjacentColumnHeightDeltas);
-
-        console.log({ updatedHeights, adjacentColumnHeightDeltas });
 
         graph.addNode(paintedItemData);
         graph.addEdge(prevNode, paintedItemData, lowestAdjacentColumnHeightDelta);
@@ -432,9 +421,6 @@ const defaultTwoColumnModuleLayout = <T>({
 
       // FUTURE OPTIMIZATION - do we want a min threshold for an acceptably low score?
       // If so, we could save the 2-col item somehow and try again with the next batch of items
-
-      console.log('two column return');
-      console.log(getPositionsOnly(finalPositions));
       return getPositionsOnly(finalPositions);
     }
 
@@ -448,8 +434,6 @@ const defaultTwoColumnModuleLayout = <T>({
     });
     heightsCache?.setHeights(finalHeights);
 
-    console.log('one column return');
-    console.log(getPositionsOnly(itemPositions));
     return getPositionsOnly<T>(itemPositions);
   };
 };

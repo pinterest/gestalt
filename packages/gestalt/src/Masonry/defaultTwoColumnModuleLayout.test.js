@@ -5,53 +5,20 @@ import MeasurementStore from './MeasurementStore';
 import { type Position } from './types';
 
 type Item = {
-  id: string,
-  columnSpan?: number,
+  name: string,
+  height: number,
+  color?: string,
 };
 
-const stubCache = (measurements?: { [item: string]: number, ... } = {}) => {
-  let cache = measurements;
-
-  return {
-    get(item: Item) {
-      return cache[item.id];
-    },
-    has(item: Item) {
-      return !!cache[item.id];
-    },
-    set(item: Item, value: number) {
-      cache[item.id] = value;
-    },
-    reset() {
-      cache = {};
-    },
-  };
-};
-
-const positionsStubCache = (positions?: { [item: string]: Position, ... } = {}) => {
-  let cache = positions;
-
-  return {
-    get(item: Item) {
-      return cache[item.id];
-    },
-    has(item: Item) {
-      return !!cache[item.id];
-    },
-    set(item: Item, value: Position) {
-      cache[item.id] = value;
-    },
-    reset() {
-      cache = {};
-    },
-  };
-};
-
-describe('two column layout test cases', () => {
+describe('two column layout test cases: general cases', () => {
   test('empty', () => {
-    const items: Array<Item> = [];
+    const measurementStore = new MeasurementStore<{ ... }, number>();
+    const positionCache = new MeasurementStore<{ ... }, Position>();
+    const items: $ReadOnlyArray<Item> = [];
+
     const layout = defaultTwoColumnModuleLayout({
-      measurementCache: stubCache(),
+      measurementCache: measurementStore,
+      positionCache,
       justify: 'start',
       rawItemCount: items.length,
       width: 486,
@@ -60,10 +27,20 @@ describe('two column layout test cases', () => {
   });
 
   test('one row', () => {
-    const measurements = { a: 100, b: 120, c: 80 };
-    const items = [{ id: 'a' }, { id: 'b' }, { id: 'c' }];
+    const measurementStore = new MeasurementStore<{ ... }, number>();
+    const positionCache = new MeasurementStore<{ ... }, Position>();
+    const items: $ReadOnlyArray<Item> = [
+      { 'name': 'Pin 0', 'height': 100, 'color': '#E230BA' },
+      { 'name': 'Pin 1', 'height': 120, 'color': '#F67076' },
+      { 'name': 'Pin 2', 'height': 80, 'color': '#FAB032' },
+    ];
+    items.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+
     const layout = defaultTwoColumnModuleLayout({
-      measurementCache: stubCache(measurements),
+      measurementCache: measurementStore,
+      positionCache,
       justify: 'start',
       rawItemCount: items.length,
       width: 736,
@@ -76,10 +53,21 @@ describe('two column layout test cases', () => {
   });
 
   test('wrapping items', () => {
-    const measurements = { a: 100, b: 120, c: 80, d: 100 };
-    const items = [{ id: 'a' }, { id: 'b' }, { id: 'c' }, { id: 'd' }];
+    const measurementStore = new MeasurementStore<{ ... }, number>();
+    const positionCache = new MeasurementStore<{ ... }, Position>();
+    const items: $ReadOnlyArray<Item> = [
+      { 'name': 'Pin 0', 'height': 100 },
+      { 'name': 'Pin 1', 'height': 120 },
+      { 'name': 'Pin 2', 'height': 80 },
+      { 'name': 'Pin 3', 'height': 100 },
+    ];
+    items.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+
     const layout = defaultTwoColumnModuleLayout({
-      measurementCache: stubCache(measurements),
+      measurementCache: measurementStore,
+      positionCache,
       justify: 'start',
       rawItemCount: items.length,
       width: 486,
@@ -93,15 +81,27 @@ describe('two column layout test cases', () => {
   });
 
   test('centers grid within the viewport', () => {
-    const measurements = { a: 100, b: 120, c: 80, d: 100 };
-    const items = [{ id: 'a' }, { id: 'b' }, { id: 'c' }, { id: 'd' }];
+    const measurementStore = new MeasurementStore<{ ... }, number>();
+    const positionCache = new MeasurementStore<{ ... }, Position>();
+    const items: $ReadOnlyArray<Item> = [
+      { 'name': 'Pin 0', 'height': 100 },
+      { 'name': 'Pin 1', 'height': 120 },
+      { 'name': 'Pin 2', 'height': 80 },
+      { 'name': 'Pin 3', 'height': 100 },
+    ];
+    items.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+
     const layout = defaultTwoColumnModuleLayout({
-      measurementCache: stubCache(measurements),
+      measurementCache: measurementStore,
+      positionCache,
       justify: 'start',
       minCols: 2,
       rawItemCount: items.length,
       width: 8000,
     });
+
     expect(layout(items)).toEqual([
       { top: 0, height: 100, left: 7, width: 236 },
       { top: 0, height: 120, left: 257, width: 236 },
@@ -111,14 +111,25 @@ describe('two column layout test cases', () => {
   });
 
   test('floors values when centering', () => {
-    const measurements = { a: 100, b: 120, c: 80, d: 100 };
-    const items = [{ id: 'a' }, { id: 'b' }, { id: 'c' }, { id: 'd' }];
+    const measurementStore = new MeasurementStore<{ ... }, number>();
+    const positionCache = new MeasurementStore<{ ... }, Position>();
+    const items: $ReadOnlyArray<Item> = [
+      { 'name': 'Pin 0', 'height': 100 },
+      { 'name': 'Pin 1', 'height': 120 },
+      { 'name': 'Pin 2', 'height': 80 },
+      { 'name': 'Pin 3', 'height': 100 },
+    ];
+    items.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
     const layout = defaultTwoColumnModuleLayout({
-      measurementCache: stubCache(measurements),
+      measurementCache: measurementStore,
+      positionCache,
       justify: 'start',
       rawItemCount: items.length,
       width: 501,
     });
+
     expect(layout(items)).toEqual([
       { top: 0, height: 100, left: 7, width: 236 },
       { top: 0, height: 120, left: 257, width: 236 },
@@ -128,14 +139,25 @@ describe('two column layout test cases', () => {
   });
 
   test('only centers when theres extra space', () => {
-    const measurements = { a: 100, b: 120, c: 80, d: 100 };
-    const items = [{ id: 'a' }, { id: 'b' }, { id: 'c' }, { id: 'd' }];
+    const measurementStore = new MeasurementStore<{ ... }, number>();
+    const positionCache = new MeasurementStore<{ ... }, Position>();
+    const items: $ReadOnlyArray<Item> = [
+      { 'name': 'Pin 0', 'height': 100 },
+      { 'name': 'Pin 1', 'height': 120 },
+      { 'name': 'Pin 2', 'height': 80 },
+      { 'name': 'Pin 3', 'height': 100 },
+    ];
+    items.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
     const layout = defaultTwoColumnModuleLayout({
-      measurementCache: stubCache(measurements),
+      measurementCache: measurementStore,
+      positionCache,
       justify: 'start',
       rawItemCount: items.length,
       width: 200,
     });
+
     expect(layout(items)).toEqual([
       { top: 0, height: 100, left: 0, width: 236 },
       { top: 0, height: 120, left: 250, width: 236 },
@@ -145,12 +167,22 @@ describe('two column layout test cases', () => {
   });
 
   test('justify', () => {
-    const measurements = { a: 100, b: 120, c: 80, d: 100 };
-    const items = [{ id: 'a' }, { id: 'b' }, { id: 'c' }, { id: 'd' }];
+    const measurementStore = new MeasurementStore<{ ... }, number>();
+    const positionCache = new MeasurementStore<{ ... }, Position>();
+    const items: $ReadOnlyArray<Item> = [
+      { 'name': 'Pin 0', 'height': 100 },
+      { 'name': 'Pin 1', 'height': 120 },
+      { 'name': 'Pin 2', 'height': 80 },
+      { 'name': 'Pin 3', 'height': 100 },
+    ];
+    items.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
 
     const makeLayout = (justify: 'center' | 'start') =>
       defaultTwoColumnModuleLayout({
-        measurementCache: stubCache(measurements),
+        measurementCache: measurementStore,
+        positionCache,
         columnWidth: 100,
         gutter: 0,
         justify,
@@ -159,6 +191,7 @@ describe('two column layout test cases', () => {
       })(items);
 
     const justifyStart = makeLayout('start');
+    positionCache.reset();
     const justifyCenter = makeLayout('center');
 
     expect(justifyStart).toEqual([
@@ -175,52 +208,9 @@ describe('two column layout test cases', () => {
       { top: 0, left: 600, width: 100, height: 100 },
     ]);
   });
+});
 
-  test.only('two column module', () => {
-    const measurements = { a: 60, b: 120, c: 80, d: 60, e: 100, f: 120, g: 50, h: 60 };
-    const positions = {
-      a: { top: 0, left: 0, width: 236, height: 60 },
-      b: { top: 0, left: 250, width: 236, height: 120 },
-      c: { top: 0, left: 500, width: 236, height: 80 },
-      d: { top: 0, left: 750, width: 236, height: 60 },
-    };
-    const items = [
-      { id: 'a' },
-      { id: 'b' },
-      { id: 'c' },
-      { id: 'd' },
-      { id: 'e', columnSpan: 2 },
-      { id: 'f' },
-      { id: 'g' },
-      { id: 'h' },
-    ];
-
-    const layout = defaultTwoColumnModuleLayout({
-      measurementCache: stubCache(measurements),
-      positionCache: positionsStubCache(positions),
-      justify: 'start',
-      rawItemCount: items.length,
-      width: 986,
-    });
-
-    layout(items);
-    const result = layout(items);
-
-    console.log(result);
-    console.log(result.length);
-
-    expect(result).toEqual([
-      { top: 0, left: 0, width: 236, height: 60 },
-      { top: 0, left: 250, width: 236, height: 120 },
-      { top: 0, left: 500, width: 236, height: 80 },
-      { top: 0, left: 750, width: 236, height: 60 },
-      { top: 94, left: 500, width: 486, height: 100 },
-      { top: 74, left: 0, width: 236, height: 120 },
-      { top: 134, left: 250, width: 236, height: 50 },
-      { top: 188, left: 750, width: 236, height: 60 },
-    ]);
-  });
-
+describe('two column layout test cases: with two column items', () => {
   test('returns positions for all items', () => {
     const measurementStore = new MeasurementStore<{ ... }, number>();
     const positionCache = new MeasurementStore<{ ... }, Position>();
