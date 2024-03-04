@@ -10,6 +10,7 @@ type Item = {
   color?: string,
 };
 
+// Tests copied from defaultLayout to ensure we don't break default cases
 describe('defaultLayout test cases', () => {
   test('empty', () => {
     const measurementStore = new MeasurementStore<{ ... }, number>();
