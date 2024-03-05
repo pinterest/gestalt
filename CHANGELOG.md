@@ -1,3 +1,9 @@
+## 145.5.1 (Mar 5, 2024)
+
+### Patch
+
+- Internal: Add initial unit test for masonry two column module ([#3449](https://github.com/pinterest/gestalt/pull/3449)) - [Preview link](https://deploy-preview-3449--gestalt.netlify.app?devexample=true)
+
 ## 145.5.0 (Mar 4, 2024)
 
 ### Minor
