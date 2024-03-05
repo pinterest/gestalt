@@ -196,7 +196,7 @@ export default function Dropdown({
   const handleKeyNavigation = (
     event: SyntheticKeyboardEvent<HTMLElement>,
     direction: DirectionOptionType,
-    index: number,
+    index: number | null | void,
   ) => {
     const newIndex = direction + (index ?? 0);
     const optionsCount = allowedChildrenOptions.length - 1;
