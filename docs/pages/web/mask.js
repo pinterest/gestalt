@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, Mask } from 'gestalt';
-import { TOKEN_COLOR_TEAL_SPABATTICAL_400 } from 'gestalt-design-tokens';
+import { TOKEN_COLOR_TEAL_SPABATTICAL_400 } from 'gestalt-design-tokens/dist/js/constants';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { type DocGen } from '../../docs-components/docgen';

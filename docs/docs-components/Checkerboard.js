@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, useColorScheme } from 'gestalt';
-import { TOKEN_COLOR_BACKGROUND_DARK } from 'gestalt-design-tokens';
+import { TOKEN_COLOR_BACKGROUND_DARK } from 'gestalt-design-tokens/dist/js/constants';
 
 export default function Checkerboard(): ReactNode {
   const { colorSchemeName } = useColorScheme();

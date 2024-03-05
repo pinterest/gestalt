@@ -4,7 +4,7 @@ import { useColorScheme } from 'gestalt';
 import {
   TOKEN_COLOR_BORDER_CONTAINER,
   TOKEN_COLOR_WHITE_MOCHIMALIST_0,
-} from 'gestalt-design-tokens';
+} from 'gestalt-design-tokens/dist/js/constants';
 import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
 import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-light.json';
 import { type DataVisualizationColors } from './types';

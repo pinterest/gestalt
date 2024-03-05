@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode, useState } from 'react';
 import { Flex, Text, useFocusVisible } from 'gestalt';
-import { TOKEN_COLOR_BORDER_FOCUS } from 'gestalt-design-tokens';
+import { TOKEN_COLOR_BORDER_FOCUS } from 'gestalt-design-tokens/dist/js/constants';
 
 export default function Example(): ReactNode {
   const { isFocusVisible } = useFocusVisible();

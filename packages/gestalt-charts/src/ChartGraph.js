@@ -17,7 +17,10 @@ import {
   Tooltip,
 } from 'recharts';
 import { Box, Flex, HelpButton, TagData, TileData, useColorScheme, useDefaultLabel } from 'gestalt';
-import { TOKEN_COLOR_BORDER_CONTAINER, TOKEN_OPACITY_100 } from 'gestalt-design-tokens';
+import {
+  TOKEN_COLOR_BORDER_CONTAINER,
+  TOKEN_OPACITY_100,
+} from 'gestalt-design-tokens/dist/js/constants';
 import { ChartProvider } from './ChartGraph/ChartGraphContext';
 import EmptyBox from './ChartGraph/EmptyBox';
 import Header from './ChartGraph/Header';

@@ -5,7 +5,7 @@ import { Box, DeviceTypeProvider, Divider, FixedZIndex, Flex } from 'gestalt';
 import {
   TOKEN_COLOR_GRAY_ROBOFLOW_700,
   TOKEN_COLOR_ORANGE_FIRETINI_0,
-} from 'gestalt-design-tokens';
+} from 'gestalt-design-tokens/dist/js/constants';
 import { useAppContext } from './appContext';
 import { DocsConfigProvider, useDocsConfig } from './contexts/DocsConfigProvider';
 import DocsSideNavigation, { MIN_NAV_WIDTH_PX } from './DocsSideNavigation';

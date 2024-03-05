@@ -1,6 +1,9 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { TOKEN_COLOR_BACKGROUND_EDUCATION, TOKEN_COLOR_TEXT_INVERSE } from 'gestalt-design-tokens';
+import {
+  TOKEN_COLOR_BACKGROUND_EDUCATION,
+  TOKEN_COLOR_TEXT_INVERSE,
+} from 'gestalt-design-tokens/dist/js/constants';
 
 export default function HeroGraphic({ animate = true }: { animate?: boolean }): ReactNode {
   return (

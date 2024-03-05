@@ -14,7 +14,7 @@ import {
   TOKEN_COLOR_DATA_VISUALIZATION_10,
   TOKEN_COLOR_DATA_VISUALIZATION_11,
   TOKEN_COLOR_DATA_VISUALIZATION_12,
-} from 'gestalt-design-tokens';
+} from 'gestalt-design-tokens/dist/js/constants';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import { type DocGen, multipleDocGen } from '../../docs-components/docgen';

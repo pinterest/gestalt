@@ -7,7 +7,7 @@ import {
   TOKEN_FONT_SIZE_500,
   TOKEN_FONT_SIZE_600,
   TOKEN_SPACE_1600,
-} from 'gestalt-design-tokens';
+} from 'gestalt-design-tokens/dist/js/constants';
 import { type Token } from '../pages/foundations/design_tokens/overview';
 
 type BaseProps = {

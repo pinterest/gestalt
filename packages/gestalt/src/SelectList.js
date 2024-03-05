@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode, useState } from 'react';
 import classnames from 'classnames';
-import { TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY } from 'gestalt-design-tokens';
+import { TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY } from 'gestalt-design-tokens/dist/js/constants';
 import Box from './Box';
 import Icon from './Icon';
 import layout from './Layout.css';

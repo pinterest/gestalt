@@ -4,7 +4,7 @@ import {
   TOKEN_COLOR_BORDER_DEFAULT,
   TOKEN_COLOR_GRAY_ROBOFLOW_300,
   TOKEN_COLOR_TRANSPARENT,
-} from 'gestalt-design-tokens';
+} from 'gestalt-design-tokens/dist/js/constants';
 
 export type InteractionStates = {
   disabled: boolean,

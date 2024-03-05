@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
-import { TOKEN_COLOR_BORDER_TAG_DISABLED } from 'gestalt-design-tokens';
+import { TOKEN_COLOR_BORDER_TAG_DISABLED } from 'gestalt-design-tokens/dist/js/constants';
 import Box from './Box';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import focusStyles from './Focus.css';

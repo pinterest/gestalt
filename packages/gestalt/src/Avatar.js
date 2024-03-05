@@ -3,7 +3,7 @@ import { type Node as ReactNode, useState } from 'react';
 import {
   TOKEN_COLOR_BACKGROUND_AVATAR_PLACEHOLDER,
   TOKEN_COLOR_BORDER_AVATAR,
-} from 'gestalt-design-tokens';
+} from 'gestalt-design-tokens/dist/js/constants';
 import DefaultAvatar from './Avatar/DefaultAvatar';
 import Box from './Box';
 import Icon from './Icon';
