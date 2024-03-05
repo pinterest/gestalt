@@ -2,7 +2,7 @@
 import { type Node as ReactNode } from 'react';
 import Lottie from 'lottie-react';
 import { Box, ButtonLink, Flex, Heading, TapAreaLink, Text, useReducedMotion } from 'gestalt';
-import { TOKEN_COLOR_BORDER_DEFAULT } from 'gestalt-design-tokens/dist/js/constants';
+import { TOKEN_COLOR_BORDER_DEFAULT } from 'gestalt-design-tokens';
 import Asterisk from '../graphics/year-in-review/asteriskFilled.svg';
 import DonutHalf from '../graphics/year-in-review/donutHalf.svg';
 import discoStars from '../graphics/year-in-review/lottie/discoStars.json';

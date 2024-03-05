@@ -6,7 +6,7 @@ import {
   TOKEN_FONT_FAMILY_DEFAULT_LATIN,
   TOKEN_FONT_SIZE_100,
   TOKEN_FONT_WEIGHT_NORMAL,
-} from 'gestalt-design-tokens/dist/js/constants';
+} from 'gestalt-design-tokens';
 
 export default function renderAxis({
   isHorizontalLayout,

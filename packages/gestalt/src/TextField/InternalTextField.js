@@ -10,7 +10,7 @@ import {
   useState,
 } from 'react';
 import classnames from 'classnames';
-import { TOKEN_SPACE_100 } from 'gestalt-design-tokens/dist/js/constants';
+import { TOKEN_SPACE_100 } from 'gestalt-design-tokens';
 import styles from './InternalTextField.css';
 import InternalTextFieldIconButton from './InternalTextFieldIconButton';
 import Box from '../Box';

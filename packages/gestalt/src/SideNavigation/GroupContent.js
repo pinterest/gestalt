@@ -1,6 +1,6 @@
 // @flow strict
 import { type Element, type Node as ReactNode, useEffect, useState } from 'react';
-import { TOKEN_COLOR_BACKGROUND_SELECTED_BASE } from 'gestalt-design-tokens/dist/js/constants';
+import { TOKEN_COLOR_BACKGROUND_SELECTED_BASE } from 'gestalt-design-tokens';
 import PrimaryActionIconButton from './PrimaryActionIconButton';
 import Badge from '../Badge';
 import Box from '../Box';

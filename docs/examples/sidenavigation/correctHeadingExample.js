@@ -1,7 +1,7 @@
 // @flow strict
 import React, { type Node as ReactNode } from 'react';
 import { Box, Flex, Heading, SideNavigation } from 'gestalt';
-import { TOKEN_COLOR_BORDER_CONTAINER } from 'gestalt-design-tokens/dist/js/constants';
+import { TOKEN_COLOR_BORDER_CONTAINER } from 'gestalt-design-tokens';
 
 export default function Example(): ReactNode {
   return (

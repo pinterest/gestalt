@@ -20,7 +20,7 @@ import {
   TOKEN_COLOR_PURPLE_MYSTICOOL_200,
   TOKEN_COLOR_TEAL_SPABATTICAL_100,
   TOKEN_COLOR_TEAL_SPABATTICAL_700,
-} from 'gestalt-design-tokens/dist/js/constants';
+} from 'gestalt-design-tokens';
 import GestaltLogo from '../docs-components/GestaltLogo';
 // SVGs
 import AsteriskFilled from '../graphics/year-in-review/asteriskFilled.svg';

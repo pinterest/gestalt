@@ -8,7 +8,7 @@ import {
   TOKEN_FONT_SIZE_400,
   TOKEN_FONT_SIZE_500,
   TOKEN_FONT_SIZE_600,
-} from 'gestalt-design-tokens/dist/js/constants';
+} from 'gestalt-design-tokens';
 import { useList } from './contexts/ListProvider';
 import styles from './List.css';
 import getChildrenToArray from './List/getChildrenToArray';

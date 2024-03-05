@@ -9,7 +9,7 @@ import {
   useState,
 } from 'react';
 import classnames from 'classnames';
-import { TOKEN_SPACE_400, TOKEN_SPACE_1200 } from 'gestalt-design-tokens/dist/js/constants';
+import { TOKEN_SPACE_400, TOKEN_SPACE_1200 } from 'gestalt-design-tokens';
 import Badge from './Badge';
 import Box from './Box';
 import { useDeviceType } from './contexts/DeviceTypeProvider';

@@ -1,6 +1,6 @@
 // @flow strict-local
 import { type Node as ReactNode } from 'react';
-import { TOKEN_COLOR_WHITE_MOCHIMALIST_0 } from 'gestalt-design-tokens/dist/js/constants';
+import { TOKEN_COLOR_WHITE_MOCHIMALIST_0 } from 'gestalt-design-tokens';
 import { type DataVisualizationColors } from './types';
 import { useHexColor } from './usePatterns';
 

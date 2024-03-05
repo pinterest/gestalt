@@ -7,7 +7,7 @@ import {
   TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_ACTIVE,
   TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_BASE,
   TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_HOVER,
-} from 'gestalt-design-tokens/dist/js/constants';
+} from 'gestalt-design-tokens';
 import Box from './Box';
 import Flex from './Flex';
 import TapAreaLink from './TapAreaLink';

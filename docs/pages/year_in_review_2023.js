@@ -22,7 +22,7 @@ import {
   TOKEN_COLOR_PINK_FLAMINGLOW_100,
   TOKEN_COLOR_PINK_FLAMINGLOW_200,
   TOKEN_COLOR_WHITE_MOCHIMALIST_0,
-} from 'gestalt-design-tokens/dist/js/constants';
+} from 'gestalt-design-tokens';
 import GestaltLogo from '../docs-components/GestaltLogo';
 import Docs from '../graphics/year-in-review-2023/lottie/yir-2023-docs.json';
 import DSD from '../graphics/year-in-review-2023/lottie/yir-2023-dsd.json';

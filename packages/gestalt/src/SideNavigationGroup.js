@@ -1,7 +1,7 @@
 // @flow strict
 import { type Element, type Node as ReactNode, useEffect, useId, useState } from 'react';
 import classnames from 'classnames';
-import { TOKEN_SPACE_400 } from 'gestalt-design-tokens/dist/js/constants';
+import { TOKEN_SPACE_400 } from 'gestalt-design-tokens';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
 import { NestingProvider, useNesting } from './contexts/NestingProvider';
 import { useSideNavigation } from './contexts/SideNavigationProvider';
