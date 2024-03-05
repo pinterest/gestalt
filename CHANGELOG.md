@@ -1,3 +1,9 @@
+## 145.5.2 (Mar 5, 2024)
+
+### Patch
+
+- Internal: run all visual snapshots for updated snapshots of components ([#3467](https://github.com/pinterest/gestalt/pull/3467)) - [Preview link](https://deploy-preview-3467--gestalt.netlify.app?devexample=true)
+
 ## 145.5.1 (Mar 5, 2024)
 
 ### Patch
