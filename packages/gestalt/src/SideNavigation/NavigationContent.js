@@ -3,6 +3,7 @@ import { type Node as ReactNode, useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
 import Collapser from './Collapser';
 import getChildrenToArray from './getChildrenToArray';
+import ItemsEllipsis, { type Props as EllipsisProps } from './ItemsEllipsis';
 import borderStyles from '../Borders.css';
 import Box from '../Box';
 import { useSideNavigation } from '../contexts/SideNavigationProvider';
@@ -12,6 +13,32 @@ import { type Props as SideNavigationProps } from '../SideNavigation';
 import styles from '../SideNavigation.css';
 
 type Props = { ...SideNavigationProps };
+
+// $FlowFixMe[missing-local-annot]
+function groupIconlessChildren(children) {
+  const ellipsisProps: EllipsisProps = {};
+  const items = children.reduce((acc, child) => {
+    const shouldSkip = child.type.displayName !== 'SideNavigation.TopItem' || child.props.icon;
+
+    if (shouldSkip) {
+      acc.push(child);
+      return acc;
+    }
+
+    const { notificationAccessibilityLabel, active } = child.props;
+
+    if (!acc.includes(ellipsisProps)) acc.push(ellipsisProps);
+
+    ellipsisProps.notificationAccessibilityLabel ||= notificationAccessibilityLabel;
+    ellipsisProps.active ||= active;
+
+    return acc;
+  }, []);
+
+  return items.map((item) =>
+    item === ellipsisProps ? <ItemsEllipsis {...ellipsisProps} /> : item,
+  );
+}
 
 export default function NavigationContent({
   accessibilityLabel,
@@ -39,6 +66,8 @@ export default function NavigationContent({
     return () => element?.removeEventListener('scroll', scrollHandler);
   }, []);
 
+  const items = collapsed ? groupIconlessChildren(navigationChildren) : navigationChildren;
+
   if (collapsible) window.temp1 = navigationChildren;
 
   return (
@@ -54,8 +83,8 @@ export default function NavigationContent({
           dangerouslySetInlineStyle={{
             __style: {
               paddingBottom: 24,
-              minWidth: collapsed ? undefined : 280,
-              // width: collapsed ? 40 : 280,
+              // minWidth: collapsed ? undefined : 280,
+              width: collapsed ? undefined : 280,
             },
           }}
         >
@@ -67,7 +96,7 @@ export default function NavigationContent({
               </Flex>
             ) : null}
 
-            <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
+            <ul className={classnames(styles.ulItem)}>{items}</ul>
 
             {footer ? (
               <Flex direction="column" gap={{ column: 4, row: 0 }}>

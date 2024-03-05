@@ -181,21 +181,22 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
         <Box
           color={itemColor}
           paddingY={collapsed ? undefined : 2}
-          padding={collapsed ? 3 : undefined}
+          width={collapsed ? 44 : undefined}
           minHeight={44}
           rounding={2}
           display="flex"
+          justifyContent={collapsed ? 'center' : undefined}
           alignItems="center"
           position="relative"
           dangerouslySetInlineStyle={
-            !collapsed
-              ? {
+            collapsed
+              ? undefined
+              : {
                   __style: {
                     paddingInlineStart: nestingMargin,
                     paddingInlineEnd: '16px',
                   },
                 }
-              : undefined
           }
         >
           {collapsed && icon && notificationAccessibilityLabel ? (
@@ -211,7 +212,12 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
             />
           ) : null}
 
-          <Flex gap={{ row: 2, column: 0 }} height="100%" width="100%">
+          <Flex
+            gap={{ row: 2, column: 0 }}
+            height="100%"
+            width="100%"
+            justifyContent={collapsed ? 'center' : undefined}
+          >
             {icon ? (
               <Flex.Item alignSelf="center">
                 <Box aria-hidden>

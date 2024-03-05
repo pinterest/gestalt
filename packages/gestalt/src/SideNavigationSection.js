@@ -6,6 +6,7 @@ import { useSideNavigation } from './contexts/SideNavigationProvider';
 import Divider from './Divider';
 import styles from './SideNavigation.css';
 import getChildrenToArray from './SideNavigation/getChildrenToArray';
+import ItemsEllipsis from './SideNavigation/ItemsEllipsis';
 import Text from './Text';
 
 type Props = {
@@ -28,6 +29,10 @@ export default function SideNavigationSection({ children, label }: Props): React
     filterLevel: 'main',
   });
   const { collapsed } = useSideNavigation();
+  const shouldCollapseAsEllipsis =
+    collapsed && navigationChildren.some((child) => !child.props.icon);
+
+  const hasActiveItem = navigationChildren.some((child) => child.props.active);
 
   return (
     <li className={classnames(styles.liItem, styles.section)}>
@@ -42,7 +47,11 @@ export default function SideNavigationSection({ children, label }: Props): React
           </Text>
         </Box>
       )}
-      <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
+      {shouldCollapseAsEllipsis ? (
+        <ItemsEllipsis active={hasActiveItem ? 'page' : undefined} />
+      ) : (
+        <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
+      )}
     </li>
   );
 }
