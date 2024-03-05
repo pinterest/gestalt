@@ -184,7 +184,13 @@ const ButtonLinkWithForwardRef: AbstractComponent<ButtonProps, HTMLAnchorElement
       wrappedComponent="button"
     >
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-        <Text align="center" color={textColor} overflow="normal" weight="bold">
+        <Text
+          align="center"
+          color={textColor}
+          overflow="normal"
+          weight="bold"
+          size={size === 'sm' ? '200' : '300'}
+        >
           {text}
         </Text>
         {iconEnd ? (
