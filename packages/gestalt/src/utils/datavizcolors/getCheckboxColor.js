@@ -1,4 +1,10 @@
 // @flow strict
+import {
+  TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY,
+  TOKEN_COLOR_BORDER_DEFAULT,
+  TOKEN_COLOR_GRAY_ROBOFLOW_300,
+  TOKEN_COLOR_TRANSPARENT,
+} from 'gestalt-design-tokens';
 
 export type InteractionStates = {
   disabled: boolean,
@@ -19,20 +25,20 @@ export default function getCheckboxColor({
   colorStyles: { borderColor?: string, backgroundColor?: string },
   opts?: { showByDefault?: boolean },
 }): { borderColor?: string, backgroundColor?: string } {
-  const defaultBackgroundColor = 'transparent';
-  const defaultBorderColor = 'transparent';
+  const defaultBackgroundColor = TOKEN_COLOR_TRANSPARENT;
+  const defaultBorderColor = TOKEN_COLOR_TRANSPARENT;
 
   if (state.disabled) {
     return {
-      backgroundColor: `var(--color-gray-roboflow-300)`,
+      backgroundColor: TOKEN_COLOR_GRAY_ROBOFLOW_300,
       borderColor: defaultBorderColor,
     };
   }
 
   if (state.hovered && !state.selected) {
     return {
-      backgroundColor: `var(--color-background-formfield-primary)`,
-      borderColor: 'var(--color-border-default)',
+      backgroundColor: TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY,
+      borderColor: TOKEN_COLOR_BORDER_DEFAULT,
     };
   }
 
@@ -45,8 +51,8 @@ export default function getCheckboxColor({
 
   if (opts?.showByDefault) {
     return {
-      backgroundColor: `var(--color-background-formfield-primary)`,
-      borderColor: 'var(--color-border-default)',
+      backgroundColor: TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY,
+      borderColor: TOKEN_COLOR_BORDER_DEFAULT,
     };
   }
 

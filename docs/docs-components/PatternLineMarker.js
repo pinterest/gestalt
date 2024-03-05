@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, Flex, Text, useColorScheme } from 'gestalt';
+import { TOKEN_COLOR_WHITE_MOCHIMALIST_0 } from 'gestalt-design-tokens';
 import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
 import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-light.json';
 
@@ -127,7 +128,7 @@ export default function PatternBarFill(): ReactNode {
                         href={`#points-${color}-${idx}-${palette.name}`}
                         fill={
                           decalDotCoordCorrection[color].fill === 'empty'
-                            ? 'var(--color-white-mochimalist-0)'
+                            ? TOKEN_COLOR_WHITE_MOCHIMALIST_0
                             : hexColor(color)
                         }
                         stroke={hexColor(color)}

@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode, useState } from 'react';
 import classnames from 'classnames';
+import { TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY } from 'gestalt-design-tokens';
 import Box from './Box';
 import Icon from './Icon';
 import layout from './Layout.css';
@@ -128,7 +129,7 @@ function SelectList({
         rounding={4}
         width="100%"
         dangerouslySetInlineStyle={{
-          __style: { backgroundColor: 'var(--color-background-formfield-primary)' },
+          __style: { backgroundColor: TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY },
         }}
       >
         <Box

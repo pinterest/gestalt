@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
+import { TOKEN_COLOR_BORDER_AVATAR, TOKEN_COLOR_TEXT_DEFAULT } from 'gestalt-design-tokens';
 import avatarStyles from '../AvatarGroup.css';
 import Box from '../Box';
 import styles from '../Icon.css';
@@ -19,7 +20,7 @@ function ResponsiveFitSizeBox({ children, outline }: ResponsiveFitSizeBoxProps):
         __style: {
           // When specifying a padding by percentage, it's always based on the width of the parent container so we get a property that's equal to the width.s
           paddingBottom: '100%',
-          boxShadow: outline ? '0 0 0 1px var(--color-border-avatar)' : undefined,
+          boxShadow: outline ? `0 0 0 1px ${TOKEN_COLOR_BORDER_AVATAR}` : undefined,
         },
       }}
       position="relative"
@@ -75,7 +76,7 @@ export default function AvatarFoundation({
           {title ? <title>{title}</title> : null}
           <text
             fontSize={fontSize}
-            fill="var(--color-text-default)"
+            fill={TOKEN_COLOR_TEXT_DEFAULT}
             dy="0.35em"
             textAnchor={textAnchor}
             className={[

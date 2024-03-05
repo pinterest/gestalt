@@ -4,6 +4,7 @@ import { type Node as ReactNode } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import Image from 'next/image';
 import { Box, ButtonLink, Datapoint, Flex, Icon, Link, List, Text } from 'gestalt';
+import { TOKEN_COLOR_BACKGROUND_SECONDARY_BASE } from 'gestalt-design-tokens';
 import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
 import Highlighter from './highlight';
 import IllustrationCard from './IllustrationCard';
@@ -172,7 +173,7 @@ const components = {
       className="md-hint"
       style={{
         padding: '1rem',
-        backgroundColor: 'var(--color-background-secondary-base)',
+        backgroundColor: TOKEN_COLOR_BACKGROUND_SECONDARY_BASE,
       }}
     >
       <Flex

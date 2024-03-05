@@ -208,7 +208,6 @@ export default function ColorPage(): ReactNode {
 
        The full extended palette is available through design tokens and follow the naming pattern of \`color-{common_name}-{pinterest_name}-{number}\`. For example:
 
-       - JavaScript  \`$color-pink-flaminglow-400\`
        - CSS \`var(--color-pink-flaminglow-400)\`
 
        The transparent color is just \`color-transparent\`.

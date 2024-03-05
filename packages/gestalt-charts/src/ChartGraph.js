@@ -17,6 +17,7 @@ import {
   Tooltip,
 } from 'recharts';
 import { Box, Flex, HelpButton, TagData, TileData, useColorScheme, useDefaultLabel } from 'gestalt';
+import { TOKEN_COLOR_BORDER_CONTAINER, TOKEN_OPACITY_100 } from 'gestalt-design-tokens';
 import { ChartProvider } from './ChartGraph/ChartGraphContext';
 import EmptyBox from './ChartGraph/EmptyBox';
 import Header from './ChartGraph/Header';
@@ -491,7 +492,7 @@ function ChartGraph({
                 {/* Patterns cannot be moved into a Patterns subcomponent as Recharts doesn't recognize the wrapper component */}
                 {patterns}
                 <CartesianGrid
-                  stroke="var(--color-border-container)"
+                  stroke={TOKEN_COLOR_BORDER_CONTAINER}
                   horizontal={isVerticalLayout ? false : undefined}
                   vertical={isVerticalLayout ? undefined : false}
                 />
@@ -501,7 +502,7 @@ function ChartGraph({
                   <Tooltip isAnimationActive={false} content={<EmptyBox />} />
                 ) : (
                   <Tooltip
-                    cursor={{ fill: 'rgb(0 0 0 / var(--opacity-100))' }}
+                    cursor={{ fill: `rgb(0 0 0 / ${TOKEN_OPACITY_100}` }}
                     isAnimationActive={false}
                     content={renderTooltip === 'auto' ? defaultTooltip : customTooltip}
                   />

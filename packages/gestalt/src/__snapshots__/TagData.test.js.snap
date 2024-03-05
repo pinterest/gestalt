@@ -1088,7 +1088,7 @@ exports[`TagData renders base color as expected 1`] = `
                           style={
                             Object {
                               "backgroundColor": "#0081fe",
-                              "borderColor": "transparent",
+                              "borderColor": "var(--color-transparent)",
                             }
                           }
                         >
@@ -1218,7 +1218,7 @@ exports[`TagData renders base color as expected 1`] = `
                           style={
                             Object {
                               "backgroundColor": "#0081fe",
-                              "borderColor": "transparent",
+                              "borderColor": "var(--color-transparent)",
                             }
                           }
                         >
@@ -1344,7 +1344,7 @@ exports[`TagData renders disabled selected state 1`] = `
                       style={
                         Object {
                           "backgroundColor": "var(--color-gray-roboflow-300)",
-                          "borderColor": "transparent",
+                          "borderColor": "var(--color-transparent)",
                         }
                       }
                     >
@@ -1468,7 +1468,7 @@ exports[`TagData renders disabled unselected state 1`] = `
                       style={
                         Object {
                           "backgroundColor": "var(--color-gray-roboflow-300)",
-                          "borderColor": "transparent",
+                          "borderColor": "var(--color-transparent)",
                         }
                       }
                     />
@@ -1583,7 +1583,7 @@ exports[`TagData renders dismisible button with color background 1`] = `
                       style={
                         Object {
                           "backgroundColor": "#924af7",
-                          "borderColor": "transparent",
+                          "borderColor": "var(--color-transparent)",
                         }
                       }
                     >
@@ -1749,7 +1749,7 @@ exports[`TagData renders dismissable button 1`] = `
                       style={
                         Object {
                           "backgroundColor": "#0081fe",
-                          "borderColor": "transparent",
+                          "borderColor": "var(--color-transparent)",
                         }
                       }
                     >

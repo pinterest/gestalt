@@ -15,6 +15,14 @@ import {
   Text,
   useReducedMotion,
 } from 'gestalt';
+import {
+  TOKEN_COLOR_BACKGROUND_DEFAULT,
+  TOKEN_COLOR_BLUE_SKYCICLE_100,
+  TOKEN_COLOR_GREEN_MATCHACADO_100,
+  TOKEN_COLOR_PINK_FLAMINGLOW_100,
+  TOKEN_COLOR_PINK_FLAMINGLOW_200,
+  TOKEN_COLOR_WHITE_MOCHIMALIST_0,
+} from 'gestalt-design-tokens';
 import GestaltLogo from '../docs-components/GestaltLogo';
 import Docs from '../graphics/year-in-review-2023/lottie/yir-2023-docs.json';
 import DSD from '../graphics/year-in-review-2023/lottie/yir-2023-dsd.json';
@@ -94,7 +102,7 @@ export default function YearInReview2023(): ReactNode {
           <Box
             width="100%"
             dangerouslySetInlineStyle={{
-              __style: { backgroundColor: 'var(--color-background-default)' },
+              __style: { backgroundColor: TOKEN_COLOR_BACKGROUND_DEFAULT },
             }}
             position="relative"
           >
@@ -166,7 +174,7 @@ export default function YearInReview2023(): ReactNode {
           </Flex>
           <Box
             dangerouslySetInlineStyle={{
-              __style: { backgroundColor: 'var(--color-blue-skycicle-100)' },
+              __style: { backgroundColor: TOKEN_COLOR_BLUE_SKYCICLE_100 },
             }}
             paddingY={12}
             paddingX={SIDE_GAP}
@@ -288,7 +296,7 @@ export default function YearInReview2023(): ReactNode {
           </Box>
           <Box
             dangerouslySetInlineStyle={{
-              __style: { backgroundColor: 'var(--color-pink-flaminglow-200)' },
+              __style: { backgroundColor: TOKEN_COLOR_PINK_FLAMINGLOW_200 },
             }}
           >
             <Box paddingY={12} paddingX={SIDE_GAP} position="relative">
@@ -303,7 +311,7 @@ export default function YearInReview2023(): ReactNode {
           </Box>
           <Box
             dangerouslySetInlineStyle={{
-              __style: { backgroundColor: 'var(--color-white-mochimalist-0)' },
+              __style: { backgroundColor: TOKEN_COLOR_WHITE_MOCHIMALIST_0 },
             }}
           >
             <Box paddingY={12} paddingX={SIDE_GAP} position="relative">
@@ -399,7 +407,7 @@ export default function YearInReview2023(): ReactNode {
                   dangerouslySetInlineStyle={{
                     __style: {
                       border: '4px solid #111111',
-                      backgroundColor: 'var(--color-pink-flaminglow-100)',
+                      backgroundColor: TOKEN_COLOR_PINK_FLAMINGLOW_100,
                     },
                   }}
                 >
@@ -437,7 +445,7 @@ export default function YearInReview2023(): ReactNode {
           <Box
             dangerouslySetInlineStyle={{
               __style: {
-                backgroundColor: 'var(--color-green-matchacado-100)',
+                backgroundColor: TOKEN_COLOR_GREEN_MATCHACADO_100,
               },
             }}
           >
@@ -539,7 +547,7 @@ export default function YearInReview2023(): ReactNode {
                   dangerouslySetInlineStyle={{
                     __style: {
                       border: '4px solid #111111',
-                      backgroundColor: 'var(--color-white-mochimalist-0)',
+                      backgroundColor: TOKEN_COLOR_WHITE_MOCHIMALIST_0,
                     },
                   }}
                 >
@@ -605,7 +613,7 @@ export default function YearInReview2023(): ReactNode {
           </Box>
           <Box
             dangerouslySetInlineStyle={{
-              __style: { backgroundColor: 'var(--color-blue-skycicle-100)' },
+              __style: { backgroundColor: TOKEN_COLOR_BLUE_SKYCICLE_100 },
             }}
             paddingY={12}
             paddingX={SIDE_GAP}
@@ -718,7 +726,7 @@ export default function YearInReview2023(): ReactNode {
           </Box>
           <Box
             dangerouslySetInlineStyle={{
-              __style: { backgroundColor: 'var(--color-white-mochimalist-0)' },
+              __style: { backgroundColor: TOKEN_COLOR_WHITE_MOCHIMALIST_0 },
             }}
             paddingY={12}
             paddingX={4}
