@@ -1,3 +1,9 @@
+## 146.0.0 (Mar 5, 2024)
+
+### Major
+
+- Internal: migration to token constants ([#3459](https://github.com/pinterest/gestalt/pull/3459)) - [Preview link](https://deploy-preview-3459--gestalt.netlify.app?devexample=true)
+
 ## 145.5.2 (Mar 5, 2024)
 
 ### Patch
