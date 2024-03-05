@@ -5,6 +5,7 @@ declare module.exports: {|
   +'fullHeight': string,
   +'liItem': string,
   +'section': string,
-  +'sectionDivider': string,
+  +'sectionEndDivider': string,
+  +'sectionStartDivider': string,
   +'ulItem': string,
 |};

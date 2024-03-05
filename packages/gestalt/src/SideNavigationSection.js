@@ -37,7 +37,7 @@ export default function SideNavigationSection({ children, label }: Props): React
   return (
     <li className={classnames(styles.liItem, styles.section)}>
       {collapsed ? (
-        <div className={styles.sectionDivider}>
+        <div className={styles.sectionStartDivider}>
           <Divider />
         </div>
       ) : (
@@ -47,10 +47,17 @@ export default function SideNavigationSection({ children, label }: Props): React
           </Text>
         </Box>
       )}
+
       {shouldCollapseAsEllipsis ? (
         <ItemsEllipsis active={hasActiveItem ? 'page' : undefined} />
       ) : (
         <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
+      )}
+
+      {collapsed && (
+        <div className={styles.sectionEndDivider}>
+          <Divider />
+        </div>
       )}
     </li>
   );

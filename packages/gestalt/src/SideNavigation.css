@@ -20,16 +20,30 @@
 
 .section {
   margin-top: var(--space-600);
-}
-
-.section:nth-child(1) {
-  margin-top: 0;
-}
-
-.sectionDivider {
   margin-bottom: var(--space-600);
 }
 
-.section:nth-child(1) .sectionDivider {
-  visibility: hidden;
+.section:first-child {
+  margin-top: 0;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.sectionStartDivider {
+  display: none;
+  margin-bottom: var(--space-600);
+}
+
+.sectionEndDivider {
+  margin-top: var(--space-600);
+}
+
+.liItem:not(.section) + .section .sectionStartDivider {
+  display: block;
+}
+
+.section:last-child .sectionEndDivider {
+  display: none;
 }
