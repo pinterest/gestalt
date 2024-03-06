@@ -1,3 +1,9 @@
+## 146.0.1 (Mar 6, 2024)
+
+### Patch
+
+- Tokens: generate commonJS constant file ([#3471](https://github.com/pinterest/gestalt/pull/3471)) - [Preview link](https://deploy-preview-3471--gestalt.netlify.app?devexample=true)
+
 ## 146.0.0 (Mar 5, 2024)
 
 ### Major
