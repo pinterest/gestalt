@@ -58,7 +58,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                       >
                         <span
                           class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
-                          title=""
+                          title="1"
                         >
                           1
                         </span>
@@ -100,7 +100,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                       >
                         <span
                           class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
-                          title=""
+                          title="2"
                         >
                           2
                         </span>
@@ -142,7 +142,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                       >
                         <span
                           class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
-                          title=""
+                          title="3"
                         >
                           3
                         </span>
@@ -184,7 +184,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                       >
                         <span
                           class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
-                          title=""
+                          title="4"
                         >
                           4
                         </span>
@@ -226,7 +226,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                       >
                         <span
                           class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
-                          title=""
+                          title="5"
                         >
                           5
                         </span>
@@ -268,7 +268,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                       >
                         <span
                           class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
-                          title=""
+                          title="6"
                         >
                           6
                         </span>
@@ -310,7 +310,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                       >
                         <span
                           class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
-                          title=""
+                          title="7"
                         >
                           7
                         </span>
@@ -352,7 +352,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                       >
                         <span
                           class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
-                          title=""
+                          title="8"
                         >
                           8
                         </span>
@@ -394,7 +394,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                       >
                         <span
                           class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
-                          title=""
+                          title="9"
                         >
                           9
                         </span>
@@ -436,7 +436,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                       >
                         <span
                           class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
-                          title=""
+                          title="10"
                         >
                           10
                         </span>
@@ -478,7 +478,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                       >
                         <span
                           class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
-                          title=""
+                          title="11"
                         >
                           11
                         </span>
@@ -520,7 +520,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                       >
                         <span
                           class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
-                          title=""
+                          title="12"
                         >
                           12
                         </span>
@@ -613,7 +613,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       >
                         <span
                           class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
-                          title=""
+                          title="Item 1"
                         >
                           Item 1
                         </span>
@@ -655,7 +655,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       >
                         <span
                           class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
-                          title=""
+                          title="Item 2 with a really long, detailed, complex name"
                         >
                           Item 2 with a really long, detailed, complex name
                         </span>
@@ -703,7 +703,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                         >
                           <span
                             class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
-                            title=""
+                            title="External Item 3 with a really long, detailed, complex name"
                           >
                             External Item 3 with a really long, detailed, complex name
                           </span>
@@ -774,7 +774,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       >
                         <span
                           class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
-                          title=""
+                          title="Item 4"
                         >
                           Item 4
                         </span>
@@ -849,7 +849,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                         >
                           <span
                             class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
-                            title=""
+                            title="Item 5 with a really long, detailed name"
                           >
                             Item 5 with a really long, detailed name
                           </span>
@@ -953,7 +953,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                         >
                           <span
                             class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
-                            title=""
+                            title="Item 6"
                           >
                             Item 6
                           </span>
