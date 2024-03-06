@@ -1,3 +1,9 @@
+## 146.1.0 (Mar 6, 2024)
+
+### Minor
+
+- Dropdown: Add disabled variant ([#3463](https://github.com/pinterest/gestalt/pull/3463)) - [Preview link](https://deploy-preview-3463--gestalt.netlify.app?devexample=true)
+
 ## 146.0.4 (Mar 6, 2024)
 
 ### Patch
