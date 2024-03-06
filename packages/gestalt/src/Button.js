@@ -238,7 +238,13 @@ const ButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = forwar
     DEFAULT_TEXT_COLORS[color];
 
   const buttonText = (
-    <Text align="center" color={textColor} overflow="normal" weight="bold">
+    <Text
+      align="center"
+      color={textColor}
+      overflow="normal"
+      weight="bold"
+      size={size === 'sm' ? '200' : '300'}
+    >
       {text}
     </Text>
   );
