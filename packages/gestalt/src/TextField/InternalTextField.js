@@ -196,7 +196,7 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
       aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
       autoComplete={autoComplete}
       className={tags ? unstyledClasses : styledClasses}
-      data-test-id={dataTestId}
+      data-testid={dataTestId}
       disabled={disabled}
       enterKeyHint={mobileEnterKeyHint}
       id={id}
