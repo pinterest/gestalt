@@ -5,7 +5,8 @@
   "homepage": "https://gestalt.pinterest.systems/",
   "description": "Design tokens style dictionary for Gestalt",
   "main": "dist/js/constants.js",
-  "module": "dist/js/gestalt.es.js",
+  "jsnext:main": "dist/js/constants.es.js",
+  "module": "dist/js/constants.es.js",
   "files": [
     "dist",
     "tokens"
