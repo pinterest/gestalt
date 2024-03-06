@@ -1,3 +1,9 @@
+## 146.0.4 (Mar 6, 2024)
+
+### Patch
+
+- Docs: Fix md page width ([#3470](https://github.com/pinterest/gestalt/pull/3470)) - [Preview link](https://deploy-preview-3470--gestalt.netlify.app?devexample=true)
+
 ## 146.0.3 (Mar 6, 2024)
 
 ### Patch
