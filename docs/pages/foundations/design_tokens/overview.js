@@ -84,6 +84,7 @@ const tokenCategories: $ReadOnlyArray<{
     id: 'elevation',
     infoPage: { name: 'Box', path: 'web/box#Elevation' },
     darkValues: true,
+    excludedItems: EXCLUSION_LIST,
   },
   {
     name: 'Font size',
@@ -126,6 +127,7 @@ const tokenCategories: $ReadOnlyArray<{
     id: 'rounding',
     infoPage: { name: 'Box', path: 'web/box#Rounding' },
     darkValues: false,
+    excludedItems: EXCLUSION_LIST,
   },
 ];
 
