@@ -318,9 +318,14 @@ function getWebConfig({ mode }) {
           mode !== 'dark'
             ? [
                 {
-                  'destination': 'constants.js',
+                  'destination': 'constants.es.js',
                   'format': 'constantLibrary-javascript/es6/flow',
                   '_format_comment': 'Custom.',
+                },
+                {
+                  'destination': 'constants.js',
+                  'format': 'constantLibrary-commonJS/flow',
+                  '_format_comment': 'Custom. See packages/gestalt-design-tokens/build.js',
                 },
                 {
                   'destination': 'tokens.js',
