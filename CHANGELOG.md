@@ -1,3 +1,9 @@
+## 146.0.3 (Mar 6, 2024)
+
+### Patch
+
+- Tokens: Refactored tokens style-dictionary build ([#3466](https://github.com/pinterest/gestalt/pull/3466)) - [Preview link](https://deploy-preview-3466--gestalt.netlify.app?devexample=true)
+
 ## 146.0.2 (Mar 6, 2024)
 
 ### Patch
