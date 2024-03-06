@@ -1,3 +1,9 @@
+## 146.0.2 (Mar 6, 2024)
+
+### Patch
+
+- Button: Fix Font Sizing ([#3469](https://github.com/pinterest/gestalt/pull/3469)) - [Preview link](https://deploy-preview-3469--gestalt.netlify.app?devexample=true)
+
 ## 146.0.1 (Mar 6, 2024)
 
 ### Patch
