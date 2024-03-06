@@ -36,6 +36,10 @@ type Props = {
    */
   dataTestId?: string,
   /**
+   * Disabled items appear inactive and cannot be interacted with.
+   */
+  disabled?: boolean,
+  /**
    * Callback when the user selects an item using the mouse or keyboard.
    */ onSelect: ({
     event: SyntheticInputEvent<HTMLInputElement>,
@@ -77,6 +81,7 @@ export default function DropdownItem({
   badge,
   children,
   dataTestId,
+  disabled,
   _index = 0,
   onSelect,
   option,
@@ -88,6 +93,7 @@ export default function DropdownItem({
         <OptionItem
           badge={badge}
           dataTestId={dataTestId}
+          disabled={disabled}
           hoveredItemIndex={hoveredItemIndex}
           id={id}
           index={_index}

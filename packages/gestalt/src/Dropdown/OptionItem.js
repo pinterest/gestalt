@@ -38,6 +38,7 @@ type Props = {
   badge?: BadgeType,
   children?: ReactNode,
   dataTestId?: string,
+  disabled?: boolean,
   hoveredItemIndex: ?number,
   href?: string,
   id: string,
@@ -66,6 +67,7 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
     badge,
     children,
     dataTestId,
+    disabled,
     onSelect,
     hoveredItemIndex,
     href,
@@ -95,6 +97,8 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
     if (!href && !children) {
       event.preventDefault();
     }
+
+    if (disabled) return;
     onSelect?.({ event, item: option });
   };
 
@@ -104,8 +108,11 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
     [focusStyles.accessibilityOutline]: isFocusVisible,
     [focusStyles.accessibilityOutlineFocusWithin]: isFocusVisible,
     [styles.fullWidth]: true,
-    [styles.pointer]: true,
+    [styles.pointer]: !disabled,
+    [styles.noDrop]: disabled,
   });
+
+  const textColor = disabled ? 'subtle' : 'default';
 
   const optionItemContent = (
     <Flex>
@@ -113,10 +120,16 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
         <Flex alignItems="center">
           {children || (
             <Fragment>
-              <Text color="default" inline lineClamp={1} weight={textWeight}>
+              <Text
+                color={textColor}
+                inline
+                lineClamp={1}
+                weight={textWeight}
+                title={disabled ? '' : undefined}
+              >
                 {option?.label}
               </Text>
-              {badge && (
+              {badge && !disabled && (
                 <Box marginStart={2} marginTop={1}>
                   {/* Adds a pause for screen reader users between the text content */}
                   <Box display="visuallyHidden">{`, `}</Box>
@@ -155,7 +168,7 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
           // marginStart is for spacing relative to Badge, should not be moved to parent Flex's gap
           marginStart={2}
         >
-          <Icon accessibilityLabel="" color="default" icon="visit" size={12} />
+          <Icon accessibilityLabel="" color={textColor} icon="visit" size={12} />
         </Box>
       )}
     </Flex>
@@ -178,20 +191,25 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
         event.stopPropagation();
         event.preventDefault();
       }}
-      onMouseEnter={() => setHoveredItemIndex(index)}
+      onMouseEnter={() => {
+        if (!disabled) {
+          setHoveredItemIndex(index);
+        }
+      }}
       ref={index === hoveredItemIndex ? ref : null}
       role="menuitem"
+      aria-disabled={disabled}
       rounding={2}
-      tabIndex={isMobile ? 0 : -1}
+      tabIndex={isMobile && !disabled ? 0 : -1}
     >
       <Box
-        color={index === hoveredItemIndex ? 'secondary' : 'transparent'}
+        color={index === hoveredItemIndex && !disabled ? 'secondary' : 'transparent'}
         direction="column"
         display="flex"
         padding={2}
         rounding={2}
       >
-        {href ? (
+        {href && !disabled ? (
           <Link
             underline="none"
             href={href}
