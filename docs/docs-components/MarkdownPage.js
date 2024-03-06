@@ -53,28 +53,32 @@ const components = {
   ul: (props) => {
     const filtered = Object.values(props.children).filter((a) => a !== '\n');
     return (
-      <List>
-        {filtered.map((a, index) => (
-          <List.Item
-            key={JSON.stringify(a?.props.child ?? index)}
-            text={<Text>{a?.props.children}</Text>}
-          />
-        ))}
-      </List>
+      <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
+        <List>
+          {filtered.map((a, index) => (
+            <List.Item
+              key={JSON.stringify(a?.props.child ?? index)}
+              text={<Text>{a?.props.children}</Text>}
+            />
+          ))}
+        </List>
+      </Box>
     );
   },
   // $FlowFixMe[missing-local-annot]
   ol: (props) => {
     const filtered = Object.values(props.children).filter((a) => a !== '\n');
     return (
-      <List type="ordered">
-        {filtered.map((a, index) => (
-          <List.Item
-            key={JSON.stringify(a?.props.child ?? index)}
-            text={<Text>{a?.props.children}</Text>}
-          />
-        ))}
-      </List>
+      <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
+        <List type="ordered">
+          {filtered.map((a, index) => (
+            <List.Item
+              key={JSON.stringify(a?.props.child ?? index)}
+              text={<Text>{a?.props.children}</Text>}
+            />
+          ))}
+        </List>
+      </Box>
     );
   },
   // $FlowFixMe[missing-local-annot]
@@ -118,6 +122,8 @@ const components = {
       <hr />
     </Box>
   ),
+  // $FlowFixMe[missing-local-annot]
+  p: (props) => <p style={{ maxWidth: DOCS_COPY_MAX_WIDTH_PX }}> {props.children} </p>,
   ActionButton: ({ children, href }: { href: string, children: string | null }) => (
     <ButtonLink
       href={href}
