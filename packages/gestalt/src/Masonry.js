@@ -577,7 +577,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       gridBody = <div style={{ width: '100%' }} ref={this.setGridWrapperRef} />;
     } else {
       // Full layout is possible
-      const itemsWithMeasures = items.filter((item) => item && measurementStore.has(item));
+      const itemsWithMeasurements = items.filter((item) => item && measurementStore.has(item));
       const itemsWithoutPositions = items.filter((item) => item && !positionStore.has(item));
       const hasTwoColumnItems =
         // $FlowFixMe[prop-missing] We're assuming `columnSpan` exists
@@ -593,12 +593,12 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       // for batch size number of items
       const itemsToRender = hasTwoColumnItems
         ? [
-            ...itemsWithMeasures.filter((item) => item && positionStore.has(item)),
-            ...itemsWithMeasures
+            ...itemsWithMeasurements.filter((item) => item && positionStore.has(item)),
+            ...itemsWithMeasurements
               .filter((item) => item && !positionStore.has(item))
               .slice(0, itemsToMeasureCount),
           ]
-        : itemsWithMeasures;
+        : itemsWithMeasurements;
 
       const positions = getPositions(itemsToRender);
       const measuringPositions = getPositions(itemsToMeasure);

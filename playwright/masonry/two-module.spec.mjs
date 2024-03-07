@@ -52,7 +52,6 @@ test.describe('Masonry: two columns module', () => {
       { name: 'Pin 15', height: 202, color: '#FAB032' },
     ];
 
-    // The two modules items appear after the 50th pin, we add at least 60 items
     const toogleMountButton = await page.locator(selectors.toggleMount);
     await toogleMountButton.click();
 
