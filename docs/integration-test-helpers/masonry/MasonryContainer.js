@@ -86,31 +86,43 @@ export default class MasonryContainer extends Component<Props<{ ... }>, State> {
 
   randomNumberSeed: number = 0;
 
+  triggerReflow: () => void = () => {
+    if (this.gridRef.current) {
+      this.gridRef.current.reflow();
+      this.forceUpdate();
+    }
+  };
+
+  // $FlowFixMe[unclear-type]
+  setMasonryItems: (e: { detail: { items: $ReadOnlyArray<Object> } }) => void = (e) => {
+    this.setState({
+      items: e.detail.items,
+    });
+  };
+
+  // eslint-disable-next-line class-methods-use-this
+  countError: () => void = () => {
+    window.ERROR_COUNT += 1;
+  };
+
   componentDidMount() {
     window.TEST_FETCH_COUNTS = 0;
-
-    window.addEventListener('trigger-reflow', () => {
-      if (this.gridRef.current) {
-        this.gridRef.current.reflow();
-        this.forceUpdate();
-      }
-    });
-
-    window.addEventListener('set-masonry-items', (e) => {
-      this.setState({
-        items: e.detail.items,
-      });
-    });
-
     window.ERROR_COUNT = window.ERROR_COUNT || 0;
-    window.addEventListener('error', () => {
-      window.ERROR_COUNT += 1;
-    });
+
+    window.addEventListener('trigger-reflow', this.triggerReflow);
+    window.addEventListener('set-masonry-items', this.setMasonryItems);
+    window.addEventListener('error', this.countError);
 
     // Trigger a re-render in case we need to render /w scrollContainer.
     setTimeout(() => {
       this.setState({ mounted: true }); // eslint-disable-line react/no-unused-state
     });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('trigger-reflow', this.triggerReflow);
+    window.removeEventListener('set-masonry-items', this.setMasonryItems);
+    window.removeEventListener('error', this.countError);
   }
 
   handleToggleScrollContainer: () => void = () => {
