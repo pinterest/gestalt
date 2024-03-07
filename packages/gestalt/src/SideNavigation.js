@@ -4,6 +4,7 @@ import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
 import { SideNavigationProvider } from './contexts/SideNavigationProvider';
 import ScrollBoundaryContainer from './ScrollBoundaryContainer';
+import { ChildrenDataContextProvider } from './SideNavigation/ChildrenDataContext';
 import SideNavigationMobile from './SideNavigation/Mobile';
 import SideNavigationContent from './SideNavigation/NavigationContent';
 import SideNavigationGroup from './SideNavigationGroup';
@@ -109,17 +110,19 @@ export default function SideNavigation({
 
   return (
     <SideNavigationProvider collapsed={collapsed} onCollapse={onCollapse}>
-      <ScrollBoundaryContainer>
-        <SideNavigationContent
-          accessibilityLabel={accessibilityLabel}
-          footer={footer}
-          header={header}
-          collapsible={collapsible}
-          showBorder={showBorder}
-        >
-          {children}
-        </SideNavigationContent>
-      </ScrollBoundaryContainer>
+      <ChildrenDataContextProvider>
+        <ScrollBoundaryContainer>
+          <SideNavigationContent
+            accessibilityLabel={accessibilityLabel}
+            footer={footer}
+            header={header}
+            collapsible={collapsible}
+            showBorder={showBorder}
+          >
+            {children}
+          </SideNavigationContent>
+        </ScrollBoundaryContainer>
+      </ChildrenDataContextProvider>
     </SideNavigationProvider>
   );
 }

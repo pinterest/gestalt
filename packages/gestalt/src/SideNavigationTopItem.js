@@ -20,6 +20,7 @@ import Flex from './Flex';
 import Icon from './Icon';
 import icons from './icons/index';
 import styles from './SideNavigation.css';
+import { useChildrenDataContext } from './SideNavigation/ChildrenDataContext';
 import PrimaryActionIconButton from './SideNavigation/PrimaryActionIconButton';
 import TapAreaLink from './TapAreaLink';
 import Text from './Text';
@@ -31,7 +32,7 @@ export const NESTING_MARGIN_START_MAP = {
   '2': '68px',
 };
 
-type Props = {
+export type Props = {
   /**
    * When set to 'page' or 'section', it displays the item in "active" state. See the [Accessibility](https://gestalt.pinterest.systems/web/sidenavigation#Accessibility) guidelines to learn more.
    */
@@ -97,8 +98,8 @@ type Props = {
 const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElement> = forwardRef<
   Props,
   HTMLLIElement,
->(function SideNavigationTopItem(
-  {
+>(function SideNavigationTopItem(props: Props, ref): ReactNode {
+  const {
     active,
     href,
     badge,
@@ -108,12 +109,14 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
     primaryAction,
     notificationAccessibilityLabel,
     onClick,
-  }: Props,
-  ref,
-): ReactNode {
+  } = props;
+
   const { nestedLevel } = useNesting();
 
-  const { collapsed, setSelectedItemId } = useSideNavigation();
+  const { collapsed, setSelectedItemId, setShouldCollapseEmpty, selectedItemId } =
+    useSideNavigation();
+
+  const { setShouldCollapseAsEllipsis, setHasActiveItem } = useChildrenDataContext();
 
   const itemId = useId();
 
@@ -161,6 +164,15 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
       setShowIconButton('hide');
     }
   }, [hovered, focused, primaryAction, forceIconButton, showIconButton]);
+
+  useEffect(() => {
+    setShouldCollapseEmpty(!icon);
+    setShouldCollapseAsEllipsis(!icon);
+  }, [icon, setShouldCollapseAsEllipsis, setShouldCollapseEmpty]);
+
+  useEffect(() => {
+    setHasActiveItem(itemId === selectedItemId);
+  }, [itemId, selectedItemId, setHasActiveItem]);
 
   return (
     <li ref={ref} className={classnames(styles.liItem)}>

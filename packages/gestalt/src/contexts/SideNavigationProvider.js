@@ -4,6 +4,7 @@ import {
   createContext,
   type Element,
   type Node as ReactNode,
+  type ReactSetStateFunction,
   useContext,
   useState,
 } from 'react';
@@ -21,6 +22,8 @@ type SideNavigationContextType = {
   setHideActiveChildren: (boolean) => void,
   collapsed?: boolean,
   onCollapse?: (boolean) => void,
+  shouldCollapseEmpty: boolean,
+  setShouldCollapseEmpty: ReactSetStateFunction<boolean>,
   dismissButton?: {
     accessibilityLabel?: string,
     onDismiss: () => void,
@@ -47,6 +50,8 @@ const SideNavigationContext: Context<SideNavigationContextType> =
     setSelectedMobileChildren: () => {},
     hideActiveChildren: false,
     setHideActiveChildren: () => {},
+    shouldCollapseEmpty: true,
+    setShouldCollapseEmpty: () => {},
   });
 
 const { Provider, Consumer: SideNavigationConsumer } = SideNavigationContext;
@@ -60,6 +65,7 @@ function SideNavigationProvider({
   const [selectedItemId, setSelectedItemId] = useState('');
   const [selectedMobileChildren, setSelectedMobileChildren] = useState<ReactNode>(null);
   const [hideActiveChildren, setHideActiveChildren] = useState<boolean>(false);
+  const [shouldCollapseEmpty, setShouldCollapseEmpty] = useState<boolean>(true);
 
   const sideNavigationContext = {
     selectedItemId,
@@ -71,6 +77,8 @@ function SideNavigationProvider({
     dismissButton,
     collapsed,
     onCollapse,
+    shouldCollapseEmpty,
+    setShouldCollapseEmpty,
   };
 
   return <Provider value={sideNavigationContext}>{children}</Provider>;
