@@ -5,7 +5,7 @@ import { useSideNavigation } from '../contexts/SideNavigationProvider';
 import IconButton from '../IconButton';
 import Sticky from '../Sticky';
 
-export default function Collapser({ shadow }: { shadow: boolean }): ReactNode {
+export default function Collapser({ raised }: { raised: boolean }): ReactNode {
   const { collapsed, onCollapse } = useSideNavigation();
 
   return (
@@ -15,8 +15,8 @@ export default function Collapser({ shadow }: { shadow: boolean }): ReactNode {
         justifyContent={collapsed ? 'center' : 'end'}
         marginBottom={-2}
         padding={2}
-        color="light"
-        borderStyle={shadow ? 'raisedTopShadow' : undefined}
+        color={raised ? 'default' : undefined}
+        borderStyle={raised ? 'raisedTopShadow' : undefined}
       >
         <IconButton
           icon={collapsed ? 'arrow-double-forward' : 'arrow-double-back'}
