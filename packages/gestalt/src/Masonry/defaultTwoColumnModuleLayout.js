@@ -278,7 +278,7 @@ const defaultTwoColumnModuleLayout = <T>({
     };
 
     if (hasTwoColumnItems) {
-      const prevOneColumnItems = itemsWithPositions;
+      const prevOneColumnItems = [...itemsWithPositions];
       let batchWithTwoColumnItem: $ReadOnlyArray<T> = [];
 
       // If the number of items to position is greater that the batch size
@@ -318,6 +318,13 @@ const defaultTwoColumnModuleLayout = <T>({
           heights,
           ...commonGetPositionArgs,
         });
+
+      // Adding the extra prev one column items to the position cache
+      if (prevOneColumnItems.length > itemsWithPositions.length) {
+        paintedItemPositions.forEach(({ item, position }) => {
+          positionCache.set(item, position);
+        });
+      }
 
       // Initialize the graph
       const graph = new Graph<T>();
