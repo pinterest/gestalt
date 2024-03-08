@@ -1,9 +1,12 @@
 // @flow strict
-import { Children, Fragment, type Node as ReactNode, useEffect, useRef, useState } from 'react';
+import { type Node as ReactNode, useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
 import Collapser from './Collapser';
-import getChildrenToArray from './getChildrenToArray';
-import ItemsEllipsis, { type Props as EllipsisProps } from './ItemsEllipsis';
+import {
+  getNavigationChildren,
+  groupIconlessChildren,
+  validateChildren,
+} from './getChildrenToArray';
 import borderStyles from '../Borders.css';
 import Box from '../Box';
 import { useSideNavigation } from '../contexts/SideNavigationProvider';
@@ -14,75 +17,6 @@ import styles from '../SideNavigation.css';
 
 type Props = { ...SideNavigationProps };
 
-function hasActiveChildCallback(child: { props: { active: 'page' | 'section' } }) {
-  return child?.props?.active && ['page', 'section'].includes(child?.props?.active);
-}
-
-// $FlowFixMe[missing-local-annot]
-function getChildActiveProp(children) {
-  const hasActiveChildren = children.some((child) => !!child.props?.active);
-
-  const hasActiveGrandChildren = children
-    .filter((child) => child?.type?.displayName === 'SideNavigation.NestedGroup')
-    .map((child) =>
-      getChildrenToArray({
-        children: child?.props?.children,
-        filterLevel: 'nested',
-      }).find(hasActiveChildCallback),
-    )
-    .filter(Boolean);
-
-  return !!hasActiveChildren || (!!hasActiveGrandChildren && !!hasActiveGrandChildren[0]);
-}
-
-// $FlowFixMe[missing-local-annot]
-function groupIconlessChildren(children) {
-  const ellipsisProps: EllipsisProps = {};
-
-  const items = children.reduce((acc, child) => {
-    const isTopItem =
-      child.type.displayName === 'SideNavigation.TopItem' ||
-      child.type.displayName === 'SideNavigation.Group';
-    const shouldSkip = !isTopItem || child.props.icon;
-
-    if (shouldSkip) {
-      acc.push(child);
-      return acc;
-    }
-
-    const { notificationAccessibilityLabel, active } = child.props;
-
-    if (!acc.includes(ellipsisProps) || acc.at(-1)?.type?.displayName === 'SideNavigation.Section')
-      acc.push(ellipsisProps);
-
-    ellipsisProps.notificationAccessibilityLabel ||= notificationAccessibilityLabel;
-    ellipsisProps.active ||= active;
-
-    return acc;
-  }, []);
-
-  return items.map((item) =>
-    item === ellipsisProps ? (
-      <li className={classnames(styles.liItem)}>
-        <ItemsEllipsis {...ellipsisProps} />
-      </li>
-    ) : (
-      item
-    ),
-  );
-}
-
-function getChildren(children: ReactNode): $ReadOnlyArray<ReactNode> {
-  // $FlowFixMe[underconstrained-implicit-instantiation]
-  return Children.toArray(children).reduce((acc, child) => {
-    if (child.type !== Fragment) {
-      return acc.concat(child);
-    }
-
-    return getChildren(child.props.children);
-  }, []);
-}
-
 export default function NavigationContent({
   accessibilityLabel,
   children,
@@ -91,10 +25,9 @@ export default function NavigationContent({
   showBorder,
   collapsible,
 }: Props): ReactNode {
-  const navigationChildren = getChildrenToArray({
-    children,
-    filterLevel: 'main',
-  });
+  validateChildren({ children, filterLevel: 'main' });
+
+  const navigationChildren = getNavigationChildren(children);
 
   const { collapsed, shouldCollapseEmpty } = useSideNavigation();
   const scrollContainer = useRef<HTMLDivElement | null>(null);
@@ -130,7 +63,6 @@ export default function NavigationContent({
           dangerouslySetInlineStyle={{
             __style: {
               paddingBottom: 24,
-              // minWidth: collapsed ? undefined : 280,
               width: collapsed ? undefined : 280,
             },
           }}

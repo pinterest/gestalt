@@ -20,7 +20,6 @@ import Flex from './Flex';
 import Icon from './Icon';
 import icons from './icons/index';
 import styles from './SideNavigation.css';
-import { useChildrenDataContext } from './SideNavigation/ChildrenDataContext';
 import PrimaryActionIconButton from './SideNavigation/PrimaryActionIconButton';
 import TapAreaLink from './TapAreaLink';
 import Text from './Text';
@@ -113,10 +112,7 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
 
   const { nestedLevel } = useNesting();
 
-  const { collapsed, setSelectedItemId, setShouldCollapseEmpty, selectedItemId } =
-    useSideNavigation();
-
-  const { setShouldCollapseAsEllipsis, setHasActiveItem } = useChildrenDataContext();
+  const { collapsed, setSelectedItemId, setShouldCollapseEmpty } = useSideNavigation();
 
   const itemId = useId();
 
@@ -167,12 +163,7 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
 
   useEffect(() => {
     setShouldCollapseEmpty(!icon);
-    setShouldCollapseAsEllipsis(!icon);
-  }, [icon, setShouldCollapseAsEllipsis, setShouldCollapseEmpty]);
-
-  useEffect(() => {
-    setHasActiveItem(itemId === selectedItemId);
-  }, [itemId, selectedItemId, setHasActiveItem]);
+  }, [icon, setShouldCollapseEmpty]);
 
   return (
     <li ref={ref} className={classnames(styles.liItem)}>

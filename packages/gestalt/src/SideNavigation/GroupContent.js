@@ -1,7 +1,6 @@
 // @flow strict
 import { type Element, type Node as ReactNode, useEffect, useState } from 'react';
 import { TOKEN_COLOR_BACKGROUND_SELECTED_BASE } from 'gestalt-design-tokens';
-import { useChildrenDataContext } from './ChildrenDataContext';
 import PrimaryActionIconButton from './PrimaryActionIconButton';
 import Badge from '../Badge';
 import Box from '../Box';
@@ -78,7 +77,6 @@ export default function SideNavigationGroupContent({
   const isMobile = deviceType === 'mobile';
 
   const { collapsed, setShouldCollapseEmpty } = useSideNavigation();
-  const { setShouldCollapseAsEllipsis, setHasActiveItem } = useChildrenDataContext();
 
   // Manages PrimaryAction
   const [forceIconButton, setForceIconButton] = useState<'force' | 'default'>('default');
@@ -103,14 +101,9 @@ export default function SideNavigationGroupContent({
 
   useEffect(() => {
     setShouldCollapseEmpty(!icon);
-    setShouldCollapseAsEllipsis(!icon);
-  }, [icon, setShouldCollapseAsEllipsis, setShouldCollapseEmpty]);
+  }, [icon, setShouldCollapseEmpty]);
 
   const hasBorder = expanded && selectedItemId === itemId;
-
-  useEffect(() => {
-    setHasActiveItem(hasBorder);
-  }, [hasBorder, setHasActiveItem]);
 
   return (
     <Box

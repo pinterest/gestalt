@@ -8,7 +8,11 @@ import { useSideNavigation } from './contexts/SideNavigationProvider';
 import Dropdown from './Dropdown';
 import icons from './icons/index';
 import styles from './SideNavigation.css';
-import getChildrenToArray from './SideNavigation/getChildrenToArray';
+import {
+  getGroupChildActiveProp,
+  getNavigationChildren,
+  validateChildren,
+} from './SideNavigation/getChildrenToArray';
 import SideNavigationGroupContent from './SideNavigation/GroupContent';
 import SideNavigationGroupMobile from './SideNavigation/GroupMobile';
 import { NESTING_MARGIN_START_MAP } from './SideNavigationTopItem';
@@ -94,6 +98,8 @@ export default function SideNavigationGroup({
   onExpand,
   primaryAction,
 }: Props): ReactNode {
+  validateChildren({ children, filterLevel: 'nested' });
+
   // Manages adaptiveness
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
@@ -105,37 +111,11 @@ export default function SideNavigationGroup({
 
   // Manages children
   const itemId = useId();
-
   const { nestedLevel } = useNesting();
-
   const { collapsed, selectedItemId, setSelectedItemId } = useSideNavigation();
 
-  const navigationChildren = getChildrenToArray({
-    children,
-    filterLevel: 'nested',
-  });
-
-  const hasActiveChildCallback = (child: { props: { active: 'page' | 'section' } }) =>
-    child?.props?.active && ['page', 'section'].includes(child?.props?.active);
-
-  const hasActiveChildren = !!navigationChildren.find(hasActiveChildCallback);
-
-  let hasActiveGrandChildren;
-
-  if (nestedLevel === 0 && !hasActiveChildren) {
-    hasActiveGrandChildren = navigationChildren
-      .filter((child) => child?.type?.displayName === 'SideNavigation.NestedGroup')
-      .map((child) =>
-        getChildrenToArray({
-          children: child?.props?.children,
-          filterLevel: 'nested',
-        }).find(hasActiveChildCallback),
-      )
-      .filter(Boolean);
-  }
-
-  const hasAnyActiveChild =
-    !!hasActiveChildren || (!!hasActiveGrandChildren && !!hasActiveGrandChildren[0]);
+  const navigationChildren = getNavigationChildren(children);
+  const hasAnyActiveChild = !!getGroupChildActiveProp(navigationChildren);
 
   const isExpandable = display === 'expandable';
 

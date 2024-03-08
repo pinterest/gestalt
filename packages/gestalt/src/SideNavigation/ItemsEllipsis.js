@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { useChildrenDataContext } from './ChildrenDataContext';
 import Box from '../Box';
 import { useSideNavigation } from '../contexts/SideNavigationProvider';
 import Icon from '../Icon';
@@ -16,10 +15,9 @@ export default function ItemsEllipsis({
   notificationAccessibilityLabel,
 }: Props): ReactNode {
   const { onCollapse } = useSideNavigation();
-  const { hasActiveItem } = useChildrenDataContext();
 
-  const itemColor = hasActiveItem ? 'selected' : undefined; // active=='page'
-  const textColor = hasActiveItem ? 'inverse' : 'default';
+  const itemColor = active === 'page' ? 'selected' : undefined;
+  const textColor = active === 'page' ? 'inverse' : 'default';
   const hasBorder = active === 'section';
 
   return (

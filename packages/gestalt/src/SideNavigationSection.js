@@ -5,11 +5,7 @@ import Box from './Box';
 import { useSideNavigation } from './contexts/SideNavigationProvider';
 import Divider from './Divider';
 import styles from './SideNavigation.css';
-import {
-  ChildrenDataContextProvider,
-  useChildrenDataContext,
-} from './SideNavigation/ChildrenDataContext';
-import getChildrenToArray from './SideNavigation/getChildrenToArray';
+import { getNavigationChildren, validateChildren } from './SideNavigation/getChildrenToArray';
 import ItemsEllipsis from './SideNavigation/ItemsEllipsis';
 import Text from './Text';
 
@@ -24,17 +20,25 @@ type Props = {
   label: string,
 };
 
-function SectionContent({ children, label }: Props): ReactNode {
-  const navigationChildren = getChildrenToArray({
+/**
+ * Use [SideNavigation.Section](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.Section) to categorize navigation menu items into groups and also avoid redundant language in labels.
+ */
+export default function SideNavigationSection({ children, label }: Props): ReactNode {
+  validateChildren({
     children,
     filterLevel: 'main',
   });
+
   const { collapsed } = useSideNavigation();
-  const { shouldCollapseAsEllipsis } = useChildrenDataContext();
-  // const shouldCollapseAsEllipsis =
-  //   collapsed && navigationChildren.some((child) => !child.props.icon);
-  // const hasActiveItem = navigationChildren.some((child) => child.props.active);
-  // collapsed && console.log(shouldCollapseAsEllipsis);
+
+  const navigationChildren = getNavigationChildren(children);
+
+  const shouldCollapseAsEllipsis =
+    collapsed && navigationChildren.some((child) => !child.props.icon);
+
+  const hasActiveItem =
+    shouldCollapseAsEllipsis && navigationChildren.some((child) => child.props.active);
+
   return (
     <li className={classnames(styles.liItem, styles.section)}>
       {collapsed ? (
@@ -49,8 +53,8 @@ function SectionContent({ children, label }: Props): ReactNode {
         </Box>
       )}
 
-      {collapsed && shouldCollapseAsEllipsis ? (
-        <ItemsEllipsis />
+      {shouldCollapseAsEllipsis ? (
+        <ItemsEllipsis active={hasActiveItem ? 'page' : undefined} />
       ) : (
         <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
       )}
@@ -61,17 +65,6 @@ function SectionContent({ children, label }: Props): ReactNode {
         </div>
       )}
     </li>
-  );
-}
-
-/**
- * Use [SideNavigation.Section](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.Section) to categorize navigation menu items into groups and also avoid redundant language in labels.
- */
-export default function SideNavigationSection({ children, label }: Props): ReactNode {
-  return (
-    <ChildrenDataContextProvider>
-      <SectionContent label={label}>{children}</SectionContent>
-    </ChildrenDataContextProvider>
   );
 }
 
