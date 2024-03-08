@@ -5,8 +5,7 @@ const StyleDictionary = require('style-dictionary');
 
 // $FlowFixMe[missing-local-annot]
 function nameOutputFile({ name, theme }) {
-  const filePrefix = theme === 'mainTheme' ? '' : theme.replace('Theme', '-');
-
+  const filePrefix = theme === 'main-theme' ? '' : `${theme.split('-')[0]}-`;
   return `${filePrefix}${name}`;
 }
 
@@ -182,7 +181,7 @@ StyleDictionary.registerTransform({
 
 // $FlowFixMe[missing-local-annot]
 function getMatchedThemeName(filePath) {
-  const regexa = /(.*\/)(.*)(Theme\/.*)/;
+  const regexa = /(.*\/)(.*)(-theme\/.*)/;
   const matchedThemeName = filePath.match(regexa);
 
   return matchedThemeName && matchedThemeName.length > 2 ? matchedThemeName[2] : '';
@@ -192,7 +191,7 @@ StyleDictionary.registerTransform({
   name: 'name/prefix/theme',
   type: 'name',
   matcher(prop) {
-    return prop.filePath.includes('vrTheme');
+    return prop.filePath.includes('theme') && !prop.filePath.includes('main-theme');
   },
   transformer(prop) {
     const prefix = getMatchedThemeName(prop.filePath);
@@ -216,7 +215,7 @@ StyleDictionary.registerTransformGroup({
 // BUILD CONFIGURATION
 
 // $FlowFixMe[missing-local-annot]
-function getWebConfig({ theme = 'mainTheme', mode = 'light' }) {
+function getWebConfig({ theme = 'main-theme', mode = 'light' }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
 
   return {
@@ -418,7 +417,7 @@ function getWebConfig({ theme = 'mainTheme', mode = 'light' }) {
 }
 
 // $FlowFixMe[missing-local-annot]
-function getAndroidConfiguration({ theme = 'mainTheme', mode = 'light' }) {
+function getAndroidConfiguration({ theme = 'main-theme', mode = 'light' }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
 
   return {
@@ -539,7 +538,7 @@ function getAndroidConfiguration({ theme = 'mainTheme', mode = 'light' }) {
 }
 
 // $FlowFixMe[missing-local-annot]
-function getIOSConfiguration({ theme = 'mainTheme', mode = 'light' }) {
+function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
 
   return {
@@ -733,9 +732,9 @@ const platformFileMap = {
   ios: ['ios', 'ios-swift', 'ios-swift-separate-enums'],
 };
 
-['mainTheme', 'vrTheme'].forEach((theme) =>
+['main-theme', 'vr-theme'].forEach((theme) =>
   ['light', 'dark'].forEach((mode) => {
-    if (theme === 'mainTheme') {
+    if (theme === 'main-theme') {
       // iOS platform
       const StyleDictionaryIOS = StyleDictionary.extend(getIOSConfiguration({ mode, theme }));
       platformFileMap.ios.forEach((platform) => StyleDictionaryIOS.buildPlatform(platform));
