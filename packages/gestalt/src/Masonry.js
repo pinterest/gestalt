@@ -5,7 +5,9 @@ import FetchItems from './FetchItems';
 import styles from './Masonry.css';
 import { type Cache } from './Masonry/Cache';
 import defaultLayout from './Masonry/defaultLayout';
-import defaultTwoColumnModuleLayout from './Masonry/defaultTwoColumnModuleLayout';
+import defaultTwoColumnModuleLayout, {
+  TWO_COL_ITEMS_MEASURE_BATCH_SIZE,
+} from './Masonry/defaultTwoColumnModuleLayout';
 import fullWidthLayout from './Masonry/fullWidthLayout';
 import HeightsStore, { type HeightsStoreInterface } from './Masonry/HeightsStore';
 import MeasurementStore from './Masonry/MeasurementStore';
@@ -16,10 +18,6 @@ import uniformRowLayout from './Masonry/uniformRowLayout';
 import throttle, { type ThrottleReturn } from './throttle';
 
 const RESIZE_DEBOUNCE = 300;
-
-// When there's a 2-col item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to minimize whitespace above the 2-col item
-// This may need to be tweaked to balance the tradeoff of delayed rendering vs having enough possible layouts
-const TWO_COL_ITEMS_MEASURE_BATCH_SIZE = 6;
 
 const layoutNumberToCssDimension = (n: ?number) => (n !== Infinity ? n : undefined);
 
@@ -577,7 +575,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       gridBody = <div style={{ width: '100%' }} ref={this.setGridWrapperRef} />;
     } else {
       // Full layout is possible
-      const itemsWithMeasurements = items.filter((item) => item && measurementStore.has(item));
+      const itemsToRender = items.filter((item) => item && measurementStore.has(item));
       const itemsWithoutPositions = items.filter((item) => item && !positionStore.has(item));
       const hasTwoColumnItems =
         // $FlowFixMe[prop-missing] We're assuming `columnSpan` exists
@@ -589,23 +587,14 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
         .filter((item) => item && !measurementStore.has(item))
         .slice(0, itemsToMeasureCount);
 
-      // If there is a two column module be sure that we only calculate new positions
-      // for batch size number of items
-      const itemsToRender = hasTwoColumnItems
-        ? [
-            ...itemsWithMeasurements.filter((item) => item && positionStore.has(item)),
-            ...itemsWithMeasurements
-              .filter((item) => item && !positionStore.has(item))
-              .slice(0, itemsToMeasureCount),
-          ]
-        : itemsWithMeasurements;
-
       const positions = getPositions(itemsToRender);
       const measuringPositions = getPositions(itemsToMeasure);
       // Math.max() === -Infinity when there are no positions
       const height = positions.length
         ? Math.max(...positions.map((pos) => pos.top + pos.height))
         : 0;
+
+      console.log(positions);
 
       gridBody = (
         <div style={{ width: '100%' }} ref={this.setGridWrapperRef}>

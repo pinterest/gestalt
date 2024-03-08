@@ -5,6 +5,10 @@ import { type HeightsStoreInterface } from './HeightsStore';
 import mindex from './mindex';
 import { type NodeData, type Position } from './types';
 
+// When there's a 2-col item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to minimize whitespace above the 2-col item
+// This may need to be tweaked to balance the tradeoff of delayed rendering vs having enough possible layouts
+export const TWO_COL_ITEMS_MEASURE_BATCH_SIZE = 6;
+
 function isNil(value: mixed): boolean %checks {
   return value === null || value === undefined;
 }
@@ -263,10 +267,6 @@ const defaultTwoColumnModuleLayout = <T>({
     // $FlowFixMe[incompatible-use] We're assuming `columnSpan` exists
     const twoColumnItems = itemsWithoutPositions.filter((item) => item.columnSpan > 1);
     const hasTwoColumnItems = twoColumnItems.length > 0;
-    const oneColumnItems = itemsWithoutPositions.filter(
-      // $FlowFixMe[incompatible-type] We're assuming `columnSpan` exists
-      (item) => !item.columnSpan || item.columnSpan === 1,
-    );
 
     const commonGetPositionArgs = {
       centerOffset,
@@ -278,10 +278,43 @@ const defaultTwoColumnModuleLayout = <T>({
     };
 
     if (hasTwoColumnItems) {
+      const prevOneColumnItems = itemsWithPositions;
+      let batchWithTwoColumnItem: $ReadOnlyArray<T> = [];
+
+      // If the number of items to position is greater that the batch size
+      // we identify the batch with the two column item and graph only that one
+      if (itemsWithoutPositions.length > TWO_COL_ITEMS_MEASURE_BATCH_SIZE) {
+        let currentBatch: Array<T> = [];
+
+        for (
+          let index = 0;
+          index < itemsWithoutPositions.length;
+          index += TWO_COL_ITEMS_MEASURE_BATCH_SIZE
+        ) {
+          currentBatch = itemsWithoutPositions.slice(
+            index,
+            index + TWO_COL_ITEMS_MEASURE_BATCH_SIZE,
+          );
+          // $FlowFixMe[incompatible-use] We're assuming `columnSpan` exists
+          if (currentBatch.some((item) => item.columnSpan > 1)) {
+            batchWithTwoColumnItem = [...currentBatch];
+          } else {
+            prevOneColumnItems.push(...currentBatch);
+          }
+        }
+      } else {
+        batchWithTwoColumnItem = itemsWithoutPositions;
+      }
+
+      const oneColumnItems = batchWithTwoColumnItem.filter(
+        // $FlowFixMe[incompatible-type] We're assuming `columnSpan` exists
+        (item) => !item.columnSpan || item.columnSpan === 1,
+      );
+
       // Get positions and heights for painted items
       const { positions: paintedItemPositions, heights: paintedItemHeights } =
         getOneColumnItemPositions({
-          items: itemsWithPositions,
+          items: prevOneColumnItems,
           heights,
           ...commonGetPositionArgs,
         });
@@ -418,6 +451,13 @@ const defaultTwoColumnModuleLayout = <T>({
         positionCache.set(item, position);
       });
       heightsCache?.setHeights(finalHeights);
+
+      /* console.log('module layout in two column module');
+       * console.log({
+       *   prevOneColumnItems,
+       *   batchWithTwoColumnItem,
+       *   finalPositions,
+       * }); */
 
       // FUTURE OPTIMIZATION - do we want a min threshold for an acceptably low score?
       // If so, we could save the 2-col item somehow and try again with the next batch of items
