@@ -22,8 +22,8 @@ type SideNavigationContextType = {
   setHideActiveChildren: (boolean) => void,
   collapsed?: boolean,
   onCollapse?: (boolean) => void,
-  shouldCollapseEmpty: boolean,
-  setShouldCollapseEmpty: ReactSetStateFunction<boolean>,
+  iconCount: number,
+  setIconCount: ReactSetStateFunction<number>,
   dismissButton?: {
     accessibilityLabel?: string,
     onDismiss: () => void,
@@ -50,8 +50,8 @@ const SideNavigationContext: Context<SideNavigationContextType> =
     setSelectedMobileChildren: () => {},
     hideActiveChildren: false,
     setHideActiveChildren: () => {},
-    shouldCollapseEmpty: true,
-    setShouldCollapseEmpty: () => {},
+    iconCount: 0,
+    setIconCount: () => {},
   });
 
 const { Provider, Consumer: SideNavigationConsumer } = SideNavigationContext;
@@ -64,8 +64,12 @@ function SideNavigationProvider({
 }: Props): Element<typeof Provider> {
   const [selectedItemId, setSelectedItemId] = useState('');
   const [selectedMobileChildren, setSelectedMobileChildren] = useState<ReactNode>(null);
-  const [hideActiveChildren, setHideActiveChildren] = useState<boolean>(false);
-  const [shouldCollapseEmpty, setShouldCollapseEmpty] = useState<boolean>(true);
+  const [hideActiveChildren, setHideActiveChildren] = useState(false);
+  const [iconCount, setIconCount] = useState(0);
+
+  onCollapse && console.log(iconCount);
+
+  // const registerIcon = (hasIcon: boolean) => setIconCount(hasIcon ? iconCount + 1 : iconCount - 1);
 
   const sideNavigationContext = {
     selectedItemId,
@@ -77,8 +81,8 @@ function SideNavigationProvider({
     dismissButton,
     collapsed,
     onCollapse,
-    shouldCollapseEmpty,
-    setShouldCollapseEmpty,
+    iconCount,
+    setIconCount,
   };
 
   return <Provider value={sideNavigationContext}>{children}</Provider>;

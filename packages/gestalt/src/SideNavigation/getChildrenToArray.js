@@ -80,7 +80,10 @@ export function getNavigationChildren(children: ReactNode): $ReadOnlyArray<React
   // $FlowFixMe[underconstrained-implicit-instantiation]
   return Children.toArray(children).reduce((acc, child) => {
     if (child.type !== Fragment) return acc.concat(child);
-    return getNavigationChildren(child.props.children);
+
+    const fragmentChildren = getNavigationChildren(child.props.children);
+
+    return acc.concat(fragmentChildren);
   }, []);
 }
 

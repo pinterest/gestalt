@@ -112,7 +112,7 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
 
   const { nestedLevel } = useNesting();
 
-  const { collapsed, setSelectedItemId, setShouldCollapseEmpty } = useSideNavigation();
+  const { collapsed, setSelectedItemId, setIconCount } = useSideNavigation();
 
   const itemId = useId();
 
@@ -162,8 +162,9 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
   }, [hovered, focused, primaryAction, forceIconButton, showIconButton]);
 
   useEffect(() => {
-    setShouldCollapseEmpty(!icon);
-  }, [icon, setShouldCollapseEmpty]);
+    if (icon) setIconCount((count) => count + 1);
+    return () => (icon ? setIconCount((count) => count - 1) : undefined);
+  }, [icon, setIconCount]);
 
   return (
     <li ref={ref} className={classnames(styles.liItem)}>

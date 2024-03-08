@@ -76,7 +76,7 @@ export default function SideNavigationGroupContent({
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
 
-  const { collapsed, setShouldCollapseEmpty } = useSideNavigation();
+  const { collapsed, setIconCount } = useSideNavigation();
 
   // Manages PrimaryAction
   const [forceIconButton, setForceIconButton] = useState<'force' | 'default'>('default');
@@ -100,8 +100,9 @@ export default function SideNavigationGroupContent({
   }, [hovered, focused, primaryAction, forceIconButton, isMobile, showIconButton]);
 
   useEffect(() => {
-    setShouldCollapseEmpty(!icon);
-  }, [icon, setShouldCollapseEmpty]);
+    if (icon) setIconCount((count) => count + 1);
+    return () => (icon ? setIconCount((count) => count - 1) : undefined);
+  }, [icon, setIconCount]);
 
   const hasBorder = expanded && selectedItemId === itemId;
 

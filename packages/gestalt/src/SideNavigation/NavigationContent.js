@@ -29,7 +29,7 @@ export default function NavigationContent({
 
   const navigationChildren = getNavigationChildren(children);
 
-  const { collapsed, shouldCollapseEmpty } = useSideNavigation();
+  const { collapsed, iconCount } = useSideNavigation();
   const scrollContainer = useRef<HTMLDivElement | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -43,6 +43,7 @@ export default function NavigationContent({
   }, []);
 
   const items = collapsed ? groupIconlessChildren(navigationChildren) : navigationChildren;
+  const shouldCollapseEmpty = iconCount === 0;
 
   if (collapsible) {
     window.temp1 = navigationChildren;
