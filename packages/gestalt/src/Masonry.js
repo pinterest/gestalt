@@ -5,7 +5,9 @@ import FetchItems from './FetchItems';
 import styles from './Masonry.css';
 import { type Cache } from './Masonry/Cache';
 import defaultLayout from './Masonry/defaultLayout';
-import defaultTwoColumnModuleLayout from './Masonry/defaultTwoColumnModuleLayout';
+import defaultTwoColumnModuleLayout, {
+  TWO_COL_ITEMS_MEASURE_BATCH_SIZE,
+} from './Masonry/defaultTwoColumnModuleLayout';
 import fullWidthLayout from './Masonry/fullWidthLayout';
 import HeightsStore, { type HeightsStoreInterface } from './Masonry/HeightsStore';
 import MeasurementStore from './Masonry/MeasurementStore';
@@ -16,10 +18,6 @@ import uniformRowLayout from './Masonry/uniformRowLayout';
 import throttle, { type ThrottleReturn } from './throttle';
 
 const RESIZE_DEBOUNCE = 300;
-
-// When there's a 2-col item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to minimize whitespace above the 2-col item
-// This may need to be tweaked to balance the tradeoff of delayed rendering vs having enough possible layouts
-const TWO_COL_ITEMS_MEASURE_BATCH_SIZE = 6;
 
 const layoutNumberToCssDimension = (n: ?number) => (n !== Infinity ? n : undefined);
 
