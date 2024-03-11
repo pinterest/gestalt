@@ -8,7 +8,7 @@ import styles from './SideNavigation.css';
 import ItemsEllipsis from './SideNavigation/ItemsEllipsis';
 import {
   countItemsWithIcon,
-  getGroupChildActiveProp,
+  getChildrenActiveProp,
   validateChildren,
 } from './SideNavigation/navigationChildrenUtils';
 import Text from './Text';
@@ -38,7 +38,7 @@ export default function SideNavigationSection({ children, label }: Props): React
   const shouldCollapseAsEllipsis =
     collapsed && countItemsWithIcon(navigationChildren) !== navigationChildren.length;
 
-  const hasActiveItem = shouldCollapseAsEllipsis && !!getGroupChildActiveProp(navigationChildren);
+  const hasActiveItem = shouldCollapseAsEllipsis && !!getChildrenActiveProp(navigationChildren);
 
   const itemWithNotification = shouldCollapseAsEllipsis
     ? navigationChildren.find((child) => !!child.props.notificationAccessibilityLabel)

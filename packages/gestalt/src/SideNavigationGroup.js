@@ -10,10 +10,7 @@ import icons from './icons/index';
 import styles from './SideNavigation.css';
 import SideNavigationGroupContent from './SideNavigation/GroupContent';
 import SideNavigationGroupMobile from './SideNavigation/GroupMobile';
-import {
-  getGroupChildActiveProp,
-  validateChildren,
-} from './SideNavigation/navigationChildrenUtils';
+import { getChildrenActiveProp, validateChildren } from './SideNavigation/navigationChildrenUtils';
 import { NESTING_MARGIN_START_MAP } from './SideNavigationTopItem';
 import TapArea from './TapArea';
 import { flattenChildrenWithKeys } from './utils/flattenChildren';
@@ -113,7 +110,7 @@ export default function SideNavigationGroup({
   const { collapsed, selectedItemId, setSelectedItemId } = useSideNavigation();
 
   const navigationChildren = flattenChildrenWithKeys(children);
-  const hasAnyActiveChild = !!getGroupChildActiveProp(navigationChildren);
+  const hasAnyActiveChild = !!getChildrenActiveProp(navigationChildren);
 
   validateChildren({ children: navigationChildren, filterLevel: 'nested' });
 

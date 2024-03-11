@@ -40,7 +40,7 @@ export function countItemsWithIcon(children: ReactChildArray): number {
   );
 }
 
-export function getGroupChildActiveProp(
+export function getChildrenActiveProp(
   children: ReactChildArray,
 ): $PropertyType<EllipsisProps, 'active'> {
   if (children.length === 0) return undefined;
@@ -58,7 +58,7 @@ export function getGroupChildActiveProp(
     .map((child) => flattenChildren(child?.props?.children))
     .flat();
 
-  return getGroupChildActiveProp(grandChildren);
+  return getChildrenActiveProp(grandChildren);
 }
 
 function renderEllipses(items: $ReadOnlyArray<React$Element<empty> | EllipsisProps>) {
@@ -103,7 +103,7 @@ export function groupIconlessChildren(children: ReactChildArray): $ReadOnlyArray
       if (active) {
         lastEllipsis.active ||= active;
       } else if (child.type.displayName === 'SideNavigation.Group') {
-        lastEllipsis.active ||= getGroupChildActiveProp(flattenChildren(child.props.children));
+        lastEllipsis.active ||= getChildrenActiveProp(flattenChildren(child.props.children));
       }
     }
 
