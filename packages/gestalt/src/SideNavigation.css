@@ -1,7 +1,7 @@
 .ulItem {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .liItem {
@@ -19,8 +19,8 @@
 }
 
 .section {
-  margin-top: var(--space-600);
   margin-bottom: var(--space-600);
+  margin-top: var(--space-600);
 }
 
 .section:first-child {

@@ -1,11 +1,10 @@
 // @flow strict
-
-// File is copied from "react-keyed-flatten-children" and modified for simplicity
-// https://github.com/grrowl/react-keyed-flatten-children/blob/master/index.ts
 import { Children, cloneElement, Fragment, isValidElement, type Node as ReactNode } from 'react';
 
 export type ReactChildArray = ReturnType<typeof Children.toArray>;
 
+// Function is copied from "react-keyed-flatten-children" and modified for simplicity
+// https://github.com/grrowl/react-keyed-flatten-children/blob/master/index.ts
 export function flattenChildrenWithKeys(
   children: ReactNode,
   depth: number = 0,
