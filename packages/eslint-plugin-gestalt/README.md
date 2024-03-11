@@ -40,33 +40,7 @@ Then configure the rules you want to use under the rules section.
 
 ## Supported Rules
 
-### gestalt/button-icon-restrictions
-
-Require a specific value when using an icon with Button. Gestalt is more permissive than we recommend internally for adding icons to Buttons, so Buttons using iconEnd must use icon "arrow-down".
-
-### gestalt/no-box-marginleft-marginright
-
-Disallow marginLeft/marginRight on Box. In order to have consistent usage of marginLeft/marginRight on Box in production, we update all of them to marginStart/marginEnd.
-
-### gestalt/no-box-dangerous-style-duplicates
-
-Prevent using dangerouslySetInlineStyle on Box for props that are already directly implemented. Box supports some props already that are not widely known and instead are being implemented with dangerouslySetInlineStyle. This linter checks for usage of already available props as dangerous styles and suggests the alternative.
-
-### gestalt/no-medium-formfields
-
-Disallow medium form fields. In order to have consistent form fields in production, we update all of their sizes to large and disallow medium.
-
-### gestalt/no-role-link-components
-
-Do not allow `role='link'` on `Button`, `TapArea`, and `IconButton` in cases where an alternative with additional functionality must be used instead such as for use with a routing library
-
-### gestalt/prefer-box
-
-Prevent using inline styles on divs that could be gestalt Box props. We prefer using gestalt Box over divs with inline styling to get styling consistency across the app and shared css classes. This linter checks for usage of inline styling that is available as Box props.
-
-### gestalt/prefer-list
-
-Disallow use of `<ol>` or `<ul>` elements in favor of our [List](https://gestalt.pinterest.systems/web/list) component.
+Visit [our ESLint rules documentation page](https://gestalt.pinterest.systems/get_started/developers/eslint_plugin)
 
 ## Development
 
