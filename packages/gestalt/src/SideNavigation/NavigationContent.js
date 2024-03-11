@@ -3,10 +3,10 @@ import { type Node as ReactNode, useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
 import Collapser from './Collapser';
 import {
-  getNavigationChildren,
+  countItemsWithIcon,
   groupIconlessChildren,
   validateChildren,
-} from './getChildrenToArray';
+} from './navigationChildrenUtils';
 import borderStyles from '../Borders.css';
 import Box from '../Box';
 import { useSideNavigation } from '../contexts/SideNavigationProvider';
@@ -14,6 +14,7 @@ import Divider from '../Divider';
 import Flex from '../Flex';
 import { type Props as SideNavigationProps } from '../SideNavigation';
 import styles from '../SideNavigation.css';
+import { flattenChildrenWithKeys } from '../utils/flattenChildren';
 
 type Props = { ...SideNavigationProps };
 
@@ -25,11 +26,11 @@ export default function NavigationContent({
   showBorder,
   collapsible,
 }: Props): ReactNode {
-  validateChildren({ children, filterLevel: 'main' });
+  const navigationChildren = flattenChildrenWithKeys(children);
 
-  const navigationChildren = getNavigationChildren(children);
+  validateChildren({ children: navigationChildren, filterLevel: 'main' });
 
-  const { collapsed, iconCount } = useSideNavigation();
+  const { collapsed } = useSideNavigation();
   const scrollContainer = useRef<HTMLDivElement | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -43,6 +44,7 @@ export default function NavigationContent({
   }, []);
 
   const items = collapsed ? groupIconlessChildren(navigationChildren) : navigationChildren;
+  const iconCount = countItemsWithIcon(navigationChildren);
   const shouldCollapseEmpty = iconCount === 0;
 
   if (collapsible) {

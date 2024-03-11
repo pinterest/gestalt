@@ -5,9 +5,14 @@ import Box from './Box';
 import { useSideNavigation } from './contexts/SideNavigationProvider';
 import Divider from './Divider';
 import styles from './SideNavigation.css';
-import { getNavigationChildren, validateChildren } from './SideNavigation/getChildrenToArray';
 import ItemsEllipsis from './SideNavigation/ItemsEllipsis';
+import {
+  countItemsWithIcon,
+  getGroupChildActiveProp,
+  validateChildren,
+} from './SideNavigation/navigationChildrenUtils';
 import Text from './Text';
+import { flattenChildrenWithKeys } from './utils/flattenChildren';
 
 type Props = {
   /**
@@ -24,20 +29,20 @@ type Props = {
  * Use [SideNavigation.Section](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.Section) to categorize navigation menu items into groups and also avoid redundant language in labels.
  */
 export default function SideNavigationSection({ children, label }: Props): ReactNode {
-  validateChildren({
-    children,
-    filterLevel: 'main',
-  });
-
   const { collapsed } = useSideNavigation();
 
-  const navigationChildren = getNavigationChildren(children);
+  const navigationChildren = flattenChildrenWithKeys(children);
+
+  validateChildren({ children: navigationChildren, filterLevel: 'main' });
 
   const shouldCollapseAsEllipsis =
-    collapsed && navigationChildren.some((child) => !child.props.icon);
+    collapsed && countItemsWithIcon(navigationChildren) !== navigationChildren.length;
 
-  const hasActiveItem =
-    shouldCollapseAsEllipsis && navigationChildren.some((child) => child.props.active);
+  const hasActiveItem = shouldCollapseAsEllipsis && !!getGroupChildActiveProp(navigationChildren);
+
+  const itemWithNotification = shouldCollapseAsEllipsis
+    ? navigationChildren.find((child) => !!child.props.notificationAccessibilityLabel)
+    : null;
 
   return (
     <li className={classnames(styles.liItem, styles.section)}>
@@ -54,7 +59,12 @@ export default function SideNavigationSection({ children, label }: Props): React
       )}
 
       {shouldCollapseAsEllipsis ? (
-        <ItemsEllipsis active={hasActiveItem ? 'page' : undefined} />
+        <ItemsEllipsis
+          active={hasActiveItem ? 'page' : undefined}
+          notificationAccessibilityLabel={
+            itemWithNotification?.props.notificationAccessibilityLabel
+          }
+        />
       ) : (
         <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
       )}

@@ -8,15 +8,15 @@ import { useSideNavigation } from './contexts/SideNavigationProvider';
 import Dropdown from './Dropdown';
 import icons from './icons/index';
 import styles from './SideNavigation.css';
-import {
-  getGroupChildActiveProp,
-  getNavigationChildren,
-  validateChildren,
-} from './SideNavigation/getChildrenToArray';
 import SideNavigationGroupContent from './SideNavigation/GroupContent';
 import SideNavigationGroupMobile from './SideNavigation/GroupMobile';
+import {
+  getGroupChildActiveProp,
+  validateChildren,
+} from './SideNavigation/navigationChildrenUtils';
 import { NESTING_MARGIN_START_MAP } from './SideNavigationTopItem';
 import TapArea from './TapArea';
+import { flattenChildrenWithKeys } from './utils/flattenChildren';
 import { type Indexable } from './zIndex';
 
 type IconType = $Keys<typeof icons> | { __path: string };
@@ -98,8 +98,6 @@ export default function SideNavigationGroup({
   onExpand,
   primaryAction,
 }: Props): ReactNode {
-  validateChildren({ children, filterLevel: 'nested' });
-
   // Manages adaptiveness
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
@@ -114,8 +112,10 @@ export default function SideNavigationGroup({
   const { nestedLevel } = useNesting();
   const { collapsed, selectedItemId, setSelectedItemId } = useSideNavigation();
 
-  const navigationChildren = getNavigationChildren(children);
+  const navigationChildren = flattenChildrenWithKeys(children);
   const hasAnyActiveChild = !!getGroupChildActiveProp(navigationChildren);
+
+  validateChildren({ children: navigationChildren, filterLevel: 'nested' });
 
   const isExpandable = display === 'expandable';
 

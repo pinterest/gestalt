@@ -3,12 +3,10 @@ import { type Node as ReactNode } from 'react';
 import Box from '../Box';
 import { useSideNavigation } from '../contexts/SideNavigationProvider';
 import Icon from '../Icon';
+import { type Props as TopItemProps } from '../SideNavigationTopItem';
 import TapArea from '../TapArea';
 
-export type Props = {
-  active?: 'page' | 'section',
-  notificationAccessibilityLabel?: string,
-};
+export type Props = Pick<TopItemProps, 'active' | 'notificationAccessibilityLabel'>;
 
 export default function ItemsEllipsis({
   active,
@@ -18,7 +16,6 @@ export default function ItemsEllipsis({
 
   const itemColor = active === 'page' ? 'selected' : undefined;
   const textColor = active === 'page' ? 'inverse' : 'default';
-  const hasBorder = active === 'section';
 
   return (
     <TapArea accessibilityLabel="" rounding={2} onTap={() => onCollapse?.(false)}>
@@ -31,15 +28,6 @@ export default function ItemsEllipsis({
         alignItems="center"
         color={itemColor}
         position="relative"
-        dangerouslySetInlineStyle={
-          hasBorder
-            ? {
-                __style: {
-                  border: `2px solid var(--color-background-selected-base)`,
-                },
-              }
-            : undefined
-        }
       >
         {notificationAccessibilityLabel ? (
           <Box
