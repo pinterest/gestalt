@@ -1,3 +1,9 @@
+## 146.1.1 (Mar 11, 2024)
+
+### Patch
+
+- Masonry: Enable two column module on secod batch ([#3473](https://github.com/pinterest/gestalt/pull/3473)) - [Preview link](https://deploy-preview-3473--gestalt.netlify.app?devexample=true)
+
 ## 146.1.0 (Mar 6, 2024)
 
 ### Minor
