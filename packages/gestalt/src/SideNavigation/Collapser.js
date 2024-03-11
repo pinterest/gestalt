@@ -6,13 +6,13 @@ import IconButton from '../IconButton';
 import Sticky from '../Sticky';
 
 export default function Collapser({ raised }: { raised: boolean }): ReactNode {
-  const { collapsed, onCollapse } = useSideNavigation();
+  const { collapsed, overlayPreview, onCollapse, setOverlayPreview } = useSideNavigation();
 
   return (
     <Sticky top={0}>
       <Box
         display="flex"
-        justifyContent={collapsed ? 'center' : 'end'}
+        justifyContent={collapsed && !overlayPreview ? 'center' : 'end'}
         marginBottom={-2}
         padding={2}
         color={raised ? 'default' : undefined}
@@ -22,7 +22,11 @@ export default function Collapser({ raised }: { raised: boolean }): ReactNode {
           icon={collapsed ? 'arrow-double-forward' : 'arrow-double-back'}
           accessibilityLabel="expand"
           size="xs"
-          onClick={() => onCollapse?.(!collapsed)}
+          onClick={() => {
+            onCollapse?.(!collapsed);
+
+            if (collapsed) setOverlayPreview(false);
+          }}
         />
       </Box>
     </Sticky>

@@ -19,6 +19,8 @@ type SideNavigationContextType = {
   setSelectedMobileChildren: (ReactNode | null) => void,
   hideActiveChildren: boolean,
   setHideActiveChildren: (boolean) => void,
+  overlayPreview: boolean,
+  setOverlayPreview: (boolean) => void,
   collapsed?: boolean,
   onCollapse?: (boolean) => void,
   dismissButton?: {
@@ -47,6 +49,8 @@ const SideNavigationContext: Context<SideNavigationContextType> =
     setSelectedMobileChildren: () => {},
     hideActiveChildren: false,
     setHideActiveChildren: () => {},
+    overlayPreview: false,
+    setOverlayPreview: () => {},
   });
 
 const { Provider, Consumer: SideNavigationConsumer } = SideNavigationContext;
@@ -60,6 +64,7 @@ function SideNavigationProvider({
   const [selectedItemId, setSelectedItemId] = useState('');
   const [selectedMobileChildren, setSelectedMobileChildren] = useState<ReactNode>(null);
   const [hideActiveChildren, setHideActiveChildren] = useState(false);
+  const [overlayPreview, setOverlayPreview] = useState(false);
 
   const sideNavigationContext = {
     selectedItemId,
@@ -68,6 +73,8 @@ function SideNavigationProvider({
     setSelectedMobileChildren,
     hideActiveChildren,
     setHideActiveChildren,
+    overlayPreview,
+    setOverlayPreview,
     dismissButton,
     collapsed,
     onCollapse,

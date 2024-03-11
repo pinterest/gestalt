@@ -112,7 +112,12 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
 
   const { nestedLevel } = useNesting();
 
-  const { collapsed, setSelectedItemId } = useSideNavigation();
+  const {
+    collapsed: sideNavigationCollapsed,
+    overlayPreview,
+    setSelectedItemId,
+    setOverlayPreview,
+  } = useSideNavigation();
 
   const itemId = useId();
 
@@ -161,6 +166,8 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
     }
   }, [hovered, focused, primaryAction, forceIconButton, showIconButton]);
 
+  const collapsed = sideNavigationCollapsed && !overlayPreview;
+
   return (
     <li ref={ref} className={classnames(styles.liItem)}>
       <TapAreaLink
@@ -175,6 +182,8 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
         onTap={({ event, dangerouslyDisableOnNavigation }) => {
           setSelectedItemId(itemId);
           onClick?.({ event, dangerouslyDisableOnNavigation });
+
+          if (sideNavigationCollapsed) setOverlayPreview(false);
         }}
       >
         <Box

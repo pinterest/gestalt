@@ -29,11 +29,13 @@ type Props = {
  * Use [SideNavigation.Section](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.Section) to categorize navigation menu items into groups and also avoid redundant language in labels.
  */
 export default function SideNavigationSection({ children, label }: Props): ReactNode {
-  const { collapsed } = useSideNavigation();
+  const { collapsed: sideNavigationCollapsed, overlayPreview } = useSideNavigation();
 
   const navigationChildren = flattenChildrenWithKeys(children);
 
   validateChildren({ children: navigationChildren, filterLevel: 'main' });
+
+  const collapsed = sideNavigationCollapsed && !overlayPreview;
 
   const shouldCollapseAsEllipsis =
     collapsed && countItemsWithIcon(navigationChildren) !== navigationChildren.length;

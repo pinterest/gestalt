@@ -107,7 +107,12 @@ export default function SideNavigationGroup({
   // Manages children
   const itemId = useId();
   const { nestedLevel } = useNesting();
-  const { collapsed, selectedItemId, setSelectedItemId } = useSideNavigation();
+  const {
+    collapsed: sideNavigationCollapsed,
+    overlayPreview,
+    selectedItemId,
+    setSelectedItemId,
+  } = useSideNavigation();
 
   const navigationChildren = flattenChildrenWithKeys(children);
   const hasAnyActiveChild = !!getChildrenActiveProp(navigationChildren);
@@ -131,10 +136,14 @@ export default function SideNavigationGroup({
 
   const itemColor = hovered ? 'secondary' : undefined;
 
-  const paddingStyle = {
-    paddingInlineStart: NESTING_MARGIN_START_MAP[nestedLevel],
-    paddingInlineEnd: TOKEN_SPACE_400,
-  };
+  const collapsed = sideNavigationCollapsed && !overlayPreview;
+
+  const paddingStyle = !collapsed
+    ? {
+        paddingInlineStart: NESTING_MARGIN_START_MAP[nestedLevel],
+        paddingInlineEnd: TOKEN_SPACE_400,
+      }
+    : {};
 
   if (isMobile) {
     return (

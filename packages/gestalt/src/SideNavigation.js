@@ -109,7 +109,7 @@ export default function SideNavigation({
 
   return (
     <SideNavigationProvider collapsed={collapsed} onCollapse={onCollapse}>
-      <ScrollBoundaryContainer>
+      <ScrollBoundaryContainer overflow={collapsible ? 'visible' : undefined}>
         <SideNavigationContent
           accessibilityLabel={accessibilityLabel}
           footer={footer}

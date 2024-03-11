@@ -12,13 +12,13 @@ export default function ItemsEllipsis({
   active,
   notificationAccessibilityLabel,
 }: Props): ReactNode {
-  const { onCollapse } = useSideNavigation();
+  const { setOverlayPreview } = useSideNavigation();
 
   const itemColor = active === 'page' ? 'selected' : undefined;
   const textColor = active === 'page' ? 'inverse' : 'default';
 
   return (
-    <TapArea accessibilityLabel="" rounding={2} onTap={() => onCollapse?.(false)}>
+    <TapArea accessibilityLabel="" rounding={2} onTap={() => setOverlayPreview(true)}>
       <Box
         width={44}
         height={44}

@@ -76,7 +76,7 @@ export default function SideNavigationGroupContent({
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
 
-  const { collapsed } = useSideNavigation();
+  const { collapsed: sideNavigationCollapsed, overlayPreview } = useSideNavigation();
 
   // Manages PrimaryAction
   const [forceIconButton, setForceIconButton] = useState<'force' | 'default'>('default');
@@ -100,6 +100,7 @@ export default function SideNavigationGroupContent({
   }, [hovered, focused, primaryAction, forceIconButton, isMobile, showIconButton]);
 
   const hasBorder = expanded && selectedItemId === itemId;
+  const collapsed = sideNavigationCollapsed && !overlayPreview;
 
   return (
     <Box
