@@ -25,7 +25,7 @@ function getPositionsOnly<T>(
 function getAdjacentColumnHeightDeltas(heights: $ReadOnlyArray<number>): $ReadOnlyArray<number> {
   return heights.reduce((acc, height, index) => {
     const adjacentColumnHeight = heights[index + 1];
-    if (adjacentColumnHeight) {
+    if (adjacentColumnHeight >= 0) {
       return [...acc, Math.abs(height - adjacentColumnHeight)];
     }
     return acc;
