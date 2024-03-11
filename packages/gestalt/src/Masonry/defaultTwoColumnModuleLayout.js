@@ -278,53 +278,40 @@ const defaultTwoColumnModuleLayout = <T>({
     };
 
     if (hasTwoColumnItems) {
-      const prevOneColumnItems = [...itemsWithPositions];
-      let batchWithTwoColumnItem: $ReadOnlyArray<T> = [];
+      // Currently we only support one two column item at the same time, more items will be supporped soon
+      const twoColumnIndex = itemsWithoutPositions.indexOf(twoColumnItems[0]);
 
       // If the number of items to position is greater that the batch size
-      // we identify the batch with the two column item and graph only that one
-      if (itemsWithoutPositions.length > TWO_COL_ITEMS_MEASURE_BATCH_SIZE) {
-        let currentBatch: Array<T> = [];
-
-        for (
-          let index = 0;
-          index < itemsWithoutPositions.length;
-          index += TWO_COL_ITEMS_MEASURE_BATCH_SIZE
-        ) {
-          currentBatch = itemsWithoutPositions.slice(
-            index,
-            index + TWO_COL_ITEMS_MEASURE_BATCH_SIZE,
-          );
-          // $FlowFixMe[incompatible-use] We're assuming `columnSpan` exists
-          if (currentBatch.some((item) => item.columnSpan > 1)) {
-            batchWithTwoColumnItem = [...currentBatch];
-          } else {
-            prevOneColumnItems.push(...currentBatch);
-          }
-        }
-      } else {
-        batchWithTwoColumnItem = itemsWithoutPositions;
-      }
-
-      const oneColumnItems = batchWithTwoColumnItem.filter(
-        // $FlowFixMe[incompatible-type] We're assuming `columnSpan` exists
-        (item) => !item.columnSpan || item.columnSpan === 1,
-      );
+      // we identify the batch with the two column item and apply the graph only to those items
+      const shouldBatchItems = itemsWithoutPositions.length > TWO_COL_ITEMS_MEASURE_BATCH_SIZE;
+      const splitIndex =
+        twoColumnIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE > itemsWithoutPositions.length
+          ? itemsWithoutPositions.length - TWO_COL_ITEMS_MEASURE_BATCH_SIZE
+          : twoColumnIndex;
+      const pre = shouldBatchItems ? itemsWithoutPositions.slice(0, splitIndex) : [];
+      const batchWithTwoColumnItems = shouldBatchItems
+        ? itemsWithoutPositions.slice(splitIndex, splitIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE)
+        : itemsWithoutPositions;
 
       // Get positions and heights for painted items
       const { positions: paintedItemPositions, heights: paintedItemHeights } =
         getOneColumnItemPositions({
-          items: prevOneColumnItems,
+          items: [...itemsWithPositions, ...pre],
           heights,
           ...commonGetPositionArgs,
         });
 
-      // Adding the extra prev one column items to the position cache
-      if (prevOneColumnItems.length > itemsWithPositions.length) {
+      // Adding the extra prev column items to the position cache
+      if (paintedItemPositions.length > itemsWithPositions.length) {
         paintedItemPositions.forEach(({ item, position }) => {
           positionCache.set(item, position);
         });
       }
+
+      const oneColumnItems = batchWithTwoColumnItems.filter(
+        // $FlowFixMe[incompatible-type] We're assuming `columnSpan` exists
+        (item) => !item.columnSpan || item.columnSpan === 1,
+      );
 
       // Initialize the graph
       const graph = new Graph<T>();
