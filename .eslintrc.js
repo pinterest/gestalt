@@ -24,6 +24,7 @@ module.exports = {
   'plugins': [
     'eslint-comments',
     'flowtype',
+    'gestalt',
     'import',
     'jest',
     'jsx-a11y',
@@ -57,6 +58,7 @@ module.exports = {
     'flowtype/space-after-type-colon': [ERROR, ALWAYS, { 'allowLineBreak': true }],
     'flowtype/space-before-type-colon': [ERROR, NEVER],
     'flowtype/type-import-style': ERROR,
+    'gestalt/only-valid-tokens': ERROR,
     'import/extensions': [ERROR, 'ignorePackages', { 'js': 'never' }],
     'import/first': ERROR,
     'import/newline-after-import': ERROR,

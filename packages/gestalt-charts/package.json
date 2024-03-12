@@ -13,7 +13,8 @@
     "src"
   ],
   "dependencies": {
-    "recharts": "2.8.0"
+    "recharts": "2.8.0",
+    "gestalt-design-tokens": ">0.0.0"
   },
   "peerDependencies": {
     "gestalt": ">0.0.0",
