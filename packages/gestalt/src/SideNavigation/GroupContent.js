@@ -53,6 +53,7 @@ type Props = {
     dropdownItems?: $ReadOnlyArray<Element<typeof Dropdown.Item>>,
   },
   setCompression: ('compress' | 'none') => void,
+  hasActiveChild?: boolean,
 };
 
 export default function SideNavigationGroupContent({
@@ -71,6 +72,7 @@ export default function SideNavigationGroupContent({
   setCompression,
   hovered,
   focused,
+  hasActiveChild,
 }: Props): ReactNode {
   // Manages adaptiveness
   const deviceType = useDeviceType();
@@ -99,7 +101,10 @@ export default function SideNavigationGroupContent({
     }
   }, [hovered, focused, primaryAction, forceIconButton, isMobile, showIconButton]);
 
-  const hasBorder = expanded && selectedItemId === itemId;
+  const hasBorder = sideNavigationCollapsed
+    ? hasActiveChild
+    : expanded && selectedItemId === itemId;
+
   const collapsed = sideNavigationCollapsed && !overlayPreview;
 
   return (

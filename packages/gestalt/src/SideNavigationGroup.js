@@ -110,6 +110,7 @@ export default function SideNavigationGroup({
   const {
     collapsed: sideNavigationCollapsed,
     overlayPreview,
+    setOverlayPreview,
     selectedItemId,
     setSelectedItemId,
   } = useSideNavigation();
@@ -184,6 +185,10 @@ export default function SideNavigationGroup({
               } else {
                 onExpand?.({ expanded: !isExpanded });
               }
+
+              if (collapsed) {
+                setOverlayPreview(true);
+              }
             }}
           >
             <SideNavigationGroupContent
@@ -202,6 +207,7 @@ export default function SideNavigationGroup({
               setCompression={setCompression}
               hovered={hovered}
               focused={focused}
+              hasActiveChild={hasAnyActiveChild}
             />
           </TapArea>
         ) : (
@@ -221,6 +227,7 @@ export default function SideNavigationGroup({
             display={display}
             primaryAction={primaryAction}
             setCompression={setCompression}
+            hasActiveChild={hasAnyActiveChild}
           />
         )}
         {!collapsed && isExpanded ? (

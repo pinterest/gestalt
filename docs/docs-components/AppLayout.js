@@ -105,7 +105,7 @@ export default function AppLayout({ children, colorScheme }: Props): ReactNode {
         </Fragment>
       )}
       <Box mdDisplay="flex">
-        <Box mdDisplay={shouldHideSideNav ? 'none' : 'block'}>
+        <Box minWidth={MIN_NAV_WIDTH_PX} mdDisplay={shouldHideSideNav ? 'none' : 'block'}>
           <Box
             display="none"
             mdDisplay="block"
