@@ -122,6 +122,12 @@ module.exports = {
   },
   'overrides': [
     {
+      'files': ['packages/gestalt-design-tokens/**/*.js'],
+      'rules': {
+        'gestalt/only-valid-tokens': OFF,
+      },
+    },
+    {
       'files': ['scripts/templates/*.js'],
       'rules': {
         'import/no-unresolved': OFF,
