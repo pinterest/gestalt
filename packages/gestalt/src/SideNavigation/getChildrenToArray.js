@@ -1,6 +1,7 @@
 // @flow strict
 import { Children, Fragment, type Node as ReactNode } from 'react';
 import { ALLOWED_CHILDREN_MAP } from './navigationChildrenUtils';
+import { type ReactChildArray } from '../utils/flattenChildren';
 
 /** @deprecated */
 const getChildrenToArray = ({
@@ -9,7 +10,7 @@ const getChildrenToArray = ({
 }: {
   children: ReactNode,
   filterLevel: 'main' | 'nested',
-}): $ReadOnlyArray<React$Element<empty>> => {
+}): ReactChildArray => {
   const navigationChildren = [];
 
   let recursionLevel = 0;
