@@ -34,26 +34,28 @@ export default function NavigationContent({
 
   validateChildren({ children: navigationChildren, filterLevel: 'main' });
 
-  const { collapsed, onCollapse, overlayPreview, setOverlayPreview } = useSideNavigation();
+  const { collapsed, onCollapse, overlayPreview, setOverlayPreview, transitioning } =
+    useSideNavigation();
+
   const scrollContainer = useRef<HTMLDivElement | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
-  const timeoutRef = useRef<?Timeout>();
+  const previewTimeoutRef = useRef<?Timeout>();
 
   useEffect(() => {
     const element = scrollContainer.current;
     const scrollHandler = () => setIsScrolled(!!element?.scrollTop);
 
     const mouseEnterHandler = () => {
-      if (collapsed) {
-        clearTimeout(timeoutRef.current);
+      if (collapsed && !transitioning) {
+        clearTimeout(previewTimeoutRef.current);
         setOverlayPreview(true);
       }
     };
 
     const mouseLeaveHandler = () => {
       if (collapsed) {
-        clearTimeout(timeoutRef.current);
-        timeoutRef.current = setTimeout(() => setOverlayPreview(false), 1000);
+        clearTimeout(previewTimeoutRef.current);
+        previewTimeoutRef.current = setTimeout(() => setOverlayPreview(false), 1000);
       }
     };
 
@@ -62,12 +64,12 @@ export default function NavigationContent({
     element?.addEventListener('mouseleave', mouseLeaveHandler);
 
     return () => {
-      clearTimeout(timeoutRef.current);
+      clearTimeout(previewTimeoutRef.current);
       element?.removeEventListener('scroll', scrollHandler);
       element?.removeEventListener('mouseenter', mouseEnterHandler);
       element?.removeEventListener('mouseleave', mouseLeaveHandler);
     };
-  }, [collapsed, onCollapse, setOverlayPreview]);
+  }, [collapsed, onCollapse, setOverlayPreview, transitioning]);
 
   const items =
     collapsed && !overlayPreview ? groupIconlessChildren(navigationChildren) : navigationChildren;

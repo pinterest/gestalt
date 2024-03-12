@@ -5,12 +5,15 @@ import {
   type Element,
   type Node as ReactNode,
   useContext,
+  useRef,
   useState,
 } from 'react';
 
 export interface Indexable {
   index(): number;
 }
+
+type Timeout = ReturnType<typeof setTimeout>;
 
 type SideNavigationContextType = {
   selectedItemId: string,
@@ -23,6 +26,7 @@ type SideNavigationContextType = {
   setOverlayPreview: (boolean) => void,
   collapsed?: boolean,
   onCollapse?: (boolean) => void,
+  transitioning?: boolean,
   dismissButton?: {
     accessibilityLabel?: string,
     onDismiss: () => void,
@@ -40,6 +44,8 @@ type Props = {
   collapsed?: boolean,
   onCollapse?: (boolean) => void,
 };
+
+const COLLAPSE_TRANSITION_DURATION = 200; // .2s
 
 const SideNavigationContext: Context<SideNavigationContextType> =
   createContext<SideNavigationContextType>({
@@ -59,12 +65,35 @@ function SideNavigationProvider({
   children,
   dismissButton,
   collapsed,
-  onCollapse,
+  onCollapse: onCollapseProp,
 }: Props): Element<typeof Provider> {
   const [selectedItemId, setSelectedItemId] = useState('');
   const [selectedMobileChildren, setSelectedMobileChildren] = useState<ReactNode>(null);
   const [hideActiveChildren, setHideActiveChildren] = useState(false);
-  const [overlayPreview, setOverlayPreview] = useState(false);
+  const [overlayPreview, setOverlayPreviewCb] = useState(false);
+  const [transitioning, setTransitioning] = useState(false);
+
+  const transitionTimeoutRef = useRef<?Timeout>();
+
+  const handleTransition = () => {
+    setTransitioning(true);
+    clearTimeout(transitionTimeoutRef.current);
+
+    transitionTimeoutRef.current = setTimeout(
+      () => setTransitioning(false),
+      COLLAPSE_TRANSITION_DURATION,
+    );
+  };
+
+  const onCollapse = (state: boolean) => {
+    if (collapsed !== state) handleTransition();
+    onCollapseProp?.(state);
+  };
+
+  const setOverlayPreview = (state: boolean) => {
+    if (overlayPreview !== state) handleTransition();
+    setOverlayPreviewCb(state);
+  };
 
   const sideNavigationContext = {
     selectedItemId,
@@ -78,6 +107,7 @@ function SideNavigationProvider({
     dismissButton,
     collapsed,
     onCollapse,
+    transitioning,
   };
 
   return <Provider value={sideNavigationContext}>{children}</Provider>;
