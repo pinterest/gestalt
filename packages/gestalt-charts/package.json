@@ -13,11 +13,11 @@
     "src"
   ],
   "dependencies": {
-    "recharts": "2.8.0",
-    "gestalt-design-tokens": ">0.0.0"
+    "recharts": "2.8.0"
   },
   "peerDependencies": {
     "gestalt": ">0.0.0",
+    "gestalt-design-tokens": ">0.0.0",
     "react": "^18.0",
     "react-dom": "^18.0"
   },
