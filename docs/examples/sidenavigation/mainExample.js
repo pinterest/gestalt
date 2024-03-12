@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node as ReactNode, useState } from 'react';
-import { SideNavigation } from 'gestalt';
+import { Box, Heading, SideNavigation } from 'gestalt';
 
 export default function Example(): ReactNode {
   const [page, setPage] = useState('');
@@ -137,6 +137,10 @@ export default function Example(): ReactNode {
           />
         </SideNavigation.Section>
       </SideNavigation>
+
+      <Box padding={4}>
+        <Heading size="500">Page main content</Heading>
+      </Box>
     </div>
   );
 }

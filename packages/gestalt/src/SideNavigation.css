@@ -18,6 +18,10 @@
   overflow-y: scroll;
 }
 
+.contentWidthTransition {
+  transition: width 0.2s;
+}
+
 .section {
   margin-bottom: var(--space-600);
   margin-top: var(--space-600);

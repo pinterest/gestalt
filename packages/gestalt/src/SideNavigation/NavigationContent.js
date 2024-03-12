@@ -13,6 +13,7 @@ import boxStyles from '../Box.css';
 import { useSideNavigation } from '../contexts/SideNavigationProvider';
 import Divider from '../Divider';
 import Flex from '../Flex';
+import layoutStyles from '../Layout.css';
 import { type Props as SideNavigationProps } from '../SideNavigation';
 import styles from '../SideNavigation.css';
 import { flattenChildrenWithKeys } from '../utils/flattenChildren';
@@ -71,32 +72,36 @@ export default function NavigationContent({
   const items =
     collapsed && !overlayPreview ? groupIconlessChildren(navigationChildren) : navigationChildren;
   const iconCount = countItemsWithIcon(navigationChildren);
+
   const shouldCollapseEmpty = iconCount === 0;
   const collapsedWidth = shouldCollapseEmpty ? 40 : 60;
+  const normalWidth = 280;
 
-  if (collapsible) {
-    window.temp1 = navigationChildren;
-    window.temp2 = items;
-  }
+  const wrapperWidth = collapsed ? collapsedWidth : normalWidth;
+  const contentWidth = collapsed && !overlayPreview ? collapsedWidth : normalWidth;
 
   return (
     <Box
+      minWidth={collapsible ? undefined : normalWidth}
+      width={collapsible ? wrapperWidth : undefined}
       height="100%"
       as="nav"
       aria-label={accessibilityLabel}
       color="default"
       position="relative"
-      zIndex={new FixedZIndex(1)}
-      width={collapsed ? collapsedWidth : 281}
+      zIndex={overlayPreview ? new FixedZIndex(1) : undefined}
     >
       <div
         ref={scrollContainer}
-        className={classnames(styles.fullHeight, boxStyles.default, {
+        className={classnames(styles.fullHeight, layoutStyles.borderBox, {
           [borderStyles.borderRight]: showBorder && !overlayPreview,
           [borderStyles.raisedBottom]: overlayPreview,
+          [styles.contentWidthTransition]: collapsible,
+          [layoutStyles.overflowHidden]: collapsible,
+          [boxStyles.default]: collapsible,
         })}
         style={{
-          width: collapsed && !overlayPreview ? undefined : 280,
+          width: collapsible ? contentWidth : undefined,
         }}
       >
         {collapsible && <Collapser raised={isScrolled} />}
@@ -104,6 +109,7 @@ export default function NavigationContent({
         <Box
           display={collapsed && shouldCollapseEmpty ? 'none' : undefined}
           padding={2}
+          width={collapsible ? contentWidth : undefined}
           dangerouslySetInlineStyle={{
             __style: {
               paddingBottom: 24,
