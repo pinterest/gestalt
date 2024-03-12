@@ -1,0 +1,54 @@
+{
+  "color": {
+    "data-visualization": {
+      "01": {
+        "value": "{color.blue.skycicle.600.value}",
+        "comment": "First option for data visualization colors"
+      },
+      "02": {
+        "value": "{color.teal.spabattical.200.value}",
+        "comment": "Second option for data visualization colors"
+      },
+      "03": {
+        "value": "#B190FF",
+        "comment": "Third option for data visualization colors"
+      },
+      "04": {
+        "value": "#FDA600",
+        "comment": "Fourth option for data visualization colors"
+      },
+      "05": {
+        "value": "{color.blue.skycicle.300.value}",
+        "comment": "Fifth option for data visualization colors"
+      },
+      "06": {
+        "value": "{color.pink.flaminglow.500.value}",
+        "comment": "Sixth option for data visualization colors"
+      },
+      "07": {
+        "value": "{color.green.matchacado.200.value}",
+        "comment": "Seventh option for data visualization colors"
+      },
+      "08": {
+        "value": "{color.purple.mysticool.500.value}",
+        "comment": "Eighth option for data visualization colors"
+      },
+      "09": {
+        "value": "{color.orange.firetini.450.value}",
+        "comment": "Ninth option for data visualization colors"
+      },
+      "10": {
+        "value": "#007A72",
+        "comment": "Tenth option for data visualization colors"
+      },
+      "11": {
+        "value": "{color.pink.flaminglow.400.value}",
+        "comment": "Eleventh option for data visualization colors"
+      },
+      "12": {
+        "value": "{color.orange.firetini.200.value}",
+        "comment": "Twelfth option for data visualization colors"
+      }
+    }
+  }
+}

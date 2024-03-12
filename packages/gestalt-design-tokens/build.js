@@ -1,7 +1,13 @@
 // @flow strict
 const StyleDictionary = require('style-dictionary');
 
-// FORMATTING HELPERS
+// HELPERS
+
+// $FlowFixMe[missing-local-annot]
+function nameOutputFile({ name, theme }) {
+  const filePrefix = theme === 'main-theme' ? '' : `${theme.split('-')[0]}-`;
+  return `${filePrefix}${name}`;
+}
 
 // $FlowFixMe[missing-local-annot]
 function formatFlowTypes(dictionaryTokens) {
@@ -9,6 +15,28 @@ function formatFlowTypes(dictionaryTokens) {
     .map((token) => `  +"${token.name}": ${JSON.stringify(token.value)}`)
     .join(',\n')}\n|}`;
 }
+
+const regex = /(\{|\})/gi;
+const regex1A = /(\{(?!\w)|\}(?!\w))/gi;
+
+// $FlowFixMe[missing-local-annot]
+const commonJSFlowFormatter = ({ token, darkTheme }) =>
+  JSON.stringify({
+    name: token.path.join('-'),
+    value: token.value,
+    // For lightened values with appended 1A, let's keep {value}1A if not remove the parenthesis
+    originalValue: token.original.value.endsWith('}1A')
+      ? token.original.value?.replace(regex1A, '')
+      : token.original.value.replace(regex, ''),
+    // eslint-disable-next-line no-underscore-dangle
+    ...(darkTheme ? { _darkModeSupport: !token._darkMode } : {}), // For dark mode we are adding this metadada to track unsupported tokens
+    comment: token.comment,
+    category: token.attributes.category,
+  });
+
+// $FlowFixMe[missing-local-annot]
+const moduleExportFileHeader = ({ file, tokenArray, fileHeader }) =>
+  `${fileHeader({ file, commentStyle: 'short' })} module.exports = [${tokenArray}]`;
 
 // REGISTER FILE HEADERS
 
@@ -33,25 +61,11 @@ StyleDictionary.registerFileHeader({
 
 // REGISTER FORMATS
 
-const regex = /(\{|\})/gi;
-const regex1A = /(\{(?!\w)|\}(?!\w))/gi;
-
 StyleDictionary.registerFormat({
   name: 'commonJS/flow',
   formatter: ({ dictionary, file }) => {
-    const tokenArray = dictionary.allTokens.map((token) =>
-      JSON.stringify({
-        name: token.path.join('-'),
-        value: token.value,
-        // For lightened values with appended 1A, let's keep {value}1A if not remove the parenthesis
-        originalValue: token.original.value.endsWith('}1A')
-          ? token.original.value?.replace(regex1A, '')
-          : token.original.value.replace(regex, ''),
-        comment: token.comment,
-        category: token.attributes.category,
-      }),
-    );
-    return `${fileHeader({ file, commentStyle: 'short' })} module.exports = [${tokenArray}]`;
+    const tokenArray = dictionary.allTokens.map((token) => commonJSFlowFormatter({ token }));
+    return moduleExportFileHeader({ fileHeader, file, tokenArray });
   },
 });
 
@@ -59,18 +73,10 @@ StyleDictionary.registerFormat({
   name: 'darkTheme-commonJS/flow',
   formatter: ({ dictionary, file }) => {
     const tokenArray = dictionary.allTokens.map((token) =>
-      JSON.stringify({
-        name: token.path.join('-'),
-        value: token.value,
-        originalValue: token.original.value.endsWith('}1A')
-          ? token.original.value?.replace(regex1A, '')
-          : token.original.value.replace(regex, ''), // eslint-disable-next-line no-underscore-dangle
-        _darkModeSupport: !token._darkMode,
-        comment: token.comment,
-        category: token.attributes.category,
-      }),
+      commonJSFlowFormatter({ token, darkTheme: true }),
     );
-    return `${fileHeader({ file, commentStyle: 'short' })} module.exports = [${tokenArray}]`;
+
+    return moduleExportFileHeader({ fileHeader, file, tokenArray });
   },
 });
 
@@ -173,30 +179,54 @@ StyleDictionary.registerTransform({
   },
 });
 
+// $FlowFixMe[missing-local-annot]
+function getMatchedThemeName(filePath) {
+  const regexa = /(.*\/)(.*)(-theme\/.*)/;
+  const matchedThemeName = filePath.match(regexa);
+
+  return matchedThemeName && matchedThemeName.length > 2 ? matchedThemeName[2] : '';
+}
+
+StyleDictionary.registerTransform({
+  name: 'name/prefix/theme',
+  type: 'name',
+  matcher(prop) {
+    return prop.filePath.includes('theme') && !prop.filePath.includes('main-theme');
+  },
+  transformer(prop) {
+    const prefix = getMatchedThemeName(prop.filePath);
+    return prop.name.replace(/^[^_]*/, (match) => `${prefix}_${match}`);
+  },
+});
+
 // REGISTER TRANSFORM GROUPS
 
 StyleDictionary.registerTransformGroup({
   name: 'androidTransformGroup',
-  transforms: ['attribute/cti', 'name/cti/snake', 'color/hex8android', 'size/pxToDpOrSp'],
+  transforms: [
+    'attribute/cti',
+    'name/cti/snake',
+    'name/prefix/theme',
+    'color/hex8android',
+    'size/pxToDpOrSp',
+  ],
 });
 
 // BUILD CONFIGURATION
 
 // $FlowFixMe[missing-local-annot]
-function getWebConfig({ mode }) {
+function getWebConfig({ theme = 'main-theme', mode = 'light' }) {
+  const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
+
   return {
     'source': [
-      `tokens/color/mainTheme/base.json`,
-      `tokens/color/mainTheme/data-visualization/base${
-        mode === 'dark' ? '-darkTheme' : '-lightTheme'
-      }.json`,
-      `tokens/color/mainTheme/data-visualization/alias${
-        mode === 'dark' ? '-darkTheme' : '-lightTheme'
-      }.json`,
-      `tokens/color/mainTheme/alias${mode === 'dark' ? '-darkTheme' : '-lightTheme'}.json`,
-      `tokens/color/mainTheme/component${mode === 'dark' ? '-darkTheme' : '-lightTheme'}.json`,
-      `tokens/elevation/mainTheme/base${mode === 'dark' ? '-darkTheme' : '-lightTheme'}.json`,
-      `tokens/elevation/mainTheme/component${mode === 'dark' ? '-darkTheme' : '-lightTheme'}.json`,
+      `tokens/color/${theme}/base.json`,
+      `tokens/color/${theme}/data-visualization/base${modeTheme}.json`,
+      `tokens/color/${theme}/data-visualization/alias${modeTheme}.json`,
+      `tokens/color/${theme}/alias${modeTheme}.json`,
+      `tokens/color/${theme}/component${modeTheme}.json`,
+      `tokens/elevation/${theme}/base${modeTheme}.json`,
+      `tokens/elevation/${theme}/component${modeTheme}.json`,
       'tokens/font/*.json',
       'tokens/opacity/*.json',
       'tokens/rounding/*.json',
@@ -209,10 +239,10 @@ function getWebConfig({ mode }) {
           'https://amzn.github.io/style-dictionary/#/transform_groups?id=css',
         'buildPath': 'dist/css/',
         'files':
-          mode !== 'dark'
+          mode === 'light'
             ? [
                 {
-                  'destination': 'variables.css',
+                  'destination': nameOutputFile({ name: 'variables.css', theme }),
                   'format': 'css/variables',
                   '_format_comment':
                     'https://amzn.github.io/style-dictionary/#/formats?id=cssvariables',
@@ -226,7 +256,7 @@ function getWebConfig({ mode }) {
               ]
             : [
                 {
-                  'destination': 'variables-dark.css',
+                  'destination': nameOutputFile({ name: 'variables-dark.css', theme }),
                   'format': 'css/variables',
                   '_format_comment': 'Custom.',
                   'filter': 'darkThemeFilter',
@@ -246,16 +276,16 @@ function getWebConfig({ mode }) {
           'https://amzn.github.io/style-dictionary/#/transform_groups?id=css',
         'buildPath': 'dist/json/',
         'files':
-          mode !== 'dark'
+          mode === 'light'
             ? [
                 {
-                  'destination': 'variables.json',
+                  'destination': nameOutputFile({ name: 'variables.json', theme }),
                   'format': 'json/flat',
                   '_format_comment':
                     'https://amzn.github.io/style-dictionary/#/formats?id=jsonflat',
                 },
                 {
-                  'destination': 'variables-light.json',
+                  'destination': nameOutputFile({ name: 'variables-light.json', theme }),
                   'format': 'json/flat',
                   '_format_comment':
                     'https://amzn.github.io/style-dictionary/#/formats?id=jsonflat',
@@ -265,7 +295,7 @@ function getWebConfig({ mode }) {
               ]
             : [
                 {
-                  'destination': 'variables-dark.json',
+                  'destination': nameOutputFile({ name: 'variables-dark.json', theme }),
                   'format': 'json/flat',
                   '_format_comment': 'Custom.',
                   'filter': 'darkThemeFilter',
@@ -279,15 +309,15 @@ function getWebConfig({ mode }) {
           'https://amzn.github.io/style-dictionary/#/transform_groups?id=css',
         'buildPath': 'dist/json/',
         'files':
-          mode !== 'dark'
+          mode === 'light'
             ? [
                 {
-                  'destination': 'variables.json.flow',
+                  'destination': nameOutputFile({ name: 'variables.json.flow', theme }),
                   'format': 'json/flat/flow',
                   '_format_comment': 'Custom.',
                 },
                 {
-                  'destination': 'variables-light.json.flow',
+                  'destination': nameOutputFile({ name: 'variables-light.json.flow', theme }),
                   'format': 'json/flat/flow',
                   '_format_comment': 'Custom.',
                   'filter': 'darkThemeFilter',
@@ -296,7 +326,7 @@ function getWebConfig({ mode }) {
               ]
             : [
                 {
-                  'destination': 'variables-dark.json.flow',
+                  'destination': nameOutputFile({ name: 'variables-dark.json.flow', theme }),
                   'format': 'json/flat/flow',
                   '_format_comment': 'Custom.',
                   'filter': 'darkThemeFilter',
@@ -315,7 +345,7 @@ function getWebConfig({ mode }) {
           '_fileHeader_comment': 'Custom.',
         },
         'files':
-          mode !== 'dark'
+          mode === 'light'
             ? [
                 {
                   'destination': 'constants.es.js',
@@ -328,24 +358,24 @@ function getWebConfig({ mode }) {
                   '_format_comment': 'Custom. See packages/gestalt-design-tokens/build.js',
                 },
                 {
-                  'destination': 'tokens.js',
+                  'destination': nameOutputFile({ name: 'tokens.js', theme }),
                   'format': 'commonJS/flow',
                   '_format_comment': 'Custom.',
                 },
                 {
-                  'destination': 'tokens_individual.js',
+                  'destination': nameOutputFile({ name: 'tokens_individual.js', theme }),
                   'format': 'javascript/es6/flow',
                   '_format_comment': 'Custom.',
                 },
                 {
-                  'destination': 'data-viz-tokens.js',
+                  'destination': nameOutputFile({ name: 'data-viz-tokens.js', theme }),
                   'format': 'commonJS/flow',
                   '_format_comment': 'Custom.',
                   'filter': 'dataVisualizationFilter',
                   '_filter_comment': 'Custom.',
                 },
                 {
-                  'destination': 'data-viz-tokens_individual.js',
+                  'destination': nameOutputFile({ name: 'data-viz-tokens_individual.js', theme }),
                   'format': 'javascript/es6/flow',
                   '_format_comment': 'Custom.',
                   'filter': 'dataVisualizationFilter',
@@ -354,24 +384,27 @@ function getWebConfig({ mode }) {
               ]
             : [
                 {
-                  'destination': 'tokens_dark.js',
+                  'destination': nameOutputFile({ name: 'tokens_dark.js', theme }),
                   'format': 'darkTheme-commonJS/flow',
                   '_format_comment': 'Custom.',
                 },
                 {
-                  'destination': 'tokens_individual_dark.js',
+                  'destination': nameOutputFile({ name: 'tokens_individual_dark.js', theme }),
                   'format': 'javascript/es6/flow',
                   '_format_comment': 'Custom.',
                 },
                 {
-                  'destination': 'data-viz-tokens_dark.js',
+                  'destination': nameOutputFile({ name: 'data-viz-tokens_dark.js', theme }),
                   'format': 'darkTheme-commonJS/flow',
                   '_format_comment': 'Custom.',
                   'filter': 'dataVisualizationFilter',
                   '_filter_comment': 'Custom.',
                 },
                 {
-                  'destination': 'data-viz-tokens_individual_dark.js',
+                  'destination': nameOutputFile({
+                    name: 'data-viz-tokens_individual_dark.js',
+                    theme,
+                  }),
                   'format': 'javascript/es6/flow',
                   '_format_comment': 'Custom.',
                   'filter': 'dataVisualizationFilter',
@@ -384,18 +417,16 @@ function getWebConfig({ mode }) {
 }
 
 // $FlowFixMe[missing-local-annot]
-function getAndroidConfiguration({ mode }) {
+function getAndroidConfiguration({ theme = 'main-theme', mode = 'light' }) {
+  const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
+
   return {
     'source': [
-      `tokens/color/mainTheme/base.json`,
-      `tokens/color/mainTheme/data-visualization/base${
-        mode === 'dark' ? '-darkTheme' : '-lightTheme'
-      }.json`,
-      `tokens/color/mainTheme/data-visualization/alias${
-        mode === 'dark' ? '-darkTheme' : '-lightTheme'
-      }.json`,
-      `tokens/color/mainTheme/alias${mode === 'dark' ? '-darkTheme' : '-lightTheme'}.json`,
-      `tokens/elevation/mainTheme/base${mode === 'dark' ? '-darkTheme' : '-lightTheme'}.json`,
+      `tokens/color/${theme}/base.json`,
+      `tokens/color/${theme}/data-visualization/base${modeTheme}.json`,
+      `tokens/color/${theme}/data-visualization/alias${modeTheme}.json`,
+      `tokens/color/${theme}/alias${modeTheme}.json`,
+      `tokens/elevation/${theme}/base${modeTheme}.json`,
       'tokens/font/base.json',
       'tokens/opacity/base.json',
       'tokens/rounding/base.json',
@@ -412,10 +443,10 @@ function getAndroidConfiguration({ mode }) {
           '_fileHeader_comment': 'Custom.',
         },
         'files':
-          mode !== 'dark'
+          mode === 'light'
             ? [
                 {
-                  'destination': 'colors.xml',
+                  'destination': nameOutputFile({ name: 'colors.xml', theme }),
                   'format': 'android/resources',
                   '_format_comment':
                     'https://amzn.github.io/style-dictionary/#/formats?id=androidcolors',
@@ -487,7 +518,7 @@ function getAndroidConfiguration({ mode }) {
               ]
             : [
                 {
-                  'destination': 'colors-dark.xml',
+                  'destination': nameOutputFile({ name: 'colors-dark.xml', theme }),
                   'format': 'android/resources',
                   '_filter_comment': 'Custom.',
                   'resourceType': 'color',
@@ -507,18 +538,16 @@ function getAndroidConfiguration({ mode }) {
 }
 
 // $FlowFixMe[missing-local-annot]
-function getIOSConfiguration({ mode }) {
+function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
+  const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
+
   return {
     'source': [
-      `tokens/color/mainTheme/base.json`,
-      `tokens/color/mainTheme/data-visualization/base${
-        mode === 'dark' ? '-darkTheme' : '-lightTheme'
-      }.json`,
-      `tokens/color/mainTheme/data-visualization/alias${
-        mode === 'dark' ? '-darkTheme' : '-lightTheme'
-      }.json`,
-      `tokens/color/mainTheme/alias${mode === 'dark' ? '-darkTheme' : '-lightTheme'}.json`,
-      `tokens/elevation/mainTheme/base${mode === 'dark' ? '-darkTheme' : '-lightTheme'}.json`,
+      `tokens/color/${theme}/base.json`,
+      `tokens/color/${theme}/data-visualization/base${modeTheme}.json`,
+      `tokens/color/${theme}/data-visualization/alias${modeTheme}.json`,
+      `tokens/color/${theme}/alias${modeTheme}.json`,
+      `tokens/elevation/${theme}/base${modeTheme}.json`,
       'tokens/font/base.json',
       'tokens/opacity/base.json',
       'tokens/rounding/base.json',
@@ -531,7 +560,7 @@ function getIOSConfiguration({ mode }) {
           'https://amzn.github.io/style-dictionary/#/transform_groups?id=ios',
         'buildPath': 'dist/ios/',
         'files':
-          mode !== 'dark'
+          mode === 'light'
             ? [
                 {
                   'destination': 'GestaltDesignTokensColor.h',
@@ -615,7 +644,7 @@ function getIOSConfiguration({ mode }) {
           'https://amzn.github.io/style-dictionary/#/transform_groups?id=ios-swift',
         'buildPath': 'dist/ios-swift/',
         'files':
-          mode !== 'dark'
+          mode === 'light'
             ? [
                 {
                   'destination': 'GestaltDesignTokens.swift',
@@ -651,7 +680,7 @@ function getIOSConfiguration({ mode }) {
           'https://amzn.github.io/style-dictionary/#/transform_groups?id=ios-swift-separate',
         'buildPath': 'dist/ios-swift/',
         'files':
-          mode !== 'dark'
+          mode === 'light'
             ? [
                 {
                   'destination': 'GestaltDesignTokensColor.swift',
@@ -694,6 +723,7 @@ function getIOSConfiguration({ mode }) {
     },
   };
 }
+
 // BUILD EXECUTION
 
 const platformFileMap = {
@@ -702,16 +732,20 @@ const platformFileMap = {
   ios: ['ios', 'ios-swift', 'ios-swift-separate-enums'],
 };
 
-['light', 'dark'].forEach((mode) => {
-  // Android platform
-  const StyleDictionaryAndroid = StyleDictionary.extend(getAndroidConfiguration({ mode }));
-  platformFileMap.android.forEach((platform) => StyleDictionaryAndroid.buildPlatform(platform));
+['main-theme', 'vr-theme'].forEach((theme) =>
+  ['light', 'dark'].forEach((mode) => {
+    if (theme === 'main-theme') {
+      // iOS platform
+      const StyleDictionaryIOS = StyleDictionary.extend(getIOSConfiguration({ mode, theme }));
+      platformFileMap.ios.forEach((platform) => StyleDictionaryIOS.buildPlatform(platform));
+    }
 
-  // iOS platform
-  const StyleDictionaryIOS = StyleDictionary.extend(getIOSConfiguration({ mode }));
-  platformFileMap.ios.forEach((platform) => StyleDictionaryIOS.buildPlatform(platform));
+    // Android platform
+    const StyleDictionaryAndroid = StyleDictionary.extend(getAndroidConfiguration({ mode, theme }));
+    platformFileMap.android.forEach((platform) => StyleDictionaryAndroid.buildPlatform(platform));
 
-  // web platform
-  const StyleDictionaryWeb = StyleDictionary.extend(getWebConfig({ mode }));
-  platformFileMap.web.forEach((platform) => StyleDictionaryWeb.buildPlatform(platform));
-});
+    // // web platform
+    const StyleDictionaryWeb = StyleDictionary.extend(getWebConfig({ mode, theme }));
+    platformFileMap.web.forEach((platform) => StyleDictionaryWeb.buildPlatform(platform));
+  }),
+);
