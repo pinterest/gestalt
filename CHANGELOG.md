@@ -1,3 +1,9 @@
+## 146.3.1 (Mar 12, 2024)
+
+### Patch
+
+- Masonry: Enable corrent positioning of two column module when initial heights are 0 ([#3478](https://github.com/pinterest/gestalt/pull/3478)) - [Preview link](https://deploy-preview-3478--gestalt.netlify.app?devexample=true)
+
 ## 146.3.0 (Mar 12, 2024)
 
 ### Minor
