@@ -17,6 +17,12 @@ export default function EslintPluginPage(): ReactNode {
         description="The following ESLint rules provide guidance on how to replace native HTML elements and attributes with available Gestalt equivalents"
       >
         <MainSection.Subsection
+          title="gestalt/only-valid-tokens"
+          description={`
+        Prevent the consumption of Gestalt tokens via hard-coded strings p.e. "var(--color-border-error)". Instead import constant from 'gestalt-design-tokens' p.e. import { TOKEN_COLOR_BORDER_ERROR } from "gestalt-design-tokens".
+      `}
+        />
+        <MainSection.Subsection
           title="gestalt/prefer-box-inline-style"
           description={`
         Prevent using \`<div>\` inline styling for attributes that are already implemented in Box.

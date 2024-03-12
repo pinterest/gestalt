@@ -5,6 +5,10 @@ import { type HeightsStoreInterface } from './HeightsStore';
 import mindex from './mindex';
 import { type NodeData, type Position } from './types';
 
+// When there's a 2-col item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to minimize whitespace above the 2-col item
+// This may need to be tweaked to balance the tradeoff of delayed rendering vs having enough possible layouts
+export const TWO_COL_ITEMS_MEASURE_BATCH_SIZE = 6;
+
 function isNil(value: mixed): boolean %checks {
   return value === null || value === undefined;
 }
@@ -263,10 +267,6 @@ const defaultTwoColumnModuleLayout = <T>({
     // $FlowFixMe[incompatible-use] We're assuming `columnSpan` exists
     const twoColumnItems = itemsWithoutPositions.filter((item) => item.columnSpan > 1);
     const hasTwoColumnItems = twoColumnItems.length > 0;
-    const oneColumnItems = itemsWithoutPositions.filter(
-      // $FlowFixMe[incompatible-type] We're assuming `columnSpan` exists
-      (item) => !item.columnSpan || item.columnSpan === 1,
-    );
 
     const commonGetPositionArgs = {
       centerOffset,
@@ -278,13 +278,40 @@ const defaultTwoColumnModuleLayout = <T>({
     };
 
     if (hasTwoColumnItems) {
+      // Currently we only support one two column item at the same time, more items will be supporped soon
+      const twoColumnIndex = itemsWithoutPositions.indexOf(twoColumnItems[0]);
+
+      // If the number of items to position is greater that the batch size
+      // we identify the batch with the two column item and apply the graph only to those items
+      const shouldBatchItems = itemsWithoutPositions.length > TWO_COL_ITEMS_MEASURE_BATCH_SIZE;
+      const splitIndex =
+        twoColumnIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE > itemsWithoutPositions.length
+          ? itemsWithoutPositions.length - TWO_COL_ITEMS_MEASURE_BATCH_SIZE
+          : twoColumnIndex;
+      const pre = shouldBatchItems ? itemsWithoutPositions.slice(0, splitIndex) : [];
+      const batchWithTwoColumnItems = shouldBatchItems
+        ? itemsWithoutPositions.slice(splitIndex, splitIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE)
+        : itemsWithoutPositions;
+
       // Get positions and heights for painted items
       const { positions: paintedItemPositions, heights: paintedItemHeights } =
         getOneColumnItemPositions({
-          items: itemsWithPositions,
+          items: [...itemsWithPositions, ...pre],
           heights,
           ...commonGetPositionArgs,
         });
+
+      // Adding the extra prev column items to the position cache
+      if (paintedItemPositions.length > itemsWithPositions.length) {
+        paintedItemPositions.forEach(({ item, position }) => {
+          positionCache.set(item, position);
+        });
+      }
+
+      const oneColumnItems = batchWithTwoColumnItems.filter(
+        // $FlowFixMe[incompatible-type] We're assuming `columnSpan` exists
+        (item) => !item.columnSpan || item.columnSpan === 1,
+      );
 
       // Initialize the graph
       const graph = new Graph<T>();
