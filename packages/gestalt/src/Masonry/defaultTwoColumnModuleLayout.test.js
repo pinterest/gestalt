@@ -335,4 +335,45 @@ describe('two column layout test cases', () => {
       { height: 214, left: 99, top: 654, width: 240 },
     ]);
   });
+
+  test('correctly position two column item when initial heights are 0', () => {
+    const measurementStore = new MeasurementStore<{ ... }, number>();
+    const positionCache = new MeasurementStore<{ ... }, Position>();
+    const heightsCache = new HeightsStore();
+    const items = [
+      { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA', 'columnSpan': 2 },
+      { 'name': 'Pin 1', 'height': 201, 'color': '#F67076' },
+      { 'name': 'Pin 2', 'height': 202, 'color': '#FAB032' },
+      { 'name': 'Pin 3', 'height': 203, 'color': '#EDF21D' },
+      { 'name': 'Pin 4', 'height': 204, 'color': '#CF4509' },
+      { 'name': 'Pin 5', 'height': 205, 'color': '#230BAF' },
+    ];
+    items.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+
+    const layout = defaultTwoColumnModuleLayout({
+      columnWidth: 240,
+      measurementCache: measurementStore,
+      heightsCache,
+      justify: 'start',
+      minCols: 3,
+      positionCache,
+      rawItemCount: items.length,
+      width: 1200,
+    });
+
+    const positions = layout(items);
+    const orderedPositions = items.map((item) => positionCache.get(item));
+
+    expect(positions.length).toEqual(items.length);
+    expect(orderedPositions).toEqual([
+      { height: 200, left: 99, top: 0, width: 494 },
+      { height: 201, left: 607, top: 0, width: 240 },
+      { height: 202, left: 861, top: 0, width: 240 },
+      { height: 203, left: 99, top: 214, width: 240 },
+      { height: 204, left: 353, top: 214, width: 240 },
+      { height: 205, left: 607, top: 215, width: 240 },
+    ]);
+  });
 });
