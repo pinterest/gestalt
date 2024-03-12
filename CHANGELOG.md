@@ -1,3 +1,9 @@
+## 146.3.0 (Mar 12, 2024)
+
+### Minor
+
+- Tokens: theming folders and config for automatic token builds ([#3474](https://github.com/pinterest/gestalt/pull/3474)) - [Preview link](https://deploy-preview-3474--gestalt.netlify.app?devexample=true)
+
 ## 146.2.0 (Mar 11, 2024)
 
 ### Minor
