@@ -121,6 +121,8 @@ type Icons =
   | 'arrow-circle-forward'
   | 'arrow-circle-up'
   | 'arrow-counter-clockwise'
+  | 'arrow-double-forward'
+  | 'arrow-double-back'
   | 'arrow-down'
   | 'arrow-end'
   | 'arrow-forward'
