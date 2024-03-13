@@ -1,3 +1,9 @@
+## 146.4.0 (Mar 13, 2024)
+
+### Minor
+
+- Icon: Add arrow double icons ([#3481](https://github.com/pinterest/gestalt/pull/3481)) - [Preview link](https://deploy-preview-3481--gestalt.netlify.app?devexample=true)
+
 ## 146.3.1 (Mar 12, 2024)
 
 ### Patch
