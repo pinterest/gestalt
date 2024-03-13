@@ -97,8 +97,8 @@ export type Props = {
 const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElement> = forwardRef<
   Props,
   HTMLLIElement,
->(function SideNavigationTopItem(props: Props, ref): ReactNode {
-  const {
+>(function SideNavigationTopItem(
+  {
     active,
     href,
     badge,
@@ -108,8 +108,9 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
     primaryAction,
     notificationAccessibilityLabel,
     onClick,
-  } = props;
-
+  }: Props,
+  ref,
+): ReactNode {
   const { nestedLevel } = useNesting();
 
   const {
