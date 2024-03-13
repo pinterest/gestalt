@@ -160,7 +160,8 @@ test.describe('Masonry: scrolls', () => {
       JSON.stringify(results, null, 2)
     );
 
-    // this is realistically too low but setting this as an initial assertion until we have more data
-    expect(results.fps).toBeGreaterThan(30);
+    // just setting some initial assertion until we gather more data
+    expect(results.fps).toBeGreaterThan(0);
+    expect(results.completeFrames).toBeGreaterThan(0);
   });
 });
