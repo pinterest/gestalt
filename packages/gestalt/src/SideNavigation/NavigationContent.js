@@ -19,7 +19,6 @@ import styles from '../SideNavigation.css';
 import { flattenChildrenWithKeys } from '../utils/flattenChildren';
 import { FixedZIndex } from '../zIndex';
 
-type Props = { ...SideNavigationProps };
 type Timeout = ReturnType<typeof setTimeout>;
 
 export default function NavigationContent({
@@ -28,7 +27,7 @@ export default function NavigationContent({
   footer,
   header,
   showBorder,
-}: Props): ReactNode {
+}: SideNavigationProps): ReactNode {
   const navigationChildren = flattenChildrenWithKeys(children);
 
   validateChildren({ children: navigationChildren, filterLevel: 'main' });
