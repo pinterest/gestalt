@@ -75,27 +75,26 @@ function renderEllipses(items: $ReadOnlyArray<React$Element<empty> | EllipsisPro
 }
 
 export function groupIconlessChildren(children: ReactChildArray): $ReadOnlyArray<ReactNode> {
-  const ellipses: Array<EllipsisProps> = [];
+  let lastEllipsisIndex;
+  let lastSectionIndex;
 
   // $FlowFixMe[missing-local-annot]
-  const items = children.reduce((acc, child) => {
-    const isTopItem =
-      child.type.displayName === 'SideNavigation.TopItem' ||
-      child.type.displayName === 'SideNavigation.Group';
-    const shouldSkip = !isTopItem || child.props.icon;
+  const items = children.reduce((acc, child, index) => {
+    const isSection = child.type.displayName === 'SideNavigation.Section';
+    const shouldSkip = isSection || !!child.props.icon;
 
+    if (isSection) lastSectionIndex = index;
     if (shouldSkip) return acc.concat(child);
 
     const { notificationAccessibilityLabel, active } = child.props;
 
-    if (ellipses.length === 0 || acc.at(-1)?.type?.displayName === 'SideNavigation.Section') {
-      const ellipsis = {};
-
+    if (lastEllipsisIndex === undefined || lastEllipsisIndex < lastSectionIndex) {
+      const ellipsis: EllipsisProps = {};
+      lastEllipsisIndex = index;
       acc.push(ellipsis);
-      ellipses.push(ellipsis);
     }
 
-    const lastEllipsis = ellipses.at(-1);
+    const lastEllipsis = acc.at(lastEllipsisIndex);
 
     if (lastEllipsis) {
       lastEllipsis.notificationAccessibilityLabel ||= notificationAccessibilityLabel;

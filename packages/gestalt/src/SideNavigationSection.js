@@ -63,6 +63,7 @@ export default function SideNavigationSection({ children, label }: Props): React
       {shouldCollapseAsEllipsis ? (
         <ItemsEllipsis
           active={hasActiveItem ? 'page' : undefined}
+          accessibilityLabel={`Collapsed ${label}. Expand for more options`}
           notificationAccessibilityLabel={
             itemWithNotification?.props.notificationAccessibilityLabel
           }

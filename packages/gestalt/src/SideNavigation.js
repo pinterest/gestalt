@@ -34,10 +34,6 @@ export type Props = {
    */
   dismissButton?: { accessibilityLabel?: string, onDismiss: () => void },
   /**
-   * Adds a collapser button
-   */
-  collapsible?: boolean,
-  /**
    * Displays a border in SideNavigation. See the [Border](https://gestalt.pinterest.systems/web/sidenavigation#Border) variant for more info.
    */
   showBorder?: boolean,
@@ -45,8 +41,18 @@ export type Props = {
    * Title for mobile navigation.
    */
   mobileTitle?: string,
+  /**
+   * When passed SideNavigation becomes a collapsible controlled component. If not passed, it stays non-collapsible. See the [collapsible variant](https://gestalt.pinterest.systems/web/sidenavigation#Collapsible) to learn more. This functionality is not supported in mobile.
+   */
   collapsed?: boolean,
+  /**
+   * Callback fired when the SideNavigation is collapsible and the collapse/expand button is clicked. This functionality is not supported in mobile.
+   */
   onCollapse?: (boolean) => void,
+  /**
+   * Callback fired when the *collapsed* SideNavigation is hovered and opened in preview mode. This functionality is not supported in mobile.
+   */
+  onPreview?: (boolean) => void,
 };
 
 /**
@@ -64,16 +70,17 @@ export default function SideNavigation({
   dismissButton,
   footer,
   header,
-  collapsible,
   showBorder,
   mobileTitle,
   collapsed,
   onCollapse,
+  onPreview,
 }: Props): ReactNode {
   const { accessibilityDismissButtonLabel } = useDefaultLabelContext('SideNavigation');
   const id = useId();
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
+  const collapsible = collapsed != null;
 
   if (isMobile) {
     return (
@@ -108,13 +115,17 @@ export default function SideNavigation({
   }
 
   return (
-    <SideNavigationProvider collapsed={collapsed} onCollapse={onCollapse}>
+    <SideNavigationProvider
+      collapsible={collapsible}
+      collapsed={collapsed}
+      onCollapse={onCollapse}
+      onPreview={onPreview}
+    >
       <ScrollBoundaryContainer overflow={collapsible ? 'visible' : undefined}>
         <SideNavigationContent
           accessibilityLabel={accessibilityLabel}
           footer={footer}
           header={header}
-          collapsible={collapsible}
           showBorder={showBorder}
         >
           {children}

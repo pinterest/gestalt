@@ -24,6 +24,7 @@ type SideNavigationContextType = {
   setHideActiveChildren: (boolean) => void,
   overlayPreview: boolean,
   setOverlayPreview: (boolean) => void,
+  collapsible?: boolean,
   collapsed?: boolean,
   onCollapse?: (boolean) => void,
   transitioning?: boolean,
@@ -41,8 +42,10 @@ type Props = {
     onDismiss: () => void,
     id: string,
   },
+  collapsible?: boolean,
   collapsed?: boolean,
   onCollapse?: (boolean) => void,
+  onPreview?: (boolean) => void,
 };
 
 const COLLAPSE_TRANSITION_DURATION = 200; // .2s
@@ -64,8 +67,10 @@ const { Provider, Consumer: SideNavigationConsumer } = SideNavigationContext;
 function SideNavigationProvider({
   children,
   dismissButton,
+  collapsible,
   collapsed,
   onCollapse: onCollapseProp,
+  onPreview,
 }: Props): Element<typeof Provider> {
   const [selectedItemId, setSelectedItemId] = useState('');
   const [selectedMobileChildren, setSelectedMobileChildren] = useState<ReactNode>(null);
@@ -93,6 +98,7 @@ function SideNavigationProvider({
   const setOverlayPreview = (state: boolean) => {
     if (overlayPreview !== state) handleTransition();
     setOverlayPreviewCb(state);
+    onPreview?.(state);
   };
 
   const sideNavigationContext = {
@@ -105,6 +111,7 @@ function SideNavigationProvider({
     overlayPreview,
     setOverlayPreview,
     dismissButton,
+    collapsible,
     collapsed,
     onCollapse,
     transitioning,

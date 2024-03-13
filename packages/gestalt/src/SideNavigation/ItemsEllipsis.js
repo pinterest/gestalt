@@ -6,10 +6,14 @@ import Icon from '../Icon';
 import { type Props as TopItemProps } from '../SideNavigationTopItem';
 import TapArea from '../TapArea';
 
-export type Props = Pick<TopItemProps, 'active' | 'notificationAccessibilityLabel'>;
+export type Props = {
+  ...Pick<TopItemProps, 'active' | 'notificationAccessibilityLabel'>,
+  accessibilityLabel?: string,
+};
 
 export default function ItemsEllipsis({
   active,
+  accessibilityLabel = 'Collapsed navigation items. Expand for more options',
   notificationAccessibilityLabel,
 }: Props): ReactNode {
   const { setOverlayPreview } = useSideNavigation();
@@ -18,7 +22,11 @@ export default function ItemsEllipsis({
   const textColor = active === 'page' ? 'inverse' : 'default';
 
   return (
-    <TapArea accessibilityLabel="" rounding={2} onTap={() => setOverlayPreview(true)}>
+    <TapArea
+      accessibilityLabel={accessibilityLabel}
+      rounding={2}
+      onTap={() => setOverlayPreview(true)}
+    >
       <Box
         width={44}
         height={44}

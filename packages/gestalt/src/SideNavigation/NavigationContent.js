@@ -28,14 +28,19 @@ export default function NavigationContent({
   footer,
   header,
   showBorder,
-  collapsible,
 }: Props): ReactNode {
   const navigationChildren = flattenChildrenWithKeys(children);
 
   validateChildren({ children: navigationChildren, filterLevel: 'main' });
 
-  const { collapsed, onCollapse, overlayPreview, setOverlayPreview, transitioning } =
-    useSideNavigation();
+  const {
+    collapsible,
+    collapsed: sideNavigationCollapsed,
+    onCollapse,
+    overlayPreview,
+    setOverlayPreview,
+    transitioning,
+  } = useSideNavigation();
 
   const scrollContainer = useRef<HTMLDivElement | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -46,14 +51,14 @@ export default function NavigationContent({
     const scrollHandler = () => setIsScrolled(!!element?.scrollTop);
 
     const mouseEnterHandler = () => {
-      if (collapsed && !transitioning) {
+      if (sideNavigationCollapsed && !transitioning) {
         clearTimeout(previewTimeoutRef.current);
         setOverlayPreview(true);
       }
     };
 
     const mouseLeaveHandler = () => {
-      if (collapsed) {
+      if (sideNavigationCollapsed) {
         clearTimeout(previewTimeoutRef.current);
         previewTimeoutRef.current = setTimeout(() => setOverlayPreview(false), 1000);
       }
@@ -69,18 +74,22 @@ export default function NavigationContent({
       element?.removeEventListener('mouseenter', mouseEnterHandler);
       element?.removeEventListener('mouseleave', mouseLeaveHandler);
     };
-  }, [collapsed, onCollapse, setOverlayPreview, transitioning]);
+  }, [sideNavigationCollapsed, onCollapse, setOverlayPreview, transitioning]);
 
-  const items =
-    collapsed && !overlayPreview ? groupIconlessChildren(navigationChildren) : navigationChildren;
+  const isCollapsed = sideNavigationCollapsed && !overlayPreview;
+
+  const items = isCollapsed ? groupIconlessChildren(navigationChildren) : navigationChildren;
   const iconCount = countItemsWithIcon(navigationChildren);
 
   const shouldCollapseEmpty = iconCount === 0;
-  const collapsedWidth = shouldCollapseEmpty ? 40 : 60;
-  const normalWidth = 280;
+  const shouldHideItems = sideNavigationCollapsed && shouldCollapseEmpty && !overlayPreview;
 
-  const wrapperWidth = collapsed ? collapsedWidth : normalWidth;
-  const contentWidth = collapsed && !overlayPreview ? collapsedWidth : normalWidth;
+  const normalWidth = 280;
+  const headerWidth = isCollapsed ? 44 : undefined;
+  const collapsedWidth = shouldCollapseEmpty ? 40 : 60;
+
+  const wrapperWidth = sideNavigationCollapsed ? collapsedWidth : normalWidth;
+  const contentWidth = isCollapsed ? collapsedWidth : normalWidth;
 
   return (
     <Box
@@ -99,18 +108,16 @@ export default function NavigationContent({
           [borderStyles.borderRight]: showBorder && !overlayPreview,
           [borderStyles.raisedBottom]: overlayPreview,
           [styles.contentWidthTransition]: collapsible,
-          [layoutStyles.overflowHidden]: collapsible,
+          [layoutStyles.overflowScrollY]: collapsible,
           [boxStyles.default]: collapsible,
         })}
-        style={{
-          width: collapsible ? contentWidth : undefined,
-        }}
+        style={{ width: collapsible ? contentWidth : undefined }}
       >
         {collapsible && <Collapser raised={isScrolled} />}
 
         <Box
-          display={collapsed && shouldCollapseEmpty ? 'none' : undefined}
           padding={2}
+          display={shouldHideItems ? 'none' : undefined}
           width={collapsible ? contentWidth : undefined}
           dangerouslySetInlineStyle={{
             __style: {
@@ -121,7 +128,7 @@ export default function NavigationContent({
           <Flex direction="column" gap={{ column: 4, row: 0 }}>
             {header ? (
               <Flex direction="column" gap={{ column: 4, row: 0 }}>
-                <Box width={collapsed ? 44 : undefined}>{header}</Box>
+                <Box width={headerWidth}>{header}</Box>
                 <Divider />
               </Flex>
             ) : null}
@@ -131,7 +138,7 @@ export default function NavigationContent({
             {footer ? (
               <Flex direction="column" gap={{ column: 4, row: 0 }}>
                 <Divider />
-                <Box width={collapsed ? 44 : undefined}>{footer}</Box>
+                <Box width={headerWidth}>{footer}</Box>
               </Flex>
             ) : null}
           </Flex>

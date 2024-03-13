@@ -20,7 +20,11 @@ export default function Collapser({ raised }: { raised: boolean }): ReactNode {
       >
         <IconButton
           icon={collapsed ? 'arrow-double-forward' : 'arrow-double-back'}
-          accessibilityLabel="expand"
+          accessibilityLabel={
+            collapsed
+              ? 'Navigation collapsed. Click button to expand.'
+              : 'Navigation expanded. Click button to collapse.'
+          }
           size="xs"
           onClick={() => {
             onCollapse?.(!collapsed);
