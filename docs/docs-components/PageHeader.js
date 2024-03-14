@@ -143,18 +143,19 @@ export default function PageHeader({
       >
         <Flex direction="column" gap={3}>
           <Flex justifyContent="between" wrap>
-            <Heading>
-              {name}{' '}
-              {badge ? (
-                <Badge
-                  tooltip={{ text: badgeMap[badge].tooltipText }}
-                  text={badgeMap[badge].text}
-                  position="top"
-                  type={badgeMap[badge].type || 'info'}
-                />
-              ) : null}
-            </Heading>
-
+            <Box data-id="helix-title">
+              <Heading>
+                {name}{' '}
+                {badge ? (
+                  <Badge
+                    tooltip={{ text: badgeMap[badge].tooltipText }}
+                    text={badgeMap[badge].text}
+                    position="top"
+                    type={badgeMap[badge].type || 'info'}
+                  />
+                ) : null}
+              </Heading>
+            </Box>
             {/* Enable this when we have a consistent directory structure */}
             {['component' /* 'utility' */].includes(type) && (
               <Flex direction="column" gap={1}>
