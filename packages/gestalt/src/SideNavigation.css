@@ -44,6 +44,11 @@
   margin-top: var(--space-600);
 }
 
+/*
+  Here TopItem and Group subcomponents are selected with `.liItem:not(.section)`
+  For example, if TopItem is the previous adjacent sibling of Section,
+  the section's top divider should appear.
+*/
 .liItem:not(.section) + .section .sectionStartDivider {
   display: block;
 }
