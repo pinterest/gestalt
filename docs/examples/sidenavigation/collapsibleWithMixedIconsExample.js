@@ -18,6 +18,7 @@ export default function Example(): ReactNode {
           <SideNavigation.TopItem
             href="#"
             label="Trends"
+            icon="trending"
             active={page === '1' ? 'page' : undefined}
             notificationAccessibilityLabel="New data available"
             primaryAction={{ icon: 'ellipsis', tooltip: { text: 'Mark as read' } }}
@@ -34,6 +35,7 @@ export default function Example(): ReactNode {
               setPage('2');
             }}
             label="Business Details"
+            icon="business-hierarchy"
             active={page === '2' ? 'page' : undefined}
             badge={{ text: 'New', type: 'success' }}
             counter={{ number: '10', accessibilityLabel: 'New details' }}
@@ -76,6 +78,7 @@ export default function Example(): ReactNode {
               href="#"
               label="Public profile"
               active={page === '6' ? 'page' : undefined}
+              icon="overview"
               notificationAccessibilityLabel="Needs your attention"
               onClick={({ event }) => {
                 event.preventDefault();
@@ -87,6 +90,7 @@ export default function Example(): ReactNode {
               href="#"
               label="Personal information"
               active={page === '7' ? 'page' : undefined}
+              icon="workflow-status-unstarted"
               onClick={({ event }) => {
                 event.preventDefault();
                 setPage('7');
@@ -98,6 +102,7 @@ export default function Example(): ReactNode {
             <SideNavigation.TopItem
               href="#"
               label="Contact Information"
+              icon="phone"
               active={page === '8' ? 'page' : undefined}
               onClick={({ event }) => {
                 event.preventDefault();
