@@ -229,15 +229,21 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
           >
             {icon ? (
               <Flex.Item alignSelf="center">
-                <Box aria-hidden>
+                <Box aria-hidden={!collapsed}>
                   {typeof icon === 'string' ? (
-                    <Icon size={20} inline icon={icon} accessibilityLabel="" color={textColor} />
+                    <Icon
+                      size={20}
+                      inline
+                      icon={icon}
+                      accessibilityLabel={collapsed ? label : ''}
+                      color={textColor}
+                    />
                   ) : (
                     <Icon
                       size={20}
                       inline
                       dangerouslySetSvgPath={icon}
-                      accessibilityLabel=""
+                      accessibilityLabel={collapsed ? label : ''}
                       color={textColor}
                     />
                   )}

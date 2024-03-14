@@ -144,15 +144,21 @@ export default function SideNavigationGroupContent({
       <Flex gap={{ row: 2, column: 0 }} height="100%" width="100%">
         {icon ? (
           <Flex.Item alignSelf="center">
-            <Box aria-hidden>
+            <Box aria-hidden={!collapsed}>
               {typeof icon === 'string' ? (
-                <Icon size={20} inline icon={icon} accessibilityLabel="" color="default" />
+                <Icon
+                  size={20}
+                  inline
+                  icon={icon}
+                  accessibilityLabel={collapsed ? label : ''}
+                  color="default"
+                />
               ) : (
                 <Icon
                   size={20}
                   inline
                   dangerouslySetSvgPath={icon}
-                  accessibilityLabel=""
+                  accessibilityLabel={collapsed ? label : ''}
                   color="default"
                 />
               )}
