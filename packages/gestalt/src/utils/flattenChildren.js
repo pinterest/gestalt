@@ -35,6 +35,11 @@ export function flattenChildrenWithKeys(
   }, []);
 }
 
+/**
+ * Do not use if the children need to be rendered.
+ * Use `flattenChildrenWithKeys` to render
+ * as it assigns keys to the children without keys.
+ * */
 export default function flattenChildren(children: ReactNode): ReactChildArray {
   // $FlowFixMe[underconstrained-implicit-instantiation]
   return Children.toArray(children).reduce((acc, child) => {
