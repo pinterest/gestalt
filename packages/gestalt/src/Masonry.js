@@ -541,6 +541,8 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
             <div // keep this in sync with renderMasonryComponent
               className="static"
               data-grid-item
+              // $FlowFixMe[prop-missing] We're assuming `columnSpan` exists
+              data-column-span={item.columnSpan}
               // eslint-disable-next-line react/no-array-index-key
               key={i}
               ref={(el) => {
