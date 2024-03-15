@@ -8,11 +8,12 @@ import { useSideNavigation } from './contexts/SideNavigationProvider';
 import Dropdown from './Dropdown';
 import icons from './icons/index';
 import styles from './SideNavigation.css';
-import getChildrenToArray from './SideNavigation/getChildrenToArray';
 import SideNavigationGroupContent from './SideNavigation/GroupContent';
 import SideNavigationGroupMobile from './SideNavigation/GroupMobile';
+import { getChildrenActiveProp, validateChildren } from './SideNavigation/navigationChildrenUtils';
 import { NESTING_MARGIN_START_MAP } from './SideNavigationTopItem';
 import TapArea from './TapArea';
+import { flattenChildrenWithKeys } from './utils/flattenChildren';
 import { type Indexable } from './zIndex';
 
 type IconType = $Keys<typeof icons> | { __path: string };
@@ -105,37 +106,19 @@ export default function SideNavigationGroup({
 
   // Manages children
   const itemId = useId();
-
   const { nestedLevel } = useNesting();
+  const {
+    collapsed: sideNavigationCollapsed,
+    overlayPreview,
+    setOverlayPreview,
+    selectedItemId,
+    setSelectedItemId,
+  } = useSideNavigation();
 
-  const { selectedItemId, setSelectedItemId } = useSideNavigation();
+  const navigationChildren = flattenChildrenWithKeys(children);
+  const hasAnyActiveChild = !!getChildrenActiveProp(navigationChildren);
 
-  const navigationChildren = getChildrenToArray({
-    children,
-    filterLevel: 'nested',
-  });
-
-  const hasActiveChildCallback = (child: { props: { active: 'page' | 'section' } }) =>
-    child?.props?.active && ['page', 'section'].includes(child?.props?.active);
-
-  const hasActiveChildren = !!navigationChildren.find(hasActiveChildCallback);
-
-  let hasActiveGrandChildren;
-
-  if (nestedLevel === 0 && !hasActiveChildren) {
-    hasActiveGrandChildren = navigationChildren
-      .filter((child) => child?.type?.displayName === 'SideNavigation.NestedGroup')
-      .map((child) =>
-        getChildrenToArray({
-          children: child?.props?.children,
-          filterLevel: 'nested',
-        }).find(hasActiveChildCallback),
-      )
-      .filter(Boolean);
-  }
-
-  const hasAnyActiveChild =
-    !!hasActiveChildren || (!!hasActiveGrandChildren && !!hasActiveGrandChildren[0]);
+  validateChildren({ children: navigationChildren, filterLevel: 'nested' });
 
   const isExpandable = display === 'expandable';
 
@@ -154,10 +137,14 @@ export default function SideNavigationGroup({
 
   const itemColor = hovered ? 'secondary' : undefined;
 
-  const paddingStyle = {
-    paddingInlineStart: NESTING_MARGIN_START_MAP[nestedLevel],
-    paddingInlineEnd: TOKEN_SPACE_400,
-  };
+  const collapsed = sideNavigationCollapsed && !overlayPreview;
+
+  const paddingStyle = !collapsed
+    ? {
+        paddingInlineStart: NESTING_MARGIN_START_MAP[nestedLevel],
+        paddingInlineEnd: TOKEN_SPACE_400,
+      }
+    : {};
 
   if (isMobile) {
     return (
@@ -198,6 +185,10 @@ export default function SideNavigationGroup({
               } else {
                 onExpand?.({ expanded: !isExpanded });
               }
+
+              if (collapsed) {
+                setOverlayPreview(true);
+              }
             }}
           >
             <SideNavigationGroupContent
@@ -216,6 +207,7 @@ export default function SideNavigationGroup({
               setCompression={setCompression}
               hovered={hovered}
               focused={focused}
+              hasActiveChild={hasAnyActiveChild}
             />
           </TapArea>
         ) : (
@@ -235,9 +227,10 @@ export default function SideNavigationGroup({
             display={display}
             primaryAction={primaryAction}
             setCompression={setCompression}
+            hasActiveChild={hasAnyActiveChild}
           />
         )}
-        {isExpanded ? (
+        {!collapsed && isExpanded ? (
           <ul id={itemId} className={classnames(styles.ulItem)}>
             {navigationChildren}
           </ul>

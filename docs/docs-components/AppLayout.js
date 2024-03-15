@@ -16,7 +16,7 @@ import ResourcesFooter from './ResourcesFooter';
 import SkipToContent from './SkipToContent';
 
 export const CONTENT_MAX_WIDTH_PX = 1200;
-const HEADER_HEIGHT_PX = 75;
+const HEADER_HEIGHT_WITH_MARGIN = 90;
 const fullWidthPages = ['home', 'whats_new', 'roadmap'];
 const fullBleedNoNavigationPages = [
   '/year_in_review_2022',
@@ -109,11 +109,11 @@ export default function AppLayout({ children, colorScheme }: Props): ReactNode {
           <Box
             display="none"
             mdDisplay="block"
-            position="fixed"
-            overflow="auto"
-            height={`calc(100% - ${HEADER_HEIGHT_PX}px)`}
-            minWidth={MIN_NAV_WIDTH_PX}
+            height={`calc(100vh - ${HEADER_HEIGHT_WITH_MARGIN}px)`}
             marginTop={2}
+            dangerouslySetInlineStyle={{
+              __style: { position: 'sticky', top: HEADER_HEIGHT_WITH_MARGIN },
+            }}
           >
             <DocsSideNavigation showBorder />
           </Box>

@@ -12,6 +12,10 @@ import SandpackExample from '../../docs-components/SandpackExample';
 import activeItemExample from '../../examples/sidenavigation/activeItemExample';
 import badgeExample from '../../examples/sidenavigation/badgeExample';
 import borderExample from '../../examples/sidenavigation/borderExample';
+import collapsibleExample from '../../examples/sidenavigation/collapsibleExample';
+import collapsibleHeaderExample from '../../examples/sidenavigation/collapsibleHeaderExample';
+import collapsibleWithMixedIconsExample from '../../examples/sidenavigation/collapsibleWithMixedIconsExample';
+import collapsibleWithoutIconsExample from '../../examples/sidenavigation/collapsibleWithoutIconsExample';
 import correctGroupingExample from '../../examples/sidenavigation/correctGroupingExample';
 import correctHeadingExample from '../../examples/sidenavigation/correctHeadingExample';
 import correctIconExample from '../../examples/sidenavigation/correctIconExample';
@@ -435,6 +439,7 @@ Beware that when controlled, the list path to the active item is not automatical
             }
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           title="Subcomponent composability"
           description={`SideNavigation requires its own subcomponents as children to build the list of navigation items.
@@ -448,6 +453,63 @@ When building SideNavigation, we might want to render different combinations of 
               <SandpackExample
                 code={subcomponent}
                 name="Subcomponent reusability example"
+                previewHeight={500}
+              />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Collapsible"
+          description="Providing `collapsed` prop to SideNavigation makes the component collapsible. Collapsible variant of SideNavigation is a controlled component and it has expand/collapse icon button at the top. Clicking the icon button reveals a complete list of navigation options when expanded and minimizes these options, often to a series of compact icons or completely hidden when collapsed. This variant is not available for mobile."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            title="Items with icons"
+            description="When collapsed, if all the navigation items have icons, SideNavigation is displayed as a compact set of icons."
+            sandpackExample={
+              <SandpackExample
+                code={collapsibleExample}
+                name="Collapsible with icons example"
+                previewHeight={500}
+              />
+            }
+          />
+
+          <MainSection.Card
+            cardSize="lg"
+            title="Mixed items with and without icons"
+            description="If some of the navigation items don't have icons, those items are collapsed into an ellipsis. Clicking on ellipses expands the SideNavigation in preview mode and when an item is selected, the component is collapsed again."
+            sandpackExample={
+              <SandpackExample
+                code={collapsibleWithMixedIconsExample}
+                name="Collapsible mixed icons example"
+                previewHeight={500}
+              />
+            }
+          />
+
+          <MainSection.Card
+            cardSize="lg"
+            title="Collapsible header"
+            description="When collapsed, the header and the footer of SideNavigation should be rendered accordingly."
+            sandpackExample={
+              <SandpackExample
+                code={collapsibleHeaderExample}
+                name="Collapsible header example"
+                previewHeight={500}
+              />
+            }
+          />
+
+          <MainSection.Card
+            cardSize="lg"
+            title="Items without icons"
+            description="If none of the SideNavigation items have icons, the component is collapsed only with expand icon button."
+            sandpackExample={
+              <SandpackExample
+                code={collapsibleWithoutIconsExample}
+                name="Collapsible without icons example"
                 previewHeight={500}
               />
             }

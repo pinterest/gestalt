@@ -5,6 +5,7 @@ import PrimaryActionIconButton from './PrimaryActionIconButton';
 import Badge from '../Badge';
 import Box from '../Box';
 import { useDeviceType } from '../contexts/DeviceTypeProvider';
+import { useSideNavigation } from '../contexts/SideNavigationProvider';
 import Dropdown from '../Dropdown';
 import Flex from '../Flex';
 import Icon from '../Icon';
@@ -20,33 +21,19 @@ type BadgeType = {
 };
 type Counter = { number: string, accessibilityLabel: string };
 
-export default function SideNavigationGroupContent({
-  itemColor,
-  expanded,
-  selectedItemId,
-  itemId,
-  paddingStyle,
-  icon,
-  label,
-  badge,
-  notificationAccessibilityLabel,
-  counter,
-  display,
-  primaryAction,
-  setCompression,
-  hovered,
-  focused,
-}: {
+type Props = {
   hovered: boolean,
   focused: boolean,
   itemColor: ?'secondary',
   expanded: boolean,
   selectedItemId: string,
   itemId: string,
-  paddingStyle: {
-    paddingInlineStart: string | number | void,
-    paddingInlineEnd: string | number | void,
-  },
+  paddingStyle:
+    | {
+        paddingInlineStart: string | number | void,
+        paddingInlineEnd: string | number | void,
+      }
+    | {},
   icon?: IconType,
   label: string,
   badge?: BadgeType,
@@ -66,10 +53,32 @@ export default function SideNavigationGroupContent({
     dropdownItems?: $ReadOnlyArray<Element<typeof Dropdown.Item>>,
   },
   setCompression: ('compress' | 'none') => void,
-}): ReactNode {
+  hasActiveChild?: boolean,
+};
+
+export default function SideNavigationGroupContent({
+  itemColor,
+  expanded,
+  selectedItemId,
+  itemId,
+  paddingStyle,
+  icon,
+  label,
+  badge,
+  notificationAccessibilityLabel,
+  counter,
+  display,
+  primaryAction,
+  setCompression,
+  hovered,
+  focused,
+  hasActiveChild,
+}: Props): ReactNode {
   // Manages adaptiveness
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
+
+  const { collapsed: sideNavigationCollapsed, overlayPreview } = useSideNavigation();
 
   // Manages PrimaryAction
   const [forceIconButton, setForceIconButton] = useState<'force' | 'default'>('default');
@@ -92,61 +101,99 @@ export default function SideNavigationGroupContent({
     }
   }, [hovered, focused, primaryAction, forceIconButton, isMobile, showIconButton]);
 
+  const hasBorder = sideNavigationCollapsed
+    ? hasActiveChild
+    : expanded && selectedItemId === itemId;
+
+  const collapsed = sideNavigationCollapsed && !overlayPreview;
+
   return (
     <Box
       color={itemColor ?? undefined}
-      paddingY={2}
+      paddingY={collapsed ? undefined : 2}
+      padding={collapsed ? 3 : undefined}
+      width={collapsed ? 44 : undefined}
+      height={collapsed ? 44 : undefined}
       minHeight={44}
       rounding={2}
       display="flex"
       alignItems="center"
+      position="relative"
       dangerouslySetInlineStyle={{
-        __style:
-          expanded && selectedItemId === itemId
-            ? {
-                border: `2px solid ${TOKEN_COLOR_BACKGROUND_SELECTED_BASE}`,
-                ...paddingStyle,
-              }
-            : paddingStyle,
+        __style: hasBorder
+          ? {
+              border: `2px solid ${TOKEN_COLOR_BACKGROUND_SELECTED_BASE}`,
+              ...paddingStyle,
+            }
+          : paddingStyle,
       }}
     >
+      {collapsed && icon && notificationAccessibilityLabel ? (
+        <Box
+          aria-label={notificationAccessibilityLabel}
+          height={8}
+          width={8}
+          rounding="circle"
+          color="primary"
+          role="status"
+          position="absolute"
+          dangerouslySetInlineStyle={{ __style: { top: 4, right: 4 } }}
+        />
+      ) : null}
+
       <Flex gap={{ row: 2, column: 0 }} height="100%" width="100%">
         {icon ? (
           <Flex.Item alignSelf="center">
-            <Box aria-hidden>
+            <Box aria-hidden={!collapsed}>
               {typeof icon === 'string' ? (
-                <Icon inline icon={icon} accessibilityLabel="" color="default" />
+                <Icon
+                  size={20}
+                  inline
+                  icon={icon}
+                  accessibilityLabel={collapsed ? label : ''}
+                  color="default"
+                />
               ) : (
-                <Icon inline dangerouslySetSvgPath={icon} accessibilityLabel="" color="default" />
+                <Icon
+                  size={20}
+                  inline
+                  dangerouslySetSvgPath={icon}
+                  accessibilityLabel={collapsed ? label : ''}
+                  color="default"
+                />
               )}
             </Box>
           </Flex.Item>
         ) : null}
-        <Flex.Item alignSelf="center" flex="grow">
-          <Text inline color="default">
-            {label}
-            {badge || notificationAccessibilityLabel ? (
-              <Box marginStart={1} display="inlineBlock" height="100%">
-                {/* Adds a pause for screen reader users between the text content */}
-                <Box display="visuallyHidden">{`, `}</Box>
-                {!notificationAccessibilityLabel && badge ? (
-                  <Badge text={badge.text} type={badge.type} />
-                ) : null}
-                {notificationAccessibilityLabel ? (
-                  <Box
-                    aria-label={notificationAccessibilityLabel}
-                    height={8}
-                    width={8}
-                    rounding="circle"
-                    color="primary"
-                    role="status"
-                  />
-                ) : null}
-              </Box>
-            ) : null}
-          </Text>
-        </Flex.Item>
-        {counter && (showIconButton === 'hide' || isMobile) ? (
+
+        {!collapsed ? (
+          <Flex.Item alignSelf="center" flex="grow">
+            <Text inline color="default">
+              {label}
+              {badge || notificationAccessibilityLabel ? (
+                <Box marginStart={1} display="inlineBlock" height="100%">
+                  {/* Adds a pause for screen reader users between the text content */}
+                  <Box display="visuallyHidden">{`, `}</Box>
+                  {!notificationAccessibilityLabel && badge ? (
+                    <Badge text={badge.text} type={badge.type} />
+                  ) : null}
+                  {notificationAccessibilityLabel ? (
+                    <Box
+                      aria-label={notificationAccessibilityLabel}
+                      height={8}
+                      width={8}
+                      rounding="circle"
+                      color="primary"
+                      role="status"
+                    />
+                  ) : null}
+                </Box>
+              ) : null}
+            </Text>
+          </Flex.Item>
+        ) : null}
+
+        {!collapsed && counter && (showIconButton === 'hide' || isMobile) ? (
           <Flex.Item flex="none" alignSelf="center">
             <Box display="visuallyHidden">{`, `}</Box>
             <Box
@@ -160,7 +207,7 @@ export default function SideNavigationGroupContent({
           </Flex.Item>
         ) : null}
 
-        {(showIconButton === 'show' || isMobile) && primaryAction ? (
+        {!collapsed && (showIconButton === 'show' || isMobile) && primaryAction ? (
           <Flex.Item flex="none" alignSelf="center">
             {/* This is a workaround to announce the counter as it's replaced on focus */}
             {counter ? (
@@ -192,7 +239,8 @@ export default function SideNavigationGroupContent({
             </Box>
           </Flex.Item>
         ) : null}
-        {['expandable', 'expandableExpanded'].includes(display) || isMobile ? (
+
+        {(!collapsed && ['expandable', 'expandableExpanded'].includes(display)) || isMobile ? (
           <Flex.Item flex="none" alignSelf="center">
             {/* marginEnd={-2} is a hack to correctly position the counter as Flex + gap + width="100%" doean't expand to full width */}
             <Box aria-hidden marginEnd={-2} marginStart={2} tabIndex={-1} rounding="circle">
