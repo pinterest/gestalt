@@ -204,7 +204,7 @@ function getTwoColItemPosition<T>({
   };
 }
 
-const defaultTwoColumnModuleLayout = <T>({
+const defaultTwoColumnModuleLayout = <T: { columnSpan?: number, ... }>({
   columnWidth = 236,
   gutter = 14,
   heightsCache,
@@ -234,7 +234,9 @@ const defaultTwoColumnModuleLayout = <T>({
 
   return (items): $ReadOnlyArray<Position> => {
     if (isNil(width) || !items.every((item) => measurementCache.has(item))) {
-      return items.map(() => offscreen(columnWidth));
+      return items.map((item) =>
+        offscreen(item.columnSpan === 2 ? columnWidth * 2 + gutter : columnWidth),
+      );
     }
 
     const centerOffset =
@@ -264,8 +266,9 @@ const defaultTwoColumnModuleLayout = <T>({
     const itemsWithPositions = items.filter((item) => positionCache?.has(item));
     const itemsWithoutPositions = items.filter((item) => !positionCache?.has(item));
 
-    // $FlowFixMe[incompatible-use] We're assuming `columnSpan` exists
-    const twoColumnItems = itemsWithoutPositions.filter((item) => item.columnSpan > 1);
+    const twoColumnItems = itemsWithoutPositions.filter(
+      (item) => item.columnSpan != null && item.columnSpan > 2,
+    );
     const hasTwoColumnItems = twoColumnItems.length > 0;
 
     const commonGetPositionArgs = {
@@ -309,7 +312,6 @@ const defaultTwoColumnModuleLayout = <T>({
       }
 
       const oneColumnItems = batchWithTwoColumnItems.filter(
-        // $FlowFixMe[incompatible-type] We're assuming `columnSpan` exists
         (item) => !item.columnSpan || item.columnSpan === 1,
       );
 

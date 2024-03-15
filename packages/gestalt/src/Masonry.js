@@ -1,4 +1,5 @@
 // @flow strict
+import { type } from 'os';
 import { Component as ReactComponent, type Node as ReactNode } from 'react';
 import debounce, { type DebounceReturn } from './debounce';
 import FetchItems from './FetchItems';
@@ -15,6 +16,7 @@ import ScrollContainer from './Masonry/ScrollContainer';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { type Position } from './Masonry/types';
 import uniformRowLayout from './Masonry/uniformRowLayout';
+import { columnSticky } from './Table.css';
 import throttle, { type ThrottleReturn } from './throttle';
 
 const RESIZE_DEBOUNCE = 300;
@@ -130,7 +132,10 @@ type State<T> = {
  * ![Masonry light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Masonry.spec.mjs-snapshots/Masonry-chromium-darwin.png)
  *
  */
-export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<T>> {
+export default class Masonry<T: { columnSpan?: number, ... }> extends ReactComponent<
+  Props<T>,
+  State<T>,
+> {
   static createMeasurementStore<T1: { ... }, T2>(): MeasurementStore<T1, T2> {
     return new MeasurementStore();
   }
@@ -482,6 +487,10 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
+    const twoColumnWidth =
+      typeof columnWidth === 'number' && typeof gutter === 'number'
+        ? columnWidth * 2 + gutter
+        : columnWidth;
 
     let getPositions;
 
@@ -541,8 +550,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
             <div // keep this in sync with renderMasonryComponent
               className="static"
               data-grid-item
-              // $FlowFixMe[prop-missing] We're assuming `columnSpan` exists
-              data-column-span={item.columnSpan}
+              data-column-span={item.columnSpan ?? 1}
               // eslint-disable-next-line react/no-array-index-key
               key={i}
               ref={(el) => {
@@ -562,8 +570,10 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
                 WebkitTransform: 'translateX(0px) translateY(0px)',
                 width:
                   layout === 'flexible' || layout === 'serverRenderedFlexible'
-                    ? undefined
-                    : layoutNumberToCssDimension(columnWidth), // we can't set a width for server rendered flexible items
+                    ? undefined // we can't set a width for server rendered flexible items
+                    : layoutNumberToCssDimension(
+                        item.columnSpan === 2 ? twoColumnWidth : columnWidth,
+                      ),
               }}
             >
               {renderItem({ data: item, itemIdx: i, isMeasuring: false })}
@@ -580,7 +590,6 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       const itemsToRender = items.filter((item) => item && measurementStore.has(item));
       const itemsWithoutPositions = items.filter((item) => item && !positionStore.has(item));
       const hasTwoColumnItems =
-        // $FlowFixMe[prop-missing] We're assuming `columnSpan` exists
         _twoColItems && itemsWithoutPositions.some((item) => item.columnSpan === 2);
 
       // If there are 2-col items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
