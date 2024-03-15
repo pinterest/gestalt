@@ -130,10 +130,7 @@ type State<T> = {
  * ![Masonry light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Masonry.spec.mjs-snapshots/Masonry-chromium-darwin.png)
  *
  */
-export default class Masonry<T: { columnSpan?: number, ... }> extends ReactComponent<
-  Props<T>,
-  State<T>,
-> {
+export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Props<T>, State<T>> {
   static createMeasurementStore<T1: { ... }, T2>(): MeasurementStore<T1, T2> {
     return new MeasurementStore();
   }

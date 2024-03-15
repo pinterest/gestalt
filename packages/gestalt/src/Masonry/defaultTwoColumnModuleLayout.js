@@ -204,7 +204,7 @@ function getTwoColItemPosition<T>({
   };
 }
 
-const defaultTwoColumnModuleLayout = <T: { columnSpan?: number, ... }>({
+const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
   columnWidth = 236,
   gutter = 14,
   heightsCache,
@@ -266,9 +266,7 @@ const defaultTwoColumnModuleLayout = <T: { columnSpan?: number, ... }>({
     const itemsWithPositions = items.filter((item) => positionCache?.has(item));
     const itemsWithoutPositions = items.filter((item) => !positionCache?.has(item));
 
-    const twoColumnItems = itemsWithoutPositions.filter(
-      (item) => item.columnSpan != null && item.columnSpan > 2,
-    );
+    const twoColumnItems = itemsWithoutPositions.filter((item) => item.columnSpan === 2);
     const hasTwoColumnItems = twoColumnItems.length > 0;
 
     const commonGetPositionArgs = {
