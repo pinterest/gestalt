@@ -1,3 +1,9 @@
+## 146.4.1 (Mar 15, 2024)
+
+### Patch
+
+- Internal: testing data-id for HelixBot to detect page title ([#3483](https://github.com/pinterest/gestalt/pull/3483)) - [Preview link](https://deploy-preview-3483--gestalt.netlify.app?devexample=true)
+
 ## 146.4.0 (Mar 13, 2024)
 
 ### Minor
