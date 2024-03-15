@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import Box from '../Box';
+import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import { useSideNavigation } from '../contexts/SideNavigationProvider';
 import Icon from '../Icon';
 import { type Props as TopItemProps } from '../SideNavigationTopItem';
@@ -13,14 +14,16 @@ export type Props = {
 
 export default function ItemsEllipsis({
   active,
-  accessibilityLabel = 'Collapsed navigation items. Expand for more options',
+  accessibilityLabel,
   notificationAccessibilityLabel,
 }: Props): ReactNode {
   const { setOverlayPreview } = useSideNavigation();
+  const { accessibilityEllipsisLabel: deafultAccessibilityEllipsisLabel } =
+    useDefaultLabelContext('SideNavigation');
 
   return (
     <TapArea
-      accessibilityLabel={accessibilityLabel}
+      accessibilityLabel={accessibilityLabel || deafultAccessibilityEllipsisLabel}
       rounding={2}
       onTap={() => setOverlayPreview(true)}
     >

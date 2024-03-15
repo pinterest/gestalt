@@ -1,12 +1,15 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import Box from '../Box';
+import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import { useSideNavigation } from '../contexts/SideNavigationProvider';
 import IconButton from '../IconButton';
 import Sticky from '../Sticky';
 
 export default function Collapser({ raised }: { raised: boolean }): ReactNode {
   const { collapsed, overlayPreview, onCollapse, setOverlayPreview } = useSideNavigation();
+  const { accessibilityCollapseButtonLabel, accessibilityExpandButtonLabel } =
+    useDefaultLabelContext('SideNavigation');
 
   return (
     <Sticky top={0}>
@@ -21,9 +24,7 @@ export default function Collapser({ raised }: { raised: boolean }): ReactNode {
         <IconButton
           icon={collapsed ? 'arrow-double-forward' : 'arrow-double-back'}
           accessibilityLabel={
-            collapsed
-              ? 'Navigation collapsed. Click button to expand.'
-              : 'Navigation expanded. Click button to collapse.'
+            collapsed ? accessibilityExpandButtonLabel : accessibilityCollapseButtonLabel
           }
           size="xs"
           onClick={() => {
