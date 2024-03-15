@@ -72,6 +72,15 @@ const labels = {
   },
   SideNavigation: {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss side navigation'),
+    accessibilityCollapseButtonLabel: myI18nTranslator(
+      'Navigation expanded. Click button to collapse.',
+    ),
+    accessibilityExpandButtonLabel: myI18nTranslator(
+      'Navigation collapsed. Click button to expand.',
+    ),
+    accessibilityEllipsisLabel: myI18nTranslator(
+      'Collapsed navigation items. Expand for more options',
+    ),
   },
   BannerSlim: {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss banner'),

@@ -79,6 +79,9 @@ describe('useDefaultLabelContext', () => {
           },
           SideNavigation: {
             accessibilityDismissButtonLabel: 'Dismiss side navigation',
+            accessibilityCollapseButtonLabel: 'Navigation expanded. Click button to collapse.',
+            accessibilityExpandButtonLabel: 'Navigation collapsed. Click button to expand.',
+            accessibilityEllipsisLabel: 'Collapsed navigation items. Expand for more options',
           },
           BannerSlim: {
             accessibilityDismissButtonLabel: 'Dismiss Banner',
