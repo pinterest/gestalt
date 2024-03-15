@@ -1,5 +1,4 @@
 // @flow strict
-import { type } from 'os';
 import { Component as ReactComponent, type Node as ReactNode } from 'react';
 import debounce, { type DebounceReturn } from './debounce';
 import FetchItems from './FetchItems';
@@ -16,7 +15,6 @@ import ScrollContainer from './Masonry/ScrollContainer';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { type Position } from './Masonry/types';
 import uniformRowLayout from './Masonry/uniformRowLayout';
-import { columnSticky } from './Table.css';
 import throttle, { type ThrottleReturn } from './throttle';
 
 const RESIZE_DEBOUNCE = 300;
