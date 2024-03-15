@@ -18,9 +18,6 @@ export default function ItemsEllipsis({
 }: Props): ReactNode {
   const { setOverlayPreview } = useSideNavigation();
 
-  const itemColor = active === 'page' ? 'selected' : undefined;
-  const textColor = active === 'page' ? 'inverse' : 'default';
-
   return (
     <TapArea
       accessibilityLabel={accessibilityLabel}
@@ -34,7 +31,7 @@ export default function ItemsEllipsis({
         display="flex"
         justifyContent="center"
         alignItems="center"
-        color={itemColor}
+        color={active === 'page' ? 'selected' : undefined}
         position="relative"
       >
         {notificationAccessibilityLabel ? (
@@ -50,8 +47,14 @@ export default function ItemsEllipsis({
           />
         ) : null}
 
-        <Box>
-          <Icon accessibilityLabel="" inline size={20} icon="ellipsis" color={textColor} />
+        <Box aria-hidden>
+          <Icon
+            accessibilityLabel=""
+            inline
+            size={20}
+            icon="ellipsis"
+            color={active === 'page' ? 'inverse' : 'default'}
+          />
         </Box>
       </Box>
     </TapArea>

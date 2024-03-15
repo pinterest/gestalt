@@ -30,7 +30,6 @@ type Props = {
  */
 export default function SideNavigationSection({ children, label }: Props): ReactNode {
   const { collapsed: sideNavigationCollapsed, overlayPreview } = useSideNavigation();
-
   const navigationChildren = flattenChildrenWithKeys(children);
 
   validateChildren({ children: navigationChildren, filterLevel: 'main' });
@@ -40,7 +39,9 @@ export default function SideNavigationSection({ children, label }: Props): React
   const shouldCollapseAsEllipsis =
     collapsed && countItemsWithIcon(navigationChildren) !== navigationChildren.length;
 
-  const hasActiveItem = shouldCollapseAsEllipsis && !!getChildrenActiveProp(navigationChildren);
+  const ellipsisActiveProp = shouldCollapseAsEllipsis
+    ? getChildrenActiveProp(navigationChildren)
+    : undefined;
 
   const itemWithNotification = shouldCollapseAsEllipsis
     ? navigationChildren.find((child) => !!child.props.notificationAccessibilityLabel)
@@ -62,7 +63,7 @@ export default function SideNavigationSection({ children, label }: Props): React
 
       {shouldCollapseAsEllipsis ? (
         <ItemsEllipsis
-          active={hasActiveItem ? 'page' : undefined}
+          active={ellipsisActiveProp}
           accessibilityLabel={`Collapsed ${label}. Expand for more options`}
           notificationAccessibilityLabel={
             itemWithNotification?.props.notificationAccessibilityLabel
