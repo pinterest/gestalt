@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import Collapser from './Collapser';
 import {
   countItemsWithIcon,
-  groupIconlessChildren,
+  reduceIconlessChildrenIntoEllipsis,
   validateChildren,
 } from './navigationChildrenUtils';
 import borderStyles from '../Borders.css';
@@ -77,7 +77,9 @@ export default function NavigationContent({
 
   const isCollapsed = sideNavigationCollapsed && !overlayPreview;
 
-  const items = isCollapsed ? groupIconlessChildren(navigationChildren) : navigationChildren;
+  const items = isCollapsed
+    ? reduceIconlessChildrenIntoEllipsis(navigationChildren)
+    : navigationChildren;
   const iconCount = countItemsWithIcon(navigationChildren);
 
   const shouldCollapseEmpty = iconCount === 0;

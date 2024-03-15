@@ -74,7 +74,17 @@ function renderEllipses(items: $ReadOnlyArray<React$Element<empty> | EllipsisPro
   });
 }
 
-export function groupIconlessChildren(children: ReactChildArray): $ReadOnlyArray<ReactNode> {
+/**
+ * Reduces `TopItem` and `Group` items into ellipsis if they have no icons.
+ * This is for items that are not inside `Section`.
+ * If there are `TopItem` or `Group` items before and after `Section`s,
+ * each portion will have separate ellipses for iconless items.
+ * Ellipses are added as props object, not a component, during the process,
+ * so it is easier to update.
+ */
+export function reduceIconlessChildrenIntoEllipsis(
+  children: ReactChildArray,
+): $ReadOnlyArray<ReactNode> {
   let lastEllipsisIndex;
   let lastSectionIndex;
 
@@ -83,22 +93,31 @@ export function groupIconlessChildren(children: ReactChildArray): $ReadOnlyArray
     const isSection = child.type.displayName === 'SideNavigation.Section';
     const shouldSkip = isSection || !!child.props.icon;
 
+    // Keep track of last section index
     if (isSection) lastSectionIndex = index;
+    // Sections or items with icons are skipped and just added to the items list.
     if (shouldSkip) return acc.concat(child);
 
     const { notificationAccessibilityLabel, active } = child.props;
 
+    // Create new ellipsis if there are no ellipses
+    // or after the last ellipsis there is a section.
     if (lastEllipsisIndex === undefined || lastEllipsisIndex < lastSectionIndex) {
       const ellipsis: EllipsisProps = {};
       lastEllipsisIndex = index;
       acc.push(ellipsis);
     }
 
+    // Take the last ellipsis from the resulting list of items.
     const lastEllipsis = acc.at(lastEllipsisIndex);
 
     if (lastEllipsis) {
+      // Set notification label of the current child to the last ellipsis
+      // unless the ellipsis already has a notification label.
       lastEllipsis.notificationAccessibilityLabel ||= notificationAccessibilityLabel;
 
+      // Set ellipsis active prop if the current child or
+      // one of its nested children is active.
       if (active) {
         lastEllipsis.active ||= active;
       } else if (child.type.displayName === 'SideNavigation.Group') {

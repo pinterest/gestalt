@@ -49,6 +49,7 @@
   For example, if TopItem is the previous adjacent sibling of Section,
   the section's top divider should appear.
 */
+
 .liItem:not(.section) + .section .sectionStartDivider {
   display: block;
 }
