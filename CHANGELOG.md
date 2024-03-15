@@ -1,3 +1,9 @@
+## 146.5.0 (Mar 15, 2024)
+
+### Minor
+
+- SideNavigation: Collapsible SideNavigation ([#3476](https://github.com/pinterest/gestalt/pull/3476)) - [Preview link](https://deploy-preview-3476--gestalt.netlify.app?devexample=true)
+
 ## 146.4.1 (Mar 15, 2024)
 
 ### Patch
