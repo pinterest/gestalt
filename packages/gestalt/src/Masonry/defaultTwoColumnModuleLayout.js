@@ -252,7 +252,11 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
   return (items): $ReadOnlyArray<Position> => {
     if (isNil(width) || !items.every((item) => measurementCache.has(item))) {
       return items.map((item) =>
-        offscreen(item.columnSpan === 2 ? columnWidth * 2 + gutter : columnWidth),
+        offscreen(
+          typeof item.columnSpan === 'number'
+            ? columnWidth * item.columnSpan + gutter * (item.columnSpan - 1)
+            : columnWidth,
+        ),
       );
     }
 

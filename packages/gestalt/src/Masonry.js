@@ -482,10 +482,6 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
-    const twoColumnWidth =
-      typeof columnWidth === 'number' && typeof gutter === 'number'
-        ? columnWidth * 2 + gutter
-        : columnWidth;
 
     let getPositions;
 
@@ -567,7 +563,9 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
                   layout === 'flexible' || layout === 'serverRenderedFlexible'
                     ? undefined // we can't set a width for server rendered flexible items
                     : layoutNumberToCssDimension(
-                        item.columnSpan === 2 ? twoColumnWidth : columnWidth,
+                        typeof item.columnSpan === 'number' && columnWidth != null && gutter != null
+                          ? columnWidth * item.columnSpan + gutter * (item.columnSpan - 1)
+                          : columnWidth,
                       ),
               }}
             >
