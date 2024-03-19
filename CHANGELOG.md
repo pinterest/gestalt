@@ -1,3 +1,9 @@
+## 146.5.1 (Mar 19, 2024)
+
+### Patch
+
+- Masonry: Adds a data attribute for two column module on ssr ([#3482](https://github.com/pinterest/gestalt/pull/3482)) - [Preview link](https://deploy-preview-3482--gestalt.netlify.app?devexample=true)
+
 ## 146.5.0 (Mar 15, 2024)
 
 ### Minor
