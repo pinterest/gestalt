@@ -42,7 +42,7 @@ export default function ActivationCardPage({
             type="don't"
             title="When not to use"
             description={`
-          - As a single element communicating updates to the state or status of the surface. Use [Callout](/web/callout) instead.
+          - As a single element communicating updates to the state or status of the surface. Use [BannerCallout](/web/bannercallout) instead.
         `}
           />
         </MainSection.Subsection>

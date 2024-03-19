@@ -18,7 +18,7 @@ const colorMap = {
   '#767676': `color="tertiary"`,
   '#111111': `color="selected|inverse"`,
   transparent: `color="transparent"`,
-  'rgba(51,: 51,51,.8)': `color="transparentDarkGray"`,
+  'rgba(51,51,51,.8)': `color="transparentDarkGray"`,
   '#e2e2e2': `color="lightWash"`,
   '#dadada': `color="darkWash"`,
 };

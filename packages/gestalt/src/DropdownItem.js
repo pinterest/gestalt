@@ -5,7 +5,15 @@ import OptionItem from './Dropdown/OptionItem';
 
 type BadgeType = {
   text: string,
-  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
+  type?:
+    | 'info'
+    | 'error'
+    | 'warning'
+    | 'success'
+    | 'neutral'
+    | 'recommendation'
+    | 'darkWash'
+    | 'lightWash',
 };
 
 type OptionItemType = {
@@ -27,6 +35,10 @@ type Props = {
    * When supplied, will add a data-test-id prop to the dom element.
    */
   dataTestId?: string,
+  /**
+   * Disabled items appear inactive and cannot be interacted with.
+   */
+  disabled?: boolean,
   /**
    * Callback when the user selects an item using the mouse or keyboard.
    */ onSelect: ({
@@ -69,6 +81,7 @@ export default function DropdownItem({
   badge,
   children,
   dataTestId,
+  disabled,
   _index = 0,
   onSelect,
   option,
@@ -80,6 +93,7 @@ export default function DropdownItem({
         <OptionItem
           badge={badge}
           dataTestId={dataTestId}
+          disabled={disabled}
           hoveredItemIndex={hoveredItemIndex}
           id={id}
           index={_index}

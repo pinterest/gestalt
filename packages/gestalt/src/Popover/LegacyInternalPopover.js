@@ -6,7 +6,7 @@ import Flex from '../Flex';
 import LegacyController from '../LegacyController';
 import InternalDismissButton from '../shared/InternalDismissButton';
 
-type Color = 'blue' | 'red' | 'white' | 'darkGray';
+type Color = 'blue' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
 type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 

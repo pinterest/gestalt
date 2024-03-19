@@ -5,6 +5,10 @@ import { type HeightsStoreInterface } from './HeightsStore';
 import mindex from './mindex';
 import { type NodeData, type Position } from './types';
 
+// When there's a 2-col item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to minimize whitespace above the 2-col item
+// This may need to be tweaked to balance the tradeoff of delayed rendering vs having enough possible layouts
+export const TWO_COL_ITEMS_MEASURE_BATCH_SIZE = 6;
+
 function isNil(value: mixed): boolean %checks {
   return value === null || value === undefined;
 }
@@ -25,7 +29,7 @@ function getPositionsOnly<T>(
 function getAdjacentColumnHeightDeltas(heights: $ReadOnlyArray<number>): $ReadOnlyArray<number> {
   return heights.reduce((acc, height, index) => {
     const adjacentColumnHeight = heights[index + 1];
-    if (adjacentColumnHeight) {
+    if (adjacentColumnHeight >= 0) {
       return [...acc, Math.abs(height - adjacentColumnHeight)];
     }
     return acc;
@@ -34,6 +38,23 @@ function getAdjacentColumnHeightDeltas(heights: $ReadOnlyArray<number>): $ReadOn
 
 function calculateTwoColumnModuleWidth(columnWidth: number, gutter: number): number {
   return columnWidth * 2 + gutter;
+}
+
+function calculateSplitIndex<T: { +[string]: mixed }>(
+  itemsWithoutPositions: $ReadOnlyArray<T>,
+): number {
+  // Currently we only support one two column item at the same time, more items will be supporped soon
+  const twoColumnIndex = itemsWithoutPositions.findIndex((item) => item.columnSpan === 2);
+
+  if (twoColumnIndex < TWO_COL_ITEMS_MEASURE_BATCH_SIZE) {
+    return 0;
+  }
+
+  if (twoColumnIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE > itemsWithoutPositions.length) {
+    return itemsWithoutPositions.length - TWO_COL_ITEMS_MEASURE_BATCH_SIZE;
+  }
+
+  return twoColumnIndex;
 }
 
 function initializeHeightsArray<T>({
@@ -200,7 +221,7 @@ function getTwoColItemPosition<T>({
   };
 }
 
-const defaultTwoColumnModuleLayout = <T>({
+const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
   columnWidth = 236,
   gutter = 14,
   heightsCache,
@@ -219,7 +240,7 @@ const defaultTwoColumnModuleLayout = <T>({
   logWhitespace?: (number) => void,
   measurementCache: Cache<T, number>,
   minCols?: number,
-  positionCache?: Cache<T, Position>,
+  positionCache: Cache<T, Position>,
   rawItemCount: number,
   width?: ?number,
 }): ((items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>) => {
@@ -230,7 +251,13 @@ const defaultTwoColumnModuleLayout = <T>({
 
   return (items): $ReadOnlyArray<Position> => {
     if (isNil(width) || !items.every((item) => measurementCache.has(item))) {
-      return items.map(() => offscreen(columnWidth));
+      return items.map((item) =>
+        offscreen(
+          typeof item.columnSpan === 'number'
+            ? columnWidth * item.columnSpan + gutter * (item.columnSpan - 1)
+            : columnWidth,
+        ),
+      );
     }
 
     const centerOffset =
@@ -260,13 +287,8 @@ const defaultTwoColumnModuleLayout = <T>({
     const itemsWithPositions = items.filter((item) => positionCache?.has(item));
     const itemsWithoutPositions = items.filter((item) => !positionCache?.has(item));
 
-    // $FlowFixMe[incompatible-use] We're assuming `columnSpan` exists
-    const twoColumnItems = itemsWithoutPositions.filter((item) => item.columnSpan > 1);
+    const twoColumnItems = itemsWithoutPositions.filter((item) => item.columnSpan === 2);
     const hasTwoColumnItems = twoColumnItems.length > 0;
-    const oneColumnItems = itemsWithoutPositions.filter(
-      // $FlowFixMe[incompatible-type] We're assuming `columnSpan` exists
-      (item) => !item.columnSpan || item.columnSpan === 1,
-    );
 
     const commonGetPositionArgs = {
       centerOffset,
@@ -278,13 +300,33 @@ const defaultTwoColumnModuleLayout = <T>({
     };
 
     if (hasTwoColumnItems) {
+      // If the number of items to position is greater that the batch size
+      // we identify the batch with the two column item and apply the graph only to those items
+      const splitIndex = calculateSplitIndex(itemsWithoutPositions);
+      const shouldBatchItems = itemsWithoutPositions.length > TWO_COL_ITEMS_MEASURE_BATCH_SIZE;
+      const pre = shouldBatchItems ? itemsWithoutPositions.slice(0, splitIndex) : [];
+      const batchWithTwoColumnItems = shouldBatchItems
+        ? itemsWithoutPositions.slice(splitIndex, splitIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE)
+        : itemsWithoutPositions;
+
       // Get positions and heights for painted items
       const { positions: paintedItemPositions, heights: paintedItemHeights } =
         getOneColumnItemPositions({
-          items: itemsWithPositions,
+          items: [...itemsWithPositions, ...pre],
           heights,
           ...commonGetPositionArgs,
         });
+
+      // Adding the extra prev column items to the position cache
+      if (paintedItemPositions.length > itemsWithPositions.length) {
+        paintedItemPositions.forEach(({ item, position }) => {
+          positionCache.set(item, position);
+        });
+      }
+
+      const oneColumnItems = batchWithTwoColumnItems.filter(
+        (item) => !item.columnSpan || item.columnSpan === 1,
+      );
 
       // Initialize the graph
       const graph = new Graph<T>();
@@ -378,25 +420,34 @@ const defaultTwoColumnModuleLayout = <T>({
           ? lowestScoreNode
           : startNodeData;
 
-      const { positions: winningPositions } = winningNode;
+      const { positions } = winningNode;
 
       // Insert 2-col item(s)
       const twoColItem = twoColumnItems[0]; // this should always only be one
       const {
         additionalWhitespace,
-        heights: finalHeights,
+        heights: updatedHeights,
         position: twoColItemPosition,
       } = getTwoColItemPosition<T>({
         item: twoColItem,
-        heights: lowestScoreNode.heights,
+        heights: winningNode.heights,
         ...commonGetPositionArgs,
       });
 
       // Combine winning positions and 2-col item position, add to cache
-      const finalPositions = [
-        ...winningPositions,
-        { item: twoColItem, position: twoColItemPosition },
-      ];
+      const winningPositions = positions.concat({ item: twoColItem, position: twoColItemPosition });
+
+      const positionedItems = new Set(winningPositions.map(({ item }) => item));
+      // depending on where the 2-col item is positioned, there may be items that are still not positioned
+      // calculate the remaining items and add them to the list of final positions
+      const remainingItems = items.filter((item) => !positionedItems.has(item));
+      const { heights: finalHeights, positions: remainingItemPositions } =
+        getOneColumnItemPositions<T>({
+          items: remainingItems,
+          heights: updatedHeights,
+          ...commonGetPositionArgs,
+        });
+      const finalPositions = winningPositions.concat(remainingItemPositions);
 
       // Log additional whitespace shown above the 2-col module
       // This may need to be tweaked or removed if pin leveling is implemented
@@ -406,7 +457,7 @@ const defaultTwoColumnModuleLayout = <T>({
       logWhitespace?.(additionalWhitespaceAboveTwoColModule);
 
       finalPositions.forEach(({ item, position }) => {
-        positionCache?.set(item, position);
+        positionCache.set(item, position);
       });
       heightsCache?.setHeights(finalHeights);
 

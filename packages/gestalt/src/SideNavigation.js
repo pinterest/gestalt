@@ -1,17 +1,11 @@
 // @flow strict
 import { type Node as ReactNode, useId } from 'react';
-import classnames from 'classnames';
-import borderStyles from './Borders.css';
-import Box from './Box';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
 import { SideNavigationProvider } from './contexts/SideNavigationProvider';
-import Divider from './Divider';
-import Flex from './Flex';
 import ScrollBoundaryContainer from './ScrollBoundaryContainer';
-import styles from './SideNavigation.css';
-import getChildrenToArray from './SideNavigation/getChildrenToArray';
 import SideNavigationMobile from './SideNavigation/Mobile';
+import SideNavigationContent from './SideNavigation/NavigationContent';
 import SideNavigationGroup from './SideNavigationGroup';
 import SideNavigationNestedGroup from './SideNavigationNestedGroup';
 import SideNavigationNestedItem from './SideNavigationNestedItem';
@@ -40,7 +34,6 @@ export type Props = {
    */
   dismissButton?: { accessibilityLabel?: string, onDismiss: () => void },
   /**
-  /**
    * Displays a border in SideNavigation. See the [Border](https://gestalt.pinterest.systems/web/sidenavigation#Border) variant for more info.
    */
   showBorder?: boolean,
@@ -48,6 +41,18 @@ export type Props = {
    * Title for mobile navigation.
    */
   mobileTitle?: string,
+  /**
+   * When passed SideNavigation becomes a collapsible controlled component. If not passed, it stays non-collapsible. See the [collapsible variant](https://gestalt.pinterest.systems/web/sidenavigation#Collapsible) to learn more. This functionality is not supported in mobile.
+   */
+  collapsed?: boolean,
+  /**
+   * Callback fired when the SideNavigation is collapsible and the collapse/expand button is clicked. This functionality is not supported in mobile.
+   */
+  onCollapse?: (boolean) => void,
+  /**
+   * Callback fired when the *collapsed* SideNavigation is hovered and opened in preview mode. This functionality is not supported in mobile.
+   */
+  onPreview?: (boolean) => void,
 };
 
 /**
@@ -67,15 +72,15 @@ export default function SideNavigation({
   header,
   showBorder,
   mobileTitle,
+  collapsed,
+  onCollapse,
+  onPreview,
 }: Props): ReactNode {
-  const navigationChildren = getChildrenToArray({
-    children,
-    filterLevel: 'main',
-  });
   const { accessibilityDismissButtonLabel } = useDefaultLabelContext('SideNavigation');
   const id = useId();
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
+  const collapsible = collapsed != null;
 
   if (isMobile) {
     return (
@@ -102,7 +107,7 @@ export default function SideNavigation({
             mobileTitle={mobileTitle}
             id={id}
           >
-            {navigationChildren}
+            {children}
           </SideNavigationMobile>
         </ScrollBoundaryContainer>
       </SideNavigationProvider>
@@ -110,38 +115,21 @@ export default function SideNavigation({
   }
 
   return (
-    <SideNavigationProvider>
-      <ScrollBoundaryContainer>
-        <Box minWidth={280} width={280} height="100%" as="nav" aria-label={accessibilityLabel}>
-          <div
-            className={
-              showBorder ? classnames(borderStyles.borderRight, styles.fullHeight) : undefined
-            }
-          >
-            <Box
-              padding={2}
-              color="default"
-              dangerouslySetInlineStyle={{ __style: { paddingBottom: 24 } }}
-              height="100%"
-            >
-              <Flex direction="column" gap={{ column: 4, row: 0 }}>
-                {header ? (
-                  <Flex direction="column" gap={{ column: 4, row: 0 }}>
-                    <Box paddingX={4}>{header}</Box>
-                    <Divider />
-                  </Flex>
-                ) : null}
-                <ul className={classnames(styles.ulItem)}>{navigationChildren}</ul>
-                {footer ? (
-                  <Flex direction="column" gap={{ column: 4, row: 0 }}>
-                    <Divider />
-                    <Box paddingX={4}>{footer}</Box>
-                  </Flex>
-                ) : null}
-              </Flex>
-            </Box>
-          </div>
-        </Box>
+    <SideNavigationProvider
+      collapsible={collapsible}
+      collapsed={collapsed}
+      onCollapse={onCollapse}
+      onPreview={onPreview}
+    >
+      <ScrollBoundaryContainer overflow={collapsible ? 'visible' : undefined}>
+        <SideNavigationContent
+          accessibilityLabel={accessibilityLabel}
+          footer={footer}
+          header={header}
+          showBorder={showBorder}
+        >
+          {children}
+        </SideNavigationContent>
       </ScrollBoundaryContainer>
     </SideNavigationProvider>
   );

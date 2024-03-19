@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { Box, SlimBanner, Table, Text } from 'gestalt';
+import { BannerSlim, Box, Table, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { type DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -76,7 +76,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           <MainSection.Card
             cardSize="md"
             type="don't"
-            description="Use to emphasize text that you want users to read. Use a message component like [SlimBanner](/web/slimbanner), or [bold text](/web/text#Styles). You can also emphasize numbers by using [text sizes](/web/text#Sizes)."
+            description="Use to emphasize text that you want users to read. Use a message component like [BannerSlim](/web/bannerslim), or [bold text](/web/text#Styles). You can also emphasize numbers by using [text sizes](/web/text#Sizes)."
             sandpackExample={
               <SandpackExample
                 name="Don't - Use to emphasize text that you want users to read."
@@ -175,7 +175,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             }
           />
         </MainSection.Subsection>
-        <SlimBanner
+        <BannerSlim
           type="info"
           iconAccessibilityLabel="Info"
           message="Gestalt's typography guidelines contain additional best practices around sizing, style and hierarchy."
@@ -274,7 +274,7 @@ Avoid overriding our line-height settings, as this can result in text clipping f
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          description={`These font sizes follow those available through our [Design Tokens](/foundations/design_tokens#Font-size). If your text does not need to be a [semantic heading (H1-H6)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), use [Text](/web/text) instead.
+          description={`These font sizes follow those available through our [Design Tokens](/foundations/design_tokens/overview#Font-size). If your text does not need to be a [semantic heading (H1-H6)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), use [Text](/web/text) instead.
 `}
           title="Size"
         >

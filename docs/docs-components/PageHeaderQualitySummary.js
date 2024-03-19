@@ -1,6 +1,6 @@
 // @flow strict
 import { Fragment, type Node as ReactNode } from 'react';
-import { Box, Divider, Flex, SlimBanner, Text } from 'gestalt';
+import { BannerSlim, Box, Divider, Flex, Text } from 'gestalt';
 import componentData from './data/components';
 import { COMPONENT_STATUS_MESSAGING, STATUS_DESCRIPTION } from './data/componentStatusMessaging';
 import { type StatusType } from './data/types';
@@ -51,7 +51,7 @@ export default function PageHeaderQualitySummary({ name }: Props): ReactNode {
 
   if (isDeprecated) {
     return (
-      <SlimBanner
+      <BannerSlim
         iconAccessibilityLabel="Deprecated component"
         message="Deprecated: This component is no longer supported by Gestalt. "
         type="warning"

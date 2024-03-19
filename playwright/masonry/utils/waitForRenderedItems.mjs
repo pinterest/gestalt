@@ -24,7 +24,7 @@ export default async function waitForRenderedItems(
   // $FlowExpectedError[unclear-type] flow-typed def for playwright is…lacking
   page /*: Object */,
   args /*: waitForRenderedItemsArgs */,
-  timeout /*: number = 2000 */
+  timeout /*: number */ = 5000
   // $FlowExpectedError[unclear-type] flow-typed def for playwright is…lacking
 ) /*: Promise<any> */ {
   return page

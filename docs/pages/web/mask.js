@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, Mask } from 'gestalt';
+import { TOKEN_COLOR_TEAL_SPABATTICAL_400 } from 'gestalt-design-tokens';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { type DocGen } from '../../docs-components/docgen';
@@ -60,7 +61,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                   width={70}
                   dangerouslySetInlineStyle={{
                     __style: {
-                      backgroundColor: 'var(--color-teal-spabattical-400)',
+                      backgroundColor: TOKEN_COLOR_TEAL_SPABATTICAL_400,
                     },
                   }}
                 />

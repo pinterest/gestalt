@@ -12,22 +12,29 @@ exports[`SideNavigation renders Header + Footer 1`] = `
 >
   <nav
     aria-label="label"
-    className="box"
+    className="box default relative"
     style={
       Object {
         "height": "100%",
         "minWidth": 280,
-        "width": 280,
+        "width": undefined,
       }
     }
   >
-    <div>
+    <div
+      className="fullHeight borderBox"
+      style={
+        Object {
+          "width": undefined,
+        }
+      }
+    >
       <div
-        className="box default paddingX2 paddingY2"
+        className="box paddingX2 paddingY2"
         style={
           Object {
-            "height": "100%",
             "paddingBottom": 24,
+            "width": undefined,
           }
         }
       >
@@ -44,7 +51,12 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="box paddingX4"
+                  className="box"
+                  style={
+                    Object {
+                      "width": undefined,
+                    }
+                  }
                 >
                   <div
                     className="box default"
@@ -96,12 +108,13 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                   target={null}
                 >
                   <div
-                    className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                    className="box paddingY2 relative rounding2 xsDisplayFlex xsItemsCenter"
                     style={
                       Object {
                         "minHeight": 44,
                         "paddingInlineEnd": "16px",
-                        "paddingInlineStart": "16px",
+                        "paddingInlineStart": "var(--space-400)",
+                        "width": undefined,
                       }
                     }
                   >
@@ -118,7 +131,7 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                         className="FlexItem flexGrow selfCenter"
                       >
                         <span
-                          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
                         >
                           test
                         </span>
@@ -146,7 +159,12 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="box paddingX4"
+                  className="box"
+                  style={
+                    Object {
+                      "width": undefined,
+                    }
+                  }
                 >
                   <div
                     className="box default"
@@ -180,24 +198,29 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
 >
   <nav
     aria-label="label"
-    className="box"
+    className="box default relative"
     style={
       Object {
         "height": "100%",
         "minWidth": 280,
-        "width": 280,
+        "width": undefined,
       }
     }
   >
     <div
-      className="borderRight fullHeight"
+      className="fullHeight borderBox borderRight"
+      style={
+        Object {
+          "width": undefined,
+        }
+      }
     >
       <div
-        className="box default paddingX2 paddingY2"
+        className="box paddingX2 paddingY2"
         style={
           Object {
-            "height": "100%",
             "paddingBottom": 24,
+            "width": undefined,
           }
         }
       >
@@ -214,11 +237,11 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                 className="liItem section"
               >
                 <div
-                  className="box marginBottom2 paddingX4 xsDisplayFlex"
+                  className="box marginBottom2 paddingX4"
                   role="presentation"
                 >
                   <div
-                    className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                    className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 2,
@@ -256,12 +279,13 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                       target={null}
                     >
                       <div
-                        className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                        className="box paddingY2 relative rounding2 xsDisplayFlex xsItemsCenter"
                         style={
                           Object {
                             "minHeight": 44,
                             "paddingInlineEnd": "16px",
-                            "paddingInlineStart": "16px",
+                            "paddingInlineStart": "var(--space-400)",
+                            "width": undefined,
                           }
                         }
                       >
@@ -284,11 +308,11 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                               <svg
                                 aria-hidden={true}
                                 aria-label=""
-                                className="icon defaultIcon"
-                                height={16}
+                                className="default icon"
+                                height={20}
                                 role="img"
                                 viewBox="0 0 24 24"
-                                width={16}
+                                width={20}
                               >
                                 <path
                                   d="test-file-stub"
@@ -300,7 +324,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                             className="FlexItem flexGrow selfCenter"
                           >
                             <span
-                              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
                             >
                               test
                               <div
@@ -317,7 +341,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                                   , 
                                 </div>
                                 <div
-                                  className="Badge middle infoBase"
+                                  className="Badge middle info"
                                 >
                                   <div
                                     className="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
@@ -354,7 +378,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                               className="box marginEndN2"
                             >
                               <div
-                                className="Text fontSize300 subtleText alignEnd breakWord fontWeightNormal"
+                                className="Text fontSize300 subtle alignEnd breakWord fontWeightNormal"
                               >
                                 20
                               </div>
@@ -388,12 +412,13 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                       target={null}
                     >
                       <div
-                        className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                        className="box paddingY2 relative rounding2 xsDisplayFlex xsItemsCenter"
                         style={
                           Object {
                             "minHeight": 44,
                             "paddingInlineEnd": "16px",
-                            "paddingInlineStart": "16px",
+                            "paddingInlineStart": "var(--space-400)",
+                            "width": undefined,
                           }
                         }
                       >
@@ -416,11 +441,11 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                               <svg
                                 aria-hidden={true}
                                 aria-label=""
-                                className="icon defaultIcon"
-                                height={16}
+                                className="default icon"
+                                height={20}
                                 role="img"
                                 viewBox="0 0 24 24"
-                                width={16}
+                                width={20}
                               >
                                 <path
                                   d="test-file-stub"
@@ -432,7 +457,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                             className="FlexItem flexGrow selfCenter"
                           >
                             <span
-                              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
                             >
                               test
                               <div
@@ -475,7 +500,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                               className="box marginEndN2"
                             >
                               <div
-                                className="Text fontSize300 subtleText alignEnd breakWord fontWeightNormal"
+                                className="Text fontSize300 subtle alignEnd breakWord fontWeightNormal"
                               >
                                 20
                               </div>
@@ -508,22 +533,29 @@ exports[`SideNavigation renders Sections 1`] = `
 >
   <nav
     aria-label="label"
-    className="box"
+    className="box default relative"
     style={
       Object {
         "height": "100%",
         "minWidth": 280,
-        "width": 280,
+        "width": undefined,
       }
     }
   >
-    <div>
+    <div
+      className="fullHeight borderBox"
+      style={
+        Object {
+          "width": undefined,
+        }
+      }
+    >
       <div
-        className="box default paddingX2 paddingY2"
+        className="box paddingX2 paddingY2"
         style={
           Object {
-            "height": "100%",
             "paddingBottom": 24,
+            "width": undefined,
           }
         }
       >
@@ -540,11 +572,11 @@ exports[`SideNavigation renders Sections 1`] = `
                 className="liItem section"
               >
                 <div
-                  className="box marginBottom2 paddingX4 xsDisplayFlex"
+                  className="box marginBottom2 paddingX4"
                   role="presentation"
                 >
                   <div
-                    className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                    className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 2,
@@ -582,12 +614,13 @@ exports[`SideNavigation renders Sections 1`] = `
                       target={null}
                     >
                       <div
-                        className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                        className="box paddingY2 relative rounding2 xsDisplayFlex xsItemsCenter"
                         style={
                           Object {
                             "minHeight": 44,
                             "paddingInlineEnd": "16px",
-                            "paddingInlineStart": "16px",
+                            "paddingInlineStart": "var(--space-400)",
+                            "width": undefined,
                           }
                         }
                       >
@@ -604,7 +637,7 @@ exports[`SideNavigation renders Sections 1`] = `
                             className="FlexItem flexGrow selfCenter"
                           >
                             <span
-                              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
                             >
                               test
                             </span>
@@ -636,22 +669,29 @@ exports[`SideNavigation renders basic Item 1`] = `
 >
   <nav
     aria-label="label"
-    className="box"
+    className="box default relative"
     style={
       Object {
         "height": "100%",
         "minWidth": 280,
-        "width": 280,
+        "width": undefined,
       }
     }
   >
-    <div>
+    <div
+      className="fullHeight borderBox"
+      style={
+        Object {
+          "width": undefined,
+        }
+      }
+    >
       <div
-        className="box default paddingX2 paddingY2"
+        className="box paddingX2 paddingY2"
         style={
           Object {
-            "height": "100%",
             "paddingBottom": 24,
+            "width": undefined,
           }
         }
       >
@@ -688,12 +728,13 @@ exports[`SideNavigation renders basic Item 1`] = `
                   target={null}
                 >
                   <div
-                    className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                    className="box paddingY2 relative rounding2 xsDisplayFlex xsItemsCenter"
                     style={
                       Object {
                         "minHeight": 44,
                         "paddingInlineEnd": "16px",
-                        "paddingInlineStart": "16px",
+                        "paddingInlineStart": "var(--space-400)",
+                        "width": undefined,
                       }
                     }
                   >
@@ -710,7 +751,7 @@ exports[`SideNavigation renders basic Item 1`] = `
                         className="FlexItem flexGrow selfCenter"
                       >
                         <span
-                          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
                         >
                           test
                         </span>
@@ -740,22 +781,29 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
 >
   <nav
     aria-label="Nested items example"
-    className="box"
+    className="box default relative"
     style={
       Object {
         "height": "100%",
         "minWidth": 280,
-        "width": 280,
+        "width": undefined,
       }
     }
   >
-    <div>
+    <div
+      className="fullHeight borderBox"
+      style={
+        Object {
+          "width": undefined,
+        }
+      }
+    >
       <div
-        className="box default paddingX2 paddingY2"
+        className="box paddingX2 paddingY2"
         style={
           Object {
-            "height": "100%",
             "paddingBottom": 24,
+            "width": undefined,
           }
         }
       >
@@ -792,12 +840,13 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                   target={null}
                 >
                   <div
-                    className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                    className="box paddingY2 relative rounding2 xsDisplayFlex xsItemsCenter"
                     style={
                       Object {
                         "minHeight": 44,
                         "paddingInlineEnd": "16px",
-                        "paddingInlineStart": "16px",
+                        "paddingInlineStart": "var(--space-400)",
+                        "width": undefined,
                       }
                     }
                   >
@@ -820,11 +869,11 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           <svg
                             aria-hidden={true}
                             aria-label=""
-                            className="rtlSupport icon defaultIcon"
-                            height={16}
+                            className="rtlSupport default icon"
+                            height={20}
                             role="img"
                             viewBox="0 0 24 24"
-                            width={16}
+                            width={20}
                           >
                             <path
                               d="test-file-stub"
@@ -836,7 +885,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                         className="FlexItem flexGrow selfCenter"
                       >
                         <span
-                          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
                         >
                           Reporting
                         </span>
@@ -869,12 +918,13 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                   target={null}
                 >
                   <div
-                    className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                    className="box paddingY2 relative rounding2 xsDisplayFlex xsItemsCenter"
                     style={
                       Object {
                         "minHeight": 44,
                         "paddingInlineEnd": "16px",
-                        "paddingInlineStart": "16px",
+                        "paddingInlineStart": "var(--space-400)",
+                        "width": undefined,
                       }
                     }
                   >
@@ -897,11 +947,11 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           <svg
                             aria-hidden={true}
                             aria-label=""
-                            className="icon defaultIcon"
-                            height={16}
+                            className="default icon"
+                            height={20}
                             role="img"
                             viewBox="0 0 24 24"
-                            width={16}
+                            width={20}
                           >
                             <path
                               d="test-file-stub"
@@ -913,7 +963,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                         className="FlexItem flexGrow selfCenter"
                       >
                         <span
-                          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
                         >
                           Conversions
                         </span>
@@ -926,11 +976,11 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                 className="liItem section"
               >
                 <div
-                  className="box marginBottom2 paddingX4 xsDisplayFlex"
+                  className="box marginBottom2 paddingX4"
                   role="presentation"
                 >
                   <div
-                    className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                    className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                     style={
                       Object {
                         "WebkitLineClamp": 2,
@@ -968,12 +1018,13 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                       target={null}
                     >
                       <div
-                        className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                        className="box paddingY2 relative rounding2 xsDisplayFlex xsItemsCenter"
                         style={
                           Object {
                             "minHeight": 44,
                             "paddingInlineEnd": "16px",
-                            "paddingInlineStart": "16px",
+                            "paddingInlineStart": "var(--space-400)",
+                            "width": undefined,
                           }
                         }
                       >
@@ -996,11 +1047,11 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               <svg
                                 aria-hidden={true}
                                 aria-label=""
-                                className="icon defaultIcon"
-                                height={16}
+                                className="default icon"
+                                height={20}
                                 role="img"
                                 viewBox="0 0 24 24"
-                                width={16}
+                                width={20}
                               >
                                 <path
                                   d="test-file-stub"
@@ -1012,7 +1063,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                             className="FlexItem flexGrow selfCenter"
                           >
                             <span
-                              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
                             >
                               Thanksgiving
                             </span>
@@ -1046,12 +1097,14 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                       tabIndex={0}
                     >
                       <div
-                        className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                        className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                         style={
                           Object {
+                            "height": undefined,
                             "minHeight": 44,
-                            "paddingInlineEnd": "16px",
-                            "paddingInlineStart": "16px",
+                            "paddingInlineEnd": "var(--space-400)",
+                            "paddingInlineStart": "var(--space-400)",
+                            "width": undefined,
                           }
                         }
                       >
@@ -1074,11 +1127,11 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               <svg
                                 aria-hidden={true}
                                 aria-label=""
-                                className="icon defaultIcon"
-                                height={16}
+                                className="default icon"
+                                height={20}
                                 role="img"
                                 viewBox="0 0 24 24"
-                                width={16}
+                                width={20}
                               >
                                 <path
                                   d="test-file-stub"
@@ -1090,7 +1143,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                             className="FlexItem flexGrow selfCenter"
                           >
                             <span
-                              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
                             >
                               Christmas
                             </span>
@@ -1106,7 +1159,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               <svg
                                 aria-hidden={true}
                                 aria-label=""
-                                className="icon defaultIcon iconBlock"
+                                className="default icon iconBlock"
                                 height={12}
                                 role="img"
                                 viewBox="0 0 24 24"
@@ -1147,12 +1200,14 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                       tabIndex={0}
                     >
                       <div
-                        className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                        className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                         style={
                           Object {
+                            "height": undefined,
                             "minHeight": 44,
-                            "paddingInlineEnd": "16px",
-                            "paddingInlineStart": "16px",
+                            "paddingInlineEnd": "var(--space-400)",
+                            "paddingInlineStart": "var(--space-400)",
+                            "width": undefined,
                           }
                         }
                       >
@@ -1175,11 +1230,11 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               <svg
                                 aria-hidden={true}
                                 aria-label=""
-                                className="icon defaultIcon"
-                                height={16}
+                                className="default icon"
+                                height={20}
                                 role="img"
                                 viewBox="0 0 24 24"
-                                width={16}
+                                width={20}
                               >
                                 <path
                                   d="test-file-stub"
@@ -1191,7 +1246,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                             className="FlexItem flexGrow selfCenter"
                           >
                             <span
-                              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
                             >
                               Halloween
                             </span>
@@ -1207,7 +1262,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               <svg
                                 aria-hidden={true}
                                 aria-label=""
-                                className="icon defaultIcon iconBlock"
+                                className="default icon iconBlock"
                                 height={12}
                                 role="img"
                                 viewBox="0 0 24 24"
@@ -1246,22 +1301,29 @@ exports[`SideNavigation renders expanded group 1`] = `
 >
   <nav
     aria-label="Nested items example"
-    className="box"
+    className="box default relative"
     style={
       Object {
         "height": "100%",
         "minWidth": 280,
-        "width": 280,
+        "width": undefined,
       }
     }
   >
-    <div>
+    <div
+      className="fullHeight borderBox"
+      style={
+        Object {
+          "width": undefined,
+        }
+      }
+    >
       <div
-        className="box default paddingX2 paddingY2"
+        className="box paddingX2 paddingY2"
         style={
           Object {
-            "height": "100%",
             "paddingBottom": 24,
+            "width": undefined,
           }
         }
       >
@@ -1299,12 +1361,14 @@ exports[`SideNavigation renders expanded group 1`] = `
                   tabIndex={0}
                 >
                   <div
-                    className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                    className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                     style={
                       Object {
+                        "height": undefined,
                         "minHeight": 44,
-                        "paddingInlineEnd": "16px",
-                        "paddingInlineStart": "16px",
+                        "paddingInlineEnd": "var(--space-400)",
+                        "paddingInlineStart": "var(--space-400)",
+                        "width": undefined,
                       }
                     }
                   >
@@ -1327,11 +1391,11 @@ exports[`SideNavigation renders expanded group 1`] = `
                           <svg
                             aria-hidden={true}
                             aria-label=""
-                            className="icon defaultIcon"
-                            height={16}
+                            className="default icon"
+                            height={20}
                             role="img"
                             viewBox="0 0 24 24"
-                            width={16}
+                            width={20}
                           >
                             <path
                               d="test-file-stub"
@@ -1343,7 +1407,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                         className="FlexItem flexGrow selfCenter"
                       >
                         <span
-                          className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
                         >
                           Christmas
                         </span>
@@ -1359,7 +1423,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                           <svg
                             aria-hidden={true}
                             aria-label=""
-                            className="icon defaultIcon iconBlock"
+                            className="default icon iconBlock"
                             height={12}
                             role="img"
                             viewBox="0 0 24 24"
@@ -1402,12 +1466,13 @@ exports[`SideNavigation renders expanded group 1`] = `
                       target={null}
                     >
                       <div
-                        className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                        className="box paddingY2 relative rounding2 xsDisplayFlex xsItemsCenter"
                         style={
                           Object {
                             "minHeight": 44,
                             "paddingInlineEnd": "16px",
-                            "paddingInlineStart": "48px",
+                            "paddingInlineStart": "var(--space-1200)",
+                            "width": undefined,
                           }
                         }
                       >
@@ -1424,7 +1489,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                             className="FlexItem flexGrow selfCenter"
                           >
                             <span
-                              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
                             >
                               Luxury Christmas
                             </span>
@@ -1458,12 +1523,14 @@ exports[`SideNavigation renders expanded group 1`] = `
                       tabIndex={0}
                     >
                       <div
-                        className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                        className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                         style={
                           Object {
+                            "height": undefined,
                             "minHeight": 44,
-                            "paddingInlineEnd": "16px",
-                            "paddingInlineStart": "48px",
+                            "paddingInlineEnd": "var(--space-400)",
+                            "paddingInlineStart": "var(--space-1200)",
+                            "width": undefined,
                           }
                         }
                       >
@@ -1480,7 +1547,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                             className="FlexItem flexGrow selfCenter"
                           >
                             <span
-                              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
                             >
                               Classic Christmas
                             </span>
@@ -1496,7 +1563,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                               <svg
                                 aria-hidden={true}
                                 aria-label=""
-                                className="icon defaultIcon iconBlock"
+                                className="default icon iconBlock"
                                 height={12}
                                 role="img"
                                 viewBox="0 0 24 24"
@@ -1539,12 +1606,13 @@ exports[`SideNavigation renders expanded group 1`] = `
                           target={null}
                         >
                           <div
-                            className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                            className="box paddingY2 relative rounding2 xsDisplayFlex xsItemsCenter"
                             style={
                               Object {
                                 "minHeight": 44,
                                 "paddingInlineEnd": "16px",
                                 "paddingInlineStart": "68px",
+                                "width": undefined,
                               }
                             }
                           >
@@ -1561,7 +1629,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                                 className="FlexItem flexGrow selfCenter"
                               >
                                 <span
-                                  className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                                  className="Text fontSize300 default alignStart breakWord fontWeightNormal"
                                 >
                                   West Coast
                                 </span>
@@ -1594,12 +1662,13 @@ exports[`SideNavigation renders expanded group 1`] = `
                           target={null}
                         >
                           <div
-                            className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                            className="box paddingY2 relative rounding2 xsDisplayFlex xsItemsCenter"
                             style={
                               Object {
                                 "minHeight": 44,
                                 "paddingInlineEnd": "16px",
                                 "paddingInlineStart": "68px",
+                                "width": undefined,
                               }
                             }
                           >
@@ -1616,7 +1685,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                                 className="FlexItem flexGrow selfCenter"
                               >
                                 <span
-                                  className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                                  className="Text fontSize300 default alignStart breakWord fontWeightNormal"
                                 >
                                   East Coast
                                 </span>
@@ -1650,22 +1719,29 @@ exports[`SideNavigation renders static group 1`] = `
 >
   <nav
     aria-label="Static items example"
-    className="box"
+    className="box default relative"
     style={
       Object {
         "height": "100%",
         "minWidth": 280,
-        "width": 280,
+        "width": undefined,
       }
     }
   >
-    <div>
+    <div
+      className="fullHeight borderBox"
+      style={
+        Object {
+          "width": undefined,
+        }
+      }
+    >
       <div
-        className="box default paddingX2 paddingY2"
+        className="box paddingX2 paddingY2"
         style={
           Object {
-            "height": "100%",
             "paddingBottom": 24,
+            "width": undefined,
           }
         }
       >
@@ -1682,12 +1758,14 @@ exports[`SideNavigation renders static group 1`] = `
                 className="liItem"
               >
                 <div
-                  className="box paddingY2 rounding2 xsDisplayFlex xsItemsCenter"
+                  className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                   style={
                     Object {
+                      "height": undefined,
                       "minHeight": 44,
-                      "paddingInlineEnd": "16px",
-                      "paddingInlineStart": "16px",
+                      "paddingInlineEnd": "var(--space-400)",
+                      "paddingInlineStart": "var(--space-400)",
+                      "width": undefined,
                     }
                   }
                 >
@@ -1710,11 +1788,11 @@ exports[`SideNavigation renders static group 1`] = `
                         <svg
                           aria-hidden={true}
                           aria-label=""
-                          className="icon defaultIcon"
-                          height={16}
+                          className="default icon"
+                          height={20}
                           role="img"
                           viewBox="0 0 24 24"
-                          width={16}
+                          width={20}
                         >
                           <path
                             d="test-file-stub"
@@ -1726,7 +1804,7 @@ exports[`SideNavigation renders static group 1`] = `
                       className="FlexItem flexGrow selfCenter"
                     >
                       <span
-                        className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+                        className="Text fontSize300 default alignStart breakWord fontWeightNormal"
                       >
                         Christmas
                       </span>

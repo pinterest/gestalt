@@ -1,7 +1,6 @@
 // @flow strict
 import { type AbstractComponent, type Element, forwardRef, type Node as ReactNode } from 'react';
 import cx from 'classnames';
-import colors from './Colors.css';
 import styles from './Text.css';
 import { semanticColors } from './textTypes';
 import typography from './Typography.css';
@@ -58,7 +57,7 @@ type Props = {
    */
   ref?: HTMLDivElement | HTMLSpanElement,
   /**
-   * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/foundations/design_tokens#Font-size). See the [sizes variant](https://gestalt.pinterest.systems/web/text#Sizes) for more details.
+   * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/foundations/design_tokens/overview#Font-size). See the [sizes variant](https://gestalt.pinterest.systems/web/text#Sizes) for more details.
    */
   size?: Size,
   /**
@@ -98,7 +97,7 @@ const TextWithForwardRef: AbstractComponent<Props, HTMLElement> = forwardRef<Pro
     }: Props,
     ref,
   ): Element<As> {
-    const colorClass = semanticColors.includes(color) && colors[`${color}Text`];
+    const colorClass = semanticColors.includes(color) && styles[color];
 
     const getWordBreakStyle = (): string | void => {
       if (overflow === 'breakAll') {

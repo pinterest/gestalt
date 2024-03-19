@@ -1,6 +1,11 @@
 // @flow strict
-import { act, render, screen } from '@testing-library/react';
+import { act, screen } from '@testing-library/react';
 import HelpButton from './HelpButton';
+import renderWithExperiment from './utils/testing/renderWithExperiment';
+
+// Remove experiment after HelpButton v2 is fully released
+const render = (children: React$Element<React$ElementType>) =>
+  renderWithExperiment('web_gestalt_popover_v2_helpbutton', children);
 
 describe('HelpButton', () => {
   it('renders a icon', () => {

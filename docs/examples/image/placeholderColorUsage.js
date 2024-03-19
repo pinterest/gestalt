@@ -1,11 +1,12 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, Column, Image } from 'gestalt';
+import { TOKEN_COLOR_BACKGROUND_SHOPPING } from 'gestalt-design-tokens';
 
 export default function Example(): ReactNode {
   return (
     <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      {['rgb(111, 91, 77)', 'black', 'var(--color-background-shopping)'].map((color) => (
+      {['rgb(111, 91, 77)', 'black', TOKEN_COLOR_BACKGROUND_SHOPPING].map((color) => (
         <Column span={3} key={color}>
           <Image
             alt="example.com"

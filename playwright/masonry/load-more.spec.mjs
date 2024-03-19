@@ -6,11 +6,6 @@ import getStaticGridItems from './utils/getStaticGridItems.mjs';
 import selectors from './utils/selectors.mjs';
 import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
 
-const documentElement = document.documentElement || {
-  scrollHeight: 0,
-  clientHeight: 0,
-};
-
 test.describe('Masonry: scrolls', () => {
   test('loads more when it gets to the bottom of the viewport', async ({
     page,
@@ -67,13 +62,14 @@ test.describe('Masonry: scrolls', () => {
     // eslint-disable-next-line playwright/no-wait-for-timeout
     await page.waitForTimeout(1000);
 
+    const documentElement = await page.evaluateHandle(
+      'document.documentElement'
+    );
+
     // Scroll a few times to triggle multiple scrolls.
-    await page.evaluate(() => {
-      window.scrollTo(
-        0,
-        documentElement.scrollHeight - documentElement.clientHeight
-      );
-    });
+    await page.evaluate((docEl) => {
+      window.scrollTo(0, docEl.scrollHeight - docEl.clientHeight);
+    }, documentElement);
     await waitForRenderedItems(page, { targetItems: 30 });
 
     await page.evaluate(() => {
@@ -81,12 +77,9 @@ test.describe('Masonry: scrolls', () => {
     });
     await waitForRenderedItems(page, { targetItems: 35 });
 
-    await page.evaluate(() => {
-      window.scrollTo(
-        0,
-        documentElement.scrollHeight - documentElement.clientHeight
-      );
-    });
+    await page.evaluate((docEl) => {
+      window.scrollTo(0, docEl.scrollHeight - docEl.clientHeight);
+    }, documentElement);
     await waitForRenderedItems(page, { targetItems: 30 });
 
     // Now that we're at the bottom of the page, add more items and expect to see them.

@@ -1,5 +1,13 @@
 // @flow strict
 import { type AbstractComponent, forwardRef, type Node as ReactNode, useState } from 'react';
+import {
+  TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_ACTIVE,
+  TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_BASE,
+  TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_HOVER,
+  TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_ACTIVE,
+  TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_BASE,
+  TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_HOVER,
+} from 'gestalt-design-tokens';
 import Box from './Box';
 import Flex from './Flex';
 import TapAreaLink from './TapAreaLink';
@@ -88,17 +96,17 @@ type TabProps = {
 
 const TAB_ROUNDING = 2;
 const TAB_INNER_PADDING = 2;
-const colors = {
+
+const COLORS = {
   default: {
-    base: 'default',
-    pressed: 'lightWash',
-    hover: 'secondary',
+    base: TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_BASE,
+    active: TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_ACTIVE,
+    hover: TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_HOVER,
   },
   transparent: {
-    base: 'transparent',
-    // From Colors.css, matches <Button color="transparent" />
-    pressed: 'rgba(0, 0, 0, 0.1)',
-    hover: 'rgba(0, 0, 0, 0.06)',
+    base: TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_BASE,
+    active: TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_ACTIVE,
+    hover: TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_HOVER,
   },
 };
 
@@ -110,14 +118,12 @@ const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
   const [focused, setFocused] = useState(false);
   const [pressed, setPressed] = useState(false);
 
-  const bgColorSet = colors[bgColor];
-
-  let color = bgColorSet.base;
+  let color = COLORS[bgColor].base;
   if (!isActive) {
     if (pressed) {
-      color = bgColorSet.pressed;
+      color = COLORS[bgColor].active;
     } else if (hovered || focused) {
-      color = bgColorSet.hover;
+      color = COLORS[bgColor].hover;
     }
   }
 
@@ -144,14 +150,7 @@ const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
       >
         <Flex alignItems="center" direction="column">
           <Box
-            color={color.startsWith('rgba') ? undefined : color}
-            {...(color.startsWith('rgba')
-              ? {
-                  dangerouslySetInlineStyle: {
-                    __style: { backgroundColor: color },
-                  },
-                }
-              : {})}
+            dangerouslySetInlineStyle={{ __style: { backgroundColor: color } }}
             padding={TAB_INNER_PADDING}
             position="relative"
             rounding={TAB_ROUNDING}

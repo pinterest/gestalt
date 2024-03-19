@@ -51,7 +51,7 @@ export default function StatusPage({ generatedDocGen }: { generatedDocGen: DocGe
             type="don't"
             title="When not to use"
             description={`
-          - To describe surface-level errors. Use [Callout](/web/callout) instead.
+          - To describe surface-level errors. Use [BannerCallout](/web/bannercallout) instead.
           - To describe whether a numeric value is going up or down. Use [Datapoint](/web/datapoint) instead.
         `}
           />
@@ -223,8 +223,8 @@ Icon should be used to display a symbol that does not represent the state or sta
 **[Badge](/web/badge)**
 Use Badge to label or mark an item with a designation or category.
 
-**[Callout](/web/callout)**
-Use Callout to communicate page-level status, such as an error, and to provide actionable next steps.
+**[BannerCallout](/web/bannercallout)**
+Use BannerCallout to communicate page-level status, such as an error, and to provide actionable next steps.
     `}
         />
       </MainSection>

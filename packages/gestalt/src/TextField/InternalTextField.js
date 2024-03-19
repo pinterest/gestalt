@@ -10,6 +10,7 @@ import {
   useState,
 } from 'react';
 import classnames from 'classnames';
+import { TOKEN_SPACE_100 } from 'gestalt-design-tokens';
 import styles from './InternalTextField.css';
 import InternalTextFieldIconButton from './InternalTextFieldIconButton';
 import Box from '../Box';
@@ -25,6 +26,67 @@ import typography from '../Typography.css';
 
 type SizeType = 'sm' | 'md' | 'lg';
 
+export type autoCompleteType =
+  | 'additional-name'
+  | 'address-level1'
+  | 'address-level2'
+  | 'address-level3'
+  | 'address-level4'
+  | 'address-line1'
+  | 'address-line2'
+  | 'address-line3'
+  | 'bday-day'
+  | 'bday-month'
+  | 'bday-year'
+  | 'bday'
+  | 'billing'
+  | 'cc-additional-name'
+  | 'cc-csc'
+  | 'cc-exp-month'
+  | 'cc-exp-year'
+  | 'cc-exp'
+  | 'cc-family-name'
+  | 'cc-given-name'
+  | 'cc-name'
+  | 'cc-number'
+  | 'cc-type'
+  | 'country-name'
+  | 'country'
+  | 'current-password'
+  | 'email'
+  | 'family-name'
+  | 'given-name'
+  | 'honoric-prefix'
+  | 'honoric-suffix'
+  | 'impp'
+  | 'language'
+  | 'name'
+  | 'new-password'
+  | 'nickname'
+  | 'off'
+  | 'on'
+  | 'one-time-code'
+  | 'organization-title'
+  | 'organization'
+  | 'photo'
+  | 'postal-code'
+  | 'sex'
+  | 'shipping'
+  | 'street-address'
+  | 'tel-area-code'
+  | 'tel-country-code'
+  | 'tel-extension'
+  | 'tel-local-prefix'
+  | 'tel-local-suffix'
+  | 'tel-local'
+  | 'tel-national'
+  | 'tel'
+  | 'transaction-amount'
+  | 'transaction-currency'
+  | 'url'
+  | 'username'
+  | 'webauthn';
+
 type Props = {
   // REQUIRED
   id: string,
@@ -35,7 +97,8 @@ type Props = {
   // OPTIONAL
   accessibilityControls?: string,
   accessibilityActiveDescendant?: string,
-  autoComplete?: 'bday' | 'current-password' | 'email' | 'new-password' | 'on' | 'off' | 'username',
+  autoComplete?: autoCompleteType,
+  dataTestId?: string,
   disabled?: boolean,
   errorMessage?: ReactNode,
   hasError?: boolean,
@@ -84,6 +147,7 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
     accessibilityControls,
     accessibilityActiveDescendant,
     autoComplete,
+    dataTestId,
     disabled = false,
     errorMessage,
     hasError = false,
@@ -194,6 +258,7 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
       aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
       autoComplete={autoComplete}
       className={tags ? unstyledClasses : styledClasses}
+      data-test-id={dataTestId}
       disabled={disabled}
       enterKeyHint={mobileEnterKeyHint}
       id={id}
@@ -222,7 +287,7 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
   );
 
   // Explicit margin for the small size, we don't have a token for 2px
-  const tagMarginY = size === 'sm' || size === 'md' ? '2px' : 'var(--space-100)';
+  const tagMarginY = size === 'sm' || size === 'md' ? '2px' : TOKEN_SPACE_100;
 
   return (
     <span>

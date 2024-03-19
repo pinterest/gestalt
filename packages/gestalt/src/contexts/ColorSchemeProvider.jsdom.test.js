@@ -4,7 +4,7 @@ import ColorSchemeProvider, { useColorScheme } from './ColorSchemeProvider';
 
 function ThemeAwareComponent() {
   const theme = useColorScheme();
-  return <div>{theme.name}</div>;
+  return <div>{theme.colorSchemeName}</div>;
 }
 
 describe('ColorSchemeProvider', () => {

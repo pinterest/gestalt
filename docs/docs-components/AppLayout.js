@@ -2,6 +2,10 @@
 import { Fragment, type Node as ReactNode, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Box, DeviceTypeProvider, Divider, FixedZIndex, Flex } from 'gestalt';
+import {
+  TOKEN_COLOR_GRAY_ROBOFLOW_700,
+  TOKEN_COLOR_ORANGE_FIRETINI_0,
+} from 'gestalt-design-tokens';
 import { useAppContext } from './appContext';
 import { DocsConfigProvider, useDocsConfig } from './contexts/DocsConfigProvider';
 import DocsSideNavigation, { MIN_NAV_WIDTH_PX } from './DocsSideNavigation';
@@ -12,7 +16,7 @@ import ResourcesFooter from './ResourcesFooter';
 import SkipToContent from './SkipToContent';
 
 export const CONTENT_MAX_WIDTH_PX = 1200;
-const HEADER_HEIGHT_PX = 75;
+const HEADER_HEIGHT_WITH_MARGIN = 90;
 const fullWidthPages = ['home', 'whats_new', 'roadmap'];
 const fullBleedNoNavigationPages = [
   '/year_in_review_2022',
@@ -37,7 +41,7 @@ export default function AppLayout({ children, colorScheme }: Props): ReactNode {
   const isFullBleedLayout = fullBleedNoNavigationPages.some((page) => router?.route.includes(page));
 
   const footerColor =
-    colorScheme === 'dark' ? 'var(--color-gray-roboflow-700)' : 'var(--color-orange-firetini-0)';
+    colorScheme === 'dark' ? TOKEN_COLOR_GRAY_ROBOFLOW_700 : TOKEN_COLOR_ORANGE_FIRETINI_0;
 
   useEffect(() => {
     setShouldHideSideNav(fullWidthPages.some((page) => router?.route.includes(page)));
@@ -105,11 +109,11 @@ export default function AppLayout({ children, colorScheme }: Props): ReactNode {
           <Box
             display="none"
             mdDisplay="block"
-            position="fixed"
-            overflow="auto"
-            height={`calc(100% - ${HEADER_HEIGHT_PX}px)`}
-            minWidth={MIN_NAV_WIDTH_PX}
+            height={`calc(100vh - ${HEADER_HEIGHT_WITH_MARGIN}px)`}
             marginTop={2}
+            dangerouslySetInlineStyle={{
+              __style: { position: 'sticky', top: HEADER_HEIGHT_WITH_MARGIN },
+            }}
           >
             <DocsSideNavigation showBorder />
           </Box>

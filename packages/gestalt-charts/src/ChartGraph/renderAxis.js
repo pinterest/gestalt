@@ -1,6 +1,12 @@
 // @flow strict-local
 import { Fragment, type Node as ReactNode } from 'react';
 import { XAxis, YAxis } from 'recharts';
+import {
+  TOKEN_COLOR_TEXT_SUBTLE,
+  TOKEN_FONT_FAMILY_DEFAULT_LATIN,
+  TOKEN_FONT_SIZE_100,
+  TOKEN_FONT_WEIGHT_NORMAL,
+} from 'gestalt-design-tokens';
 
 export default function renderAxis({
   isHorizontalLayout,
@@ -58,16 +64,16 @@ export default function renderAxis({
   tickCount: 5 | 3,
 }): ReactNode {
   const FONT_STYLE_CATEGORIES = {
-    fontSize: 'var(--font-size-100)',
-    fontFamily: 'var(--font-family-default-latin)',
-    fontWeight: 'var(--font-weight-normal)',
+    fontSize: TOKEN_FONT_SIZE_100,
+    fontFamily: TOKEN_FONT_FAMILY_DEFAULT_LATIN,
+    fontWeight: TOKEN_FONT_WEIGHT_NORMAL,
   };
 
   const FONT_STYLE_VALUES = {
-    color: 'var(--color-text-subtle)',
-    fontSize: 'var(--font-size-100)',
-    fontFamily: 'var(--font-family-default-latin)',
-    fontWeight: 'var(--font-weight-normal)',
+    color: TOKEN_COLOR_TEXT_SUBTLE,
+    fontSize: TOKEN_FONT_SIZE_100,
+    fontFamily: TOKEN_FONT_FAMILY_DEFAULT_LATIN,
+    fontWeight: TOKEN_FONT_WEIGHT_NORMAL,
   };
 
   const isRtl = document?.dir === 'rtl';

@@ -1,0 +1,7 @@
+.item {
+  background: var(--color-background-combobox-item-default);
+}
+
+.hoveredItem {
+  background-color: var(--color-background-combobox-item-hover);
+}

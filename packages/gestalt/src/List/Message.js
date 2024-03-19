@@ -12,7 +12,7 @@ type Props = {
 };
 
 export default function ListText({ size, text }: Props): ReactNode {
-  const { name: colorSchemeName } = useColorScheme();
+  const { colorSchemeName } = useColorScheme();
 
   // Flow shuold catch if text is missing. In case Flow is not enabled and text is missing, the errors are not that helpful. This surfaces the problem more explicitly.
   if (!text) {

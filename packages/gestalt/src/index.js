@@ -5,13 +5,14 @@ import ActivationCard from './ActivationCard';
 import Avatar from './Avatar';
 import AvatarGroup from './AvatarGroup';
 import Badge from './Badge';
+import BannerCallout from './BannerCallout';
 import BannerOverlay from './BannerOverlay';
+import BannerSlim from './BannerSlim';
 import BannerUpsell from './BannerUpsell';
 import Box from './Box';
 import Button from './Button';
 import ButtonGroup from './ButtonGroup';
 import ButtonLink from './ButtonLink';
-import Callout from './Callout';
 import Checkbox from './Checkbox';
 import Collage from './Collage';
 import Column from './Column';
@@ -61,7 +62,6 @@ import SegmentedControl from './SegmentedControl';
 import SelectList from './SelectList';
 import SheetMobile from './SheetMobile';
 import SideNavigation from './SideNavigation';
-import SlimBanner from './SlimBanner';
 import Spinner from './Spinner';
 import Status from './Status';
 import Sticky from './Sticky';
@@ -91,13 +91,14 @@ export {
   Avatar,
   AvatarGroup,
   Badge,
+  BannerCallout,
   BannerOverlay,
+  BannerSlim,
   BannerUpsell,
   Box,
   Button,
   ButtonGroup,
   ButtonLink,
-  Callout,
   Checkbox,
   Collage,
   ColorSchemeProvider,
@@ -147,7 +148,6 @@ export {
   SelectList,
   SheetMobile,
   SideNavigation,
-  SlimBanner,
   Spinner,
   Status,
   Sticky,

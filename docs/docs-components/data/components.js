@@ -17,12 +17,14 @@ import ActivationCard from '../../graphics/general/ActivationCard.svg';
 import Avatar from '../../graphics/general/Avatar.svg';
 import AvatarGroup from '../../graphics/general/AvatarGroup.svg';
 import Badge from '../../graphics/general/Badge.svg';
+import BannerCallout from '../../graphics/general/BannerCallout.svg';
 import BannerOverlay from '../../graphics/general/BannerOverlay.svg';
+import BannerSlim from '../../graphics/general/BannerSlim.svg';
 import BannerUpsell from '../../graphics/general/BannerUpsell.svg';
 import Button from '../../graphics/general/Button.svg';
 import ButtonGroup from '../../graphics/general/ButtonGroup.svg';
 import ButtonLink from '../../graphics/general/ButtonLink.svg';
-import Callout from '../../graphics/general/Callout.svg';
+import ButtonToggle from '../../graphics/general/ButtonToggle.svg';
 import Card from '../../graphics/general/Card.svg';
 import ChartGraph from '../../graphics/general/ChartGraph.svg';
 import Checkbox from '../../graphics/general/Checkbox.svg';
@@ -56,11 +58,11 @@ import PopoverEducational from '../../graphics/general/PopoverEducational.svg';
 import Pulsar from '../../graphics/general/Pulsar.svg';
 import RadioGroup from '../../graphics/general/RadioGroup.svg';
 import SearchField from '../../graphics/general/SearchField.svg';
+import SearchGuide from '../../graphics/general/SearchGuide.svg';
 import SegmentedControl from '../../graphics/general/SegmentedControl.svg';
 import SelectList from '../../graphics/general/SelectList.svg';
 import SheetMobile from '../../graphics/general/SheetMobile.svg';
 import SideNavigation from '../../graphics/general/SideNavigation.svg';
-import SlimBanner from '../../graphics/general/SlimBanner.svg';
 import Spinner from '../../graphics/general/Spinner.svg';
 import Status from '../../graphics/general/Status.svg';
 import Switch from '../../graphics/general/Switch.svg';
@@ -316,6 +318,34 @@ const componentData: $ReadOnlyArray<ComponentData> = [
     },
   },
   {
+    id: 'BannerCallout',
+    platform: {
+      web: {
+        name: 'BannerCallout',
+        visual: {
+          svg: <BannerCallout />,
+        },
+        alias: ['Banner', 'Message', 'Notification', 'Notice', 'Note', 'Callout'],
+        description:
+          'BannerCallout is a banner displaying short messages with helpful information for a task on the page, or something that requires the user’s attention.',
+        category: ['Messaging'],
+        status: {
+          accessible: {
+            summary: 'ready',
+            a11yVisual: 'ready',
+            a11yScreenreader: 'ready',
+            a11yNavigation: 'ready',
+            a11yComprehension: 'ready',
+          },
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          responsive: 'ready',
+          status: 'ready',
+        },
+      },
+    },
+  },
+  {
     id: 'BannerOverlay',
     platform: {
       web: {
@@ -520,31 +550,37 @@ const componentData: $ReadOnlyArray<ComponentData> = [
       },
     },
   },
-
   {
-    id: 'Callout',
+    id: 'ButtonToggle',
     platform: {
-      web: {
-        name: 'Callout',
+      android: {
+        name: 'ButtonToggle',
         visual: {
-          svg: <Callout />,
+          svg: <ButtonToggle />,
         },
-        alias: ['Banner', 'Message', 'Notification', 'Notice', 'Note'],
+        alias: ['Toggle', 'Action Button', 'Toggle Switch'],
         description:
-          'Callout is a banner displaying short messages with helpful information for a task on the page, or something that requires the user’s attention.',
-        category: ['Messaging'],
+          'The ButtonToggle is a larger alternative to selection components such as Checkbox, RadioButton, and Switch.',
+        category: ['Actions'],
         status: {
-          accessible: {
-            summary: 'ready',
-            a11yVisual: 'ready',
-            a11yScreenreader: 'ready',
-            a11yNavigation: 'ready',
-            a11yComprehension: 'ready',
-          },
           documentation: 'ready',
           figmaStatus: 'ready',
-          responsive: 'ready',
-          status: 'ready',
+          status: 'planned',
+        },
+      },
+      ios: {
+        name: 'ButtonToggle',
+        visual: {
+          svg: <ButtonToggle />,
+        },
+        alias: ['Toggle', 'Action Button', 'Toggle Switch'],
+        description:
+          'The ButtonToggle is a larger alternative to selection components such as Checkbox, RadioButton, and Switch.',
+        category: ['Actions'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          status: 'planned',
         },
       },
     },
@@ -1966,6 +2002,39 @@ const componentData: $ReadOnlyArray<ComponentData> = [
     },
   },
   {
+    id: 'SearchGuide',
+    platform: {
+      android: {
+        name: 'SearchGuide',
+        visual: {
+          svg: <SearchGuide />,
+        },
+        alias: ['Search filters', 'Pivots', 'Vanilla guides'],
+        description: 'SearchGuide appends and refines a search query.',
+        category: ['Actions'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'partial',
+          status: 'planned',
+        },
+      },
+      ios: {
+        name: 'SearchGuide',
+        visual: {
+          svg: <SearchGuide />,
+        },
+        alias: ['Search filters', 'Pivots', 'Vanilla guides'],
+        description: 'SearchGuide appends and refines a search query.',
+        category: ['Actions'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'partial',
+          status: 'planned',
+        },
+      },
+    },
+  },
+  {
     id: 'SegmentedControl',
     platform: {
       web: {
@@ -2107,16 +2176,16 @@ const componentData: $ReadOnlyArray<ComponentData> = [
     },
   },
   {
-    id: 'SlimBanner',
+    id: 'BannerSlim',
     platform: {
       web: {
-        name: 'SlimBanner',
+        name: 'BannerSlim',
         visual: {
-          svg: <SlimBanner />,
+          svg: <BannerSlim />,
         },
-        alias: ['Notice', 'Note', 'Scoped Notification'],
+        alias: ['Notice', 'Note', 'Scoped Notification', 'SlimBanner'],
         description:
-          'SlimBanner conveys brief information related to a specific section of a page.',
+          'BannerSlim conveys brief information related to a specific section of a page.',
         category: ['Messaging'],
         status: {
           accessible: {

@@ -300,7 +300,7 @@ List's \`label\` prop is used for accessibility purposes. See the [accessibility
         <MainSection.Subsection
           title="Size"
           description={`
-          List can be used with different font sizes. The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/foundations/design_tokens#Font-size). See the [Text sizes variant](https://gestalt.pinterest.systems/web/text#Sizes) for more details. `}
+          List can be used with different font sizes. The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/foundations/design_tokens/overview#Font-size). See the [Text sizes variant](https://gestalt.pinterest.systems/web/text#Sizes) for more details. `}
         >
           <MainSection.Card
             cardSize="lg"

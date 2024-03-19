@@ -16,7 +16,7 @@ const SIZE_WIDTH_MAP = {
 type Props = {
   accessibilityLabel?: string,
   anchor: HTMLElement,
-  bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
+  bgColor: 'blue' | 'darkGray' | 'white',
   border?: boolean,
   caret?: boolean,
   children?: ReactNode,
@@ -32,6 +32,7 @@ type Props = {
   scrollBoundary?: HTMLElement,
   hideWhenReferenceHidden?: boolean,
   onPositioned?: () => void,
+  shouldTrapFocus?: boolean,
 };
 
 export default function Controller({
@@ -53,6 +54,7 @@ export default function Controller({
   scrollBoundary,
   hideWhenReferenceHidden,
   onPositioned,
+  shouldTrapFocus,
 }: Props): ReactNode {
   const width = typeof size === 'string' ? SIZE_WIDTH_MAP[size] : size;
 
@@ -87,6 +89,7 @@ export default function Controller({
         scrollBoundary={scrollBoundary}
         hideWhenReferenceHidden={hideWhenReferenceHidden}
         onPositioned={onPositioned}
+        shouldTrapFocus={shouldTrapFocus}
       >
         {children}
       </Contents>

@@ -1,6 +1,32 @@
 .item {
   composes: paddingY3 from "../boxWhitespace.css";
+  composes: flexGrow from "../Layout.css";
+  background-color: var(--color-background-tableofcontents-item-default);
   padding-inline-end: var(--space-400);
+}
+
+.itemHover {
+  background-color: var(--color-background-tableofcontents-item-hover);
+}
+
+.nestingIndentation1 {
+  padding-inline-start: var(--space-300);
+}
+
+.nestingIndentation2 {
+  padding-inline-start: var(--space-800);
+}
+
+.nestingIndentation3 {
+  padding-inline-start: var(--space-1300);
+}
+
+.nestingIndentation4 {
+  padding-inline-start: 72px;
+}
+
+.nestingIndentation5 {
+  padding-inline-start: 92px;
 }
 
 html:not([dir="rtl"]) .item {

@@ -1,6 +1,7 @@
 // @flow strict
 import { type AbstractComponent, forwardRef, type Node as ReactNode, useState } from 'react';
 import classnames from 'classnames';
+import Badge from './Badge';
 import Box from './Box';
 import Flex from './Flex';
 import focusStyles from './Focus.css';
@@ -12,7 +13,24 @@ import FormHelperText from './shared/FormHelperText';
 import Text from './Text';
 import useFocusVisible from './useFocusVisible';
 
+type BadgeType = {
+  text: string,
+  type?:
+    | 'info'
+    | 'error'
+    | 'warning'
+    | 'success'
+    | 'neutral'
+    | 'recommendation'
+    | 'darkWash'
+    | 'lightWash',
+};
+
 type Props = {
+  /**
+   * An optional [Badge](https://gestalt.pinterest.systems/web/badge) component can be supplied to add a badge to each radio button. See the [badges example](https://gestalt.pinterest.systems/web/radiogroup#With-Badge) for more details.
+   */
+  badge?: BadgeType,
   /**
    * Indicates if the input is checked. See the [state example](https://gestalt.pinterest.systems/web/radiogroup#States) for more details.
    */
@@ -83,6 +101,7 @@ const RadioGroupButtonWithForwardRef: AbstractComponent<Props, HTMLInputElement>
     onChange,
     helperText,
     value,
+    badge,
     size = 'md',
   }: Props,
   ref,
@@ -161,21 +180,30 @@ const RadioGroupButtonWithForwardRef: AbstractComponent<Props, HTMLInputElement>
       </Box>
       {Boolean(image) && <Box paddingX={1}>{image}</Box>}
       <Flex direction="column">
-        {label && (
-          <Label htmlFor={id}>
-            {/* marginTop: '-1px'/'2px' is needed to  visually align the label text & radiobutton input */}
-            <Box
-              paddingX={1}
-              dangerouslySetInlineStyle={{
-                __style: { marginTop: size === 'md' ? '2px' : '-1px' },
-              }}
-            >
-              <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
-                {label}
-              </Text>
-            </Box>
-          </Label>
-        )}
+        <Flex direction="row">
+          {label && (
+            <Label htmlFor={id}>
+              {/* marginTop: '-1px'/'2px' is needed to  visually align the label text & radiobutton input */}
+              <Box
+                paddingX={1}
+                dangerouslySetInlineStyle={{
+                  __style: { marginTop: size === 'md' ? '2px' : '-1px' },
+                }}
+              >
+                <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
+                  {label}
+                </Text>
+              </Box>
+            </Label>
+          )}
+          {badge && (
+            <Flex.Item minWidth={0} alignSelf="end">
+              <Box dangerouslySetInlineStyle={{ __style: { top: '1px' } }} position="relative">
+                <Badge text={badge.text} type={badge.type || 'info'} />
+              </Box>
+            </Flex.Item>
+          )}
+        </Flex>
         {label && helperText ? (
           <Box paddingX={1}>
             <FormHelperText id={`${id}-helperText`} text={helperText} />

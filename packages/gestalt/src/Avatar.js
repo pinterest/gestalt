@@ -1,8 +1,11 @@
 // @flow strict
 import { type Node as ReactNode, useState } from 'react';
+import {
+  TOKEN_COLOR_BACKGROUND_AVATAR_PLACEHOLDER,
+  TOKEN_COLOR_BORDER_AVATAR,
+} from 'gestalt-design-tokens';
 import DefaultAvatar from './Avatar/DefaultAvatar';
 import Box from './Box';
-import { useColorScheme } from './contexts/ColorSchemeProvider';
 import Icon from './Icon';
 import Image from './Image';
 import Mask from './Mask';
@@ -52,7 +55,6 @@ type Props = {
 
 function Avatar(props: Props): ReactNode {
   const [isImageLoaded, setIsImageLoaded] = useState(true);
-  const { colorGray0, colorGray100 } = useColorScheme();
   const { accessibilityLabel, name, outline, size = 'fit', src, verified } = props;
   const width = size === 'fit' ? '100%' : sizes[size];
   const height = size === 'fit' ? '' : sizes[size];
@@ -65,7 +67,7 @@ function Avatar(props: Props): ReactNode {
         ? {
             dangerouslySetInlineStyle: {
               __style: {
-                boxShadow: `0 0 0 1px ${colorGray0}`,
+                boxShadow: `0 0 0 1px ${TOKEN_COLOR_BORDER_AVATAR}`,
               },
             },
           }
@@ -80,7 +82,7 @@ function Avatar(props: Props): ReactNode {
         <Mask rounding="circle" wash>
           <Image
             alt={accessibilityLabel ?? name}
-            color={colorGray100}
+            color={TOKEN_COLOR_BACKGROUND_AVATAR_PLACEHOLDER}
             naturalHeight={1}
             naturalWidth={1}
             src={src}

@@ -18,7 +18,7 @@ exports[`IconButton renders with disabled state 1`] = `
         <svg
           aria-hidden="true"
           aria-label=""
-          class="icon defaultIcon iconBlock"
+          class="default icon iconBlock"
           height="20"
           role="img"
           viewBox="0 0 24 24"
@@ -52,7 +52,7 @@ exports[`IconButton renders with icon 1`] = `
         <svg
           aria-hidden="true"
           aria-label=""
-          class="icon defaultIcon iconBlock"
+          class="default icon iconBlock"
           height="20"
           role="img"
           viewBox="0 0 24 24"
@@ -86,7 +86,7 @@ exports[`IconButton renders with svg 1`] = `
         <svg
           aria-hidden="true"
           aria-label=""
-          class="icon defaultIcon iconBlock"
+          class="default icon iconBlock"
           height="20"
           role="img"
           viewBox="0 0 24 24"
@@ -127,7 +127,7 @@ exports[`IconButton renders with tooltip 1`] = `
             <svg
               aria-hidden="true"
               aria-label=""
-              class="icon defaultIcon iconBlock"
+              class="default icon iconBlock"
               height="20"
               role="img"
               viewBox="0 0 24 24"
@@ -170,7 +170,7 @@ exports[`IconButton renders with tooltip and no accessibilityLabel 1`] = `
             <svg
               aria-hidden="true"
               aria-label=""
-              class="icon defaultIcon iconBlock"
+              class="default icon iconBlock"
               height="20"
               role="img"
               viewBox="0 0 24 24"

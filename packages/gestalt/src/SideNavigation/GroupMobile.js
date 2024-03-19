@@ -9,6 +9,7 @@ import {
   useState,
 } from 'react';
 import classnames from 'classnames';
+import { TOKEN_SPACE_400 } from 'gestalt-design-tokens';
 import getChildrenToArray from './getChildrenToArray';
 import SideNavigationGroupContent from './GroupContent';
 import Box from '../Box';
@@ -80,7 +81,7 @@ export default function SideNavigationGroupMobile({
 
   const paddingStyle = {
     paddingInlineStart: nestingMargin,
-    paddingInlineEnd: '16px',
+    paddingInlineEnd: TOKEN_SPACE_400,
   };
 
   let topLevelChildrenList;

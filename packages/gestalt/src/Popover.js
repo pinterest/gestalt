@@ -4,7 +4,7 @@ import InternalPopover from './Popover/InternalPopover';
 import LegacyInternalPopover from './Popover/LegacyInternalPopover';
 import useInExperiment from './useInExperiment';
 
-type Color = 'deprecatedBlue' | 'red' | 'white' | 'darkGray';
+type Color = 'deprecatedBlue' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
 type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 
@@ -116,7 +116,7 @@ export default function Popover({
   _deprecatedShowCaret = false,
   size = 'sm',
   scrollBoundary,
-  hideWhenReferenceHidden,
+  hideWhenReferenceHidden = true,
   __dangerouslySetMaxHeight,
   __experimentalPopover,
   __onPositioned,

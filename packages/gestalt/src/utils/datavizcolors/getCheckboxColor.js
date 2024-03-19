@@ -1,6 +1,10 @@
 // @flow strict
-
-type ColorStyles = { borderColor?: string, backgroundColor?: string };
+import {
+  TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY,
+  TOKEN_COLOR_BORDER_DEFAULT,
+  TOKEN_COLOR_GRAY_ROBOFLOW_300,
+  TOKEN_COLOR_TRANSPARENT,
+} from 'gestalt-design-tokens';
 
 export type InteractionStates = {
   disabled: boolean,
@@ -12,25 +16,29 @@ export type InteractionStates = {
  *
  * Given an interactions state for a checkbox, returns the relevant bg and border color
  * */
-export default function getCheckboxColor(
+export default function getCheckboxColor({
+  state,
+  colorStyles,
+  opts,
+}: {
   state: InteractionStates,
-  colorStyles: ColorStyles,
+  colorStyles: { borderColor?: string, backgroundColor?: string },
   opts?: { showByDefault?: boolean },
-): ColorStyles {
-  const defaultBackgroundColor = 'transparent';
-  const defaultBorderColor = 'transparent';
+}): { borderColor?: string, backgroundColor?: string } {
+  const defaultBackgroundColor = TOKEN_COLOR_TRANSPARENT;
+  const defaultBorderColor = TOKEN_COLOR_TRANSPARENT;
 
   if (state.disabled) {
     return {
-      backgroundColor: `var(--color-gray-roboflow-300)`,
+      backgroundColor: TOKEN_COLOR_GRAY_ROBOFLOW_300,
       borderColor: defaultBorderColor,
     };
   }
 
   if (state.hovered && !state.selected) {
     return {
-      backgroundColor: `var(--g-colorGray0)`,
-      borderColor: 'var(--color-border-default)',
+      backgroundColor: TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY,
+      borderColor: TOKEN_COLOR_BORDER_DEFAULT,
     };
   }
 
@@ -43,8 +51,8 @@ export default function getCheckboxColor(
 
   if (opts?.showByDefault) {
     return {
-      backgroundColor: `var(--g-colorGray0)`,
-      borderColor: 'var(--color-border-default)',
+      backgroundColor: TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY,
+      borderColor: TOKEN_COLOR_BORDER_DEFAULT,
     };
   }
 

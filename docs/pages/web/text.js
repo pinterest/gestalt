@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { SlimBanner } from 'gestalt';
+import { BannerSlim } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { type DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -155,7 +155,7 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
             }
           />
         </MainSection.Subsection>
-        <SlimBanner
+        <BannerSlim
           type="info"
           iconAccessibilityLabel="Info"
           message="Gestalt's typography guidelines contain additional best practices around sizing, style and hierarchy."
@@ -230,7 +230,7 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection
           title="Sizes"
           description={`
-          You can apply \`size\` options to define the size of the text. These font sizes follow those available through our [Design Tokens](/foundations/design_tokens#Font-size). If your text needs to be a [semantic heading (H1-H6)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), use [Heading](/web/heading) instead.
+          You can apply \`size\` options to define the size of the text. These font sizes follow those available through our [Design Tokens](/foundations/design_tokens/overview#Font-size). If your text needs to be a [semantic heading (H1-H6)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), use [Heading](/web/heading) instead.
 
         `}
         >

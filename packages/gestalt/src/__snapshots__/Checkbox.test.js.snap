@@ -25,7 +25,7 @@ exports[`Checkbox 1`] = `
         type="checkbox"
       />
       <div
-        className="whiteBg border borderRadiusMd sizeMd check"
+        className="enabled border borderRadiusMd sizeMd check"
       />
     </div>
     <div
@@ -44,7 +44,7 @@ exports[`Checkbox 1`] = `
           className="box paddingX1"
         >
           <div
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
           >
             Name
           </div>
@@ -83,12 +83,12 @@ exports[`Checkbox checked 1`] = `
         type="checkbox"
       />
       <div
-        className="darkGrayBg borderSelected borderRadiusMd sizeMd check"
+        className="checked borderSelected borderRadiusMd sizeMd check"
       >
         <svg
           aria-hidden={true}
           aria-label=""
-          className="icon inverseIcon iconBlock"
+          className="inverse icon iconBlock"
           height={12}
           role="img"
           viewBox="0 0 24 24"
@@ -116,7 +116,7 @@ exports[`Checkbox checked 1`] = `
           className="box paddingX1"
         >
           <div
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
           >
             Name
           </div>
@@ -155,12 +155,12 @@ exports[`Checkbox disabled & checked 1`] = `
         type="checkbox"
       />
       <div
-        className="lightGrayBg borderDisabled borderRadiusSm sizeSm check"
+        className="disabled borderDisabled borderRadiusSm sizeSm check"
       >
         <svg
           aria-hidden={true}
           aria-label=""
-          className="icon inverseIcon iconBlock"
+          className="inverse icon iconBlock"
           height={8}
           role="img"
           viewBox="0 0 24 24"
@@ -188,7 +188,7 @@ exports[`Checkbox disabled & checked 1`] = `
           className="box paddingX1"
         >
           <div
-            className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+            className="Text fontSize200 subtle alignStart breakWord fontWeightNormal"
           >
             Name
           </div>
@@ -227,7 +227,7 @@ exports[`Checkbox disabled 1`] = `
         type="checkbox"
       />
       <div
-        className="lightGrayBg borderDisabled borderRadiusSm sizeSm check"
+        className="disabled borderDisabled borderRadiusSm sizeSm check"
       />
     </div>
     <div
@@ -246,7 +246,7 @@ exports[`Checkbox disabled 1`] = `
           className="box paddingX1"
         >
           <div
-            className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal"
+            className="Text fontSize200 subtle alignStart breakWord fontWeightNormal"
           >
             Name
           </div>
@@ -285,12 +285,12 @@ exports[`Checkbox indeterminate 1`] = `
         type="checkbox"
       />
       <div
-        className="darkGrayBg borderSelected borderRadiusMd sizeMd check"
+        className="checked borderSelected borderRadiusMd sizeMd check"
       >
         <svg
           aria-hidden={true}
           aria-label=""
-          className="icon inverseIcon iconBlock"
+          className="inverse icon iconBlock"
           height={12}
           role="img"
           viewBox="0 0 24 24"
@@ -318,7 +318,7 @@ exports[`Checkbox indeterminate 1`] = `
           className="box paddingX1"
         >
           <div
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
           >
             Name
           </div>
@@ -357,7 +357,7 @@ exports[`Checkbox small 1`] = `
         type="checkbox"
       />
       <div
-        className="whiteBg border borderRadiusSm sizeSm check"
+        className="enabled border borderRadiusSm sizeSm check"
       />
     </div>
     <div
@@ -376,7 +376,7 @@ exports[`Checkbox small 1`] = `
           className="box paddingX1"
         >
           <div
-            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
+            className="Text fontSize200 default alignStart breakWord fontWeightNormal"
           >
             Name
           </div>
@@ -415,7 +415,7 @@ exports[`Checkbox with an image 1`] = `
         type="checkbox"
       />
       <div
-        className="whiteBg border borderRadiusSm sizeSm check"
+        className="enabled border borderRadiusSm sizeSm check"
       />
     </div>
     <div
@@ -461,7 +461,7 @@ exports[`Checkbox with an image 1`] = `
           className="box paddingX1"
         >
           <div
-            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
+            className="Text fontSize200 default alignStart breakWord fontWeightNormal"
           >
             Name
           </div>
@@ -500,7 +500,7 @@ exports[`Checkbox with error 1`] = `
         type="checkbox"
       />
       <div
-        className="whiteBg borderError borderRadiusSm sizeSm check"
+        className="enabled borderError borderRadiusSm sizeSm check"
       />
     </div>
     <div
@@ -519,7 +519,7 @@ exports[`Checkbox with error 1`] = `
           className="box paddingX1"
         >
           <div
-            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
+            className="Text fontSize200 default alignStart breakWord fontWeightNormal"
           >
             Name
           </div>
@@ -532,7 +532,7 @@ exports[`Checkbox with error 1`] = `
           className="box marginTop1"
         >
           <div
-            className="Text fontSize100 errorText alignStart breakWord fontWeightNormal"
+            className="Text fontSize100 error alignStart breakWord fontWeightNormal"
           >
             <span
               className="formErrorMessage"
@@ -551,7 +551,7 @@ exports[`Checkbox with error 1`] = `
                     <svg
                       aria-hidden={true}
                       aria-label=""
-                      className="icon errorIcon iconBlock"
+                      className="error icon iconBlock"
                       height={12}
                       role="img"
                       viewBox="0 0 24 24"
@@ -603,7 +603,7 @@ exports[`Checkbox with helperText 1`] = `
         type="checkbox"
       />
       <div
-        className="whiteBg border borderRadiusSm sizeSm check"
+        className="enabled border borderRadiusSm sizeSm check"
       />
     </div>
     <div
@@ -622,7 +622,7 @@ exports[`Checkbox with helperText 1`] = `
           className="box paddingX1"
         >
           <div
-            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal"
+            className="Text fontSize200 default alignStart breakWord fontWeightNormal"
           >
             Name
           </div>
@@ -642,7 +642,7 @@ exports[`Checkbox with helperText 1`] = `
               className="FlexItem flexGrow"
             >
               <div
-                className="Text fontSize100 subtleText alignStart breakWord fontWeightNormal"
+                className="Text fontSize100 subtle alignStart breakWord fontWeightNormal"
               >
                 Additional Info
               </div>
@@ -680,7 +680,7 @@ exports[`Checkbox without label 1`] = `
         type="checkbox"
       />
       <div
-        className="whiteBg border borderRadiusMd sizeMd check"
+        className="enabled border borderRadiusMd sizeMd check"
       />
     </div>
   </div>

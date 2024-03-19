@@ -6,7 +6,7 @@ exports[`Avatar renders an outline 1`] = `
   data-test-id="gestalt-avatar-svg"
   style={
     Object {
-      "boxShadow": "0 0 0 1px #fff",
+      "boxShadow": "0 0 0 1px var(--color-border-avatar)",
       "height": "",
       "width": "100%",
     }
@@ -37,7 +37,7 @@ exports[`Avatar renders an outline 1`] = `
         <text
           className="antialiased sansSerif fontWeightSemiBold "
           dy="0.35em"
-          fill="#111"
+          fill="var(--color-text-default)"
           fontSize="40px"
           textAnchor="middle"
         >
@@ -85,7 +85,7 @@ exports[`Avatar renders multi-byte character initial 1`] = `
         <text
           className="antialiased sansSerif fontWeightSemiBold "
           dy="0.35em"
-          fill="#111"
+          fill="var(--color-text-default)"
           fontSize="40px"
           textAnchor="middle"
         >
@@ -121,7 +121,7 @@ exports[`Avatar renders the checkmark on verified default 1`] = `
       className="box relative"
       style={
         Object {
-          "backgroundColor": "#efefef",
+          "backgroundColor": "var(--color-background-avatar-placeholder)",
           "paddingBottom": "100%",
         }
       }
@@ -165,7 +165,7 @@ exports[`Avatar renders the checkmark on verified default 1`] = `
       <svg
         aria-hidden={true}
         aria-label=""
-        className="icon brandPrimaryIcon iconBlock"
+        className="brandPrimary icon iconBlock"
         height="100%"
         role="img"
         viewBox="0 0 24 24"
@@ -204,7 +204,7 @@ exports[`Avatar renders the correct size - lg 1`] = `
       className="box relative"
       style={
         Object {
-          "backgroundColor": "#efefef",
+          "backgroundColor": "var(--color-background-avatar-placeholder)",
           "paddingBottom": "100%",
         }
       }
@@ -250,7 +250,7 @@ exports[`Avatar renders the correct size - md 1`] = `
       className="box relative"
       style={
         Object {
-          "backgroundColor": "#efefef",
+          "backgroundColor": "var(--color-background-avatar-placeholder)",
           "paddingBottom": "100%",
         }
       }
@@ -296,7 +296,7 @@ exports[`Avatar renders the correct size - sm 1`] = `
       className="box relative"
       style={
         Object {
-          "backgroundColor": "#efefef",
+          "backgroundColor": "var(--color-background-avatar-placeholder)",
           "paddingBottom": "100%",
         }
       }
@@ -342,7 +342,7 @@ exports[`Avatar renders the correct size - xl 1`] = `
       className="box relative"
       style={
         Object {
-          "backgroundColor": "#efefef",
+          "backgroundColor": "var(--color-background-avatar-placeholder)",
           "paddingBottom": "100%",
         }
       }
@@ -388,7 +388,7 @@ exports[`Avatar renders the correct size - xs 1`] = `
       className="box relative"
       style={
         Object {
-          "backgroundColor": "#efefef",
+          "backgroundColor": "var(--color-background-avatar-placeholder)",
           "paddingBottom": "100%",
         }
       }
@@ -434,7 +434,7 @@ exports[`Avatar renders the correct src 1`] = `
       className="box relative"
       style={
         Object {
-          "backgroundColor": "#efefef",
+          "backgroundColor": "var(--color-background-avatar-placeholder)",
           "paddingBottom": "100%",
         }
       }
@@ -492,7 +492,7 @@ exports[`Avatar renders the verified icon 1`] = `
         <text
           className="antialiased sansSerif fontWeightSemiBold "
           dy="0.35em"
-          fill="#111"
+          fill="var(--color-text-default)"
           fontSize="40px"
           textAnchor="middle"
         >
@@ -526,7 +526,7 @@ exports[`Avatar renders the verified icon 1`] = `
       <svg
         aria-hidden={true}
         aria-label=""
-        className="icon brandPrimaryIcon iconBlock"
+        className="brandPrimary icon iconBlock"
         height="100%"
         role="img"
         viewBox="0 0 24 24"
@@ -574,7 +574,7 @@ exports[`Avatar renders with an empty name shows default icon 1`] = `
         <text
           className="antialiased sansSerif fontWeightSemiBold "
           dy="0.35em"
-          fill="#111"
+          fill="var(--color-text-default)"
           fontSize="40px"
           textAnchor="middle"
         />

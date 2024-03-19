@@ -75,7 +75,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                 hideControls
               />
             }
-            description="Use BannerOverlay for critical information, such as errors or warnings. Use Callout instead."
+            description="Use BannerOverlay for critical information, such as errors or warnings. Use BannerCallout instead."
           />
           <MainSection.Card
             type="do"

@@ -1,7 +1,14 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box } from 'gestalt';
-import { type Token } from '../pages/foundations/design_tokens';
+import {
+  TOKEN_COLOR_TEXT_DEFAULT,
+  TOKEN_COLOR_TRANSPARENT,
+  TOKEN_FONT_SIZE_500,
+  TOKEN_FONT_SIZE_600,
+  TOKEN_SPACE_1600,
+} from 'gestalt-design-tokens';
+import { type Token } from '../pages/foundations/design_tokens/overview';
 
 type BaseProps = {
   token: Token,
@@ -17,14 +24,17 @@ type ExampleProps = {
   category: string,
 };
 
+const HEIGHT = 50;
+const WIDTH = 250;
+
 export function ColorBox({ token }: BaseProps): ReactNode {
   return (
     <Box
       dangerouslySetInlineStyle={{
         __style: { backgroundColor: `var(--${token.name})` },
       }}
-      height={50}
-      width={250}
+      height={HEIGHT}
+      width={WIDTH}
       display="flex"
       alignItems="center"
       justifyContent="between"
@@ -38,11 +48,11 @@ export function RoundingBox({ token }: BaseProps): ReactNode {
   return (
     <Box
       dangerouslySetInlineStyle={{
-        __style: { 'border-radius': `var(--${token.name})` },
+        __style: { 'borderRadius': `var(--${token.name})` },
       }}
       borderStyle="lg"
-      width={64}
-      height={64}
+      height={HEIGHT}
+      width={WIDTH}
     />
   );
 }
@@ -65,7 +75,7 @@ export function SpacingBox({ token }: BaseProps): ReactNode {
 
   return (
     <Box
-      dangerouslySetInlineStyle={{ __style: { marginLeft: '64px' } }}
+      dangerouslySetInlineStyle={{ __style: { marginLeft: TOKEN_SPACE_1600 } }}
       color="brand"
       width={token.value}
       height={token.value}
@@ -75,19 +85,21 @@ export function SpacingBox({ token }: BaseProps): ReactNode {
 
 export function TextColorBox({ token }: BaseProps): ReactNode {
   let backgroundColor;
-  if (token.name.includes('inverse') || token.name.includes('light')) {
+  if (token.name.includes('inverse')) {
     backgroundColor = 'selected';
+  } else if (token.name.includes('light')) {
+    backgroundColor = 'dark';
   } else if (token.name.includes('dark')) {
-    backgroundColor = 'default';
+    backgroundColor = 'light';
   }
 
   return (
     <Box
       dangerouslySetInlineStyle={{
-        __style: { color: `var(--${token.name})`, fontSize: '32px' },
+        __style: { color: `var(--${token.name})`, fontSize: TOKEN_FONT_SIZE_500 },
       }}
-      height={50}
-      width={150}
+      height={HEIGHT}
+      width={WIDTH}
       display="flex"
       alignItems="center"
       justifyContent="between"
@@ -105,8 +117,8 @@ export function BorderBox({ token }: BaseProps): ReactNode {
       dangerouslySetInlineStyle={{
         __style: { border: `2px solid var(--${token.name})` },
       }}
-      height={50}
-      width={150}
+      height={HEIGHT}
+      width={WIDTH}
       display="flex"
       alignItems="center"
       justifyContent="between"
@@ -119,8 +131,8 @@ export function OpacityBox({ token }: BaseProps): ReactNode {
   return (
     <Box
       color="recommendationWeak"
-      width={175}
-      height={75}
+      height={HEIGHT}
+      width={WIDTH}
       display="flex"
       justifyContent="center"
       alignItems="center"
@@ -129,8 +141,8 @@ export function OpacityBox({ token }: BaseProps): ReactNode {
         dangerouslySetInlineStyle={{
           __style: { opacity: `var(--${token.name})` },
         }}
-        height={50}
-        width={150}
+        height={HEIGHT}
+        width={WIDTH}
         color="inverse"
       />
     </Box>
@@ -143,11 +155,13 @@ export function ElevationBox({ token }: BaseProps): ReactNode {
       dangerouslySetInlineStyle={{
         __style: {
           boxShadow: `var(--${token.name})`,
-          backgroundColor: token.name.includes('color') ? `var(--${token.name})` : 'transparent',
+          backgroundColor: token.name.includes('color')
+            ? `var(--${token.name})`
+            : TOKEN_COLOR_TRANSPARENT,
         },
       }}
-      height={50}
-      width={150}
+      height={HEIGHT}
+      width={WIDTH}
       display="flex"
       alignItems="center"
       justifyContent="between"
@@ -159,7 +173,7 @@ export function ElevationBox({ token }: BaseProps): ReactNode {
 export function FontBox({ token, type }: FontBoxProps): ReactNode {
   const fontWeightStyle = type === 'weight' ? `var(--${token.name})` : undefined;
   const fontFamilyStyle = type === 'family' ? `var(--${token.name})` : undefined;
-  const fontSizeStyle = type === 'size' ? `var(--${token.name})` : `var(--font-size-600)`;
+  const fontSizeStyle = type === 'size' ? `var(--${token.name})` : TOKEN_FONT_SIZE_600;
 
   return (
     <Box
@@ -168,11 +182,11 @@ export function FontBox({ token, type }: FontBoxProps): ReactNode {
           fontWeight: fontWeightStyle,
           fontFamily: fontFamilyStyle,
           fontSize: fontSizeStyle,
-          color: 'var(--color-text-default)',
+          color: TOKEN_COLOR_TEXT_DEFAULT,
         },
       }}
-      height={50}
-      width={150}
+      height={HEIGHT}
+      width={WIDTH}
       display="flex"
       alignItems="center"
       justifyContent="between"
@@ -184,29 +198,59 @@ export function FontBox({ token, type }: FontBoxProps): ReactNode {
 }
 
 export function TokenExample({ token, category }: ExampleProps): ReactNode {
+  let example;
+
   switch (category) {
-    case 'background-color':
-    case 'data-visualization':
-      return <ColorBox token={token} />;
-    case 'rounding':
-      return <RoundingBox token={token} />;
-    case 'spacing':
-      return <SpacingBox token={token} />;
-    case 'text-color':
-      return <TextColorBox token={token} />;
-    case 'font-size':
-      return <FontBox token={token} type="size" />;
-    case 'font-weight':
-      return <FontBox token={token} type="weight" />;
-    case 'font-family':
-      return <FontBox token={token} type="family" />;
+    case 'color-background':
+    case 'color-data-visualization':
+      example = <ColorBox token={token} />;
+      break;
+
+    case 'color-text':
+    case 'color-icon':
+      example = <TextColorBox token={token} />;
+      break;
+
     case 'color-border':
-      return <BorderBox token={token} />;
+      example = <BorderBox token={token} />;
+      break;
+
     case 'elevation':
-      return <ElevationBox token={token} />;
+      example = <ElevationBox token={token} />;
+      break;
+
     case 'opacity':
-      return <OpacityBox token={token} />;
+      example = <OpacityBox token={token} />;
+      break;
+
+    case 'rounding':
+      example = <RoundingBox token={token} />;
+      break;
+
+    case 'spacing':
+      example = <SpacingBox token={token} />;
+      break;
+
+    case 'font-size':
+      example = <FontBox token={token} type="size" />;
+      break;
+
+    case 'font-weight':
+      example = <FontBox token={token} type="weight" />;
+      break;
+
+    case 'font-family':
+      example = <FontBox token={token} type="family" />;
+      break;
+
     default:
-      return <Box>{token.value}</Box>;
+      example = <Box>{token.value}</Box>;
+      break;
   }
+
+  return token.name.includes('disabled') ? (
+    <div className="skip-accessibility-check">{example}</div>
+  ) : (
+    example
+  );
 }

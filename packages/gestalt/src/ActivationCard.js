@@ -240,7 +240,7 @@ export default function ActivationCard({
   const isCompleted = status === 'complete';
   const { accessibilityDismissButtonLabel } = useDefaultLabelContext('ActivationCard');
 
-  const { name: colorSchemeName } = useColorScheme();
+  const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
   return (

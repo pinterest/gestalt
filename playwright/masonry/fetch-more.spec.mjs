@@ -27,9 +27,7 @@ test.describe('Masonry: fetch more', () => {
     expect(newFetchCount).toBeGreaterThan(initialFetchCount);
   });
 
-  // TODO[@rjames]: fix this test, currently timing out
-  // eslint-disable-next-line jest/no-disabled-tests
-  test.skip('trigger a call to "fetchMore" when scrolling far enough', async ({
+  test('trigger a call to "fetchMore" when scrolling far enough', async ({
     page,
   }) => {
     // Start with a small screen.
@@ -48,14 +46,14 @@ test.describe('Masonry: fetch more', () => {
       selectors.scrollContainer
     );
 
-    await scrollContainer.evaluate((node) => node.scrollBy(0, 600));
+    await scrollContainer.evaluate((node) => node.scrollBy(0, 400));
     await waitForRenderedItems(page, { targetItems: 6 });
 
     fetchCount = await page.evaluate(() => window.TEST_FETCH_COUNTS);
     expect(fetchCount).toBe(0);
 
     // Scroll a little more. This should finally trigger the fetch bounds.
-    await scrollContainer.evaluate((node) => node.scrollBy(0, 600));
+    await scrollContainer.evaluate((node) => node.scrollBy(0, 800));
     await waitForRenderedItems(page, { targetItems: 15 });
 
     fetchCount = await page.evaluate(() => window.TEST_FETCH_COUNTS);

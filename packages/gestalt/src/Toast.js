@@ -132,7 +132,7 @@ export default function Toast({
   thumbnail,
   type = 'default',
 }: Props): ReactNode {
-  const { name: colorSchemeName } = useColorScheme();
+  const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
   const responsiveMinWidth = useResponsiveMinWidth();

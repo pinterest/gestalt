@@ -1,7 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
-import colors from './Colors.css';
 import styles from './Icon.css';
 import icons from './icons/index';
 
@@ -102,12 +101,10 @@ function Icon({
   inline = false,
   size = 16,
 }: Props): ReactNode {
-  const colorClass = colors[`${color}Icon`] && colors[`${color}Icon`];
-
   const cs = classnames(
     flipOnRtlIconNames.includes(icon) && styles.rtlSupport,
+    styles[color],
     styles.icon,
-    colorClass,
     { [styles.iconBlock]: !inline },
   );
 

@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode, useState } from 'react';
 import { Box, Flex, Text, useFocusVisible } from 'gestalt';
+import { TOKEN_COLOR_BORDER_FOCUS } from 'gestalt-design-tokens';
 
 export default function UseFocusVisibleExample(): ReactNode {
   const { isFocusVisible } = useFocusVisible();
@@ -33,7 +34,7 @@ export default function UseFocusVisibleExample(): ReactNode {
             style={{
               outline: 'none',
               boxShadow:
-                isFocusVisible && focusedButton1 ? '0 0 0 4px rgba(0, 132, 255, 0.5)' : null,
+                isFocusVisible && focusedButton1 ? `0 0 0 4px ${TOKEN_COLOR_BORDER_FOCUS}` : null,
             }}
           >
             <Text color="dark">Button 1</Text>
@@ -54,7 +55,7 @@ export default function UseFocusVisibleExample(): ReactNode {
             onFocus={() => setFocusedButton2(true)}
             style={{
               outline: 'none',
-              boxShadow: focusedButton2 ? '0 0 0 4px rgba(0, 132, 255, 0.5)' : null,
+              boxShadow: focusedButton2 ? `0 0 0 4px ${TOKEN_COLOR_BORDER_FOCUS}` : null,
             }}
           >
             <Text color="dark">Button 2</Text>

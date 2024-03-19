@@ -200,17 +200,12 @@ const ButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = forwar
     width: innerRef?.current?.clientWidth,
   });
 
-  const { name: colorSchemeName } = useColorScheme();
+  const { colorSchemeName } = useColorScheme();
   // We need to make a few exceptions for accessibility reasons in darkMode for red buttons
   const isDarkMode = colorSchemeName === 'darkMode';
   const isDarkModeRed = isDarkMode && color === 'red';
-  const isDarkModeBlue = isDarkMode && color === 'blue';
 
-  let colorClass = color === 'transparentWhiteText' ? 'transparent' : color;
-
-  if (isDarkModeRed) {
-    colorClass = 'darkModeRed';
-  }
+  const colorClass = color === 'transparentWhiteText' ? 'transparent' : color;
 
   const { isFocusVisible } = useFocusVisible();
 
@@ -239,11 +234,17 @@ const ButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = forwar
   const textColor =
     (disabled && 'subtle') ||
     (selected && 'inverse') ||
-    ((isDarkModeRed || isDarkModeBlue) && 'default') ||
+    (isDarkModeRed && 'default') ||
     DEFAULT_TEXT_COLORS[color];
 
   const buttonText = (
-    <Text align="center" color={textColor} overflow="normal" weight="bold">
+    <Text
+      align="center"
+      color={textColor}
+      overflow="normal"
+      weight="bold"
+      size={size === 'sm' ? '200' : '300'}
+    >
       {text}
     </Text>
   );

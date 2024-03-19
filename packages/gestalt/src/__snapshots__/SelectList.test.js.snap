@@ -12,16 +12,17 @@ exports[`SelectList renders an option group 1`] = `
       className="formLabel"
     >
       <div
-        className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
+        className="Text fontSize100 default alignStart breakWord fontWeightNormal"
       >
         With option group
       </div>
     </div>
   </label>
   <div
-    className="box default relative rounding4 xsDisplayFlex"
+    className="box relative rounding4 xsDisplayFlex"
     style={
       Object {
+        "backgroundColor": "var(--color-background-formfield-primary)",
         "width": "100%",
       }
     }
@@ -38,7 +39,7 @@ exports[`SelectList renders an option group 1`] = `
       <svg
         aria-hidden={true}
         aria-label=""
-        className="icon defaultIcon iconBlock"
+        className="default icon iconBlock"
         height={12}
         role="img"
         viewBox="0 0 24 24"
@@ -51,7 +52,7 @@ exports[`SelectList renders an option group 1`] = `
     </div>
     <select
       aria-invalid="false"
-      className="select base enabled normal medium"
+      className="select base medium normal enabledTransparent"
       disabled={false}
       id="optionGroup"
       onBlur={[Function]}
@@ -104,16 +105,17 @@ exports[`SelectList renders with a hidden label 1`] = `
       className="formLabel"
     >
       <div
-        className="Text fontSize100 defaultText alignStart breakWord fontWeightNormal"
+        className="Text fontSize100 default alignStart breakWord fontWeightNormal"
       >
         testing
       </div>
     </div>
   </label>
   <div
-    className="box default relative rounding4 xsDisplayFlex"
+    className="box relative rounding4 xsDisplayFlex"
     style={
       Object {
+        "backgroundColor": "var(--color-background-formfield-primary)",
         "width": "100%",
       }
     }
@@ -130,7 +132,7 @@ exports[`SelectList renders with a hidden label 1`] = `
       <svg
         aria-hidden={true}
         aria-label=""
-        className="icon defaultIcon iconBlock"
+        className="default icon iconBlock"
         height={12}
         role="img"
         viewBox="0 0 24 24"
@@ -143,7 +145,7 @@ exports[`SelectList renders with a hidden label 1`] = `
     </div>
     <select
       aria-invalid="false"
-      className="select base enabled normal medium"
+      className="select base medium normal enabledTransparent"
       disabled={false}
       id="test"
       onBlur={[Function]}
@@ -175,9 +177,10 @@ exports[`SelectList renders with typical props 1`] = `
   className="box"
 >
   <div
-    className="box default relative rounding4 xsDisplayFlex"
+    className="box relative rounding4 xsDisplayFlex"
     style={
       Object {
+        "backgroundColor": "var(--color-background-formfield-primary)",
         "width": "100%",
       }
     }
@@ -194,7 +197,7 @@ exports[`SelectList renders with typical props 1`] = `
       <svg
         aria-hidden={true}
         aria-label=""
-        className="icon defaultIcon iconBlock"
+        className="default icon iconBlock"
         height={12}
         role="img"
         viewBox="0 0 24 24"
@@ -207,7 +210,7 @@ exports[`SelectList renders with typical props 1`] = `
     </div>
     <select
       aria-invalid="false"
-      className="select base enabled normal medium"
+      className="select base medium normal enabledTransparent"
       disabled={false}
       id="test"
       onBlur={[Function]}

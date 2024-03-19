@@ -1,14 +1,20 @@
 .tagLarge {
+  composes: borderBox from "./Layout.css";
+  height: 48px;
   padding-bottom: 14px;
   padding-top: 14px;
 }
 
 .tagMedium {
+  composes: borderBox from "./Layout.css";
   composes: paddingY3 from "./boxWhitespace.css";
+  height: 40px;
 }
 
 .tagSmall {
+  composes: borderBox from "./Layout.css";
   composes: paddingY2 from "./boxWhitespace.css";
+  height: 32px;
 }
 
 .tagWrapperRounded {
@@ -21,8 +27,16 @@
   composes: borderColorLightGray from "./Borders.css";
 }
 
+.primary {
+  background-color: var(--color-background-tagdata-primary);
+}
+
+.secondary {
+  background-color: var(--color-background-tagdata-secondary);
+}
+
 .disabled {
-  composes: lightGrayBg from "./Colors.css";
+  background-color: var(--color-background-tagdata-disabled);
   cursor: default;
   pointer-events: none;
 }

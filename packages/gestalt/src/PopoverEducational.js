@@ -137,7 +137,7 @@ export default function PopoverEducational({
   size = 'sm',
   zIndex,
 }: Props): ReactNode {
-  const { name: colorSchemeName } = useColorScheme();
+  const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
   const isInExperiment = useInExperiment({
@@ -215,6 +215,8 @@ export default function PopoverEducational({
         shouldFocus={shouldFocus}
         role={primaryAction && !children ? 'dialog' : role}
         size={size}
+        hideWhenReferenceHidden
+        disableFocusTrap
       >
         {children ??
           (message ? (

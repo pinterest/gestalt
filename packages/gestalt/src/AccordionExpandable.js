@@ -16,14 +16,22 @@ import Divider from './Divider';
 import IconButton from './IconButton';
 import icons from './icons/index';
 
+export type BadgeType = {
+  text: string,
+  type?:
+    | 'info'
+    | 'error'
+    | 'warning'
+    | 'success'
+    | 'neutral'
+    | 'recommendation'
+    | 'darkWash'
+    | 'lightWash',
+};
+
 function getExpandedId(expandedIndex: ?number): ?number {
   return Number.isFinite(expandedIndex) ? expandedIndex : null;
 }
-
-type BadgeType = {
-  text: string,
-  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
-};
 
 type Props = {
   /**
@@ -84,7 +92,7 @@ export default function AccordionExpandable({
     accessibilityExpandLabel: defaultAccessibilityExpandLabel,
   } = useDefaultLabelContext('Accordion');
 
-  const { name: colorSchemeName } = useColorScheme();
+  const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
   const { rounding } = applyModuleDensityStyle(size);

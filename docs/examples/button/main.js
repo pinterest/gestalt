@@ -5,7 +5,7 @@ import { Button, Flex } from 'gestalt';
 export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-      <Button color="red" size="lg" text="Save" />
+      <Button size="lg" text="Save" />
     </Flex>
   );
 }

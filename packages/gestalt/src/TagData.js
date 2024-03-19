@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import borderStyles from './Borders.css';
 import Box from './Box';
 import InternalCheckbox from './Checkbox/InternalCheckbox';
-import cssColorStyles from './Colors.css';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import focusStyles from './Focus.css';
@@ -90,7 +89,7 @@ export type Props = {
    */
   selected?: boolean,
   /**
-   * Sets the size of the TagData to render. See the [size variant](https://gestalt.pinterest.systems.com/web/tagdata#size) to learn more.
+   * Defines the height of the TagData to render. See the [size variant](https://gestalt.pinterest.systems.com/web/tagdata#size) to learn more.
    */
   size?: 'sm' | 'md' | 'lg',
   /**
@@ -136,9 +135,9 @@ export default function TagData({
   const { accessibilityRemoveIconLabel: accessibilityRemoveIconLabelDefault } =
     useDefaultLabelContext('TagData');
 
-  const theme = useColorScheme();
-  const borderColor = getDataVisualizationColor(theme, color);
-  const bgColor = getDataVisualizationColor(theme, color, { lighten: true });
+  const { colorSchemeName } = useColorScheme();
+  const borderColor = getDataVisualizationColor(colorSchemeName, color);
+  const bgColor = getDataVisualizationColor(colorSchemeName, color, { lighten: true });
   const fgColor = disabled ? 'subtle' : 'default';
 
   const colorStyles: { borderColor?: string, backgroundColor?: string } = {
@@ -156,8 +155,8 @@ export default function TagData({
       [styles.tagLarge]: size === 'lg',
       [styles.tagMedium]: size === 'md',
       [styles.tagSmall]: size === 'sm',
-      [cssColorStyles.secondary]: baseColor === 'primary',
-      [cssColorStyles.default]: baseColor === 'secondary',
+      [styles.primary]: baseColor === 'primary',
+      [styles.secondary]: baseColor === 'secondary',
       [styles.hovered]: isHovered,
       [styles.disabled]: disabled,
       [styles.tagWrapperRounded]: true,
@@ -172,8 +171,8 @@ export default function TagData({
       styles.dismissButtonPosition,
       focusStyles.hideOutline,
       {
-        [cssColorStyles.secondary]: baseColor === 'primary',
-        [cssColorStyles.default]: baseColor === 'secondary',
+        [styles.primary]: baseColor === 'primary',
+        [styles.secondary]: baseColor === 'secondary',
         [styles.disabled]: disabled,
         [styles.dismissHovered]: isHovered,
         [focusStyles.accessibilityOutline]: isFocusVisible,
@@ -184,13 +183,13 @@ export default function TagData({
 
   const tileStyle = selected && !disabled ? colorStyles : {};
 
-  const checkBoxStyle = getCheckboxColors(
-    { hovered: isHovered, selected: !!selected, disabled },
+  const checkBoxStyle = getCheckboxColors({
+    state: { hovered: isHovered, selected: !!selected, disabled },
     colorStyles,
-    {
+    opts: {
       showByDefault: true,
     },
-  );
+  });
 
   return (
     <Box display="inlineBlock" position="relative" maxWidth={300} rounding={2}>
@@ -225,7 +224,14 @@ export default function TagData({
                   />
                 </Box>
               )}
-              <Text inline size={sizes[size]?.fontSize} lineClamp={1} color={fgColor}>
+              <Text
+                inline
+                size={sizes[size]?.fontSize}
+                title={tooltip && tooltip.text ? '' : text} // removes html caption if a tooltip exists
+                lineClamp={1}
+                color={fgColor}
+                overflow="breakAll"
+              >
                 {text}
               </Text>
             </Box>

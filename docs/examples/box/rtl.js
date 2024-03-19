@@ -40,7 +40,7 @@ function BoxWithMargins({
   return (
     <Box
       dangerouslySetInlineStyle={{
-        __style: { backgroundColor: 'rgba(110, 15, 60, 0.2)' },
+        __style: { backgroundColor: 'rgb(110 15 60 / 0.2)' },
       }}
     >
       <Box
@@ -49,7 +49,7 @@ function BoxWithMargins({
         marginEnd={marginEnd}
         marginStart={marginStart}
         dangerouslySetInlineStyle={{
-          __style: { backgroundColor: 'rgba(19, 58, 94, 0.2)' },
+          __style: { backgroundColor: 'rgb(19 58 94 / 0.2)' },
         }}
       >
         <Text>{JSON.stringify(`marginEnd: ${marginEnd}, marginStart: ${marginStart}`)}</Text>

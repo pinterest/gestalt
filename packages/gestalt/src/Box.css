@@ -376,7 +376,7 @@
 /* Opacity */
 
 .opacity0 {
-  opacity: 0;
+  opacity: var(--opacity-0);
 }
 
 .opacity01 {
@@ -384,7 +384,7 @@
 }
 
 .opacity02 {
-  opacity: 0.2;
+  opacity: var(--opacity-200);
 }
 
 .opacity03 {
@@ -392,7 +392,7 @@
 }
 
 .opacity04 {
-  opacity: 0.4;
+  opacity: var(--opacity-300);
 }
 
 .opacity05 {
@@ -408,13 +408,131 @@
 }
 
 .opacity08 {
-  opacity: 0.8;
+  opacity: var(--opacity-400);
 }
 
 .opacity09 {
-  opacity: 0.9;
+  opacity: var(--opacity-500);
 }
 
 .opacity1 {
   opacity: 1;
+}
+
+/* Colors */
+
+.default {
+  background-color: var(--color-background-box-default);
+}
+
+.infoBase {
+  background-color: var(--color-background-box-info-base);
+}
+
+.infoStrong {
+  background-color: var(--color-background-box-info-strong);
+}
+
+.infoWeak {
+  background-color: var(--color-background-box-info-weak);
+}
+
+.errorBase {
+  background-color: var(--color-background-box-error-base);
+}
+
+.errorWeak {
+  background-color: var(--color-background-box-error-weak);
+}
+
+.warningBase {
+  background-color: var(--color-background-box-warning-base);
+}
+
+.warningWeak {
+  background-color: var(--color-background-box-warning-weak);
+}
+
+.successBase {
+  background-color: var(--color-background-box-success-base);
+}
+
+.successWeak {
+  background-color: var(--color-background-box-success-weak);
+}
+
+.recommendationBase {
+  background-color: var(--color-background-box-recommendation-base);
+}
+
+.recommendationWeak {
+  background-color: var(--color-background-box-recommendation-weak);
+}
+
+.shopping {
+  background-color: var(--color-background-box-shopping);
+}
+
+.primary {
+  background-color: var(--color-background-box-primary);
+}
+
+.secondary {
+  background-color: var(--color-background-box-secondary);
+}
+
+.tertiary {
+  background-color: var(--color-background-box-tertiary);
+}
+
+.selected {
+  background-color: var(--color-background-box-selected);
+}
+
+.inverse {
+  background-color: var(--color-background-box-inverse);
+}
+
+.brand {
+  background-color: var(--color-background-box-brand);
+}
+
+.education {
+  background-color: var(--color-background-box-education);
+}
+
+.transparent {
+  background-color: var(--color-background-box-transparent);
+}
+
+.dark {
+  background-color: var(--color-background-box-dark);
+}
+
+.light {
+  background-color: var(--color-background-box-light);
+}
+
+.elevationAccent {
+  background-color: var(--color-background-box-elevation-accent);
+}
+
+.elevationFloating {
+  background-color: var(--color-background-box-elevation-floating);
+}
+
+.elevationRaised {
+  background-color: var(--color-background-box-elevation-raised);
+}
+
+.lightWash {
+  background-color: var(--color-background-box-lightwash);
+}
+
+.darkWash {
+  background-color: var(--color-background-box-darkwash);
+}
+
+.transparentDarkGrayBg {
+  background-color: var(--color-background-box-transparentdarkgray);
 }

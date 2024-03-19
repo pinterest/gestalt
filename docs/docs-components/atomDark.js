@@ -18,7 +18,7 @@ const atomDark = {
     {
       types: ['punctuation'],
       style: {
-        color: 'rgba(197, 200, 198, 0.7)',
+        color: 'rgb(197 200 198 / 0.7)',
       },
     },
     {

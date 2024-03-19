@@ -49,7 +49,7 @@ See below how the ButtonGroup component is constructed.
 
 ### Size
 
-Mobile buttons are available in 2 sizes. The Button text always use [$font-size-300 token](/foundations/design_tokens#Font-size) (16sp).
+Mobile buttons are available in 2 sizes. The Button text always use [$font-size-300 token](/foundations/design_tokens/overview#Font-size) (16sp).
 <br/>
 
 <iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FREw1COFYAktmVWrUBh3Ov8%2FGestalt-for-Android%3Ftype%3Ddesign%26node-id%3D8763%253A19224%26t%3DFuLEqHprSOBB2XwC-1" allowFullScreen></iframe>

@@ -28,7 +28,7 @@ exports[`ButtonLink renders 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+        className="Text fontSize300 default alignCenter fontWeightSemiBold"
       >
         Visit Pinterest
       </div>
@@ -78,7 +78,7 @@ exports[`ButtonLink renders disabled 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize300 subtleText alignCenter fontWeightSemiBold"
+        className="Text fontSize300 subtle alignCenter fontWeightSemiBold"
       >
         Visit Pinterest
       </div>
@@ -129,7 +129,7 @@ exports[`ButtonLink renders with icon 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+        className="Text fontSize300 default alignCenter fontWeightSemiBold"
       >
         Visit Pinterest
       </div>
@@ -140,7 +140,7 @@ exports[`ButtonLink renders with icon 1`] = `
       <svg
         aria-hidden={true}
         aria-label=""
-        className="rtlSupport icon defaultIcon iconBlock"
+        className="rtlSupport default icon iconBlock"
         height={12}
         role="img"
         viewBox="0 0 24 24"

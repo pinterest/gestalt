@@ -1,7 +1,158 @@
 [
   {
-    "year": "2023",
+    "year": "2024",
     "digests": [
+      {
+        "month": "February",
+        "summary": "",
+        "posts": [
+          {
+            "title": "Gestalt February Newsletter",
+            "audience": ["Engineering", "Design"],
+            "content": "A recap of significant changes from February."
+          },
+          {
+            "title": "TextField",
+            "audience": ["Engineering"],
+            "content": "TextField now supports [all autocomplete](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values) prop values. "
+          },
+          {
+            "title": "Small component updates",
+            "audience": ["Engineering"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/50e4c977-615a-47da-9f35-4c86b27ed875",
+            "imageAltText": "Image of RadioGroup with a Banner",
+            "content": "Some component updates: \n- [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup#With-Badge) now supports Badges. \n- We deprecated 'red' [Popovers](https://gestalt.pinterest.systems/web/popover#Props)! \n- [TextField](https://gestalt.pinterest.systems/web/textfield#Props) now supports dataTestId"
+          },
+          {
+            "title": "Banner it up!",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/6bd9f7ca-729c-4662-a547-be55f93926bf",
+            "imageAltText": "Light blue graphic with the words in navy blue: “Banner it up!",
+            "content": "Banner it up! Naming refresh: Callout is now [BannerCallout](https://gestalt.pinterest.systems/web/bannercallout), SlimBanner is now [BannerSlim](https://gestalt.pinterest.systems/web/bannerslim), Upsell is now [BannerUpsell](https://gestalt.pinterest.systems/web/bannerupsell), and UpsellOverlay (guess what?) is now [BannerOverlay](https://gestalt.pinterest.systems/web/banneroverlay)"
+          },
+          {
+            "title": "Icons",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/8908bd9c-37fc-42a9-9d25-2c8d71d3412e",
+            "imageAltText": "Visuals in black of the six new icons added to the Gestalt iconography collection",
+            "content": "[New icons](https://gestalt.pinterest.systems/foundations/iconography/library) available for you: collapse, expand, face-tryon, fade (for animation effects), speech-heart (for commenting), and clock-checked (for time indication)"
+          },
+          {
+            "title": "SearchGuide",
+            "audience": ["Design"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/2edc1586-267e-4321-9caf-5cb990dd1b98",
+            "imageAltText": "SearchGuides displayed on mobile",
+            "content": "New [iOS](https://gestalt.pinterest.systems/ios/searchguide) and [Android](https://gestalt.pinterest.systems/android/searchguide) docs for SearchGuide."
+          },
+          {
+            "title": "ButtonToggle",
+            "audience": ["Design"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/d010a5ce-3668-4e01-a147-c2ab5d348a6b",
+            "imageAltText": "ButtonToggle variants on Figma",
+            "content": "[ButtonToggle](https://www.figma.com/file/DlhmMWnyiYITbhfzZeqHaN/Gestalt-VR-Library?type=design&node-id=45%3A388&mode=design&t=qaRtVnZztRO1DVZF-1) specs added to Figma — docs are also available for [iOS](https://gestalt.pinterest.systems/ios/buttontoggle) and [Android](https://gestalt.pinterest.systems/android/buttontoggle)."
+          },
+          {
+            "title": "Dark Mode updates",
+            "audience": ["Design"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/123be1b7-0af5-4577-8824-cdb7ebdb87a9",
+            "imageAltText": "Figma feature showing the option to switch between themes using variables",
+            "content": "Dark Mode variants (Figma) were deprecated. We will now rely on variables to switch between modes. New to variables? [Check out our mini-tutorial How to use variables](https://www.loom.com/share/b78e7ab541024753a0543c52ea9a4f8a?sid=b262b1e0-b639-42a7-ac4a-0da9b7b9a248)"
+          }
+        ]
+      },
+      {
+        "month": "January",
+        "summary": "",
+        "posts": [
+          {
+            "title": "Gestalt January Newsletter",
+            "audience": ["Engineering", "Design"],
+            "content": "A recap of significant changes from January (& December!) ."
+          },
+          {
+            "title": "BannerOverlay & BannerUpsell",
+            "audience": ["Engineering"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/77899bde-bffa-4614-a3cc-f3ce9a5354b0",
+            "imageAltText": "Image of BannerOverlay",
+            "content": "BannerOverlay is a new component for short floating  educational messages. [Learn more about BannerOverlay](https://gestalt.pinterest.systems/web/banneroverlay). \n\nAlso, Upsell was renamed to [BannerUpsell](https://gestalt.pinterest.systems/web/bannerupsell)! More additions to the Banner family coming soon. Stay tuned!"
+          },
+          {
+            "title": "Support for denser Gestalt components",
+            "audience": ["Engineering"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/8c44545a-2ca4-4abd-a03d-9a8ddbabc854",
+            "imageAltText": "Animated image changing List component sizing",
+            "content": "Denser layouts are supported with new small sizes for [Accordion](https://gestalt.pinterest.systems/web/accordion) (previously named as Module), [SegmentedControl](https://gestalt.pinterest.systems/web/segmentedcontrol), [List](https://gestalt.pinterest.systems/web/list), [Textfield](https://gestalt.pinterest.systems/web/textfield), and [Tag](https://gestalt.pinterest.systems/web/tag)."
+          },
+          {
+            "title": "Default cursor pointer available in TapArea",
+            "audience": ["Engineering"],
+            "content": "Use the 'default' cursor over non-interactive elements. The 'default' cursor should change to a pointer if the element it hovers over is also clickable or indicates functionally."
+          },
+          {
+            "title": "New icons",
+            "audience": ["Engineering"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/a97e50d6-f51c-4c2e-b882-e78f360f79de",
+            "imageAltText": "Full list of icons rendered",
+            "content": "We added a whole lot of new cross-platform icons to our [iconography collection](https://gestalt.pinterest.systems/foundations/iconography/library): scissors, clock, clock-checked, 360, alphabetical, arrow-counter-clockwise, arrow-up-left, arrows-vertical, camera-flip, chevron-up-circle, collapse, color-solid, color-split, expand, fade, face-tryon, file-box, forward, forward, insights-conversion, layout, lips, overlay-text-outline, rewind, service-dropbox, service-etsy, service-messenger, service-outlook, service-yahoo, service-youtube, share, shrink, skintone, spread, view-type-space, and x!"
+          },
+          {
+            "title": "Accordion",
+            "audience": ["Design"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/12a75f93-76f1-46ce-8cf7-5730be6faa98",
+            "imageAltText": "Illustration of Gestalt’s accordion component",
+            "content": "The Module component is now called [Accordion](https://gestalt.pinterest.systems/web/accordion) to better align with the industry standards naming convention."
+          },
+          {
+            "title": "Density variants",
+            "audience": ["Design"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/b1293753-a202-4456-90e2-5b4e2befe66b",
+            "imageAltText": "Density visual representation indicating different sizes and spaces",
+            "content": "Density variants for [SegmentedControl](https://gestalt.pinterest.systems/web/segmentedcontrol), [Tag](https://gestalt.pinterest.systems/web/tag), and [Accordion](https://gestalt.pinterest.systems/web/accordion) (web) are now live and available on [Figma](https://shorturl.at/oJKW3). Density variants are also available for [TextFields](https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web?type=design&node-id=18773%3A32141&mode=design&t=AV2ifbXfwvcwwxYW-1) in Figma."
+          },
+          {
+            "title": "BannerOverlay",
+            "audience": ["Design"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/e3a0cd3e-1da8-4149-9c6a-507b17e4a2e1",
+            "imageAltText": "Illustration of Gestalt’s banner overlay component",
+            "content": "Our [BannerOverlay](https://gestalt.pinterest.systems/web/banneroverlay) web component (former UpsellOverlay) is now code-ready for you! We changed the component name to better align with our message patterns, but don’t worry; the component function is still the same."
+          },
+          {
+            "title": "Layout guidelines",
+            "audience": ["Design"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/aa2fd126-0630-4c04-b376-f02bf375603c",
+            "imageAltText": "Layout graphics simulating a page structure",
+            "content": "[Layout guidelines](https://gestalt.pinterest.systems/foundations/layout) are now live. Check it out!"
+          },
+          {
+            "title": "iOS Documentation updates",
+            "audience": ["Design"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/932d7839-434f-4434-ae61-73fb308a65ce",
+            "imageAltText": "Gestalt’s avatar group and icon floating button components representation",
+            "content": "iOS Documentation updates and Figma refinements on the following components: [Avatar](https://gestalt.pinterest.systems/ios/avatar), [Button](https://gestalt.pinterest.systems/ios/button), [ButtonGroup](https://gestalt.pinterest.systems/ios/buttongroup)."
+          },
+          {
+            "title": "New iOS Figma components",
+            "audience": ["Design"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/acae4dc4-ea9f-497d-ac19-7048b8b5fb09",
+            "imageAltText": "Gestalt’s avatar group and icon floating button components representation",
+            "content": "Net-new Figma components and iOS docs for [AvatarGroup](https://gestalt.pinterest.systems/ios/avatargroup) and [IconFloatingButton](https://gestalt.pinterest.systems/ios/iconbuttonfloating)."
+          },
+          {
+            "title": "New International Design guidelines",
+            "audience": ["Design"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/4ac2d78e-6eee-468d-b5d7-4b7fd61b3c39",
+            "imageAltText": "International design graphic representation showing pluralization and number localization",
+            "content": "[Number localization](https://gestalt.pinterest.systems/foundations/international_design/number_localization) and [Pluralization guidelines](https://gestalt.pinterest.systems/foundations/international_design/pluralization) are published under International Design."
+          },
+          {
+            "title": "Icon fixes",
+            "audience": ["Design"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/46b32784-c7d3-42a7-b9e3-e91bdf5bd28f",
+            "imageAltText": "Directional-arrow-left, arrow-back and heart-outline Gestalt icons",
+            "content": "Fix on duplicated icons: directional-arrow-left, arrow-back and heart-outline."
+          }
+        ]
+      },
       {
         "month": "November",
         "summary": "",
@@ -21,7 +172,7 @@
             "audience": ["Engineering"],
             "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/8a79b408-ae17-4257-a8f2-6b23067afb00",
             "imageAltText": "Image of the new icons",
-            "content": "- **Status** supports new 'locked' status. \n - **SideNavigation** supports controlled group display for collapsing/expanding groups. \n - **Icons**. We added 4 new cross-platform icons to our [iconography collection](https://gestalt.pinterest.systems/foundations/iconography/library): captions, captoins-outlined, sticker, upload-feed."
+            "content": "- **Status** supports new locked' status. \n - **SideNavigation** supports controlled group display for collapsing/expanding groups. \n - **Icons**. We added 4 new cross-platform icons to our [iconography collection](https://gestalt.pinterest.systems/foundations/iconography/library): captions, captoins-outlined, sticker, upload-feed."
           },
           {
             "title": "Color variables full rollout",
@@ -162,7 +313,7 @@
             "audience": ["Engineering"],
             "imageSrc": "https://i.pinimg.com/originals/48/01/fc/4801fc8f9d06cd45eb2b126b2362ead6.png",
             "imageAltText": "Screenshot of spacing token UI'",
-            "content": "[Spacing token](https://gestalt.pinterest.systems/foundations/design_tokens#Spacing) values are changing to a new scale. This updates old and also adds new values. In order to maintain consistency with our Figma designs and offer more flexibility in spacing, we're using spacing on a 4pt scale."
+            "content": "[Spacing token](https://gestalt.pinterest.systems/foundations/design_tokens/overview#Spacing) values are changing to a new scale. This updates old and also adds new values. In order to maintain consistency with our Figma designs and offer more flexibility in spacing, we're using spacing on a 4pt scale."
           }
         ]
       },
@@ -1597,7 +1748,7 @@
             "audience": ["Design", "Engineering"],
             "imageSrc": "https://i.pinimg.com/originals/fd/6c/72/fd6c72f2a699244e3e7ad483e9f791db.png",
             "imageAltText": "a hollow circle with a dotted outline",
-            "content": "We made a minor update to our [opacity design tokens](https://gestalt.pinterest.systems/foundations/design_tokens#Opacity) with the addition of a fully transparent value."
+            "content": "We made a minor update to our [opacity design tokens](https://gestalt.pinterest.systems/foundations/design_tokens/overview#Opacity) with the addition of a fully transparent value."
           }
         ]
       },

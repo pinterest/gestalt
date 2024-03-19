@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { Box, Image, SlimBanner } from 'gestalt';
+import { BannerSlim, Box, Image } from 'gestalt';
 import Page from '../../../../docs-components/Page';
 import PageHeader from '../../../../docs-components/PageHeader';
 
@@ -16,7 +16,7 @@ export default function FunnelChartsPage(): ReactNode {
       />
       <Box maxWidth={892}>
         {' '}
-        <SlimBanner
+        <BannerSlim
           type="info"
           iconAccessibilityLabel="Info"
           message="Funnel chart guidelines are still in development. More to come soon!"

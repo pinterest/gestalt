@@ -155,7 +155,7 @@
 
 .introLineIn {
   animation: slide-in-right 1s ease-in 0s forwards;
-  opacity: 0;
+  opacity: var(--opacity-0);
 }
 
 @keyframes slide-in-right {

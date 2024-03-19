@@ -1,8 +1,8 @@
 // @flow strict
 import { createElement, type Node as ReactNode } from 'react';
 import cx from 'classnames';
-import colors from './Colors.css';
 import styles from './Heading.css';
+import colors from './Text.css';
 import { semanticColors } from './textTypes';
 import typography from './Typography.css';
 
@@ -37,7 +37,7 @@ type Props = {
    */
   children?: ReactNode,
   /**
-   * The color of the text. See [Text colors example](https://gestalt.pinterest.systems/foundations/design_tokens#Text-color) for more details.
+   * The color of the text. See [Text colors example](https://gestalt.pinterest.systems/foundations/design_tokens/overview#Text-color) for more details.
    */
   color?:
     | 'default'
@@ -63,7 +63,7 @@ type Props = {
   overflow?: Overflow,
   /**
    * The font size of the text. See [Sizes example](https://gestalt.pinterest.systems/web/heading#Size) for more details.
-   * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/foundations/design_tokens#Font-size).
+   * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/foundations/design_tokens/overview#Font-size).
    */
   size?: Size,
 };
@@ -101,7 +101,7 @@ export default function Heading({
   const cs = cx(
     styles.Heading,
     typography[`fontSize${size}`],
-    color && semanticColors.includes(color) && colors[`${color}Text`],
+    color && semanticColors.includes(color) && colors[color],
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,
     align === 'start' && typography.alignStart,

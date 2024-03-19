@@ -1,13 +1,18 @@
 // @flow strict
-import { Page } from '@playwright/test';
 import selectors from './selectors.mjs';
 
-export default function getGridItems(page: typeof Page): Promise<
-  $ReadOnlyArray<{|
-    innerText: () => void,
-    textContent: () => void,
-    boundingBox: () => Promise<{| [string]: number |}>,
-  |}>
-> {
+/*::
+type GridItems = $ReadOnlyArray<{|
+  innerText: () => void,
+  textContent: () => void,
+  boundingBox: () => Promise<{| [string]: number |}>,
+|}>;
+
+type Page = { locator: (string) => { all: () => Promise<GridItems> } };
+*/
+
+export default function getGridItems(
+  page /*: Page */
+) /*: Promise<GridItems> */ {
   return page.locator(selectors.gridItem).all();
 }

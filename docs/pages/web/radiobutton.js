@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { SlimBanner } from 'gestalt';
+import { BannerSlim } from 'gestalt';
 import docGen, { type DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import Page from '../../docs-components/Page';
@@ -13,8 +13,8 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         name="RadioButton"
         badge="deprecated"
         description="Use RadioButtons when you have a few options that a user can choose from. Never use radio buttons if the user can select more than one option from a list."
-        slimBanner={
-          <SlimBanner
+        bannerSlim={
+          <BannerSlim
             type="error"
             iconAccessibilityLabel="Info"
             message="The standalone RadioButton is soon to be deprecated, use RadioGroup and RadioGroup.RadioButton instead."

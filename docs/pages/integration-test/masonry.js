@@ -68,7 +68,6 @@ export default function TestPage({
   const router = useRouter();
   // These should match playwright/masonry/utils/getServerURL.mjs
   const {
-    batchPaints,
     constrained,
     deferMount,
     externalCache,
@@ -107,7 +106,6 @@ export default function TestPage({
     <ColorSchemeProvider colorScheme="light">
       <MaybeLazyHydrate ssrOnly={ssrOnly}>
         <MasonryContainer
-          batchPaints={booleanize(batchPaints)}
           constrained={booleanize(constrained)}
           externalCache={booleanize(externalCache)}
           finiteLength={booleanize(finiteLength)}

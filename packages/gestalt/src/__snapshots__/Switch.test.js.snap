@@ -2,7 +2,7 @@
 
 exports[`Switch 1`] = `
 <div
-  className="switch switchWhite"
+  className="switch enabled"
 >
   <input
     checked={false}
@@ -22,7 +22,7 @@ exports[`Switch 1`] = `
 
 exports[`Switch disabled 1`] = `
 <div
-  className="switch switchLightGray"
+  className="switch disabled"
 >
   <input
     checked={false}
@@ -42,7 +42,7 @@ exports[`Switch disabled 1`] = `
 
 exports[`Switch switched & disabled 1`] = `
 <div
-  className="switch switchLightGray"
+  className="switch disabled"
 >
   <input
     checked={false}
@@ -62,7 +62,7 @@ exports[`Switch switched & disabled 1`] = `
 
 exports[`Switch switched 1`] = `
 <div
-  className="switch switchWhite"
+  className="switch enabled"
 >
   <input
     checked={false}

@@ -1,12 +1,12 @@
 // @flow strict
-import { type Node as ReactNode, useEffect, useRef } from 'react';
+import { type Node as ReactNode, useRef } from 'react';
 import Controller from './Controller';
 import Box from '../Box';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import Flex from '../Flex';
 import InternalDismissButton from '../shared/InternalDismissButton';
 
-type Color = 'blue' | 'red' | 'white' | 'darkGray';
+type Color = 'blue' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
 type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 
@@ -29,6 +29,7 @@ type Props = {
   scrollBoundary?: HTMLElement,
   hideWhenReferenceHidden?: boolean,
   onPositioned?: () => void,
+  disableFocusTrap?: boolean,
 };
 
 export default function InternalPopover({
@@ -50,19 +51,17 @@ export default function InternalPopover({
   scrollBoundary,
   hideWhenReferenceHidden,
   onPositioned,
+  disableFocusTrap = false,
 }: Props): null | ReactNode {
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Popover');
 
   const dismissButtonRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
-  useEffect(() => {
-    dismissButtonRef.current?.focus();
-  }, []);
-
   if (!anchor) {
     return null;
   }
+
   return (
     <Controller
       accessibilityLabel={accessibilityLabel}
@@ -82,6 +81,7 @@ export default function InternalPopover({
       disablePortal={disablePortal}
       hideWhenReferenceHidden={hideWhenReferenceHidden}
       onPositioned={onPositioned}
+      shouldTrapFocus={!disableFocusTrap}
     >
       {showDismissButton ? (
         <Flex direction="column">

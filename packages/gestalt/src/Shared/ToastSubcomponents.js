@@ -169,7 +169,7 @@ export function ToastTypeThumbnail({
 }: {
   type: 'default' | 'success' | 'error' | 'progress',
 }): ReactNode {
-  const { name: colorSchemeName } = useColorScheme();
+  const { colorSchemeName } = useColorScheme();
   const {
     accessibilityIconSuccessLabel,
     accessibilityIconErrorLabel,

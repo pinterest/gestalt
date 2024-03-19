@@ -3,21 +3,11 @@ import { type Node as ReactNode } from 'react';
 import classNames from 'classnames';
 import styles from './TableOfContentsAnchor.css';
 import Box from '../Box';
-import Colors from '../Colors.css';
 import { useNesting } from '../contexts/NestingProvider';
 import Flex from '../Flex';
-import Layout from '../Layout.css';
 import TapAreaLink from '../TapAreaLink';
 import Text from '../Text';
 import useInteractiveStates from '../utils/useInteractiveStates';
-
-const NESTING_MARGIN_START_MAP = {
-  '1': '12px',
-  '2': '32px',
-  '3': '52px',
-  '4': '72px',
-  '5': '92px',
-};
 
 type Props = {
   label: string,
@@ -32,7 +22,6 @@ export default function TableOfContentsAnchor({ label, active, href, onClick }: 
     useInteractiveStates();
   const hasMarker = active || isHovered;
   const markerColor = active ? 'inverse' : 'tertiary';
-  const nestingPadding = NESTING_MARGIN_START_MAP[nestedLevel];
   const nestingFontSize = nestedLevel === 1 ? '300' : '200';
 
   return (
@@ -49,12 +38,9 @@ export default function TableOfContentsAnchor({ label, active, href, onClick }: 
       <Flex>
         <Box minWidth={4} color={hasMarker ? markerColor : 'transparent'} rounding="pill" />
         <div
-          className={classNames(styles.item, Layout.flexGrow, {
-            [Colors.secondary]: isHovered,
+          className={classNames(styles.item, styles[`nestingIndentation${nestedLevel}`], {
+            [styles.itemHover]: isHovered,
           })}
-          style={{
-            paddingInlineStart: nestingPadding,
-          }}
         >
           <Text weight={active ? 'bold' : 'normal'} size={nestingFontSize}>
             {label}

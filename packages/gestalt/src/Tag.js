@@ -1,8 +1,8 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
+import { TOKEN_COLOR_BORDER_TAG_DISABLED } from 'gestalt-design-tokens';
 import Box from './Box';
-import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import focusStyles from './Focus.css';
 import Icon from './Icon';
@@ -107,8 +107,6 @@ export default function Tag({
   text,
   type = 'default',
 }: Props): ReactNode {
-  const { colorGray200 } = useColorScheme();
-
   const hasIcon = ['error', 'warning'].includes(type);
 
   const bgColor = backgroundColorByType[type];
@@ -127,8 +125,8 @@ export default function Tag({
   const { isFocusVisible } = useFocusVisible();
 
   const removeIconClasses = classnames(
-    styles.button,
-    styles[bgColor],
+    styles.closeButton,
+    styles[type],
     focusStyles.hideOutline,
     touchableStyles.tapTransition,
     {
@@ -146,7 +144,8 @@ export default function Tag({
       aria-disabled={disabled}
       color={bgColor}
       dangerouslySetInlineStyle={{
-        __style: disabled && !hasIcon ? { border: `solid 1px ${colorGray200}` } : {},
+        __style:
+          disabled && !hasIcon ? { border: `solid 1px ${TOKEN_COLOR_BORDER_TAG_DISABLED}` } : {},
       }}
       display="inlineBlock"
       height={height}
@@ -167,7 +166,7 @@ export default function Tag({
           </Box>
         )}
 
-        <Text color={fgColor} inline size={fontSize} lineClamp={1}>
+        <Text color={fgColor} inline size={fontSize} lineClamp={1} overflow="breakAll">
           {text}
         </Text>
 

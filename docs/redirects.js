@@ -5,11 +5,12 @@ const webComponents = [
   'avatar',
   'avatargroup',
   'badge',
+  'bannerslim',
+  'bannercallout',
   'bannerupsell',
   'box',
   'button',
   'buttongroup',
-  'callout',
   'card',
   'checkbox',
   'collage',
@@ -49,7 +50,6 @@ const webComponents = [
   'selectlist',
   'sheet',
   'sidenavigation',
-  'slimbanner',
   'spinner',
   'status',
   'sticky',
@@ -163,6 +163,11 @@ const misc = [
     permanent: true,
   },
   {
+    source: '/foundations/design_tokens',
+    destination: '/foundations/design_tokens/overview',
+    permanent: true,
+  },
+  {
     source: '/foundations/rtl_guidelines/about_international_design',
     destination: '/foundations/international_design/about_international_design',
     permanent: true,
@@ -255,6 +260,16 @@ const misc = [
   {
     source: '/web/upsell',
     destination: '/web/bannerupsell',
+    permanent: true,
+  },
+  {
+    source: '/web/slimbanner',
+    destination: '/web/bannerslim',
+    permanent: true,
+  },
+  {
+    source: '/web/callout',
+    destination: '/web/bannercallout',
     permanent: true,
   },
 ];

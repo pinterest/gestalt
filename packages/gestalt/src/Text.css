@@ -1,3 +1,43 @@
 .Text {
   composes: antialiased sansSerif from "./Typography.css";
 }
+
+.inverse {
+  color: var(--color-text-inverse);
+}
+
+.error {
+  color: var(--color-text-error);
+}
+
+.default {
+  color: var(--color-text-default);
+}
+
+.subtle {
+  color: var(--color-text-subtle);
+}
+
+.warning {
+  color: var(--color-text-warning);
+}
+
+.success {
+  color: var(--color-text-success);
+}
+
+.shopping {
+  color: var(--color-text-shopping);
+}
+
+.link {
+  color: var(--color-text-link);
+}
+
+.light {
+  color: var(--color-text-light);
+}
+
+.dark {
+  color: var(--color-text-dark);
+}

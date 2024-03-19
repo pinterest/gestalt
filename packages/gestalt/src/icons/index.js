@@ -34,6 +34,8 @@ import arrowCircleDown from './arrow-circle-down.svg';
 import arrowCircleForward from './arrow-circle-forward.svg';
 import arrowCircleUp from './arrow-circle-up.svg';
 import arrowCounterClockwise from './arrow-counter-clockwise.svg';
+import arrowDoubleBack from './arrow-double-back.svg';
+import arrowDoubleForward from './arrow-double-forward.svg';
 import arrowDown from './arrow-down.svg';
 import arrowEnd from './arrow-end.svg';
 import arrowForward from './arrow-forward.svg';
@@ -212,6 +214,7 @@ import sparkle from './sparkle.svg';
 import speech from './speech.svg';
 import speechEllipsis from './speech-ellipsis.svg';
 import speechExclamationPoint from './speech-exclamation-point.svg';
+import speechHeart from './speech-heart.svg';
 import speechOutline from './speech-outline.svg';
 import spread from './spread.svg';
 import star from './star.svg';
@@ -299,6 +302,8 @@ const icons = Object.freeze({
   'arrow-circle-forward': arrowCircleForward,
   'arrow-circle-up': arrowCircleUp,
   'arrow-counter-clockwise': arrowCounterClockwise,
+  'arrow-double-forward': arrowDoubleForward,
+  'arrow-double-back': arrowDoubleBack,
   'arrow-down': arrowDown,
   'arrow-end': arrowEnd,
   'arrow-forward': arrowForward,
@@ -477,6 +482,7 @@ const icons = Object.freeze({
   speech,
   'speech-ellipsis': speechEllipsis,
   'speech-exclamation-point': speechExclamationPoint,
+  'speech-heart': speechHeart,
   'speech-outline': speechOutline,
   spread,
   'star-outline': starOutline,

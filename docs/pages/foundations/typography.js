@@ -71,7 +71,7 @@ We have several React components that use typography as the primary element.
       <MainSection name="Font families">
         <MainSection.Subsection
           title="Product"
-          description="For our product interfaces, we default to *system fonts*. See our [font family design tokens](/foundations/design_tokens#Font-family) for more information."
+          description="For our product interfaces, we default to *system fonts*. See our [font family design tokens](/foundations/design_tokens/overview#Font-family) for more information."
         />
         <MainSection.Subsection
           title="Brand"

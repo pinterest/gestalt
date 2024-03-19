@@ -2,22 +2,34 @@
 
 exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
 <body>
-  <div />
+  <div
+    aria-hidden="true"
+    data-floating-ui-inert=""
+  />
   <div
     class=""
   >
     <div>
+      <span
+        aria-hidden="true"
+        data-floating-ui-focus-guard=""
+        data-floating-ui-inert=""
+        data-type="inside"
+        role="button"
+        style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+        tabindex="0"
+      />
       <div
         class="container rounding4 contents maxDimensions minDimensions"
-        style="visibility: visible; top: 8px; left: -10px;"
-        tabindex="-1"
+        style="position: absolute; left: 0px; top: 0px; visibility: visible; transform: translate(0px, 0px);"
+        tabindex="0"
       >
         <div
-          aria-label="Popover"
-          class="border whiteBgElevated whiteElevated rounding4 innerContents maxDimensions minDimensions"
+          aria-label="Dropdown"
+          class="border rounding4 innerContents maxDimensions minDimensions primary"
           id="ex-1"
           role="menu"
-          style="max-width: 360px; max-height: 691.1999999999999px;"
+          style="max-width: 360px;"
         >
           <div
             class="box flexGrow marginBottom2 marginEnd2 marginStart2 marginTop2 xsDirectionColumn xsDisplayFlex xsItemsCenter"
@@ -45,7 +57,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                         class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                       >
                         <span
-                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                           title="1"
                         >
                           1
@@ -54,7 +66,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
                   >
                     <div
                       class="box"
@@ -72,7 +84,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
@@ -87,7 +99,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                         class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                       >
                         <span
-                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                           title="2"
                         >
                           2
@@ -96,7 +108,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
                   >
                     <div
                       class="box"
@@ -114,7 +126,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
@@ -129,7 +141,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                         class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                       >
                         <span
-                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                           title="3"
                         >
                           3
@@ -138,7 +150,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
                   >
                     <div
                       class="box"
@@ -156,7 +168,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
@@ -171,7 +183,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                         class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                       >
                         <span
-                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                           title="4"
                         >
                           4
@@ -180,7 +192,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
                   >
                     <div
                       class="box"
@@ -198,7 +210,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
@@ -213,7 +225,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                         class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                       >
                         <span
-                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                           title="5"
                         >
                           5
@@ -222,7 +234,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
                   >
                     <div
                       class="box"
@@ -240,7 +252,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
@@ -255,7 +267,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                         class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                       >
                         <span
-                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                           title="6"
                         >
                           6
@@ -264,7 +276,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
                   >
                     <div
                       class="box"
@@ -282,7 +294,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
@@ -297,7 +309,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                         class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                       >
                         <span
-                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                           title="7"
                         >
                           7
@@ -306,7 +318,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
                   >
                     <div
                       class="box"
@@ -324,7 +336,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
@@ -339,7 +351,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                         class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                       >
                         <span
-                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                           title="8"
                         >
                           8
@@ -348,7 +360,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
                   >
                     <div
                       class="box"
@@ -366,7 +378,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
@@ -381,7 +393,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                         class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                       >
                         <span
-                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                           title="9"
                         >
                           9
@@ -390,7 +402,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
                   >
                     <div
                       class="box"
@@ -408,7 +420,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
@@ -423,7 +435,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                         class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                       >
                         <span
-                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                           title="10"
                         >
                           10
@@ -432,7 +444,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
                   >
                     <div
                       class="box"
@@ -450,7 +462,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
@@ -465,7 +477,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                         class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                       >
                         <span
-                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                           title="11"
                         >
                           11
@@ -474,7 +486,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
                   >
                     <div
                       class="box"
@@ -492,7 +504,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
@@ -507,7 +519,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                         class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                       >
                         <span
-                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                           title="12"
                         >
                           12
@@ -516,7 +528,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
                   >
                     <div
                       class="box"
@@ -529,6 +541,15 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
           </div>
         </div>
       </div>
+      <span
+        aria-hidden="true"
+        data-floating-ui-focus-guard=""
+        data-floating-ui-inert=""
+        data-type="inside"
+        role="button"
+        style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+        tabindex="0"
+      />
     </div>
   </div>
 </body>
@@ -536,22 +557,34 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
 
 exports[`Dropdown renders a menu of 6 items 1`] = `
 <body>
-  <div />
+  <div
+    aria-hidden="true"
+    data-floating-ui-inert=""
+  />
   <div
     class=""
   >
     <div>
+      <span
+        aria-hidden="true"
+        data-floating-ui-focus-guard=""
+        data-floating-ui-inert=""
+        data-type="inside"
+        role="button"
+        style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+        tabindex="0"
+      />
       <div
         class="container rounding4 contents maxDimensions minDimensions"
-        style="visibility: visible; top: 8px; left: -10px;"
+        style="position: absolute; left: 0px; top: 0px; visibility: visible; transform: translate(0px, 0px);"
         tabindex="-1"
       >
         <div
-          aria-label="Popover"
-          class="border whiteBgElevated whiteElevated rounding4 innerContents maxDimensions minDimensions"
+          aria-label="Dropdown"
+          class="border rounding4 innerContents maxDimensions minDimensions primary"
           id="ex-1"
           role="menu"
-          style="max-width: 360px; max-height: 691.1999999999999px;"
+          style="max-width: 360px;"
         >
           <div
             class="box flexGrow marginBottom2 marginEnd2 marginStart2 marginTop2 xsDirectionColumn xsDisplayFlex xsItemsCenter"
@@ -579,7 +612,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                         class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                       >
                         <span
-                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                           title="Item 1"
                         >
                           Item 1
@@ -588,7 +621,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
                   >
                     <div
                       class="box"
@@ -606,7 +639,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
@@ -621,7 +654,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                         class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                       >
                         <span
-                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                           title="Item 2 with a really long, detailed, complex name"
                         >
                           Item 2 with a really long, detailed, complex name
@@ -630,7 +663,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
                   >
                     <div
                       class="box"
@@ -648,7 +681,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <a
                   class="link hideOutline tapTransition rounding0 block noUnderline accessibilityOutline"
@@ -669,7 +702,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                           class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                         >
                           <span
-                            class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                            class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                             title="External Item 3 with a really long, detailed, complex name"
                           >
                             External Item 3 with a really long, detailed, complex name
@@ -678,7 +711,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       </div>
                     </div>
                     <div
-                      class="box justifyCenter xsDisplayNone xsItemsCenter"
+                      class="box justifyCenter transparent xsDisplayNone xsItemsCenter"
                     >
                       <div
                         class="box"
@@ -687,12 +720,12 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     </div>
                     <div
                       aria-hidden="true"
-                      class="box justifyCenter marginStart2 xsDisplayFlex xsItemsCenter"
+                      class="box justifyCenter marginStart2 transparent xsDisplayFlex xsItemsCenter"
                     >
                       <svg
                         aria-hidden="true"
                         aria-label=""
-                        class="rtlSupport icon defaultIcon iconBlock"
+                        class="rtlSupport default icon iconBlock"
                         height="12"
                         role="img"
                         viewBox="0 0 24 24"
@@ -725,7 +758,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
@@ -740,7 +773,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                         class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                       >
                         <span
-                          class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                          class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                           title="Item 4"
                         >
                           Item 4
@@ -754,7 +787,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                             , 
                           </div>
                           <div
-                            class="Badge middle infoBase"
+                            class="Badge middle info"
                           >
                             <div
                               class="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
@@ -776,7 +809,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter xsDisplayFlex xsItemsCenter"
+                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
                   >
                     <div
                       class="box"
@@ -794,7 +827,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <a
                   class="link hideOutline tapTransition rounding0 block noUnderline accessibilityOutline"
@@ -815,7 +848,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                           class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                         >
                           <span
-                            class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                            class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                             title="Item 5 with a really long, detailed name"
                           >
                             Item 5 with a really long, detailed name
@@ -829,7 +862,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                               , 
                             </div>
                             <div
-                              class="Badge middle infoBase"
+                              class="Badge middle info"
                             >
                               <div
                                 class="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
@@ -851,7 +884,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       </div>
                     </div>
                     <div
-                      class="box justifyCenter xsDisplayNone xsItemsCenter"
+                      class="box justifyCenter transparent xsDisplayNone xsItemsCenter"
                     >
                       <div
                         class="box"
@@ -860,12 +893,12 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     </div>
                     <div
                       aria-hidden="true"
-                      class="box justifyCenter marginStart2 xsDisplayFlex xsItemsCenter"
+                      class="box justifyCenter marginStart2 transparent xsDisplayFlex xsItemsCenter"
                     >
                       <svg
                         aria-hidden="true"
                         aria-label=""
-                        class="rtlSupport icon defaultIcon iconBlock"
+                        class="rtlSupport default icon iconBlock"
                         height="12"
                         role="img"
                         viewBox="0 0 24 24"
@@ -898,7 +931,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 xsDirectionColumn xsDisplayFlex"
+                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <a
                   class="link hideOutline tapTransition rounding0 block noUnderline accessibilityOutline"
@@ -919,7 +952,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                           class="Flex rowGap0 columnGap0 xsDirectionRow xsItemsCenter"
                         >
                           <span
-                            class="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold lineClamp"
+                            class="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
                             title="Item 6"
                           >
                             Item 6
@@ -928,7 +961,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       </div>
                     </div>
                     <div
-                      class="box justifyCenter xsDisplayNone xsItemsCenter"
+                      class="box justifyCenter transparent xsDisplayNone xsItemsCenter"
                     >
                       <div
                         class="box"
@@ -937,12 +970,12 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     </div>
                     <div
                       aria-hidden="true"
-                      class="box justifyCenter marginStart2 xsDisplayFlex xsItemsCenter"
+                      class="box justifyCenter marginStart2 transparent xsDisplayFlex xsItemsCenter"
                     >
                       <svg
                         aria-hidden="true"
                         aria-label=""
-                        class="rtlSupport icon defaultIcon iconBlock"
+                        class="rtlSupport default icon iconBlock"
                         height="12"
                         role="img"
                         viewBox="0 0 24 24"
@@ -970,6 +1003,15 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
           </div>
         </div>
       </div>
+      <span
+        aria-hidden="true"
+        data-floating-ui-focus-guard=""
+        data-floating-ui-inert=""
+        data-type="inside"
+        role="button"
+        style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+        tabindex="0"
+      />
     </div>
   </div>
 </body>

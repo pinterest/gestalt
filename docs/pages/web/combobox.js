@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import { BannerSlimExperiment } from '../../docs-components/BannerSlimExperiment';
 import docGen, { type DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
@@ -9,7 +10,6 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
-import { SlimBannerExperiment } from '../../docs-components/SlimBannerExperiment';
 import controlled from '../../examples/combobox/controlled';
 import error from '../../examples/combobox/error';
 import helperText from '../../examples/combobox/helperText';
@@ -31,8 +31,8 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
       <PageHeader
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
-        slimBannerExperiment={
-          <SlimBannerExperiment
+        bannerSlimExperiment={
+          <BannerSlimExperiment
             componentName="ComboBox"
             description="fix and improve underlying Popover component behavior. No visual updates"
             pullRequest={3244}
@@ -201,7 +201,7 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="ComboBox can have different sizes. The default size is medium (40px). The large size is 48px. For a dense variant, use the `sm` (32px) variant."
+          description="ComboBox can have different sizes. The default size is `md` (40px). The `lg` size is 48px. For a dense variant, use the `sm` (32px) variant."
           title="Size"
         >
           <MainSection.Card

@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { Box, Image, SlimBanner } from 'gestalt';
+import { BannerSlim, Box, Image } from 'gestalt';
 import Page from '../../../../docs-components/Page';
 import PageHeader from '../../../../docs-components/PageHeader';
 
@@ -17,7 +17,7 @@ For a working example, see the [Combo](/web/chartgraph#Combo) variant in the Cha
 `}
       />
       <Box maxWidth={892}>
-        <SlimBanner
+        <BannerSlim
           type="info"
           iconAccessibilityLabel="Info"
           message="Combo graph guidelines are still in development. More to come soon!"

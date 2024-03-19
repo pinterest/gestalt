@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node as ReactNode } from 'react';
-import { Box, Flex, Image, Link, List, Mask, SlimBanner, Table, Text } from 'gestalt';
+import { BannerSlim, Box, Flex, Image, Link, List, Mask, Table, Text } from 'gestalt';
 import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts';
 import MainSection from '../../../docs-components/MainSection';
 import Markdown from '../../../docs-components/Markdown';
@@ -560,7 +560,7 @@ export default function FormsLayoutOverview(): ReactNode {
         </Box>
 
         <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginBottom={10}>
-          <SlimBanner
+          <BannerSlim
             type="info"
             iconAccessibilityLabel="Info"
             message="Always test your number localization to make sure it works correctly and is accurately understood by users in the target locale. This can help catch any errors or misunderstandings before they reach end users."

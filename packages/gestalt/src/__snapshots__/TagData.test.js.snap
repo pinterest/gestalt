@@ -40,7 +40,7 @@ exports[`TagData TagData has a tooltip 1`] = `
         tabIndex={0}
       >
         <div
-          className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+          className="solid transparentBorder tagMedium primary tagWrapperRounded"
           style={
             Object {
               "backgroundColor": "#0081fe1A",
@@ -57,13 +57,13 @@ exports[`TagData TagData has a tooltip 1`] = `
             }
           >
             <span
-              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+              className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
               style={
                 Object {
                   "WebkitLineClamp": 1,
                 }
               }
-              title="Text Impressions"
+              title=""
             >
               Text Impressions
             </span>
@@ -121,7 +121,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#003c961A",
@@ -138,13 +138,13 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -197,7 +197,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#11a69c1A",
@@ -214,13 +214,13 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -273,7 +273,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#924af71A",
@@ -290,13 +290,13 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -349,7 +349,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#d177111A",
@@ -366,13 +366,13 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -425,7 +425,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#0081fe1A",
@@ -442,13 +442,13 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -501,7 +501,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#ff53831A",
@@ -518,13 +518,13 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -577,7 +577,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#00ab551A",
@@ -594,13 +594,13 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -653,7 +653,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#4003871A",
@@ -670,13 +670,13 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -729,7 +729,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#f2681f1A",
@@ -746,13 +746,13 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -805,7 +805,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#0050621A",
@@ -822,13 +822,13 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -881,7 +881,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#de2c621A",
@@ -898,13 +898,13 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -957,7 +957,7 @@ exports[`TagData renders all colors as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#660e001A",
@@ -974,13 +974,13 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -1040,7 +1040,7 @@ exports[`TagData renders base color as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium default tagWrapperRounded"
+              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#0081fe1A",
@@ -1084,18 +1084,18 @@ exports[`TagData renders base color as expected 1`] = `
                           type="checkbox"
                         />
                         <div
-                          className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
+                          className="checked borderSelected borderRadiusSm sizeSm check"
                           style={
                             Object {
                               "backgroundColor": "#0081fe",
-                              "borderColor": "transparent",
+                              "borderColor": "var(--color-transparent)",
                             }
                           }
                         >
                           <svg
                             aria-hidden={true}
                             aria-label=""
-                            className="icon inverseIcon iconBlock"
+                            className="inverse icon iconBlock"
                             height={8}
                             role="img"
                             viewBox="0 0 24 24"
@@ -1111,13 +1111,13 @@ exports[`TagData renders base color as expected 1`] = `
                   </div>
                 </div>
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -1170,7 +1170,7 @@ exports[`TagData renders base color as expected 1`] = `
             tabIndex={0}
           >
             <div
-              className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+              className="solid transparentBorder tagMedium primary tagWrapperRounded"
               style={
                 Object {
                   "backgroundColor": "#0081fe1A",
@@ -1214,18 +1214,18 @@ exports[`TagData renders base color as expected 1`] = `
                           type="checkbox"
                         />
                         <div
-                          className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
+                          className="checked borderSelected borderRadiusSm sizeSm check"
                           style={
                             Object {
                               "backgroundColor": "#0081fe",
-                              "borderColor": "transparent",
+                              "borderColor": "var(--color-transparent)",
                             }
                           }
                         >
                           <svg
                             aria-hidden={true}
                             aria-label=""
-                            className="icon inverseIcon iconBlock"
+                            className="inverse icon iconBlock"
                             height={8}
                             role="img"
                             viewBox="0 0 24 24"
@@ -1241,13 +1241,13 @@ exports[`TagData renders base color as expected 1`] = `
                   </div>
                 </div>
                 <span
-                  className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
                     }
                   }
-                  title="Text Impressions"
+                  title=""
                 >
                   Text Impressions
                 </span>
@@ -1301,7 +1301,7 @@ exports[`TagData renders disabled selected state 1`] = `
         tabIndex={null}
       >
         <div
-          className="solid transparentBorder tagMedium secondary disabled tagWrapperRounded"
+          className="solid transparentBorder tagMedium primary disabled tagWrapperRounded"
           style={Object {}}
         >
           <div
@@ -1340,18 +1340,18 @@ exports[`TagData renders disabled selected state 1`] = `
                       type="checkbox"
                     />
                     <div
-                      className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
+                      className="checked borderSelected borderRadiusSm sizeSm check"
                       style={
                         Object {
                           "backgroundColor": "var(--color-gray-roboflow-300)",
-                          "borderColor": "transparent",
+                          "borderColor": "var(--color-transparent)",
                         }
                       }
                     >
                       <svg
                         aria-hidden={true}
                         aria-label=""
-                        className="icon inverseIcon iconBlock"
+                        className="inverse icon iconBlock"
                         height={8}
                         role="img"
                         viewBox="0 0 24 24"
@@ -1367,13 +1367,13 @@ exports[`TagData renders disabled selected state 1`] = `
               </div>
             </div>
             <span
-              className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
+              className="Text fontSize200 subtle alignStart breakAll fontWeightNormal lineClamp"
               style={
                 Object {
                   "WebkitLineClamp": 1,
                 }
               }
-              title="Text Impressions"
+              title=""
             >
               Text Impressions
             </span>
@@ -1425,7 +1425,7 @@ exports[`TagData renders disabled unselected state 1`] = `
         tabIndex={null}
       >
         <div
-          className="solid transparentBorder tagMedium secondary disabled tagWrapperRounded"
+          className="solid transparentBorder tagMedium primary disabled tagWrapperRounded"
           style={Object {}}
         >
           <div
@@ -1464,11 +1464,11 @@ exports[`TagData renders disabled unselected state 1`] = `
                       type="checkbox"
                     />
                     <div
-                      className="whiteBg border borderRadiusSm sizeSm check"
+                      className="enabled border borderRadiusSm sizeSm check"
                       style={
                         Object {
                           "backgroundColor": "var(--color-gray-roboflow-300)",
-                          "borderColor": "transparent",
+                          "borderColor": "var(--color-transparent)",
                         }
                       }
                     />
@@ -1477,13 +1477,13 @@ exports[`TagData renders disabled unselected state 1`] = `
               </div>
             </div>
             <span
-              className="Text fontSize200 subtleText alignStart breakWord fontWeightNormal lineClamp"
+              className="Text fontSize200 subtle alignStart breakAll fontWeightNormal lineClamp"
               style={
                 Object {
                   "WebkitLineClamp": 1,
                 }
               }
-              title="Text Impressions"
+              title=""
             >
               Text Impressions
             </span>
@@ -1535,7 +1535,7 @@ exports[`TagData renders dismisible button with color background 1`] = `
         tabIndex={0}
       >
         <div
-          className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+          className="solid transparentBorder tagMedium primary tagWrapperRounded"
           style={
             Object {
               "backgroundColor": "#924af71A",
@@ -1579,18 +1579,18 @@ exports[`TagData renders dismisible button with color background 1`] = `
                       type="checkbox"
                     />
                     <div
-                      className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
+                      className="checked borderSelected borderRadiusSm sizeSm check"
                       style={
                         Object {
                           "backgroundColor": "#924af7",
-                          "borderColor": "transparent",
+                          "borderColor": "var(--color-transparent)",
                         }
                       }
                     >
                       <svg
                         aria-hidden={true}
                         aria-label=""
-                        className="icon inverseIcon iconBlock"
+                        className="inverse icon iconBlock"
                         height={8}
                         role="img"
                         viewBox="0 0 24 24"
@@ -1606,13 +1606,13 @@ exports[`TagData renders dismisible button with color background 1`] = `
               </div>
             </div>
             <span
-              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+              className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
               style={
                 Object {
                   "WebkitLineClamp": 1,
                 }
               }
-              title="Text Impressions"
+              title=""
             >
               Text Impressions
             </span>
@@ -1622,7 +1622,7 @@ exports[`TagData renders dismisible button with color background 1`] = `
     </div>
   </div>
   <button
-    className="solid transparentBorder dismissButton dismissButtonRounding dismissButtonPosition hideOutline secondary accessibilityOutline"
+    className="solid transparentBorder dismissButton dismissButtonRounding dismissButtonPosition hideOutline primary accessibilityOutline"
     disabled={false}
     onClick={[Function]}
     onMouseEnter={[Function]}
@@ -1646,7 +1646,7 @@ exports[`TagData renders dismisible button with color background 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Remove tag"
-        className="icon defaultIcon iconBlock"
+        className="default icon iconBlock"
         height={10}
         role="img"
         viewBox="0 0 24 24"
@@ -1701,7 +1701,7 @@ exports[`TagData renders dismissable button 1`] = `
         tabIndex={0}
       >
         <div
-          className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+          className="solid transparentBorder tagMedium primary tagWrapperRounded"
           style={
             Object {
               "backgroundColor": "#0081fe1A",
@@ -1745,18 +1745,18 @@ exports[`TagData renders dismissable button 1`] = `
                       type="checkbox"
                     />
                     <div
-                      className="darkGrayBg borderSelected borderRadiusSm sizeSm check"
+                      className="checked borderSelected borderRadiusSm sizeSm check"
                       style={
                         Object {
                           "backgroundColor": "#0081fe",
-                          "borderColor": "transparent",
+                          "borderColor": "var(--color-transparent)",
                         }
                       }
                     >
                       <svg
                         aria-hidden={true}
                         aria-label=""
-                        className="icon inverseIcon iconBlock"
+                        className="inverse icon iconBlock"
                         height={8}
                         role="img"
                         viewBox="0 0 24 24"
@@ -1772,13 +1772,13 @@ exports[`TagData renders dismissable button 1`] = `
               </div>
             </div>
             <span
-              className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+              className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
               style={
                 Object {
                   "WebkitLineClamp": 1,
                 }
               }
-              title="Text Impressions"
+              title=""
             >
               Text Impressions
             </span>
@@ -1788,7 +1788,7 @@ exports[`TagData renders dismissable button 1`] = `
     </div>
   </div>
   <button
-    className="solid transparentBorder dismissButton dismissButtonRounding dismissButtonPosition hideOutline secondary accessibilityOutline"
+    className="solid transparentBorder dismissButton dismissButtonRounding dismissButtonPosition hideOutline primary accessibilityOutline"
     disabled={false}
     onClick={[Function]}
     onMouseEnter={[Function]}
@@ -1812,7 +1812,7 @@ exports[`TagData renders dismissable button 1`] = `
       <svg
         aria-hidden={null}
         aria-label="Remove tag"
-        className="icon defaultIcon iconBlock"
+        className="default icon iconBlock"
         height={10}
         role="img"
         viewBox="0 0 24 24"
@@ -1860,7 +1860,7 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
       tabIndex={0}
     >
       <div
-        className="solid transparentBorder tagMedium secondary tagWrapperRounded"
+        className="solid transparentBorder tagMedium primary tagWrapperRounded"
         style={Object {}}
       >
         <div
@@ -1899,10 +1899,10 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
                     type="checkbox"
                   />
                   <div
-                    className="whiteBg border borderRadiusSm sizeSm check"
+                    className="enabled border borderRadiusSm sizeSm check"
                     style={
                       Object {
-                        "backgroundColor": "var(--g-colorGray0)",
+                        "backgroundColor": "var(--color-background-formfield-primary)",
                         "borderColor": "var(--color-border-default)",
                       }
                     }
@@ -1912,7 +1912,7 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
             </div>
           </div>
           <span
-            className="Text fontSize200 defaultText alignStart breakWord fontWeightNormal lineClamp"
+            className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
             style={
               Object {
                 "WebkitLineClamp": 1,
@@ -1926,7 +1926,7 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
       </div>
     </div>
     <button
-      className="solid transparentBorder dismissButton dismissButtonRounding dismissButtonPosition hideOutline secondary accessibilityOutline"
+      className="solid transparentBorder dismissButton dismissButtonRounding dismissButtonPosition hideOutline primary accessibilityOutline"
       disabled={false}
       onClick={[Function]}
       onMouseEnter={[Function]}
@@ -1945,7 +1945,7 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
         <svg
           aria-hidden={null}
           aria-label="Remove tag"
-          className="icon defaultIcon iconBlock"
+          className="default icon iconBlock"
           height={10}
           role="img"
           viewBox="0 0 24 24"

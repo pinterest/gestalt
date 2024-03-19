@@ -5,7 +5,15 @@ import OptionItem from './Dropdown/OptionItem';
 
 type BadgeType = {
   text: string,
-  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | 'darkWash' | 'lightWash',
+  type?:
+    | 'info'
+    | 'error'
+    | 'warning'
+    | 'success'
+    | 'neutral'
+    | 'recommendation'
+    | 'darkWash'
+    | 'lightWash',
 };
 
 type OptionItemType = {
@@ -27,6 +35,10 @@ type Props = {
    * When supplied, will add a data-test-id prop to the dom element.
    */
   dataTestId?: string,
+  /**
+   * Disabled items appear inactive and cannot be interacted with.
+   */
+  disabled?: boolean,
   /**
    * Directs users to the url when item is selected. See the [Types of items](https://gestalt.pinterest.systems/web/dropdown#Types-of-items) variant to learn more.
    */
@@ -60,6 +72,7 @@ export default function DropdownLink({
   badge,
   children,
   dataTestId,
+  disabled,
   href,
   _index = 0,
   isExternal,
@@ -72,6 +85,7 @@ export default function DropdownLink({
         <OptionItem
           badge={badge}
           dataTestId={dataTestId}
+          disabled={disabled}
           hoveredItemIndex={hoveredItemIndex}
           href={href}
           id={id}

@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
+import { BannerSlimExperiment } from '../../docs-components/BannerSlimExperiment';
 import docGen, { type DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
@@ -7,7 +8,6 @@ import MainSection from '../../docs-components/MainSection';
 import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import SandpackExample from '../../docs-components/SandpackExample';
-import { SlimBannerExperiment } from '../../docs-components/SlimBannerExperiment';
 import endGuideElement from '../../examples/helpbutton/endGuideElement';
 import intermixedBlocks from '../../examples/helpbutton/intermixedBlocks';
 import localizationLabels from '../../examples/helpbutton/localizationLabels';
@@ -25,8 +25,8 @@ export default function DocsPage({ generatedDocGen }: DocsType): ReactNode {
       <PageHeader
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
-        slimBannerExperiment={
-          <SlimBannerExperiment
+        bannerSlimExperiment={
+          <BannerSlimExperiment
             componentName="HelpButton"
             description="fix and improve underlying Popover component behavior. No visual updates"
             pullRequest={3244}
@@ -55,9 +55,9 @@ export default function DocsPage({ generatedDocGen }: DocsType): ReactNode {
             type="don't"
             title="When not to use"
             description={`
-- To provide extensive information that is longer than a short sentence. Use [SlimBanner](/web/slimbanner) instead.
-- To display recommendations for how to improve a user's experience. Use [SlimBanner](/web/slimbanner) instead.
-- To display time-sensitive information to a user. Use [Callout](/web/callout) or [SlimBanner](/web/slimbanner) instead.
+- To provide extensive information that is longer than a short sentence. Use [BannerSlim](/web/bannerslim) instead.
+- To display recommendations for how to improve a user's experience. Use [BannerSlim](/web/bannerslim) instead.
+- To display time-sensitive information to a user. Use [BannerCallout](/web/bannercallout) or [BannerSlim](/web/bannerslim) instead.
         `}
           />
         </MainSection.Subsection>

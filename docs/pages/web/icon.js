@@ -163,7 +163,7 @@ If an icon has a visible label that describes what the icon represents, \`access
         <MainSection.Subsection
           title="Colors"
           description={`
-        Icons can be created using the following color options. \`brandPrimary\` should only be used to represent the Pinterest logo, as it is not accessible. See the [design tokens](/foundations/design_tokens#Text-color) for more info.`}
+        Icons can be created using the following color options. \`brandPrimary\` should only be used to represent the Pinterest logo, as it is not accessible. See the [design tokens](/foundations/design_tokens/overview#Text-color) for more info.`}
         >
           <CombinationNew
             color={[

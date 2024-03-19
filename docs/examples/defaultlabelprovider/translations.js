@@ -15,7 +15,7 @@ const labels = {
   BannerOverlay: {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss Banner'),
   },
-  Callout: {
+  BannerCallout: {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss Banner'),
     iconAccessibilityLabelError: myI18nTranslator('Error'),
     iconAccessibilityLabelInfo: myI18nTranslator('Information'),
@@ -72,8 +72,17 @@ const labels = {
   },
   SideNavigation: {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss side navigation'),
+    accessibilityCollapseButtonLabel: myI18nTranslator(
+      'Navigation expanded. Click button to collapse.',
+    ),
+    accessibilityExpandButtonLabel: myI18nTranslator(
+      'Navigation collapsed. Click button to expand.',
+    ),
+    accessibilityEllipsisLabel: myI18nTranslator(
+      'Collapsed navigation items. Expand for more options',
+    ),
   },
-  SlimBanner: {
+  BannerSlim: {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss banner'),
     iconAccessibilityLabelError: myI18nTranslator('Error'),
     iconAccessibilityLabelInfo: myI18nTranslator('Information'),

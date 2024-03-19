@@ -67,7 +67,7 @@ Array [
             className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
           >
             <div
-              className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+              className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
             >
               Text, image and button
             </div>
@@ -76,7 +76,7 @@ Array [
             className="textColorOverrideLight"
           >
             <span
-              className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+              className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
             >
               Saved to
                
@@ -180,7 +180,7 @@ Array [
             className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
           >
             <div
-              className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+              className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
             >
               Text, image and button
             </div>
@@ -192,7 +192,7 @@ Array [
               className="textColorOverrideLight"
             >
               <span
-                className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+                className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
               >
                 Saved to
                  
@@ -302,7 +302,7 @@ Array [
             className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
           >
             <div
-              className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+              className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
             >
               Text and Image
             </div>
@@ -311,7 +311,7 @@ Array [
             className="textColorOverrideLight"
           >
             <span
-              className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+              className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
             >
               Saved to
                
@@ -415,7 +415,7 @@ Array [
             className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
           >
             <div
-              className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+              className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
             >
               Text and Image
             </div>
@@ -427,7 +427,7 @@ Array [
               className="textColorOverrideLight"
             >
               <span
-                className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+                className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
               >
                 Saved to
                  
@@ -499,13 +499,13 @@ Array [
             className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
           >
             <div
-              className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+              className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
             >
               Profile
             </div>
           </div>
           <span
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal lineClamp"
+            className="Text fontSize300 default alignStart breakWord fontWeightNormal lineClamp"
             style={
               Object {
                 "WebkitLineClamp": 2,
@@ -556,7 +556,7 @@ Array [
             className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
           >
             <div
-              className="Text fontSize300 defaultText alignStart breakWord fontWeightSemiBold"
+              className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
             >
               Profile
             </div>
@@ -565,7 +565,7 @@ Array [
             className="box marginBottom2"
           >
             <span
-              className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal lineClamp"
+              className="Text fontSize300 default alignStart breakWord fontWeightNormal lineClamp"
               style={
                 Object {
                   "WebkitLineClamp": 2,

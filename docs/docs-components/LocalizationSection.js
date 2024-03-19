@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { SlimBanner } from 'gestalt';
+import { BannerSlim } from 'gestalt';
 import MainSection from './MainSection';
 import SandpackExample from './SandpackExample';
 
@@ -41,7 +41,7 @@ ${notes}
   return (
     <MainSection name="Localization" description={description}>
       {!noDefaultLabelProvider ? (
-        <SlimBanner
+        <BannerSlim
           iconAccessibilityLabel="Recommendation"
           message={`${name} depends on DefaultLabelProvider for internal text strings. Localize the texts via DefaultLabelProvider.`}
           type="recommendationBare"

@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node as ReactNode } from 'react';
-import { Box, Image, Mask, SlimBanner, Table, Text } from 'gestalt';
+import { BannerSlim, Box, Image, Mask, Table, Text } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection';
 import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';
@@ -68,7 +68,7 @@ export default function StructureBehaviorPage(): ReactNode {
           title="5. Navigation"
           description="Use a local, in-page navigation or table of contents to navigate between sections of a form and keep the control distinct from primary and side navigation."
         />
-        <SlimBanner
+        <BannerSlim
           type="info"
           iconAccessibilityLabel="Information"
           message="A local TableOfContents component coming soon!"
@@ -264,7 +264,7 @@ Section titles describe a group of form fields and controls within the form and 
         />
         <MainSection.Subsection
           title="Across an entire form"
-          description="In longer forms, it can help to add a SlimBanner to the top of the form that alerts users about various form errors."
+          description="In longer forms, it can help to add a BannerSlim to the top of the form that alerts users about various form errors."
         />
         <Box maxWidth={960} maxHeight={579}>
           <Image

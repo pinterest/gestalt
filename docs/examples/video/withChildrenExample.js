@@ -28,7 +28,7 @@ export default function Example(): ReactNode {
             display="flex"
             justifyContent="center"
             alignItems="center"
-            dangerouslySetInlineStyle={{ __style: { backgroundColor: 'rgba(0, 0, 0, 0.3)' } }}
+            dangerouslySetInlineStyle={{ __style: { backgroundColor: 'rgb(0 0 0 / 0.3)' } }}
           >
             <IconButton
               accessibilityLabel="Delete video"

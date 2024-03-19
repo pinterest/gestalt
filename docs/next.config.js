@@ -32,6 +32,7 @@ module.exports = {
       'i.pinimg.com',
       'github.com',
       'pinterest-assets.com',
+      'www.pinterest-assets.com',
     ],
   },
   reactStrictMode: true,

@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node as ReactNode } from 'react';
-import { Box, Image, SlimBanner } from 'gestalt';
+import { BannerSlim, Box, Image } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection';
 import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';
@@ -61,7 +61,7 @@ This isn’t a highly urgent issue, so we don’t display a prominent modal, ban
             src="https://i.pinimg.com/originals/72/52/51/725251998a88d92a653cc3bcd08ca2ee.png"
           />
         </Box>
-        <SlimBanner
+        <BannerSlim
           type="infoBare"
           iconAccessibilityLabel="Information"
           message="Note: Alert indicator is not currently a Gestalt component, but a Variant in other components like Tabs."
@@ -69,13 +69,13 @@ This isn’t a highly urgent issue, so we don’t display a prominent modal, ban
       </Box>
       <Box width="100%" marginBottom={12} marginTop={-7}>
         <MainSection.Subsection
-          title="Warning callout"
+          title="Warning bannercallout"
           description="Tapping on her profile leads her to a warning banner about needing to set a password for better security. Being that it’s prominent and at the top of the page, she figures it’s important, so she taps on the primary banner button to update her password."
         />
 
         <Box maxWidth={375} maxHeight={780} marginBottom={12} marginTop={2}>
           <Image
-            alt="Mobile phone screen of a Pinner profile with a Callout Banner warning the user of an issue that needs to be fixed."
+            alt="Mobile phone screen of a Pinner profile with a BannerCallout Banner warning the user of an issue that needs to be fixed."
             naturalHeight={1680}
             naturalWidth={808}
             src="https://i.pinimg.com/originals/f5/15/d4/f515d4e36832a2637d2d5a53b32e2deb.png"

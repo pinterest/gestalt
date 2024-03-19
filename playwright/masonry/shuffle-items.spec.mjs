@@ -1,14 +1,20 @@
 // @flow strict
-import { expect, Page, test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import getGridItems from './utils/getGridItems.mjs';
 import getServerURL from './utils/getServerURL.mjs';
 import selectors from './utils/selectors.mjs';
 import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
 
-const getItemColumnMap = async (page: typeof Page) => {
+const getItemColumnMap = async (
+  page /*: { locator: (string) => { all: () => Promise<$ReadOnlyArray<{|
+  innerText: () => void,
+  textContent: () => void,
+  boundingBox: () => Promise<{| [string]: number |}>,
+|}>> } } */
+) => {
   const gridItems = await getGridItems(page);
   // $FlowFixMe[unclear-type]
-  const itemLeftMap: any = {};
+  const itemLeftMap /*: any */ = {};
 
   for (let i = 0; i < gridItems.length; i += 1) {
     const boundingBox = await gridItems[i].boundingBox();

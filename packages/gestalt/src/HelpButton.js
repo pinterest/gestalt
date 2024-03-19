@@ -107,7 +107,7 @@ export default function HelpButton({
   const [focused, setFocused] = useState(false);
   // Define where the focused content stays
   const [innerModalFocus, setInnerModalFocus] = useState(false);
-  const { name: colorSchemeName } = useColorScheme();
+  const { colorSchemeName } = useColorScheme();
   const popoverId = useId();
   const { tooltipMessage } = useDefaultLabelContext('HelpButton');
 
@@ -194,6 +194,7 @@ export default function HelpButton({
       onKeyDown={handlePopoverKeyDown}
       idealDirection={idealDirection}
       positionRelativeToAnchor={isWithinFixedContainer}
+      disablePortal
     >
       <Box padding={5} rounding={4} height="auto">
         {/*

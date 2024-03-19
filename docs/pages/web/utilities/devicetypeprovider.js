@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { SlimBanner } from 'gestalt';
+import { BannerSlim } from 'gestalt';
 import docGen, { type DocGen } from '../../../docs-components/docgen';
 import GeneratedPropTable from '../../../docs-components/GeneratedPropTable';
 import InternalDocumentationSection from '../../../docs-components/InternalDocumentationSection';
@@ -19,7 +19,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         type="utility"
       />
 
-      <SlimBanner
+      <BannerSlim
         type="info"
         iconAccessibilityLabel="Recommendation"
         message="Gestalt components that require DeviceTypeProvider to enable their mobile user interfaces have a Mobile variant section in their documentation page. Check each example to learn more about their particular implementations."

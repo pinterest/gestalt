@@ -1,7 +1,8 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { SlimBanner } from 'gestalt';
+import { BannerSlim } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import { BannerSlimExperiment } from '../../docs-components/BannerSlimExperiment';
 import { type DocGen, multipleDocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
@@ -10,12 +11,12 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
-import { SlimBannerExperiment } from '../../docs-components/SlimBannerExperiment';
 import action from '../../examples/dropdown/action';
 import badges from '../../examples/dropdown/badges';
 import composability from '../../examples/dropdown/composability';
 import customHeader from '../../examples/dropdown/customHeader';
 import customItem from '../../examples/dropdown/customItem';
+import disabled from '../../examples/dropdown/disabled';
 import doFeatures from '../../examples/dropdown/doFeatures';
 import doIcons from '../../examples/dropdown/doIcons';
 import dontCustom from '../../examples/dropdown/dontCustom';
@@ -39,8 +40,8 @@ export default function ComponentPage({
       <PageHeader
         name={generatedDocGen?.Dropdown.displayName}
         description={generatedDocGen?.Dropdown.description}
-        slimBannerExperiment={
-          <SlimBannerExperiment
+        bannerSlimExperiment={
+          <BannerSlimExperiment
             componentName="Dropdown"
             description="fix and improve underlying Popover component behavior. No visual updates"
             pullRequest={3244}
@@ -245,6 +246,16 @@ When the text of the Dropdown.Item becomes longer than the width of the menu, ei
         </MainSection.Subsection>
 
         <MainSection.Subsection
+          title="Disabled"
+          description="Dropdown items can be marked as `disabled`. They will not receive focus and will appear inactive."
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={<SandpackExample code={disabled} name="Sections example" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
           title="Sections"
           description="Dropdown can also be composed of Dropdown.Section(s), which simply require a label. Use Dropdown.Section(s) to create hierarchy within a single Dropdown. Dropdown.Sections, Dropdown.Items and Dropdown.Links can be mixed as needed."
         >
@@ -289,7 +300,7 @@ When the text of the Dropdown.Item becomes longer than the width of the menu, ei
       To ensure the entire width of the item is clickable, you will likely need to surround your custom content with a full-width Box.
           `}
         >
-          <SlimBanner
+          <BannerSlim
             iconAccessibilityLabel="Localize the default label"
             message="Accessibility note: custom content cannot include interactive elements, like a TextArea or Button. Because Dropdown.Item and Dropdown.Link already act as buttons and links respectively, they cannot include focusable elements as children."
             type="info"

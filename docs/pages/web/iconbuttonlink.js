@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { Icon, SlimBanner } from 'gestalt';
+import { BannerSlim, Icon } from 'gestalt';
 import docGen, { type DocGen, type DocType, overrideTypes } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
@@ -20,8 +20,8 @@ export default function DocsPage({ generatedDocGen }: DocType): ReactNode {
         name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
         pdocsLink
-        slimBanner={
-          <SlimBanner
+        bannerSlim={
+          <BannerSlim
             type="info"
             iconAccessibilityLabel="Info"
             message="Complete documentation for IconButtonLink coming soon."

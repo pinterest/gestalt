@@ -1,19 +1,16 @@
 // @flow strict
 import { Children, Fragment, type Node as ReactNode } from 'react';
+import { ALLOWED_CHILDREN_MAP } from './navigationChildrenUtils';
+import { type ReactChildArray } from '../utils/flattenChildren';
 
-const ALLOWED_CHILDREN_MAP = {
-  main: ['SideNavigation.Section', 'SideNavigation.TopItem', 'SideNavigation.Group'],
-  nested: ['SideNavigation.NestedItem', 'SideNavigation.NestedGroup'],
-};
-
+/** @deprecated */
 const getChildrenToArray = ({
   children,
   filterLevel,
 }: {
   children: ReactNode,
   filterLevel: 'main' | 'nested',
-  // $FlowFixMe[unclear-type] ALBERTO TO FIX FLOW TYPE HERE
-}): $ReadOnlyArray<any> => {
+}): ReactChildArray => {
   const navigationChildren = [];
 
   let recursionLevel = 0;

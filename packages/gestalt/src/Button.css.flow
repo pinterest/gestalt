@@ -5,7 +5,6 @@ declare module.exports: {|
   +'blue': string,
   +'button': string,
   +'childrenDiv': string,
-  +'darkModeRed': string,
   +'disabled': string,
   +'enabled': string,
   +'gray': string,

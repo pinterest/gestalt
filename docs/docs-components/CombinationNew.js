@@ -71,7 +71,12 @@ export default function CombinationNew({
 
     let cardShadeColor;
 
-    if (combinationTitles.some((title) => title.includes('white') || title.includes('inverse'))) {
+    if (
+      combinationTitles.some(
+        (title) =>
+          title.includes('white') || title.includes('inverse') || title.includes('default'),
+      )
+    ) {
       cardShadeColor = 'tertiary';
     }
     if (combinationTitles.some((title) => title.includes('"light"'))) {

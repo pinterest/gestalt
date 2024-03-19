@@ -15,7 +15,6 @@ type Props = {
   name: string,
   showHeading?: boolean,
   showCode?: boolean,
-  skipContrastCheck?: boolean,
   headingSize?: 'sm' | 'md',
 };
 
@@ -29,7 +28,6 @@ function Example({
   headingSize,
   showHeading,
   showCode = true,
-  skipContrastCheck = false,
 }: Props): ReactNode {
   const code = defaultCode.trim();
   const scope = { ...gestalt, ...gestaltChart, ...gestaltDatepicker };
@@ -47,7 +45,7 @@ function Example({
         <Box display="flex" direction="column" marginStart={-2} marginEnd={-2} marginBottom={6}>
           <Box padding={2} height="100%" width="100%">
             <Box position="relative" padding={4} borderStyle="sm" rounding={2} color="default">
-              <LivePreview className={skipContrastCheck ? 'skip-accessibility-check' : undefined} />
+              <LivePreview />
             </Box>
           </Box>
 

@@ -301,53 +301,29 @@ export default function ColorUsagePage(): ReactNode {
         description={`
       The icon colors available indicate status and match the messaging text colors for consistency. For icon colors purposes, use the tokens:
 
-      **$color-text-icon-default** - Use as the default color for icons.
-      **$color-text-icon-subtle** - Use as the secondary color for icons.
-      **$color-text-icon-info** - Use for info icons.
-      **$color-text-icon-recommendation** - Use for recommendation icons.
-      **$color-text-icon-success** - Use for success icons.
-      **$color-text-icon-warning** - Use for warning icons.
-      **$color-text-icon-error** - Use for error icons.
-      **$color-text-icon-inverse** - Use for icons paired with inverted backgrounds.
+      **$color-icon-default** - Use as the default color for icons.
+      **$color-icon-subtle** - Use as the secondary color for icons.
+      **$color-icon-info** - Use for info icons.
+      **$color-icon-recommendation** - Use for recommendation icons.
+      **$color-icon-success** - Use for success icons.
+      **$color-icon-warning** - Use for warning icons.
+      **$color-icon-error** - Use for error icons.
+      **$color-icon-inverse** - Use for icons paired with inverted backgrounds.
       `}
       >
         <ColorSchemeLayout>
-          <ColorTile
-            description="Default"
-            textColor="inverse"
-            fullTokenName="color-text-icon-default"
-          />
-          <ColorTile
-            description="Subtle"
-            textColor="inverse"
-            fullTokenName="color-text-icon-subtle"
-          />
-          <ColorTile description="Info" textColor="inverse" fullTokenName="color-text-icon-info" />
+          <ColorTile description="Default" textColor="inverse" fullTokenName="color-icon-default" />
+          <ColorTile description="Subtle" textColor="inverse" fullTokenName="color-icon-subtle" />
+          <ColorTile description="Info" textColor="inverse" fullTokenName="color-icon-info" />
           <ColorTile
             description="Recommendation"
             textColor="inverse"
-            fullTokenName="color-text-icon-recommendation"
+            fullTokenName="color-icon-recommendation"
           />
-          <ColorTile
-            description="Success"
-            textColor="inverse"
-            fullTokenName="color-text-icon-success"
-          />
-          <ColorTile
-            description="Warning"
-            textColor="inverse"
-            fullTokenName="color-text-icon-warning"
-          />
-          <ColorTile
-            description="Error"
-            textColor="inverse"
-            fullTokenName="color-text-icon-error"
-          />
-          <ColorTile
-            description="Inverse"
-            fullTokenName="color-text-icon-inverse"
-            textColor="default"
-          />
+          <ColorTile description="Success" textColor="inverse" fullTokenName="color-icon-success" />
+          <ColorTile description="Warning" textColor="inverse" fullTokenName="color-icon-warning" />
+          <ColorTile description="Error" textColor="inverse" fullTokenName="color-icon-error" />
+          <ColorTile description="Inverse" fullTokenName="color-icon-inverse" textColor="default" />
         </ColorSchemeLayout>
       </MainSection>
       <MainSection

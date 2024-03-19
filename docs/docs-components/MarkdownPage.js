@@ -4,6 +4,7 @@ import { type Node as ReactNode } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import Image from 'next/image';
 import { Box, ButtonLink, Datapoint, Flex, Icon, Link, List, Text } from 'gestalt';
+import { TOKEN_COLOR_BACKGROUND_SECONDARY_BASE } from 'gestalt-design-tokens';
 import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
 import Highlighter from './highlight';
 import IllustrationCard from './IllustrationCard';
@@ -22,6 +23,7 @@ type Props = {
     component: boolean,
   },
   pageSourceUrl?: string,
+  platform: 'android' | 'ios' | 'web',
 };
 
 const isExternal: (string) => 'blank' | void = (href) => {
@@ -51,28 +53,32 @@ const components = {
   ul: (props) => {
     const filtered = Object.values(props.children).filter((a) => a !== '\n');
     return (
-      <List>
-        {filtered.map((a, index) => (
-          <List.Item
-            key={JSON.stringify(a?.props.child ?? index)}
-            text={<Text>{a?.props.children}</Text>}
-          />
-        ))}
-      </List>
+      <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
+        <List>
+          {filtered.map((a, index) => (
+            <List.Item
+              key={JSON.stringify(a?.props.child ?? index)}
+              text={<Text>{a?.props.children}</Text>}
+            />
+          ))}
+        </List>
+      </Box>
     );
   },
   // $FlowFixMe[missing-local-annot]
   ol: (props) => {
     const filtered = Object.values(props.children).filter((a) => a !== '\n');
     return (
-      <List type="ordered">
-        {filtered.map((a, index) => (
-          <List.Item
-            key={JSON.stringify(a?.props.child ?? index)}
-            text={<Text>{a?.props.children}</Text>}
-          />
-        ))}
-      </List>
+      <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
+        <List type="ordered">
+          {filtered.map((a, index) => (
+            <List.Item
+              key={JSON.stringify(a?.props.child ?? index)}
+              text={<Text>{a?.props.children}</Text>}
+            />
+          ))}
+        </List>
+      </Box>
     );
   },
   // $FlowFixMe[missing-local-annot]
@@ -116,6 +122,8 @@ const components = {
       <hr />
     </Box>
   ),
+  // $FlowFixMe[missing-local-annot]
+  p: (props) => <p style={{ maxWidth: DOCS_COPY_MAX_WIDTH_PX }}> {props.children} </p>,
   ActionButton: ({ children, href }: { href: string, children: string | null }) => (
     <ButtonLink
       href={href}
@@ -171,7 +179,7 @@ const components = {
       className="md-hint"
       style={{
         padding: '1rem',
-        backgroundColor: 'var(--g-colorGray100)',
+        backgroundColor: TOKEN_COLOR_BACKGROUND_SECONDARY_BASE,
       }}
     >
       <Flex
@@ -329,7 +337,12 @@ const components = {
   ),
 };
 
-export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): ReactNode {
+export default function MarkdownPage({
+  children,
+  meta,
+  pageSourceUrl,
+  platform,
+}: Props): ReactNode {
   const maxWidth = meta?.fullwidth ? 'none' : `${DOCS_COPY_MAX_WIDTH_PX}px`;
 
   return (
@@ -340,6 +353,7 @@ export default function MarkdownPage({ children, meta, pageSourceUrl }: Props): 
           badge={meta.badge}
           description={meta.description}
           margin="none"
+          platform={platform}
           type={meta.component ? 'component' : 'guidelines'}
         />
         <Text>

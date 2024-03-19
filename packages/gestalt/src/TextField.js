@@ -9,7 +9,7 @@ import {
 } from 'react';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Tag from './Tag';
-import InternalTextField from './TextField/InternalTextField';
+import InternalTextField, { type autoCompleteType } from './TextField/InternalTextField';
 import InternalTextFieldIconButton from './TextField/InternalTextFieldIconButton';
 
 export type MaxLength = {
@@ -21,13 +21,17 @@ type Type = 'date' | 'email' | 'password' | 'tel' | 'text' | 'url';
 
 type Props = {
   /**
-   * Indicate if autocomplete should be available on the input, and the type of autocomplete. Autocomplete values are implemented upon request. [Reach out to the Gestalt team](https://gestalt.pinterest.systems/team_support/get_help#Slack-channels) if you need [additional autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values) to be supported.
+    Indicate if autocomplete should be available on the input, and the type of autocomplete. All [autocomplete values](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values) are supported.
    */
-  autoComplete?: 'bday' | 'current-password' | 'email' | 'new-password' | 'on' | 'off' | 'username',
+  autoComplete?: autoCompleteType,
   /**
    * Indicate if the input is disabled. See the [disabled example](https://gestalt.pinterest.systems/web/textfield#Disabled) for more details.
    */
   disabled?: boolean,
+  /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string,
   /**
    * For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in [Link](https://gestalt.pinterest.systems/web/link) or [TapArea](https://gestalt.pinterest.systems/web/taparea).
    */
@@ -117,7 +121,7 @@ type Props = {
    */
   type?: Type,
   /**
-   * Sets the size of TextField: sm: 32px, md: 40px (default), lg: 48px. See the [size variant](https://gestalt.pinterest.systems/web/textfield#Size) for more details.
+   * Defines the height of the TextField: sm: 32px, md: 40px (default), lg: 48px. See the [size variant](https://gestalt.pinterest.systems/web/TextField#Size) for more details.
    */
   size?: 'sm' | 'md' | 'lg',
   /**
@@ -139,6 +143,7 @@ const TextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forw
 >(function TextField(
   {
     autoComplete,
+    dataTestId,
     disabled = false,
     errorMessage,
     hasError = false,
@@ -202,6 +207,7 @@ const TextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forw
   return (
     <InternalTextField
       autoComplete={autoComplete}
+      dataTestId={dataTestId}
       disabled={disabled}
       errorMessage={errorMessage}
       hasError={hasError}

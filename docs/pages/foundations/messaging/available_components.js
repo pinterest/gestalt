@@ -5,9 +5,9 @@ import MainSection from '../../../docs-components/MainSection';
 import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';
 import SandpackExample from '../../../docs-components/SandpackExample';
-import callout from '../../../examples/callout/main';
+import bannercallout from '../../../examples/bannercallout/main';
+import bannerslim from '../../../examples/bannerslim/main';
 import modalalert from '../../../examples/modalalert/main';
-import slimbanner from '../../../examples/slimbanner/main';
 import toast from '../../../examples/toast/main';
 
 export default function DocsPage(): ReactNode {
@@ -17,25 +17,27 @@ export default function DocsPage(): ReactNode {
 
       <MainSection name="Components">
         <MainSection.Subsection
-          title="Callout"
-          description={`Callouts sit on a page or surface and provide status alerts, information or recommendations to a user. They are used for highest priority messages, usually at the top of a page.
+          title="BannerCallout"
+          description={`BannerCallouts sit on a page or surface and provide status alerts, information or recommendations to a user. They are used for highest priority messages, usually at the top of a page.
 
-[Go to the Callout component](/web/callout)`}
+[Go to the BannerCallout component](/web/bannercallout)`}
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={callout} name="Callout example" hideEditor />}
+            sandpackExample={
+              <SandpackExample code={bannercallout} name="BannerCallout example" hideEditor />
+            }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="SlimBanner"
-          description={`SlimBanner conveys brief information related to a specific section of a page. The message can relay success, warning, error or general information. SlimBanners are used to reference a specific section of a page, or in any dense interface where space is a concern.
+          title="BannerSlim"
+          description={`BannerSlim conveys brief information related to a specific section of a page. The message can relay success, warning, error or general information. BannerSlims are used to reference a specific section of a page, or in any dense interface where space is a concern.
 
-[Go to the SlimBanner component](/web/slimbanner)`}
+[Go to the BannerSlim component](/web/bannerslim)`}
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample code={slimbanner} name="SlimBanner example" hideEditor />
+              <SandpackExample code={bannerslim} name="BannerSlim example" hideEditor />
             }
           />
         </MainSection.Subsection>

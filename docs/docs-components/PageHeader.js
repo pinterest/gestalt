@@ -1,8 +1,9 @@
 // @flow strict
 import { type Element, type Node as ReactNode } from 'react';
-import { Badge, Box, Flex, Heading, Link, SlimBanner, Text } from 'gestalt';
+import { Badge, BannerSlim, Box, Flex, Heading, Link, Text } from 'gestalt';
 import * as gestaltChart from 'gestalt-charts'; // eslint-disable-line import/no-namespace
 import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
+import { BannerSlimExperiment } from './BannerSlimExperiment';
 import trackButtonClick from './buttons/trackButtonClick';
 import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
 import componentData from './data/components';
@@ -10,9 +11,6 @@ import getByPlatform from './data/utils/getByPlatform';
 import InternalOnlyIconButton from './InternalOnlyIconButton';
 import Markdown from './Markdown';
 import PageHeaderQualitySummary from './PageHeaderQualitySummary';
-import { SlimBannerExperiment } from './SlimBannerExperiment';
-
-const webComponentData = getByPlatform(componentData, { platform: 'web' });
 
 const gestaltChartComponents = Object.keys(gestaltChart);
 const gestaltDatepickerComponents = Object.keys(gestaltDatepicker);
@@ -57,8 +55,9 @@ type Props = {
   folderName?: string,
   margin?: 'default' | 'none',
   name: string,
-  slimBanner?: Element<typeof SlimBanner> | null,
-  slimBannerExperiment?: Element<typeof SlimBannerExperiment> | null,
+  platform?: 'android' | 'ios' | 'web',
+  bannerSlim?: Element<typeof BannerSlim> | null,
+  bannerSlimExperiment?: Element<typeof BannerSlimExperiment> | null,
   type?: 'guidelines' | 'component' | 'utility',
   pdocsLink?: boolean,
 };
@@ -72,8 +71,9 @@ export default function PageHeader({
   pdocsLink = false,
   margin = 'default',
   name,
-  slimBanner = null,
-  slimBannerExperiment = null,
+  platform,
+  bannerSlim,
+  bannerSlimExperiment,
   type = 'component',
 }: Props): ReactNode {
   const sourcePathName = folderName ?? fileName ?? name;
@@ -83,7 +83,8 @@ export default function PageHeader({
     sourceLink = sourceLink.replace(/\.js$/, '');
   }
 
-  const { alias } = webComponentData.find((component) => component.name === name) ?? {};
+  const platformComponentData = getByPlatform(componentData, { platform: platform ?? 'web' });
+  const { alias } = platformComponentData.find((component) => component.name === name) ?? {};
 
   const badgeMap = {
     pilot: {
@@ -142,18 +143,19 @@ export default function PageHeader({
       >
         <Flex direction="column" gap={3}>
           <Flex justifyContent="between" wrap>
-            <Heading>
-              {name}{' '}
-              {badge ? (
-                <Badge
-                  tooltip={{ text: badgeMap[badge].tooltipText }}
-                  text={badgeMap[badge].text}
-                  position="top"
-                  type={badgeMap[badge].type || 'info'}
-                />
-              ) : null}
-            </Heading>
-
+            <Box data-id="helix-title">
+              <Heading>
+                {name}{' '}
+                {badge ? (
+                  <Badge
+                    tooltip={{ text: badgeMap[badge].tooltipText }}
+                    text={badgeMap[badge].text}
+                    position="top"
+                    type={badgeMap[badge].type || 'info'}
+                  />
+                ) : null}
+              </Heading>
+            </Box>
             {/* Enable this when we have a consistent directory structure */}
             {['component' /* 'utility' */].includes(type) && (
               <Flex direction="column" gap={1}>
@@ -215,8 +217,8 @@ export default function PageHeader({
             </Flex>
 
             <Flex direction="column" gap={4}>
-              {slimBanner}
-              {slimBannerExperiment}
+              {bannerSlim}
+              {bannerSlimExperiment}
             </Flex>
 
             {type === 'component' ? <PageHeaderQualitySummary name={name} /> : null}

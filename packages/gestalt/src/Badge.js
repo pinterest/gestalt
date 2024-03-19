@@ -3,7 +3,6 @@ import { type Node as ReactNode } from 'react';
 import cx from 'classnames';
 import styles from './Badge.css';
 import Box from './Box';
-import colors from './Colors.css';
 import Flex from './Flex';
 import Icon from './Icon';
 import Tooltip from './Tooltip';
@@ -65,19 +64,13 @@ export default function Badge({
 
   const shouldUseTooltip = isInfoType && tooltip?.text;
 
-  const csBadge = cx(styles.Badge, styles[position], {
-    [styles.darkWash]: type === 'darkWash',
-    [styles.lightWash]: type === 'lightWash',
-    [colors.infoBase]: isInfoType,
-    [styles.interactiveInfo]: shouldUseTooltip,
-    [colors.errorBase]: type === 'error',
-    [colors.warningBase]: type === 'warning',
-    [colors.successBase]: type === 'success',
-    [colors.tertiary]: type === 'neutral',
-    [colors.recommendationBase]: type === 'recommendation',
-    [colors.washDark]: type === 'darkWash',
-    [colors.washLight]: type === 'lightWash',
-  });
+  let styleType: TypeOptions | 'interactiveInfo' = type;
+
+  if (shouldUseTooltip) {
+    styleType = 'interactiveInfo';
+  }
+
+  const csBadge = cx(styles.Badge, styles[position], styles[styleType]);
 
   const badgeComponent = (
     <div className={csBadge}>

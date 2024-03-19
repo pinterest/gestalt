@@ -226,20 +226,10 @@ Follow these guidelines for \`bgColor\`
 4. Gray ("gray"). Used for tertiary actions or in cases where the primary "red" is not an option. Medium emphasis when placed on dark backgrounds, used for secondary actions.
 5. White ("white"). Used when there is a need of an IconButton over an image or colored background to provide better contrast and visibility.
 6. Transparent ("transparent"). Used when there is a need to have an IconButton over an image without a background.
-7. Dark Gray ("darkGray"). Used as the [selected state](#Selected-state) for IconButton.
-
 `}
         >
           <CombinationNew
-            bgColor={[
-              'red',
-              'lightGray',
-              'transparentDarkGray',
-              'gray',
-              'white',
-              'transparent',
-              'darkGray',
-            ]}
+            bgColor={['red', 'lightGray', 'transparentDarkGray', 'gray', 'white', 'transparent']}
           >
             {({ bgColor }) => (
               <IconButton

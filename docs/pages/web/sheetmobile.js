@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { SlimBanner } from 'gestalt';
+import { BannerSlim } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import { type DocGen, multipleDocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -38,8 +38,8 @@ export default function SheetMobilePage({
         name={generatedDocGen?.SheetMobile.displayName}
         description={generatedDocGen?.SheetMobile.description}
         pdocsLink
-        slimBanner={
-          <SlimBanner
+        bannerSlim={
+          <BannerSlim
             type="warning"
             iconAccessibilityLabel="Warning message"
             message="SheetMobile is in pilot phase. Expect development and design iteration and breaking API changes as well as further documentation development."

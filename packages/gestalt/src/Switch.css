@@ -22,30 +22,30 @@ html[dir="rtl"] .switch {
   transform: rotateY(180deg);
 }
 
-.switchDarkGray {
-  composes: darkGrayBg from "./Colors.css";
+.enabled {
+  composes: borderColorDarkGray from "./Borders.css";
+  background-color: var(--color-background-switch-default-unselected);
+}
+
+.enabledSelected {
   composes: borderColorSelected from "./Borders.css";
+  background-color: var(--color-background-switch-default-selected);
 }
 
-.switchGray {
-  composes: grayBg from "./Colors.css";
-  composes: borderColorDarkGray from "./Borders.css";
-}
-
-.switchLightGray {
-  composes: lightGrayBg from "./Colors.css";
+.disabled {
   composes: borderColorLightGray from "./Borders.css";
+  background-color: var(--color-background-switch-disabled-unselected);
 }
 
-.switchWhite {
-  composes: whiteBg from "./Colors.css";
+.disabledSelected {
   composes: borderColorDarkGray from "./Borders.css";
+  background-color: var(--color-background-switch-disabled-selected);
 }
 
 .slider {
   composes: borderBox absolute from "./Layout.css";
-  composes: whiteBg from "./Colors.css";
   composes: circle from "./Borders.css";
+  background-color: var(--color-background-switch-default-unselected);
   border-style: solid;
   border-width: 1px;
   height: var(--g-switch-height);
@@ -77,7 +77,7 @@ html[dir="rtl"] .switch {
   composes: noBorder from "./Borders.css";
   composes: p0 from "./Whitespace.css";
   height: 100%;
-  opacity: 0;
+  opacity: var(--opacity-0);
   z-index: 2;
 }
 

@@ -37,26 +37,14 @@ export type BorderStyle =
   | 'raisedBottomShadow'
   | 'none';
 export type Color =
-  | 'blue'
   | 'darkGray'
   | 'darkWash'
-  | 'eggplant'
   | 'gray'
-  | 'green'
   | 'lightGray'
   | 'lightWash'
-  | 'maroon'
-  | 'midnight'
-  | 'navy'
-  | 'olive'
-  | 'orange'
-  | 'orchid'
-  | 'pine'
-  | 'purple'
   | 'red'
   | 'transparent'
   | 'transparentDarkGray'
-  | 'watermelon'
   | 'white';
 export type Column = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 export type Dimension = number | string;

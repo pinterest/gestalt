@@ -10,11 +10,6 @@
   white-space: nowrap;
 }
 
-.interactiveInfo:hover,
-.interactiveInfo:focus {
-  background-color: var(--color-background-info-strong);
-}
-
 .middle {
   vertical-align: middle;
 }
@@ -23,10 +18,44 @@
   vertical-align: super;
 }
 
+/* Color */
+
+.info,
+.interactiveInfo {
+  background-color: var(--color-background-badge-info-default);
+}
+
+.interactiveInfo:hover,
+.interactiveInfo:focus {
+  background-color: var(--color-background-badge-info-hover);
+}
+
+.error {
+  background-color: var(--color-background-badge-error);
+}
+
+.warning {
+  background-color: var(--color-background-badge-warning);
+}
+
+.success {
+  background-color: var(--color-background-badge-success);
+}
+
+.recommendation {
+  background-color: var(--color-background-badge-recommendation);
+}
+
+.neutral {
+  background-color: var(--color-background-badge-neutral);
+}
+
 .darkWash {
+  background-color: var(--color-background-badge-darkwash);
   color: var(--color-text-light);
 }
 
 .lightWash {
+  background-color: var(--color-background-badge-lightwash);
   color: var(--color-text-dark);
 }

@@ -67,6 +67,7 @@ interface BadgeObject {
     | 'neutral'
     | 'darkWash'
     | 'lightWash'
+    | 'recommendation'
     | undefined;
 }
 
@@ -120,6 +121,8 @@ type Icons =
   | 'arrow-circle-forward'
   | 'arrow-circle-up'
   | 'arrow-counter-clockwise'
+  | 'arrow-double-forward'
+  | 'arrow-double-back'
   | 'arrow-down'
   | 'arrow-end'
   | 'arrow-forward'
@@ -298,6 +301,7 @@ type Icons =
   | 'speech'
   | 'speech-ellipsis'
   | 'speech-exclamation-point'
+  | 'speech-heart'
   | 'speech-outline'
   | 'spread'
   | 'star'
@@ -440,7 +444,7 @@ interface DefaultLabelProviderProps {
         BannerOverlay: {
           accessibilityDismissButtonLabel: string;
         };
-        Callout: {
+        BannerCallout: {
           accessibilityDismissButtonLabel: string;
           iconAccessibilityLabelError: string;
           iconAccessibilityLabelInfo: string;
@@ -490,7 +494,7 @@ interface DefaultLabelProviderProps {
         SideNavigation: {
           accessibilityDismissButtonLabel: string;
         };
-        SlimBanner: {
+        BannerSlim: {
           accessibilityDismissButtonLabel: string;
           iconAccessibilityLabelError: string;
           iconAccessibilityLabelInfo: string;
@@ -889,7 +893,7 @@ interface ButtonGroupProps {
   children?: Node | undefined;
 }
 
-interface CalloutProps {
+interface BannerCalloutProps {
   iconAccessibilityLabel: string;
   message: string;
   type: 'error' | 'info' | 'recommendation' | 'success' | 'warning';
@@ -1169,7 +1173,6 @@ interface IconButtonProps {
   accessibilityPopupRole?: 'menu' | 'dialog' | undefined;
   bgColor?:
     | 'transparent'
-    | 'darkGray'
     | 'transparentDarkGray'
     | 'gray'
     | 'lightGray'
@@ -1201,7 +1204,6 @@ interface IconButtonLinkProps {
   accessibilityLabel: string;
   bgColor?:
     | 'transparent'
-    | 'darkGray'
     | 'transparentDarkGray'
     | 'gray'
     | 'lightGray'
@@ -1590,7 +1592,6 @@ interface PogProps {
   active?: boolean | undefined;
   bgColor?:
     | 'transparent'
-    | 'darkGray'
     | 'transparentDarkGray'
     | 'gray'
     | 'lightGray'
@@ -1688,6 +1689,7 @@ interface RadioGroupRadioButtonProps {
   id: string;
   onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { checked: boolean }>;
   value: string;
+  badge?: BadgeObject | undefined;
   checked?: boolean | undefined;
   disabled?: boolean | undefined;
   helperText?: string | undefined;
@@ -1700,7 +1702,7 @@ interface RadioGroupRadioButtonProps {
 interface SearchFieldProps {
   accessibilityLabel: string;
   id: string;
-  onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { value: string }>;
+  onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement | HTMLButtonElement>, { value: string }>;
   accessibilityClearButtonLabel?: string | undefined;
   autoComplete?: 'on' | 'off' | 'username' | 'name' | undefined;
   errorMessage?: string | undefined;
@@ -1894,7 +1896,7 @@ interface SideNavigationNestedGroupProps {
   onExpand: (args: { expanded: boolean }) => void;
 }
 
-interface SlimBannerProps {
+interface BannerSlimProps {
   message: React.ReactElement<typeof Text> | string;
   dismissButton?:
     | {
@@ -2261,14 +2263,67 @@ interface TextFieldProps {
   id: string;
   onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { value: string }>;
   autoComplete?:
-    | 'bday'
-    | 'current-password'
-    | 'email'
-    | 'new-password'
     | 'on'
     | 'off'
+    | 'address-line1'
+    | 'address-line2'
+    | 'address-line3'
+    | 'address-level1'
+    | 'address-level2'
+    | 'address-level3'
+    | 'address-level4'
+    | 'street-address'
+    | 'country'
+    | 'country-name'
+    | 'postal-code'
+    | 'name'
+    | 'additional-name'
+    | 'family-name'
+    | 'given-name'
+    | 'honoric-prefix'
+    | 'honoric-suffix'
+    | 'nickname'
+    | 'organization-title'
     | 'username'
+    | 'new-password'
+    | 'current-password'
+    | 'bday'
+    | 'bday-day'
+    | 'bday-month'
+    | 'bday-year'
+    | 'billing'
+    | 'sex'
+    | 'one-time-code'
+    | 'organization'
+    | 'cc-name'
+    | 'cc-given-name'
+    | 'cc-additional-name'
+    | 'cc-family-name'
+    | 'cc-number'
+    | 'cc-exp'
+    | 'cc-exp-month'
+    | 'cc-exp-year'
+    | 'cc-csc'
+    | 'cc-type'
+    | 'transaction-currency'
+    | 'transaction-amount'
+    | 'language'
+    | 'url'
+    | 'email'
+    | 'photo'
+    | 'shipping'
+    | 'tel'
+    | 'tel-country-code'
+    | 'tel-national'
+    | 'tel-area-code'
+    | 'tel-local'
+    | 'tel-local-prefix'
+    | 'tel-local-suffix'
+    | 'tel-extension'
+    | 'impp'
+    | 'webauthn'
     | undefined;
+  dataTestId?: string | undefined;
   disabled?: boolean | undefined;
   errorMessage?: Node | undefined;
   hasError?: boolean | undefined;
@@ -2520,9 +2575,9 @@ export const ButtonLink: ReactForwardRef<HTMLAnchorElement, ButtonLinkProps>;
 export const ButtonGroup: React.FunctionComponent<ButtonGroupProps>;
 
 /**
- * https://gestalt.pinterest.systems/web/callout
+ * https://gestalt.pinterest.systems/web/bannercallout
  */
-export const Callout: React.FunctionComponent<CalloutProps>;
+export const BannerCallout: React.FunctionComponent<BannerCalloutProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/checkbox
@@ -2833,9 +2888,9 @@ export const SideNavigation: React.FunctionComponent<SideNavigationProps> &
   SideNavigationSubcomponents;
 
 /**
- * https://gestalt.pinterest.systems/web/slimbanner
+ * https://gestalt.pinterest.systems/web/bannerslim
  */
-export const SlimBanner: React.FunctionComponent<SlimBannerProps>;
+export const BannerSlim: React.FunctionComponent<BannerSlimProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/spinner
@@ -3070,31 +3125,5 @@ export function useDefaultLabel(componentName: string): { [k: string]: string };
  * Undocumented
  */
 export function useColorScheme(): {
-  name: string;
-  colorRed0: string;
-  colorRed100: string;
-  colorRed100Active: string;
-  colorRed100Hovered: string;
-  colorGray0: string;
-  colorGray0Active: string;
-  colorGray0Hovered: string;
-  colorGray50: string;
-  colorGray100: string;
-  colorGray100Active: string;
-  colorGray100Hovered: string;
-  colorGray150: string;
-  colorGray150Hovered: string;
-  colorGray200: string;
-  colorGray200Active: string;
-  colorGray200Hovered: string;
-  colorGray300: string;
-  colorGray400: string;
-  colorTransparentDarkGray: string;
-  colorTransparentGray60: string;
-  colorTransparentGray100: string;
-  colorTransparentGray500: string;
-  colorTransparentWhite: string;
-  blueHovered: string;
-  blueActive: string;
-  [tokenName: string]: string;
+  name: 'lightMode' | 'darkMode';
 };

@@ -4,6 +4,7 @@ import * as AnimationControllerModule from './animation/AnimationContext';
 import { ESCAPE } from './keyCodes';
 import OverlayPanel from './OverlayPanel';
 import * as useReducedMotionHook from './useReducedMotion';
+import renderWithExperiment from './utils/testing/renderWithExperiment';
 
 jest.mock('./useReducedMotion.js');
 
@@ -21,7 +22,9 @@ describe('OverlayPanel', () => {
   });
 
   it('should render all props with nodes', () => {
-    const { container } = render(
+    // Remove experiment after OverlayPanel v2 is fully released
+    const { container } = renderWithExperiment(
+      'web_gestalt_popover_v2_confirmationpopover',
       <OverlayPanel
         accessibilityDismissButtonLabel="Dismiss"
         accessibilityLabel="OverlayPanel"

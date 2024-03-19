@@ -136,20 +136,16 @@ const ButtonLinkWithForwardRef: AbstractComponent<ButtonProps, HTMLAnchorElement
 
   const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
 
-  const { name: colorSchemeName } = useColorScheme();
+  const { colorSchemeName } = useColorScheme();
   // We need to make a few exceptions for accessibility reasons in darkMode for red buttons
   const isDarkMode = colorSchemeName === 'darkMode';
   const isDarkModeRed = isDarkMode && color === 'red';
-  const isDarkModeBlue = isDarkMode && color === 'blue';
 
-  let colorClass = color === 'transparentWhiteText' ? 'transparent' : color;
-  if (isDarkModeRed) {
-    colorClass = 'darkModeRed';
-  }
+  const colorClass = color === 'transparentWhiteText' ? 'transparent' : color;
+
   const textColor =
-    (disabled && 'subtle') ||
-    ((isDarkModeRed || isDarkModeBlue) && 'default') ||
-    DEFAULT_TEXT_COLORS[color];
+    (disabled && 'subtle') || (isDarkModeRed && 'default') || DEFAULT_TEXT_COLORS[color];
+
   const ariaLabel = getAriaLabel({
     target,
     accessibilityLabel,
@@ -188,7 +184,13 @@ const ButtonLinkWithForwardRef: AbstractComponent<ButtonProps, HTMLAnchorElement
       wrappedComponent="button"
     >
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-        <Text align="center" color={textColor} overflow="normal" weight="bold">
+        <Text
+          align="center"
+          color={textColor}
+          overflow="normal"
+          weight="bold"
+          size={size === 'sm' ? '200' : '300'}
+        >
           {text}
         </Text>
         {iconEnd ? (

@@ -27,7 +27,7 @@ exports[`<BannerUpsell /> Basic BannerUpsell 1`] = `
           }
         >
           <div
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -73,7 +73,7 @@ exports[`<BannerUpsell /> message + title + dismissButton + image + form 1`] = `
           <svg
             aria-hidden={null}
             aria-label="Pin"
-            className="icon defaultIcon iconBlock"
+            className="default icon iconBlock"
             height={32}
             role="img"
             viewBox="0 0 24 24"
@@ -100,13 +100,13 @@ exports[`<BannerUpsell /> message + title + dismissButton + image + form 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+              className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -183,7 +183,7 @@ exports[`<BannerUpsell /> message + title + dismissButton + image + form 1`] = `
                       className="FlexItem"
                     >
                       <div
-                        className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+                        className="Text fontSize300 inverse alignCenter fontWeightSemiBold"
                       >
                         Submit
                       </div>
@@ -232,7 +232,7 @@ exports[`<BannerUpsell /> message + title + dismissButton + image + form 1`] = `
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon defaultIcon iconBlock"
+            className="default icon iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"
@@ -284,7 +284,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton + imag
           <svg
             aria-hidden={null}
             aria-label="Pin"
-            className="icon defaultIcon iconBlock"
+            className="default icon iconBlock"
             height={32}
             role="img"
             viewBox="0 0 24 24"
@@ -311,13 +311,13 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton + imag
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+              className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -358,7 +358,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton + imag
               className="FlexItem"
             >
               <div
-                className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+                className="Text fontSize300 inverse alignCenter fontWeightSemiBold"
               >
                 Visit Pinterest
               </div>
@@ -403,7 +403,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton + imag
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon defaultIcon iconBlock"
+            className="default icon iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"
@@ -450,13 +450,13 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton 1`] = 
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+              className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -497,7 +497,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton 1`] = 
               className="FlexItem"
             >
               <div
-                className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+                className="Text fontSize300 inverse alignCenter fontWeightSemiBold"
               >
                 Visit Pinterest
               </div>
@@ -542,7 +542,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton 1`] = 
           <svg
             aria-hidden={true}
             aria-label=""
-            className="icon defaultIcon iconBlock"
+            className="default icon iconBlock"
             height={16}
             role="img"
             viewBox="0 0 24 24"
@@ -589,13 +589,13 @@ exports[`<BannerUpsell /> message + title + primaryAction + secondaryAction 1`] 
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+              className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -636,7 +636,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + secondaryAction 1`] 
               className="FlexItem"
             >
               <div
-                className="Text fontSize300 defaultText alignCenter fontWeightSemiBold"
+                className="Text fontSize300 default alignCenter fontWeightSemiBold"
               >
                 Learn more
               </div>
@@ -675,7 +675,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + secondaryAction 1`] 
               className="FlexItem"
             >
               <div
-                className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+                className="Text fontSize300 inverse alignCenter fontWeightSemiBold"
               >
                 Visit Pinterest
               </div>
@@ -718,13 +718,13 @@ exports[`<BannerUpsell /> message + title + primaryAction with href 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+              className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -765,7 +765,7 @@ exports[`<BannerUpsell /> message + title + primaryAction with href 1`] = `
               className="FlexItem"
             >
               <div
-                className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+                className="Text fontSize300 inverse alignCenter fontWeightSemiBold"
               >
                 Visit Pinterest
               </div>
@@ -808,13 +808,13 @@ exports[`<BannerUpsell /> message + title + primaryAction without href 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+              className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -846,7 +846,7 @@ exports[`<BannerUpsell /> message + title + primaryAction without href 1`] = `
             className="button hideOutline block accessibilityOutline tapTransition lg red enabled childrenDiv"
           >
             <div
-              className="Text fontSize300 inverseText alignCenter fontWeightSemiBold"
+              className="Text fontSize300 inverse alignCenter fontWeightSemiBold"
             >
               Visit Pinterest
             </div>
@@ -888,13 +888,13 @@ exports[`<BannerUpsell /> message + title 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 defaultText alignStart breakWord fontWeightSemiBold"
+              className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 defaultText alignStart breakWord fontWeightNormal"
+            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>

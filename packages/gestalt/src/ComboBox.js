@@ -141,7 +141,7 @@ type Props = {
    */
   selectedOption?: OptionType,
   /**
-   * Sets the size of ComboBox: sm: 32px, md: 40px, lg: 48px. See the [size variant](https://gestalt.pinterest.systems/web/combobox#Size) for more details.
+   * Defines the height of ComboBox: sm: 32px, md: 40px, lg: 48px. See the [size variant](https://gestalt.pinterest.systems/web/ComboBox#Size) for more details.
    */
   size?: Size,
   /**
@@ -510,6 +510,7 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
             idealDirection="down"
             onDismiss={handleOnDismiss}
             positionRelativeToAnchor={false}
+            disablePortal
             size="flexible"
             key={isInExperiment ? undefined : suggestedOptions.length}
             shouldFocus={false}

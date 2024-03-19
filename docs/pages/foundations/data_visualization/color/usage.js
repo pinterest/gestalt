@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { Box, Flex, Image, SlimBanner } from 'gestalt';
+import { BannerSlim, Box, Flex, Image } from 'gestalt';
 import ColorTile from '../../../../docs-components/ColorTile';
 import MainSection from '../../../../docs-components/MainSection';
 import Page from '../../../../docs-components/Page';
@@ -97,7 +97,7 @@ export default function ColorPage(): ReactNode {
       <PageHeader
         name="Data visualization guidelines"
         type="guidelines"
-        description="Details about approved color pairings, accessibility guidelines, and pairings to avoid. The [data visualization palette](/foundations/data_visualization/color/palette) can be implemented through our [design tokens](/foundations/design_tokens#Data-visualization)."
+        description="Details about approved color pairings, accessibility guidelines, and pairings to avoid. The [data visualization palette](/foundations/data_visualization/color/palette) can be implemented through our [design tokens](/foundations/design_tokens/overview#Data-visualization)."
       />
       <MainSection
         name="Primary color"
@@ -310,7 +310,7 @@ export default function ColorPage(): ReactNode {
               <DoNotPairSet key={set.toString()} color1={set[0]} color2={set[1]} />
             ))}
           </Flex>
-          <SlimBanner
+          <BannerSlim
             type="info"
             iconAccessibilityLabel="Info"
             message="Example of how a person with green-red color blindness might see these pairings"

@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { Button, SlimBanner } from 'gestalt';
+import { BannerSlim, Button } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { type DocGen, type DocType } from '../../docs-components/docgen';
@@ -13,6 +13,7 @@ import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
 import accessibilityDropdownExample from '../../examples/button/accessibilityDropdownExample';
+import colors from '../../examples/button/colors';
 import defaultStateExample from '../../examples/button/defaultStateExample';
 import disabledStateExample from '../../examples/button/disabledStateExample';
 import iconEndExample from '../../examples/button/iconEndExample';
@@ -26,6 +27,7 @@ import placePrimaryButtonDont from '../../examples/button/placePrimaryButtonDont
 import selectedStateExample from '../../examples/button/selectedStateExample';
 import showFullTextDo from '../../examples/button/showFullTextDo';
 import showFullTextDont from '../../examples/button/showFullTextDont';
+import washColors from '../../examples/button/washColors';
 
 const PREVIEW_HEIGHT = 300;
 
@@ -210,6 +212,18 @@ If Button is used as a control Button to show/hide a Popover-based component, we
             }
           />
         </MainSection.Subsection>
+
+        <MainSection.Subsection
+          title="Color contrast in disabled state"
+          description={`
+Disabled Buttons do not need to pass color contrast guidelines.
+
+[From w3.org, 1.4.3 Contrast (Minimum)](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html): Text or images of text that are part of an inactive user interface component, that are pure decoration, that are not visible to anyone, or that are part of a picture that contains significant other visual content, have no contrast requirement.
+
+Our current disabled Button implementation does fail to pass color contrast on accessibility integration tests. To exclude disabled buttons from the integration tests we recomment conditionally setting a \`data-test-id={ isDisabled ? "disabled-button-<name>" : undefined }\` and excluding them from the integration test.
+
+On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved with <code>cy.a11yCheck({ exclude: [['[data-test-id="disabled-button-submit"]']] })<code>`}
+        />
       </AccessibilitySection>
 
       <LocalizationSection
@@ -246,7 +260,7 @@ If Button is used as a control Button to show/hide a Popover-based component, we
 1. Inline (default)
     Inline is our default Button width.  The width of an inline Button is based on the length of its text. Use in most cases where you need a Button.
 2. Full-width (\`fullWidth\`)
-    Full-width Buttons can be used in narrower content areas when the text in the Button is close to full width in the content area. This is especially common to see in components such as Callout and BannerUpsell at their smaller breakpoints.`}
+    Full-width Buttons can be used in narrower content areas when the text in the Button is close to full width in the content area. This is especially common to see in components such as BannerCallout and BannerUpsell at their smaller breakpoints.`}
         >
           <CombinationNew fullwidth={[false, true]}>
             {({ fullwidth }) => (
@@ -273,24 +287,12 @@ If Button is used as a control Button to show/hide a Popover-based component, we
     Low emphasis when placed on dark/image backgrounds, used for tertiary actions in that context. *Note, this treatment should be used with caution as it has potential color contrast issues.*
 `}
         >
-          <CombinationNew color={['red', 'blue', 'gray', 'transparent']}>
-            {({ color }) => {
-              const map = {
-                red: 'Save',
-                blue: 'Shop',
-                gray: 'Visit',
-                transparent: 'Learn more',
-              };
-              return (
-                <Button
-                  accessibilityLabel={`Example width ${color}`}
-                  color={color}
-                  text={map[color]}
-                  size="lg"
-                />
-              );
-            }}
-          </CombinationNew>
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={colors} name="Colors" previewHeight={500} layout="column" />
+            }
+          />
         </MainSection.Subsection>
         <MainSection.Subsection
           columns={2}
@@ -301,7 +303,19 @@ If Button is used as a control Button to show/hide a Popover-based component, we
   2. Semi-transparent white (Secondary)
       Medium emphasis when placed on color/image backgrounds, used for secondary actions in that context.
 `}
-        />
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={washColors}
+                name="Color on color/image backgrounds"
+                previewHeight={500}
+                layout="column"
+              />
+            }
+          />
+        </MainSection.Subsection>
 
         <MainSection.Subsection
           title="Icons"
@@ -309,7 +323,7 @@ If Button is used as a control Button to show/hide a Popover-based component, we
 \`iconEnd\` adds an icon after the Button text. Icons should only be used to visually reinforce a specific function or interaction of the Button. Menus and external links are a common use case. Use \`visit\` when linking to an external URL or \`arrow-down\` when displaying a Popover on click. Note that iconEnd on Button is not accessible to screen readers.
 `}
         >
-          <SlimBanner
+          <BannerSlim
             type="recommendationBare"
             iconAccessibilityLabel="Recommendation"
             message="Use Gestalt's ESLint rule to enforce the correct icons usage in Button."

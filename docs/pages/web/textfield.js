@@ -470,7 +470,7 @@ The first example shows an empty Textfield with \`maxLength\` set to 20 characte
         </MainSection.Subsection>
         <MainSection.Subsection
           title="Size"
-          description="TextField can have different sizes. The default size is `md` (40px). The `lg` size is 48px. For a dense variant, use the `sm` (32px) value."
+          description="TextField can have different sizes. The default size is `md` (40px). The `lg` size is 48px. For a dense variant, use the `sm` (32px) variant."
         >
           <MainSection.Card
             sandpackExample={<SandpackExample name="TextField Sizes" code={textFieldSizes} />}
@@ -501,6 +501,10 @@ The first example shows an empty Textfield with \`maxLength\` set to 20 characte
 export async function getServerSideProps(): Promise<{
   props: { generatedDocGen: DocGen },
 }> {
+  const generatedDocGen = await docGen('TextField');
+
+  generatedDocGen.props.autoComplete.flowType.raw = `'bday' | 'current-password' | 'email' | 'new-password' | 'on' | 'off' | 'username' | 52 more ...`;
+
   return {
     props: { generatedDocGen: await docGen('TextField') },
   };

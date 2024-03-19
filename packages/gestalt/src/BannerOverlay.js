@@ -129,7 +129,7 @@ export default function BannerOverlay({
   thumbnail,
   zIndex,
 }: Props): ReactNode {
-  const { name: colorSchemeName } = useColorScheme();
+  const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
   const isMobileDevice = useDeviceType() === 'mobile';

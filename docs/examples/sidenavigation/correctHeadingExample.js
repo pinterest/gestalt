@@ -1,6 +1,7 @@
 // @flow strict
 import React, { type Node as ReactNode } from 'react';
 import { Box, Flex, Heading, SideNavigation } from 'gestalt';
+import { TOKEN_COLOR_BORDER_CONTAINER } from 'gestalt-design-tokens';
 
 export default function Example(): ReactNode {
   return (
@@ -9,7 +10,7 @@ export default function Example(): ReactNode {
         paddingY={4}
         paddingX={8}
         dangerouslySetInlineStyle={{
-          __style: { borderBottom: '1px solid var(--color-border-container)' },
+          __style: { borderBottom: `1px solid ${TOKEN_COLOR_BORDER_CONTAINER}` },
         }}
       >
         {/* This is replacing an actual PageHeader so we don't run into accessibility error in the page */}

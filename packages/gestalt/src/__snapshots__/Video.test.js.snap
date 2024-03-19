@@ -112,7 +112,7 @@ exports[`Video with children 1`] = `
         <svg
           aria-hidden={null}
           aria-label="Play"
-          className="icon lightIcon iconBlock"
+          className="light icon iconBlock"
           height={20}
           role="img"
           viewBox="0 0 24 24"
@@ -149,7 +149,7 @@ exports[`Video with children 1`] = `
         <svg
           aria-hidden={null}
           aria-label="Hide captions"
-          className="icon lightIcon iconBlock"
+          className="light icon iconBlock"
           height={20}
           role="img"
           viewBox="0 0 24 24"
@@ -179,7 +179,7 @@ exports[`Video with children 1`] = `
       }
     >
       <div
-        className="Text fontSize100 lightText alignEnd fontWeightNormal"
+        className="Text fontSize100 light alignEnd fontWeightNormal"
       >
         00:00
       </div>
@@ -253,7 +253,7 @@ exports[`Video with children 1`] = `
       }
     >
       <div
-        className="Text fontSize100 lightText alignEnd fontWeightNormal"
+        className="Text fontSize100 light alignEnd fontWeightNormal"
       >
         00:00
       </div>
@@ -283,7 +283,7 @@ exports[`Video with children 1`] = `
         <svg
           aria-hidden={null}
           aria-label="Unmute"
-          className="rtlSupport icon lightIcon iconBlock"
+          className="rtlSupport light icon iconBlock"
           height={20}
           role="img"
           viewBox="0 0 24 24"
