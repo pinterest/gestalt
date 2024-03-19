@@ -530,6 +530,14 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
     if (width == null && hasPendingMeasurements) {
       // When hyrdating from a server render, we don't have the width of the grid
       // and the measurement store is empty
+      const twoColumnIndex = items.slice(0, 6).findIndex((item) => item.columnSpan === 2);
+      const newItems = twoColumnIndex
+        ? [
+            items[twoColumnIndex],
+            ...items.slice(0, twoColumnIndex),
+            ...items.slice(twoColumnIndex + 1),
+          ]
+        : items;
       gridBody = (
         <div
           className={styles.Masonry}
@@ -537,7 +545,7 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
           role="list"
           style={{ height: 0, width: '100%' }}
         >
-          {items.filter(Boolean).map((item, i) => (
+          {newItems.filter(Boolean).map((item, i) => (
             <div // keep this in sync with renderMasonryComponent
               className="static"
               data-grid-item
