@@ -130,7 +130,7 @@ type State<T> = {
  * ![Masonry light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Masonry.spec.mjs-snapshots/Masonry-chromium-darwin.png)
  *
  */
-export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<T>> {
+export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Props<T>, State<T>> {
   static createMeasurementStore<T1: { ... }, T2>(): MeasurementStore<T1, T2> {
     return new MeasurementStore();
   }
@@ -541,6 +541,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
             <div // keep this in sync with renderMasonryComponent
               className="static"
               data-grid-item
+              data-column-span={item.columnSpan ?? 1}
               // eslint-disable-next-line react/no-array-index-key
               key={i}
               ref={(el) => {
@@ -560,8 +561,12 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
                 WebkitTransform: 'translateX(0px) translateY(0px)',
                 width:
                   layout === 'flexible' || layout === 'serverRenderedFlexible'
-                    ? undefined
-                    : layoutNumberToCssDimension(columnWidth), // we can't set a width for server rendered flexible items
+                    ? undefined // we can't set a width for server rendered flexible items
+                    : layoutNumberToCssDimension(
+                        typeof item.columnSpan === 'number' && columnWidth != null && gutter != null
+                          ? columnWidth * item.columnSpan + gutter * (item.columnSpan - 1)
+                          : columnWidth,
+                      ),
               }}
             >
               {renderItem({ data: item, itemIdx: i, isMeasuring: false })}
@@ -578,7 +583,6 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       const itemsToRender = items.filter((item) => item && measurementStore.has(item));
       const itemsWithoutPositions = items.filter((item) => item && !positionStore.has(item));
       const hasTwoColumnItems =
-        // $FlowFixMe[prop-missing] We're assuming `columnSpan` exists
         _twoColItems && itemsWithoutPositions.some((item) => item.columnSpan === 2);
 
       // If there are 2-col items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
