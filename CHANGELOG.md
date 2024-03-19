@@ -1,3 +1,9 @@
+## 146.5.2 (Mar 19, 2024)
+
+### Patch
+
+- Masonry: Update scroll performance test ([#3480](https://github.com/pinterest/gestalt/pull/3480)) - [Preview link](https://deploy-preview-3480--gestalt.netlify.app?devexample=true)
+
 ## 146.5.1 (Mar 19, 2024)
 
 ### Patch
