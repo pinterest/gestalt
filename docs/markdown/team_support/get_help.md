@@ -16,10 +16,8 @@ Before reaching out, take a look at our [documentation](https://gestalt.pinteres
 [#gestalt-design](https://pinch.pinadmin.com/gestaltSlackDesign) is for design-focused questions.
 [#gestalt-eng-web](https://pinch.pinadmin.com/gestaltSlack) is for engineering-focused questions.
 
-### Meetings and events
-Our meetings, events, and timelines can be found on the [Gestalt event calendar](https://pinch.pinadmin.com/gestaltCalendar). We offer two different meetings for the community to bring questions, comments, ideas, and feedback:
-
-1. **Gestalt Office Hours**
+### Gestalt Office Hours**
+Our Office Hours sign-up form can be found on the [Gestalt event calendar](https://pinch.pinadmin.com/gestaltCalendar). We offer two different slots for the community to bring questions, comments, ideas, and feedback:
 
     _Purpose_
       For product designers seeking feedback on their usage of design systems and visual language. This is also a great time to propose new components or component changes.
@@ -29,27 +27,4 @@ Our meetings, events, and timelines can be found on the [Gestalt event calendar]
 
     _Cadence_
       Twice a week on Tuesdays and Thursdays. Please [sign up](https://pinch.pinadmin.com/gestaltSignUp) for a half-hour slot with your discussion topic.
-
-2.  **Gestalt Open Forum**
-
-    _Purpose_
-      For systems designers seeking feedback from the larger design org and everything else design system related.
-
-    _Audience_
-      Pinterest designers and Gestalt engineers. The agenda for the open forum can be found in the recurring calendar invite. Please continue to bring component work to Office Hours.
-      
-    _Cadence_
-      Every two months or as part of the Design Ops brunch & learn event. Check out through the link in the [Gestalt event calendar](https://pinch.pinadmin.com/gestaltCalendar).
-
-3.  **Design systems day**
-
-    _Purpose_
-      Support designers, engineers, and cross-functional partners to take advantage of Gestalt Design System and reinforce components adoption and design quality standards.
-
-    _Audience_
-      Designers, engineers, and cross-functional partners.
-      
-    _Cadence_
-      Yearly, usually in Q3. Stay tuned on #gestalt-design for information and schedule.
-
 
