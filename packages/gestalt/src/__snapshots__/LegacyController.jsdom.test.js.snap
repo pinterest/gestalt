@@ -9,6 +9,7 @@ exports[`Controller renders 1`] = `
         "left": -10,
         "top": 4,
         "visibility": "visible",
+        "zIndex": undefined,
       }
     }
     tabIndex={-1}
