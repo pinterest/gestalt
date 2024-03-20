@@ -533,27 +533,16 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
 
       // We have to match the positions of ssr items with the ones calculated on the layout logic,
       // this means if the heigths are the same the two col item is positioned as the first item
-      const hasTwoColumnItems = items.some((item) => item.columnSpan === 2);
-
-      const normalizeSSRItems = (items: $ReadOnlyArray<T>) => {
-        const normalizedItems: Array<T> = [];
-
-        for (let i = 0; i < items.length; i += TWO_COL_ITEMS_MEASURE_BATCH_SIZE) {
-          const batch: $ReadOnlyArray<T> = items.slice(i, i + TWO_COL_ITEMS_MEASURE_BATCH_SIZE);
-          const twoColumnIndex = batch.findIndex((item) => item.columnSpan === 2);
-          normalizedItems.push(
-            twoColumnIndex
-              ? [
-                  batch[twoColumnIndex],
-                  ...batch.slice(0, twoColumnIndex),
-                  ...batch.slice(twoColumnIndex + 1),
-                ]
-              : batch,
-          );
-        }
-
-        return normalizedItems;
-      };
+      const twoColumnIndex = items
+        .slice(0, TWO_COL_ITEMS_MEASURE_BATCH_SIZE)
+        .findIndex((item) => item.columnSpan === 2);
+      const ssrItems = twoColumnIndex
+        ? [
+            items[twoColumnIndex],
+            ...items.slice(0, twoColumnIndex),
+            ...items.slice(twoColumnIndex + 1),
+          ]
+        : items;
 
       gridBody = (
         <div
@@ -562,7 +551,7 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
           role="list"
           style={{ height: 0, width: '100%' }}
         >
-          {(hasTwoColumnItems ? normalizeSSRItems(items) : items).filter(Boolean).map((item, i) => (
+          {ssrItems.filter(Boolean).map((item, i) => (
             <div // keep this in sync with renderMasonryComponent
               className="static"
               data-grid-item
