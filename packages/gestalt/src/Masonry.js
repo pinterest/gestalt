@@ -530,6 +530,16 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
     if (width == null && hasPendingMeasurements) {
       // When hyrdating from a server render, we don't have the width of the grid
       // and the measurement store is empty
+
+      // We have to match the positions of ssr items with the ones calculated on the layout logic,
+      // this means if the heigths are the same the two col item is positioned as the first item
+      const twoColumnIndex = items
+        .slice(0, TWO_COL_ITEMS_MEASURE_BATCH_SIZE)
+        .findIndex((item) => item.columnSpan === 2);
+      const ssrItems = twoColumnIndex
+        ? [items[twoColumnIndex], ...items.filter((item, index) => index !== twoColumnIndex)]
+        : items;
+
       gridBody = (
         <div
           className={styles.Masonry}
@@ -537,7 +547,7 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
           role="list"
           style={{ height: 0, width: '100%' }}
         >
-          {items.filter(Boolean).map((item, i) => (
+          {ssrItems.filter(Boolean).map((item, i) => (
             <div // keep this in sync with renderMasonryComponent
               className="static"
               data-grid-item
