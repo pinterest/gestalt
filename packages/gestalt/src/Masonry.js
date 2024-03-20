@@ -536,13 +536,14 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
       const twoColumnIndex = items
         .slice(0, TWO_COL_ITEMS_MEASURE_BATCH_SIZE)
         .findIndex((item) => item.columnSpan === 2);
-      const ssrItems = twoColumnIndex
-        ? [
-            items[twoColumnIndex],
-            ...items.slice(0, twoColumnIndex),
-            ...items.slice(twoColumnIndex + 1),
-          ]
-        : items;
+      const ssrItems =
+        twoColumnIndex > 0
+          ? [
+              items[twoColumnIndex],
+              ...items.slice(0, twoColumnIndex),
+              ...items.slice(twoColumnIndex + 1),
+            ]
+          : items;
 
       gridBody = (
         <div
