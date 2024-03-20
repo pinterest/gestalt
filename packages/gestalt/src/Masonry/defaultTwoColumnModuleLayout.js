@@ -302,8 +302,17 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
     if (hasTwoColumnItems) {
       // If the number of items to position is greater that the batch size
       // we identify the batch with the two column item and apply the graph only to those items
-      const splitIndex = calculateSplitIndex(itemsWithoutPositions);
-      const shouldBatchItems = itemsWithoutPositions.length > TWO_COL_ITEMS_MEASURE_BATCH_SIZE;
+      const twoColumnIndex = itemsWithoutPositions.indexOf(twoColumnItems[0]);
+
+      const skipGraph =
+        heights.every((height) => height === 0) && twoColumnIndex < heights.length - 1;
+      const shouldBatchItems =
+        skipGraph || itemsWithoutPositions.length > TWO_COL_ITEMS_MEASURE_BATCH_SIZE;
+
+      const splitIndex =
+        twoColumnIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE > itemsWithoutPositions.length
+          ? itemsWithoutPositions.length - TWO_COL_ITEMS_MEASURE_BATCH_SIZE
+          : twoColumnIndex;
       const pre = shouldBatchItems ? itemsWithoutPositions.slice(0, splitIndex) : [];
       const batchWithTwoColumnItems = shouldBatchItems
         ? itemsWithoutPositions.slice(splitIndex, splitIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE)
@@ -402,15 +411,17 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
       }
 
       // For each unpainted item, start generating possible layouts
-      oneColumnItems.forEach((item, i, arr) => {
-        addPossibleLayout({
-          item,
-          i,
-          arr,
-          heightsArr: paintedItemHeights,
-          prevNode: startNodeData,
+      if (!skipGraph) {
+        oneColumnItems.forEach((item, i, arr) => {
+          addPossibleLayout({
+            item,
+            i,
+            arr,
+            heightsArr: paintedItemHeights,
+            prevNode: startNodeData,
+          });
         });
-      });
+      }
 
       const { lowestScore, lowestScoreNode } = graph.findLowestScore(startNodeData);
 
