@@ -40,23 +40,6 @@ function calculateTwoColumnModuleWidth(columnWidth: number, gutter: number): num
   return columnWidth * 2 + gutter;
 }
 
-function calculateSplitIndex<T: { +[string]: mixed }>(
-  itemsWithoutPositions: $ReadOnlyArray<T>,
-): number {
-  // Currently we only support one two column item at the same time, more items will be supporped soon
-  const twoColumnIndex = itemsWithoutPositions.findIndex((item) => item.columnSpan === 2);
-
-  if (twoColumnIndex < TWO_COL_ITEMS_MEASURE_BATCH_SIZE) {
-    return 0;
-  }
-
-  if (twoColumnIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE > itemsWithoutPositions.length) {
-    return itemsWithoutPositions.length - TWO_COL_ITEMS_MEASURE_BATCH_SIZE;
-  }
-
-  return twoColumnIndex;
-}
-
 function initializeHeightsArray<T>({
   centerOffset,
   columnCount,
@@ -302,8 +285,16 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
     if (hasTwoColumnItems) {
       // If the number of items to position is greater that the batch size
       // we identify the batch with the two column item and apply the graph only to those items
-      const splitIndex = calculateSplitIndex(itemsWithoutPositions);
+      // Currently we only support one two column item at the same time, more items will be supporped soon
+      const twoColumnIndex = itemsWithoutPositions.indexOf(twoColumnItems[0]);
+
+      // If the number of items to position is greater that the batch size
+      // we identify the batch with the two column item and apply the graph only to those items
       const shouldBatchItems = itemsWithoutPositions.length > TWO_COL_ITEMS_MEASURE_BATCH_SIZE;
+      const splitIndex =
+        twoColumnIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE > itemsWithoutPositions.length
+          ? itemsWithoutPositions.length - TWO_COL_ITEMS_MEASURE_BATCH_SIZE
+          : twoColumnIndex;
       const pre = shouldBatchItems ? itemsWithoutPositions.slice(0, splitIndex) : [];
       const batchWithTwoColumnItems = shouldBatchItems
         ? itemsWithoutPositions.slice(splitIndex, splitIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE)
