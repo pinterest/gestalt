@@ -1,3 +1,9 @@
+## 146.5.3 (Mar 20, 2024)
+
+### Patch
+
+- Masonry: Revert splitIndex change ([#3487](https://github.com/pinterest/gestalt/pull/3487)) - [Preview link](https://deploy-preview-3487--gestalt.netlify.app?devexample=true)
+
 ## 146.5.2 (Mar 19, 2024)
 
 ### Patch
