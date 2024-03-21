@@ -277,7 +277,7 @@ describe('two column layout test cases', () => {
     ]);
   });
 
-  test('returns positions for all items when two columns item is on a large batch', () => {
+  test('correctly positions two column items regardless of on where they are in the batch', () => {
     const measurementStore = new MeasurementStore<{ ... }, number>();
     const positionCache = new MeasurementStore<{ ... }, Position>();
     const heightsCache = new HeightsStore();
@@ -351,6 +351,7 @@ describe('two column layout test cases', () => {
       measurementStore.set(item, item.height);
     });
     layout(mockItems);
+    // third row, first column
     expect(positionCache.get(mockItems[twoColumnModuleIndex])).toEqual({
       height: 200,
       left: 99,
@@ -373,10 +374,11 @@ describe('two column layout test cases', () => {
       measurementStore.set(item, item.height);
     });
     layout(mockItems);
+    // item 5 so second row, second column
     expect(positionCache.get(mockItems[twoColumnModuleIndex])).toEqual({
       height: 200,
-      left: 99,
-      top: 0,
+      left: 353,
+      top: 214,
       width: 494,
     });
   });
