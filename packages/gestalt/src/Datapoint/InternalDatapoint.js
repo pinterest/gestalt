@@ -47,6 +47,10 @@ type Props = {
    * Max width for the title
    */
   maxTitleWidth?: number,
+  /**
+   * number of lines to have the row height for the title
+   */
+  numTitleRows?: number,
   size?: 'md' | 'lg',
   title: string,
   tooltipText?: string,
@@ -59,14 +63,16 @@ type Props = {
 function MaybeMinWidth({
   minWidth,
   maxWidth,
+  numTitleRows,
   children,
 }: {
   minWidth?: number,
   maxWidth?: number,
+  numTitleRows?: number,
   children: ReactNode,
 }) {
   return minWidth ? (
-    <Box minWidth={minWidth} maxWidth={maxWidth}>
+    <Box minWidth={minWidth} maxWidth={maxWidth} minHeight={`${numTitleRows || 1}em`}>
       {children}
     </Box>
   ) : (
@@ -80,6 +86,7 @@ export default function InternalDatapoint({
   lineClamp,
   minTitleWidth,
   maxTitleWidth,
+  numTitleRows,
   size = 'md',
   title,
   tooltipText,
@@ -92,7 +99,11 @@ export default function InternalDatapoint({
   return (
     <Flex gap={{ column: 1, row: 0 }} direction="column">
       <Flex gap={{ row: 1, column: 0 }} alignItems="center" minHeight={24}>
-        <MaybeMinWidth minWidth={minTitleWidth} maxWidth={maxTitleWidth}>
+        <MaybeMinWidth
+          minWidth={minTitleWidth}
+          maxWidth={maxTitleWidth}
+          numTitleRows={numTitleRows}
+        >
           <Text size="200" color={textColor} lineClamp={lineClamp}>
             {title}
             <AccessibilityPause />

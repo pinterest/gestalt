@@ -162,6 +162,7 @@ export default function TileData({
                 lineClamp={2}
                 minTitleWidth={80}
                 maxTitleWidth={135}
+                numTitleRows={2}
                 title={title}
                 trend={trend}
                 trendSentiment={trendSentiment}
