@@ -7,7 +7,9 @@ We are always happy to help answer questions regarding Gestalt component design 
 
 ## Slack channels
 
-Before reaching out, take a look at our [documentation](https://gestalt.pinterest.systems/) to see if you find the answer to your question, because it will likely get you the fastest answer. Still need help? Try searching Slack for your question, and then feel free to ask if your question hasn’t been answered in the past. 
+Before reaching out, take a look at our [documentation](https://gestalt.pinterest.systems/) to see if you find the answer to your question, because it will likely get you the fastest answer. 
+
+Still need help? Try searching Slack for your question, and then feel free to ask if your question hasn’t been answered in the past. 
 
 [#gestalt-design](https://pinch.pinadmin.com/gestaltSlackDesign) is for design-focused questions.
 [#gestalt-eng-web](https://pinch.pinadmin.com/gestaltSlack) is for engineering-focused questions.
@@ -15,7 +17,9 @@ Before reaching out, take a look at our [documentation](https://gestalt.pinteres
 [#android-gestalt](https://pinch.pinadmin.com/GestaltAndroid) is for android engineering-focused questions.
 
 ## Gestalt Office Hours
-We offer four slots weekly for the community to bring questions, ideas, and feedback. Please use the [Gestalt design calendar](http://pinch.pinadmin.com/GDesignCalendar) to book a half-hour slot with us. 
+We offer four weekly slots for the community to share questions, ideas, and feedback. To view available options and book a half-hour slot, please add the [Gestalt design calendar](http://pinch.pinadmin.com/GDesignCalendar) to your own calendar.
+
+If you have a quick or clarifying question, reach out to us on [#gestalt-design](https://pinch.pinadmin.com/gestaltSlackDesign).
 
     _Purpose_
       For product designers seeking feedback on their usage of design systems and visual language. This is also a great time to chat about contributions or component requests.
@@ -24,7 +28,7 @@ We offer four slots weekly for the community to bring questions, ideas, and feed
       Primarily designers, though engineers are welcome if there are technical concerns as well.
 
     _Cadence_
-      Twice a week on Tuesdays and Thursdays. Four half-hour slots available per week. 
+      Twice a week on Tuesdays and Thursdays. [Book your slot!](http://pinch.pinadmin.com/OfficeHourBookingPage)
 
 ## Dashboards and Jira
 
