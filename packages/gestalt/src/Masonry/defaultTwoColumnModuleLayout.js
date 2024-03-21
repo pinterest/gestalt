@@ -40,6 +40,17 @@ function calculateTwoColumnModuleWidth(columnWidth: number, gutter: number): num
   return columnWidth * 2 + gutter;
 }
 
+function calculateSplitIndex(itemsWithoutPositionsLength: number, twoColumnIndex: number): number {
+  // If the items length is the same as the batch size we don't set a split index
+  if (itemsWithoutPositionsLength <= TWO_COL_ITEMS_MEASURE_BATCH_SIZE) {
+    return 0;
+  }
+
+  return twoColumnIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE > itemsWithoutPositionsLength
+    ? itemsWithoutPositionsLength - TWO_COL_ITEMS_MEASURE_BATCH_SIZE
+    : twoColumnIndex;
+}
+
 function initializeHeightsArray<T>({
   centerOffset,
   columnCount,
@@ -283,20 +294,21 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
     };
 
     if (hasTwoColumnItems) {
-      // If the number of items to position is greater that the batch size
-      // we identify the batch with the two column item and apply the graph only to those items
       // Currently we only support one two column item at the same time, more items will be supporped soon
       const twoColumnIndex = itemsWithoutPositions.indexOf(twoColumnItems[0]);
 
+      // Skip the graph logic if the two column item batch is on the first line
+      const skipGraph =
+        heights.every((height) => height === 0) &&
+        itemsWithoutPositions.length <= TWO_COL_ITEMS_MEASURE_BATCH_SIZE;
+
       // If the number of items to position is greater that the batch size
       // we identify the batch with the two column item and apply the graph only to those items
-      const shouldBatchItems = itemsWithoutPositions.length > TWO_COL_ITEMS_MEASURE_BATCH_SIZE;
-      const splitIndex =
-        twoColumnIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE > itemsWithoutPositions.length
-          ? itemsWithoutPositions.length - TWO_COL_ITEMS_MEASURE_BATCH_SIZE
-          : twoColumnIndex;
-      const pre = shouldBatchItems ? itemsWithoutPositions.slice(0, splitIndex) : [];
-      const batchWithTwoColumnItems = shouldBatchItems
+      const splitIndex = skipGraph
+        ? twoColumnIndex
+        : calculateSplitIndex(itemsWithoutPositions.length, twoColumnIndex);
+      const pre = itemsWithoutPositions.slice(0, splitIndex);
+      const batchWithTwoColumnItems = splitIndex
         ? itemsWithoutPositions.slice(splitIndex, splitIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE)
         : itemsWithoutPositions;
 
@@ -393,15 +405,17 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
       }
 
       // For each unpainted item, start generating possible layouts
-      oneColumnItems.forEach((item, i, arr) => {
-        addPossibleLayout({
-          item,
-          i,
-          arr,
-          heightsArr: paintedItemHeights,
-          prevNode: startNodeData,
+      if (!skipGraph) {
+        oneColumnItems.forEach((item, i, arr) => {
+          addPossibleLayout({
+            item,
+            i,
+            arr,
+            heightsArr: paintedItemHeights,
+            prevNode: startNodeData,
+          });
         });
-      });
+      }
 
       const { lowestScore, lowestScoreNode } = graph.findLowestScore(startNodeData);
 

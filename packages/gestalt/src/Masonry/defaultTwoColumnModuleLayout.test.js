@@ -388,7 +388,7 @@ describe('two column layout test cases', () => {
     const positionCache = new MeasurementStore<{ ... }, Position>();
     const heightsCache = new HeightsStore();
     const items = [
-      { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA', 'columnSpan': 2 },
+      { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
       { 'name': 'Pin 1', 'height': 201, 'color': '#F67076' },
       { 'name': 'Pin 2', 'height': 202, 'color': '#FAB032' },
       { 'name': 'Pin 3', 'height': 203, 'color': '#EDF21D' },
@@ -410,17 +410,49 @@ describe('two column layout test cases', () => {
       width: 1200,
     });
 
-    const positions = layout(items);
-    const orderedPositions = items.map((item) => positionCache.get(item));
+    let mockItems;
+    let twoColumnModuleIndex;
 
-    expect(positions.length).toEqual(items.length);
-    expect(orderedPositions).toEqual([
-      { height: 200, left: 99, top: 0, width: 494 },
-      { height: 201, left: 607, top: 0, width: 240 },
-      { height: 202, left: 861, top: 0, width: 240 },
-      { height: 203, left: 99, top: 214, width: 240 },
-      { height: 204, left: 353, top: 214, width: 240 },
-      { height: 205, left: 607, top: 215, width: 240 },
-    ]);
+    // Correct position when two column module is on the start of the batch
+    twoColumnModuleIndex = 0;
+    mockItems = [
+      ...items.slice(0, twoColumnModuleIndex),
+      { ...items[twoColumnModuleIndex], columnSpan: 2 },
+      ...items.slice(twoColumnModuleIndex + 1),
+    ];
+    mockItems.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+    layout(mockItems);
+    // First slot
+    expect(positionCache.get(mockItems[twoColumnModuleIndex])).toEqual({
+      height: 200,
+      left: 99,
+      top: 0,
+      width: 494,
+    });
+
+    // Correct position when two column module is at the middle of the batch and fits on the row
+    measurementStore.reset();
+    positionCache.reset();
+    heightsCache.reset();
+
+    twoColumnModuleIndex = 2;
+    mockItems = [
+      ...items.slice(0, twoColumnModuleIndex),
+      { ...items[twoColumnModuleIndex], columnSpan: 2 },
+      ...items.slice(twoColumnModuleIndex + 1),
+    ];
+    mockItems.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+    layout(mockItems);
+    // First row third position
+    expect(positionCache.get(mockItems[twoColumnModuleIndex])).toEqual({
+      height: 202,
+      left: 607,
+      top: 0,
+      width: 494,
+    });
   });
 });
