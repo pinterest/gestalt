@@ -1,10 +1,10 @@
 // @flow strict
+import { type DesignOverview } from './types';
 import ComponentRequest from '../../graphics/team_support/component-request.svg';
 import ContributionsTile from '../../graphics/team_support/contributions.svg';
 import DesignFileHygiene from '../../graphics/team_support/design-file-hygiene.svg';
 import GetHelpTile from '../../graphics/team_support/get-help.svg';
 import TrainingTile from '../../graphics/team_support/training.svg';
-import { type DesignOverview } from './types';
 
 const teamSupportTiles: $ReadOnlyArray<DesignOverview> = [
   {
