@@ -1,3 +1,9 @@
+## 146.5.4 (Mar 21, 2024)
+
+### Patch
+
+- Masonry: Render tcm in position on first line ([#3488](https://github.com/pinterest/gestalt/pull/3488)) - [Preview link](https://deploy-preview-3488--gestalt.netlify.app?devexample=true)
+
 ## 146.5.3 (Mar 20, 2024)
 
 ### Patch
