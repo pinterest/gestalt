@@ -283,16 +283,18 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
     };
 
     if (hasTwoColumnItems) {
-      // If the number of items to position is greater that the batch size
-      // we identify the batch with the two column item and apply the graph only to those items
       // Currently we only support one two column item at the same time, more items will be supporped soon
       const twoColumnIndex = itemsWithoutPositions.indexOf(twoColumnItems[0]);
 
+      // Skip the graph logic if the two column item batch is on the first line
+      const skipGraph = heights.every((height) => height === 0);
+
       // If the number of items to position is greater that the batch size
       // we identify the batch with the two column item and apply the graph only to those items
-      const skipGraph = heights.every((height) => height === 0);
-      const shouldBatchItems = itemsWithoutPositions.length > TWO_COL_ITEMS_MEASURE_BATCH_SIZE;
+      const shouldBatchItems =
+        skipGraph || itemsWithoutPositions.length > TWO_COL_ITEMS_MEASURE_BATCH_SIZE;
       const splitIndex =
+        !skipGraph &&
         twoColumnIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE > itemsWithoutPositions.length
           ? itemsWithoutPositions.length - TWO_COL_ITEMS_MEASURE_BATCH_SIZE
           : twoColumnIndex;
