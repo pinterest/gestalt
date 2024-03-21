@@ -145,7 +145,7 @@ export default function TileData({
 
   return (
     <MaybeTooltip tooltip={tooltip} disabled={disabled}>
-      <Box maxWidth={196}>
+      <Box>
         <TapArea
           disabled={disabled}
           onBlur={handleOnBlur}
