@@ -7,8 +7,9 @@ export default function Snapshot(): ReactNode {
     <ColorSchemeProvider colorScheme="light">
       <Box color="default" display="inlineBlock" padding={1}>
         <TileData
-          title="Impressions"
+          title="Total CPA and Moresajdlasldsajldsaldaskl (Checkout)"
           value="1.23M"
+          showCheckbox
           selected
           trend={{ value: -5, accessibilityLabel: 'Trending down' }}
         />
