@@ -296,11 +296,11 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
     if (hasTwoColumnItems) {
       // Currently we only support one two column item at the same time, more items will be supporped soon
       const twoColumnIndex = itemsWithoutPositions.indexOf(twoColumnItems[0]);
+      const isFirstRow = heights.every((height) => height === 0);
 
       // Skip the graph logic if the two column item batch is on the first line
       const skipGraph =
-        heights.every((height) => height === 0) &&
-        itemsWithoutPositions.length <= TWO_COL_ITEMS_MEASURE_BATCH_SIZE;
+        isFirstRow && itemsWithoutPositions.length <= TWO_COL_ITEMS_MEASURE_BATCH_SIZE;
 
       // If the number of items to position is greater that the batch size
       // we identify the batch with the two column item and apply the graph only to those items
@@ -311,6 +311,25 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
       const batchWithTwoColumnItems = splitIndex
         ? itemsWithoutPositions.slice(splitIndex, splitIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE)
         : itemsWithoutPositions;
+
+      if (isFirstRow) {
+        const remainingColumnsToFill = columnCount - pre.length; // different of column count minus number of columns _before_ two column module position
+        const multiColumnItemWidth = parseInt(twoColumnItems[0].columnSpan, 10);
+        if (multiColumnItemWidth > remainingColumnsToFill) {
+          // if we're in the first row but we can't render the multi column item in the first row, fill pre with single column items to ensure we have enough to cover the initial row
+          // this is specifically for the first row to ensure we match server rendering styling
+          for (let i = 0; i < remainingColumnsToFill; i += 1) {
+            const singleColumnItemIndex = batchWithTwoColumnItems.findIndex(
+              (item) => !item.columnSpan || item.columnSpan === 1,
+            );
+            if (singleColumnItemIndex > -1) {
+              // if we find a single column module, remove it from the two column batch and add it to the pre array
+              pre.push(batchWithTwoColumnItems[singleColumnItemIndex]);
+              batchWithTwoColumnItems.splice(singleColumnItemIndex, 1);
+            }
+          }
+        }
+      }
 
       // Get positions and heights for painted items
       const { positions: paintedItemPositions, heights: paintedItemHeights } =
