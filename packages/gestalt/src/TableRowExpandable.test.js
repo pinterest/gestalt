@@ -6,8 +6,8 @@ test('renders correctly', () => {
   const tree = renderer
     .create(
       <TableRowExpandable
-        accessibilityExpandLabel="Expand"
         accessibilityCollapseLabel="Collapse"
+        accessibilityExpandLabel="Expand"
         expandedContents={<div>Expanded Contents</div>}
         id="expandableRow"
         onExpand={() => {}}
@@ -23,10 +23,10 @@ test('renders correctly with explicit hover', () => {
   const tree = renderer
     .create(
       <TableRowExpandable
-        accessibilityExpandLabel="Expand"
         accessibilityCollapseLabel="Collapse"
-        hoverStyle="gray"
+        accessibilityExpandLabel="Expand"
         expandedContents={<div>Expanded Contents</div>}
+        hoverStyle="gray"
         id="expandableRow"
         onExpand={() => {}}
       >
@@ -41,10 +41,10 @@ test('renders correctly without hover', () => {
   const tree = renderer
     .create(
       <TableRowExpandable
-        accessibilityExpandLabel="Expand"
         accessibilityCollapseLabel="Collapse"
-        hoverStyle="none"
+        accessibilityExpandLabel="Expand"
         expandedContents={<div>Expanded Contents</div>}
+        hoverStyle="none"
         id="expandableRow"
         onExpand={() => {}}
       >

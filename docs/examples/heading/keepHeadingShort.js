@@ -4,9 +4,9 @@ import { Box, Flex, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Flex gap={{ column: 2, row: 0 }} direction="column">
-        <Text weight="bold" size="200">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
+        <Text size="200" weight="bold">
           Analytics overview
         </Text>
         <Text size="200">

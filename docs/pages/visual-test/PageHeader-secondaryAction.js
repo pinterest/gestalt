@@ -4,17 +4,16 @@ import { Box, Button, Dropdown, PageHeader } from 'gestalt';
 
 export default function Snapshot(): ReactNode {
   return (
-    <Box width="100vw" height={170}>
+    <Box height={170} width="100vw">
       <PageHeader
-        title="Product groups"
-        subtext="S. E. All products USD"
+        dropdownAccessibilityLabel="test"
         primaryAction={{
           component: <Button color="red" size="lg" text="Create group" />,
           dropdownItems: [
             <Dropdown.Item
               key="secondaryAction_primaryAction"
-              option={{ value: 'Promote', label: 'Promote' }}
               onSelect={() => {}}
+              option={{ value: 'Promote', label: 'Promote' }}
             />,
           ],
         }}
@@ -23,13 +22,14 @@ export default function Snapshot(): ReactNode {
           dropdownItems: [
             <Dropdown.Link
               key="secondaryAction_secondaryAction"
+              href="https://pinterest.com"
               isExternal
               option={{ value: 'View analytics', label: 'View analytics' }}
-              href="https://pinterest.com"
             />,
           ],
         }}
-        dropdownAccessibilityLabel="test"
+        subtext="S. E. All products USD"
+        title="Product groups"
       />
     </Box>
   );

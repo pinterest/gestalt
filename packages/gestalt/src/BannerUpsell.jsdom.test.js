@@ -6,11 +6,11 @@ test('BannerUpsell handles onDismiss callback', () => {
   const mockOnDismiss = jest.fn<[], void>();
   render(
     <BannerUpsell
-      message="Insert a clever upsell message here"
       dismissButton={{
         accessibilityLabel: 'Dismiss banner',
         onDismiss: mockOnDismiss,
       }}
+      message="Insert a clever upsell message here"
     />,
   );
   screen.getByLabelText('Dismiss banner').click();

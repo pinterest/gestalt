@@ -4,9 +4,9 @@ import Datapoint from './Datapoint';
 const Valid = (
   <Datapoint
     title="Title"
-    value="1M"
     trend={{ value: 30, accessibilityLabel: 'Value change icon accessibility label' }}
     trendSentiment="good"
+    value="1M"
   />
 );
 

@@ -35,8 +35,8 @@ export default function Example(): ReactNode {
             <SheetMobile heading="Heading" onDismiss={() => setShowComponent(false)} size="auto">
               <SheetMobile.DismissingElement>
                 {({ onDismissStart }) => (
-                  <Flex justifyContent="center" alignItems="center" height="100%">
-                    <Button color="gray" text="Close" onClick={onDismissStart} />
+                  <Flex alignItems="center" height="100%" justifyContent="center">
+                    <Button color="gray" onClick={onDismissStart} text="Close" />
                   </Flex>
                 )}
               </SheetMobile.DismissingElement>
@@ -47,9 +47,9 @@ export default function Example(): ReactNode {
           <Button
             accessibilityLabel="Show SheetMobile"
             color="red"
-            text="Show SheetMobile"
-            size="lg"
             onClick={() => setShowComponent(true)}
+            size="lg"
+            text="Show SheetMobile"
           />
         </Box>
       </DeviceTypeProvider>

@@ -83,6 +83,8 @@ export default function DropdownLink({
     <DropdownContextConsumer>
       {({ id, hoveredItemIndex, setHoveredItemIndex, setOptionRef }) => (
         <OptionItem
+          key={`${option.value + _index}`}
+          ref={setOptionRef}
           badge={badge}
           dataTestId={dataTestId}
           disabled={disabled}
@@ -91,11 +93,9 @@ export default function DropdownLink({
           id={id}
           index={_index}
           isExternal={isExternal}
-          key={`${option.value + _index}`}
           onClick={onClick}
           option={option}
           setHoveredItemIndex={setHoveredItemIndex}
-          ref={setOptionRef}
           textWeight="bold"
         >
           {children}

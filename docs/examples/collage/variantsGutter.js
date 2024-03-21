@@ -44,16 +44,15 @@ const images = [
 export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-      <Box color="secondary" width={300} height={300}>
+      <Box color="secondary" height={300} width={300}>
         <Collage
           columns={3}
           gutter={8}
           height={300}
-          width={300}
           renderImage={({ index, width, height }) => {
             const image = images[index] || {};
             return (
-              <Mask wash width={width} height={height}>
+              <Mask height={height} wash width={width}>
                 <Image
                   alt="collage image"
                   color={image.color}
@@ -65,6 +64,7 @@ export default function Example(): ReactNode {
               </Mask>
             );
           }}
+          width={300}
         />
       </Box>
     </Flex>

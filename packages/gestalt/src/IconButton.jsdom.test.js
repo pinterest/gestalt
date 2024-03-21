@@ -10,7 +10,7 @@ describe('IconButton', () => {
   });
 
   it('renders with disabled state', () => {
-    const { container } = render(<IconButton accessibilityLabel="Pinterest" icon="pin" disabled />);
+    const { container } = render(<IconButton accessibilityLabel="Pinterest" disabled icon="pin" />);
     expect(container).toMatchSnapshot();
   });
 
@@ -55,7 +55,7 @@ describe('IconButton', () => {
 
   it('renders with data-test-id', () => {
     const TEST_ID = 'button-test-123';
-    render(<IconButton dataTestId={TEST_ID} accessibilityLabel="Share" icon="share" />);
+    render(<IconButton accessibilityLabel="Share" dataTestId={TEST_ID} icon="share" />);
     expect(
       screen.getByTestId(TEST_ID, {
         exact: true,
@@ -79,21 +79,21 @@ describe('IconButton', () => {
 
   it('renders a button with sequential keyboard navigation and forwards a ref to the innermost <button> element', () => {
     const ref = createRef<HTMLButtonElement | HTMLAnchorElement>();
-    render(<IconButton accessibilityLabel="test" ref={ref} />);
+    render(<IconButton ref={ref} accessibilityLabel="test" />);
     expect(ref.current instanceof HTMLButtonElement).toEqual(true);
     expect(ref.current instanceof HTMLButtonElement && ref.current?.tabIndex).toEqual(0);
   });
 
   it('renders a disabled button', () => {
     const ref = createRef<HTMLButtonElement | HTMLAnchorElement>();
-    render(<IconButton disabled accessibilityLabel="test" icon="add" ref={ref} />);
+    render(<IconButton ref={ref} accessibilityLabel="test" disabled icon="add" />);
     expect(ref.current instanceof HTMLButtonElement).toEqual(true);
     expect(ref.current instanceof HTMLButtonElement && ref.current?.disabled).toEqual(true);
   });
 
   it('renders an IconButton removed from sequential keyboard navigation via tabIndex', () => {
     const ref = createRef<HTMLButtonElement | HTMLAnchorElement>();
-    render(<IconButton accessibilityLabel="test" icon="add" ref={ref} tabIndex={-1} />);
+    render(<IconButton ref={ref} accessibilityLabel="test" icon="add" tabIndex={-1} />);
     expect(ref.current instanceof HTMLButtonElement).toEqual(true);
     expect(ref.current instanceof HTMLButtonElement && ref.current?.tabIndex).toEqual(-1);
   });

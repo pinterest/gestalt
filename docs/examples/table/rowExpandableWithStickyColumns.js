@@ -7,7 +7,7 @@ export default function Example(): ReactNode {
   const showTextOnExpand = () => <Text>Row expanded</Text>;
 
   return (
-    <Box width="70%" margin="auto" padding={4}>
+    <Box margin="auto" padding={4} width="70%">
       <Table accessibilityLabel="Table.RowExpandable with Sticky Columns" stickyColumns={3}>
         <Table.Header>
           <Table.Row>
@@ -44,12 +44,10 @@ export default function Example(): ReactNode {
 
         <Table.Body>
           <Table.RowExpandable
-            accessibilityExpandLabel="Expand"
             accessibilityCollapseLabel="Collapse"
-            id="row1"
-            onExpand={() => setTextShown(!textShown)}
+            accessibilityExpandLabel="Expand"
             expandedContents={
-              <Box maxWidth={236} padding={2} column={12}>
+              <Box column={12} maxWidth={236} padding={2}>
                 <WashAnimated
                   image={<Avatar name="tony avatar" src="https://i.ibb.co/8948ym5/avenge.png" />}
                 >
@@ -64,6 +62,8 @@ export default function Example(): ReactNode {
                 </WashAnimated>
               </Box>
             }
+            id="row1"
+            onExpand={() => setTextShown(!textShown)}
           >
             <Table.Cell>
               <Text>Tony Stark</Text>
@@ -89,9 +89,8 @@ export default function Example(): ReactNode {
           </Table.RowExpandable>
 
           <Table.RowExpandable
-            accessibilityExpandLabel="Expand"
             accessibilityCollapseLabel="Collapse"
-            id="row2"
+            accessibilityExpandLabel="Expand"
             expandedContents={
               <Table accessibilityLabel="none">
                 <Table.Header sticky>
@@ -132,6 +131,7 @@ export default function Example(): ReactNode {
                 </Table.Body>
               </Table>
             }
+            id="row2"
           >
             <Table.Cell>
               <Text>Wanda Maximoff</Text>
@@ -157,11 +157,10 @@ export default function Example(): ReactNode {
           </Table.RowExpandable>
 
           <Table.RowExpandable
-            accessibilityExpandLabel="Expand"
             accessibilityCollapseLabel="Collapse"
-            id="row3"
+            accessibilityExpandLabel="Expand"
             expandedContents={
-              <Box maxWidth={236} padding={2} column={12}>
+              <Box column={12} maxWidth={236} padding={2}>
                 <WashAnimated
                   image={
                     <Avatar
@@ -180,6 +179,7 @@ export default function Example(): ReactNode {
                 </WashAnimated>
               </Box>
             }
+            id="row3"
           >
             <Table.Cell>
               <Text>T&apos;Challa</Text>

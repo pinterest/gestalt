@@ -6,7 +6,7 @@ export default function Example(): ReactNode {
   const [currentValue, setCurrentValue] = useState<number | void>(undefined);
 
   return (
-    <Flex alignItems="center" justifyContent="center" height="100%" width="100%">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <NumberField
         id="best-practices-do-label"
         label="Your age"

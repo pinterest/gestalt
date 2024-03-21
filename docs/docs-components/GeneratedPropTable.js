@@ -129,6 +129,6 @@ export default function GeneratedPropTable({
     .filter(Boolean);
 
   return (
-    <PropTable componentName={generatedDocGen.displayName} name={name} id={id} props={props} />
+    <PropTable componentName={generatedDocGen.displayName} id={id} name={name} props={props} />
   );
 }

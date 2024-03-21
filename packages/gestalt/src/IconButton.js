@@ -172,6 +172,7 @@ const IconButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = fo
 
   const buttonComponent = (
     <button
+      ref={innerRef}
       aria-controls={accessibilityControls}
       aria-expanded={accessibilityExpanded}
       aria-haspopup={accessibilityPopupRole || accessibilityHaspopup}
@@ -203,7 +204,6 @@ const IconButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = fo
       onTouchEnd={handleTouchEnd}
       onTouchMove={handleTouchMove}
       onTouchStart={handleTouchStart}
-      ref={innerRef}
       tabIndex={disabled ? null : tabIndex}
       // react/button-has-type is very particular about this verbose syntax
       type={type === 'submit' ? 'submit' : 'button'}
@@ -235,8 +235,8 @@ const IconButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = fo
   return tooltip?.text ? (
     <Tooltip
       accessibilityLabel={tooltip.accessibilityLabel}
-      inline={tooltip.inline}
       idealDirection={tooltip.idealDirection}
+      inline={tooltip.inline}
       text={tooltip.text}
       zIndex={tooltip.zIndex}
     >

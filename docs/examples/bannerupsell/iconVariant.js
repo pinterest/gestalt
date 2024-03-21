@@ -4,14 +4,14 @@ import { BannerUpsell, Box, Icon } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <BannerUpsell
         dismissButton={{
           accessibilityLabel: 'Dismiss banner',
           onDismiss: () => {},
         }}
         imageData={{
-          component: <Icon icon="pinterest" accessibilityLabel="" color="default" size={32} />,
+          component: <Icon accessibilityLabel="" color="default" icon="pinterest" size={32} />,
         }}
         message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
         primaryAction={{

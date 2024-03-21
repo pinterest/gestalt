@@ -4,11 +4,11 @@ import { Box, Flex, SearchField } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex.Item flex="grow">
         <SearchField
-          accessibilityLabel="Search your Pins"
           accessibilityClearButtonLabel="Clear search field"
+          accessibilityLabel="Search your Pins"
           id="bestPracticesDont2"
           onChange={() => {}}
           placeholder="Click the submit button to search"

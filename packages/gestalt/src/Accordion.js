@@ -100,9 +100,9 @@ export default function Accordion({
             icon={icon}
             iconAccessibilityLabel={iconAccessibilityLabel}
             iconButton={iconButton}
+            size={size}
             title={title}
             type={type}
-            size={size}
           />
         )}
         {/* Flex.Item necessary to prevent gap from being applied to each child */}

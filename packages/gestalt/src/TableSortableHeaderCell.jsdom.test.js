@@ -16,9 +16,9 @@ test('mouse click calls onSortChange', () => {
       <thead>
         <tr>
           <TableSortableHeaderCell
+            onSortChange={mockOnSortChange}
             sortOrder="desc"
             status="inactive"
-            onSortChange={mockOnSortChange}
           >
             column name
           </TableSortableHeaderCell>
@@ -44,9 +44,9 @@ test('keypress calls onSortChange', () => {
       <thead>
         <tr>
           <TableSortableHeaderCell
+            onSortChange={mockOnSortChange}
             sortOrder="desc"
             status="inactive"
-            onSortChange={mockOnSortChange}
           >
             column name
           </TableSortableHeaderCell>

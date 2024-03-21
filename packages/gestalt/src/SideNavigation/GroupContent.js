@@ -109,16 +109,8 @@ export default function SideNavigationGroupContent({
 
   return (
     <Box
-      color={itemColor ?? undefined}
-      paddingY={collapsed ? undefined : 2}
-      padding={collapsed ? 3 : undefined}
-      width={collapsed ? 44 : undefined}
-      height={collapsed ? 44 : undefined}
-      minHeight={44}
-      rounding={2}
-      display="flex"
       alignItems="center"
-      position="relative"
+      color={itemColor ?? undefined}
       dangerouslySetInlineStyle={{
         __style: hasBorder
           ? {
@@ -127,17 +119,25 @@ export default function SideNavigationGroupContent({
             }
           : paddingStyle,
       }}
+      display="flex"
+      height={collapsed ? 44 : undefined}
+      minHeight={44}
+      padding={collapsed ? 3 : undefined}
+      paddingY={collapsed ? undefined : 2}
+      position="relative"
+      rounding={2}
+      width={collapsed ? 44 : undefined}
     >
       {collapsed && icon && notificationAccessibilityLabel ? (
         <Box
           aria-label={notificationAccessibilityLabel}
-          height={8}
-          width={8}
-          rounding="circle"
           color="primary"
-          role="status"
-          position="absolute"
           dangerouslySetInlineStyle={{ __style: { top: 4, right: 4 } }}
+          height={8}
+          position="absolute"
+          role="status"
+          rounding="circle"
+          width={8}
         />
       ) : null}
 
@@ -147,19 +147,19 @@ export default function SideNavigationGroupContent({
             <Box aria-hidden={!collapsed}>
               {typeof icon === 'string' ? (
                 <Icon
-                  size={20}
-                  inline
-                  icon={icon}
                   accessibilityLabel={collapsed ? label : ''}
                   color="default"
+                  icon={icon}
+                  inline
+                  size={20}
                 />
               ) : (
                 <Icon
-                  size={20}
-                  inline
-                  dangerouslySetSvgPath={icon}
                   accessibilityLabel={collapsed ? label : ''}
                   color="default"
+                  dangerouslySetSvgPath={icon}
+                  inline
+                  size={20}
                 />
               )}
             </Box>
@@ -168,10 +168,10 @@ export default function SideNavigationGroupContent({
 
         {!collapsed ? (
           <Flex.Item alignSelf="center" flex="grow">
-            <Text inline color="default">
+            <Text color="default" inline>
               {label}
               {badge || notificationAccessibilityLabel ? (
-                <Box marginStart={1} display="inlineBlock" height="100%">
+                <Box display="inlineBlock" height="100%" marginStart={1}>
                   {/* Adds a pause for screen reader users between the text content */}
                   <Box display="visuallyHidden">{`, `}</Box>
                   {!notificationAccessibilityLabel && badge ? (
@@ -180,11 +180,11 @@ export default function SideNavigationGroupContent({
                   {notificationAccessibilityLabel ? (
                     <Box
                       aria-label={notificationAccessibilityLabel}
-                      height={8}
-                      width={8}
-                      rounding="circle"
                       color="primary"
+                      height={8}
                       role="status"
+                      rounding="circle"
+                      width={8}
                     />
                   ) : null}
                 </Box>
@@ -194,7 +194,7 @@ export default function SideNavigationGroupContent({
         ) : null}
 
         {!collapsed && counter && (showIconButton === 'hide' || isMobile) ? (
-          <Flex.Item flex="none" alignSelf="center">
+          <Flex.Item alignSelf="center" flex="none">
             <Box display="visuallyHidden">{`, `}</Box>
             <Box
               aria-label={counter.accessibilityLabel}
@@ -208,7 +208,7 @@ export default function SideNavigationGroupContent({
         ) : null}
 
         {!collapsed && (showIconButton === 'show' || isMobile) && primaryAction ? (
-          <Flex.Item flex="none" alignSelf="center">
+          <Flex.Item alignSelf="center" flex="none">
             {/* This is a workaround to announce the counter as it's replaced on focus */}
             {counter ? (
               <Box display="visuallyHidden">
@@ -226,27 +226,27 @@ export default function SideNavigationGroupContent({
               rounding="circle"
             >
               <PrimaryActionIconButton
-                icon={primaryAction?.icon}
-                onClick={primaryAction?.onClick}
-                tooltip={primaryAction.tooltip}
                 dropdownItems={primaryAction?.dropdownItems}
-                setCompression={setCompression}
                 forceIconButton={forceIconButton}
+                icon={primaryAction?.icon}
+                isItemActive={false}
+                onClick={primaryAction?.onClick}
+                setCompression={setCompression}
                 setForceIconButton={setForceIconButton}
                 setShowIconButton={setShowIconButton}
-                isItemActive={false}
+                tooltip={primaryAction.tooltip}
               />
             </Box>
           </Flex.Item>
         ) : null}
 
         {(!collapsed && ['expandable', 'expandableExpanded'].includes(display)) || isMobile ? (
-          <Flex.Item flex="none" alignSelf="center">
+          <Flex.Item alignSelf="center" flex="none">
             {/* marginEnd={-2} is a hack to correctly position the counter as Flex + gap + width="100%" doean't expand to full width */}
-            <Box aria-hidden marginEnd={-2} marginStart={2} tabIndex={-1} rounding="circle">
+            <Box aria-hidden marginEnd={-2} marginStart={2} rounding="circle" tabIndex={-1}>
               <Icon
-                color="default"
                 accessibilityLabel=""
+                color="default"
                 icon={expanded ? 'arrow-up' : 'arrow-down'}
                 size={12}
               />

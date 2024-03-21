@@ -4,7 +4,7 @@ import { Flex, Link, Table, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex height="100%" alignItems="center" justifyContent="center">
+    <Flex alignItems="center" height="100%" justifyContent="center">
       <Table accessibilityLabel="See what's possible with access tiers" maxHeight={200}>
         <Table.Header sticky>
           <Table.Row>
@@ -39,8 +39,8 @@ export default function Example(): ReactNode {
                 <Text>
                   <Link
                     accessibilityLabel="See rate limit details for trial package"
-                    underline="always"
                     href="https://developers.pinterest.com/docs/api/v5/#tag/Rate-limits"
+                    underline="always"
                   >
                     See details
                   </Link>
@@ -53,8 +53,8 @@ export default function Example(): ReactNode {
                 <Text>
                   <Link
                     accessibilityLabel="See rate limit details for standard package"
-                    underline="always"
                     href="https://developers.pinterest.com/docs/api/v5/#tag/Rate-limits"
+                    underline="always"
                   >
                     See details
                   </Link>

@@ -24,8 +24,8 @@ const HEIGHT = 150;
 export default function IconPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample code={main} name="Main Button example" hideEditor previewHeight={HEIGHT} />
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
+        <SandpackExample code={main} hideEditor name="Main Button example" previewHeight={HEIGHT} />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -34,22 +34,22 @@ export default function IconPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
 - As symbolic communication for elements that do not have room for text, like the number of pins in a carousel. In this case, ensure the icon choice is easily recognizable and makes sense to international users.
 - To convey a critical meaning that cannot be communicated with words, like a downward chevron in a Button to indicate it reveals a menu.
 - To help with quick scanning by adding rhythm and hierarchy to the design.`}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
 - For purposes that are decorative or for visual embellishment, such as how illustrations are typically used. Contact us if this is needed.
 - As a visual reinforcement for associated text, without adding new meaning.
 - To communicate status or health. Use [Status](/web/status) instead.
 - As an interactive element (e.g., utilizing hover, focus, click/tap). Use [IconButton](/web/iconbutton) instead.`}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -57,68 +57,67 @@ export default function IconPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use icons intentionally, ensuring the Icon choice is easily recognizable and makes sense in the context. "
             sandpackExample={
               <SandpackExample
-                name="Use icons intentionally"
                 code={doIntentional}
                 hideEditor
+                name="Use icons intentionally"
                 previewHeight={HEIGHT}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Repurpose icons. Using icons for their intended meaning supports good comprehension."
             sandpackExample={
               <SandpackExample
-                name="Don't repurpose icons"
                 code={dontRepurpose}
-                hideEditor
                 hideControls
+                hideEditor
+                name="Don't repurpose icons"
                 previewHeight={HEIGHT}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Pair text and icons when possible to provide better clarity."
             sandpackExample={
               <SandpackExample
-                name="Pair icons with text for clarity"
                 code={doClarity}
                 hideEditor
+                name="Pair icons with text for clarity"
                 previewHeight={HEIGHT}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Don't create interactive Icons using TapArea. Use [IconButton](/web/iconbutton) instead."
             sandpackExample={
               <SandpackExample
-                name="Don't use interactive icons with TapArea"
                 code={dontInteractive}
-                hideEditor
                 hideControls
+                hideEditor
+                name="Don't use interactive icons with TapArea"
                 previewHeight={HEIGHT}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
       <AccessibilitySection
-        name={generatedDocGen?.displayName}
         description="Icons are a great way to help users who have difficulties with reading, focus attention, and low vision impairments."
+        name={generatedDocGen?.displayName}
       >
         <MainSection.Subsection
-          title="ARIA attributes"
           columns={2}
           description={`
 If the icon appears without text, the Icon requires \`accessibilityLabel\`, a text description for screen readers to announce and communicate the represented [Icon](/web/icon), as shown in the first example.
@@ -127,15 +126,16 @@ Avoid using the generic words like  "image" or "icon"; instead, use verbs that d
 
 If an icon has a visible label that describes what the icon represents, \`accessibilityLabel\` can be an empty string, as shown in the second example.
 `}
+          title="ARIA attributes"
         >
           <MainSection.Card
             cardSize="md"
             sandpackExample={
               <SandpackExample
-                name="Use icons intentionally"
                 code={doIntentional}
-                previewHeight={HEIGHT}
                 layout="column"
+                name="Use icons intentionally"
+                previewHeight={HEIGHT}
               />
             }
           />
@@ -143,17 +143,17 @@ If an icon has a visible label that describes what the icon represents, \`access
             cardSize="md"
             sandpackExample={
               <SandpackExample
-                name="Pair icons with text for clarity"
                 code={doClarity}
-                previewHeight={HEIGHT}
                 layout="column"
+                name="Pair icons with text for clarity"
+                previewHeight={HEIGHT}
               />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Legibility and touch area"
           description="Ensure that icons use a contrast ratio of 4.5:1 between icon color and background color."
+          title="Legibility and touch area"
         />
       </AccessibilitySection>
 
@@ -161,9 +161,9 @@ If an icon has a visible label that describes what the icon represents, \`access
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Colors"
           description={`
         Icons can be created using the following color options. \`brandPrimary\` should only be used to represent the Pinterest logo, as it is not accessible. See the [design tokens](/foundations/design_tokens/overview#Text-color) for more info.`}
+          title="Colors"
         >
           <CombinationNew
             color={[
@@ -181,11 +181,10 @@ If an icon has a visible label that describes what the icon represents, \`access
               'dark',
             ]}
           >
-            {({ color }) => <Icon icon="heart" accessibilityLabel="" color={color} size={24} />}
+            {({ color }) => <Icon accessibilityLabel="" color={color} icon="heart" size={24} />}
           </CombinationNew>
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Size"
           description={`
 These are the guidelines for icon sizes (in px):
 1. \`12\`
@@ -201,25 +200,26 @@ Used occasionally, on more dense UI.
 6. \`32+\`
 Should be used sparingly and only in places where the UI is very dense and a larger icon is required.
 `}
+          title="Size"
         />
         <MainSection.Subsection
-          title="Custom icon"
           columns={2}
           description="Icon accepts both Gestalt [icons](/foundations/iconography/library#Search-icon-library) and custom icons, as shown in the second example. For custom icons, follow the [iconography and SVG](/foundations/iconography/library#Custom-SVG-icons) guidelines."
+          title="Custom icon"
         >
           <MainSection.Card
             cardSize="lg"
-            title="Built-in icon"
             sandpackExample={
-              <SandpackExample name="Built-in icon" code={builtInIcon} previewHeight={HEIGHT} />
+              <SandpackExample code={builtInIcon} name="Built-in icon" previewHeight={HEIGHT} />
             }
+            title="Built-in icon"
           />
           <MainSection.Card
             cardSize="lg"
-            title="Custom SVG icon"
             sandpackExample={
-              <SandpackExample name="Custom icon" code={customIcon} previewHeight={HEIGHT} />
+              <SandpackExample code={customIcon} name="Custom icon" previewHeight={HEIGHT} />
             }
+            title="Custom SVG icon"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -227,7 +227,6 @@ Should be used sparingly and only in places where the UI is very dense and a lar
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description={`
 Use a descriptive label to describe the Icon
 - Be succinct. Exclude unnecessary words.
@@ -235,13 +234,14 @@ Use a descriptive label to describe the Icon
 - Write in the active voice
 - Avoid technical jargon
 `}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description={`
 - Use the words "image" or "icon" in the description label; instead, use words that indicate the purpose of the icon.
 `}
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>

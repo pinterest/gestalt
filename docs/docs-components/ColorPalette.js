@@ -16,13 +16,13 @@ function ColorPalette({ name, tokenId }: Props): ReactNode {
   const isTransparent = tokenId === 'transparent';
 
   return (
-    <Box marginTop={8} marginBottom={8}>
+    <Box marginBottom={8} marginTop={8}>
       <Text weight="bold">
         {name} ({tokenId})
       </Text>
       {isTransparent ? (
         <Box marginTop={2}>
-          <ColorTile fullTokenName="color-transparent" description="" number={0} />
+          <ColorTile description="" fullTokenName="color-transparent" number={0} />
         </Box>
       ) : (
         <Box marginTop={2}>
@@ -31,8 +31,8 @@ function ColorPalette({ name, tokenId }: Props): ReactNode {
             const colorVariableName = `color-${colorId}-${number}`;
             return tokens[colorVariableName] ? (
               <ColorTile
-                fullTokenName={colorVariableName}
                 description={`${number}`}
+                fullTokenName={colorVariableName}
                 number={number}
                 textColor={textColor}
               />

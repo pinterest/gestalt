@@ -36,69 +36,69 @@ export default function PrimaryActionExample(): ReactNode {
   return (
     <Flex direction="column" flex="grow">
       <PageHeader
-        title="Product groups"
-        subtext="S. E. All products USD"
+        dropdownAccessibilityLabel="Additional options"
         primaryAction={{
           component: <Button color="red" size="lg" text="Create group" />,
           dropdownItems: [
             <Dropdown.Item
               key="create-group"
-              option={{ value: 'Create group', label: 'Create group' }}
               onSelect={() => {}}
+              option={{ value: 'Create group', label: 'Create group' }}
             />,
           ],
         }}
-        dropdownAccessibilityLabel="Additional options"
+        subtext="S. E. All products USD"
+        title="Product groups"
       />
       <Divider />
       <PageHeader
-        title="Kitchen Reno Ideas"
+        dropdownAccessibilityLabel="Additional options"
         primaryAction={{
           component: (
             <Fragment>
               <Tooltip idealDirection="up" text="Board options">
                 <IconButton
+                  ref={anchorRef}
                   accessibilityControls="page-header-example"
-                  accessibilityHaspopup
                   accessibilityExpanded={open}
+                  accessibilityHaspopup
                   accessibilityLabel="Board options"
                   icon="ellipsis"
                   iconColor="darkGray"
-                  selected={open}
                   onClick={() => setOpen((prevVal) => !prevVal)}
-                  ref={anchorRef}
+                  selected={open}
                   size="lg"
                 />
               </Tooltip>
               {open && (
                 <Dropdown
-                  id="page-header-example"
                   anchor={anchorRef.current}
+                  id="page-header-example"
                   onDismiss={() => {
                     setOpen(false);
                   }}
                 >
                   <Dropdown.Item
                     onSelect={handleSelect}
-                    selected={selected}
                     option={{
                       value: 'Edit Board',
                       label: 'Edit Board',
                     }}
+                    selected={selected}
                   />
                   <Dropdown.Item
                     onSelect={handleSelect}
-                    selected={selected}
                     option={{ value: 'Share', label: 'Share' }}
+                    selected={selected}
                   />
                   <Dropdown.Item
-                    onSelect={handleSelect}
-                    selected={selected}
                     badge={{ text: 'New' }}
+                    onSelect={handleSelect}
                     option={{
                       value: 'Merge',
                       label: 'Merge',
                     }}
+                    selected={selected}
                   />
                 </Dropdown>
               )}
@@ -107,26 +107,26 @@ export default function PrimaryActionExample(): ReactNode {
           dropdownItems: [
             <Dropdown.Item
               key="edit-board"
-              option={{ value: 'Edit board', label: 'Edit board' }}
               onSelect={() => {}}
+              option={{ value: 'Edit board', label: 'Edit board' }}
             />,
             <Dropdown.Item
               key="share-board"
-              option={{ value: 'Share board', label: 'Share board' }}
               onSelect={() => {}}
+              option={{ value: 'Share board', label: 'Share board' }}
             />,
             <Dropdown.Item
               key="merge-board"
-              option={{ value: 'Merge board', label: 'Merge board' }}
               onSelect={() => {}}
+              option={{ value: 'Merge board', label: 'Merge board' }}
             />,
           ],
         }}
-        dropdownAccessibilityLabel="Additional options"
+        title="Kitchen Reno Ideas"
       />
       <Divider />
       <PageHeader
-        title="Ads overview"
+        dropdownAccessibilityLabel="Additional options"
         primaryAction={{
           component: (
             <Text weight="bold">
@@ -144,7 +144,7 @@ export default function PrimaryActionExample(): ReactNode {
             />,
           ],
         }}
-        dropdownAccessibilityLabel="Additional options"
+        title="Ads overview"
       />
     </Flex>
   );

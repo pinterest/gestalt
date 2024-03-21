@@ -4,14 +4,14 @@ import { Flex, Link, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex height="100%" alignItems="center" justifyContent="center">
-      <Flex gap={{ column: 4, row: 0 }} direction="column" width="90%">
+    <Flex alignItems="center" height="100%" justifyContent="center">
+      <Flex direction="column" gap={{ column: 4, row: 0 }} width="90%">
         <Text weight="bold"> Need help? </Text>
         <Text inline>
           {' '}
           Find tips and best practices on the
-          <Text weight="bold" inline>
-            <Link href="https://business.pinterest.com/" display="inline" underline="hover">
+          <Text inline weight="bold">
+            <Link display="inline" href="https://business.pinterest.com/" underline="hover">
               {' '}
               Pinterest Business Site{' '}
             </Link>
@@ -20,8 +20,8 @@ export default function Example(): ReactNode {
         <Text inline>
           {' '}
           Troubleshoot issues with the
-          <Text weight="bold" inline>
-            <Link href="https://help.pinterest.com" display="inline" underline="hover">
+          <Text inline weight="bold">
+            <Link display="inline" href="https://help.pinterest.com" underline="hover">
               {' '}
               Pinterest Help Center{' '}
             </Link>

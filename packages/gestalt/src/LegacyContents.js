@@ -252,6 +252,7 @@ class LegacyContents extends Component<Props, State> {
 
     return (
       <div
+        ref={this.setPopoverRef}
         className={classnames(
           styles.container,
           rounding === 2 && borders.rounding2,
@@ -260,10 +261,9 @@ class LegacyContents extends Component<Props, State> {
           styles.maxDimensions,
           width !== null && styles.minDimensions,
         )}
-        ref={this.setPopoverRef}
-        tabIndex={-1}
-        // popoverOffset positions the Popover component
         style={{ visibility, ...popoverOffset, ...topValue }}
+        // popoverOffset positions the Popover component
+        tabIndex={-1}
       >
         {caret && popoverDir && (
           <div
@@ -287,8 +287,6 @@ class LegacyContents extends Component<Props, State> {
         )}
         <div
           aria-label={accessibilityLabel}
-          id={id}
-          role={role}
           className={classnames(
             border && styles.border,
             rounding === 2 && borders.rounding2,
@@ -302,6 +300,8 @@ class LegacyContents extends Component<Props, State> {
               [styles.education]: bgColor === 'blue',
             },
           )}
+          id={id}
+          role={role}
           style={{ maxWidth: width, maxHeight: height }}
         >
           {children}

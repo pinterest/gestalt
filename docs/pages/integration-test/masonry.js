@@ -128,9 +128,9 @@ export default function TestPage({
           positionStore={positionStore}
           scrollContainer={booleanize(scrollContainer)}
           twoColItems={booleanize(twoColItems)}
-          virtualize={booleanize(virtualize)}
-          virtualBoundsTop={virtualBoundsTop}
           virtualBoundsBottom={virtualBoundsBottom}
+          virtualBoundsTop={virtualBoundsTop}
+          virtualize={booleanize(virtualize)}
         />
       </MaybeLazyHydrate>
     </ColorSchemeProvider>

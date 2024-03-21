@@ -31,24 +31,24 @@ import variantTitle from '../../examples/text/variantTitle';
 export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample code={main} name="Main Badge example" hideEditor previewHeight={150} />
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
+        <SandpackExample code={main} hideEditor name="Main Badge example" previewHeight={150} />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
-            type="do"
             description={`
 - Any time that text is needed in the UI as a label, paragraph or number display
 `}
+            type="do"
           />
           <MainSection.Card
-            type="don't"
             description={`
 - When you need to use a semantic H1–H6 heading to create a clear typographic hierarchy and page structure. Use [Heading](/web/heading) instead.
 `}
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -56,126 +56,126 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Emphasize text inside of paragraphs by using a bold weight."
             sandpackExample={
-              <SandpackExample layout="column" code={doWeight} hideEditor name="Do - Font Weight" />
+              <SandpackExample code={doWeight} hideEditor layout="column" name="Do - Font Weight" />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Emphasize text inside of paragraphs by underlining it; this can be confused with [Link](/web/link)."
             sandpackExample={
               <SandpackExample
                 code={dontUnderline}
-                hideEditor
                 hideControls
+                hideEditor
                 name="Don't - Underline"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use size to emphasize things like numbers that don’t define a page structure."
             sandpackExample={
-              <SandpackExample layout="column" code={doUseSize} hideEditor name="Do - Use Size" />
+              <SandpackExample code={doUseSize} hideEditor layout="column" name="Do - Use Size" />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use as section, page or surface titles to create a logical hierarchy. Use [Heading](/web/heading) instead."
             sandpackExample={
               <SandpackExample
                 code={dontUseHierarchy}
-                hideEditor
                 hideControls
+                hideEditor
                 name="Don't - Use Hierarchy"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use a minimal amount of sizes and styles to keep the UI clean and readable."
             sandpackExample={
               <SandpackExample
-                layout="column"
                 code={doMinimalStyle}
                 hideEditor
+                layout="column"
                 name="Do - Minimal Style"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Mix styles and alignment, as this can be hard to read and follow."
             sandpackExample={
               <SandpackExample
                 code={dontMixStyles}
-                hideEditor
                 hideControls
+                hideEditor
                 name="Don't - Mix Styles"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Start-align paragraph text."
             sandpackExample={
               <SandpackExample
-                layout="column"
                 code={doStartAlign}
                 hideEditor
+                layout="column"
                 name="Do - Start Align"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Center-align paragraph text. This is hard to read, especially for users with dyslexia."
             sandpackExample={
               <SandpackExample
                 code={dontCenterAlign}
-                hideEditor
                 hideControls
+                hideEditor
                 name="Don't - Center Align"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <BannerSlim
-          type="info"
-          iconAccessibilityLabel="Info"
-          message="Gestalt's typography guidelines contain additional best practices around sizing, style and hierarchy."
           helperLink={{
             text: 'View Typography guidelines',
             accessibilityLabel: 'View Typography guidelines',
             href: '/foundations/typography',
             onClick: () => {},
           }}
+          iconAccessibilityLabel="Info"
+          message="Gestalt's typography guidelines contain additional best practices around sizing, style and hierarchy."
+          type="info"
         />
       </MainSection>
 
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
-          title="Accessible sizing"
           description="A minimum text size of 16 px (12pt) is recommended for readability. Some short text labels, or secondary text can go lower than that, but smaller sizes should be kept to a minimum. Making text brief will also help with readability."
+          title="Accessible sizing"
         />
         <MainSection.Subsection
-          title="Accessible color"
           description="For low-vision users, text color contrast is very important. To insure accessible contrast, stick to our [standard text colors](/foundations/color/usage#Standard-text-colors). See our [accessibility](/foundations/accessibility) page for design considerations and handy accessibility tools for checking color contrast."
+          title="Accessible color"
         />
       </AccessibilitySection>
 
@@ -187,52 +187,52 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Alignment"
           description="Use `align` to adjust the positioning of text within wrapper elements."
+          title="Alignment"
         >
           <SandpackExample code={variantAlignment} name="Variants - Alignment" />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Block vs. inline"
           description={`
           The Text component allows you to specify whether you want \`block\` or \`inline\` text.
         `}
+          title="Block vs. inline"
         >
           <SandpackExample
-            previewHeight={180}
             code={variantBoxInline}
             name="Variants - Alignment"
+            previewHeight={180}
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Colors"
           description={`
         You can specify which color you want for your text. Most colors change in dark mode, but \`light\` and \`dark\` are available when no switch is desired.
 
         `}
+          title="Colors"
         >
           <SandpackExample code={variantColors} name="Variants - Colors" />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Overflow & truncation"
           description="Gestalt provides utility options to deal with text overflow."
+          title="Overflow & truncation"
         >
           <SandpackExample
-            previewHeight={500}
             code={variantOverflowTruncation}
             name="Variants - Overflow & Truncation"
+            previewHeight={500}
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Sizes"
           description={`
           You can apply \`size\` options to define the size of the text. These font sizes follow those available through our [Design Tokens](/foundations/design_tokens/overview#Font-size). If your text needs to be a [semantic heading (H1-H6)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), use [Heading](/web/heading) instead.
 
         `}
+          title="Sizes"
         >
           <SandpackExample
             code={variantSizes}
@@ -242,29 +242,29 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Styles"
           description="There are multiple styles, such as bold and italic, that we can attach to the Text component."
+          title="Styles"
         >
-          <SandpackExample previewHeight={200} code={variantStyles} name="Variants - Styles" />
+          <SandpackExample code={variantStyles} name="Variants - Styles" previewHeight={200} />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Title"
           description={`The \`title\` attribute on a \`<div>\` can be used to show the full text of a truncated string on hover. That attribute is populated automatically when the text is truncated using \`lineClamp\`, as long as \`children\` is a string.
            If \`children\` is a \`React.Node\` (e.g. [when using Link](/web/link#Link-and-Text)), use the \`title\` prop to manually set the \`title\` attribute.`}
+          title="Title"
         >
           <SandpackExample code={variantTitle} layout="column" name="Variants - Title" />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Refs"
           description={`Don't use \`ref\` to manipulate the underlaying HTML div or span elements. Use \`ref\` to only read HTML attributes. For example, a valid use case can be detecting [truncation](#Overflow-and-truncation). The example below illustrates a case where detecting truncation allows rendering links contained within Text.`}
+          title="Refs"
         >
           <SandpackExample
-            previewHeight={250}
             code={variantRefs}
             layout="column"
             name="Variants - Refs"
+            previewHeight={250}
           />
         </MainSection.Subsection>
       </MainSection>
@@ -275,20 +275,20 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description={`
 - Keep text in UI components short and clear
 - Use **Sentence case** for UI labels
 `}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description={`
 - Use long text labels that could end up truncating or causing space issues when translating to other languages
 - Use **Title Case** or **ALL CAPS** in UI labels
 - Use ALL CAPS for paragaph text unless referring to a product or other entity that uses that style
 `}
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>

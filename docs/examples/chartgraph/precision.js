@@ -20,28 +20,28 @@ export default function Example(): ReactNode {
   ];
 
   return (
-    <Flex height="100%" width="100%" direction="column" gap={2}>
+    <Flex direction="column" gap={2} height="100%" width="100%">
       <ChartGraph
-        title="Forecast for 2023"
         accessibilityLabel="Example of time series chart"
-        visualPatternSelected="disabled"
-        onVisualPatternChange={() => {}}
         data={data}
-        range={{
-          xAxisBottom: ['auto', 'auto'],
-        }}
         elements={[
           { type: 'line', id: 'Actual data', precision: 'exact' },
           { type: 'line', id: 'Forecast', precision: 'estimate' },
         ]}
-        type="line"
+        modalZIndex={new FixedZIndex(11)}
+        onVisualPatternChange={() => {}}
+        range={{
+          xAxisBottom: ['auto', 'auto'],
+        }}
         tickFormatter={{
           timeseries: (date) =>
             `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(
               date,
             )}-${new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(date)}`,
         }}
-        modalZIndex={new FixedZIndex(11)}
+        title="Forecast for 2023"
+        type="line"
+        visualPatternSelected="disabled"
       />
     </Flex>
   );

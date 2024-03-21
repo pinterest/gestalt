@@ -5,7 +5,7 @@ import TableSortableHeaderCell from './TableSortableHeaderCell';
 test('renders correctly when inactive', () => {
   const tree = renderer
     .create(
-      <TableSortableHeaderCell sortOrder="desc" status="inactive" onSortChange={() => {}}>
+      <TableSortableHeaderCell onSortChange={() => {}} sortOrder="desc" status="inactive">
         column name
       </TableSortableHeaderCell>,
     )
@@ -16,7 +16,7 @@ test('renders correctly when inactive', () => {
 test('renders correctly when active', () => {
   const tree = renderer
     .create(
-      <TableSortableHeaderCell sortOrder="asc" status="active" onSortChange={() => {}}>
+      <TableSortableHeaderCell onSortChange={() => {}} sortOrder="asc" status="active">
         column name
       </TableSortableHeaderCell>,
     )
@@ -27,7 +27,7 @@ test('renders correctly when active', () => {
 test('sortable cell has end align', () => {
   const tree = renderer
     .create(
-      <TableSortableHeaderCell align="end" sortOrder="asc" status="active" onSortChange={() => {}}>
+      <TableSortableHeaderCell align="end" onSortChange={() => {}} sortOrder="asc" status="active">
         column name
       </TableSortableHeaderCell>,
     )

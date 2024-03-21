@@ -69,31 +69,31 @@ export default function InternalPopover({
       bgColor={color}
       border
       caret={showCaret}
-      onKeyDown={onKeyDown}
+      disablePortal={disablePortal}
+      hideWhenReferenceHidden={hideWhenReferenceHidden}
       id={id}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
+      onKeyDown={onKeyDown}
+      onPositioned={onPositioned}
       role={role}
       rounding={4}
-      shouldFocus={shouldFocus}
-      size={size === 'flexible' ? null : size}
       scrollBoundary={scrollBoundary}
-      disablePortal={disablePortal}
-      hideWhenReferenceHidden={hideWhenReferenceHidden}
-      onPositioned={onPositioned}
+      shouldFocus={shouldFocus}
       shouldTrapFocus={!disableFocusTrap}
+      size={size === 'flexible' ? null : size}
     >
       {showDismissButton ? (
         <Flex direction="column">
           <Box alignSelf="end" padding={2}>
             <InternalDismissButton
+              ref={dismissButtonRef}
               accessibilityLabel={
                 accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault
               }
+              iconColor={color === 'white' ? 'darkGray' : 'white'}
               onClick={onDismiss}
               size="xs"
-              ref={dismissButtonRef}
-              iconColor={color === 'white' ? 'darkGray' : 'white'}
             />
           </Box>
           {children}

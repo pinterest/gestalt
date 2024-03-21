@@ -9,7 +9,7 @@ describe('<SegmentedControl />', () => {
       void,
     >();
     render(
-      <SegmentedControl items={['Item1', 'Item2']} selectedItemIndex={0} onChange={mockOnChange} />,
+      <SegmentedControl items={['Item1', 'Item2']} onChange={mockOnChange} selectedItemIndex={0} />,
     );
 
     screen.getByText('Item1').click();

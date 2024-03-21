@@ -128,16 +128,16 @@ const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
   }
 
   return (
-    <Box id={id} paddingY={3} ref={ref}>
+    <Box ref={ref} id={id} paddingY={3}>
       <TapAreaLink
         accessibilityCurrent={isActive ? 'page' : undefined}
         href={href}
         onBlur={() => setFocused(false)}
         onFocus={() => setFocused(true)}
         onMouseDown={() => setPressed(true)}
-        onMouseUp={() => setPressed(false)}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
+        onMouseUp={() => setPressed(false)}
         onTap={({ event, dangerouslyDisableOnNavigation }) => {
           onChange({
             activeTabIndex: index,
@@ -236,15 +236,15 @@ export default function Tabs({
     <Flex alignItems="center" gap={{ row: 4, column: 0 }} justifyContent="start" wrap={wrap}>
       {tabs.map(({ href, id, indicator, ref, text }, index) => (
         <TabWithForwardRef
+          key={id || `${href}_${index}`}
+          ref={ref}
           bgColor={bgColor}
           href={href}
           id={id}
           index={index}
-          isActive={activeTabIndex === index}
           indicator={indicator}
-          key={id || `${href}_${index}`}
+          isActive={activeTabIndex === index}
           onChange={onChange}
-          ref={ref}
           text={text}
         />
       ))}

@@ -18,8 +18,8 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
+        name={generatedDocGen?.displayName}
         type="utility"
       />
 
@@ -47,7 +47,6 @@ In the example below, SheetMobile's logs when opens and closes.
 
       <MainSection name="Link handlers">
         <MainSection.Subsection
-          title="onNavigation: custom navigation"
           description={`
 Components with links use simple \`<a>\` tags. In order to replace the default link behavior with custom ones (e.g. [react-router](https://www.google.com/search?q=react-router&oq=react-router&aqs=chrome..69i57j0l9.2115j0j7&sourceid=chrome&ie=UTF-8)), \`onNavigation\` provides an interface to pass external logic into the 'onClick' event handler in children links.
 
@@ -64,21 +63,21 @@ In this example, the \`useOnNavigation\` hook function is passed to GlobalEvents
 
 The returned \`onNavigationClick\` function inside the hook function uses the event access to [preventDefault()](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault). It could also be used to [stopPropagation()](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation).
       `}
+          title="onNavigation: custom navigation"
         >
           <BannerSlim
-            iconAccessibilityLabel="Localize the default label"
-            message="Accessible links in Gestalt announce to assistive technologies that the link opens in a new tab. Always make sure your external logic aligns with the 'target' prop values. For example, if your external logic opens a url in a new tab, set 'target' to 'blank'. Localize the default label with DefaultLabelProvider."
-            type="warning"
             helperLink={{
               text: 'Learn more',
               accessibilityLabel: 'Learn more about DefaultLabelProvider',
               href: '/web/utilities/defaultlabelprovider',
               onClick: () => {},
             }}
+            iconAccessibilityLabel="Localize the default label"
+            message="Accessible links in Gestalt announce to assistive technologies that the link opens in a new tab. Always make sure your external logic aligns with the 'target' prop values. For example, if your external logic opens a url in a new tab, set 'target' to 'blank'. Localize the default label with DefaultLabelProvider."
+            type="warning"
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="onNavigation: disabling default navigation"
           description={`
 All components that consume from the GlobalEventsHandlerProvider also allow to disable the default navigation logic set in the provider from the component itself.
 
@@ -93,14 +92,15 @@ Don't forget to call <code>event.preventDefault</code> when implementing an alte
 
 The example below demonstrates the correct use of "dangerouslyDisableOnNavigation".
 `}
+          title="onNavigation: disabling default navigation"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={linkHandlersDangerouslyDisableOnNavigation}
-                name="Example - dangerouslyDisableOnNavigation"
                 layout="column"
+                name="Example - dangerouslyDisableOnNavigation"
               />
             }
           />
@@ -108,44 +108,44 @@ The example below demonstrates the correct use of "dangerouslyDisableOnNavigatio
 
         <MainSection.Subsection title="Implementation in Link, ButtonLink, IconButtonLink, TapAreaLink">
           <MainSection.Card
-            title="Examples from start to end: Link, Button, IconButton, TapArea"
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={linkHandlersLinkButton}
-                name="Example - Link, Button, IconButton, TapArea"
                 layout="column"
+                name="Example - Link, Button, IconButton, TapArea"
               />
             }
+            title="Examples from start to end: Link, Button, IconButton, TapArea"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection title="Implementation in BannerCallout, BannerUpsell, ActivationCard">
           <MainSection.Card
-            title="Examples from top to bottom: BannerCallout, BannerUpsell, ActivationCard"
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={linkHandlersBannerCalloutUpsell}
-                name="Example - BannerCallout, BannerUpsell, ActivationCard"
                 layout="column"
+                name="Example - BannerCallout, BannerUpsell, ActivationCard"
                 previewHeight={650}
               />
             }
+            title="Examples from top to bottom: BannerCallout, BannerUpsell, ActivationCard"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection title="Implementation in Dropdown">
           <MainSection.Card
-            title="Examples: Dropdown.Link"
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={linkHandlersDropdown}
-                name="Example - Dropdown"
                 layout="column"
+                name="Example - Dropdown"
               />
             }
+            title="Examples: Dropdown.Link"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -156,7 +156,6 @@ The example below demonstrates the correct use of "dangerouslyDisableOnNavigatio
           type="warningBare"
         />
         <MainSection.Subsection
-          title="onRender"
           description={`\`onRender\` is only called when the component mounts for the first time.
 
 It's implemented in the following components:
@@ -166,6 +165,7 @@ It's implemented in the following components:
 - DateRange: \`dateRangeHandlers\`
 
 `}
+          title="onRender"
         />
       </MainSection>
 

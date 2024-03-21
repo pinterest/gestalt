@@ -4,7 +4,7 @@ import { Box, SelectList } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <SelectList
         helperText="Product prices in your data source without an ISO currency code will default to this currency"
         id="selectlistexample12"

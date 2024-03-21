@@ -168,6 +168,7 @@ const ButtonLinkWithForwardRef: AbstractComponent<ButtonProps, HTMLAnchorElement
 
   return (
     <InternalLink
+      ref={innerRef}
       accessibilityLabel={ariaLabel}
       colorClass={colorClass}
       dataTestId={dataTestId}
@@ -175,11 +176,10 @@ const ButtonLinkWithForwardRef: AbstractComponent<ButtonProps, HTMLAnchorElement
       fullWidth={fullWidth}
       href={href}
       onClick={handleClick}
-      ref={innerRef}
       rel={rel}
-      tabIndex={tabIndex}
       selected={false}
       size={size}
+      tabIndex={tabIndex}
       target={target}
       wrappedComponent="button"
     >
@@ -188,8 +188,8 @@ const ButtonLinkWithForwardRef: AbstractComponent<ButtonProps, HTMLAnchorElement
           align="center"
           color={textColor}
           overflow="normal"
-          weight="bold"
           size={size === 'sm' ? '200' : '300'}
+          weight="bold"
         >
           {text}
         </Text>

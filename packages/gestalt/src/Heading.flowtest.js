@@ -4,13 +4,13 @@ import Heading from './Heading';
 const Valid = <Heading size="400">Heading</Heading>;
 
 const ValidAccessibilityLevel1 = (
-  <Heading size="400" accessibilityLevel={1}>
+  <Heading accessibilityLevel={1} size="400">
     Heading
   </Heading>
 );
 
 const ValidAccessibilityLevelNone = (
-  <Heading size="400" accessibilityLevel="none">
+  <Heading accessibilityLevel="none" size="400">
     Heading
   </Heading>
 );

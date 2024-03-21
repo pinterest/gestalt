@@ -10,22 +10,22 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
   return (
     <Page title="RadioButton">
       <PageHeader
-        name="RadioButton"
         badge="deprecated"
-        description="Use RadioButtons when you have a few options that a user can choose from. Never use radio buttons if the user can select more than one option from a list."
         bannerSlim={
           <BannerSlim
-            type="error"
-            iconAccessibilityLabel="Info"
-            message="The standalone RadioButton is soon to be deprecated, use RadioGroup and RadioGroup.RadioButton instead."
             helperLink={{
               text: 'View RadioGroup',
               accessibilityLabel: 'View RadioGroup Docs',
               href: '/web/radiogroup',
               onClick: () => {},
             }}
+            iconAccessibilityLabel="Info"
+            message="The standalone RadioButton is soon to be deprecated, use RadioGroup and RadioGroup.RadioButton instead."
+            type="error"
           />
         }
+        description="Use RadioButtons when you have a few options that a user can choose from. Never use radio buttons if the user can select more than one option from a list."
+        name="RadioButton"
       />
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
     </Page>

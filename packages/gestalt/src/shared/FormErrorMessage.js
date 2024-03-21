@@ -30,7 +30,7 @@ export default function FormErrorMessage({ id, size, text = '' }: Props): ReactN
           {/* This error message is accessible by screenreaders. It alerts the user right when the error message is presented to the user. While error messages are visually apparent to users who can see the page, they may not be obvious to users of assistive technologies. This role="alert" provides a way to programmatically expose dynamic content changes in a way that can be announced by assistive technologies.
            */}
           <Box role="alert">
-            <Flex gap={applyDensityGap(size)} alignItems="center">
+            <Flex alignItems="center" gap={applyDensityGap(size)}>
               <Icon accessibilityLabel="" color={color} icon={icon} size={applyDensityIcon(size)} />
               {text}
             </Flex>

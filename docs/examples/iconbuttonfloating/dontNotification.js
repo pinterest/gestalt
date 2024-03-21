@@ -6,26 +6,26 @@ export default function Example(): ReactNode {
   const anchorRef = useRef<null | HTMLElement>(null);
 
   return (
-    <Flex height="100%" flex="grow" alignItems="center" justifyContent="center">
-      <Box position="relative" display="flex" width={60} alignContent="center">
+    <Flex alignItems="center" flex="grow" height="100%" justifyContent="center">
+      <Box alignContent="center" display="flex" position="relative" width={60}>
         <Box
-          position="absolute"
           color="errorBase"
-          rounding="circle"
-          width={8}
           height={8}
-          top
-          right
-          marginTop={1}
           marginEnd={1}
+          marginTop={1}
+          position="absolute"
+          right
+          rounding="circle"
+          top
+          width={8}
         />
         <IconButtonFloating
+          ref={anchorRef}
           accessibilityExpanded={false}
-          accessibilityPopupRole="menu"
           accessibilityLabel="Create Pin Menu"
+          accessibilityPopupRole="menu"
           icon="add"
           onClick={() => {}}
-          ref={anchorRef}
           tooltip={{
             text: 'Create Pin Menu',
           }}

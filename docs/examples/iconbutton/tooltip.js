@@ -4,7 +4,7 @@ import { Flex, IconButton } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex width="100%" height="100%" justifyContent="center" alignItems="center">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <IconButton
         accessibilityLabel="Share"
         icon="share"

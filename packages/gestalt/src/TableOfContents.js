@@ -34,12 +34,12 @@ export default function TableOfContents({ accessibilityLabel, title, children }:
 
   return (
     <div
-      role="navigation"
       aria-label={accessibilityLabel ?? accessibilityLabelDefault}
       className={styles.container}
+      role="navigation"
     >
       {title ? (
-        <Box paddingX={3} marginBottom={3}>
+        <Box marginBottom={3} paddingX={3}>
           <Heading size="400">{title}</Heading>
         </Box>
       ) : null}

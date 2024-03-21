@@ -14,18 +14,16 @@ export default function Example(): ReactNode {
     />
   ) : (
     <BannerOverlay
-      zIndex={new FixedZIndex(100)}
-      offset={{ top: 130, bottom: 24 }}
-      title="More to Explore"
       message={
         <Text inline>
           Discover trending fashion ideas{' '}
-          <Link display="inlineBlock" target="self" href="#">
+          <Link display="inlineBlock" href="#" target="self">
             in the app
           </Link>
           !
         </Text>
       }
+      offset={{ top: 130, bottom: 24 }}
       onDismiss={() => {
         setShowComponent(false);
       }}
@@ -44,8 +42,10 @@ export default function Example(): ReactNode {
         accessibilityLabel: 'Not now',
       }}
       thumbnail={{
-        icon: <Icon accessibilityLabel="Sparkle" icon="sparkle" color="recommendation" />,
+        icon: <Icon accessibilityLabel="Sparkle" color="recommendation" icon="sparkle" />,
       }}
+      title="More to Explore"
+      zIndex={new FixedZIndex(100)}
     />
   );
 }

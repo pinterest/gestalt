@@ -27,7 +27,7 @@ test('Sticky correctly sets thresholds for string values', () => {
 
 test('Sticky correctly sets height', () => {
   const tree = create(
-    <Sticky top={1} height={100}>
+    <Sticky height={100} top={1}>
       Sticky
     </Sticky>,
   ).toJSON();

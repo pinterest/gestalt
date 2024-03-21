@@ -14,32 +14,32 @@ export default function Example(): ReactNode {
         <Button
           accessibilityLabel="Show Modal"
           color="red"
-          text="Show Modal"
-          size="lg"
           onClick={() => setShowComponent(true)}
+          size="lg"
+          text="Show Modal"
         />
       </Box>
       {showComponent ? (
         <Layer zIndex={zIndex}>
           <ModalAlert
-            type="error"
             accessibilityModalLabel="Site blocked error"
             heading="Website blocked"
+            onDismiss={() => {}}
             primaryAction={{
               accessibilityLabel: 'Acknowledge site blocked',
               label: 'Got it',
               onClick: () => {},
               role: 'button',
             }}
-            onDismiss={() => {}}
+            type="error"
           >
             <Text>
               We blocked the website you are trying to reach because it contains harmful material.
               Review our{' '}
               <Link
-                underline="always"
                 display="inlineBlock"
                 href="https://policy.pinterest.com/en/community-guidelines"
+                underline="always"
               >
                 content policy.
               </Link>

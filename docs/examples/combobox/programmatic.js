@@ -87,8 +87,8 @@ export default function Example(): ReactNode {
   };
 
   return (
-    <Box padding={2} width="100%" height="100%">
-      <Flex width="100%" height="100%" justifyContent="center" alignItems="center">
+    <Box height="100%" padding={2} width="100%">
+      <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
         <Flex direction="column" gap={4}>
           <Button
             onClick={() => {
@@ -104,16 +104,16 @@ export default function Example(): ReactNode {
               accessibilityClearButtonLabel="Clear the current value"
               id="programaticallySet"
               inputValue={inputValue}
-              noResultText="No results for your selection"
-              options={suggestedOptions}
               label="Pin category"
-              size="lg"
+              noResultText="No results for your selection"
               onBlur={handleOnBlur}
-              onClear={handleOnClear}
-              placeholder="Select a category"
               onChange={handleOnChange}
+              onClear={handleOnClear}
               onSelect={handleSelect}
+              options={suggestedOptions}
+              placeholder="Select a category"
               selectedOption={selectedOption}
+              size="lg"
             />
           </Box>
         </Flex>

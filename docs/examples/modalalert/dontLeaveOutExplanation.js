@@ -14,24 +14,24 @@ export default function Example(): ReactNode {
         <Button
           accessibilityLabel="Show Modal"
           color="red"
-          text="Show Modal"
-          size="lg"
           onClick={() => setShowComponent(true)}
+          size="lg"
+          text="Show Modal"
         />
       </Box>
       {showComponent ? (
         <Layer zIndex={zIndex}>
           <ModalAlert
-            type="warning"
             accessibilityModalLabel="Unable to follow account"
             heading="You can't follow this person"
+            onDismiss={() => {}}
             primaryAction={{
               accessibilityLabel: '',
               label: 'Got it',
               onClick: () => {},
               role: 'button',
             }}
-            onDismiss={() => {}}
+            type="warning"
           >
             <Text>Try again later.</Text>
           </ModalAlert>

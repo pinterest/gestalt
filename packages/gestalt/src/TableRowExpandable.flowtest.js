@@ -3,8 +3,8 @@ import TableRowExpandable from './TableRowExpandable';
 
 const Valid = (
   <TableRowExpandable
-    accessibilityExpandLabel="Expand"
     accessibilityCollapseLabel="Collapse"
+    accessibilityExpandLabel="Expand"
     expandedContents={<div>Expanded Contents</div>}
     hoverStyle="none"
     id="expandableRow"
@@ -15,9 +15,9 @@ const Valid = (
 
 const InvalidTypeProp = (
   <TableRowExpandable
-    accessibilityExpandLabel="Expand"
     // $FlowExpectedError[incompatible-type]
     accessibilityCollapseLabel={2}
+    accessibilityExpandLabel="Expand"
     expandedContents={<div>Expanded Contents</div>}
     // $FlowExpectedError[incompatible-type]
     hoverStyle={2}
@@ -39,8 +39,8 @@ const MissingProp = (
 const NonExistingProp = (
   // $FlowExpectedError[prop-missing]
   <TableRowExpandable
-    accessibilityExpandLabel="Expand"
     accessibilityCollapseLabel="Collapse"
+    accessibilityExpandLabel="Expand"
     expandedContents={<div>Expanded Contents</div>}
     hoverStyle="none"
     id="expandableRow"

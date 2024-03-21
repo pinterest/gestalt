@@ -4,8 +4,8 @@ import { Box, ComboBox, Flex } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={2} width="100%" height="100%">
-      <Flex width="100%" height="100%" justifyContent="center" alignItems="center">
+    <Box height="100%" padding={2} width="100%">
+      <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
         <Box width={320}>
           <ComboBox
             accessibilityClearButtonLabel="Clear the current value"

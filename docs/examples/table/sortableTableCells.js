@@ -16,7 +16,7 @@ export default function SortableHeaderExample(): ReactNode {
   };
 
   return (
-    <Box height="100%" display="flex" justifyContent="center" alignItems="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center">
       <Table accessibilityLabel="Sortable header cells">
         <colgroup>
           <col span="1" style={{ width: '10%' }} />

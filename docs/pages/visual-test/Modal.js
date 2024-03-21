@@ -5,17 +5,17 @@ import { Box, Button, ColorSchemeProvider, Flex, Modal, Text } from 'gestalt';
 export default function Snapshot(): ReactNode {
   return (
     <ColorSchemeProvider colorScheme="light">
-      <Box color="default" display="inlineBlock" width={360} height={360} padding={1}>
+      <Box color="default" display="inlineBlock" height={360} padding={1} width={360}>
         <Modal
           accessibilityModalLabel="Label"
           align="start"
-          heading="Heading"
           footer={
-            <Flex alignItems="center" justifyContent="end" gap={2}>
-              <Button text="Cancel" onClick={() => {}} />
+            <Flex alignItems="center" gap={2} justifyContent="end">
+              <Button onClick={() => {}} text="Cancel" />
               <Button color="red" text="Resume" />
             </Flex>
           }
+          heading="Heading"
           onDismiss={() => {}}
           size="sm"
           subHeading="Subheading"

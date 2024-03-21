@@ -7,8 +7,8 @@ export default function Snapshot(): ReactNode {
     <Box padding={1}>
       <IconButton
         accessibilityLabel="IconButton"
-        icon="visit"
         bgColor="lightGray"
+        icon="visit"
         iconColor="darkGray"
         size="md"
       />

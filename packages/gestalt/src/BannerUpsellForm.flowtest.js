@@ -5,10 +5,10 @@ import TextField from './TextField';
 const Valid = (
   <BannerUpsellForm
     onSubmit={() => {}}
-    submitButtonText="Submit"
     submitButtonAccessibilityLabel="Submit button"
+    submitButtonText="Submit"
   >
-    <TextField id="name" placeholder="Name" onChange={() => {}} />
+    <TextField id="name" onChange={() => {}} placeholder="Name" />
   </BannerUpsellForm>
 );
 

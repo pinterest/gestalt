@@ -7,14 +7,14 @@ export default function Snapshot(): ReactNode {
     <ColorSchemeProvider colorScheme="dark">
       <Box color="default" display="inlineBlock" padding={1}>
         <Flex gap={2}>
-          <TagData text="CPM" showCheckbox onRemove={() => {}} />
-          <TagData text="CPM" showCheckbox selected onRemove={() => {}} />
+          <TagData onRemove={() => {}} showCheckbox text="CPM" />
+          <TagData onRemove={() => {}} selected showCheckbox text="CPM" />
           <TagData
             baseColor="primary"
             color="03"
             onRemove={() => {}}
-            showCheckbox
             selected
+            showCheckbox
             text="Impressions"
           />
         </Flex>

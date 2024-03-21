@@ -14,10 +14,11 @@ export default function Example(): ReactNode {
     />
   ) : (
     <BannerOverlay
-      zIndex={new FixedZIndex(100)}
-      offset={{ top: 130, bottom: 24 }}
-      title="Call to Action"
       message="You can have up to two buttons in the BannerOverlay!"
+      offset={{ top: 130, bottom: 24 }}
+      onDismiss={() => {
+        setShowComponent(false);
+      }}
       primaryAction={{
         role: 'button',
         onClick: () => {
@@ -32,12 +33,11 @@ export default function Example(): ReactNode {
         label: 'Secondary Action',
         accessibilityLabel: 'Secondary Action',
       }}
-      onDismiss={() => {
-        setShowComponent(false);
-      }}
       thumbnail={{
-        icon: <Icon accessibilityLabel="Sparkle" icon="info-circle" color="info" />,
+        icon: <Icon accessibilityLabel="Sparkle" color="info" icon="info-circle" />,
       }}
+      title="Call to Action"
+      zIndex={new FixedZIndex(100)}
     />
   );
 }

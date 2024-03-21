@@ -15,11 +15,11 @@ export default function Example(): ReactNode {
         },
       }}
     >
-      <Flex justifyContent="center" alignItems="center" width="100%" height="100%">
+      <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
         <Toast
-          type="success"
-          text="Passwort aktualisiert"
           dismissButton={{ onDismiss: () => {} }}
+          text="Passwort aktualisiert"
+          type="success"
         />
       </Flex>
     </DefaultLabelProvider>

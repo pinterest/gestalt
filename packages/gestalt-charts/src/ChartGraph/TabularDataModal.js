@@ -72,29 +72,29 @@ export default function TabularDataModal({
   return (
     <Layer zIndex={modalZIndex}>
       <Modal
-        heading={
-          <TabularDataModalHeading toggleTabularDataModal={toggleTabularDataModal} title={title} />
-        }
-        align="start"
         accessibilityModalLabel={tabularData}
-        onDismiss={toggleTabularDataModal}
-        size="sm"
+        align="start"
         footer={
           <TabularDataModalFooter
+            isHorizontalLayout={isHorizontalLayout}
             title={title}
             toggleTabularDataModal={toggleTabularDataModal}
             transformedTabularData={transformedTabularData}
-            isHorizontalLayout={isHorizontalLayout}
           />
         }
+        heading={
+          <TabularDataModalHeading title={title} toggleTabularDataModal={toggleTabularDataModal} />
+        }
+        onDismiss={toggleTabularDataModal}
+        size="sm"
       >
         <TabularDataModalTable
           isHorizontalLayout={isHorizontalLayout}
+          onSortChange={onSortChange}
+          sortCol={sortCol}
+          sortOrder={sortOrder}
           title={title}
           transformedTabularData={transformedTabularData}
-          onSortChange={onSortChange}
-          sortOrder={sortOrder}
-          sortCol={sortCol}
         />
       </Modal>
     </Layer>

@@ -140,7 +140,6 @@ export default function Tag({
 
   return (
     <Box
-      position="relative"
       aria-disabled={disabled}
       color={bgColor}
       dangerouslySetInlineStyle={{
@@ -149,14 +148,15 @@ export default function Tag({
       }}
       display="inlineBlock"
       height={height}
-      rounding={rounding}
+      maxWidth={300}
       paddingX={paddingX}
       paddingY={paddingY}
-      maxWidth={300}
+      position="relative"
+      rounding={rounding}
     >
-      <Box display="flex" alignItems="center" height="100%" marginEnd={5}>
+      <Box alignItems="center" display="flex" height="100%" marginEnd={5}>
         {(type === 'error' || type === 'warning') && (
-          <Box marginStart={1} marginEnd={1}>
+          <Box marginEnd={1} marginStart={1}>
             <Icon
               accessibilityLabel={accessibilityLabels[type]}
               color={fgColor}
@@ -166,14 +166,14 @@ export default function Tag({
           </Box>
         )}
 
-        <Text color={fgColor} inline size={fontSize} lineClamp={1} overflow="breakAll">
+        <Text color={fgColor} inline lineClamp={1} overflow="breakAll" size={fontSize}>
           {text}
         </Text>
 
         <Box>
           {!disabled && (
             <button className={removeIconClasses} onClick={onRemove} type="button">
-              <Box display="flex" justifyContent="center" alignItems="center" width="100%">
+              <Box alignItems="center" display="flex" justifyContent="center" width="100%">
                 <Icon
                   accessibilityLabel={
                     accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault

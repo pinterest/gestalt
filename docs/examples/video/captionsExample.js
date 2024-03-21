@@ -7,22 +7,22 @@ export default function Example(): ReactNode {
   const [volume, setVolume] = useState(1);
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Box width={1000}>
         <Video
           aspectRatio={1024 / 435}
           captions="https://iandevlin.github.io/mdn/video-player-with-captions/subtitles/vtt/sintel-en.vtt"
           controls
-          playing={playing}
-          volume={volume}
+          loop
+          onControlsPause={() => setPlaying(false)}
+          onControlsPlay={() => setPlaying(true)}
+          onEnded={() => setPlaying(false)}
           onPlay={() => setPlaying(true)}
           onPlayError={({ error }) => error && setPlaying(false)}
-          onControlsPlay={() => setPlaying(true)}
-          onControlsPause={() => setPlaying(false)}
-          onEnded={() => setPlaying(false)}
           onVolumeChange={(e) => setVolume(e.volume)}
-          loop
+          playing={playing}
           src="https://iandevlin.github.io/mdn/video-player-with-captions/video/sintel-short.mp4"
+          volume={volume}
         />
       </Box>
     </Box>

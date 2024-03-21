@@ -4,7 +4,7 @@ import { BannerUpsell, Box, Flex, Icon } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex direction="column" gap={{ column: 4, row: 0 }}>
         <BannerUpsell
           dismissButton={{
@@ -12,7 +12,7 @@ export default function Example(): ReactNode {
             onDismiss: () => {},
           }}
           imageData={{
-            component: <Icon icon="ads-stats" accessibilityLabel="" color="default" size={32} />,
+            component: <Icon accessibilityLabel="" color="default" icon="ads-stats" size={32} />,
           }}
           message="Install the Pinterest tag to track your website traffic, conversions and more."
           primaryAction={{
@@ -29,7 +29,7 @@ export default function Example(): ReactNode {
             onDismiss: () => {},
           }}
           imageData={{
-            component: <Icon icon="ads-stats" accessibilityLabel="" color="default" size={32} />,
+            component: <Icon accessibilityLabel="" color="default" icon="ads-stats" size={32} />,
           }}
           message="Install the Pinterest tag to track your website traffic, conversions and more."
           primaryAction={{

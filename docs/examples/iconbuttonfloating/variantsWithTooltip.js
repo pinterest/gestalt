@@ -23,16 +23,16 @@ export default function Example(): ReactNode {
   };
 
   return (
-    <Flex width="100%" height="100%" justifyContent="center" alignItems="center">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Box role="contentinfo">
         <IconButtonFloating
+          ref={anchorRef}
           accessibilityControls="sections-dropdown-example"
           accessibilityExpanded={open}
-          accessibilityPopupRole="menu"
           accessibilityLabel="Create Pin Menu"
+          accessibilityPopupRole="menu"
           icon="add"
           onClick={() => setOpen((prevVal) => !prevVal)}
-          ref={anchorRef}
           selected={open}
           tooltip={{
             text: 'Create Pin Menu',

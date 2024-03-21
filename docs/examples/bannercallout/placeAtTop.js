@@ -4,11 +4,11 @@ import { BannerCallout, Box, Button, ButtonGroup, Divider, Flex, Icon } from 'ge
 
 export default function Example(): ReactNode {
   return (
-    <Box paddingY={8} paddingX={8}>
+    <Box paddingX={8} paddingY={8}>
       <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
         <Flex direction="column" gap={{ column: 4, row: 0 }}>
           <Flex alignItems="center" justifyContent="start">
-            <Icon accessibilityLabel="" icon="pinterest" color="error" size={32} />
+            <Icon accessibilityLabel="" color="error" icon="pinterest" size={32} />
             <ButtonGroup>
               <Button color="transparent" iconEnd="arrow-down" text="Business" />
               <Button color="transparent" iconEnd="arrow-down" text="Create" />

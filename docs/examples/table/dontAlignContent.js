@@ -10,7 +10,7 @@ function HeaderRow({ id }: { id: string }) {
           <Box display="visuallyHidden">
             <Label htmlFor={id}>Not all checkboxes are checked</Label>
           </Box>
-          <Checkbox id={id} onChange={() => {}} indeterminate size="sm" />
+          <Checkbox id={id} indeterminate onChange={() => {}} size="sm" />
         </Table.HeaderCell>
         {['Campaign', 'Spend'].map((title) => (
           <Table.HeaderCell key={title}>
@@ -43,13 +43,13 @@ function BaseRow({
     <Table.Row>
       <Table.Cell>
         <Checkbox
+          checked={checked}
+          disabled={disabled}
           id={`${id.replace(/ /g, '_').replace(/'/g, '')}_${text
             .replace(/ /g, '_')
             .replace(/'/g, '')}`}
           onChange={() => {}}
-          disabled={disabled}
           size="sm"
-          checked={checked}
         />
       </Table.Cell>
       <Table.Cell>
@@ -76,28 +76,28 @@ export default function Example(): ReactNode {
     <Table accessibilityLabel={tableID}>
       <HeaderRow id={tableID} />
       <Table.Body>
-        <BaseRow id={tableID} checked text="The best ad" subtext="12/20/21" spend="$5" />
+        <BaseRow checked id={tableID} spend="$5" subtext="12/20/21" text="The best ad" />
         <BaseRow
-          id={tableID}
           disabled
-          text="This ad is great"
-          subtext="01/16/21"
+          id={tableID}
           spend="$3,000.00"
+          subtext="01/16/21"
+          text="This ad is great"
         />
-        <BaseRow id={tableID} checked text="Mary's pincycle" subtext="07/15/22" spend="$1.750" />
+        <BaseRow checked id={tableID} spend="$1.750" subtext="07/15/22" text="Mary's pincycle" />
         <BaseRow
-          id={tableID}
           checked={false}
-          text="Best Purchase Wins"
-          subtext="06/15/22"
+          id={tableID}
           spend="$51,650,500.54"
+          subtext="06/15/22"
+          text="Best Purchase Wins"
         />
         <BaseRow
-          id={tableID}
           checked={false}
-          text="The third campaign"
-          subtext="06/24/22"
+          id={tableID}
           spend="$67.60"
+          subtext="06/24/22"
+          text="The third campaign"
         />
       </Table.Body>
     </Table>

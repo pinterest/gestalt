@@ -5,19 +5,19 @@ import { Box, ButtonLink, Flex, Text } from 'gestalt';
 export default function Example(): ReactNode {
   return (
     <Box padding={4}>
-      <Flex height="100%" gap={6} width="100%" wrap>
+      <Flex gap={6} height="100%" width="100%" wrap>
         {['gray', 'red', 'blue', 'transparent'].map((color) => (
-          <Flex gap={2} key={color} direction="column">
+          <Flex key={color} direction="column" gap={2}>
             <Box
+              alignItems="center"
               borderStyle="sm"
               display="flex"
-              width={200}
               height={200}
-              rounding={4}
-              alignItems="center"
               justifyContent="center"
+              rounding={4}
+              width={200}
             >
-              <ButtonLink href="" color={color} size="lg" text="Visit" iconEnd="visit" />
+              <ButtonLink color={color} href="" iconEnd="visit" size="lg" text="Visit" />
             </Box>
             <Text size="200" weight="bold">
               color=&quot;{color}&quot;

@@ -24,7 +24,7 @@ export default function Example(): ReactNode {
     <OverlayPanel.DismissingElement>
       {({ onDismissStart }) => (
         <Flex alignItems="center" justifyContent="end">
-          <Button color="red" text="Create" onClick={onDismissStart} />
+          <Button color="red" onClick={onDismissStart} text="Create" />
         </Flex>
       )}
     </OverlayPanel.DismissingElement>
@@ -33,17 +33,17 @@ export default function Example(): ReactNode {
   return (
     <Fragment>
       <Box padding={8}>
-        <Button text="View OverlayPanel" onClick={() => setShowComponent(true)} />
+        <Button onClick={() => setShowComponent(true)} text="View OverlayPanel" />
       </Box>
       {showComponent && (
         <Layer zIndex={sheetZIndex}>
           <OverlayPanel
             accessibilityDismissButtonLabel="Close"
             accessibilityLabel="Example overlay panel for demonstration"
-            heading="Create new audience list"
             closeOnOutsideClick={false}
-            onDismiss={() => setShowComponent(false)}
             footer={footer}
+            heading="Create new audience list"
+            onDismiss={() => setShowComponent(false)}
             size="md"
           >
             <Flex
@@ -67,16 +67,16 @@ export default function Example(): ReactNode {
                   <Text inline> Audience list details</Text>
                 </Box>
                 <TextField
-                  label="Audience name"
-                  placeholder="Name your audience"
                   id="name-your-audience"
+                  label="Audience name"
                   onChange={() => {}}
+                  placeholder="Name your audience"
                 />
                 <TextField
-                  label="Audience description"
-                  placeholder="Describe your audience"
                   id="describe-your-audience"
+                  label="Audience description"
                   onChange={() => {}}
+                  placeholder="Describe your audience"
                 />
                 <Fieldset legend="When adding this audience list to an ad group:">
                   <Flex
@@ -90,15 +90,15 @@ export default function Example(): ReactNode {
                       id="include-list"
                       label="Include list"
                       name="audience"
-                      value="include"
                       onChange={() => {}}
+                      value="include"
                     />
                     <RadioButton
                       id="exclude-list"
                       label="Exclude list"
                       name="audience"
-                      value="include"
                       onChange={() => {}}
+                      value="include"
                     />
                   </Flex>
                 </Fieldset>
@@ -132,29 +132,29 @@ export default function Example(): ReactNode {
                       id="pinterest-tag"
                       label="Pinterest Tag"
                       name="source"
-                      value="pin"
                       onChange={() => {}}
+                      value="pin"
                     />
                     <RadioButton
                       id="mobile-measurement"
                       label="Mobile Measurement Partners (MMP)"
                       name="source"
-                      value="mmp"
                       onChange={() => {}}
+                      value="mmp"
                     />
                     <RadioButton
                       id="conversion-upload"
                       label="Conversion Upload"
                       name="source"
-                      value="conversion"
                       onChange={() => {}}
+                      value="conversion"
                     />
                     <RadioButton
                       id="api"
                       label="API"
                       name="source"
-                      value="api"
                       onChange={() => {}}
+                      value="api"
                     />
                   </Flex>
                 </Fieldset>
@@ -174,8 +174,8 @@ export default function Example(): ReactNode {
                 </Box>
                 <TextField
                   id="past-users"
-                  onChange={() => {}}
                   label="Users in the past few days"
+                  onChange={() => {}}
                   placeholder="Ex. 4"
                 />
                 <Checkbox

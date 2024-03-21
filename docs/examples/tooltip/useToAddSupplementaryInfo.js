@@ -4,7 +4,7 @@ import { Box, Flex, IconButton, Label, Text, TextField, Tooltip } from 'gestalt'
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex direction="column" gap={{ column: 1, row: 0 }}>
         <Flex alignItems="center" gap={{ row: 1, column: 0 }}>
           <Label htmlFor="business-url-field">
@@ -16,8 +16,8 @@ export default function Example(): ReactNode {
               bgColor="white"
               icon="info-circle"
               iconColor="darkGray"
-              size="md"
               padding={1}
+              size="md"
             />
           </Tooltip>
         </Flex>

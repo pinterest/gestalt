@@ -92,11 +92,11 @@ function SegmentedControlItem({
       className={cs}
       onClick={(event) => onChange({ event, activeIndex: index })}
       role="tab"
-      type="button"
       style={{ width }}
+      type="button"
     >
       {typeof item === 'string' ? (
-        <Text color="default" align="center" size={fontSize} weight="bold">
+        <Text align="center" color="default" size={fontSize} weight="bold">
           {item}
         </Text>
       ) : (
@@ -138,8 +138,8 @@ export default function SegmentedControl({
           // eslint-disable-next-line react/no-array-index-key
           key={i}
           index={i}
-          item={item}
           isSelected={i === selectedItemIndex}
+          item={item}
           onChange={onChange}
           size={size}
           width={buttonWidth}

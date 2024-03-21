@@ -7,13 +7,13 @@ export default function Snapshot(): ReactNode {
     <Box padding={1}>
       <ButtonLink
         accessibilityLabel="Visit Pinterest"
-        iconEnd="visit"
-        size="lg"
         color="red"
-        text="Visit Pinterest"
-        rel="nofollow"
-        target="blank"
         href="#"
+        iconEnd="visit"
+        rel="nofollow"
+        size="lg"
+        target="blank"
+        text="Visit Pinterest"
       />
     </Box>
   );

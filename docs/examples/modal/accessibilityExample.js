@@ -26,9 +26,9 @@ export default function AccessibilityExample(): ReactNode {
         <Button
           accessibilityLabel="Show Modal"
           color="red"
-          text="Show Modal"
-          size="lg"
           onClick={() => setShowComponent(true)}
+          size="lg"
+          text="Show Modal"
         />
       </Box>
       {showComponent ? (
@@ -36,9 +36,15 @@ export default function AccessibilityExample(): ReactNode {
           <Modal
             accessibilityModalLabel="Choose how to claim site"
             align="start"
+            footer={
+              <Flex gap={2} justifyContent="end">
+                <Button color="gray" text="Cancel" />
+                <Button color="red" text="Next" />
+              </Flex>
+            }
             heading={
               <Flex justifyContent="between">
-                <Heading size="500" accessibilityLevel={1}>
+                <Heading accessibilityLevel={1} size="500">
                   Pick claim option
                 </Heading>
                 <IconButton
@@ -54,29 +60,23 @@ export default function AccessibilityExample(): ReactNode {
             onDismiss={() => {
               setShowComponent(false);
             }}
-            footer={
-              <Flex justifyContent="end" gap={2}>
-                <Button color="gray" text="Cancel" />
-                <Button color="red" text="Next" />
-              </Flex>
-            }
             size="sm"
           >
             <RadioGroup id="claim-option" legend="Claim options" legendDisplay="hidden">
               <RadioGroup.RadioButton
                 checked={claim === 'tag'}
+                helperText="Paste this tag into the <head> section of your site's index.html file"
                 id="claimTag"
                 label="Add HTML tag"
-                helperText="Paste this tag into the <head> section of your site's index.html file"
                 name="claim-type"
                 onChange={() => setClaim('tag')}
                 value="tag"
               />
               <RadioGroup.RadioButton
                 checked={claim === 'file'}
+                helperText="Download this file and upload it to your website's root directory"
                 id="claimFile"
                 label="Upload HTML file"
-                helperText="Download this file and upload it to your website's root directory"
                 name="claim-type"
                 onChange={() => setClaim('file')}
                 value="file"

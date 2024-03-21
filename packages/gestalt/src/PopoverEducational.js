@@ -170,7 +170,7 @@ export default function PopoverEducational({
 
   if (!isInExperiment)
     return (
-      <Box zIndex={zIndex} position={zIndex ? 'relative' : undefined}>
+      <Box position={zIndex ? 'relative' : undefined} zIndex={zIndex}>
         <LegacyInternalPopover
           accessibilityLabel={accessibilityLabel}
           anchor={anchor}
@@ -179,9 +179,9 @@ export default function PopoverEducational({
           idealDirection={idealDirection}
           onDismiss={onDismiss}
           positionRelativeToAnchor
-          showCaret
-          shouldFocus={shouldFocus}
           role={primaryAction && !children ? 'dialog' : role}
+          shouldFocus={shouldFocus}
+          showCaret
           size={size}
         >
           {children ??
@@ -190,7 +190,7 @@ export default function PopoverEducational({
                 <Flex direction="column" gap={3}>
                   {textElement}
                   {primaryAction ? (
-                    <Flex.Item flex="grow" alignSelf="end">
+                    <Flex.Item alignSelf="end" flex="grow">
                       <PrimaryAction {...primaryAction} />
                     </Flex.Item>
                   ) : null}
@@ -202,21 +202,21 @@ export default function PopoverEducational({
     );
 
   return (
-    <Box zIndex={zIndex} position={zIndex ? 'relative' : undefined}>
+    <Box position={zIndex ? 'relative' : undefined} zIndex={zIndex}>
       <InternalPopover
         accessibilityLabel={accessibilityLabel}
         anchor={anchor}
         color="blue"
+        disableFocusTrap
+        disablePortal
+        hideWhenReferenceHidden
         id={id}
         idealDirection={idealDirection}
         onDismiss={onDismiss}
-        disablePortal
-        showCaret
-        shouldFocus={shouldFocus}
         role={primaryAction && !children ? 'dialog' : role}
+        shouldFocus={shouldFocus}
+        showCaret
         size={size}
-        hideWhenReferenceHidden
-        disableFocusTrap
       >
         {children ??
           (message ? (
@@ -224,7 +224,7 @@ export default function PopoverEducational({
               <Flex direction="column" gap={3}>
                 {textElement}
                 {primaryAction ? (
-                  <Flex.Item flex="grow" alignSelf="end">
+                  <Flex.Item alignSelf="end" flex="grow">
                     <PrimaryAction {...primaryAction} />
                   </Flex.Item>
                 ) : null}

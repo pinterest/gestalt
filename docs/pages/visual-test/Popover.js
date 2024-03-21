@@ -8,14 +8,14 @@ export default function Snapshot(): ReactNode {
 
   return (
     <ColorSchemeProvider colorScheme="light">
-      <Box color="default" display="inlineBlock" padding={1} width={300} height={150}>
-        <Flex width="100%" justifyContent="center">
+      <Box color="default" display="inlineBlock" height={150} padding={1} width={300}>
+        <Flex justifyContent="center" width="100%">
           <IconButton
-            accessibilityLabel="test"
-            iconColor="darkGray"
-            icon="filter"
-            onClick={() => setOpen(true)}
             ref={anchorRef}
+            accessibilityLabel="test"
+            icon="filter"
+            iconColor="darkGray"
+            onClick={() => setOpen(true)}
             size="lg"
           />
         </Flex>
@@ -28,7 +28,7 @@ export default function Snapshot(): ReactNode {
             size="xs"
           >
             <Box padding={3}>
-              <Text color="dark" align="center">
+              <Text align="center" color="dark">
                 Children
               </Text>
             </Box>

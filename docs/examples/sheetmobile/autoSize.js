@@ -22,15 +22,15 @@ export default function Example(): ReactNode {
       {showComponent ? (
         <Layer zIndex={ABOVE_PAGE_HEADER_ZINDEX}>
           <SheetMobile
-            heading="Heading"
-            primaryAction={{ accessibilityLabel: 'Next page', label: 'Next', onClick: () => {} }}
-            onDismiss={() => setShowComponent(false)}
             footer={
-              <Flex justifyContent="center" gap={2}>
+              <Flex gap={2} justifyContent="center">
                 <Button color="gray" text="Secondary" />
                 <Button color="red" text="Primary" />
               </Flex>
             }
+            heading="Heading"
+            onDismiss={() => setShowComponent(false)}
+            primaryAction={{ accessibilityLabel: 'Next page', label: 'Next', onClick: () => {} }}
             size="auto"
           >
             <Box>
@@ -46,9 +46,9 @@ export default function Example(): ReactNode {
         <Button
           accessibilityLabel="Show SheetMobile"
           color="red"
-          text="Show SheetMobile"
-          size="lg"
           onClick={() => setShowComponent(true)}
+          size="lg"
+          text="Show SheetMobile"
         />
       </Box>
     </DeviceTypeProvider>

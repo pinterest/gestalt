@@ -21,14 +21,14 @@ export default function Example(): ReactNode {
 
   return (
     <DeviceTypeProvider deviceType="mobile">
-      <Box display="flex" justifyContent="center" width="100%" margin={2}>
+      <Box display="flex" justifyContent="center" margin={2} width="100%">
         <Button
+          ref={anchorRef}
           accessibilityControls="demo-dropdown-example"
           accessibilityExpanded={open}
           accessibilityHaspopup
           iconEnd="arrow-down"
           onClick={() => setOpen((prevVal) => !prevVal)}
-          ref={anchorRef}
           selected={open}
           size="lg"
           text="Menu"
@@ -37,18 +37,18 @@ export default function Example(): ReactNode {
       {open && (
         <Dropdown
           anchor={anchorRef.current}
-          id="demo-dropdown-example"
-          onDismiss={() => setOpen(false)}
-          zIndex={new CompositeZIndex([PAGE_HEADER_ZINDEX])}
           disableMobileUI={false}
           headerContent={
-            <Text align="start" size="100" inline>
+            <Text align="start" inline size="100">
               This Pin was inspired by your{' '}
               <Link display="inline" href="https://pinterest.com">
                 recent activity
               </Link>
             </Text>
           }
+          id="demo-dropdown-example"
+          onDismiss={() => setOpen(false)}
+          zIndex={new CompositeZIndex([PAGE_HEADER_ZINDEX])}
         >
           <Dropdown.Section label="Currently in">
             <Dropdown.Link
@@ -57,14 +57,14 @@ export default function Example(): ReactNode {
               option={{ value: 'item 1', label: 'Custom link 1' }}
             >
               <Box width="100%">
-                <Flex gap={2} alignItems="center">
+                <Flex alignItems="center" gap={2}>
                   <Avatar name="Tia" size="md" src="https://i.ibb.co/7tGKGvb/shanice.jpg" />
                   <Flex direction="column">
                     <Text>Tia Marz</Text>
-                    <Text size="200" color="subtle">
+                    <Text color="subtle" size="200">
                       Personal
                     </Text>
-                    <Text size="200" color="subtle">
+                    <Text color="subtle" size="200">
                       travel@theworld.com
                     </Text>
                   </Flex>
@@ -74,16 +74,16 @@ export default function Example(): ReactNode {
           </Dropdown.Section>
           <Dropdown.Section label="Your accounts">
             <Dropdown.Link
-              onClick={({ event }) => event.preventDefault()}
               href="#"
+              onClick={({ event }) => event.preventDefault()}
               option={{ value: 'item 2', label: 'Another custom link' }}
             >
               <Box width="100%">
-                <Flex gap={2} alignItems="center">
+                <Flex alignItems="center" gap={2}>
                   <Avatar name="Bruno" size="md" src="https://i.ibb.co/4Mbhbnb/Bruno.jpg" />
                   <Flex direction="column">
                     <Text>Bruno</Text>
-                    <Text size="200" color="subtle">
+                    <Text color="subtle" size="200">
                       Business
                     </Text>
                   </Flex>
@@ -93,17 +93,17 @@ export default function Example(): ReactNode {
           </Dropdown.Section>
           <Dropdown.Section label="More options">
             <Dropdown.Link
-              onClick={({ event }) => event.preventDefault()}
               href="#"
+              onClick={({ event }) => event.preventDefault()}
               option={{ value: 'settings', label: 'Settings' }}
             />
             <Dropdown.Link
+              href="#"
+              isExternal
               onClick={({ event, mobileOnDismissStart }) => {
                 event.preventDefault();
                 mobileOnDismissStart();
               }}
-              href="#"
-              isExternal
               option={{ value: 'help', label: 'Get help' }}
             />
           </Dropdown.Section>

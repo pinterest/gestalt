@@ -8,14 +8,14 @@ export default function Snapshot(): ReactNode {
 
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <Box color="default" display="inlineBlock" padding={1} width={300} height={200}>
-        <Flex width="100%" justifyContent="center">
+      <Box color="default" display="inlineBlock" height={200} padding={1} width={300}>
+        <Flex justifyContent="center" width="100%">
           <IconButton
-            accessibilityLabel="test"
-            iconColor="darkGray"
-            icon="filter"
-            onClick={() => setOpen(true)}
             ref={anchorRef}
+            accessibilityLabel="test"
+            icon="filter"
+            iconColor="darkGray"
+            onClick={() => setOpen(true)}
             size="lg"
           />
         </Flex>
@@ -23,8 +23,8 @@ export default function Snapshot(): ReactNode {
           <PopoverEducational
             accessibilityLabel="Popover"
             anchor={anchorRef.current}
-            onDismiss={() => {}}
             message="Message"
+            onDismiss={() => {}}
             primaryAction={{ text: 'Next', role: 'button' }}
           />
         )}

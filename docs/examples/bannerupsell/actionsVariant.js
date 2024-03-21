@@ -19,8 +19,8 @@ export default function Example(): ReactNode {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Box marginStart={-1} marginEnd={-1}>
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Box marginEnd={-1} marginStart={-1}>
         <BannerUpsell
           dismissButton={{
             accessibilityLabel: 'Dismiss banner',
@@ -72,7 +72,7 @@ export default function Example(): ReactNode {
             >
               <Flex direction="row">
                 <Column span={12}>
-                  <Box display="flex" paddingY={2} paddingX={8}>
+                  <Box display="flex" paddingX={8} paddingY={2}>
                     <Column span={4}>
                       <Label htmlFor="name">
                         <Text align="forceLeft" weight="bold">
@@ -86,7 +86,7 @@ export default function Example(): ReactNode {
                     </Column>
                   </Box>
 
-                  <Box display="flex" paddingY={2} paddingX={8}>
+                  <Box display="flex" paddingX={8} paddingY={2}>
                     <Column span={4}>
                       <Label htmlFor="email">
                         <Text align="forceLeft" weight="bold">
@@ -100,7 +100,7 @@ export default function Example(): ReactNode {
                     </Column>
                   </Box>
 
-                  <Box display="flex" paddingY={2} paddingX={8}>
+                  <Box display="flex" paddingX={8} paddingY={2}>
                     <Column span={4}>
                       <Label htmlFor="desc">
                         <Text align="forceLeft" weight="bold">

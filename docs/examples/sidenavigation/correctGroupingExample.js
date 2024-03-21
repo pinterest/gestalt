@@ -8,25 +8,25 @@ export default function Example(): ReactNode {
       <SideNavigation.Section label="Pinterest tag">
         <SideNavigation.TopItem
           href="#"
-          onClick={({ event }) => event.preventDefault()}
           label="Tag manager"
+          onClick={({ event }) => event.preventDefault()}
         />
         <SideNavigation.TopItem
           href="#"
-          onClick={({ event }) => event.preventDefault()}
           label="Tag health"
+          onClick={({ event }) => event.preventDefault()}
         />
       </SideNavigation.Section>
       <SideNavigation.Section label="Conversion upload">
         <SideNavigation.TopItem
           href="#"
-          onClick={({ event }) => event.preventDefault()}
           label="Upload file"
+          onClick={({ event }) => event.preventDefault()}
         />
         <SideNavigation.TopItem
           href="#"
-          onClick={({ event }) => event.preventDefault()}
           label="Upload history"
+          onClick={({ event }) => event.preventDefault()}
         />
       </SideNavigation.Section>
     </SideNavigation>

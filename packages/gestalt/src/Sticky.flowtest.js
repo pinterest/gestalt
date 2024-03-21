@@ -22,7 +22,7 @@ const MissingProp = <Sticky />;
 
 const IncompatibleLegacyZIndexProp = (
   // $FlowExpectedError[incompatible-type]
-  <Sticky top={0} dangerouslySetZIndex={1}>
+  <Sticky dangerouslySetZIndex={1} top={0}>
     Content
   </Sticky>
 );

@@ -39,15 +39,15 @@ function ColorSchemeCard({ children, colorScheme }: ColorCardProps): ReactNode {
       }}
     >
       <ColorSchemeProvider key={colorScheme} colorScheme={colorScheme} id={colorScheme}>
-        <Box padding={4} color="default">
+        <Box color="default" padding={4}>
           <Flex
+            direction="column"
             gap={{
               row: 0,
               column: 4,
             }}
-            direction="column"
           >
-            <Text weight="bold" size="400" color="default">
+            <Text color="default" size="400" weight="bold">
               {colorScheme === 'light' ? 'Light mode' : 'Dark mode'}
             </Text>
             {children}
@@ -62,20 +62,20 @@ export default function ColorPage(): ReactNode {
   return (
     <Page title="Color palette">
       <PageHeader
-        name="Color palette"
         description={`
         Our color palettes are shared between Brand and Gestalt, and represent our full range of options. The colors are divided into baseline, extended, and reserved colors.
 
         For further Brand guidance, please reference the [Brand guidelines website](https://brand.pinterest.com/).
         `}
+        name="Color palette"
         type="guidelines"
       />
       <MainSection
-        name="Baseline colors"
         description={`
         Our baseline palette helps to create consistency across products.
         The baseline palette is comprised of our hero and neutrals colors, allowing the Pinterest content to shine, while ensuring enough color contrast. In addition, the colors used serve specific purposes in order to provide a better user experience. Check out [Color Usage](/foundations/color/usage) for more details about their intended usage.
         `}
+        name="Baseline colors"
       >
         <Flex
           gap={{
@@ -86,80 +86,80 @@ export default function ColorPage(): ReactNode {
         >
           <ColorSchemeCard colorScheme="light">
             <ColorTile
-              fullTokenName="color-red-pushpin-450"
               description="Pushpin 450"
+              fullTokenName="color-red-pushpin-450"
               number={450}
             />
             <ColorTile
-              fullTokenName="color-black-cosmicore-900"
               description="Cosmicore 900"
+              fullTokenName="color-black-cosmicore-900"
               number={900}
             />
             <ColorTile
-              fullTokenName="color-blue-skycicle-500"
               description="Skycicle 500"
+              fullTokenName="color-blue-skycicle-500"
               number={500}
             />
             <ColorTile
-              fullTokenName="color-gray-roboflow-500"
               description="Roboflow 500"
+              fullTokenName="color-gray-roboflow-500"
               number={500}
             />
             <ColorTile
-              fullTokenName="color-gray-roboflow-200"
               description="Roboflow 200"
+              fullTokenName="color-gray-roboflow-200"
               number={200}
             />
             <ColorTile
-              fullTokenName="color-white-mochimalist-0"
               description="Mochimalist 0"
+              fullTokenName="color-white-mochimalist-0"
               number={0}
             />
           </ColorSchemeCard>
           <ColorSchemeCard colorScheme="dark">
             <ColorTile
-              fullTokenName="color-red-pushpin-450"
               description="Pushpin 450"
+              fullTokenName="color-red-pushpin-450"
               number={450}
             />
             <ColorTile
-              fullTokenName="color-white-mochimalist-0"
               description="Mochimalist 0"
+              fullTokenName="color-white-mochimalist-0"
               number={0}
             />
             <ColorTile
-              fullTokenName="color-blue-skycicle-300"
               description="Skycicle 300"
+              fullTokenName="color-blue-skycicle-300"
               number={300}
             />
             <ColorTile
-              fullTokenName="color-gray-roboflow-300"
               description="Roboflow 300"
+              fullTokenName="color-gray-roboflow-300"
               number={300}
             />
             <ColorTile
-              fullTokenName="color-gray-roboflow-500"
               description="Roboflow 500"
+              fullTokenName="color-gray-roboflow-500"
               number={500}
             />
             <ColorTile
-              fullTokenName="color-black-cosmicore-900"
               description="Cosmicore 900"
+              fullTokenName="color-black-cosmicore-900"
               number={900}
             />
           </ColorSchemeCard>
         </Flex>
       </MainSection>
       <MainSection
-        name="Reserved colors"
         description="The 450 colors are primarily reserved for Brand usage as they are among the least accessible colors. This set works best within larger brand moments, and is not commonly used for functional color pairings. While Pushpin 450 is our hero, primary product color, please only use other 450 colors when absolutely necessary while maintaining accessibility."
+        name="Reserved colors"
       >
         <Flex direction="column">
           {colors.map(({ id, name, textColor }) => (
             <ColorTile
               key={name}
-              fullTokenName={`color-${id}-${name.toLowerCase()}-450`}
               description={`${name} 450`}
+              fullTokenName={`color-${id}-${name.toLowerCase()}-450`}
               textColor={textColor}
             />
           ))}
@@ -167,14 +167,14 @@ export default function ColorPage(): ReactNode {
       </MainSection>
 
       <MainSection
-        name="Extended palette"
         description={`
         The extended color palette displays all the available shades and tints of each color in the palette. The colors are named and numbered for easy reference. The usage of these colors varies depending on the product needs, but they come in handy for illustrations, communicating status, and brand moments.
 
         We aim to meet [WCAG 2.1 AA accessibility standards](https://www.w3.org/TR/WCAG21/), and in order to ensure accessible contrast for color pairings, we require our \`darkGray\` [Text](/web/text) color to be used for any colors 400 and below. For 500 and above, we recommend using \`white\`.
         `}
+        name="Extended palette"
       >
-        <MainSection.Subsection title="Colors" description="Pinterest name (common name)">
+        <MainSection.Subsection description="Pinterest name (common name)" title="Colors">
           <Flex
             gap={{
               row: 12,
@@ -187,14 +187,14 @@ export default function ColorPage(): ReactNode {
             ))}
           </Flex>
         </MainSection.Subsection>
-        <MainSection.Subsection title="Neutrals" description="Pinterest name (common name)">
+        <MainSection.Subsection description="Pinterest name (common name)" title="Neutrals">
           <Flex direction="column">
             {neutrals.map(({ id, name }) => (
               <ColorPalette key={name} name={name} tokenId={id} />
             ))}
           </Flex>
         </MainSection.Subsection>
-        <MainSection.Subsection title="Transparent" description="(common name)">
+        <MainSection.Subsection description="(common name)" title="Transparent">
           <Flex direction="column">
             {transparent.map(({ id, name }) => (
               <ColorPalette key={name} name={name} tokenId={id} />
@@ -202,7 +202,6 @@ export default function ColorPage(): ReactNode {
           </Flex>
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Colors in code"
           description={`
        The full extended palette of colors (colors, neutrals, and transparent) are the foundational elements of our color system or base color tokens. Base tokens are the lowest level tokens, which map directly to a value. Base tokens would likely be internal only and used to build our [semantic design tokens](/foundations/design_tokens).
 
@@ -214,6 +213,7 @@ export default function ColorPage(): ReactNode {
 
        Using colors that are not available through our [semantic design tokens](/foundations/design_tokens) and components directly is considered an anti-pattern and should be avoided whenever possible. If it's absolutely necessary, a [hack on Box](/get_started/developers/hacking_gestalt#Box's-dangerouslySetInlineStyle) can be used.
       `}
+          title="Colors in code"
         />
       </MainSection>
     </Page>

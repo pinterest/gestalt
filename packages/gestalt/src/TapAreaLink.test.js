@@ -15,7 +15,7 @@ describe('TapAreaLink', () => {
 
   test('renders disabled', () => {
     const component = create(
-      <TapAreaLink href="#" disabled rel="nofollow" target="blank">
+      <TapAreaLink disabled href="#" rel="nofollow" target="blank">
         TapAreaLink
       </TapAreaLink>,
     );

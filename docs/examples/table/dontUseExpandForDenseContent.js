@@ -41,17 +41,16 @@ function ExpandedContents() {
       />
       {tabItem === 'campaign' ? (
         <Flex direction="column" gap={{ column: 6, row: 0 }} width="100%">
-          <Heading size="400" accessibilityLevel={2}>
+          <Heading accessibilityLevel={2} size="400">
             Latest boards
           </Heading>
           <Flex gap={{ row: 6, column: 0 }} width="100%">
             <Flex.Item>
-              <TapArea tapStyle="compress" onTap={() => {}}>
+              <TapArea onTap={() => {}} tapStyle="compress">
                 <Mask rounding={4}>
                   <Collage
                     columns={3}
                     height={300}
-                    width={300}
                     renderImage={({ index, width, height }) => {
                       const images = [
                         {
@@ -93,7 +92,7 @@ function ExpandedContents() {
                       ];
                       const image = images[index] || {};
                       return (
-                        <Mask wash width={width} height={height}>
+                        <Mask height={height} wash width={width}>
                           <Image
                             alt="collage image"
                             color={image.color}
@@ -105,10 +104,11 @@ function ExpandedContents() {
                         </Mask>
                       );
                     }}
+                    width={300}
                   />
                 </Mask>
                 <Flex direction="column" gap={{ column: 2, row: 0 }}>
-                  <Heading size="400" accessibilityLevel="none">
+                  <Heading accessibilityLevel="none" size="400">
                     Uniform
                   </Heading>
                   <Flex gap={{ column: 0, row: 5 }}>
@@ -121,38 +121,38 @@ function ExpandedContents() {
             <Flex direction="column" gap={{ column: 4, row: 0 }} width="100%">
               <TextField
                 id="name"
+                label="Name"
                 onChange={() => {}}
                 placeholder="Name"
-                label="Name"
                 value="December '21"
               />
               <TextArea
                 id="notes"
+                label="Notes"
                 onChange={() => {}}
                 placeholder="Notes on updates..."
-                label="Notes"
                 value=""
               />
               <Flex gap={{ column: 0, row: 4 }}>
                 <NumberField
                   id="budget"
+                  label="Budget (USD)"
                   onChange={() => {}}
                   placeholder=""
-                  label="Budget (USD)"
                   value={100000}
                 />
                 <TextField
                   id="scope"
+                  label="Scope"
                   onChange={() => {}}
                   placeholder=""
-                  label="Scope"
                   value="Global"
                 />
               </Flex>
               <Label htmlFor="status">
                 <Text>Status</Text>
               </Label>
-              <Switch onChange={() => {}} id="status" switched />
+              <Switch id="status" onChange={() => {}} switched />
             </Flex>
           </Flex>
           <Flex gap={{ column: 0, row: 3 }}>
@@ -169,43 +169,43 @@ function ExpandedContents() {
             <Box width={300}>
               <Datapoint
                 size="lg"
-                tooltipText="The number of times your ads were seen, including earned impressions"
                 title="Total impressions"
-                value="1K"
+                tooltipText="The number of times your ads were seen, including earned impressions"
                 trend={{ value: 30, accessibilityLabel: 'Trending up' }}
+                value="1K"
               />
               <Datapoint
                 size="lg"
-                tooltipText="The number of times your ads were seen, including earned impressions"
                 title="Saves"
-                value="5"
+                tooltipText="The number of times your ads were seen, including earned impressions"
                 trend={{ value: 5, accessibilityLabel: 'Trending up' }}
+                value="5"
               />
               <Datapoint
                 size="lg"
-                tooltipText="The number of times your ads were seen, including earned impressions"
                 title="Outbound clicks"
-                value="10"
+                tooltipText="The number of times your ads were seen, including earned impressions"
                 trend={{ value: 10, accessibilityLabel: 'Trending up' }}
+                value="10"
               />
             </Box>
           </Accordion>
           <Flex direction="column" gap={{ column: 2, row: 0 }} maxWidth={800}>
             <Accordion
-              id="Ads Overview"
-              title="Ads Overview"
               iconButton={
                 <IconButtonLink
-                  href="https://analytics.pinterest.com/"
+                  accessibilityLabel="Get help"
                   bgColor="lightGray"
+                  href="https://analytics.pinterest.com/"
                   icon="arrow-up-right"
                   iconColor="darkGray"
-                  accessibilityLabel="Get help"
-                  size="xs"
                   onClick={() => {}}
+                  size="xs"
                   target="blank"
                 />
               }
+              id="Ads Overview"
+              title="Ads Overview"
             >
               <Box width={300}>
                 <Text size="200">Content</Text>
@@ -246,10 +246,8 @@ function HeaderRow() {
 function RowExpandable({ campaign, status, empty, budget, scope }: any) {
   return (
     <Table.RowExpandable
-      accessibilityExpandLabel="Expand"
       accessibilityCollapseLabel="Collapse"
-      id="row1"
-      onExpand={() => {}}
+      accessibilityExpandLabel="Expand"
       expandedContents={
         empty ? (
           <Text>No metrics available. This campaign hasn&apos;t started yet.</Text>
@@ -257,6 +255,8 @@ function RowExpandable({ campaign, status, empty, budget, scope }: any) {
           <ExpandedContents />
         )
       }
+      id="row1"
+      onExpand={() => {}}
     >
       <Table.Cell>
         <Text>{campaign}</Text>
@@ -281,20 +281,20 @@ export default function MainExample(): ReactNode {
     <Table accessibilityLabel={tableID}>
       <HeaderRow />
       <Table.Body>
-        <RowExpandable campaign="December '21" status="Active" budget="$100,000" scope="Global" />
+        <RowExpandable budget="$100,000" campaign="December '21" scope="Global" status="Active" />
         <RowExpandable
-          campaign="January '22"
-          status="Draft"
           budget="$50,000"
-          scope="Japan, Germany, Canada, Spain, Mexico, Thailand, Italy"
+          campaign="January '22"
           empty
+          scope="Japan, Germany, Canada, Spain, Mexico, Thailand, Italy"
+          status="Draft"
         />
         <RowExpandable
-          campaign="February '22"
-          status="Draft"
           budget="$50,000"
-          scope="Japan, Germany, Canada"
+          campaign="February '22"
           empty
+          scope="Japan, Germany, Canada"
+          status="Draft"
         />
       </Table.Body>
     </Table>

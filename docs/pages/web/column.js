@@ -22,16 +22,16 @@ const ignoredProps = ['smSpan', 'mdSpan', 'lgSpan'];
 export default function ColumnPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName} />
 
-      <GeneratedPropTable generatedDocGen={generatedDocGen} excludeProps={ignoredProps} />
+      <GeneratedPropTable excludeProps={ignoredProps} generatedDocGen={generatedDocGen} />
 
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Using the span prop"
           description="Column is a basic layout component to help you size your UI relative to its container. A full width is composed of 12 units, each equal to 1/12 of the total width of the containing element. By setting the `span` prop you dictate the fractional width an element can occupy."
+          title="Using the span prop"
         >
           <MainSection.Card
             sandpackExample={
@@ -81,8 +81,8 @@ export default function ColumnPage({ generatedDocGen }: { generatedDocGen: DocGe
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Using responsive breakpoints"
           description="Column supports setting a span at our 3 responsive breakpoints: `sm`, `md`, `lg`. Each sets the span of the column from that breakpoint and up. If you don't want your column to be responsive, only set the `span` prop."
+          title="Using responsive breakpoints"
         >
           <MainSection.Card
             sandpackExample={
@@ -108,8 +108,8 @@ export default function ColumnPage({ generatedDocGen }: { generatedDocGen: DocGe
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Equal height columns"
           description="Unlike traditional CSS columns, using flex columns makes each column equal height by default."
+          title="Equal height columns"
         >
           <MainSection.Card
             sandpackExample={
@@ -123,8 +123,8 @@ export default function ColumnPage({ generatedDocGen }: { generatedDocGen: DocGe
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Gutters"
           description="Column gutters can be created through composition and negative margins."
+          title="Gutters"
         >
           <MainSection.Card
             sandpackExample={

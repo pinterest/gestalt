@@ -47,8 +47,8 @@ export default function MessagingPriorityAndPlacementPage(): ReactNode {
                     <Flex gap={2}>
                       <Icon
                         accessibilityLabel="error"
-                        icon="workflow-status-problem"
                         color="error"
+                        icon="workflow-status-problem"
                       />
                       <Text>Error</Text>
                     </Flex>
@@ -62,8 +62,8 @@ export default function MessagingPriorityAndPlacementPage(): ReactNode {
                     <Flex gap={2}>
                       <Icon
                         accessibilityLabel="warning"
-                        icon="workflow-status-warning"
                         color="warning"
+                        icon="workflow-status-warning"
                       />
                       <Text>Warning</Text>
                     </Flex>
@@ -77,8 +77,8 @@ export default function MessagingPriorityAndPlacementPage(): ReactNode {
                     <Flex gap={2}>
                       <Icon
                         accessibilityLabel="success"
-                        icon="workflow-status-ok"
                         color="success"
+                        icon="workflow-status-ok"
                       />
                       <Text>Success</Text>
                     </Flex>
@@ -92,8 +92,8 @@ export default function MessagingPriorityAndPlacementPage(): ReactNode {
                     <Flex gap={2}>
                       <Icon
                         accessibilityLabel="recommendation"
-                        icon="sparkle"
                         color="recommendation"
+                        icon="sparkle"
                       />
                       <Text>Recommendations</Text>
                     </Flex>
@@ -105,7 +105,7 @@ export default function MessagingPriorityAndPlacementPage(): ReactNode {
                   </Table.Cell>
                   <Table.Cell>
                     <Flex gap={2}>
-                      <Icon accessibilityLabel="info" icon="info-circle" color="info" />
+                      <Icon accessibilityLabel="info" color="info" icon="info-circle" />
                       <Text>Info</Text>
                     </Flex>
                   </Table.Cell>
@@ -116,14 +116,14 @@ export default function MessagingPriorityAndPlacementPage(): ReactNode {
         </MainSection.Subsection>
       </MainSection>
       <MainSection
-        name="Prominence and placement"
         description="Prominence of a message is determined by its severity. The amount of time it remains on screen is also determined by severity."
+        name="Prominence and placement"
       >
         <MainSection.Subsection title="Overlays">
-          <Heading size="300" accessibilityLevel={4}>
+          <Heading accessibilityLevel={4} size="300">
             Blocking content—the most prominent
           </Heading>
-          <Box maxWidth={678} maxHeight={409}>
+          <Box maxHeight={409} maxWidth={678}>
             <Blocking />
           </Box>
           <Box maxWidth={556}>
@@ -142,7 +142,7 @@ export default function MessagingPriorityAndPlacementPage(): ReactNode {
               </Link>
             </Text>
           </Flex>
-          <Box marginTop={4} marginBottom={2} maxWidth={556}>
+          <Box marginBottom={2} marginTop={4} maxWidth={556}>
             <Text>
               Blocking content slows a person down from their usual flow, so here are some
               guidelines on when it’s okay to block content.
@@ -151,19 +151,19 @@ export default function MessagingPriorityAndPlacementPage(): ReactNode {
           <Box>
             <Flex alignItems="center">
               <Box padding={4} width="50%">
-                <Flex gap={1} alignItems="center">
+                <Flex alignItems="center" gap={1}>
                   <Status type="ok" />
                   <Text weight="bold">When to use</Text>
                 </Flex>
               </Box>
-              <Box padding={4} width="50%" display="none" lgDisplay="block">
+              <Box display="none" lgDisplay="block" padding={4} width="50%">
                 <Text weight="bold">Example wireframe</Text>
               </Box>
             </Flex>
             <Box color="successWeak">
               <Flex direction="column">
                 <Box color="successBase" height={4} width="100%" />
-                <Box display="flex" alignItems="center" direction="column" lgDirection="row">
+                <Box alignItems="center" direction="column" display="flex" lgDirection="row">
                   <Box padding={4} width="50%">
                     <Text>
                       To confirm that someone wants to peform a destructive/irreversible action
@@ -174,7 +174,7 @@ export default function MessagingPriorityAndPlacementPage(): ReactNode {
                   </Box>
                 </Box>
                 <Divider />
-                <Box display="flex" alignItems="center" direction="column" lgDirection="row">
+                <Box alignItems="center" direction="column" display="flex" lgDirection="row">
                   <Box padding={4} width="50%">
                     <Text>
                       When an issue is so severe that it’s hard to continue with a good experience
@@ -185,7 +185,7 @@ export default function MessagingPriorityAndPlacementPage(): ReactNode {
                   </Box>
                 </Box>
                 <Divider />
-                <Box display="flex" alignItems="center" direction="column" lgDirection="row">
+                <Box alignItems="center" direction="column" display="flex" lgDirection="row">
                   <Box padding={4} width="50%">
                     <Text>
                       To warn a person of something that can have serious consequences before they
@@ -197,7 +197,7 @@ export default function MessagingPriorityAndPlacementPage(): ReactNode {
                   </Box>
                 </Box>
                 <Divider />
-                <Box display="flex" alignItems="center" direction="column" lgDirection="row">
+                <Box alignItems="center" direction="column" display="flex" lgDirection="row">
                   <Box padding={4} width="50%">
                     <Text>
                       As an interstitial that leads to a much better experience we think a person
@@ -215,24 +215,24 @@ export default function MessagingPriorityAndPlacementPage(): ReactNode {
           <Box>
             <Flex alignItems="center">
               <Box padding={4} width="50%">
-                <Flex gap={1} alignItems="center">
+                <Flex alignItems="center" gap={1}>
                   <Status type="problem" />
                   <Text weight="bold">When not to use</Text>
                 </Flex>
               </Box>
-              <Box padding={4} width="50%" display="none" lgDisplay="block">
+              <Box display="none" lgDisplay="block" padding={4} width="50%">
                 <Text weight="bold">Example wireframe</Text>
               </Box>
             </Flex>
             <Box color="errorWeak">
               <Flex direction="column">
                 <Box color="errorBase" height={4} width="100%" />
-                <Box display="flex" alignItems="center" direction="column" lgDirection="row">
+                <Box alignItems="center" direction="column" display="flex" lgDirection="row">
                   <Box padding={4} width="50%">
                     <Text>
                       To acknowledge completion of a task that doesn’t require follow up, like
                       pinning to a board. Use{' '}
-                      <Link href="/web/toast" underline="always" display="inlineBlock">
+                      <Link display="inlineBlock" href="/web/toast" underline="always">
                         Toast
                       </Link>{' '}
                       instead.
@@ -243,11 +243,11 @@ export default function MessagingPriorityAndPlacementPage(): ReactNode {
                   </Box>
                 </Box>
                 <Divider />
-                <Box display="flex" alignItems="center" direction="column" lgDirection="row">
+                <Box alignItems="center" direction="column" display="flex" lgDirection="row">
                   <Box padding={4} width="50%">
                     <Text>
                       To provide general information and recommendations. Use{' '}
-                      <Link href="/web/bannercallout" underline="always" display="inlineBlock">
+                      <Link display="inlineBlock" href="/web/bannercallout" underline="always">
                         BannerCallout
                       </Link>{' '}
                       instead.
@@ -258,7 +258,7 @@ export default function MessagingPriorityAndPlacementPage(): ReactNode {
                   </Box>
                 </Box>
                 <Divider />
-                <Box display="flex" alignItems="center" direction="column" lgDirection="row">
+                <Box alignItems="center" direction="column" display="flex" lgDirection="row">
                   <Box padding={4} width="50%">
                     <Text>
                       To show an error or warning that applies to a section of a page, or that
@@ -273,19 +273,19 @@ export default function MessagingPriorityAndPlacementPage(): ReactNode {
             </Box>
           </Box>
           <Box marginBottom={4} marginTop={8}>
-            <Heading size="300" accessibilityLevel={4}>
+            <Heading accessibilityLevel={4} size="300">
               Not blocking content
             </Heading>
           </Box>
           <Box marginTop={-4}>
-            <Heading size="200" accessibilityLevel={5}>
+            <Heading accessibilityLevel={5} size="200">
               Ephemeral—less prominent
             </Heading>
           </Box>
-          <Box maxWidth={678} maxHeight={409}>
+          <Box maxHeight={409} maxWidth={678}>
             <Emphemeral />
           </Box>
-          <Box maxWidth={556} marginTop={4} marginBottom={0}>
+          <Box marginBottom={0} marginTop={4} maxWidth={556}>
             <Text>
               Small overlays that appear for a short period of time, usually 3–5 seconds depending
               on content. They do not prevent a user from accessing the main content and navigation
@@ -305,13 +305,13 @@ export default function MessagingPriorityAndPlacementPage(): ReactNode {
         </MainSection.Subsection>
 
         <MainSection.Subsection title="On surface">
-          <Heading size="300" accessibilityLevel={4}>
+          <Heading accessibilityLevel={4} size="300">
             Top of the page—very prominent
           </Heading>
-          <Box maxWidth={678} maxHeight={409}>
+          <Box maxHeight={409} maxWidth={678}>
             <TopPage />
           </Box>
-          <Box maxWidth={556} marginBottom={-4}>
+          <Box marginBottom={-4} maxWidth={556}>
             <Text>
               Place messages at the top of a page, below the main app nav if the alert or
               information applies to the entire page. Avoid stacking messages so that a person’s
@@ -319,7 +319,7 @@ export default function MessagingPriorityAndPlacementPage(): ReactNode {
               interact with. Show the highest-severity ones first.
             </Text>
           </Box>
-          <Box marginTop={4} marginBottom={4}>
+          <Box marginBottom={4} marginTop={4}>
             <Flex gap={2}>
               <Text weight="bold">Current components:</Text>
               <Text>
@@ -340,10 +340,10 @@ export default function MessagingPriorityAndPlacementPage(): ReactNode {
             </Flex>
           </Box>
 
-          <Heading size="300" accessibilityLevel={4}>
+          <Heading accessibilityLevel={4} size="300">
             Ephemeral—less prominent
           </Heading>
-          <Box maxWidth={678} maxHeight={409}>
+          <Box maxHeight={409} maxWidth={678}>
             <Section />
           </Box>
           <Box maxWidth={556}>

@@ -10,19 +10,19 @@ export default function Example(): ReactNode {
   return (
     <Fragment>
       <Flex
+        alignItems="center"
         direction="column"
         gap={6}
         height="100%"
-        width="100%"
         justifyContent="center"
-        alignItems="center"
+        width="100%"
       >
         <Button
           color="red"
           onClick={() => setOpen((prevVal) => !prevVal)}
           text={open ? 'Close Popover' : 'Anchor a Popover to Box'}
         />
-        <Box borderStyle="sm" padding={3} ref={anchorRef} rounding={1}>
+        <Box ref={anchorRef} borderStyle="sm" padding={3} rounding={1}>
           <Text>I&apos;m a Box</Text>
         </Box>
       </Flex>

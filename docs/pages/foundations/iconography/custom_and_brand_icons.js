@@ -7,7 +7,7 @@ import PageHeader from '../../../docs-components/PageHeader';
 export default function IconPage(): ReactNode {
   return (
     <Page title="Custom and brand icons">
-      <PageHeader name="Custom and brand icons" folderName="icons" type="guidelines" />
+      <PageHeader folderName="icons" name="Custom and brand icons" type="guidelines" />
       <MainSection name="Custom SVG icons">
         <MainSection.Subsection
           description={`

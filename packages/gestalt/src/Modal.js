@@ -86,7 +86,7 @@ function Header({
 }) {
   return (
     <Box justifyContent={align} padding={6}>
-      <Heading size="500" accessibilityLevel={1} align={align}>
+      <Heading accessibilityLevel={1} align={align} size="500">
         {heading}
       </Heading>
       {subHeading && (
@@ -175,13 +175,13 @@ export default function Modal({
     return (
       <FullPage
         align={align}
-        onDismiss={onDismiss}
         footer={footer}
-        padding={padding}
         heading={heading}
+        onDismiss={onDismiss}
+        padding={padding}
         role={role}
-        subHeading={subHeading}
         showDismissButton
+        subHeading={subHeading}
       >
         {children}
       </FullPage>
@@ -195,15 +195,15 @@ export default function Modal({
           <Backdrop closeOnOutsideClick={closeOnOutsideClick} onClick={handleOutsideClick}>
             <div
               className={classnames(modalStyles.wrapper, focusStyles.hideOutline)}
-              tabIndex={-1}
               style={{ width }}
+              tabIndex={-1}
             >
-              <Box flex="grow" position="relative" display="flex" direction="column" width="100%">
+              <Box direction="column" display="flex" flex="grow" position="relative" width="100%">
                 {Boolean(heading) && (
                   <Box
                     borderStyle={showTopShadow ? 'raisedTopShadow' : undefined}
-                    position="relative"
                     fit
+                    position="relative"
                     zIndex={new FixedZIndex(1)}
                   >
                     {typeof heading === 'string' ? (
@@ -216,10 +216,10 @@ export default function Modal({
                 {/* _dangerouslyDisableScrollBoundaryContainer must be kept temporarily until specific surfaces migrate from Modal to OverlayPanel */}
                 {_dangerouslyDisableScrollBoundaryContainer ? (
                   <Box
-                    flex="grow"
-                    overflow="auto"
-                    onScroll={updateShadows}
                     ref={contentRef}
+                    flex="grow"
+                    onScroll={updateShadows}
+                    overflow="auto"
                     padding={padding === 'none' ? 0 : 6}
                   >
                     {children}
@@ -227,8 +227,8 @@ export default function Modal({
                 ) : (
                   <ScrollBoundaryContainerProvider>
                     <InternalScrollBoundaryContainer
-                      onScroll={updateShadows}
                       ref={contentRef}
+                      onScroll={updateShadows}
                       padding={padding === 'none' ? 0 : 6}
                     >
                       {children}
@@ -238,8 +238,8 @@ export default function Modal({
                 {Boolean(footer) && (
                   <Box
                     borderStyle={showBottomShadow ? 'raisedBottomShadow' : undefined}
-                    position="relative"
                     fit
+                    position="relative"
                     zIndex={new FixedZIndex(1)}
                   >
                     <Box padding={6}>{footer}</Box>

@@ -4,17 +4,17 @@ import { Flex, Image, Link, Text, Toast } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex justifyContent="center" alignItems="center" width="100%" height="100%">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Toast
+        dismissButton={{ onDismiss: () => {} }}
         text={
           <Text inline>
             Saved to{' '}
-            <Link display="inlineBlock" target="blank" href="#">
+            <Link display="inlineBlock" href="#" target="blank">
               Sushi time
             </Link>
           </Text>
         }
-        dismissButton={{ onDismiss: () => {} }}
         thumbnail={{
           image: (
             <Image

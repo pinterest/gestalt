@@ -4,12 +4,12 @@ import { Box, Flex, Heading, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} display="flex" justifyContent="center">
-      <Flex maxWidth={240} direction="column" gap={{ column: 8, row: 0 }}>
+    <Box display="flex" justifyContent="center" padding={8}>
+      <Flex direction="column" gap={{ column: 8, row: 0 }} maxWidth={240}>
         <Flex direction="column" gap={{ column: 2, row: 0 }}>
           <Text>breakWord (default):</Text>
           <Box color="secondary" padding={2} rounding={2}>
-            <Heading size="400" overflow="breakWord">
+            <Heading overflow="breakWord" size="400">
               This is a long and Supercalifragilisticexpialidocious sentence.
               次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
             </Heading>
@@ -19,7 +19,7 @@ export default function Example(): ReactNode {
         <Flex direction="column" gap={{ column: 2, row: 0 }}>
           <Text>normal:</Text>
           <Box color="secondary" padding={2} rounding={2}>
-            <Heading size="400" overflow="normal">
+            <Heading overflow="normal" size="400">
               This is a long and Supercalifragilisticexpialidocious sentence.
               次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
             </Heading>
@@ -29,7 +29,7 @@ export default function Example(): ReactNode {
         <Flex direction="column" gap={{ column: 2, row: 0 }}>
           <Text>breakAll:</Text>
           <Box color="secondary" padding={2} rounding={2}>
-            <Heading size="400" overflow="breakAll">
+            <Heading overflow="breakAll" size="400">
               This is a long and Supercalifragilisticexpialidocious sentence.
               次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
             </Heading>
@@ -39,7 +39,7 @@ export default function Example(): ReactNode {
         <Flex direction="column" gap={{ column: 2, row: 0 }}>
           <Text>lineClamp:</Text>
           <Box color="secondary" padding={2} rounding={2}>
-            <Heading size="400" lineClamp={2}>
+            <Heading lineClamp={2} size="400">
               This is a long and Supercalifragilisticexpialidocious sentence.
               次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
             </Heading>

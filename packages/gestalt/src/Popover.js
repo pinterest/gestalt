@@ -129,21 +129,21 @@ export default function Popover({
   if (!isInExperiment && !__experimentalPopover) {
     return (
       <LegacyInternalPopover
-        accessibilityLabel={accessibilityLabel}
+        __dangerouslySetMaxHeight={__dangerouslySetMaxHeight}
         accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
+        accessibilityLabel={accessibilityLabel}
         anchor={anchor}
-        showDismissButton={showDismissButton}
-        onKeyDown={onKeyDown}
+        color={color === 'deprecatedBlue' ? 'blue' : color}
         id={id}
         idealDirection={idealDirection}
         onDismiss={onDismiss}
+        onKeyDown={onKeyDown}
         positionRelativeToAnchor={positionRelativeToAnchor}
-        color={color === 'deprecatedBlue' ? 'blue' : color}
         role={role}
         shouldFocus={shouldFocus}
         showCaret={_deprecatedShowCaret}
+        showDismissButton={showDismissButton}
         size={size}
-        __dangerouslySetMaxHeight={__dangerouslySetMaxHeight}
       >
         {children}
       </LegacyInternalPopover>
@@ -152,23 +152,23 @@ export default function Popover({
 
   return (
     <InternalPopover
-      accessibilityLabel={accessibilityLabel}
       accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
+      accessibilityLabel={accessibilityLabel}
       anchor={anchor}
-      showDismissButton={showDismissButton}
-      onKeyDown={onKeyDown}
+      color={color === 'deprecatedBlue' ? 'blue' : color}
+      disablePortal={disablePortal ?? positionRelativeToAnchor}
+      hideWhenReferenceHidden={hideWhenReferenceHidden}
       id={id}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
-      disablePortal={disablePortal ?? positionRelativeToAnchor}
-      color={color === 'deprecatedBlue' ? 'blue' : color}
+      onKeyDown={onKeyDown}
+      onPositioned={__onPositioned}
       role={role}
+      scrollBoundary={scrollBoundary}
       shouldFocus={shouldFocus}
       showCaret={_deprecatedShowCaret}
+      showDismissButton={showDismissButton}
       size={size}
-      scrollBoundary={scrollBoundary}
-      hideWhenReferenceHidden={hideWhenReferenceHidden}
-      onPositioned={__onPositioned}
     >
       {children}
     </InternalPopover>

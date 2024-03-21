@@ -57,10 +57,10 @@ export default function RoadmapPage(): ReactNode {
     itemType.map((item) => (
       <Task
         key={item.task}
-        text={item.task}
-        description={item.description}
         delivery={item.deadline}
+        description={item.description}
         platforms={item.platforms}
+        text={item.task}
       />
     )),
   );
@@ -72,11 +72,11 @@ export default function RoadmapPage(): ReactNode {
         <Text>
           {`The following reflects all public-facing work the Gestalt team plans to ship in ${roadmapData.year}.`}{' '}
           For more details on our latest updates, visit the{' '}
-          <Link href="/whats_new" display="inline">
+          <Link display="inline" href="/whats_new">
             What&apos;s New page.
           </Link>
         </Text>
-        <Flex gap={1} alignItems="center">
+        <Flex alignItems="center" gap={1}>
           <Text>
             <Link
               href="https://jira.pinadmin.com/secure/PortfolioPlanView.jspa?id=525&sid=530&vid=1684#plan/backlog"

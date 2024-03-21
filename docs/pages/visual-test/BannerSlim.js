@@ -28,15 +28,15 @@ export default function Snapshot(): ReactNode {
         ].map((type) => (
           <BannerSlim
             key={type}
-            type={type}
-            message={`This is a/an ${type} message.`}
-            iconAccessibilityLabel="test"
             helperLink={{
               text: 'Learn more',
               accessibilityLabel: 'Learn more Pinterest.com',
               href: 'http://www.pinterest.com',
               onClick: () => {},
             }}
+            iconAccessibilityLabel="test"
+            message={`This is a/an ${type} message.`}
+            type={type}
           />
         ))}
       </Flex>

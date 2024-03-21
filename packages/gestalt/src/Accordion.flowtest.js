@@ -6,8 +6,8 @@ const ValidWithMinimumProps = <Accordion id="accordion-id" />;
 
 const ValidWithBaseProps = (
   <Accordion
-    id="accordion-id"
     iconAccessibilityLabel="There is an error"
+    id="accordion-id"
     title="Accordion Title"
     type="error"
   >
@@ -44,12 +44,12 @@ const ValidWithIconButtonProps = (
     iconAccessibilityLabel="There is an error"
     iconButton={
       <IconButton
+        accessibilityLabel="Get help"
         bgColor="lightGray"
         icon="question-mark"
         iconColor="darkGray"
-        accessibilityLabel="Get help"
-        size="xs"
         onClick={() => {}}
+        size="xs"
       />
     }
     id="accordion-id"

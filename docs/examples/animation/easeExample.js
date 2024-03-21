@@ -81,13 +81,13 @@ export default function Example(): ReactNode {
               `,
         }}
       />
-      <Flex gap={5} direction="column">
+      <Flex direction="column" gap={5}>
         <Button
           onClick={() => {
             setMotionEnabled(!motionEnabled);
           }}
-          text={motionEnabled ? 'Disable motion' : 'Enable motion'}
           size="sm"
+          text={motionEnabled ? 'Disable motion' : 'Enable motion'}
         />
         <Box>
           <Text size="400" weight="bold">
@@ -103,7 +103,7 @@ export default function Example(): ReactNode {
             Ease
           </Text>
           <div className={motionEnabled ? 'logoSecond' : null}>
-            <GestaltLogo width={100} height={100} />
+            <GestaltLogo height={100} width={100} />
           </div>
           <Divider />
         </Box>
@@ -112,7 +112,7 @@ export default function Example(): ReactNode {
             Ease-in
           </Text>
           <div className={motionEnabled ? 'logoThird' : null}>
-            <GestaltLogo width={100} height={100} />
+            <GestaltLogo height={100} width={100} />
           </div>
           <Divider />
         </Box>
@@ -121,7 +121,7 @@ export default function Example(): ReactNode {
             Ease-out
           </Text>
           <div className={motionEnabled ? 'logoFourth' : null}>
-            <GestaltLogo width={100} height={100} />
+            <GestaltLogo height={100} width={100} />
           </div>
           <Divider />
         </Box>
@@ -131,7 +131,7 @@ export default function Example(): ReactNode {
           </Text>
           <Text italic>cubic-bezier(0.5, 0.5, 0.4, 1.2)</Text>
           <div className={motionEnabled ? 'logoFifth' : null}>
-            <GestaltLogo width={100} height={100} />
+            <GestaltLogo height={100} width={100} />
           </div>
           <Divider />
         </Box>

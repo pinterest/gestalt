@@ -11,12 +11,12 @@ function SearchCollaboratorsField(): ReactNode {
 
   return (
     <SearchField
+      ref={ref}
       accessibilityLabel="Search other users"
       id="searchField"
       onChange={() => {}}
       placeholder="Search by name or email"
       size="lg"
-      ref={ref}
     />
   );
 }
@@ -29,13 +29,10 @@ export default function Example(): ReactNode {
     <Flex height="100%" width="100%">
       <Box height="200" marginTop={6} padding={2}>
         <AvatarGroup
-          accessibilityLabel="Collaborators: Keerthi, Alberto, and 10 more. Add collaborators to this board."
-          accessibilityExpanded={open}
-          addCollaborators
-          role="button"
-          onClick={() => setOpen((value) => !value)}
           ref={anchorRef}
-          size="md"
+          accessibilityExpanded={open}
+          accessibilityLabel="Collaborators: Keerthi, Alberto, and 10 more. Add collaborators to this board."
+          addCollaborators
           collaborators={[
             {
               name: 'Keerthi',
@@ -47,6 +44,9 @@ export default function Example(): ReactNode {
             },
             ...new Array(10),
           ]}
+          onClick={() => setOpen((value) => !value)}
+          role="button"
+          size="md"
         />
       </Box>
       {open && (
@@ -60,10 +60,10 @@ export default function Example(): ReactNode {
           >
             <Box
               flex="grow"
+              marginBottom={8}
               marginEnd={4}
               marginStart={4}
               marginTop={6}
-              marginBottom={8}
               width={360}
             >
               <Flex direction="column" gap={{ column: 6, row: 0 }}>

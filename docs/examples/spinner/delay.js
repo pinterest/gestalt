@@ -11,20 +11,20 @@ export default function Example(): ReactNode {
       <Box padding={2}>
         <Flex direction="column" gap={2}>
           <Button
-            text={show ? 'Hide spinner' : 'Show spinner'}
             onClick={() => setShow((currVal) => !currVal)}
             size="md"
+            text={show ? 'Hide spinner' : 'Show spinner'}
           />
 
           <Button
-            text={hasDelay ? 'Disable delay' : 'Enable delay'}
             onClick={() => setHasDelay((currVal) => !currVal)}
             size="md"
+            text={hasDelay ? 'Disable delay' : 'Enable delay'}
           />
         </Flex>
       </Box>
 
-      <Spinner show={show} accessibilityLabel="Example spinner" delay={hasDelay} />
+      <Spinner accessibilityLabel="Example spinner" delay={hasDelay} show={show} />
     </Fragment>
   );
 }

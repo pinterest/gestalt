@@ -408,18 +408,18 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
         const isSelectedValue = (selectedOption?.value ?? selectedItem?.value) === value;
         return (
           <ComboBoxItem
-            isHovered={index === hoveredItemIndex}
-            id={id}
-            index={index}
             // eslint-disable-next-line react/no-array-index-key
             key={`${id}${index}`}
+            ref={optionRef}
+            id={id}
+            index={index}
+            isHovered={index === hoveredItemIndex}
+            isSelected={isSelectedValue}
             label={comboBoxItemlabel}
+            onSelect={handleSelectItem}
+            setHoveredItemIndex={setHoveredItemIndex}
             subtext={subtext}
             value={value}
-            onSelect={handleSelectItem}
-            isSelected={isSelectedValue}
-            setHoveredItemIndex={setHoveredItemIndex}
-            ref={optionRef}
           />
         );
       }),
@@ -450,13 +450,14 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
       >
         <InternalTextField
           // add accessibilityControls once the option list element exists
-          accessibilityControls={showOptionsList && innerRef.current ? id : undefined}
+          ref={innerRef}
           // add accessibilityActiveDescendant once the option list element exists
           accessibilityActiveDescendant={
             showOptionsList && innerRef.current && hoveredItemIndex !== null
               ? `${id}-item-${hoveredItemIndex}`
               : undefined
           }
+          accessibilityControls={showOptionsList && innerRef.current ? id : undefined}
           autoComplete="off"
           disabled={disabled}
           errorMessage={errorMessage}
@@ -494,7 +495,6 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
           onFocus={handleOnFocus}
           onKeyDown={handleOnKeyDown}
           placeholder={tags && tags.length > 0 ? '' : placeholder}
-          ref={innerRef}
           size={size}
           tags={selectedTags}
           type="text"
@@ -504,20 +504,21 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
       {showOptionsList && innerRef.current ? (
         <Layer zIndex={zIndex}>
           <Popover
+            key={isInExperiment ? undefined : suggestedOptions.length}
             __experimentalPopover={isInExperiment}
             anchor={innerRef.current}
-            onKeyDown={handleKeyDown}
+            disablePortal
             idealDirection="down"
             onDismiss={handleOnDismiss}
+            onKeyDown={handleKeyDown}
             positionRelativeToAnchor={false}
-            disablePortal
-            size="flexible"
-            key={isInExperiment ? undefined : suggestedOptions.length}
             shouldFocus={false}
+            size="flexible"
           >
             <Box
-              aria-expanded={showOptionsList}
+              ref={dropdownRef}
               alignItems="center"
+              aria-expanded={showOptionsList}
               direction="column"
               display="flex"
               flex="grow"
@@ -525,7 +526,6 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
               maxHeight="30vh"
               overflow="auto"
               padding={2}
-              ref={dropdownRef}
               role="listbox"
               rounding={4}
               width={innerRef?.current?.offsetWidth}
@@ -533,8 +533,8 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
               {suggestedOptions.length > 0 ? (
                 comboBoxItemList
               ) : (
-                <Box width="100%" paddingX={2} paddingY={4}>
-                  <Text lineClamp={1} color="subtle">
+                <Box paddingX={2} paddingY={4} width="100%">
+                  <Text color="subtle" lineClamp={1}>
                     {noResultText ?? noResultTextDefault}
                   </Text>
                 </Box>

@@ -448,9 +448,9 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
 
     const itemComponent = (
       <div
+        key={`item-${idx}`}
         className={[styles.Masonry__Item, styles.Masonry__Item__Mounted].join(' ')}
         data-grid-item
-        key={`item-${idx}`}
         role="listitem"
         style={{
           top: 0,
@@ -532,16 +532,13 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
       // and the measurement store is empty
       gridBody = (
         <div
-          className={styles.Masonry}
           ref={this.setGridWrapperRef}
+          className={styles.Masonry}
           role="list"
           style={{ height: 0, width: '100%' }}
         >
           {items.filter(Boolean).map((item, i) => (
             <div // keep this in sync with renderMasonryComponent
-              className="static"
-              data-grid-item
-              data-column-span={item.columnSpan ?? 1}
               // eslint-disable-next-line react/no-array-index-key
               key={i}
               ref={(el) => {
@@ -553,6 +550,9 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
                   measurementStore.set(item, el.clientHeight);
                 }
               }}
+              className="static"
+              data-column-span={item.columnSpan ?? 1}
+              data-grid-item
               role="listitem"
               style={{
                 top: 0,
@@ -577,7 +577,7 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
     } else if (width == null) {
       // When the width is empty (usually after a re-mount) render an empty
       // div to collect the width for layout
-      gridBody = <div style={{ width: '100%' }} ref={this.setGridWrapperRef} />;
+      gridBody = <div ref={this.setGridWrapperRef} style={{ width: '100%' }} />;
     } else {
       // Full layout is possible
       const itemsToRender = items.filter((item) => item && measurementStore.has(item));
@@ -599,7 +599,7 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
         : 0;
 
       gridBody = (
-        <div style={{ width: '100%' }} ref={this.setGridWrapperRef}>
+        <div ref={this.setGridWrapperRef} style={{ width: '100%' }}>
           <div className={styles.Masonry} role="list" style={{ height, width }}>
             {itemsToRender.map((item, i) =>
               this.renderMasonryComponent(
@@ -621,6 +621,11 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
               return (
                 <div
                   key={`measuring-${measurementIndex}`}
+                  ref={(el) => {
+                    if (el) {
+                      measurementStore.set(data, el.clientHeight);
+                    }
+                  }}
                   style={{
                     visibility: 'hidden',
                     position: 'absolute',
@@ -628,11 +633,6 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
                     left: layoutNumberToCssDimension(position.left),
                     width: layoutNumberToCssDimension(position.width),
                     height: layoutNumberToCssDimension(position.height),
-                  }}
-                  ref={(el) => {
-                    if (el) {
-                      measurementStore.set(data, el.clientHeight);
-                    }
                   }}
                 >
                   {renderItem({

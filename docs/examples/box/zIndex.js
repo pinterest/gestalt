@@ -14,21 +14,21 @@ export default function Example(): ReactNode {
       tabIndex={0}
     >
       <Sticky top={0} zIndex={HEADER_ZINDEX}>
-        <Box color="errorBase" width="80%" height={60} padding={2}>
+        <Box color="errorBase" height={60} padding={2} width="80%">
           <Text color="light">This is sticky and won&apos;t move when scrolling</Text>
         </Box>
       </Sticky>
       <Box
         color="infoBase"
-        width="50%"
         height={100}
-        zIndex={zIndex}
-        position="relative"
         padding={2}
+        position="relative"
+        width="50%"
+        zIndex={zIndex}
       >
         <Text color="light">This will float above the sticky Box when scrolling</Text>
       </Box>
-      <Box color="successBase" width="30%" height={120} padding={2}>
+      <Box color="successBase" height={120} padding={2} width="30%">
         <Text color="light">This will go behind the sticky Box when scrolling</Text>
       </Box>
     </Box>

@@ -13,7 +13,7 @@ exports[`Table.Footer renders correctly 1`] = `
       >
         <caption
           class="absolute box overflowHidden"
-          style="width: 1px; height: 1px; clip: rect(1px, 1px, 1px, 1px); white-space: nowrap;"
+          style="clip: rect(1px, 1px, 1px, 1px); white-space: nowrap; height: 1px; width: 1px;"
         >
           Sticky footer
         </caption>
@@ -53,7 +53,7 @@ exports[`Table.Footer sticky footer renders correctly 1`] = `
       >
         <caption
           class="absolute box overflowHidden"
-          style="width: 1px; height: 1px; clip: rect(1px, 1px, 1px, 1px); white-space: nowrap;"
+          style="clip: rect(1px, 1px, 1px, 1px); white-space: nowrap; height: 1px; width: 1px;"
         >
           Sticky footer
         </caption>

@@ -5,7 +5,7 @@ import ButtonLink from './ButtonLink';
 describe('ButtonLink', () => {
   test('renders', () => {
     const component = create(
-      <ButtonLink href="#" size="lg" text="Visit Pinterest" rel="nofollow" target="blank" />,
+      <ButtonLink href="#" rel="nofollow" size="lg" target="blank" text="Visit Pinterest" />,
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
@@ -16,10 +16,10 @@ describe('ButtonLink', () => {
       <ButtonLink
         href="#"
         iconEnd="visit"
-        size="lg"
-        text="Visit Pinterest"
         rel="nofollow"
+        size="lg"
         target="blank"
+        text="Visit Pinterest"
       />,
     );
     const tree = component.toJSON();
@@ -29,12 +29,12 @@ describe('ButtonLink', () => {
   test('renders disabled', () => {
     const component = create(
       <ButtonLink
-        href="#"
         disabled
-        size="lg"
-        text="Visit Pinterest"
+        href="#"
         rel="nofollow"
+        size="lg"
         target="blank"
+        text="Visit Pinterest"
       />,
     );
     const tree = component.toJSON();

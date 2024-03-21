@@ -4,7 +4,7 @@ import { BannerUpsell, Box, Button, ButtonGroup, Divider, Flex, Icon } from 'ges
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Box>
         <Box alignItems="center" display="flex" marginBottom={4}>
           <Icon accessibilityLabel="" color="brandPrimary" icon="pinterest" size={32} />
@@ -22,7 +22,7 @@ export default function Example(): ReactNode {
           <Flex direction="column" gap={{ column: 2, row: 0 }}>
             <BannerUpsell
               imageData={{
-                component: <Icon icon="send" accessibilityLabel="" color="default" size={32} />,
+                component: <Icon accessibilityLabel="" color="default" icon="send" size={32} />,
               }}
               message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
               primaryAction={{
@@ -40,7 +40,7 @@ export default function Example(): ReactNode {
               }}
               imageData={{
                 component: (
-                  <Icon icon="pinterest" accessibilityLabel="" color="default" size={32} />
+                  <Icon accessibilityLabel="" color="default" icon="pinterest" size={32} />
                 ),
               }}
               message="Earn $60 of ads credit, and give $30 of ads credit to a friend"

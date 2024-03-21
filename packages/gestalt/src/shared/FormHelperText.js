@@ -27,7 +27,7 @@ export default function FormHelperText({
 }: Props): ReactNode {
   return (
     // id is required for all helper texts accompanying an individual form element, not for groups of form elements such as RadioGroup.
-    <Box marginTop={applyDensityMargin(size)} id={id}>
+    <Box id={id} marginTop={applyDensityMargin(size)}>
       <Flex gap={4}>
         <Flex.Item flex="grow">
           {text ? (

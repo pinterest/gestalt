@@ -76,22 +76,22 @@ function ActivationCardLink({ data }: { data: LinkData }): ReactNode {
   return (
     <Box
       alignItems="center"
-      paddingX={1}
-      marginTop={8}
       marginEnd="auto"
       marginStart="auto"
+      marginTop={8}
+      paddingX={1}
       rounding="pill"
     >
       <ButtonLink
         accessibilityLabel={accessibilityLabel}
         color="gray"
-        href={href}
         fullWidth
+        href={href}
         onClick={onClick}
         rel={rel}
         size="lg"
-        text={label}
         target={target}
+        text={label}
       />
     </Box>
   );
@@ -117,12 +117,12 @@ function CompletedCard({
     <Fragment>
       <Box display="flex">
         {icon && (
-          <Box display="flex" alignContent="center">
+          <Box alignContent="center" display="flex">
             <Box marginEnd={4}>
               <Icon
                 accessibilityLabel={statusMessage}
-                icon={icon.symbol}
                 color={icon.color}
+                icon={icon.symbol}
                 size={40}
               />
             </Box>
@@ -135,7 +135,7 @@ function CompletedCard({
             </Text>
           </Box>
           {message && (
-            <Box flex="grow" direction="column" alignContent="start" marginTop={2}>
+            <Box alignContent="start" direction="column" flex="grow" marginTop={2}>
               <Text color="subtle" size="200">
                 {message}
               </Text>
@@ -172,19 +172,19 @@ function UncompletedCard({
 
   return (
     <Fragment>
-      <Box display="flex" alignContent="center" height={24}>
+      <Box alignContent="center" display="flex" height={24}>
         {icon && (
           <Box marginEnd={2}>
             <Icon
               accessibilityLabel={statusMessage}
-              icon={icon.symbol}
               color={icon.color}
+              icon={icon.symbol}
               size={24}
             />
           </Box>
         )}
         <Box alignSelf="center" marginTop={isStarted ? 0 : 1}>
-          <Text color={isStarted ? 'default' : 'subtle'} weight="bold" size="200">
+          <Text color={isStarted ? 'default' : 'subtle'} size="200" weight="bold">
             {statusMessage}
           </Text>
         </Box>
@@ -195,7 +195,7 @@ function UncompletedCard({
         </Text>
       </Box>
       {message && (
-        <Box flex="grow" direction="column" alignContent="start" marginTop={2}>
+        <Box alignContent="start" direction="column" flex="grow" marginTop={2}>
           <Text color="subtle" size="200">
             {message}
           </Text>
@@ -245,17 +245,17 @@ export default function ActivationCard({
 
   return (
     <Box
-      display="flex"
-      flex="grow"
       borderStyle="shadow"
       color={isDarkMode ? 'elevationFloating' : 'default'}
-      rounding={4}
-      padding={6}
-      maxWidth={400}
-      position="relative"
       direction="column"
-      justifyContent="center"
+      display="flex"
+      flex="grow"
       height="100%"
+      justifyContent="center"
+      maxWidth={400}
+      padding={6}
+      position="relative"
+      rounding={4}
       width="100%"
     >
       {isCompleted ? (

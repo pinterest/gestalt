@@ -91,15 +91,15 @@ function MainSectionCard({
 
   const TitleAndDescription = (
     <Box
-      marginTop={borderStyle ? 4 : 3}
-      marginBottom={cardSize === 'lg' ? 4 : 0}
       dangerouslySetInlineStyle={{
         __style: { borderTop: borderStyle },
       }}
+      marginBottom={cardSize === 'lg' ? 4 : 0}
+      marginTop={borderStyle ? 4 : 3}
     >
       {(title || type !== 'info') && (
-        <Box paddingY={1} display="flex" justifyContent="between">
-          <Text weight="bold" color={TYPE_TO_COLOR[type]}>
+        <Box display="flex" justifyContent="between" paddingY={1}>
+          <Text color={TYPE_TO_COLOR[type]} weight="bold">
             {cardTitle || capitalizeFirstLetter(type)}
           </Text>
           {type === 'do' && code && (
@@ -112,7 +112,7 @@ function MainSectionCard({
         </Box>
       )}
       {description && (
-        <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginTop={2} color="default">
+        <Box color="default" marginTop={2} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
           <Markdown text={description} />
         </Box>
       )}
@@ -129,7 +129,7 @@ function MainSectionCard({
   }
 
   return (
-    <Box minWidth={CARD_SIZE_NAME_TO_PIXEL[cardSize]} marginBottom={marginBotton}>
+    <Box marginBottom={marginBotton} minWidth={CARD_SIZE_NAME_TO_PIXEL[cardSize]}>
       {showTitleAndDescriptionAboveExample && (title || description) && TitleAndDescription}
 
       {Boolean(children) && <PreviewCard>{children}</PreviewCard>}
@@ -141,7 +141,7 @@ function MainSectionCard({
           </PreviewCard>
           {/* If it uses an iframe, show the original code (below), instead of the iframe code */}
           {shouldShowCode && (
-            <ExampleCode hideCodePreview={hideCodePreview} code={code} name={cardTitle || ''} />
+            <ExampleCode code={code} hideCodePreview={hideCodePreview} name={cardTitle || ''} />
           )}
 
           <Box paddingX={2}>

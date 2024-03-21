@@ -124,13 +124,13 @@ function SelectList({
     <Box>
       {label && <FormLabel id={id} label={label} labelDisplay={labelDisplay} />}
       <Box
+        dangerouslySetInlineStyle={{
+          __style: { backgroundColor: TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY },
+        }}
         display="flex"
         position="relative"
         rounding={4}
         width="100%"
-        dangerouslySetInlineStyle={{
-          __style: { backgroundColor: TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY },
-        }}
       >
         <Box
           alignItems="center"
@@ -144,10 +144,10 @@ function SelectList({
           top
         >
           <Icon
+            accessibilityLabel=""
+            color={disabled ? 'subtle' : 'default'}
             icon="arrow-down"
             size={12}
-            color={disabled ? 'subtle' : 'default'}
-            accessibilityLabel=""
           />
         </Box>
         <select
@@ -167,7 +167,7 @@ function SelectList({
           value={showPlaceholder ? placeholder : value}
         >
           {showPlaceholder && (
-            <option disabled value={placeholder} hidden>
+            <option disabled hidden value={placeholder}>
               {placeholder}
             </option>
           )}

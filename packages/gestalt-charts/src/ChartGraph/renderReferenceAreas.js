@@ -21,13 +21,13 @@ export default function renderReferenceAreas({
     <RechartsReferenceArea
       key={values.id}
       isFront
+      shape={(props) => <Rectangle {...props} fill="url(#pattern-referencearea-01)" />}
+      strokeOpacity={0.3}
       x1={values.x1}
       x2={values.x2}
       y1={values.y1}
       y2={values.y2}
       yAxisId={values.yAxisId}
-      strokeOpacity={0.3}
-      shape={(props) => <Rectangle {...props} fill="url(#pattern-referencearea-01)" />}
     />
   ));
 }

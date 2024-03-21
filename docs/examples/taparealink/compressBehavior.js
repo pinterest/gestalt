@@ -8,17 +8,17 @@ export default function Example(): ReactNode {
   const [tabIndex, setTabIndex] = useState(false);
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex alignItems="start" direction="column" gap={{ column: 6, row: 0 }}>
         <Flex gap={6} wrap>
           <TapAreaLink
-            tapStyle={compressed}
             disabled={disabled}
-            target="blank"
             href="https://www.pinterest.com"
             tabIndex={tabIndex ? -1 : 0}
+            tapStyle={compressed}
+            target="blank"
           >
-            <Box padding={3} column={12} borderStyle="lg" width={200}>
+            <Box borderStyle="lg" column={12} padding={3} width={200}>
               <Mask rounding={2}>
                 <Image
                   alt="Antelope Canyon"
@@ -33,11 +33,11 @@ export default function Example(): ReactNode {
         </Flex>
         <Flex gap={{ column: 0, row: 2 }}>
           <Switch
-            onChange={() => setCompressed(compressed === 'compress' ? 'none' : 'compress')}
             id="compress-buttons"
+            onChange={() => setCompressed(compressed === 'compress' ? 'none' : 'compress')}
             switched={compressed === 'compress'}
           />
-          <Box paddingX={2} flex="grow">
+          <Box flex="grow" paddingX={2}>
             <Label htmlFor="compress-buttons">
               <Text>Compress TapArea</Text>
             </Label>
@@ -45,11 +45,11 @@ export default function Example(): ReactNode {
         </Flex>
         <Flex gap={{ column: 0, row: 2 }}>
           <Switch
-            onChange={() => setDisabled(!disabled)}
             id="disable-buttons"
+            onChange={() => setDisabled(!disabled)}
             switched={disabled}
           />
-          <Box paddingX={2} flex="grow">
+          <Box flex="grow" paddingX={2}>
             <Label htmlFor="disable-buttons">
               <Text>Disable TapArea</Text>
             </Label>
@@ -57,11 +57,11 @@ export default function Example(): ReactNode {
         </Flex>
         <Flex gap={{ column: 0, row: 2 }}>
           <Switch
-            onChange={() => setTabIndex(!tabIndex)}
             id="unreachable-buttons"
+            onChange={() => setTabIndex(!tabIndex)}
             switched={tabIndex}
           />
-          <Box paddingX={2} flex="grow">
+          <Box flex="grow" paddingX={2}>
             <Label htmlFor="unreachable-buttons">
               <Text>Remove from keyboard navigation with tabIndex</Text>
             </Label>

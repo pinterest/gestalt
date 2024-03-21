@@ -198,9 +198,10 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
 
   return (
     <a
+      ref={innerRef}
       aria-current={accessibilityCurrent !== 'section' ? accessibilityCurrent : undefined}
-      aria-selected={accessibilityCurrent === 'section' ? accessibilityCurrent : undefined}
       aria-label={accessibilityLabel}
+      aria-selected={accessibilityCurrent === 'section' ? accessibilityCurrent : undefined}
       className={className}
       data-test-id={dataTestId}
       href={disabled ? undefined : href}
@@ -229,26 +230,25 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
       onKeyDown={(event) => {
         onKeyDown?.({ event });
       }}
+      onKeyPress={handleKeyPress}
+      onMouseDown={(event) => {
+        onMouseDown?.({ event });
+        handleMouseDown();
+      }}
       onMouseEnter={(event) => {
         onMouseEnter?.({ event });
       }}
       onMouseLeave={(event) => {
         onMouseLeave?.({ event });
       }}
-      onMouseDown={(event) => {
-        onMouseDown?.({ event });
-        handleMouseDown();
-      }}
       onMouseUp={(event) => {
         onMouseUp?.({ event });
         handleMouseUp();
       }}
-      onKeyPress={handleKeyPress}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
-      ref={innerRef}
+      onTouchMove={handleTouchMove}
+      onTouchStart={handleTouchStart}
       rel={[
         ...(target === 'blank' ? ['noopener', 'noreferrer'] : []),
         ...(rel === 'nofollow' ? ['nofollow'] : []),

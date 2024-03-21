@@ -62,33 +62,33 @@ export default function InternalPopover({
 
   return (
     <LegacyController
+      __dangerouslyIgnoreScrollBoundaryContainerSize={__dangerouslySetMaxHeight === '30vh'}
       accessibilityLabel={accessibilityLabel}
       anchor={anchor}
       bgColor={color}
       border
       caret={showCaret}
-      onKeyDown={onKeyDown}
       id={id}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
+      onKeyDown={onKeyDown}
       positionRelativeToAnchor={positionRelativeToAnchor}
       role={role}
       rounding={4}
       shouldFocus={shouldFocus}
       size={size === 'flexible' ? null : size}
-      __dangerouslyIgnoreScrollBoundaryContainerSize={__dangerouslySetMaxHeight === '30vh'}
     >
       {showDismissButton ? (
         <Flex direction="column">
           <Box alignSelf="end" padding={2}>
             <InternalDismissButton
+              ref={dismissButtonRef}
               accessibilityLabel={
                 accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault
               }
+              iconColor={color === 'white' ? 'darkGray' : 'white'}
               onClick={onDismiss}
               size="xs"
-              ref={dismissButtonRef}
-              iconColor={color === 'white' ? 'darkGray' : 'white'}
             />
           </Box>
           {children}

@@ -5,21 +5,21 @@ import { Badge, Flex } from 'gestalt';
 export default function CommunicateStatusExample(): ReactNode {
   return (
     <Flex
+      alignItems="center"
       direction="column"
       gap={{
         row: 0,
         column: 3,
       }}
-      justifyContent="center"
-      alignItems="center"
       height="100%"
+      justifyContent="center"
     >
-      <Badge type="info" text="Info" />
-      <Badge type="recommendation" text="Recommendation" />
-      <Badge type="success" text="Success" />
-      <Badge type="warning" text="Warning" />
-      <Badge type="error" text="Error" />
-      <Badge type="neutral" text="Neutral" />
+      <Badge text="Info" type="info" />
+      <Badge text="Recommendation" type="recommendation" />
+      <Badge text="Success" type="success" />
+      <Badge text="Warning" type="warning" />
+      <Badge text="Error" type="error" />
+      <Badge text="Neutral" type="neutral" />
     </Flex>
   );
 }

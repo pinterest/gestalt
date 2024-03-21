@@ -97,21 +97,10 @@ function ItemIconButton({
     >
       {/* Interactive elements require an a11yLabel on them or their children. That's why we set`accessibilityLabel` on `TapArea` instead of `Tooltip` */}
       <TapArea
+        ref={innerRef}
         accessibilityControls={id}
         accessibilityExpanded={open}
         accessibilityLabel={tooltip?.accessibilityLabel ?? tooltip.text}
-        onMouseEnter={() => {
-          setCompression('none');
-          setHovered(true);
-        }}
-        onMouseLeave={() => {
-          setCompression('compress');
-          setHovered(false);
-        }}
-        onFocus={() => {
-          setFocused(true);
-          setShowIconButton('show');
-        }}
         onBlur={() => {
           setFocused(false);
           // With keyboard navigation, we want to hide IconButton if we keep tabbing without opening Dropdown
@@ -120,6 +109,18 @@ function ItemIconButton({
           if (typeof selected === 'undefined' || forceIconButton === 'default') {
             setShowIconButton('hide');
           }
+        }}
+        onFocus={() => {
+          setFocused(true);
+          setShowIconButton('show');
+        }}
+        onMouseEnter={() => {
+          setCompression('none');
+          setHovered(true);
+        }}
+        onMouseLeave={() => {
+          setCompression('compress');
+          setHovered(false);
         }}
         onTap={({ event }) => {
           // We need event.stopPropagation(); so the SideNavigation.TopItem's onClick doesn't get trigger as well
@@ -137,18 +138,17 @@ function ItemIconButton({
 
           onClick?.({ event });
         }}
-        ref={innerRef}
         rounding="circle"
         tapStyle="compress"
       >
         <Pog
           accessibilityLabel=""
           active={(hovered || focused) && !isItemActive}
-          selected={selected === true && !isItemActive}
-          size="xs"
+          bgColor={bgColor}
           icon={icon}
           iconColor={iconColor}
-          bgColor={bgColor}
+          selected={selected === true && !isItemActive}
+          size="xs"
         />
         {open && (
           <Dropdown

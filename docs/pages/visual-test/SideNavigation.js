@@ -8,39 +8,39 @@ export default function Snapshot(): ReactNode {
       <Box color="default" display="inlineBlock" padding={1}>
         <SideNavigation accessibilityLabel="Icons example">
           <SideNavigation.TopItem
-            href="#"
-            onClick={({ event }) => event.preventDefault()}
-            icon="bell"
-            label="Notifications"
             counter={{
               number: '20',
               accessibilityLabel: 'You have 20 notifications in your inbox',
             }}
+            href="#"
+            icon="bell"
+            label="Notifications"
             notificationAccessibilityLabel="New notifications"
+            onClick={({ event }) => event.preventDefault()}
           />
           <SideNavigation.TopItem
             href="#"
-            onClick={({ event }) => event.preventDefault()}
             icon="speech"
             label="Messages"
+            onClick={({ event }) => event.preventDefault()}
           />
           <SideNavigation.TopItem
             href="#"
-            onClick={({ event }) => event.preventDefault()}
             icon="cog"
             label="Settings"
+            onClick={({ event }) => event.preventDefault()}
           />
           <SideNavigation.TopItem
             href="#"
-            onClick={({ event }) => event.preventDefault()}
             icon="lock"
             label="Business Access"
+            onClick={({ event }) => event.preventDefault()}
           />
-          <SideNavigation.Group label="Ads" icon="ads-stats" badge={{ text: 'New', type: 'info' }}>
+          <SideNavigation.Group badge={{ text: 'New', type: 'info' }} icon="ads-stats" label="Ads">
             <SideNavigation.NestedItem
               href="#"
-              onClick={({ event }) => event.preventDefault()}
               label="Overview"
+              onClick={({ event }) => event.preventDefault()}
             />
           </SideNavigation.Group>
         </SideNavigation>

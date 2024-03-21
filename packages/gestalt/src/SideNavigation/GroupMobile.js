@@ -66,7 +66,7 @@ export default function SideNavigationGroupMobile({
 
   const childrenList = useMemo(
     () => (
-      <ul id={itemId} className={classnames(styles.ulItem)}>
+      <ul className={classnames(styles.ulItem)} id={itemId}>
         {childrenArray}
       </ul>
     ),
@@ -89,26 +89,26 @@ export default function SideNavigationGroupMobile({
   if (isTopLevel) {
     topLevelChildrenList = (
       <Fragment>
-        <Box position="relative" height={64} paddingY={2}>
-          <Flex height="100%" alignItems="center" justifyContent="center">
+        <Box height={64} paddingY={2} position="relative">
+          <Flex alignItems="center" height="100%" justifyContent="center">
             <Flex.Item flex="none">
               <IconButton
-                size="lg"
                 accessibilityLabel="Go to previous item"
                 icon="arrow-back"
-                tooltip={{
-                  text: 'Go to previous item',
-                  idealDirection: 'up',
-                }}
                 onClick={() => {
                   setHideActiveChildren(true);
                   setSelectedMobileChildren(null);
                 }}
+                size="lg"
+                tooltip={{
+                  text: 'Go to previous item',
+                  idealDirection: 'up',
+                }}
               />
             </Flex.Item>
             <Flex.Item flex="grow">
-              <Flex height="100%" alignItems="center" justifyContent="center">
-                <Heading size="400" lineClamp={1}>
+              <Flex alignItems="center" height="100%" justifyContent="center">
+                <Heading lineClamp={1} size="400">
                   {label}
                 </Heading>
               </Flex>
@@ -153,12 +153,10 @@ export default function SideNavigationGroupMobile({
         <TapArea
           accessibilityControls={display === 'expandable' ? itemId : undefined}
           accessibilityExpanded={display === 'expandable' ? expanded : undefined}
+          onBlur={() => setFocused(false)}
+          onFocus={() => setFocused(true)}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          onFocus={() => setFocused(true)}
-          onBlur={() => setFocused(false)}
-          rounding={2}
-          tapStyle={compression}
           onTap={() => {
             if (isTopLevel) {
               elevateChildrenToParent();
@@ -169,23 +167,25 @@ export default function SideNavigationGroupMobile({
               });
             }
           }}
+          rounding={2}
+          tapStyle={compression}
         >
           <SideNavigationGroupContent
-            itemColor={itemColor}
-            expanded={expanded}
-            selectedItemId={selectedItemId}
-            itemId={itemId}
-            paddingStyle={paddingStyle}
-            icon={icon}
-            label={label}
             badge={badge}
-            notificationAccessibilityLabel={notificationAccessibilityLabel}
             counter={counter}
             display={display}
-            primaryAction={primaryAction}
-            setCompression={setCompression}
-            hovered={hovered}
+            expanded={expanded}
             focused={focused}
+            hovered={hovered}
+            icon={icon}
+            itemColor={itemColor}
+            itemId={itemId}
+            label={label}
+            notificationAccessibilityLabel={notificationAccessibilityLabel}
+            paddingStyle={paddingStyle}
+            primaryAction={primaryAction}
+            selectedItemId={selectedItemId}
+            setCompression={setCompression}
           />
         </TapArea>
         {expanded ? passedChildren : null}

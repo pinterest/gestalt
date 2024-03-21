@@ -11,13 +11,13 @@ export default function Example(): ReactNode {
   }, []);
 
   return (
-    <Flex alignItems="center" justifyContent="center" height="100%" width="100%">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <IconButton
-        accessibilityLabel="This IconButton represents a new feature"
-        iconColor="darkGray"
-        icon="pin"
-        onClick={() => {}}
         ref={anchorRef}
+        accessibilityLabel="This IconButton represents a new feature"
+        icon="pin"
+        iconColor="darkGray"
+        onClick={() => {}}
         size="lg"
       />
       {open && (
@@ -25,8 +25,8 @@ export default function Example(): ReactNode {
           accessibilityLabel="Popover visible on initial page load"
           anchor={anchorRef.current}
           idealDirection="right"
-          onDismiss={() => {}}
           message="This PopoverEducational is visible on initial page load"
+          onDismiss={() => {}}
         />
       )}
     </Flex>

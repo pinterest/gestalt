@@ -7,23 +7,23 @@ export default function Example(): ReactNode {
     <SideNavigation accessibilityLabel="Main example" showBorder>
       <SideNavigation.TopItem
         href="#"
-        onClick={({ event }) => event.preventDefault()}
         label="Public profile"
+        onClick={({ event }) => event.preventDefault()}
       />
       <SideNavigation.TopItem
         href="#"
-        onClick={({ event }) => event.preventDefault()}
         label="Personal information"
+        onClick={({ event }) => event.preventDefault()}
       />
       <SideNavigation.TopItem
         href="#"
-        onClick={({ event }) => event.preventDefault()}
         label="Account management"
+        onClick={({ event }) => event.preventDefault()}
       />
       <SideNavigation.TopItem
         href="#"
-        onClick={({ event }) => event.preventDefault()}
         label="Tune your home feed"
+        onClick={({ event }) => event.preventDefault()}
       />
     </SideNavigation>
   );

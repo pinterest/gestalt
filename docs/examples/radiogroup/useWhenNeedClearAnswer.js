@@ -6,9 +6,9 @@ export default function RadioButtonExample(): ReactNode {
   const [favorite, setFavorite] = useState('');
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Flex gap={{ column: 4, row: 0 }} direction="column">
-        <RadioGroup legend="Feed preference" id="bestPracticeFeedsDo">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Flex direction="column" gap={{ column: 4, row: 0 }}>
+        <RadioGroup id="bestPracticeFeedsDo" legend="Feed preference">
           <RadioGroup.RadioButton
             checked={favorite === 'grid'}
             id="grid-do"

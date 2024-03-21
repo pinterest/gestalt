@@ -4,7 +4,7 @@ import { Box, Flex, Table, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box height="100%" width="100%" overflow="scroll">
+    <Box height="100%" overflow="scroll" width="100%">
       <Flex alignItems="start" gap={4} height="100%" justifyContent="center" width="100%">
         <Table accessibilityLabel="Table Row Expandable">
           <Table.Header>
@@ -34,15 +34,15 @@ export default function Example(): ReactNode {
             ].map(({ id, campaign, status, date }) => (
               <Table.RowExpandable
                 key={id}
-                accessibilityExpandLabel="Expand"
                 accessibilityCollapseLabel="Collapse"
-                id={id}
-                onExpand={() => {}}
+                accessibilityExpandLabel="Expand"
                 expandedContents={
-                  <Box width={100} padding={2}>
+                  <Box padding={2} width={100}>
                     <Text>Content</Text>
                   </Box>
                 }
+                id={id}
+                onExpand={() => {}}
               >
                 <Table.Cell>
                   <Text>{campaign}</Text>

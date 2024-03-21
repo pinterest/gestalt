@@ -4,7 +4,7 @@ import { Box, HelpButton } from 'gestalt';
 
 export default function Snapshot(): ReactNode {
   return (
-    <Box width={360} height={360} padding={1}>
+    <Box height={360} padding={1} width={360}>
       <HelpButton
         accessibilityLabel="Click to learn more about help button"
         accessibilityPopoverLabel="Expanded information about help button"

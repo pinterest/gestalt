@@ -12,17 +12,18 @@ export default function Example(): ReactNode {
   return (
     <Box padding={3}>
       <Button
-        text="Show modal"
         onClick={() => {
           setShowComponentA(true);
           setShowComponentB(true);
         }}
+        text="Show modal"
       />
       {showCmpA && (
         <Layer zIndex={zIndex}>
           <ModalAlert
             accessibilityModalLabel="Promote to admin"
             heading="Promote to admin"
+            onDismiss={() => setShowComponentA(false)}
             primaryAction={{
               accessibilityLabel: 'Confirm delete board',
               label: 'Submit',
@@ -35,7 +36,6 @@ export default function Example(): ReactNode {
               onClick: () => setShowComponentA(false),
               role: 'button',
             }}
-            onDismiss={() => setShowComponentA(false)}
           >
             <Box height={300}>
               <Text>
@@ -51,6 +51,9 @@ export default function Example(): ReactNode {
           <ModalAlert
             accessibilityModalLabel="Delete board 70s Furniture"
             heading="Delete this board?"
+            onDismiss={() => {
+              setShowComponentB(false);
+            }}
             primaryAction={{
               accessibilityLabel: 'Confirm delete board',
               label: 'Yes, delete',
@@ -62,9 +65,6 @@ export default function Example(): ReactNode {
               label: 'No, keep',
               onClick: () => setShowComponentB(false),
               role: 'button',
-            }}
-            onDismiss={() => {
-              setShowComponentB(false);
             }}
           >
             <Text>

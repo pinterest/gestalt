@@ -14,9 +14,9 @@ export default function Example(): ReactNode {
         <Button
           accessibilityLabel="Show Modal"
           color="red"
-          text="Show Modal"
-          size="lg"
           onClick={() => setShowComponent(true)}
+          size="lg"
+          text="Show Modal"
         />
       </Box>
       {showComponent ? (
@@ -24,6 +24,7 @@ export default function Example(): ReactNode {
           <ModalAlert
             accessibilityModalLabel="Cancel clothing order"
             heading="Do you really want to cancel your order?"
+            onDismiss={() => {}}
             primaryAction={{
               accessibilityLabel: 'Confirm cancel order',
               label: 'Yes, cancel',
@@ -36,7 +37,6 @@ export default function Example(): ReactNode {
               onClick: () => {},
               role: 'button',
             }}
-            onDismiss={() => {}}
           >
             <Text>
               There&apos;s only a few left in stock, and you may miss out on a bargain if you

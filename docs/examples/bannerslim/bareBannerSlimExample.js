@@ -5,11 +5,11 @@ import { BannerSlim, Box, Flex, Heading, Text } from 'gestalt';
 export default function Example(): ReactNode {
   return (
     <Box padding={8}>
-      <Flex direction="column" width="100%" gap={{ column: 6, row: 0 }}>
-        <Text weight="bold" size="500">
+      <Flex direction="column" gap={{ column: 6, row: 0 }} width="100%">
+        <Text size="500" weight="bold">
           Campaign details
         </Text>
-        <Flex width="100%" direction="column" gap={{ column: 4, row: 0 }}>
+        <Flex direction="column" gap={{ column: 4, row: 0 }} width="100%">
           <Heading size="400">Campaign name</Heading>
           <Text>
             Give your campaign a name. Only you will see what you&apos;ve named your campaign.
@@ -20,9 +20,9 @@ export default function Example(): ReactNode {
             the amount your campaign spends.
           </Text>
           <BannerSlim
-            type="warningBare"
-            message="Spend limits may change your overall billing details."
             iconAccessibilityLabel="Warning"
+            message="Spend limits may change your overall billing details."
+            type="warningBare"
           />
           <Heading size="400">Campaign status</Heading>
           <Text>

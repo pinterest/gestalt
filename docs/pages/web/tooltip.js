@@ -30,19 +30,17 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
   return (
     <Page title="Tooltip">
       <PageHeader
-        name="Tooltip"
-        description={generatedDocGen?.description}
         bannerSlim={
           <BannerSlim
-            type="info"
-            iconAccessibilityLabel="Info"
-            message="Planning to use Tooltip with IconButton? Instead, use"
             helperLink={{
               text: "IconButton's built-in tooltip.",
               accessibilityLabel: 'View IconButton Docs, with Tooltip section',
               href: '/web/iconbutton#With-Tooltip',
               onClick: () => {},
             }}
+            iconAccessibilityLabel="Info"
+            message="Planning to use Tooltip with IconButton? Instead, use"
+            type="info"
           />
         }
         bannerSlimExperiment={
@@ -52,12 +50,14 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             pullRequest={3244}
           />
         }
+        description={generatedDocGen?.description}
+        name="Tooltip"
       >
         <SandpackExample
-          name="Main Example"
           code={mainExample}
-          layout="column"
           hideEditor
+          layout="column"
+          name="Main Example"
           previewHeight={160}
         />
       </PageHeader>
@@ -68,22 +68,22 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - Providing helpful, but non-essential context to a UI element.
           - Enhancing a baseline understanding of an element or feature.
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - Using a separate Tooltip instance with IconButton. Use [IconButton's built-in tooltip](/web/iconbutton#With-Tooltip) instead.
           - Displaying information that is critical to the understanding of an element/feature. Use inline text instead.
           - Offering context at the surface-level scope. Consider a [BannerCallout](/web/bannercallout) instead.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -91,105 +91,105 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use Tooltip to describe the function of an interactive element, typically [Icon Button](/web/iconbutton), in as few words as possible."
             sandpackExample={
               <SandpackExample
-                name="Use to Describe Interactive Element Functionality"
                 code={useToDescribeInteractiveElement}
-                layout="column"
                 hideEditor
+                layout="column"
+                name="Use to Describe Interactive Element Functionality"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use Tooltip to restate text already visible on screen."
             sandpackExample={
               <SandpackExample
-                name="Don't Use to Restate Visible Text"
                 code={dontUseToRestateVisibleText}
-                layout="column"
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Don't Use to Restate Visible Text"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use Tooltip to distinguish related actions with visually similar iconography."
             sandpackExample={
               <SandpackExample
-                name="Use to Distinguish Related Actions"
                 code={useToDistinguishRelatedActions}
-                layout="column"
                 hideEditor
+                layout="column"
+                name="Use to Distinguish Related Actions"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use Tooltip to communicate critical information, such as an error, instructions for performing a task or interaction feedback."
             sandpackExample={
               <SandpackExample
-                name="Don't Use to Communicate Critical Information"
                 code={dontUseToCommunicateCriticalInfo}
-                layout="column"
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Don't Use to Communicate Critical Information"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use Tooltip to add supplementary information about a feature, typically paired with an `info-circle` [IconButton](/web/iconbutton)."
             sandpackExample={
               <SandpackExample
-                name="Use to Add Supplementary Information"
                 code={useToAddSupplementaryInfo}
-                layout="column"
                 hideEditor
+                layout="column"
+                name="Use to Add Supplementary Information"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Pair Tooltip with a disabled element. See [disabled elements](#Disabled-elements) to learn more."
             sandpackExample={
               <SandpackExample
-                name="Don't Pair with Disabled Element"
                 code={dontPairWithDisabledElement}
-                layout="column"
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Don't Pair with Disabled Element"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
-          title="Labels"
+          columns={2}
           description={`
 When using Tooltip with [IconButton](/web/iconbutton), avoid repetitive labeling. The \`accessibilityLabel\` provided to IconButton should describe the intent of the button, not the icon itself. For instance, use “Settings” instead of “Cog icon”. Tooltip \`text\` should expand upon that intention, as seen in the "cog" example below. If Tooltip \`text\` is the same as IconButton \`accessibilityLabel\`, then add \`accessibilityLabel=""\` to the Tooltip, as seen with the "share" example below`}
-          columns={2}
+          title="Labels"
         >
           <MainSection.Card
             cardSize="md"
             sandpackExample={
               <SandpackExample
-                name="Avoid Repetitive Labeling IconButton Example"
                 code={avoidRepetitiveLabeling1}
                 layout="column"
+                name="Avoid Repetitive Labeling IconButton Example"
               />
             }
           />
@@ -197,20 +197,20 @@ When using Tooltip with [IconButton](/web/iconbutton), avoid repetitive labeling
             cardSize="md"
             sandpackExample={
               <SandpackExample
-                name="Avoid Repetitive Labeling IconButton Example (1)"
                 code={avoidRepetitiveLabeling2}
                 layout="column"
+                name="Avoid Repetitive Labeling IconButton Example (1)"
               />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Disabled elements"
           description={`
 Tooltips must be paired with an interactive, focusable element, like [Button](/web/button) or [IconButton](/web/iconbutton). They cannot be paired with anything disabled or static, because this prevents keyboard users from triggering Tooltip and consuming its content. To test if you’re using Tooltip properly, use your keyboard rather than your mouse to trigger Tooltip.
 
 If you need to explain why an item is disabled, consider adding plain [Text](/web/text) near the disabled item, or an \`info-circle\` [IconButton](/web/iconbutton) adjacent to the disabled element.
 `}
+          title="Disabled elements"
         />
         <MainSection.Card />
       </AccessibilitySection>
@@ -219,76 +219,76 @@ If you need to explain why an item is disabled, consider adding plain [Text](/we
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Ideal direction"
           description={`Pass in \`idealDirection\` to specify the preferred position of Tooltip relative to its anchor element. The default direction is "down", which should be used in most cases. The actual position may change given the available space around the anchor element.`}
+          title="Ideal direction"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Specify Preferred Position Example"
                 code={specifyPreferredPosition}
+                name="Specify Preferred Position Example"
               />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Inline"
           description="Use inline to properly position Tooltip relative to an inline element, such as an [Icon Button](/web/iconbutton)"
+          title="Inline"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Position Relative to Inline Element Example"
                 code={positionRelativeToInlineElement}
                 layout="column"
+                name="Position Relative to Inline Element Example"
               />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Link"
           description={`
       Pass in \`link\` to display a link at the bottom of Tooltip.
 
       ⚠️ Note: this feature will soon be deprecated, as it is not accessible. Please do not use it in new designs or features.
       ⚠️ Note: Please use [HelpButton](/web/helpbutton) instead.
       `}
+          title="Link"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Display Link at Bottom - Note Deprication"
                 code={displayLinkAtBottom}
+                name="Display Link at Bottom - Note Deprication"
               />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Z-index"
           description={`Tooltip has [Layer](/web/layer) built in, allowing it to overlay surrounding content. Use \`zIndex\` to specify the stacking order of Tooltip along the z-axis in the current stacking context. The example below shows [FixedZIndex](/web/zindex_classes#FixedZIndex) used in [Modal](/web/modal) and [CompositeZIndex](zindex_classes#CompositeZIndex) to layer Tooltip on top.
 
 `}
+          title="Z-index"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample name="Specify Z-Index Order Example" code={specifyZIndexOrder} />
+              <SandpackExample code={specifyZIndexOrder} name="Specify Z-Index Order Example" />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Within scrolling containers"
           description="ScrollBoundaryContainer is needed for proper positioning when Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures Tooltip remains attached to its anchor when scrolling."
+          title="Within scrolling containers"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Proper Positioning Within Scrolling Containers"
                 code={properPositioningExample}
+                name="Proper Positioning Within Scrolling Containers"
               />
             }
           />
@@ -298,7 +298,6 @@ If you need to explain why an item is disabled, consider adding plain [Text](/we
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description={`
 - Describe only the element that triggers Tooltip.
 - Focus on the action by beginning with a verb.
@@ -306,15 +305,16 @@ If you need to explain why an item is disabled, consider adding plain [Text](/we
 - As much as possible, limit Tooltip's text to a maximum of 60 to 75 characters.
 - Use sentence case while always capitalizing the word “Pin.”
 `}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description={`
 - Describe elements other than the one that triggers Tooltip.
 - Use Tooltip to restate text already visible on screen.
 - Use Tooltip to communicate critical information, such as an error, instructions for performing a task, or interaction feedback.
 `}
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>

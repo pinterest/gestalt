@@ -9,12 +9,6 @@ export default function Snapshot(): ReactNode {
       <Box width={200}>
         <ChartGraph
           accessibilityLabel="Example of Bar chart"
-          visualPatternSelected="default"
-          onVisualPatternChange={() => {}}
-          type="bar"
-          title="Title"
-          description="Description"
-          legend="auto"
           data={[
             {
               name: 'A',
@@ -29,7 +23,13 @@ export default function Snapshot(): ReactNode {
               'Series_01': 300,
             },
           ]}
+          description="Description"
           elements={[{ type: 'bar', id: 'Series_01' }]}
+          legend="auto"
+          onVisualPatternChange={() => {}}
+          title="Title"
+          type="bar"
+          visualPatternSelected="default"
         />
       </Box>
     </ColorSchemeProvider>

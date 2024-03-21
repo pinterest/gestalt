@@ -17,7 +17,7 @@ describe('Checkbox', () => {
     render(
       <form>
         <label htmlFor="testcheckbox">Label</label>
-        <Checkbox size="sm" id="testcheckbox" onChange={mockOnChange} onClick={mockOnClick} />
+        <Checkbox id="testcheckbox" onChange={mockOnChange} onClick={mockOnClick} size="sm" />
       </form>,
     );
     screen.getByLabelText('Label').click();
@@ -27,21 +27,21 @@ describe('Checkbox', () => {
 
   it('forwards a ref to the innermost input element', () => {
     const ref = createRef<HTMLInputElement>();
-    render(<Checkbox checked id="testcheckbox" onChange={mockOnChange} ref={ref} />);
+    render(<Checkbox ref={ref} checked id="testcheckbox" onChange={mockOnChange} />);
     expect(ref.current instanceof HTMLInputElement).toEqual(true);
     expect(ref.current?.checked).toEqual(true);
   });
 
   it('sets the innermost input to indeterminate with ref', () => {
     const ref = createRef<HTMLInputElement>();
-    render(<Checkbox indeterminate id="testcheckbox" onChange={mockOnChange} ref={ref} />);
+    render(<Checkbox ref={ref} id="testcheckbox" indeterminate onChange={mockOnChange} />);
     expect(ref.current instanceof HTMLInputElement).toEqual(true);
     expect(ref.current?.indeterminate).toEqual(true);
   });
 
   it('sets the innermost input to indeterminate without ref', () => {
     const { container } = render(
-      <Checkbox indeterminate id="testcheckbox" onChange={mockOnChange} />,
+      <Checkbox id="testcheckbox" indeterminate onChange={mockOnChange} />,
     );
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const input = container.querySelector('input');

@@ -6,13 +6,13 @@ export default function Example(): ReactNode {
   const [currentValue, setCurrentValue] = useState<void | number>();
 
   return (
-    <Flex alignItems="center" justifyContent="center" height="100%" width="100%">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Box width={400}>
         <NumberField
-          id="variant-errorMessage"
           errorMessage={
             currentValue === null || currentValue === undefined ? 'You must enter a number' : null
           }
+          id="variant-errorMessage"
           label="With an error message"
           onChange={({ value }) => {
             setCurrentValue(value);

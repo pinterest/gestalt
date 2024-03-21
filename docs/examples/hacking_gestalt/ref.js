@@ -14,11 +14,11 @@ export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <TextField
+        ref={ref}
         errorMessage="Please don't do this!"
         id="refExample"
         onChange={() => {}}
         readOnly
-        ref={ref}
         value="Custom color"
       />
     </Flex>

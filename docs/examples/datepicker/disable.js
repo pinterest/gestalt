@@ -11,23 +11,23 @@ export default function Example(): ReactNode {
     <Flex alignItems="start" gap={4} height="100%" justifyContent="center" width="100%">
       <Box padding={4}>
         <DatePicker
+          helperText="Enter your date of birth"
           id="disableFuture"
           label="Date of birth"
-          helperText="Enter your date of birth"
+          maxDate={new Date()}
           onChange={({ value }) => setDateValueDisableFuture(value)}
           value={dateValueDisableFuture}
-          maxDate={new Date()}
         />
       </Box>
       <Box padding={4}>
         <DatePicker
+          helperText="Enter an activation date for your campaign"
           id="disablePast"
           label="Campaign activation date"
-          helperText="Enter an activation date for your campaign"
+          minDate={new Date()}
+          name="bday_datefield"
           onChange={({ value }) => setDatealueDisablePast(value)}
           value={dateValueDisablePast}
-          name="bday_datefield"
-          minDate={new Date()}
         />
       </Box>
     </Flex>

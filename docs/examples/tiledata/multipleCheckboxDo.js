@@ -4,22 +4,22 @@ import { Flex, TileData } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex gap={2} height="100%" width="100%" alignItems="center" justifyContent="center">
+    <Flex alignItems="center" gap={2} height="100%" justifyContent="center" width="100%">
       <TileData
         color="01"
-        title="Impressions"
         selected
-        value="2M"
         showCheckbox
+        title="Impressions"
         trend={{ value: 1, accessibilityLabel: 'Trending up' }}
+        value="2M"
       />
       <TileData
         color="02"
-        title="Impressions"
         selected
         showCheckbox
-        value="2M"
+        title="Impressions"
         trend={{ value: 1, accessibilityLabel: 'Trending up' }}
+        value="2M"
       />
     </Flex>
   );

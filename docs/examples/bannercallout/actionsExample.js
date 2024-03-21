@@ -23,7 +23,7 @@ export default function Example(): ReactNode {
 
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-      <Box paddingY={8} paddingX={8}>
+      <Box paddingX={8} paddingY={8}>
         <BannerCallout
           dismissButton={{
             accessibilityLabel: 'Dismiss banner',
@@ -66,7 +66,7 @@ export default function Example(): ReactNode {
             >
               <Flex>
                 <Column span={12}>
-                  <Box paddingY={2} paddingX={8} display="flex">
+                  <Box display="flex" paddingX={8} paddingY={2}>
                     <Column span={4}>
                       <Label htmlFor="name">
                         <Text align="start" weight="bold">
@@ -79,7 +79,7 @@ export default function Example(): ReactNode {
                     </Column>
                   </Box>
 
-                  <Box paddingY={2} paddingX={8} display="flex">
+                  <Box display="flex" paddingX={8} paddingY={2}>
                     <Column span={4}>
                       <Label htmlFor="desc">
                         <Text align="start" weight="bold">

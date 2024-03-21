@@ -6,7 +6,6 @@ export default function Snapshot(): ReactNode {
   return (
     <Box width="100vw">
       <PageHeader
-        title="Product groups"
         helperIconButton={{
           accessibilityLabel: 'test',
           accessibilityControls: 'test',
@@ -22,6 +21,7 @@ export default function Snapshot(): ReactNode {
             src="https://i.ibb.co/d0pQsJz/stock3.jpg"
           />
         }
+        title="Product groups"
       />
     </Box>
   );

@@ -8,7 +8,7 @@ export default function Example(): ReactNode {
   const [checked3, setChecked3] = useState(false);
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Fieldset legend="Data personalization">
         <Flex direction="column" gap={{ column: 2, row: 0 }}>
           <Checkbox

@@ -36,7 +36,7 @@ function BaseRow({
   return (
     <Table.Row>
       <Table.Cell>
-        <Status type={type} title={title} subtext={subtext} />
+        <Status subtext={subtext} title={title} type={type} />
       </Table.Cell>
       <Table.Cell>
         <Text align="end" color={disabled ? 'subtle' : 'default'}>
@@ -58,28 +58,28 @@ export default function Example(): ReactNode {
       <HeaderRow />
       <Table.Body>
         <BaseRow
-          type="inProgress"
-          title="Active"
-          subtext="Ends 11/20/2021"
-          rate={100}
           category="CTR"
+          rate={100}
+          subtext="Ends 11/20/2021"
+          title="Active"
+          type="inProgress"
         />
         <BaseRow
-          disabled
-          type="halted"
-          title="Paused"
-          subtext="Ends 11/20/2021"
-          rate="5,000"
           category="Engagement"
+          disabled
+          rate="5,000"
+          subtext="Ends 11/20/2021"
+          title="Paused"
+          type="halted"
         />
         <BaseRow
-          type="warning"
-          title="Warning"
-          subtext="Ends 11/20/2021"
-          rate={2}
           category="Conversions"
+          rate={2}
+          subtext="Ends 11/20/2021"
+          title="Warning"
+          type="warning"
         />
-        <BaseRow type="ok" title="Complete" subtext="Ends 11/20/2021" rate={50} category="CTR" />
+        <BaseRow category="CTR" rate={50} subtext="Ends 11/20/2021" title="Complete" type="ok" />
       </Table.Body>
     </Table>
   );

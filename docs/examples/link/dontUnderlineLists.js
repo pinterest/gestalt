@@ -4,8 +4,8 @@ import { Box, Flex, Link, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex height="100%" alignItems="center" justifyContent="center">
-      <Flex gap={2} direction="row" width="60%" wrap>
+    <Flex alignItems="center" height="100%" justifyContent="center">
+      <Flex direction="row" gap={2} width="60%" wrap>
         {[
           'About',
           'Blog',

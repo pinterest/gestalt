@@ -17,8 +17,8 @@ export default function CodeExampleTextDirectionButton({
   return (
     <IconButton
       accessibilityLabel={label}
-      iconColor="darkGray"
       icon={currentTextDirection === 'ltr' ? 'text-align-right' : 'text-align-left'}
+      iconColor="darkGray"
       onClick={() => {
         trackButtonClick(label);
         onClick();

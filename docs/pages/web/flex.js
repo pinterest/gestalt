@@ -28,21 +28,21 @@ export default function DocsPage({
   return (
     <Page title={generatedDocGen?.Flex?.displayName}>
       <PageHeader
-        name={generatedDocGen?.Flex?.displayName}
         description={generatedDocGen?.Flex?.description}
+        name={generatedDocGen?.Flex?.displayName}
         pdocsLink
       >
-        <SandpackExample code={main} name="Main example source" hideEditor previewHeight={150} />
+        <SandpackExample code={main} hideEditor name="Main example source" previewHeight={150} />
       </PageHeader>
 
-      <GeneratedPropTable generatedDocGen={generatedDocGen.Flex} excludeProps={ignoredProps} />
+      <GeneratedPropTable excludeProps={ignoredProps} generatedDocGen={generatedDocGen.Flex} />
 
       <AccessibilitySection name={generatedDocGen?.Flex?.displayName} />
 
       <MainSection name="Subcomponents">
         <MainSection.Subsection
-          title={generatedDocGen?.FlexItem?.displayName}
           description={generatedDocGen?.FlexItem?.description}
+          title={generatedDocGen?.FlexItem?.displayName}
         >
           <GeneratedPropTable
             generatedDocGen={generatedDocGen.FlexItem}
@@ -54,35 +54,35 @@ export default function DocsPage({
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Flex Layout"
           description={`
       Flex is strictly for flex layouts. If you're new to flex layout, please read the excellent [CSS-Tricks guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) for a great introduction. Also check out the entertaining [Flexbox Froggy](https://flexboxfroggy.com/) game for a fun way to get comfortable with flexbox properties.
   `}
+          title="Flex Layout"
         >
           <CombinationNew
-            justifyContent={['start', 'end', 'center', 'between', 'around']}
             alignItems={['start', 'end', 'center', 'baseline', 'stretch']}
+            justifyContent={['start', 'end', 'center', 'between', 'around']}
           >
             {({ justifyContent, alignItems }) => (
               <Box
-                display="flex"
-                width="75%"
-                height="75%"
-                borderStyle="shadow"
-                justifyContent={justifyContent}
                 alignItems={alignItems}
+                borderStyle="shadow"
+                display="flex"
+                height="75%"
+                justifyContent={justifyContent}
+                width="75%"
               >
-                <Box margin={1} color="tertiary" height={8} width={8} />
-                <Box margin={1} color="tertiary" height={16} width={8} />
-                <Box margin={1} color="tertiary" height={32} width={8} />
+                <Box color="tertiary" height={8} margin={1} width={8} />
+                <Box color="tertiary" height={16} margin={1} width={8} />
+                <Box color="tertiary" height={32} margin={1} width={8} />
               </Box>
             )}
           </CombinationNew>
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Gap"
           description={`Flex's \`gap\` prop determines spacing between children. Use a single number for equal row and column spacing, or an object to specify different spacing for each direction. For example, use \`gap={{ row: 2, column: 4 }}\` for different spacing between items in rows and columns (regardless of the specified \`direction\`). Or use the \`gap={3}\` shorthand for equal spacing for rows and columns.`}
+          title="Gap"
         >
           <MainSection.Card
             cardSize="lg"
@@ -93,10 +93,10 @@ export default function DocsPage({
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Menu"
           description={`
     Flex makes flexbox layouts with equally-spaced children a snap!
   `}
+          title="Menu"
         >
           <MainSection.Card
             cardSize="lg"
@@ -105,32 +105,32 @@ export default function DocsPage({
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Applying flex properties to children"
           description={`
     When using the \`gap\` prop, Flex wraps each child in a Flex.Item sub-component. If one or more of those children need specific flex properties, you can use Flex.Item directly.
   `}
+          title="Applying flex properties to children"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={flexItem} name="FlexItem example" layout="column" />
+              <SandpackExample code={flexItem} layout="column" name="FlexItem example" />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Initial item width using flexBasis"
           description={`
     If an item needs a different width in the flex layout than the content would otherwise indicate, \`flexBasis\` can be used.
   `}
+          title="Initial item width using flexBasis"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={flexBasis}
-                name="Flexbasis example"
                 layout="column"
+                name="Flexbasis example"
                 previewHeight={200}
               />
             }
@@ -138,21 +138,21 @@ export default function DocsPage({
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Overflowing children and minWidth"
           description={`
     Extra-wide children can sometimes overflow the Flex parent container, breaking the layout (and skipping truncation, if applicable).
     To fix this, simply wrap the wide child in Flex.Item with \`minWidth={0}\`. Voila!
 
     For more info, check out [this very helpful blog post](https://css-tricks.com/flexbox-truncated-text/#the-solution-is-min-width-0-on-the-flex-child).
   `}
+          title="Overflowing children and minWidth"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={overflowing}
-                name="Overflowing example"
                 layout="column"
+                name="Overflowing example"
                 previewHeight={200}
               />
             }

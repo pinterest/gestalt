@@ -4,7 +4,7 @@ import { Box, Flex, SelectList } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex gap={{ column: 0, row: 2 }}>
         <SelectList id="selectlistexample6" label="Metric" onChange={() => {}} size="lg" value="v1">
           {[

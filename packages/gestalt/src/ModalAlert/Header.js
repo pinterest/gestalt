@@ -31,19 +31,19 @@ export default function ModalAlertHeader({
   onDismiss,
 }: Props): ReactNode {
   return (
-    <Flex flex="grow" alignItems="center" gap={4}>
+    <Flex alignItems="center" flex="grow" gap={4}>
       {type !== 'default' && (
         <Box>
           <Icon
-            size="20"
             accessibilityLabel={type}
-            icon={ICON_COLOR_MAP[type].icon}
             color={ICON_COLOR_MAP[type].color}
+            icon={ICON_COLOR_MAP[type].icon}
+            size="20"
           />
         </Box>
       )}
       <Flex.Item flex="grow">
-        <Heading size="400" accessibilityLevel={1}>
+        <Heading accessibilityLevel={1} size="400">
           {heading}
         </Heading>
       </Flex.Item>

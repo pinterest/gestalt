@@ -7,19 +7,19 @@ const Valid = (
     accessibilityCollapseLabel="click to collapse"
     accessibilityExpandLabel="click to expand"
     badge={{ text: 'badge-text' }}
-    id="uniqueTestID"
     icon="lock"
     iconAccessibilityLabel="test label"
     iconButton={
       <IconButton
+        accessibilityLabel="Get help"
         bgColor="lightGray"
         icon="question-mark"
         iconColor="darkGray"
-        accessibilityLabel="Get help"
-        size="xs"
         onClick={() => {}}
+        size="xs"
       />
     }
+    id="uniqueTestID"
     isCollapsed={false}
     onExpand={() => {}}
     summary={['summary1', 'summary2', 'summary3']}

@@ -5,7 +5,7 @@ import { Box, Flex, Link, Text } from 'gestalt';
 export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-      <Flex direction="column" alignItems="start" gap={2}>
+      <Flex alignItems="start" direction="column" gap={2}>
         <Flex alignItems="center" direction="column" gap={{ column: 2, row: 0 }}>
           <Text size="200" weight="bold">
             Hover over the examples below for a few seconds to see the title text:

@@ -5,27 +5,27 @@ import { ButtonLink, Flex } from 'gestalt';
 export default function Example(): ReactNode {
   return (
     <Flex
-      gap={{ column: 2, row: 0 }}
-      direction="column"
       alignContent="stretch"
       alignItems="center"
+      direction="column"
+      gap={{ column: 2, row: 0 }}
       height="100%"
       justifyContent="center"
       width="100%"
     >
       <ButtonLink
-        text="Create account"
-        size="lg"
         color="red"
         fullWidth
         href="https://www.pinterest.com/"
+        size="lg"
+        text="Create account"
       />
       <ButtonLink
-        text="View settings"
-        size="lg"
         color="gray"
         fullWidth
         href="https://www.pinterest.com/"
+        size="lg"
+        text="View settings"
       />
     </Flex>
   );

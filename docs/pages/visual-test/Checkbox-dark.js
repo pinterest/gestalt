@@ -15,16 +15,16 @@ export default function Snapshot(): ReactNode {
         >
           <Checkbox
             checked
+            helperText="USA and India have the top number of English speakers "
             id="english-info"
             label="English"
-            helperText="USA and India have the top number of English speakers "
             onChange={() => {}}
           />
           <Checkbox
             checked={false}
+            helperText="Mexico and Colombia have the top number of Spanish speakers"
             id="spanish-info"
             label="Spanish"
-            helperText="Mexico and Colombia have the top number of Spanish speakers"
             onChange={() => {}}
           />
         </Flex>{' '}

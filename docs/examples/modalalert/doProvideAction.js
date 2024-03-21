@@ -14,17 +14,17 @@ export default function Example(): ReactNode {
         <Button
           accessibilityLabel="Show Modal"
           color="red"
-          text="Show Modal"
-          size="lg"
           onClick={() => setShowComponent(true)}
+          size="lg"
+          text="Show Modal"
         />
       </Box>
       {showComponent ? (
         <Layer zIndex={zIndex}>
           <ModalAlert
-            type="error"
             accessibilityModalLabel="Unable to charge credit card"
             heading="Your credit card has expired"
+            onDismiss={() => {}}
             primaryAction={{
               accessibilityLabel: 'Update credit card info',
               label: 'Update credit card',
@@ -37,7 +37,7 @@ export default function Example(): ReactNode {
               onClick: () => {},
               role: 'button',
             }}
-            onDismiss={() => {}}
+            type="error"
           >
             <Text>
               The card we have on file is no longer valid. Update it to continue running campaigns.

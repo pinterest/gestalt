@@ -20,7 +20,7 @@ export default function CustomIconButtonPopoverExample(): ReactNode {
 
   return (
     <Fragment>
-      <Flex justifyContent="center" width="100%" height="100%">
+      <Flex height="100%" justifyContent="center" width="100%">
         <Box>
           <Box margin={2}>
             <Box paddingX={2}>
@@ -29,12 +29,13 @@ export default function CustomIconButtonPopoverExample(): ReactNode {
               </Label>
             </Box>
             <Switch
-              onChange={() => setSwitched((value) => !value)}
               id="dropdown-example"
+              onChange={() => setSwitched((value) => !value)}
               switched={switched}
             />
           </Box>
           <IconButton
+            ref={anchorRef}
             accessibilityControls="custom-dropdown-example"
             accessibilityExpanded={open}
             accessibilityHaspopup
@@ -42,7 +43,6 @@ export default function CustomIconButtonPopoverExample(): ReactNode {
             icon="add"
             iconColor="darkGray"
             onClick={() => setOpen((prevVal) => !prevVal)}
-            ref={anchorRef}
             selected={open}
             size="lg"
           />
@@ -58,14 +58,14 @@ export default function CustomIconButtonPopoverExample(): ReactNode {
           {switched ? (
             <Fragment>
               <Dropdown.Link
-                isExternal
                 href="#"
+                isExternal
                 onClick={({ event }) => event.preventDefault()}
                 option={{ value: 'item 1', label: 'Custom link 1' }}
               />
               <Dropdown.Link
-                isExternal
                 href="#"
+                isExternal
                 onClick={({ event }) => event.preventDefault()}
                 option={{ value: 'item 2', label: 'Another custom link' }}
               />

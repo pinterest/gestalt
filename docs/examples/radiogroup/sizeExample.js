@@ -7,12 +7,12 @@ export default function RadioButtonExample(): ReactNode {
   const [favoriteFood, setFavoriteFood] = useState('');
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex gap={{ column: 0, row: 8 }}>
         <RadioGroup
-          legend="What is your favorite snack?"
           errorMessage="Please select one"
           id="sizeExample"
+          legend="What is your favorite snack?"
         >
           <RadioGroup.RadioButton
             checked={favorite === 'pizza'}
@@ -20,8 +20,8 @@ export default function RadioButtonExample(): ReactNode {
             label="Pizza"
             name="favoriteFoodSm"
             onChange={() => setFavorite('pizza')}
-            value="pizza"
             size="sm"
+            value="pizza"
           />
           <RadioGroup.RadioButton
             checked={favorite === 'curry'}
@@ -29,8 +29,8 @@ export default function RadioButtonExample(): ReactNode {
             label="Curry"
             name="favoriteFoodSm"
             onChange={() => setFavorite('curry')}
-            value="curry"
             size="sm"
+            value="curry"
           />
           <RadioGroup.RadioButton
             checked={favorite === 'sushi'}
@@ -38,15 +38,15 @@ export default function RadioButtonExample(): ReactNode {
             label="Sushi"
             name="favoriteFoodSm"
             onChange={() => setFavorite('sushi')}
-            value="sushi"
             size="sm"
+            value="sushi"
           />
         </RadioGroup>
 
         <RadioGroup
-          legend="What is your favorite snack?"
           errorMessage="Please select one"
           id="sizeExampleMd"
+          legend="What is your favorite snack?"
         >
           <RadioGroup.RadioButton
             checked={favoriteFood === 'pizza'}

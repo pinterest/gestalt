@@ -44,13 +44,13 @@ function BoxWithMargins({
       }}
     >
       <Box
-        width={200}
-        padding={2}
-        marginEnd={marginEnd}
-        marginStart={marginStart}
         dangerouslySetInlineStyle={{
           __style: { backgroundColor: 'rgb(19 58 94 / 0.2)' },
         }}
+        marginEnd={marginEnd}
+        marginStart={marginStart}
+        padding={2}
+        width={200}
       >
         <Text>{JSON.stringify(`marginEnd: ${marginEnd}, marginStart: ${marginStart}`)}</Text>
       </Box>
@@ -60,15 +60,15 @@ function BoxWithMargins({
 
 export default function Example(): ReactNode {
   return (
-    <Flex direction="column" gap={2} height="100%" alignItems="center" justifyContent="center">
+    <Flex alignItems="center" direction="column" gap={2} height="100%" justifyContent="center">
       <Button
-        size="sm"
         onClick={() => {
           if (document.documentElement) {
             const isRTL = document.documentElement.dir === 'rtl';
             document.documentElement.dir = isRTL ? 'ltr' : 'rtl';
           }
         }}
+        size="sm"
         text="Toggle Page Direction"
       />
 

@@ -5,7 +5,7 @@ import { Box, Image } from 'gestalt';
 export default function Snapshot(): ReactNode {
   return (
     <Box padding={1}>
-      <Box width={84} height={84}>
+      <Box height={84} width={84}>
         <Image
           alt="Tropic greens: The taste of Petrol and Porcelain | Interior design, Vintage Sets and Unique Pieces agave"
           color="rgb(231, 186, 176)"

@@ -8,12 +8,12 @@ export default function Example(): ReactNode {
   const [checked3, setChecked3] = useState(false);
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex direction="column" gap={{ column: 4, row: 0 }}>
         <Text size="400" weight="bold">
           Which one?
         </Text>
-        <Fieldset legendDisplay="hidden" legend="Which one?">
+        <Fieldset legend="Which one?" legendDisplay="hidden">
           <Flex direction="column" gap={{ column: 2, row: 0 }}>
             <Checkbox
               checked={checked1}

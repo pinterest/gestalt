@@ -144,18 +144,18 @@ export default function TileData({
   });
 
   return (
-    <MaybeTooltip tooltip={tooltip} disabled={disabled}>
+    <MaybeTooltip disabled={disabled} tooltip={tooltip}>
       <Box maxWidth={196}>
         <TapArea
           disabled={disabled}
           onBlur={handleOnBlur}
-          onTap={({ event }) => onTap?.({ event, id, selected: !selected })}
           onMouseEnter={handleOnMouseEnter}
           onMouseLeave={handleOnMouseLeave}
+          onTap={({ event }) => onTap?.({ event, id, selected: !selected })}
           role="button"
           rounding={4}
         >
-          <div style={tileStyle} className={getClasses()}>
+          <div className={getClasses()} style={tileStyle}>
             <Flex direction="row" gap={2}>
               <InternalDatapoint
                 disabled={disabled}
@@ -168,8 +168,8 @@ export default function TileData({
               />
               {showCheckbox && (
                 <InternalCheckbox
-                  id={`readonly-checkbox-blah-${checkboxId}`}
                   checked={selected}
+                  id={`readonly-checkbox-blah-${checkboxId}`}
                   readOnly
                   size="sm"
                   style={checkBoxStyle}

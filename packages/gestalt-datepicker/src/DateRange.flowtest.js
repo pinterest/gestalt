@@ -3,14 +3,14 @@ import DateRange from './DateRange';
 
 const Valid = (
   <DateRange
-    startDateValue={new Date()}
     endDateValue={new Date()}
-    onStartDateChange={() => {}}
-    onEndDateChange={() => {}}
-    onStartDateError={() => {}}
-    onEndDateError={() => {}}
     onCancel={() => {}}
+    onEndDateChange={() => {}}
+    onEndDateError={() => {}}
+    onStartDateChange={() => {}}
+    onStartDateError={() => {}}
     onSubmit={() => {}}
+    startDateValue={new Date()}
   />
 );
 

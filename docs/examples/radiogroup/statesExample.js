@@ -6,8 +6,8 @@ export default function RadioButtonExample(): ReactNode {
   const [state, setState] = useState('checked');
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <RadioGroup legend="Which state is your favorite?" id="rowExample">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <RadioGroup id="rowExample" legend="Which state is your favorite?">
         <RadioGroup.RadioButton
           checked={false}
           id="unchecked"
@@ -26,21 +26,21 @@ export default function RadioButtonExample(): ReactNode {
         />
         <RadioGroup.RadioButton
           checked={false}
+          disabled
           id="uncheckedDisabled"
           label="Unchecked and disabled"
           name="stateExample"
           onChange={() => setState('uncheckedDisabled')}
           value="uncheckedDisabled"
-          disabled
         />
         <RadioGroup.RadioButton
           checked
+          disabled
           id="checkedDisabled"
           label="Checked and disabled"
           name="stateExample"
           onChange={() => setState('checkedDisabled')}
           value="checkedDisabled"
-          disabled
         />
       </RadioGroup>
     </Box>

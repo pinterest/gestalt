@@ -4,8 +4,8 @@ import { Box, Icon } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Icon icon="sparkle" accessibilityLabel="sparkle" color="default" size={16} />
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Icon accessibilityLabel="sparkle" color="default" icon="sparkle" size={16} />
     </Box>
   );
 }

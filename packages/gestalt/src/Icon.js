@@ -118,13 +118,13 @@ function Icon({
 
   return (
     <svg
-      className={cs}
-      height={size}
-      width={size}
-      viewBox="0 0 24 24"
       aria-hidden={ariaHidden}
       aria-label={accessibilityLabel}
+      className={cs}
+      height={size}
       role="img"
+      viewBox="0 0 24 24"
+      width={size}
     >
       <path d={path} />
     </svg>

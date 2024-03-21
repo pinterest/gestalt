@@ -44,12 +44,12 @@ const SideNavigationNestedItemWithForwardRef: AbstractComponent<Props, HTMLLIEle
 ): ReactNode {
   return (
     <SideNavigationTopItem
+      ref={ref}
       active={active}
       counter={counter}
       href={href}
       label={label}
       onClick={onClick}
-      ref={ref}
     />
   );
 });

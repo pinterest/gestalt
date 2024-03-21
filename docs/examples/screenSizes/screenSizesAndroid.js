@@ -4,7 +4,7 @@ import { Box, Table, Text } from 'gestalt';
 
 export default function ScreenSizesIos(): ReactNode {
   return (
-    <Box width="100%" padding={8}>
+    <Box padding={8} width="100%">
       <Table accessibilityLabel="Android Screen Sizes">
         <Table.Header>
           <Table.Row>

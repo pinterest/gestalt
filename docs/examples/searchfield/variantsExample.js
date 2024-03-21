@@ -5,13 +5,13 @@ import { Box, Flex, SearchField } from 'gestalt';
 export default function SearchFieldExample(): ReactNode {
   const [searchValue, setSearchValue] = useState('');
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex.Item flex="grow">
         <SearchField
-          accessibilityLabel=""
           accessibilityClearButtonLabel="Clear search field"
-          label="Search Messages"
+          accessibilityLabel=""
           id="searchMessagesLabelExample"
+          label="Search Messages"
           onChange={({ value }) => setSearchValue(value)}
           placeholder="Search by name"
           value={searchValue}

@@ -21,20 +21,20 @@ function Block({ title, text }: { title: string, text: $ReadOnlyArray<string> })
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex direction="column" gap={{ column: 10, row: 0 }} width={300}>
         <Block
-          title="Get started"
           text={['Add a Pinterest widget', 'Upgrade the Pinterest App', 'Interact with Idea Pins']}
+          title="Get started"
         />
         <hr style={{ borderTop: '3px dashed blue' }} />
         <Block
-          title="Manage Account"
           text={[
             'Edit notification settings',
             'Two-factor authentication',
             'Log in and out of Pinterest',
           ]}
+          title="Manage Account"
         />
       </Flex>
     </Box>

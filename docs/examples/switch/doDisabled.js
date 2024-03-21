@@ -6,8 +6,8 @@ export default function Example(): ReactNode {
   const [switched, setSwitched] = useState(false);
 
   return (
-    <Flex alignItems="center" justifyContent="center" height="100%" width="100%">
-      <Flex gap={2} alignItems="center">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
+      <Flex alignItems="center" gap={2}>
         <Switch
           disabled
           id="showsecretboards"
@@ -18,7 +18,7 @@ export default function Example(): ReactNode {
         <Label htmlFor="showsecretboards">
           <Flex direction="column" gap={1}>
             <Text>Show secret boards</Text>
-            <Text size="100" color="subtle">
+            <Text color="subtle" size="100">
               You don&apos;t have any secret boards
             </Text>
           </Flex>

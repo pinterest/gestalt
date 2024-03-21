@@ -5,9 +5,9 @@ import { Flex, Icon, TapArea, Tooltip } from 'gestalt';
 export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-      <Tooltip text="Share pin" accessibilityLabel="">
+      <Tooltip accessibilityLabel="" text="Share pin">
         <TapArea>
-          <Icon icon="share" accessibilityLabel="Share Pin" color="default" />
+          <Icon accessibilityLabel="Share Pin" color="default" icon="share" />
         </TapArea>
       </Tooltip>
     </Flex>

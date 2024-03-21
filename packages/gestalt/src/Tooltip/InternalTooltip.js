@@ -133,10 +133,10 @@ export default function InternalTooltip({
   return (
     <Box display={inline ? 'inlineBlock' : 'block'}>
       <Box
-        aria-label={accessibilityLabel != null && !disabled ? accessibilityLabel : text}
         ref={childRef}
-        onFocus={handleIconMouseEnter}
+        aria-label={accessibilityLabel != null && !disabled ? accessibilityLabel : text}
         onBlur={handleIconMouseLeave}
+        onFocus={handleIconMouseEnter}
         onMouseEnter={handleIconMouseEnter}
         onMouseLeave={handleIconMouseLeave}
       >
@@ -146,26 +146,26 @@ export default function InternalTooltip({
         <Layer zIndex={zIndex}>
           {isInExperiment ? (
             <Controller
-              role="tooltip"
               anchor={anchor}
-              caret={false}
               bgColor="darkGray"
               border={false}
+              caret={false}
+              disablePortal
+              hideWhenReferenceHidden
               idealDirection={idealDirection}
               onDismiss={noop}
-              disablePortal
+              role="tooltip"
               rounding={2}
-              size={null}
               shouldFocus={false}
-              hideWhenReferenceHidden
+              size={null}
             >
               <Box
                 maxWidth={180}
-                padding={2}
                 onBlur={link ? handleTextMouseLeave : undefined}
                 onFocus={link ? handleTextMouseEnter : undefined}
                 onMouseEnter={link ? handleTextMouseEnter : undefined}
                 onMouseLeave={link ? handleTextMouseLeave : undefined}
+                padding={2}
                 role="tooltip"
                 tabIndex={0}
               >
@@ -179,9 +179,9 @@ export default function InternalTooltip({
           ) : (
             <LegacyController
               anchor={anchor}
-              caret={false}
               bgColor="darkGray"
               border={false}
+              caret={false}
               idealDirection={idealDirection}
               onDismiss={noop}
               positionRelativeToAnchor={false}
@@ -190,11 +190,11 @@ export default function InternalTooltip({
             >
               <Box
                 maxWidth={180}
-                padding={2}
                 onBlur={link ? handleTextMouseLeave : undefined}
                 onFocus={link ? handleTextMouseEnter : undefined}
                 onMouseEnter={link ? handleTextMouseEnter : undefined}
                 onMouseLeave={link ? handleTextMouseLeave : undefined}
+                padding={2}
                 role="tooltip"
                 tabIndex={0}
               >

@@ -7,11 +7,11 @@ export default function Example(): ReactNode {
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <ButtonLink
         accessibilityLabel="Visit Pinterest"
+        color="red"
+        href="https://pinterest.com"
         iconEnd="visit"
         size="lg"
-        color="red"
         text="Visit Pinterest"
-        href="https://pinterest.com"
       />
     </Flex>
   );

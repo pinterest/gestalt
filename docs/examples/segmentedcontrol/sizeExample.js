@@ -10,19 +10,19 @@ export default function SegmentedControlExample(): Node {
   const textItems = ['All', 'Published', 'Drafts'];
 
   const iconItems = ['music-on', 'video-camera'].map((p) => (
-    <Icon key="icon" icon={p} accessibilityLabel={p} color="default" />
+    <Icon key="icon" accessibilityLabel={p} color="default" icon={p} />
   ));
   const items = showIcons ? iconItems : textItems;
 
   return (
     <Box padding={8} width="60%">
-      <Flex alignItems="center" height={48} gap={2}>
+      <Flex alignItems="center" gap={2} height={48}>
         <Text> Show Icons</Text>
         <Switch
-          name="showIcons"
-          switched={showIcons}
-          onChange={({ value }) => setShowIcons(value)}
           id="showIcons"
+          name="showIcons"
+          onChange={({ value }) => setShowIcons(value)}
+          switched={showIcons}
         />
       </Flex>
       <Flex direction="column" gap={{ column: 6, row: 0 }}>
@@ -33,8 +33,8 @@ export default function SegmentedControlExample(): Node {
             onChange={({ activeIndex }) => {
               setItem1Index(activeIndex);
             }}
-            size="sm"
             selectedItemIndex={item1Index}
+            size="sm"
           />
         </Flex>
 
@@ -45,9 +45,9 @@ export default function SegmentedControlExample(): Node {
             onChange={({ activeIndex }) => {
               setItem2Index(activeIndex);
             }}
-            size="md"
             responsive
             selectedItemIndex={item2Index}
+            size="md"
           />
         </Flex>
         <Flex direction="column" gap={{ column: 2, row: 0 }}>
@@ -57,9 +57,9 @@ export default function SegmentedControlExample(): Node {
             onChange={({ activeIndex }) => {
               setItem3Index(activeIndex);
             }}
-            size="lg"
             responsive
             selectedItemIndex={item3Index}
+            size="lg"
           />
         </Flex>
       </Flex>

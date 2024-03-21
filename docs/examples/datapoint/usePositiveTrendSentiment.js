@@ -4,13 +4,13 @@ import { Box, Datapoint } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Datapoint
         size="lg"
         title="Total spend"
-        value="$14,325"
         trend={{ value: 5.6, accessibilityLabel: 'Trending up' }}
         trendSentiment="neutral"
+        value="$14,325"
       />
     </Box>
   );

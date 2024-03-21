@@ -61,11 +61,11 @@ export default function DocsSideNavigation({ showBorder }: { showBorder?: boolea
       }}
     >
       <SelectList
-        labelDisplay="hidden"
         id="mobile-sidenavigation"
+        label="Select site section"
+        labelDisplay="hidden"
         onChange={({ value }) => setSelectedTab(value)}
         size="lg"
-        label="Select site section"
         value={selectedTab}
       >
         {[
@@ -115,12 +115,12 @@ export default function DocsSideNavigation({ showBorder }: { showBorder?: boolea
   return (
     <SideNavigation
       accessibilityLabel="Page navigation"
-      header={header}
-      mobileTitle="Menu"
       dismissButton={{
         onDismiss: closeSideNavigation,
         accessibilityLabel: 'Dismiss side navigation',
       }}
+      header={header}
+      mobileTitle="Menu"
       showBorder={showBorder}
     >
       {sectionItemsForSideNav}

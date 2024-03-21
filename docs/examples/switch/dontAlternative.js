@@ -4,9 +4,9 @@ import { Flex, Heading, Icon, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex alignItems="center" justifyContent="center" height="100%" width="100%">
-      <Flex direction="column" gap={3} width="100%" maxWidth={300}>
-        <Heading size="300" accessibilityLevel={3}>
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
+      <Flex direction="column" gap={3} maxWidth={300} width="100%">
+        <Heading accessibilityLevel={3} size="300">
           Pinterest notifications
         </Heading>
 
@@ -23,9 +23,9 @@ export default function Example(): ReactNode {
               </Flex.Item>
 
               <Icon
-                icon={checked ? 'check-circle' : 'circle-outline'}
-                color="default"
                 accessibilityLabel={`${checked ? 'checked' : 'unchecked'} circle`}
+                color="default"
+                icon={checked ? 'check-circle' : 'circle-outline'}
               />
             </Flex>
           ))}

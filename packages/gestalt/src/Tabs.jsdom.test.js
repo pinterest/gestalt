@@ -16,13 +16,13 @@ describe('<Tabs />', () => {
     >();
     render(
       <Tabs
+        activeTabIndex={0}
+        onChange={mockOnChange}
         tabs={[
           { text: 'News', href: '#' },
           { text: 'You', href: '#' },
           { text: 'Messages', href: '#' },
         ]}
-        activeTabIndex={0}
-        onChange={mockOnChange}
       />,
     );
 

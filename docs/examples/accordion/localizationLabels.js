@@ -14,12 +14,12 @@ export default function Example(): ReactNode {
       }}
     >
       <Box
+        alignItems="center"
+        display="flex"
+        height="100%"
+        justifyContent="center"
         padding={1}
         width="100%"
-        height="100%"
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
       >
         <Box column={12} maxWidth={800} padding={2}>
           <Accordion.Expandable

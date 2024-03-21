@@ -16,8 +16,8 @@ import sizeExample from '../../examples/segmentedcontrol/sizeExample';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title="SegmentedControl">
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen.description}>
-        <SandpackExample code={mainExample} name="SegmentedControl Main Example" hideEditor />
+      <PageHeader description={generatedDocGen.description} name={generatedDocGen?.displayName}>
+        <SandpackExample code={mainExample} hideEditor name="SegmentedControl Main Example" />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -26,20 +26,20 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - To switch between views within a small area of content, such as a [Popover](/web/popover).
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - To switch between views that represent the main content of a surface. Use [Tabs](/web/tabs) instead.
           - To act as a radio control within a form. Use [RadioGroup](/web/radiogroup) instead.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -53,7 +53,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         >
           <MainSection.Card
             cardSize="lg"
-            sandpackExample={<SandpackExample name="Default Example" code={defaultExample} />}
+            sandpackExample={<SandpackExample code={defaultExample} name="Default Example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -62,11 +62,10 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         >
           <MainSection.Card
             cardSize="lg"
-            sandpackExample={<SandpackExample name="Responsive Example" code={responsiveExample} />}
+            sandpackExample={<SandpackExample code={responsiveExample} name="Responsive Example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Size"
           description={`SegmentedControl is available in 3 fixed sizes:
           1. \`lg\` (48px)
               Large should be used when SegmentedControl needs to span larger areas. The font is 16px.
@@ -74,10 +73,11 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
               Medium is the default size, and should be used on most pinner surfaces. The font is 16px.
           3. \`sm\` (32px)
               Small should be used in places where the UI is very dense. The font is 14px.`}
+          title="Size"
         >
           <MainSection.Card
             cardSize="lg"
-            sandpackExample={<SandpackExample name="Sizes Example" code={sizeExample} />}
+            sandpackExample={<SandpackExample code={sizeExample} name="Sizes Example" />}
           />
         </MainSection.Subsection>
       </MainSection>

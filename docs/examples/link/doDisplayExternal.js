@@ -4,16 +4,16 @@ import { Flex, Link, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex height="100%" alignItems="center" justifyContent="center">
-      <Flex direction="column" width="70%" gap={{ column: 3, row: 0 }}>
+    <Flex alignItems="center" height="100%" justifyContent="center">
+      <Flex direction="column" gap={{ column: 3, row: 0 }} width="70%">
         <Text inline>
           To receive push notifications instead of texts,{' '}
           <Link
-            href="https://authy.com/download/"
             display="inline"
             externalLinkIcon="default"
-            target="blank"
+            href="https://authy.com/download/"
             rel="nofollow"
+            target="blank"
           >
             download the Authy app
           </Link>

@@ -23,15 +23,15 @@ export default function IconographyPage(): ReactNode {
   return (
     <Page title="Iconography usage">
       <PageHeader
-        name="Iconography usage"
         description={`Our iconography system provides symbolic representations of key actions and elements within an interface.
     `}
+        name="Iconography usage"
         type="guidelines"
       />
 
       <MainSection name="Principles">
-        <Flex gap={12} alignContent="between" wrap>
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
+        <Flex alignContent="between" gap={12} wrap>
+          <Flex.Item flex="grow" flexBasis="0%" maxWidth="45%" minWidth={275}>
             <PrincipleItem
               heading="Obvious"
               text={
@@ -43,7 +43,7 @@ export default function IconographyPage(): ReactNode {
               }
             />
           </Flex.Item>
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
+          <Flex.Item flex="grow" flexBasis="0%" maxWidth="45%" minWidth={275}>
             <PrincipleItem
               heading="Intentional"
               text={
@@ -55,7 +55,7 @@ export default function IconographyPage(): ReactNode {
               }
             />
           </Flex.Item>
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
+          <Flex.Item flex="grow" flexBasis="0%" maxWidth="45%" minWidth={275}>
             <PrincipleItem
               heading="Accessible"
               text={
@@ -71,7 +71,6 @@ export default function IconographyPage(): ReactNode {
       </MainSection>
 
       <MainSection
-        name="Iconography components"
         description={`
 Some of our React components use icons as primary elements to call attention to a particular action or information.
 
@@ -80,18 +79,19 @@ Some of our React components use icons as primary elements to call attention to 
 - [Status](/web/status): A graphic indicator of an element’s state.
 - [Link](/web/link): External links use the visit icon as an external domain indicator.
 `}
+        name="Iconography components"
       />
 
       <MainSection name="Characteristics">
         <MainSection.Subsection
-          title="Appearance"
           description={`The majority of our icons present a filled style. [Usability studies](https://cdr.lib.unc.edu/concern/masters_papers/6w924g35w) demonstrated that solid icons are typically faster to recognize than outline icons and offer a simpler shape, making the icons more identifiable and providing better scalability. Theretofore, some of our icons have an outlined treatment to give a clear visual concept in certain instances where the filled style doesn't apply.
 
 When choosing icons, we recommend sticking to a consistent style as much as possible to avoid usability issues. In addition, displaying two different aesthetics could confuse users regarding behaviors and interactions.
 
 Get in touch with us if an aesthetic change is needed, and we will evaluate the case.`}
+          title="Appearance"
         >
-          <Box color="infoWeak" paddingX={4} paddingY={12} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
+          <Box color="infoWeak" maxWidth={DOCS_COPY_MAX_WIDTH_PX} paddingX={4} paddingY={12}>
             <Flex
               direction="column"
               gap={{
@@ -107,51 +107,51 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
                 justifyContent="center"
               >
                 <Flex
+                  alignItems="center"
                   direction="column"
                   gap={{
                     row: 0,
                     column: 2,
                   }}
-                  alignItems="center"
                   width={64}
                 >
-                  <Icon icon="home" accessibilityLabel="home" size={24} color="default" />
+                  <Icon accessibilityLabel="home" color="default" icon="home" size={24} />
                   <Text size="100">home</Text>
                 </Flex>
                 <Flex
+                  alignItems="center"
                   direction="column"
                   gap={{
                     row: 0,
                     column: 2,
                   }}
-                  alignItems="center"
                   width={64}
                 >
-                  <Icon icon="heart" accessibilityLabel="heart" size={24} color="default" />
+                  <Icon accessibilityLabel="heart" color="default" icon="heart" size={24} />
                   <Text size="100">heart</Text>
                 </Flex>
                 <Flex
+                  alignItems="center"
                   direction="column"
                   gap={{
                     row: 0,
                     column: 2,
                   }}
-                  alignItems="center"
                   width={64}
                 >
-                  <Icon icon="lock" accessibilityLabel="lock" size={24} color="default" />
+                  <Icon accessibilityLabel="lock" color="default" icon="lock" size={24} />
                   <Text size="100">lock</Text>
                 </Flex>
                 <Flex
+                  alignItems="center"
                   direction="column"
                   gap={{
                     row: 0,
                     column: 2,
                   }}
-                  alignItems="center"
                   width={64}
                 >
-                  <Icon icon="trash-can" accessibilityLabel="trash can" size={24} color="default" />
+                  <Icon accessibilityLabel="trash can" color="default" icon="trash-can" size={24} />
                   <Text size="100">trash-can</Text>
                 </Flex>
               </Flex>
@@ -163,51 +163,51 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
                 justifyContent="center"
               >
                 <Flex
+                  alignItems="center"
                   direction="column"
                   gap={{
                     row: 0,
                     column: 2,
                   }}
-                  alignItems="center"
                   width={64}
                 >
-                  <Icon icon="search" accessibilityLabel="search" size={24} color="default" />
+                  <Icon accessibilityLabel="search" color="default" icon="search" size={24} />
                   <Text size="100">search</Text>
                 </Flex>
                 <Flex
+                  alignItems="center"
                   direction="column"
                   gap={{
                     row: 0,
                     column: 2,
                   }}
-                  alignItems="center"
                   width={64}
                 >
-                  <Icon icon="calendar" accessibilityLabel="calendar" size={24} color="default" />
+                  <Icon accessibilityLabel="calendar" color="default" icon="calendar" size={24} />
                   <Text size="100">calendar</Text>
                 </Flex>
                 <Flex
+                  alignItems="center"
                   direction="column"
                   gap={{
                     row: 0,
                     column: 2,
                   }}
-                  alignItems="center"
                   width={64}
                 >
-                  <Icon icon="visit" accessibilityLabel="visit" size={24} color="default" />
+                  <Icon accessibilityLabel="visit" color="default" icon="visit" size={24} />
                   <Text size="100">visit</Text>
                 </Flex>
                 <Flex
+                  alignItems="center"
                   direction="column"
                   gap={{
                     row: 0,
                     column: 2,
                   }}
-                  alignItems="center"
                   width={64}
                 >
-                  <Icon icon="globe" accessibilityLabel="globe" size={24} color="default" />
+                  <Icon accessibilityLabel="globe" color="default" icon="globe" size={24} />
                   <Text size="100">globe</Text>
                 </Flex>
               </Flex>
@@ -218,10 +218,10 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
           </Box>
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Size"
           description="Our icons are pixel-snapped for each singular case. Using a size not available in our size scale can cause the proportions to be off-balance and create an unintentional hierarchy within the Pinner experience. Our icons are purposefully designed to scale proportionally. Icons should fit organically in your design and feel balanced and optical aligned. In addition, we must ensure that your users can use your icons without the need for zooming."
+          title="Size"
         >
-          <Box color="infoWeak" paddingX={4} paddingY={12} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
+          <Box color="infoWeak" maxWidth={DOCS_COPY_MAX_WIDTH_PX} paddingX={4} paddingY={12}>
             <Flex
               gap={{
                 row: 8,
@@ -230,71 +230,71 @@ Get in touch with us if an aesthetic change is needed, and we will evaluate the 
               justifyContent="center"
             >
               <Flex
+                alignItems="center"
                 direction="column"
                 gap={{
                   row: 0,
                   column: 2,
                 }}
-                alignItems="center"
                 justifyContent="center"
               >
-                <Flex alignItems="center" justifyContent="center" width={32} height={32}>
-                  <Icon icon="bell" accessibilityLabel="bell" size={12} color="default" />
+                <Flex alignItems="center" height={32} justifyContent="center" width={32}>
+                  <Icon accessibilityLabel="bell" color="default" icon="bell" size={12} />
                 </Flex>
                 <Text size="100">12px</Text>
               </Flex>
               <Flex
+                alignItems="center"
                 direction="column"
                 gap={{
                   row: 0,
                   column: 2,
                 }}
-                alignItems="center"
                 justifyContent="center"
               >
-                <Flex alignItems="center" justifyContent="center" width={32} height={32}>
-                  <Icon icon="bell" accessibilityLabel="bell" size={14} color="default" />
+                <Flex alignItems="center" height={32} justifyContent="center" width={32}>
+                  <Icon accessibilityLabel="bell" color="default" icon="bell" size={14} />
                 </Flex>
                 <Text size="100">14px</Text>
               </Flex>
               <Flex
+                alignItems="center"
                 direction="column"
                 gap={{
                   row: 0,
                   column: 2,
                 }}
-                alignItems="center"
                 justifyContent="center"
               >
-                <Flex alignItems="center" justifyContent="center" width={32} height={32}>
-                  <Icon icon="bell" accessibilityLabel="bell" size={16} color="default" />
+                <Flex alignItems="center" height={32} justifyContent="center" width={32}>
+                  <Icon accessibilityLabel="bell" color="default" icon="bell" size={16} />
                 </Flex>
                 <Text size="100">16px</Text>
               </Flex>
               <Flex
+                alignItems="center"
                 direction="column"
                 gap={{
                   row: 0,
                   column: 2,
                 }}
-                alignItems="center"
                 justifyContent="center"
               >
-                <Flex alignItems="center" justifyContent="center" width={32} height={32}>
-                  <Icon icon="bell" accessibilityLabel="bell" size={24} color="default" />
+                <Flex alignItems="center" height={32} justifyContent="center" width={32}>
+                  <Icon accessibilityLabel="bell" color="default" icon="bell" size={24} />
                 </Flex>
                 <Text size="100">24px</Text>
               </Flex>
               <Flex
+                alignItems="center"
                 direction="column"
                 gap={{
                   row: 0,
                   column: 2,
                 }}
-                alignItems="center"
               >
-                <Flex alignItems="center" justifyContent="center" width={32} height={32}>
-                  <Icon icon="bell" accessibilityLabel="bell" size={32} color="default" />
+                <Flex alignItems="center" height={32} justifyContent="center" width={32}>
+                  <Icon accessibilityLabel="bell" color="default" icon="bell" size={32} />
                 </Flex>
                 <Text size="100">32px </Text>
               </Flex>
@@ -332,10 +332,10 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
           </Box>
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Color"
           description="Icons can display all of our [color design tokens](/foundations/design_tokens) options. However, we advise using colors semantically to avoid usability issues."
+          title="Color"
         >
-          <Box color="infoWeak" paddingX={4} paddingY={12} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
+          <Box color="infoWeak" maxWidth={DOCS_COPY_MAX_WIDTH_PX} paddingX={4} paddingY={12}>
             <Flex
               gap={{
                 row: 8,
@@ -344,54 +344,54 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
               justifyContent="center"
             >
               <Flex
+                alignItems="center"
                 direction="column"
                 gap={{
                   row: 0,
                   column: 2,
                 }}
-                alignItems="center"
               >
-                <Icon icon="heart" accessibilityLabel="heart" size={24} color="error" />
+                <Icon accessibilityLabel="heart" color="error" icon="heart" size={24} />
               </Flex>
               <Flex
+                alignItems="center"
                 direction="column"
                 gap={{
                   row: 0,
                   column: 2,
                 }}
-                alignItems="center"
               >
-                <Icon icon="heart" accessibilityLabel="heart" size={24} color="default" />
+                <Icon accessibilityLabel="heart" color="default" icon="heart" size={24} />
               </Flex>
               <Flex
+                alignItems="center"
                 direction="column"
                 gap={{
                   row: 0,
                   column: 2,
                 }}
-                alignItems="center"
               >
-                <Icon icon="heart" accessibilityLabel="heart" size={24} color="default" />
+                <Icon accessibilityLabel="heart" color="default" icon="heart" size={24} />
               </Flex>
               <Flex
+                alignItems="center"
                 direction="column"
                 gap={{
                   row: 0,
                   column: 2,
                 }}
-                alignItems="center"
               >
-                <Icon icon="heart" accessibilityLabel="heart" size={24} color="info" />
+                <Icon accessibilityLabel="heart" color="info" icon="heart" size={24} />
               </Flex>
               <Flex
+                alignItems="center"
                 direction="column"
                 gap={{
                   row: 0,
                   column: 2,
                 }}
-                alignItems="center"
               >
-                <Icon icon="heart" accessibilityLabel="heart" size={24} color="success" />
+                <Icon accessibilityLabel="heart" color="success" icon="heart" size={24} />
               </Flex>
             </Flex>
           </Box>
@@ -400,8 +400,8 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
           </Box>
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Platform-specific"
           description={`Our icons are used across multiple platforms, so we ensure that our icons are as similar as possible across all these platforms. However, some icons have already established conventions on specific platforms. In these cases, it's beneficial to follow the system's standards. Please note: We provide platform-specific icons (e.g., share, check, back).`}
+          title="Platform-specific"
         >
           <Flex
             gap={{
@@ -419,18 +419,18 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
                 justifyContent="center"
               >
                 <Flex
+                  alignItems="center"
                   direction="column"
                   gap={{
                     row: 0,
                     column: 2,
                   }}
-                  alignItems="center"
                 >
                   <Icon
-                    icon="android-share"
                     accessibilityLabel="share for android"
-                    size={24}
                     color="default"
+                    icon="android-share"
+                    size={24}
                   />
                   <Text size="100">Android share</Text>
                 </Flex>
@@ -445,14 +445,14 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
                 justifyContent="center"
               >
                 <Flex
+                  alignItems="center"
                   direction="column"
                   gap={{
                     row: 0,
                     column: 2,
                   }}
-                  alignItems="center"
                 >
-                  <Icon icon="share" accessibilityLabel="share for iOS" size={24} color="default" />
+                  <Icon accessibilityLabel="share for iOS" color="default" icon="share" size={24} />
                   <Text size="100">iOS share</Text>
                 </Flex>
               </Flex>
@@ -463,8 +463,8 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
           </Box>
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Layout"
           description="All Gestalt icons fit a 24px square grid template to create balance with rounded UI elements. We snap to the pixel and when not possible, we use lines and shapes measuring a maximum of 2 decimal points in increments of 0.25px, for example 2px, 2.25px, 2.5px, 2.75px. In addition, we use simple geometry and a minimum line weight of 2.5px to keep consistency across our surfaces. Our icon grid includes a safe area to ensure they feel balanced and align elements optically."
+          title="Layout"
         >
           <Box color="infoWeak" padding={8} width={240}>
             <Flex justifyContent="center">
@@ -478,123 +478,123 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="A11y: Use icons semantically and provide meaningful text whenever it is possible."
             sandpackExample={
               <SandpackExample
-                name="Use icons semantically"
                 code={useIconsSemantically}
-                hideEditor
                 hideControls
+                hideEditor
                 layout="column"
+                name="Use icons semantically"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use icons without labels for decoration or visual interest."
             sandpackExample={
               <SandpackExample
-                name="Don't use icons without labels"
                 code={dontUseIconsWithoutLabels}
+                hideControls
                 hideEditor
                 layout="column"
-                hideControls
+                name="Don't use icons without labels"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="A11y: Stick to our [design tokens](/foundations/color/usage#Iconography-color) and use color combinations with at least 3:1 contrast ratio between foreground and background."
             sandpackExample={
               <SandpackExample
-                name="Stick to our design tokens"
                 code={stickToOurDesignTokens}
-                hideEditor
                 hideControls
+                hideEditor
                 layout="column"
+                name="Stick to our design tokens"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use colors that doesn’t pass 3:1 contrast ratio. Ensure the icon color is compliant with the Web Content Accessibility Guidelines [(WCAG) 2.1 AA standard](/foundations/accessibility#Visuals) color contrast ratio."
             sandpackExample={
               <SandpackExample
-                name="Don't use low contrast colors"
                 code={dontUseLowContrastColors}
+                hideControls
                 hideEditor
                 layout="column"
-                hideControls
+                name="Don't use low contrast colors"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Style: Use our icons following the Gestalt design specs."
             sandpackExample={
               <SandpackExample
-                name="Use icons following design specs"
                 code={useIconsFollowingDesignSpecs}
-                hideEditor
                 hideControls
+                hideEditor
                 layout="column"
+                name="Use icons following design specs"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Modify our icon's design specs. Changing an icon shape can make the icon hard to read for Pinners and feel like a different visual language."
             sandpackExample={
               <SandpackExample
-                name="Don't modify our icon's design specs"
                 code={dontModifyIconDesignSpecs}
-                hideEditor
                 hideControls
+                hideEditor
                 layout="column"
+                name="Don't modify our icon's design specs"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Alignment: Center-align icons when they’re next to a text element."
             sandpackExample={
               <SandpackExample
-                name="Center-align icons"
                 code={centerAlignWithText}
-                hideEditor
                 hideControls
+                hideEditor
                 layout="column"
+                name="Center-align icons"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Baseline-align icons to the text element."
             sandpackExample={
               <SandpackExample
-                name="Don't baseline-align icons"
                 code={dontBaselineWithText}
-                hideEditor
                 hideControls
+                hideEditor
                 layout="column"
+                name="Don't baseline-align icons"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -625,20 +625,20 @@ Generally 16px and 24px icons should be used in mobile interfaces. When icons ar
         </MainSection.Subsection>
       </MainSection>
       <MainSection
-        name="Future updates"
         description="Our guidelines primarily cover user interface use cases for iconography. However, we will improve the icons guidelines by evaluating our aesthetic standards, visual specs, and iconography search experience in the future."
+        name="Future updates"
       >
         <MainSection.Subsection
-          title="Aesthetic styles and design specs"
           description="We plan to research and evaluate the need for two sets of icons: filled and hollow. In addition, we will address standards and guidelines for the icon design specs."
+          title="Aesthetic styles and design specs"
         />
         <MainSection.Subsection
-          title="Iconography search experience"
           description="One of our goals is to enhance our search experience in our [Iconography and SVG page](/foundations/iconography/library), as well as establish guidelines for when to use each type of icon available in our collection."
+          title="Iconography search experience"
         />
         <MainSection.Subsection
-          title="Collaboration model"
           description="We are evaluating a collaboration model for icons and system of icons. Stay tuned."
+          title="Collaboration model"
         />
       </MainSection>
     </Page>

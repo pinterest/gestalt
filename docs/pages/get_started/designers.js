@@ -7,7 +7,7 @@ import PageHeader from '../../docs-components/PageHeader';
 export default function DocsPage(): ReactNode {
   return (
     <Page title="Get started as a designer">
-      <PageHeader name="Get started as a designer" description="" type="guidelines" />
+      <PageHeader description="" name="Get started as a designer" type="guidelines" />
 
       <MainSection name="Get set up">
         <MainSection.Subsection
@@ -16,13 +16,12 @@ export default function DocsPage(): ReactNode {
     `}
         />
         <MainSection.Subsection
-          title="Onboarding"
           description={`
 In your first couple of weeks at Pinterest, you will receive an invite from your manager to a Gestalt onboarding session. This session will give you an overview of Gestalt, how it’s used, and serve as a time to ask any questions you may have.
           `}
+          title="Onboarding"
         />
         <MainSection.Subsection
-          title="Connect to Gestalt in Figma"
           description={`
 1. You may be able to download Figma directly from the [Figma Website](https://www.figma.com/downloads/). If you do not have the appropriate access you can request access through the [Pinterest Approved Software Collection](http://w.pinadmin.com/display/SOFTWARE/Figma).
 2. Once you have Figma on your computer, you can open the application and select “Log in with SAML SSO.” From there, enter your Pinterest email address and open Figma.
@@ -30,18 +29,18 @@ In your first couple of weeks at Pinterest, you will receive an invite from your
 4. When creating or opening an existing design file, you should see the Gestalt components populate under the “Assets” tab in the left-hand column. Libraries include Web Sticker OverlayPanel, IOS Sticker Sheet, Android Library, Gestalt Icons, and Platform Extras.
 5. The [#gestalt-design](https://pinterest.slack.com/archives/C0HUV5J93) Slack channel is always here to support you.
           `}
+          title="Connect to Gestalt in Figma"
         />
         <MainSection.Subsection
-          title="Figma library tips"
           description={`
 * Avoid detaching components when possible. Instead, use the component’s variant options or show and hide layers within the component. If a component is not working as expected, reach out via #gestalt-design.
 * Make sure to keep your components up-to-date. You may see a notification in the bottom right corner of Figma when an update is available.
 * We recommend using [Gestalt's handoff kit](http://pinch.pinadmin.com/figmaHandoffKit) when prepping a design for implementation. The handoff kit provides guidance on design file structure, best practices, and annotation/flow components to make the design handoff process smoother between engineers and designers.
 * The [Product Surfaces library](http://pinch.pinadmin.com/ProductSurfaces) is a single reference point for all key product surfaces in Figma for many product areas. This collection of surfaces can be used as a faster way to reference, grab or duplicate product surfaces to your workflow.
           `}
+          title="Figma library tips"
         />
         <MainSection.Subsection
-          title="Private Figma plugins"
           description={`
 **Please note: The following plugins are only available for Pinterest employees.**
 
@@ -53,9 +52,9 @@ The Pinterest Design Figma plugin is _the_   design tool to work faster and smar
 Insert Pinterest Brand-approved, royalty-free stock photography from curated collections on our DAM.
 
           `}
+          title="Private Figma plugins"
         />
         <MainSection.Subsection
-          title="Additional Figma plugins"
           description={`
 Pinterest employees should check out this full list of [approved Figma plugins](http://pinch.pinadmin.com/figma-plugins). We especially recommend:
 
@@ -68,9 +67,9 @@ Spellchecker uses the Yandex API. Spellchecker helps to find and correct spellin
 [**Translator**](https://www.figma.com/community/plugin/743218037112142643/Translator)
 Translator instantly translates the text in your Figma designs into other languages.
           `}
+          title="Additional Figma plugins"
         />
         <MainSection.Subsection
-          title="Fonts"
           description={`
 [**SF Pro (iOS & Web)**](https://developer.apple.com/fonts/)
 Fonts for Apple Platforms
@@ -78,9 +77,9 @@ Fonts for Apple Platforms
 [**Roboto (Android & Google Platforms)**](https://fonts.google.com/specimen/Roboto)
 Google Fonts
           `}
+          title="Fonts"
         />
         <MainSection.Subsection
-          title="Documentation"
           description={`
 Wondering how a component works? The dos and dont's of its use?
 
@@ -89,6 +88,7 @@ All of Gestalt’s documentation can be found right here at [gestalt.pinterest.s
 Access the Gestalt documentation without leaving Figma, by using the [Pinterest Design plugin](https://www.figma.com/community/plugin/1215463263194174399)!
 
           `}
+          title="Documentation"
         />
       </MainSection>
 

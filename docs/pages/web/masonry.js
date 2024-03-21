@@ -20,15 +20,15 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
+        name={generatedDocGen?.displayName}
         pdocsLink
       >
         <SandpackExample
-          name="Main Masonry example"
           code={main}
           hideEditor
           layout="column"
+          name="Main Masonry example"
           previewHeight={PREVIEW_HEIGHT}
         />
       </PageHeader>
@@ -39,10 +39,10 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Classic layouts"
           description={`
           Masonry offers two "classic" layouts: \`basic\` and \`basicCentered\`. These layouts use a fixed column width and include whitespace (if necessary given the container width) on the right side or both sides of the grid, respectively.
         `}
+          title="Classic layouts"
         >
           <MainSection.Card
             sandpackExample={
@@ -57,12 +57,12 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Flexible layouts"
           description={`
           Masonry offers two layouts with flexible column widths: \`flexible\` and \`serverRenderedFlexible\`. These layouts use \`columnWidth\` as a starting point, but grow or shrink the column width to fill the container width. This creates an immersive, responsive, "full bleed" experience.
 
           \`serverRenderedFlexible\` corrects an issue with rendering a flexible layout on the server. This layout option assumes that you have provided the proper CSS to ensure the layout is correct during SSR.
           `}
+          title="Flexible layouts"
         >
           <MainSection.Card
             sandpackExample={
@@ -77,10 +77,10 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Uniform row heights"
           description={`
             Use the \`uniformRow\` layout to create a grid with uniform row heights. Note that Masonry does not crop or otherwise alter items, so each row will be as tall as the tallest item in that row. Any shorter items within the row will have additional whitespace below them.
           `}
+          title="Uniform row heights"
         >
           <MainSection.Card
             sandpackExample={
@@ -105,7 +105,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         />
 
         <MainSection.Subsection
-          title="Why is there too much / too little vertical whitespace between items?"
           description={`
           [As mentioned above](/web/masonry#How-Masonry-works), Masonry calculates the height of each item before rendering it. This means that if the height of an item changes after it has been rendered, the items below it will not be repositioned. This can lead to extra whitespace between items if the height of an item decreases, or overlapping items if the height of an item increases.
 
@@ -114,6 +113,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           - placeholder images that don't match the size of the final content (this is particularly common with videos)
           - items that grow/shrink based on user interaction (this requires reflowing the entire grid)
           `}
+          title="Why is there too much / too little vertical whitespace between items?"
         />
       </MainSection>
 

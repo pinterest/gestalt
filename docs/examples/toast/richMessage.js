@@ -4,23 +4,23 @@ import { Box, Flex, Image, Toast } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box paddingY={4} height="100%" width="90%">
+    <Box height="100%" paddingY={4} width="90%">
       <Flex
         alignItems="center"
-        justifyContent="center"
         direction="column"
-        height="100%"
         gap={2}
+        height="100%"
+        justifyContent="center"
         width="100%"
       >
         <Toast
-          text="Your account admin rights were successfully saved"
           primaryAction={{
             accessibilityLabel: 'Undo',
             label: 'Undo',
             role: 'button',
             onClick: () => {},
           }}
+          text="Your account admin rights were successfully saved"
           thumbnail={{
             image: (
               <Image
@@ -33,13 +33,13 @@ export default function Example(): ReactNode {
           }}
         />
         <Toast
-          text="Your account admin rights were successfully saved."
           dismissButton={{ onDismiss: () => {} }}
           helperLink={{
             text: 'Go to settings',
             accessibilityLabel: 'Go to settings',
             href: '#',
           }}
+          text="Your account admin rights were successfully saved."
         />
       </Flex>
     </Box>

@@ -12,7 +12,7 @@ export default function Snapshot(): ReactNode {
             onDismiss: () => {},
           }}
           imageData={{
-            component: <Icon icon="pinterest" accessibilityLabel="" color="default" size={32} />,
+            component: <Icon accessibilityLabel="" color="default" icon="pinterest" size={32} />,
           }}
           message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
           primaryAction={{

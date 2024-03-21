@@ -145,6 +145,7 @@ const IconButtonLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> 
 
   const buttonComponent = (
     <InternalLink
+      ref={innerRef}
       accessibilityLabel={getAriaLabel({
         target,
         accessibilityLabel,
@@ -153,19 +154,18 @@ const IconButtonLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> 
       dataTestId={dataTestId}
       disabled={disabled}
       href={href}
+      onBlur={handleOnBlur}
       onClick={({ event, dangerouslyDisableOnNavigation }) => {
         onClick?.({
           event,
           dangerouslyDisableOnNavigation,
         });
       }}
-      onBlur={handleOnBlur}
       onFocus={handleOnFocus}
       onMouseDown={handleOnMouseDown}
-      onMouseUp={handleOnMouseUp}
       onMouseEnter={handleOnMouseEnter}
       onMouseLeave={handleOnMouseLeave}
-      ref={innerRef}
+      onMouseUp={handleOnMouseUp}
       rel={rel}
       tabIndex={tabIndex}
       target={target}
@@ -189,8 +189,8 @@ const IconButtonLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> 
   return tooltip?.text ? (
     <Tooltip
       accessibilityLabel={tooltip.accessibilityLabel}
-      inline={tooltip.inline}
       idealDirection={tooltip.idealDirection}
+      inline={tooltip.inline}
       text={tooltip.text}
       zIndex={tooltip.zIndex}
     >

@@ -240,42 +240,29 @@ const TapAreaWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwardR
 
   return (
     <div
+      ref={innerRef}
       aria-checked={role === 'switch' ? accessibilityChecked : undefined}
       aria-controls={accessibilityControls}
       aria-disabled={disabled}
       aria-expanded={accessibilityExpanded}
       aria-haspopup={accessibilityHaspopup}
       aria-label={accessibilityLabel}
-      data-test-id={dataTestId}
       className={buttonRoleClasses}
-      onClick={(event) => {
-        if (!disabled) onTap?.({ event });
-      }}
+      data-test-id={dataTestId}
       onBlur={(event) => {
         if (!disabled) onBlur?.({ event });
         handleBlur();
       }}
-      onKeyDown={(event) => {
-        if (!disabled) onKeyDown?.({ event });
+      onClick={(event) => {
+        if (!disabled) onTap?.({ event });
       }}
       onFocus={(event) => {
         if (!disabled) {
           onFocus?.({ event });
         }
       }}
-      onMouseDown={(event) => {
-        onMouseDown?.({ event });
-        handleMouseDown();
-      }}
-      onMouseUp={(event) => {
-        onMouseUp?.({ event });
-        handleMouseUp();
-      }}
-      onMouseEnter={(event) => {
-        if (!disabled) onMouseEnter?.({ event });
-      }}
-      onMouseLeave={(event) => {
-        if (!disabled) onMouseLeave?.({ event });
+      onKeyDown={(event) => {
+        if (!disabled) onKeyDown?.({ event });
       }}
       onKeyPress={(event) => {
         // Check to see if space or enter were pressed
@@ -286,11 +273,24 @@ const TapAreaWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwardR
           onTap?.({ event });
         }
       }}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
+      onMouseDown={(event) => {
+        onMouseDown?.({ event });
+        handleMouseDown();
+      }}
+      onMouseEnter={(event) => {
+        if (!disabled) onMouseEnter?.({ event });
+      }}
+      onMouseLeave={(event) => {
+        if (!disabled) onMouseLeave?.({ event });
+      }}
+      onMouseUp={(event) => {
+        onMouseUp?.({ event });
+        handleMouseUp();
+      }}
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
-      ref={innerRef}
+      onTouchMove={handleTouchMove}
+      onTouchStart={handleTouchStart}
       role={role ?? 'button'}
       {...(tapStyle === 'compress' && compressStyle && !disabled ? { style: compressStyle } : {})}
       tabIndex={disabled ? null : tabIndex}

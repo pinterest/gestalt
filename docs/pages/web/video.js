@@ -22,34 +22,34 @@ import withChildrenExample from '../../examples/video/withChildrenExample';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title="Video">
-      <PageHeader name="Video" description={generatedDocGen?.description} pdocsLink>
+      <PageHeader description={generatedDocGen?.description} name="Video" pdocsLink>
         <SandpackExample
-          name="Main Example"
           code={mainExample}
-          layout="column"
-          previewHeight={600}
           hideEditor
+          layout="column"
+          name="Main Example"
+          previewHeight={600}
         />
       </PageHeader>
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
-          title="Captions"
           description={`Captions are intended for deaf and hard-of-hearing audiences. Captions are usually in the same language as the audio. Please, read the [differences between captions and subtitles](https://web.archive.org/web/20160117160743/http://screenfont.ca/learn/).
 
 Read more about [adding captions to video](https://developer.mozilla.org/en-US/docs/Web/Guide/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video#html5_and_video_captions).
 
 The following example uses an excerpt from the [Sintel open movie](https://www.sintel.org), created by the [Blender Foundation](https://www.blender.org/foundation/).
   `}
+          title="Captions"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Captions Example"
                 code={captionsExample}
                 layout="column"
+                name="Captions Example"
                 previewHeight={400}
               />
             }
@@ -65,7 +65,6 @@ The following example uses an excerpt from the [Sintel open movie](https://www.s
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Autoplay and error detection"
           description={`Autoplay or automatically starting the playback of the video requires the \`autoplay\` prop. While autoplay of media serves a useful purpose, it should be used carefully and only when needed. In order to give users control over this, browsers often provide various forms of autoplay blocking.
 
 Autoplay blocking is not applied to video elements when the source media doesn't have an audio track or is muted.
@@ -80,43 +79,44 @@ If \`autoplay\` is set, don't set the initial \`playing\` state to true as both 
 
 For more information about autoplay, check the [MDN Web Docs: video](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#attr-autoplay), [MDN Web Docs: HTMLMediaElement.autoplay](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/autoplay), and the [MDN Web Docs: Autoplay guide for media and Web Audio APIs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/autoplay).
   `}
+          title="Autoplay and error detection"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Autoplay And Error Detection Example"
                 code={autoplayAndErrorDetectionExample}
+                name="Autoplay And Error Detection Example"
                 previewHeight={600}
               />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Video controls"
           description={`Video components can show a control bar to users in order to allow them access to certain features such as play/pause, timestamps, mute, and fullscreen. Pass in the \`controls\` prop to make them appear. The Video \`controls\` are custom; they aren't the [native video controls](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#attr-controls).
   `}
+          title="Video controls"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample name="Controls Example" code={controlsExample} previewHeight={600} />
+              <SandpackExample code={controlsExample} name="Controls Example" previewHeight={600} />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="With children"
           description={`Video component can show components in the \`children\` prop on top of the html video element, while under the controls.
     The children of Video aren't same as the children of the html video element; they're "outside" the html video element.
   `}
+          title="With children"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="With Children Example"
                 code={withChildrenExample}
+                name="With Children Example"
                 previewHeight={600}
               />
             }
@@ -124,27 +124,27 @@ For more information about autoplay, check the [MDN Web Docs: video](https://dev
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Video updates"
           description="Video is robust enough to handle any updates, such as changing the source, volume, or speed."
+          title="Video updates"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample name="Updates Example" code={updatesExample} previewHeight={700} />
+              <SandpackExample code={updatesExample} name="Updates Example" previewHeight={700} />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Multiple video sources"
           description={`Not all browsers support the same video encoding types. If you have multiple video file sources, you can pass them as a list to Video in the order you want the HTML video tag to use as fallbacks.
   `}
+          title="Multiple video sources"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Multiple Sources Example"
                 code={multipleSourcesExample}
+                name="Multiple Sources Example"
                 previewHeight={400}
               />
             }

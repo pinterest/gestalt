@@ -21,7 +21,7 @@ test('RadioButton checked', () => {
 
 test('RadioButton small', () => {
   const tree = create(
-    <RadioButton size="sm" id="id" label="Name" onChange={() => {}} value="" />,
+    <RadioButton id="id" label="Name" onChange={() => {}} size="sm" value="" />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -35,14 +35,14 @@ test('RadioButton disabled', () => {
 
 test('RadioButton disabled small', () => {
   const tree = create(
-    <RadioButton size="sm" disabled id="id" label="Name" onChange={() => {}} value="" />,
+    <RadioButton disabled id="id" label="Name" onChange={() => {}} size="sm" value="" />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
 test('RadioButton with subtext', () => {
   const tree = create(
-    <RadioButton size="sm" id="id" label="Name" subtext="More Info" onChange={() => {}} value="" />,
+    <RadioButton id="id" label="Name" onChange={() => {}} size="sm" subtext="More Info" value="" />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -50,20 +50,20 @@ test('RadioButton with subtext', () => {
 test('RadioButton with image', () => {
   const tree = create(
     <RadioButton
-      size="sm"
       id="id"
-      label="Name"
       image={
         <Box>
           <Image
             alt=""
-            src="https://i.ibb.co/FY2MKr5/stock6.jpg"
             naturalHeight={1}
             naturalWidth={1}
+            src="https://i.ibb.co/FY2MKr5/stock6.jpg"
           />
         </Box>
       }
+      label="Name"
       onChange={() => {}}
+      size="sm"
       value=""
     />,
   ).toJSON();

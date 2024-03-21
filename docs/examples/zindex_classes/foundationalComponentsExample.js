@@ -25,45 +25,45 @@ export default function ScrollBoundaryContainerExample(): ReactNode {
   const [showSheet, setShowSheet] = useState(false);
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Button text="Edit Pin" onClick={() => setShowSheet(true)} size="lg" />
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Button onClick={() => setShowSheet(true)} size="lg" text="Edit Pin" />
 
       {showSheet && (
         <Layer zIndex={SHEET_ZINDEX}>
           <OverlayPanel
             accessibilityDismissButtonLabel="Close edit Pin overlay panel"
             accessibilityLabel="Edit your Pin details"
-            heading="Edit Pin"
             footer={
               <Flex>
                 <Flex.Item flex="grow">
                   <Button
                     color="white"
-                    text="Delete"
-                    size="lg"
                     onClick={() => setShowSheet(false)}
+                    size="lg"
+                    text="Delete"
                   />
                 </Flex.Item>
 
                 <Flex gap={{ column: 0, row: 2 }}>
-                  <Button text="Cancel" size="lg" onClick={() => setShowSheet(false)} />
+                  <Button onClick={() => setShowSheet(false)} size="lg" text="Cancel" />
 
                   <Button
-                    text="Done"
                     color="red"
-                    size="lg"
-                    type="submit"
                     onClick={() => setShowSheet(false)}
+                    size="lg"
+                    text="Done"
+                    type="submit"
                   />
                 </Flex>
               </Flex>
             }
+            heading="Edit Pin"
             onDismiss={() => setShowSheet(false)}
             size="lg"
           >
             <Box display="flex" height={400} paddingX={8}>
               <Flex gap={{ row: 8, column: 0 }} width="100%">
-                <Box width={200} paddingX={2} rounding={4}>
+                <Box paddingX={2} rounding={4} width={200}>
                   <Mask rounding={4}>
                     <Image
                       alt="Tropic greens: The taste of Petrol and Porcelain | Interior design, Vintage Sets and Unique Pieces agave"
@@ -81,9 +81,9 @@ export default function ScrollBoundaryContainerExample(): ReactNode {
 
                     <TextArea
                       id="note"
+                      label="Note"
                       onChange={() => {}}
                       placeholder="Add note"
-                      label="Note"
                       value=""
                     />
                   </Flex>
@@ -113,11 +113,11 @@ function SelectBoard() {
         <Text size="100">Board</Text>
 
         <Button
-          iconEnd="arrow-down"
+          ref={anchorRef}
           accessibilityLabel="Select Board"
+          iconEnd="arrow-down"
           onClick={() => setOpenPopover(!openPopover)}
           text={selectedBoard}
-          ref={anchorRef}
         />
       </Flex>
 
@@ -131,7 +131,7 @@ function SelectBoard() {
             size="xl"
           >
             <Box width={360}>
-              <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
+              <Box flex="grow" marginBottom={8} marginEnd={4} marginStart={4} marginTop={6}>
                 <Flex direction="column" gap={{ column: 6, row: 0 }}>
                   <Text align="center" color="default" weight="bold">
                     Save to board
@@ -143,8 +143,8 @@ function SelectBoard() {
               <Box height={300} overflow="scrollY">
                 <Box marginEnd={4} marginStart={4}>
                   <Flex direction="column" gap={{ column: 8, row: 0 }}>
-                    <List title="Top choices" onSelect={handleSelect} />
-                    <List title="All boards" onSelect={handleSelect} />
+                    <List onSelect={handleSelect} title="Top choices" />
+                    <List onSelect={handleSelect} title="All boards" />
                   </Flex>
                 </Box>
               </Box>
@@ -182,8 +182,8 @@ function List({ title, onSelect }: { title: string, onSelect: (data: string) => 
           ],
         ].map((data) => (
           <TapArea key={data[1]} onTap={() => onSelect(data[1])} rounding={2}>
-            <Flex gap={{ row: 2, column: 0 }} alignItems="center">
-              <Box height={50} width={50} overflow="hidden" rounding={2}>
+            <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
+              <Box height={50} overflow="hidden" rounding={2} width={50}>
                 <Mask rounding={2}>
                   <Image
                     alt={data[2]}
@@ -215,12 +215,12 @@ function SearchBoardField() {
 
   return (
     <SearchField
+      ref={ref}
       accessibilityLabel="Search boards field"
       id="searchField"
       onChange={() => {}}
       placeholder="Search boards"
       size="lg"
-      ref={ref}
     />
   );
 }

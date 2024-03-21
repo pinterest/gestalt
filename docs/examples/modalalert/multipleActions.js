@@ -14,9 +14,9 @@ export default function Example(): ReactNode {
         <Button
           accessibilityLabel="Show Modal"
           color="red"
-          text="Show Modal"
-          size="lg"
           onClick={() => setShowComponent(true)}
+          size="lg"
+          text="Show Modal"
         />
       </Box>
       {showComponent ? (
@@ -24,6 +24,7 @@ export default function Example(): ReactNode {
           <ModalAlert
             accessibilityModalLabel="Delete current Pin draft confirmation"
             heading="Delete this draft?"
+            onDismiss={() => {}}
             primaryAction={{
               accessibilityLabel: 'Delete draft',
               label: 'Delete',
@@ -36,7 +37,6 @@ export default function Example(): ReactNode {
               onClick: () => {},
               role: 'button',
             }}
-            onDismiss={() => {}}
           >
             <Text>Deleting this draft cannot be undone. Are you sure you want to delete?</Text>
           </ModalAlert>

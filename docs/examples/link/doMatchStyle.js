@@ -4,16 +4,16 @@ import { Box, Button, Flex, Label, Link, NumberField, Text, TextField } from 'ge
 
 export default function Example(): ReactNode {
   return (
-    <Flex height="100%" alignItems="center" justifyContent="center">
-      <Flex direction="column" width="70%" gap={{ column: 3, row: 0 }}>
+    <Flex alignItems="center" height="100%" justifyContent="center">
+      <Flex direction="column" gap={{ column: 3, row: 0 }} width="70%">
         <Flex.Item>
           <Box display="visuallyHidden">
             <Label htmlFor="example-email-1">Email</Label>
           </Box>
           <TextField
-            placeholder="Email"
             id="example-email-1"
             onChange={() => {}}
+            placeholder="Email"
             type="email"
             value=""
           />
@@ -23,9 +23,9 @@ export default function Example(): ReactNode {
             <Label htmlFor="example-password-1">Password</Label>
           </Box>
           <TextField
-            placeholder="Create password"
             id="example-password-1"
             onChange={() => {}}
+            placeholder="Create password"
             type="password"
             value=""
           />
@@ -34,20 +34,20 @@ export default function Example(): ReactNode {
           <Box display="visuallyHidden">
             <Label htmlFor="example-age-1">Age</Label>
           </Box>
-          <NumberField placeholder="Age" id="example-age-1" onChange={() => {}} />
+          <NumberField id="example-age-1" onChange={() => {}} placeholder="Age" />
         </Flex.Item>
-        <Button fullWidth text="Create account" size="md" color="red" />
-        <Button fullWidth text="Log into existing account" size="md" type="submit" />
-        <Text size="100" align="center">
+        <Button color="red" fullWidth size="md" text="Create account" />
+        <Button fullWidth size="md" text="Log into existing account" type="submit" />
+        <Text align="center" size="100">
           By continuing, you agree to Pinterest&lsquo;s{' '}
-          <Text size="100" inline>
-            <Link href="https://www.pinterest.com" display="inline">
+          <Text inline size="100">
+            <Link display="inline" href="https://www.pinterest.com">
               Business Terms of Service
             </Link>
           </Text>{' '}
           and acknowledge you&lsquo;ve read our{' '}
-          <Text size="100" inline>
-            <Link href="https://www.pinterest.com" display="inline">
+          <Text inline size="100">
+            <Link display="inline" href="https://www.pinterest.com">
               Privacy Policy
             </Link>
           </Text>

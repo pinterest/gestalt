@@ -5,7 +5,7 @@ import { Box, Column, Flex, Text } from 'gestalt';
 export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-      <Column span={12} mdSpan={6}>
+      <Column mdSpan={6} span={12}>
         <Box color="secondary" padding={1}>
           <Box color="default" paddingY={2}>
             <Box display="block" mdDisplay="none">
@@ -21,7 +21,7 @@ export default function Example(): ReactNode {
           </Box>
         </Box>
       </Column>
-      <Column span={12} mdSpan={6}>
+      <Column mdSpan={6} span={12}>
         <Box color="secondary" padding={1}>
           <Box color="default" paddingY={2}>
             <Box display="block" mdDisplay="none">

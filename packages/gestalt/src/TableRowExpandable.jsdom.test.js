@@ -22,8 +22,8 @@ test('TableRowExpandable handles expand contents call', () => {
     <Table accessibilityLabel="test">
       <TableBody>
         <TableRowExpandable
-          accessibilityExpandLabel="Expand"
           accessibilityCollapseLabel="Collapse"
+          accessibilityExpandLabel="Expand"
           expandedContents={<Box>Hello</Box>}
           id="expandableRow"
         >
@@ -48,8 +48,8 @@ test('TableRowExpandable handles onExpand callback', () => {
     <Table accessibilityLabel="test">
       <TableBody>
         <TableRowExpandable
-          accessibilityExpandLabel="Expand"
           accessibilityCollapseLabel="Collapse"
+          accessibilityExpandLabel="Expand"
           expandedContents={<Box>Hello</Box>}
           id="expandableRow"
           onExpand={mockOnExpand}

@@ -17,9 +17,13 @@ export default function FeedbackBannerCallout({ componentName }: Props): ReactNo
     <Box marginLeft={-1} marginRight={-1}>
       {showCallout && (
         <BannerCallout
-          type="info"
+          dismissButton={{
+            accessibilityLabel: 'Dismiss banner',
+            onDismiss: () => {
+              setShowCallout(!showCallout);
+            },
+          }}
           iconAccessibilityLabel="Info icon"
-          title="Got feedback?"
           message="Answer two quick questions to let the Gestalt team know what you think of our new standardized documentation format (now with design best practices!)"
           primaryAction={{
             label: 'Give feedback',
@@ -28,12 +32,8 @@ export default function FeedbackBannerCallout({ componentName }: Props): ReactNo
             target: 'blank',
             role: 'link',
           }}
-          dismissButton={{
-            accessibilityLabel: 'Dismiss banner',
-            onDismiss: () => {
-              setShowCallout(!showCallout);
-            },
-          }}
+          title="Got feedback?"
+          type="info"
         />
       )}
     </Box>

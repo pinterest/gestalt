@@ -7,29 +7,29 @@ export default function Example(): Node {
   const [size, setSize] = useState('sm');
 
   return (
-    <Box padding={8} width="100%" display="flex" alignItems="center">
-      <Flex direction="column" width="100%" justifyContent="between" gap={{ column: 2, row: 0 }}>
+    <Box alignItems="center" display="flex" padding={8} width="100%">
+      <Flex direction="column" gap={{ column: 2, row: 0 }} justifyContent="between" width="100%">
         <SegmentedControl
-          selectedItemIndex={sizes.indexOf(size)}
           items={sizes}
           onChange={({ activeIndex }) => {
             setSize(sizes[activeIndex]);
           }}
+          selectedItemIndex={sizes.indexOf(size)}
         />
         <Accordion
+          badge={{ text: 'Beta' }}
           icon="lock"
+          iconAccessibilityLabel="Accordion Locked - check permission settings"
           iconButton={
             <IconButton
+              accessibilityLabel="Get help"
               bgColor="lightGray"
               icon="question-mark"
               iconColor="darkGray"
-              accessibilityLabel="Get help"
-              size="xs"
               onClick={() => {}}
+              size="xs"
             />
           }
-          badge={{ text: 'Beta' }}
-          iconAccessibilityLabel="Accordion Locked - check permission settings"
           id="AccordionExample - header"
           size={size}
           title="Title"
@@ -37,10 +37,9 @@ export default function Example(): Node {
           <Text size="200">This is example content.</Text>
         </Accordion>
         <Accordion.Expandable
-          accessibilityExpandLabel="Expand section"
           accessibilityCollapseLabel="Collapse section"
+          accessibilityExpandLabel="Expand section"
           id="AccordionExample - header expandable"
-          size={size}
           items={[
             {
               icon: 'lock',
@@ -60,16 +59,17 @@ export default function Example(): Node {
               title: 'Title',
               iconButton: (
                 <IconButton
+                  accessibilityLabel="Get help"
                   bgColor="lightGray"
                   icon="question-mark"
                   iconColor="darkGray"
-                  accessibilityLabel="Get help"
-                  size="xs"
                   onClick={() => {}}
+                  size="xs"
                 />
               ),
             },
           ]}
+          size={size}
         />
       </Flex>
     </Box>

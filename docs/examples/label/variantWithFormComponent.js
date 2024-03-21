@@ -13,7 +13,7 @@ export default function Example(): ReactNode {
           <Text>This is a Label</Text>
         </Label>
 
-        <Switch onChange={() => setSwitched(!switched)} id={switchId} switched={switched} />
+        <Switch id={switchId} onChange={() => setSwitched(!switched)} switched={switched} />
       </Flex>
     </Flex>
   );

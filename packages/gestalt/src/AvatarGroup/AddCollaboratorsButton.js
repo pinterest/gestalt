@@ -13,7 +13,7 @@ export default function AvatarGroupAddCollaboratorsButton({
   return (
     <PositioningWrapper index={pileCount - 1} pileCount={pileCount} size={size}>
       <HoverOverlay hovered={hovered} size={size}>
-        <AvatarFoundation outline content="icon" />
+        <AvatarFoundation content="icon" outline />
       </HoverOverlay>
     </PositioningWrapper>
   );

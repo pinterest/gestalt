@@ -27,10 +27,10 @@ describe('Fieldset', () => {
   it('renders with errorMessage', () => {
     const tree = create(
       <Fieldset
+        errorMessage="At least 1 item must be selected"
+        id="fieldset-with-error"
         legend="What is your favorite dog?"
         legendDisplay="hidden"
-        id="fieldset-with-error"
-        errorMessage="At least 1 item must be selected"
       >
         <Checkbox id="Schnauzer" label="Schnauzer" onChange={() => {}} />
         <Checkbox id="Aussie" label="Aussie" onChange={() => {}} />

@@ -31,13 +31,19 @@ export default function Example(): ReactNode {
   const [selectedItems, setSelectedItems] = useState(allIds);
 
   return (
-    <Flex justifyContent="center" alignItems="center" height="100%" width="100%" gap={2}>
+    <Flex alignItems="center" gap={2} height="100%" justifyContent="center" width="100%">
       {data.map(({ id, color, tooltip, name }) => (
         <TagData
           key={id}
-          id={id}
           color={color}
-          showCheckbox
+          id={id}
+          onRemove={({ id: selectedId }) => {
+            if (!selectedId) {
+              return;
+            }
+
+            setData((currData) => currData.filter((tile) => tile.id !== selectedId));
+          }}
           onTap={({ id: selectedId, selected }) => {
             if (!selectedId) {
               return;
@@ -49,16 +55,10 @@ export default function Example(): ReactNode {
                 : currSelectedIds.concat([selectedId]),
             );
           }}
-          onRemove={({ id: selectedId }) => {
-            if (!selectedId) {
-              return;
-            }
-
-            setData((currData) => currData.filter((tile) => tile.id !== selectedId));
-          }}
           selected={selectedItems.includes(id)}
-          tooltip={{ text: tooltip }}
+          showCheckbox
           text={name}
+          tooltip={{ text: tooltip }}
         />
       ))}
     </Flex>

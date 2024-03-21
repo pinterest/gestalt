@@ -4,9 +4,9 @@ import { Box, Flex, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Flex gap={{ column: 2, row: 0 }} direction="column">
-        <Text weight="bold" size="500">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
+        <Text size="500" weight="bold">
           (H1) The creator code
         </Text>
         <Text size="200">
@@ -15,10 +15,10 @@ export default function Example(): ReactNode {
           follow these guidelines and lead with kindness when you create new content or interact
           with other people on Pinterest.
         </Text>
-        <Text weight="bold" size="400">
+        <Text size="400" weight="bold">
           (H2) Be kind
         </Text>
-        <Text weight="bold" size="300">
+        <Text size="300" weight="bold">
           (H3) Express yourself
         </Text>
         <Text size="200">

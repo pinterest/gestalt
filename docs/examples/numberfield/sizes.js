@@ -22,12 +22,12 @@ export default function Example(): ReactNode {
         />
         <Box paddingY={5}>
           <SegmentedControl
-            size="sm"
-            selectedItemIndex={sizes.indexOf(size)}
             items={sizes}
             onChange={({ activeIndex }) => {
               setSize(sizes[activeIndex]);
             }}
+            selectedItemIndex={sizes.indexOf(size)}
+            size="sm"
           />
         </Box>
       </Box>

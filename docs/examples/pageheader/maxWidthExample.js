@@ -14,34 +14,34 @@ import {
 
 export default function PageHeaderMaxWidthExample(): ReactNode {
   return (
-    <Box width="100%" color="secondary" height="100%">
+    <Box color="secondary" height="100%" width="100%">
       <PageHeader
-        maxWidth="65%"
         borderStyle="sm"
-        title="Settings"
+        dropdownAccessibilityLabel="Additional options"
+        maxWidth="65%"
         primaryAction={{
           component: (
-            <Tooltip text="Additional options" idealDirection="up">
+            <Tooltip idealDirection="up" text="Additional options">
               <IconButton
+                accessibilityLabel="Additional options"
                 icon="ellipsis"
                 iconColor="darkGray"
                 size="lg"
-                accessibilityLabel="Additional options"
               />
             </Tooltip>
           ),
           dropdownItems: [
             <Dropdown.Item
-              option={{ value: 'Item', label: 'Item' }}
               key="item"
               onSelect={() => {}}
+              option={{ value: 'Item', label: 'Item' }}
             />,
           ],
         }}
-        dropdownAccessibilityLabel="Additional options"
+        title="Settings"
       />
       <Flex justifyContent="center">
-        <Box width="100%" padding={6}>
+        <Box padding={6} width="100%">
           <Flex
             direction="column"
             gap={{
@@ -49,12 +49,12 @@ export default function PageHeaderMaxWidthExample(): ReactNode {
               column: 5,
             }}
           >
-            <Heading size="400" accessibilityLevel={2}>
+            <Heading accessibilityLevel={2} size="400">
               Edit profile
             </Heading>
             <TextField
-              label="Name"
               id="c-textfield1"
+              label="Name"
               onChange={() => {}}
               placeholder="Placeholder"
             />
@@ -66,26 +66,26 @@ export default function PageHeaderMaxWidthExample(): ReactNode {
             >
               <Flex.Item flex="grow">
                 <TextField
-                  label="Phone"
                   id="c-textfield2"
+                  label="Phone"
                   onChange={() => {}}
                   placeholder="Placeholder"
                 />
               </Flex.Item>
               <Flex.Item flex="grow">
                 <TextField
-                  label="Email"
                   id="c-textfield3"
+                  label="Email"
                   onChange={() => {}}
                   placeholder="Placeholder"
                 />
               </Flex.Item>
             </Flex>
             <SelectList
-              label="Location"
               id="selectlist2"
-              placeholder="Placeholder"
+              label="Location"
               onChange={() => {}}
+              placeholder="Placeholder"
             >
               {[
                 { value: 'belgium', label: 'Belgium' },

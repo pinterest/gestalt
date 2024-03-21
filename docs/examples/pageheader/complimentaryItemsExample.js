@@ -8,7 +8,7 @@ export default function IncludeImageExample(): ReactNode {
   return (
     <Fragment>
       <PageHeader
-        title="Ads overview"
+        dropdownAccessibilityLabel="More options"
         helperIconButton={{
           accessibilityControls: '',
           accessibilityExpanded: false,
@@ -20,24 +20,24 @@ export default function IncludeImageExample(): ReactNode {
             key="impressions"
             size="md"
             title="Impressions"
-            value="$1.25M"
             trend={{ value: 30, accessibilityLabel: 'Trending up' }}
+            value="$1.25M"
           />,
           <Datapoint
             key="engagement"
             size="md"
             title="Engagement"
-            value="10%"
             trend={{ value: 5, accessibilityLabel: 'Trending up' }}
+            value="10%"
           />,
         ]}
         primaryAction={{
           component: <Button color="red" size="lg" text="Promote" />,
           dropdownItems: [
             <Dropdown.Item
-              option={{ value: 'Promote', label: 'Promote' }}
-              onSelect={() => {}}
               key="promote"
+              onSelect={() => {}}
+              option={{ value: 'Promote', label: 'Promote' }}
             />,
           ],
         }}
@@ -46,12 +46,12 @@ export default function IncludeImageExample(): ReactNode {
           dropdownItems: [
             <Dropdown.Link
               key="view-analytics"
-              option={{ value: 'View analytics', label: 'View analytics' }}
               href="https://pinterest.com"
+              option={{ value: 'View analytics', label: 'View analytics' }}
             />,
           ],
         }}
-        dropdownAccessibilityLabel="More options"
+        title="Ads overview"
       />
       {open ? (
         <OverlayPanel

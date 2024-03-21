@@ -34,14 +34,13 @@ export default function Example(): ReactNode {
   const [selectedColors, setSelectedColors] = useState(allColors);
 
   return (
-    <Box overflow="scrollY" height="90%" padding={2}>
-      <Flex gap={4} wrap justifyContent="center">
+    <Box height="90%" overflow="scrollY" padding={2}>
+      <Flex gap={4} justifyContent="center" wrap>
         {allColors.map((color) => (
           <TagData
-            id={color}
             key={color}
             color={color}
-            selected={selectedColors.includes(color)}
+            id={color}
             onTap={({ id: selectedId, selected }) => {
               if (!selectedId) {
                 return;
@@ -53,8 +52,9 @@ export default function Example(): ReactNode {
                   : currSelectedColors.concat([color]),
               );
             }}
-            text={`Color ${color}`}
+            selected={selectedColors.includes(color)}
             showCheckbox
+            text={`Color ${color}`}
           />
         ))}
       </Flex>

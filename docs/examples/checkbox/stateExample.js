@@ -6,19 +6,19 @@ const noop = () => {};
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex gap={6} wrap>
         <Checkbox checked={false} id="Unchecked" label="Unchecked" onChange={noop} />
         <Checkbox checked id="Checked" label="Checked" onChange={noop} />
         <Checkbox
           checked={false}
+          errorMessage="error message"
           id="ErrorState"
           label="Error"
-          errorMessage="error message"
           onChange={noop}
         />
-        <Checkbox checked id="Indeterminate" label="Indeterminate" indeterminate onChange={noop} />
-        <Checkbox checked={false} id="Disabled" label="Disabled" disabled onChange={noop} />
+        <Checkbox checked id="Indeterminate" indeterminate label="Indeterminate" onChange={noop} />
+        <Checkbox checked={false} disabled id="Disabled" label="Disabled" onChange={noop} />
       </Flex>
     </Box>
   );

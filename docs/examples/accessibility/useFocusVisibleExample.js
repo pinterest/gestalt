@@ -9,7 +9,7 @@ export default function UseFocusVisibleExample(): ReactNode {
   const [focusedButton2, setFocusedButton2] = useState(false);
 
   return (
-    <Box padding={4} height="100%">
+    <Box height="100%" padding={4}>
       <Flex
         alignItems="center"
         direction="column"
@@ -19,8 +19,8 @@ export default function UseFocusVisibleExample(): ReactNode {
         }}
       >
         <Flex
-          direction="column"
           alignItems="center"
+          direction="column"
           gap={{
             row: 0,
             column: 4,
@@ -28,7 +28,6 @@ export default function UseFocusVisibleExample(): ReactNode {
         >
           <Text>Using useFocusVisible(): Focus ring is only visible when using keyboard</Text>
           <button
-            type="button"
             onBlur={() => setFocusedButton1(false)}
             onFocus={() => setFocusedButton1(true)}
             style={{
@@ -36,6 +35,7 @@ export default function UseFocusVisibleExample(): ReactNode {
               boxShadow:
                 isFocusVisible && focusedButton1 ? `0 0 0 4px ${TOKEN_COLOR_BORDER_FOCUS}` : null,
             }}
+            type="button"
           >
             <Text color="dark">Button 1</Text>
           </button>
@@ -50,13 +50,13 @@ export default function UseFocusVisibleExample(): ReactNode {
         >
           <Text>Not using useFocusVisible(): Focus ring is always visible</Text>
           <button
-            type="button"
             onBlur={() => setFocusedButton2(false)}
             onFocus={() => setFocusedButton2(true)}
             style={{
               outline: 'none',
               boxShadow: focusedButton2 ? `0 0 0 4px ${TOKEN_COLOR_BORDER_FOCUS}` : null,
             }}
+            type="button"
           >
             <Text color="dark">Button 2</Text>
           </button>

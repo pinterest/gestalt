@@ -7,9 +7,9 @@ export default function Snapshot(): ReactNode {
     <ColorSchemeProvider colorScheme="dark">
       <Box color="default" display="inlineBlock" padding={2} width={300}>
         <TableOfContents title="Page Contents">
-          <TableOfContents.Item label="Section 1" href="#section-1" active />
-          <TableOfContents.Item label="Section 2" href="#section-2" active={false} />
-          <TableOfContents.Item label="Section 3" href="#section-3" active={false} />
+          <TableOfContents.Item active href="#section-1" label="Section 1" />
+          <TableOfContents.Item active={false} href="#section-2" label="Section 2" />
+          <TableOfContents.Item active={false} href="#section-3" label="Section 3" />
         </TableOfContents>
       </Box>
     </ColorSchemeProvider>

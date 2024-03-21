@@ -28,21 +28,21 @@ export default function Example(): ReactNode {
   ];
 
   return (
-    <Flex height="100%" width="100%" direction="column" gap={2}>
+    <Flex direction="column" gap={2} height="100%" width="100%">
       <ChartGraph
-        title="Age"
         accessibilityLabel="Example of a vertical bar chart"
-        visualPatternSelected={visualPatternSelected}
-        onVisualPatternChange={() =>
-          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
-        }
-        type="bar"
         data={data}
         elements={[
           { type: 'bar', id: 'Impressions' },
           { type: 'bar', id: 'CPM' },
           { type: 'bar', id: 'CPC' },
         ]}
+        onVisualPatternChange={() =>
+          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
+        }
+        title="Age"
+        type="bar"
+        visualPatternSelected={visualPatternSelected}
       />
     </Flex>
   );

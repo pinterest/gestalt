@@ -26,10 +26,10 @@ const renderTextArea = ({
     <TextArea
       id={id}
       label={LABEL}
+      maxLength={maxLength}
+      onBlur={onBlur}
       onChange={onChange}
       onFocus={onFocus}
-      onBlur={onBlur}
-      maxLength={maxLength}
     />,
   );
 
@@ -82,7 +82,7 @@ describe('TextArea', () => {
 
   it('TextArea with errorMessage prop change', () => {
     const { rerender } = render(
-      <TextArea id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
+      <TextArea id="test" onBlur={jest.fn()} onChange={jest.fn()} onFocus={jest.fn()} />,
     );
     expect(() => {
       screen.getByText('Error message');
@@ -92,9 +92,9 @@ describe('TextArea', () => {
       <TextArea
         errorMessage="Error message"
         id="test"
+        onBlur={jest.fn()}
         onChange={jest.fn()}
         onFocus={jest.fn()}
-        onBlur={jest.fn()}
       />,
     );
     expect(screen.getByText('Error message')).toBeVisible();
@@ -168,12 +168,12 @@ describe('TextArea', () => {
     const ref = createRef<HTMLTextAreaElement>();
     render(
       <TextArea
+        ref={ref}
         id="test"
+        onBlur={jest.fn()}
         onChange={jest.fn()}
         onFocus={jest.fn()}
-        onBlur={jest.fn()}
         value="TextArea Text"
-        ref={ref}
       />,
     );
     expect(ref.current instanceof HTMLTextAreaElement).toEqual(true);
@@ -195,9 +195,9 @@ describe('TextArea', () => {
   it('shows helper text for the text area', () => {
     render(
       <TextArea
+        helperText="Helper text for the text area"
         id="test"
         label="Label for the text area"
-        helperText="Helper text for the text area"
         onChange={() => {}}
         value="TextArea Text"
       />,
@@ -208,10 +208,10 @@ describe('TextArea', () => {
   it('hides the helper text for the text area when an error message is shown', () => {
     render(
       <TextArea
+        errorMessage="Error message for the text area"
+        helperText="Helper text for the text area"
         id="test"
         label="Label for the text area"
-        helperText="Helper text for the text area"
-        errorMessage="Error message for the text area"
         onChange={() => {}}
         value="TextArea Text"
       />,

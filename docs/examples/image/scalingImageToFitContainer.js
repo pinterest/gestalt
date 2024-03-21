@@ -7,7 +7,7 @@ export default function Example(): ReactNode {
     <Box padding={8}>
       <Flex alignItems="start" direction="column" gap={{ column: 6, row: 0 }} wrap>
         <Flex direction="column" gap={2}>
-          <Text weight="bold" size="300">
+          <Text size="300" weight="bold">
             Square content: contain vs cover
           </Text>
           <Flex gap={8} justifyContent="around" wrap>
@@ -35,7 +35,7 @@ export default function Example(): ReactNode {
         </Flex>
 
         <Flex direction="column" gap={{ column: 2, row: 0 }}>
-          <Text weight="bold" size="300">
+          <Text size="300" weight="bold">
             Wide content: contain vs cover
           </Text>
           <Flex gap={8} justifyContent="around" wrap>
@@ -63,7 +63,7 @@ export default function Example(): ReactNode {
         </Flex>
 
         <Flex direction="column" gap={{ column: 2, row: 0 }}>
-          <Text weight="bold" size="300">
+          <Text size="300" weight="bold">
             Tall content: contain vs cover
           </Text>
           <Flex gap={8} justifyContent="around" wrap>

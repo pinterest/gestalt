@@ -16,9 +16,10 @@ export default function Example(): ReactNode {
   }, [currentValue]);
 
   return (
-    <Flex alignItems="center" justifyContent="center" height="100%" width="100%">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Box width={400}>
         <NumberField
+          ref={ref}
           errorMessage={errorMessage}
           id="refExampleNumberField"
           label="Enter a Star Wars episode number"
@@ -28,7 +29,6 @@ export default function Example(): ReactNode {
             setCurrentValue(value);
           }}
           placeholder="Enter a number from 1–9"
-          ref={ref}
           step={2}
           value={currentValue}
         />

@@ -81,7 +81,7 @@ function ColorSchemeLayout({ children }: ColorCardProps): ReactNode {
     >
       {['light', 'dark'].map((scheme) => (
         <ColorSchemeProvider key={scheme} colorScheme={scheme} id={scheme}>
-          <Box color="default" padding={4} display="flex" direction="column" alignItems="center">
+          <Box alignItems="center" color="default" direction="column" display="flex" padding={4}>
             {children}
             <Text>{scheme === 'light' ? 'Light mode' : 'Dark mode'}</Text>
           </Box>
@@ -95,19 +95,18 @@ export default function BoxPage({ generatedDocGen }: { generatedDocGen: DocGen }
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
+        name={generatedDocGen?.displayName}
         pdocsLink
       >
-        <SandpackExample code={main} name="Main example" hideEditor previewHeight={150} />
+        <SandpackExample code={main} hideEditor name="Main example" previewHeight={150} />
       </PageHeader>
-      <GeneratedPropTable generatedDocGen={generatedDocGen} excludeProps={ignoredProps} />
+      <GeneratedPropTable excludeProps={ignoredProps} generatedDocGen={generatedDocGen} />
 
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description={`
         Use Box as a building block when creating other components or layouts that do not rely on flexbox. The included properties should cover any variations needed to create a diverse range of options.
 
@@ -116,15 +115,15 @@ export default function BoxPage({ generatedDocGen }: { generatedDocGen: DocGen }
             sandpackExample={
               <SandpackExample
                 code={buildingBlock}
-                name="Building block example"
                 hideEditor
+                name="Building block example"
                 previewHeight={200}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description={`Don’t use the \`onClick\`, \`className\` and \`style\` properties.
 
 Box is a pass-through component, meaning that any other properties you provide to it will be directly applied to the underlying \`<div>\`. The above properties are exceptions, however.  We don’t allow  \`onClick\`  for  accessibility reasons, so consider a [Button](/web/button) or [TapArea](/web/taparea) instead. We remove \`className\` and \`style\` to ensure style encapsulation. If necessary, \`dangerouslySetInlineStyle\` can be used to supply a style not supported by Box props.
@@ -133,45 +132,45 @@ If you need to use these features for animation purposes, use a \`<div>\` instea
             sandpackExample={
               <SandpackExample
                 code={notAllowed}
-                name="Not allowed props example"
                 hideEditor
+                name="Not allowed props example"
                 previewHeight={200}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description={`When addressing the spacing of the Box, use padding before you use margins, as padding will compose better and won't collapse. Padding is applied in 4px increments and is always symmetric. Learn more about [margin collapsing](https://css-tricks.com/what-you-should-know-about-collapsing-margins/).`}
             sandpackExample={
               <SandpackExample
                 code={padding}
-                name="Padding example"
                 hideEditor
+                name="Padding example"
                 previewHeight={200}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description={`Avoid using arbitrary \`<div>\` elements. Instead, when building a component, prioritize using Box. If you need to set a custom style, you can do so using the \`dangerouslySetInlineStyle\` prop. However, this should be avoided whenever possible by utilizing the other props provided in Box. We provide a [lint rule](https://github.com/pinterest/gestalt/blob/master/packages/eslint-plugin-gestalt/src/no-box-dangerous-style-duplicates.js) to prevent this from happening.`}
             sandpackExample={
-              <SandpackExample code={divs} name="Divs example" hideEditor previewHeight={200} />
+              <SandpackExample code={divs} hideEditor name="Divs example" previewHeight={200} />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
 
       <AccessibilitySection
-        name={generatedDocGen?.displayName}
         description={`The \`visuallyHidden\` option of the \`display\` property can be used to prevent content from being visible while ensuring that screen readers still have access to the content. This can be useful when adding context for screen reader users, such as adding a pause to the labels of [Checkboxes](/web/checkbox).`}
+        name={generatedDocGen?.displayName}
       >
         <MainSection.Subsection
-          title="Visually hidden content"
           description={`
 Setting \`display="visuallyHidden"\` on Box allows for an element to be visually hidden but still be read by screen readers.
 
@@ -187,6 +186,7 @@ The ‘visually-hidden’ CSS technique applies absolute positioning to the elem
 
 For a correct implementation, make sure the  ‘visually-hidden’ element is correctly contained within a relative-positioned Box.
   `}
+          title="Visually hidden content"
         >
           <MainSection.Card
             cardSize="lg"
@@ -196,7 +196,6 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Using 'as' property"
           description={`
         By default, the Box component renders a \`div\` element, which is a non-semantic element that doesn't provide much meaning to the user or assistive technology. Use the \`as\` prop to inform which semantic HTML element should be rendered by the Box component instead of a \`div\` to ensure a more meaningful experience for both the user and the browser.
 
@@ -204,14 +203,15 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
 
         Review the [available options for the as prop](#Props). For some of the options, like \`nav\`, you will also need to specify a \`title\` to ensure unique landmarks on the page. Learn more about [semantics in HTML](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html).
       `}
+          title="Using 'as' property"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={asProp}
-                name="As prop example"
                 layout="column"
+                name="As prop example"
                 previewHeight={200}
               />
             }
@@ -219,20 +219,20 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Using 'role' property"
           description={`
         Setting the  \`role\` property on Box classifies the Box as the semantically appropriate HTML element through the use of an ARIA role while leaving the underlying element as a \`div\`. For example, setting \`role="banner"\` will designate that Box to be the equivalent of a \`<header>\` within the page hierarchy, allowing assistive technology to classify the Box appropriately.
 
         Using the \`role\` property creates more specific element classification and gives the user better context on the layout of the page, especially when the ability to specify the ['as' property](#Using-'as'-property) is not available. Learn more about [ARIA roles](https://www.w3.org/TR/wai-aria/#usage_intro).
       `}
+          title="Using 'role' property"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={role}
-                name="Role prop example"
                 layout="column"
+                name="Role prop example"
                 previewHeight={200}
               />
             }
@@ -242,7 +242,6 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
 
       <LocalizationSection name={generatedDocGen?.displayName} noDefaultLabelProvider>
         <MainSection.Subsection
-          title="Page direction"
           description={`
     Some languages (ex. Arabic, Hebrew) read from right to left (RTL) instead of from left to right. For this reason, we use \`marginStart\` and \`marginEnd\` (as opposed to left and right options) to support RTL. If specific left and right options are needed, use \`dangerouslySetInlineStyle\`.
 
@@ -254,6 +253,7 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
 
     You can toggle the page direction using the button below to see this behavior.
     `}
+          title="Page direction"
         >
           <MainSection.Card
             cardSize="lg"
@@ -271,22 +271,22 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
           >
             {({ borderStyle }) => (
               <Box
-                width={60}
+                borderStyle={borderStyle}
+                color="default"
                 height={60}
                 rounding="circle"
-                color="default"
-                borderStyle={borderStyle}
+                width={60}
               />
             )}
           </CombinationNew>
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Colors"
           description={`
           The following values can be used to change the background color of Box. Be sure to use the value that semantically matches your use case. For full details on how to use our colors, visit our [Color usage page](/foundations/color/usage).
 
           Colors should be used semantically whenever possible (i.e. using "errorBase" for error scenarios). If a color is needed for a branded moment in product, Box color can be set using our [color palette design tokens](/foundations/color/palette), but it is [considered a hack](/get_started/developers/hacking_gestalt#Box's-dangerouslySetInlineStyle) and should be avoided.
         `}
+          title="Colors"
         >
           <CombinationNew
             color={[
@@ -315,12 +315,12 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
               'darkWash',
             ]}
           >
-            {({ color }) => <Box width={60} height={60} rounding="circle" color={color} />}
+            {({ color }) => <Box color={color} height={60} rounding="circle" width={60} />}
           </CombinationNew>
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Elevation"
           description="Colors and shadows can elevate elements within the UI. In light mode, `elevationAccent` can be used when shadows or borders are not an option. `elevationFloating` and `elevationRaised` are only applicable in dark mode, while `shadow` is only applicable in light mode. For full details, visit our [Elevation foundations page](/foundations/elevation)."
+          title="Elevation"
         >
           <Flex
             direction="column"
@@ -333,7 +333,7 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
             <CombinationNew color={['elevationAccent', 'elevationFloating', 'elevationRaised']}>
               {({ color }) => (
                 <ColorSchemeLayout>
-                  <Box width={60} height={60} rounding="circle" color={color} marginBottom={8} />
+                  <Box color={color} height={60} marginBottom={8} rounding="circle" width={60} />
                 </ColorSchemeLayout>
               )}
             </CombinationNew>
@@ -342,11 +342,11 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
               {({ borderStyle }) => (
                 <ColorSchemeLayout>
                   <Box
-                    width={60}
-                    height={60}
-                    rounding="circle"
                     borderStyle={borderStyle}
+                    height={60}
                     marginBottom={8}
+                    rounding="circle"
+                    width={60}
                   />
                 </ColorSchemeLayout>
               )}
@@ -362,9 +362,9 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
             {({ rounding }) => (
               <Box
                 color="tertiary"
-                width={rounding === 'pill' ? 120 : 70}
                 height={70}
                 rounding={rounding}
+                width={rounding === 'pill' ? 120 : 70}
               />
             )}
           </CombinationNew>
@@ -388,7 +388,7 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
             hasCheckerboard
             opacity={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}
           >
-            {({ opacity }) => <Box color="selected" width={60} height={60} opacity={opacity} />}
+            {({ opacity }) => <Box color="selected" height={60} opacity={opacity} width={60} />}
           </CombinationNew>
         </MainSection.Subsection>
 
@@ -399,7 +399,7 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
           title="Column layout"
         >
           <CombinationNew column={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}>
-            {({ column }) => <Box height={100} color="infoBase" column={column} />}
+            {({ column }) => <Box color="infoBase" column={column} height={100} />}
           </CombinationNew>
         </MainSection.Subsection>
 
@@ -414,7 +414,7 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={sizing} name="Sizing example" layout="column" />
+              <SandpackExample code={sizing} layout="column" name="Sizing example" />
             }
           />
         </MainSection.Subsection>
@@ -505,8 +505,8 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
               <SandpackExample
                 code={zIndex}
                 layout="column"
-                previewHeight={150}
                 name="zIndex example"
+                previewHeight={150}
               />
             }
           />

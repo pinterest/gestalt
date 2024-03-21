@@ -27,27 +27,11 @@ export default function Example(): ReactNode {
     },
   ];
   return (
-    <Flex height="100%" width="100%" direction="column" gap={2}>
+    <Flex direction="column" gap={2} height="100%" width="100%">
       <ChartGraph
         accessibilityLabel="Example of chart with title and description"
-        visualPatternSelected="disabled"
-        onVisualPatternChange={() => {}}
-        title="Clicks vs conversions"
-        helpButton={
-          <HelpButton
-            accessibilityLabel="Click to learn more this ChartGraph"
-            accessibilityPopoverLabel="Expanded information about this ChartGraph"
-            text="If you want to learn more about Clicks vs conversions, visit our Help center."
-            link={{
-              href: 'https://help.pinterest.com/en/business/article/conversion-insights/',
-              text: 'Read our documentation',
-              accessibilityLabel: 'Visit our Help center',
-            }}
-          />
-        }
-        description="Includes both web and mobile"
-        layout="verticalBiaxial"
         data={data}
+        description="Includes both web and mobile"
         elements={[
           {
             type: 'bar',
@@ -60,6 +44,22 @@ export default function Example(): ReactNode {
             axis: 'right',
           },
         ]}
+        helpButton={
+          <HelpButton
+            accessibilityLabel="Click to learn more this ChartGraph"
+            accessibilityPopoverLabel="Expanded information about this ChartGraph"
+            link={{
+              href: 'https://help.pinterest.com/en/business/article/conversion-insights/',
+              text: 'Read our documentation',
+              accessibilityLabel: 'Visit our Help center',
+            }}
+            text="If you want to learn more about Clicks vs conversions, visit our Help center."
+          />
+        }
+        layout="verticalBiaxial"
+        onVisualPatternChange={() => {}}
+        title="Clicks vs conversions"
+        visualPatternSelected="disabled"
       />
     </Flex>
   );

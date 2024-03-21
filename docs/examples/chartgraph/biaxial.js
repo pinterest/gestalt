@@ -35,22 +35,20 @@ export default function Example(): ReactNode {
   ];
 
   return (
-    <Flex height="100%" width="100%" direction="column" gap={2}>
+    <Flex direction="column" gap={2} height="100%" width="100%">
       <ChartGraph
-        title="Performance over last 30 days"
         accessibilityLabel="Example of line chart"
-        visualPatternSelected={visualPatternSelected}
-        onVisualPatternChange={() =>
-          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
-        }
-        layout="verticalBiaxial"
         data={data}
-        range={{ xAxisBottom: ['auto', 'auto'] }}
         elements={[
           { type: 'line', id: 'Spend', axis: 'left' },
           { type: 'line', id: 'Total ROAS (Checkout)', axis: 'right' },
         ]}
-        type="line"
+        layout="verticalBiaxial"
+        modalZIndex={new FixedZIndex(11)}
+        onVisualPatternChange={() =>
+          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
+        }
+        range={{ xAxisBottom: ['auto', 'auto'] }}
         tickFormatter={{
           yAxisLeft: (value) => {
             if (value >= 500) return `$${value / 500}k`;
@@ -65,7 +63,9 @@ export default function Example(): ReactNode {
               date,
             )} ${new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(date)}`,
         }}
-        modalZIndex={new FixedZIndex(11)}
+        title="Performance over last 30 days"
+        type="line"
+        visualPatternSelected={visualPatternSelected}
       />
     </Flex>
   );

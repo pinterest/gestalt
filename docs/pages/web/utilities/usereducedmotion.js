@@ -12,7 +12,6 @@ export default function DocsPage(): ReactNode {
   return (
     <Page title="useReducedMotion">
       <PageHeader
-        name="useReducedMotion"
         description={`
     \`useReducedMotion\` allows a user to request that the system minimize the amount of non-essential motion.
 
@@ -26,6 +25,7 @@ export default function DocsPage(): ReactNode {
       <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C39.html">WCAG C39: Using the CSS reduce-motion query to prevent motion</a></li>
     </ul>
     `}
+        name="useReducedMotion"
         type="utility"
       />
 
@@ -39,7 +39,7 @@ export default function DocsPage(): ReactNode {
         >
           <MainSection.Card
             cardSize="lg"
-            sandpackExample={<SandpackExample code={example} name="Example" layout="column" />}
+            sandpackExample={<SandpackExample code={example} layout="column" name="Example" />}
           />
         </MainSection.Subsection>
       </MainSection>

@@ -4,8 +4,8 @@ import { Checkbox, Flex, Label, Link, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex height="100%" alignItems="center" justifyContent="center">
-      <Flex gap={{ column: 4, row: 0 }} direction="row" width="90%" alignItems="center" wrap>
+    <Flex alignItems="center" height="100%" justifyContent="center">
+      <Flex alignItems="center" direction="row" gap={{ column: 4, row: 0 }} width="90%" wrap>
         <Flex gap={{ column: 0, row: 2 }}>
           <Checkbox checked id="1" onChange={() => {}} size="sm" />
           <Label htmlFor="1">

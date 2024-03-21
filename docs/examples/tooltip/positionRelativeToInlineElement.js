@@ -7,30 +7,30 @@ export default function SectionsIconButtonDropdownExample(): ReactNode {
   const anchorRef = useRef<HTMLElement | null>(null);
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Box width={600}>
         <Heading accessibilityLevel={4}>
           Sugar-Free Strawberry-Chocolate Greek Yogurt Bark Three-Step Recipe.
-          <Tooltip inline text="More board options" idealDirection="right" accessibilityLabel="">
+          <Tooltip accessibilityLabel="" idealDirection="right" inline text="More board options">
             <IconButton
+              ref={anchorRef}
               accessibilityControls="sections-dropdown-example"
-              accessibilityHaspopup
               accessibilityExpanded={open}
+              accessibilityHaspopup
               accessibilityLabel="More board options"
               bgColor="lightGray"
               icon="ellipsis"
               iconColor="darkGray"
-              selected={open}
               onClick={() => setOpen((prevVal) => !prevVal)}
-              ref={anchorRef}
+              selected={open}
               size="sm"
             />
           </Tooltip>
         </Heading>
         {open && (
           <Dropdown
-            id="sections-dropdown-example"
             anchor={anchorRef.current}
+            id="sections-dropdown-example"
             onDismiss={() => {
               setOpen(false);
             }}

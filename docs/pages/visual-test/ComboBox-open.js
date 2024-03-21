@@ -5,12 +5,12 @@ import { Box, ColorSchemeProvider, ComboBox, Flex } from 'gestalt';
 export default function Snapshot(): ReactNode {
   return (
     <ColorSchemeProvider colorScheme="light">
-      <Box color="default" padding={4} width={300} height={200}>
+      <Box color="default" height={200} padding={4} width={300}>
         <Flex justifyContent="center">
           <ComboBox
             accessibilityClearButtonLabel="Clear the current values"
-            label="Select your favorite shape"
             id="favoriteShape"
+            label="Select your favorite shape"
             noResultText="No results for your selection"
             options={[
               { label: 'square', value: '1' },

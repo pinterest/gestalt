@@ -54,8 +54,8 @@ export default function Fieldset({
 
   return (
     <fieldset
-      className={classnames(formStyles.unstyled, whitespaceStyles.p0, whitespaceStyles.m0)}
       aria-describedby={errorMessage ? `${id}-error` : undefined}
+      className={classnames(formStyles.unstyled, whitespaceStyles.p0, whitespaceStyles.m0)}
     >
       <legend
         className={classnames(

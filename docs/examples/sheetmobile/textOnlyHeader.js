@@ -25,41 +25,41 @@ export default function Example(): ReactNode {
           <SheetMobile
             align="center"
             heading="Start creating now"
-            subHeading="Inspiration starts here"
             onDismiss={() => setShowComponent(false)}
             showDismissButton={false}
             size="auto"
+            subHeading="Inspiration starts here"
           >
-            <Flex gap={12} height="100%" alignItems="center" justifyContent="center">
-              <Flex gap={1} direction="column" alignItems="center">
+            <Flex alignItems="center" gap={12} height="100%" justifyContent="center">
+              <Flex alignItems="center" direction="column" gap={1}>
                 <Box
-                  color="secondary"
-                  rounding={4}
-                  height={50}
-                  width={50}
-                  display="flex"
-                  justifyContent="center"
                   alignItems="center"
+                  color="secondary"
+                  display="flex"
+                  height={50}
+                  justifyContent="center"
+                  rounding={4}
+                  width={50}
                 >
-                  <Icon icon="pin" accessibilityLabel="Pin" color="default" />
+                  <Icon accessibilityLabel="Pin" color="default" icon="pin" />
                 </Box>
-                <Text weight="bold" size="100">
+                <Text size="100" weight="bold">
                   Pin
                 </Text>
               </Flex>
-              <Flex gap={1} direction="column" alignItems="center">
+              <Flex alignItems="center" direction="column" gap={1}>
                 <Box
-                  color="secondary"
-                  rounding={4}
-                  height={50}
-                  width={50}
-                  display="flex"
-                  justifyContent="center"
                   alignItems="center"
+                  color="secondary"
+                  display="flex"
+                  height={50}
+                  justifyContent="center"
+                  rounding={4}
+                  width={50}
                 >
-                  <Icon icon="board" accessibilityLabel="Pin" color="default" />
+                  <Icon accessibilityLabel="Pin" color="default" icon="board" />
                 </Box>
-                <Text weight="bold" size="100">
+                <Text size="100" weight="bold">
                   Board
                 </Text>
               </Flex>
@@ -71,9 +71,9 @@ export default function Example(): ReactNode {
         <Button
           accessibilityLabel="Show SheetMobile"
           color="red"
-          text="Show SheetMobile"
-          size="lg"
           onClick={() => setShowComponent(true)}
+          size="lg"
+          text="Show SheetMobile"
         />
       </Box>
     </DeviceTypeProvider>

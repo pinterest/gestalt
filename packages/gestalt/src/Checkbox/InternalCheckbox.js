@@ -136,11 +136,13 @@ const InternalCheckboxWithForwardRef: AbstractComponent<Props, HTMLInputElement>
 
   return (
     <Box>
-      <Box alignItems="start" display="flex" justifyContent="start" marginStart={-1} marginEnd={-1}>
+      <Box alignItems="start" display="flex" justifyContent="start" marginEnd={-1} marginStart={-1}>
         <Box paddingX={1} position="relative">
           <input
             // checking for "focused" is not required by screenreaders but it prevents a11y integration tests to complain about missing label, as aria-describedby seems to shadow label in tests though it's a W3 accepeted pattern https://www.w3.org/TR/WCAG20-TECHS/ARIA1.html
+            ref={innerRef}
             aria-describedby={focused ? ariaDescribedby : undefined}
+            aria-hidden={readOnly ? true : undefined}
             aria-invalid={errorMessage ? 'true' : 'false'}
             checked={checked}
             className={classnames(styles.input, styleSize, {
@@ -156,12 +158,9 @@ const InternalCheckboxWithForwardRef: AbstractComponent<Props, HTMLInputElement>
             onFocus={() => setFocused(true)}
             onMouseEnter={handleHover}
             onMouseLeave={handleHover}
-            ref={innerRef}
             type="checkbox"
-            aria-hidden={readOnly ? true : undefined}
           />
           <div
-            style={style}
             className={classnames(
               bgStyle,
               borderStyle,
@@ -172,6 +171,7 @@ const InternalCheckboxWithForwardRef: AbstractComponent<Props, HTMLInputElement>
                 [focusStyles.accessibilityOutlineFocus]: focused && isFocusVisible,
               },
             )}
+            style={style}
           >
             {(checked || indeterminate) && (
               <Icon
@@ -186,11 +186,11 @@ const InternalCheckboxWithForwardRef: AbstractComponent<Props, HTMLInputElement>
         {Boolean(image) && <Box paddingX={1}>{image}</Box>}
         {label && (
           <Box
-            display={labelDisplay === 'hidden' ? 'visuallyHidden' : 'block'}
-            //  marginTop: '-1px'/'2px' is needed to  visually align the label text & radiobutton input
             dangerouslySetInlineStyle={{
               __style: { marginTop: size === 'md' ? '2px' : '-1px' },
             }}
+            //  marginTop: '-1px'/'2px' is needed to  visually align the label text & radiobutton input
+            display={labelDisplay === 'hidden' ? 'visuallyHidden' : 'block'}
           >
             <Label htmlFor={id}>
               <Box paddingX={1}>

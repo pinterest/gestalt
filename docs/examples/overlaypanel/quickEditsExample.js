@@ -24,7 +24,7 @@ export default function Example(): ReactNode {
       {({ onDismissStart }) => (
         <Flex alignItems="center" justifyContent="between">
           <Button color="transparent" text="Delete" />
-          <Button color="red" text="Apply changes" onClick={onDismissStart} />
+          <Button color="red" onClick={onDismissStart} text="Apply changes" />
         </Flex>
       )}
     </OverlayPanel.DismissingElement>
@@ -33,16 +33,16 @@ export default function Example(): ReactNode {
   return (
     <Fragment>
       <Box padding={8}>
-        <Button text="View footer example" onClick={() => setShowComponent(true)} />
+        <Button onClick={() => setShowComponent(true)} text="View footer example" />
       </Box>
       {showComponent && (
         <Layer zIndex={sheetZIndex}>
           <OverlayPanel
             accessibilityDismissButtonLabel="Close"
             accessibilityLabel="Bulk edit for 5 ad groups of Nordstrom Account"
+            footer={footer}
             heading="Editing 5 ad groups"
             onDismiss={() => setShowComponent(false)}
-            footer={footer}
             size="md"
           >
             <Flex
@@ -64,12 +64,12 @@ export default function Example(): ReactNode {
                   selected ad groups.
                 </Text>
                 <Flex.Item flex="none">
-                  <Button text="Reset bids" disabled />
+                  <Button disabled text="Reset bids" />
                 </Flex.Item>
               </Flex>
               <Accordion.Expandable
-                id="accordionExample - default"
                 expandedIndex={0}
+                id="accordionExample - default"
                 items={[
                   {
                     children: (
@@ -96,18 +96,18 @@ export default function Example(): ReactNode {
                             checked={false}
                             id="favoriteCat"
                             label="Automatic (recommended)"
-                            subtext="Pinterest aims to get the most clicks for your budget"
                             name="favorite"
                             onChange={() => {}}
+                            subtext="Pinterest aims to get the most clicks for your budget"
                             value="cats"
                           />
                           <RadioButton
                             checked={false}
                             id="favoritePlants"
                             label="Custom"
-                            subtext="You control how much to bid at auctions"
                             name="favorite"
                             onChange={() => {}}
+                            subtext="You control how much to bid at auctions"
                             value="plants"
                           />
                         </Flex>

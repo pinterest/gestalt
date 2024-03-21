@@ -83,6 +83,7 @@ const InternalDismissIconButtonWithForwardRef: AbstractComponent<Props, HTMLButt
 
     return (
       <button
+        ref={innerRef}
         aria-controls={accessibilityControls}
         aria-label={accessibilityLabel}
         className={classnames(styles.parentButton)}
@@ -100,7 +101,6 @@ const InternalDismissIconButtonWithForwardRef: AbstractComponent<Props, HTMLButt
         onTouchEnd={handleTouchEnd}
         onTouchMove={handleTouchMove}
         onTouchStart={handleTouchStart}
-        ref={innerRef}
         type="button"
       >
         <div

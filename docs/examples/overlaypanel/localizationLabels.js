@@ -35,35 +35,35 @@ export default function Example(): ReactNode {
     >
       <Box padding={8}>
         <Button
-          text="Erstellen Sie eine neue Zielgruppenliste"
           onClick={() => setShowComponent(true)}
+          text="Erstellen Sie eine neue Zielgruppenliste"
         />
       </Box>
       {showComponent && (
         <Layer zIndex={sheetZIndex}>
           <OverlayPanel
-            dismissConfirmation={{}}
             accessibilityDismissButtonLabel="Schließen Sie das Overlay-Panel für die Erstellung der Zielgruppe"
             accessibilityLabel="Erstellung von Zielgruppenlisten für neue Kampagnen"
-            heading="Erstellen Sie eine neue Zielgruppenliste"
-            onDismiss={() => setShowComponent(false)}
+            dismissConfirmation={{}}
             footer={
               <OverlayPanel.DismissingElement>
                 {({ onDismissStart }) => (
                   <Flex alignItems="center" justifyContent="end">
-                    <Button color="red" text="Erstellen" onClick={onDismissStart} />
+                    <Button color="red" onClick={onDismissStart} text="Erstellen" />
                   </Flex>
                 )}
               </OverlayPanel.DismissingElement>
             }
+            heading="Erstellen Sie eine neue Zielgruppenliste"
+            onDismiss={() => setShowComponent(false)}
             size="md"
           >
             <Box
-              height="100%"
-              width="100%"
-              display="flex"
               alignItems="center"
+              display="flex"
+              height="100%"
               justifyContent="center"
+              width="100%"
             >
               <Text align="center">Inhalt</Text>
             </Box>

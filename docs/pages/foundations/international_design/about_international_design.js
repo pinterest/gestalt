@@ -9,27 +9,26 @@ export default function FormsLayoutOverview(): ReactNode {
     <Page title="About international design">
       <PageHeader name="About international design" type="guidelines" />
       <MainSection
-        name="What's t9n, l10n, i18n and g11n?"
         description={`We use these abbreviations at Pinterest when referring to all the components needed to successfully reach and serve international audiences.
 `}
+        name="What's t9n, l10n, i18n and g11n?"
       >
         <MainSection.Subsection
-          title="Translation (t9n)"
           description={`
           Is the process of transforming source-text from one language into another to maintain the original message and meaning.
 `}
+          title="Translation (t9n)"
         />
         <MainSection.Subsection
-          title="Localization (l10n)"
           description="Is the process of adapting a content’s full meaning to a new region/locale to make it appropriate, easily understandable and comfortable to use for local native language speakers."
+          title="Localization (l10n)"
         />
 
         <MainSection.Subsection
-          title="Internationalization (i18n)"
           description="Is the process of designing and developing software or products that can be adapted to different languages and cultures. Ideally, a product or service is developed so that localization is relatively easy to achieve."
+          title="Internationalization (i18n)"
         />
         <MainSection.Subsection
-          title="Globalization (g11n)"
           description={`
 Is the process by which businesses or other organizations develop international influence or start operating on an international scale.
 
@@ -37,10 +36,10 @@ A common misconception about creating global products is that we only need trans
 
  The consensus for this term is: "Globalization is the integration of translation, internationalization and localization." The previous steps are all important in the quest to develop usable and acceptable global products. Issues will arise if any of these three aren&apos;t implemented, particularly if global products are marketed for more than one locale.'
  `}
+          title="Globalization (g11n)"
         />
       </MainSection>
       <MainSection
-        name="Why Internationalization (i18n) matters"
         description={`
 It's never too early to start talking about what we need to do to globalize a product; the sooner we include localization and internationalization in a product/feature conception, the more successful we'll be at overcoming language barriers and reaching people.
 
@@ -54,10 +53,11 @@ Identifying what's needed regarding design and code adaptation will allow a smoo
 - Human behavior
 
 `}
+        name="Why Internationalization (i18n) matters"
       >
         <MainSection
-          name="Testing designs for localization"
           description="There's no need to wait until the UI in English is finished to see how it will look in localized languages. Pseudo-localization in the design phase is a real option to minimize the time needed in the traditional LQA phases. For testing designs in Figma, refer to our [Figma x International guide](https://docs.google.com/presentation/d/1dCn4fKA6zJ8u-8PltB7rIQCFoT8P7IInbYiZM79pjME/edit?usp=sharing)"
+          name="Testing designs for localization"
         />
       </MainSection>
     </Page>

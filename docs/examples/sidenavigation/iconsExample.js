@@ -7,33 +7,33 @@ export default function Example(): ReactNode {
     <SideNavigation accessibilityLabel="Icons example">
       <SideNavigation.TopItem
         href="#"
-        onClick={({ event }) => event.preventDefault()}
         icon="bell"
         label="Notifications"
+        onClick={({ event }) => event.preventDefault()}
       />
       <SideNavigation.TopItem
         href="#"
-        onClick={({ event }) => event.preventDefault()}
         icon="speech"
         label="Messages"
+        onClick={({ event }) => event.preventDefault()}
       />
       <SideNavigation.TopItem
         href="#"
-        onClick={({ event }) => event.preventDefault()}
         icon="cog"
         label="Settings"
+        onClick={({ event }) => event.preventDefault()}
       />
       <SideNavigation.TopItem
         href="#"
-        onClick={({ event }) => event.preventDefault()}
         icon="lock"
         label="Business Access"
+        onClick={({ event }) => event.preventDefault()}
       />
       <SideNavigation.TopItem
         href="#"
-        onClick={({ event }) => event.preventDefault()}
         icon="add-layout"
         label="Tune your home feed"
+        onClick={({ event }) => event.preventDefault()}
       />
     </SideNavigation>
   );

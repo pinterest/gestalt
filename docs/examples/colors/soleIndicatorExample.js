@@ -5,14 +5,14 @@ import { Box, Flex, Label, SelectList, Text } from 'gestalt';
 export default function SoleIndicatorExample(): ReactNode {
   return (
     <Flex
+      alignItems="center"
       direction="column"
       gap={{
         row: 0,
         column: 2,
       }}
-      justifyContent="center"
-      alignItems="center"
       height="100%"
+      justifyContent="center"
     >
       <Label htmlFor="solo-color">
         <Text>Audience 1</Text>
@@ -24,7 +24,7 @@ export default function SoleIndicatorExample(): ReactNode {
           column: 0,
         }}
       >
-        <Box rounding="circle" color="infoBase" width={12} height={12} />
+        <Box color="infoBase" height={12} rounding="circle" width={12} />
         <SelectList id="solo-color" onChange={() => {}}>
           {[
             { label: 'Your total audience', value: '5' },

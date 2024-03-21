@@ -11,22 +11,22 @@ export default function FormsLayoutOverview(): ReactNode {
   return (
     <Page title="Number localization">
       <PageHeader
-        name="Number localization"
-        type="guidelines"
         description={`
         If you want to reach a global audience, you need to consider how your product design and code will work for different languages and scripts. One of the challenges you may face is how to handle numerals. Number formatting is one of the aspects of internationalization that can affect the usability and accessibility of Pinterest products and services. Different countries and regions have different conventions and preferences for how they display and interpret numbers—such as decimals, commas, currency symbols and units of measurement.`}
+        name="Number localization"
+        type="guidelines"
       />
       <MainSection
-        name="The 1, 2, 3s of number localization"
         description="Below you will find a few considerations to take into account when creating content for global audiences that contains numerals."
+        name="The 1, 2, 3s of number localization"
       >
         <MainSection.Subsection
-          title="Numeral Systems"
           description={`
           When localizing numbers, it's important to have an idea of the different numeral systems that exist in the world. A numeral system is a written representation of numbers. The Western Arabic numeral system (which has the digit symbols 0, 1, 2, 3, 4, 5, 6, 7, 8, 9) is very common in Western locales. Not all languages use Western Arabic digits, though. Bengali, for example, uses the Bengali–Assamese numeral system, whose digits differ from the Western Arabic system: ০, ১, ২, ৩, ৪, ৫, ৬, ৭, ৮, ৯.`}
+          title="Numeral Systems"
         />
 
-        <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginTop={2}>
+        <Box marginTop={2} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
           <Box marginTop={0} maxWidth="100%">
             <Table accessibilityLabel="For required placeholders">
               <Table.Header>
@@ -43,17 +43,17 @@ export default function FormsLayoutOverview(): ReactNode {
               <Table.Body>
                 <Table.Row>
                   <Table.Cell>
-                    <Text size="200" align="end">
+                    <Text align="end" size="200">
                       17
                     </Text>
                   </Table.Cell>
                   <Table.Cell>
-                    <Text size="200" align="end">
+                    <Text align="end" size="200">
                       $123.00
                     </Text>
                   </Table.Cell>
                   <Table.Cell>
-                    <Text size="200" align="end">
+                    <Text align="end" size="200">
                       $2,091.00
                     </Text>
                   </Table.Cell>
@@ -61,17 +61,17 @@ export default function FormsLayoutOverview(): ReactNode {
 
                 <Table.Row>
                   <Table.Cell>
-                    <Text size="200" align="end">
+                    <Text align="end" size="200">
                       1
                     </Text>
                   </Table.Cell>
                   <Table.Cell>
-                    <Text size="200" align="end">
+                    <Text align="end" size="200">
                       $4.56
                     </Text>
                   </Table.Cell>
                   <Table.Cell>
-                    <Text size="200" align="end">
+                    <Text align="end" size="200">
                       $4.56
                     </Text>
                   </Table.Cell>
@@ -81,7 +81,7 @@ export default function FormsLayoutOverview(): ReactNode {
           </Box>
         </Box>
 
-        <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginTop={0}>
+        <Box marginTop={0} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
           <Box marginTop={0} maxWidth="100%">
             <Table accessibilityLabel="For required placeholders">
               <Table.Header>
@@ -98,17 +98,17 @@ export default function FormsLayoutOverview(): ReactNode {
               <Table.Body>
                 <Table.Row>
                   <Table.Cell>
-                    <Text size="200" align="end">
+                    <Text align="end" size="200">
                       ১৭
                     </Text>
                   </Table.Cell>
                   <Table.Cell>
-                    <Text size="200" align="end">
+                    <Text align="end" size="200">
                       ১২৩.০০US$
                     </Text>
                   </Table.Cell>
                   <Table.Cell>
-                    <Text size="200" align="end">
+                    <Text align="end" size="200">
                       ২,০৯১.০০US$
                     </Text>
                   </Table.Cell>
@@ -116,17 +116,17 @@ export default function FormsLayoutOverview(): ReactNode {
 
                 <Table.Row>
                   <Table.Cell>
-                    <Text size="200" align="end">
+                    <Text align="end" size="200">
                       ১
                     </Text>
                   </Table.Cell>
                   <Table.Cell>
-                    <Text size="200" align="end">
+                    <Text align="end" size="200">
                       ৪.৫৬US$
                     </Text>
                   </Table.Cell>
                   <Table.Cell>
-                    <Text size="200" align="end">
+                    <Text align="end" size="200">
                       ৪.৫৬US$
                     </Text>
                   </Table.Cell>
@@ -136,34 +136,34 @@ export default function FormsLayoutOverview(): ReactNode {
           </Box>
         </Box>
 
-        <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginTop={8}>
+        <Box marginTop={8} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
           <Markdown
             text={`
             The same numbers represented in the Western Arabic and Bengali numeral systems  `}
           />
         </Box>
 
-        <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginTop={10}>
+        <Box marginTop={10} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
           <MainSection.Subsection
-            title="Fonts"
             description={`Fonts factor into our number localization as well. When we select fonts for our digital products, we may want to make sure that they support all the numeral systems we need. Most operating systems today do a good job of falling back to system fonts when they encounter characters that the currently active font doesn't support. This means that we can often use custom fonts that don't include all the numeral systems we support without numbers turning into gibberish on us. </br>
           However, it's worth considering international numeral systems when doing UX research for our apps and websites. An international stock exchange app may need to represent all kinds of numeral systems, for example, and our font selection process may need to be sensitive to this. In all cases, we should always test our apps and websites on different platforms to see how our numeral systems are being rendered for our users.`}
+            title="Fonts"
           />
         </Box>
 
         <MainSection.Subsection
-          title="Separators: Breaking up large numbers"
           description={`When representing large numbers, it often helps with legibility to break up the numbers into digit groups. In many English locales we're used to separating thousands with a comma, and to separate the integer and fraction parts of a number with a point—like **1,234,567.89**. However, it's important to be aware that different locales separate digit groups differently. In French (and even in some English locales), for example, it's common to separate groups of thousands with space and to separate an integer and a fraction with a comma—like **1 234 567,89**. Some locales only separate the integer portion of a number, while others separate both the integer and fractional portions. </br>
           In case you're interested in best practices on how to format numbers at Pinterest, check out our [Content Standards](/foundations/content_standards/voice).`}
+          title="Separators: Breaking up large numbers"
         />
 
         <MainSection.Subsection
-          title="Currencies"
           description={`Localizing currency involves using symbols or codes to indicate the currency of the current number. Depending on the context, a special symbol ($ or US$), or an ISO 4217 currency code (USD) is used to represent the currency.</br>
           Some locales place the currency symbol to the left of the number, while others place the symbol to the right.`}
+          title="Currencies"
         />
 
-        <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginTop={2}>
+        <Box marginTop={2} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
           <Box marginTop={0} maxWidth="100%">
             <Table accessibilityLabel="For required placeholders">
               <Table.Header>
@@ -278,7 +278,7 @@ export default function FormsLayoutOverview(): ReactNode {
           </Box>
         </Box>
 
-        <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginTop={8} marginBottom={8}>
+        <Box marginBottom={8} marginTop={8} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
           <Markdown
             text={`
             The same number represented in different currencies  `}
@@ -286,11 +286,11 @@ export default function FormsLayoutOverview(): ReactNode {
         </Box>
 
         <MainSection.Subsection
-          title="Percentages"
           description={`The common percent sign (%) may seem like it would be uniform across all locales, but that's not the case. Different locales use different symbols for the percent sign. And like currency symbols, the percent sign can go to the left or right of its associated number depending on the locale.`}
+          title="Percentages"
         />
 
-        <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginTop={2}>
+        <Box marginTop={2} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
           <Box marginTop={0} maxWidth="100%">
             <Table accessibilityLabel="For required placeholders">
               <Table.Header>
@@ -327,7 +327,7 @@ export default function FormsLayoutOverview(): ReactNode {
           </Box>
         </Box>
 
-        <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginTop={8} marginBottom={8}>
+        <Box marginBottom={8} marginTop={8} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
           <Markdown
             text={`
             The same percentage in different locales`}
@@ -335,22 +335,22 @@ export default function FormsLayoutOverview(): ReactNode {
         </Box>
 
         <MainSection.Subsection
-          title="Phone numbers"
           description={`Phone numbers are formatted differently depending on the country. Use [these regional guidelines](http://pinch/local-formats-i18n) 18n libraries to learn how they're formatted in each language.`}
+          title="Phone numbers"
         />
 
         <MainSection.Subsection title="Time and dates" />
-        <Box marginBottom={6} borderStyle="sm" rounding={4}>
+        <Box borderStyle="sm" marginBottom={6} rounding={4}>
           <Mask rounding={4}>
             <Image
               alt="Two examples of DateFields, one in English and one in Russian. While date formatting in English is MM/DD/YYYY, in Russian is dd.mm.yyyy"
-              naturalWidth={2688}
               naturalHeight={729}
+              naturalWidth={2688}
               src="https://www.pinterest-assets.com/AssetLink/c44a01yn4m2dx8stf3nwgl0hxgp8p6hv/times-and-dates-png.png"
             />
           </Mask>
         </Box>
-        <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginTop={8} marginBottom={8}>
+        <Box marginBottom={8} marginTop={8} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
           <Markdown
             text={`
             It's no secret that people in different countries write the date and time in a certain way. For instance, in the US, they specify the month first, followed by the day, and then the year. Each component is also separated by a slash, which gives us **mm/dd/yyyy**, for example: 09/01/2021, which would be September 1, 2021. However, if you showed this date to a person from, say, Russia, they'd think that 09 is the day and 01 is the month. That's because in CIS (Commonwealth of Independent States) countries, the day goes before the month and usually each component is separated by dots: **dd.mm.yyyy**.
@@ -361,24 +361,24 @@ export default function FormsLayoutOverview(): ReactNode {
 
         <MainSection name="Best practices" />
         <MainSection.Subsection
-          title="Write with localization in mind"
           description={`When writing source content, be careful with examples and scenarios and use caution when utilizing expressions, slang or other phraseological constructs specific to your own culture, such as references to historical events that may not resonate. They need not be cut out entirely, simply used carefully and in such a way that they can be modified to be made suitable or omitted entirely. </br>
           Prepare for text expansion. If you are tight on space, keep in mind that numbers might expand in length during translation. Some languages are more "wordy" than others, requiring more or fewer words to express the same meanings.  </br>
           Localization can work more smoothly when the source content is written with localization in mind.`}
+          title="Write with localization in mind"
         />
 
         <MainSection.Subsection title="Follow i18n libraries" />
-        <Box marginTop={-4} maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginBottom={10}>
-          <List type="unordered" spacing="condensed">
+        <Box marginBottom={10} marginTop={-4} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
+          <List spacing="condensed" type="unordered">
             <List.Item
               text={
                 <Text inline weight="bold">
                   <Link
-                    href="https://github.com/unicode-org/icu"
                     display="inline"
                     externalLinkIcon="default"
-                    target="blank"
+                    href="https://github.com/unicode-org/icu"
                     rel="nofollow"
+                    target="blank"
                   >
                     ICU
                   </Link>{' '}
@@ -396,11 +396,11 @@ export default function FormsLayoutOverview(): ReactNode {
               text={
                 <Text inline weight="bold">
                   <Link
-                    href="https://cldr.unicode.org/"
                     display="inline"
                     externalLinkIcon="default"
-                    target="blank"
+                    href="https://cldr.unicode.org/"
                     rel="nofollow"
+                    target="blank"
                   >
                     CLDR
                   </Link>{' '}
@@ -425,21 +425,21 @@ export default function FormsLayoutOverview(): ReactNode {
                   <Text inline>
                     for example:{' '}
                     <Link
-                      href="https://formatjs.io/"
                       display="inline"
                       externalLinkIcon="default"
-                      target="blank"
+                      href="https://formatjs.io/"
                       rel="nofollow"
+                      target="blank"
                     >
                       FormatJS
                     </Link>{' '}
                     and{' '}
                     <Link
-                      href="https://www.i18next.com/"
                       display="inline"
                       externalLinkIcon="default"
-                      target="blank"
+                      href="https://www.i18next.com/"
                       rel="nofollow"
+                      target="blank"
                     >
                       i18next
                     </Link>
@@ -453,50 +453,50 @@ export default function FormsLayoutOverview(): ReactNode {
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="Do"
             description={`
             - Plan for text expansion: lay out your elements in a way where text expansion doesn't hinder your information hierarchy
             - Flexible design for varying language length and font size
             - Use pseudo-localization to find problems
             - [Rely on local formats](http://pinch/local-formats-i18n) and i18n libraries
         `}
+            title="Do"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="Don't"
             description={`
             - Account for text expansion and different number systems causing the line break at the wrong spot
             - Consider localization into different locales during the design phase
             - Release without testing and pseudo-localization
             - Assume numerals formats are the same for all languages and markets
         `}
+            title="Don't"
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection
-          name="Design tips"
           description="Mock up a scenario where the store, presentment, payout, and billing currencies are different. This scenario is becoming more common as more merchants start selling globally."
+          name="Design tips"
         />
 
-        <Flex gap={6} alignContent="between" wrap direction="row">
+        <Flex alignContent="between" direction="row" gap={6} wrap>
           <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
             <Box
-              width="100%"
-              minHeight={164}
-              overflow="hidden"
-              color="light"
-              rounding={2}
               borderStyle="sm"
-              marginBottom={3}
+              color="light"
               display="inlineBlock"
               justifyContent="center"
+              marginBottom={3}
+              minHeight={164}
+              overflow="hidden"
+              rounding={2}
+              width="100%"
             >
               <Image
                 alt="A Datapoint showing a currency number in Japanese Yen"
-                naturalWidth={1107}
                 naturalHeight={888}
+                naturalWidth={1107}
                 src="https://www.pinterest-assets.com/AssetLink/05tt4migaba35hrbci6ocqa6654si24g/design-tips-one-png.jpg"
               />
             </Box>
@@ -513,20 +513,20 @@ export default function FormsLayoutOverview(): ReactNode {
 
           <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
             <Box
-              width="100%"
-              minHeight={164}
-              overflow="hidden"
-              color="light"
-              rounding={2}
               borderStyle="sm"
-              marginBottom={3}
+              color="light"
               display="inlineBlock"
               justifyContent="center"
+              marginBottom={3}
+              minHeight={164}
+              overflow="hidden"
+              rounding={2}
+              width="100%"
             >
               <Image
                 alt="A section of a table with data including Dollar and Japanese Yen currency values"
-                naturalWidth={1107}
                 naturalHeight={888}
+                naturalWidth={1107}
                 src="https://www.pinterest-assets.com/AssetLink/34lj5h3nbhl73g02j08w0827n0641pyn/design-tips-2-png.jpg"
               />
             </Box>
@@ -542,7 +542,7 @@ export default function FormsLayoutOverview(): ReactNode {
           </Flex.Item>
         </Flex>
 
-        <Box marginTop={0} maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginBottom={8}>
+        <Box marginBottom={8} marginTop={0} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
           <Markdown
             text={`
             * **Use currencies that share the same symbol to test for clarity**
@@ -559,11 +559,11 @@ export default function FormsLayoutOverview(): ReactNode {
           />
         </Box>
 
-        <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginBottom={10}>
+        <Box marginBottom={10} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
           <BannerSlim
-            type="info"
             iconAccessibilityLabel="Info"
             message="Always test your number localization to make sure it works correctly and is accurately understood by users in the target locale. This can help catch any errors or misunderstandings before they reach end users."
+            type="info"
           />
         </Box>
 

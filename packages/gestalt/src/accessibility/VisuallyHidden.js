@@ -4,7 +4,7 @@ import Box from '../Box';
 
 export default function VisuallyHidden({ children }: { children: ReactNode }): ReactNode {
   return (
-    <Box position="relative" dangerouslySetInlineStyle={{ __style: { display: 'inline' } }}>
+    <Box dangerouslySetInlineStyle={{ __style: { display: 'inline' } }} position="relative">
       <Box display="visuallyHidden">{children}</Box>
     </Box>
   );

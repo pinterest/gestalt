@@ -7,7 +7,7 @@ export default function Example(): ReactNode {
   const [wrap, setWrap] = useState(false);
 
   return (
-    <Flex height="100%" width="100%" alignItems="center" justifyContent="center">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Flex alignItems="start" direction="column" gap={{ column: 4, row: 0 }}>
         <Flex gap={{ row: 4, column: 0 }}>
           <Label htmlFor="wrap">

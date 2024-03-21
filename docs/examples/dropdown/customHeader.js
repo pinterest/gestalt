@@ -18,15 +18,15 @@ export default function CustomIconButtonPopoverExample(): ReactNode {
 
   return (
     <Fragment>
-      <Flex justifyContent="center" width="100%" height="100%">
+      <Flex height="100%" justifyContent="center" width="100%">
         <Box margin={2}>
           <Button
+            ref={anchorRef}
             accessibilityControls="header-dropdown-example"
             accessibilityExpanded={open}
             accessibilityHaspopup
             iconEnd="arrow-down"
             onClick={() => setOpen((prevVal) => !prevVal)}
-            ref={anchorRef}
             selected={open}
             size="lg"
             text="Menu"
@@ -36,12 +36,11 @@ export default function CustomIconButtonPopoverExample(): ReactNode {
 
       {open && (
         <Dropdown
-          zIndex={new CompositeZIndex([PAGE_HEADER_ZINDEX])}
           anchor={anchorRef.current}
           headerContent={
             <Text align="start" size="100">
               This Pin was inspired by your{' '}
-              <Text weight="bold" size="100">
+              <Text size="100" weight="bold">
                 <Link href="https://pinterest.com">recent activity</Link>
               </Text>
             </Text>
@@ -50,6 +49,7 @@ export default function CustomIconButtonPopoverExample(): ReactNode {
           onDismiss={() => {
             setOpen(false);
           }}
+          zIndex={new CompositeZIndex([PAGE_HEADER_ZINDEX])}
         >
           <Dropdown.Item
             // eslint-disable-next-line no-alert

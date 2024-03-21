@@ -4,7 +4,7 @@ import { Box, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Text>
         We are all here together in freedom, for perhaps the last time! I know, dear; I know that
         you will always be with me to the end.

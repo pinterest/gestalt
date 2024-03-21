@@ -11,7 +11,7 @@ jest.mock('recharts', () => {
   return {
     ...OriginalModule,
     ResponsiveContainer: ({ children }: { children: ReactNode }) => (
-      <OriginalModule.ResponsiveContainer width={800} height={800}>
+      <OriginalModule.ResponsiveContainer height={800} width={800}>
         {children}
       </OriginalModule.ResponsiveContainer>
     ),
@@ -146,17 +146,16 @@ function ChartWrap(props: Props) {
   const [isSelect, setIsSelect] = useState(false);
 
   return (
-    <Flex direction="column" width="100%" height="100%">
+    <Flex direction="column" height="100%" width="100%">
       <ChartGraph
         accessibilityLabel="test chart"
-        visualPatternSelected={props.visualPatternSelected || visualPatternSelected}
         data={props.data}
         description={props.description}
-        range={props.range}
         elements={isSelect || !props.children ? props.elements : []}
+        helpButton={props.helpButton}
+        labelMap={props.labelMap}
         layout={props.layout}
         legend={props.legend}
-        helpButton={props.helpButton}
         onVisualPatternChange={
           props.onVisualPatternChange ||
           (() =>
@@ -164,21 +163,22 @@ function ChartWrap(props: Props) {
               value === 'visualPattern' ? 'default' : 'visualPattern',
             ))
         }
-        labelMap={props.labelMap}
+        range={props.range}
+        referenceAreas={props.referenceAreas}
         tickFormatter={props.tickFormatter}
         title={props.title}
         type={props.type}
-        referenceAreas={props.referenceAreas}
+        visualPatternSelected={props.visualPatternSelected || visualPatternSelected}
       >
         {props.children ? (
           <TileData
-            id="01"
             color="01"
-            title="Impressions"
-            value="10M"
-            selected={isSelect}
+            id="01"
             onTap={() => setIsSelect((x) => !x)}
+            selected={isSelect}
+            title="Impressions"
             trend={{ value: 29, accessibilityLabel: 'Trending up' }}
+            value="10M"
           />
         ) : undefined}
       </ChartGraph>
@@ -208,15 +208,15 @@ describe('ChartGraph', () => {
   it('renders with x/y axis', () => {
     render(
       <ChartWrap
-        title="ChartGraph"
-        titleDisplay="hidden"
-        type="bar"
         data={data3}
         elements={[
           { type: 'bar', id: 'element_01' },
           { type: 'bar', id: 'element_02' },
           { type: 'bar', id: 'element_03' },
         ]}
+        title="ChartGraph"
+        titleDisplay="hidden"
+        type="bar"
       />,
     );
     expect(screen.getByText('A')).toBeVisible();
@@ -235,15 +235,15 @@ describe('ChartGraph', () => {
   it('renders with translations', () => {
     render(
       <ChartWrap
-        type="bar"
-        title="Title"
-        description="Description"
-        labelMap={{ A: 'translatedA', element_01: 'translated01' }}
         data={data2}
+        description="Description"
         elements={[
           { type: 'bar', id: 'element_01' },
           { type: 'bar', id: 'element_02' },
         ]}
+        labelMap={{ A: 'translatedA', element_01: 'translated01' }}
+        title="Title"
+        type="bar"
       />,
     );
     expect(screen.queryAllByText('translatedA')[0]).toBeVisible();
@@ -253,10 +253,12 @@ describe('ChartGraph', () => {
   it('renders with full header: title, description, helpbutton, switches', () => {
     render(
       <ChartWrap
-        type="bar"
-        title="Title"
-        description="Description"
         data={data2}
+        description="Description"
+        elements={[
+          { type: 'bar', id: 'element_01' },
+          { type: 'bar', id: 'element_02' },
+        ]}
         helpButton={
           <HelpButton
             accessibilityLabel="Test label helpbutton"
@@ -264,10 +266,8 @@ describe('ChartGraph', () => {
             text="Test"
           />
         }
-        elements={[
-          { type: 'bar', id: 'element_01' },
-          { type: 'bar', id: 'element_02' },
-        ]}
+        title="Title"
+        type="bar"
       />,
     );
     expect(screen.getByText('Title')).toBeVisible();
@@ -279,14 +279,14 @@ describe('ChartGraph', () => {
   it('renders with legend', () => {
     render(
       <ChartWrap
-        title="ChartGraph"
-        titleDisplay="hidden"
-        type="bar"
         data={data2}
         elements={[
           { type: 'bar', id: 'element_01' },
           { type: 'bar', id: 'element_02' },
         ]}
+        title="ChartGraph"
+        titleDisplay="hidden"
+        type="bar"
       />,
     );
     expect(screen.getByText('element_01')).toBeVisible();
@@ -296,15 +296,15 @@ describe('ChartGraph', () => {
   it('renders with no legend', () => {
     render(
       <ChartWrap
-        title="ChartGraph"
-        titleDisplay="hidden"
-        type="bar"
-        legend="none"
         data={data2}
         elements={[
           { type: 'bar', id: 'element_01' },
           { type: 'bar', id: 'element_02' },
         ]}
+        legend="none"
+        title="ChartGraph"
+        titleDisplay="hidden"
+        type="bar"
       />,
     );
     expect(screen.queryByText('element_01')).not.toBeInTheDocument();
@@ -315,16 +315,16 @@ describe('ChartGraph', () => {
     const mockonVisualPatternChange = jest.fn<[], void>();
     render(
       <ChartWrap
-        title="ChartGraph"
-        titleDisplay="hidden"
-        type="bar"
-        legend="none"
-        onVisualPatternChange={mockonVisualPatternChange}
         data={data2}
         elements={[
           { type: 'bar', id: 'element_01' },
           { type: 'bar', id: 'element_02' },
         ]}
+        legend="none"
+        onVisualPatternChange={mockonVisualPatternChange}
+        title="ChartGraph"
+        titleDisplay="hidden"
+        type="bar"
       />,
     );
     expect(screen.getByLabelText('Tabular representation')).toBeVisible();
@@ -341,22 +341,22 @@ describe('ChartGraph', () => {
 
     render(
       <ChartWrap
+        data={data1}
+        elements={[{ type: 'bar', id: 'element_01' }]}
+        legend="none"
+        onVisualPatternChange={mockonVisualPatternChange}
         title="ChartGraph"
         titleDisplay="hidden"
         type="bar"
-        legend="none"
-        onVisualPatternChange={mockonVisualPatternChange}
-        data={data1}
-        elements={[{ type: 'bar', id: 'element_01' }]}
       >
         <TileData
-          id="01"
           color="01"
-          title="Impressions"
-          value="10M"
-          selected={false}
+          id="01"
           onTap={() => {}}
+          selected={false}
+          title="Impressions"
           trend={{ value: 29, accessibilityLabel: 'Trending up' }}
+          value="10M"
         />
       </ChartWrap>,
     );

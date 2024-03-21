@@ -4,13 +4,13 @@ import { Box, Flex, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex
+        alignItems="center"
         gap={{
           row: 1,
           column: 0,
         }}
-        alignItems="center"
       >
         <ReactionLove />
         <Text>2.8k</Text>
@@ -21,7 +21,7 @@ export default function Example(): ReactNode {
 
 function ReactionLove() {
   return (
-    <svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg fill="none" height="14" viewBox="0 0 17 14" width="17" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M14.7867 1.23333C16.4067 2.88 16.4067 5.56 14.7867 7.20667L8 14L1.21333 7.20667C0.406667 6.38 0 5.3 0 4.22C0 3.14 0.406667 2.06 1.21333 1.23333C2.84 -0.406667 5.48 -0.406667 7.1 1.23333L8 2.14667L8.89333 1.23333C9.70667 0.413333 10.7733 0 11.84 0C12.9067 0 13.9733 0.413333 14.7867 1.23333Z"
         fill="#FF5246"

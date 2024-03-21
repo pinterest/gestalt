@@ -8,14 +8,14 @@ export default function Snapshot(): ReactNode {
     <ColorSchemeProvider colorScheme="dark">
       <Box color="default" padding={2} width={675}>
         <DateRange
-          startDateValue={new Date('December 16, 1995 03:24:00')}
           endDateValue={new Date('December 17, 1995 03:24:00')}
-          onStartDateChange={() => {}}
-          onEndDateChange={() => {}}
-          onStartDateError={() => {}}
-          onEndDateError={() => {}}
-          onSubmit={() => {}}
           onCancel={() => {}}
+          onEndDateChange={() => {}}
+          onEndDateError={() => {}}
+          onStartDateChange={() => {}}
+          onStartDateError={() => {}}
+          onSubmit={() => {}}
+          startDateValue={new Date('December 16, 1995 03:24:00')}
         />
       </Box>
     </ColorSchemeProvider>

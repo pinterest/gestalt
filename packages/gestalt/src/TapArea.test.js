@@ -9,7 +9,7 @@ test('TapArea renders', () => {
 
 test('TapArea sets correct mouse cursor', () => {
   const tree = create(
-    <TapArea onTap={() => {}} mouseCursor="zoomIn">
+    <TapArea mouseCursor="zoomIn" onTap={() => {}}>
       TapArea
     </TapArea>,
   ).toJSON();
@@ -27,7 +27,7 @@ test('TapArea sets correct rounding', () => {
 
 test('TapArea sets fullWidth correctly', () => {
   const tree = create(
-    <TapArea onTap={() => {}} fullWidth={false}>
+    <TapArea fullWidth={false} onTap={() => {}}>
       TapArea
     </TapArea>,
   ).toJSON();
@@ -36,7 +36,7 @@ test('TapArea sets fullWidth correctly', () => {
 
 test('TapArea sets fullHeight correctly', () => {
   const tree = create(
-    <TapArea onTap={() => {}} fullHeight>
+    <TapArea fullHeight onTap={() => {}}>
       TapArea
     </TapArea>,
   ).toJSON();
@@ -54,7 +54,7 @@ test('TapArea supports press style', () => {
 
 test('accessibilityControls', () => {
   const instance = create(
-    <TapArea onTap={() => {}} accessibilityControls="another-element">
+    <TapArea accessibilityControls="another-element" onTap={() => {}}>
       TapArea
     </TapArea>,
   ).root;
@@ -67,7 +67,7 @@ test('accessibilityControls', () => {
 
 test('accessibilityExpanded', () => {
   const instance = create(
-    <TapArea onTap={() => {}} accessibilityExpanded>
+    <TapArea accessibilityExpanded onTap={() => {}}>
       TapArea
     </TapArea>,
   ).root;
@@ -80,7 +80,7 @@ test('accessibilityExpanded', () => {
 
 test('accessibilityHaspopup', () => {
   const instance = create(
-    <TapArea onTap={() => {}} accessibilityHaspopup>
+    <TapArea accessibilityHaspopup onTap={() => {}}>
       TapArea
     </TapArea>,
   ).root;
@@ -93,7 +93,7 @@ test('accessibilityHaspopup', () => {
 
 test('accessibilityLabel', () => {
   const instance = create(
-    <TapArea onTap={() => {}} accessibilityLabel="hello">
+    <TapArea accessibilityLabel="hello" onTap={() => {}}>
       TapArea
     </TapArea>,
   ).root;

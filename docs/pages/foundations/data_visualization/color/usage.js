@@ -50,11 +50,11 @@ function PaletteGenerator({ count }: ColorCardProps): ReactNode {
     const tokenStep = idx + 1;
 
     return (
-      <Box marginBottom={1} key={`color-${tokenStep}`}>
+      <Box key={`color-${tokenStep}`} marginBottom={1}>
         <ColorTile
-          textColor={COLOR_TEXT_PAIRINGS[`0${tokenStep}`]}
           description={`Data Visualization 0${tokenStep}`}
           fullTokenName={`color-data-visualization-0${tokenStep}`}
+          textColor={COLOR_TEXT_PAIRINGS[`0${tokenStep}`]}
         />
       </Box>
     );
@@ -78,14 +78,14 @@ function DoNotPairSet({ color1, color2 }: PairSetProps): ReactNode {
       }}
     >
       <ColorTile
-        textColor={COLOR_TEXT_PAIRINGS[firstColor]}
         description={`Data Visualization ${firstColor}`}
         fullTokenName={`color-data-visualization-${firstColor}`}
+        textColor={COLOR_TEXT_PAIRINGS[firstColor]}
       />
       <ColorTile
-        textColor={COLOR_TEXT_PAIRINGS[secondColor]}
         description={`Data Visualization ${secondColor}`}
         fullTokenName={`color-data-visualization-${secondColor}`}
+        textColor={COLOR_TEXT_PAIRINGS[secondColor]}
       />
     </Flex>
   );
@@ -95,33 +95,33 @@ export default function ColorPage(): ReactNode {
   return (
     <Page title="Data visualization guidelines">
       <PageHeader
+        description="Details about approved color pairings, accessibility guidelines, and pairings to avoid. The [data visualization palette](/foundations/data_visualization/color/palette) can be implemented through our [design tokens](/foundations/design_tokens/overview#Data-visualization)."
         name="Data visualization guidelines"
         type="guidelines"
-        description="Details about approved color pairings, accessibility guidelines, and pairings to avoid. The [data visualization palette](/foundations/data_visualization/color/palette) can be implemented through our [design tokens](/foundations/design_tokens/overview#Data-visualization)."
       />
       <MainSection
-        name="Primary color"
         description="We use `$color-data-visualization-primary` as the main color for data visualization, which is used for showing total value or whenever only 1 color is needed in a visualization."
+        name="Primary color"
       >
         <Flex
+          direction="column"
           gap={{
             row: 0,
             column: 8,
           }}
-          direction="column"
         >
           <ColorTile
-            textColor="dark"
             description="Primary"
             fullTokenName="color-data-visualization-primary"
+            textColor="dark"
           />
 
           <DataVizPrimary />
         </Flex>
       </MainSection>
       <MainSection
-        name="Semantic colors"
         description="Semantic colors are used to indicate positive or negative performance in data. In both cases, we use a slightly darker color for text and icons associated with data to make sure text has enough contrast."
+        name="Semantic colors"
       >
         <Flex
           direction="column"
@@ -130,7 +130,7 @@ export default function ColorPage(): ReactNode {
             column: 4,
           }}
         >
-          <Flex wrap gap={4}>
+          <Flex gap={4} wrap>
             <Flex
               direction="column"
               gap={{
@@ -139,14 +139,14 @@ export default function ColorPage(): ReactNode {
               }}
             >
               <ColorTile
-                textColor="inverse"
                 description="Success (Graph)"
                 fullTokenName="color-data-visualization-success-graph"
+                textColor="inverse"
               />
               <ColorTile
-                textColor="inverse"
                 description="Success (Text/Icon)"
                 fullTokenName="color-data-visualization-success-text"
+                textColor="inverse"
               />
             </Flex>
             <Flex
@@ -157,14 +157,14 @@ export default function ColorPage(): ReactNode {
               }}
             >
               <ColorTile
-                textColor="inverse"
                 description="Error (Graph)"
                 fullTokenName="color-data-visualization-error-graph"
+                textColor="inverse"
               />
               <ColorTile
-                textColor="inverse"
                 description="Error (Text/Icon)"
                 fullTokenName="color-data-visualization-error-text"
+                textColor="inverse"
               />
             </Flex>
           </Flex>
@@ -173,8 +173,8 @@ export default function ColorPage(): ReactNode {
         </Flex>
       </MainSection>
       <MainSection
-        name="Color pairings"
         description="When more than 1 color is needed, colors should be applied in the exact order in the palette to maximize contrast between adjacent colors, in order to help with visual differentiation."
+        name="Color pairings"
       >
         <MainSection.Subsection title="2 colors">
           <Flex
@@ -290,32 +290,32 @@ export default function ColorPage(): ReactNode {
         </MainSection.Subsection>
       </MainSection>
       <MainSection
-        name="Pairings to avoid"
         description={`
         Although we recommend using colors following the order in the palette, we understand there might be edge cases when we need to pair colors differently. In this case, avoid using the pairings below as neighboring colors. These pairings are hard to tell apart when used:
 
         - for lines or small points under normal vision
         - for large areas under red-green or yellow-blue color blindness`}
+        name="Pairings to avoid"
       >
         {' '}
-        <Flex gap={6} direction="column">
+        <Flex direction="column" gap={6}>
           <Flex
-            wrap
             gap={{
               row: 4,
               column: 5,
             }}
+            wrap
           >
             {DO_NOT_PAIR_COLORS.map((set) => (
               <DoNotPairSet key={set.toString()} color1={set[0]} color2={set[1]} />
             ))}
           </Flex>
           <BannerSlim
-            type="info"
             iconAccessibilityLabel="Info"
             message="Example of how a person with green-red color blindness might see these pairings"
+            type="info"
           />
-          <Box maxWidth={620} maxHeight={620}>
+          <Box maxHeight={620} maxWidth={620}>
             <Image
               alt="Color pairings shown with deuteranopia"
               naturalHeight={1106}

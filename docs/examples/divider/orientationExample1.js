@@ -15,16 +15,16 @@ function Block({ title, text }: { title: string, text: string }) {
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex direction="column" gap={{ column: 10, row: 0 }}>
         <Block
-          title="Discover ideas"
           text="Use the search bar to discover ideas, people and trends. Explore suggested topics or search for topics of your own."
+          title="Discover ideas"
         />
         <Divider />
         <Block
-          title="Create Pins"
           text="Upload an image from your computer or mobile device to create a Pin. You can also create Pins from images you find online."
+          title="Create Pins"
         />
       </Flex>
     </Box>

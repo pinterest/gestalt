@@ -17,10 +17,10 @@ export default function Example(): ReactNode {
   const [device, setDevice] = useState<null | string>(null);
 
   return (
-    <Box padding={4} color="secondary" height="100%">
-      <ScrollBoundaryContainer overflow="auto" height={200}>
+    <Box color="secondary" height="100%" padding={4}>
+      <ScrollBoundaryContainer height={200} overflow="auto">
         <Box color="light" padding={3}>
-          <Flex width={300} direction="column" gap={{ column: 4, row: 0 }}>
+          <Flex direction="column" gap={{ column: 4, row: 0 }} width={300}>
             <Flex direction="column" gap={{ column: 2, row: 0 }}>
               <Flex alignItems="center" gap={{ row: 1, column: 0 }}>
                 <Text weight="bold">Content type</Text>
@@ -29,7 +29,7 @@ export default function Example(): ReactNode {
                   text="See stats about different types of content created by you and/or others on Pinterest. Filter to get more details on your organic (not an ad) and paid (promoted as an ad) content."
                 >
                   <TapArea>
-                    <Icon icon="info-circle" accessibilityLabel="Information" color="default" />
+                    <Icon accessibilityLabel="Information" color="default" icon="info-circle" />
                   </TapArea>
                 </Tooltip>
               </Flex>
@@ -70,7 +70,7 @@ export default function Example(): ReactNode {
                   text="See stats for Pins linked to your claimed accounts like websites, Etsy, Instagram or Youtube. The Other Pins category includes Pins you’ve published or saved that don’t link to any of your claimed accounts."
                 >
                   <TapArea>
-                    <Icon icon="info-circle" accessibilityLabel="Information" color="default" />
+                    <Icon accessibilityLabel="Information" color="default" icon="info-circle" />
                   </TapArea>
                 </Tooltip>
               </Flex>
@@ -115,7 +115,7 @@ export default function Example(): ReactNode {
                   text="See stats for the different devices your Pinterest traffic is coming from."
                 >
                   <TapArea>
-                    <Icon icon="info-circle" accessibilityLabel="Information" color="default" />
+                    <Icon accessibilityLabel="Information" color="default" icon="info-circle" />
                   </TapArea>
                 </Tooltip>
               </Flex>

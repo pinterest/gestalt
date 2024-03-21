@@ -15,7 +15,7 @@ describe('List', () => {
     text?: boolean,
   }): ReactNode {
     return (
-      <List labelDisplay={labelDisplay} label={text ? <Text>Numbers</Text> : 'Numbers'} type={type}>
+      <List label={text ? <Text>Numbers</Text> : 'Numbers'} labelDisplay={labelDisplay} type={type}>
         <List.Item text={text ? <Text>1</Text> : '1'}>
           <List.Item text="2">
             <List.Item text="3">

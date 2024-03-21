@@ -7,8 +7,8 @@ export default function Example(): ReactNode {
   const [rows, setRows] = useState(2);
 
   return (
-    <Box padding={8} height="100%" display="flex" justifyContent="center">
-      <Flex direction="column" width="100%" gap={4}>
+    <Box display="flex" height="100%" justifyContent="center" padding={8}>
+      <Flex direction="column" gap={4} width="100%">
         <Box width={120}>
           <NumberField
             id="numberfield_rows"
@@ -26,8 +26,8 @@ export default function Example(): ReactNode {
             setValue(data.value);
           }}
           placeholder={`this text area has ${rows} rows`}
-          value={value}
           rows={rows}
+          value={value}
         />
       </Flex>
     </Box>

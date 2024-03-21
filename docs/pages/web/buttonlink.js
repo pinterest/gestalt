@@ -33,14 +33,14 @@ export default function DocsPage({ generatedDocGen }: DocType): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
+        name={generatedDocGen?.displayName}
         pdocsLink
       >
         <SandpackExample
           code={main}
-          name="Main ButtonLink example"
           hideEditor
+          name="Main ButtonLink example"
           previewHeight={150}
         />
       </PageHeader>
@@ -51,22 +51,22 @@ export default function DocsPage({ generatedDocGen }: DocType): ReactNode {
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - Communicating a navigation that will occur.
           - Triggering or enabling a navigation, such as visiting another URL.
           - Progressing or regressing a user through a step in a flow in separate URLs.
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - Inlined in text. Instead, use [Link](/web/link).
           - Limited space available. Consider using an [IconButtonLink](/web/iconbuttonlink) instead.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -122,8 +122,8 @@ export default function DocsPage({ generatedDocGen }: DocType): ReactNode {
             sandpackExample={
               <SandpackExample
                 code={showFullTextDont}
-                hideEditor
                 hideControls
+                hideEditor
                 name="Truncate the ButtonLink text. In rare instances where ButtonLinks must remain on one line, truncate the text on the secondary ButtonLink before truncating on the primary ButtonLink."
                 previewHeight={PREVIEW_HEIGHT}
               />
@@ -152,8 +152,8 @@ export default function DocsPage({ generatedDocGen }: DocType): ReactNode {
             sandpackExample={
               <SandpackExample
                 code={iconTooltipToExplainDont}
-                hideEditor
                 hideControls
+                hideEditor
                 name="Use a Tooltip on disabled ButtonLink, as it is not accessible for keyboard and screen reader users."
                 previewHeight={PREVIEW_HEIGHT}
               />
@@ -165,7 +165,6 @@ export default function DocsPage({ generatedDocGen }: DocType): ReactNode {
 
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
-          title="Color contrast in disabled state"
           description={`
 Disabled Buttons do not need to pass color contrast guidelines.
 
@@ -174,14 +173,14 @@ Disabled Buttons do not need to pass color contrast guidelines.
 Our current disabled ButtonLink implementation does fail to pass color contrast on accessibility integration tests. To exclude disabled buttons from the integration tests we recomment conditionally setting a \`data-test-id={ isDisabled ? "disabled-button-<name>" : undefined }\` and excluding them from the integration test.
 
 On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved with <code>cy.a11yCheck({ exclude: [['[data-test-id="disabled-button-submit"]']] })<code>`}
+          title="Color contrast in disabled state"
         />
       </AccessibilitySection>
 
-      <LocalizationSection name={generatedDocGen?.displayName} code={localizationLabels} />
+      <LocalizationSection code={localizationLabels} name={generatedDocGen?.displayName} />
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Size"
           description={`ButtonLink is available in 3 fixed sizes. The ButtonLink text has always a fixed size of 16px:
 1. \`lg\` (48px)
     Large is the only size that should be used on Pinner surfaces.
@@ -189,42 +188,42 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
     Medium is used on more dense UI such as business surfaces or internal tools.
 3. \`sm\` (32px)
     Small should be used sparingly and only in places where the UI is very dense.`}
+          title="Size"
         >
           <CombinationNew size={['sm', 'md', 'lg']}>
             {({ size }) => (
               <ButtonLink
-                href=""
                 accessibilityLabel={`Example size ${size}`}
                 color="red"
-                text="Visit"
+                href=""
                 size={size}
+                text="Visit"
               />
             )}
           </CombinationNew>
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Width"
           description={`
 1. Inline (default)
     Inline is our default ButtonLink width.  The width of an inline ButtonLink is based on the length of its text. Use in most cases where you need a ButtonLink.
 2. Full-width (\`fullWidth\`)
     Full-width Buttons can be used in narrower content areas when the text in the ButtonLink is close to full width in the content area. This is especially common to see in components such as BannerCallout and BannerUpsell at their smaller breakpoints.`}
+          title="Width"
         >
           <CombinationNew fullwidth={[false, true]}>
             {({ fullwidth }) => (
               <ButtonLink
-                href=""
                 accessibilityLabel={`Example width ${fullwidth}`}
                 color="red"
-                text="Visit"
                 fullWidth={fullwidth}
+                href=""
                 size="lg"
+                text="Visit"
               />
             )}
           </CombinationNew>
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Color on white backgrounds"
           description={`
 1. Red (Primary)
     High emphasis, used for primary actions.
@@ -235,45 +234,46 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
 4. Transparent (Tertiary)
     Low emphasis when placed on dark/image backgrounds, used for tertiary actions in that context. *Note, this treatment should be used with caution as it has potential color contrast issues.*
 `}
+          title="Color on white backgrounds"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={colors} name="Colors" previewHeight={500} layout="column" />
+              <SandpackExample code={colors} layout="column" name="Colors" previewHeight={500} />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
           columns={2}
-          title="Color on color/image backgrounds"
           description={`
   1. White (Primary)
       High emphasis when placed on color/image backgrounds, used for primary actions in that context.
   2. Semi-transparent white (Secondary)
       Medium emphasis when placed on color/image backgrounds, used for secondary actions in that context.
 `}
+          title="Color on color/image backgrounds"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={washColors}
+                layout="column"
                 name="Color on color/image backgrounds"
                 previewHeight={500}
-                layout="column"
               />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
           columns={2}
-          title="States"
           description={`
 1. Default
     The typical state of a ButtonLink that represents it can be interacted with and is not in a selected state.
 2. Disabled
 Used to block user interaction such as hover, focus and click. Disabled Buttons are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled Buttons.
  `}
+          title="States"
         >
           <MainSection.Card
             cardSize="md"
@@ -298,7 +298,6 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="External handlers"
           description={`ButtonLink consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).
 
 Handlers:
@@ -307,12 +306,13 @@ Handlers:
 
 See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onNavigation:-custom-navigation) for more information.
 `}
+          title="External handlers"
         />
         <MainSection.Subsection
-          title="Icons"
           description={`
 \`iconEnd\` adds an icon after the ButtonLink text. Icons should only be used to visually reinforce a specific function or interaction of the ButtonLink. Menus and external links are a common use case. The icon \`visit\` is recommended for use with ButtonLink. Note that iconEnd on ButtonLink is not accessible to screen readers.
 `}
+          title="Icons"
         >
           <MainSection.Card
             cardSize="lg"
@@ -327,10 +327,10 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onN
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="rel and target"
           description={`
 These optional props control the behavior of ButtonLink. External links commonly use \`target="_blank"\` to open the link in a new tab or window, and \`rel="nofollow"\` to provide hints for SEO.
 `}
+          title="rel and target"
         >
           <MainSection.Card
             cardSize="lg"

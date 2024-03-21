@@ -11,9 +11,19 @@ export default function Example(): ReactNode {
     <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
       <Box width={400}>
         <DateField
+          disableRange="disableFuture"
+          errorMessage={errorText || undefined}
+          helperText="Enter your date of birth"
           id="errorExample"
           label="Date of birth"
-          helperText="Enter your date of birth"
+          name="bday_datefield"
+          onChange={({ value }) => {
+            setDateValue(value);
+          }}
+          onClearInput={() => {
+            setErrorText(null);
+            setDateValue(null);
+          }}
           onError={({ errorMessage, value }) => {
             const date = value ? new Date(value) : null;
 
@@ -22,17 +32,7 @@ export default function Example(): ReactNode {
               setErrorText('Please, select a valid birth date');
             if (date && date.getFullYear() > 1) setErrorText(null);
           }}
-          errorMessage={errorText || undefined}
-          onChange={({ value }) => {
-            setDateValue(value);
-          }}
           value={dateValue}
-          disableRange="disableFuture"
-          onClearInput={() => {
-            setErrorText(null);
-            setDateValue(null);
-          }}
-          name="bday_datefield"
         />
       </Box>
     </Flex>

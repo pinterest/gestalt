@@ -20,8 +20,8 @@ describe('HelpButton', () => {
       <HelpButton
         accessibilityLabel="Click to learn more about Pinterest"
         accessibilityPopoverLabel="Expanded information about Pinterest"
-        text="Good test"
         link={{ href: 'https://www.pinterest.com', text: 'Good test' }}
+        text="Good test"
       />,
     );
     const tree = component.toJSON();
@@ -33,8 +33,8 @@ describe('HelpButton', () => {
       <HelpButton
         accessibilityLabel="Click to learn more about Pinterest"
         accessibilityPopoverLabel="Expanded information about Pinterest"
-        text="Good test"
         link={{ href: 'https://www.pinterest.com', text: 'Pinterest`s home' }}
+        text="Good test"
       />,
     );
     const tree = component.toJSON();
@@ -46,8 +46,8 @@ describe('HelpButton', () => {
       <HelpButton
         accessibilityLabel="Click to learn more about Pinterest"
         accessibilityPopoverLabel="Expanded information about Pinterest"
-        text="Good test"
         idealDirection="up"
+        text="Good test"
       />,
     );
 
@@ -60,12 +60,12 @@ describe('HelpButton', () => {
       <HelpButton
         accessibilityLabel="Click to learn more about Pinterest"
         accessibilityPopoverLabel="Expanded information about Pinterest"
-        text="Good test"
         link={{
           href: 'https://www.pinterest.com',
           accessibilityLabel: 'Good test',
           text: 'Pinterest home',
         }}
+        text="Good test"
       />,
     );
     const tree = component.toJSON();

@@ -80,14 +80,13 @@ export default function Contents({
 
   return (
     <FloatingFocusManager
-      disabled={role === 'tooltip'}
       context={context}
-      returnFocus={false}
+      disabled={role === 'tooltip'}
       modal={shouldTrapFocus ?? false}
+      returnFocus={false}
     >
       <div
         ref={refs.setFloating}
-        tabIndex={-1}
         className={classnames(
           styles.container,
           rounding === 2 && borders.rounding2,
@@ -97,6 +96,7 @@ export default function Contents({
           width !== null && styles.minDimensions,
         )}
         style={{ ...floatingStyles, visibility }}
+        tabIndex={-1}
       >
         {caret && (
           <div
@@ -122,8 +122,6 @@ export default function Contents({
 
         <div
           aria-label={accessibilityLabel}
-          id={id}
-          role={role}
           className={classnames(
             border && styles.border,
             rounding === 2 && borders.rounding2,
@@ -137,6 +135,8 @@ export default function Contents({
               [styles.education]: bgColor === 'blue',
             },
           )}
+          id={id}
+          role={role}
           style={{
             maxWidth: width,
           }}

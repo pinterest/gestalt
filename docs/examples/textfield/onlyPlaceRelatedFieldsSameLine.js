@@ -7,7 +7,7 @@ export default function Example(): ReactNode {
   const [stateValue, setStateValue] = useState('');
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex gap={{ column: 0, row: 4 }}>
         <TextField
           id="best-practices-do-related-city"

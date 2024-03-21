@@ -10,7 +10,7 @@ function HeaderRow({ id }: { id: string }) {
           <Box display="visuallyHidden">
             <Label htmlFor={id}>Not all checkboxes are checked</Label>
           </Box>
-          <Checkbox id={id} onChange={() => {}} indeterminate size="sm" />
+          <Checkbox id={id} indeterminate onChange={() => {}} size="sm" />
         </Table.HeaderCell>
         {['Campaign', 'Spend'].map((title) => (
           <Table.HeaderCell key={title}>
@@ -41,13 +41,13 @@ function BaseRow({
     <Table.Row>
       <Table.Cell>
         <Checkbox
+          checked={checked}
+          disabled={disabled}
           id={`${id.replace(/ /g, '_').replace(/'/g, '')}_${text
             .replace(/ /g, '_')
             .replace(/'/g, '')}`}
           onChange={() => {}}
-          disabled={disabled}
           size="sm"
-          checked={checked}
         />
       </Table.Cell>
       <Table.Cell>
@@ -73,11 +73,11 @@ export default function Example(): ReactNode {
     <Table accessibilityLabel={tableID}>
       <HeaderRow id={tableID} />
       <Table.Body>
-        <BaseRow id={tableID} checked text="The best ad" spend="$5.50" />
-        <BaseRow id={tableID} disabled text="This ad is great" spend="$3,000.00" />
-        <BaseRow id={tableID} checked text="Mary's pincycle" spend="$1.75" />
-        <BaseRow id={tableID} checked={false} text="Best Purchase Wins" spend="$51,650,500.54" />
-        <BaseRow id={tableID} checked={false} text="The third campaign" spend="$67.60" />
+        <BaseRow checked id={tableID} spend="$5.50" text="The best ad" />
+        <BaseRow disabled id={tableID} spend="$3,000.00" text="This ad is great" />
+        <BaseRow checked id={tableID} spend="$1.75" text="Mary's pincycle" />
+        <BaseRow checked={false} id={tableID} spend="$51,650,500.54" text="Best Purchase Wins" />
+        <BaseRow checked={false} id={tableID} spend="$67.60" text="The third campaign" />
       </Table.Body>
     </Table>
   );

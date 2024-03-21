@@ -24,8 +24,8 @@ export default function TableOfContentsPage({
   return (
     <Page title={generatedDocGen?.TableOfContents.displayName}>
       <PageHeader
-        name={generatedDocGen?.TableOfContents.displayName}
         description={generatedDocGen?.TableOfContents.description}
+        name={generatedDocGen?.TableOfContents.displayName}
       >
         <SandpackExample code={main} hideEditor name="Main TableOfContents example" />
       </PageHeader>
@@ -36,21 +36,21 @@ export default function TableOfContentsPage({
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - To make it easier to navigate a single page with a lot of content and sections
           - To navigate through a lengthy form that is broken down into sections
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - When you need to navigate to new pages or links. Use [SideNavigation](/web/sidenavigation)
           - For pages that don’t have a lot of sections or content. Navigating via the browser or app scrollbar should be enough.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -59,59 +59,59 @@ export default function TableOfContentsPage({
         <MainSection.Subsection>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Position the TableOfContents 24–32px away from the main content. Top-align it with the content’s title."
             sandpackExample={
               <SandpackExample
                 code={topAlignWithContetnTitle}
-                name="Do - Top-align it with the content’s title"
-                layout="column"
                 hideEditor
+                layout="column"
+                name="Do - Top-align it with the content’s title"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Place the TableOfContents really far from the main content making it easy to miss, or hard to move efficiently between it and the content."
             sandpackExample={
               <SandpackExample
                 code={dontPlaceFarAway}
-                name="Don't - Place the TableOfContents really far from the main content"
-                layout="column"
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Don't - Place the TableOfContents really far from the main content"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Place the TableOfContents to the right of the main content on a LTR surface and to the left of the main content on an RTL surface."
-          />
-          <MainSection.Card
-            cardSize="md"
-            type="don't"
-            description="Place the TableOfContents right next to the SideNavigation to differentiate it from link navigation."
-          />
-          <MainSection.Card
-            cardSize="md"
             type="do"
-            description="Use one TableOfContents per page."
           />
           <MainSection.Card
             cardSize="md"
+            description="Place the TableOfContents right next to the SideNavigation to differentiate it from link navigation."
             type="don't"
+          />
+          <MainSection.Card
+            cardSize="md"
+            description="Use one TableOfContents per page."
+            type="do"
+          />
+          <MainSection.Card
+            cardSize="md"
             description="Introduce unnecessary complexity by using more than one TableOfContents on a page."
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
 
       <AccessibilitySection
-        name={generatedDocGen?.TableOfContents.displayName}
         description="The TableOfContents component is critical in navigating the structure of the application and thus has been assigned the 'navigation' role to improve its accessibility. This role ensures that the component is recognized as a 'landmark' by assistive technologies, such as screen readers. Be sure to include an `accessibilityLabel` for the screen reader for TableOfContents. Consider using meaningful labels to enhance the ease of navigation through the application."
+        name={generatedDocGen?.TableOfContents.displayName}
       />
 
       <LocalizationSection
@@ -121,45 +121,45 @@ export default function TableOfContentsPage({
 
       <MainSection name="Subcomponents">
         <MainSection.Subsection
-          title={generatedDocGen.TableOfContentsItem?.displayName}
           description={generatedDocGen.TableOfContentsItem?.description}
+          title={generatedDocGen.TableOfContentsItem?.displayName}
         >
           <GeneratedPropTable
-            name={generatedDocGen.TableOfContentsItem?.displayName}
-            id={generatedDocGen.TableOfContentsItem?.displayName}
             generatedDocGen={generatedDocGen.TableOfContentsItem}
+            id={generatedDocGen.TableOfContentsItem?.displayName}
+            name={generatedDocGen.TableOfContentsItem?.displayName}
           />
         </MainSection.Subsection>
       </MainSection>
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Nested directory"
           description="TableOfContents supports 5 levels of nesting. The first level maps to a section’s heading, which is usually an H2. The second level maps to a section’s subheading, which is usually an H3."
+          title="Nested directory"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample name="Sticky header & footer example" code={nestedItemsExample} />
+              <SandpackExample code={nestedItemsExample} name="Sticky header & footer example" />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="With title"
           description="A title can be added to TableofContents to be more clear about what is being navigated through."
+          title="With title"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample name="Sticky header & footer example" code={withHeaderExample} />
+              <SandpackExample code={withHeaderExample} name="Sticky header & footer example" />
             }
           />
         </MainSection.Subsection>
       </MainSection>
 
       <MainSection
-        name="Writing"
         description="Items for a TableOfContents will be inherited from the headings on the page. For guidelines on writing headlines and titles, [see our Content Standards](https://gestalt.pinterest.systems/foundations/content_standards/voice)"
+        name="Writing"
       />
 
       <QualityChecklist component={generatedDocGen?.TableOfContents.displayName} />

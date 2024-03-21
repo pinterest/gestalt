@@ -12,7 +12,7 @@ describe('RadioButton', () => {
   it('forwards a ref to <Box ref={ref}><input/></Box>', () => {
     const ref = createRef<HTMLInputElement>();
     render(
-      <RadioButton value="test" checked id="testRadioButton" onChange={mockOnChange} ref={ref} />,
+      <RadioButton ref={ref} checked id="testRadioButton" onChange={mockOnChange} value="test" />,
     );
     expect(ref.current instanceof HTMLInputElement).toEqual(true);
     expect(ref.current?.checked).toEqual(true);

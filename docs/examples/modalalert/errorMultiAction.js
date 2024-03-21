@@ -14,17 +14,17 @@ export default function Example(): ReactNode {
         <Button
           accessibilityLabel="Show Modal"
           color="red"
-          text="Show Modal"
-          size="lg"
           onClick={() => setShowComponent(true)}
+          size="lg"
+          text="Show Modal"
         />
       </Box>
       {showComponent ? (
         <Layer zIndex={zIndex}>
           <ModalAlert
-            type="error"
             accessibilityModalLabel="API access revoked error"
             heading="Your API access has been revoked"
+            onDismiss={() => {}}
             primaryAction={{
               accessibilityLabel: 'Submit appeal to Pinterest',
               label: 'Submit an appeal',
@@ -37,7 +37,7 @@ export default function Example(): ReactNode {
               onClick: () => {},
               role: 'button',
             }}
-            onDismiss={() => {}}
+            type="error"
           >
             <Text>
               You will not be able to make any API calls or create new apps. Pinterest Developers{' '}

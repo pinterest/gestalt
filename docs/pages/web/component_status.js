@@ -12,7 +12,7 @@ import PageHeader from '../../docs-components/PageHeader';
 import StatusData from '../../docs-components/StatusData';
 
 function DeprecatedStatus() {
-  return <StatusData text="Deprecated" status="deprecated" />;
+  return <StatusData status="deprecated" text="Deprecated" />;
 }
 
 const webComponentData = getByPlatform(componentData, { platform: 'web' });
@@ -26,10 +26,10 @@ const statusFields = ['figmaStatus', 'documentation', 'responsive', 'mobileAdapt
 
 export default function ComponentStatus(): ReactNode {
   return (
-    <Page title="Web component status" hideSideNav hideEditLink>
+    <Page hideEditLink hideSideNav title="Web component status">
       <PageHeader
-        name="Web component status"
         description="A detailed synopsis of our web components and their implementation status."
+        name="Web component status"
         type="guidelines"
       />
       <Flex direction="column" gap={12}>
@@ -91,17 +91,17 @@ export default function ComponentStatus(): ReactNode {
               return (
                 <Table.Row key={name}>
                   <Table.Cell>
-                    <Text size="200" inline>
+                    <Text inline size="200">
                       <Link
+                        display="inlineBlock"
                         href={
                           path ?? `/web/${name.replace(/ /g, '_').replace(/'/g, '').toLowerCase()}`
                         }
-                        display="inlineBlock"
                       >
                         {name}
                         {badge ? (
                           <Box display="inlineBlock" marginStart={2}>
-                            <Badge type="info" text={badge} />
+                            <Badge text={badge} type="info" />
                           </Box>
                         ) : null}
                       </Link>

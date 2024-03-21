@@ -14,14 +14,14 @@ export default function Example(): ReactNode {
   }, []);
 
   return (
-    <Flex alignItems="center" justifyContent="between" height="100%" width="100%">
+    <Flex alignItems="center" height="100%" justifyContent="between" width="100%">
       <Box>
         <IconButton
-          accessibilityLabel="This IconButton represents a new feature"
-          iconColor="darkGray"
-          icon="pin"
-          onClick={() => {}}
           ref={anchorRefA}
+          accessibilityLabel="This IconButton represents a new feature"
+          icon="pin"
+          iconColor="darkGray"
+          onClick={() => {}}
           size="lg"
         />
         {openA && (
@@ -29,18 +29,18 @@ export default function Example(): ReactNode {
             accessibilityLabel="Simple message string"
             anchor={anchorRefA.current}
             idealDirection="right"
-            onDismiss={() => {}}
             message="Simple message string"
+            onDismiss={() => {}}
           />
         )}
       </Box>
       <Box>
         <IconButton
-          accessibilityLabel="This IconButton represents a new feature"
-          iconColor="darkGray"
-          icon="pin"
-          onClick={() => {}}
           ref={anchorRefB}
+          accessibilityLabel="This IconButton represents a new feature"
+          icon="pin"
+          iconColor="darkGray"
+          onClick={() => {}}
           size="lg"
         />
         {openB && (
@@ -48,7 +48,6 @@ export default function Example(): ReactNode {
             accessibilityLabel="Rich message with Text component and bold text"
             anchor={anchorRefB.current}
             idealDirection="right"
-            onDismiss={() => {}}
             message={
               <Text inline>
                 Rich message with Text component and{' '}
@@ -57,6 +56,7 @@ export default function Example(): ReactNode {
                 </Text>
               </Text>
             }
+            onDismiss={() => {}}
           />
         )}
       </Box>

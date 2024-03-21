@@ -60,16 +60,15 @@ export default function renderElements({
     if (isBarElement) {
       return (
         <RechartsBar
-          dataKey={values.id}
+          key={values.id}
           barSize="50%"
+          dataKey={values.id}
           fill={
             visualPatternSelected === 'visualPattern'
               ? `url(#pattern-${values.color || defaultColor})`
               : hexColor(values.color || defaultColor)
           }
           isAnimationActive={false}
-          key={values.id}
-          stackId={stacked ? 'stacked' : undefined}
           // eslint-disable-next-line react/no-unstable-nested-components
           shape={({ height, ...props }) => (
             <Rectangle
@@ -82,6 +81,7 @@ export default function renderElements({
               }
             />
           )}
+          stackId={stacked ? 'stacked' : undefined}
           {...(isHorizontalLayout
             ? { yAxisId: values.axis || 'left' }
             : { xAxisId: values.axis || 'bottom' })}
@@ -108,15 +108,15 @@ export default function renderElements({
 
       return (
         <RechartsLine
+          key={values.id}
           activeDot={false}
           dataKey={values.id}
           dot={visualPatternSelected === 'visualPattern' ? graphPoint : false}
           isAnimationActive={false}
-          key={values.id}
           legendType="line"
-          strokeWidth={values.precision === 'estimate' ? 2 : 3}
-          strokeDasharray={strokeDasharray}
           stroke={hexColor(values.color || defaultColor)}
+          strokeDasharray={strokeDasharray}
+          strokeWidth={values.precision === 'estimate' ? 2 : 3}
           type={values.precision === 'estimate' ? 'monotone' : undefined}
           {...(isHorizontalLayout
             ? { yAxisId: values.axis || 'left' }

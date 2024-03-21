@@ -15,7 +15,7 @@ export default function Example(): ReactNode {
           </Box>
         </Sticky>
 
-        <Box marginTop={10} marginBottom={10} position="relative">
+        <Box marginBottom={10} marginTop={10} position="relative">
           <Text>Scroll</Text>
           <Text>Keep scrolling</Text>
           <Text>Scroll more</Text>

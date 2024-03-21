@@ -4,17 +4,17 @@ import { Box, Flex, Status } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex direction="column" gap={{ column: 4, row: 0 }}>
-        <Status type="unstarted" title="Unstarted" />
-        <Status type="queued" title="Queued" />
-        <Status type="inProgress" title="In progress" />
-        <Status type="halted" title="Halted" />
-        <Status type="locked" title="Locked" />
-        <Status type="ok" title="OK" />
-        <Status type="canceled" title="Canceled" />
-        <Status type="warning" title="Warning" />
-        <Status type="problem" title="Problem" />
+        <Status title="Unstarted" type="unstarted" />
+        <Status title="Queued" type="queued" />
+        <Status title="In progress" type="inProgress" />
+        <Status title="Halted" type="halted" />
+        <Status title="Locked" type="locked" />
+        <Status title="OK" type="ok" />
+        <Status title="Canceled" type="canceled" />
+        <Status title="Warning" type="warning" />
+        <Status title="Problem" type="problem" />
       </Flex>
     </Box>
   );

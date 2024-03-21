@@ -40,25 +40,23 @@ function BaseRow({
 }) {
   return (
     <Table.RowExpandable
-      accessibilityExpandLabel="Expand"
       accessibilityCollapseLabel="Collapse"
-      id={name}
-      onExpand={() => {}}
+      accessibilityExpandLabel="Expand"
       expandedContents={
         <Box
-          onMouseEnter={() => setActive(true)}
-          onMouseLeave={() => setActive(false)}
+          column={12}
           display="flex"
           justifyContent="center"
           maxWidth={236}
+          onMouseEnter={() => setActive(true)}
+          onMouseLeave={() => setActive(false)}
           padding={2}
-          column={12}
         >
           <WashAnimated
             active={active}
             image={
-              <Box display="flex" justifyContent="center" maxWidth={236} padding={2} column={12}>
-                <Avatar size="md" name={`${name}avatar`} src={src} />
+              <Box column={12} display="flex" justifyContent="center" maxWidth={236} padding={2}>
+                <Avatar name={`${name}avatar`} size="md" src={src} />
               </Box>
             }
           >
@@ -72,6 +70,8 @@ function BaseRow({
           </WashAnimated>
         </Box>
       }
+      id={name}
+      onExpand={() => {}}
     >
       <Table.Cell>
         <Text>{name}</Text>
@@ -102,30 +102,30 @@ export default function Example(): ReactNode {
       <Table.Body>
         <BaseRow
           active={activeA}
-          setActive={setActiveA}
-          name="Ayesha Teng"
-          team="Gestalt"
-          src="https://i.ibb.co/QY9qR7h/luna.png"
-          teamRole="Engineer"
           hours="Monday, Friday"
+          name="Ayesha Teng"
+          setActive={setActiveA}
+          src="https://i.ibb.co/QY9qR7h/luna.png"
+          team="Gestalt"
+          teamRole="Engineer"
         />
         <BaseRow
           active={activeB}
-          setActive={setActiveB}
-          name="Ryan Costa"
-          team="Analytics"
-          src="https://i.ibb.co/Hzcfxjt/draco.png"
-          teamRole="Designer"
           hours="Wednesdays"
+          name="Ryan Costa"
+          setActive={setActiveB}
+          src="https://i.ibb.co/Hzcfxjt/draco.png"
+          team="Analytics"
+          teamRole="Designer"
         />
         <BaseRow
           active={activeC}
-          setActive={setActiveC}
-          name="Kate Steele"
-          team="Monetization"
-          src="https://i.ibb.co/JvY9DKK/neville.png"
-          teamRole="Design Technologist"
           hours="Tuesdays, Thursdays"
+          name="Kate Steele"
+          setActive={setActiveC}
+          src="https://i.ibb.co/JvY9DKK/neville.png"
+          team="Monetization"
+          teamRole="Design Technologist"
         />
       </Table.Body>
     </Table>

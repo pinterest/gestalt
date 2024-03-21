@@ -24,8 +24,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
         bannerSlimExperiment={
           <BannerSlimExperiment
             componentName="PopoverEducational"
@@ -33,6 +31,8 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             pullRequest={3244}
           />
         }
+        description={generatedDocGen?.description}
+        name={generatedDocGen?.displayName}
       >
         <SandpackExample code={main} hideEditor name="Main PopoverEducational example" />
       </PageHeader>
@@ -43,22 +43,22 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
 - Bringing attention to specific user interface elements for educational or onboarding purposes.
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
 - Displaying critical information that prevents users from accomplishing a task.
 - Displaying information out of context.
 - As a replacement for [Tooltip](/web/tooltip).
 - For presenting a list of actions or options. Use [Dropdown](/web/dropdown) instead.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -66,7 +66,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
       <MainSection name="Best practices">
         <MainSection.Subsection>
           <MainSection.Card
-            type="do"
             description="Use the PopoverEducational to educate users on a new or existing feature. Be sure to use a caret pointing to the feature. If there is more than one item, use a CTA button to move the user to the next popover."
             sandpackExample={
               <SandpackExample
@@ -76,37 +75,37 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                 previewHeight={400}
               />
             }
+            type="do"
           />
 
           <MainSection.Card
-            type="don't"
             description="Show more than one PopoverEducational at a time. If used for onboarding, show a next button instead, to launch the next popover."
             sandpackExample={
               <SandpackExample
                 code={dontDouble}
-                hideEditor
                 hideControls
+                hideEditor
                 name="Don't - Double"
                 previewHeight={400}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection>
           <MainSection.Card
-            type="do"
             description="Position PopoverEducational appropriately on the screen. Make sure the arrow points directly to the element it is referencing."
             sandpackExample={
               <SandpackExample code={doReference} hideEditor name="Do - Reference" />
             }
+            type="do"
           />
         </MainSection.Subsection>
       </MainSection>
 
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
-          title="Keyboard navigation"
           description={`
 PopoverEducational doesn't behave like regular popovers where they are open/closed upon user interaction, i.e. Tooltip, Dropdown, or ComboBox. PopoverEducational visibility is not directly controlled by the user; instead, its visibility is defined as part of a broader user experience and the user interaction engagement with this experience.
 
@@ -114,15 +113,15 @@ In most cases, PopoverEducational might be already visible on page load. See [vi
 
 If PopoverEducational is already visible, we need its content to be keyboard accessible in sequential order. Don't use Layer to wrap PopoverEducational as it would move PopoverEducational outside the DOM hierarchy of the parent component and it will lose contextual sequencial order. The content will placed last in the keyboard navigations sequence, becoming unreachable in its content context. Moreover, make sure PopoverEducational is implemented right after the code of the anchor element so that it navigates the popover right after the anchor.
 `}
+          title="Keyboard navigation"
         />
         <MainSection.Subsection
-          title="ARIA attributes"
           description={`
 To provide an accessible experience, make sure \`accessibilityLabel\` introduces the elements on the screen that PopoverEducational is providing context about. Use \`id\` paired to \`aria-describedBy\` to link PopoverEducational to the element is providing additional information about to the user.
 `}
+          title="ARIA attributes"
         />
         <MainSection.Subsection
-          title="Role"
           description={`
 We recommend passing the following ARIA attribute to PopoverEducational for a better screen reader experience:
 
@@ -134,6 +133,7 @@ For the \`role\` prop, use:
 - 'tooltip' if the PopoverEducational is a simple contextual text bubble that displays a description on a feature. When \`message\` is passed with no \`primaryAction\`, \`role\` is set to "tooltip".
 - 'dialog' if the PopoverEducational is a dialog that requires a response from the user. When \`primaryAction\` is passed to PopoverEducational, \`role\` is set to "dialog".
 `}
+          title="Role"
         >
           <MainSection.Card cardSize="lg" />
         </MainSection.Subsection>
@@ -143,10 +143,10 @@ For the \`role\` prop, use:
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Message"
           description={`
 The \`message\` prop accepts either a string or [Text](/web/text). Use a string for simple messages without any visual style. PopoverEducational will handle the message style and adherence to design guidelines. If a message with more complex style is required, such as bold text or inline links, use Text to wrap your message with any additional Text or Link usages contained within.
 `}
+          title="Message"
         >
           <MainSection.Card
             cardSize="md"
@@ -154,12 +154,12 @@ The \`message\` prop accepts either a string or [Text](/web/text). Use a string 
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Primary action"
           description={`CTA buttons are used to move users through an onboarding or informational flow.
           Generally with the text “Next”.
 
 \`primaryAction\` displays a CTA button at the bottom of PopoverEducational.
 `}
+          title="Primary action"
         >
           <MainSection.Card
             cardSize="md"
@@ -169,10 +169,10 @@ The \`message\` prop accepts either a string or [Text](/web/text). Use a string 
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Custom content"
           description={`For more flexibility, PopoverEducational allows passing children. If passed, \`message\` and \`primaryAction\` are not rendered.
 
 PopoverEducational doesn't overwrite style in children or set any padding or margin, therefore, make sure any Text's \`color\` is "light" and any Button's \`color\` is "white".`}
+          title="Custom content"
         >
           <MainSection.Card
             cardSize="md"
@@ -182,12 +182,12 @@ PopoverEducational doesn't overwrite style in children or set any padding or mar
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Size"
           description={`
 The maximum width of PopoverEducational. PopoverEducational has different size configurations:
 - \`sm\`: 230px wide by default. Height grows to accommodate
 - \`flexible\`: Without a defined maximum width. Grows to fill the container. Height grows to accommodate copy.
       `}
+          title="Size"
         >
           <MainSection.Card
             cardSize="md"
@@ -197,10 +197,10 @@ The maximum width of PopoverEducational. PopoverEducational has different size c
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Visibility on page load"
           description={`
 PopoverEducational's positioning algorithm requires that the anchor element renders before PopoverEducational is rendered. If PopoverEducational should be visible on page load, use \`useEffect\` to toggle the visibility after the first render.
 `}
+          title="Visibility on page load"
         >
           <MainSection.Card
             cardSize="lg"

@@ -7,15 +7,15 @@ export default function Example(): ReactNode {
   const items = ['100', '200', '300', '400', '500', '600'];
   return (
     <Box
-      padding={8}
-      height="100%"
-      display="flex"
       alignItems="center"
-      justifyContent="center"
       direction="column"
+      display="flex"
       gap={6}
+      height="100%"
+      justifyContent="center"
+      padding={8}
     >
-      <List type="ordered" size={items[selectedItemIndex]}>
+      <List size={items[selectedItemIndex]} type="ordered">
         <List.Item text="List item text" />
         <List.Item text="List item text">
           <List.Item text="List item text" />
@@ -23,13 +23,13 @@ export default function Example(): ReactNode {
         </List.Item>
         <List.Item text="List item text" />
       </List>
-      <Box width="500px" paddingY={8}>
+      <Box paddingY={8} width="500px">
         <SegmentedControl
           items={items}
-          selectedItemIndex={selectedItemIndex}
           onChange={({ activeIndex }) => {
             setSelectedItemIndex(activeIndex);
           }}
+          selectedItemIndex={selectedItemIndex}
         />
       </Box>
     </Box>

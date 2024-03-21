@@ -11,7 +11,7 @@ export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
       <Flex alignItems="center" direction="column" gap={12}>
-        <Flex direction="column" alignItems="center" gap={4}>
+        <Flex alignItems="center" direction="column" gap={4}>
           <Text>Using useFocusVisible(): Focus ring is only visible when using keyboard</Text>
           <button
             onBlur={() => setFocusedButton1(false)}

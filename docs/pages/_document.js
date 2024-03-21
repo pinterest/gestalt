@@ -22,13 +22,13 @@ class GestaltDocument extends Document {
     const dir = cookies.cookies['gestalt-text-direction'];
 
     return (
-      <Html lang="en" dir={dir}>
+      <Html dir={dir} lang="en">
         <Head>
-          <meta name="p:domain_verify" content="752e3976762ef39258186e60a40bbe5a" />
+          <meta content="752e3976762ef39258186e60a40bbe5a" name="p:domain_verify" />
           {/* eslint-disable-next-line @next/next/no-sync-scripts */}
           <script
-            type="text/javascript"
             src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"
+            type="text/javascript"
           />
           {/* eslint-disable-next-line @next/next/next-script-for-ga */}
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-EYTY1WTV8B" />
@@ -46,12 +46,12 @@ gtag('config', 'G-EYTY1WTV8B');
             }}
           />
           <link
-            rel="icon"
             href={
               process.env.NODE_ENV === 'development'
                 ? '/gestaltDev_favicon.png'
                 : '/gestalt_favicon.png'
             }
+            rel="icon"
           />
           {/* eslint-disable-next-line react/no-danger */}
           <style dangerouslySetInnerHTML={{ __html: getSandpackCssText() }} id="sandpack" />

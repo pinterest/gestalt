@@ -10,8 +10,6 @@ export default function Checkerboard(): ReactNode {
 
   return (
     <Box
-      height="100%"
-      width="100%"
       dangerouslySetInlineStyle={{
         __style: {
           backgroundImage: `
@@ -28,6 +26,8 @@ export default function Checkerboard(): ReactNode {
           backgroundSize: '16px 16px',
         },
       }}
+      height="100%"
+      width="100%"
     />
   );
 }

@@ -5,13 +5,13 @@ import { Box, Button, ColorSchemeProvider, Flex, OverlayPanel, Text } from 'gest
 export default function Snapshot(): ReactNode {
   return (
     <ColorSchemeProvider colorScheme="light">
-      <Box color="default" display="inlineBlock" width={360} height={360} padding={1}>
+      <Box color="default" display="inlineBlock" height={360} padding={1} width={360}>
         <OverlayPanel
           accessibilityDismissButtonLabel="Test"
           accessibilityLabel="Test"
           footer={
             <Flex justifyContent="end">
-              <Button text="Submit" color="red" />
+              <Button color="red" text="Submit" />
             </Flex>
           }
           heading="Heading"

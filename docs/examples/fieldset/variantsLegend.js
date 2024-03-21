@@ -17,7 +17,7 @@ export default function Example(): ReactNode {
           <Text size="200">
             Choose up to 3.{' '}
             <Text inline size="200" weight="bold">
-              <Link display="inline" target="blank" href="#">
+              <Link display="inline" href="#" target="blank">
                 Learn more
               </Link>
             </Text>

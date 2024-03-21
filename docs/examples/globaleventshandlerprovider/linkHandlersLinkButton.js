@@ -69,7 +69,7 @@ export default function Example(): ReactNode {
             <Divider />
           </Flex>
 
-          <Flex gap={4} alignItems="center">
+          <Flex alignItems="center" gap={4}>
             <Text>
               <Link href="#">Visit pinterest.com</Link>
             </Text>
@@ -77,8 +77,8 @@ export default function Example(): ReactNode {
             <ButtonLink href="#" text="Visit pinterest.com" />
 
             <IconButtonLink
-              href="#"
               accessibilityLabel="Link IconButton"
+              href="#"
               icon="visit"
               iconColor="darkGray"
               size="lg"
@@ -86,7 +86,7 @@ export default function Example(): ReactNode {
 
             <Box width={100}>
               <TapAreaLink href="#" rounding={2}>
-                <Box color="tertiary" rounding={4} borderStyle="sm">
+                <Box borderStyle="sm" color="tertiary" rounding={4}>
                   <Mask rounding={2}>
                     <Image
                       alt="Antelope Canyon"

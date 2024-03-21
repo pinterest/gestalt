@@ -24,50 +24,50 @@ export default function ScrollBoundaryContainerExample(): ReactNode {
   const [alignText, setAlignText] = useState('forceLeft');
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Fragment>
         <Box display="flex" justifyContent="center">
           <Button
             accessibilityLabel="Edit this Pin"
             color="gray"
             onClick={() => setShowModal(true)}
-            text="Open edit modal"
             size="lg"
+            text="Open edit modal"
           />
         </Box>
         {showModal && (
           <Layer zIndex={MODAL_ZINDEX}>
             <Modal
               accessibilityModalLabel="Edit Pin"
-              heading="Edit"
-              size="lg"
-              onDismiss={() => setShowModal(false)}
               footer={
                 <Box flex="grow" paddingX={3} paddingY={3}>
                   <Box
-                    justifyContent="end"
-                    marginStart={-1}
-                    marginEnd={-1}
-                    marginTop={-1}
-                    marginBottom={-1}
                     display="flex"
+                    justifyContent="end"
+                    marginBottom={-1}
+                    marginEnd={-1}
+                    marginStart={-1}
+                    marginTop={-1}
                     wrap
                   >
                     <Box paddingX={1} paddingY={1}>
-                      <Button text="Cancel" size="lg" onClick={() => setShowModal(false)} />
+                      <Button onClick={() => setShowModal(false)} size="lg" text="Cancel" />
                     </Box>
                     <Box paddingX={1} paddingY={1}>
                       <Button
-                        text="Save"
                         color="red"
-                        size="lg"
-                        type="submit"
                         onClick={() => setShowModal(false)}
+                        size="lg"
+                        text="Save"
+                        type="submit"
                       />
                     </Box>
                   </Box>
                 </Box>
               }
+              heading="Edit"
+              onDismiss={() => setShowModal(false)}
+              size="lg"
             >
               <Box column={12} display="flex" justifyContent="center">
                 <Box column={6} paddingX={4}>
@@ -99,8 +99,8 @@ export default function ScrollBoundaryContainerExample(): ReactNode {
                         icon="text-align-left"
                         iconColor="darkGray"
                         onClick={() => setAlignText('left')}
-                        size="lg"
                         selected={alignText === 'left'}
+                        size="lg"
                       />
                     </Tooltip>
                     <Tooltip text="Align center">
@@ -110,8 +110,8 @@ export default function ScrollBoundaryContainerExample(): ReactNode {
                         icon="text-align-center"
                         iconColor="darkGray"
                         onClick={() => setAlignText('center')}
-                        size="lg"
                         selected={alignText === 'center'}
+                        size="lg"
                       />
                     </Tooltip>
                     <Tooltip text="Align right">
@@ -121,8 +121,8 @@ export default function ScrollBoundaryContainerExample(): ReactNode {
                         icon="text-align-right"
                         iconColor="darkGray"
                         onClick={() => setAlignText('right')}
-                        size="lg"
                         selected={alignText === 'right'}
+                        size="lg"
                       />
                     </Tooltip>
                   </Flex>

@@ -4,8 +4,8 @@ import { Flex, Toast } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex justifyContent="center" alignItems="center" width="100%" height="100%">
-      <Toast type="progress" text="Updating" />
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
+      <Toast text="Updating" type="progress" />
     </Flex>
   );
 }

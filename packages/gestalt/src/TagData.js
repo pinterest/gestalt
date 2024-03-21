@@ -192,32 +192,32 @@ export default function TagData({
   });
 
   return (
-    <Box display="inlineBlock" position="relative" maxWidth={300} rounding={2}>
-      <MaybeTooltip tooltip={tooltip} disabled={disabled}>
+    <Box display="inlineBlock" maxWidth={300} position="relative" rounding={2}>
+      <MaybeTooltip disabled={disabled} tooltip={tooltip}>
         <TapArea
+          disabled={disabled}
           fullHeight
           fullWidth
-          disabled={disabled}
           onBlur={handleOnBlur}
-          onTap={({ event }) => onTap?.({ event, id, selected: !selected })}
           onMouseEnter={handleOnMouseEnter}
           onMouseLeave={handleOnMouseLeave}
+          onTap={({ event }) => onTap?.({ event, id, selected: !selected })}
           role="button"
           rounding={2}
         >
           <div className={getTagClasses()} style={tileStyle}>
             <Box
-              display="flex"
               alignItems="center"
+              display="flex"
               height="100%"
-              paddingX={2}
               marginEnd={onRemove ? 4 : 0}
+              paddingX={2}
             >
               {showCheckbox && (
                 <Box marginEnd={1}>
                   <InternalCheckbox
-                    id={`readonly-checkbox-${checkboxId}`}
                     checked={selected}
+                    id={`readonly-checkbox-${checkboxId}`}
                     readOnly
                     size="sm"
                     style={checkBoxStyle}
@@ -225,12 +225,12 @@ export default function TagData({
                 </Box>
               )}
               <Text
-                inline
-                size={sizes[size]?.fontSize}
-                title={tooltip && tooltip.text ? '' : text} // removes html caption if a tooltip exists
-                lineClamp={1}
                 color={fgColor}
+                inline
+                lineClamp={1} // removes html caption if a tooltip exists
                 overflow="breakAll"
+                size={sizes[size]?.fontSize}
+                title={tooltip && tooltip.text ? '' : text}
               >
                 {text}
               </Text>
@@ -240,17 +240,17 @@ export default function TagData({
       </MaybeTooltip>
       {onRemove && (
         <button
-          disabled={disabled}
           className={getRemoveIconClasses()}
-          style={tileStyle}
-          type="button"
-          onMouseEnter={handleOnMouseEnter}
-          onMouseLeave={handleOnMouseLeave}
+          disabled={disabled}
           onClick={(event) => {
             onRemove({ event, id });
           }}
+          onMouseEnter={handleOnMouseEnter}
+          onMouseLeave={handleOnMouseLeave}
+          style={tileStyle}
+          type="button"
         >
-          <Box display="flex" alignItems="center" justifyContent="center" width="100%">
+          <Box alignItems="center" display="flex" justifyContent="center" width="100%">
             <Icon
               accessibilityLabel={
                 accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault

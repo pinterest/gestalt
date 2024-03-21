@@ -4,24 +4,23 @@ import { Box, Button, Datapoint, Dropdown, PageHeader } from 'gestalt';
 
 export default function Snapshot(): ReactNode {
   return (
-    <Box width="100vw" height={170}>
+    <Box height={170} width="100vw">
       <PageHeader
-        title="Product groups"
-        subtext="S. E. All products USD"
+        dropdownAccessibilityLabel="test"
         items={[
           <Datapoint
             key="items-secondaryAction-datapoint-spend"
             size="md"
             title="Spend"
-            value="$1.23M"
             trend={{ value: 29, accessibilityLabel: 'Trending up' }}
+            value="$1.23M"
           />,
           <Datapoint
             key="items-secondaryAction-datapoint-spend2"
             size="md"
             title="Spend"
-            value="$1.23M"
             trend={{ value: 29, accessibilityLabel: 'Trending up' }}
+            value="$1.23M"
           />,
         ]}
         primaryAction={{
@@ -29,8 +28,8 @@ export default function Snapshot(): ReactNode {
           dropdownItems: [
             <Dropdown.Item
               key="items-secondaryAction-primaryAction"
-              option={{ value: 'Promote', label: 'Promote' }}
               onSelect={() => {}}
+              option={{ value: 'Promote', label: 'Promote' }}
             />,
           ],
         }}
@@ -38,14 +37,15 @@ export default function Snapshot(): ReactNode {
           component: <Button size="lg" text="Create group" />,
           dropdownItems: [
             <Dropdown.Link
-              isExternal
               key="items-secondaryAction-secondaryAction"
-              option={{ value: 'View analytics', label: 'View analytics' }}
               href="https://pinterest.com"
+              isExternal
+              option={{ value: 'View analytics', label: 'View analytics' }}
             />,
           ],
         }}
-        dropdownAccessibilityLabel="test"
+        subtext="S. E. All products USD"
+        title="Product groups"
       />
     </Box>
   );

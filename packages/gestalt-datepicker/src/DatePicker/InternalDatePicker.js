@@ -102,13 +102,22 @@ const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElemen
         </Label>
       )}
       <ReactDatePicker
+        ref={(refElement) => {
+          if (!innerInputRef || !refElement) {
+            return null;
+          }
+
+          innerInputRef.current = refElement.input;
+
+          return null;
+        }}
         calendarClassName={styles['react-datepicker']}
         customInput={
           <DatePickerTextField
-            name={name}
-            id={id}
             errorMessage={errorMessage}
             helperText={helperText}
+            id={id}
+            name={name}
           />
         }
         dateFormat={format}
@@ -147,20 +156,11 @@ const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElemen
         previousMonthButtonLabel={
           <Icon accessibilityLabel="" color="default" icon="arrow-back" size={16} />
         }
-        ref={(refElement) => {
-          if (!innerInputRef || !refElement) {
-            return null;
-          }
-
-          innerInputRef.current = refElement.input;
-
-          return null;
-        }}
         selected={controlledValue ?? uncontrolledValue}
         selectsEnd={rangeSelector === 'end'}
         selectsStart={rangeSelector === 'start'}
-        showPopperArrow={false}
         showMonthDropdown={selectLists?.includes('month')}
+        showPopperArrow={false}
         showYearDropdown={selectLists?.includes('year')}
         startDate={rangeStartDate ?? undefined}
       />
