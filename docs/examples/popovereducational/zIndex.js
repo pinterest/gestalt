@@ -25,12 +25,12 @@ export default function Example(): ReactNode {
 
   return (
     <Flex
-      width="100%"
-      height="100%"
-      justifyContent="center"
       alignItems="center"
       direction="column"
       gap={12}
+      height="100%"
+      justifyContent="center"
+      width="100%"
     >
       <Flex alignItems="center" gap={2}>
         <Label htmlFor="introExample">
@@ -44,8 +44,8 @@ export default function Example(): ReactNode {
         />
       </Flex>
       <Flex gap={2}>
-        <TapArea ref={anchorRef} rounding={3} fullWidth={false}>
-          <Box padding={3} color="secondary" height={75} width={200} rounding={3}>
+        <TapArea ref={anchorRef} fullWidth={false} rounding={3}>
+          <Box color="secondary" height={75} padding={3} rounding={3} width={200}>
             <Flex gap={2}>
               <Box aria-hidden width={50}>
                 <Mask rounding={3} wash>
@@ -68,24 +68,24 @@ export default function Example(): ReactNode {
         </TapArea>
         {open && (
           <PopoverEducational
-            zIndex={hasZindex ? new FixedZIndex(50) : undefined}
             accessibilityLabel={`Description of new "More ideas" feature`}
+            anchor={anchorRef.current}
             id="popover-primary-action"
             idealDirection="right"
-            anchor={anchorRef.current}
-            onDismiss={() => {}}
             message="Tap to tag a product or press and hold to see product details"
+            onDismiss={() => {}}
             primaryAction={{ text: 'Next', role: 'button' }}
+            zIndex={hasZindex ? new FixedZIndex(50) : undefined}
           />
         )}
         <Box
-          padding={3}
           color="secondary"
           height={75}
-          width={200}
-          rounding={3}
-          zIndex={new FixedZIndex(1)}
+          padding={3}
           position="relative"
+          rounding={3}
+          width={200}
+          zIndex={new FixedZIndex(1)}
         >
           <Flex gap={2}>
             <Box aria-hidden width={50}>
