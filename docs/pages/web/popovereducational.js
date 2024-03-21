@@ -212,8 +212,8 @@ PopoverEducational's positioning algorithm requires that the anchor element rend
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="With z-index"
           description="PopoverEducational supports [zIndex](/web/zindex_classes)"
+          title="With z-index"
         >
           <MainSection.Card
             cardSize="lg"
