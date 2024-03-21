@@ -40,11 +40,17 @@ function calculateTwoColumnModuleWidth(columnWidth: number, gutter: number): num
   return columnWidth * 2 + gutter;
 }
 
-function calculateSplitIndex(itemsWithoutPositionsLength: number, twoColumnIndex: number): number {
+function calculateSplitIndex(
+  itemsWithoutPositionsLength: number,
+  twoColumnIndex: number,
+  isFirstRow: ?number,
+  fitsFirstRow: ?number,
+): number {
   // If the items length is the same as the batch size we don't set a split index
-  if (itemsWithoutPositionsLength <= TWO_COL_ITEMS_MEASURE_BATCH_SIZE) {
-    return 0;
-  }
+  // if (itemsWithoutPositionsLength <= TWO_COL_ITEMS_MEASURE_BATCH_SIZE - 1) {
+
+  //   return 0;
+  // }
 
   return twoColumnIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE > itemsWithoutPositionsLength
     ? itemsWithoutPositionsLength - TWO_COL_ITEMS_MEASURE_BATCH_SIZE
@@ -296,21 +302,48 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
     if (hasTwoColumnItems) {
       // Currently we only support one two column item at the same time, more items will be supporped soon
       const twoColumnIndex = itemsWithoutPositions.indexOf(twoColumnItems[0]);
+      const oneColumnItems = itemsWithoutPositions.filter(
+        (item) => !item.columnSpan || item.columnSpan === 1,
+      );
+
+      const isFirstRow = heights.some((height) => height === 0);
+      const multiColumnItemWidth = parseInt(twoColumnItems[0].columnSpan, 10);
+      const numberOfAvailableSlotsOnFistRow = heights.reduce((acc, height) => {
+        return height === 0 ? acc + 1 : acc;
+      }, 0);
+      const fitsFirstRow = numberOfAvailableSlotsOnFistRow >= multiColumnItemWidth + twoColumnIndex;
 
       // Skip the graph logic if the two column item batch is on the first line
-      const skipGraph =
-        heights.every((height) => height === 0) &&
-        itemsWithoutPositions.length <= TWO_COL_ITEMS_MEASURE_BATCH_SIZE;
+      const skipGraph = isFirstRow && fitsFirstRow;
 
       // If the number of items to position is greater that the batch size
       // we identify the batch with the two column item and apply the graph only to those items
       const splitIndex = skipGraph
         ? twoColumnIndex
-        : calculateSplitIndex(itemsWithoutPositions.length, twoColumnIndex);
-      const pre = itemsWithoutPositions.slice(0, splitIndex);
-      const batchWithTwoColumnItems = splitIndex
-        ? itemsWithoutPositions.slice(splitIndex, splitIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE)
-        : itemsWithoutPositions;
+        : calculateSplitIndex(
+            oneColumnItems.length,
+            isFirstRow && !fitsFirstRow ? twoColumnIndex + 1 : twoColumnIndex,
+          );
+
+      const pre = oneColumnItems.slice(0, splitIndex);
+      const graphBatch = splitIndex
+        ? oneColumnItems.slice(splitIndex, splitIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE - 1)
+        : oneColumnItems;
+      // Skip two col item
+      if (isFirstRow && !fitsFirstRow && graphBatch.length < TWO_COL_ITEMS_MEASURE_BATCH_SIZE - 1) {
+        const { heights: finalHeights, positions: itemPositions } = getOneColumnItemPositions<T>({
+          items: oneColumnItems,
+          heights,
+          ...commonGetPositionArgs,
+        });
+        itemPositions.forEach(({ item, position }) => {
+          positionCache?.set(item, position);
+        });
+        heightsCache?.setHeights(finalHeights);
+        measurementCache.delete(twoColumnItems[0]);
+
+        return getPositionsOnly<T>(itemPositions);
+      }
 
       // Get positions and heights for painted items
       const { positions: paintedItemPositions, heights: paintedItemHeights } =
@@ -326,10 +359,6 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
           positionCache.set(item, position);
         });
       }
-
-      const oneColumnItems = batchWithTwoColumnItems.filter(
-        (item) => !item.columnSpan || item.columnSpan === 1,
-      );
 
       // Initialize the graph
       const graph = new Graph<T>();
@@ -406,7 +435,7 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
 
       // For each unpainted item, start generating possible layouts
       if (!skipGraph) {
-        oneColumnItems.forEach((item, i, arr) => {
+        graphBatch.forEach((item, i, arr) => {
           addPossibleLayout({
             item,
             i,
