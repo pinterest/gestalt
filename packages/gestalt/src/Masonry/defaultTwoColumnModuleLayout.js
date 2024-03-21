@@ -40,10 +40,10 @@ function calculateTwoColumnModuleWidth(columnWidth: number, gutter: number): num
   return columnWidth * 2 + gutter;
 }
 
-function calculateSplitIndex(itemsWithoutPositionsLength: number, twoColumnIndex: number): ?number {
+function calculateSplitIndex(itemsWithoutPositionsLength: number, twoColumnIndex: number): number {
   // If the items length is the same as the batch size we don't set a split index
   if (itemsWithoutPositionsLength <= TWO_COL_ITEMS_MEASURE_BATCH_SIZE) {
-    return null;
+    return 0;
   }
 
   return twoColumnIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE > itemsWithoutPositionsLength
@@ -307,7 +307,7 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
       const splitIndex = skipGraph
         ? twoColumnIndex
         : calculateSplitIndex(itemsWithoutPositions.length, twoColumnIndex);
-      const pre = splitIndex ? itemsWithoutPositions.slice(0, splitIndex) : [];
+      const pre = itemsWithoutPositions.slice(0, splitIndex);
       const batchWithTwoColumnItems = splitIndex
         ? itemsWithoutPositions.slice(splitIndex, splitIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE)
         : itemsWithoutPositions;
