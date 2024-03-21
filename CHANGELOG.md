@@ -1,3 +1,9 @@
+## 146.5.5 (Mar 21, 2024)
+
+### Patch
+
+- Internal: Enable ESLint rule react/jsx-sort-props except for codemod folder ([#3475](https://github.com/pinterest/gestalt/pull/3475)) - [Preview link](https://deploy-preview-3475--gestalt.netlify.app?devexample=true)
+
 ## 146.5.4 (Mar 21, 2024)
 
 ### Patch
