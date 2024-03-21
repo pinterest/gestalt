@@ -23,6 +23,7 @@ import {
   getContainerNode,
   getPopoverDir,
 } from './utils/positioningUtils';
+import { type Indexable } from './zIndex';
 
 export type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 
@@ -45,6 +46,7 @@ type OwnProps = {
   triggerRect: ?ClientRect,
   width: ?number,
   __dangerouslyIgnoreScrollBoundaryContainerSize?: boolean,
+  zIndex?: Indexable,
 };
 
 type HookProps = {
@@ -237,8 +239,18 @@ class LegacyContents extends Component<Props, State> {
   }
 
   render(): ReactNode {
-    const { accessibilityLabel, bgColor, border, caret, children, id, role, rounding, width } =
-      this.props;
+    const {
+      accessibilityLabel,
+      bgColor,
+      border,
+      caret,
+      children,
+      id,
+      role,
+      rounding,
+      width,
+      zIndex,
+    } = this.props;
     const { caretOffset, popoverOffset, popoverDir } = this.state;
 
     // Needed to prevent UI thrashing
@@ -261,7 +273,13 @@ class LegacyContents extends Component<Props, State> {
           styles.maxDimensions,
           width !== null && styles.minDimensions,
         )}
-        style={{ visibility, ...popoverOffset, ...topValue }}
+        // popoverOffset positions the Popover component
+        style={{
+          zIndex: zIndex ? zIndex?.index() : undefined,
+          visibility,
+          ...popoverOffset,
+          ...topValue,
+        }}
         // popoverOffset positions the Popover component
         tabIndex={-1}
       >
