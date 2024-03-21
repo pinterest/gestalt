@@ -24,39 +24,39 @@ export default function ItemsEllipsis({
   return (
     <TapArea
       accessibilityLabel={accessibilityLabel || deafultAccessibilityEllipsisLabel}
-      rounding={2}
       onTap={() => setOverlayPreview(true)}
+      rounding={2}
     >
       <Box
-        width={44}
-        height={44}
-        rounding={2}
-        display="flex"
-        justifyContent="center"
         alignItems="center"
         color={active === 'page' ? 'selected' : undefined}
+        display="flex"
+        height={44}
+        justifyContent="center"
         position="relative"
+        rounding={2}
+        width={44}
       >
         {notificationAccessibilityLabel ? (
           <Box
             aria-label={notificationAccessibilityLabel}
-            height={8}
-            width={8}
-            rounding="circle"
             color="primary"
-            role="status"
-            position="absolute"
             dangerouslySetInlineStyle={{ __style: { top: 4, right: 4 } }}
+            height={8}
+            position="absolute"
+            role="status"
+            rounding="circle"
+            width={8}
           />
         ) : null}
 
         <Box aria-hidden>
           <Icon
             accessibilityLabel=""
+            color={active === 'page' ? 'inverse' : 'default'}
+            icon="ellipsis"
             inline
             size={20}
-            icon="ellipsis"
-            color={active === 'page' ? 'inverse' : 'default'}
           />
         </Box>
       </Box>

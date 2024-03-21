@@ -7,53 +7,53 @@ export default function Example(): ReactNode {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <Box width={1000} height="100%" display="flex" overflow="scroll">
+    <Box display="flex" height="100%" overflow="scroll" width={1000}>
       <Box maxWidth={280}>
         <SideNavigation
           accessibilityLabel="Collapsible example"
-          showBorder
           collapsed={collapsed}
           onCollapse={setCollapsed}
+          showBorder
         >
           <SideNavigation.TopItem
+            active={page === '1' ? 'page' : undefined}
             href="#"
             label="Trends"
-            active={page === '1' ? 'page' : undefined}
             notificationAccessibilityLabel="New data available"
-            primaryAction={{ icon: 'ellipsis', tooltip: { text: 'Mark as read' } }}
             onClick={({ event }) => {
               event.preventDefault();
               setPage('1');
             }}
+            primaryAction={{ icon: 'ellipsis', tooltip: { text: 'Mark as read' } }}
           />
 
           <SideNavigation.TopItem
+            active={page === '2' ? 'page' : undefined}
+            badge={{ text: 'New', type: 'success' }}
+            counter={{ number: '10', accessibilityLabel: 'New details' }}
             href="#"
+            label="Business Details"
             onClick={({ event }) => {
               event.preventDefault();
               setPage('2');
             }}
-            label="Business Details"
-            active={page === '2' ? 'page' : undefined}
-            badge={{ text: 'New', type: 'success' }}
-            counter={{ number: '10', accessibilityLabel: 'New details' }}
           />
 
           <SideNavigation.Section label="Public Holidays">
             <SideNavigation.Group label="Christmas">
               <SideNavigation.NestedItem
+                active={page === '3' ? 'page' : undefined}
                 href="#"
                 label="Luxury Christmas"
-                active={page === '3' ? 'page' : undefined}
                 onClick={({ event }) => {
                   event.preventDefault();
                   setPage('3');
                 }}
               />
               <SideNavigation.NestedItem
+                active={page === '4' ? 'page' : undefined}
                 href="#"
                 label="Luxury Christmas"
-                active={page === '4' ? 'page' : undefined}
                 onClick={({ event }) => {
                   event.preventDefault();
                   setPage('4');
@@ -61,9 +61,9 @@ export default function Example(): ReactNode {
               />
               <SideNavigation.NestedGroup label="Classic Christmas">
                 <SideNavigation.NestedItem
+                  active={page === '5' ? 'page' : undefined}
                   href="#"
                   label="West Coast"
-                  active={page === '5' ? 'page' : undefined}
                   onClick={({ event }) => {
                     event.preventDefault();
                     setPage('5');
@@ -73,9 +73,9 @@ export default function Example(): ReactNode {
             </SideNavigation.Group>
 
             <SideNavigation.TopItem
+              active={page === '6' ? 'page' : undefined}
               href="#"
               label="Public profile"
-              active={page === '6' ? 'page' : undefined}
               notificationAccessibilityLabel="Needs your attention"
               onClick={({ event }) => {
                 event.preventDefault();
@@ -84,9 +84,9 @@ export default function Example(): ReactNode {
             />
 
             <SideNavigation.TopItem
+              active={page === '7' ? 'page' : undefined}
               href="#"
               label="Personal information"
-              active={page === '7' ? 'page' : undefined}
               onClick={({ event }) => {
                 event.preventDefault();
                 setPage('7');
@@ -96,18 +96,18 @@ export default function Example(): ReactNode {
 
           <SideNavigation.Section label="Contacts">
             <SideNavigation.TopItem
+              active={page === '8' ? 'page' : undefined}
               href="#"
               label="Contact Information"
-              active={page === '8' ? 'page' : undefined}
               onClick={({ event }) => {
                 event.preventDefault();
                 setPage('8');
               }}
             />
             <SideNavigation.TopItem
+              active={page === '9' ? 'page' : undefined}
               href="#"
               label="Other Details"
-              active={page === '9' ? 'page' : undefined}
               onClick={({ event }) => {
                 event.preventDefault();
                 setPage('9');
