@@ -40,6 +40,17 @@ function calculateTwoColumnModuleWidth(columnWidth: number, gutter: number): num
   return columnWidth * 2 + gutter;
 }
 
+function calculateSplitIndex(itemsWithoutPositionsLength: number, twoColumnIndex: number): ?number {
+  // If the items length is the same as the batch size we don't set a split index
+  if (itemsWithoutPositionsLength <= TWO_COL_ITEMS_MEASURE_BATCH_SIZE) {
+    return null;
+  }
+
+  return twoColumnIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE > itemsWithoutPositionsLength
+    ? itemsWithoutPositionsLength - TWO_COL_ITEMS_MEASURE_BATCH_SIZE
+    : twoColumnIndex;
+}
+
 function initializeHeightsArray<T>({
   centerOffset,
   columnCount,
@@ -287,19 +298,17 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
       const twoColumnIndex = itemsWithoutPositions.indexOf(twoColumnItems[0]);
 
       // Skip the graph logic if the two column item batch is on the first line
-      const skipGraph = heights.every((height) => height === 0);
+      const skipGraph =
+        heights.every((height) => height === 0) &&
+        itemsWithoutPositions.length <= TWO_COL_ITEMS_MEASURE_BATCH_SIZE;
 
       // If the number of items to position is greater that the batch size
       // we identify the batch with the two column item and apply the graph only to those items
-      const shouldBatchItems =
-        skipGraph || itemsWithoutPositions.length > TWO_COL_ITEMS_MEASURE_BATCH_SIZE;
-      const splitIndex =
-        !skipGraph &&
-        twoColumnIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE > itemsWithoutPositions.length
-          ? itemsWithoutPositions.length - TWO_COL_ITEMS_MEASURE_BATCH_SIZE
-          : twoColumnIndex;
-      const pre = shouldBatchItems ? itemsWithoutPositions.slice(0, splitIndex) : [];
-      const batchWithTwoColumnItems = shouldBatchItems
+      const splitIndex = skipGraph
+        ? twoColumnIndex
+        : calculateSplitIndex(itemsWithoutPositions.length, twoColumnIndex);
+      const pre = splitIndex ? itemsWithoutPositions.slice(0, splitIndex) : [];
+      const batchWithTwoColumnItems = splitIndex
         ? itemsWithoutPositions.slice(splitIndex, splitIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE)
         : itemsWithoutPositions;
 
