@@ -29,7 +29,6 @@ export default function EslintPluginPage(): ReactNode {
         [Learn more about Box](/web/box).
       `}
           title="gestalt/prefer-box-inline-style"
-          title="gestalt/prefer-box-inline-style"
         />
         <MainSection.Subsection
           description={`Prevent \`<div>\` tags that don't contain disallowed attributes in Box: className, onClick, and any attribute not included in Box's allowed-attribute [list](https://github.com/pinterest/gestalt/blob/68d5d550a7358fcb1e104b27865a14c74d5ac01f/packages/eslint-plugin-gestalt/src/no-box-disallowed-props.js#L8). Use Gestalt Box, instead. Other attributes are disallowed as well so this ESLint rule doesn't conflict with [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y).

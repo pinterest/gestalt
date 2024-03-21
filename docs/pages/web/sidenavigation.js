@@ -524,7 +524,6 @@ For mobile, \`title\` and \`dismissButton\` become required props.
 Notice that the mobile UI requires logic to hide and show SideNavigation full width. If [Button](/web/button) or [TapArea](/web/taparea) control the visibility of SideNavigation, use \`accessibilityControls\` so that screen reader users can identify the relationship between elements.
   `}
           title="Mobile"
-          title="Mobile"
         >
           <MainSection.Card
             sandpackExample={
