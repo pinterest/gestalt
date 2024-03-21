@@ -7,7 +7,7 @@ export default function Snapshot(): ReactNode {
     <ColorSchemeProvider colorScheme="light">
       <Box color="default" display="inlineBlock" padding={1}>
         <TileData
-          title="Total CPA and Moresajdlasldsajldsaldaskl (Checkout)"
+          title="Total CPA and thisisasuperlongtitle (Checkout)"
           value="1.23M"
           showCheckbox
           selected
