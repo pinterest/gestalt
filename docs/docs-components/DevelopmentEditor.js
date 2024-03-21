@@ -79,10 +79,10 @@ export default function DevelopmentEditor({
   return (
     <Box
       color="default"
-      rounding={2}
       dangerouslySetInlineStyle={{ __style: { border: 'thick solid green' } }}
       marginBottom={4}
       padding={2}
+      rounding={2}
     >
       <Box padding={2}>
         <Flex gap={2}>
@@ -122,8 +122,8 @@ export default function DevelopmentEditor({
                 <code>?localFiles=true</code>
                 <br /> after the component name in the URL.{' '}
                 <Link
-                  display="inlineBlock"
                   accessibilityLabel="Learn more about the development editor"
+                  display="inlineBlock"
                   href="/get_started/developers/contributing/development_process"
                 >
                   Learn more
@@ -140,15 +140,15 @@ export default function DevelopmentEditor({
           color="default"
           display="flex"
           height={500}
-          width="100%"
           justifyContent="center"
           padding={8}
           position="relative"
           rounding={2}
+          width="100%"
         >
           <LivePreview style={{ display: 'contents' }} />
         </Box>
-        <ExampleCode code={codeWrapped ?? ''} name="DEVELOPMENT MODE" developmentEditor />
+        <ExampleCode code={codeWrapped ?? ''} developmentEditor name="DEVELOPMENT MODE" />
 
         <Box paddingX={2}>
           <Text color="error">

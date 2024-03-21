@@ -5,18 +5,18 @@ import { Button, Dropdown, PageHeader } from 'gestalt';
 export default function OnePrimaryActionExample(): ReactNode {
   return (
     <PageHeader
-      title="Audiences"
+      dropdownAccessibilityLabel="More options"
       primaryAction={{
         component: <Button color="red" size="lg" text="Create audience" />,
         dropdownItems: [
           <Dropdown.Item
             key="create-audience"
-            option={{ value: 'Create audience', label: 'Create audience' }}
             onSelect={() => {}}
+            option={{ value: 'Create audience', label: 'Create audience' }}
           />,
         ],
       }}
-      dropdownAccessibilityLabel="More options"
+      title="Audiences"
     />
   );
 }

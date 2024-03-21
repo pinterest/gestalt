@@ -86,18 +86,18 @@ const IconButtonFloatingWithForwardRef: AbstractComponent<Props, HTMLButtonEleme
   ref,
 ): ReactNode {
   return (
-    <Box borderStyle="shadow" rounding="circle" color="default">
+    <Box borderStyle="shadow" color="default" rounding="circle">
       <IconButton
+        ref={ref}
         accessibilityControls={accessibilityControls}
         accessibilityExpanded={accessibilityExpanded}
-        accessibilityPopupRole={accessibilityPopupRole}
         accessibilityLabel={accessibilityLabel}
+        accessibilityPopupRole={accessibilityPopupRole}
         bgColor="transparent"
         dangerouslySetSvgPath={dangerouslySetSvgPath}
         disabled={disabled}
         icon={icon}
         onClick={onClick}
-        ref={ref}
         selected={selected}
         size="xl"
         tooltip={tooltip}

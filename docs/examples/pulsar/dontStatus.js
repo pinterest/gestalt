@@ -11,11 +11,11 @@ export default function Example(): ReactNode {
   }, []);
 
   return (
-    <Flex justifyContent="center" height="100%" width="100%">
+    <Flex height="100%" justifyContent="center" width="100%">
       <Box dangerouslySetInlineStyle={{ __style: { marginTop: 80 } }} position="relative">
         <IconButton accessibilityLabel="Example icon button" icon="speech-ellipsis" />
 
-        <Box ref={anchorRef} position="absolute" top margin={-5}>
+        <Box ref={anchorRef} margin={-5} position="absolute" top>
           <Pulsar size={88} />
         </Box>
 
@@ -23,8 +23,8 @@ export default function Example(): ReactNode {
           <PopoverEducational
             anchor={anchorRef.current}
             idealDirection="down"
-            onDismiss={() => {}}
             message="You have a new message"
+            onDismiss={() => {}}
             primaryAction={{
               text: 'Dismiss',
               onClick: () => {},

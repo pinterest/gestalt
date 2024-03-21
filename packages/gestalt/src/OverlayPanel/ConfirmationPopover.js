@@ -87,10 +87,10 @@ export default function ConfirmationPopover({
     <Popover
       __experimentalPopover={isInExperiment}
       anchor={anchor}
+      disablePortal
       idealDirection="down"
       onDismiss={() => onDismiss()}
       positionRelativeToAnchor
-      disablePortal
       role="dialog"
       size="md"
     >
@@ -98,34 +98,34 @@ export default function ConfirmationPopover({
         <Box padding={3} width="100%">
           <Flex direction="column" gap={4}>
             <Box role="alert">
-              <Flex direction="column" gap={2} alignItems="center" width="100%">
+              <Flex alignItems="center" direction="column" gap={2} width="100%">
                 <Text weight="bold">{message ?? messageDefault}</Text>
                 <Text>{subtext ?? subtextDefault}</Text>
               </Flex>
             </Box>
-            <Flex justifyContent="center" gap={2}>
+            <Flex gap={2} justifyContent="center">
               <Button
                 accessibilityLabel={
                   secondaryAction?.accessibilityLabel ?? secondaryActionTextLabelDefault
                 }
                 color="gray"
-                text={secondaryAction?.text ?? secondaryActionTextDefault}
                 onClick={({ event }) => {
                   secondaryAction?.onClick?.({ event });
                   onDismiss();
                 }}
+                text={secondaryAction?.text ?? secondaryActionTextDefault}
               />
               <Button
-                color="red"
+                ref={confirmationButtonRef}
                 accessibilityLabel={
                   primaryAction?.accessibilityLabel ?? primaryActionTextLabelDefault
                 }
-                text={primaryAction?.text ?? primaryActionTextDefault}
+                color="red"
                 onClick={({ event }) => {
                   primaryAction?.onClick?.({ event });
                   onExternalDismiss();
                 }}
-                ref={confirmationButtonRef}
+                text={primaryAction?.text ?? primaryActionTextDefault}
               />
             </Flex>
           </Flex>

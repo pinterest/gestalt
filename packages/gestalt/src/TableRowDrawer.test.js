@@ -27,14 +27,14 @@ test('renders correctly with drawer', () => {
 
         <Table.Body>
           <Table.RowDrawer
-            id="drawerTest"
             drawerContents={
               <BannerSlim
-                type="recommendation"
                 iconAccessibilityLabel="test"
                 message="Test BannerSlim"
+                type="recommendation"
               />
             }
+            id="drawerTest"
           >
             <Table.Cell>
               <Text>Row1A</Text>

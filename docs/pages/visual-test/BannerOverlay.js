@@ -5,24 +5,22 @@ import { BannerOverlay, FixedZIndex, Image, Link, Text } from 'gestalt';
 export default function Example(): ReactNode {
   return (
     <BannerOverlay
-      zIndex={new FixedZIndex(100)}
-      offset={{ top: 130, bottom: 24 }}
-      title="BannerOverlay"
       message={
         <Text inline>
           Saved to{' '}
-          <Link display="inlineBlock" target="blank" href="https://www.pinterest.com/">
+          <Link display="inlineBlock" href="https://www.pinterest.com/" target="blank">
             Sushi time
           </Link>
         </Text>
       }
+      offset={{ top: 130, bottom: 24 }}
+      onDismiss={() => {}}
       primaryAction={{
         role: 'link',
         accessibilityLabel: `Save to board`,
         label: 'Save to board',
         href: 'https://www.pinterest.com/',
       }}
-      onDismiss={() => {}}
       thumbnail={{
         image: (
           <Image
@@ -33,6 +31,8 @@ export default function Example(): ReactNode {
           />
         ),
       }}
+      title="BannerOverlay"
+      zIndex={new FixedZIndex(100)}
     />
   );
 }

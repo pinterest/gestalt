@@ -4,8 +4,8 @@ import { BannerUpsell, Box, Flex, Icon, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Flex gap={{ column: 4, row: 0 }} direction="column">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Flex direction="column" gap={{ column: 4, row: 0 }}>
         <Text>First BannerUpsell:</Text>
         <BannerUpsell
           dismissButton={{
@@ -13,7 +13,7 @@ export default function Example(): ReactNode {
             onDismiss: () => {},
           }}
           imageData={{
-            component: <Icon icon="ads-stats" accessibilityLabel="" color="default" size={32} />,
+            component: <Icon accessibilityLabel="" color="default" icon="ads-stats" size={32} />,
           }}
           message="Install the Pinterest tag to track your website traffic, conversions and more."
           primaryAction={{
@@ -35,7 +35,7 @@ export default function Example(): ReactNode {
         <Text>Follow-up BannerUpsell:</Text>
         <BannerUpsell
           imageData={{
-            component: <Icon icon="send" accessibilityLabel="" color="default" size={32} />,
+            component: <Icon accessibilityLabel="" color="default" icon="send" size={32} />,
           }}
           message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
           primaryAction={{

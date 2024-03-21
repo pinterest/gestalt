@@ -46,14 +46,14 @@ function UpsellAction({ data, stacked, type }: UpsellActionProps): ReactNode {
 
   return (
     <Box
-      display="block"
-      smDisplay="flex"
       alignItems="center"
+      display="block"
       justifyContent="center"
-      paddingX={1}
       marginTop={type === 'secondary' && stacked ? 2 : undefined}
-      smMarginTop="auto"
+      paddingX={1}
+      smDisplay="flex"
       smMarginBottom="auto"
+      smMarginTop="auto"
     >
       {data.role === 'link' ? (
         <ButtonLink
@@ -61,12 +61,12 @@ function UpsellAction({ data, stacked, type }: UpsellActionProps): ReactNode {
           color={color}
           disabled={disabled}
           fullWidth
-          size="lg"
-          text={label}
-          onClick={data.onClick}
           href={data.href ?? ''}
+          onClick={data.onClick}
           rel={data.rel}
+          size="lg"
           target={data.target}
+          text={label}
         />
       ) : (
         <Button
@@ -74,9 +74,9 @@ function UpsellAction({ data, stacked, type }: UpsellActionProps): ReactNode {
           color={color}
           disabled={disabled}
           fullWidth
+          onClick={data.onClick}
           size="lg"
           text={label}
-          onClick={data.onClick}
         />
       )}
     </Box>
@@ -183,24 +183,24 @@ export default function BannerUpsell({
     <Box
       borderStyle="shadow"
       color={isDarkMode ? 'elevationFloating' : 'default'}
-      display="flex"
       direction="column"
-      smDirection="row"
-      paddingY={6}
+      display="flex"
       paddingX={12}
-      smPadding={8}
+      paddingY={6}
       position="relative"
       rounding={4}
+      smDirection="row"
+      smPadding={8}
     >
-      <Box smDisplay="flex" smMarginTop={-3} smMarginBottom={-3} width="100%" wrap>
+      <Box smDisplay="flex" smMarginBottom={-3} smMarginTop={-3} width="100%" wrap>
         <Box
           alignItems="center"
           direction="column"
-          smDirection="row"
           display="flex"
           flex={children ? 'grow' : 'shrink'}
           justifyContent="center"
           marginBottom={primaryAction || secondaryAction ? 4 : undefined}
+          smDirection="row"
           smMarginBottom={primaryAction || secondaryAction ? 0 : undefined}
           smPaddingY={3}
         >
@@ -221,12 +221,12 @@ export default function BannerUpsell({
             alignItems="center"
             direction="column"
             display="flex"
-            smDisplay="block"
             flex={children ? 'grow' : 'shrink'}
             marginBottom="auto"
-            marginTop="auto"
             marginEnd={0}
             marginStart={0}
+            marginTop="auto"
+            smDisplay="block"
             smMarginEnd={6}
             smMarginStart={imageData ? 6 : 0}
           >
@@ -234,9 +234,9 @@ export default function BannerUpsell({
               {title && (
                 <Box marginBottom={2}>
                   <Text
+                    align={responsiveMinWidth === 'xs' ? 'center' : 'start'}
                     size="400"
                     weight="bold"
-                    align={responsiveMinWidth === 'xs' ? 'center' : 'start'}
                   >
                     {title}
                   </Text>
@@ -246,10 +246,10 @@ export default function BannerUpsell({
             </Box>
             {children && (
               <Box
-                smDisplay="flex"
                 flex="grow"
                 justifyContent="end"
                 marginTop={responsiveMinWidth === 'xs' ? 2 : undefined}
+                smDisplay="flex"
                 smMarginEnd={4}
                 smPaddingY={3}
                 width="100%"
@@ -260,13 +260,13 @@ export default function BannerUpsell({
           </Box>
         </Box>
         {!children && hasActions && (
-          <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3}>
+          <Box marginStart="auto" smDisplay="flex" smMarginEnd={4} smPaddingY={3}>
             {secondaryAction && responsiveMinWidth !== 'xs' && (
-              <UpsellAction type="secondary" data={secondaryAction} />
+              <UpsellAction data={secondaryAction} type="secondary" />
             )}
-            {primaryAction && <UpsellAction type="primary" data={primaryAction} />}
+            {primaryAction && <UpsellAction data={primaryAction} type="primary" />}
             {secondaryAction && responsiveMinWidth === 'xs' && (
-              <UpsellAction type="secondary" data={secondaryAction} stacked={!!secondaryAction} />
+              <UpsellAction data={secondaryAction} stacked={!!secondaryAction} type="secondary" />
             )}
           </Box>
         )}

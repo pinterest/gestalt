@@ -4,13 +4,13 @@ import { Button, Flex, IconButton } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex width="100%" height="100%" justifyContent="center" alignItems="center" gap={2}>
-      <Button text="Cancel" size="lg" />
+    <Flex alignItems="center" gap={2} height="100%" justifyContent="center" width="100%">
+      <Button size="lg" text="Cancel" />
       <IconButton
         accessibilityLabel="Open edit modal"
         icon="trash-can"
-        onClick={() => {}}
         iconColor="red"
+        onClick={() => {}}
         size="lg"
       />
     </Flex>

@@ -11,8 +11,8 @@ export default function Example(): ReactNode {
       justifyContent="center"
       width="100%"
     >
-      <ButtonLink text="Kontoeinst..." size="lg" color="gray" href="https://www.pinterest.com/" />
-      <ButtonLink text="Neues We..." size="lg" color="red" href="https://www.pinterest.com/" />
+      <ButtonLink color="gray" href="https://www.pinterest.com/" size="lg" text="Kontoeinst..." />
+      <ButtonLink color="red" href="https://www.pinterest.com/" size="lg" text="Neues We..." />
     </Flex>
   );
 }

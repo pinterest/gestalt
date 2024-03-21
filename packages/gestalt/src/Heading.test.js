@@ -8,19 +8,19 @@ test('Heading large', () => {
 });
 
 test('Heading small with level 3', () => {
-  const tree = create(<Heading size="400" accessibilityLevel={3} />).toJSON();
+  const tree = create(<Heading accessibilityLevel={3} size="400" />).toJSON();
   expect(tree).toMatchSnapshot();
   expect(tree?.type).toEqual('h3');
 });
 
 test('Heading small with level none', () => {
-  const tree = create(<Heading size="400" accessibilityLevel="none" />).toJSON();
+  const tree = create(<Heading accessibilityLevel="none" size="400" />).toJSON();
   expect(tree).toMatchSnapshot();
   expect(tree?.type).toEqual('div');
 });
 
 test('Heading small with id', () => {
-  const tree = create(<Heading size="400" id="account-basics" />).toJSON();
+  const tree = create(<Heading id="account-basics" size="400" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
@@ -30,7 +30,7 @@ test('Heading default overflow', () => {
 });
 
 test('Heading overflow normal', () => {
-  const tree = create(<Heading size="400" overflow="normal" />).toJSON();
+  const tree = create(<Heading overflow="normal" size="400" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

@@ -94,13 +94,13 @@ export default function NavigationContent({
 
   return (
     <Box
-      minWidth={collapsible ? undefined : normalWidth}
-      width={collapsible ? wrapperWidth : undefined}
-      height="100%"
-      as="nav"
       aria-label={accessibilityLabel}
+      as="nav"
       color="default"
+      height="100%"
+      minWidth={collapsible ? undefined : normalWidth}
       position="relative"
+      width={collapsible ? wrapperWidth : undefined}
       zIndex={overlayPreview ? new FixedZIndex(1) : undefined}
     >
       <div
@@ -117,14 +117,14 @@ export default function NavigationContent({
         {collapsible && <Collapser raised={isScrolled} />}
 
         <Box
-          padding={2}
-          display={shouldHideItems ? 'none' : undefined}
-          width={collapsible ? contentWidth : undefined}
           dangerouslySetInlineStyle={{
             __style: {
               paddingBottom: 24,
             },
           }}
+          display={shouldHideItems ? 'none' : undefined}
+          padding={2}
+          width={collapsible ? contentWidth : undefined}
         >
           <Flex direction="column" gap={{ column: 4, row: 0 }}>
             {header ? (

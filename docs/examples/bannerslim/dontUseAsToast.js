@@ -4,17 +4,17 @@ import { BannerSlim, Box } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <BannerSlim
-        type="success"
-        message="The Pin was added to your"
-        iconAccessibilityLabel="Information"
         helperLink={{
           text: 'Vision Board',
           accessibilityLabel: 'Vision Board',
           href: 'http://www.pinterest.com',
           onClick: () => {},
         }}
+        iconAccessibilityLabel="Information"
+        message="The Pin was added to your"
+        type="success"
       />
     </Box>
   );

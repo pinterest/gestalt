@@ -1,12 +1,12 @@
 // @flow strict
 import TagData from './TagData';
 
-const Valid = <TagData text="Text Impressions" selected onTap={() => {}} />;
+const Valid = <TagData onTap={() => {}} selected text="Text Impressions" />;
 
 // $FlowExpectedError[prop-missing]
 const InvalidProps = <TagData nonexisting={33} />;
 
 const wrongColor = (
   // $FlowExpectedError[incompatible-type]
-  <TagData text="Text Impressions" color="99" selected onTap={() => {}} />
+  <TagData color="99" onTap={() => {}} selected text="Text Impressions" />
 );

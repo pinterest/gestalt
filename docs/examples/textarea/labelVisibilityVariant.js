@@ -4,17 +4,17 @@ import { Box, Flex, Text, TextArea } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Flex gap={{ column: 2, row: 0 }} direction="column" width="100%">
-        <Text weight="bold" size="300">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Flex direction="column" gap={{ column: 2, row: 0 }} width="100%">
+        <Text size="300" weight="bold">
           About me
         </Text>
         <TextArea
           id="textareaexampleHiddenLabel"
-          placeholder="Write something about yourself..."
-          onChange={() => {}}
           label="About me"
           labelDisplay="hidden"
+          onChange={() => {}}
+          placeholder="Write something about yourself..."
         />
       </Flex>
     </Box>

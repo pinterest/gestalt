@@ -4,9 +4,9 @@ import { Flex, Link, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex height="100%" width="100%" gap={2} alignItems="center" justifyContent="center">
+    <Flex alignItems="center" gap={2} height="100%" justifyContent="center" width="100%">
       <Text weight="bold">
-        <Link href="https://www.pinterest.com" display="inline" underline="none">
+        <Link display="inline" href="https://www.pinterest.com" underline="none">
           I&lsquo;m a link with no underline
         </Link>
       </Text>

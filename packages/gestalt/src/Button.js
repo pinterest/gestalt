@@ -242,8 +242,8 @@ const ButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = forwar
       align="center"
       color={textColor}
       overflow="normal"
-      weight="bold"
       size={size === 'sm' ? '200' : '300'}
+      weight="bold"
     >
       {text}
     </Text>
@@ -252,6 +252,7 @@ const ButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = forwar
   if (type === 'submit') {
     return (
       <button
+        ref={innerRef}
         aria-label={accessibilityLabel}
         className={baseTypeClasses}
         data-test-id={dataTestId}
@@ -265,18 +266,18 @@ const ButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = forwar
         onTouchEnd={handleTouchEnd}
         onTouchMove={handleTouchMove}
         onTouchStart={handleTouchStart}
-        ref={innerRef}
         style={compressStyle || undefined}
         tabIndex={disabled ? null : tabIndex}
         type="submit"
       >
-        <InternalButtonContent text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
+        <InternalButtonContent icon={iconEnd} size={size} text={buttonText} textColor={textColor} />
       </button>
     );
   }
 
   return (
     <button
+      ref={innerRef}
       aria-controls={accessibilityControls}
       aria-expanded={accessibilityExpanded}
       aria-haspopup={accessibilityHaspopup}
@@ -293,17 +294,16 @@ const ButtonWithForwardRef: AbstractComponent<Props, HTMLButtonElement> = forwar
       onTouchEnd={handleTouchEnd}
       onTouchMove={handleTouchMove}
       onTouchStart={handleTouchStart}
-      ref={innerRef}
       tabIndex={disabled ? null : tabIndex}
       type="button"
     >
       <div className={childrenDivClasses} style={compressStyle || undefined}>
         {iconEnd ? (
           <InternalButtonContent
-            text={buttonText}
-            textColor={textColor}
             icon={iconEnd}
             size={size}
+            text={buttonText}
+            textColor={textColor}
           />
         ) : (
           buttonText

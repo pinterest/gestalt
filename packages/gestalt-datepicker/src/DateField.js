@@ -189,8 +189,8 @@ function DateField({
       mobileEnterKeyHint={mobileEnterKeyHint}
       name={name}
       onBlur={onBlur}
-      onClearInput={onClearInput}
       onChange={onChange}
+      onClearInput={onClearInput}
       onError={onError}
       onFocus={onFocus}
       readOnly={readOnly}

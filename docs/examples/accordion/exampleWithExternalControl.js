@@ -12,7 +12,7 @@ export default function Example(): ReactNode {
   };
 
   return (
-    <Box padding={8} height="100%" display="flex" justifyContent="center">
+    <Box display="flex" height="100%" justifyContent="center" padding={8}>
       <Box column={12} maxWidth={800} padding={2}>
         <Flex direction="column" gap={{ column: 4, row: 0 }}>
           <Flex direction="column" gap={{ column: 2, row: 0 }}>
@@ -49,13 +49,10 @@ export default function Example(): ReactNode {
             </Box>
 
             <Accordion.Expandable
-              id="AccordionExampleStep2"
               expandedIndex={
                 typeof extExpandedId === 'string' ? mapIds[extExpandedId] : extExpandedId
               }
-              onExpandedChange={(index) => {
-                if (index) setExtExpandedId(Number.isFinite(index) ? `second-${index}` : index);
-              }}
+              id="AccordionExampleStep2"
               items={[
                 {
                   title: 'Title1',
@@ -68,6 +65,9 @@ export default function Example(): ReactNode {
                   children: <Text size="200">Children2</Text>,
                 },
               ]}
+              onExpandedChange={(index) => {
+                if (index) setExtExpandedId(Number.isFinite(index) ? `second-${index}` : index);
+              }}
             />
           </Flex>
         </Flex>

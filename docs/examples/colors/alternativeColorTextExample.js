@@ -5,15 +5,15 @@ import { Box, Flex, Icon, Text } from 'gestalt';
 export default function AlternativeColorTextExample(): ReactNode {
   return (
     <Flex
+      alignItems="center"
       gap={{
         row: 1,
         column: 0,
       }}
-      alignItems="center"
-      justifyContent="center"
       height="100%"
+      justifyContent="center"
     >
-      <Icon icon="eye" accessibilityLabel="views" />
+      <Icon accessibilityLabel="views" icon="eye" />
       <Text weight="bold">
         <Box
           dangerouslySetInlineStyle={{

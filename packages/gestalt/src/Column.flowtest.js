@@ -4,4 +4,4 @@ import Column from './Column';
 const Valid = <Column span={1}>Hello world</Column>;
 
 // $FlowExpectedError[prop-missing]
-const NonExistingProp = <Column span={1} nonexisting={33} />;
+const NonExistingProp = <Column nonexisting={33} span={1} />;

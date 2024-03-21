@@ -6,8 +6,8 @@ export default function ExampleTooltip(): ReactNode {
   const [idealDirection, setIdealDirection] = useState('down');
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Flex direction="column" alignItems="center" gap={{ column: 8, row: 0 }}>
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Flex alignItems="center" direction="column" gap={{ column: 8, row: 0 }}>
         <Flex gap={{ column: 0, row: 4 }}>
           <RadioButton
             checked={idealDirection === 'up'}
@@ -42,7 +42,7 @@ export default function ExampleTooltip(): ReactNode {
             value="left"
           />
         </Flex>
-        <Tooltip idealDirection={idealDirection} inline text="Share" accessibilityLabel="">
+        <Tooltip accessibilityLabel="" idealDirection={idealDirection} inline text="Share">
           <IconButton
             accessibilityLabel="Share this Pin"
             bgColor="white"

@@ -4,9 +4,9 @@ import { Box, Flex, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex height="100%" alignItems="center">
+    <Flex alignItems="center" height="100%">
       <Box paddingY={2}>
-        <Box color="infoBase" height={50} padding={2} marginBottom={1}>
+        <Box color="infoBase" height={50} marginBottom={1} padding={2}>
           <Text color="light" weight="bold">
             This uses a proper, Gestalt colored Box
           </Text>
@@ -22,8 +22,8 @@ export default function Example(): ReactNode {
             },
           }}
           height={50}
-          padding={2}
           marginTop={1}
+          padding={2}
         >
           <Text color="light" weight="bold">
             This uses dangerouslySetInlineStyle to add a calculated paddingBottom

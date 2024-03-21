@@ -84,12 +84,12 @@ export default function useDefaultLegend({
         return (
           <div style={{ direction: isRtl ? 'rtl' : 'ltr' }}>
             <Box
-              dangerouslySetInlineStyle={{ __style: { top: '-15px' } }}
-              color="transparent"
-              position="absolute"
-              height={height}
-              display="flex"
               alignContent="end"
+              color="transparent"
+              dangerouslySetInlineStyle={{ __style: { top: '-15px' } }}
+              display="flex"
+              height={height}
+              position="absolute"
             >
               <Flex direction="column" justifyContent="between">
                 {legendItemsArray.slice(0, 2)}
@@ -102,11 +102,11 @@ export default function useDefaultLegend({
       return (
         <div style={{ direction: isRtl ? 'rtl' : 'ltr' }}>
           <Box
-            color="transparent"
-            width="100%"
             ref={(ref) => {
               if (ref) setLegendHeight(ref.getBoundingClientRect().height);
             }}
+            color="transparent"
+            width="100%"
           >
             <Flex gap={{ row: 4, column: 0 }} wrap>
               {legendItemsArray}

@@ -8,9 +8,9 @@ export default function Example(): ReactNode {
       <ButtonLink
         accessibilityLabel="Visit Pinterest"
         color="red"
-        text="Visit Pinterest"
-        size="lg"
         href="https://www.pinterest.com/"
+        size="lg"
+        text="Visit Pinterest"
       />
     </Flex>
   );

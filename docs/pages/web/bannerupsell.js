@@ -34,14 +34,14 @@ export default function DocsPage({
   return (
     <Page title={generatedDocGen?.BannerUpsell?.displayName}>
       <PageHeader
-        name={generatedDocGen?.BannerUpsell?.displayName}
         description={generatedDocGen?.BannerUpsell?.description}
+        name={generatedDocGen?.BannerUpsell?.displayName}
       >
         <SandpackExample
-          name="Main Example"
           code={mainExample}
-          layout="column"
           hideEditor
+          layout="column"
+          name="Main Example"
           previewHeight={240}
         />
       </PageHeader>
@@ -52,21 +52,21 @@ export default function DocsPage({
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - Displaying promotional information to a user that is not tied to a task or state on the surface.
           - Sharing updates or changes to the features and offerings of the product.
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - Anything related to state or status within the surface. Consider a [BannerCallout](/web/bannercallout) instead.
           - Promoting or highlighting specific elements / areas within a surface. [Let the team know](https://app.slack.com/client/T024LJUGB/C0HUV5J93) if this is needed.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -75,111 +75,110 @@ export default function DocsPage({
         <MainSection.Subsection>
           <MainSection.Card
             cardSize="lg"
-            type="do"
             description="Use BannerUpsells for marketing new products or encouraging upgrades."
             sandpackExample={
               <SandpackExample
-                name="Use for Marketing New Products & Encouraging Upgrades"
                 code={useForMarketing}
-                layout="column"
-                previewHeight={240}
                 hideEditor
+                layout="column"
+                name="Use for Marketing New Products & Encouraging Upgrades"
+                previewHeight={240}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="lg"
-            type="do"
             description={`
         Place BannerUpsell at the top of the page under the primary navigation when possible.
         `}
             sandpackExample={
               <SandpackExample
-                name="Place at Top of Page Under Primary Navigation"
                 code={placeAtTopOfPage}
-                layout="column"
-                previewHeight={300}
                 hideEditor
+                layout="column"
+                name="Place at Top of Page Under Primary Navigation"
+                previewHeight={300}
               />
             }
+            type="do"
           />
 
           <MainSection.Card
             cardSize="lg"
-            type="do"
             description={`
         Plan for the timing of your BannerUpsells with new product launches. Try to create different messages for each time an BannerUpsell appears to the user.
         `}
             sandpackExample={
               <SandpackExample
-                name="Plan Timing with New Product Launches"
                 code={planTiming}
-                layout="column"
-                previewHeight={520}
                 hideEditor
+                layout="column"
+                name="Plan Timing with New Product Launches"
+                previewHeight={520}
               />
             }
+            type="do"
           />
 
           <MainSection.Card
             cardSize="lg"
-            type="don't"
             description={`
           Use BannerUpsells for critical information, such as errors or warnings. Use [BannerCallout](/web/bannercallout) instead. BannerUpsells should not be used for general information either.
         `}
             sandpackExample={
               <SandpackExample
-                name="Don't Use for Critical Information, Use BannerCallout Instead"
                 code={dontUseForCriticalInfo}
-                layout="column"
-                previewHeight={200}
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Don't Use for Critical Information, Use BannerCallout Instead"
+                previewHeight={200}
               />
             }
+            type="don't"
           />
 
           <MainSection.Card
             cardSize="lg"
-            type="don't"
             description={`
         Stack BannerUpsells on a page. In the case that they must be stacked, [BannerCallouts](/web/bannercallout) will appear above BannerUpsells.
         `}
             sandpackExample={
               <SandpackExample
-                name="Do Not Stack on a Page"
                 code={dontStack}
-                layout="column"
-                previewHeight={480}
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Do Not Stack on a Page"
+                previewHeight={480}
               />
             }
+            type="don't"
           />
 
           <MainSection.Card
             cardSize="lg"
-            type="don't"
             description={`
         Keep showing the same BannerUpsell once it has been dismissed. BannerUpsells should only appear a maximum of 2 times to the same user, as they have diminishing returns.
         `}
             sandpackExample={
               <SandpackExample
-                name="Do Not Show the Same Once Dismissed"
                 code={dontShowSameOnceDismissed}
-                layout="column"
-                previewHeight={320}
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Do Not Show the Same Once Dismissed"
+                previewHeight={320}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
 
       <AccessibilitySection name={generatedDocGen.BannerUpsell?.displayName}>
         <MainSection.Subsection
-          title="Labels"
           description={`
       \`dismissButton\`, \`primaryAction\`, \`secondaryAction\`, and \`submitButtonAccessibilityLabel\` each require a short, descriptive label for screen readers, which should also be localized.
 
@@ -189,14 +188,15 @@ export default function DocsPage({
 
       The [Image](/web/image) or [Icon](/web/icon) supplied to \`imageData\` should only supply an \`alt\` or \`accessibilityLabel\`, respectively, if the Image or Icon supplies extra context or information. Icons in BannerUpsells are often purely decorative, and can therefore have an empty string as the \`accessibilityLabel\`.
       `}
+          title="Labels"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Labels for Screen Readers and Localization"
                 code={labelsExample}
                 layout="column"
+                name="Labels for Screen Readers and Localization"
                 previewHeight={280}
               />
             }
@@ -206,16 +206,16 @@ export default function DocsPage({
 
       <LocalizationSection
         code={localizationLabels}
-        name={generatedDocGen.BannerUpsell?.displayName}
         layout="column"
+        name={generatedDocGen.BannerUpsell?.displayName}
         notes={`
 Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.`}
       />
 
       <MainSection name="Subcomponents">
         <MainSection.Subsection
-          title={generatedDocGen?.BannerUpsellForm?.displayName}
           description={generatedDocGen?.BannerUpsellForm?.description}
+          title={generatedDocGen?.BannerUpsellForm?.displayName}
         >
           <GeneratedPropTable
             generatedDocGen={generatedDocGen?.BannerUpsellForm}
@@ -227,55 +227,54 @@ Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvid
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Text-only"
           description="Used to convey a short message that requires no action, except dismiss."
+          title="Text-only"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Text-Only for Short Message with Dismiss"
                 code={textVariant}
                 layout="column"
+                name="Text-Only for Short Message with Dismiss"
               />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Icon"
           description="The Icon is used to add additional meaning to the BannerUpsell. The icon can reference a Pinterest product, feature or an action from our [Icon library](/web/icon)."
+          title="Icon"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Icon to Add Additional Meaning"
                 code={iconVariant}
                 layout="column"
+                name="Icon to Add Additional Meaning"
               />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Image"
           description="The [Image](/web/image) in BannerUpsell is used to add visual interest and draw the user’s attention. Images should relate to the message of the BannerUpsell. BannerUpsell images should use approved photography or be illustrations using our brand colors. Images will always be 128px wide."
+          title="Image"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Image to Add Visual Interest"
                 code={imageVariant}
                 layout="column"
+                name="Image to Add Visual Interest"
               />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Actions"
           description={`
           BannerUpsells can have either one primary action, or a primary action and a secondary action. These actions can be buttons, when no \`href\` is supplied, or links, by specifying the \`href\`  property.
 
@@ -285,62 +284,63 @@ Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvid
 
       If needed, actions can become disabled after clicking by setting \`disabled: true\` in the action data.
       `}
+          title="Actions"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Actions Can Be One Primary or One Primary & One Secondary"
                 code={actionsVariant}
                 layout="column"
+                name="Actions Can Be One Primary or One Primary & One Secondary"
               />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Forms"
           description={`Inputs can be added to BannerUpsells to collect information from users (ex: name or email) through the use of \`BannerUpsell.Form\`. Most BannerUpsells should have no more than 2 inputs. If more inputs are needed, direct users to a full page using the \`primaryAction\`.`}
+          title="Forms"
         >
           <MainSection.Card
             cardSize="lg"
-            title="Single TextField"
             sandpackExample={
               <SandpackExample
-                name="Inputs to Collect Information from Users Example (1)"
                 code={singleTextField}
                 layout="column"
+                name="Inputs to Collect Information from Users Example (1)"
               />
             }
+            title="Single TextField"
           />
 
           <MainSection.Card
             cardSize="lg"
-            title="Multiple TextFields"
             sandpackExample={
               <SandpackExample
-                name="Inputs to Collect Information from Users Example (2)"
                 code={multipleTextField}
                 layout="column"
+                name="Inputs to Collect Information from Users Example (2)"
               />
             }
+            title="Multiple TextFields"
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Message"
           description={`
 The \`message\` prop accepts either a string or [Text](/web/text). Use a string for simple messages without any visual style. BannerUpsell will handle the text style and adherence to design guidelines.
 
 If the \`message\` text requires more complex style, such as bold text or inline links, use Text to wrap your message with any additional Text or Link usages contained within. When passing in your own Text component for \`text\`, do not specify \`color\` or \`align\` Text.
 `}
+          title="Message"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Message: String or Text for Visual Style"
                 code={messagePropForVisualStyle}
                 layout="column"
+                name="Message: String or Text for Visual Style"
                 previewHeight={400}
               />
             }

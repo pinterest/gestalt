@@ -27,19 +27,19 @@ export default function Example(): ReactNode {
           <IconButton accessibilityLabel="Edit" icon="edit" size="md" />
         </Tooltip>
         <IconButton
+          ref={anchorRef}
           accessibilityControls="selectlist-dropdown-example3"
           accessibilityExpanded={open}
           accessibilityHaspopup
           accessibilityLabel="Open menu"
           icon="ellipsis"
           onClick={() => setOpen((prevVal) => !prevVal)}
-          ref={anchorRef}
           selected={open}
           size="md"
           tooltip={{ text: 'More options' }}
         />
-        <Button text="Visit" size="md" />
-        <Button color="red" text="Save" size="md" />
+        <Button size="md" text="Visit" />
+        <Button color="red" size="md" text="Save" />
         {open && (
           <Dropdown
             anchor={anchorRef.current}

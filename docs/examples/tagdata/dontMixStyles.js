@@ -4,10 +4,10 @@ import { Flex, TagData } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex justifyContent="center" alignItems="center" height="100%" width="100%" gap={2} wrap>
-      <TagData showCheckbox text="Impressions" size="lg" />
-      <TagData text="CPM" size="sm" onRemove={() => {}} />
-      <TagData text="Spend" size="md" />
+    <Flex alignItems="center" gap={2} height="100%" justifyContent="center" width="100%" wrap>
+      <TagData showCheckbox size="lg" text="Impressions" />
+      <TagData onRemove={() => {}} size="sm" text="CPM" />
+      <TagData size="md" text="Spend" />
     </Flex>
   );
 }

@@ -4,14 +4,14 @@ import { Box, Flex, Image, TextField } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex gap={2}>
         <TextField
           id="enterKeyHint"
-          mobileEnterKeyHint="next"
           label="Text virtual keyboard with 'next'"
-          onChange={() => {}}
+          mobileEnterKeyHint="next"
           onBlur={() => {}}
+          onChange={() => {}}
           onFocus={() => {}}
         />
         <Box height={100} width={200}>

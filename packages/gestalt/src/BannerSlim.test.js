@@ -13,9 +13,9 @@ describe('BannerSlim', () => {
   it('renders an icon with accessibility label', () => {
     const tree = create(
       <BannerSlim
+        iconAccessibilityLabel="accessibility label with error"
         message="test"
         type="error"
-        iconAccessibilityLabel="accessibility label with error"
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -24,9 +24,9 @@ describe('BannerSlim', () => {
   it('renders non-neutral compact with accessibility label', () => {
     const tree = create(
       <BannerSlim
+        iconAccessibilityLabel="accessibility label with error"
         message="test"
         type="errorBare"
-        iconAccessibilityLabel="accessibility label with error"
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -35,13 +35,13 @@ describe('BannerSlim', () => {
   it('renders simple message with helper link', () => {
     const tree = create(
       <BannerSlim
-        message="test"
         helperLink={{
           text: 'Learn more',
           accessibilityLabel: 'Learn more Pinterest.com',
           href: 'http://www.pinterest.com',
           onClick: () => {},
         }}
+        message="test"
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -71,16 +71,16 @@ describe('BannerSlim', () => {
   it('renders primary action and dismiss button', () => {
     const tree = create(
       <BannerSlim
+        dismissButton={{
+          accessibilityLabel: 'test',
+          onDismiss: () => {},
+        }}
         message="test"
         primaryAction={{
           accessibilityLabel: 'test',
           label: 'test',
           onClick: () => {},
           role: 'button',
-        }}
-        dismissButton={{
-          accessibilityLabel: 'test',
-          onDismiss: () => {},
         }}
       />,
     ).toJSON();

@@ -36,9 +36,9 @@ export default function PrimaryAction({
         href={props.href ?? ''}
         onClick={props.onClick}
         rel={props.rel}
+        size={size}
         target={props.target}
         text={label}
-        size={size}
       />
     );
 

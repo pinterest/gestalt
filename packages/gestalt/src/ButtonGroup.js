@@ -22,7 +22,7 @@ function ButtonGroup({ children }: Props): ReactNode {
   }
 
   return (
-    <Box margin={-1} display="flex" wrap>
+    <Box display="flex" margin={-1} wrap>
       {Children.map(children, (child) =>
         // $FlowFixMe[incompatible-type]
         child !== null && child !== undefined ? <Box padding={1}>{child}</Box> : null,

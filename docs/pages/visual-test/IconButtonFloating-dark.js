@@ -7,8 +7,8 @@ export default function Snapshot(): ReactNode {
     <ColorSchemeProvider colorScheme="dark">
       <Box color="default" display="inlineBlock" padding={4}>
         <IconButtonFloating
-          accessibilityPopupRole="menu"
           accessibilityLabel="test"
+          accessibilityPopupRole="menu"
           icon="add"
           onClick={() => {}}
           tooltip={{

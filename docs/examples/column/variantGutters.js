@@ -4,22 +4,22 @@ import { Box, Column, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box paddingY={2} color="dark" height="100%" width="100%">
-      <Box paddingX={2} marginBottom={2}>
+    <Box color="dark" height="100%" paddingY={2} width="100%">
+      <Box marginBottom={2} paddingX={2}>
         <Text color="inverse">Content</Text>
       </Box>
 
       <Box
-        display="flex"
-        direction="row"
-        paddingY={12}
-        marginStart={-2}
-        marginEnd={-2}
         color="tertiary"
+        direction="row"
+        display="flex"
+        marginEnd={-2}
+        marginStart={-2}
+        paddingY={12}
         wrap
       >
         <Column span={12}>
-          <Box paddingX={2} marginBottom={4}>
+          <Box marginBottom={4} paddingX={2}>
             <Text color="inverse">Row</Text>
           </Box>
         </Column>

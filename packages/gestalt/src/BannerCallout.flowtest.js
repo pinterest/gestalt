@@ -3,8 +3,8 @@ import BannerCallout from './BannerCallout';
 
 const Valid = (
   <BannerCallout
-    message="BannerCallout error message"
     iconAccessibilityLabel="error"
+    message="BannerCallout error message"
     type="error"
   />
 );

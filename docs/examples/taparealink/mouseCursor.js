@@ -4,17 +4,17 @@ import { Box, Flex, TapAreaLink, Text } from 'gestalt';
 
 export default function TapAreaExample(): ReactNode {
   return (
-    <Flex wrap gap={2}>
+    <Flex gap={2} wrap>
       {['copy', 'grab', 'grabbing', 'move', 'noDrop', 'pointer', 'zoomIn', 'zoomOut'].map(
         (cursor) => (
           <TapAreaLink
-            href="www.pinterest.com"
-            onTap={({ event }) => event.stopPropagation()}
             key={cursor}
-            mouseCursor={cursor}
             fullWidth={false}
+            href="www.pinterest.com"
+            mouseCursor={cursor}
+            onTap={({ event }) => event.stopPropagation()}
           >
-            <Box borderStyle="lg" padding={4} width={250} height={100}>
+            <Box borderStyle="lg" height={100} padding={4} width={250}>
               <Text size="200">hover here </Text>
               <Text size="200" weight="bold">
                 {`mouseCursor="${cursor}"`}

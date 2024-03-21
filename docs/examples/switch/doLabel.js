@@ -6,8 +6,8 @@ export default function Example(): ReactNode {
   const [switched, setSwitched] = useState(true);
 
   return (
-    <Flex alignItems="center" justifyContent="center" height="100%" width="100%">
-      <Flex gap={4} alignItems="center">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
+      <Flex alignItems="center" gap={4}>
         <Label htmlFor="makesecret">
           <Text weight="bold">Make this board secret</Text>
         </Label>

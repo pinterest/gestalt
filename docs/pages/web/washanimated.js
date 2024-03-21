@@ -13,11 +13,11 @@ import main from '../../examples/washanimated/main';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen.description}>
+      <PageHeader description={generatedDocGen.description} name={generatedDocGen?.displayName}>
         <SandpackExample
           code={main}
-          name="WashAnimated main example"
           hideEditor
+          name="WashAnimated main example"
           previewHeight={325}
         />
       </PageHeader>
@@ -28,20 +28,20 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - Highlighting content in a grid format.
           - Displaying related content in a way that is easy to scan, read, and act upon.
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - Displaying an unrelated group of information.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>

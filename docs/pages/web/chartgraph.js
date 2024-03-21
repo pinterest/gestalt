@@ -72,20 +72,20 @@ export default function ComponentPage({
   return (
     <Page title={generatedDocGen.ChartGraph?.displayName}>
       <PageHeader
-        name={generatedDocGen.ChartGraph?.displayName}
-        description={generatedDocGen.ChartGraph?.description}
         bannerSlim={
           <BannerSlim
-            type="warning"
             iconAccessibilityLabel="Warning"
             message="ChartGraph is still under development. The component API, style, and behaviour might change in follow-up releases."
+            type="warning"
           />
         }
+        description={generatedDocGen.ChartGraph?.description}
+        name={generatedDocGen.ChartGraph?.displayName}
       >
         <SandpackExample
           code={main}
-          name="Main Avatar example"
           hideEditor
+          name="Main Avatar example"
           previewHeight={MEDIUM_HEIGHT}
         />
       </PageHeader>
@@ -93,141 +93,140 @@ export default function ComponentPage({
       <GeneratedPropTable generatedDocGen={generatedDocGen.ChartGraph} />
 
       <MainSection
-        name="Usage guidelines"
         description={`These are overall guidelines for ChartGraph. For usage guidelines on specific graphs, see:
         - [Bar graph usage guidelines](../foundations/data_visualization/charts_and_graphs/bar_graphs#Usage-guidelines)
         - [Line graph usage guidelines](../foundations/data_visualization/charts_and_graphs/line_graphs#Usage-guidelines)
         - [Charts and graphs general guidelines](../foundations/data_visualization/charts_and_graphs/general_guidelines)
         `}
+        name="Usage guidelines"
       >
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
 - To compare data sets
 - To show trends, frequency of occurrences and distribution of data across time
 - To visually summarize and explain complex data sets and concepts        `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
 - To show parts-to-whole. Use a pie or donut chart instead.
 - To visualize a series of stages in a sequence that get smaller over time. Use a funnel chart instead.
 - To show large data sets that are too hard to show in a chart. Use [Table](/web/table) instead.        `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
 
       <MainSection
-        name="Best practices"
         description={`These are overall best practices for ChartGraph. For best practices on specific graphs, see:
         - [Bar graph best practices](../foundations/data_visualization/charts_and_graphs/bar_graphs#Best-practices)
         - [Line graph best practices](../foundations/data_visualization/charts_and_graphs/line_graphs#Best-practices)
         - [Charts and graphs general guidelines](../foundations/data_visualization/charts_and_graphs/general_guidelines)
         `}
+        name="Best practices"
       >
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Limit the amount of data you show in a graph so that it is readable and easy to follow."
             sandpackExample={
               <SandpackExample
-                name="Do Data"
                 code={doLimit}
-                layout="column"
                 hideEditor
+                layout="column"
+                name="Do Data"
                 previewHeight={SMALL_HEIGHT}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Add a lot of data to a graph that makes it hard to read. If you need to show a lot of data, use [Table](/web/table) instead. Another option is using multiple graphs in a grid."
             sandpackExample={
               <SandpackExample
-                name="Don't Data"
                 code={dontLimit}
-                layout="column"
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Don't Data"
                 previewHeight={SMALL_HEIGHT}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="When displaying multiple categories in lines or bars, stick to the default color sequence provided since it has been optimized for color blindness."
             sandpackExample={
               <SandpackExample
-                name="Do different color"
                 code={doColor}
-                layout="column"
                 hideEditor
+                layout="column"
+                name="Do different color"
                 previewHeight={SMALL_HEIGHT}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Pick colors that are too similar to each other and hard to tell apart, especially for those with visual impairments."
             sandpackExample={
               <SandpackExample
-                name="Don't same color"
                 code={doSameColor}
-                layout="column"
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Don't same color"
                 previewHeight={SMALL_HEIGHT}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use a biaxial chart when there is a significant difference between values. A suggestion is a 50%+ difference."
             sandpackExample={
               <SandpackExample
-                name="Do biaxial"
                 code={doBiaxial}
-                layout="column"
                 hideEditor
+                layout="column"
+                name="Do biaxial"
                 previewHeight={SMALL_HEIGHT}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use a biaxial chart when there is a very minor difference between values being compared. Use a chart with a single axis instead."
             sandpackExample={
               <SandpackExample
-                name="Don't biaxial"
                 code={dontBiaxial}
-                layout="column"
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Don't biaxial"
                 previewHeight={SMALL_HEIGHT}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
 
       <AccessibilitySection name={generatedDocGen.ChartGraph?.displayName}>
         <MainSection.Subsection
-          title="Visual patterns"
           description={`Charts use color to represent discrete categories. However, people with color blindness or other visual impairments may have difficulty telling certain colors apart.
 
 Therefore, ChartGraph provides an accessibility view mode where colors in bars and lines are replaced with visual patterns to help in their interpretation. Bar charts use pattern fills and line charts use series markers with different shapes to help distinguish between data points without using color alone. Each pattern fill and time series shape corresponds to one of the colors in our 12-color categorical palette.
@@ -235,42 +234,43 @@ Therefore, ChartGraph provides an accessibility view mode where colors in bars a
 ChartGraph provides \`visualPatternSelected\` and \`onVisualPatternChange\` props to manage the visual state of the component externally. If a person selects Low Vision Features in the settings or enables the visual patterns in one component, other charts can also be enabled at the same time to adapt to a user’s accessibility preferences.
 
 ChartGraph displays an IconButton in the header section that allows to enable the visual pattern from the component itself.`}
+          title="Visual patterns"
         >
           <MainSection.Card cardSize="lg" title="Bar pattern fills">
             <PatternBarFill />
           </MainSection.Card>
           <MainSection.Card
             cardSize="lg"
-            title="Bar pattern fills example"
             sandpackExample={
-              <SandpackExample code={decalBars} name="Visual pattern for bars" layout="column" />
+              <SandpackExample code={decalBars} layout="column" name="Visual pattern for bars" />
             }
+            title="Bar pattern fills example"
           />
           <MainSection.Card
             cardSize="lg"
-            title="Line series markers"
             description="For line graphs, shapes are used to help tell categories apart."
+            title="Line series markers"
           >
             <PatternLineMarker />
           </MainSection.Card>
 
           <MainSection.Card
             cardSize="lg"
-            title="Line series markers example"
             sandpackExample={
-              <SandpackExample code={decalLines} name="Visual pattern for lines" layout="column" />
+              <SandpackExample code={decalLines} layout="column" name="Visual pattern for lines" />
             }
+            title="Line series markers example"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="ARIA attributes"
           description={`Charts are presented as images to screen readers. Provide a description using the \`accessibilityLabel\` to provide more context around ChartGraph’s content.
 
 Don't use \`accessibilityLabel\` to describe the ChartGraph content itself. We’re working on adding a  Table view feature to access the detailed data of ChartGraph in a more granular and accessible way.
 
 \`accessibilityLabel\` is automatically prefixed with "ChartGraph." to differentiate ChartGraph from other images.
           `}
+          title="ARIA attributes"
         >
           <MainSection.Card
             sandpackExample={<SandpackExample code={accessibility} name="Accessibility label" />}
@@ -278,7 +278,6 @@ Don't use \`accessibilityLabel\` to describe the ChartGraph content itself. We�
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Tabular representation"
           description={`
 An additional button is available to show chart data as a table so that it’s easier to
 
@@ -288,6 +287,7 @@ An additional button is available to show chart data as a table so that it’s e
 
 The tabular data is also available to download as a .csv file.
           `}
+          title="Tabular representation"
         />
       </AccessibilitySection>
 
@@ -301,104 +301,103 @@ To localize dates in time series, use the \`tickFormatter.timeseries\` prop. See
 
       <MainSection name="Subcomponents">
         <MainSection.Subsection
-          title={generatedDocGen.LegendIcon?.displayName}
           description={generatedDocGen.LegendIcon?.description}
+          title={generatedDocGen.LegendIcon?.displayName}
         >
           <GeneratedPropTable
-            name={generatedDocGen.LegendIcon?.displayName}
-            id={generatedDocGen.LegendIcon?.displayName}
             generatedDocGen={generatedDocGen.LegendIcon}
+            id={generatedDocGen.LegendIcon?.displayName}
+            name={generatedDocGen.LegendIcon?.displayName}
           />
         </MainSection.Subsection>
       </MainSection>
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Bar horizontal"
           description={`Arrange bars in rows that stack from top to bottom when horizontal space and you have longer text labels. Also known as a "horizontal bar chart".
 
 Props: \`type="bar"\` \`elements=[{..., type:'bar'}]\` \`layout="horizontal"\`
 
 `}
+          title="Bar horizontal"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={barHorizontal} name="Bar horizontal" layout="column" />
+              <SandpackExample code={barHorizontal} layout="column" name="Bar horizontal" />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Bar column"
           description={`In a column chart, bars are ordered horizontally. Use this when you have a small amount of data to compare and the horizontal space to do so. This includes text labels. If text labels are long, use Bar horizontal instead.
 
 Props: \`type="bar"\` \`layout="horizontal"\`
           `}
+          title="Bar column"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={barColumn} name="Bar vertical" layout="column" />
+              <SandpackExample code={barColumn} layout="column" name="Bar vertical" />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Stacked bars"
           description={`Stacked bar charts break bars into smaller categories so that their relationship to the whole can be seen.
 
 Props: \`type="bar"\` \`stacked={true}\`
 
           `}
+          title="Stacked bars"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={stackedBar} name="Stacked bars" layout="column" />
+              <SandpackExample code={stackedBar} layout="column" name="Stacked bars" />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Line"
           description={`A line graph plots numeric values for categorical data as a line that shows a progression through time.
 
 Props:  \`type="line"\`  \`elements=[{..., type:'line'}]\`
           `}
+          title="Line"
         >
           <MainSection.Card
             cardSize="lg"
-            sandpackExample={<SandpackExample code={line} name="Line" layout="column" />}
+            sandpackExample={<SandpackExample code={line} layout="column" name="Line" />}
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Combo"
           description={`This combines a bar graph with a line graph. It is useful to see both categories and a trend or range over time.
 
 Props:  \`type="combo"\` \`elements=[{..., type:'bar' or type:'line'}]\`
           `}
+          title="Combo"
         >
           <MainSection.Card
             cardSize="lg"
-            sandpackExample={<SandpackExample code={combo} name="Combo" layout="column" />}
+            sandpackExample={<SandpackExample code={combo} layout="column" name="Combo" />}
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Biaxial"
           description={`Biaxial graphs show two y-axis. They're used when either comparing two categories with mixed types of data—for example, clicks vs spend—or when there is a significant difference between values. A suggestion is to move to a biaxial chart if there is a 50%+ difference between compared values.
 
 Props:  \`layout="verticalBiaxial"\`  \`layout="horizontalBiaxial"\`
 `}
+          title="Biaxial"
         >
           <MainSection.Card
             cardSize="lg"
-            sandpackExample={<SandpackExample code={biaxial} name="Biaxial" layout="column" />}
+            sandpackExample={<SandpackExample code={biaxial} layout="column" name="Biaxial" />}
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Header"
           description={`ChartGraph's header support a title, description, a HelpButton, and the accessibility features: tabular data and visual patterns switch buttons.
 
 1. Title. A title for the graph in case it’s not displayed elsewhere on the screen.
@@ -410,85 +409,86 @@ Props:  \`layout="verticalBiaxial"\`  \`layout="horizontalBiaxial"\`
 
 Props:  \`title\`  \`description\` \`helpButton\`
 `}
+          title="Header"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={title} name="Title & description" layout="column" />
+              <SandpackExample code={title} layout="column" name="Title & description" />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Tooltip"
           columns={2}
           description={`For showing more precise details on hover.
 
 Props: \`renderTooltip\`
           `}
+          title="Tooltip"
         >
           <MainSection.Card
             cardSize="lg"
-            title="Default tooltip"
             sandpackExample={
-              <SandpackExample code={tooltip} name="Default tooltip" layout="column" />
+              <SandpackExample code={tooltip} layout="column" name="Default tooltip" />
             }
+            title="Default tooltip"
           />
           <MainSection.Card
             cardSize="lg"
-            title="Custom tooltip"
             sandpackExample={
-              <SandpackExample code={customTooltip} name="Custom tooltip" layout="column" />
+              <SandpackExample code={customTooltip} layout="column" name="Custom tooltip" />
             }
+            title="Custom tooltip"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Legend"
           description={`Graphs that show more than one category should include a legend to clarify what color or pattern belongs to which category. For single axis charts, a legend isn’t needed when [TagData](/web/tagdata) or [TileData](/web/tiledata) are being used. Legend positions automatically on each layout for easier comprehension.
 
 Props: \`legend\`
           `}
+          title="Legend"
         >
           <MainSection.Card
             cardSize="lg"
-            sandpackExample={<SandpackExample code={legend} name="Legend" layout="column" />}
+            sandpackExample={<SandpackExample code={legend} layout="column" name="Legend" />}
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="ReferenceArea"
           description={`Use to highlight an area in a graph for extra context. A common example is showing when data isn’t available.
 
 Props: \`referenceAreas\`
           `}
+          title="ReferenceArea"
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample code={referenceArea} name="ReferenceArea" layout="column" />
+              <SandpackExample code={referenceArea} layout="column" name="ReferenceArea" />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Precision in line graphs"
           description={`To show exact and accurate data, lines should be rectilinear. When showing trends, forecasts and imprecise data, then lines should be curved to denote that these are just approximations.
 
 
 Props: \`elements=[{..., type:'line', precision='estimate'}]\`
           `}
+          title="Precision in line graphs"
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={precision} name="Precision" layout="column" />}
+            sandpackExample={<SandpackExample code={precision} layout="column" name="Precision" />}
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Colors"
           description={`Colors on data series are set automatically for best contrast.
 
 If different graphs need to be compared simultaneously, see example below, color in time series can be set in the \`elements\` prop setting each color \`color='01'\` individually.
         `}
+          title="Colors"
         >
           <CombinationNew cardSize="xs" color={['01', '02', '03', '04', '05', '06']}>
             {({ color }) => {
@@ -563,8 +563,8 @@ If different graphs need to be compared simultaneously, see example below, color
             sandpackExample={
               <SandpackExample
                 code={colors}
-                name="Colors"
                 layout="column"
+                name="Colors"
                 previewHeight={EXTRA_LARGE_HEIGHT}
               />
             }
@@ -572,7 +572,6 @@ If different graphs need to be compared simultaneously, see example below, color
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Layout"
           description={`ChartGraph supports 4 layouts. Legend positions automatically on each layout for easier comprehension.
 
 Single axis:
@@ -587,13 +586,14 @@ Dual axis:
 Props: \`layout\`
 
         `}
+          title="Layout"
         >
           <MainSection.Card
             sandpackExample={
               <SandpackExample
                 code={layout}
-                name="Layout"
                 layout="column"
+                name="Layout"
                 previewHeight={LARGE_HEIGHT}
               />
             }
@@ -601,19 +601,19 @@ Props: \`layout\`
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Range"
           description={`ChartGraph automatically sets the minimum and maximum axis values. The \`range\` prop allows  adjusting them in case we need broader range values in the axis.
 
 Props: \`range\`
 
         `}
+          title="Range"
         >
           <MainSection.Card
             sandpackExample={
               <SandpackExample
                 code={range}
-                name="Range"
                 layout="column"
+                name="Range"
                 previewHeight={LARGE_HEIGHT}
               />
             }
@@ -621,20 +621,20 @@ Props: \`range\`
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Responsive"
           description={`ChartGraph is responsive. ChartGraph's width adjusts to the parent container. In order to render properly, ChartGraph requires a parent container with set dimensions.
 
 For vertical layouts, ChartGraph has a set height based on the amount of ticks (five or three). For horizontal layouts, ChartGraph has a set height.
 
 When ChartGraphs are contained within small containers (under 576px wide), set \`initialTicks={3}\` to prevent ChartGraph to flick.
           `}
+          title="Responsive"
         >
           <MainSection.Card
             sandpackExample={
               <SandpackExample
                 code={responsive}
-                name="Responsive"
                 layout="column"
+                name="Responsive"
                 previewHeight={EXTRA_LARGE_HEIGHT}
               />
             }
@@ -642,43 +642,43 @@ When ChartGraphs are contained within small containers (under 576px wide), set \
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Selectors"
           description={`ChartGraph supports [TileData](/web/tiledata) and [TagData](/web/tagdata). The selection of TileData and TagData controls the data series displayed on ChartGraph.
           `}
+          title="Selectors"
         >
           <MainSection.Card sandpackExample={<SandpackExample code={tiledata} name="TileData" />} />
           <MainSection.Card sandpackExample={<SandpackExample code={tagdata} name="TagData" />} />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Tick format"
           description={`ChartGraph allows to format the values in the axis' ticks. For example, to translate numeric values to shorter ones (1000 => 1k) or to format dates based on locale.
 
 Props: \`tickFormatter\`.
 
 When localizing dates, use \`tickFormatter.timestamps\` as it traslates the values in the tooltip as well. Avoid using comma separators for dates as .csv files use them for cell separation. \`tickFormatter.xAxisBottom\` overrides \`tickFormatter.timeseries\` when both are present, in case tooltip and x axis present different date formats.
 `}
+          title="Tick format"
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample code={tickFormatter} name="Tick format" layout="column" />
+              <SandpackExample code={tickFormatter} layout="column" name="Tick format" />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Time series"
           description={`ChartGraph supports timeseries. To enable timeseries, set \`tickFormatter.timeseries\`. Time series charts are only supported in vertical layout.
 
 Props: \`tickFormatter.timeseries\`.
             `}
+          title="Time series"
         >
           <MainSection.Card
             sandpackExample={
               <SandpackExample
                 code={timeseries}
-                name="Time series"
                 layout="column"
+                name="Time series"
                 previewHeight={LARGE_HEIGHT}
               />
             }
@@ -690,18 +690,18 @@ Props: \`tickFormatter.timeseries\`.
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description={`
 - Keep labels short so that they don’t wrap and make it hard to read data
 - Use abbreviations that are commonly understood and can be translated to all supported languages. For more on abbreviations, see our [Content standards](/foundations/content_standards/formatting#Dates-and-abbreviations).
 `}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description={`
 - Create extra-long labels that have to wrap or truncate
 - Use abbreviations that are only understood internally or that don't translate well.`}
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>

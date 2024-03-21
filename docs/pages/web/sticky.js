@@ -12,8 +12,8 @@ import main from '../../examples/sticky/main';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample code={main} name="Sticky top" layout="column" hideEditor />
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
+        <SandpackExample code={main} hideEditor layout="column" name="Sticky top" />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />

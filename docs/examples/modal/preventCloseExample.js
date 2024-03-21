@@ -8,10 +8,10 @@ export default function PreventCloseExample(): ReactNode {
     <Fragment>
       <Box padding={8}>
         <Button
-          text="Open Modal"
           onClick={() => {
             setShowComponent(!showComponent);
           }}
+          text="Open Modal"
         />
       </Box>
 
@@ -21,21 +21,21 @@ export default function PreventCloseExample(): ReactNode {
             accessibilityModalLabel="Non closable modal"
             align="start"
             closeOnOutsideClick={false}
-            heading="Heading"
-            onDismiss={() => {
-              setShowComponent(!showComponent);
-            }}
             footer={
               <Flex justifyContent="end">
                 <Button
                   color="red"
-                  text="Close"
                   onClick={() => {
                     setShowComponent(!showComponent);
                   }}
+                  text="Close"
                 />
               </Flex>
             }
+            heading="Heading"
+            onDismiss={() => {
+              setShowComponent(!showComponent);
+            }}
           >
             <Text align="start">Click on the button to close the modal</Text>
           </Modal>

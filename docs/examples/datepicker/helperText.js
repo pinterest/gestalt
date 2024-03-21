@@ -10,12 +10,12 @@ export default function Example(): ReactNode {
     <Flex alignItems="start" height="100%" justifyContent="center" width="100%">
       <Box padding={2}>
         <DatePicker
+          helperText="Select from the next available dateValueDisablePast"
           id="heleprText"
           label="Customer service appointment"
+          minDate={new Date()}
           onChange={({ value }) => setDateValue(value)}
           value={dateValue}
-          helperText="Select from the next available dateValueDisablePast"
-          minDate={new Date()}
         />
       </Box>
     </Flex>

@@ -91,16 +91,16 @@ export default function DropdownItem({
     <DropdownContextConsumer>
       {({ id, hoveredItemIndex, setHoveredItemIndex, setOptionRef }) => (
         <OptionItem
+          key={`${option.value + _index}`}
+          ref={setOptionRef}
           badge={badge}
           dataTestId={dataTestId}
           disabled={disabled}
           hoveredItemIndex={hoveredItemIndex}
           id={id}
           index={_index}
-          key={`${option.value + _index}`}
           onSelect={onSelect}
           option={option}
-          ref={setOptionRef}
           selected={selected}
           setHoveredItemIndex={setHoveredItemIndex}
           textWeight="bold"

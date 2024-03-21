@@ -9,19 +9,19 @@ export default function MessagingComponentsPage(): ReactNode {
   return (
     <Page title="Color fills">
       <PageHeader
-        name="Color fills"
-        type="guidelines"
         description={`Pinterest product UI should be comprised of our hero and neutrals colors. We should continue to use our baseline color palette to allow photography, actions, and content to stand out. However, there are situations where color fills can help to express brand moments on product surfaces.
 
 We recommend using the [extended color palette](https://gestalt.pinterest.systems/foundations/color/palette#Colors) to bring attention to a specific brand or marketing moment, such as celebratory news, a new feature announcement, or educational flows. However, be mindful of color choices when applying color fills to UI elements next to status messages, as they use semantic colors to convey a specific meaning. See [background color usage](https://gestalt.pinterest.systems/foundations/color/usage#Base-background-colors) for reference.
 
 The Core brand team created a [baseline brand palette](https://www.figma.com/file/xjnifcms6gq4TVuHpbUSju/?node-id=2%3A13134) with some of our extended colors; you can enable it as a library in your Figma file.`}
+        name="Color fills"
+        type="guidelines"
       />
       <Image
-        src="https://i.pinimg.com/originals/6d/5d/f1/6d5df1699ff6d7f176302f94dc28306e.png"
+        alt="screenshot of brand color swatches in Figma"
         naturalHeight={1036}
         naturalWidth={1798}
-        alt="screenshot of brand color swatches in Figma"
+        src="https://i.pinimg.com/originals/6d/5d/f1/6d5df1699ff6d7f176302f94dc28306e.png"
       />
       <Text align="center" size="100">
         Brand color swatches available in Figma (Baseline brand colors library)
@@ -31,10 +31,10 @@ The Core brand team created a [baseline brand palette](https://www.figma.com/fil
         other visual assets.{' '}
       </Text>
       <Image
-        src="https://i.pinimg.com/originals/5d/cf/95/5dcf95eb3addf436c1404daf4874d580.png"
+        alt="three examples of brand expression in the product using appropriate colors"
         naturalHeight={1216}
         naturalWidth={1792}
-        alt="three examples of brand expression in the product using appropriate colors"
+        src="https://i.pinimg.com/originals/5d/cf/95/5dcf95eb3addf436c1404daf4874d580.png"
       />
       <Text align="center" size="100">
         Idea Pin tips - Using color fills to bring brand expression{' '}
@@ -44,7 +44,6 @@ The Core brand team created a [baseline brand palette](https://www.figma.com/fil
       </Text>
       <MainSection name="Color usage">
         <MainSection.Subsection
-          title="Color fills and dark-mode"
           description={`Aim for sufficient color contrast in all appearances, no matter the color theme (light or dark mode). Our colors were defined to support you in achieving a reasonable contrast ratio between your foreground and background content in both appearances. At a minimum, ensure the contrast ratio between colors is no lower than 4.5:1, as this ratio ensures that your foreground content stands out from the background and helps your content meet recommended [WCAG 2.1 AA accessibility standards](https://www.w3.org/TR/WCAG21/).
 
 We suggest checking [Brand color expression + accessibility](https://brand.pinterest.com/color/) for references on color combination considering both themes. You can also use [color pairing Figma plugin](https://www.figma.com/proto/WojVVmZpVP1aJcWPekckkP/Pinterest-Brand-Figma-Plugins?page-id=0%3A1&node-id=3%3A454&viewport=311%2C48%2C0.65&scaling=contain&starting-point-node-id=10%3A179) to test your color contrast level.
@@ -52,10 +51,10 @@ When using images or icons over color fills, ensure they look good in both theme
 
 For more information about colors, check out our [color documentation](/foundations/color/palette).
 `}
+          title="Color fills and dark-mode"
         />
 
         <MainSection.Subsection
-          title="Color fills and typography"
           description={`
 #### Headings
 Avoid using extended colors to text elements, as changing colors could lead to usability and cognitive issues due to their semantic meaning and required contrast level. Refer to our [text color tokens](/foundations/design_tokens/overview#Text-color) for guidance.
@@ -67,29 +66,30 @@ Body should always be $color-text-default (default color), $color-text-inverse (
 
 See below examples of UI elements using the appropriate text colors over color fills.
         `}
+          title="Color fills and typography"
         >
-          <Flex gap={12} direction="column">
-            <Flex gap={12} wrap alignItems="end">
-              <Flex.Item minWidth={320} flex="grow">
+          <Flex direction="column" gap={12}>
+            <Flex alignItems="end" gap={12} wrap>
+              <Flex.Item flex="grow" minWidth={320}>
                 <Flex direction="column" gap={4}>
                   <Image
-                    src="https://i.pinimg.com/originals/6e/f3/5c/6ef35ce8021c2aa5502c18f50f2ef966.png"
+                    alt="example of using a green background with white text"
                     naturalHeight={480}
                     naturalWidth={718}
-                    alt="example of using a green background with white text"
+                    src="https://i.pinimg.com/originals/6e/f3/5c/6ef35ce8021c2aa5502c18f50f2ef966.png"
                   />
                   <Text align="center" size="100">
                     Matchacado-green-500 + $color-text-inverse
                   </Text>
                 </Flex>
               </Flex.Item>
-              <Flex.Item minWidth={320} flex="grow">
+              <Flex.Item flex="grow" minWidth={320}>
                 <Flex direction="column" gap={4}>
                   <Image
-                    src="https://i.pinimg.com/originals/e8/49/7c/e8497ce56cdab39f1af97864e31d5a99.png"
+                    alt="example of a using light orange background with dark text"
                     naturalHeight={416}
                     naturalWidth={686}
-                    alt="example of a using light orange background with dark text"
+                    src="https://i.pinimg.com/originals/e8/49/7c/e8497ce56cdab39f1af97864e31d5a99.png"
                   />
                   <Text align="center" size="100">
                     Firetine-orange-100 + $color-text-default
@@ -97,27 +97,27 @@ See below examples of UI elements using the appropriate text colors over color f
                 </Flex>
               </Flex.Item>
             </Flex>
-            <Flex gap={12} wrap alignItems="end">
-              <Flex.Item minWidth={320} flex="grow">
+            <Flex alignItems="end" gap={12} wrap>
+              <Flex.Item flex="grow" minWidth={320}>
                 <Flex direction="column" gap={4}>
                   <Image
-                    src="https://i.pinimg.com/originals/b2/f4/a4/b2f4a4bb96fa7579d13be3c6b1a60874.png"
+                    alt="example of a using dark teal background with white text and button"
                     naturalHeight={410}
                     naturalWidth={694}
-                    alt="example of a using dark teal background with white text and button"
+                    src="https://i.pinimg.com/originals/b2/f4/a4/b2f4a4bb96fa7579d13be3c6b1a60874.png"
                   />
                   <Text align="center" size="100">
                     Spabattical-teal-700 + $color-text-inverse
                   </Text>
                 </Flex>
               </Flex.Item>
-              <Flex.Item minWidth={320} flex="grow">
+              <Flex.Item flex="grow" minWidth={320}>
                 <Flex direction="column" gap={4}>
                   <Image
-                    src="https://i.pinimg.com/originals/c6/3a/6e/c63a6e92a920f4b25698e64c4648b004.png"
+                    alt="example of using a light teal background with dark text"
                     naturalHeight={358}
                     naturalWidth={686}
-                    alt="example of using a light teal background with dark text"
+                    src="https://i.pinimg.com/originals/c6/3a/6e/c63a6e92a920f4b25698e64c4648b004.png"
                   />
                   <Text align="center" size="100">
                     Spabattical-teal-100 + $color-text-default
@@ -128,42 +128,42 @@ See below examples of UI elements using the appropriate text colors over color f
           </Flex>
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Color fills and iconography"
           description={`Gestalt icons should always use established colors, as our color props are semantically aligned with our [iconography principles](/foundations/iconography/usage#Principles).
 
 If colors are needed to express a brand moment on the product, consider adding a colored background to the icon instead of adding alternative colors to the icon component. Ensure it meets the [WCAG 2.1 AA accessibility standard](https://www.w3.org/TR/WCAG21/) with the proper contrast between foreground and background. See the examples below.`}
+          title="Color fills and iconography"
         >
-          <Box gap={8} wrap alignItems="center" mdDisplay="flex" lgDisplay="flex" smDisplay="block">
-            <Box mdColumn={6} lgColumn={2} smColumn={12}>
+          <Box alignItems="center" gap={8} lgDisplay="flex" mdDisplay="flex" smDisplay="block" wrap>
+            <Box lgColumn={2} mdColumn={6} smColumn={12}>
               <Image
+                alt="example of using a colored background with an icon as a light brand moment"
+                naturalHeight={242}
+                naturalWidth={261}
                 src="https://i.pinimg.com/originals/01/1c/d3/011cd3c155d18d68e5c66ab8a5dcee81.png"
-                naturalWidth={261}
-                naturalHeight={242}
-                alt="example of using a colored background with an icon as a light brand moment"
               />
             </Box>
-            <Box mdColumn={6} lgColumn={2} smColumn={12}>
+            <Box lgColumn={2} mdColumn={6} smColumn={12}>
               <Image
-                src="https://i.pinimg.com/originals/56/70/3b/56703b409d6b0b89f6d585e180771dde.png"
+                alt="example of using a colored background with an icon as a light brand moment"
+                naturalHeight={242}
                 naturalWidth={262}
-                naturalHeight={242}
-                alt="example of using a colored background with an icon as a light brand moment"
+                src="https://i.pinimg.com/originals/56/70/3b/56703b409d6b0b89f6d585e180771dde.png"
               />
             </Box>
-            <Box mdColumn={6} lgColumn={2} smColumn={12}>
+            <Box lgColumn={2} mdColumn={6} smColumn={12}>
               <Image
-                src="https://i.pinimg.com/originals/e2/2e/af/e22eaf06ab4771f4aa295d8a63ffbcb7.png"
+                alt="example of using a colored background with an icon as a light brand moment"
+                naturalHeight={242}
                 naturalWidth={261}
-                naturalHeight={242}
-                alt="example of using a colored background with an icon as a light brand moment"
+                src="https://i.pinimg.com/originals/e2/2e/af/e22eaf06ab4771f4aa295d8a63ffbcb7.png"
               />
             </Box>
-            <Box mdColumn={6} lgColumn={6} smColumn={12}>
+            <Box lgColumn={6} mdColumn={6} smColumn={12}>
               <Image
-                src="https://i.pinimg.com/originals/15/cc/dc/15ccdc0c40829fbfc48622f886f16a93.png"
-                naturalWidth={718}
-                naturalHeight={332}
                 alt="example of using a colored background with a colored icon as a light brand moment"
+                naturalHeight={332}
+                naturalWidth={718}
+                src="https://i.pinimg.com/originals/15/cc/dc/15ccdc0c40829fbfc48622f886f16a93.png"
               />
             </Box>
           </Box>
@@ -180,10 +180,10 @@ Make sure your color fills have great contrast in our light and dark mode color 
 Don’t use color exclusively to convey meaning. Color should only be used as an enhancement — if color is the only cue, that cue won’t get through as intended to everyone.`}
         />
         <MainSection.Subsection
-          title="Extended color palette"
           description={`The extended color palette displays all the available shades and tints of each color in the palette. The colors are named and numbered for easy reference. The usage of these colors come in handy for brand moments. In order to ensure accessible contrast for color pairings, we require our darkGray [Text](/web/text) color to be used for any colors 400 and below. For 500 and above, we recommend using white. Learn more by checking our [color palette documentation](https://gestalt.pinterest.systems/foundations/color/palette#Extended-palette).
 
 The 450 colors are primarily reserved for Brand usage as they are among the least accessible colors. This set works best within larger brand moments, and is not commonly used for functional color pairings.`}
+          title="Extended color palette"
         />
       </MainSection>
     </Page>

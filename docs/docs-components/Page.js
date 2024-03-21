@@ -39,15 +39,14 @@ export default function Page({
       <Box flex="grow" maxWidth={hideSideNav ? CONTENT_MAX_WIDTH_PX : DETAIL_PAGE_MAX_WIDTH}>
         <SearchContent>
           <Flex
+            direction="column"
             gap={{
               row: 0,
               column: 8,
             }}
-            direction="column"
           >
             {sections.map((card, i) => (
               <Box
-                id={`card-${i}`}
                 // eslint-disable-next-line react/no-array-index-key
                 key={i}
                 dangerouslySetInlineStyle={{
@@ -55,6 +54,7 @@ export default function Page({
                     scrollMarginTop: 60,
                   },
                 }}
+                id={`card-${i}`}
               >
                 {card}
               </Box>
@@ -64,7 +64,7 @@ export default function Page({
 
         {!hideEditLink && (
           <Box marginTop={12}>
-            <Link href={editPageUrl} target="blank" display="inlineBlock">
+            <Link display="inlineBlock" href={editPageUrl} target="blank">
               <Text underline>Edit page on GitHub</Text>
             </Link>
           </Box>
@@ -73,14 +73,14 @@ export default function Page({
 
       {!hideSideNav && (
         <Box
-          minWidth={200}
-          maxWidth={240}
-          marginStart={4}
-          mdMarginStart={6}
-          lgMarginStart={8}
           display="none"
-          lgDisplay="block"
           flex="none"
+          lgDisplay="block"
+          lgMarginStart={8}
+          marginStart={4}
+          maxWidth={240}
+          mdMarginStart={6}
+          minWidth={200}
         >
           <Toc cards={sections} />
         </Box>

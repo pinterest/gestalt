@@ -4,7 +4,7 @@ import { Box, Button, Flex, Image, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Box height={266} width={200}>
         <Image
           alt="Tropic greens: The taste of Petrol and Porcelain | Interior design, Vintage Sets and Unique Pieces agave"

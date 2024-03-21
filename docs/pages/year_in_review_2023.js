@@ -81,40 +81,40 @@ export default function YearInReview2023(): ReactNode {
   return (
     <div className="year-in-review-2023">
       <ColorSchemeProvider colorScheme="light" id="gestalt-yir">
-        <Flex flex="grow" direction="column">
+        <Flex direction="column" flex="grow">
           <Box
-            role="navigation"
-            position="fixed"
-            top
             left
-            padding={4}
             mdPadding={8}
+            padding={4}
+            position="fixed"
+            role="navigation"
+            top
             zIndex={BUTTON_ZINDEX}
           >
             <Link href="/home">
-              <div className="backButton" role="link" aria-label="Back to Gestalt Home">
-                <Icon icon="home" color="dark" accessibilityLabel="Home" size={28} />
+              <div aria-label="Back to Gestalt Home" className="backButton" role="link">
+                <Icon accessibilityLabel="Home" color="dark" icon="home" size={28} />
                 <GestaltLogo height={50} width={50} />
               </div>
             </Link>
           </Box>
 
           <Box
-            width="100%"
             dangerouslySetInlineStyle={{
               __style: { backgroundColor: TOKEN_COLOR_BACKGROUND_DEFAULT },
             }}
             position="relative"
+            width="100%"
           >
-            <Flex direction="column" alignItems="center">
-              <Box marginTop={12} column={6} mdColumn={3} marginBottom={4}>
+            <Flex alignItems="center" direction="column">
+              <Box column={6} marginBottom={4} marginTop={12} mdColumn={3}>
                 <HeroAnimation shouldReduceMotion={shouldReduceMotion} />
               </Box>
               <Box marginBottom={4}>
                 <h1 className="h1Font2023">Year in review</h1>
               </Box>
               <Box marginBottom={8} marginTop={-2}>
-                <Flex gap={3} alignItems="center" justifyContent="center">
+                <Flex alignItems="center" gap={3} justifyContent="center">
                   <Box opacity={0}>
                     <Lottie animationData={Twinkle} autoplay={!shouldReduceMotion} />
                   </Box>
@@ -127,43 +127,43 @@ export default function YearInReview2023(): ReactNode {
                 </Flex>
               </Box>
               <Box
-                width="50%"
-                position="absolute"
-                marginStart={10}
                 dangerouslySetInlineStyle={{
                   __style: {
                     bottom: '1%',
                     right: '-1%',
                   },
                 }}
+                marginStart={10}
+                position="absolute"
+                width="50%"
               >
                 <IntroLine className="introLineIn" width="100%" />
               </Box>
             </Flex>
           </Box>
-          <Flex direction="column" alignItems="center">
+          <Flex alignItems="center" direction="column">
             <div className="halfAndHalf">
               <Box
                 color="light"
-                padding={12}
-                marginTop={8}
-                maxWidth={MAX_CONTENT_WIDTH}
                 dangerouslySetInlineStyle={{
                   __style: {
                     border: '4px solid #111111',
                   },
                 }}
                 margin={4}
+                marginTop={8}
+                maxWidth={MAX_CONTENT_WIDTH}
+                padding={12}
                 zIndex={INTRO_ZINDEX}
               >
-                <Flex gap={4} direction="column">
+                <Flex direction="column" gap={4}>
                   <Text size="400">
                     It&apos;s 2024 and everyone at Pinterest Gestalt headquarters is currently
                     gearing up to drive more adoption while improving our governance and
                     contribution models. But our latest initiatives depend heavily on what we
                     accomplished in 2023. So, let&apos;s take one more quick look at all of our 2023
                     highlights so that we feel even better about what&apos;s to come in 2024.{' '}
-                    <Text weight="bold" size="400" inline>
+                    <Text inline size="400" weight="bold">
                       Hint:
                     </Text>{' '}
                     2023 was a winner!
@@ -176,63 +176,63 @@ export default function YearInReview2023(): ReactNode {
             dangerouslySetInlineStyle={{
               __style: { backgroundColor: TOKEN_COLOR_BLUE_SKYCICLE_100 },
             }}
-            paddingY={12}
             paddingX={SIDE_GAP}
+            paddingY={12}
             position="relative"
           >
-            <Flex direction="column" alignItems="center" justifyContent="center">
+            <Flex alignItems="center" direction="column" justifyContent="center">
               <Box lgMarginTop={8}>
                 <Heading accessibilityLevel={2} align="center">
                   The people&apos;s choice
                 </Heading>
               </Box>
-              <Flex gap={4} maxWidth={MAX_CONTENT_WIDTH} direction="column">
+              <Flex direction="column" gap={4} maxWidth={MAX_CONTENT_WIDTH}>
                 <Box
-                  maxWidth={665}
-                  marginTop={12}
-                  marginBottom={2}
-                  width="100%"
+                  column={6}
                   display="inlineBlock"
                   justifyContent="center"
-                  overflow="hidden"
-                  column={6}
+                  marginBottom={2}
+                  marginTop={12}
+                  maxWidth={665}
                   mdColumn={3}
+                  overflow="hidden"
+                  width="100%"
                 >
                   <Lottie animationData={PeoplesChoice} autoplay={!shouldReduceMotion} />
                 </Box>
 
-                <Box paddingY={12} paddingX={SIDE_GAP} position="relative">
+                <Box paddingX={SIDE_GAP} paddingY={12} position="relative">
                   <Text size="400">
                     2023 ushered in Zeroheight&apos;s first-ever{' '}
                     <Link
-                      href="https://zeroheight.com/events/design-system-awards/winners/"
                       display="inline"
-                      target="blank"
                       externalLinkIcon="default"
+                      href="https://zeroheight.com/events/design-system-awards/winners/"
                       rel="nofollow"
+                      target="blank"
                     >
                       Design System Awards
                     </Link>
                     . Gestalt was a finalist in five categories and won three awards:{' '}
-                    <Text weight="bold" size="400" inline>
+                    <Text inline size="400" weight="bold">
                       Best Article
                     </Text>{' '}
                     (
                     <Link
-                      href="https://www.figma.com/blog/how-pinterests-design-systems-team-measures-adoption/"
                       display="inline"
-                      target="blank"
-                      rel="nofollow"
                       externalLinkIcon="default"
+                      href="https://www.figma.com/blog/how-pinterests-design-systems-team-measures-adoption/"
+                      rel="nofollow"
+                      target="blank"
                     >
                       How Gestalt measures adoption
                     </Link>{' '}
                     by Ravi Lingineni),{' '}
-                    <Text weight="bold" size="400" inline>
+                    <Text inline size="400" weight="bold">
                       Best Collaboration
                     </Text>{' '}
                     and{' '}
-                    <Text weight="bold" size="400" inline>
+                    <Text inline size="400" weight="bold">
                       People&apos;s Choice
                     </Text>
                     . It was great being honored with other amazing design systems teams in the
@@ -247,18 +247,18 @@ export default function YearInReview2023(): ReactNode {
               </Flex>
               <Box
                 color="light"
-                padding={8}
-                marginTop={10}
-                marginBottom={12}
-                display="inlineBlock"
-                maxWidth={894}
                 dangerouslySetInlineStyle={{
                   __style: {
                     border: '4px solid #111111',
                   },
                 }}
+                display="inlineBlock"
+                marginBottom={12}
+                marginTop={10}
+                maxWidth={894}
+                padding={8}
               >
-                <Box maxWidth={56} marginBottom={2} padding={3}>
+                <Box marginBottom={2} maxWidth={56} padding={3}>
                   <Quote />
                 </Box>
                 <Box maxWidth={644} padding={4}>
@@ -266,7 +266,7 @@ export default function YearInReview2023(): ReactNode {
                     <Text size="400" weight="bold">
                       I enjoy that I&apos;m able to explore multiple explorations quickly with our
                       Figma library. I&apos;m able to cut the time and effort.
-                      <Text size="400" align="end">
+                      <Text align="end" size="400">
                         —Product Designer
                       </Text>
                     </Text>
@@ -275,7 +275,7 @@ export default function YearInReview2023(): ReactNode {
                   <Box marginBottom={8}>
                     <Text size="400" weight="bold">
                       Gestalt is always my favorite team to collaborate with!
-                      <Text size="400" align="end">
+                      <Text align="end" size="400">
                         —Software Engineer
                       </Text>
                     </Text>
@@ -285,7 +285,7 @@ export default function YearInReview2023(): ReactNode {
                       You are all rockstars and it&apos;s always a great time getting all of your
                       guidance! Thank you for all you do in making sure our product is accessible to
                       everyone.
-                      <Text size="400" align="end">
+                      <Text align="end" size="400">
                         —Product Designer
                       </Text>
                     </Text>
@@ -299,10 +299,10 @@ export default function YearInReview2023(): ReactNode {
               __style: { backgroundColor: TOKEN_COLOR_PINK_FLAMINGLOW_200 },
             }}
           >
-            <Box paddingY={12} paddingX={SIDE_GAP} position="relative">
-              <Flex direction="column" alignItems="center" justifyContent="center">
+            <Box paddingX={SIDE_GAP} paddingY={12} position="relative">
+              <Flex alignItems="center" direction="column" justifyContent="center">
                 <Box marginBottom={8} marginTop={8} paddingX={SIDE_GAP}>
-                  <Heading align="center" accessibilityLevel={2}>
+                  <Heading accessibilityLevel={2} align="center">
                     The doc is in
                   </Heading>
                 </Box>
@@ -314,15 +314,15 @@ export default function YearInReview2023(): ReactNode {
               __style: { backgroundColor: TOKEN_COLOR_WHITE_MOCHIMALIST_0 },
             }}
           >
-            <Box paddingY={12} paddingX={SIDE_GAP} position="relative">
-              <Flex direction="column" alignItems="center" justifyContent="center">
-                <Flex gap={4} direction="column" maxWidth={MAX_CONTENT_WIDTH}>
+            <Box paddingX={SIDE_GAP} paddingY={12} position="relative">
+              <Flex alignItems="center" direction="column" justifyContent="center">
+                <Flex direction="column" gap={4} maxWidth={MAX_CONTENT_WIDTH}>
                   <Text size="400">
                     2023 was another big year for Gestalt documentation—contributions and
                     collaboration were the name of the game there as well. Our guidelines on{' '}
                     <Link
-                      href="https://gestalt.pinterest.systems/foundations/forms/overview"
                       display="inline"
+                      href="https://gestalt.pinterest.systems/foundations/forms/overview"
                       target="blank"
                     >
                       Form patterns
@@ -330,8 +330,8 @@ export default function YearInReview2023(): ReactNode {
                     , for example, came as a direct contribution from our colleagues in Advertising
                     design. Similarly, our comprehensive guidelines for{' '}
                     <Link
-                      href="https://gestalt.pinterest.systems/foundations/data_visualization/overview"
                       display="inline"
+                      href="https://gestalt.pinterest.systems/foundations/data_visualization/overview"
                     >
                       data visualization
                     </Link>{' '}
@@ -340,13 +340,13 @@ export default function YearInReview2023(): ReactNode {
                   <Text size="400">
                     A collaboration with our Pinner Design Team yielded solid guidance, specs and
                     Figma components for{' '}
-                    <Link href="https://gestalt.pinterest.systems/ios/card/card" display="inline">
+                    <Link display="inline" href="https://gestalt.pinterest.systems/ios/card/card">
                       Cards and Preview blocks
                     </Link>
                     . We also leaned on our Brand colleagues to release{' '}
                     <Link
-                      href="https://gestalt.pinterest.systems/foundations/illustration"
                       display="inline"
+                      href="https://gestalt.pinterest.systems/foundations/illustration"
                     >
                       Illustration guidelines
                     </Link>{' '}
@@ -357,8 +357,8 @@ export default function YearInReview2023(): ReactNode {
                     Finally, as we continue to make Pinterest more inclusive, we published guidance
                     on{' '}
                     <Link
-                      href="https://gestalt.pinterest.systems/foundations/international_design/about_international_design"
                       display="inline"
+                      href="https://gestalt.pinterest.systems/foundations/international_design/about_international_design"
                     >
                       International design
                     </Link>
@@ -372,22 +372,22 @@ export default function YearInReview2023(): ReactNode {
                     total people performing searches. We also made it easier for people to
                     contribute with a new section on{' '}
                     <Link
-                      href="https://gestalt.pinterest.systems/team_support/contributions"
                       display="inline"
+                      href="https://gestalt.pinterest.systems/team_support/contributions"
                     >
                       Contributions
                     </Link>{' '}
                     and{' '}
                     <Link
-                      href="https://gestalt.pinterest.systems/team_support/overview"
                       display="inline"
+                      href="https://gestalt.pinterest.systems/team_support/overview"
                     >
                       Team support
                     </Link>
                     . In addition, we now provide a Figma toolkit and guidelines for{' '}
                     <Link
-                      href="https://gestalt.pinterest.systems/team_support/design_file_hygiene/naming_convention"
                       display="inline"
+                      href="https://gestalt.pinterest.systems/team_support/design_file_hygiene/naming_convention"
                     >
                       file hygiene
                     </Link>{' '}
@@ -396,40 +396,40 @@ export default function YearInReview2023(): ReactNode {
                 </Flex>
 
                 <Box
-                  padding={12}
-                  marginTop={10}
-                  marginBottom={9}
-                  marginStart={12}
-                  marginEnd={12}
-                  display="flex"
-                  maxWidth={894}
-                  minWidth={300}
                   dangerouslySetInlineStyle={{
                     __style: {
                       border: '4px solid #111111',
                       backgroundColor: TOKEN_COLOR_PINK_FLAMINGLOW_100,
                     },
                   }}
+                  display="flex"
+                  marginBottom={9}
+                  marginEnd={12}
+                  marginStart={12}
+                  marginTop={10}
+                  maxWidth={894}
+                  minWidth={300}
+                  padding={12}
                 >
                   <Flex gap={4}>
                     <div className="statsGrid">
-                      <StatsGrid number="27%" description="increase in total search queries" />
-                      <StatsGrid number="9%" description="In-product accessibility enhancements" />
+                      <StatsGrid description="increase in total search queries" number="27%" />
+                      <StatsGrid description="In-product accessibility enhancements" number="9%" />
                       <StatsGrid
-                        number="16"
                         description="net new foundations, components, and pattern guidelines"
+                        number="16"
                       />
                     </div>
                     <Box>
                       <Lottie
-                        className="docsGraphic"
                         animationData={Docs}
                         autoplay={!shouldReduceMotion}
+                        className="docsGraphic"
                       />
                     </Box>
                   </Flex>
                 </Box>
-                <Flex gap={4} direction="column" maxWidth={MAX_CONTENT_WIDTH}>
+                <Flex direction="column" gap={4} maxWidth={MAX_CONTENT_WIDTH}>
                   <Box marginBottom={8}>
                     <Text size="400">
                       The documentation experience improved for our engineering audience as well. We
@@ -449,34 +449,34 @@ export default function YearInReview2023(): ReactNode {
               },
             }}
           >
-            <Box paddingX={SIDE_GAP} position="relative" marginBottom={12}>
-              <Flex direction="column" alignItems="center" justifyContent="center">
+            <Box marginBottom={12} paddingX={SIDE_GAP} position="relative">
+              <Flex alignItems="center" direction="column" justifyContent="center">
                 <Box marginBottom={8} marginTop={12} width="75%">
-                  <Heading align="center" accessibilityLevel={2}>
+                  <Heading accessibilityLevel={2} align="center">
                     There&apos;s still room for components and tokens
                   </Heading>
                 </Box>
                 <Box
-                  maxWidth={665}
-                  marginTop={4}
-                  marginBottom={12}
-                  width="100%"
+                  column={6}
                   display="inlineBlock"
                   justifyContent="center"
-                  overflow="hidden"
-                  column={6}
+                  marginBottom={12}
+                  marginTop={4}
+                  maxWidth={665}
                   mdColumn={3}
+                  overflow="hidden"
+                  width="100%"
                 >
                   <Lottie animationData={Tokens} autoplay={!shouldReduceMotion} />
                 </Box>
-                <Flex gap={4} direction="column" maxWidth={MAX_CONTENT_WIDTH}>
+                <Flex direction="column" gap={4} maxWidth={MAX_CONTENT_WIDTH}>
                   <Text size="400">
                     If people are the salt and pepper of design systems, then components and tokens
                     are the potatoes and butter? Whatever the case may be, we had plenty of time to
                     continue to add to our components, foundations and token libraries in 2023.
                     There was a significant increase in the amount of native mobile components:
-                    <Box marginTop={4} marginBottom={4}>
-                      <List type="unordered" size="400">
+                    <Box marginBottom={4} marginTop={4}>
+                      <List size="400" type="unordered">
                         <List.Item text="Fourteen native Android components are readily available in both Figma and code—more soon to follow!" />
                         <List.Item
                           text="Nineteen components documented for iOS, with three
@@ -487,25 +487,25 @@ export default function YearInReview2023(): ReactNode {
                   </Text>
                   <Text size="400">
                     2023 was also a big year for Web components.{' '}
-                    <Link href="https://gestalt.pinterest.systems/web/chartgraph" display="inline">
+                    <Link display="inline" href="https://gestalt.pinterest.systems/web/chartgraph">
                       Bar and line graphs
                     </Link>{' '}
                     manipulated by{' '}
-                    <Link href="https://gestalt.pinterest.systems/web/tiledata" display="inline">
+                    <Link display="inline" href="https://gestalt.pinterest.systems/web/tiledata">
                       tiles
                     </Link>{' '}
                     and{' '}
-                    <Link href="https://gestalt.pinterest.systems/web/tagdata" display="inline">
+                    <Link display="inline" href="https://gestalt.pinterest.systems/web/tagdata">
                       tags
                     </Link>
                     !{' '}
-                    <Link href="https://gestalt.pinterest.systems/web/sheetmobile" display="inline">
+                    <Link display="inline" href="https://gestalt.pinterest.systems/web/sheetmobile">
                       Mobile sheets
                     </Link>{' '}
                     or{' '}
                     <Link
-                      href="https://gestalt.pinterest.systems/web/banneroverlay"
                       display="inline"
+                      href="https://gestalt.pinterest.systems/web/banneroverlay"
                     >
                       overlay banners
                     </Link>
@@ -517,20 +517,20 @@ export default function YearInReview2023(): ReactNode {
                     future theming for those who need denser interfaces and for those who need
                     larger tap areas for AAA accessibility. As part of the deal, we added small,
                     medium and large variants to 3 components:{' '}
-                    <Link href="https://gestalt.pinterest.systems/web/tag#Size" display="inline">
+                    <Link display="inline" href="https://gestalt.pinterest.systems/web/tag#Size">
                       Tag
                     </Link>
                     ,{' '}
                     <Link
-                      href="https://gestalt.pinterest.systems/web/accordion#Sizes"
                       display="inline"
+                      href="https://gestalt.pinterest.systems/web/accordion#Sizes"
                     >
                       Accordion
                     </Link>{' '}
                     and{' '}
                     <Link
-                      href="https://gestalt.pinterest.systems/web/segmentedcontrol#Size"
                       display="inline"
+                      href="https://gestalt.pinterest.systems/web/segmentedcontrol#Size"
                     >
                       SegmentedControl
                     </Link>
@@ -538,25 +538,25 @@ export default function YearInReview2023(): ReactNode {
                   </Text>
                 </Flex>
                 <Box
-                  padding={10}
-                  marginTop={8}
-                  marginBottom={12}
-                  display="inlineBlock"
                   alignSelf="center"
-                  maxWidth={894}
                   dangerouslySetInlineStyle={{
                     __style: {
                       border: '4px solid #111111',
                       backgroundColor: TOKEN_COLOR_WHITE_MOCHIMALIST_0,
                     },
                   }}
+                  display="inlineBlock"
+                  marginBottom={12}
+                  marginTop={8}
+                  maxWidth={894}
+                  padding={10}
                 >
-                  <Flex gap={8} alignItems="center">
+                  <Flex alignItems="center" gap={8}>
                     <div className="statsGrid">
-                      <StatsGrid number="39" description="icons added to our central library" />
-                      <StatsGrid number=" 17" description="native mobile components added" />
-                      <StatsGrid number="10" description="web components added" />
-                      <StatsGrid number="231" description="component fixes and updates" />
+                      <StatsGrid description="icons added to our central library" number="39" />
+                      <StatsGrid description="native mobile components added" number=" 17" />
+                      <StatsGrid description="web components added" number="10" />
+                      <StatsGrid description="component fixes and updates" number="231" />
                     </div>
                     <Box>
                       <Lottie animationData={Smiley} autoplay={!shouldReduceMotion} />
@@ -568,26 +568,26 @@ export default function YearInReview2023(): ReactNode {
           </Box>
           <Box color="light" marginBottom={12}>
             <Box paddingX={SIDE_GAP}>
-              <Flex alignItems="center" justifyContent="center" direction="column">
-                <Box paddingY={12} align="center">
+              <Flex alignItems="center" direction="column" justifyContent="center">
+                <Box align="center" paddingY={12}>
                   <Box
-                    maxWidth={665}
-                    marginTop={12}
-                    marginBottom={12}
-                    width="100%"
+                    column={6}
                     display="inlineBlock"
                     justifyContent="center"
-                    overflow="hidden"
-                    column={6}
+                    marginBottom={12}
+                    marginTop={12}
+                    maxWidth={665}
                     mdColumn={3}
+                    overflow="hidden"
+                    width="100%"
                   >
                     <Lottie animationData={VariablesGraphic} autoplay={!shouldReduceMotion} />
                   </Box>
-                  <Heading align="center" accessibilityLevel={2}>
+                  <Heading accessibilityLevel={2} align="center">
                     From styles to Variables!
                   </Heading>
                 </Box>
-                <Flex alignItems="start" justifyContent="center" gap={12} wrap>
+                <Flex alignItems="start" gap={12} justifyContent="center" wrap>
                   <Flex.Item flexBasis={600}>
                     <Flex direction="column" gap={4}>
                       <Text size="400">
@@ -612,41 +612,41 @@ export default function YearInReview2023(): ReactNode {
             </Box>
           </Box>
           <Box
+            alignItems="center"
             dangerouslySetInlineStyle={{
               __style: { backgroundColor: TOKEN_COLOR_BLUE_SKYCICLE_100 },
             }}
-            paddingY={12}
-            paddingX={SIDE_GAP}
-            marginTop={8}
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
             direction="column"
+            display="flex"
+            justifyContent="center"
+            marginTop={8}
+            paddingX={SIDE_GAP}
+            paddingY={12}
           >
             <Box position="relative" width="100%">
-              <Flex direction="column" gap={12} alignItems="center">
-                <Heading align="center" accessibilityLevel={2}>
+              <Flex alignItems="center" direction="column" gap={12}>
+                <Heading accessibilityLevel={2} align="center">
                   Design System Day—yum!
                 </Heading>
                 <Box
-                  maxWidth={665}
-                  marginTop={4}
-                  marginBottom={12}
-                  width="100%"
+                  column={6}
                   display="inlineBlock"
                   justifyContent="center"
-                  overflow="hidden"
-                  column={6}
+                  marginBottom={12}
+                  marginTop={4}
+                  maxWidth={665}
                   mdColumn={3}
+                  overflow="hidden"
+                  width="100%"
                 >
                   <Lottie animationData={DSD} autoplay={!shouldReduceMotion} />
                 </Box>
 
                 <Flex
-                  direction="column"
                   alignItems="center"
-                  justifyContent="center"
+                  direction="column"
                   gap={4}
+                  justifyContent="center"
                   maxWidth={MAX_CONTENT_WIDTH}
                 >
                   <Text size="400">
@@ -658,10 +658,10 @@ export default function YearInReview2023(): ReactNode {
                   <Text size="400">
                     You can read all about it on our{' '}
                     <Link
-                      href="https://pinterest.design/why-we-host-an-internal-design-systems-conference-3bb6017c6ca2"
                       display="inline"
-                      target="blank"
                       externalLinkIcon="default"
+                      href="https://pinterest.design/why-we-host-an-internal-design-systems-conference-3bb6017c6ca2"
+                      target="blank"
                     >
                       Pinterest Design blog
                     </Link>
@@ -671,18 +671,18 @@ export default function YearInReview2023(): ReactNode {
                 </Flex>
                 <Box
                   color="light"
-                  padding={8}
-                  marginTop={10}
-                  marginBottom={12}
-                  display="inlineBlock"
-                  maxWidth={894}
                   dangerouslySetInlineStyle={{
                     __style: {
                       border: '4px solid #111111',
                     },
                   }}
+                  display="inlineBlock"
+                  marginBottom={12}
+                  marginTop={10}
+                  maxWidth={894}
+                  padding={8}
                 >
-                  <Box maxWidth={56} marginBottom={2} padding={3}>
+                  <Box marginBottom={2} maxWidth={56} padding={3}>
                     <Quote />
                   </Box>
                   <Box maxWidth={644} padding={4}>
@@ -692,7 +692,7 @@ export default function YearInReview2023(): ReactNode {
                         conference was an example of inspiration and new trends. I met a lot of
                         people and learnt a lot at the event; it felt like I was there in person.
                         Please continue to make it happen every year!
-                        <Text size="400" align="end">
+                        <Text align="end" size="400">
                           —UX/UI Designer @ Pinterest
                         </Text>
                       </Text>
@@ -703,7 +703,7 @@ export default function YearInReview2023(): ReactNode {
                         The space was encouraging and I felt very welcomed. It&apos;s really moving
                         to be surrounded by so many people who genuinely care about accessibility
                         and inclusion. I love this community!
-                        <Text size="400" align="end">
+                        <Text align="end" size="400">
                           —Software Engineer @ external company
                         </Text>
                       </Text>
@@ -714,7 +714,7 @@ export default function YearInReview2023(): ReactNode {
                         community evolves. It was great to connect with like-minded folks and hear
                         their perspectives on inclusive design, accessibility, and design at scale.
                         Sharing our struggles and victories makes us stronger!
-                        <Text size="400" align="end">
+                        <Text align="end" size="400">
                           —Design System Day speaker
                         </Text>
                       </Text>
@@ -728,32 +728,32 @@ export default function YearInReview2023(): ReactNode {
             dangerouslySetInlineStyle={{
               __style: { backgroundColor: TOKEN_COLOR_WHITE_MOCHIMALIST_0 },
             }}
-            paddingY={12}
             paddingX={4}
+            paddingY={12}
           >
-            <Flex direction="column" alignItems="center" justifyContent="center">
+            <Flex alignItems="center" direction="column" justifyContent="center">
               <Box paddingX={10}>
-                <Heading align="center" accessibilityLevel={2} color="default">
+                <Heading accessibilityLevel={2} align="center" color="default">
                   No, really, THIS was the year
                 </Heading>
               </Box>
 
               <Box
-                display="flex"
                 alignItems="center"
-                justifyContent="center"
                 dangerouslySetInlineStyle={{
                   __style: { flexWrap: 'wrap-reverse' },
                 }}
+                display="flex"
+                justifyContent="center"
                 margin={4}
               >
                 <Flex
+                  alignItems="center"
                   direction="column"
                   gap={12}
                   maxWidth="550px"
-                  minWidth="320px"
-                  alignItems="center"
                   mdAlignItems="start"
+                  minWidth="320px"
                 >
                   <Box margin={12} minWidth="300px">
                     <Box marginBottom={12}>

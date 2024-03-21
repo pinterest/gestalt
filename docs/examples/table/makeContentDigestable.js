@@ -33,7 +33,7 @@ function BaseRow({
     <Table.Row>
       <Table.Cell>
         <Text color="default">{name}</Text>
-        <Text color="subtle" size="100" lineClamp={lineClamp}>
+        <Text color="subtle" lineClamp={lineClamp} size="100">
           {subtext}
         </Text>
       </Table.Cell>
@@ -52,10 +52,10 @@ export default function Example(): ReactNode {
       <HeaderRow />
       <Table.Body>
         <BaseRow
+          lineClamp={1}
           name="Video views for all Q3 campaigns and ad groups"
           subtext="David Brown, Carlota Ojeda, Olamide Olufemi, Rajesh Uttambai"
           total="--"
-          lineClamp={1}
         />
         <BaseRow
           name="Video views for all Q2 campaigns and ad groups"
@@ -63,10 +63,10 @@ export default function Example(): ReactNode {
           total="5,000"
         />
         <BaseRow
+          lineClamp={1}
           name="Video views for all Q2 ad groups"
           subtext="David Brown, Carlota Ojeda, Olamide Olufemi, Rajesh Uttambai"
           total="6,455,434"
-          lineClamp={1}
         />
       </Table.Body>
     </Table>

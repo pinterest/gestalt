@@ -26,23 +26,23 @@ export default function SizesExample(): ReactNode {
   const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   return (
-    <Box marginStart={-1} marginEnd={-1} padding={8}>
+    <Box marginEnd={-1} marginStart={-1} padding={8}>
       <Box padding={1}>
         <Button
-          text="Small Modal"
           onClick={() => {
             dispatch({ type: 'small' });
           }}
+          text="Small Modal"
         />
         {state.modal === 'small' && (
           <Layer zIndex={zIndex}>
             <Modal
               accessibilityModalLabel="View default padding and styling"
+              footer={<Heading size="500">Footer</Heading>}
               heading="Small modal"
               onDismiss={() => {
                 dispatch({ type: 'none' });
               }}
-              footer={<Heading size="500">Footer</Heading>}
               size="sm"
             >
               <Heading size="500">Children</Heading>
@@ -52,20 +52,20 @@ export default function SizesExample(): ReactNode {
       </Box>
       <Box padding={1}>
         <Button
-          text="Medium Modal"
           onClick={() => {
             dispatch({ type: 'medium' });
           }}
+          text="Medium Modal"
         />
         {state.modal === 'medium' && (
           <Layer zIndex={zIndex}>
             <Modal
               accessibilityModalLabel="View default padding and styling"
+              footer={<Heading size="500">Footer</Heading>}
               heading="Medium modal"
               onDismiss={() => {
                 dispatch({ type: 'none' });
               }}
-              footer={<Heading size="500">Footer</Heading>}
               size="md"
             >
               <Box padding={6}>
@@ -77,20 +77,20 @@ export default function SizesExample(): ReactNode {
       </Box>
       <Box padding={1}>
         <Button
-          text="Large Modal"
           onClick={() => {
             dispatch({ type: 'large' });
           }}
+          text="Large Modal"
         />
         {state.modal === 'large' && (
           <Layer zIndex={zIndex}>
             <Modal
               accessibilityModalLabel="View default padding and styling"
+              footer={<Heading size="500">Footer</Heading>}
               heading="Large modal"
               onDismiss={() => {
                 dispatch({ type: 'none' });
               }}
-              footer={<Heading size="500">Footer</Heading>}
               size="lg"
             >
               <Box padding={6}>

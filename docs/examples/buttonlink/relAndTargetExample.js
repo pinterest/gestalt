@@ -7,12 +7,12 @@ export default function Example(): ReactNode {
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <ButtonLink
         accessibilityLabel="Visit Pinterest"
-        iconEnd="visit"
-        size="lg"
-        text="Visit Pinterest"
-        rel="nofollow"
-        target="blank"
         href="#"
+        iconEnd="visit"
+        rel="nofollow"
+        size="lg"
+        target="blank"
+        text="Visit Pinterest"
       />
     </Flex>
   );

@@ -13,10 +13,10 @@ import {
 
 export default function Example(): ReactNode {
   return (
-    <Box paddingY={8} paddingX={8}>
+    <Box paddingX={8} paddingY={8}>
       <Flex direction="column" gap={{ column: 4, row: 0 }}>
         <Flex alignItems="center" justifyContent="start">
-          <Icon accessibilityLabel="" icon="pinterest" color="error" size={32} />
+          <Icon accessibilityLabel="" color="error" icon="pinterest" size={32} />
           <ButtonGroup>
             <Button color="transparent" iconEnd="arrow-down" text="Business" />
             <Button color="transparent" iconEnd="arrow-down" text="Create" />
@@ -28,10 +28,10 @@ export default function Example(): ReactNode {
         <Divider />
 
         <Box marginTop={4}>
-          <Flex gap={{ column: 2, row: 0 }} direction="column">
+          <Flex direction="column" gap={{ column: 2, row: 0 }}>
             <BannerUpsell
               imageData={{
-                component: <Icon icon="send" accessibilityLabel="Send" color="default" size={32} />,
+                component: <Icon accessibilityLabel="Send" color="default" icon="send" size={32} />,
               }}
               message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
               primaryAction={{

@@ -14,17 +14,16 @@ export default function Example(): ReactNode {
     />
   ) : (
     <BannerOverlay
-      zIndex={new FixedZIndex(100)}
-      offset={{ top: 130, bottom: 24 }}
       message={
         <Text inline>
           Oops, something went wrong!{' '}
-          <Link display="inlineBlock" target="self" href="#">
+          <Link display="inlineBlock" href="#" target="self">
             Download the app
           </Link>{' '}
           instead.
         </Text>
       }
+      offset={{ top: 130, bottom: 24 }}
       onDismiss={() => {
         setShowComponent(false);
       }}
@@ -38,6 +37,7 @@ export default function Example(): ReactNode {
           />
         ),
       }}
+      zIndex={new FixedZIndex(100)}
     />
   );
 }

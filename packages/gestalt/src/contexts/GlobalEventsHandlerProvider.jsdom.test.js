@@ -30,7 +30,7 @@ describe('Dropdown.Item', () => {
       >
         <DeviceTypeProvider deviceType="mobile">
           {open ? (
-            <SheetMobile heading="test" subHeading="test" onDismiss={() => setOpen(false)} />
+            <SheetMobile heading="test" onDismiss={() => setOpen(false)} subHeading="test" />
           ) : null}
         </DeviceTypeProvider>
       </GlobalEventsHandlerProvider>

@@ -11,9 +11,9 @@ export default function Example(): ReactNode {
   }, []);
 
   return (
-    <Box padding={4} color="secondary" height="100%">
+    <Box color="secondary" height="100%" padding={4}>
       <ScrollBoundaryContainer height={200}>
-        <Box padding={4} width={600} color="light">
+        <Box color="light" padding={4} width={600}>
           <Flex gap={{ column: 0, row: 4 }}>
             <Box width={200}>
               <Text>
@@ -38,8 +38,8 @@ export default function Example(): ReactNode {
               <PopoverEducational
                 anchor={anchorRef.current}
                 idealDirection="right"
-                onDismiss={() => {}}
                 message="Need help with something? Check out our Help Center."
+                onDismiss={() => {}}
               />
             )}
           </Flex>

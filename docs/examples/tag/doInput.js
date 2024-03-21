@@ -22,12 +22,12 @@ export default function Example(): ReactNode {
   };
 
   return (
-    <Flex alignItems="center" justifyContent="center" height="100%" width="100%">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Box width={400}>
         <form onSubmit={handleSubmit}>
           <TextField
-            label="Topics"
             id="do-topics"
+            label="Topics"
             onChange={handleChange}
             tags={tags.map((item, index) => (
               <Tag

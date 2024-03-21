@@ -121,28 +121,28 @@ export default function FullPage({
         >
           <Backdrop closeOnOutsideClick={false}>
             <div
-              id={id}
               aria-label={accessibilityLabel ?? defaultAccessibilityLabel}
               className={classnames(sheetMobileStyles.fullPageWrapper, focusStyles.hideOutline)}
-              tabIndex={-1}
-              style={{ width: '100%' }}
+              id={id}
               role={role}
+              style={{ width: '100%' }}
+              tabIndex={-1}
             >
               <ContentContainer
+                footer={footer}
                 header={
                   <Header
                     align={align}
                     backIconButton={backIconButton}
                     forwardIconButton={forwardIconButton}
-                    id={id}
-                    primaryAction={primaryAction}
                     heading={heading}
+                    id={id}
+                    onDismiss={onDismiss}
+                    primaryAction={primaryAction}
                     showDismissButton={showDismissButton}
                     subHeading={subHeading}
-                    onDismiss={onDismiss}
                   />
                 }
-                footer={footer}
                 padding={padding}
               >
                 {children}

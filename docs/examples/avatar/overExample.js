@@ -4,12 +4,12 @@ import { Avatar, Box, Flex, Mask, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex height="100%" width="100%" alignItems="center" justifyContent="center">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Box position="relative">
         <Mask wash>
-          <Avatar size="xl" src="https://i.ibb.co/jVR29XV/stock5.jpg" name="Artwork" />
+          <Avatar name="Artwork" size="xl" src="https://i.ibb.co/jVR29XV/stock5.jpg" />
         </Mask>
-        <Box position="absolute" top left>
+        <Box left position="absolute" top>
           <Text weight="bold">Explore Typographic Art</Text>
         </Box>
       </Box>

@@ -38,7 +38,7 @@ describe('<Button />', () => {
 
   test('accessibilityControls', () => {
     const instance = create(
-      <Button text="Hello World" accessibilityControls="another-element" />,
+      <Button accessibilityControls="another-element" text="Hello World" />,
     ).root;
     expect(instance.find((element) => element.type === 'button').props['aria-controls']).toContain(
       'another-element',
@@ -46,17 +46,17 @@ describe('<Button />', () => {
   });
 
   test('accessibilityExpanded', () => {
-    const instance = create(<Button text="Hello World" accessibilityExpanded />).root;
+    const instance = create(<Button accessibilityExpanded text="Hello World" />).root;
     expect(instance.find((element) => element.type === 'button').props['aria-expanded']).toBe(true);
   });
 
   test('accessibilityHaspopup', () => {
-    const instance = create(<Button text="Hello World" accessibilityHaspopup />).root;
+    const instance = create(<Button accessibilityHaspopup text="Hello World" />).root;
     expect(instance.find((element) => element.type === 'button').props['aria-haspopup']).toBe(true);
   });
 
   test('accessibilityLabel', () => {
-    const instance = create(<Button text="Hello World" accessibilityLabel="hello" />).root;
+    const instance = create(<Button accessibilityLabel="hello" text="Hello World" />).root;
     expect(instance.find((element) => element.type === 'button').props['aria-label']).toContain(
       'hello',
     );

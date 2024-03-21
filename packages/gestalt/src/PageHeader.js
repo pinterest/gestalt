@@ -148,9 +148,9 @@ export default function PageHeader({
       <Box color="default" paddingX={8} paddingY={4} width="100%">
         <Flex flex="grow" justifyContent="center" maxWidth="100%">
           <Flex flex="grow" maxWidth={maxWidth}>
-            <Flex.Item minWidth={0} flex="grow" alignSelf="center">
+            <Flex.Item alignSelf="center" flex="grow" minWidth={0}>
               <Box marginEnd={6}>
-                <Flex gap={{ row: 4, column: 0 }} alignItems="center">
+                <Flex alignItems="center" gap={{ row: 4, column: 0 }}>
                   {thumbnail ? <PageHeaderThumbnail thumbnail={thumbnail} /> : null}
                   <Flex direction="column" gap={{ column: 1, row: 0 }}>
                     <Flex alignItems="center">
@@ -158,7 +158,7 @@ export default function PageHeader({
                         marginTop={thumbnail && subtext ? -4 : undefined}
                         title={title}
                       />
-                      <Box display="none" smDisplay="block" marginStart={badge ? 1 : 3}>
+                      <Box display="none" marginStart={badge ? 1 : 3} smDisplay="block">
                         <Flex gap={{ column: 0, row: 3 }}>
                           {badge ? (
                             <PageHeaderBadge
@@ -169,9 +169,9 @@ export default function PageHeader({
                           ) : null}
                           {helperIconButton ? (
                             <PageHeaderHelperIconButton
-                              accessibilityLabel={helperIconButton.accessibilityLabel}
                               accessibilityControls={helperIconButton.accessibilityControls}
                               accessibilityExpanded={helperIconButton.accessibilityExpanded}
+                              accessibilityLabel={helperIconButton.accessibilityLabel}
                               onClick={helperIconButton.onClick}
                             />
                           ) : null}
@@ -179,20 +179,20 @@ export default function PageHeader({
                       </Box>
                     </Flex>
                     {subtext ? (
-                      <PageHeaderSubtext subtext={subtext} helperLink={helperLink} />
+                      <PageHeaderSubtext helperLink={helperLink} subtext={subtext} />
                     ) : null}
                   </Flex>
                 </Flex>
               </Box>
             </Flex.Item>
-            <Flex.Item minWidth={0} flex="none">
-              <Flex gap={{ row: 8, column: 0 }} alignItems="center" height="100%">
+            <Flex.Item flex="none" minWidth={0}>
+              <Flex alignItems="center" gap={{ row: 8, column: 0 }} height="100%">
                 {items && items.length !== 0 ? <PageHeaderItemsBlock items={items} /> : null}
                 {primaryAction || secondaryAction ? (
                   <PageHeaderActionBlock
+                    dropdownAccessibilityLabel={dropdownAccessibilityLabel}
                     primaryAction={primaryAction}
                     secondaryAction={secondaryAction}
-                    dropdownAccessibilityLabel={dropdownAccessibilityLabel}
                   />
                 ) : null}
               </Flex>

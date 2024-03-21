@@ -7,7 +7,6 @@ export default function Snapshot(): ReactNode {
     <ColorSchemeProvider colorScheme="dark">
       <Box color="default" display="inlineBlock" padding={1}>
         <AvatarGroup
-          size="md"
           accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."
           collaborators={[
             {
@@ -23,6 +22,7 @@ export default function Snapshot(): ReactNode {
               src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
             },
           ]}
+          size="md"
         />
       </Box>
     </ColorSchemeProvider>

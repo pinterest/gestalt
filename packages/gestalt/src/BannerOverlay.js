@@ -175,11 +175,9 @@ export default function BannerOverlay({
     <Fragment>
       <Box display="none" smDisplay="flex">
         <Box
-          color={isDarkMode ? darkModeBackground : lightModeBackground}
-          paddingX={4}
-          paddingY={3}
-          rounding={4}
+          alignContent="center"
           borderStyle="shadow"
+          color={isDarkMode ? darkModeBackground : lightModeBackground}
           dangerouslySetInlineStyle={{
             __style: {
               position: 'fixed',
@@ -189,14 +187,16 @@ export default function BannerOverlay({
               transform: 'translateX(-50%)',
             },
           }}
-          position="fixed"
-          display="flex"
-          justifyContent="between"
-          alignContent="center"
           direction="row"
-          smPaddingY={4}
+          display="flex"
           fit
+          justifyContent="between"
           maxWidth={900}
+          paddingX={4}
+          paddingY={3}
+          position="fixed"
+          rounding={4}
+          smPaddingY={4}
           width="calc(100% - 32px)"
           zIndex={zIndex}
         >
@@ -229,21 +229,21 @@ export default function BannerOverlay({
                 ) : (
                   <ToastMessage
                     text={isMessageTextNode ? undefined : messageTextElement}
-                    textElement={isMessageTextNode ? messageTextElement : undefined}
                     textColor={textColor}
+                    textElement={isMessageTextNode ? messageTextElement : undefined}
                   />
                 )}
               </Flex>
               {title && (
                 <ToastMessage
                   text={isMessageTextNode ? undefined : messageTextElement}
-                  textElement={isMessageTextNode ? messageTextElement : undefined}
                   textColor={textColor}
+                  textElement={isMessageTextNode ? messageTextElement : undefined}
                 />
               )}
             </Flex.Item>
           </Flex>
-          <Flex direction="row" alignSelf="center" gap={4}>
+          <Flex alignSelf="center" direction="row" gap={4}>
             <ButtonGroup>
               {secondaryAction && (
                 <Flex.Item>
@@ -304,11 +304,9 @@ export default function BannerOverlay({
       </Box>
       <Box display="flex" smDisplay="none">
         <Box
-          color={isDarkMode ? darkModeBackground : lightModeBackground}
-          paddingX={4}
-          paddingY={3}
-          rounding={4}
+          alignContent="stretch"
           borderStyle="shadow"
+          color={isDarkMode ? darkModeBackground : lightModeBackground}
           dangerouslySetInlineStyle={{
             __style: {
               position: 'fixed',
@@ -318,14 +316,16 @@ export default function BannerOverlay({
               transform: 'translateX(-50%)',
             },
           }}
-          position="fixed"
-          display="flex"
-          justifyContent="center"
-          alignContent="stretch"
           direction="column"
-          smPaddingY={4}
+          display="flex"
           fit
+          justifyContent="center"
           maxWidth={348}
+          paddingX={4}
+          paddingY={3}
+          position="fixed"
+          rounding={4}
+          smPaddingY={4}
           width="calc(100% - 32px)"
           zIndex={zIndex}
         >
@@ -359,8 +359,8 @@ export default function BannerOverlay({
                   <Box marginBottom={2}>
                     <ToastMessage
                       text={isMessageTextNode ? undefined : messageTextElement}
-                      textElement={isMessageTextNode ? messageTextElement : undefined}
                       textColor={textColor}
+                      textElement={isMessageTextNode ? messageTextElement : undefined}
                     />
                   </Box>
                 )}
@@ -374,14 +374,14 @@ export default function BannerOverlay({
                 <Box marginBottom={2}>
                   <ToastMessage
                     text={isMessageTextNode ? undefined : messageTextElement}
-                    textElement={isMessageTextNode ? messageTextElement : undefined}
                     textColor={textColor}
+                    textElement={isMessageTextNode ? messageTextElement : undefined}
                   />
                 </Box>
               )}
             </Flex.Item>
           </Flex>
-          <Flex direction="row" alignSelf="end" gap={4}>
+          <Flex alignSelf="end" direction="row" gap={4}>
             <ButtonGroup>
               {secondaryAction && (
                 <Flex.Item>

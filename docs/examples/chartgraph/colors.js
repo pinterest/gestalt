@@ -25,66 +25,66 @@ export default function Example(): ReactNode {
     <Flex direction="column" width="100%" wrap>
       <Flex>
         <ChartGraph
-          title="ChartGraph A"
-          description="Color 01"
           accessibilityLabel="Example of line chart color 01"
-          visualPatternSelected={visualPatternSelected}
+          data={data}
+          description="Color 01"
+          elements={[{ type: 'line', id: 'Series_01' }]}
+          initialTicks={3}
+          legend="none"
           onVisualPatternChange={() =>
             setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
           }
-          initialTicks={3}
-          type="line"
           renderTooltip="none"
-          legend="none"
-          data={data}
-          elements={[{ type: 'line', id: 'Series_01' }]}
+          title="ChartGraph A"
+          type="line"
+          visualPatternSelected={visualPatternSelected}
         />
         <ChartGraph
-          title="ChartGraph B"
-          description="Color 02"
           accessibilityLabel="Example of line chart color 02"
-          visualPatternSelected={visualPatternSelected}
+          data={data}
+          description="Color 02"
+          elements={[{ type: 'line', id: 'Series_01', color: '02' }]}
+          initialTicks={3}
+          legend="none"
           onVisualPatternChange={() =>
             setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
           }
-          initialTicks={3}
-          type="line"
           renderTooltip="none"
-          legend="none"
-          data={data}
-          elements={[{ type: 'line', id: 'Series_01', color: '02' }]}
+          title="ChartGraph B"
+          type="line"
+          visualPatternSelected={visualPatternSelected}
         />
       </Flex>
       <Flex>
         <ChartGraph
-          title="ChartGraph C"
-          description="Color 03"
           accessibilityLabel="Example of line chart color 03"
-          visualPatternSelected={visualPatternSelected}
+          data={data}
+          description="Color 03"
+          elements={[{ type: 'line', id: 'Series_01', color: '03' }]}
+          initialTicks={3}
+          legend="none"
           onVisualPatternChange={() =>
             setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
           }
-          initialTicks={3}
-          type="line"
           renderTooltip="none"
-          legend="none"
-          data={data}
-          elements={[{ type: 'line', id: 'Series_01', color: '03' }]}
+          title="ChartGraph C"
+          type="line"
+          visualPatternSelected={visualPatternSelected}
         />
         <ChartGraph
-          title="ChartGraph D"
-          description="Color 04"
           accessibilityLabel="Example of line chart color 04"
-          visualPatternSelected={visualPatternSelected}
+          data={data}
+          description="Color 04"
+          elements={[{ type: 'line', id: 'Series_01', color: '04' }]}
+          initialTicks={3}
+          legend="none"
           onVisualPatternChange={() =>
             setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
           }
-          initialTicks={3}
-          type="line"
           renderTooltip="none"
-          legend="none"
-          data={data}
-          elements={[{ type: 'line', id: 'Series_01', color: '04' }]}
+          title="ChartGraph D"
+          type="line"
+          visualPatternSelected={visualPatternSelected}
         />
       </Flex>
     </Flex>

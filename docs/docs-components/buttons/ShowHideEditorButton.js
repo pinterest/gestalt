@@ -15,8 +15,8 @@ export default function ShowHideEditorButton({ expanded, name, onClick }: Props)
   return (
     <IconButton
       accessibilityLabel={`${label} for ${name}`}
-      iconColor="darkGray"
       icon={expanded ? 'minimize' : 'maximize'}
+      iconColor="darkGray"
       onClick={() => {
         trackButtonClick(label, name);
         onClick();

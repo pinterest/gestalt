@@ -17,7 +17,7 @@ const dataObject = [
 
 function GridComponent({ data }: { data: { height: number, name: string } }): ReactNode {
   return (
-    <Box height={data.height} width={50} color="successBase">
+    <Box color="successBase" height={data.height} width={50}>
       <Text>{data.name}</Text>
     </Box>
   );
@@ -26,7 +26,7 @@ function GridComponent({ data }: { data: { height: number, name: string } }): Re
 export default function Snapshot(): ReactNode {
   return (
     <ColorSchemeProvider colorScheme="light">
-      <Box color="default" display="inlineBlock" width={300} padding={1}>
+      <Box color="default" display="inlineBlock" padding={1} width={300}>
         <Masonry
           columnWidth={50}
           gutterWidth={3}

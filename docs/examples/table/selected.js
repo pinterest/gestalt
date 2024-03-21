@@ -6,7 +6,7 @@ export default function Example(): ReactNode {
   const [selected, setSelectedRow] = useState<$ReadOnlyArray<string>>([]);
 
   return (
-    <Box height="100%" width="100%" overflow="scroll">
+    <Box height="100%" overflow="scroll" width="100%">
       <Table accessibilityLabel="Selected row example table">
         <Table.Header>
           <Table.Row>
@@ -38,6 +38,7 @@ export default function Example(): ReactNode {
             </Table.Cell>
             <Table.Cell>
               <Checkbox
+                checked={selected.includes('row')}
                 id="Row"
                 onChange={() =>
                   setSelectedRow((value) =>
@@ -47,7 +48,6 @@ export default function Example(): ReactNode {
                   )
                 }
                 size="sm"
-                checked={selected.includes('row')}
               />
             </Table.Cell>
             <Table.Cell>
@@ -61,16 +61,17 @@ export default function Example(): ReactNode {
             </Table.Cell>
           </Table.Row>
           <Table.RowExpandable
+            key="row2"
             accessibilityCollapseLabel="Collapse"
             accessibilityExpandLabel="Expand"
             expandedContents={<Text>Content</Text>}
-            key="row2"
-            id="row2"
             hoverStyle="gray"
+            id="row2"
             selected={selected.includes('rowExpandable') ? 'selected' : 'unselected'}
           >
             <Table.Cell>
               <Checkbox
+                checked={selected.includes('rowExpandable')}
                 id="RowExpandable"
                 onChange={() =>
                   setSelectedRow((value) =>
@@ -80,7 +81,6 @@ export default function Example(): ReactNode {
                   )
                 }
                 size="sm"
-                checked={selected.includes('rowExpandable')}
               />
             </Table.Cell>
             <Table.Cell>
@@ -94,10 +94,10 @@ export default function Example(): ReactNode {
             </Table.Cell>
           </Table.RowExpandable>
           <Table.RowDrawer
-            drawerContents={<Text>Content</Text>}
             key="row3"
-            id="row3"
+            drawerContents={<Text>Content</Text>}
             hoverStyle="gray"
+            id="row3"
             selected={selected.includes('rowDrawer') ? 'selected' : 'unselected'}
           >
             <Table.Cell>
@@ -105,6 +105,7 @@ export default function Example(): ReactNode {
             </Table.Cell>
             <Table.Cell>
               <Checkbox
+                checked={selected.includes('rowDrawer')}
                 id="rowDrawer"
                 onChange={() =>
                   setSelectedRow((value) =>
@@ -114,7 +115,6 @@ export default function Example(): ReactNode {
                   )
                 }
                 size="sm"
-                checked={selected.includes('rowDrawer')}
               />
             </Table.Cell>
             <Table.Cell>

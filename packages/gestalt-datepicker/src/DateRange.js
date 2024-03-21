@@ -189,37 +189,37 @@ function DateRange({
   const { applyText, cancelText } = useDefaultLabel('DateRange');
 
   return (
-    <Box rounding={4} color="default" borderStyle="shadow" minHeight={425} display="inlineBlock">
+    <Box borderStyle="shadow" color="default" display="inlineBlock" minHeight={425} rounding={4}>
       <Flex>
         {radioGroup &&
         Children.only<Element<typeof RadioGroup>>(radioGroup).type.displayName === 'RadioGroup' &&
         !isMobile ? (
           <div className={borderStyles.borderRight}>
-            <Box paddingY={4} paddingX={6} width={216}>
+            <Box paddingX={6} paddingY={4} width={216}>
               {radioGroup}
             </Box>
           </div>
         ) : null}
         <Box>
-          <Flex alignItems="start" justifyContent="center" direction="column">
+          <Flex alignItems="start" direction="column" justifyContent="center">
             <div className={borderStyles.dateFieldSection}>
               <Flex gap={3}>
                 <Box width={isMobile ? MOBILE_DATEFIELD_WIDTH : DATEFIELD_WIDTH}>
                   <InternalDateField
                     autoComplete="off"
-                    mobileEnterKeyHint="enter"
+                    errorMessage={startDateErrorMessage}
                     id={`datefield-start-${componentId}`}
                     localeData={localeData}
+                    maxDate={maxDate}
+                    minDate={minDate}
+                    mobileEnterKeyHint="enter"
+                    onBlur={onStartDateBlur}
                     onChange={({ value }) => {
                       if (value?.getTime() || value === null) onStartDateChange({ value });
                     }}
                     onError={onStartDateError}
-                    onBlur={onStartDateBlur}
                     onFocus={onStartDateFocus}
                     value={startDateValue}
-                    minDate={minDate}
-                    maxDate={maxDate}
-                    errorMessage={startDateErrorMessage}
                   />
                 </Box>
                 {/* We are not using Flex here because the error message prevents keeping the dash aligned to the form field */}
@@ -229,51 +229,50 @@ function DateRange({
                 <Box width={isMobile ? MOBILE_DATEFIELD_WIDTH : DATEFIELD_WIDTH}>
                   <InternalDateField
                     autoComplete="off"
-                    mobileEnterKeyHint="enter"
+                    errorMessage={endDateErrorMessage}
                     id={`datefield-end-${componentId}`}
                     localeData={localeData}
+                    maxDate={maxDate}
+                    minDate={startDateValue}
+                    mobileEnterKeyHint="enter"
+                    onBlur={onEndDateBlur}
                     onChange={({ value }) => {
                       if (value?.getTime() || value === null) onEndDateChange({ value });
                     }}
-                    value={endDateValue}
-                    minDate={startDateValue}
                     onError={({ errorMessage, value }) => {
                       onEndDateError({ errorMessage, value });
                     }}
-                    onBlur={onEndDateBlur}
                     onFocus={onEndDateFocus}
-                    maxDate={maxDate}
-                    errorMessage={endDateErrorMessage}
+                    value={endDateValue}
                   />
                 </Box>
               </Flex>
             </div>
             <Box
-              width={isMobile ? '100%' : 629}
               display={isMobile ? 'flex' : undefined}
               justifyContent={isMobile ? 'center' : undefined}
+              width={isMobile ? '100%' : 629}
             >
               <InternalDatePicker
-                localeData={localeData}
-                rangeStartDate={startDateValue}
-                rangeEndDate={endDateValue}
                 id={`datepicker-${componentId}`}
+                localeData={localeData}
+                maxDate={maxDate}
+                minDate={minDate}
                 onChange={({ startDate, endDate }) => {
                   onStartDateChange({ value: startDate });
                   onEndDateChange({ value: endDate });
                 }}
-                minDate={minDate}
-                maxDate={maxDate}
+                rangeEndDate={endDateValue}
+                rangeStartDate={startDateValue}
               />
             </Box>
             <Flex.Item alignSelf={isMobile ? 'center' : 'end'}>
               <Box marginBottom={4} marginEnd={4}>
                 <ButtonGroup>
-                  <Button color="gray" text={cancelText} onClick={() => onCancel()} />
+                  <Button color="gray" onClick={() => onCancel()} text={cancelText} />
 
                   <Button
                     color="red"
-                    text={applyText}
                     disabled={
                       !!endDateErrorMessage ||
                       !!startDateErrorMessage ||
@@ -281,6 +280,7 @@ function DateRange({
                       !startDateValue
                     }
                     onClick={() => onSubmit()}
+                    text={applyText}
                   />
                 </ButtonGroup>
               </Box>

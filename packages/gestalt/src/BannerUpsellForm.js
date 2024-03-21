@@ -56,7 +56,7 @@ export default function BannerUpsellForm({
         wrap
       >
         <Flex.Item flex={isXsWidth ? 'shrink' : 'grow'}>
-          <Box smMarginBottom={2} marginBottom={0}>
+          <Box marginBottom={0} smMarginBottom={2}>
             {children}
           </Box>
         </Flex.Item>

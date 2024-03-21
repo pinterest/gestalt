@@ -15,15 +15,15 @@ export default function Example(): ReactNode {
         <Flex direction="column" gap={4} width="100%">
           <SegmentedControl
             items={items}
-            selectedItemIndex={itemIndex}
             onChange={({ activeIndex }) => setItemIndex(activeIndex)}
+            selectedItemIndex={itemIndex}
           />
           <DatePicker
             id="selectLists"
             label="Alberto's birth date"
             onChange={({ value }) => setDateValue(value)}
-            value={dateValue}
             selectLists={mapOptions[itemIndex.toString()]}
+            value={dateValue}
           />
         </Flex>
       </Box>

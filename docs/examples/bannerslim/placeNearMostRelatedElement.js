@@ -17,23 +17,23 @@ import {
 export default function Example(): ReactNode {
   return (
     <Box padding={8}>
-      <Flex direction="column" width="100%" gap={{ column: 6, row: 0 }}>
-        <Text weight="bold" size="500">
+      <Flex direction="column" gap={{ column: 6, row: 0 }} width="100%">
+        <Text size="500" weight="bold">
           Ads overview
         </Text>
         <Accordion id="doExample" title="Campaign optimization & delivery">
-          <Flex direction="column" width="100%" gap={{ column: 8, row: 0 }}>
+          <Flex direction="column" gap={{ column: 8, row: 0 }} width="100%">
             <TextField
               id="tag-readonly"
               label="Tag ID"
               onChange={() => {}}
-              value="Tag 2022"
               readOnly
+              value="Tag 2022"
             />
             <SelectList
               id="selectList"
-              onChange={() => {}}
               label="Select conversion event"
+              onChange={() => {}}
               size="lg"
             >
               <SelectList.Option label="Lead" value="Lead" />
@@ -47,16 +47,16 @@ export default function Example(): ReactNode {
                   label="Automatic (recommended)"
                   name="Automatic"
                   onChange={() => {}}
-                  value="automatic"
                   subtext="Pinterest aims to get the most clicks for your budget"
+                  value="automatic"
                 />
                 <RadioButton
                   id="custom"
                   label="Custom"
                   name="custom"
                   onChange={() => {}}
-                  value="custom"
                   subtext="You control how much to bid at auction"
+                  value="custom"
                 />
               </Flex>
             </Fieldset>
@@ -68,9 +68,9 @@ export default function Example(): ReactNode {
               onChange={() => {}}
             />
             <BannerSlim
-              type="info"
-              message="For best conversion campaign performance we recommend setting optimization & delivery at the campaign level so all ad groups have the same values, but you can set them individually."
               iconAccessibilityLabel="Information"
+              message="For best conversion campaign performance we recommend setting optimization & delivery at the campaign level so all ad groups have the same values, but you can set them individually."
+              type="info"
             />
           </Flex>
         </Accordion>

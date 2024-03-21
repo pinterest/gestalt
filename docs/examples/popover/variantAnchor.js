@@ -12,13 +12,13 @@ export default function Example(): ReactNode {
 
   return (
     <Flex height="100%" width="100%">
-      <Box width="100%" display="flex" alignItems="start" justifyContent="center" padding={2}>
+      <Box alignItems="start" display="flex" justifyContent="center" padding={2} width="100%">
         <Button
+          ref={anchorRef}
           color="red"
+          onClick={() => setOpen((value) => !value)}
           size="lg"
           text="Save"
-          ref={anchorRef}
-          onClick={() => setOpen((value) => !value)}
         />
       </Box>
       {open && (
@@ -31,11 +31,11 @@ export default function Example(): ReactNode {
             size={240}
           >
             <Box
-              height={200}
-              width={300}
-              display="flex"
               alignItems="center"
+              display="flex"
+              height={200}
               justifyContent="center"
+              width={300}
             >
               <Text align="center">Content</Text>
             </Box>

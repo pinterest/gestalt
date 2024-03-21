@@ -6,7 +6,7 @@ export default function Example(): ReactNode {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <Flex height="100%" width="100%" alignItems="center" justifyContent="center">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Tabs
         activeTabIndex={activeIndex}
         onChange={({ activeTabIndex, event }) => {

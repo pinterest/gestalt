@@ -6,7 +6,7 @@ export default function Snapshot(): ReactNode {
   return (
     <ColorSchemeProvider colorScheme="dark">
       <DeviceTypeProvider deviceType="mobile">
-        <SheetMobile heading="Heading" subHeading="SubHeading" onDismiss={() => {}} />
+        <SheetMobile heading="Heading" onDismiss={() => {}} subHeading="SubHeading" />
       </DeviceTypeProvider>
     </ColorSchemeProvider>
   );

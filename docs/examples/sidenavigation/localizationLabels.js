@@ -14,39 +14,39 @@ export default function Example(): ReactNode {
     >
       <SideNavigation accessibilityLabel="Beispiel für Lokalisierung">
         <SideNavigation.TopItem
+          counter={{ number: '20', accessibilityLabel: 'Sie haben 20 Benachrichtigungen' }}
           href="#"
-          onClick={({ event }) => event.preventDefault()}
           icon="bell"
           label="Benachrichtigungen"
-          counter={{ number: '20', accessibilityLabel: 'Sie haben 20 Benachrichtigungen' }}
           notificationAccessibilityLabel="Du hast neue Benachrichtigungen"
+          onClick={({ event }) => event.preventDefault()}
         />
         <SideNavigation.TopItem
+          counter={{ number: '10', accessibilityLabel: 'Sie haben 10 Nachrichten' }}
           href="#"
-          onClick={({ event }) => event.preventDefault()}
           icon="speech"
           label="Mitteilungen"
-          counter={{ number: '10', accessibilityLabel: 'Sie haben 10 Nachrichten' }}
           notificationAccessibilityLabel="Sie haben neue Nachrichten"
+          onClick={({ event }) => event.preventDefault()}
         />
         <SideNavigation.TopItem
           href="#"
-          onClick={({ event }) => event.preventDefault()}
           icon="cog"
           label="Einstellungen"
+          onClick={({ event }) => event.preventDefault()}
         />
         <SideNavigation.TopItem
           href="#"
-          onClick={({ event }) => event.preventDefault()}
           icon="lock"
           label="Geschäftszugriff"
+          onClick={({ event }) => event.preventDefault()}
         />
         <SideNavigation.TopItem
+          badge={{ text: 'Neu', type: 'info' }}
           href="#"
-          onClick={({ event }) => event.preventDefault()}
           icon="add-layout"
           label="Optimieren Sie Ihren Home-Feed"
-          badge={{ text: 'Neu', type: 'info' }}
+          onClick={({ event }) => event.preventDefault()}
         />
       </SideNavigation>
     </DefaultLabelProvider>

@@ -4,10 +4,10 @@ import { Box, Checkbox } from 'gestalt';
 
 export default function CheckboxExample(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Checkbox
-        id="error"
         errorMessage="You must agree to the Terms and Conditions"
+        id="error"
         label="I agree to the Terms and Conditions"
         name="error"
         onChange={() => {}}

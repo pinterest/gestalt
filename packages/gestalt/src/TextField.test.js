@@ -18,7 +18,7 @@ describe('TextField', () => {
 
   it('TextField normal', () => {
     const tree = create(
-      <TextField id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
+      <TextField id="test" onBlur={jest.fn()} onChange={jest.fn()} onFocus={jest.fn()} />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -28,9 +28,9 @@ describe('TextField', () => {
       <TextField
         errorMessage="error message"
         id="test"
+        onBlur={jest.fn()}
         onChange={jest.fn()}
         onFocus={jest.fn()}
-        onBlur={jest.fn()}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -41,9 +41,9 @@ describe('TextField', () => {
       <TextField
         id="test"
         mobileEnterKeyHint="go"
+        onBlur={jest.fn()}
         onChange={jest.fn()}
         onFocus={jest.fn()}
-        onBlur={jest.fn()}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -51,21 +51,21 @@ describe('TextField', () => {
 
   it('TextField with hasError', () => {
     const tree = create(
-      <TextField hasError id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
+      <TextField hasError id="test" onBlur={jest.fn()} onChange={jest.fn()} onFocus={jest.fn()} />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('TextField with disabled', () => {
     const tree = create(
-      <TextField disabled id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
+      <TextField disabled id="test" onBlur={jest.fn()} onChange={jest.fn()} onFocus={jest.fn()} />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('TextField with readOnly', () => {
     const tree = create(
-      <TextField readOnly id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
+      <TextField id="test" onBlur={jest.fn()} onChange={jest.fn()} onFocus={jest.fn()} readOnly />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -73,11 +73,11 @@ describe('TextField', () => {
   it('TextField with name', () => {
     const tree = create(
       <TextField
-        name="email"
         id="test"
+        name="email"
+        onBlur={jest.fn()}
         onChange={jest.fn()}
         onFocus={jest.fn()}
-        onBlur={jest.fn()}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -86,15 +86,15 @@ describe('TextField', () => {
   it('TextField with maxLength character counter', () => {
     const tree = create(
       <TextField
-        name="maxLength"
         id="test"
-        onChange={jest.fn()}
-        onFocus={jest.fn()}
-        onBlur={jest.fn()}
         maxLength={{
           characterCount: 20,
           errorAccessibilityLabel: 'Exceeded',
         }}
+        name="maxLength"
+        onBlur={jest.fn()}
+        onChange={jest.fn()}
+        onFocus={jest.fn()}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -104,11 +104,11 @@ describe('TextField', () => {
     const tree = create(
       <TextField
         autoComplete="email"
-        name="email"
         id="test"
+        name="email"
+        onBlur={jest.fn()}
         onChange={jest.fn()}
         onFocus={jest.fn()}
-        onBlur={jest.fn()}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -117,27 +117,27 @@ describe('TextField', () => {
   it('TextField with tags', () => {
     const tree = create(
       <TextField
-        name="email"
         id="test"
+        name="email"
         onChange={jest.fn()}
         tags={[
           <Tag
             key="a"
-            text="a@pinterest.com"
-            onRemove={() => {}}
             accessibilityRemoveIconLabel="Remove email tag"
+            onRemove={() => {}}
+            text="a@pinterest.com"
           />,
           <Tag
             key="b"
-            text="b@pinterest.com"
-            onRemove={() => {}}
             accessibilityRemoveIconLabel="Remove email tag"
+            onRemove={() => {}}
+            text="b@pinterest.com"
           />,
           <Tag
             key="c"
-            text="c@pinterest.com"
-            onRemove={() => {}}
             accessibilityRemoveIconLabel="Remove email tag"
+            onRemove={() => {}}
+            text="c@pinterest.com"
           />,
         ]}
       />,

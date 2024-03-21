@@ -56,7 +56,7 @@ export default function TableRow({ children, hoverStyle = 'none', selected }: Pr
   });
 
   return (
-    <tr className={rowStyle} ref={rowRef}>
+    <tr ref={rowRef} className={rowStyle}>
       {Number(stickyColumns) > 0 ? Children.map(children, renderCellWithIndex) : children}
     </tr>
   );

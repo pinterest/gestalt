@@ -4,10 +4,10 @@ import { Box, Flex, Link, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex height="100%" alignItems="center" justifyContent="center">
+    <Flex alignItems="center" height="100%" justifyContent="center">
       <Box color="elevationAccent" padding={4} rounding={4} width="90%">
-        <Flex gap={{ column: 4, row: 0 }} direction="column">
-          <Text weight="bold" align="center">
+        <Flex direction="column" gap={{ column: 4, row: 0 }}>
+          <Text align="center" weight="bold">
             {' '}
             Product details{' '}
           </Text>
@@ -19,7 +19,7 @@ export default function Example(): ReactNode {
           <Text inline>
             {' '}
             Ships from and sold by{' '}
-            <Link href="http://www.pinterest.com" display="inline">
+            <Link display="inline" href="http://www.pinterest.com">
               pinterest.com{' '}
             </Link>
           </Text>

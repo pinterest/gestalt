@@ -6,19 +6,19 @@ export default function Example(): ReactNode {
   const [playing, setPlaying] = useState(false);
 
   return (
-    <Flex gap={4} direction="column">
-      <Box width={380} height="100%" margin="auto" borderStyle="shadow">
+    <Flex direction="column" gap={4}>
+      <Box borderStyle="shadow" height="100%" margin="auto" width={380}>
         <Video
           aspectRatio={9 / 16}
           controls
-          objectFit="contain"
-          onPlayError={({ error }) => error && setPlaying(false)}
-          onPlay={() => setPlaying(true)}
-          onControlsPlay={() => setPlaying(true)}
-          onControlsPause={() => setPlaying(false)}
-          onEnded={() => setPlaying(false)}
-          playing={playing}
           loop
+          objectFit="contain"
+          onControlsPause={() => setPlaying(false)}
+          onControlsPlay={() => setPlaying(true)}
+          onEnded={() => setPlaying(false)}
+          onPlay={() => setPlaying(true)}
+          onPlayError={({ error }) => error && setPlaying(false)}
+          playing={playing}
           src="https://v2.pinimg.com/videos/mc/expMp4/18/77/51/1877513c45ca255d52bc2e364e782536_t1.mp4"
         />
       </Box>

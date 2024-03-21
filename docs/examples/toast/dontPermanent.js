@@ -4,8 +4,8 @@ import { Box, Flex, Image, Toast } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box paddingY={4} width="100%" height="100%">
-      <Flex alignItems="end" justifyContent="center" width="100%" height="100%">
+    <Box height="100%" paddingY={4} width="100%">
+      <Flex alignItems="end" height="100%" justifyContent="center" width="100%">
         <Toast
           primaryAction={{
             accessibilityLabel: 'Edit your Pin',

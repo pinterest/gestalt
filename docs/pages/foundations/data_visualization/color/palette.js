@@ -41,26 +41,26 @@ function SemanticThemeExample({ colorScheme }: ColorCardProps): ReactNode {
           <Heading size="400">{capitalizeFirstLetter(colorScheme)} mode</Heading>
           <Flex direction="column">
             <ColorTile
-              textColor={colorScheme}
               description="Success (Graph)"
               fullTokenName="color-data-visualization-success-graph"
+              textColor={colorScheme}
             />
             <ColorTile
-              textColor={colorScheme}
               description="Success (Text/Icon)"
               fullTokenName="color-data-visualization-success-text"
+              textColor={colorScheme}
             />
           </Flex>
           <Flex direction="column">
             <ColorTile
-              textColor={colorScheme}
               description="Error (Graph)"
               fullTokenName="color-data-visualization-error-graph"
+              textColor={colorScheme}
             />
             <ColorTile
-              textColor={colorScheme}
               description="Error (Text/Icon)"
               fullTokenName="color-data-visualization-error-text"
+              textColor={colorScheme}
             />
           </Flex>
         </Flex>
@@ -85,9 +85,9 @@ function getColorTiles(
       {colors.map((step) => (
         <ColorTile
           key={`${step.name}`}
-          textColor={step[`${mode}Text`]}
           description={`Data Visualization ${step.name}`}
           fullTokenName={`color-data-visualization-${step.name}`}
+          textColor={step[`${mode}Text`]}
         />
       ))}
     </Flex>
@@ -98,12 +98,11 @@ export default function ColorPage(): ReactNode {
   return (
     <Page title="Data visualization color palette">
       <PageHeader
-        name="Data visualization color palette"
         description="The data visualization color palette is used to represent discrete categories of data. This palette utilizes the Gestalt color palette and is optimized for accessibility in data visualizations. The palette is comprised of a 12-color categorical palette, along with a few semantic colors. It can be implemented through our [design tokens](/foundations/design_tokens/overview#Data-visualization)."
+        name="Data visualization color palette"
         type="guidelines"
       />
       <MainSection
-        name="12-Color categorical palette"
         description={`
         This palette helps create a consistent brand image among visualizations across Pinterest products, while ensuring enough color contrast against background and between individual colors. There are 12 colors in the palette, divided into a main palette and an extended palette.
 
@@ -112,16 +111,17 @@ export default function ColorPage(): ReactNode {
         - When there is only 1 color needed in a visualization, always use Data Visualization #05, which is reserved for showing total value.
         - When more than 1 color is needed, colors should be applied in the exact order in the palette to maximize contrast between adjacent colors, in order to help with visual differentiation.
         `}
+        name="12-Color categorical palette"
       >
         <MainSection.Subsection title="Light mode">
           <ColorSchemeProvider colorScheme="light" id="light">
-            <Box color="default" padding={4} display="inlineBlock">
+            <Box color="default" display="inlineBlock" padding={4}>
               <Flex
-                wrap
                 gap={{
                   row: 4,
                   column: 8,
                 }}
+                wrap
               >
                 <Flex
                   direction="column"
@@ -149,14 +149,14 @@ export default function ColorPage(): ReactNode {
         </MainSection.Subsection>
         <MainSection.Subsection title="Dark mode">
           <ColorSchemeProvider colorScheme="dark" id="dark">
-            <Box color="default" padding={4} display="inlineBlock">
+            <Box color="default" display="inlineBlock" padding={4}>
               <Flex
-                wrap
+                flex="none"
                 gap={{
                   row: 4,
                   column: 8,
                 }}
-                flex="none"
+                wrap
               >
                 <Flex
                   direction="column"
@@ -184,10 +184,10 @@ export default function ColorPage(): ReactNode {
         </MainSection.Subsection>
       </MainSection>
       <MainSection
-        name="Semantic colors"
         description="Semantic colors are used to indicate trends in performance data. For successful trends, we use a slightly darker green color for text or icons associated with data to ensure the text has enough contrast."
+        name="Semantic colors"
       >
-        <Flex wrap gap={4}>
+        <Flex gap={4} wrap>
           <SemanticThemeExample colorScheme="light" />
           <SemanticThemeExample colorScheme="dark" />
         </Flex>

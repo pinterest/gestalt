@@ -8,10 +8,10 @@ describe('IconButtonLink', () => {
       <IconButtonLink
         accessibilityLabel="test"
         href="#"
-        size="lg"
-        rel="nofollow"
-        target="blank"
         icon="visit"
+        rel="nofollow"
+        size="lg"
+        target="blank"
       />,
     );
     const tree = component.toJSON();
@@ -24,8 +24,8 @@ describe('IconButtonLink', () => {
         accessibilityLabel="test"
         href="#"
         icon="visit"
-        size="lg"
         rel="nofollow"
+        size="lg"
         target="blank"
       />,
     );
@@ -37,10 +37,10 @@ describe('IconButtonLink', () => {
     const component = create(
       <IconButtonLink
         accessibilityLabel="test"
-        href="#"
         dangerouslySetSvgPath={{ __path: 'M13.00,20.00' }}
-        size="lg"
+        href="#"
         rel="nofollow"
+        size="lg"
         target="blank"
       />,
     );
@@ -51,8 +51,8 @@ describe('IconButtonLink', () => {
   test('renders with tooltip', () => {
     const component = create(
       <IconButtonLink
-        href="#"
         accessibilityLabel="Share"
+        href="#"
         icon="share"
         tooltip={{
           text: 'Share',
@@ -69,12 +69,12 @@ describe('IconButtonLink', () => {
     const component = create(
       <IconButtonLink
         accessibilityLabel="test"
-        href="#"
         disabled
-        size="lg"
-        rel="nofollow"
-        target="blank"
+        href="#"
         icon="visit"
+        rel="nofollow"
+        size="lg"
+        target="blank"
       />,
     );
     const tree = component.toJSON();

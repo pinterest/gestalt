@@ -19,16 +19,16 @@ export default function Example(): ReactNode {
   ];
 
   return (
-    <Flex height="100%" width="100%" direction="column" gap={2}>
-      <RadioGroup legend="ChartGraph type" direction="row" id="timeseries">
+    <Flex direction="column" gap={2} height="100%" width="100%">
+      <RadioGroup direction="row" id="timeseries" legend="ChartGraph type">
         <RadioGroup.RadioButton
           checked={type === 'bar'}
           id="timeseries-bar"
           label="Bar"
           name="bar"
           onChange={() => setType('bar')}
-          value="bar"
           size="sm"
+          value="bar"
         />
         <RadioGroup.RadioButton
           checked={type === 'line'}
@@ -36,8 +36,8 @@ export default function Example(): ReactNode {
           label="Line"
           name="line"
           onChange={() => setType('line')}
-          value="line"
           size="sm"
+          value="line"
         />
         <RadioGroup.RadioButton
           checked={type === 'combo'}
@@ -45,34 +45,34 @@ export default function Example(): ReactNode {
           label="Combo"
           name="combo"
           onChange={() => setType('combo')}
-          value="combo"
           size="sm"
+          value="combo"
         />
       </RadioGroup>
       <ChartGraph
-        title="ChartGraph"
-        titleDisplay="hidden"
         accessibilityLabel="Example of time series chart"
-        visualPatternSelected={visualPatternSelected}
-        onVisualPatternChange={() =>
-          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
-        }
         data={data}
-        range={{
-          xAxisBottom: ['auto', 'auto'],
-        }}
         elements={[
           { type: type === 'combo' ? 'bar' : type, id: 'Series_01' },
           { type: type === 'combo' ? 'line' : type, id: 'Series_02' },
         ]}
-        type={type}
+        modalZIndex={new FixedZIndex(11)}
+        onVisualPatternChange={() =>
+          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
+        }
+        range={{
+          xAxisBottom: ['auto', 'auto'],
+        }}
         tickFormatter={{
           timeseries: (date) =>
             `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(
               date,
             )}-${new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(date)}`,
         }}
-        modalZIndex={new FixedZIndex(11)}
+        title="ChartGraph"
+        titleDisplay="hidden"
+        type={type}
+        visualPatternSelected={visualPatternSelected}
       />
     </Flex>
   );

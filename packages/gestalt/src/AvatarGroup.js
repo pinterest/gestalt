@@ -135,9 +135,10 @@ const AvatarGroupWithForwardRef: AbstractComponent<Props, UnionRefs> = forwardRe
       <Fragment>
         {displayedCollaborators.map(({ src, name }, index) => (
           <CollaboratorAvatar
+            // eslint-disable-next-line react/no-array-index-key
+            key={`collaboratorStack-${name}-${index}`}
             hovered={hovered}
             index={index}
-            key={`collaboratorStack-${name}-${index}`} // eslint-disable-line react/no-array-index-key
             name={name}
             pileCount={pileCount}
             size={size}
@@ -146,18 +147,18 @@ const AvatarGroupWithForwardRef: AbstractComponent<Props, UnionRefs> = forwardRe
         ))}
         {showCollaboratorsCount && (
           <CollaboratorsCount
-            count={collaborators.length - 2}
-            showAddCollaboratorsButton={showAddCollaboratorsButton}
-            hovered={hovered}
             key={`collaboratorStack-count-${collaborators.length}`}
+            count={collaborators.length - 2}
+            hovered={hovered}
             pileCount={pileCount}
+            showAddCollaboratorsButton={showAddCollaboratorsButton}
             size={size}
           />
         )}
         {showAddCollaboratorsButton && (
           <AddCollaboratorsButton
-            hovered={hovered}
             key={`collaboratorStack-addButton-${collaborators.length}`}
+            hovered={hovered}
             pileCount={pileCount}
             size={size}
           />
@@ -178,15 +179,15 @@ const AvatarGroupWithForwardRef: AbstractComponent<Props, UnionRefs> = forwardRe
     if (role === 'link' && href) {
       return (
         <TapAreaLink
+          ref={ref}
           accessibilityLabel={accessibilityLabel}
-          href={href}
           fullWidth={false}
+          href={href}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
           onTap={({ event, dangerouslyDisableOnNavigation }) =>
             onClick?.({ event, dangerouslyDisableOnNavigation })
           }
-          ref={ref}
           rounding="pill"
           tapStyle="compress"
         >
@@ -198,16 +199,16 @@ const AvatarGroupWithForwardRef: AbstractComponent<Props, UnionRefs> = forwardRe
     if (role === 'button' && onClick) {
       return (
         <TapArea
-          accessibilityLabel={accessibilityLabel}
+          ref={ref}
           accessibilityControls={accessibilityControls}
           accessibilityExpanded={accessibilityExpanded}
           accessibilityHaspopup={accessibilityHaspopup}
+          accessibilityLabel={accessibilityLabel}
           fullWidth={false}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
           // $FlowExpectedError[prop-missing]
           onTap={({ event }) => onClick({ event })}
-          ref={ref}
           rounding="pill"
           tapStyle="compress"
         >

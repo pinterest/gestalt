@@ -10,7 +10,7 @@ function HeaderRow({ id }: { id: string }) {
           <Box display="visuallyHidden">
             <Label htmlFor={id}>Not all checkboxes are checked</Label>
           </Box>
-          <Checkbox id={id} onChange={() => {}} indeterminate size="sm" />
+          <Checkbox id={id} indeterminate onChange={() => {}} size="sm" />
         </Table.HeaderCell>
         {['Status', 'Campaign'].map((title) => (
           <Table.HeaderCell key={title}>
@@ -43,17 +43,17 @@ function BaseRow({
     <Table.Row>
       <Table.Cell>
         <Checkbox
+          checked={checked}
+          disabled={disabled}
           id={`${id.replace(/ /g, '_').replace(/'/g, '')}_${text
             .replace(/ /g, '_')
             .replace(/'/g, '')}`}
           onChange={() => {}}
-          disabled={disabled}
           size="sm"
-          checked={checked}
         />
       </Table.Cell>
       <Table.Cell>
-        <Status type={type} title={text} subtext={subtext} />
+        <Status subtext={subtext} title={text} type={type} />
       </Table.Cell>
       <Table.Cell>
         <Label
@@ -73,7 +73,7 @@ export default function Example(): ReactNode {
 
   return (
     <Box padding={4}>
-      <Flex gap={{ column: 2, row: 0 }} direction="column">
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
         <Box aria-hidden>
           <Text size="400" weight="bold">
             Your Campaigns Summary
@@ -83,36 +83,36 @@ export default function Example(): ReactNode {
           <HeaderRow id={tableID} />
           <Table.Body>
             <BaseRow
-              id={tableID}
-              checked
-              type="inProgress"
-              text="In progress"
-              subtext="Ends 11/20/2021"
               campaign="Engagement"
-            />
-            <BaseRow
-              id={tableID}
-              disabled
-              type="halted"
-              text="Paused"
-              subtext="Ends 11/20/2021"
-              campaign="Awareness"
-            />
-            <BaseRow
-              id={tableID}
               checked
-              type="warning"
-              text="Warning"
+              id={tableID}
               subtext="Ends 11/20/2021"
-              campaign="Catalogs"
+              text="In progress"
+              type="inProgress"
             />
             <BaseRow
-              id={tableID}
-              checked={false}
-              type="ok"
-              text="Complete"
-              subtext="Ends 11/20/2021"
               campaign="Awareness"
+              disabled
+              id={tableID}
+              subtext="Ends 11/20/2021"
+              text="Paused"
+              type="halted"
+            />
+            <BaseRow
+              campaign="Catalogs"
+              checked
+              id={tableID}
+              subtext="Ends 11/20/2021"
+              text="Warning"
+              type="warning"
+            />
+            <BaseRow
+              campaign="Awareness"
+              checked={false}
+              id={tableID}
+              subtext="Ends 11/20/2021"
+              text="Complete"
+              type="ok"
             />
           </Table.Body>
         </Table>

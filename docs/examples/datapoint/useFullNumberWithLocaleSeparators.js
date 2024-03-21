@@ -4,12 +4,12 @@ import { Box, Datapoint } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Datapoint
         size="lg"
         title="Total impressions"
-        value="1,451"
         trend={{ value: 10.1, accessibilityLabel: 'Trending up' }}
+        value="1,451"
       />
     </Box>
   );

@@ -41,8 +41,8 @@ export default function useDefaultTooltip({
     ({ active, payload, label }) => (
       <div style={{ direction: isRtl ? 'rtl' : 'ltr' }}>
         <Box
-          color={isDarkMode ? 'elevationFloating' : 'default'}
           borderStyle={isDarkMode ? undefined : 'shadow'}
+          color={isDarkMode ? 'elevationFloating' : 'default'}
           maxWidth={300}
           padding={2}
           rounding={4}
@@ -77,7 +77,7 @@ export default function useDefaultTooltip({
                   ),
                 )}
               </Flex.Item>
-              <Text size="100" color="subtle">
+              <Text color="subtle" size="100">
                 {isTimeSeries && typeof label === 'number' && tickFormatter?.timeseries
                   ? tickFormatter.timeseries(label)
                   : null}

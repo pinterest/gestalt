@@ -13,19 +13,19 @@ export default function Screenshot(): ReactNode {
 
   return (
     <Box color="default" display="inlineBlock" padding={1} width="600px">
-      <Flex direction="column" width="100%" justifyContent="between" gap={{ column: 2, row: 0 }}>
+      <Flex direction="column" gap={{ column: 2, row: 0 }} justifyContent="between" width="100%">
         <Accordion
+          iconAccessibilityLabel="Accordion Locked - check permission settings"
           iconButton={
             <IconButton
+              accessibilityLabel="Get help"
               bgColor="lightGray"
               icon="question-mark"
               iconColor="darkGray"
-              accessibilityLabel="Get help"
-              size="xs"
               onClick={() => {}}
+              size="xs"
             />
           }
-          iconAccessibilityLabel="Accordion Locked - check permission settings"
           id="AccordionExample - header"
           size={size}
           title="Accordion Title"
@@ -33,10 +33,9 @@ export default function Screenshot(): ReactNode {
           <Text size="200">This is example content.</Text>
         </Accordion>
         <Accordion.Expandable
-          accessibilityExpandLabel="Expand section"
           accessibilityCollapseLabel="Collapse section"
+          accessibilityExpandLabel="Expand section"
           id="AccordionExample - header expandable"
-          size={size}
           items={[
             {
               badge: { text: 'badge' },
@@ -45,12 +44,12 @@ export default function Screenshot(): ReactNode {
               title: 'Title',
               iconButton: (
                 <IconButton
+                  accessibilityLabel="Get help"
                   bgColor="lightGray"
                   icon="question-mark"
                   iconColor="darkGray"
-                  accessibilityLabel="Get help"
-                  size="xs"
                   onClick={() => {}}
+                  size="xs"
                 />
               ),
             },
@@ -61,16 +60,17 @@ export default function Screenshot(): ReactNode {
               title: 'Title',
               iconButton: (
                 <IconButton
+                  accessibilityLabel="Get help"
                   bgColor="lightGray"
                   icon="question-mark"
                   iconColor="darkGray"
-                  accessibilityLabel="Get help"
-                  size="xs"
                   onClick={() => {}}
+                  size="xs"
                 />
               ),
             },
           ]}
+          size={size}
         />
       </Flex>
     </Box>

@@ -22,7 +22,7 @@ function BaseRow({
   return (
     <Table.Row>
       <Table.Cell>
-        <Checkbox id={newId} onChange={() => {}} disabled={disabled} size="sm" checked={checked} />
+        <Checkbox checked={checked} disabled={disabled} id={newId} onChange={() => {}} size="sm" />
       </Table.Cell>
       <Table.Cell>
         <Label htmlFor={newId}>
@@ -46,7 +46,7 @@ export default function Snapshot(): ReactNode {
               <Box display="visuallyHidden">
                 <Label htmlFor="header_checkbox">Not all checkboxes are checked</Label>
               </Box>
-              <Checkbox id="header_checkbox" onChange={() => {}} indeterminate size="sm" />
+              <Checkbox id="header_checkbox" indeterminate onChange={() => {}} size="sm" />
             </Table.HeaderCell>
             {['Campaign', 'Spend'].map((title) => (
               <Table.HeaderCell key={title}>
@@ -58,11 +58,11 @@ export default function Snapshot(): ReactNode {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          <BaseRow id="example" checked text="The best ad" spend="$5.50" />
-          <BaseRow id="example" disabled text="This ad is great" spend="$3,000.00" />
-          <BaseRow id="example" checked text="Mary's pincycle" spend="$1.75" />
-          <BaseRow id="example" checked={false} text="Best Purchase Wins" spend="$51,650,500.54" />
-          <BaseRow id="example" checked={false} text="The third campaign" spend="$67.60" />
+          <BaseRow checked id="example" spend="$5.50" text="The best ad" />
+          <BaseRow disabled id="example" spend="$3,000.00" text="This ad is great" />
+          <BaseRow checked id="example" spend="$1.75" text="Mary's pincycle" />
+          <BaseRow checked={false} id="example" spend="$51,650,500.54" text="Best Purchase Wins" />
+          <BaseRow checked={false} id="example" spend="$67.60" text="The third campaign" />
         </Table.Body>
       </Table>
     </Box>

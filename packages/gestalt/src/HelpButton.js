@@ -187,34 +187,34 @@ export default function HelpButton({
   const popoverElement = (
     <Popover
       __experimentalPopover={isInExperiment}
-      id={popoverId}
       accessibilityLabel={accessibilityPopoverLabel}
       anchor={tapAreaRef.current}
+      disablePortal
+      id={popoverId}
+      idealDirection={idealDirection}
       onDismiss={toggleView}
       onKeyDown={handlePopoverKeyDown}
-      idealDirection={idealDirection}
       positionRelativeToAnchor={isWithinFixedContainer}
-      disablePortal
     >
-      <Box padding={5} rounding={4} height="auto">
+      <Box height="auto" padding={5} rounding={4}>
         {/*
          * `id` - used to tracking children by line 130
          * `tabIndex={0}` - It's used to make the text element as a focusable element
          */}
-        <Box id={`helpButtonText-${popoverId}`} tabIndex={0} ref={textRef}>
+        <Box ref={textRef} id={`helpButtonText-${popoverId}`} tabIndex={0}>
           {textElement}
         </Box>
         {link && link?.href && (
-          <Box width="100%" display="block" marginTop={3}>
+          <Box display="block" marginTop={3} width="100%">
             <Text>
               <Link
+                ref={link.ref}
                 accessibilityLabel={link.accessibilityLabel}
                 externalLinkIcon={link.externalLinkIcon}
                 href={link.href}
+                onBlur={() => setFocused(false)}
                 onClick={link.onClick}
                 onFocus={() => setFocused(true)}
-                onBlur={() => setFocused(false)}
-                ref={link.ref}
                 target={link.target ?? 'blank'}
                 underline="always"
               >
@@ -229,36 +229,36 @@ export default function HelpButton({
 
   return (
     // The only purpose of this Flex is to make zIndex work (Tooltip over Popover).
-    <Flex alignItems="center" justifyContent="center" flex="none">
+    <Flex alignItems="center" flex="none" justifyContent="center">
       <Tooltip
         accessibilityLabel=""
-        text={tooltipMessage}
         idealDirection={idealDirection}
+        text={tooltipMessage}
         zIndex={tooltipZIndex}
       >
         <TapArea
-          accessibilityExpanded={open}
+          ref={tapAreaRef}
           accessibilityControls={popoverId}
+          accessibilityExpanded={open}
           accessibilityLabel={accessibilityLabel}
           fullWidth={false}
-          onTap={onHandleTap}
-          ref={tapAreaRef}
-          role="button"
-          rounding="circle"
           onBlur={() => setFocused(false)}
           onFocus={() => setFocused(true)}
+          onKeyDown={handleTapAreaKeyDown}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          onKeyDown={handleTapAreaKeyDown}
+          onTap={onHandleTap}
+          role="button"
+          rounding="circle"
         >
           <Box
-            width={16}
-            height={16}
-            rounding="circle"
-            display="flex"
             alignItems="center"
-            justifyContent="center"
             color={bgIconColor}
+            display="flex"
+            height={16}
+            justifyContent="center"
+            rounding="circle"
+            width={16}
           >
             <Icon accessibilityLabel="" color="inverse" icon="question-mark" size={8} />
           </Box>

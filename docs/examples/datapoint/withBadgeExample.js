@@ -4,12 +4,12 @@ import { Box, Datapoint } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Datapoint
-        title="Spend"
-        value="$5.7k"
-        tooltipText="Total ad spend in the selected time period"
         badge={{ text: 'Early access' }}
+        title="Spend"
+        tooltipText="Total ad spend in the selected time period"
+        value="$5.7k"
       />
     </Box>
   );

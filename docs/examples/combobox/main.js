@@ -34,8 +34,8 @@ export default function Example(): ReactNode {
   const resetErrorMessage = errorMessage ? () => setErrorMessage() : () => {};
 
   return (
-    <Flex justifyContent="center" alignItems="center" gap={4} height="100%" width="100%">
-      <Box width={300} height={100}>
+    <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
+      <Box height={100} width={300}>
         <ComboBox
           accessibilityClearButtonLabel="Clear the current value"
           errorMessage={errorMessage}

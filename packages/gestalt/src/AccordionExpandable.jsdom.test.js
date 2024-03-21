@@ -38,12 +38,12 @@ describe('AccordionExpandable', () => {
         children: 'Children5',
         iconButton: (
           <IconButton
+            accessibilityLabel="Get help"
             bgColor="lightGray"
             icon="question-mark"
             iconColor="darkGray"
-            accessibilityLabel="Get help"
-            size="xs"
             onClick={() => {}}
+            size="xs"
           />
         ),
       },

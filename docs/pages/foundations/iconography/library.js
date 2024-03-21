@@ -48,36 +48,36 @@ function IconTile({
   const [hovered, setHovered] = useState<?boolean>();
 
   return (
-    <Tooltip text={iconDescription} accessibilityLabel={iconDescription} idealDirection="down">
+    <Tooltip accessibilityLabel={iconDescription} idealDirection="down" text={iconDescription}>
       <TapArea
-        rounding={2}
-        tapStyle="compress"
-        onTap={onTap}
+        onBlur={() => setHovered(false)}
+        onFocus={() => setHovered(true)}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        onFocus={() => setHovered(true)}
-        onBlur={() => setHovered(false)}
+        onTap={onTap}
+        rounding={2}
+        tapStyle="compress"
       >
         <Box
           borderStyle="sm"
-          rounding={2}
-          padding={2}
-          width={150}
-          height={110}
           color={hovered ? 'inverse' : 'default'}
+          height={110}
+          padding={2}
           position="relative"
+          rounding={2}
+          width={150}
         >
           <Flex
-            height="100%"
-            flex="grow"
-            direction="column"
-            gap={2}
             alignItems="center"
+            direction="column"
+            flex="grow"
+            gap={2}
+            height="100%"
             justifyContent="center"
           >
             <Icon
-              color={hovered ? 'inverse' : 'default'}
               accessibilityLabel=""
+              color={hovered ? 'inverse' : 'default'}
               icon={iconName}
               size="24"
             />
@@ -86,20 +86,20 @@ function IconTile({
             </Text>
           </Flex>
           <Box
-            position="absolute"
             bottom
-            right
-            display={hovered ? 'block' : 'none'}
             dangerouslySetInlineStyle={{
               __style: { bottom: '8px', right: '8px' },
             }}
+            display={hovered ? 'block' : 'none'}
+            position="absolute"
+            right
           >
             <Pog
-              icon="copy-to-clipboard"
-              size="xs"
-              iconColor="darkGray"
               bgColor="lightGray"
+              icon="copy-to-clipboard"
+              iconColor="darkGray"
               padding={1}
+              size="xs"
             />
           </Box>
         </Box>
@@ -178,9 +178,9 @@ export default function IconPage(): ReactNode {
           return (
             <IconTile
               key={iconName}
+              iconDescription={filteredIconData?.description ?? ''}
               iconName={iconName}
               onTap={buildHandleIconClick(iconName)}
-              iconDescription={filteredIconData?.description ?? ''}
             />
           );
         })}
@@ -193,8 +193,8 @@ export default function IconPage(): ReactNode {
             return iconData ? (
               <IconTile
                 key={iconName}
-                iconName={iconData.name}
                 iconDescription={iconData.description ?? ''}
+                iconName={iconData.name}
                 onTap={buildHandleIconClick(iconData.name)}
               />
             ) : null;
@@ -205,7 +205,7 @@ export default function IconPage(): ReactNode {
         }
         return (
           <Flex key={category} direction="column" gap={4}>
-            <Heading size="400" accessibilityLevel={2}>
+            <Heading accessibilityLevel={2} size="400">
               {category}
             </Heading>
             <Flex gap={3} wrap>
@@ -236,28 +236,28 @@ export default function IconPage(): ReactNode {
   );
 
   return (
-    <Page title="Icon library" hideSideNav>
+    <Page hideSideNav title="Icon library">
       <PageHeader
-        name="Icon library"
-        folderName="icons"
-        type="guidelines"
         description="Use the icon grid to visually search for icons. On click, the icon name will be copied. You can use the search input below to search icons by name, or filter your search by alphabetical or category."
+        folderName="icons"
+        name="Icon library"
+        type="guidelines"
       />
 
-      <Flex width="100%" direction="column" gap={8}>
-        <Flex gap={6} alignItems="end" wrap>
-          <Flex.Item maxWidth={300} flex="grow">
+      <Flex direction="column" gap={8} width="100%">
+        <Flex alignItems="end" gap={6} wrap>
+          <Flex.Item flex="grow" maxWidth={300}>
             <SearchField
+              accessibilityClearButtonLabel="Clear search field"
               accessibilityLabel="Search icons by name"
               autoComplete="off"
-              accessibilityClearButtonLabel="Clear search field"
-              label="Search icons by name"
               id="icon-search-field"
+              label="Search icons by name"
               onChange={handleOnChange}
               value={inputValue}
             />
           </Flex.Item>
-          <RadioGroup legend="Sort by" direction="row" id="directionExample">
+          <RadioGroup direction="row" id="directionExample" legend="Sort by">
             <RadioGroup.RadioButton
               checked={sortedAlphabetical}
               id="sortAlphabetical"

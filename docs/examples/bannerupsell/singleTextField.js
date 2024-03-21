@@ -18,14 +18,14 @@ export default function FormExample(): ReactNode {
   };
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <BannerUpsell
         dismissButton={{
           accessibilityLabel: 'Dismiss banner',
           onDismiss: () => {},
         }}
         imageData={{
-          component: <Icon icon="pinterest" accessibilityLabel="Pin" color="default" size={32} />,
+          component: <Icon accessibilityLabel="Pin" color="default" icon="pinterest" size={32} />,
         }}
         message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
         title="Give $30, get $60 in ads credit"
@@ -37,11 +37,11 @@ export default function FormExample(): ReactNode {
         >
           <TextField
             id="nameField"
+            label="Full name"
+            labelDisplay="hidden"
             onChange={(e) => setValue(e.value)}
             placeholder="Name"
             value={value}
-            label="Full name"
-            labelDisplay="hidden"
           />
         </BannerUpsell.Form>
       </BannerUpsell>

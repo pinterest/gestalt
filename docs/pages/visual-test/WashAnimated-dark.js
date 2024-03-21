@@ -7,7 +7,7 @@ export default function Snapshot(): ReactNode {
     <ColorSchemeProvider colorScheme="dark">
       <Box color="default" display="inlineBlock" padding={1}>
         <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-          <Box maxWidth={236} padding={8} column={12}>
+          <Box column={12} maxWidth={236} padding={8}>
             <WashAnimated
               active
               image={<Avatar name="James Jones" src="https://i.ibb.co/2Fc00R3/james.jpg" />}

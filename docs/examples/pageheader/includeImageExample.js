@@ -5,8 +5,7 @@ import { Dropdown, IconButton, Image, PageHeader } from 'gestalt';
 export default function IncludeImageExample(): ReactNode {
   return (
     <PageHeader
-      title="Pinterest app"
-      subtext="Last updated 5 hours ago"
+      dropdownAccessibilityLabel="Additional options"
       primaryAction={{
         component: (
           <IconButton
@@ -21,12 +20,12 @@ export default function IncludeImageExample(): ReactNode {
         dropdownItems: [
           <Dropdown.Item
             key="refresh"
-            option={{ value: 'Refresh page', label: 'Refresh page' }}
             onSelect={() => {}}
+            option={{ value: 'Refresh page', label: 'Refresh page' }}
           />,
         ],
       }}
-      dropdownAccessibilityLabel="Additional options"
+      subtext="Last updated 5 hours ago"
       thumbnail={
         <Image
           alt="square"
@@ -36,6 +35,7 @@ export default function IncludeImageExample(): ReactNode {
           src="https://i.ibb.co/LQc8ynn/image.png"
         />
       }
+      title="Pinterest app"
     />
   );
 }

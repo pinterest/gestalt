@@ -14,9 +14,9 @@ export default function Example(): ReactNode {
         <Button
           accessibilityLabel="Show Modal"
           color="red"
-          text="Show Modal"
-          size="lg"
           onClick={() => setShowComponent(true)}
+          size="lg"
+          text="Show Modal"
         />
       </Box>
       {showComponent ? (
@@ -24,6 +24,7 @@ export default function Example(): ReactNode {
           <ModalAlert
             accessibilityModalLabel="Delete 70s couch item"
             heading="Remove this item?"
+            onDismiss={() => setShowComponent(false)}
             primaryAction={{
               accessibilityLabel: 'Remove item',
               label: 'Yes, remove',
@@ -36,7 +37,6 @@ export default function Example(): ReactNode {
               onClick: () => setShowComponent(false),
               role: 'button',
             }}
-            onDismiss={() => setShowComponent(false)}
           >
             <Text>
               This item and all of its related metadata will be removed from your Catalogs

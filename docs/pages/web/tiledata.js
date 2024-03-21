@@ -22,8 +22,8 @@ import tooltip from '../../examples/tiledata/tooltip';
 export default function TileDataPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample code={main} name="Main TileData Example" hideEditor previewHeight={150} />
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
+        <SandpackExample code={main} hideEditor name="Main TileData Example" previewHeight={150} />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -32,20 +32,20 @@ export default function TileDataPage({ generatedDocGen }: { generatedDocGen: Doc
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
         - When selecting and/or comparing categories with an accompanying chart or graph view that displays at-a-glance data for a user to quickly view key metrics
       `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
         - When grouping data points that aren't selectable
         - For selectable information that is not part of a data visualization
       `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -54,66 +54,66 @@ export default function TileDataPage({ generatedDocGen }: { generatedDocGen: Doc
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="sm"
-            type="do"
             description="Always present one tile in its selected state on default."
             sandpackExample={
               <SandpackExample
                 code={singleTileDo}
-                name="show one selected tile"
                 hideEditor
+                name="show one selected tile"
                 previewHeight={200}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="sm"
-            type="don't"
             description="Use TileData to present a single option. If TileData's don't need to be selected, then use [Datapoint](https://gestalt.pinterest.systems/web/datapoint) instead."
             sandpackExample={
               <SandpackExample
                 code={singleTileDont}
-                name="show one tile not selected"
-                hideEditor
                 hideControls
+                hideEditor
+                name="show one tile not selected"
                 previewHeight={200}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="sm"
-            type="do"
             description="Use the `showCheckbox` prop when multiple Tiledatas can be selected. See the [group variant](https://gestalt.pinterest.systems/web/tiledata#Group) for more details."
             sandpackExample={
               <SandpackExample
                 code={multipleCheckboxDo}
-                name="show multiple with checkboxes"
                 hideEditor
+                name="show multiple with checkboxes"
                 previewHeight={200}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="sm"
-            type="don't"
             description="Use TileData when multiple items can be selected without a visible checkbox."
             sandpackExample={
               <SandpackExample
                 code={multipleCheckboxDont}
-                name="not show multiple with checkboxes"
-                hideEditor
                 hideControls
+                hideEditor
+                name="not show multiple with checkboxes"
                 previewHeight={200}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
 
       <AccessibilitySection
-        name={generatedDocGen?.displayName}
         description="Users should be able to navigate or activate TileData using a keyboard or other input modalities. Be sure to include an `accessibilityLabel` for the screen reader if you're using the `trend` or `tooltip` props."
+        name={generatedDocGen?.displayName}
       />
 
       <LocalizationSection

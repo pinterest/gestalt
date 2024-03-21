@@ -27,9 +27,9 @@ export default function TabularDataModalFooter({
   return (
     <Flex justifyContent="end">
       <ButtonGroup>
-        <Button color="gray" text={cancelButtonText} onClick={toggleTabularDataModal} />
-        <a href={encodedData} download={`${title.toLowerCase().replace(' ', '_')}.csv`}>
-          <Button color="red" text={downloadCsvButtonText} iconEnd="download" />
+        <Button color="gray" onClick={toggleTabularDataModal} text={cancelButtonText} />
+        <a download={`${title.toLowerCase().replace(' ', '_')}.csv`} href={encodedData}>
+          <Button color="red" iconEnd="download" text={downloadCsvButtonText} />
         </a>
       </ButtonGroup>
     </Flex>

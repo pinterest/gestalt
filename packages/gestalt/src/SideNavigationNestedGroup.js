@@ -43,9 +43,9 @@ export default function SideNavigationNestedGroup({
   return (
     <SideNavigationGroup
       counter={counter}
-      label={label}
       display={display}
       expanded={expanded}
+      label={label}
       onExpand={onExpand}
     >
       {children}

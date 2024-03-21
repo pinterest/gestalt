@@ -17,39 +17,38 @@ export default function DocsPage({ generatedDocGen }: DocType): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
-        pdocsLink
         bannerSlim={
           <BannerSlim
-            type="info"
-            iconAccessibilityLabel="Info"
-            message="Complete documentation for IconButtonLink coming soon."
             helperLink={{
               text: 'See IconButton documentation page',
               accessibilityLabel: 'View IconButton documentation page',
               href: '/web/iconbutton',
               onClick: () => {},
             }}
+            iconAccessibilityLabel="Info"
+            message="Complete documentation for IconButtonLink coming soon."
+            type="info"
           />
         }
+        description={generatedDocGen?.description}
+        name={generatedDocGen?.displayName}
+        pdocsLink
       >
-        <SandpackExample code={main} name="Main IconButtonLink example" hideEditor />
+        <SandpackExample code={main} hideEditor name="Main IconButtonLink example" />
       </PageHeader>
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection
-        name="Usage guidelines"
         description="See [IconButton](/web/iconbutton) for usage guidelines."
+        name="Usage guidelines"
       />
 
-      <LocalizationSection name={generatedDocGen?.displayName} code={localizationLabels} />
+      <LocalizationSection code={localizationLabels} name={generatedDocGen?.displayName} />
 
       <MainSection
-        name="Variants"
         description="See [IconButton](/web/iconbutton) for more variants."
+        name="Variants"
       >
         <MainSection.Subsection
-          title="External handlers"
           description={`IconButtonLink consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).
 
 Handlers:
@@ -58,6 +57,7 @@ Handlers:
 
 See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onNavigation:-custom-navigation) for more information.
 `}
+          title="External handlers"
         />
       </MainSection>
 

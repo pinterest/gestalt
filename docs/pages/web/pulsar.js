@@ -23,8 +23,8 @@ import size from '../../examples/pulsar/size';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample code={main} name="Primary Pulsar example" hideEditor previewHeight={250} />
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
+        <SandpackExample code={main} hideEditor name="Primary Pulsar example" previewHeight={250} />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -33,20 +33,20 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - Calling attention to a specific element within a surface. Note: a Pulsar should be used in conjunction with a [Popover](/web/popover).
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - In the case of a user error or warning that needs attention. Use [BannerCallout](/web/bannercallout) or form errors states instead.
           - When the focus of the attention is at the surface level. Use [BannerCallout](/web/bannercallout) instead.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -55,124 +55,124 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description={`
             Show Pulsar with an educational [Popover](/web/popover) that contains an affordance to dismiss both Popover and Pulsar.
             `}
             sandpackExample={
               <SandpackExample
                 code={doPopover}
-                name="Do - Popover"
                 hideEditor
+                name="Do - Popover"
                 previewHeight={300}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use Pulsar to highlight an element with no context or way to dismiss. The user should always know why something is being highlighted and be able to opt out."
             sandpackExample={
               <SandpackExample
                 code={dontPopover}
-                name="Don't - Popover"
                 hideControls
                 hideEditor
+                name="Don't - Popover"
                 previewHeight={300}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use Pulsar to highlight or promote a feature or element on a surface."
             sandpackExample={
               <SandpackExample
                 code={doHighlight}
-                name="Do - Highlight"
                 hideEditor
+                name="Do - Highlight"
                 previewHeight={400}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description={`
             Display Pulsar to point out an error or status update. Use [BannerSlim](/web/bannerslim) or other [messaging components](/foundations/messaging/overview) instead.
             `}
             sandpackExample={
               <SandpackExample
                 code={dontStatus}
-                name="Don't - Status"
                 hideControls
                 hideEditor
+                name="Don't - Status"
                 previewHeight={400}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Prioritize Pulsars to call out the most critical feature users should be aware of."
             sandpackExample={
               <SandpackExample
                 code={doPrioritize}
-                name="Do - Prioritize"
                 hideEditor
+                name="Do - Prioritize"
                 previewHeight={400}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Show more than one Pulsar at a time. Multiple Pulsars dilute user focus/attention."
             sandpackExample={
               <SandpackExample
                 code={dontMultiple}
-                name="Don't - Multiple"
                 hideControls
                 hideEditor
+                name="Don't - Multiple"
                 previewHeight={400}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Place Pulsar in the bottom center of the content without obstructing content in cases where the target is too large to comfortably encapsulate."
             sandpackExample={
               <SandpackExample
                 code={doPosition}
-                name="Do - Positioning"
                 hideEditor
+                name="Do - Positioning"
                 previewHeight={500}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Attempt to grow Pulsar to fit larger content as it can create an awkward composition between Pulsar/Popover and its target."
             sandpackExample={
               <SandpackExample
                 code={dontPosition}
-                name="Don't - Positioning"
                 hideControls
                 hideEditor
+                name="Don't - Positioning"
                 previewHeight={500}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>

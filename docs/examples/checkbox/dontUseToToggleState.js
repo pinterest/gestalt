@@ -6,12 +6,12 @@ export default function Example(): ReactNode {
   const [checked1, setChecked1] = useState(false);
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Checkbox
         checked={checked1}
+        helperText="Change will auto-save"
         id="location"
         label="Turn location tracking off"
-        helperText="Change will auto-save"
         onChange={({ checked }) => setChecked1(checked)}
       />
     </Box>

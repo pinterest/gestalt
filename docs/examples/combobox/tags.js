@@ -95,23 +95,23 @@ export default function Example(): ReactNode {
   ));
 
   return (
-    <Box padding={2} width="100%" height="100%">
-      <Flex width="100%" height="100%" justifyContent="center" alignItems="center">
+    <Box height="100%" padding={2} width="100%">
+      <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
         <Box width={320}>
           <ComboBox
+            ref={ref}
             accessibilityClearButtonLabel="Clear the current value"
-            label="Pronouns"
+            helperText="Choose up to 2 sets of pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
             id="tags"
             inputValue={searchTerm}
+            label="Pronouns"
             noResultText="No results for your selection"
-            options={suggestedOptions}
-            ref={ref}
-            helperText="Choose up to 2 sets of pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
-            onKeyDown={handleOnKeyDown}
+            onBlur={handleOnBlur}
             onChange={handleOnChange}
             onClear={handleClear}
-            onBlur={handleOnBlur}
+            onKeyDown={handleOnKeyDown}
             onSelect={handleOnSelect}
+            options={suggestedOptions}
             placeholder={selected.length > 0 ? '' : 'Add your pronouns'}
             tags={renderedTags}
           />

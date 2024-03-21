@@ -25,9 +25,9 @@ describe('Link', () => {
   it('renders a link with correct new tab announcement with and without accessibilityLabel', () => {
     render(
       <Link
-        href="https://business.pinterest.com/advertise"
         display="inline"
         externalLinkIcon="default"
+        href="https://business.pinterest.com/advertise"
         target="blank"
       >
         Visit Pinterest
@@ -48,9 +48,9 @@ describe('Link', () => {
     render(
       <Link
         accessibilityLabel="Visit Pinterest"
-        href="https://business.pinterest.com/advertise"
         display="inline"
         externalLinkIcon="default"
+        href="https://business.pinterest.com/advertise"
         target="blank"
       />,
     );
@@ -63,8 +63,8 @@ describe('Link', () => {
     render(
       <Link
         accessibilityLabel="Visit Pinterest"
-        href="https://business.pinterest.com/advertise"
         dataTestId={TEST_ID}
+        href="https://business.pinterest.com/advertise"
       />,
     );
     expect(

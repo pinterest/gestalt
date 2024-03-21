@@ -26,14 +26,14 @@ export default function AvatarPage({ generatedDocGen }: { generatedDocGen: DocGe
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
+        name={generatedDocGen?.displayName}
         pdocsLink
       >
         <SandpackExample
           code={mainExample}
-          name="Main Avatar example"
           hideEditor
+          name="Main Avatar example"
           previewHeight={150}
         />
       </PageHeader>
@@ -42,19 +42,19 @@ export default function AvatarPage({ generatedDocGen }: { generatedDocGen: DocGe
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - To reflect a person, company or brand within the product.
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - To represent a group of people, companies and/or brands. Use [AvatarGroup](/web/avatargroup) instead.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -62,115 +62,115 @@ export default function AvatarPage({ generatedDocGen }: { generatedDocGen: DocGe
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use the default alternative if no image source is available. This will be the first character of the provided name."
             sandpackExample={
               <SandpackExample
                 code={noImageSourceExample}
-                name="No image source"
                 hideEditor
+                name="No image source"
                 previewHeight={200}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use alternative graphics or icons"
             sandpackExample={
               <SandpackExample
                 code={noEmojiExample}
-                name="No emoji"
-                hideEditor
-                previewHeight={200}
                 hideControls
+                hideEditor
+                name="No emoji"
+                previewHeight={200}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use round Avatars in the appropriate size for your need. Learn more about [avatar sizing](/web/avatar#Fixed-Sizes)."
             sandpackExample={
-              <SandpackExample code={sizingExample} name="Sizing" hideEditor previewHeight={200} />
+              <SandpackExample code={sizingExample} hideEditor name="Sizing" previewHeight={200} />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Scale or change the shape of Avatar. Instead use the designated Avatar sizes and style."
             sandpackExample={
               <SandpackExample
                 code={shapeExample}
-                name="Shape"
                 hideControls
                 hideEditor
+                name="Shape"
                 previewHeight={200}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use Avatar to represent a person, organization or group ([Avatar Group](/web/avatargroup))."
             sandpackExample={
-              <SandpackExample code={personExample} name="People" hideEditor previewHeight={200} />
+              <SandpackExample code={personExample} hideEditor name="People" previewHeight={200} />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use Avatar to represent metaphorical ideas, like a Board. Instead, consider an icon or the appropriate interactive component."
             sandpackExample={
               <SandpackExample
                 code={ideasExample}
-                name="Ideas"
-                hideEditor
-                previewHeight={200}
                 hideControls
+                hideEditor
+                name="Ideas"
+                previewHeight={200}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use the collaborator’s name nearby or in an alternative view if possible."
             sandpackExample={
-              <SandpackExample code={nameExample} name="Name" hideEditor previewHeight={200} />
+              <SandpackExample code={nameExample} hideEditor name="Name" previewHeight={200} />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Place elements like washes, text or icons over Avatars."
             sandpackExample={
               <SandpackExample
                 code={overExample}
-                name="Over"
-                hideEditor
-                previewHeight={200}
                 hideControls
+                hideEditor
+                name="Over"
+                previewHeight={200}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
       <AccessibilitySection
-        name={generatedDocGen?.displayName}
         description={`
           The avatar should have a text equivalent. Use the \`accessibilityLabel\` prop to ensure there is a text description for the image. The VoiceOver description will default to the \`name\` prop if \`accessibilityLabel\` is not provided.
 
           Make sure that the alternative text properly describes the information and function of the avatar image(s). Depending on the situation, it may be helpful to state the collaborator or company name and/or their verification status.
         `}
+        name={generatedDocGen?.displayName}
       />
 
       <LocalizationSection name={generatedDocGen?.displayName} noDefaultLabelProvider />

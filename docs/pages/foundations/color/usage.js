@@ -14,15 +14,15 @@ function ColorSchemeLayout({ children }: ColorCardProps): ReactNode {
     <Flex gap={4} wrap>
       {['light', 'dark'].map((scheme) => (
         <ColorSchemeProvider key={scheme} colorScheme={scheme} id={scheme}>
-          <Box padding={4} color="default">
+          <Box color="default" padding={4}>
             <Flex
+              direction="column"
               gap={{
                 row: 0,
                 column: 4,
               }}
-              direction="column"
             >
-              <Text weight="bold" size="400" color="default">
+              <Text color="default" size="400" weight="bold">
                 {scheme === 'light' ? 'Light mode' : 'Dark mode'}
               </Text>
               {children}
@@ -38,7 +38,6 @@ export default function ColorUsagePage(): ReactNode {
   return (
     <Page title="Color usage">
       <PageHeader
-        name="Color usage"
         description={`
     Our color palettes are shared between Brand and Gestalt, and represent our full range of options. Please refer to the [Color Palette page](/foundations/color/palette) for all the shades and tints available.
 
@@ -48,10 +47,10 @@ export default function ColorUsagePage(): ReactNode {
     - Additional UI elements, including colors for shopping, messages, typography, and iconography
     - Accessibility and inclusive design
     `}
+        name="Color usage"
         type="guidelines"
       />
       <MainSection
-        name="Applying color to UI"
         description={`
         When designing a product interface, you can choose between any color swatch available in our [design tokens documentation](/foundations/design_tokens). The color tokens represent the values used within Gestalt to construct layouts and components.
 
@@ -61,35 +60,36 @@ export default function ColorUsagePage(): ReactNode {
 
         If there is a need for a color not available in our design tokens, please reach out to the Core Brand team for guidance on using color to propose a brand moment within the product UI.
         `}
+        name="Applying color to UI"
       />
       <MainSection
-        name="Primary color"
         description={`
         A primary color is the color displayed most frequently across screens and components, used to convey high-emphasis actions. Our primary color related tokens are:
         **$color-background-primary-base** - Use when conveying a primary action.
         **$color-background-brand** - Use when a background color is needed to signify the Pinterest brand.        `}
+        name="Primary color"
       >
         <Flex gap={2}>
           <ColorSchemeLayout>
             <ColorTile
               description="Primary base"
-              textColor="light"
               fullTokenName="color-background-primary-base"
+              textColor="light"
             />
             <ColorTile
               description="Brand"
-              textColor="light"
               fullTokenName="color-background-brand"
+              textColor="light"
             />
           </ColorSchemeLayout>
         </Flex>
       </MainSection>
       <MainSection
-        name="Secondary color"
         description={`
         A secondary color highlights medium to low-emphasis actions, creating a balance with the primary color. Our secondary color related token is:
         **$color-background-secondary-base** - Use for secondary, medium to low-emphasis actions.
         `}
+        name="Secondary color"
       >
         <ColorSchemeLayout>
           <ColorTile
@@ -100,42 +100,41 @@ export default function ColorUsagePage(): ReactNode {
         </ColorSchemeLayout>
       </MainSection>
       <MainSection
-        name="Accent gray color"
         description={`
         Our tertiary color offers ways to accent the UI when the primary color doesn't work well on the proposed layout. Our accent gray related token is:
         **$color-background-tertiary-base** - Use on medium to low-emphasis actions.
         `}
+        name="Accent gray color"
       >
         <ColorSchemeLayout>
           <ColorTile
             description="Tertiary base"
-            textColor="inverse"
             fullTokenName="color-background-tertiary-base"
+            textColor="inverse"
           />
         </ColorSchemeLayout>
       </MainSection>
       <MainSection
-        name="Shopping color"
         description={`
         Instead of the Pushpin 450, the Skycicle 500 (blue) is the primary color to indicate shopping-related features. The related token is:
         **$color-background-shopping** - Use when conveying a primary action on shopping experiences.
         `}
+        name="Shopping color"
       >
         <ColorSchemeLayout>
           <ColorTile
             description="Shopping"
             fullTokenName="color-background-shopping"
-            textColor="inverse"
             number={500}
+            textColor="inverse"
           />
         </ColorSchemeLayout>
       </MainSection>
       <MainSection
-        name="Background color"
         description="Background colors are used behind text or applied to other elements to deliver specific messages or meanings, such as information, success, warning, and error. They are divided into two categories: base colors and weak colors. "
+        name="Background color"
       >
         <MainSection.Subsection
-          title="Base background colors"
           description={`
           Use on UI elements to convey a specific status or message. Usually, they aren't used behind default text.
           **$color-background-info-base** - Use to indicate neutral information.
@@ -143,42 +142,42 @@ export default function ColorUsagePage(): ReactNode {
           **$color-background-warning-base** - Use to indicate warning alerts.
           **$color-background-error-base** -  Use to indicate errors.
         `}
+          title="Base background colors"
         >
           <ColorSchemeLayout>
             <ColorTile
               description="Info base"
-              textColor="inverse"
               fullTokenName="color-background-info-base"
+              textColor="inverse"
             />
             <ColorTile
               description="Recommendation base"
-              textColor="inverse"
               fullTokenName="color-background-recommendation-base"
+              textColor="inverse"
             />
             <ColorTile
               description="Success base"
-              textColor="inverse"
               fullTokenName="color-background-success-base"
+              textColor="inverse"
             />
             <ColorTile
               description="Warning base"
-              textColor="inverse"
               fullTokenName="color-background-warning-base"
+              textColor="inverse"
             />
             <ColorTile
               description="Error base"
-              textColor="inverse"
               fullTokenName="color-background-error-base"
+              textColor="inverse"
             />
             <ColorTile
               description="Neutral (tertiary base)"
-              textColor="inverse"
               fullTokenName="color-background-tertiary-base"
+              textColor="inverse"
             />
           </ColorSchemeLayout>
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Weak background colors"
           description={`
           Since they have a light tint, these colors can be used behind text.
           **$color-background-info-weak** - Use as a background for neutral information.
@@ -186,6 +185,7 @@ export default function ColorUsagePage(): ReactNode {
           **$color-background-warning-weak** - Use as a background for warning alerts.
           **$color-background-error-weak** -  Uses as a background for errors.
         `}
+          title="Weak background colors"
         >
           <ColorSchemeLayout>
             <ColorTile
@@ -195,8 +195,8 @@ export default function ColorUsagePage(): ReactNode {
             />
             <ColorTile
               description="Recommendation weak"
-              textColor="default"
               fullTokenName="color-background-recommendation-weak"
+              textColor="default"
             />
             <ColorTile
               description="Success weak"
@@ -216,24 +216,23 @@ export default function ColorUsagePage(): ReactNode {
           </ColorSchemeLayout>
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Inverse background color"
           description={`
           Color used to indicate an inverted background.
           **$color-background-inverse-base** - Use to create an inverted background.
           `}
+          title="Inverse background color"
         >
           <ColorSchemeLayout>
             <ColorTile
               description="Inverse base"
-              textColor="inverse"
               fullTokenName="color-background-inverse-base"
+              textColor="inverse"
             />
           </ColorSchemeLayout>
         </MainSection.Subsection>
       </MainSection>
       <MainSection name="Typography color">
         <MainSection.Subsection
-          title="Standard text colors"
           description={`
           Typography colors are used on text elements such as headings and body.
           Use the tokens:
@@ -242,50 +241,51 @@ export default function ColorUsagePage(): ReactNode {
           **$color-text-shopping** - For text related to shopping products or surfaces.
 
           `}
+          title="Standard text colors"
         >
           <ColorSchemeLayout>
             <ColorTile
               description="Default"
-              textColor="inverse"
               fullTokenName="color-text-default"
+              textColor="inverse"
             />
-            <ColorTile description="Subtle" textColor="inverse" fullTokenName="color-text-subtle" />
+            <ColorTile description="Subtle" fullTokenName="color-text-subtle" textColor="inverse" />
             <ColorTile
               description="Shopping"
-              textColor="inverse"
               fullTokenName="color-text-shopping"
+              textColor="inverse"
             />
           </ColorSchemeLayout>
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Status text colors"
           description={`
           Text colors used to indicate status. Each color has a purposeful meaning. Use the tokens:
           **$color-text-success** - Use as text color to indicate success.
           **$color-text-warning** - Use as text color to indicate a warning or caution.
           **$color-text-error** - Use as text color to indicate an error.
           `}
+          title="Status text colors"
         >
           <ColorSchemeLayout>
             <ColorTile
               description="Success"
-              textColor="inverse"
               fullTokenName="color-text-success"
+              textColor="inverse"
             />
             <ColorTile
               description="Warning"
-              textColor="inverse"
               fullTokenName="color-text-warning"
+              textColor="inverse"
             />
-            <ColorTile description="Error" textColor="inverse" fullTokenName="color-text-error" />
+            <ColorTile description="Error" fullTokenName="color-text-error" textColor="inverse" />
           </ColorSchemeLayout>
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Inverse text color"
           description={`
           Color used on top of inverted backgrounds.
           **$color-text-inverse** - Use this token for text layered on top of inverted backgrounds.
           `}
+          title="Inverse text color"
         >
           <ColorSchemeLayout>
             <ColorTile
@@ -297,7 +297,6 @@ export default function ColorUsagePage(): ReactNode {
         </MainSection.Subsection>
       </MainSection>
       <MainSection
-        name="Iconography color"
         description={`
       The icon colors available indicate status and match the messaging text colors for consistency. For icon colors purposes, use the tokens:
 
@@ -310,24 +309,24 @@ export default function ColorUsagePage(): ReactNode {
       **$color-icon-error** - Use for error icons.
       **$color-icon-inverse** - Use for icons paired with inverted backgrounds.
       `}
+        name="Iconography color"
       >
         <ColorSchemeLayout>
-          <ColorTile description="Default" textColor="inverse" fullTokenName="color-icon-default" />
-          <ColorTile description="Subtle" textColor="inverse" fullTokenName="color-icon-subtle" />
-          <ColorTile description="Info" textColor="inverse" fullTokenName="color-icon-info" />
+          <ColorTile description="Default" fullTokenName="color-icon-default" textColor="inverse" />
+          <ColorTile description="Subtle" fullTokenName="color-icon-subtle" textColor="inverse" />
+          <ColorTile description="Info" fullTokenName="color-icon-info" textColor="inverse" />
           <ColorTile
             description="Recommendation"
-            textColor="inverse"
             fullTokenName="color-icon-recommendation"
+            textColor="inverse"
           />
-          <ColorTile description="Success" textColor="inverse" fullTokenName="color-icon-success" />
-          <ColorTile description="Warning" textColor="inverse" fullTokenName="color-icon-warning" />
-          <ColorTile description="Error" textColor="inverse" fullTokenName="color-icon-error" />
+          <ColorTile description="Success" fullTokenName="color-icon-success" textColor="inverse" />
+          <ColorTile description="Warning" fullTokenName="color-icon-warning" textColor="inverse" />
+          <ColorTile description="Error" fullTokenName="color-icon-error" textColor="inverse" />
           <ColorTile description="Inverse" fullTokenName="color-icon-inverse" textColor="default" />
         </ColorSchemeLayout>
       </MainSection>
       <MainSection
-        name="Color and accessibility"
         description={`
       Please consider accessibility when using colors, as it is our responsibility to deliver an inclusive product that inspires everyone.
 
@@ -343,6 +342,7 @@ export default function ColorUsagePage(): ReactNode {
         - [W3C: Accessibility requirements for low vision needs](https://www.w3.org/TR/low-vision-needs/)
         - [The Irlen Syndrome](https://irlen.com/what-is-irlen-syndrome/)
       `}
+        name="Color and accessibility"
       />
     </Page>
   );

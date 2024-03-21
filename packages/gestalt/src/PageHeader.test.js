@@ -12,20 +12,20 @@ describe('PageHeader', () => {
   });
 
   it('renders subtext', () => {
-    const tree = create(<PageHeader title="Settings" subtext="5 followers" />).toJSON();
+    const tree = create(<PageHeader subtext="5 followers" title="Settings" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('renders badge with type', () => {
     const tree = create(
-      <PageHeader title="Settings" badge={{ text: 'Needs attention', type: 'warning' }} />,
+      <PageHeader badge={{ text: 'Needs attention', type: 'warning' }} title="Settings" />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('renders within a max width', () => {
     const tree = create(
-      <PageHeader title="Settings" subtext="5 followers" maxWidth="60%" />,
+      <PageHeader maxWidth="60%" subtext="5 followers" title="Settings" />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -33,18 +33,18 @@ describe('PageHeader', () => {
   it('renders primary action', () => {
     const tree = create(
       <PageHeader
-        title="Settings"
+        dropdownAccessibilityLabel="test"
         primaryAction={{
-          component: <Button size="lg" color="red" text="Create" />,
+          component: <Button color="red" size="lg" text="Create" />,
           dropdownItems: [
             <Dropdown.Item
               key="Create"
-              option={{ value: 'Create', label: 'Create' }}
               onSelect={() => {}}
+              option={{ value: 'Create', label: 'Create' }}
             />,
           ],
         }}
-        dropdownAccessibilityLabel="test"
+        title="Settings"
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -53,14 +53,14 @@ describe('PageHeader', () => {
   it('renders secondary action', () => {
     const tree = create(
       <PageHeader
-        title="Settings"
+        dropdownAccessibilityLabel="test"
         primaryAction={{
-          component: <Button size="lg" color="red" text="Create" />,
+          component: <Button color="red" size="lg" text="Create" />,
           dropdownItems: [
             <Dropdown.Item
               key="Create"
-              option={{ value: 'Create', label: 'Create' }}
               onSelect={() => {}}
+              option={{ value: 'Create', label: 'Create' }}
             />,
           ],
         }}
@@ -69,13 +69,13 @@ describe('PageHeader', () => {
           dropdownItems: [
             <Dropdown.Link
               key="Analytics"
+              href="https://pinterest.com"
               isExternal
               option={{ value: 'Help center', label: 'Help center' }}
-              href="https://pinterest.com"
             />,
           ],
         }}
-        dropdownAccessibilityLabel="test"
+        title="Settings"
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();

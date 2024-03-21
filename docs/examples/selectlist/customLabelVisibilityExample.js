@@ -4,10 +4,10 @@ import { Box, Flex, IconButton, SelectList, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Flex gap={2} direction="column">
-        <Flex gap={1} alignItems="center">
-          <Text weight="bold" size="300">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Flex direction="column" gap={2}>
+        <Flex alignItems="center" gap={1}>
+          <Text size="300" weight="bold">
             Date range
           </Text>
           <IconButton

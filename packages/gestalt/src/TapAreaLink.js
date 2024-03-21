@@ -177,6 +177,7 @@ const TapAreaLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = f
 
   return (
     <InternalLink
+      ref={innerRef}
       accessibilityCurrent={accessibilityCurrent}
       accessibilityLabel={getAriaLabel({
         target,
@@ -185,10 +186,13 @@ const TapAreaLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = f
       })}
       dataTestId={dataTestId}
       disabled={disabled}
-      href={href}
       fullHeight={fullHeight}
       fullWidth={fullWidth}
+      href={href}
       mouseCursor={mouseCursor}
+      onBlur={({ event }) => {
+        if (!disabled) onBlur?.({ event });
+      }}
       onClick={({ event, dangerouslyDisableOnNavigation }) => {
         if (!disabled) {
           onTap?.({
@@ -196,9 +200,6 @@ const TapAreaLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = f
             dangerouslyDisableOnNavigation,
           });
         }
-      }}
-      onBlur={({ event }) => {
-        if (!disabled) onBlur?.({ event });
       }}
       onFocus={({ event }) => {
         if (!disabled) onFocus?.({ event });
@@ -210,10 +211,6 @@ const TapAreaLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = f
         // $FlowFixMe[incompatible-call] This will be fixed when InternalLink only serves pure link component
         if (!disabled) onMouseDown?.({ event });
       }}
-      onMouseUp={({ event }) => {
-        // $FlowFixMe[incompatible-call] This will be fixed when InternalLink only serves pure link component
-        if (!disabled) onMouseUp?.({ event });
-      }}
       onMouseEnter={({ event }) => {
         // $FlowFixMe[incompatible-call] This will be fixed when InternalLink only serves pure link component
         if (!disabled) onMouseEnter?.({ event });
@@ -222,10 +219,13 @@ const TapAreaLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = f
         // $FlowFixMe[incompatible-call] This will be fixed when InternalLink only serves pure link component
         if (!disabled) onMouseLeave?.({ event });
       }}
-      ref={innerRef}
+      onMouseUp={({ event }) => {
+        // $FlowFixMe[incompatible-call] This will be fixed when InternalLink only serves pure link component
+        if (!disabled) onMouseUp?.({ event });
+      }}
       rel={rel}
-      tabIndex={tabIndex}
       rounding={rounding}
+      tabIndex={tabIndex}
       tapStyle={tapStyle}
       target={target}
       wrappedComponent="tapArea"

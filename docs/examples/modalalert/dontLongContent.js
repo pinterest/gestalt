@@ -14,9 +14,9 @@ export default function Example(): ReactNode {
         <Button
           accessibilityLabel="Show Modal"
           color="red"
-          text="Show Modal"
-          size="lg"
           onClick={() => setShowComponent(true)}
+          size="lg"
+          text="Show Modal"
         />
       </Box>
       {showComponent ? (
@@ -24,6 +24,7 @@ export default function Example(): ReactNode {
           <ModalAlert
             accessibilityModalLabel="Idea Pin Creator Code"
             heading="Publish new Idea Pin?"
+            onDismiss={() => {}}
             primaryAction={{
               accessibilityLabel: 'Publish',
               label: 'Publish',
@@ -36,7 +37,6 @@ export default function Example(): ReactNode {
               onClick: () => {},
               role: 'button',
             }}
-            onDismiss={() => {}}
           >
             <Box>
               <Text>
@@ -45,7 +45,7 @@ export default function Example(): ReactNode {
                 you create new content or interact with other people on Pinterest:
               </Text>
               <Box paddingY={2}>
-                <Flex gap={2} direction="column">
+                <Flex direction="column" gap={2}>
                   <Text>
                     - Be kind—Being expressive shouldn’t come at the expense of others. Even if it’s
                     meant to be provocative, ask yourself if the content you post might insult or

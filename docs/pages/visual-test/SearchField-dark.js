@@ -7,10 +7,10 @@ export default function Screenshot(): ReactNode {
     <ColorSchemeProvider colorScheme="dark">
       <Box color="default" display="inlineBlock" padding={1}>
         <SearchField
-          accessibilityLabel=""
           accessibilityClearButtonLabel="Clear search field"
-          label="Search Messages"
+          accessibilityLabel=""
           id="searchMessagesLabelExample"
+          label="Search Messages"
           onChange={() => {}}
           placeholder="Search by name"
         />

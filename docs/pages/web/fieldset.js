@@ -17,11 +17,11 @@ import variantsLegend from '../../examples/fieldset/variantsLegend';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
         <SandpackExample
           code={main}
-          name={`Main ${generatedDocGen?.displayName} example`}
           hideEditor
+          name={`Main ${generatedDocGen?.displayName} example`}
           previewHeight={200}
         />
       </PageHeader>
@@ -32,29 +32,29 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - When inputs within a broader form are closely related and would benefit from a shared legend, such as TextFields for a billing address or a group of Checkboxes.
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - When the fields are unrelated. Use [TextFields](/web/textfield) and other input components within a \`<form/>\`.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
 
       <AccessibilitySection
-        name={generatedDocGen?.displayName}
         description={`
       Wrapping form fields in Fieldset creates an accessible grouping that signals to users when certain form items are related. The \`legend\` should clearly describe what information is needed from the group of items, whether they're [RadioGroup](/web/radiogroup), [Checkboxes](/web/checkbox) or [TextFields](/web/textfield).
 
       In the example below, the pet RadioButtons are surrounded by a fieldset and include a \`legend\` of "Favorite pet". Learn more about the [use of fieldset and legend](https://www.w3.org/WAI/tutorials/forms/grouping/#associating-related-controls-with-fieldset).`}
+        name={generatedDocGen?.displayName}
       >
         <MainSection.Card
           cardSize="lg"

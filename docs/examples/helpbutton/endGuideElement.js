@@ -4,11 +4,11 @@ import { Checkbox, Flex, HelpButton, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
+    <Flex alignItems="center" gap={1} height="100%" justifyContent="center">
       <Checkbox
-        labelDisplay="hidden"
-        label="Created pins checkbox"
         id="created-pins"
+        label="Created pins checkbox"
+        labelDisplay="hidden"
         onChange={() => {}}
       />
       <Text>Pins created in the last 30 days</Text>

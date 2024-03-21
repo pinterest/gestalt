@@ -13,16 +13,16 @@ export default function Example(): ReactNode {
       <DateRange
         endDateValue={endDate}
         minDate={new Date()}
-        onStartDateChange={({ value }) => setStartDate(value)}
+        onCancel={() => {}}
         onEndDateChange={({ value }) => setEndDate(value)}
+        onEndDateError={() => {}}
+        onStartDateChange={({ value }) => setStartDate(value)}
         onStartDateError={({ errorMessage }) =>
           setStartErrorMessage(errorMessage ? 'Please, enter a valid date' : null)
         }
-        onEndDateError={() => {}}
+        onSubmit={() => {}}
         startDateErrorMessage={startErrorMessage}
         startDateValue={startDate}
-        onSubmit={() => {}}
-        onCancel={() => {}}
       />
     </Flex>
   );

@@ -5,21 +5,21 @@ import { Button, Datapoint, Dropdown, PageHeader } from 'gestalt';
 export default function PageHeaderExample(): ReactNode {
   return (
     <PageHeader
-      title="Ads overview"
+      dropdownAccessibilityLabel="More options"
       items={[
         <Datapoint
+          key="impressions"
           size="md"
           title="Impressions"
-          key="impressions"
-          value="$1.25M"
           trend={{ value: 30, accessibilityLabel: 'Trending up' }}
+          value="$1.25M"
         />,
         <Datapoint
+          key="engagement"
           size="md"
           title="Engagement"
-          key="engagement"
-          value="10%"
           trend={{ value: 5, accessibilityLabel: 'Trending up' }}
+          value="10%"
         />,
       ]}
       primaryAction={{
@@ -27,8 +27,8 @@ export default function PageHeaderExample(): ReactNode {
         dropdownItems: [
           <Dropdown.Item
             key="promote"
-            option={{ value: 'Promote', label: 'Promote' }}
             onSelect={() => {}}
+            option={{ value: 'Promote', label: 'Promote' }}
           />,
         ],
       }}
@@ -36,13 +36,13 @@ export default function PageHeaderExample(): ReactNode {
         component: <Button size="lg" text="View analytics" />,
         dropdownItems: [
           <Dropdown.Link
-            option={{ value: 'View analytics', label: 'View analytics' }}
             key="view-analytics"
             href="https://pinterest.com"
+            option={{ value: 'View analytics', label: 'View analytics' }}
           />,
         ],
       }}
-      dropdownAccessibilityLabel="More options"
+      title="Ads overview"
     />
   );
 }

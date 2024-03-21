@@ -5,20 +5,20 @@ import { Box, Flex, Icon, Text } from 'gestalt';
 export default function AlternativeColorsExample(): ReactNode {
   return (
     <Flex
+      alignItems="center"
       gap={{
         row: 2,
         column: 0,
       }}
-      alignItems="center"
-      justifyContent="center"
       height="100%"
+      justifyContent="center"
     >
       <Box
         dangerouslySetInlineStyle={{
           __style: { backgroundColor: 'gold' },
         }}
-        rounding="pill"
         padding={3}
+        rounding="pill"
       >
         <Text weight="bold">Button</Text>
       </Box>
@@ -26,10 +26,10 @@ export default function AlternativeColorsExample(): ReactNode {
         dangerouslySetInlineStyle={{
           __style: { backgroundColor: 'green' },
         }}
-        rounding="circle"
         padding={3}
+        rounding="circle"
       >
-        <Icon icon="add" color="inverse" accessibilityLabel="Create" />
+        <Icon accessibilityLabel="Create" color="inverse" icon="add" />
       </Box>
     </Flex>
   );

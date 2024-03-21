@@ -5,12 +5,12 @@ import { Flex, Link, Text, Toast } from 'gestalt';
 export default function Example(): ReactNode {
   return (
     <Flex
+      alignItems="center"
       direction="column"
       gap={2}
-      justifyContent="center"
-      alignItems="center"
-      width="100%"
       height="100%"
+      justifyContent="center"
+      width="100%"
     >
       <Toast text="Signed as Three Crafty Ladies" />
       <Toast
@@ -19,8 +19,8 @@ export default function Example(): ReactNode {
             Saved to{' '}
             <Link
               display="inlineBlock"
-              target="blank"
               href="https://www.pinterest.com/search/pins/?q=home%20decor"
+              target="blank"
             >
               Home decor
             </Link>

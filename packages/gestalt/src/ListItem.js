@@ -90,7 +90,7 @@ function ListItem({ text, children }: Props): ReactNode {
 
   return (
     <li className={className} style={{ fontSize: inheritedFontSize && sizeMap[inheritedFontSize] }}>
-      <ListText text={text} size={inheritedFontSize || undefined} />
+      <ListText size={inheritedFontSize || undefined} text={text} />
       {listChildren}
     </li>
   );

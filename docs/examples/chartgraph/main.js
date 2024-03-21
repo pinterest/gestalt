@@ -21,20 +21,18 @@ export default function Example(): ReactNode {
 
   return (
     <ChartGraph
-      title="Clicks compared to conversions"
       accessibilityLabel="Clicks compared to conversions (example)"
-      visualPatternSelected="disabled"
-      onVisualPatternChange={() => {}}
-      type="combo"
-      range={{
-        xAxisBottom: ['auto', 'auto'],
-      }}
-      layout="verticalBiaxial"
       data={data}
       elements={[
         { type: 'bar', id: 'Clicks', axis: 'left' },
         { type: 'line', id: 'Conversions', axis: 'right' },
       ]}
+      layout="verticalBiaxial"
+      modalZIndex={new FixedZIndex(11)}
+      onVisualPatternChange={() => {}}
+      range={{
+        xAxisBottom: ['auto', 'auto'],
+      }}
       tickFormatter={{
         timeseries: (date) =>
           `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(
@@ -50,7 +48,9 @@ export default function Example(): ReactNode {
           return '';
         },
       }}
-      modalZIndex={new FixedZIndex(11)}
+      title="Clicks compared to conversions"
+      type="combo"
+      visualPatternSelected="disabled"
     />
   );
 }

@@ -20,16 +20,16 @@ export default function Example(): ReactNode {
 
   return (
     <ChartGraph
+      accessibilityLabel="Example of Bar chart"
+      data={data}
+      elements={[{ type: 'bar', id: 'Series_01' }]}
+      legend="none"
+      onVisualPatternChange={() => {}}
+      tickFormatter={{ yAxisLeft: (value) => `${value / 1000000}M` }}
       title="ChartGraph"
       titleDisplay="hidden"
-      accessibilityLabel="Example of Bar chart"
-      visualPatternSelected="disabled"
-      onVisualPatternChange={() => {}}
       type="bar"
-      legend="none"
-      data={data}
-      tickFormatter={{ yAxisLeft: (value) => `${value / 1000000}M` }}
-      elements={[{ type: 'bar', id: 'Series_01' }]}
+      visualPatternSelected="disabled"
     />
   );
 }

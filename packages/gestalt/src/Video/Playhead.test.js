@@ -8,9 +8,9 @@ test('VideoPlayhead', () => {
       accessibilityProgressBarLabel="Progress bar"
       currentTime={50}
       duration={100}
-      seek={() => {}}
       onPlayheadDown={() => {}}
       onPlayheadUp={() => {}}
+      seek={() => {}}
     />,
   ).toJSON();
   expect(tree).toMatchSnapshot();

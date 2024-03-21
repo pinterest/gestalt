@@ -26,16 +26,16 @@ export default function Example(): ReactNode {
   ];
 
   return (
-    <Flex height="100%" width="100%" direction="column" gap={2}>
-      <RadioGroup legend="ChartGraph type" direction="row" id="range">
+    <Flex direction="column" gap={2} height="100%" width="100%">
+      <RadioGroup direction="row" id="range" legend="ChartGraph type">
         <RadioGroup.RadioButton
           checked={type === 'bar'}
           id="range-bar"
           label="Bar"
           name="bar"
           onChange={() => setType('bar')}
-          value="bar"
           size="sm"
+          value="bar"
         />
         <RadioGroup.RadioButton
           checked={type === 'line'}
@@ -43,8 +43,8 @@ export default function Example(): ReactNode {
           label="Line"
           name="line"
           onChange={() => setType('line')}
-          value="line"
           size="sm"
+          value="line"
         />
         <RadioGroup.RadioButton
           checked={type === 'combo'}
@@ -52,22 +52,13 @@ export default function Example(): ReactNode {
           label="Combo"
           name="combo"
           onChange={() => setType('combo')}
-          value="combo"
           size="sm"
+          value="combo"
         />
       </RadioGroup>
       <ChartGraph
-        title="ChartGraph"
-        titleDisplay="hidden"
         accessibilityLabel="Example of range in charts"
-        visualPatternSelected={visualPatternSelected}
-        onVisualPatternChange={() =>
-          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
-        }
-        layout="verticalBiaxial"
-        type={type}
         data={data}
-        range={{ yAxisLeft: [0, 100] }}
         elements={[
           {
             type: type === 'combo' ? 'bar' : type,
@@ -80,6 +71,15 @@ export default function Example(): ReactNode {
             axis: 'right',
           },
         ]}
+        layout="verticalBiaxial"
+        onVisualPatternChange={() =>
+          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
+        }
+        range={{ yAxisLeft: [0, 100] }}
+        title="ChartGraph"
+        titleDisplay="hidden"
+        type={type}
+        visualPatternSelected={visualPatternSelected}
       />
     </Flex>
   );

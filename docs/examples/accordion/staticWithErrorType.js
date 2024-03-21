@@ -6,12 +6,12 @@ export default function Example(): ReactNode {
   const [value, setValue] = useState('');
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Box column={12} maxWidth={800} padding={2}>
         <Accordion
+          iconAccessibilityLabel={!value ? 'This accordion contains an error' : undefined}
           id="accordionExample - error"
           title="Personal Info"
-          iconAccessibilityLabel={!value ? 'This accordion contains an error' : undefined}
           type={!value ? 'error' : 'info'}
         >
           <Flex direction="column" gap={{ column: 4, row: 0 }}>

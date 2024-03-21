@@ -94,8 +94,6 @@ export default function SideNavigation({
         <ScrollBoundaryContainer>
           <SideNavigationMobile
             accessibilityLabel={accessibilityLabel}
-            footer={footer}
-            header={header}
             dismissButton={
               dismissButton && {
                 onDismiss: dismissButton.onDismiss,
@@ -103,9 +101,11 @@ export default function SideNavigation({
                   dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabel,
               }
             }
-            showBorder={showBorder}
-            mobileTitle={mobileTitle}
+            footer={footer}
+            header={header}
             id={id}
+            mobileTitle={mobileTitle}
+            showBorder={showBorder}
           >
             {children}
           </SideNavigationMobile>
@@ -116,8 +116,8 @@ export default function SideNavigation({
 
   return (
     <SideNavigationProvider
-      collapsible={collapsible}
       collapsed={collapsed}
+      collapsible={collapsible}
       onCollapse={onCollapse}
       onPreview={onPreview}
     >

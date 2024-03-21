@@ -4,7 +4,7 @@ import { Box, Flex, Heading } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" justifyContent="center" padding={8}>
       <Flex direction="column" gap={{ column: 4, row: 0 }}>
         <Box color="dark" padding={1}>
           <Heading color="inverse" size="500">

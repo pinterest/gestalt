@@ -45,8 +45,8 @@ function HelperLink({ accessibilityLabel, href, onClick, target, text }: HelperL
     <Text inline>
       <Link
         accessibilityLabel={accessibilityLabel}
-        href={href}
         display="inlineBlock"
+        href={href}
         onClick={onClick}
         target={target}
       >
@@ -203,8 +203,8 @@ export default function BannerSlim({
     <Box
       alignItems="center"
       color={isBare ? 'transparent' : backgroundColor}
-      display="flex"
       direction="column"
+      display="flex"
       mdDirection="row"
       padding={isBare ? 0 : 4}
       paddingY={isBare ? 1 : 0}
@@ -213,9 +213,9 @@ export default function BannerSlim({
     >
       <Flex
         alignItems="start"
-        mdAlignItems="center"
-        gap={{ row: isBare ? 2 : 4, column: 0 }}
         flex="grow"
+        gap={{ row: isBare ? 2 : 4, column: 0 }}
+        mdAlignItems="center"
         width="100%"
       >
         {!isDefault && (
@@ -257,7 +257,7 @@ export default function BannerSlim({
           <Flex.Item flex="none">
             <Flex alignItems="center" gap={{ row: 4, column: 0 }}>
               {primaryAction && (
-                <Box display="none" mdDisplay="flex" flex="none">
+                <Box display="none" flex="none" mdDisplay="flex">
                   <PrimaryAction {...primaryAction} />
                 </Box>
               )}
@@ -268,7 +268,7 @@ export default function BannerSlim({
         )}
       </Flex>
       {!isBare && primaryAction && (
-        <Box display="flex" mdDisplay="none" flex="none" alignSelf="end" marginTop={4}>
+        <Box alignSelf="end" display="flex" flex="none" marginTop={4} mdDisplay="none">
           <PrimaryAction {...primaryAction} />
         </Box>
       )}

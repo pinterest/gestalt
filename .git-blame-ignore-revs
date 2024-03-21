@@ -1,0 +1,26 @@
+# git blame master ignore list.
+#
+# Since version 2.23 (released in August 2019), git-blame has a feature to
+# ignore or bypass certain commits. This functionality was previously only
+# available in the git-hyper-blame tool from Chrome's depot_tools.
+#
+# Instructions:
+# - Only large (generally automated) reformatting or renaming commits should be
+#   added to this list. Do not put things here just because you feel they are
+#   trivial or unimportant. If in doubt, do not put it on this list.
+# - Precede each revision with a comment containing the first line of its log.
+# - Only put full 40-character hashes on this list (not short hashes or any
+#   other revision reference).
+# - Append to the bottom of the file (revisions should be in chronological order
+#   from oldest to newest).
+# - Because you must use a hash, you need to append to this list in a follow-up
+#   commits to the actual reformatting commits that you are trying to ignore.
+#
+# This file contains a list of commits that are not likely what you are
+# looking for in a blame, such as mass reformatting or renaming. You can set
+# this file as a default ignore file for blame by running the following
+# command.
+#
+# $ git config blame.ignoreRevsFile .git-blame-ignore-revs
+
+# Enable react/jsx-sort-props

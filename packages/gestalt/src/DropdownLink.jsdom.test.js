@@ -30,9 +30,9 @@ describe('Dropdown.Link', () => {
   test('creates an anchor when href is passed', () => {
     render(
       <Dropdown.Link
-        onClick={onClickMock}
         badge={{ text: 'New' }}
         href="https://www.pinterest.com"
+        onClick={onClickMock}
         option={{ value: 'item 4', label: 'Item 4' }}
       />,
     );

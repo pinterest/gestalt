@@ -30,27 +30,27 @@ describe('AvatarGroup', () => {
       size === 'fit' ? (
         <Box width={200}>
           <AvatarGroup
+            // $FlowFixMe[incompatible-type]
+            ref={avatarRef}
             accessibilityLabel="test"
             addCollaborators={addCollaborators}
             collaborators={collaborators}
             href={href}
             onClick={onClick}
             role={role}
-            // $FlowFixMe[incompatible-type]
-            ref={avatarRef}
             size={size}
           />
         </Box>
       ) : (
         <AvatarGroup
+          // $FlowFixMe[incompatible-type]
+          ref={avatarRef}
           accessibilityLabel="test"
           addCollaborators={addCollaborators}
           collaborators={collaborators}
           href={href}
           onClick={onClick}
           role={role}
-          // $FlowFixMe[incompatible-type]
-          ref={avatarRef}
           size={size}
         />
       ),

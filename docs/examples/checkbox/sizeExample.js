@@ -7,7 +7,7 @@ export default function Example(): ReactNode {
   const [checked2, setChecked2] = useState(false);
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex gap={{ column: 0, row: 6 }}>
         <Checkbox
           checked={checked1}

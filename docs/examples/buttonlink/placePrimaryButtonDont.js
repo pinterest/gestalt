@@ -6,8 +6,8 @@ export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <ButtonGroup>
-        <ButtonLink text="Visit" size="lg" color="red" href="pinterest.com" />
-        <ButtonLink text="Save" size="lg" color="red" href="pinterest.com" />
+        <ButtonLink color="red" href="pinterest.com" size="lg" text="Visit" />
+        <ButtonLink color="red" href="pinterest.com" size="lg" text="Save" />
       </ButtonGroup>
     </Flex>
   );

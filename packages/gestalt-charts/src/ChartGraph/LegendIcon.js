@@ -42,12 +42,12 @@ function LegendIcon({ payloadData }: Props): ReactNode {
     const dimension = 16;
 
     return (
-      <svg height={dimension} width={dimension} aria-hidden>
+      <svg aria-hidden height={dimension} width={dimension}>
         <rect
-          style={{ fill: 'url(#pattern-referencearea-01)', strokeOpacity: 0.3 }}
           height={dimension}
-          width={dimension}
           rx={2}
+          style={{ fill: 'url(#pattern-referencearea-01)', strokeOpacity: 0.3 }}
+          width={dimension}
         />
       </svg>
     );
@@ -76,12 +76,12 @@ function LegendIcon({ payloadData }: Props): ReactNode {
     const dimension = payloadData.isLegend || isAccessible ? 16 : 8;
 
     return (
-      <svg height={dimension} width={dimension} aria-hidden>
+      <svg aria-hidden height={dimension} width={dimension}>
         <rect
-          style={{ fill: payloadData.color || payloadData.fill }}
           height={dimension}
-          width={dimension}
           rx={2}
+          style={{ fill: payloadData.color || payloadData.fill }}
+          width={dimension}
         />
       </svg>
     );
@@ -99,10 +99,10 @@ function LegendIcon({ payloadData }: Props): ReactNode {
 
     const colorPoint: DataVisualizationColors = colorId[0];
     return (
-      <svg width="14" height="14" viewBox="0 0 12 12">
-        <rect x={4} style={{ fill: 'transparent' }} height={3} width={1} y={8} />
+      <svg height="14" viewBox="0 0 12 12" width="14">
+        <rect height={3} style={{ fill: 'transparent' }} width={1} x={4} y={8} />
         <GraphPoint color={colorPoint} cx={7} cy={7} />
-        <rect x={4} style={{ fill: 'transparent' }} height={3} width={1} y={8} />
+        <rect height={3} style={{ fill: 'transparent' }} width={1} x={4} y={8} />
       </svg>
     );
   }
@@ -112,7 +112,7 @@ function LegendIcon({ payloadData }: Props): ReactNode {
 
     return (
       <svg height={16} width={dimension}>
-        <rect style={{ fill: payloadData.stroke }} height={3} width={dimension} rx={2} y={8} />
+        <rect height={3} rx={2} style={{ fill: payloadData.stroke }} width={dimension} y={8} />
       </svg>
     );
   }
@@ -122,11 +122,11 @@ function LegendIcon({ payloadData }: Props): ReactNode {
 
     return (
       <svg height={16} width={dimension}>
-        <rect x={0} fill={payloadData.stroke} height={3} width={3} rx={1} y={8} />
-        <rect x={3} fill="transparent" height={3} width={2} y={8} />
-        <rect x={5} fill={payloadData.stroke} height={3} width={3} rx={1} y={8} />
-        <rect x={8} fill="transparent" height={3} width={2} y={8} />
-        <rect x={10} fill={payloadData.stroke} height={3} width={3} rx={1} y={8} />
+        <rect fill={payloadData.stroke} height={3} rx={1} width={3} x={0} y={8} />
+        <rect fill="transparent" height={3} width={2} x={3} y={8} />
+        <rect fill={payloadData.stroke} height={3} rx={1} width={3} x={5} y={8} />
+        <rect fill="transparent" height={3} width={2} x={8} y={8} />
+        <rect fill={payloadData.stroke} height={3} rx={1} width={3} x={10} y={8} />
       </svg>
     );
   }

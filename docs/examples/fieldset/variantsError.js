@@ -11,16 +11,16 @@ export default function Example(): ReactNode {
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Box padding={4}>
         <Fieldset
-          legend="What languages would you like to learn?"
-          id="fieldset-error-message"
           errorMessage="At least 1 item must be selected"
+          id="fieldset-error-message"
+          legend="What languages would you like to learn?"
         >
           <Flex direction="column" gap={2}>
             <Checkbox
               checked={checkedEn}
+              helperText="USA, India, and Pakistan have the top number of English speakers "
               id="english-info"
               label="English"
-              helperText="USA, India, and Pakistan have the top number of English speakers "
               name="languages"
               onChange={({ checked }) => {
                 setCheckedEn(checked);
@@ -28,9 +28,9 @@ export default function Example(): ReactNode {
             />
             <Checkbox
               checked={checkedSp}
+              helperText="Mexico, Columbia, and Spain are the top three Spanish-speaking countries"
               id="spanish-info"
               label="Spanish"
-              helperText="Mexico, Columbia, and Spain are the top three Spanish-speaking countries"
               name="languages"
               onChange={({ checked }) => {
                 setCheckedSp(checked);
@@ -38,9 +38,9 @@ export default function Example(): ReactNode {
             />
             <Checkbox
               checked={checkedPo}
+              helperText="Brazil, Angola, and Mozambique are the top three Portuguese-speaking countries"
               id="portuguese-info"
               label="Portuguese"
-              helperText="Brazil, Angola, and Mozambique are the top three Portuguese-speaking countries"
               name="languages"
               onChange={({ checked }) => {
                 setCheckedPo(checked);

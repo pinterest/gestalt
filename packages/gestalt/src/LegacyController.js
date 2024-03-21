@@ -143,6 +143,9 @@ class LegacyController extends Component<Props, State> {
     return (
       <OutsideEventBehavior onClick={this.handlePageClick}>
         <LegacyContents
+          __dangerouslyIgnoreScrollBoundaryContainerSize={
+            __dangerouslyIgnoreScrollBoundaryContainerSize
+          }
           accessibilityLabel={accessibilityLabel}
           anchor={anchor}
           bgColor={bgColor}
@@ -159,9 +162,6 @@ class LegacyController extends Component<Props, State> {
           shouldFocus={shouldFocus}
           triggerRect={triggerBoundingRect}
           width={width}
-          __dangerouslyIgnoreScrollBoundaryContainerSize={
-            __dangerouslyIgnoreScrollBoundaryContainerSize
-          }
         >
           {children}
         </LegacyContents>

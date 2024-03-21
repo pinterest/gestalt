@@ -7,20 +7,20 @@ export default function TextFieldExample(): ReactNode {
   const characterCount = 20;
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <TextField
+        helperText="Enter a title that captures the imagination of Pinners"
         id="maxLength"
         label="Title"
-        helperText="Enter a title that captures the imagination of Pinners"
-        onChange={(e) => setValue(e.value)}
-        placeholder="Enter your pin title"
-        value={value}
-        onBlur={() => {}}
-        onFocus={() => {}}
         maxLength={{
           characterCount,
           errorAccessibilityLabel: 'Limit reached. You can only use 20 characters in this field.',
         }}
+        onBlur={() => {}}
+        onChange={(e) => setValue(e.value)}
+        onFocus={() => {}}
+        placeholder="Enter your pin title"
+        value={value}
       />
     </Box>
   );

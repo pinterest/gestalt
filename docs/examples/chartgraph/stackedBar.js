@@ -38,25 +38,24 @@ export default function Example(): ReactNode {
   ];
 
   return (
-    <Flex height="100%" width="100%" direction="column" gap={2}>
+    <Flex direction="column" gap={2} height="100%" width="100%">
       <ChartGraph
-        title="508 campaigns"
-        stacked
         accessibilityLabel="Example of stacked bars chart"
-        visualPatternSelected={visualPatternSelected}
-        onVisualPatternChange={() =>
-          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
-        }
         data={data}
-        range={{
-          xAxisBottom: ['auto', 'auto'],
-        }}
         elements={[
           { type: 'bar', id: 'Awareness' },
           { type: 'bar', id: 'Consideration' },
           { type: 'bar', id: 'Catalog sales' },
           { type: 'bar', id: 'Conversions' },
         ]}
+        modalZIndex={new FixedZIndex(11)}
+        onVisualPatternChange={() =>
+          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
+        }
+        range={{
+          xAxisBottom: ['auto', 'auto'],
+        }}
+        stacked
         tickFormatter={{
           yAxisLeft: (value) => `${value / 1000}K`,
           timeseries: (date) =>
@@ -64,7 +63,8 @@ export default function Example(): ReactNode {
               date,
             )}-${new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(date)}`,
         }}
-        modalZIndex={new FixedZIndex(11)}
+        title="508 campaigns"
+        visualPatternSelected={visualPatternSelected}
       />
     </Flex>
   );

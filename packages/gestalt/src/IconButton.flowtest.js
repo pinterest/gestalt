@@ -1,7 +1,7 @@
 // @flow strict
 import IconButton from './IconButton';
 
-const ValidDefaultIconButton = <IconButton icon="add" accessibilityLabel="Add" />;
+const ValidDefaultIconButton = <IconButton accessibilityLabel="Add" icon="add" />;
 
 // $FlowExpectedError[prop-missing]
 const MissingProp = <IconButton />;

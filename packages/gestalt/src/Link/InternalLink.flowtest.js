@@ -2,7 +2,7 @@
 import InternalLink from './InternalLink';
 
 const Valid = (
-  <InternalLink tabIndex={0} wrappedComponent="button" href="https://example.com">
+  <InternalLink href="https://example.com" tabIndex={0} wrappedComponent="button">
     content
   </InternalLink>
 );

@@ -4,14 +4,14 @@ import { Box, Flex, Heading, List } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Flex gap={4} direction="column">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Flex direction="column" gap={4}>
         <Heading accessibilityLevel="none" size="500">
           Asynchronous Analytics Endpoints
         </Heading>
         <List
-          labelDisplay="hidden"
           label="Use the synchronous analytics endpoints if:"
+          labelDisplay="hidden"
           type="unordered"
         >
           <List.Item text="You need data from the last 90 days" />

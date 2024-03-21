@@ -20,7 +20,7 @@ export default function Example(): ReactNode {
   const renderSubheading = (
     <OverlayPanel.DismissingElement>
       {({ onDismissStart }) => (
-        <Box marginBottom={4} marginStart={8} marginEnd={8}>
+        <Box marginBottom={4} marginEnd={8} marginStart={8}>
           <Button color="blue" onClick={onDismissStart} text="Close on Sub-heading" />
         </Box>
       )}
@@ -40,7 +40,7 @@ export default function Example(): ReactNode {
   const renderContent = (
     <OverlayPanel.DismissingElement>
       {({ onDismissStart }) => (
-        <Flex justifyContent="center" alignItems="center" height="100%">
+        <Flex alignItems="center" height="100%" justifyContent="center">
           <IconButton
             accessibilityLabel="Done icon left"
             icon="directional-arrow-right"
@@ -64,7 +64,7 @@ export default function Example(): ReactNode {
   return (
     <Fragment>
       <Box padding={8}>
-        <Button text="Open example overlay panel" onClick={() => setShowComponent(true)} />
+        <Button onClick={() => setShowComponent(true)} text="Open example overlay panel" />
       </Box>
       {showComponent && (
         <Layer zIndex={sheetZIndex}>

@@ -15,11 +15,11 @@ export default function Example(): ReactNode {
   }, []);
 
   return (
-    <Box width="100%" height="100%" padding={12}>
-      <Flex direction="column" justifyContent="between" alignItems="start" height="100%">
+    <Box height="100%" padding={12} width="100%">
+      <Flex alignItems="start" direction="column" height="100%" justifyContent="between">
         <Box>
-          <TapArea ref={anchorRefA} rounding={3} fullWidth={false}>
-            <Box padding={3} color="secondary" height={75} width={200} rounding={3}>
+          <TapArea ref={anchorRefA} fullWidth={false} rounding={3}>
+            <Box color="secondary" height={75} padding={3} rounding={3} width={200}>
               <Flex gap={2}>
                 <Box aria-hidden width={50}>
                   <Mask rounding={3} wash>
@@ -43,10 +43,10 @@ export default function Example(): ReactNode {
           {openA && (
             <PopoverEducational
               accessibilityLabel={`Description of new "More ideas" feature`}
-              idealDirection="right"
               anchor={anchorRefA.current}
-              onDismiss={() => {}}
+              idealDirection="right"
               message="Tap to tag a product to see product details"
+              onDismiss={() => {}}
             />
           )}
         </Box>
@@ -70,7 +70,7 @@ export default function Example(): ReactNode {
                     <Icon accessibilityLabel="" icon="arrow-forward" />
                   </Flex.Item>
                 </Flex>
-                <Box width="100%" aria-hidden>
+                <Box aria-hidden width="100%">
                   <Mask rounding={1} wash>
                     <Image
                       alt=""

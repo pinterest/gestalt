@@ -14,7 +14,7 @@ describe('IconButtonLink', () => {
       ],
       void,
     >();
-    render(<IconButtonLink href="#" accessibilityLabel="test" icon="add" onClick={mockOnClick} />);
+    render(<IconButtonLink accessibilityLabel="test" href="#" icon="add" onClick={mockOnClick} />);
 
     screen.getByRole('link').click();
     expect(mockOnClick).toHaveBeenCalled();
@@ -24,10 +24,10 @@ describe('IconButtonLink', () => {
     const ref = createRef<HTMLAnchorElement>();
     render(
       <IconButtonLink
-        accessibilityLabel="test"
-        icon="add"
-        href="http://www.pinterest.com"
         ref={ref}
+        accessibilityLabel="test"
+        href="http://www.pinterest.com"
+        icon="add"
         target="blank"
       />,
     );
@@ -42,11 +42,11 @@ describe('IconButtonLink', () => {
     const ref = createRef<HTMLAnchorElement>();
     render(
       <IconButtonLink
-        disabled
-        accessibilityLabel="test"
-        icon="add"
-        href="http://www.pinterest.com"
         ref={ref}
+        accessibilityLabel="test"
+        disabled
+        href="http://www.pinterest.com"
+        icon="add"
         target="blank"
       />,
     );
@@ -58,7 +58,7 @@ describe('IconButtonLink', () => {
   it('renders removed from sequential keyboard navigation via tabIndex', () => {
     const ref = createRef<HTMLAnchorElement>();
     render(
-      <IconButtonLink href="#" accessibilityLabel="test" icon="add" ref={ref} tabIndex={-1} />,
+      <IconButtonLink ref={ref} accessibilityLabel="test" href="#" icon="add" tabIndex={-1} />,
     );
     expect(ref.current instanceof HTMLAnchorElement).toEqual(true);
     expect(ref.current instanceof HTMLAnchorElement && ref.current?.tabIndex).toEqual(-1);
@@ -68,9 +68,9 @@ describe('IconButtonLink', () => {
     render(
       <IconButtonLink
         accessibilityLabel="Visit Pinterest"
+        href="https://www.pinterest.com"
         icon="visit"
         target="blank"
-        href="https://www.pinterest.com"
         tooltip={{ text: 'Link example' }}
       />,
     );
@@ -81,8 +81,8 @@ describe('IconButtonLink', () => {
   it('renders accessibilityLabel with no accessibilityLabel in Tooltip', () => {
     render(
       <IconButtonLink
-        href="#"
         accessibilityLabel="Share Pin with friends"
+        href="#"
         icon="share"
         tooltip={{
           text: 'Share',
@@ -97,7 +97,7 @@ describe('IconButtonLink', () => {
   it('renders with data-test-id', () => {
     const TEST_ID = 'button-test-123';
     render(
-      <IconButtonLink href="#" dataTestId={TEST_ID} accessibilityLabel="Share" icon="share" />,
+      <IconButtonLink accessibilityLabel="Share" dataTestId={TEST_ID} href="#" icon="share" />,
     );
     expect(screen.getByTestId(TEST_ID, { exact: true })).toBeVisible();
   });

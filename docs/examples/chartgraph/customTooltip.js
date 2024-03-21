@@ -23,18 +23,28 @@ export default function Example(): ReactNode {
   ];
 
   return (
-    <Flex height="100%" width="100%" direction="column">
+    <Flex direction="column" height="100%" width="100%">
       <ChartGraph
-        title="MAU per regions"
         accessibilityLabel="Example of chart with tooltip"
-        visualPatternSelected={visualPatternSelected}
+        data={data}
+        elements={[
+          {
+            type: 'bar',
+            id: '20-30',
+          },
+          {
+            type: 'bar',
+            id: '40-50',
+          },
+          {
+            type: 'bar',
+            id: '50-60',
+          },
+        ]}
+        initialTicks={3}
         onVisualPatternChange={() =>
           setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
         }
-        tickFormatter={{ yAxisLeft: (value) => `${value}m` }}
-        initialTicks={3}
-        type="bar"
-        data={data}
         renderTooltip={({ label, payload, active }) =>
           active && Array.isArray(payload) ? (
             <Flex direction="column" gap={2}>
@@ -64,26 +74,16 @@ export default function Example(): ReactNode {
                   ),
                 )}
               </Flex.Item>
-              <Text size="100" color="subtle">
+              <Text color="subtle" size="100">
                 {label}
               </Text>
             </Flex>
           ) : null
         }
-        elements={[
-          {
-            type: 'bar',
-            id: '20-30',
-          },
-          {
-            type: 'bar',
-            id: '40-50',
-          },
-          {
-            type: 'bar',
-            id: '50-60',
-          },
-        ]}
+        tickFormatter={{ yAxisLeft: (value) => `${value}m` }}
+        title="MAU per regions"
+        type="bar"
+        visualPatternSelected={visualPatternSelected}
       />
     </Flex>
   );

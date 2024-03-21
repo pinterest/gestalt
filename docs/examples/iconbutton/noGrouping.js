@@ -21,7 +21,7 @@ export default function Example(): ReactNode {
         <Tooltip text="Search this board">
           <IconButton accessibilityLabel="Search" icon="search" size="md" />
         </Tooltip>
-        <Button color="red" text="Save" size="md" />
+        <Button color="red" size="md" text="Save" />
       </Flex>
     </Box>
   );

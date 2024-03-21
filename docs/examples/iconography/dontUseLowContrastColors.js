@@ -4,9 +4,9 @@ import { Box, Icon } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Box color="infoWeak" padding={12} display="inlineBlock" rounding={4}>
-        <Icon icon="shopping-bag" accessibilityLabel="shopping bag" color="light" size={24} />
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Box color="infoWeak" display="inlineBlock" padding={12} rounding={4}>
+        <Icon accessibilityLabel="shopping bag" color="light" icon="shopping-bag" size={24} />
       </Box>
     </Box>
   );

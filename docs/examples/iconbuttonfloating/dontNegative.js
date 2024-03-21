@@ -23,15 +23,15 @@ export default function Example(): ReactNode {
   };
 
   return (
-    <Flex width="100%" height="100%" justifyContent="center" alignItems="center">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <IconButtonFloating
+        ref={anchorRef}
         accessibilityControls="sections-dropdown-example-negative"
         accessibilityExpanded={open}
-        accessibilityPopupRole="menu"
         accessibilityLabel="Deletion Menu"
+        accessibilityPopupRole="menu"
         icon="trash-can"
         onClick={() => setOpen((prevVal) => !prevVal)}
-        ref={anchorRef}
         selected={open}
         tooltip={{
           text: 'Deletion Menu',

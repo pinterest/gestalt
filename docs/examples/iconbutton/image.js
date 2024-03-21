@@ -4,7 +4,7 @@ import { Box, Flex, IconButton, Image, Mask } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex width="100%" height="100%" justifyContent="center" alignItems="center">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Box height={250} paddingX={2} width={250}>
         <Mask rounding={6} wash>
           <Image
@@ -13,8 +13,8 @@ export default function Example(): ReactNode {
             naturalWidth={1}
             src="https://i.ibb.co/x65Wctf/image.jpg"
           >
-            <Box height="100%" padding={3} display="flex" justifyContent="end" alignItems="end">
-              <IconButton accessibilityLabel="Share pin" icon="share" size="md" iconColor="white" />
+            <Box alignItems="end" display="flex" height="100%" justifyContent="end" padding={3}>
+              <IconButton accessibilityLabel="Share pin" icon="share" iconColor="white" size="md" />
             </Box>
           </Image>
         </Mask>

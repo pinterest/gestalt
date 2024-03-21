@@ -124,8 +124,8 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
                 color={textColor}
                 inline
                 lineClamp={1}
-                weight={textWeight}
                 title={disabled ? '' : undefined}
+                weight={textWeight}
               >
                 {option?.label}
               </Text>
@@ -140,7 +140,7 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
           )}
         </Flex>
         {option.subtext && (
-          <Text size="200" color="subtle">
+          <Text color="subtle" size="200">
             {option.subtext}
           </Text>
         )}
@@ -160,8 +160,8 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
       {isExternal && (
         <Box
           // aria-hidden is required to prevent assistive technologies from accessing the icon as the actual link already announces that the link opens a new tab
-          aria-hidden
           alignItems="center"
+          aria-hidden
           color="transparent"
           display="flex"
           justifyContent="center"
@@ -176,17 +176,19 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
 
   return (
     <div
+      ref={index === hoveredItemIndex ? ref : null}
+      aria-disabled={disabled}
       className={className}
       data-test-id={dataTestId}
-      id={`${id}-item-${index}`}
-      onClick={handleOnTap}
       // These event.stopPropagation are important so interactive anchors don't receive the onFocus/onBlur event
-      onFocus={(event) => event.stopPropagation()}
+      id={`${id}-item-${index}`}
       onBlur={(event) => event.stopPropagation()}
+      onClick={handleOnTap}
+      // This event.stopPropagation is important so interactive anchors don't compress with the onMouseDown event
+      onFocus={(event) => event.stopPropagation()}
       onKeyPress={(event) => {
         event.preventDefault();
       }}
-      // This event.stopPropagation is important so interactive anchors don't compress with the onMouseDown event
       onMouseDown={(event) => {
         event.stopPropagation();
         event.preventDefault();
@@ -196,9 +198,7 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
           setHoveredItemIndex(index);
         }
       }}
-      ref={index === hoveredItemIndex ? ref : null}
       role="menuitem"
-      aria-disabled={disabled}
       rounding={2}
       tabIndex={isMobile && !disabled ? 0 : -1}
     >
@@ -211,7 +211,6 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
       >
         {href && !disabled ? (
           <Link
-            underline="none"
             href={href}
             onClick={({ event, dangerouslyDisableOnNavigation }) =>
               onClick?.({
@@ -221,6 +220,7 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
               })
             }
             target={isExternal ? 'blank' : 'self'}
+            underline="none"
           >
             {optionItemContent}
           </Link>

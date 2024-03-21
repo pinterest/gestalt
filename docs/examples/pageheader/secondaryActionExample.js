@@ -26,47 +26,46 @@ export default function SecondaryActionsExample(): ReactNode {
   return (
     <Flex direction="column" flex="grow">
       <PageHeader
-        title="Product groups"
-        subtext="S. E. All products USD"
+        dropdownAccessibilityLabel="Additional options"
         primaryAction={{
           component: <Button color="red" size="lg" text="Create product group" />,
           dropdownItems: [
             <Dropdown.Item
               key="create-product-group"
+              onSelect={() => {}}
               option={{
                 value: 'Create product group',
                 label: 'Create product group',
               }}
-              onSelect={() => {}}
             />,
           ],
         }}
         secondaryAction={{
-          component: <Button text="Promote" size="lg" />,
+          component: <Button size="lg" text="Promote" />,
           dropdownItems: [
             <Dropdown.Item
-              option={{ value: 'Promote', label: 'Promote' }}
               key="promote"
               onSelect={() => {}}
+              option={{ value: 'Promote', label: 'Promote' }}
             />,
           ],
         }}
-        dropdownAccessibilityLabel="Additional options"
+        subtext="S. E. All products USD"
+        title="Product groups"
       />
       <Divider />
       <PageHeader
-        title="Custom reports"
         dropdownAccessibilityLabel="Additional options"
         primaryAction={{
           component: <Button color="red" size="lg" text="Create new report" />,
           dropdownItems: [
             <Dropdown.Item
               key="create-new-report"
+              onSelect={() => {}}
               option={{
                 value: 'Create new report',
                 label: 'Create new report',
               }}
-              onSelect={() => {}}
             />,
           ],
         }}
@@ -75,22 +74,22 @@ export default function SecondaryActionsExample(): ReactNode {
             <Fragment>
               <Tooltip idealDirection="up" text="Board options">
                 <IconButton
+                  ref={anchorRef}
                   accessibilityControls="page-header-example"
-                  accessibilityHaspopup
                   accessibilityExpanded={open}
+                  accessibilityHaspopup
                   accessibilityLabel="Board options"
                   icon="ellipsis"
                   iconColor="darkGray"
-                  selected={open}
                   onClick={() => setOpen((prevVal) => !prevVal)}
-                  ref={anchorRef}
+                  selected={open}
                   size="lg"
                 />
               </Tooltip>
               {open && (
                 <Dropdown
-                  id="page-header-example"
                   anchor={anchorRef.current}
+                  id="page-header-example"
                   onDismiss={() => {
                     setOpen(false);
                   }}
@@ -98,25 +97,25 @@ export default function SecondaryActionsExample(): ReactNode {
                   <Dropdown.Item
                     key="share-report"
                     onSelect={handleSelect}
-                    selected={selected}
                     option={{
                       value: 'Share report',
                       label: 'Share report',
                     }}
+                    selected={selected}
                   />
                   <Dropdown.Item
                     onSelect={handleSelect}
-                    selected={selected}
                     option={{ value: 'Help center', label: 'Help center' }}
+                    selected={selected}
                   />
                   <Dropdown.Item
-                    onSelect={handleSelect}
-                    selected={selected}
                     badge={{ text: 'New' }}
+                    onSelect={handleSelect}
                     option={{
                       value: 'Delete',
                       label: 'Delete',
                     }}
+                    selected={selected}
                   />
                 </Dropdown>
               )}
@@ -125,25 +124,26 @@ export default function SecondaryActionsExample(): ReactNode {
           dropdownItems: [
             <Dropdown.Item
               key="share-report"
-              option={{ value: 'Share report', label: 'Share report' }}
               onSelect={() => {}}
+              option={{ value: 'Share report', label: 'Share report' }}
             />,
             <Dropdown.Link
               key="visit-help-center"
               href=""
+              isExternal
               option={{
                 value: 'Visit help center',
                 label: 'Visit help center',
               }}
-              isExternal
             />,
             <Dropdown.Item
               key="delete-report"
-              option={{ value: 'Delete report', label: 'Delete report' }}
               onSelect={() => {}}
+              option={{ value: 'Delete report', label: 'Delete report' }}
             />,
           ],
         }}
+        title="Custom reports"
       />
     </Flex>
   );

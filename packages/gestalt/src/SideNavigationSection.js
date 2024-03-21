@@ -54,8 +54,8 @@ export default function SideNavigationSection({ children, label }: Props): React
           <Divider />
         </div>
       ) : (
-        <Box paddingX={4} role="presentation" marginBottom={2}>
-          <Text size="300" weight="bold" lineClamp={2}>
+        <Box marginBottom={2} paddingX={4} role="presentation">
+          <Text lineClamp={2} size="300" weight="bold">
             {label}
           </Text>
         </Box>
@@ -63,8 +63,8 @@ export default function SideNavigationSection({ children, label }: Props): React
 
       {shouldCollapseAsEllipsis ? (
         <ItemsEllipsis
-          active={ellipsisActiveProp}
           accessibilityLabel={`Collapsed ${label}. Expand for more options`}
+          active={ellipsisActiveProp}
           notificationAccessibilityLabel={
             itemWithNotification?.props.notificationAccessibilityLabel
           }

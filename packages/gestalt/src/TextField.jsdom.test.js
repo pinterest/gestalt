@@ -25,10 +25,10 @@ const renderTextField = ({
     <TextField
       id={id}
       label={LABEL}
+      maxLength={maxLength}
+      onBlur={onBlur}
       onChange={onChange}
       onFocus={onFocus}
-      onBlur={onBlur}
-      maxLength={maxLength}
     />,
   );
 
@@ -76,7 +76,7 @@ describe('TextField', () => {
 
   it('renders error message on errorMessage prop change', () => {
     const { rerender } = render(
-      <TextField id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
+      <TextField id="test" onBlur={jest.fn()} onChange={jest.fn()} onFocus={jest.fn()} />,
     );
     expect(() => {
       screen.getByText('Error message');
@@ -86,9 +86,9 @@ describe('TextField', () => {
       <TextField
         errorMessage="Error message"
         id="test"
+        onBlur={jest.fn()}
         onChange={jest.fn()}
         onFocus={jest.fn()}
-        onBlur={jest.fn()}
       />,
     );
     expect(screen.getByText('Error message')).toBeVisible();
@@ -99,9 +99,9 @@ describe('TextField', () => {
       <TextField
         errorMessage="Error message"
         id="test"
+        onBlur={jest.fn()}
         onChange={jest.fn()}
         onFocus={jest.fn()}
-        onBlur={jest.fn()}
         value="TextField Text"
       />,
     );
@@ -114,12 +114,12 @@ describe('TextField', () => {
     const ref = createRef<HTMLInputElement>();
     render(
       <TextField
+        ref={ref}
         id="test"
+        onBlur={jest.fn()}
         onChange={jest.fn()}
         onFocus={jest.fn()}
-        onBlur={jest.fn()}
         value="TextField Text"
-        ref={ref}
       />,
     );
     expect(ref.current instanceof HTMLInputElement).toEqual(true);
@@ -205,9 +205,9 @@ describe('TextField', () => {
   it('shows helper text for the text field', () => {
     render(
       <TextField
+        helperText="Helper text for the text field"
         id="test"
         label="Label for the text field"
-        helperText="Helper text for the text field"
         onChange={() => {}}
         value="TextField Text"
       />,
@@ -218,10 +218,10 @@ describe('TextField', () => {
   it('hides the helper text for the text field when an error message is shown', () => {
     render(
       <TextField
+        errorMessage="Error message for the text field"
+        helperText="Helper text for the text field"
         id="test"
         label="Label for the text field"
-        helperText="Helper text for the text field"
-        errorMessage="Error message for the text field"
         onChange={() => {}}
         value="TextField Text"
       />,
@@ -241,7 +241,7 @@ describe('TextField', () => {
 
   it('adds a "large" classname when size is set to "lg"', () => {
     const { container } = render(
-      <TextField id="test" onChange={() => {}} value="TextField Text" size="lg" />,
+      <TextField id="test" onChange={() => {}} size="lg" value="TextField Text" />,
     );
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('.large')).toBeVisible();

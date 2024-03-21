@@ -35,11 +35,11 @@ const useGetSideNavItems = ({ sectionInfo }: { sectionInfo: siteIndexType }): Re
               )}`;
               return (
                 <SideNavigation.TopItem
+                  key={pageInfo}
                   active={isActiveTab(href)}
+                  href={href}
                   label={pageInfo}
                   onClick={() => setIsSidebarOpen?.(false)}
-                  key={pageInfo}
-                  href={href}
                 />
               );
             }
@@ -58,11 +58,11 @@ const useGetSideNavItems = ({ sectionInfo }: { sectionInfo: siteIndexType }): Re
               )}/${convertNamesForURL(nestedPage)}`;
               return (
                 <SideNavigation.NestedItem
+                  key={nestedPage}
                   active={isActiveTab(href)}
+                  href={href}
                   label={nestedPage}
                   onClick={() => setIsSidebarOpen?.(false)}
-                  key={nestedPage}
-                  href={href}
                 />
               );
             }
@@ -81,11 +81,11 @@ const useGetSideNavItems = ({ sectionInfo }: { sectionInfo: siteIndexType }): Re
             )}/${convertNamesForURL(nestedPage)}`;
             return (
               <SideNavigation.NestedItem
+                key={nestedPage}
                 active={isActiveTab(href)}
+                href={href}
                 label={nestedPage}
                 onClick={() => setIsSidebarOpen?.(false)}
-                key={nestedPage}
-                href={href}
               />
             );
           }

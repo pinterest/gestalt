@@ -52,9 +52,9 @@ export default function Spinner({
     <Box display="flex" justifyContent="around" overflow="hidden">
       <div className={classnames(styles.icon, { [styles.delay]: delay })}>
         <Icon
+          accessibilityLabel={accessibilityLabel ?? accessibilityLabelDefault}
           color={color}
           icon="knoop"
-          accessibilityLabel={accessibilityLabel ?? accessibilityLabelDefault}
           size={SIZE_NAME_TO_PIXEL[size]}
         />
       </div>

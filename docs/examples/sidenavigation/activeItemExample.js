@@ -12,16 +12,16 @@ export default function Example(): ReactNode {
         <SideNavigation.TopItem href="#" label="Tabs" />
         <SideNavigation.TopItem
           active={reactRouterPath === '/sidenavigation' ? 'page' : undefined}
+          badge={{ text: 'New', type: 'info' }}
           href="#"
           label="SideNavigation"
-          badge={{ text: 'New', type: 'info' }}
         />
       </SideNavigation.Section>
       <SideNavigation.Section label="Controls">
         <SideNavigation.TopItem
+          badge={{ text: 'Deprecated', type: 'warning' }}
           href="#"
           label="RadioButton"
-          badge={{ text: 'Deprecated', type: 'warning' }}
         />
         <SideNavigation.TopItem href="#" label="RadioGroup" />
       </SideNavigation.Section>

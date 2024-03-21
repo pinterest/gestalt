@@ -39,11 +39,13 @@ export default function Example(): ReactNode {
 
         <Table.Body>
           <Table.RowDrawer
-            id="drawerExample"
             drawerContents={
               showdrawer ? (
                 <BannerSlim
-                  type="recommendation"
+                  dismissButton={{
+                    accessibilityLabel: 'Dismiss',
+                    onDismiss: () => setShowDrawer(false),
+                  }}
                   iconAccessibilityLabel="Recommendation"
                   message="Increasing your daily spend could increase clicks by 20%"
                   primaryAction={{
@@ -52,13 +54,11 @@ export default function Example(): ReactNode {
                     onClick: () => {},
                     role: 'button',
                   }}
-                  dismissButton={{
-                    accessibilityLabel: 'Dismiss',
-                    onDismiss: () => setShowDrawer(false),
-                  }}
+                  type="recommendation"
                 />
               ) : null
             }
+            id="drawerExample"
           >
             <Table.Cell>
               <Text>Training treats</Text>

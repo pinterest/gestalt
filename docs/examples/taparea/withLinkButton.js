@@ -6,10 +6,10 @@ export default function TapAreaExample(): ReactNode {
   const [touches, setTouches] = useState(0);
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Box width={200}>
         <TapArea onTap={() => setTouches(touches + 1)} rounding={2}>
-          <Box color="selected" rounding={4} borderStyle="sm">
+          <Box borderStyle="sm" color="selected" rounding={4}>
             <Mask rounding={2}>
               <Image
                 alt="Antelope Canyon"
@@ -33,7 +33,7 @@ export default function TapAreaExample(): ReactNode {
           </Box>
         </TapArea>
         <Box paddingY={2}>
-          <Text color="subtle" align="center">
+          <Text align="center" color="subtle">
             Touched {touches} {touches === 1 ? 'time' : 'times'}
           </Text>
         </Box>

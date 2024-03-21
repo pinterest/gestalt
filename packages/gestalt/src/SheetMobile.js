@@ -161,8 +161,8 @@ function SheetMobile({
       <FullPage
         align={align}
         backIconButton={backIconButton}
-        forwardIconButton={forwardIconButton}
         footer={footer}
+        forwardIconButton={forwardIconButton}
         heading={heading}
         onDismiss={onDismiss}
         padding={padding}
@@ -183,18 +183,18 @@ function SheetMobile({
             align={align}
             backIconButton={backIconButton}
             closeOnOutsideClick={closeOnOutsideClick}
+            footer={footer}
             forwardIconButton={forwardIconButton}
+            heading={heading}
             onAnimationEnd={onAnimationEnd}
             onDismiss={onDismiss}
             onOutsideClick={onOutsideClick}
-            footer={footer}
-            heading={heading}
             padding={padding}
             primaryAction={primaryAction}
             role={role}
             showDismissButton={showDismissButton}
-            subHeading={subHeading}
             size={size}
+            subHeading={subHeading}
             zIndex={zIndex}
           >
             {children}

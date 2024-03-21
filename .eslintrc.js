@@ -90,6 +90,7 @@ module.exports = {
     'react/jsx-fragments': [ERROR, 'element'],
     'react/jsx-key': [ERROR, { 'checkFragmentShorthand': true }],
     'react/jsx-props-no-spreading': OFF,
+    'react/jsx-sort-props': ERROR,
     'react/no-access-state-in-setstate': ERROR,
     'react/no-array-index-key': ERROR,
     'react/react-in-jsx-scope': OFF,
@@ -131,6 +132,12 @@ module.exports = {
         'flowtype/no-mutable-array': OFF,
         'flowtype/require-exact-type': OFF,
         'flowtype/require-valid-file-annotation': OFF,
+      },
+    },
+    {
+      'files': ['packages/gestalt-codemods/**/*.js'],
+      'rules': {
+        'react/jsx-sort-props': OFF,
       },
     },
     {

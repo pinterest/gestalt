@@ -8,7 +8,7 @@ it('renders IconButton', () =>
   expect(
     renderer
       .create(
-        <InternalLink wrappedComponent="iconButton" href="https://example.com" tabIndex={0}>
+        <InternalLink href="https://example.com" tabIndex={0} wrappedComponent="iconButton">
           <Pog icon="heart" iconColor="red" />
         </InternalLink>,
       )
@@ -19,7 +19,7 @@ it('renders TapArea', () =>
   expect(
     renderer
       .create(
-        <InternalLink wrappedComponent="tapArea" href="https://example.com" tabIndex={0}>
+        <InternalLink href="https://example.com" tabIndex={0} wrappedComponent="tapArea">
           <Text>InternalLink</Text>
         </InternalLink>,
       )
@@ -30,7 +30,7 @@ it('renders inline Button', () =>
   expect(
     renderer
       .create(
-        <InternalLink wrappedComponent="button" href="https://example.com" tabIndex={0}>
+        <InternalLink href="https://example.com" tabIndex={0} wrappedComponent="button">
           InternalLink
         </InternalLink>,
       )
@@ -41,7 +41,7 @@ it('renders full-width Button', () =>
   expect(
     renderer
       .create(
-        <InternalLink fullWidth wrappedComponent="button" href="https://example.com" tabIndex={0}>
+        <InternalLink fullWidth href="https://example.com" tabIndex={0} wrappedComponent="button">
           InternalLink
         </InternalLink>,
       )
@@ -53,10 +53,10 @@ it('renders Button & target null', () =>
     renderer
       .create(
         <InternalLink
-          wrappedComponent="button"
           href="https://example.com"
-          target={null}
           tabIndex={0}
+          target={null}
+          wrappedComponent="button"
         >
           InternalLink
         </InternalLink>,
@@ -69,10 +69,10 @@ it('renders Button & target self', () =>
     renderer
       .create(
         <InternalLink
-          wrappedComponent="button"
           href="https://example.com"
-          target="self"
           tabIndex={0}
+          target="self"
+          wrappedComponent="button"
         >
           InternalLink
         </InternalLink>,
@@ -85,10 +85,10 @@ it('renders Button & target blank', () =>
     renderer
       .create(
         <InternalLink
-          wrappedComponent="button"
           href="https://example.com"
-          target="blank"
           tabIndex={0}
+          target="blank"
+          wrappedComponent="button"
         >
           InternalLink
         </InternalLink>,
@@ -101,10 +101,10 @@ it('renders Button with nofollow', () =>
     renderer
       .create(
         <InternalLink
-          wrappedComponent="button"
           href="https://example.com"
           rel="nofollow"
           tabIndex={0}
+          wrappedComponent="button"
         >
           InternalLink
         </InternalLink>,
@@ -117,10 +117,10 @@ it('renders Button with onClick', () =>
     renderer
       .create(
         <InternalLink
-          wrappedComponent="button"
           href="https://example.com"
           onClick={() => {}}
           tabIndex={0}
+          wrappedComponent="button"
         >
           InternalLink
         </InternalLink>,

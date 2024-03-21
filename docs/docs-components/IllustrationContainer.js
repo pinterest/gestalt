@@ -10,14 +10,14 @@ type Props = {
 function IllustrationContainer({ children, justifyContent = 'center' }: Props): ReactNode {
   return (
     <Box
+      display="flex"
+      justifyContent={justifyContent}
+      marginBottom={10}
+      mdPaddingX={8}
+      paddingX={12}
       smMarginEnd={0}
       smMarginStart={0}
-      paddingX={12}
       smPaddingX={2}
-      mdPaddingX={8}
-      marginBottom={10}
-      justifyContent={justifyContent}
-      display="flex"
     >
       {children}
     </Box>

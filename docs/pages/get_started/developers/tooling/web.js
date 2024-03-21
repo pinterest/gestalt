@@ -27,12 +27,12 @@ function TableEntry({
             column: 0,
           }}
         >
-          <Text size="100" underline overflow="noWrap">
+          <Text overflow="noWrap" size="100" underline>
             <Link
               externalLinkIcon="default"
               href={href}
-              target="blank"
               onClick={() => trackButtonClick(metric)}
+              target="blank"
             >
               {metric}
             </Link>
@@ -73,11 +73,11 @@ export default function ToolingPage(): ReactNode {
                       accessibilityLabel={`${item[0]}. ${
                         item[1].startsWith('http://go') ? 'Restricted access.' : ''
                       }`}
-                      href={item[1]}
-                      target="blank"
                       display="inline"
-                      onClick={() => trackButtonClick(item[0])}
                       externalLinkIcon="default"
+                      href={item[1]}
+                      onClick={() => trackButtonClick(item[0])}
+                      target="blank"
                     >
                       {item[0]}
                     </Link>
@@ -105,39 +105,39 @@ Any other engineers will highly benefit from reducing the amount of steps to ado
       </MainSection>
       <MainSection name="Developer velocity tools">
         <MainSection.Subsection
-          title="ESLint plugin"
           description={`Visit the [ESLint plugin](/get_started/developers/eslint_plugin) guidance page to see all the available ESLint rules.
 
 Most rules come with out-of-the-box autofixes, automating the adoption of Gestalt best practices.`}
+          title="ESLint plugin"
         />
         <MainSection.Subsection
-          title="Release codemods"
           description={`Every major breaking change on our library comes with a codemod to facilitate the upgrade of the Gestalt dependency. Some codemods are custom built for each upgrade while some upgrades take advantage of generic codemods that only require running a codemod command with options.
 
 Visit the [Releases](/get_started/developers/releases) guidance page to see all the available release codemods.
 `}
+          title="Release codemods"
         />
         <MainSection.Subsection
-          title="Playground sandbox"
           description={`Use Gestalt's [playground sandbox](https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js) to save code snippets. For instance, share code snippets to reproduce bugs or build small-size prototypes to share with peers.`}
+          title="Playground sandbox"
         >
-          <Flex maxWidth={DOCS_COPY_MAX_WIDTH_PX} justifyContent="center">
+          <Flex justifyContent="center" maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
             <ButtonLink
               color="gray"
-              target="blank"
-              onClick={() => trackButtonClick('Playground sandbox')}
-              text="Create a sandbox snippet"
               href="https://codesandbox.io/s/gestalt-cnwugg?file=/yourCode.js"
+              onClick={() => trackButtonClick('Playground sandbox')}
+              target="blank"
+              text="Create a sandbox snippet"
             />
           </Flex>
         </MainSection.Subsection>
       </MainSection>
       <MainSection name="Visual Studio Code tooling">
         <MainSection.Subsection
-          title="Props documentation on hover in Visual Studio Code"
           description="You can now see component and props documentation on hover in VSCode for certain Gestalt components. Quickly see what a component looks like, its sizes and other props documentation."
+          title="Props documentation on hover in Visual Studio Code"
         >
-          <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} display="flex" justifyContent="center">
+          <Box display="flex" justifyContent="center" maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
             <Box marginBottom={6}>
               <Box as="figure" width={400}>
                 <Image
@@ -147,7 +147,7 @@ Visit the [Releases](/get_started/developers/releases) guidance page to see all 
                   naturalWidth={1034}
                   src="https://i.ibb.co/hCfRSFb/gestalt-vscode-docs.gif"
                 />
-                <Text size="100" align="center">
+                <Text align="center" size="100">
                   <Box as="figcaption" marginTop={3}>
                     Props documentation on hover in Visual Studio Code animated demo: hover on each
                     component or prop name to display the associated documentation right on your
@@ -160,11 +160,11 @@ Visit the [Releases](/get_started/developers/releases) guidance page to see all 
         </MainSection.Subsection>
         <MainSection.Subsection
           badge="alpha"
-          title="Visual Studio Code extension for Gestalt"
           description="Access Gestalt component snippets and documentation right on your VSCode editor. Right at your fingertips!"
+          title="Visual Studio Code extension for Gestalt"
         >
           <Text weight="bold">Quick access to Gestalt</Text>
-          <Flex maxWidth={DOCS_COPY_MAX_WIDTH_PX} direction="column" alignItems="center">
+          <Flex alignItems="center" direction="column" maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
             <Box marginBottom={6}>
               <Flex direction="column">
                 <Box as="figure" width={400}>
@@ -175,7 +175,7 @@ Visit the [Releases](/get_started/developers/releases) guidance page to see all 
                     naturalWidth={1228}
                     src="https://i.ibb.co/G2PMw6f/Screen-Shot-2022-01-27-at-4-24-36-PM.png"
                   />
-                  <Text size="100" align="center">
+                  <Text align="center" size="100">
                     <Box as="figcaption" marginTop={3}>
                       Quick access to Gestalt components and documentation on the VSCode sidebar.
                       Check for the Gestalt logo on the sidebar.
@@ -190,7 +190,7 @@ Visit the [Releases](/get_started/developers/releases) guidance page to see all 
                     naturalWidth={1398}
                     src="https://i.ibb.co/9Vjhyrm/Screen-Shot-2022-01-27-at-4-45-42-PM.png"
                   />
-                  <Text size="100" align="center">
+                  <Text align="center" size="100">
                     <Box as="figcaption" marginTop={3}>
                       {`List Gestalt components by typing "<"`}
                     </Box>
@@ -204,7 +204,7 @@ Visit the [Releases](/get_started/developers/releases) guidance page to see all 
                     naturalWidth={1218}
                     src="https://i.ibb.co/BTCtDQk/Screen-Shot-2022-01-27-at-4-42-36-PM.png"
                   />
-                  <Text size="100" align="center">
+                  <Text align="center" size="100">
                     <Box as="figcaption" marginTop={3}>
                       List Gestalt components by pressing Alt+G/Option+G
                     </Box>
@@ -232,7 +232,7 @@ Visit the [Releases](/get_started/developers/releases) guidance page to see all 
                   naturalWidth={400}
                   src="https://github.com/pinterest/vscode-gestalt/raw/main/images/vscode-gestalt-snippets-optimized.gif"
                 />
-                <Text size="100" align="center">
+                <Text align="center" size="100">
                   <Box as="figcaption" marginTop={3}>
                     Visual Studio Code extension for Gestalt animated demo: how to add Gestalt
                     component snippets to your code
@@ -242,27 +242,27 @@ Visit the [Releases](/get_started/developers/releases) guidance page to see all 
             </Flex>
             <ButtonLink
               color="gray"
-              target="blank"
-              onClick={() => trackButtonClick('Visual Studio Code extension')}
-              text="Install the extension"
               href="https://marketplace.visualstudio.com/items?itemName=pinterest.vscode-gestalt"
+              onClick={() => trackButtonClick('Visual Studio Code extension')}
+              target="blank"
+              text="Install the extension"
             />
           </Flex>
         </MainSection.Subsection>
       </MainSection>
       <MainSection name="Measurement tools">
         <MainSection.Subsection
-          title="Gestalt Usage Visualizer"
           description="Visualize and easily identify the Gestalt usage on a page."
+          title="Gestalt Usage Visualizer"
         >
           <Flex
-            maxWidth={DOCS_COPY_MAX_WIDTH_PX}
+            alignItems="center"
+            direction="column"
             gap={{
               row: 0,
               column: 4,
             }}
-            direction="column"
-            alignItems="center"
+            maxWidth={DOCS_COPY_MAX_WIDTH_PX}
           >
             <Box>
               <Flex
@@ -278,12 +278,12 @@ Visit the [Releases](/get_started/developers/releases) guidance page to see all 
                   {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                   <Link
                     display="inlineBlock"
+                    // eslint-disable-next-line no-template-curly-in-string, no-script-url
+                    href="javascript:(function(){[...document.querySelectorAll('[style]'),...document.querySelectorAll('[class]')].filter(el=>[...el.classList].some(classname=>classname.length>3)||el.classList=='').forEach(el=>{el.setAttribute('style',`${el.getAttribute('style')||''};border:solid 1px#ff0000;`)})})();"
                     onClick={() => trackButtonClick('Gestalt Usage Visualizer')}
                     target="blank"
-                    // eslint-disable-next-line no-script-url, no-template-curly-in-string
-                    href="javascript:(function(){[...document.querySelectorAll('[style]'),...document.querySelectorAll('[class]')].filter(el=>[...el.classList].some(classname=>classname.length>3)||el.classList=='').forEach(el=>{el.setAttribute('style',`${el.getAttribute('style')||''};border:solid 1px#ff0000;`)})})();"
                   >
-                    <Text underline inline>
+                    <Text inline underline>
                       Gestalt Usage Visualiser
                     </Text>
                   </Link>
@@ -307,7 +307,7 @@ Visit the [Releases](/get_started/developers/releases) guidance page to see all 
                       naturalWidth={600}
                       src="https://s14.postimg.cc/3ue4bpbtd/Screen_Shot_2018-05-07_at_11.17.01_AM.png"
                     />
-                    <Text size="100" align="center">
+                    <Text align="center" size="100">
                       <Box as="figcaption" marginTop={3}>
                         Gestalt extension demo: the areas highlighted in red are not using Gestalt
                         components
@@ -321,12 +321,12 @@ Visit the [Releases](/get_started/developers/releases) guidance page to see all 
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Metric dashboards"
           description={`Monitor Gestalt usage metrics with a full suite of dashboards.
 
 To effectively communicate the impact of Gestalt, we measure and track adoption. The quantitative measurement of adoption is an important metric to determine if we're making forward progress towards system usage.
 
 The following table lists the currently available metrics to track Gestalt adoption. Most metrics are in absolute (#) units, while a few are expressed in relative units (%)`}
+          title="Metric dashboards"
         >
           <Table accessibilityLabel="Gestalt usage metrics">
             <Table.Header>
@@ -424,9 +424,9 @@ The following table lists the currently available metrics to track Gestalt adopt
               ].map((item) => (
                 <TableEntry
                   key={`table_entry: ${item[0]}`}
-                  metric={item[0]}
                   description={item[1]}
                   href={item[2]}
+                  metric={item[0]}
                 />
               ))}
             </Table.Body>

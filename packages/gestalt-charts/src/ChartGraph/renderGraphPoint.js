@@ -34,16 +34,16 @@ export function GraphPoint({ color, cx, cy, noReposition = false }: Props): Reac
 
   return cy === null ? null : (
     <use
-      href={`#points-${color}`}
-      x={cx - cxCorrection}
-      y={cy - cyCorrection}
       fill={
         decalDotCoordCorrection[color].fill === 'empty'
           ? TOKEN_COLOR_WHITE_MOCHIMALIST_0
           : hexColor(color)
       }
+      href={`#points-${color}`}
       stroke={hexColor(color)}
       strokeWidth={decalDotCoordCorrection[color].stroke === 'bold' ? '6' : '1.5'}
+      x={cx - cxCorrection}
+      y={cy - cyCorrection}
     />
   );
 }
@@ -61,7 +61,7 @@ const renderGraphPoint: ({
     cy: number,
     ...
   }) => ReactNode = ({ cx, cy }) => (
-    <GraphPoint key={props.color + cy + cx} color={props.color} cy={cy} cx={cx} />
+    <GraphPoint key={props.color + cy + cx} color={props.color} cx={cx} cy={cy} />
   );
 
   return renderPoint;

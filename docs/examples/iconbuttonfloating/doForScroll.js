@@ -21,29 +21,29 @@ export default function Example(): ReactNode {
 
   return (
     <Box margin={2}>
-      <Flex justifyContent="center" width="100%" flex="grow" gap={4} alignItems="center" wrap>
+      <Flex alignItems="center" flex="grow" gap={4} justifyContent="center" width="100%" wrap>
         {cards.map((card) => (
-          <Flex.Item flex="grow" key={card.title}>
+          <Flex.Item key={card.title} flex="grow">
             <Box
               borderStyle="sm"
-              minWidth={320}
-              width="100%"
               color="default"
-              rounding={4}
+              minWidth={320}
               padding={4}
+              rounding={4}
+              width="100%"
             >
-              <Flex gap={3} alignContent="center" justifyContent="between" direction="column">
+              <Flex alignContent="center" direction="column" gap={3} justifyContent="between">
                 <Text align="start" size="500">
                   {card.title}
                 </Text>
                 <Box height={170} width="100%">
                   <Image
                     alt=""
-                    role="presentation"
                     color="#000"
                     fit="cover"
                     naturalHeight={1}
                     naturalWidth={1}
+                    role="presentation"
                     src={card.src}
                   />
                 </Box>
@@ -55,12 +55,12 @@ export default function Example(): ReactNode {
           </Flex.Item>
         ))}
       </Flex>
-      <Box margin={4} position="fixed" bottom right ref={anchorRef} role="contentinfo">
+      <Box ref={anchorRef} bottom margin={4} position="fixed" right role="contentinfo">
         <IconButtonFloating
           accessibilityControls="sections-dropdown-example"
           accessibilityExpanded={open}
-          accessibilityPopupRole="menu"
           accessibilityLabel="Help & Resources Menu"
+          accessibilityPopupRole="menu"
           icon="question-mark"
           onClick={() => setOpen((prevVal) => !prevVal)}
           selected={open}
@@ -73,8 +73,8 @@ export default function Example(): ReactNode {
         <Dropdown
           anchor={anchorRef.current}
           id="sections-dropdown-example"
-          onDismiss={() => setOpen(false)}
           idealDirection="up"
+          onDismiss={() => setOpen(false)}
         >
           <Dropdown.Link
             href="#"

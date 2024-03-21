@@ -14,31 +14,31 @@ export default function TextAreaExample(): ReactNode {
   const errorAccessibilityLabel = 'Limit reached. You can only use 200 characters in this field.';
 
   return (
-    <Box padding={8} height="100%" display="flex" justifyContent="center">
+    <Box display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex direction="column" gap={12}>
         <TextArea
+          helperText="Describe your image with detail so visually impaired users can understand your Pin"
           id="maxLengthReached"
           label="Alt text"
-          helperText="Describe your image with detail so visually impaired users can understand your Pin"
-          onChange={({ value }) => setValueA(value)}
-          placeholder="Enter the image alt text"
-          value={valueA}
-          onBlur={() => {}}
-          onFocus={() => {}}
-          rows={4}
           maxLength={{ characterCount, errorAccessibilityLabel }}
+          onBlur={() => {}}
+          onChange={({ value }) => setValueA(value)}
+          onFocus={() => {}}
+          placeholder="Enter the image alt text"
+          rows={4}
+          value={valueA}
         />
         <TextArea
+          helperText="Describe your image with detail so visually impaired users can understand your Pin"
           id="maxLengthExceeded"
           label="Alt text"
-          helperText="Describe your image with detail so visually impaired users can understand your Pin"
-          onChange={({ value }) => setValueB(value)}
-          placeholder="Enter the image alt text"
-          value={valueB}
-          onBlur={() => {}}
-          onFocus={() => {}}
-          rows={4}
           maxLength={{ characterCount, errorAccessibilityLabel }}
+          onBlur={() => {}}
+          onChange={({ value }) => setValueB(value)}
+          onFocus={() => {}}
+          placeholder="Enter the image alt text"
+          rows={4}
+          value={valueB}
         />
       </Flex>
     </Box>

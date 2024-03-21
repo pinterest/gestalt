@@ -5,16 +5,16 @@ import { Flex, TagData } from 'gestalt';
 export default function Example(): ReactNode {
   return (
     <Flex
-      justifyContent="center"
       alignItems="center"
-      height="100%"
-      width="100%"
       direction="column"
       gap={2}
+      height="100%"
+      justifyContent="center"
+      width="100%"
     >
-      <TagData text="Small TagData" size="sm" showCheckbox />
-      <TagData text="Medium TagData" size="md" showCheckbox />
-      <TagData text="Large Tagdata" size="lg" showCheckbox />
+      <TagData showCheckbox size="sm" text="Small TagData" />
+      <TagData showCheckbox size="md" text="Medium TagData" />
+      <TagData showCheckbox size="lg" text="Large Tagdata" />
     </Flex>
   );
 }

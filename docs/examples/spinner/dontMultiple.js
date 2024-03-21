@@ -4,13 +4,13 @@ import { Box, Flex, Heading, Spinner } from 'gestalt';
 
 function Card({ text }: { text: string }) {
   return (
-    <Box rounding={4} height={250} width={250} padding={6} borderStyle="shadow">
-      <Flex direction="column" alignItems="start" justifyContent="start" height="100%">
+    <Box borderStyle="shadow" height={250} padding={6} rounding={4} width={250}>
+      <Flex alignItems="start" direction="column" height="100%" justifyContent="start">
         <Heading size="400">{text}</Heading>
 
         <Flex.Item alignSelf="center" flex="grow">
-          <Flex height="100%" alignItems="center">
-            <Spinner show accessibilityLabel="Example spinner" />
+          <Flex alignItems="center" height="100%">
+            <Spinner accessibilityLabel="Example spinner" show />
           </Flex>
         </Flex.Item>
       </Flex>

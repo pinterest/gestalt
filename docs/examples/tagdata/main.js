@@ -6,15 +6,15 @@ export default function Example(): ReactNode {
   const [isSelected, setSelected] = useState(false);
 
   return (
-    <Flex justifyContent="center" alignItems="center" height="100%" width="100%">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <TagData
-        text="Impressions"
-        size="lg"
-        selected={isSelected}
+        onRemove={() => {}}
         onTap={() => {
           setSelected((selected) => !selected);
         }}
-        onRemove={() => {}}
+        selected={isSelected}
+        size="lg"
+        text="Impressions"
       />
     </Flex>
   );

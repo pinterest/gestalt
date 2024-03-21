@@ -132,7 +132,7 @@ describe('TapAreaLink', () => {
   it('renders with sequential keyboard navigation and forwards a ref to the innermost <a> element', () => {
     const ref = createRef<HTMLAnchorElement>();
     render(
-      <TapAreaLink href="http://www.pinterest.com" ref={ref} target="blank">
+      <TapAreaLink ref={ref} href="http://www.pinterest.com" target="blank">
         TapAreaLink
       </TapAreaLink>,
     );
@@ -147,7 +147,7 @@ describe('TapAreaLink', () => {
   it('renders disabled', () => {
     const ref = createRef<HTMLAnchorElement>();
     render(
-      <TapAreaLink href="#" disabled ref={ref}>
+      <TapAreaLink ref={ref} disabled href="#">
         TapAreaLink
       </TapAreaLink>,
     );
@@ -160,7 +160,7 @@ describe('TapAreaLink', () => {
   it('renders removed from sequential keyboard navigation via tabIndex', () => {
     const ref = createRef<HTMLAnchorElement>();
     render(
-      <TapAreaLink href="#" tabIndex={-1} ref={ref}>
+      <TapAreaLink ref={ref} href="#" tabIndex={-1}>
         TapAreaLink
       </TapAreaLink>,
     );
@@ -170,7 +170,7 @@ describe('TapAreaLink', () => {
 
   it('renders with correct new tab announcement with and without accessibilityLabel', () => {
     render(
-      <TapAreaLink target="blank" href="https://www.pinterest.com">
+      <TapAreaLink href="https://www.pinterest.com" target="blank">
         Visit Pinterest
       </TapAreaLink>,
     );
@@ -190,8 +190,8 @@ describe('TapAreaLink', () => {
     render(
       <TapAreaLink
         accessibilityLabel="Visit Pinterest"
-        target="blank"
         href="https://www.pinterest.com"
+        target="blank"
       >
         Visit Pinterest
       </TapAreaLink>,
@@ -205,9 +205,9 @@ describe('TapAreaLink', () => {
     render(
       <TapAreaLink
         accessibilityLabel="Visit Pinterest"
-        target="blank"
-        href="https://www.pinterest.com"
         dataTestId={TEST_ID}
+        href="https://www.pinterest.com"
+        target="blank"
       >
         Visit Pinterest
       </TapAreaLink>,

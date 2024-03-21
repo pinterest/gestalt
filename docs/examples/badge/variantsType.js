@@ -30,11 +30,11 @@ export default function Example(): ReactNode {
                   Ads & Campaigns{' '}
                   <Badge
                     text="New"
-                    type="info"
                     tooltip={{
                       text: 'This is a new feature',
                       idealDirection: 'up',
                     }}
+                    type="info"
                   />
                 </Text>
               </Flex>

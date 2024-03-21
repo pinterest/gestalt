@@ -109,11 +109,11 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
   return (
     <Page title="DatePicker">
-      <PageHeader name="DatePicker" description={generatedDocGen?.description} pdocsLink>
+      <PageHeader description={generatedDocGen?.description} name="DatePicker" pdocsLink>
         <SandpackExample
           code={main}
-          name={`Main ${generatedDocGen?.displayName} example`}
           hideEditor
+          name={`Main ${generatedDocGen?.displayName} example`}
           previewHeight={PREVIEW_HEIGHT}
         />
       </PageHeader>
@@ -124,20 +124,20 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - Allowing users to choose a date or date range by clicking through the calendar popup or typing in the text field.
           - Limiting date options to a specific range of dates.
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - When the native date picking experience is preferred (typically mobile and mWeb experiences). In this case, use [TextField](/web/textfield) with type=”date”.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -145,13 +145,12 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
       <LocalizationSection
-        name={generatedDocGen?.displayName}
         layout="column"
-        previewHeight={PREVIEW_HEIGHT}
+        name={generatedDocGen?.displayName}
         noDefaultLabelProvider
+        previewHeight={PREVIEW_HEIGHT}
       >
         <MainSection.Subsection
-          title="Date format locales"
           description={`DatePicker supports multiple locales. Adjust the date format to each [date-fns locale](https://date-fns.org/v2.14.0/docs/Locale).
 
 The following locale examples show the different locale format variants.
@@ -166,14 +165,15 @@ import { it } from 'date-fns/locale';
 
 Use the SelectList to try out different locales by passing in the \`localeData\` prop.
 `}
+          title="Date format locales"
         >
-          <Flex gap={4} direction="row" wrap>
+          <Flex direction="row" gap={4} wrap>
             <Flex.Item flex="none">
               <SelectList
                 id="selectlistexample1"
                 label="Country"
-                size="lg"
                 onChange={({ value }) => setLocale(value)}
+                size="lg"
               >
                 {Object.keys(localeMap).map((localeKey) => (
                   <SelectList.Option
@@ -187,10 +187,10 @@ Use the SelectList to try out different locales by passing in the \`localeData\`
             <DatePicker
               id="locale-example"
               label={locale ? localeMap[locale].lang : undefined}
-              onChange={({ value }) => setDate(value)}
-              value={date}
               localeData={locale ? localeMap[locale].localeData : undefined}
+              onChange={({ value }) => setDate(value)}
               selectLists={['month']}
+              value={date}
             />
           </Flex>
         </MainSection.Subsection>
@@ -199,7 +199,6 @@ Use the SelectList to try out different locales by passing in the \`localeData\`
       <MainSection name="Variants">
         <MainSection.Subsection
           columns={2}
-          title="Controlled component"
           description={`
 DatePicker is a controlled component. Use \`value\`, \`onChange\`, \`onClearInput\` and \`onError\` to implement it correctly.
 
@@ -209,65 +208,66 @@ DatePicker is controlled when \`value\` is not "undefined". When \`value\` is "u
 
 2. Pre-selected date values. If DatePicker presents pre-selected date values, initialize \`value\` with the pre-selected date so the component is controlled.
         `}
+          title="Controlled component"
         >
           <MainSection.Card
-            title="Empty input"
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={controlled}
-                name="controlled variant"
                 layout="column"
+                name="controlled variant"
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
+            title="Empty input"
           />
           <MainSection.Card
             cardSize="lg"
-            title="Pre-selected date values"
             description={`
 `}
             sandpackExample={
               <SandpackExample
                 code={preselected}
-                name="preselected variant"
                 layout="column"
+                name="preselected variant"
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
+            title="Pre-selected date values"
           />
         </MainSection.Subsection>
         <MainSection.Subsection
           columns={2}
-          title="States"
           description={`
 1. Disabled
 2. Error. Display an error message. Error message overrides the helper text.
         `}
+          title="States"
         >
           <MainSection.Card
-            title="Disabled"
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={disabled}
-                name="disabled variant"
                 layout="column"
+                name="disabled variant"
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
+            title="Disabled"
           />
           <MainSection.Card
-            title="Error"
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={error}
-                name="error variant"
                 layout="column"
+                name="error variant"
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
+            title="Error"
           />
         </MainSection.Subsection>
         <MainSection.Subsection title="Helper text">
@@ -286,32 +286,31 @@ DatePicker is controlled when \`value\` is not "undefined". When \`value\` is "u
             sandpackExample={
               <SandpackExample
                 code={range}
+                layout="column"
                 name="range variant"
                 previewHeight={PREVIEW_HEIGHT}
-                layout="column"
               />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Disabled dates"
           description="DatePicker supports disabling future & past dates as well as an array of selected dates."
+          title="Disabled dates"
         >
           <MainSection.Card
             cardSize="lg"
-            title="Disable past & future dates"
             sandpackExample={
               <SandpackExample
                 code={disable}
+                layout="column"
                 name="disable variant"
                 previewHeight={PREVIEW_HEIGHT}
-                layout="column"
               />
             }
+            title="Disable past & future dates"
           />
           <MainSection.Card
             cardSize="lg"
-            title="Disable selected dates"
             sandpackExample={
               <SandpackExample
                 code={disableSelected}
@@ -319,12 +318,13 @@ DatePicker is controlled when \`value\` is not "undefined". When \`value\` is "u
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
+            title="Disable selected dates"
           />
         </MainSection.Subsection>
         <MainSection.Subsection
           columns={2}
-          title="Select list"
           description="Provide select lists for quickly selecting year and month"
+          title="Select list"
         >
           <MainSection.Card
             cardSize="md"
@@ -345,16 +345,15 @@ DatePicker is controlled when \`value\` is not "undefined". When \`value\` is "u
             {({ idealDirection }) => (
               <DatePicker
                 id={`example-idealDirection-${idealDirection}`}
+                idealDirection={idealDirection}
                 label={`Direction ${idealDirection}`}
                 onChange={() => {}}
-                idealDirection={idealDirection}
               />
             )}
           </CombinationNew>
         </MainSection.Subsection>
         <MainSection.Subsection
           badge="experimental"
-          title="External handlers"
           description={`DatePicker consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).
 
 Handlers:
@@ -363,6 +362,7 @@ Handlers:
 
 See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onRender) for more information.
 `}
+          title="External handlers"
         />
       </MainSection>
 

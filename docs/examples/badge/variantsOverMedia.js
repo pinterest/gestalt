@@ -6,26 +6,26 @@ export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
       <Flex gap={{ column: 8, row: 4 }} wrap>
-        <Mask height={150} width={280} rounding={2}>
+        <Mask height={150} rounding={2} width={280}>
           <Image
             alt="Botanical art in coral and green"
             fit="cover"
-            src="https://i.ibb.co/cbjgZft/img-door.jpg"
-            naturalWidth={1}
             naturalHeight={1}
+            naturalWidth={1}
+            src="https://i.ibb.co/cbjgZft/img-door.jpg"
           >
             <Box padding={4}>
               <Badge text="Light wash" type="lightWash" />
             </Box>
           </Image>
         </Mask>
-        <Mask height={150} width={280} rounding={2}>
+        <Mask height={150} rounding={2} width={280}>
           <Image
             alt="Botanical art in coral and green"
             fit="cover"
-            src="https://i.ibb.co/7bQQYkX/stock2.jpg"
-            naturalWidth={1}
             naturalHeight={1}
+            naturalWidth={1}
+            src="https://i.ibb.co/7bQQYkX/stock2.jpg"
           >
             <Box padding={4}>
               <Badge text="Dark wash" type="darkWash" />

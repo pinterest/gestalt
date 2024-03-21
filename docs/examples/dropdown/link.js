@@ -10,9 +10,10 @@ export default function CustomIconButtonPopoverExample(): ReactNode {
 
   return (
     <Fragment>
-      <Flex justifyContent="center" width="100%" height="100%">
+      <Flex height="100%" justifyContent="center" width="100%">
         <Box margin={2}>
           <IconButton
+            ref={anchorRef}
             accessibilityControls="link-dropdown-example"
             accessibilityExpanded={open}
             accessibilityHaspopup
@@ -20,7 +21,6 @@ export default function CustomIconButtonPopoverExample(): ReactNode {
             icon="arrow-down"
             iconColor="darkGray"
             onClick={() => setOpen((prevVal) => !prevVal)}
-            ref={anchorRef}
             selected={open}
             size="lg"
           />
@@ -36,8 +36,8 @@ export default function CustomIconButtonPopoverExample(): ReactNode {
         >
           <Dropdown.Link
             href="https://pinterest.com"
-            option={{ value: 'Create new board', label: 'Create new board' }}
             onClick={({ event }) => event.preventDefault()}
+            option={{ value: 'Create new board', label: 'Create new board' }}
           />
           <Dropdown.Link
             href="https://help.pinterest.com/en?source=gear_menu_web"
@@ -48,8 +48,8 @@ export default function CustomIconButtonPopoverExample(): ReactNode {
           <Dropdown.Link
             href="https://policy.pinterest.com/en/privacy-policy"
             isExternal
-            option={{ value: 'See terms and privacy', label: 'See terms and privacy' }}
             onClick={({ event }) => event.preventDefault()}
+            option={{ value: 'See terms and privacy', label: 'See terms and privacy' }}
           />
         </Dropdown>
       )}

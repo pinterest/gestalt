@@ -263,8 +263,8 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
       enterKeyHint={mobileEnterKeyHint}
       id={id}
       inputMode={mobileInputMode}
-      maxLength={maxLength?.characterCount}
       max={type === 'number' ? max : undefined}
+      maxLength={maxLength?.characterCount}
       min={type === 'number' ? min : undefined}
       name={name}
       onBlur={handleBlur}
@@ -300,10 +300,10 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
               <Box
                 // eslint-disable-next-line react/no-array-index-key
                 key={tagIndex}
-                marginEnd={1}
                 dangerouslySetInlineStyle={{
                   __style: { marginBottom: tagMarginY },
                 }}
+                marginEnd={1}
               >
                 {cloneElement(tag, { size: size === 'lg' ? 'md' : 'sm' })}
               </Box>
@@ -328,11 +328,11 @@ const InternalTextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement
 
       {(helperText || maxLength) && !errorMessage ? (
         <FormHelperText
-          id={`${id}-helperText`}
-          text={helperText}
-          maxLength={maxLength}
           currentLength={currentLength}
+          id={`${id}-helperText`}
+          maxLength={maxLength}
           size={size}
+          text={helperText}
         />
       ) : null}
 

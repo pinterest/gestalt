@@ -39,34 +39,34 @@ export default function Example(): ReactNode {
           <Text>Example url: {window.location.href}</Text>
           <Flex justifyContent="center">
             <Button
-              accessibilityControls="basic-dropdown-example"
-              accessibilityHaspopup
-              accessibilityExpanded={open}
-              iconEnd="arrow-down"
-              text="Menu"
               ref={anchorRef}
-              selected={open}
+              accessibilityControls="basic-dropdown-example"
+              accessibilityExpanded={open}
+              accessibilityHaspopup
+              iconEnd="arrow-down"
               onClick={() => setOpen((prevVal) => !prevVal)}
+              selected={open}
+              text="Menu"
             />
             {open && (
               <Dropdown
-                id="basic-dropdown-example"
                 anchor={anchorRef.current}
+                id="basic-dropdown-example"
                 onDismiss={() => {
                   setOpen(false);
                 }}
               >
                 <Dropdown.Link
                   href="#Disabling-the-provider"
-                  option={{
-                    value: 'link item',
-                    label: 'This item is a link',
-                  }}
                   onClick={({ event, dangerouslyDisableOnNavigation }) => {
                     event.preventDefault();
                     dangerouslyDisableOnNavigation();
                     useRouter.push('#');
                     setOpen(false);
+                  }}
+                  option={{
+                    value: 'link item',
+                    label: 'This item is a link',
                   }}
                 />
               </Dropdown>

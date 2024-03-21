@@ -23,8 +23,9 @@ export default function Example(): ReactNode {
   };
 
   return (
-    <Flex width="100%" height="100%" justifyContent="center" alignItems="center">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <IconButton
+        ref={anchorRef}
         accessibilityControls="sections-dropdown-example"
         accessibilityExpanded={open}
         accessibilityHaspopup
@@ -33,7 +34,6 @@ export default function Example(): ReactNode {
         icon="add"
         iconColor="darkGray"
         onClick={() => setOpen((prevVal) => !prevVal)}
-        ref={anchorRef}
         selected={open}
         size="lg"
         tooltip={{ text: 'Create', idealDirection: 'up' }}

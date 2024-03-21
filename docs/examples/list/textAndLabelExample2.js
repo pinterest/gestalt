@@ -4,7 +4,7 @@ import { Box, Flex, List, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex direction="column" gap={4}>
         <Text>
           The Save button is one of the best ways to get your content onto Pinterest —through
@@ -12,8 +12,8 @@ export default function Example(): ReactNode {
           our best practices.
         </Text>
         <List
-          labelDisplay="hidden"
           label="Best practices for Save Button for developers"
+          labelDisplay="hidden"
           type="unordered"
         >
           <List.Item text="Pin type settings: Include 'pinit.js' correctly" />

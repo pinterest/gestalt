@@ -39,9 +39,9 @@ export default function TableOfContentsItem(props: Props): ReactNode {
   return (
     <li className={classNames(ListStyles.noStyle, boxWhitespace.marginTop1)}>
       <TableOfContentsAnchor
-        label={props.label}
-        href={props.href}
         active={props.active}
+        href={props.href}
+        label={props.label}
         onClick={props.onClick}
       />
 

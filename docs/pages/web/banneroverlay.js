@@ -27,99 +27,99 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
         badge="pilot"
-        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
+        name={generatedDocGen?.displayName}
         pdocsLink
       >
-        <SandpackExample code={main} name="Main BannerOverlay example" hideEditor />
+        <SandpackExample code={main} hideEditor name="Main BannerOverlay example" />
       </PageHeader>
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
 - To provide short educational messages allowing content to scroll underneath
 - To help users learn more about a specific idea or interest
 - To support users when they have performed actions that indicate medium or high intent (related pin tap, idea pin swipe)
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
 - If there is a need to block the content underneath use Modal instead
 - To replace Toast
 - For lengthy messages, forms, or blocks of information. Consider OverlayPanel or new page instead
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
       <MainSection name="Best Practices">
         <MainSection.Subsection columns={1}>
           <MainSection.Card
-            type="do"
-            sandpackExample={<SandpackExample code={doEducate} name="Do - Educate" hideEditor />}
             description="Use BannerOverlay to educate and provide additional information to users when they have performed actions that indicate some intent, such as a related pin tap or idea pin swipe."
+            sandpackExample={<SandpackExample code={doEducate} hideEditor name="Do - Educate" />}
+            type="do"
           />
           <MainSection.Card
-            type="don't"
+            description="Use BannerOverlay for critical information, such as errors or warnings. Use BannerCallout instead."
             sandpackExample={
               <SandpackExample
                 code={dontCritical}
-                name="Don't - Critical"
-                hideEditor
                 hideControls
+                hideEditor
+                name="Don't - Critical"
               />
             }
-            description="Use BannerOverlay for critical information, such as errors or warnings. Use BannerCallout instead."
+            type="don't"
           />
           <MainSection.Card
-            type="do"
-            sandpackExample={<SandpackExample code={doConcise} name="Do - Concise" hideEditor />}
             description="Be concise when writing the content. The BannerOverlay is intended to display short messages. Ideally max of 3 lines.
 Please consider localization. "
+            sandpackExample={<SandpackExample code={doConcise} hideEditor name="Do - Concise" />}
+            type="do"
           />
           <MainSection.Card
-            type="don't"
+            description="Display long messages inside the BannerOverlay as it isn't the intent of this component, and it could lead to readability issues considering the component size and space. "
             sandpackExample={
               <SandpackExample
                 code={dontLong}
-                name="Don't - Long messages"
-                hideEditor
                 hideControls
+                hideEditor
+                name="Don't - Long messages"
               />
             }
-            description="Display long messages inside the BannerOverlay as it isn't the intent of this component, and it could lead to readability issues considering the component size and space. "
+            type="don't"
           />
           <MainSection.Card
-            type="do"
-            sandpackExample={<SandpackExample code={doNavigate} name="Do - Navigate" hideEditor />}
             description={`Place BannerOverlay out of the way so a user can still navigate and complete tasks.
 
 <b>Please note</b>: On desktop devices, the BannerOverlay should appear at the top of the screen (below navigation). The BannerOverlay shouldn't block navigation.
 On mobile devices, the BannerOverlay should appear at the bottom of the screen. The 'offset' prop can be used to adjust the position of the BannerOverlay.`}
+            sandpackExample={<SandpackExample code={doNavigate} hideEditor name="Do - Navigate" />}
+            type="do"
           />
           <MainSection.Card
-            type="don't"
-            sandpackExample={
-              <SandpackExample code={dontStack} name="Don't - Stack" hideEditor hideControls />
-            }
             description="Stack multiple BannerOverlays; only one BannerOverlay should appear on the screen per time."
+            sandpackExample={
+              <SandpackExample code={dontStack} hideControls hideEditor name="Don't - Stack" />
+            }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
 
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
-          title="Labels"
           description={`
           \`dismissButton\` and \`primaryAction\`, require a short, descriptive label for screen readers, which should also be localized.
 
           Icons and thumbnails on BannerOverlay are purely decorative, and can therefore have an empty string as the \`accessibilityLabel\`. The thumbnail (Image) or Icon should supply an alt or accessibilityLabel, respectively, if the Image or Icon supplies extra context or information.`}
+          title="Labels"
         />
       </AccessibilitySection>
 
@@ -131,36 +131,36 @@ On mobile devices, the BannerOverlay should appear at the bottom of the screen. 
         />
         <MainSection.Subsection title="Image">
           <MainSection.Card
-            sandpackExample={<SandpackExample code={image} name="Image" layout="column" />}
             description="With an image for Pin or Board actions, or the Pinterest logo."
+            sandpackExample={<SandpackExample code={image} layout="column" name="Image" />}
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection title="Avatar">
           <MainSection.Card
-            sandpackExample={<SandpackExample code={avatar} name="avatar" layout="column" />}
             description="With an Avatar for Profile or Pinner-related messaging."
+            sandpackExample={<SandpackExample code={avatar} layout="column" name="avatar" />}
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection title="Icon">
           <MainSection.Card
-            sandpackExample={<SandpackExample code={icon} name="icon" layout="column" />}
             description="For when an icon is needed to represent content that isn’t a pin or a profile."
+            sandpackExample={<SandpackExample code={icon} layout="column" name="icon" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection title="Call to Action">
           <MainSection.Card
-            sandpackExample={<SandpackExample code={callToAction} name="icon" layout="column" />}
             description="You can have zero, one or two actions using the props `primaryAction` and `secondaryAction`."
+            sandpackExample={<SandpackExample code={callToAction} layout="column" name="icon" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection title="Dismissed by CTA">
           <MainSection.Card
-            sandpackExample={<SandpackExample code={ctaDismiss} name="icon" layout="column" />}
             description={`You can optionally have the Call to Action dismiss the BannerOverlay by not setting the dismissButton prop.
 
 <b>Please note:</b> Make sure to either set the CTA to dismiss the BannerOverlay or set the dismissButton prop. Otherwise, the BannerOverlay will be stuck on the screen.`}
+            sandpackExample={<SandpackExample code={ctaDismiss} layout="column" name="icon" />}
           />
         </MainSection.Subsection>
       </MainSection>
@@ -172,8 +172,8 @@ On mobile devices, the BannerOverlay should appear at the bottom of the screen. 
 On desktop devices, the BannerOverlay should appear at the top of the screen (below navigation). The BannerOverlay shouldn't block navigation.
 On mobile devices, the BannerOverlay should appear at the bottom of the screen. The 'offset' prop can be used to adjust the position of the BannerOverlay.`}
           />
-          <SandpackExample code={mobile} name="Main BannerOverlay example" hideEditor />
-          <SandpackExample code={desktop} name="Main BannerOverlay example" hideEditor />
+          <SandpackExample code={mobile} hideEditor name="Main BannerOverlay example" />
+          <SandpackExample code={desktop} hideEditor name="Main BannerOverlay example" />
         </MainSection.Subsection>
       </MainSection>
 
@@ -181,19 +181,19 @@ On mobile devices, the BannerOverlay should appear at the bottom of the screen. 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description={`
 - Use succinct and scannable language that clearly conveys support to the user
 - Consider internationalization and how other languages may be constrained
 - Write up to 2 lines of text.`}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description={`
             - Write messages that are wordy and take up a lot of space, as the BannerOverlay is intended to short messages
             - Write content that takes more than 2 lines of text
             - Truncate content. If the message needs more words, consider a different component`}
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>

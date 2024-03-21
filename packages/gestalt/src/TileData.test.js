@@ -6,7 +6,7 @@ import TileData from './TileData';
 describe('TileData', () => {
   it('renders', () => {
     const tree = create(
-      <TileData title="Text Impressions" value="1.23M" selected onTap={() => {}} />,
+      <TileData onTap={() => {}} selected title="Text Impressions" value="1.23M" />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -14,11 +14,11 @@ describe('TileData', () => {
   test('TileData renders with tooltip', () => {
     const component = create(
       <TileData
-        title="Text Impressions"
-        value="1.23M"
-        selected
-        tooltip={{ text: 'This is a tooltip' }}
         onTap={() => {}}
+        selected
+        title="Text Impressions"
+        tooltip={{ text: 'This is a tooltip' }}
+        value="1.23M"
       />,
     );
     const tree = component.toJSON();
@@ -32,12 +32,12 @@ describe('TileData', () => {
         {colors.map((color) => (
           <TileData
             key={color}
-            title="Text Impressions"
-            value="1.23M"
-            selected
             color={color}
-            tooltip={{ text: 'This is a tooltip' }}
             onTap={() => {}}
+            selected
+            title="Text Impressions"
+            tooltip={{ text: 'This is a tooltip' }}
+            value="1.23M"
           />
         ))}
       </Flex>,
@@ -51,12 +51,12 @@ describe('TileData', () => {
     const component = create(
       <TileData
         disabled
-        title="Text Impressions"
-        value="1.23M"
-        showCheckbox
-        selected
-        tooltip={{ text: 'This is a tooltip' }}
         onTap={() => {}}
+        selected
+        showCheckbox
+        title="Text Impressions"
+        tooltip={{ text: 'This is a tooltip' }}
+        value="1.23M"
       />,
     );
     const tree = component.toJSON();
@@ -66,11 +66,11 @@ describe('TileData', () => {
   test('TileData title truncates when really long', () => {
     const component = create(
       <TileData
-        title="This is some super super super long text and you shouldn't be able to read the last part of it. It's going to use ellipsis to cutoff the last part"
-        value="1.23M"
-        selected
-        tooltip={{ text: 'This is a tooltip' }}
         onTap={() => {}}
+        selected
+        title="This is some super super super long text and you shouldn't be able to read the last part of it. It's going to use ellipsis to cutoff the last part"
+        tooltip={{ text: 'This is a tooltip' }}
+        value="1.23M"
       />,
     );
     const tree = component.toJSON();
@@ -81,28 +81,28 @@ describe('TileData', () => {
     const component = create(
       <Flex gap={2}>
         <TileData
+          onTap={() => {}}
+          selected
+          showCheckbox
           title=""
+          tooltip={{ text: 'This is a tooltip' }}
           value="1.43M"
-          selected
-          showCheckbox
-          tooltip={{ text: 'This is a tooltip' }}
-          onTap={() => {}}
         />
         <TileData
-          title=""
-          value="1.13M"
+          onTap={() => {}}
           selected
           showCheckbox
+          title=""
           tooltip={{ text: 'This is a tooltip' }}
-          onTap={() => {}}
+          value="1.13M"
         />
         <TileData
-          title=""
-          value="1.13M"
+          onTap={() => {}}
           selected
           showCheckbox
+          title=""
           tooltip={{ text: 'This is a tooltip' }}
-          onTap={() => {}}
+          value="1.13M"
         />
       </Flex>,
     );

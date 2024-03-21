@@ -56,8 +56,8 @@ export default function Card({
               scrollMarginTop: 90,
             },
           }}
-          id={slugifiedId}
           data-anchor
+          id={slugifiedId}
           marginBottom={description ? 2 : 4}
         >
           <Flex
@@ -70,7 +70,7 @@ export default function Card({
             <Heading size={headingSize}>{name}</Heading>
             {badge ? (
               <Tooltip inline text={badge.tooltipText}>
-                <Badge text={badge.text} position="middle" />
+                <Badge position="middle" text={badge.text} />
               </Tooltip>
             ) : null}
             <CopyLinkButton
@@ -85,8 +85,8 @@ export default function Card({
         </Box>
       )}
 
-      <Box marginStart={-2} marginEnd={-2} display="flex" direction={stacked ? 'column' : 'row'}>
-        <Box paddingX={2} column={12} color="default">
+      <Box direction={stacked ? 'column' : 'row'} display="flex" marginEnd={-2} marginStart={-2}>
+        <Box color="default" column={12} paddingX={2}>
           {description && (
             <Box marginBottom={8} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
               <Markdown text={description} />

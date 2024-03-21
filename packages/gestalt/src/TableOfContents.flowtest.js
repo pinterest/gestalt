@@ -3,7 +3,7 @@ import TableOfContents from './TableOfContents';
 
 const Valid = (
   <TableOfContents title="Title">
-    <TableOfContents.Item label="Label" href="#" active />
+    <TableOfContents.Item active href="#" label="Label" />
   </TableOfContents>
 );
 

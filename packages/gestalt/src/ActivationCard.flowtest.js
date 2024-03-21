@@ -3,10 +3,10 @@ import ActivationCard from './ActivationCard';
 
 const Valid = (
   <ActivationCard
+    message="We will notify you via email as soon as your site has been successfully claimed"
     status="pending"
     statusMessage="Pending"
     title="Claiming your website"
-    message="We will notify you via email as soon as your site has been successfully claimed"
   />
 );
 

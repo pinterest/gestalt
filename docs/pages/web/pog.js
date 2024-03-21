@@ -17,12 +17,12 @@ import statesOnBackground from '../../examples/pog/statesOnBackground';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title="Pog">
-      <PageHeader name="Pog" description={generatedDocGen?.description}>
+      <PageHeader description={generatedDocGen?.description} name="Pog">
         <SandpackExample
-          name="Main Example"
           code={main}
-          layout="column"
           hideEditor
+          layout="column"
+          name="Main Example"
           previewHeight={200}
         />
       </PageHeader>
@@ -37,7 +37,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           </CombinationNew>
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Background colors on white backgrounds"
           description={`Pog can be presented in combinations of icon and background colors. In the absence of combinations, for each \`iconColor\` or \`bgColor\` value, a default paired value is assigned.
 
 Follow these guidelines for \`bgColor\`
@@ -46,13 +45,13 @@ Follow these guidelines for \`bgColor\`
 2. Light Gray ("lightGray"). Medium emphasis, used for secondary actions.
 3. Gray ("gray"). Used for tertiary actions or in cases where the primary "red" is not an option. Medium emphasis when placed on dark backgrounds, used for secondary actions.
 `}
+          title="Background colors on white backgrounds"
         >
           <CombinationNew bgColor={['red', 'lightGray', 'gray']}>
-            {({ bgColor }) => <Pog icon="heart" bgColor={bgColor} />}
+            {({ bgColor }) => <Pog bgColor={bgColor} icon="heart" />}
           </CombinationNew>
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Background colors on color/image backgrounds"
           description={`Pog can be presented in combinations of icon and background colors. In the absence of combinations, for each \`iconColor\` or \`bgColor\` value, a default paired value is assigned.
 
 Follow these guidelines for \`bgColor\`
@@ -61,9 +60,10 @@ Follow these guidelines for \`bgColor\`
 2. White ("white"). Used when there is a need of an IconButton over an image or colored background to provide better contrast and visibility.
 3. Transparent ("transparent"). Used when there is a need to have an IconButton over an image without a background.
 `}
+          title="Background colors on color/image backgrounds"
         >
           <CombinationNew bgColor={['transparentDarkGray', 'white', 'transparent']}>
-            {({ bgColor }) => <Pog icon="heart" bgColor={bgColor} />}
+            {({ bgColor }) => <Pog bgColor={bgColor} icon="heart" />}
           </CombinationNew>
         </MainSection.Subsection>
         <MainSection.Subsection title="States">
@@ -84,18 +84,18 @@ Follow these guidelines for \`bgColor\`
           />
         </MainSection.Subsection>
         <MainSection.Subsection title="Sizes with default padding">
-          <CombinationNew size={['xs', 'sm', 'md', 'lg', 'xl']} hasCheckerboard={false}>
+          <CombinationNew hasCheckerboard={false} size={['xs', 'sm', 'md', 'lg', 'xl']}>
             {({ size }) => <Pog bgColor="lightGray" icon="heart" size={size} />}
           </CombinationNew>
         </MainSection.Subsection>
         <MainSection.Subsection title="Sizes with custom padding">
           <CombinationNew
-            size={['xs', 'sm', 'md', 'lg', 'xl']}
-            padding={[1, 2, 3, 4, 5]}
             hasCheckerboard={false}
+            padding={[1, 2, 3, 4, 5]}
+            size={['xs', 'sm', 'md', 'lg', 'xl']}
           >
             {({ size, padding }) => (
-              <Pog bgColor="lightGray" icon="heart" size={size} padding={padding} />
+              <Pog bgColor="lightGray" icon="heart" padding={padding} size={size} />
             )}
           </CombinationNew>
         </MainSection.Subsection>

@@ -25,20 +25,7 @@ export default function Example(): ReactNode {
       }}
     >
       <ChartGraph
-        title="Eindrücke"
-        description="Leistung im Laufe der Zeit. Impressionen geben an, wie oft Ihr Pin auf dem Bildschirm angezeigt wurde."
-        labelMap={{
-          'Women': 'Frauen',
-          'Men': 'Männer',
-          'Users': 'Benutzer',
-          'Clickthroughs': 'Durchklicken',
-        }}
-        visualPatternSelected={visualPatternSelected}
-        onVisualPatternChange={() =>
-          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
-        }
         accessibilityLabel="Beispiel für ein Liniendiagramm"
-        type="bar"
         data={[
           {
             name: 'Women',
@@ -51,10 +38,23 @@ export default function Example(): ReactNode {
             'Clickthroughs': 300,
           },
         ]}
+        description="Leistung im Laufe der Zeit. Impressionen geben an, wie oft Ihr Pin auf dem Bildschirm angezeigt wurde."
         elements={[
           { type: 'bar', id: 'Users' },
           { type: 'bar', id: 'Clickthroughs' },
         ]}
+        labelMap={{
+          'Women': 'Frauen',
+          'Men': 'Männer',
+          'Users': 'Benutzer',
+          'Clickthroughs': 'Durchklicken',
+        }}
+        onVisualPatternChange={() =>
+          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
+        }
+        title="Eindrücke"
+        type="bar"
+        visualPatternSelected={visualPatternSelected}
       />
     </DefaultLabelProvider>
   );

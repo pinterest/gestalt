@@ -174,29 +174,22 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
       <TapAreaLink
         accessibilityCurrent={active === 'page' ? active : undefined}
         href={href}
+        onBlur={() => setFocused(false)}
+        onFocus={() => setFocused(true)}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        onFocus={() => setFocused(true)}
-        onBlur={() => setFocused(false)}
-        rounding={2}
-        tapStyle={compression}
         onTap={({ event, dangerouslyDisableOnNavigation }) => {
           setSelectedItemId(itemId);
           onClick?.({ event, dangerouslyDisableOnNavigation });
 
           if (sideNavigationCollapsed) setOverlayPreview(false);
         }}
+        rounding={2}
+        tapStyle={compression}
       >
         <Box
-          color={itemColor}
-          paddingY={collapsed ? undefined : 2}
-          width={collapsed ? 44 : undefined}
-          minHeight={44}
-          rounding={2}
-          display="flex"
-          justifyContent={collapsed ? 'center' : undefined}
           alignItems="center"
-          position="relative"
+          color={itemColor}
           dangerouslySetInlineStyle={
             collapsed
               ? undefined
@@ -207,44 +200,51 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
                   },
                 }
           }
+          display="flex"
+          justifyContent={collapsed ? 'center' : undefined}
+          minHeight={44}
+          paddingY={collapsed ? undefined : 2}
+          position="relative"
+          rounding={2}
+          width={collapsed ? 44 : undefined}
         >
           {collapsed && icon && notificationAccessibilityLabel ? (
             <Box
               aria-label={notificationAccessibilityLabel}
-              height={8}
-              width={8}
-              rounding="circle"
               color="primary"
-              role="status"
-              position="absolute"
               dangerouslySetInlineStyle={{ __style: { top: 4, right: 4 } }}
+              height={8}
+              position="absolute"
+              role="status"
+              rounding="circle"
+              width={8}
             />
           ) : null}
 
           <Flex
             gap={{ row: 2, column: 0 }}
             height="100%"
-            width="100%"
             justifyContent={collapsed ? 'center' : undefined}
+            width="100%"
           >
             {icon ? (
               <Flex.Item alignSelf="center">
                 <Box aria-hidden={!collapsed}>
                   {typeof icon === 'string' ? (
                     <Icon
-                      size={20}
-                      inline
-                      icon={icon}
                       accessibilityLabel={collapsed ? label : ''}
                       color={textColor}
+                      icon={icon}
+                      inline
+                      size={20}
                     />
                   ) : (
                     <Icon
-                      size={20}
-                      inline
-                      dangerouslySetSvgPath={icon}
                       accessibilityLabel={collapsed ? label : ''}
                       color={textColor}
+                      dangerouslySetSvgPath={icon}
+                      inline
+                      size={20}
                     />
                   )}
                 </Box>
@@ -253,10 +253,10 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
 
             {!collapsed && (
               <Flex.Item alignSelf="center" flex="grow">
-                <Text inline color={textColor}>
+                <Text color={textColor} inline>
                   {label}
                   {(badge || notificationAccessibilityLabel) && (
-                    <Box marginStart={1} display="inlineBlock" height="100%">
+                    <Box display="inlineBlock" height="100%" marginStart={1}>
                       {/* Adds a pause for screen reader users between the text content */}
                       <Box display="visuallyHidden">{`, `}</Box>
                       {!notificationAccessibilityLabel && badge ? (
@@ -265,11 +265,11 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
                       {notificationAccessibilityLabel ? (
                         <Box
                           aria-label={notificationAccessibilityLabel}
-                          height={8}
-                          width={8}
-                          rounding="circle"
                           color="primary"
+                          height={8}
                           role="status"
+                          rounding="circle"
+                          width={8}
                         />
                       ) : null}
                     </Box>
@@ -279,7 +279,7 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
             )}
 
             {!collapsed && counter && (showIconButton === 'hide' || isMobile) ? (
-              <Flex.Item flex="none" alignSelf="center">
+              <Flex.Item alignSelf="center" flex="none">
                 <Box display="visuallyHidden">{`, `}</Box>
                 {/* marginEnd={-2} is a hack to correctly position the counter as Flex + gap + width="100%" doean't expand to full width */}
                 <Box aria-label={counter.accessibilityLabel} marginEnd={-2}>
@@ -291,7 +291,7 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
             ) : null}
 
             {!collapsed && (showIconButton === 'show' || isMobile) && primaryAction ? (
-              <Flex.Item flex="none" alignSelf="center">
+              <Flex.Item alignSelf="center" flex="none">
                 {/* This is a workaround to announce the counter as it's replaced on focus */}
                 {counter ? (
                   <Box display="visuallyHidden">
@@ -309,15 +309,15 @@ const SideNavigationTopItemWithForwardRef: AbstractComponent<Props, HTMLLIElemen
                   rounding="circle"
                 >
                   <PrimaryActionIconButton
-                    icon={primaryAction?.icon}
-                    onClick={primaryAction?.onClick}
-                    tooltip={primaryAction.tooltip}
                     dropdownItems={primaryAction?.dropdownItems}
-                    setCompression={setCompression}
                     forceIconButton={forceIconButton}
+                    icon={primaryAction?.icon}
+                    isItemActive={!!active}
+                    onClick={primaryAction?.onClick}
+                    setCompression={setCompression}
                     setForceIconButton={setForceIconButton}
                     setShowIconButton={setShowIconButton}
-                    isItemActive={!!active}
+                    tooltip={primaryAction.tooltip}
                   />
                 </Box>
               </Flex.Item>

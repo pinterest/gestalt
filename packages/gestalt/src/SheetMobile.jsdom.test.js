@@ -21,7 +21,7 @@ describe('SheetMobile', () => {
   it('renders correctly default size', () => {
     const tree = create(
       <DeviceTypeProvider deviceType="mobile">
-        <SheetMobile heading="test" subHeading="test" onDismiss={() => {}} />
+        <SheetMobile heading="test" onDismiss={() => {}} subHeading="test" />
       </DeviceTypeProvider>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -30,7 +30,7 @@ describe('SheetMobile', () => {
   it('renders correctly auto size', () => {
     const tree = create(
       <DeviceTypeProvider deviceType="mobile">
-        <SheetMobile heading="test" subHeading="test" onDismiss={() => {}} size="auto" />
+        <SheetMobile heading="test" onDismiss={() => {}} size="auto" subHeading="test" />
       </DeviceTypeProvider>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -39,7 +39,7 @@ describe('SheetMobile', () => {
   it('renders correctly full size', () => {
     const tree = create(
       <DeviceTypeProvider deviceType="mobile">
-        <SheetMobile heading="test" subHeading="test" onDismiss={() => {}} size="full" />
+        <SheetMobile heading="test" onDismiss={() => {}} size="full" subHeading="test" />
       </DeviceTypeProvider>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -48,7 +48,7 @@ describe('SheetMobile', () => {
   it('renders correctly all required labels', () => {
     render(
       <DeviceTypeProvider deviceType="mobile">
-        <SheetMobile heading="test" subHeading="test" onDismiss={() => {}} />
+        <SheetMobile heading="test" onDismiss={() => {}} subHeading="test" />
       </DeviceTypeProvider>,
     );
 
@@ -73,9 +73,6 @@ describe('SheetMobile', () => {
     render(
       <DeviceTypeProvider deviceType="mobile">
         <SheetMobile
-          heading="test"
-          subHeading="test"
-          onDismiss={() => {}}
           backIconButton={{
             accessibilityLabel: 'Previous',
             onClick: () => {},
@@ -84,6 +81,9 @@ describe('SheetMobile', () => {
             accessibilityLabel: 'Next',
             onClick: () => {},
           }}
+          heading="test"
+          onDismiss={() => {}}
+          subHeading="test"
         />
       </DeviceTypeProvider>,
     );
@@ -109,13 +109,13 @@ describe('SheetMobile', () => {
       <DeviceTypeProvider deviceType="mobile">
         <SheetMobile
           heading="test"
-          subHeading="test"
           onDismiss={() => {}}
           primaryAction={{
             accessibilityLabel: 'Next',
             label: 'Next',
             onClick: () => {},
           }}
+          subHeading="test"
         />
       </DeviceTypeProvider>,
     );
@@ -151,14 +151,14 @@ describe('SheetMobile', () => {
       <DeviceTypeProvider deviceType="mobile">
         <SheetMobile
           heading="test"
-          subHeading="test"
           onDismiss={mockOnClick}
-          size="full"
           primaryAction={{
             accessibilityLabel: 'Next',
             label: 'Next',
             onClick: mockOnClickPrimaryAction,
           }}
+          size="full"
+          subHeading="test"
         />
       </DeviceTypeProvider>,
     );
@@ -199,13 +199,13 @@ describe('SheetMobile', () => {
       <DeviceTypeProvider deviceType="mobile">
         <SheetMobile
           heading="test"
-          subHeading="test"
           onDismiss={mockOnClick}
           primaryAction={{
             accessibilityLabel: 'Next',
             label: 'Next',
             onClick: mockOnClickPrimaryAction,
           }}
+          subHeading="test"
         />
       </DeviceTypeProvider>,
     );

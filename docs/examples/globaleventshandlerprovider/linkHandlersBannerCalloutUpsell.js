@@ -66,11 +66,13 @@ export default function Example(): ReactNode {
             <Divider />
           </Flex>
 
-          <Flex direction="column" gap={{ column: 4, row: 0 }} alignItems="center">
+          <Flex alignItems="center" direction="column" gap={{ column: 4, row: 0 }}>
             <BannerCallout
-              type="info"
+              dismissButton={{
+                accessibilityLabel: 'Dismiss banner',
+                onDismiss: () => {},
+              }}
               iconAccessibilityLabel="Info icon"
-              title="Your business account was created!"
               message="Apply to the Verified Merchant Program!"
               primaryAction={{
                 href: '#',
@@ -84,13 +86,19 @@ export default function Example(): ReactNode {
                 accessibilityLabel: 'Learn more: verified merchant program',
                 role: 'link',
               }}
+              title="Your business account was created!"
+              type="info"
+            />
+            <BannerUpsell
               dismissButton={{
                 accessibilityLabel: 'Dismiss banner',
                 onDismiss: () => {},
               }}
-            />
-            <BannerUpsell
-              title="Give $30, get $60 in ads credit"
+              imageData={{
+                component: (
+                  <Icon accessibilityLabel="Pin" color="default" icon="pinterest" size={32} />
+                ),
+              }}
               message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
               primaryAction={{
                 href: '#',
@@ -98,30 +106,22 @@ export default function Example(): ReactNode {
                 accessibilityLabel: 'Send invite for ads credit',
                 role: 'link',
               }}
-              dismissButton={{
-                accessibilityLabel: 'Dismiss banner',
-                onDismiss: () => {},
-              }}
-              imageData={{
-                component: (
-                  <Icon icon="pinterest" accessibilityLabel="Pin" color="default" size={32} />
-                ),
-              }}
+              title="Give $30, get $60 in ads credit"
             />
             <ActivationCard
-              status="notStarted"
-              statusMessage="Not started"
-              title="Claim your website"
-              message="Grow distribution and track Pins linked to your website"
+              dismissButton={{
+                accessibilityLabel: 'Dismiss card',
+                onDismiss: () => {},
+              }}
               link={{
                 href: '#',
                 label: 'Claim your website now',
                 accessibilityLabel: '',
               }}
-              dismissButton={{
-                accessibilityLabel: 'Dismiss card',
-                onDismiss: () => {},
-              }}
+              message="Grow distribution and track Pins linked to your website"
+              status="notStarted"
+              statusMessage="Not started"
+              title="Claim your website"
             />
           </Flex>
         </Flex>

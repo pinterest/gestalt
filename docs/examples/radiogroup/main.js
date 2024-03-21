@@ -7,14 +7,14 @@ export default function Example(): ReactNode {
 
   return (
     <Box
-      width="100%"
-      height="100%"
-      padding={4}
-      display="flex"
       alignItems="center"
+      display="flex"
+      height="100%"
       justifyContent="center"
+      padding={4}
+      width="100%"
     >
-      <RadioGroup legend="Gender" id="header-example">
+      <RadioGroup id="header-example" legend="Gender">
         <RadioGroup.RadioButton
           checked={favorite === 'Female'}
           id="genderFemale"

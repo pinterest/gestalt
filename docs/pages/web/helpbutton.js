@@ -23,8 +23,6 @@ export default function DocsPage({ generatedDocGen }: DocsType): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
         bannerSlimExperiment={
           <BannerSlimExperiment
             componentName="HelpButton"
@@ -32,8 +30,10 @@ export default function DocsPage({ generatedDocGen }: DocsType): ReactNode {
             pullRequest={3244}
           />
         }
+        description={generatedDocGen?.description}
+        name={generatedDocGen?.displayName}
       >
-        <SandpackExample code={main} name="Main example" hideEditor previewHeight={200} />
+        <SandpackExample code={main} hideEditor name="Main example" previewHeight={200} />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -42,23 +42,23 @@ export default function DocsPage({ generatedDocGen }: DocsType): ReactNode {
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="sm"
-            type="do"
-            title="When to use"
             description={`
 - To offer simple, bite-sized assistive information about an element or section on the screen.
 - To provide information or links to information that enhances a user's understanding of the feature.
         `}
+            title="When to use"
+            type="do"
           />
 
           <MainSection.Card
             cardSize="sm"
-            type="don't"
-            title="When not to use"
             description={`
 - To provide extensive information that is longer than a short sentence. Use [BannerSlim](/web/bannerslim) instead.
 - To display recommendations for how to improve a user's experience. Use [BannerSlim](/web/bannerslim) instead.
 - To display time-sensitive information to a user. Use [BannerCallout](/web/bannercallout) or [BannerSlim](/web/bannerslim) instead.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -67,25 +67,25 @@ export default function DocsPage({ generatedDocGen }: DocsType): ReactNode {
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="sm"
-            type="do"
             description="Place HelpButton to the end of the element you wish to add guidance to."
             sandpackExample={
-              <SandpackExample code={endGuideElement} name="End of guide element" hideEditor />
+              <SandpackExample code={endGuideElement} hideEditor name="End of guide element" />
             }
+            type="do"
           />
 
           <MainSection.Card
             cardSize="sm"
-            type="don't"
             description="Include HelpButton within blocks of content."
             sandpackExample={
               <SandpackExample
                 code={intermixedBlocks}
-                name="Intermixed guide element blocks"
-                hideEditor
                 hideControls
+                hideEditor
+                name="Intermixed guide element blocks"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -100,8 +100,8 @@ export default function DocsPage({ generatedDocGen }: DocsType): ReactNode {
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Link"
           description="HelpButton's popover content can contain a link to additional information. If needed, this interaction can be paired with [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers)."
+          title="Link"
         >
           <MainSection.Card
             cardSize="sm"
@@ -110,8 +110,8 @@ export default function DocsPage({ generatedDocGen }: DocsType): ReactNode {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Text"
           description="The `text` prop accepts either a string or [Text](/web/text). Use a string for simple text without any visual style. HelpButton will handle the message style and adherence to design guidelines. If a message with more complex style is required, such as bold text or inline links, use Text to wrap your message with any additional [Text](/web/text) or [Link](/web/link) components contained within."
+          title="Text"
         >
           <MainSection.Card
             cardSize="sm"

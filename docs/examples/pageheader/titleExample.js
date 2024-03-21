@@ -7,7 +7,6 @@ export default function PageHeaderTitleExample(): ReactNode {
   return (
     <Fragment>
       <PageHeader
-        title="Pinterest app"
         badge={{ text: 'New', type: 'info', tooltipText: 'New integration' }}
         helperIconButton={{
           accessibilityControls: '',
@@ -24,6 +23,7 @@ export default function PageHeaderTitleExample(): ReactNode {
             src="https://i.ibb.co/LQc8ynn/image.png"
           />
         }
+        title="Pinterest app"
       />
       {open ? (
         <OverlayPanel

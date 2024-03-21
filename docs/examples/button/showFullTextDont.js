@@ -11,8 +11,8 @@ export default function Example(): ReactNode {
       justifyContent="center"
       width="100%"
     >
-      <Button text="Kontoeinst..." size="lg" color="gray" />
-      <Button text="Neues We..." size="lg" color="red" />
+      <Button color="gray" size="lg" text="Kontoeinst..." />
+      <Button color="red" size="lg" text="Neues We..." />
     </Flex>
   );
 }

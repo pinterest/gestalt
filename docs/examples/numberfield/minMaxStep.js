@@ -11,8 +11,8 @@ export default function Example(): ReactNode {
       alignItems="center"
       direction="column"
       gap={4}
-      justifyContent="center"
       height="100%"
+      justifyContent="center"
       width="100%"
     >
       <Flex.Item minWidth="80%">

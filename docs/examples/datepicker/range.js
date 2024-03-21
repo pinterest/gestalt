@@ -14,28 +14,28 @@ export default function Example(): ReactNode {
       <Box padding={2}>
         <Flex gap={{ column: 0, row: 2 }}>
           <DatePicker
-            rangeStartDate={startDate}
-            rangeEndDate={endDate}
+            ref={startDateInput}
             id="example-start-date"
             label="Check In"
             nextRef={endDateInput}
             onChange={({ value }) => {
               setStartDate(value);
             }}
+            rangeEndDate={endDate}
             rangeSelector="start"
+            rangeStartDate={startDate}
             value={startDate}
-            ref={startDateInput}
           />
           <DatePicker
-            rangeStartDate={startDate}
-            rangeEndDate={endDate}
+            ref={endDateInput}
             id="example-end-date"
             label="Check Out"
             nextRef={startDateInput}
             onChange={({ value }) => setEndDate(value)}
+            rangeEndDate={endDate}
             rangeSelector="end"
+            rangeStartDate={startDate}
             value={endDate}
-            ref={endDateInput}
           />
         </Flex>
       </Box>

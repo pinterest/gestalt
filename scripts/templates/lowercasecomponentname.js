@@ -15,7 +15,7 @@ import main from '../../examples/componentname/main';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
         <SandpackExample code={main} hideEditor name="Main ComponentName example" />
       </PageHeader>
 

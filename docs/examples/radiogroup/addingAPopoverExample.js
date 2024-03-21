@@ -9,12 +9,12 @@ export default function RadioButtonPopoverExample(): ReactNode {
   const anchorDogRef = useRef<HTMLElement | null>(null);
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <RadioGroup legend="Tell us about yourself" id="popoverExample">
-        <Box display="inlineBlock" ref={anchorCatRef}>
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <RadioGroup id="popoverExample" legend="Tell us about yourself">
+        <Box ref={anchorCatRef} display="inlineBlock">
           <RadioGroup.RadioButton
-            id="cat"
             checked={option === 'cat'}
+            id="cat"
             label="I'm a cat person"
             onChange={() => {
               setOpen(true);
@@ -23,10 +23,10 @@ export default function RadioButtonPopoverExample(): ReactNode {
             value="cat"
           />
         </Box>
-        <Box display="inlineBlock" ref={anchorDogRef}>
+        <Box ref={anchorDogRef} display="inlineBlock">
           <RadioGroup.RadioButton
-            id="dog"
             checked={option === 'dog'}
+            id="dog"
             label="I'm a dog person"
             onChange={() => {
               setOpen(true);

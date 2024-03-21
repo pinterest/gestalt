@@ -16,7 +16,7 @@ export default function Snapshot(): ReactNode {
             <Text>Darkmode</Text>
           </Label>
         </Box>
-        <Switch onChange={() => {}} id="switchExample" />
+        <Switch id="switchExample" onChange={() => {}} />
       </Flex>
     </Box>
   );

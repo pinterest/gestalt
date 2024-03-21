@@ -14,7 +14,7 @@ type Props = {
 
 function MainSection({ badge, children, description, name, showHeading = true }: Props): ReactNode {
   return (
-    <Card badge={badge} name={name} showHeading={showHeading} description={description}>
+    <Card badge={badge} description={description} name={name} showHeading={showHeading}>
       {children}
     </Card>
   );

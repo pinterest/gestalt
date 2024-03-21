@@ -40,32 +40,32 @@ export default function SideNavigationMobile({
   }, [dismissButtonRef]);
 
   return (
-    <Box width="100%" height="100%" as="nav" aria-label={accessibilityLabel} id={id}>
+    <Box aria-label={accessibilityLabel} as="nav" height="100%" id={id} width="100%">
       <div
         className={showBorder ? classnames(borderStyles.borderRight, styles.fullHeight) : undefined}
       >
         <Box
-          padding={2}
-          dangerouslySetInlineStyle={{ __style: { paddingBottom: 24 } }}
           color="default"
+          dangerouslySetInlineStyle={{ __style: { paddingBottom: 24 } }}
+          padding={2}
         >
           {selectedMobileChildren ?? (
             <Fragment>
               <Box height={64} paddingY={2}>
-                <Flex height="100%" alignItems="center" justifyContent="center">
+                <Flex alignItems="center" height="100%" justifyContent="center">
                   <Flex.Item flex="grow">
-                    <Flex height="100%" alignItems="center" justifyContent="start">
-                      <Heading size="400" lineClamp={1}>
+                    <Flex alignItems="center" height="100%" justifyContent="start">
+                      <Heading lineClamp={1} size="400">
                         {mobileTitle}
                       </Heading>
                     </Flex>
                   </Flex.Item>
                   <Flex.Item flex="none">
                     <InternalDismissButton
-                      accessibilityLabel={dismissButton?.accessibilityLabel || ''}
-                      accessibilityControls={id}
-                      onClick={() => dismissButton?.onDismiss()}
                       ref={dismissButtonRef}
+                      accessibilityControls={id}
+                      accessibilityLabel={dismissButton?.accessibilityLabel || ''}
+                      onClick={() => dismissButton?.onDismiss()}
                     />
                   </Flex.Item>
                 </Flex>

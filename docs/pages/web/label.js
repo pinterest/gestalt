@@ -13,7 +13,7 @@ import variantWithFormComponent from '../../examples/label/variantWithFormCompon
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName} />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
@@ -21,10 +21,10 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Label with form component"
           description={`
     Whenever using [SelectList](/web/selectlist), [Switch](/web/switch), [TextField](/web/textfield) or [TextArea](/web/textarea), you should always include a \`Label\`.
   `}
+          title="Label with form component"
         >
           <MainSection.Card
             sandpackExample={

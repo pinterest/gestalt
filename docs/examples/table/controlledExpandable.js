@@ -6,7 +6,7 @@ export default function Example(): ReactNode {
   const [expandedRows, setExpandedRows] = useState(['row1']);
 
   return (
-    <Box height="100%" width="100%" overflow="scroll">
+    <Box height="100%" overflow="scroll" width="100%">
       <Flex alignItems="start" gap={4} height="100%" justifyContent="center" width="100%">
         <Table accessibilityLabel="Table Row Expandable">
           <Table.Header>
@@ -36,10 +36,15 @@ export default function Example(): ReactNode {
             ].map(({ id, campaign, status, date }) => (
               <Table.RowExpandable
                 key={id}
-                accessibilityExpandLabel="Expand"
                 accessibilityCollapseLabel="Collapse"
-                id={id}
+                accessibilityExpandLabel="Expand"
                 expanded={expandedRows.includes(id)}
+                expandedContents={
+                  <Box padding={2} width={100}>
+                    <Text>Content</Text>
+                  </Box>
+                }
+                id={id}
                 onExpand={({ expanded }) => {
                   if (expanded) {
                     setExpandedRows(expandedRows.filter((value) => value !== id));
@@ -47,11 +52,6 @@ export default function Example(): ReactNode {
                     setExpandedRows([...expandedRows, id]);
                   }
                 }}
-                expandedContents={
-                  <Box width={100} padding={2}>
-                    <Text>Content</Text>
-                  </Box>
-                }
               >
                 <Table.Cell>
                   <Text>{campaign}</Text>

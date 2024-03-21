@@ -39,14 +39,14 @@ function MainSectionSubsection({
       <Box marginBottom={defaultBottomMargin}>
         {title && (
           <Box
-            maxWidth={DOCS_COPY_MAX_WIDTH_PX}
             dangerouslySetInlineStyle={{
               __style: {
                 scrollMarginTop: 90,
               },
             }}
-            id={slugifiedId}
             data-anchor
+            id={slugifiedId}
+            maxWidth={DOCS_COPY_MAX_WIDTH_PX}
           >
             <Flex
               alignItems="center"
@@ -58,8 +58,8 @@ function MainSectionSubsection({
               <Heading size="400">{title}</Heading>
               {badge ? (
                 <Badge
-                  text={badge === 'experimental' ? 'Experimental' : 'Alpha'}
                   position="middle"
+                  text={badge === 'experimental' ? 'Experimental' : 'Alpha'}
                   tooltip={
                     badge === 'experimental'
                       ? {
@@ -80,7 +80,7 @@ function MainSectionSubsection({
         )}
 
         {description && (
-          <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginTop={title ? 2 : 0} color="default">
+          <Box color="default" marginTop={title ? 2 : 0} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
             <Markdown text={description} />
           </Box>
         )}
@@ -97,7 +97,7 @@ function MainSectionSubsection({
           >
             {arrayChildren.map((child, index) => (
               // eslint-disable-next-line react/no-array-index-key
-              <Flex.Item flex="grow" key={index}>
+              <Flex.Item key={index} flex="grow">
                 {child}
               </Flex.Item>
             ))}

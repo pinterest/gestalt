@@ -72,21 +72,21 @@ function MetaData({
         {darkModeSupport && isCustom && (
           <Badge
             text="Custom"
-            type="info"
             tooltip={{
               text: 'This token value is hard coded and does not map to a lower level token.',
               idealDirection: 'up',
             }}
+            type="info"
           />
         )}
         {!darkModeSupport && (
           <Badge
             text="No dark theme"
-            type="info"
             tooltip={{
               text: 'This token value is the same as the light mode.',
               idealDirection: 'up',
             }}
+            type="info"
           />
         )}
       </Flex>
@@ -167,29 +167,29 @@ export default function TokenTable({
             <Table.Cell>
               {darkValues ? (
                 <ColorSchemeProvider colorScheme="light" id="light">
-                  <Box color="default" padding={2} marginBottom={2} borderStyle="shadow">
-                    <TokenExample token={token} category={category} />
+                  <Box borderStyle="shadow" color="default" marginBottom={2} padding={2}>
+                    <TokenExample category={category} token={token} />
                   </Box>
                 </ColorSchemeProvider>
               ) : (
-                <Box padding={2} marginBottom={2}>
-                  <TokenExample token={token} category={category} />
+                <Box marginBottom={2} padding={2}>
+                  <TokenExample category={category} token={token} />
                 </Box>
               )}
-              <MetaData value={token.value} original={token.originalValue} />
+              <MetaData original={token.originalValue} value={token.value} />
             </Table.Cell>
 
             {darkValues && (
               <Table.Cell>
                 <ColorSchemeProvider colorScheme="dark" id="dark">
-                  <Box color="default" padding={2} marginBottom={2} borderStyle="sm">
-                    <TokenExample token={token} category={category} />
+                  <Box borderStyle="sm" color="default" marginBottom={2} padding={2}>
+                    <TokenExample category={category} token={token} />
                   </Box>
                 </ColorSchemeProvider>
                 <MetaData
-                  value={darkTokenMap.get(token.name)?.value}
-                  original={darkTokenMap.get(token.name)?.originalValue || ''}
                   darkModeSupport={darkTokenMap.get(token.name)?.darkModeSupport}
+                  original={darkTokenMap.get(token.name)?.originalValue || ''}
+                  value={darkTokenMap.get(token.name)?.value}
                 />
               </Table.Cell>
             )}

@@ -4,13 +4,13 @@ import { Box, Flex } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex gap={4} wrap height="100%" alignContent="center" justifyContent="center">
-      <Box color="infoBase" minWidth={50} height={100} />
+    <Flex alignContent="center" gap={4} height="100%" justifyContent="center" wrap>
+      <Box color="infoBase" height={100} minWidth={50} />
       <Flex.Item flex="grow">
         <Box color="errorBase" height={100} />
       </Flex.Item>
-      <Box color="successBase" minWidth={50} height={100} />
-      <Box color="warningBase" minWidth={50} height={100} />
+      <Box color="successBase" height={100} minWidth={50} />
+      <Box color="warningBase" height={100} minWidth={50} />
     </Flex>
   );
 }

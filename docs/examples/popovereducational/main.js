@@ -11,9 +11,9 @@ export default function Example(): ReactNode {
   }, []);
 
   return (
-    <Box width="100%" height="100%" display="flex" justifyContent="center" alignItems="center">
-      <TapArea ref={anchorRef} rounding={3} fullWidth={false}>
-        <Box padding={3} color="secondary" height={75} width={200} rounding={3}>
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" width="100%">
+      <TapArea ref={anchorRef} fullWidth={false} rounding={3}>
+        <Box color="secondary" height={75} padding={3} rounding={3} width={200}>
           <Flex gap={2}>
             <Box aria-hidden width={50}>
               <Mask rounding={3} wash>
@@ -36,11 +36,11 @@ export default function Example(): ReactNode {
         {open && (
           <PopoverEducational
             accessibilityLabel={`Description of new "More ideas" feature`}
+            anchor={anchorRef.current}
             id="popover-primary-action"
             idealDirection="right"
-            anchor={anchorRef.current}
-            onDismiss={() => {}}
             message="Tap to tag a product or press and hold to see product details"
+            onDismiss={() => {}}
             primaryAction={{ text: 'Next', role: 'button' }}
           />
         )}

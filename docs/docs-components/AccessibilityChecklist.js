@@ -51,8 +51,8 @@ function AccessibilityTable({ accessibilityData }: { accessibilityData?: Compone
               </Table.Cell>
               <Table.Cell>
                 <StatusData
-                  text={STATUS_DESCRIPTION[componentStatus].title}
                   status={componentStatus}
+                  text={STATUS_DESCRIPTION[componentStatus].title}
                 />
               </Table.Cell>
               <Table.Cell>

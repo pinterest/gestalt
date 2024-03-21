@@ -8,8 +8,8 @@ export default function SwitchExample(): ReactNode {
   const [switched3, setSwitched3] = useState(true);
 
   return (
-    <Flex alignItems="center" justifyContent="center" height="100%" width="100%">
-      <Flex direction="column" gap={2} width="100%" maxWidth={300}>
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
+      <Flex direction="column" gap={2} maxWidth={300} width="100%">
         <Heading size="300">Tune your home feed</Heading>
         <Text>
           Turn off any boards that you don&apos;t want us to use for your home feed recommendations
@@ -24,7 +24,7 @@ export default function SwitchExample(): ReactNode {
                 </Flex>
               </Label>
             </Flex.Item>
-            <Switch switched={switched1} onChange={() => setSwitched1(!switched1)} id="boardfood" />
+            <Switch id="boardfood" onChange={() => setSwitched1(!switched1)} switched={switched1} />
           </Flex>
 
           <Flex alignItems="center">
@@ -37,9 +37,9 @@ export default function SwitchExample(): ReactNode {
               </Label>
             </Flex.Item>
             <Switch
-              switched={switched2}
-              onChange={() => setSwitched2(!switched2)}
               id="boardoutfits"
+              onChange={() => setSwitched2(!switched2)}
+              switched={switched2}
             />
           </Flex>
 
@@ -53,8 +53,8 @@ export default function SwitchExample(): ReactNode {
               </Label>
             </Flex.Item>
             <Switch
-              onChange={() => setSwitched3(!switched3)}
               id="boardhomedecor"
+              onChange={() => setSwitched3(!switched3)}
               switched={switched3}
             />
           </Flex>

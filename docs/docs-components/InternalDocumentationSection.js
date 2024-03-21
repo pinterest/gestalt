@@ -16,7 +16,7 @@ export default function InternalDocumentationSection({ items }: Props): ReactNod
             icon: 'lock',
             iconAccessibilityLabel: 'Access is restricted to Pinterest employees.',
             children: (
-              <List label="PDocs available" type="unordered" labelDisplay="hidden">
+              <List label="PDocs available" labelDisplay="hidden" type="unordered">
                 {items.map(({ href, text }) => (
                   <List.Item
                     key={text}
@@ -24,10 +24,10 @@ export default function InternalDocumentationSection({ items }: Props): ReactNod
                       <Text>
                         <Link
                           externalLinkIcon="default"
-                          underline="always"
                           href={href}
-                          target="blank"
                           rel="nofollow"
+                          target="blank"
+                          underline="always"
                         >
                           {text}
                         </Link>

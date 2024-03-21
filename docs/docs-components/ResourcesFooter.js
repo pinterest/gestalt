@@ -66,13 +66,13 @@ type LinkListProps = {
 function LinkList({ items, heading, isInternal = true }: LinkListProps): ReactNode {
   return (
     <Box
-      display="flex"
-      alignSelf="start"
-      marginTop={3}
-      marginBottom={3}
-      lgMarginTop={0}
-      lgMarginBottom={0}
       alignItems="start"
+      alignSelf="start"
+      display="flex"
+      lgMarginBottom={0}
+      lgMarginTop={0}
+      marginBottom={3}
+      marginTop={3}
     >
       <Flex
         direction="column"
@@ -88,7 +88,7 @@ function LinkList({ items, heading, isInternal = true }: LinkListProps): ReactNo
             column: 0,
           }}
         >
-          <Heading size="400" accessibilityLevel={3}>
+          <Heading accessibilityLevel={3} size="400">
             {heading}
           </Heading>
           {isInternal && <InternalOnlyIconButton size="sm" />}
@@ -102,7 +102,7 @@ function LinkList({ items, heading, isInternal = true }: LinkListProps): ReactNo
         >
           {items.map((item) => (
             <Text key={item.title}>
-              <Link href={item.url} accessibilityLabel={item.a11yLabel}>
+              <Link accessibilityLabel={item.a11yLabel} href={item.url}>
                 {item.title}
               </Link>
             </Text>
@@ -115,30 +115,30 @@ function LinkList({ items, heading, isInternal = true }: LinkListProps): ReactNo
 
 export default function ResourcesFooter(): ReactNode {
   return (
-    <Box padding={8} display="none" mdDisplay="flex" justifyContent="center">
+    <Box display="none" justifyContent="center" mdDisplay="flex" padding={8}>
       <Box
-        paddingX={6}
-        lgPaddingX={0}
-        maxWidth={1200}
         display="flex"
         flex="grow"
         justifyContent="start"
+        lgPaddingX={0}
+        maxWidth={1200}
+        paddingX={6}
       >
         <Flex
           direction="column"
+          flex="grow"
           gap={{
             row: 0,
             column: 4,
           }}
-          flex="grow"
         >
           <Heading size="500">Resources</Heading>
           <Flex
-            justifyContent="between"
             gap={{
               row: 4,
               column: 0,
             }}
+            justifyContent="between"
             wrap
           >
             <LinkList heading="Figma libraries" items={figmaLibraries} />

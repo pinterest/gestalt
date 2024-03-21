@@ -110,19 +110,19 @@ export default function ModalAlert({
         align="start"
         closeOnOutsideClick={type === 'default'}
         footer={
-          <Flex justifyContent="end" gap={2}>
+          <Flex gap={2} justifyContent="end">
             {secondaryAction && <ModalAlertAction type="secondary" {...secondaryAction} />}
             {primaryAction && <ModalAlertAction type="primary" {...primaryAction} />}
           </Flex>
         }
         heading={
           <ModalAlertHeader
-            type={type}
-            heading={heading}
-            onDismiss={onDismiss}
             accessibilityDismissButtonLabel={
               accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault
             }
+            heading={heading}
+            onDismiss={onDismiss}
+            type={type}
           />
         }
         onDismiss={onDismiss}

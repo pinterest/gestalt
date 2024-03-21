@@ -4,15 +4,15 @@ import { Box, Flex, Link, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex height="100%" alignItems="center" justifyContent="center">
-      <Box color="infoBase" width="50%" padding={4} rounding={3}>
-        <Flex direction="column" gap={{ column: 3, row: 0 }} alignItems="center">
-          <Text color="inverse" weight="bold" size="600">
+    <Flex alignItems="center" height="100%" justifyContent="center">
+      <Box color="infoBase" padding={4} rounding={3} width="50%">
+        <Flex alignItems="center" direction="column" gap={{ column: 3, row: 0 }}>
+          <Text color="inverse" size="600" weight="bold">
             Tips
           </Text>
-          <Flex gap={{ row: 1, column: 0 }} alignItems="center">
-            <Text color="inverse" size="400" align="center" weight="bold">
-              <Link href="https://pinterest.com" display="inline">
+          <Flex alignItems="center" gap={{ row: 1, column: 0 }}>
+            <Text align="center" color="inverse" size="400" weight="bold">
+              <Link display="inline" href="https://pinterest.com">
                 Add a Pinterest widget
               </Link>{' '}
               and get inspired right from your phone&lsquo;s home screen.

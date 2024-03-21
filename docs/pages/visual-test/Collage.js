@@ -8,7 +8,6 @@ export default function Snapshot(): ReactNode {
       <Collage
         columns={2}
         height={150}
-        width={150}
         renderImage={({ index, width, height }) => {
           const images = [
             {
@@ -50,7 +49,7 @@ export default function Snapshot(): ReactNode {
           ];
           const image = images[index] || {};
           return (
-            <Mask wash width={width} height={height}>
+            <Mask height={height} wash width={width}>
               {image ? (
                 <Image
                   alt="collage image"
@@ -66,6 +65,7 @@ export default function Snapshot(): ReactNode {
             </Mask>
           );
         }}
+        width={150}
       />
     </Box>
   );

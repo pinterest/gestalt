@@ -58,8 +58,8 @@ export default function QualityChecklist({ component }: Props): ReactNode {
                   </Table.Cell>
                   <Table.Cell>
                     <StatusData
-                      text={STATUS_DESCRIPTION[componentStatus].title}
                       status={componentStatus}
+                      text={STATUS_DESCRIPTION[componentStatus].title}
                     />
                   </Table.Cell>
                   <Table.Cell>
@@ -70,28 +70,27 @@ export default function QualityChecklist({ component }: Props): ReactNode {
             })}
             {data?.status.knownIssues ? (
               <Table.RowExpandable
-                accessibilityExpandLabel="Expand"
                 accessibilityCollapseLabel="Collapse"
-                id="known_issues"
+                accessibilityExpandLabel="Expand"
                 expandedContents={
                   <Flex direction="column" gap={6}>
                     {data?.status.knownIssues.map(
                       ({ title, description, codesandboxUrl, internalDocUrl }) => (
-                        <Flex key={title} gap={1} direction="column">
+                        <Flex key={title} direction="column" gap={1}>
                           <Flex gap={2}>
-                            <Text weight="bold" inline>
+                            <Text inline weight="bold">
                               {title}
                             </Text>
                             {codesandboxUrl ? (
                               <Text inline>
                                 <Link
                                   accessibilityLabel={`Example in CodeSandbox :${title} issue`}
-                                  href={codesandboxUrl}
-                                  underline="always"
-                                  externalLinkIcon="default"
-                                  target="blank"
-                                  rel="nofollow"
                                   display="inline"
+                                  externalLinkIcon="default"
+                                  href={codesandboxUrl}
+                                  rel="nofollow"
+                                  target="blank"
+                                  underline="always"
                                 >
                                   Example in CodeSandbox
                                 </Link>
@@ -101,12 +100,12 @@ export default function QualityChecklist({ component }: Props): ReactNode {
                               <Text inline>
                                 <Link
                                   accessibilityLabel={`Internal document:${title} issue`}
-                                  href={internalDocUrl}
-                                  underline="always"
-                                  externalLinkIcon="default"
-                                  target="blank"
-                                  rel="nofollow"
                                   display="inline"
+                                  externalLinkIcon="default"
+                                  href={internalDocUrl}
+                                  rel="nofollow"
+                                  target="blank"
+                                  underline="always"
                                 >
                                   Internal document
                                 </Link>
@@ -120,6 +119,7 @@ export default function QualityChecklist({ component }: Props): ReactNode {
                     )}
                   </Flex>
                 }
+                id="known_issues"
               >
                 <Table.Cell>
                   <Text>Issues</Text>

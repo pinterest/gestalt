@@ -23,19 +23,19 @@ function ColorTile({ description, fullTokenName, number = 400, textColor }: Prop
 
   return (
     <Box
+      alignItems="center"
+      borderStyle={borderNeeded ? 'lg' : 'none'}
       dangerouslySetInlineStyle={{
         __style: { backgroundColor: `var(--${fullTokenName})` },
       }}
-      height={50}
-      width={300}
       display="flex"
-      alignItems="center"
+      height={50}
       justifyContent="between"
       paddingX={2}
-      borderStyle={borderNeeded ? 'lg' : 'none'}
+      width={300}
     >
       <Box marginEnd={3}>
-        <Text weight="bold" color={newTextColor}>
+        <Text color={newTextColor} weight="bold">
           {description}
         </Text>
       </Box>

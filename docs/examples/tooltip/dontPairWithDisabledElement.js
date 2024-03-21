@@ -4,7 +4,7 @@ import { Box, Button, Link, Text, Tooltip } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Tooltip
         link={
           <Text color="inverse" size="100" weight="bold">
@@ -18,7 +18,7 @@ export default function Example(): ReactNode {
         }
         text="There was a problem converting to a personal account."
       >
-        <Button size="lg" disabled text="Convert to personal account" />
+        <Button disabled size="lg" text="Convert to personal account" />
       </Tooltip>
     </Box>
   );

@@ -4,13 +4,13 @@ import { Flex, Link, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex height="100%" alignItems="center" justifyContent="center">
+    <Flex alignItems="center" height="100%" justifyContent="center">
       <Text inline>
         Go to{' '}
         <Link
-          href="https://developers.pinterest.com/account-setup/"
           display="inline"
           externalLinkIcon="default"
+          href="https://developers.pinterest.com/account-setup/"
           target="blank"
         >
           My Apps

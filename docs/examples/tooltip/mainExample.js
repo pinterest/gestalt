@@ -4,9 +4,9 @@ import { Box, Flex, IconButton, Tooltip } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex>
-        <Tooltip text="Align left" accessibilityLabel="">
+        <Tooltip accessibilityLabel="" text="Align left">
           <IconButton
             accessibilityLabel="Align left"
             bgColor="white"
@@ -15,7 +15,7 @@ export default function Example(): ReactNode {
             size="lg"
           />
         </Tooltip>
-        <Tooltip text="Align center" accessibilityLabel="">
+        <Tooltip accessibilityLabel="" text="Align center">
           <IconButton
             accessibilityLabel="Align center"
             bgColor="white"
@@ -24,7 +24,7 @@ export default function Example(): ReactNode {
             size="lg"
           />
         </Tooltip>
-        <Tooltip text="Align right" accessibilityLabel="">
+        <Tooltip accessibilityLabel="" text="Align right">
           <IconButton
             accessibilityLabel="Align right"
             bgColor="white"

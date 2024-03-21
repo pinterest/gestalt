@@ -14,9 +14,9 @@ export default function AlertDialogAccessibilityExample(): ReactNode {
         <Button
           accessibilityLabel="Show Modal"
           color="red"
-          text="Show Modal"
-          size="lg"
           onClick={() => setShowComponent(true)}
+          size="lg"
+          text="Show Modal"
         />
       </Box>
       {showComponent ? (
@@ -24,6 +24,9 @@ export default function AlertDialogAccessibilityExample(): ReactNode {
           <ModalAlert
             accessibilityModalLabel="Delete 70s couch item"
             heading="Remove this item?"
+            onDismiss={() => {
+              setShowComponent(!showComponent);
+            }}
             primaryAction={{
               accessibilityLabel: 'Remove item',
               label: 'Yes, remove',
@@ -35,9 +38,6 @@ export default function AlertDialogAccessibilityExample(): ReactNode {
               label: 'No, keep',
               onClick: () => {},
               role: 'button',
-            }}
-            onDismiss={() => {
-              setShowComponent(!showComponent);
             }}
           >
             <Text>

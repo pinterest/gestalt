@@ -79,41 +79,41 @@ export default function Header({
         <Flex justifyContent="center">
           <Box marginBottom={2}>
             <TapArea
-              fullWidth={false}
               ref={grabberRef}
-              rounding={7}
               accessibilityLabel={accessibilityGrabberLabel}
+              fullWidth={false}
+              rounding={7}
             >
-              <Box height={5} width={37} color="secondary" rounding={7} />
+              <Box color="secondary" height={5} rounding={7} width={37} />
             </TapArea>
           </Box>
         </Flex>
       ) : null}
 
-      <Flex justifyContent="center" alignItems="center" gap={4}>
+      <Flex alignItems="center" gap={4} justifyContent="center">
         {backIconButton ? (
           <Flex.Item flex="none">
             <IconButton
               accessibilityLabel={backIconButton.accessibilityLabel}
               icon="arrow-back"
               iconColor="darkGray"
-              size="lg"
               onClick={({ event }) =>
                 backIconButton?.onClick({
                   event,
                   onDismissStart: onExternalDismiss,
                 })
               }
+              size="lg"
             />
           </Flex.Item>
         ) : null}
         {!backIconButton && showDismissButton ? (
           <Flex.Item flex="none">
             <InternalDismissButton
-              accessibilityLabel={accessibilityDismissButtonLabel}
-              accessibilityControls={id}
-              onClick={onDismiss ?? onExternalDismiss}
               ref={dismissButtonRef}
+              accessibilityControls={id}
+              accessibilityLabel={accessibilityDismissButtonLabel}
+              onClick={onDismiss ?? onExternalDismiss}
               size="lg"
             />
           </Flex.Item>
@@ -123,7 +123,7 @@ export default function Header({
           {heading ? (
             <Flex direction="column">
               {typeof heading === 'string' ? (
-                <Heading align={align} size="300" accessibilityLevel={1} lineClamp={2}>
+                <Heading accessibilityLevel={1} align={align} lineClamp={2} size="300">
                   {heading}
                 </Heading>
               ) : (
@@ -143,13 +143,13 @@ export default function Header({
               accessibilityLabel={forwardIconButton.accessibilityLabel}
               icon="arrow-forward"
               iconColor="darkGray"
-              size="lg"
               onClick={({ event }) =>
                 forwardIconButton?.onClick({
                   event,
                   onDismissStart: onExternalDismiss,
                 })
               }
+              size="lg"
             />
           </Flex.Item>
         ) : null}
@@ -160,8 +160,6 @@ export default function Header({
               <PrimaryAction
                 accessibilityLabel={primaryAction.accessibilityLabel}
                 href={primaryAction.href}
-                rel={primaryAction.rel}
-                target={primaryAction?.target}
                 label={primaryAction.label}
                 onClick={({ event }) =>
                   primaryAction?.onClick({
@@ -169,7 +167,9 @@ export default function Header({
                     onDismissStart: onExternalDismiss,
                   })
                 }
+                rel={primaryAction.rel}
                 role="link"
+                target={primaryAction?.target}
               />
             ) : (
               <PrimaryAction

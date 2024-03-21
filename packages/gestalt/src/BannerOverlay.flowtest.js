@@ -1,7 +1,7 @@
 // @flow strict
 import BannerOverlay from './BannerOverlay';
 
-const Valid = <BannerOverlay title="Warning!" message="This is a message warning you." />;
+const Valid = <BannerOverlay message="This is a message warning you." title="Warning!" />;
 
 // $FlowExpectedError[prop-missing]
 const MissingProp = <BannerOverlay />;

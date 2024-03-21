@@ -47,16 +47,16 @@ export default function Example(): ReactNode {
               setShowComponent(false);
             }}
           >
-            <Flex justifyContent="center" alignContent="center" height="100%">
+            <Flex alignContent="center" height="100%" justifyContent="center">
               <SheetMobile.DismissingElement>
                 {({ onDismissStart }) => (
                   <Button
                     color="red"
-                    text="Review form"
                     onClick={() => {
                       onDismissStart();
                       setShowNextData('B');
                     }}
+                    text="Review form"
                   />
                 )}
               </SheetMobile.DismissingElement>
@@ -74,8 +74,23 @@ export default function Example(): ReactNode {
                 setShowNextData('A');
               },
             }}
+            footer={
+              <Flex gap={2} justifyContent="center">
+                <SheetMobile.DismissingElement>
+                  {({ onDismissStart }) => (
+                    <Button
+                      color="red"
+                      onClick={() => {
+                        onDismissStart();
+                        setShowNextData(null);
+                      }}
+                      text="Submit"
+                    />
+                  )}
+                </SheetMobile.DismissingElement>
+              </Flex>
+            }
             heading="Heading"
-            size="auto"
             onAnimationEnd={({ animationState }) => {
               resetShowNextData(animationState);
 
@@ -85,24 +100,9 @@ export default function Example(): ReactNode {
               }
             }}
             onDismiss={() => setShowComponent(false)}
-            footer={
-              <Flex justifyContent="center" gap={2}>
-                <SheetMobile.DismissingElement>
-                  {({ onDismissStart }) => (
-                    <Button
-                      color="red"
-                      text="Submit"
-                      onClick={() => {
-                        onDismissStart();
-                        setShowNextData(null);
-                      }}
-                    />
-                  )}
-                </SheetMobile.DismissingElement>
-              </Flex>
-            }
+            size="auto"
           >
-            <Flex justifyContent="center" alignContent="center" direction="column" gap={4}>
+            <Flex alignContent="center" direction="column" gap={4} justifyContent="center">
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((x) => (
                 <TextField
                   key={x}
@@ -121,12 +121,12 @@ export default function Example(): ReactNode {
         <Button
           accessibilityLabel="Show SheetMobile"
           color="red"
-          text="Show SheetMobile"
-          size="lg"
           onClick={() => {
             setShowComponentData('A');
             setShowComponent(true);
           }}
+          size="lg"
+          text="Show SheetMobile"
         />
       </Box>
     </DeviceTypeProvider>

@@ -7,19 +7,18 @@ export default function Example(): ReactNode {
   const [volume, setVolume] = useState(1);
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Box width={500}>
         <Video
           aspectRatio={426 / 240}
           controls
-          playing={playing}
-          volume={volume}
+          onControlsPause={() => setPlaying(false)}
+          onControlsPlay={() => setPlaying(true)}
+          onEnded={() => setPlaying(false)}
           onPlay={() => setPlaying(true)}
           onPlayError={({ error }) => error && setPlaying(false)}
-          onControlsPlay={() => setPlaying(true)}
-          onControlsPause={() => setPlaying(false)}
-          onEnded={() => setPlaying(false)}
           onVolumeChange={(e) => setVolume(e.volume)}
+          playing={playing}
           src={[
             {
               type: 'video/mp4',
@@ -30,6 +29,7 @@ export default function Example(): ReactNode {
               src: 'https://archive.org/download/ElephantsDream/ed_hd.ogv',
             },
           ]}
+          volume={volume}
         />
       </Box>
     </Box>

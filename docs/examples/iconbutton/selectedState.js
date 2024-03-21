@@ -24,8 +24,9 @@ export default function Example(): ReactNode {
 
   return (
     <Box padding={4}>
-      <Flex width="100%" justifyContent="center">
+      <Flex justifyContent="center" width="100%">
         <IconButton
+          ref={anchorRef}
           accessibilityControls="sections-dropdown-example"
           accessibilityExpanded={open}
           accessibilityHaspopup
@@ -34,7 +35,6 @@ export default function Example(): ReactNode {
           icon="add"
           iconColor="darkGray"
           onClick={() => setOpen((prevVal) => !prevVal)}
-          ref={anchorRef}
           selected={open}
           size="lg"
           tooltip={{

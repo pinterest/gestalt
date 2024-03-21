@@ -118,22 +118,22 @@ function BannerCalloutAction({
 
   return (
     <Box
-      display="block"
-      smDisplay="flex"
       alignItems="center"
+      display="block"
       justifyContent="center"
-      paddingX={1}
       marginTop={type === 'secondary' && stacked ? 2 : undefined}
-      smMarginTop="auto"
+      paddingX={1}
+      smDisplay="flex"
       smMarginBottom="auto"
+      smMarginTop="auto"
     >
       {data.role === 'link' ? (
         <ButtonLink
           accessibilityLabel={accessibilityLabel}
           color={color}
           disabled={disabled}
-          href={data.href}
           fullWidth
+          href={data.href}
           onClick={data.onClick}
           rel={data.rel}
           size="lg"
@@ -143,10 +143,10 @@ function BannerCalloutAction({
       ) : (
         <Button
           accessibilityLabel={accessibilityLabel}
-          disabled={disabled}
           color={color}
-          onClick={data.onClick}
+          disabled={disabled}
           fullWidth
+          onClick={data.onClick}
           size="lg"
           text={label}
         />
@@ -201,22 +201,22 @@ export default function BannerCallout({
   return (
     <Box
       color={MESSAGING_TYPE_ATTRIBUTES[type].backgroundColor}
-      display="flex"
       direction="column"
-      smDirection="row"
+      display="flex"
       padding={6}
-      smPadding={8}
       position="relative"
       rounding={4}
+      smDirection="row"
+      smPadding={8}
     >
-      <Box smDisplay="flex" wrap width="100%" smMarginTop={-3} smMarginBottom={-3}>
+      <Box smDisplay="flex" smMarginBottom={-3} smMarginTop={-3} width="100%" wrap>
         <Box
-          display="flex"
-          direction="column"
-          smDirection="row"
-          justifyContent="center"
           alignItems="center"
+          direction="column"
+          display="flex"
+          justifyContent="center"
           marginBottom={primaryAction || secondaryAction ? 4 : undefined}
+          smDirection="row"
           smMarginBottom={primaryAction || secondaryAction ? 0 : undefined}
           smPaddingY={3}
         >
@@ -230,19 +230,19 @@ export default function BannerCallout({
           </Box>
           <Box marginBottom="auto" marginTop="auto" maxWidth={648} paddingX={6}>
             <Box
-              display="flex"
-              smDisplay="block"
-              direction="column"
               alignItems="center"
+              direction="column"
+              display="flex"
               marginBottom="auto"
               marginTop="auto"
+              smDisplay="block"
             >
               {title && (
                 <Box marginBottom={2}>
                   <Text
+                    align={responsiveMinWidth === 'xs' ? 'center' : undefined}
                     size="400"
                     weight="bold"
-                    align={responsiveMinWidth === 'xs' ? 'center' : undefined}
                   >
                     {title}
                   </Text>
@@ -259,16 +259,16 @@ export default function BannerCallout({
           </Box>
         </Box>
         {(primaryAction || secondaryAction) && (
-          <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3}>
+          <Box marginStart="auto" smDisplay="flex" smMarginEnd={4} smPaddingY={3}>
             {secondaryAction && responsiveMinWidth !== 'xs' && (
-              <BannerCalloutAction type="secondary" data={secondaryAction} />
+              <BannerCalloutAction data={secondaryAction} type="secondary" />
             )}
-            {primaryAction && <BannerCalloutAction type="primary" data={primaryAction} />}
+            {primaryAction && <BannerCalloutAction data={primaryAction} type="primary" />}
             {secondaryAction && responsiveMinWidth === 'xs' && (
               <BannerCalloutAction
-                type="secondary"
                 data={secondaryAction}
                 stacked={!!secondaryAction}
+                type="secondary"
               />
             )}
           </Box>

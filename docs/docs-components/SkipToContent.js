@@ -29,16 +29,16 @@ export default function SkipToContent(): ReactNode {
 
   const skipText = (
     <Fragment>
-      <Box display="block" smDisplay="none" color="education">
-        <Flex width="100%" alignItems="center" justifyContent="center" height={56}>
-          <Text align="center" underline={focused} color="inverse" weight="bold">
+      <Box color="education" display="block" smDisplay="none">
+        <Flex alignItems="center" height={56} justifyContent="center" width="100%">
+          <Text align="center" color="inverse" underline={focused} weight="bold">
             Skip to content
           </Text>
         </Flex>
       </Box>
-      <Box display="none" smDisplay="block" color="education">
-        <Flex width="100%" alignItems="center" justifyContent="center" height={75}>
-          <Text underline={focused} align="center" color="inverse" weight="bold">
+      <Box color="education" display="none" smDisplay="block">
+        <Flex alignItems="center" height={75} justifyContent="center" width="100%">
+          <Text align="center" color="inverse" underline={focused} weight="bold">
             Skip to content
           </Text>
         </Flex>
@@ -62,7 +62,7 @@ export default function SkipToContent(): ReactNode {
           {skipText}
         </Box>
       ) : (
-        <Box height={1} width={1} margin={-1} overflow="hidden" position="absolute">
+        <Box height={1} margin={-1} overflow="hidden" position="absolute" width={1}>
           {skipText}
         </Box>
       )}

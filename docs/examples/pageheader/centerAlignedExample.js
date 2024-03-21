@@ -14,34 +14,34 @@ import {
 
 export default function PageHeaderCenterExample(): ReactNode {
   return (
-    <Box width="100%" color="secondary" height="100%">
+    <Box color="secondary" height="100%" width="100%">
       <PageHeader
-        maxWidth="65%"
         borderStyle="sm"
-        title="Settings"
+        dropdownAccessibilityLabel="Additional options"
+        maxWidth="65%"
         primaryAction={{
           component: (
-            <Tooltip text="Additional options" idealDirection="up">
+            <Tooltip idealDirection="up" text="Additional options">
               <IconButton
+                accessibilityLabel="Additional options"
                 icon="ellipsis"
                 iconColor="darkGray"
                 size="lg"
-                accessibilityLabel="Additional options"
               />
             </Tooltip>
           ),
           dropdownItems: [
             <Dropdown.Item
-              option={{ value: 'Item', label: 'Item' }}
               key="item"
               onSelect={() => {}}
+              option={{ value: 'Item', label: 'Item' }}
             />,
           ],
         }}
-        dropdownAccessibilityLabel="Additional options"
+        title="Settings"
       />
       <Flex justifyContent="center">
-        <Box width="60%" paddingY={6}>
+        <Box paddingY={6} width="60%">
           <Flex
             direction="column"
             gap={{
@@ -49,12 +49,12 @@ export default function PageHeaderCenterExample(): ReactNode {
               column: 5,
             }}
           >
-            <Heading size="400" accessibilityLevel={2}>
+            <Heading accessibilityLevel={2} size="400">
               Edit profile
             </Heading>
             <TextField
-              label="Name"
               id="b-textfield1"
+              label="Name"
               onChange={() => {}}
               placeholder="Placeholder"
             />
@@ -66,26 +66,26 @@ export default function PageHeaderCenterExample(): ReactNode {
             >
               <Flex.Item flex="grow">
                 <TextField
-                  label="Phone"
                   id="b-textfield2"
+                  label="Phone"
                   onChange={() => {}}
                   placeholder="Placeholder"
                 />
               </Flex.Item>
               <Flex.Item flex="grow">
                 <TextField
-                  label="Email"
                   id="b-textfield3"
+                  label="Email"
                   onChange={() => {}}
                   placeholder="Placeholder"
                 />
               </Flex.Item>
             </Flex>
             <SelectList
-              label="Location"
               id="selectlist1"
-              placeholder="Placeholder"
+              label="Location"
               onChange={() => {}}
+              placeholder="Placeholder"
             >
               {[
                 { value: 'belgium', label: 'Belgium' },
