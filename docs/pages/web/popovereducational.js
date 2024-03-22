@@ -19,6 +19,7 @@ import message from '../../examples/popovereducational/message';
 import primaryAction from '../../examples/popovereducational/primaryAction';
 import size from '../../examples/popovereducational/size';
 import visibility from '../../examples/popovereducational/visibility';
+import zIndex from '../../examples/popovereducational/zIndex';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
@@ -207,6 +208,16 @@ PopoverEducational's positioning algorithm requires that the anchor element rend
             sandpackExample={
               <SandpackExample code={visibility} hideEditor name="Visibility variant" />
             }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description="PopoverEducational supports [zIndex](/web/zindex_classes)"
+          title="With z-index"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={<SandpackExample code={zIndex} hideEditor name="zIndex variant" />}
           />
         </MainSection.Subsection>
       </MainSection>

@@ -5,6 +5,7 @@ import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import Flex from '../Flex';
 import LegacyController from '../LegacyController';
 import InternalDismissButton from '../shared/InternalDismissButton';
+import { type Indexable } from '../zIndex';
 
 type Color = 'blue' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
@@ -27,6 +28,7 @@ type Props = {|
   showDismissButton?: boolean,
   size?: Size,
   __dangerouslySetMaxHeight?: '30vh',
+  zIndex?: Indexable,
 |};
 
 export default function InternalPopover({
@@ -46,6 +48,7 @@ export default function InternalPopover({
   showCaret,
   size = 'sm',
   __dangerouslySetMaxHeight,
+  zIndex,
 }: Props): null | ReactNode {
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Popover');
@@ -77,6 +80,7 @@ export default function InternalPopover({
       rounding={4}
       shouldFocus={shouldFocus}
       size={size === 'flexible' ? null : size}
+      zIndex={zIndex}
     >
       {showDismissButton ? (
         <Flex direction="column">
