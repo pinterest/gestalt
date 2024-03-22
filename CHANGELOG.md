@@ -1,3 +1,9 @@
+## 146.5.8 (Mar 22, 2024)
+
+### Patch
+
+- Docs: Figma embed fixes ([#3493](https://github.com/pinterest/gestalt/pull/3493)) - [Preview link](https://deploy-preview-3493--gestalt.netlify.app?devexample=true)
+
 ## 146.5.7 (Mar 22, 2024)
 
 ### Patch
