@@ -48,6 +48,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-flowtype": "^8.0.3",
+    "eslint-plugin-gestalt": ">0.0.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-jest": "^26.1.5",
     "eslint-plugin-jsx-a11y": "^6.5.1",

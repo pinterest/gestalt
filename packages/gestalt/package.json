@@ -15,10 +15,10 @@
   ],
   "dependencies": {
     "@floating-ui/react": "^0.25.4",
-    "classnames": "^2.2.6",
-    "gestalt-design-tokens": ">0.0.0"
+    "classnames": "^2.2.6"
   },
   "peerDependencies": {
+    "gestalt-design-tokens": ">0.0.0",
     "react": "^18.0",
     "react-dom": "^18.0"
   },
