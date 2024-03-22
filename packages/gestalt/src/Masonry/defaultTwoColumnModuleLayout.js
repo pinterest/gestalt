@@ -40,15 +40,24 @@ function calculateTwoColumnModuleWidth(columnWidth: number, gutter: number): num
   return columnWidth * 2 + gutter;
 }
 
-function calculateSplitIndex(
+function calculateSplitIndex({
+  oneColumnItemsLength,
+  twoColumnIndex,
+  isFirstRow,
+  fitsFirstRow,
+  availableSlotsOnFirstRow,
+  columnCount,
+}: {
   oneColumnItemsLength: number,
   twoColumnIndex: number,
-  isFirstRow: ?boolean,
-  fitsFirstRow: ?boolean,
-): number {
+  isFirstRow: boolean,
+  fitsFirstRow: boolean,
+  availableSlotsOnFirstRow: number,
+  columnCount: number,
+}): number {
   // We add one more item to pre so it is positioned instead of two column item
-  if (isFirstRow && !fitsFirstRow) {
-    return twoColumnIndex + 1;
+  if (isFirstRow && twoColumnIndex < columnCount && !fitsFirstRow) {
+    return availableSlotsOnFirstRow;
   }
 
   // If the items length is the same as the batch size we don't set a split index
@@ -328,7 +337,14 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
       // Calculate how many items are on pre array and how many on graphBatch
       const splitIndex = skipGraph
         ? twoColumnIndex
-        : calculateSplitIndex(oneColumnItems.length, twoColumnIndex, isFirstRow, fitsFirstRow);
+        : calculateSplitIndex({
+            oneColumnItemsLength: oneColumnItems.length,
+            twoColumnIndex,
+            isFirstRow,
+            fitsFirstRow,
+            availableSlotsOnFirstRow,
+            columnCount,
+          });
 
       // Pre items are positioned before the two column item
       const pre = oneColumnItems.slice(0, splitIndex);
