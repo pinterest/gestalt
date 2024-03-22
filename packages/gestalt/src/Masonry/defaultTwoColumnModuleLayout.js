@@ -325,7 +325,7 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
       const skipGraph = isFirstRow && fitsFirstRow;
 
       // Calculate how many items are on pre array and how many on graphBatch
-      const splitIndex = calculateSplitIndex(
+      const splitIndex = skipGraph ? twoColumnIndex : calculateSplitIndex(
         oneColumnItems.length,
         twoColumnIndex,
         isFirstRow,
