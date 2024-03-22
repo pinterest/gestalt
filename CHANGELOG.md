@@ -1,3 +1,9 @@
+## 146.5.7 (Mar 22, 2024)
+
+### Patch
+
+- Masonry: Positions tcm correctly for last item on first row ([#3492](https://github.com/pinterest/gestalt/pull/3492)) - [Preview link](https://deploy-preview-3492--gestalt.netlify.app?devexample=true)
+
 ## 146.5.6 (Mar 22, 2024)
 
 ### Patch
