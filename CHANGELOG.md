@@ -1,3 +1,9 @@
+## 146.5.6 (Mar 22, 2024)
+
+### Patch
+
+- PopoverEducational: fix zIndex bug + add example ([#3486](https://github.com/pinterest/gestalt/pull/3486)) - [Preview link](https://deploy-preview-3486--gestalt.netlify.app?devexample=true)
+
 ## 146.5.5 (Mar 21, 2024)
 
 ### Patch
