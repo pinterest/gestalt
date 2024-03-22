@@ -18,10 +18,6 @@ export default class MeasurementStore<T: { ... } | $ReadOnlyArray<mixed>, V>
     this.map.set(key, value);
   }
 
-  delete(key: T): void {
-    this.map.delete(key);
-  }
-
   reset(): void {
     this.map = new WeakMap();
   }
