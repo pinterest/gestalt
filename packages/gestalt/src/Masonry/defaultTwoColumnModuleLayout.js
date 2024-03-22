@@ -316,21 +316,19 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
 
       const isFirstRow = heights.some((height) => height === 0);
       const multiColumnItemWidth = parseInt(twoColumnItems[0].columnSpan, 10);
-      const availableSlotsOnFirstRow = heights.reduce((acc, height) => {
-        return height === 0 ? acc + 1 : acc;
-      }, 0);
+      const availableSlotsOnFirstRow = heights.reduce(
+        (acc, height) => (height === 0 ? acc + 1 : acc),
+        0,
+      );
       const fitsFirstRow = availableSlotsOnFirstRow >= multiColumnItemWidth + twoColumnIndex;
 
       // Skip the graph logic if the two column item batch is on the first line and fits
       const skipGraph = isFirstRow && fitsFirstRow;
 
       // Calculate how many items are on pre array and how many on graphBatch
-      const splitIndex = skipGraph ? twoColumnIndex : calculateSplitIndex(
-        oneColumnItems.length,
-        twoColumnIndex,
-        isFirstRow,
-        fitsFirstRow,
-      );
+      const splitIndex = skipGraph
+        ? twoColumnIndex
+        : calculateSplitIndex(oneColumnItems.length, twoColumnIndex, isFirstRow, fitsFirstRow);
 
       // Pre items are positioned before the two column item
       const pre = oneColumnItems.slice(0, splitIndex);
