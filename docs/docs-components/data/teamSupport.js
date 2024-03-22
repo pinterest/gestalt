@@ -1,6 +1,5 @@
 // @flow strict
 import { type DesignOverview } from './types';
-import AdvocateTile from '../../graphics/team_support/advocate.svg';
 import ComponentRequest from '../../graphics/team_support/component-request.svg';
 import ContributionsTile from '../../graphics/team_support/contributions.svg';
 import DesignFileHygiene from '../../graphics/team_support/design-file-hygiene.svg';
@@ -8,13 +7,6 @@ import GetHelpTile from '../../graphics/team_support/get-help.svg';
 import TrainingTile from '../../graphics/team_support/training.svg';
 
 const teamSupportTiles: $ReadOnlyArray<DesignOverview> = [
-  {
-    svg: <AdvocateTile />,
-    title: 'Be a Gestalt advocate',
-    description:
-      'A dedicated cohort of system advocates to rely on for design partnership, input and knowledge share and support within your team and product area.',
-    path: '/team_support/be_a_gestalt_advocate',
-  },
   {
     svg: <ComponentRequest />,
     title: 'Component request',
