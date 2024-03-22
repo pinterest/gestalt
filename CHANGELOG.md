@@ -1,3 +1,9 @@
+## 146.5.9 (Mar 22, 2024)
+
+### Patch
+
+- Docs: Get help and Training content updates ([#3489](https://github.com/pinterest/gestalt/pull/3489)) - [Preview link](https://deploy-preview-3489--gestalt.netlify.app?devexample=true)
+
 ## 146.5.8 (Mar 22, 2024)
 
 ### Patch
