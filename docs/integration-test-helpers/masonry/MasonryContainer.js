@@ -245,7 +245,7 @@ export default class MasonryContainer extends Component<Props<{ ... }>, State> {
             name,
             numberOfItems: until - from,
             previousItemCount: from,
-            randomNumberSeed: Math.random(),
+            randomNumberSeed: this.randomNumberSeed,
             pinHeightsSample,
             twoColItems: twoColItems && from > TWO_COL_MINDEX,
           })
@@ -289,7 +289,7 @@ export default class MasonryContainer extends Component<Props<{ ... }>, State> {
             name: undefined,
             numberOfItems: until - defaultFrom,
             previousItemCount: defaultFrom,
-            randomNumberSeed: Math.random(),
+            randomNumberSeed: this.randomNumberSeed,
             pinHeightsSample,
             twoColItems: twoColItems && defaultFrom > TWO_COL_MINDEX,
           })
