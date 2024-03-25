@@ -46,29 +46,26 @@ function calculateSplitIndex({
   isFirstRow,
   fitsFirstRow,
   availableSlotsOnFirstRow,
-  columnCount,
 }: {
   oneColumnItemsLength: number,
   twoColumnIndex: number,
   isFirstRow: boolean,
   fitsFirstRow: boolean,
   availableSlotsOnFirstRow: number,
-  columnCount: number,
 }): number {
   // We add one more item to pre so it is positioned instead of two column item
-  if (isFirstRow && twoColumnIndex < columnCount && !fitsFirstRow) {
+  if (isFirstRow && twoColumnIndex < availableSlotsOnFirstRow && !fitsFirstRow) {
     return availableSlotsOnFirstRow;
-  }
-
-  // If the items length is the same as the batch size we don't set a split index
-  if (oneColumnItemsLength <= TWO_COL_ITEMS_MEASURE_BATCH_SIZE) {
-    return 0;
   }
 
   // If two column module is near the end of the batch
   // we move the index so it has enough items for the graph
   if (twoColumnIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE > oneColumnItemsLength) {
-    return oneColumnItemsLength - TWO_COL_ITEMS_MEASURE_BATCH_SIZE;
+    return Math.max(
+      oneColumnItemsLength - TWO_COL_ITEMS_MEASURE_BATCH_SIZE,
+      // We have to keep at least the items for the available slots to fill
+      availableSlotsOnFirstRow,
+    );
   }
 
   return twoColumnIndex;
@@ -343,7 +340,6 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
             isFirstRow,
             fitsFirstRow,
             availableSlotsOnFirstRow,
-            columnCount,
           });
 
       // Pre items are positioned before the two column item

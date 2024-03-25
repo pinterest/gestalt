@@ -586,7 +586,10 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
         _twoColItems && itemsWithoutPositions.some((item) => item.columnSpan === 2);
 
       // If there are 2-col items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
-      const itemsToMeasureCount = hasTwoColumnItems ? TWO_COL_ITEMS_MEASURE_BATCH_SIZE : minCols;
+      // we need the batch size (number of one column items for the graph) + 1 (two column item)
+      const itemsToMeasureCount = hasTwoColumnItems
+        ? TWO_COL_ITEMS_MEASURE_BATCH_SIZE + 1
+        : minCols;
       const itemsToMeasure = items
         .filter((item) => item && !measurementStore.has(item))
         .slice(0, itemsToMeasureCount);
