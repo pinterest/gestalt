@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { ColorSchemeProvider, Masonry } from 'gestalt';
 import generateExampleItems from '../../integration-test-helpers/masonry/items-utils/generateExampleItems';
 import generateRealisticExampleItems from '../../integration-test-helpers/masonry/items-utils/generateRealisticExampleItems';
-import getRandomNumberGenerator from "../../integration-test-helpers/masonry/items-utils/getRandomNumberGenerator";
+import getRandomNumberGenerator from '../../integration-test-helpers/masonry/items-utils/getRandomNumberGenerator';
 import pinHeights, {
   type PinHeight,
 } from '../../integration-test-helpers/masonry/items-utils/pinHeights';
