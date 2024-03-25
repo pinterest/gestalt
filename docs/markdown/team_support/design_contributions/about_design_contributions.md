@@ -40,7 +40,7 @@ There are four types of valid component contributions:
 ### Net new component
 A brand new component with no functional equivalent in Gestalt
 
-&nbsp;
+<br/>
 <ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/83t0kws845u8ut15mf7e2l8y0x2y246m/contributions-design-net-new-png.png" alt="pending"/>
 
 #### Validation criteria
@@ -54,7 +54,7 @@ A brand new component with no functional equivalent in Gestalt
 ## Component enhancement
 An update or new variant of an existing Gestalt component
 
-&nbsp;
+<br/>
 <ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/3vt2j4214020pv57kkv0k5isr62e6hm4/contributions-design-enhancement-png.png" alt="pending"/>
 
 #### Validation criteria
@@ -70,7 +70,7 @@ An update or new variant of an existing Gestalt component
 ## Component replacement
 Completely replacing an existing component with a new one.
 
-&nbsp;
+<br/>
 <ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/sihtl8868te51548ly0tp31wy6bx7774/contributions-design-replacement-png.png" alt="pending"/>
 ***Please don't try this at home.***
 
@@ -86,7 +86,7 @@ Completely replacing an existing component with a new one.
 
 ## Related component
 Related to or an alternative to an existing  component. It doesn’t replace the existing component.
-&nbsp;
+<br/>
 <ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/mx16r0b62801xk5h0yjparuy1d2m65l6/contributions-design-related-png.png" alt="pending"/>
 
 #### Validation criteria
@@ -103,8 +103,7 @@ Related to or an alternative to an existing  component. It doesn’t replace the
 - The related component doesn’t introduce redundancies anywhere else—another team isn’t already using a similar component
 
 ## Decision tree
-To see if you have a potential contribution, go to the [contribution decision tree](https://www.figma.com/file/6zf0xNW6i8XHuUBVxtnGSB/Contributions-flow-diagrams?type=whiteboard&node-id=2-645&t=z1W2RakQPRpwWjW4-11).
+To see if you have a potential contribution, go through our contribution decision tree:
 
-&nbsp;
-<ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/74642b4c55mtr72d48dm7l65owfxp303/about-decision-tree-png.png" alt="pending"/>
-
+<br/>
+<iframe style={{border:0}} width="100%" height="800" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F6zf0xNW6i8XHuUBVxtnGSB%2FContributions-flow-diagrams%3Ftype%3Dwhiteboard%26node-id%3D2%253A645%26t%3D2glNSrcZEWIEZZts-1" allowFullScreen></iframe>

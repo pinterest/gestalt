@@ -31,10 +31,11 @@ The contribution process is simple:
 For further information, go to [How to contribute](team_support/design_contributions/how_to_contribute).
 
 ## Contribution timeline
-Approval takes about 48 hours from time of submission. Full completion can take up to 2 design sprints, depending on the urgency and complexity of the contribution.
+Review and acceptance of a contribution request takes about 48 hours. Full approval and completion of a contribution typically takes one month, depending on its urgency and complexity.
 
 ## Is there a self-service option?
 Yes! If you are up for it, 
-1. Go to our [Contribution staging](https://www.figma.com/file/d8wqI2ogUtq9tl3OGfl4bK/Staging---Component-contributions?type=design&node-id=12-4910&mode=design&t=66MCS6vhDwkHSySC-11) file in Figma
+1. Go to our Figma [Contribution staging file](https://www.figma.com/file/d8wqI2ogUtq9tl3OGfl4bK/Staging---Component-contributions?type=design&node-id=12-4910&mode=design&t=66MCS6vhDwkHSySC-11) file in Figma
 2. Copy a template
 3. Place your contribution there in a way that can be more easily and quickly moved into our Figma libraries.
+4. Submit the link from the staging Figma via the Slack contribution form
