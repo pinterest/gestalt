@@ -8,7 +8,7 @@ import TrainingTile from '../../graphics/team_support/training.svg';
 const teamSupportTiles: $ReadOnlyArray<DesignOverview> = [
   {
     svg: <DesignContributionsTile />,
-    title: 'Contributions',
+    title: 'Design contributions',
     description: 'Guidelines and resources for contributing designs to our system',
     path: '/team_support/design_contributions/quick_reference',
   },
