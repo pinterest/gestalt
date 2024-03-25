@@ -1,3 +1,9 @@
+## 146.5.10 (Mar 25, 2024)
+
+### Patch
+
+- Masonry: seeded random values for deterministic integration tests ([#3465](https://github.com/pinterest/gestalt/pull/3465)) - [Preview link](https://deploy-preview-3465--gestalt.netlify.app?devexample=true)
+
 ## 146.5.9 (Mar 22, 2024)
 
 ### Patch
