@@ -37,6 +37,7 @@ export default function FetchItems({
     const scrollBuffer = containerHeight * 3;
 
     if (scrollTop + scrollBuffer > scrollHeight) {
+      console.log('fetch!', { scrollTop, scrollBuffer, scrollHeight });
       fetchMore();
     }
   };

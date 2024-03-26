@@ -1,6 +1,6 @@
 // @flow strict
 import { Component, createRef, type Element } from 'react';
-import { Masonry } from 'gestalt';
+import { Masonry, MasonryV2 } from 'gestalt';
 import ExampleGridItem from './ExampleGridItem';
 import getClassicGridServerStyles from './getClassicGridServerStyles';
 import getFlexibleGridServerStyles from './getFlexibleGridServerStyles';
