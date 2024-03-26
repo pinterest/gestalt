@@ -37,13 +37,13 @@ There are four types of valid component contributions:
 - Replacement component
 - Related component
 
-### Net new component
+## Net new component
 A brand new component with no functional equivalent in Gestalt
 
 <br/>
 <ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/83t0kws845u8ut15mf7e2l8y0x2y246m/contributions-design-net-new-png.png" alt="pending"/>
 
-#### Validation criteria
+### Validation criteria
 **Note: This has a lower bar for approval because there is no existing functionality that may introduce redundancy to consider. Any of the below can qualify this as a valid contribution**
 
 - Clear business justification
@@ -57,7 +57,7 @@ An update or new variant of an existing Gestalt component
 <br/>
 <ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/3vt2j4214020pv57kkv0k5isr62e6hm4/contributions-design-enhancement-png.png" alt="pending"/>
 
-#### Validation criteria
+### Validation criteria
 **Note: This has the highest bar for approval because this will impact multiple product teams and experiences.**
 
 - The update is small enough that it can be made in the same component as an updated property, a new property or a new variant. Examples are:
@@ -74,7 +74,7 @@ Completely replacing an existing component with a new one.
 <ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/sihtl8868te51548ly0tp31wy6bx7774/contributions-design-replacement-png.png" alt="pending"/>
 ***Please don't try this at home.***
 
-#### Validation criteria
+### Validation criteria
 **Note: This has the highest bar for approval because this will impact multiple product teams and experiences.**
 
 - There's been design leadership approval to replace a component completely
@@ -89,7 +89,7 @@ Related to or an alternative to an existing  component. It doesn’t replace the
 <br/>
 <ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/mx16r0b62801xk5h0yjparuy1d2m65l6/contributions-design-related-png.png" alt="pending"/>
 
-#### Validation criteria
+### Validation criteria
 **Note: This has the highest bar for approval because this will impact multiple product teams and experiences.**
 
 - Something that performs the same function exists, but:
