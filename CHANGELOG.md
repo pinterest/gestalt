@@ -1,3 +1,9 @@
+## 146.5.11 (Mar 26, 2024)
+
+### Patch
+
+- Internal: Bump express from 4.18.2 to 4.19.2 ([#3497](https://github.com/pinterest/gestalt/pull/3497)) - [Preview link](https://deploy-preview-3497--gestalt.netlify.app?devexample=true)
+
 ## 146.5.10 (Mar 25, 2024)
 
 ### Patch
