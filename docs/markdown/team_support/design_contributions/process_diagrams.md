@@ -6,24 +6,17 @@ fullwidth: true
 
 ## Component type decision tree
 
-<ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/74642b4c55mtr72d48dm7l65owfxp303/about-decision-tree-png.png" alt="pending"/>
-&nbsp;
-[View in Figma](https://www.figma.com/file/6zf0xNW6i8XHuUBVxtnGSB/Contributions-flow-diagrams?type=whiteboard&node-id=2-645&t=z1W2RakQPRpwWjW4-11)
+<iframe style={{border:0}} width="100%" height="800" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F6zf0xNW6i8XHuUBVxtnGSB%2FContributions-flow-diagrams%3Ftype%3Dwhiteboard%26node-id%3D2%253A645%26t%3D2glNSrcZEWIEZZts-1" allowFullScreen></iframe>
 
 ## Contribution process
 
-<ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/h4ee8mir0ya7e2sc5j5666mt66c16smr/process-main-png.png" alt="pending"/>
-&nbsp;
-[View in Figma](https://www.figma.com/file/6zf0xNW6i8XHuUBVxtnGSB/Contributions-flow-diagrams?type=whiteboard&node-id=5-796&t=z1W2RakQPRpwWjW4-11)
+<iframe style={{border:0}} width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F6zf0xNW6i8XHuUBVxtnGSB%2FContributions-flow-diagrams%3Ftype%3Dwhiteboard%26node-id%3D5%253A796%26t%3DZovVI3B12zdFpXCt-1" allowFullScreen></iframe>
 
 ## Review process
 
-<ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/h0h3m7ua16rs68k4o4y14vvt4l131iw7/process-after-submit-png.png" alt="pending"/>
-&nbsp;
-[View in Figma](https://www.figma.com/file/6zf0xNW6i8XHuUBVxtnGSB/Contributions-flow-diagrams?type=whiteboard&node-id=6-1110&t=z1W2RakQPRpwWjW4-11)
+<iframe style={{border:0}} width="100%" height="800" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F6zf0xNW6i8XHuUBVxtnGSB%2FContributions-flow-diagrams%3Ftype%3Dwhiteboard%26node-id%3D6%253A1110%26t%3D2glNSrcZEWIEZZts-1" allowFullScreen></iframe>
+**A bird’s eye view of the review process after submission.**
 
 ## Escalation process
 
-<ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/43dnsy72tx2aige4dj285jlu436um730/process-escalate-png.png" alt="pending"/>
-&nbsp;
-[View in Figma](https://www.figma.com/file/6zf0xNW6i8XHuUBVxtnGSB/Contributions-flow-diagrams?type=whiteboard&node-id=6-1182&t=z1W2RakQPRpwWjW4-11)
+<iframe style={{border:0}} width="100%" height="800" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F6zf0xNW6i8XHuUBVxtnGSB%2FContributions-flow-diagrams%3Ftype%3Dwhiteboard%26node-id%3D6%253A1182%26t%3D2glNSrcZEWIEZZts-1" allowFullScreen></iframe>

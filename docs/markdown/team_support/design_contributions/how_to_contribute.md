@@ -19,7 +19,6 @@ Once ready, design contributions for our Figma component libraries can be submit
 **Pro tip:** You can also start a contribution submission from anywhere in Slack by typing the commands **/contribution** or **/gestalt** in a message box.
 
 ## What happens after submitting?
-<br/>
 
 <iframe style={{border:0}} width="100%" height="800" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F6zf0xNW6i8XHuUBVxtnGSB%2FContributions-flow-diagrams%3Ftype%3Dwhiteboard%26node-id%3D6%253A1110%26t%3D2glNSrcZEWIEZZts-1" allowFullScreen></iframe>
 **A bird’s eye view of the review process after submission.**
