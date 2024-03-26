@@ -37,13 +37,12 @@ There are four types of valid component contributions:
 - Replacement component
 - Related component
 
-## Net new component
+### Net new component criteria
 A brand new component with no functional equivalent in Gestalt
 
 <br/>
 <ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/83t0kws845u8ut15mf7e2l8y0x2y246m/contributions-design-net-new-png.png" alt="pending"/>
-
-### Validation criteria
+<br/>
 **Note: This has a lower bar for approval because there is no existing functionality that may introduce redundancy to consider. Any of the below can qualify this as a valid contribution**
 
 - Clear business justification
@@ -51,13 +50,13 @@ A brand new component with no functional equivalent in Gestalt
 - Local experiments got good results
 - User-tests are positive
 
-## Component enhancement
+### Component enhancement criteria
 An update or new variant of an existing Gestalt component
 
 <br/>
 <ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/3vt2j4214020pv57kkv0k5isr62e6hm4/contributions-design-enhancement-png.png" alt="pending"/>
 
-### Validation criteria
+<br/>
 **Note: This has the highest bar for approval because this will impact multiple product teams and experiences.**
 
 - The update is small enough that it can be made in the same component as an updated property, a new property or a new variant. Examples are:
@@ -67,14 +66,14 @@ An update or new variant of an existing Gestalt component
 - Metrics or user research shows that an updated component is needed and the same use case elsewhere isn't negatively affected. An example is a recent update to Avatar due to significant performance lifts.
 - Existing patterns elsewhere are accounted for and the team has committed to reach out to those teams—for example, the “add collaborator” icon for Avatar in Boards has changed, but there are other cases of the same action being used in other parts of the product that don’t happen in the Avatar component.
 
-## Component replacement
+### Component replacement criteria
 Completely replacing an existing component with a new one.
 
 <br/>
 <ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/sihtl8868te51548ly0tp31wy6bx7774/contributions-design-replacement-png.png" alt="pending"/>
+<br/>
 ***Please don't try this at home.***
 
-### Validation criteria
 **Note: This has the highest bar for approval because this will impact multiple product teams and experiences.**
 
 - There's been design leadership approval to replace a component completely
@@ -84,12 +83,12 @@ Completely replacing an existing component with a new one.
 - The ROI of making a big replacement has been documented
 - The replacement is out of the experiment phase and no major experiments are planned in the near future
 
-## Related component
+### Related component criteria
 Related to or an alternative to an existing  component. It doesn’t replace the existing component.
 <br/>
 <ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/mx16r0b62801xk5h0yjparuy1d2m65l6/contributions-design-related-png.png" alt="pending"/>
 
-### Validation criteria
+<br/>
 **Note: This has the highest bar for approval because this will impact multiple product teams and experiences.**
 
 - Something that performs the same function exists, but:
