@@ -14,8 +14,8 @@ export default function TeamSupportOverview(): ReactNode {
       <Flex direction="column" width="100%">
         <IllustrationContainer justifyContent="start">
           <PageHeader
-            description="A set of resources and guidelines to provide you with the help you need to build consistent product surfaces and to collaborate with the Gestalt design system team."
-            name="Team support"
+            description="A set of resources and guidelines to provide you with the help you need to build consistent product surfaces and to collaborate with the Gestalt Design System Team."
+            name="Team support overview"
             type="guidelines"
           />
         </IllustrationContainer>
