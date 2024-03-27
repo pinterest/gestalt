@@ -1,0 +1,25 @@
+{
+  "name": "stylelint-plugin-gestalt",
+  "version": "146.5.9",
+  "license": "Apache-2.0",
+  "homepage": "https://gestalt.pinterest.systems/",
+  "description": "StyleLint rules for Pinterest's design language Gestalt",
+  "main": "dist/stylelint-plugin-gestalt.js",
+  "jsnext:main": "dist/stylelint-plugin-gestalt.es.js",
+  "module": "dist/stylelint-plugin-gestalt.es.js",
+  "peerDependencies": {
+    "stylelint": "^15.0.0"
+  },
+  "keywords": [
+    "stylelint",
+    "stylelint plugin",
+    "gestalt",
+    "pinterest"
+  ],
+  "dependencies": {},
+  "scripts": {
+    "build": "rollup -c rollup.config.js",
+    "build:prod": "NODE_ENV=production rollup -c rollup.config.js",
+    "watch": "rollup -c rollup.config.js --watch"
+  }
+}
