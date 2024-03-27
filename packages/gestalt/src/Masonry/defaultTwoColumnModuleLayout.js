@@ -44,13 +44,21 @@ function calculateSplitIndex({
   oneColumnItemsLength,
   twoColumnIndex,
   emptyColumns,
+  fitsFirstRow,
   replaceWithOneColItems,
 }: {
   oneColumnItemsLength: number,
   twoColumnIndex: number,
   emptyColumns: number,
+  fitsFirstRow: boolean,
   replaceWithOneColItems: boolean,
 }): number {
+  // multi column item is on its original position
+  if (fitsFirstRow) {
+    return twoColumnIndex;
+  }
+
+  // We use as many one col items as empty columns to fill first row
   if (replaceWithOneColItems) {
     return emptyColumns;
   }
@@ -60,7 +68,7 @@ function calculateSplitIndex({
   if (twoColumnIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE > oneColumnItemsLength) {
     return Math.max(
       oneColumnItemsLength - TWO_COL_ITEMS_MEASURE_BATCH_SIZE,
-      // We have to keep at least the items for the available slots to fill
+      // We have to keep at least the items for the empty columns to fill
       emptyColumns,
     );
   }
@@ -326,25 +334,24 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
       // Skip the graph logic if the two column item can be displayed on the first row,
       // this means graphBatch is empty and multi column item is positioned on its
       // original position (twoColumnIndex)
-      const skipGraph = emptyColumns >= multiColumnItemColumnSpan + twoColumnIndex;
+      const fitsFirstRow = emptyColumns >= multiColumnItemColumnSpan + twoColumnIndex;
 
       // When multi column item is the last item of the first row but can't fit
       // we need to fill those spaces with one col items
-      const replaceWithOneColItems = !skipGraph && twoColumnIndex < emptyColumns;
+      const replaceWithOneColItems = !fitsFirstRow && twoColumnIndex < emptyColumns;
 
       // Calculate how many items are on pre array and how many on graphBatch
       // pre items are positioned before the two column item
-      const splitIndex = skipGraph
-        ? twoColumnIndex
-        : calculateSplitIndex({
-            oneColumnItemsLength: oneColumnItems.length,
-            twoColumnIndex,
-            emptyColumns,
-            replaceWithOneColItems,
-          });
+      const splitIndex = calculateSplitIndex({
+        oneColumnItemsLength: oneColumnItems.length,
+        twoColumnIndex,
+        emptyColumns,
+        fitsFirstRow,
+        replaceWithOneColItems,
+      });
 
       const pre = oneColumnItems.slice(0, splitIndex);
-      const graphBatch = skipGraph
+      const graphBatch = fitsFirstRow
         ? []
         : oneColumnItems.slice(splitIndex, splitIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE);
 
