@@ -510,4 +510,49 @@ describe('two column layout test cases', () => {
       expect(position?.left).toBe(i * columnWidth + margin);
     });
   });
+
+  test('fills in remaining columns in the first row when multi column item cannot fit on small batch', () => {
+    const measurementStore = new MeasurementStore<{ ... }, number>();
+    const positionCache = new MeasurementStore<{ ... }, Position>();
+    const heightsCache = new HeightsStore();
+    const items = [
+      { name: 'Pin 0', height: 250, color: '#E230BA' },
+      { name: 'Pin 1', height: 202, color: '#FAB032' },
+      { name: 'Pin 2', height: 210, color: '#EDF21D' },
+      { name: 'Pin 3', height: 300, color: '#CF4509', columnSpan: 2 },
+      { name: 'Pin 4', height: 150, color: '#230BAF' },
+      { name: 'Pin 5', height: 500, color: '#67076F' },
+    ];
+    items.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+
+    const columnWidth = 240;
+    const screenWidth = 720;
+
+    const layout = defaultTwoColumnModuleLayout({
+      columnWidth,
+      gutter: 0,
+      measurementCache: measurementStore,
+      heightsCache,
+      justify: 'start',
+      minCols: 3,
+      positionCache,
+      rawItemCount: items.length,
+      width: screenWidth, // 3 rows
+    });
+
+    layout(items);
+
+    // there should be 3 rows (720 / 240)
+    // the first row items should be Pin 0, Pin 1, Pin 2
+    const columnCount = Math.floor(screenWidth / columnWidth);
+    const firstRowItems = items.filter((i) => !i.columnSpan).slice(0, columnCount);
+    const margin = (screenWidth - columnWidth * columnCount) / 2;
+    firstRowItems.forEach((item, i) => {
+      const position = positionCache.get(item);
+      expect(position?.top).toBe(0);
+      expect(position?.left).toBe(i * columnWidth + margin);
+    });
+  });
 });

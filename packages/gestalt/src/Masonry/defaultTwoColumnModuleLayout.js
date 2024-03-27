@@ -43,32 +43,34 @@ function calculateTwoColumnModuleWidth(columnWidth: number, gutter: number): num
 function calculateSplitIndex({
   oneColumnItemsLength,
   twoColumnIndex,
-  isFirstRow,
+  emptyColumns,
   fitsFirstRow,
-  availableSlotsOnFirstRow,
-  columnCount,
+  replaceWithOneColItems,
 }: {
   oneColumnItemsLength: number,
   twoColumnIndex: number,
-  isFirstRow: boolean,
+  emptyColumns: number,
   fitsFirstRow: boolean,
-  availableSlotsOnFirstRow: number,
-  columnCount: number,
+  replaceWithOneColItems: boolean,
 }): number {
-  // We add one more item to pre so it is positioned instead of two column item
-  if (isFirstRow && twoColumnIndex < columnCount && !fitsFirstRow) {
-    return availableSlotsOnFirstRow;
+  // multi column item is on its original position
+  if (fitsFirstRow) {
+    return twoColumnIndex;
   }
 
-  // If the items length is the same as the batch size we don't set a split index
-  if (oneColumnItemsLength <= TWO_COL_ITEMS_MEASURE_BATCH_SIZE) {
-    return 0;
+  // We use as many one col items as empty columns to fill first row
+  if (replaceWithOneColItems) {
+    return emptyColumns;
   }
 
   // If two column module is near the end of the batch
   // we move the index so it has enough items for the graph
   if (twoColumnIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE > oneColumnItemsLength) {
-    return oneColumnItemsLength - TWO_COL_ITEMS_MEASURE_BATCH_SIZE;
+    return Math.max(
+      oneColumnItemsLength - TWO_COL_ITEMS_MEASURE_BATCH_SIZE,
+      // We have to keep at least the items for the empty columns to fill
+      emptyColumns,
+    );
   }
 
   return twoColumnIndex;
@@ -323,32 +325,33 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
         (item) => !item.columnSpan || item.columnSpan === 1,
       );
 
-      const isFirstRow = heights.some((height) => height === 0);
-      const multiColumnItemWidth = parseInt(twoColumnItems[0].columnSpan, 10);
-      const availableSlotsOnFirstRow = heights.reduce(
-        (acc, height) => (height === 0 ? acc + 1 : acc),
-        0,
-      );
-      const fitsFirstRow = availableSlotsOnFirstRow >= multiColumnItemWidth + twoColumnIndex;
+      // The empty columns can be different from columnCount if there are
+      // items already positioned from previous batches
+      const emptyColumns = heights.reduce((acc, height) => (height === 0 ? acc + 1 : acc), 0);
 
-      // Skip the graph logic if the two column item batch is on the first line and fits
-      const skipGraph = isFirstRow && fitsFirstRow;
+      const multiColumnItemColumnSpan = parseInt(twoColumnItems[0].columnSpan, 10);
+
+      // Skip the graph logic if the two column item can be displayed on the first row,
+      // this means graphBatch is empty and multi column item is positioned on its
+      // original position (twoColumnIndex)
+      const fitsFirstRow = emptyColumns >= multiColumnItemColumnSpan + twoColumnIndex;
+
+      // When multi column item is the last item of the first row but can't fit
+      // we need to fill those spaces with one col items
+      const replaceWithOneColItems = !fitsFirstRow && twoColumnIndex < emptyColumns;
 
       // Calculate how many items are on pre array and how many on graphBatch
-      const splitIndex = skipGraph
-        ? twoColumnIndex
-        : calculateSplitIndex({
-            oneColumnItemsLength: oneColumnItems.length,
-            twoColumnIndex,
-            isFirstRow,
-            fitsFirstRow,
-            availableSlotsOnFirstRow,
-            columnCount,
-          });
+      // pre items are positioned before the two column item
+      const splitIndex = calculateSplitIndex({
+        oneColumnItemsLength: oneColumnItems.length,
+        twoColumnIndex,
+        emptyColumns,
+        fitsFirstRow,
+        replaceWithOneColItems,
+      });
 
-      // Pre items are positioned before the two column item
       const pre = oneColumnItems.slice(0, splitIndex);
-      const graphBatch = skipGraph
+      const graphBatch = fitsFirstRow
         ? []
         : oneColumnItems.slice(splitIndex, splitIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE);
 
