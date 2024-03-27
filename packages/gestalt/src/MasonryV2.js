@@ -1,12 +1,10 @@
 // @flow strict
 import {
   forwardRef,
-  Fragment,
   type Node as ReactNode,
   useCallback,
   useEffect,
   useImperativeHandle,
-  useLayoutEffect,
   useMemo,
   useReducer,
   useRef,
@@ -162,9 +160,6 @@ function useScrollContainer({
   gridWrapper: ?HTMLElement,
   scrollContainer: ?HTMLElement,
 }) {
-  const [containerHeight, setContainerHeight] = useState(0);
-  const [containerOffset, setContainerOffset] = useState(0);
-
   const subscribeToScrollEvent = useCallback(
     (callback: () => void) => {
       scrollContainer?.addEventListener('scroll', callback);
@@ -181,15 +176,19 @@ function useScrollContainer({
     () => 0,
   );
 
-  useLayoutEffect(() => {
+  const containerHeight = useMemo(() => {
     if (!scrollContainer) {
-      return;
+      return 0;
     }
-    setContainerHeight(getElementHeight(scrollContainer));
-    if (gridWrapper instanceof HTMLElement) {
+    return getElementHeight(scrollContainer);
+  }, [scrollContainer]);
+
+  const containerOffset = useMemo(() => {
+    if (scrollContainer && gridWrapper instanceof HTMLElement) {
       const relativeScrollTop = getRelativeScrollTop(scrollContainer);
-      setContainerOffset(gridWrapper.getBoundingClientRect().top + relativeScrollTop);
+      return gridWrapper.getBoundingClientRect().top + relativeScrollTop;
     }
+    return 0;
   }, [gridWrapper, scrollContainer]);
 
   return {
