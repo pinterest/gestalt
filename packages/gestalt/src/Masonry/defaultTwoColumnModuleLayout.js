@@ -44,11 +44,17 @@ function calculateSplitIndex({
   oneColumnItemsLength,
   twoColumnIndex,
   emptyColumns,
+  replaceWithOneColItems,
 }: {
   oneColumnItemsLength: number,
   twoColumnIndex: number,
   emptyColumns: number,
+  replaceWithOneColItems: boolean,
 }): number {
+  if (replaceWithOneColItems) {
+    return emptyColumns;
+  }
+
   // If two column module is near the end of the batch
   // we move the index so it has enough items for the graph
   if (twoColumnIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE > oneColumnItemsLength) {
@@ -226,55 +232,6 @@ function getTwoColItemPosition<T>({
   };
 }
 
-function getSkipGraphPositions<T>({
-  heights: heightsArg,
-  oneColumnItems,
-  twoColumnItem,
-  twoColumnIndex,
-  ...commonGetPositionArgs
-}: {
-  centerOffset: number,
-  columnWidth: number,
-  columnWidthAndGutter: number,
-  gutter: number,
-  heights: $ReadOnlyArray<number>,
-  measurementCache: Cache<T, number>,
-  positionCache?: Cache<T, Position>,
-  oneColumnItems: $ReadOnlyArray<T>,
-  twoColumnItem: T,
-  twoColumnIndex: number,
-}): {
-  positions: $ReadOnlyArray<{ item: T, position: Position }>,
-  heights: $ReadOnlyArray<number>,
-} {
-  const { positions: preItemsPositions, heights: preItemHeights } = getOneColumnItemPositions({
-    items: oneColumnItems.slice(0, twoColumnIndex),
-    heights: heightsArg,
-    ...commonGetPositionArgs,
-  });
-
-  const { heights: updatedHeights, position: twoColItemPosition } = getTwoColItemPosition<T>({
-    item: twoColumnItem,
-    heights: preItemHeights,
-    ...commonGetPositionArgs,
-  });
-
-  const { positions: remainingItemPositions, heights: finalHeights } = getOneColumnItemPositions({
-    items: oneColumnItems.slice(twoColumnIndex),
-    heights: updatedHeights,
-    ...commonGetPositionArgs,
-  });
-
-  return {
-    positions: [
-      ...preItemsPositions,
-      { item: twoColumnItem, position: twoColItemPosition },
-      ...remainingItemPositions,
-    ],
-    heights: finalHeights,
-  };
-}
-
 const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
   columnWidth = 236,
   gutter = 14,
@@ -365,45 +322,29 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
       const emptyColumns = heights.reduce((acc, height) => (height === 0 ? acc + 1 : acc), 0);
 
       const multiColumnItemColumnSpan = parseInt(twoColumnItems[0].columnSpan, 10);
-      const fitsFirstRow = emptyColumns >= multiColumnItemColumnSpan + twoColumnIndex;
 
-      // Skip the graph logic if the two column item can be displayed on the first row
-      if (fitsFirstRow) {
-        const { positions: finalPositions, heights: finalHeights } = getSkipGraphPositions({
-          oneColumnItems,
-          twoColumnItem: twoColumnItems[0],
-          twoColumnIndex,
-          heights,
-          ...commonGetPositionArgs,
-        });
+      // Skip the graph logic if the two column item can be displayed on the first row,
+      // this means graphBatch is empty and multi column item is positioned on its
+      // original position (twoColumnIndex)
+      const skipGraph = emptyColumns >= multiColumnItemColumnSpan + twoColumnIndex;
 
-        finalPositions.forEach(({ item, position }) => {
-          positionCache.set(item, position);
-        });
-        heightsCache?.setHeights(finalHeights);
-
-        return getPositionsOnly(finalPositions);
-      }
-
-      // When multi column item is the last item of the first row but can't fit we need to
-      // fill those spaces with one col items
-      const replaceWithOneColItems = twoColumnIndex < emptyColumns;
+      // When multi column item is the last item of the first row but can't fit
+      // we need to fill those spaces with one col items
+      const replaceWithOneColItems = !skipGraph && twoColumnIndex < emptyColumns;
 
       // Calculate how many items are on pre array and how many on graphBatch
-      const splitIndex = replaceWithOneColItems
-        ? emptyColumns
-        : calculateSplitIndex({
-            oneColumnItemsLength: oneColumnItems.length,
-            twoColumnIndex,
-            emptyColumns,
-          });
+      // pre items are positioned before the two column item
+      const splitIndex = calculateSplitIndex({
+        oneColumnItemsLength: oneColumnItems.length,
+        twoColumnIndex,
+        emptyColumns,
+        replaceWithOneColItems,
+      });
 
-      // Pre items are positioned before the two column item
-      const pre = oneColumnItems.slice(0, splitIndex);
-      const graphBatch = oneColumnItems.slice(
-        splitIndex,
-        splitIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE,
-      );
+      const pre = oneColumnItems.slice(0, skipGraph ? twoColumnIndex : splitIndex);
+      const graphBatch = skipGraph
+        ? []
+        : oneColumnItems.slice(splitIndex, splitIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE);
 
       // Get positions and heights for painted items
       const { positions: paintedItemPositions, heights: paintedItemHeights } =
