@@ -334,14 +334,16 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
 
       // Calculate how many items are on pre array and how many on graphBatch
       // pre items are positioned before the two column item
-      const splitIndex = calculateSplitIndex({
-        oneColumnItemsLength: oneColumnItems.length,
-        twoColumnIndex,
-        emptyColumns,
-        replaceWithOneColItems,
-      });
+      const splitIndex = skipGraph
+        ? twoColumnIndex
+        : calculateSplitIndex({
+            oneColumnItemsLength: oneColumnItems.length,
+            twoColumnIndex,
+            emptyColumns,
+            replaceWithOneColItems,
+          });
 
-      const pre = oneColumnItems.slice(0, skipGraph ? twoColumnIndex : splitIndex);
+      const pre = oneColumnItems.slice(0, splitIndex);
       const graphBatch = skipGraph
         ? []
         : oneColumnItems.slice(splitIndex, splitIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE);
