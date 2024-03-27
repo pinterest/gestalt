@@ -22,7 +22,7 @@
         "comment": "Fifth option for data visualization colors"
       },
       "06": {
-        "value": "{color.pink.500.value}",
+        "value": "{color.pink.flaminglow.500.value}",
         "comment": "Sixth option for data visualization colors"
       },
       "07": {
@@ -42,7 +42,7 @@
         "comment": "Tenth option for data visualization colors"
       },
       "11": {
-        "value": "{color.pink.400.value}",
+        "value": "{color.pink.flaminglow.400.value}",
         "comment": "Eleventh option for data visualization colors"
       },
       "12": {

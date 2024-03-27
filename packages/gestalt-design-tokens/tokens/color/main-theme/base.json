@@ -17,20 +17,18 @@
       }
     },
     "pink": {
-      "flaminglow": {
-        "0": { "value": "#FFF8FA" },
-        "50": { "value": "#FFEBF1" },
-        "100": { "value": "#FFDFE9" },
-        "200": { "value": "#FFBED2" },
-        "300": { "value": "#FE8EB1" },
-        "400": { "value": "#F76593" },
-        "450": { "value": "#EE376A" },
-        "500": { "value": "#DE2C62" },
-        "600": { "value": "#C31952" },
-        "700": { "value": "#A30C4A" },
-        "800": { "value": "#82053E" },
-        "900": { "value": "#630233" }
-      }
+      "0": { "value": "#FFF8FA", "deprecated": true },
+      "50": { "value": "#FFEBF1", "deprecated": true },
+      "100": { "value": "#FFDFE9", "deprecated": true },
+      "200": { "value": "#FFBED2", "deprecated": true },
+      "300": { "value": "#FE8EB1", "deprecated": true },
+      "400": { "value": "#F76593", "deprecated": true },
+      "450": { "value": "#EE376A", "deprecated": true },
+      "500": { "value": "#DE2C62", "deprecated": true },
+      "600": { "value": "#C31952", "deprecated": true },
+      "700": { "value": "#A30C4A", "deprecated": true },
+      "800": { "value": "#82053E", "deprecated": true },
+      "900": { "value": "#630233", "deprecated": true }
     },
     "blue": {
       "skycicle": {

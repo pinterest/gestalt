@@ -5,7 +5,8 @@ const StyleDictionary = require('style-dictionary');
 
 // $FlowFixMe[missing-local-annot]
 function nameOutputFile({ name, theme }) {
-  const filePrefix = theme === 'main-theme' ? '' : `${theme.split('-')[0]}-`;
+  const filePrefix =
+    theme === 'main-theme' || theme === 'deprecated-main-theme' ? '' : `${theme.split('-')[0]}-`;
   return `${filePrefix}${name}`;
 }
 
@@ -215,7 +216,7 @@ StyleDictionary.registerTransformGroup({
 // BUILD CONFIGURATION
 
 // $FlowFixMe[missing-local-annot]
-function getWebConfig({ theme = 'main-theme', mode = 'light' }) {
+function getWebConfig({ theme, mode }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
 
   return {
@@ -227,10 +228,10 @@ function getWebConfig({ theme = 'main-theme', mode = 'light' }) {
       `tokens/color/${theme}/component${modeTheme}.json`,
       `tokens/elevation/${theme}/base${modeTheme}.json`,
       `tokens/elevation/${theme}/component${modeTheme}.json`,
-      'tokens/font/*.json',
-      'tokens/opacity/*.json',
-      'tokens/rounding/*.json',
-      'tokens/space/*.json',
+      'tokens/font/main-theme/*.json',
+      'tokens/opacity/main-theme/*.json',
+      'tokens/rounding/main-theme/*.json',
+      'tokens/space/main-theme/*.json',
     ],
     'platforms': {
       'css': {
@@ -355,7 +356,7 @@ function getWebConfig({ theme = 'main-theme', mode = 'light' }) {
                 {
                   'destination': 'constants.js',
                   'format': 'constantLibrary-commonJS/flow',
-                  '_format_comment': 'Custom. See packages/gestalt-design-tokens/build.js',
+                  '_format_comment': 'Custom.',
                 },
                 {
                   'destination': nameOutputFile({ name: 'tokens.js', theme }),
@@ -417,7 +418,7 @@ function getWebConfig({ theme = 'main-theme', mode = 'light' }) {
 }
 
 // $FlowFixMe[missing-local-annot]
-function getAndroidConfiguration({ theme = 'main-theme', mode = 'light' }) {
+function getAndroidConfiguration({ theme, mode }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
 
   return {
@@ -427,10 +428,10 @@ function getAndroidConfiguration({ theme = 'main-theme', mode = 'light' }) {
       `tokens/color/${theme}/data-visualization/alias${modeTheme}.json`,
       `tokens/color/${theme}/alias${modeTheme}.json`,
       `tokens/elevation/${theme}/base${modeTheme}.json`,
-      'tokens/font/base.json',
-      'tokens/opacity/base.json',
-      'tokens/rounding/base.json',
-      'tokens/space/base.json',
+      'tokens/font/deprecated-main-theme/base.json',
+      'tokens/opacity/deprecated-main-theme/base.json',
+      'tokens/rounding/deprecated-main-theme/base.json',
+      'tokens/space/deprecated-main-theme/base.json',
     ],
     'platforms': {
       'android': {
@@ -479,6 +480,8 @@ function getAndroidConfiguration({ theme = 'main-theme', mode = 'light' }) {
                 {
                   'destination': 'opacity.xml',
                   'format': 'android/resources',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=androidcolors',
                   'resourceType': 'dimen',
                   'filter': {
                     'attributes': {
@@ -492,6 +495,8 @@ function getAndroidConfiguration({ theme = 'main-theme', mode = 'light' }) {
                 {
                   'destination': 'rounding.xml',
                   'format': 'android/resources',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=androidcolors',
                   'resourceType': 'dimen',
                   'filter': {
                     'attributes': {
@@ -505,6 +510,8 @@ function getAndroidConfiguration({ theme = 'main-theme', mode = 'light' }) {
                 {
                   'destination': 'space.xml',
                   'format': 'android/resources',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=androidcolors',
                   'resourceType': 'dimen',
                   'filter': {
                     'attributes': {
@@ -520,7 +527,8 @@ function getAndroidConfiguration({ theme = 'main-theme', mode = 'light' }) {
                 {
                   'destination': nameOutputFile({ name: 'colors-dark.xml', theme }),
                   'format': 'android/resources',
-                  '_filter_comment': 'Custom.',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=androidcolors',
                   'resourceType': 'color',
                   'filter': {
                     'attributes': {
@@ -538,7 +546,7 @@ function getAndroidConfiguration({ theme = 'main-theme', mode = 'light' }) {
 }
 
 // $FlowFixMe[missing-local-annot]
-function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
+function getIOSConfiguration({ theme, mode }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
 
   return {
@@ -548,10 +556,10 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
       `tokens/color/${theme}/data-visualization/alias${modeTheme}.json`,
       `tokens/color/${theme}/alias${modeTheme}.json`,
       `tokens/elevation/${theme}/base${modeTheme}.json`,
-      'tokens/font/base.json',
-      'tokens/opacity/base.json',
-      'tokens/rounding/base.json',
-      'tokens/space/base.json',
+      'tokens/font/main-theme/base.json',
+      'tokens/opacity//main-theme/base.json',
+      'tokens/rounding//main-theme/base.json',
+      'tokens/space//main-theme/base.json',
     ],
     'platforms': {
       'ios': {
@@ -732,7 +740,7 @@ const platformFileMap = {
   ios: ['ios', 'ios-swift', 'ios-swift-separate-enums'],
 };
 
-['main-theme', 'vr-theme'].forEach((theme) =>
+['deprecated-main-theme', 'main-theme', 'vr-theme'].forEach((theme) =>
   ['light', 'dark'].forEach((mode) => {
     if (theme === 'main-theme') {
       // iOS platform
@@ -740,12 +748,18 @@ const platformFileMap = {
       platformFileMap.ios.forEach((platform) => StyleDictionaryIOS.buildPlatform(platform));
     }
 
-    // Android platform
-    const StyleDictionaryAndroid = StyleDictionary.extend(getAndroidConfiguration({ mode, theme }));
-    platformFileMap.android.forEach((platform) => StyleDictionaryAndroid.buildPlatform(platform));
+    if (theme === 'deprecated-main-theme' || theme === 'vr-theme') {
+      // Android platform
+      const StyleDictionaryAndroid = StyleDictionary.extend(
+        getAndroidConfiguration({ mode, theme }),
+      );
+      platformFileMap.android.forEach((platform) => StyleDictionaryAndroid.buildPlatform(platform));
+    }
 
     // // web platform
-    const StyleDictionaryWeb = StyleDictionary.extend(getWebConfig({ mode, theme }));
-    platformFileMap.web.forEach((platform) => StyleDictionaryWeb.buildPlatform(platform));
+    if (theme === 'main-theme' || theme === 'vr-theme') {
+      const StyleDictionaryWeb = StyleDictionary.extend(getWebConfig({ mode, theme }));
+      platformFileMap.web.forEach((platform) => StyleDictionaryWeb.buildPlatform(platform));
+    }
   }),
 );
