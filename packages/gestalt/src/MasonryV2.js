@@ -14,22 +14,13 @@ import {
 } from 'react';
 import styles from './Masonry.css';
 import { type Cache } from './Masonry/Cache';
-import defaultLayout from './Masonry/defaultLayout';
-import defaultTwoColumnModuleLayout from './Masonry/defaultTwoColumnModuleLayout';
-import fullWidthLayout from './Masonry/fullWidthLayout';
+import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
 import HeightsStore, { type HeightsStoreInterface } from './Masonry/HeightsStore';
 import MeasurementStore from './Masonry/MeasurementStore';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
-import { type Position } from './Masonry/types';
-import uniformRowLayout from './Masonry/uniformRowLayout';
-
-// When there's a 2-col item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to minimize whitespace above the 2-col item
-// This may need to be tweaked to balance the tradeoff of delayed rendering vs having enough possible layouts
-const TWO_COL_ITEMS_MEASURE_BATCH_SIZE = 6;
+import { type Layout, type Position } from './Masonry/types';
 
 const layoutNumberToCssDimension = (n: ?number) => (n !== Infinity ? n : undefined);
-
-type Layout = 'basic' | 'basicCentered' | 'flexible' | 'serverRenderedFlexible' | 'uniformRow';
 
 type Props<T> = {
   /**
@@ -143,6 +134,12 @@ function subscribeToResizeEvent(callback: () => void) {
   };
 }
 
+// helper hook to force update a component
+function useForceUpdate() {
+  const [, forceUpdate] = useReducer<number, void>((x) => x + 1, 0);
+  return forceUpdate;
+}
+
 function useElementWidth(element: ?HTMLDivElement) {
   const getElementWidth = useCallback(() => {
     const elWidth = element?.clientWidth;
@@ -198,74 +195,6 @@ function useScrollContainer({
   };
 }
 
-function useLayoutAlgorithm<T: { +[string]: mixed }>({
-  columnWidth,
-  gutter,
-  heightsStore,
-  items,
-  layout,
-  measurementStore,
-  minCols,
-  positionStore,
-  width,
-  _twoColItems,
-  _logTwoColWhitespace,
-}: {
-  columnWidth: number,
-  gutter?: number,
-  heightsStore: HeightsStoreInterface,
-  items: $ReadOnlyArray<T>,
-  layout: Layout,
-  measurementStore: Cache<T, number>,
-  minCols: number,
-  positionStore: Cache<T, Position>,
-  width: ?number,
-  _twoColItems?: boolean,
-  _logTwoColWhitespace?: (number) => void,
-}): (items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position> {
-  if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
-    return fullWidthLayout({
-      gutter,
-      cache: measurementStore,
-      minCols,
-      idealColumnWidth: columnWidth,
-      width,
-    });
-  }
-  if (layout === 'uniformRow') {
-    return uniformRowLayout({
-      cache: measurementStore,
-      columnWidth,
-      gutter,
-      minCols,
-      width,
-    });
-  }
-  if (_twoColItems === true) {
-    return defaultTwoColumnModuleLayout({
-      measurementCache: measurementStore,
-      positionCache: positionStore,
-      columnWidth,
-      gutter,
-      heightsCache: heightsStore,
-      justify: layout === 'basicCentered' ? 'center' : 'start',
-      logWhitespace: _logTwoColWhitespace,
-      minCols,
-      rawItemCount: items.length,
-      width,
-    });
-  }
-  return defaultLayout({
-    cache: measurementStore,
-    columnWidth,
-    gutter,
-    justify: layout === 'basicCentered' ? 'center' : 'start',
-    minCols,
-    rawItemCount: items.length,
-    width,
-  });
-}
-
 function useFetchOnScroll({
   containerHeight,
   containerOffset,
@@ -318,6 +247,99 @@ function useFetchOnScroll({
   ]);
 }
 
+function useLayout<T: { +[string]: mixed }>({
+  columnWidth,
+  gutter,
+  heightsStore,
+  items,
+  layout,
+  measurementStore,
+  minCols,
+  positionStore,
+  width,
+  _twoColItems,
+  _logTwoColWhitespace,
+}: {
+  columnWidth: number,
+  gutter?: number,
+  heightsStore: HeightsStoreInterface,
+  items: $ReadOnlyArray<T>,
+  layout: Layout,
+  measurementStore: Cache<T, number>,
+  minCols: number,
+  positionStore: Cache<T, Position>,
+  width: ?number,
+  _twoColItems?: boolean,
+  _logTwoColWhitespace?: (number) => void,
+}): {
+  height: number,
+  hasPendingMeasurements: boolean,
+  positions: $ReadOnlyArray<?Position>,
+  updateMeasurement: (T, number) => void,
+} {
+  const itemToMeasureCount = minCols;
+  const forceUpdate = useForceUpdate();
+  const layoutFunction = getLayoutAlgorithm({
+    columnWidth,
+    gutter,
+    heightsStore,
+    items,
+    layout,
+    measurementStore,
+    positionStore,
+    minCols,
+    width,
+    _twoColItems,
+    _logTwoColWhitespace,
+  });
+
+  const calculatePositions = () => {
+    console.log('calculate positions');
+    const rawPositions = layoutFunction(items);
+    let measureItemCount = 0;
+    // eslint-disable-next-line flowtype/no-mutable-array
+    return items.reduce((acc: Array<?Position>, item, i) => {
+      const position = positionStore.get(item) ?? rawPositions[i];
+      if (!position) {
+        acc.push(null);
+      } else {
+        const isMeasuring = position.top < 0 && position.left < 0;
+        if (isMeasuring) {
+          if (measureItemCount < itemToMeasureCount) {
+            acc.push(position);
+            measureItemCount += 1;
+          } else {
+            acc.push(null);
+          }
+        } else {
+          acc.push(position);
+        }
+      }
+      return acc;
+    }, []);
+  };
+
+  const hasPendingMeasurements = items.some((item) => !!item && !measurementStore.has(item));
+  const positions = calculatePositions();
+  const updateMeasurement = (item: T, itemHeight: number) => {
+    measurementStore.set(item, itemHeight);
+    // force update to retrigger position calculations
+    forceUpdate();
+  };
+
+  // Math.max() === -Infinity when there are no positions
+  const height = positions.length
+    ? Math.max(...positions.map((pos) => (pos && pos.top >= 0 ? pos.top + pos.height : 0)))
+    : 0;
+
+  return {
+    hasPendingMeasurements,
+    height,
+    positions,
+    updateMeasurement,
+  };
+}
+
 function Masonry<T: { +[string]: mixed }>(
   props: Props<T>,
   ref: { current: ?MasonryRef },
@@ -342,7 +364,6 @@ function Masonry<T: { +[string]: mixed }>(
   const hasSetInitialWidth = useRef(false);
   const gridWrapperRef = useRef<?HTMLDivElement>();
   const heightsStore = useMemo(() => new HeightsStore(), []);
-  const [, forceUpdate] = useReducer<number, void>((x) => x + 1, 0);
 
   const measurementStore = useMemo(
     () => props.measurementStore || createMeasurementStore(),
@@ -359,12 +380,12 @@ function Masonry<T: { +[string]: mixed }>(
     [scrollContainer],
   );
   const width = useElementWidth(gridWrapperRef.current);
-  const hasPendingMeasurements = props.items.some((item) => !!item && !measurementStore.has(item));
   const { containerHeight, containerOffset, scrollTop } = useScrollContainer({
     gridWrapper: gridWrapperRef.current,
     scrollContainer: scrollContainerElement,
   });
   const [isPending, startTransition] = useTransition();
+  const forceUpdate = useForceUpdate();
 
   useImperativeHandle(ref, () => ({
     reflow: () => {
@@ -393,36 +414,21 @@ function Masonry<T: { +[string]: mixed }>(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width]);
 
-  const getPositions = useLayoutAlgorithm({
+  let gridBody = null;
+
+  const { hasPendingMeasurements, height, positions, updateMeasurement } = useLayout({
     columnWidth,
     gutter,
     heightsStore,
     items,
     layout,
     measurementStore,
-    positionStore,
     minCols,
+    positionStore,
     width,
     _twoColItems,
     _logTwoColWhitespace,
   });
-
-  let gridBody = null;
-  const itemsToRender = items.filter((item) => item && measurementStore.has(item));
-  const itemsWithoutPositions = items.filter((item) => item && !positionStore.has(item));
-  const hasTwoColumnItems =
-    _twoColItems && itemsWithoutPositions.some((item) => item.columnSpan === 2);
-
-  // If there are 2-col items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
-  const itemsToMeasureCount = hasTwoColumnItems ? TWO_COL_ITEMS_MEASURE_BATCH_SIZE : minCols;
-  const itemsToMeasure = items
-    .filter((item) => item && !measurementStore.has(item))
-    .slice(0, itemsToMeasureCount);
-
-  const positions = getPositions(itemsToRender);
-  const measuringPositions = getPositions(itemsToMeasure);
-  // Math.max() === -Infinity when there are no positions
-  const height = positions.length ? Math.max(...positions.map((pos) => pos.top + pos.height)) : 0;
 
   useFetchOnScroll({
     containerHeight,
@@ -434,6 +440,8 @@ function Masonry<T: { +[string]: mixed }>(
     scrollTop,
     scrollContainerElement,
   });
+
+  console.log({ containerHeight, containerOffset, height, items, isPending, positions, scrollTop });
 
   if (width == null && hasPendingMeasurements) {
     // When hyrdating from a server render, we don't have the width of the grid
@@ -487,19 +495,12 @@ function Masonry<T: { +[string]: mixed }>(
       <div className={styles.Masonry} role="list" style={{ height, width }}>
         {items.map((item, i) => {
           const key = `item-${i}`;
-          const renderIndex = itemsToRender.findIndex((itemToRender) => itemToRender === item);
-          const measurementIndex = itemsToMeasure.findIndex(
-            (itemToMeasure) => itemToMeasure === item,
-          );
-          const shouldMeasure = renderIndex < 0;
-          const position = shouldMeasure
-            ? measuringPositions[measurementIndex]
-            : positions[renderIndex];
-
+          const position = positions[i];
           if (!position) {
             return null;
           }
-          const style = shouldMeasure
+          const isMeasurement = position.top < 0 && position.left < 0;
+          const style = isMeasurement
             ? {
                 visibility: 'hidden',
                 position: 'absolute',
@@ -522,7 +523,7 @@ function Masonry<T: { +[string]: mixed }>(
               };
           let isVisible = true;
 
-          if (scrollContainer && Boolean(virtualBufferFactor) && !shouldMeasure) {
+          if (scrollContainer && Boolean(virtualBufferFactor) && !isMeasurement) {
             const virtualBuffer = containerHeight * virtualBufferFactor;
             const offsetScrollPos = scrollTop - containerOffset;
             const viewportTop = virtualBoundsTop
@@ -544,13 +545,10 @@ function Masonry<T: { +[string]: mixed }>(
             <div
               key={key}
               ref={(el) => {
-                if (el) {
-                  if (!measurementStore.has(item)) {
-                    measurementStore.set(item, el.clientHeight);
-                    startTransition(() => {
-                      forceUpdate();
-                    });
-                  }
+                if (el && isMeasurement) {
+                  startTransition(() => {
+                    updateMeasurement(item, el.clientHeight);
+                  });
                 }
               }}
               className={[styles.Masonry__Item].join(' ')}
@@ -558,7 +556,7 @@ function Masonry<T: { +[string]: mixed }>(
               role="listitem"
               style={style}
             >
-              {renderItem({ data: item, itemIdx: i, isMeasuring: shouldMeasure })}
+              {renderItem({ data: item, itemIdx: i, isMeasuring: isMeasurement })}
             </div>
           );
 
@@ -573,81 +571,6 @@ function Masonry<T: { +[string]: mixed }>(
       {gridBody}
     </div>
   );
-}
-
-function useLayout<T>(props: {
-  items: $ReadOnlyArray<T>,
-  measurementStore?: Cache<T, number>,
-  minCols: number,
-  positionStore?: Cache<T, Position>,
-}) {
-  const measurementStore = useMemo(
-    () => props.measurementStore || createMeasurementStore(),
-    [props.measurementStore],
-  );
-
-  const positionStore = useMemo(
-    () => props.positionStore || createMeasurementStore(),
-    [props.positionStore],
-  );
-
-  const itemToMeasureCount = props.minCols;
-  const doLayout = useLayoutAlgorithm({
-    columnWidth,
-    gutter,
-    heightsStore,
-    items,
-    layout,
-    measurementStore,
-    positionStore,
-    minCols,
-    width,
-    _twoColItems,
-    _logTwoColWhitespace,
-  });
-
-  const calculatePositions = () => {
-    const positions = doLayout(items);
-    let measureItemCount = 0;
-    return items.reduce((acc, item, i) => {
-      const position = positionStore.get(item) ?? positions[i];
-      if (!position) {
-        acc.push(null);
-      } else {
-        const isMeasuring = position.top < 0 && position.left < 0;
-        if (isMeasuring) {
-          if (measureItemCount < itemToMeasureCount) {
-            acc.push(position);
-            measureItemCount += 1;
-          } else {
-            acc.push(null);
-          }
-        } else {
-          acc.push(position);
-        }
-      }
-      return acc;
-    }, []);
-  };
-  const [positions, setPositions] = useState(calculatePositions());
-
-  // Math.max() === -Infinity when there are no positions
-  const height = positions.length ? Math.max(...positions.map((pos) => pos.top + pos.height)) : 0;
-
-  const updateMeasurement = useCallback(
-    (item, height) => {
-      measurementStore.set(item, height);
-      // trigger layout
-      setPositions(calculatePositions());
-    },
-    [measurementStore],
-  );
-
-  return {
-    height,
-    positions,
-    updateMeasurement,
-  };
 }
 
 // const { itemsToRender, itemsToMeasure, positions, updateMeasurement } = useLayout();
