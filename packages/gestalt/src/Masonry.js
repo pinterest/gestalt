@@ -250,8 +250,6 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
   }
 
   componentDidUpdate(prevProps: Props<T>, prevState: State<T>) {
-    console.log({ prevProps, prevState });
-    console.log({ props: this.props, state: this.state });
     const { items } = this.props;
     const { measurementStore } = this.state;
 
@@ -599,8 +597,6 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
       const height = positions.length
         ? Math.max(...positions.map((pos) => pos.top + pos.height))
         : 0;
-
-      console.log({ containerHeight: this.containerHeight, height });
 
       gridBody = (
         <div ref={this.setGridWrapperRef} style={{ width: '100%' }}>

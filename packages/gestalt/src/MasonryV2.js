@@ -60,13 +60,11 @@ type Props<T> = {
    *
    * _Note that `scrollContainer` must be specified._
    */
-  loadItems?:
-    | false
-    | ((
-        ?{
-          from: number,
-        },
-      ) => void | boolean | { ... }),
+  loadItems?: (
+    ?{
+      from: number,
+    },
+  ) => void,
   /**
    * Masonry internally caches item heights using a measurement store. If `measurementStore` is provided, Masonry will use it as its cache and will keep it updated with future measurements. This is often used to prevent re-measurement when users navigate away from and back to a grid. Create a new measurement store with `Masonry.createMeasurementStore()`.
    */
@@ -201,7 +199,7 @@ function useScrollContainer({
   };
 }
 
-function useLayout<T: { +[string]: mixed }>({
+function useLayoutAlgorithm<T: { +[string]: mixed }>({
   columnWidth,
   gutter,
   heightsStore,
@@ -269,6 +267,58 @@ function useLayout<T: { +[string]: mixed }>({
   });
 }
 
+function useFetchOnScroll({
+  containerHeight,
+  containerOffset,
+  hasPendingMeasurements,
+  height,
+  items,
+  loadItems,
+  scrollTop,
+  scrollContainerElement,
+}: {
+  containerHeight: number,
+  containerOffset: number,
+  hasPendingMeasurements: boolean,
+  height: number,
+  items: $ReadOnlyArray<mixed>,
+  loadItems: (
+    ?{
+      from: number,
+    },
+  ) => void,
+  scrollTop: number,
+  scrollContainerElement: ?HTMLElement,
+}) {
+  const isFetching = useRef<boolean>(false);
+  const itemLength = items.length;
+
+  useEffect(() => {
+    isFetching.current = false;
+  }, [itemLength]);
+
+  useEffect(() => {
+    const shouldFetchMore = !(isFetching.current || hasPendingMeasurements);
+    if (scrollContainerElement && loadItems && typeof loadItems === 'function' && shouldFetchMore) {
+      const scrollHeight = height + containerOffset;
+      const scrollBuffer = containerHeight * 3;
+      if (scrollTop + scrollBuffer > scrollHeight) {
+        isFetching.current = true;
+        loadItems({ from: itemLength });
+      }
+    }
+  }, [
+    containerOffset,
+    hasPendingMeasurements,
+    height,
+    itemLength,
+    loadItems,
+    scrollTop,
+    scrollContainerElement,
+    containerHeight,
+  ]);
+}
+
 function Masonry<T: { +[string]: mixed }>(
   props: Props<T>,
   ref: { current: ?MasonryRef },
@@ -291,7 +341,6 @@ function Masonry<T: { +[string]: mixed }>(
   } = props;
 
   const hasSetInitialWidth = useRef(false);
-  const isFetching = useRef<boolean>(false);
   const gridWrapperRef = useRef<?HTMLDivElement>();
   const heightsStore = useMemo(() => new HeightsStore(), []);
   const [, forceUpdate] = useReducer<number, void>((x) => x + 1, 0);
@@ -306,9 +355,11 @@ function Masonry<T: { +[string]: mixed }>(
     [props.positionStore],
   );
 
-  const scrollContainerElement = useMemo(() => scrollContainer?.(), [scrollContainer]);
+  const scrollContainerElement = useMemo(
+    () => (typeof window !== 'undefined' ? scrollContainer?.() : null),
+    [scrollContainer],
+  );
   const width = useElementWidth(gridWrapperRef.current);
-  const itemLength = items.length;
   const hasPendingMeasurements = props.items.some((item) => !!item && !measurementStore.has(item));
   const { containerHeight, containerOffset, scrollTop } = useScrollContainer({
     gridWrapper: gridWrapperRef.current,
@@ -329,10 +380,6 @@ function Masonry<T: { +[string]: mixed }>(
   }));
 
   useEffect(() => {
-    isFetching.current = false;
-  }, [itemLength]);
-
-  useEffect(() => {
     if (hasSetInitialWidth.current && width != null) {
       // whenever the width changes, we need to reset all measurements
       // we only want to do this after the initial width has been set, so we use a ref to track that
@@ -347,7 +394,7 @@ function Masonry<T: { +[string]: mixed }>(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width]);
 
-  const getPositions = useLayout({
+  const getPositions = useLayoutAlgorithm({
     columnWidth,
     gutter,
     heightsStore,
@@ -378,26 +425,16 @@ function Masonry<T: { +[string]: mixed }>(
   // Math.max() === -Infinity when there are no positions
   const height = positions.length ? Math.max(...positions.map((pos) => pos.top + pos.height)) : 0;
 
-  useEffect(() => {
-    const shouldFetchMore = !(isFetching.current || hasPendingMeasurements);
-    if (scrollContainerElement && loadItems && typeof loadItems === 'function' && shouldFetchMore) {
-      const scrollHeight = height + containerOffset;
-      const scrollBuffer = containerHeight * 3;
-      if (scrollTop + scrollBuffer > scrollHeight) {
-        isFetching.current = true;
-        loadItems({ from: itemLength });
-      }
-    }
-  }, [
+  useFetchOnScroll({
+    containerHeight,
     containerOffset,
     hasPendingMeasurements,
     height,
-    itemLength,
+    items,
     loadItems,
     scrollTop,
     scrollContainerElement,
-    containerHeight,
-  ]);
+  });
 
   if (width == null && hasPendingMeasurements) {
     // When hyrdating from a server render, we don't have the width of the grid
@@ -539,18 +576,82 @@ function Masonry<T: { +[string]: mixed }>(
   );
 }
 
-// function MasonryLayout({
-//   hasPendingMeasurements,
-//   items,
-//   measurementStore,
-//   positionStore,
-//   positions,
-//   width,
-// }) {
-//   if (width == null && hasPendingMeasurements) {
-//   }
-//   return <div className={styles.Masonry} role="list" style={{ height, width }} />;
-// }
+function useLayout<T>(props: {
+  items: $ReadOnlyArray<T>,
+  measurementStore?: Cache<T, number>,
+  minCols: number,
+  positionStore?: Cache<T, Position>,
+}) {
+  const measurementStore = useMemo(
+    () => props.measurementStore || createMeasurementStore(),
+    [props.measurementStore],
+  );
+
+  const positionStore = useMemo(
+    () => props.positionStore || createMeasurementStore(),
+    [props.positionStore],
+  );
+
+  const itemToMeasureCount = props.minCols;
+  const doLayout = useLayoutAlgorithm({
+    columnWidth,
+    gutter,
+    heightsStore,
+    items,
+    layout,
+    measurementStore,
+    positionStore,
+    minCols,
+    width,
+    _twoColItems,
+    _logTwoColWhitespace,
+  });
+
+  const calculatePositions = () => {
+    const positions = doLayout(items);
+    let measureItemCount = 0;
+    return items.reduce((acc, item, i) => {
+      const position = positionStore.get(item) ?? positions[i];
+      if (!position) {
+        acc.push(null);
+      } else {
+        const isMeasuring = position.top < 0 && position.left < 0;
+        if (isMeasuring) {
+          if (measureItemCount < itemToMeasureCount) {
+            acc.push(position);
+            measureItemCount += 1;
+          } else {
+            acc.push(null);
+          }
+        } else {
+          acc.push(position);
+        }
+      }
+      return acc;
+    }, []);
+  };
+  const [positions, setPositions] = useState(calculatePositions());
+
+  // Math.max() === -Infinity when there are no positions
+  const height = positions.length ? Math.max(...positions.map((pos) => pos.top + pos.height)) : 0;
+
+  const updateMeasurement = useCallback(
+    (item, height) => {
+      measurementStore.set(item, height);
+      // trigger layout
+      setPositions(calculatePositions());
+    },
+    [measurementStore],
+  );
+
+  return {
+    height,
+    positions,
+    updateMeasurement,
+  };
+}
+
+// const { itemsToRender, itemsToMeasure, positions, updateMeasurement } = useLayout();
 
 const MasonryWithForwardRef: AbstractComponent<Props, ?MasonryRef> = forwardRef(Masonry);
 

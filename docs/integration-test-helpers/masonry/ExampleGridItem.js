@@ -1,5 +1,5 @@
 // @flow strict
-import { type Element, useEffect, useState } from 'react';
+import { type Element, type Node as ReactNode, useEffect, useState } from 'react';
 
 type Props = {
   // $FlowFixMe[unclear-type]
@@ -7,6 +7,17 @@ type Props = {
   expanded: boolean,
   itemIdx: number,
 };
+
+function Depth({ depth }: { depth: number }): ReactNode {
+  if (depth > 0) {
+    return (
+      <div>
+        <Depth depth={depth - 1} />
+      </div>
+    );
+  }
+  return <div>hello world</div>;
+}
 
 export default function ExampleGridItem({ data = {}, itemIdx, expanded }: Props): Element<'div'> {
   const [counter, setCounter] = useState<number>(0);
@@ -41,6 +52,7 @@ export default function ExampleGridItem({ data = {}, itemIdx, expanded }: Props)
           {isTwoColItem ? ` • columnSpan: ${data.columnSpan}` : ''}
         </div>
         <div>Slot Index: {itemIdx}</div>
+        {/* <Depth depth={200} /> */}
         <div>
           <button id={`increment-counter-${itemIdx}`} onClick={incrementStateCounter} type="button">
             Increment counter:
