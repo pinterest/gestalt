@@ -1,3 +1,9 @@
+## 146.5.13 (Mar 27, 2024)
+
+### Patch
+
+- Masonry: Multi column feature, fix first row items position when batch is small ([#3496](https://github.com/pinterest/gestalt/pull/3496)) - [Preview link](https://deploy-preview-3496--gestalt.netlify.app?devexample=true)
+
 ## 146.5.12 (Mar 27, 2024)
 
 ### Patch
