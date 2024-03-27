@@ -1,3 +1,9 @@
+## 146.5.12 (Mar 27, 2024)
+
+### Patch
+
+- SideNavigation: Display scrollbar only when content overflows ([#3498](https://github.com/pinterest/gestalt/pull/3498)) - [Preview link](https://deploy-preview-3498--gestalt.netlify.app?devexample=true)
+
 ## 146.5.11 (Mar 26, 2024)
 
 ### Patch
