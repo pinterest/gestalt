@@ -54,7 +54,7 @@ export default function ExampleCode({
   } else {
     containerBoxMaxHeight = CODE_EXAMPLE_HEIGHT;
   }
-
+  containerBoxMaxHeight = '0';
   useEffect(() => {
     const height = codeExampleRef?.current?.clientHeight ?? 0;
 
@@ -116,9 +116,6 @@ export default function ExampleCode({
         </Flex>
         <Flex direction="column" width="100%">
           <Box
-            dangerouslySetInlineStyle={{
-              __style: { transition: 'max-height 0.4s' },
-            }}
             display="flex"
             maxHeight={containerBoxMaxHeight}
             overflow="hidden"

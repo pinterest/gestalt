@@ -7,8 +7,8 @@ export default function Example(): ReactNode {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <Box display="flex" height="100%" overflow="scroll" width={1000}>
-      <Box maxWidth={280}>
+    <Box display="flex" height="100%" overflow="auto">
+      <div style={{ position: 'sticky', top: 0 }}>
         <SideNavigation
           accessibilityLabel="Collapsible example"
           collapsed={collapsed}
@@ -121,9 +121,9 @@ export default function Example(): ReactNode {
             />
           </SideNavigation.Section>
         </SideNavigation>
-      </Box>
+      </div>
 
-      <Box padding={4}>
+      <Box height={800} padding={4}>
         <Heading size="500">Page main content</Heading>
       </Box>
     </Box>

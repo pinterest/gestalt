@@ -41,8 +41,10 @@ export default function NavigationContent({
     transitioning,
   } = useSideNavigation();
 
+  const mainContainer = useRef<HTMLElement | null>(null);
   const scrollContainer = useRef<HTMLDivElement | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [collapsedContainerWidth, setCollapsedContainerWidth] = useState<number | void>();
   const previewTimeoutRef = useRef<?Timeout>();
 
   useEffect(() => {
@@ -52,6 +54,7 @@ export default function NavigationContent({
     const mouseEnterHandler = () => {
       if (sideNavigationCollapsed && !transitioning) {
         clearTimeout(previewTimeoutRef.current);
+        setCollapsedContainerWidth(mainContainer.current?.offsetWidth);
         setOverlayPreview(true);
       }
     };
@@ -88,62 +91,65 @@ export default function NavigationContent({
   const normalWidth = 280;
   const headerWidth = isCollapsed ? 44 : undefined;
   const collapsedWidth = shouldCollapseEmpty ? 40 : 60;
-
-  const wrapperWidth = sideNavigationCollapsed ? collapsedWidth : normalWidth;
   const contentWidth = isCollapsed ? collapsedWidth : normalWidth;
 
   return (
     <Box
+      ref={mainContainer}
       aria-label={accessibilityLabel}
       as="nav"
       color="default"
       height="100%"
       minWidth={collapsible ? undefined : normalWidth}
       position="relative"
-      width={collapsible ? wrapperWidth : undefined}
+      width={sideNavigationCollapsed ? collapsedContainerWidth : undefined}
       zIndex={overlayPreview ? new FixedZIndex(1) : undefined}
     >
       <div
         ref={scrollContainer}
-        className={classnames(styles.fullHeight, layoutStyles.borderBox, {
+        className={classnames(styles.fullHeight, layoutStyles.overflowAutoY, {
           [borderStyles.borderRight]: showBorder && !overlayPreview,
           [borderStyles.raisedBottom]: overlayPreview,
           [styles.contentWidthTransition]: collapsible,
-          [layoutStyles.overflowScrollY]: collapsible,
           [boxStyles.default]: collapsible,
         })}
-        style={{ width: collapsible ? contentWidth : undefined }}
+        style={{ width: collapsible ? 'max-content' : undefined }}
       >
-        {collapsible && <Collapser raised={isScrolled} />}
-
-        <Box
-          dangerouslySetInlineStyle={{
-            __style: {
-              paddingBottom: 24,
-            },
-          }}
-          display={shouldHideItems ? 'none' : undefined}
-          padding={2}
-          width={collapsible ? contentWidth : undefined}
+        <div
+          className={classnames({ [styles.contentWidthTransition]: collapsible })}
+          style={{ width: collapsible ? contentWidth : undefined }}
         >
-          <Flex direction="column" gap={{ column: 4, row: 0 }}>
-            {header ? (
-              <Flex direction="column" gap={{ column: 4, row: 0 }}>
-                <Box width={headerWidth}>{header}</Box>
-                <Divider />
-              </Flex>
-            ) : null}
+          {collapsible && <Collapser raised={isScrolled} />}
 
-            <ul className={classnames(styles.ulItem)}>{items}</ul>
+          <Box
+            dangerouslySetInlineStyle={{
+              __style: {
+                paddingBottom: 24,
+              },
+            }}
+            display={shouldHideItems ? 'none' : undefined}
+            padding={2}
+            width={collapsible ? contentWidth : undefined}
+          >
+            <Flex direction="column" gap={{ column: 4, row: 0 }}>
+              {header ? (
+                <Flex direction="column" gap={{ column: 4, row: 0 }}>
+                  <Box width={headerWidth}>{header}</Box>
+                  <Divider />
+                </Flex>
+              ) : null}
 
-            {footer ? (
-              <Flex direction="column" gap={{ column: 4, row: 0 }}>
-                <Divider />
-                <Box width={headerWidth}>{footer}</Box>
-              </Flex>
-            ) : null}
-          </Flex>
-        </Box>
+              <ul className={classnames(styles.ulItem)}>{items}</ul>
+
+              {footer ? (
+                <Flex direction="column" gap={{ column: 4, row: 0 }}>
+                  <Divider />
+                  <Box width={headerWidth}>{footer}</Box>
+                </Flex>
+              ) : null}
+            </Flex>
+          </Box>
+        </div>
       </div>
     </Box>
   );
