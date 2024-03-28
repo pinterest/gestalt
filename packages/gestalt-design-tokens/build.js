@@ -195,8 +195,10 @@ StyleDictionary.registerTransform({
     return prop.filePath.includes('theme') && !prop.filePath.includes('main-theme');
   },
   transformer(prop) {
+    const pinregex = /pink/;
+    const isPink = pinregex.test(prop.name);
     const prefix = getMatchedThemeName(prop.filePath);
-    return prop.name.replace(/^[^_]*/, (match) => `${prefix}_${match}`);
+    return isPink ? prop.name : prop.name.replace(/^[^_]*/, (match) => `${prefix}_${match}`);
   },
 });
 

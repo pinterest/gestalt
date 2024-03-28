@@ -17,18 +17,54 @@
       }
     },
     "pink": {
-      "0": { "value": "{color.purple.mysticool.200.value}" , "deprecated": true },
-      "50": { "value": "{color.purple.mysticool.200.value}", "deprecated": true },
-      "100": { "value": "{color.purple.mysticool.200.value}", "deprecated": true },
-      "200": { "value": "{color.purple.mysticool.200.value}", "deprecated": true },
-      "300": { "value": "{color.purple.mysticool.300.value}", "deprecated": true },
-      "400": { "value": "{color.purple.mysticool.450.value}", "deprecated": true },
-      "450": { "value": "{color.purple.mysticool.450.value}", "deprecated": true },
-      "500": { "value": "{color.purple.mysticool.600.value}", "deprecated": true },
-      "600": { "value": "{color.purple.mysticool.600.value}", "deprecated": true },
-      "700": { "value": "{color.purple.mysticool.600.value}", "deprecated": true },
-      "800": { "value": "{color.purple.mysticool.800.value}", "deprecated": true },
-      "900": { "value": "{color.purple.mysticool.800.value}", "deprecated": true }
+      "0": {
+        "value": "{color.purple.mysticool.200.value}",
+        "deprecated": true
+      },
+      "50": {
+        "value": "{color.purple.mysticool.200.value}",
+        "deprecated": true
+      },
+      "100": {
+        "value": "{color.purple.mysticool.200.value}",
+        "deprecated": true
+      },
+      "200": {
+        "value": "{color.purple.mysticool.200.value}",
+        "deprecated": true
+      },
+      "300": {
+        "value": "{color.purple.mysticool.300.value}",
+        "deprecated": true
+      },
+      "400": {
+        "value": "{color.purple.mysticool.450.value}",
+        "deprecated": true
+      },
+      "450": {
+        "value": "{color.purple.mysticool.450.value}",
+        "deprecated": true
+      },
+      "500": {
+        "value": "{color.purple.mysticool.600.value}",
+        "deprecated": true
+      },
+      "600": {
+        "value": "{color.purple.mysticool.600.value}",
+        "deprecated": true
+      },
+      "700": {
+        "value": "{color.purple.mysticool.600.value}",
+        "deprecated": true
+      },
+      "800": {
+        "value": "{color.purple.mysticool.800.value}",
+        "deprecated": true
+      },
+      "900": {
+        "value": "{color.purple.mysticool.800.value}",
+        "deprecated": true
+      }
     },
     "blue": {
       "skycicle": {
