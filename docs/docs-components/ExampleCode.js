@@ -54,7 +54,7 @@ export default function ExampleCode({
   } else {
     containerBoxMaxHeight = CODE_EXAMPLE_HEIGHT;
   }
-  containerBoxMaxHeight = '0';
+
   useEffect(() => {
     const height = codeExampleRef?.current?.clientHeight ?? 0;
 
