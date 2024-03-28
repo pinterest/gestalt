@@ -19,8 +19,8 @@ import {
   TOKEN_COLOR_BACKGROUND_DEFAULT,
   TOKEN_COLOR_BLUE_SKYCICLE_100,
   TOKEN_COLOR_GREEN_MATCHACADO_100,
-  TOKEN_COLOR_PINK_FLAMINGLOW_100,
-  TOKEN_COLOR_PINK_FLAMINGLOW_200,
+  TOKEN_COLOR_PINK_100,
+  TOKEN_COLOR_PINK_200,
   TOKEN_COLOR_WHITE_MOCHIMALIST_0,
 } from 'gestalt-design-tokens';
 import GestaltLogo from '../docs-components/GestaltLogo';
@@ -296,7 +296,7 @@ export default function YearInReview2023(): ReactNode {
           </Box>
           <Box
             dangerouslySetInlineStyle={{
-              __style: { backgroundColor: TOKEN_COLOR_PINK_FLAMINGLOW_200 },
+              __style: { backgroundColor: TOKEN_COLOR_PINK_200 },
             }}
           >
             <Box paddingX={SIDE_GAP} paddingY={12} position="relative">
@@ -399,7 +399,7 @@ export default function YearInReview2023(): ReactNode {
                   dangerouslySetInlineStyle={{
                     __style: {
                       border: '4px solid #111111',
-                      backgroundColor: TOKEN_COLOR_PINK_FLAMINGLOW_100,
+                      backgroundColor: TOKEN_COLOR_PINK_100,
                     },
                   }}
                   display="flex"
