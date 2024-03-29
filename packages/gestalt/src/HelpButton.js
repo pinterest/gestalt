@@ -17,11 +17,10 @@ import Icon from './Icon';
 import { ESCAPE, TAB } from './keyCodes';
 import Layer from './Layer';
 import Link from './Link';
-import Popover from './Popover';
+import InternalPopover from './Popover/InternalPopover';
 import TapArea from './TapArea';
 import Text from './Text';
 import Tooltip from './Tooltip';
-import useInExperiment from './useInExperiment';
 import { CompositeZIndex, FixedZIndex, type Indexable } from './zIndex';
 
 type LinkType = {
@@ -179,22 +178,21 @@ export default function HelpButton({
       <span className={textColorOverrideStyles}>{text}</span>
     );
 
-  const isInExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_popover_v2_helpbutton',
-    mwebExperimentName: 'mweb_gestalt_popover_v2_helpbutton',
-  });
-
   const popoverElement = (
-    <Popover
-      __experimentalPopover={isInExperiment}
+    <InternalPopover
       accessibilityLabel={accessibilityPopoverLabel}
       anchor={tapAreaRef.current}
-      disablePortal
+      color="white"
+      disablePortal={isWithinFixedContainer}
+      hideWhenReferenceHidden
       id={popoverId}
       idealDirection={idealDirection}
       onDismiss={toggleView}
       onKeyDown={handlePopoverKeyDown}
-      positionRelativeToAnchor={isWithinFixedContainer}
+      role="dialog"
+      shouldFocus
+      showCaret={false}
+      size="sm"
     >
       <Box height="auto" padding={5} rounding={4}>
         {/*
@@ -224,7 +222,7 @@ export default function HelpButton({
           </Box>
         )}
       </Box>
-    </Popover>
+    </InternalPopover>
   );
 
   return (

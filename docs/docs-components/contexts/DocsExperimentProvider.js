@@ -12,7 +12,6 @@ import { useAppContext } from '../appContext';
 const enabledExperiments = {
   ComboBox: ['web_gestalt_popover_v2_combobox', 'mweb_gestalt_popover_v2_combobox'],
   Dropdown: ['web_gestalt_popover_v2_dropdown', 'mweb_gestalt_popover_v2_dropdown'],
-  HelpButton: ['web_gestalt_popover_v2_helpbutton', 'mweb_gestalt_popover_v2_helpbutton'],
   OverlayPanel: [
     'web_gestalt_popover_v2_confirmationpopover',
     'mweb_gestalt_popover_v2_confirmationpopover',
