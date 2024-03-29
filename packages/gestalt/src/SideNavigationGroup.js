@@ -170,12 +170,10 @@ export default function SideNavigationGroup({
           <TapArea
             accessibilityControls={itemId}
             accessibilityExpanded={isExpanded}
+            onBlur={() => setFocused(false)}
+            onFocus={() => setFocused(true)}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            onFocus={() => setFocused(true)}
-            onBlur={() => setFocused(false)}
-            rounding={2}
-            tapStyle={compression}
             onTap={() => {
               if (display === 'expandable' && expandedProp === undefined) {
                 setExpanded((value) => {
@@ -190,48 +188,50 @@ export default function SideNavigationGroup({
                 setOverlayPreview(true);
               }
             }}
+            rounding={2}
+            tapStyle={compression}
           >
             <SideNavigationGroupContent
-              itemColor={itemColor}
-              expanded={isExpanded}
-              selectedItemId={selectedItemId}
-              itemId={itemId}
-              paddingStyle={paddingStyle}
-              icon={icon}
-              label={label}
               badge={badge}
-              notificationAccessibilityLabel={notificationAccessibilityLabel}
               counter={counter}
               display={display}
-              primaryAction={primaryAction}
-              setCompression={setCompression}
-              hovered={hovered}
+              expanded={isExpanded}
               focused={focused}
               hasActiveChild={hasAnyActiveChild}
+              hovered={hovered}
+              icon={icon}
+              itemColor={itemColor}
+              itemId={itemId}
+              label={label}
+              notificationAccessibilityLabel={notificationAccessibilityLabel}
+              paddingStyle={paddingStyle}
+              primaryAction={primaryAction}
+              selectedItemId={selectedItemId}
+              setCompression={setCompression}
             />
           </TapArea>
         ) : (
           <SideNavigationGroupContent
-            hovered={hovered}
-            focused={focused}
-            itemColor={itemColor}
-            expanded={isExpanded}
-            selectedItemId={selectedItemId}
-            itemId={itemId}
-            paddingStyle={paddingStyle}
-            icon={icon}
-            label={label}
             badge={badge}
-            notificationAccessibilityLabel={notificationAccessibilityLabel}
             counter={counter}
             display={display}
-            primaryAction={primaryAction}
-            setCompression={setCompression}
+            expanded={isExpanded}
+            focused={focused}
             hasActiveChild={hasAnyActiveChild}
+            hovered={hovered}
+            icon={icon}
+            itemColor={itemColor}
+            itemId={itemId}
+            label={label}
+            notificationAccessibilityLabel={notificationAccessibilityLabel}
+            paddingStyle={paddingStyle}
+            primaryAction={primaryAction}
+            selectedItemId={selectedItemId}
+            setCompression={setCompression}
           />
         )}
         {!collapsed && isExpanded ? (
-          <ul id={itemId} className={classnames(styles.ulItem)}>
+          <ul className={classnames(styles.ulItem)} id={itemId}>
             {navigationChildren}
           </ul>
         ) : null}

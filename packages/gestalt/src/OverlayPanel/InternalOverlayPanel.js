@@ -198,39 +198,40 @@ export default function InternalOverlayPanel({
         <div className={overlayPanelStyles.container}>
           <Backdrop closeOnOutsideClick={closeOnOutsideClick} onClick={handleBackdropClick}>
             <div
-              id={id}
               aria-label={accessibilityLabel}
               className={classnames(overlayPanelStyles.wrapper, focusStyles.hideOutline, {
                 [animation.slideInRtlInitialize]: animationState === ANIMATION_STATE.hidden,
                 [animation.animationInSide]: animationState === ANIMATION_STATE.animatedOpening,
                 [animation.animationOutSide]: animationState === ANIMATION_STATE.animatedClosing,
               })}
+              id={id}
               onAnimationEnd={handleOnAnimationEnd}
               role="dialog"
               style={{ width: SIZE_WIDTH_MAP[size] }}
               tabIndex={-1}
             >
-              <Box flex="grow" position="relative" display="flex" direction="column" width="100%">
+              <Box direction="column" display="flex" flex="grow" position="relative" width="100%">
                 {Boolean(heading) && (
                   <Box
-                    borderStyle={showTopShadow ? 'raisedTopShadow' : undefined}
-                    position="relative"
-                    fit
                     ref={dismissButtonRef}
+                    borderStyle={showTopShadow ? 'raisedTopShadow' : undefined}
+                    fit
+                    position="relative"
                   >
                     <Flex alignItems="center" flex="grow" justifyContent="between">
                       <Box
                         display="flex"
+                        flex="grow"
                         justifyContent="start"
                         padding={PADDING_BOINTS}
-                        flex="grow"
                       >
-                        <Heading size="500" accessibilityLevel={1}>
+                        <Heading accessibilityLevel={1} size="500">
                           {heading}
                         </Heading>
                       </Box>
                       <Box flex="none" paddingX={6} paddingY={7}>
                         <InternalDismissButton
+                          ref={dismissButtonRef}
                           accessibilityControls={id}
                           accessibilityLabel={
                             accessibilityDismissButtonLabel ??
@@ -238,7 +239,6 @@ export default function InternalOverlayPanel({
                           }
                           onClick={enabledDismiss ? onExternalDismiss : () => setShowPopover(true)}
                           size="md"
-                          ref={dismissButtonRef}
                         />
                       </Box>
                     </Flex>
@@ -255,13 +255,13 @@ export default function InternalOverlayPanel({
                       zIndex={new FixedZIndex(1)}
                     >
                       <InternalDismissButton
+                        ref={dismissButtonRef}
                         accessibilityControls={id}
                         accessibilityLabel={
                           accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault
                         }
                         onClick={enabledDismiss ? onExternalDismiss : () => setShowPopover(true)}
                         size="md"
-                        ref={dismissButtonRef}
                       />
                     </Box>
                   </Box>
@@ -270,9 +270,9 @@ export default function InternalOverlayPanel({
                   <InternalScrollBoundaryContainer includesFooter>
                     <ScrollBoundaryContainerProvider>
                       <InternalScrollBoundaryContainer
+                        ref={contentRef}
                         onScroll={updateShadows}
                         padding={PADDING_BOINTS}
-                        ref={contentRef}
                       >
                         {buildDismissableSubcomponent(children)}
                       </InternalScrollBoundaryContainer>
@@ -280,8 +280,8 @@ export default function InternalOverlayPanel({
                     {Boolean(footer) && (
                       <Box
                         borderStyle={showBottomShadow ? 'raisedBottomShadow' : undefined}
-                        position="relative"
                         fit
+                        position="relative"
                       >
                         <Box padding={PADDING_BOINTS}>{buildDismissableSubcomponent(footer)}</Box>
                       </Box>
@@ -293,13 +293,13 @@ export default function InternalOverlayPanel({
                   <ConfirmationPopover
                     anchor={dismissButtonRef.current}
                     message={message}
-                    subtext={subtext}
-                    primaryAction={primaryAction}
-                    secondaryAction={secondaryAction}
                     onDismiss={() => {
                       setShowPopover(false);
                       dismissButtonRef?.current?.focus();
                     }}
+                    primaryAction={primaryAction}
+                    secondaryAction={secondaryAction}
+                    subtext={subtext}
                   />
                 )}
               </Box>

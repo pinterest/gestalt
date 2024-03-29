@@ -6,15 +6,15 @@ export default function SearchFieldExample(): ReactNode {
   const [searchValue, setSearchValue] = useState('');
   const [lgValue, setLgValue] = useState('');
   return (
-    <Box height="100%" display="flex" alignItems="center" justifyContent="center" wrap>
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" wrap>
       <Box padding={8} width={350}>
         <Flex direction="column" flex="grow" gap={{ column: 4, row: 0 }}>
           <Text>Medium (md)</Text>
           <SearchField
-            accessibilityLabel=""
             accessibilityClearButtonLabel="Clear search field"
-            label="Search Messages"
+            accessibilityLabel=""
             id="searchMessagesMedium"
+            label="Search Messages"
             onChange={({ value }) => setSearchValue(value)}
             placeholder="Search by name"
             value={searchValue}
@@ -26,14 +26,14 @@ export default function SearchFieldExample(): ReactNode {
         <Flex direction="column" flex="grow" gap={{ column: 4, row: 0 }}>
           <Text>Large (lg)</Text>
           <SearchField
-            accessibilityLabel=""
             accessibilityClearButtonLabel="Clear search field"
-            label="Search Messages"
+            accessibilityLabel=""
             id="searchMessagesLarge"
+            label="Search Messages"
             onChange={({ value }) => setLgValue(value)}
             placeholder="Search by name"
-            value={lgValue}
             size="lg"
+            value={lgValue}
           />
         </Flex>
       </Box>

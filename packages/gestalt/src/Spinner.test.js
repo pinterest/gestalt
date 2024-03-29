@@ -18,7 +18,7 @@ test('Spinner renders when passed show', () => {
 });
 
 test('Spinner renders with no delay', () => {
-  const tree = create(<Spinner {...baseProps} show delay={false} />).toJSON();
+  const tree = create(<Spinner {...baseProps} delay={false} show />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

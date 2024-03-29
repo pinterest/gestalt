@@ -23,8 +23,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
         bannerSlimExperiment={
           <BannerSlimExperiment
             componentName="Popover"
@@ -32,6 +30,8 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             pullRequest={3244}
           />
         }
+        description={generatedDocGen?.description}
+        name={generatedDocGen?.displayName}
       >
         <SandpackExample code={main} hideEditor name="Main popover example" previewHeight={600} />
       </PageHeader>
@@ -40,23 +40,23 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - Providing additional information for related context without cluttering the surface of a workflow.
           - Accommodating a variety of features, such as Buttons, Images or SearchFields, that are not available in [Dropdown](/web/dropdown).
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - Displaying critical information that prevents users from accomplishing a task.
           - Displaying information out of context.
           - As a replacement for [Tooltip](/web/tooltip).
           - For presenting a list of actions or options. Use [Dropdown](/web/dropdown) instead.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -64,31 +64,30 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use Popover to display a lightweight task related to the content on screen."
             sandpackExample={
               <SandpackExample code={main} hideEditor name="Do - Lightweight" previewHeight={400} />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use Popover to communicate critical information, such as an error or interaction feedback. Instead, use the error supplied directly to the form element. See [related](#Related) to learn more."
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
-          title="Keyboard interaction"
           description={`
 - When Popover opens, focus moves to the first focusable element in the Popover container.
 - Popovers are also a focus trap, so users should only be able to interact with the content inside the Popover container.
 - Popover should always be dismissible using the ESC key. It could also be dismissed by interacting with another part of the screen, or by interacting with an element inside Popover.
 - When Popover is closed, focus returns to the anchor element that triggered Popover.
 `}
+          title="Keyboard interaction"
         />
         <MainSection.Subsection
-          title="ARIA attributes"
           description={`
 We recommend passing the following ARIA attribute to Popover for a better screen reader experience:
 
@@ -107,6 +106,7 @@ For the \`role\` prop, use:
 - 'listbox' if the Popover is a widget that allows the user to select one or more items (whose role is option) from a list. May also include a search option.
 - 'tooltip' if the Popover is a simple contextual text bubble that displays a description on a feature.
 `}
+          title="ARIA attributes"
         >
           <MainSection.Card
             cardSize="lg"
@@ -123,7 +123,6 @@ For the \`role\` prop, use:
       />
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Size"
           description={`
 The maximum width of Popover. Popover has different size configurations:
 - \`"xs"\`: 180px
@@ -136,15 +135,16 @@ The maximum width of Popover. Popover has different size configurations:
 
 We recommend using \`"xs\`" for education Popovers and \`"xl\`" for more complex Popovers. Avoid using other configurations whenever possible as they are legacy sizes.
       `}
+          title="Size"
         />
 
         <MainSection.Subsection
-          title="Anchor"
           description={`
 Popover requires a reference element, typically [Button](/web/button) or [IconButton](/web/iconbutton), to set its position. The \`anchor\` ref can be directly set on the reference component itself. If the components don’t support \`ref\`, the anchor ref can be set to a parent [Box](/web/box).
 
 Popover calculates its position based on the bounding box of the \`anchor\`. Therefore, the \`anchor\` ref should only include the trigger element itself, usually [Button](/web/button) or [IconButton](/web/iconbutton), or the specific feature component that requires an educational Popover.
 `}
+          title="Anchor"
         >
           <MainSection.Card
             cardSize="lg"
@@ -153,9 +153,9 @@ Popover calculates its position based on the bounding box of the \`anchor\`. The
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Dismiss button"
           description={` We highly recommend including a dismiss button on all Popovers with \`showDismissButton\`. This improves accessibility and gives users an immediate action for closing Popover. A label for the button can be provided with the \`accessibilityDismissButtonLabel\` prop. Don't forget to localize this label as well.
 `}
+          title="Dismiss button"
         >
           <MainSection.Card
             cardSize="lg"
@@ -166,69 +166,69 @@ Popover calculates its position based on the bounding box of the \`anchor\`. The
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="With Layer"
           description={`
 Popover is typically used within [Layer](/web/layer). Layer renders Popover outside the DOM hierarchy of the parent allowing it to overlay surrounding content. Popover calculates its position based on the bounding box of the \`anchor\`. Within Layer, Popover no longer shares a relative root with the \`anchor\` and requires \`positionRelativeToAnchor=false\` to properly calculate its position relative to the anchor element.
 
 Using \`Layer\` with Popover eliminates the need to use \`z-index\` to solve stacking context conflicts. Popovers within Modals and OverlayPanels with z-indexes don't require \`zIndex\` in \`Layer\` thanks to the built-in ScrollBoundaryContainer.
 `}
+          title="With Layer"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={variantLayer}
+                layout="column"
                 name="Variant - Layer"
                 previewHeight={800}
-                layout="column"
               />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Ideal direction"
           description={`
 Pass in \`idealDirection\` to specify the preferred position of Popover relative to the anchor, such as [Button](/web/button) or [IconButton](/web/iconbutton), that triggered it.
 
 Adjust the \`idealDirection\` as necessary to ensure the visibility of Popover and its contextual information. The default direction is "up", although Popover should be center-aligned directly below the element in most cases. The actual position may change given the available space around the anchor element.
 `}
+          title="Ideal direction"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={variantIdealDirection}
-                name="Variant - Ideal direction"
                 layout="column"
+                name="Variant - Ideal direction"
               />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Within scrolling containers"
           description={`
 [ScrollBoundaryContainer](/web/utilities/scrollboundarycontainer) is needed for proper positioning when Popover is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures Popover remains attached to its anchor when scrolling.
 `}
+          title="Within scrolling containers"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={variantScrollingContainers}
-                name="Variant - Scrolling containers"
                 layout="column"
+                name="Variant - Scrolling containers"
               />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Visibility on page load"
           description={`
 Popover's positioning algorithm requires that the anchor element renders before Popover is rendered. If Popover should be visible on page load, use \`useEffect\` to toggle the visibility after the first render.
 `}
+          title="Visibility on page load"
         >
           <MainSection.Card
             cardSize="lg"
@@ -242,22 +242,22 @@ Popover's positioning algorithm requires that the anchor element renders before 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description={`
 - Be clear and predictable so that people anticipate what will happen when they interact with an item.
 - Focus on the action by beginning with a verb.
 - Use succinct and scannable language.
 - Use sentence case while always capitalizing the word “Pin.”
 `}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description={`
 - Describe the interface element, like “button,” “icon” or “menu” in education messaging, unless it’s absolutely necessary for clarity.
 - Use words like “click” or “tap” in education messaging, if possible, or assume universal accessibility.
 - Use Popover to communicate critical information, such as an error or interaction feedback.
 `}
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>

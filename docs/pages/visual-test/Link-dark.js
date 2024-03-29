@@ -19,13 +19,13 @@ export default function Screenshot(): ReactNode {
               Business Help Center
             </Link>
           </Text>
-          <Text inline size="400" color="success">
+          <Text color="success" inline size="400">
             <Link
-              href="https://authy.com/download/"
               display="inlineBlock"
               externalLinkIcon={{ size: '400', color: 'success' }}
-              target="blank"
+              href="https://authy.com/download/"
               rel="nofollow"
+              target="blank"
             >
               MyBusiness.com
             </Link>{' '}

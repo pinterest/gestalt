@@ -55,9 +55,9 @@ export default function TableHeaderCell({
   return (
     <th
       className={cs}
-      scope={scope || 'col'}
       colSpan={colSpan}
       rowSpan={rowSpan}
+      scope={scope || 'col'}
       style={{
         left: shouldBeSticky ? previousTotalWidth : undefined,
         right: shouldBeSticky ? previousTotalWidth : undefined,

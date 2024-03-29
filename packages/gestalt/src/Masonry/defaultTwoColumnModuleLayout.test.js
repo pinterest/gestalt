@@ -388,7 +388,7 @@ describe('two column layout test cases', () => {
     const positionCache = new MeasurementStore<{ ... }, Position>();
     const heightsCache = new HeightsStore();
     const items = [
-      { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA', 'columnSpan': 2 },
+      { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
       { 'name': 'Pin 1', 'height': 201, 'color': '#F67076' },
       { 'name': 'Pin 2', 'height': 202, 'color': '#FAB032' },
       { 'name': 'Pin 3', 'height': 203, 'color': '#EDF21D' },
@@ -410,17 +410,149 @@ describe('two column layout test cases', () => {
       width: 1200,
     });
 
-    const positions = layout(items);
-    const orderedPositions = items.map((item) => positionCache.get(item));
+    let mockItems;
+    let twoColumnModuleIndex;
 
-    expect(positions.length).toEqual(items.length);
-    expect(orderedPositions).toEqual([
-      { height: 200, left: 99, top: 0, width: 494 },
-      { height: 201, left: 607, top: 0, width: 240 },
-      { height: 202, left: 861, top: 0, width: 240 },
-      { height: 203, left: 99, top: 214, width: 240 },
-      { height: 204, left: 353, top: 214, width: 240 },
-      { height: 205, left: 607, top: 215, width: 240 },
-    ]);
+    // Correct position when two column module is on the start of the batch
+    twoColumnModuleIndex = 0;
+    mockItems = [
+      ...items.slice(0, twoColumnModuleIndex),
+      { ...items[twoColumnModuleIndex], columnSpan: 2 },
+      ...items.slice(twoColumnModuleIndex + 1),
+    ];
+    mockItems.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+    layout(mockItems);
+    // First slot
+    expect(positionCache.get(mockItems[twoColumnModuleIndex])).toEqual({
+      height: 200,
+      left: 99,
+      top: 0,
+      width: 494,
+    });
+
+    // Correct position when two column module is at the middle of the batch and fits on the row
+    measurementStore.reset();
+    positionCache.reset();
+    heightsCache.reset();
+
+    twoColumnModuleIndex = 2;
+    mockItems = [
+      ...items.slice(0, twoColumnModuleIndex),
+      { ...items[twoColumnModuleIndex], columnSpan: 2 },
+      ...items.slice(twoColumnModuleIndex + 1),
+    ];
+    mockItems.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+    layout(mockItems);
+    // First row third position
+    expect(positionCache.get(mockItems[twoColumnModuleIndex])).toEqual({
+      height: 202,
+      left: 607,
+      top: 0,
+      width: 494,
+    });
+  });
+
+  test('fills in remaining columns in the first row when multi column item cannot fit', () => {
+    const measurementStore = new MeasurementStore<{ ... }, number>();
+    const positionCache = new MeasurementStore<{ ... }, Position>();
+    const heightsCache = new HeightsStore();
+    const items = [
+      { name: 'Pin 0', height: 250, color: '#E230BA' },
+      { name: 'Pin 1', height: 202, color: '#FAB032' },
+      { name: 'Pin 2', height: 210, color: '#EDF21D' },
+      { name: 'Pin 3', height: 300, color: '#CF4509' },
+      { name: 'Pin 4', height: 150, color: '#230BAF' },
+      { name: 'Pin 5', height: 500, color: '#67076F', columnSpan: 2 },
+      { name: 'Pin 6', height: 300, color: '#AB032E' },
+      { name: 'Pin 7', height: 310, color: '#DF21DC' },
+      { name: 'Pin 8', height: 280, color: '#F45098' },
+      { name: 'Pin 9', height: 170, color: '#F67076' },
+      { name: 'Pin 10', height: 220, color: '#67076F' },
+      { name: 'Pin 11', height: 280, color: '#AB032E' },
+      { name: 'Pin 12', height: 150, color: '#DF21DC' },
+      { name: 'Pin 13', height: 200, color: '#F45098' },
+      { name: 'Pin 14', height: 250, color: '#E230BA' },
+      { name: 'Pin 15', height: 300, color: '#FAB032' },
+    ];
+    items.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+
+    const columnWidth = 240;
+    const screenWidth = 1500;
+
+    const layout = defaultTwoColumnModuleLayout({
+      columnWidth,
+      gutter: 0,
+      measurementCache: measurementStore,
+      heightsCache,
+      justify: 'start',
+      minCols: 3,
+      positionCache,
+      rawItemCount: items.length,
+      width: screenWidth, // 6 rows
+    });
+    // perform single column layout first since we expect two column items on second page+ currently
+    layout(items);
+
+    // there should be 6 rows (1500 / 240)
+    // the first row items should be Pin 0, Pin 1, Pin 2, Pin 3, Pin 4, Pin 6
+    const columnCount = Math.floor(screenWidth / columnWidth);
+    const firstRowItems = items.filter((i) => !i.columnSpan).slice(0, columnCount);
+    const margin = (screenWidth - columnWidth * columnCount) / 2;
+    firstRowItems.forEach((item, i) => {
+      const position = positionCache.get(item);
+      expect(position?.top).toBe(0);
+      expect(position?.left).toBe(i * columnWidth + margin);
+    });
+  });
+
+  test('fills in remaining columns in the first row when multi column item cannot fit on small batch', () => {
+    const measurementStore = new MeasurementStore<{ ... }, number>();
+    const positionCache = new MeasurementStore<{ ... }, Position>();
+    const heightsCache = new HeightsStore();
+    const items = [
+      { name: 'Pin 0', height: 250, color: '#E230BA' },
+      { name: 'Pin 1', height: 202, color: '#FAB032' },
+      { name: 'Pin 2', height: 210, color: '#EDF21D' },
+      { name: 'Pin 3', height: 300, color: '#CF4509', columnSpan: 2 },
+      { name: 'Pin 4', height: 150, color: '#230BAF' },
+      { name: 'Pin 5', height: 500, color: '#67076F' },
+    ];
+    items.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+
+    const columnWidth = 240;
+    const screenWidth = 720;
+
+    const layout = defaultTwoColumnModuleLayout({
+      columnWidth,
+      gutter: 0,
+      measurementCache: measurementStore,
+      heightsCache,
+      justify: 'start',
+      minCols: 3,
+      positionCache,
+      rawItemCount: items.length,
+      width: screenWidth, // 3 rows
+    });
+
+    layout(items);
+
+    // there should be 3 rows (720 / 240)
+    // the first row items should be Pin 0, Pin 1, Pin 2
+    const columnCount = Math.floor(screenWidth / columnWidth);
+    const firstRowItems = items.filter((i) => !i.columnSpan).slice(0, columnCount);
+    const margin = (screenWidth - columnWidth * columnCount) / 2;
+    firstRowItems.forEach((item, i) => {
+      const position = positionCache.get(item);
+      expect(position?.top).toBe(0);
+      expect(position?.left).toBe(i * columnWidth + margin);
+    });
   });
 });

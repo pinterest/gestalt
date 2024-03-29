@@ -16,20 +16,18 @@ export default function Example(): ReactNode {
   ];
 
   return (
-    <Flex height="100%" width="100%" direction="column" gap={2}>
+    <Flex direction="column" gap={2} height="100%" width="100%">
       <ChartGraph
-        title="Average spend by region"
         accessibilityLabel="Example of chart with tooltip"
-        visualPatternSelected={visualPatternSelected}
-        onVisualPatternChange={() =>
-          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
-        }
         data={data}
         elements={[
           { type: 'bar', id: 'California' },
           { type: 'bar', id: 'Arizona' },
         ]}
-        type="bar"
+        modalZIndex={new FixedZIndex(11)}
+        onVisualPatternChange={() =>
+          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
+        }
         tickFormatter={{
           yAxisLeft: (value) => {
             if (value >= 1000000) return `${value / 1000000}m`;
@@ -41,7 +39,9 @@ export default function Example(): ReactNode {
               date,
             )} ${new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(date)}`,
         }}
-        modalZIndex={new FixedZIndex(11)}
+        title="Average spend by region"
+        type="bar"
+        visualPatternSelected={visualPatternSelected}
       />
     </Flex>
   );

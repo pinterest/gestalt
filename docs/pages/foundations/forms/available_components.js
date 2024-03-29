@@ -26,17 +26,17 @@ export default function DocsPage(): ReactNode {
 
       <MainSection name="Components">
         <MainSection.Subsection
-          title="TextField"
           description={`TextField is used for single lines of text. It also allows for other types of inputs like passwords and Tags.
 
 [Go to the TextField component](/web/textfield)`}
+          title="TextField"
         >
           <MainSection.Card
             sandpackExample={
               <SandpackExample
                 code={textfield}
-                name="TextField example"
                 hideEditor
+                name="TextField example"
                 previewHeight={SM_PREVIEW_HEIGHT}
               />
             }
@@ -44,17 +44,17 @@ export default function DocsPage(): ReactNode {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="TextArea"
           description={`TextArea is used for inputting longer, paragraph-length text. An example is asking users to write out their opinion of a feature.
 
 [Go to the TextArea component](/web/textarea)`}
+          title="TextArea"
         >
           <MainSection.Card
             sandpackExample={
               <SandpackExample
                 code={textarea}
-                name="TextArea example"
                 hideEditor
+                name="TextArea example"
                 previewHeight={SM_PREVIEW_HEIGHT}
               />
             }
@@ -62,17 +62,17 @@ export default function DocsPage(): ReactNode {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="NumberField"
           description={`NumberField allows for numerical input only.
 
 [Go to the NumberField component](/web/numberfield)`}
+          title="NumberField"
         >
           <MainSection.Card
             sandpackExample={
               <SandpackExample
                 code={numberfield}
-                name="NumberField example"
                 hideEditor
+                name="NumberField example"
                 previewHeight={SM_PREVIEW_HEIGHT}
               />
             }
@@ -80,17 +80,17 @@ export default function DocsPage(): ReactNode {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="ComboBox"
           description={`ComboBox is the combination of a Textfield and an associated Dropdown that allows the user to filter a list when selecting an option.
 
 [Go to the ComboBox component](/web/combobox)`}
+          title="ComboBox"
         >
           <MainSection.Card
             sandpackExample={
               <SandpackExample
                 code={combobox}
-                name="ComboBox example"
                 hideEditor
+                name="ComboBox example"
                 previewHeight={LG_PREVIEW_HEIGHT}
               />
             }
@@ -98,17 +98,17 @@ export default function DocsPage(): ReactNode {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="DatePicker"
           description={`DatePicker is used when the user has to select a date or date range..
 
 [Go to the DatePicker component](/web/datepicker)`}
+          title="DatePicker"
         >
           <MainSection.Card
             sandpackExample={
               <SandpackExample
                 code={datepicker}
-                name="DatePicker example"
                 hideEditor
+                name="DatePicker example"
                 previewHeight={XL_PREVIEW_HEIGHT}
               />
             }
@@ -116,17 +116,17 @@ export default function DocsPage(): ReactNode {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="SelectList"
           description={`SelectList displays a list of actions or options using the browser’s native select.
 
 [Go to the SelectList component](/web/selectlist)`}
+          title="SelectList"
         >
           <MainSection.Card
             sandpackExample={
               <SandpackExample
                 code={selectlist}
-                name="SelectList example"
                 hideEditor
+                name="SelectList example"
                 previewHeight={SM_PREVIEW_HEIGHT}
               />
             }
@@ -134,17 +134,17 @@ export default function DocsPage(): ReactNode {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="CheckBox"
           description={`SelCheckbox is used for multi-select.
 
 [Go to the CheckBox component](/web/checkbox)`}
+          title="CheckBox"
         >
           <MainSection.Card
             sandpackExample={
               <SandpackExample
                 code={checkbox}
-                name="CheckBox example"
                 hideEditor
+                name="CheckBox example"
                 previewHeight={SM_PREVIEW_HEIGHT}
               />
             }
@@ -152,17 +152,17 @@ export default function DocsPage(): ReactNode {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="RadioGroup"
           description={`RadioGroup is used for single-select.
 
 [Go to the RadioGroup component](/web/radiogroup)`}
+          title="RadioGroup"
         >
           <MainSection.Card
             sandpackExample={
               <SandpackExample
                 code={radiogroup}
-                name="RadioGroup example"
                 hideEditor
+                name="RadioGroup example"
                 previewHeight={MD_PREVIEW_HEIGHT}
               />
             }
@@ -170,17 +170,17 @@ export default function DocsPage(): ReactNode {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Fieldset"
           description={`Fieldset creates a fieldset and legend for a group of related form items, like CheckBoxes, in order to clearly indicate related form items.
 
 [Go to the Fieldset component](/web/fieldset)`}
+          title="Fieldset"
         >
           <MainSection.Card
             sandpackExample={
               <SandpackExample
                 code={fieldset}
-                name="FieldSet example"
                 hideEditor
+                name="FieldSet example"
                 previewHeight={MD_PREVIEW_HEIGHT}
               />
             }

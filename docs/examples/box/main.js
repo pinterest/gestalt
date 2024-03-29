@@ -4,11 +4,11 @@ import { Box, Flex } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex width="100%" height="100%" gap={4} wrap alignContent="center" justifyContent="center">
-      <Box rounding="circle" width={100} height={100} color="infoBase" />
-      <Box rounding={7} width={100} height={100} color="warningBase" />
-      <Box rounding={3} width={100} height={100} color="errorBase" />
-      <Box width={100} height={100} color="successBase" />
+    <Flex alignContent="center" gap={4} height="100%" justifyContent="center" width="100%" wrap>
+      <Box color="infoBase" height={100} rounding="circle" width={100} />
+      <Box color="warningBase" height={100} rounding={7} width={100} />
+      <Box color="errorBase" height={100} rounding={3} width={100} />
+      <Box color="successBase" height={100} width={100} />
     </Flex>
   );
 }

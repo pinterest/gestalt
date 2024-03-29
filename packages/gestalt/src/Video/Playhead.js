@@ -155,45 +155,45 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     const width = `${Math.floor((currentTime * 10000) / duration) / 100}%`;
 
     return (
-      <Box position="relative" height={16}>
+      <Box height={16} position="relative">
         <div
+          ref={this.setPlayheadRef}
           aria-label={accessibilityProgressBarLabel}
           aria-valuemax={duration}
           aria-valuemin="0"
           aria-valuenow={currentTime}
           className={styles.playhead}
           onClick={this.stopClick}
-          onKeyPress={this.stopClick}
           // onmouse events don't get correctly triggered on mobile
+          onKeyPress={this.stopClick}
           onMouseDown={this.handleMouseDown}
           onMouseLeave={this.handleMouseLeave}
           onMouseMove={this.handleMouseMove}
-          onMouseUp={this.handleMouseUp}
           // ontouch events handle scrubber on mobile
-          onTouchStart={this.handleMouseDown}
-          onTouchMove={this.handleMouseMove}
+          onMouseUp={this.handleMouseUp}
           onTouchEnd={this.handleMouseUp}
-          ref={this.setPlayheadRef}
+          onTouchMove={this.handleMouseMove}
+          onTouchStart={this.handleMouseDown}
           role="progressbar"
           tabIndex="-1"
         >
           <Box
-            left
-            right
-            position="absolute"
-            rounding={2}
-            height={4}
             color="secondary"
             display="flex"
+            height={4}
+            left
+            position="absolute"
+            right
+            rounding={2}
           >
-            <Box color="light" rounding={2} height="100%" width={width} />
+            <Box color="light" height="100%" rounding={2} width={width} />
             <Box
+              color="light"
+              dangerouslySetInlineStyle={{ __style: { marginTop: -6 } }}
+              height={16}
+              marginStart={-2}
               rounding="circle"
               width={16}
-              height={16}
-              color="light"
-              marginStart={-2}
-              dangerouslySetInlineStyle={{ __style: { marginTop: -6 } }}
             />
           </Box>
         </div>

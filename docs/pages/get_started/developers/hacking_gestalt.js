@@ -13,8 +13,8 @@ export default function DocsPage(): ReactNode {
   return (
     <Page title="How to hack around Gestalt">
       <PageHeader
-        name="How to hack around Gestalt"
         description="Guidelines for customizing Gestalt components."
+        name="How to hack around Gestalt"
         type="guidelines"
       />
 
@@ -30,7 +30,6 @@ export default function DocsPage(): ReactNode {
 
       <MainSection name="Creating new components">
         <MainSection.Subsection
-          title="Forking components"
           description={`
 When a Gestalt component doesn't quite match the desired design spec, a common idea is to fork the component: copy/paste the component's code into the target repo where it can be modified.
 **Pro:**
@@ -44,10 +43,10 @@ When a Gestalt component doesn't quite match the desired design spec, a common i
 
 **Alternative:** Chat with the Gestalt team about your needs and let's see how we can accommodate them. Often features that we don't support are for accessibility or other reasons — but we're happy to see how we can support you!
 `}
+          title="Forking components"
         />
 
         <MainSection.Subsection
-          title="Custom components"
           description={`
 Custom components can also be made from scratch, using native DOM elements and CSS/SCSS.
 **Pro:**
@@ -61,12 +60,12 @@ Custom components can also be made from scratch, using native DOM elements and C
 
 **Alternative:** Chat with the Gestalt team about your needs and let's see how we can accommodate them. If we can't officially support your needs, at least use Gestalt primitives (Box, TapArea, etc) when building your custom UI to ensure that your feature is accessible and fits in with the rest of the design system.
         `}
+          title="Custom components"
         />
       </MainSection>
 
       <MainSection name="Modifications to existing components">
         <MainSection.Subsection
-          title={`Box's dangerouslySetInlineStyle`}
           description={`
 [Box](/web/box) provides an "escape hatch" prop, \`dangerouslySetInlineStyle\`, allowing for styles to be set directly on the component. Similarly, [Icon](/web/icon), [IconButton](/web/iconbutton), and [Pog](/web/pog) provide the \`dangerouslySetSvgPath\` to allow for custom icons.
 
@@ -80,6 +79,7 @@ Custom components can also be made from scratch, using native DOM elements and C
 
 **Alternative:** When possible, stick to the styles available on Gestalt components natively. If you need to use a custom style, try to use the corresponding [design token](/foundations/design_tokens) instead of a hard-coded value. If your design calls for unsupported styles, please feel free to contact us to chat about design options.
 `}
+          title={`Box's dangerouslySetInlineStyle`}
         >
           <MainSection.Card
             sandpackExample={
@@ -92,7 +92,6 @@ Custom components can also be made from scratch, using native DOM elements and C
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Wrapping components"
           description={`
 Certain components have styles that can be overridden when wrapped by (or wrapped around) other components.
 
@@ -105,6 +104,7 @@ Certain components have styles that can be overridden when wrapped by (or wrappe
 
 **Alternative**: When possible, stick to the styles available on Gestalt components natively. If your design calls for unsupported styles, please feel free to contact us to chat about design options.
 `}
+          title="Wrapping components"
         >
           <MainSection.Card
             sandpackExample={
@@ -114,7 +114,6 @@ Certain components have styles that can be overridden when wrapped by (or wrappe
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Refs"
           description={`
 Components that accept refs (e.g. [Box](/web/box), [Button](/web/button), etc) can be customized by manipulating the referenced element.
 
@@ -129,12 +128,12 @@ Components that accept refs (e.g. [Box](/web/box), [Button](/web/button), etc) c
 
 **Alternative:** When possible, stick to the styles available on Gestalt components natively. If your design calls for unsupported styles, please feel free to contact us to chat about design options.
 `}
+          title="Refs"
         >
           <MainSection.Card sandpackExample={<SandpackExample code={ref} name="Ref Example" />} />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="CSS selectors"
           description={`
 It is possible to use CSS selectors to peer "under the hood" of Gestalt components and target the underlying DOM elements.
 **Pro:**
@@ -146,6 +145,7 @@ It is possible to use CSS selectors to peer "under the hood" of Gestalt componen
 
 **Alternative**: Absolutely anything — this is just about the worst way to hack Gestalt components. Your UI _will_ break in the future. Consider using a [ref](#Refs) if possible.
 `}
+          title="CSS selectors"
         />
       </MainSection>
     </Page>

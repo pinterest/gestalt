@@ -245,7 +245,7 @@ export default class MasonryContainer extends Component<Props<{ ... }>, State> {
             name,
             numberOfItems: until - from,
             previousItemCount: from,
-            randomNumberSeed: Math.random(),
+            randomNumberSeed: this.randomNumberSeed,
             pinHeightsSample,
             twoColItems: twoColItems && from > TWO_COL_MINDEX,
           })
@@ -289,7 +289,7 @@ export default class MasonryContainer extends Component<Props<{ ... }>, State> {
             name: undefined,
             numberOfItems: until - defaultFrom,
             previousItemCount: defaultFrom,
-            randomNumberSeed: Math.random(),
+            randomNumberSeed: this.randomNumberSeed,
             pinHeightsSample,
             twoColItems: twoColItems && defaultFrom > TWO_COL_MINDEX,
           })
@@ -312,7 +312,7 @@ export default class MasonryContainer extends Component<Props<{ ... }>, State> {
     itemIdx,
   }) => {
     const { expanded } = this.state;
-    return <ExampleGridItem expanded={expanded} data={data} itemIdx={itemIdx} />;
+    return <ExampleGridItem data={data} expanded={expanded} itemIdx={itemIdx} />;
   };
 
   render(): Element<'div'> {
@@ -400,10 +400,11 @@ export default class MasonryContainer extends Component<Props<{ ... }>, State> {
     const columnWidth = flexible ? 300 : 240;
 
     let gridWrapper = (
-      <div id="gridWrapper" className="gridCentered" style={gridStyle}>
+      <div className="gridCentered" id="gridWrapper" style={gridStyle}>
         <div id="top-sibling" />
         {mountGrid && (
           <MasonryComponent
+            ref={this.gridRef}
             _logTwoColWhitespace={
               logWhitespace
                 ? // eslint-disable-next-line no-console
@@ -417,7 +418,6 @@ export default class MasonryContainer extends Component<Props<{ ... }>, State> {
             layout={flexible ? 'flexible' : undefined}
             measurementStore={externalCache ? measurementStore : undefined}
             positionStore={externalCache ? positionStore : undefined}
-            ref={this.gridRef}
             renderItem={this.renderItem}
             virtualize={virtualize}
             {...dynamicGridProps}

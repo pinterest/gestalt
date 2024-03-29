@@ -19,36 +19,36 @@ export default function HeadingExample(): ReactNode {
 
   return (
     <Box padding={8}>
-      <Button text="View Modal" onClick={() => setShowComponent(true)} />
+      <Button onClick={() => setShowComponent(true)} text="View Modal" />
       {showComponent && (
         <Layer zIndex={modalZIndex}>
           <Modal
             accessibilityModalLabel="Create new board"
             align="start"
-            heading="Create board"
-            onDismiss={() => setShowComponent(false)}
             footer={
               <Flex alignItems="center" justifyContent="end">
                 <Button color="red" text="Create" />
               </Flex>
             }
+            heading="Create board"
+            onDismiss={() => setShowComponent(false)}
             size="sm"
           >
             <Fragment>
               <Box marginBottom={6}>
                 <TextField
                   id="name"
+                  label="Name"
                   onChange={() => {}}
                   placeholder='Like "Places to go" or "Recipes to Make"'
-                  label="Name"
                   type="text"
                 />
               </Box>
               <Checkbox
                 checked={false}
+                helperText="So only you and collaborators can see it."
                 id="secret"
                 label="Keep this board secret"
-                helperText="So only you and collaborators can see it."
                 name="languages"
                 onChange={() => {}}
               />

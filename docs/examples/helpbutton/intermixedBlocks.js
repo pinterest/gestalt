@@ -4,7 +4,7 @@ import { Box, Flex, HelpButton, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
+    <Flex alignItems="center" gap={1} height="100%" justifyContent="center">
       <Box width={300}>
         <Text inline>
           See the total impact of your paid and organic content working together to increase page

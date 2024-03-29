@@ -22,11 +22,11 @@ export default function Example(): ReactNode {
                 transform: 'translateX(-50%)',
               },
             }}
-            width="100%"
-            paddingX={1}
-            position="fixed"
             display="flex"
             justifyContent="center"
+            paddingX={1}
+            position="fixed"
+            width="100%"
           >
             <Toast
               primaryAction={{
@@ -41,8 +41,8 @@ export default function Example(): ReactNode {
                   Saved to{' '}
                   <Link
                     display="inlineBlock"
-                    target="blank"
                     href="https://www.pinterest.com/search/pins/?q=home%20decor"
+                    target="blank"
                   >
                     Home decor
                   </Link>

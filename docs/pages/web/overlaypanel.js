@@ -31,8 +31,6 @@ export default function SheetPage({
   return (
     <Page title={generatedDocGen?.OverlayPanel.displayName}>
       <PageHeader
-        name={generatedDocGen?.OverlayPanel.displayName}
-        description={generatedDocGen?.OverlayPanel.description}
         bannerSlimExperiment={
           <BannerSlimExperiment
             componentName="OverlayPanel"
@@ -40,11 +38,13 @@ export default function SheetPage({
             pullRequest={3244}
           />
         }
+        description={generatedDocGen?.OverlayPanel.description}
+        name={generatedDocGen?.OverlayPanel.displayName}
       >
         <SandpackExample
           code={defaultExample}
-          name="OverlayPanel Main Example"
           hideEditor
+          name="OverlayPanel Main Example"
           previewHeight={PREVIEW_HEIGHT}
         />
       </PageHeader>
@@ -55,23 +55,23 @@ export default function SheetPage({
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - Performing an optional sub-task within a larger task.
           - Quick bulk edits on info from a Table.
           - Presenting help info while maintaining the current page and its context.
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - Getting user confirmation on an action. Use a [Modal](/web/modal) instead.
           - Displaying system errors or notices. Consider a [BannerCallout](/web/bannercallout) instead.
           - Any time a separate, designated URL is desired.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -79,83 +79,83 @@ export default function SheetPage({
         <MainSection.Subsection>
           <MainSection.Card
             cardSize="lg"
-            showCode={false}
-            type="do"
             description="Use OverlayPanel for sub-tasks within a large workflow that are optional, like creating a new audience list while creating a campaign."
             sandpackExample={
               <SandpackExample
                 code={defaultExample}
-                name="Sub task example"
                 hideEditor
                 layout="column"
+                name="Sub task example"
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
+            showCode={false}
+            type="do"
           />
 
           <MainSection.Card
             cardSize="lg"
-            type="do"
             description="Use OverlayPanel for quick edits within libraries or tables of content where you expect users to be making multiple edits in one session."
             sandpackExample={
               <SandpackExample
                 code={quickEditsExample}
-                name="Sub task example"
-                hideEditor
                 hideControls
+                hideEditor
+                name="Sub task example"
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="lg"
-            type="do"
             description="Use the same size OverlayPanel on a product surface. For example, if filling out a form requires multiple OverlayPanels to be opened to complete different subtasks, then all OverlayPanels in that form should be the same width. When in doubt, pick the widest size needed for the entire flow."
+            type="do"
           />
         </MainSection.Subsection>
         <MainSection.Subsection>
           <MainSection.Card
             cardSize="lg"
-            type="don't"
             description="Use OverlayPanel for required tasks or main tasks, like logging in. Put those tasks within the content of the page instead."
+            type="don't"
           />
           <MainSection.Card
             cardSize="lg"
-            type="don't"
             description="Use OverlayPanel if edits or sub-tasks require more than two steps. Bring users to a full page experience or consider using [Accordions](/web/accordion) to section out content."
+            type="don't"
           />
           <MainSection.Card
             cardSize="lg"
-            type="don't"
             description="Use OverlayPanel to confirm actions or display alerts. Use a [Modal](/web/modal) or [Toast](/web/toast) instead."
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
       <AccessibilitySection name={generatedDocGen?.OverlayPanel.displayName}>
         <MainSection.Subsection
-          title="Labels"
           description={`
 - \`accessibilityDismissButtonLabel\`: provides a short, descriptive label for screen readers as a text alternative to the Dismiss button. Populates the \`aria-label\` attribute on the Dismiss button.
 - \`accessibilityLabel\`: provides a short, descriptive label for screen readers to contextualize the purpose of OverlayPanel. Please don’t repeat the same text being passed in the heading prop, but instead provide something that summarizes the OverlayPanel’s purpose. For instance, if the \`heading\` is "Pin Builder", the \`accessibilityLabel\` can be "Create a new Pin". Populates the \`aria-label\` attribute on the entire dialog.
 `}
+          title="Labels"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={defaultExample}
-                name="Accessibility example"
                 layout="column"
+                name="Accessibility example"
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Focus management"
           description={`
 When OverlayPanel opens, focus should be placed on the first interactive element within the OverlayPanel. When OverlayPanel is closed, focus should be placed back on the button that triggered the OverlayPanel.
 `}
+          title="Focus management"
         />
       </AccessibilitySection>
 
@@ -169,106 +169,105 @@ When OverlayPanel opens, focus should be placed on the first interactive element
 
       <MainSection name="Subcomponents">
         <MainSection.Subsection
-          title={generatedDocGen.DismissingElement?.displayName}
           description={generatedDocGen.DismissingElement?.description}
+          title={generatedDocGen.DismissingElement?.displayName}
         >
           <GeneratedPropTable
-            name={generatedDocGen.DismissingElement?.displayName}
-            id={generatedDocGen.DismissingElement?.displayName}
             generatedDocGen={generatedDocGen.DismissingElement}
+            id={generatedDocGen.DismissingElement?.displayName}
+            name={generatedDocGen.DismissingElement?.displayName}
           />
         </MainSection.Subsection>
       </MainSection>
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Heading"
           description={`As a default, OverlayPanel consists of a \`heading\` and content passed as \`children\`. The \`heading\` of OverlayPanel will have a drop shadow when content scrolls under it.`}
+          title="Heading"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={defaultExample}
-                name="Heading example"
                 layout="column"
+                name="Heading example"
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Sub-heading"
           description={`A \`subHeading\` is a container that can be used for additional navigation or sub-text. The sub-heading sits at the top under the heading, and will always remain visible if the content scrolls.`}
+          title="Sub-heading"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={subheadingExample}
-                name="Subheading example"
                 layout="column"
+                name="Subheading example"
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Footer"
           description={`The \`footer\` is used for OverlayPanel tasks that require additional actions, such as submitting or deleting information.`}
+          title="Footer"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={footerExample}
-                name="Footer example"
                 layout="column"
+                name="Footer example"
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Sizes"
           description={`
 OverlayPanel comes in 3 sizes: small (\`sm\`), medium (\`md\`), and large (\`lg\`).
 - Small OverlayPanels (540px) are primarily used for displaying information or acting as a point to link to other content. They are the least commonly used.
 - Medium OverlayPanels (720px) are the standard size offered for content.
 - Large OverlayPanels (900px) should be used in cases where there may be columns of content or navigation where the additional space is required to keep the content at a comfortable reading width.
 `}
+          title="Sizes"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={sizesExample}
-                name="Sizes example"
                 layout="column"
+                name="Sizes example"
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Preventing close on outside click"
           description={`
       By default, users can click outside OverlayPanel (on the overlay) to close it. This can be disabled by setting \`closeOnOutsideClick\` to false. This may be implemented in order to prevent users from accidentally clicking out of the OverlayPanel and losing information they’ve entered. The \`ESC\` key can still be used to close the OverlayPanel.`}
+          title="Preventing close on outside click"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={preventClosingExample}
-                name="Prevent closing example"
                 layout="column"
+                name="Prevent closing example"
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Animation"
           description={`
       By default, OverlayPanel animates *in*, with the initial render process from the entry-point, and *out*, when the \`ESC\` key is pressed, the header close button is pressed, or the user clicks outside of the OverlayPanel. However, to trigger the exit-animation from other elements in other areas such as the \`children\` or \`footer\`, the following render prop can be used:
       ~~~jsx
@@ -286,6 +285,7 @@ OverlayPanel comes in 3 sizes: small (\`sm\`), medium (\`md\`), and large (\`lg\
 
       OverlayPanel also provides \`onAnimationEnd\`, a callback that gets triggered at the end of each animation. The callback has access to \`animationState\` to identify the end of each 'in' and 'out' animation for cases where the two events trigger different responses.
       `}
+          title="Animation"
         >
           <BannerSlim
             iconAccessibilityLabel="Warning"
@@ -308,15 +308,14 @@ OverlayPanel comes in 3 sizes: small (\`sm\`), medium (\`md\`), and large (\`lg\
             sandpackExample={
               <SandpackExample
                 code={animationExample}
-                name="Animation example"
                 layout="column"
+                name="Animation example"
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Dismiss confirmation"
           description={`There are two ways OverlayPanel can be dismissed: internally-controlled and externally-controlled dismiss actions.
 
 The three internally-controlled or component-controlled dismiss actions are:
@@ -330,14 +329,15 @@ OverlayPanels can contain forms or be part of flows where the user is required t
 
 To prevent dismissing OverlayPanel involuntary, we can use \`dismissConfirmation\`. When provided, it will open a confirmation modal each time component-controlled dismiss actions are triggered.
 `}
+          title="Dismiss confirmation"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={confirmationExample}
-                name="Confirmation modal example"
                 layout="column"
+                name="Confirmation modal example"
                 previewHeight={PREVIEW_HEIGHT}
               />
             }

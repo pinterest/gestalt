@@ -32,7 +32,7 @@ export default function Example(): ReactNode {
       }}
     >
       <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
-        <Box paddingY={8} paddingX={8}>
+        <Box paddingX={8} paddingY={8}>
           <ComboBox
             accessibilityClearButtonLabel="Löscht den aktuellen Wert"
             errorMessage={errorMessage}

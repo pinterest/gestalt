@@ -9,7 +9,7 @@ export default function Example(): ReactNode {
     <SideNavigation
       accessibilityLabel="Header example"
       header={
-        <RadioGroup legend="Sort by?" id="example-header">
+        <RadioGroup id="example-header" legend="Sort by?">
           <Flex
             gap={{
               row: 2,
@@ -22,8 +22,8 @@ export default function Example(): ReactNode {
               label="Category"
               name="SortCategory"
               onChange={() => setOrganisedBy('categorized')}
-              value="categorized"
               size="sm"
+              value="categorized"
             />
             <RadioGroup.RadioButton
               checked={organisedBy === 'alphabetical'}
@@ -31,8 +31,8 @@ export default function Example(): ReactNode {
               label="Alphabetical"
               name="SortCAlphabetical"
               onChange={() => setOrganisedBy('alphabetical')}
-              value="alphabetical"
               size="sm"
+              value="alphabetical"
             />
           </Flex>
         </RadioGroup>
@@ -44,16 +44,16 @@ export default function Example(): ReactNode {
             <SideNavigation.TopItem href="#" label="PageHeader" />
             <SideNavigation.TopItem href="#" label="Tabs" />
             <SideNavigation.TopItem
+              badge={{ text: 'New', type: 'info' }}
               href="#"
               label="SideNavigation"
-              badge={{ text: 'New', type: 'info' }}
             />
           </SideNavigation.Section>
           <SideNavigation.Section label="Controls">
             <SideNavigation.TopItem
+              badge={{ text: 'Deprecated', type: 'warning' }}
               href="#"
               label="RadioButton"
-              badge={{ text: 'Deprecated', type: 'warning' }}
             />
             <SideNavigation.TopItem href="#" label="RadioGroup" />
           </SideNavigation.Section>
@@ -62,15 +62,15 @@ export default function Example(): ReactNode {
         <Fragment>
           <SideNavigation.TopItem href="#" label="PageHeader" />
           <SideNavigation.TopItem
+            badge={{ text: 'Deprecated', type: 'warning' }}
             href="#"
             label="RadioButton"
-            badge={{ text: 'Deprecated', type: 'warning' }}
           />
           <SideNavigation.TopItem href="#" label="RadioGroup" />
           <SideNavigation.TopItem
+            badge={{ text: 'New', type: 'info' }}
             href="#"
             label="SideNavigation"
-            badge={{ text: 'New', type: 'info' }}
           />
           <SideNavigation.TopItem href="/web/tabs" label="Tabs" />
         </Fragment>

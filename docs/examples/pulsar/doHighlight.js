@@ -11,7 +11,7 @@ export default function Example(): ReactNode {
   }, []);
 
   return (
-    <Flex justifyContent="center" height="100%" width="100%">
+    <Flex height="100%" justifyContent="center" width="100%">
       <Box dangerouslySetInlineStyle={{ __style: { marginTop: 80 } }} position="relative">
         <Button
           onClick={() => {
@@ -20,7 +20,7 @@ export default function Example(): ReactNode {
           text="Set goal"
         />
 
-        <Box ref={anchorRef} position="absolute" top marginTop={-9} marginStart={-3}>
+        <Box ref={anchorRef} marginStart={-3} marginTop={-9} position="absolute" top>
           <Pulsar paused={!showEducation} size={110} />
         </Box>
 
@@ -28,8 +28,8 @@ export default function Example(): ReactNode {
           <PopoverEducational
             anchor={anchorRef.current}
             idealDirection="down"
-            onDismiss={() => {}}
             message="Choose a goal metric and value that represent success for this campaign"
+            onDismiss={() => {}}
             primaryAction={{
               text: 'Got it',
               onClick: () => {

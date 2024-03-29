@@ -6,31 +6,31 @@ import PageHeader from '../../../../docs-components/PageHeader';
 
 export default function ComboGraphsPage(): ReactNode {
   return (
-    <Page title="Combo graphs" hideSideNav>
+    <Page hideSideNav title="Combo graphs">
       <PageHeader
-        name="Combo graphs"
-        type="guidelines"
         badge="comparisontrends"
         description={`Combo graphs combine a bar graph and a line graph. They are useful for seeing a trend over time while comparing values in a category.
 
 For a working example, see the [Combo](/web/chartgraph#Combo) variant in the ChartGraph component.
 `}
+        name="Combo graphs"
+        type="guidelines"
       />
       <Box maxWidth={892}>
         <BannerSlim
-          type="info"
           iconAccessibilityLabel="Info"
           message="Combo graph guidelines are still in development. More to come soon!"
+          type="info"
         />
       </Box>
       <Box
-        maxWidth={892}
-        maxHeight={300}
         borderStyle="sm"
-        overflow="hidden"
         color="light"
-        rounding={2}
         marginBottom={0}
+        maxHeight={300}
+        maxWidth={892}
+        overflow="hidden"
+        rounding={2}
       >
         <Image
           alt="An example of a combo graph."

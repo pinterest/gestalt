@@ -93,7 +93,7 @@ export default function CombinationNew({
         shadeColor={cardShadeColor}
         title={hideTitle ? undefined : combinationTitles}
       >
-        <Box position="absolute" top left bottom right>
+        <Box bottom left position="absolute" right top>
           {hasCheckerboard && <Checkerboard />}
         </Box>
         {children(combination, i)}
@@ -104,7 +104,7 @@ export default function CombinationNew({
   if (helixBot) return null;
 
   return (
-    <Flex wrap gap={4}>
+    <Flex gap={4} wrap>
       {CardArray}
     </Flex>
   );

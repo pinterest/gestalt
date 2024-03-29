@@ -26,23 +26,23 @@ export default function TableOfContentsAnchor({ label, active, href, onClick }: 
 
   return (
     <TapAreaLink
-      tapStyle="compress"
       href={href}
+      onBlur={handleOnBlur}
+      onFocus={handleOnFocus}
       onMouseEnter={handleOnMouseEnter}
       onMouseLeave={handleOnMouseLeave}
-      onFocus={handleOnFocus}
-      onBlur={handleOnBlur}
       onTap={onClick}
       rounding={2}
+      tapStyle="compress"
     >
       <Flex>
-        <Box minWidth={4} color={hasMarker ? markerColor : 'transparent'} rounding="pill" />
+        <Box color={hasMarker ? markerColor : 'transparent'} minWidth={4} rounding="pill" />
         <div
           className={classNames(styles.item, styles[`nestingIndentation${nestedLevel}`], {
             [styles.itemHover]: isHovered,
           })}
         >
-          <Text weight={active ? 'bold' : 'normal'} size={nestingFontSize}>
+          <Text size={nestingFontSize} weight={active ? 'bold' : 'normal'}>
             {label}
           </Text>
         </div>

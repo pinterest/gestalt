@@ -4,7 +4,7 @@ import { Badge, Box, Flex, Icon, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex width="100%" height="100%" justifyContent="center" alignItems="center">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Box padding={3} rounding={3}>
         <Flex alignItems="center" gap={3}>
           <Icon accessibilityLabel="Private" icon="lock" />

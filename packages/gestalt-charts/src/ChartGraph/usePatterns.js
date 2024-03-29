@@ -24,7 +24,7 @@ export default function usePatterns(): ReactNode {
     <defs>
       {/* Line series markers */}
       <g id="points-01">
-        <rect width="8" height="8" />
+        <rect height="8" width="8" />
       </g>
 
       <g id="points-02">
@@ -43,11 +43,11 @@ export default function usePatterns(): ReactNode {
       </g>
 
       <g id="points-05">
-        <rect width="6" height="6" transform="rotate(45)" />
+        <rect height="6" transform="rotate(45)" width="6" />
       </g>
 
       <g id="points-06">
-        <rect width="8" height="8" />
+        <rect height="8" width="8" />
       </g>
 
       <g id="points-07">
@@ -69,7 +69,7 @@ export default function usePatterns(): ReactNode {
       </g>
 
       <g id="points-10">
-        <rect width="6" height="6" transform="rotate(45)" />
+        <rect height="6" transform="rotate(45)" width="6" />
       </g>
 
       <g id="points-11">
@@ -85,125 +85,125 @@ export default function usePatterns(): ReactNode {
 
       {/* Bar pattern fills */}
 
-      <pattern id="pattern-01" width="4" height="4" patternUnits="userSpaceOnUse">
-        <rect width="4" height="4" fill={hexColor('01')} />
+      <pattern height="4" id="pattern-01" patternUnits="userSpaceOnUse" width="4">
+        <rect fill={hexColor('01')} height="4" width="4" />
       </pattern>
 
-      <pattern id="pattern-02" width="5" height="5" patternUnits="userSpaceOnUse">
-        <rect width="5" height="5" fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} />
-        <circle cx="2" cy="2" r="2" fill={hexColor('02')} />
+      <pattern height="5" id="pattern-02" patternUnits="userSpaceOnUse" width="5">
+        <rect fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} height="5" width="5" />
+        <circle cx="2" cy="2" fill={hexColor('02')} r="2" />
       </pattern>
 
-      <pattern id="pattern-03" width="3" height="3" patternUnits="userSpaceOnUse">
-        <rect width="3" height="3" fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} />
-        <rect width="2" height="2" fill={hexColor('03')} />
+      <pattern height="3" id="pattern-03" patternUnits="userSpaceOnUse" width="3">
+        <rect fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} height="3" width="3" />
+        <rect fill={hexColor('03')} height="2" width="2" />
       </pattern>
 
-      <pattern id="pattern-04" width="7" height="7" patternUnits="userSpaceOnUse">
-        <rect width="7" height="7" fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} />
+      <pattern height="7" id="pattern-04" patternUnits="userSpaceOnUse" width="7">
+        <rect fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} height="7" width="7" />
         <circle
           cx="3"
           cy="3"
-          r="2.5"
           fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0}
+          r="2.5"
           stroke={hexColor('04')}
           strokeWidth="1px"
         />
       </pattern>
 
-      <pattern id="pattern-05" width="8" height="8" patternUnits="userSpaceOnUse">
-        <rect x="0" width="8" height="8" y="0" fill={hexColor('05')} />
+      <pattern height="8" id="pattern-05" patternUnits="userSpaceOnUse" width="8">
+        <rect fill={hexColor('05')} height="8" width="8" x="0" y="0" />
         <path
           d="M 0 0 L 4 8 L 8 0"
+          fill="none"
           stroke={TOKEN_COLOR_WHITE_MOCHIMALIST_0}
           strokeWidth="1"
-          fill="none"
         />
       </pattern>
 
-      <pattern id="pattern-06" width="4" height="4" patternUnits="userSpaceOnUse">
+      <pattern height="4" id="pattern-06" patternUnits="userSpaceOnUse" width="4">
         <rect
-          width="4"
-          height="4"
           fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0}
+          height="4"
           stroke={hexColor('06')}
           strokeWidth="1px"
+          width="4"
         />
       </pattern>
 
       <pattern
+        height="8"
         id="pattern-07"
-        width="8"
-        height="8"
-        patternUnits="userSpaceOnUse"
         patternTransform="rotate(90)"
+        patternUnits="userSpaceOnUse"
+        width="8"
       >
-        <rect width="8" height="8" fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} />
-        <path d="M 0 0 L 4 8 L 8 0" stroke={hexColor('07')} strokeWidth="1" fill="none" />
+        <rect fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} height="8" width="8" />
+        <path d="M 0 0 L 4 8 L 8 0" fill="none" stroke={hexColor('07')} strokeWidth="1" />
       </pattern>
 
-      <pattern id="pattern-08" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
-        <rect width="8" height="8" fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} />
-        <rect x="0" width="4" height="4" y="0" fill={hexColor('08')} />
-        <rect x="4" width="4" height="4" y="4" fill={hexColor('08')} />
+      <pattern height="8" id="pattern-08" patternUnits="userSpaceOnUse" width="8" x="0" y="0">
+        <rect fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} height="8" width="8" />
+        <rect fill={hexColor('08')} height="4" width="4" x="0" y="0" />
+        <rect fill={hexColor('08')} height="4" width="4" x="4" y="4" />
       </pattern>
 
       <pattern
+        height="4"
         id="pattern-09"
-        width="4"
-        height="4"
-        patternUnits="userSpaceOnUse"
         patternTransform="rotate(90)"
+        patternUnits="userSpaceOnUse"
+        width="4"
       >
-        <rect width="4" height="4" fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} />
-        <rect width="2" height="4" fill={hexColor('09')} />
+        <rect fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} height="4" width="4" />
+        <rect fill={hexColor('09')} height="4" width="2" />
       </pattern>
 
       <pattern
+        height="8"
         id="pattern-10"
+        patternTransform="rotate(45)"
+        patternUnits="userSpaceOnUse"
+        width="8"
         x="0"
         y="0"
-        width="8"
-        height="8"
-        patternUnits="userSpaceOnUse"
-        patternTransform="rotate(45)"
       >
-        <rect width="8" height="8" fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} />
-        <rect x="0" width="5" height="5" y="0" fill={hexColor('10')} />
+        <rect fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} height="8" width="8" />
+        <rect fill={hexColor('10')} height="5" width="5" x="0" y="0" />
       </pattern>
 
       <pattern
+        height="4"
         id="pattern-11"
-        width="4"
-        height="4"
-        patternUnits="userSpaceOnUse"
         patternTransform="rotate(180)"
+        patternUnits="userSpaceOnUse"
+        width="4"
       >
-        <rect width="4" height="4" fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} />
-        <rect width="2" height="4" fill={hexColor('11')} />
+        <rect fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} height="4" width="4" />
+        <rect fill={hexColor('11')} height="4" width="2" />
       </pattern>
 
       <pattern
+        height="8"
         id="pattern-12"
+        patternTransform="rotate(45)"
+        patternUnits="userSpaceOnUse"
+        width="8"
         x="0"
         y="0"
-        width="8"
-        height="8"
-        patternUnits="userSpaceOnUse"
-        patternTransform="rotate(45)"
       >
-        <rect x="0" width="8" height="8" y="0" fill={hexColor('12')} />
-        <rect x="0" width="4" height="4" y="0" fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} />
+        <rect fill={hexColor('12')} height="8" width="8" x="0" y="0" />
+        <rect fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} height="4" width="4" x="0" y="0" />
       </pattern>
 
       <pattern
-        id="pattern-referencearea-01"
-        width="4"
         height="4"
-        patternUnits="userSpaceOnUse"
+        id="pattern-referencearea-01"
         patternTransform="rotate(45)"
+        patternUnits="userSpaceOnUse"
+        width="4"
       >
-        <rect width="2" height="4" fill={TOKEN_COLOR_BORDER_CONTAINER} />
+        <rect fill={TOKEN_COLOR_BORDER_CONTAINER} height="4" width="2" />
       </pattern>
     </defs>
   );

@@ -4,23 +4,23 @@ import { Box, Flex, Heading, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex direction="column" flex="grow" alignItems="center" height="100%" width="100%">
+    <Flex alignItems="center" direction="column" flex="grow" height="100%" width="100%">
       <Flex height="100%" width="100%">
         <Box
           as="nav"
-          title="as prop example nav"
-          column={6}
-          color="successBase"
-          width="100%"
-          padding={2}
           borderStyle="sm"
+          color="successBase"
+          column={6}
+          padding={2}
+          title="as prop example nav"
+          width="100%"
         >
           <Text color="light" weight="bold">
             Top Nav Menu: <code>as=&quot;nav&quot;</code>
           </Text>
         </Box>
-        <Box column={6} display="inlineBlock" borderStyle="sm">
-          <Box width="100%" padding={2}>
+        <Box borderStyle="sm" column={6} display="inlineBlock">
+          <Box padding={2} width="100%">
             <Text>
               HTML output:
               <br />
@@ -31,7 +31,7 @@ export default function Example(): ReactNode {
       </Flex>
 
       <Flex height="100%" width="100%">
-        <Box as="article" column={6} color="successBase" width="100%" padding={2} borderStyle="sm">
+        <Box as="article" borderStyle="sm" color="successBase" column={6} padding={2} width="100%">
           <Heading color="light" size="500">
             Article 1
           </Heading>
@@ -39,8 +39,8 @@ export default function Example(): ReactNode {
             Article: <code>as=&quot;article&quot;</code>
           </Text>
         </Box>
-        <Box column={6} display="inlineBlock" borderStyle="sm">
-          <Box width="100%" padding={2}>
+        <Box borderStyle="sm" column={6} display="inlineBlock">
+          <Box padding={2} width="100%">
             <Text>
               HTML output:
               <br />

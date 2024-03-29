@@ -19,18 +19,18 @@ export default function CustomIconButtonPopoverExample(): ReactNode {
 
   return (
     <Fragment>
-      <Flex justifyContent="center" width="100%" height="100%">
+      <Flex height="100%" justifyContent="center" width="100%">
         <Box margin={2}>
           <Button
-            accessibilityControls="tooltips-dropdown-example"
-            accessibilityHaspopup
-            accessibilityExpanded={open}
-            iconEnd="arrow-down"
-            text="Menu"
             ref={anchorRef}
+            accessibilityControls="tooltips-dropdown-example"
+            accessibilityExpanded={open}
+            accessibilityHaspopup
+            iconEnd="arrow-down"
+            onClick={() => setOpen((prevVal) => !prevVal)}
             selected={open}
             size="lg"
-            onClick={() => setOpen((prevVal) => !prevVal)}
+            text="Menu"
           />
         </Box>
       </Flex>
@@ -61,8 +61,8 @@ export default function CustomIconButtonPopoverExample(): ReactNode {
           <Dropdown.Link
             href="https://pinterest.com"
             isExternal
-            option={{ value: 'Report Pin', label: 'Report Pin' }}
             onClick={({ event }) => event.preventDefault()}
+            option={{ value: 'Report Pin', label: 'Report Pin' }}
           />
           <Dropdown.Item
             onSelect={onSelect}

@@ -6,15 +6,15 @@ export default function Example(): ReactNode {
   const [value, setValue] = useState('');
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Box width="100%">
         <TextArea
+          helperText="This text will be read aloud by screen readers"
           id="best-practices-do-helpertext"
           label="Explain what people can see in this Pin"
           onChange={(e) => {
             setValue(e.value);
           }}
-          helperText="This text will be read aloud by screen readers"
           value={value}
         />
       </Box>

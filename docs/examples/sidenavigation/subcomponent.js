@@ -10,9 +10,9 @@ export default function Example(): ReactNode {
       {someCondition && (
         <SideNavigation.TopItem
           href="#"
-          onClick={({ event }) => event.preventDefault()}
-          label="Trends"
           icon="ads-stats"
+          label="Trends"
+          onClick={({ event }) => event.preventDefault()}
         />
       )}
 
@@ -20,67 +20,67 @@ export default function Example(): ReactNode {
         {someCondition && (
           <SideNavigation.TopItem
             href="#"
-            onClick={({ event }) => event.preventDefault()}
-            label="Reporting"
             icon="ads-stats"
+            label="Reporting"
+            onClick={({ event }) => event.preventDefault()}
           />
         )}
         {someCondition && (
           <SideNavigation.TopItem
             href="#"
-            onClick={({ event }) => event.preventDefault()}
-            label="Conversions"
             icon="replace"
+            label="Conversions"
+            onClick={({ event }) => event.preventDefault()}
           />
         )}
       </SideNavigation.Section>
 
       <SideNavigation.Section label="Audiences">
-        <SideNavigation.Group label="Christmas" icon="people">
+        <SideNavigation.Group icon="people" label="Christmas">
           <SideNavigation.NestedItem
             href="#"
-            onClick={({ event }) => event.preventDefault()}
             label="Luxury Christmas"
+            onClick={({ event }) => event.preventDefault()}
           />
           <SideNavigation.NestedGroup label="Classic Christmas">
             <SideNavigation.NestedItem
               href="#"
-              onClick={({ event }) => event.preventDefault()}
               label="West Coast"
+              onClick={({ event }) => event.preventDefault()}
             />
             <SideNavigation.NestedItem
               href="#"
-              onClick={({ event }) => event.preventDefault()}
               label="East Coast"
+              onClick={({ event }) => event.preventDefault()}
             />
           </SideNavigation.NestedGroup>
 
           <SideNavigation.NestedGroup label="Alternative Christmas">
             {['West Coast', 'East Coast'].map((x) => (
               <SideNavigation.NestedItem
-                href="#"
                 key={`xmas${x}`}
-                onClick={({ event }) => event.preventDefault()}
+                href="#"
                 label={x}
+                onClick={({ event }) => event.preventDefault()}
               />
             ))}
             {['Southern', 'NorthEast'].map((x) => (
               <SideNavigation.NestedItem
-                href="#"
                 key={`xmas${x}`}
-                onClick={({ event }) => event.preventDefault()}
+                href="#"
                 label={x}
+                onClick={({ event }) => event.preventDefault()}
               />
             ))}
           </SideNavigation.NestedGroup>
         </SideNavigation.Group>
-        <SideNavigation.Group label="Halloween" icon="people">
+        <SideNavigation.Group icon="people" label="Halloween">
           {['West Coast', 'East Coast'].map((x) => (
             <SideNavigation.NestedItem
-              href="#"
               key={`halloween${x}`}
-              onClick={({ event }) => event.preventDefault()}
+              href="#"
               label={x}
+              onClick={({ event }) => event.preventDefault()}
             />
           ))}
         </SideNavigation.Group>

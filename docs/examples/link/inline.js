@@ -13,7 +13,7 @@ function TextExample({
     <Box borderStyle="sm" maxWidth={maxWidth} padding={2} rounding={2}>
       <Text>
         To stop seeing content from an advertiser,{' '}
-        <Text weight="bold" inline>
+        <Text inline weight="bold">
           <Link display={linkDisplay} href="/">
             learn how to block accounts.
           </Link>

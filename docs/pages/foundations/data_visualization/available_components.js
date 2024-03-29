@@ -15,50 +15,50 @@ export default function DocsPage(): ReactNode {
 
       <MainSection name="Components">
         <MainSection.Subsection
-          title="ChartGraph"
           description={`ChartGraph is used for displaying various types of graphs plotted on an x and y axis. It makes it easier to identify and understand patterns over time across different categories, enabling people to make informed decisions quickly.
 
 [Go to the ChartGraph component](/web/chartgraph)`}
+          title="ChartGraph"
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample code={chartgraph} name="ChartGraph example" hideEditor />
+              <SandpackExample code={chartgraph} hideEditor name="ChartGraph example" />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="TileData"
           description={`TileData enables users to select a multiple categories to compare with each other in a graph or chart view, while still being able to see all of the data points.
 
 [Go to the TileData component](/web/tiledata)`}
+          title="TileData"
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={tiledata} name="TileData example" hideEditor />}
+            sandpackExample={<SandpackExample code={tiledata} hideEditor name="TileData example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Datapoint"
           description={`Datapoint displays at-a-glance data for a user to quickly view key metrics.
 
 [Go to the Datapoint component](/web/datapoint)`}
+          title="Datapoint"
         >
           <Box
-            maxWidth={960}
-            maxHeight={204}
-            borderStyle="sm"
-            rounding={2}
-            padding={6}
-            color="light"
-            marginBottom={8}
             alignContent="center"
+            borderStyle="sm"
+            color="light"
             justifyContent="center"
+            marginBottom={8}
+            maxHeight={204}
+            maxWidth={960}
+            padding={6}
+            rounding={2}
             smPadding={4}
           >
             <Image
-              src="https://github.com/pinterest/gestalt/assets/96082362/c9c06e33-82f7-4112-8f65-514158a4aba5"
-              naturalWidth={1800}
-              naturalHeight={384}
               alt="Datapoint showing total number of impressions, a positive trend and an info icon."
+              naturalHeight={384}
+              naturalWidth={1800}
+              src="https://github.com/pinterest/gestalt/assets/96082362/c9c06e33-82f7-4112-8f65-514158a4aba5"
             />
           </Box>
         </MainSection.Subsection>

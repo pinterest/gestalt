@@ -30,36 +30,36 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
+        name={generatedDocGen?.displayName}
         pdocsLink
       >
-        <SandpackExample code={main} name="IconButton example" hideEditor />
+        <SandpackExample code={main} hideEditor name="IconButton example" />
       </PageHeader>
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
 - Interface space is limited. Prioritize using a [Button](/web/button) if space is available.
 - Triggering a [Modal](/web/modal) to complete a related task.
 - Creating visual separation of actions in text-heavy content.
 - Lower-emphasis actions that don't impede users from completing a task.
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
 - Displaying icons that don't have actions associated with them. Use an [Icon](/web/icon) instead.
 - Displaying multiple IconButtons on a surface that uses the same icon for different actions.
 - Text is better suited to convey the action and/or the icon isn't quickly recognizable by users.
 - Destructive, high-emphasis actions, e.g "delete", "remove".
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -67,67 +67,66 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use IconButton to perform low-emphasis actions, such as opening a [Modal](/web/modal) to edit a board."
             sandpackExample={
-              <SandpackExample code={lowActions} name="Low-emphasis action example" hideEditor />
+              <SandpackExample code={lowActions} hideEditor name="Low-emphasis action example" />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Pair IconButton with a regular button to perform a high-emphasis action. IconButton should be a secondary action among regular buttons."
             sandpackExample={
               <SandpackExample
                 code={highActions}
-                name="High-emphasis action example"
-                hideEditor
                 hideControls
+                hideEditor
+                name="High-emphasis action example"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description='Consider grouping multiple actions in an "ellipsis" IconButton to avoid distraction with an overload of icons.'
-            sandpackExample={<SandpackExample code={grouping} name="Grouping example" hideEditor />}
+            sandpackExample={<SandpackExample code={grouping} hideEditor name="Grouping example" />}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Display more than 4 icon buttons in a single row as it can cause cognitive load and usability issues."
             sandpackExample={
-              <SandpackExample code={noGrouping} name="No Grouping example" hideEditor />
+              <SandpackExample code={noGrouping} hideEditor name="No Grouping example" />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Display a [Tooltip](/web/tooltip) in conjunction with IconButton to provide context when the icon alone would be insufficient to convey the purpose of the button."
-            sandpackExample={<SandpackExample code={tooltip} name="Tooltip example" hideEditor />}
+            sandpackExample={<SandpackExample code={tooltip} hideEditor name="Tooltip example" />}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Add an IconButton on top of images unless it has a background that ensures easy readability and accessible contrast. Check the [background color](#Color) variant to learn more."
             sandpackExample={
               <SandpackExample
                 code={image}
-                name="IconButton over image example"
-                hideEditor
                 hideControls
+                hideEditor
+                name="IconButton over image example"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
-          title="ARIA attributes"
           description={`
 IconButton conveys the component behavior using iconography. IconButton requires \`accessibilityLabel\`, a text description for screen readers to announce and communicate the represented [Icon](/web/icon). In the example below, the screen reader reads: "Create Pin menu". **The label should describe the intent of the action, not the Icon itself.** For example, use "Edit board" instead of "Pencil".
 
@@ -137,18 +136,19 @@ If IconButton is used as a control button to show/hide a Popover-based component
 - \`accessibilityHaspopup\`: informs the screen reader that there’s a Popover-based component attached to IconButton. It populates [aria-haspopup](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
 - \`accessibilityExpanded\`: informs the screen reader whether an anchored Popover-based component is currently open or closed. It populates [aria-expanded](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
 `}
+          title="ARIA attributes"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={<SandpackExample code={aria} name="ARIA attributes example" />}
           />
           <MainSection.Subsection
-            title="Keyboard interaction"
             description={`
 The default behaviour for IconButton is to be focusable in sequential keyboard navigation in the order defined by the document's source order.
 
 Use \`tabIndex\` to remove IconButton from the sequential keyboard navigation to improve accessibility. The example below shows a common use case when two consecutive and visually different elements perform the same action. One of them, in this case IconButton, can be removed from keyboard navigation to prevent screen readers from announcing the same interaction twice.
 If IconButton is disabled, it's also unreachable from keyboard navigation.`}
+            title="Keyboard interaction"
           />
           <MainSection.Card
             cardSize="lg"
@@ -161,7 +161,6 @@ If IconButton is disabled, it's also unreachable from keyboard navigation.`}
       <LocalizationSection name={generatedDocGen?.displayName} noDefaultLabelProvider />
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Size"
           description={`IconButton is available in 5 fixed sizes:
 
 1. \`xl\` (56px)
@@ -176,6 +175,7 @@ If IconButton is disabled, it's also unreachable from keyboard navigation.`}
     Use sparingly and only in places where the UI is very dense or has a case for an extra-small IconButton as they can be hard to see for people with visual impairments.
 
 Use padding sparingly. The padding options are 1-5, which represents the padding in increments of 4 pixels (2 = 8px padding). Combine the \`padding\` with \`size\` options for custom icon/button size ratios. If omitted, padding is derived from the default padding for each \`size\` prop.`}
+          title="Size"
         >
           <CombinationNew size={['xl', 'lg', 'md', 'sm', 'xs']}>
             {({ size }) => (
@@ -190,7 +190,6 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
           </CombinationNew>
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Icon color"
           description={`IconButton can be presented in combinations of icon and background colors. In the absence of combinations, for each \`iconColor\` or \`bgColor\` value, a default paired value is assigned.
 
 Follow these guidelines for \`iconColor\`
@@ -202,6 +201,7 @@ Follow these guidelines for \`iconColor\`
 5. Brand primary ("brandPrimary"). Used to represent the Pinterest brand.
 
 `}
+          title="Icon color"
         >
           <CombinationNew iconColor={['red', 'darkGray', 'gray', 'white', 'brandPrimary']}>
             {({ iconColor }) => (
@@ -215,7 +215,6 @@ Follow these guidelines for \`iconColor\`
           </CombinationNew>
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Background color"
           description={`IconButton can be presented in combinations of icon and background colors. In the absence of combinations, for each \`iconColor\` or \`bgColor\` value, a default paired value is assigned.
 
 Follow these guidelines for \`bgColor\`
@@ -227,6 +226,7 @@ Follow these guidelines for \`bgColor\`
 5. White ("white"). Used when there is a need of an IconButton over an image or colored background to provide better contrast and visibility.
 6. Transparent ("transparent"). Used when there is a need to have an IconButton over an image without a background.
 `}
+          title="Background color"
         >
           <CombinationNew
             bgColor={['red', 'lightGray', 'transparentDarkGray', 'gray', 'white', 'transparent']}
@@ -242,10 +242,10 @@ Follow these guidelines for \`bgColor\`
           </CombinationNew>
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="With Tooltip"
           description={`
             By specifying the \`tooltip\` property, a [Tooltip](/web/tooltip) will automatically be triggered when IconButton is hovered or focused. If the Tooltip \`text\` does not provide more information than the IconButton \`accessibilityLabel\`, set the tooltip prop's \`accessibilityLabel\` to an empty string, as seen below in the Edit example.
           `}
+          title="With Tooltip"
         >
           <MainSection.Card
             cardSize="md"
@@ -255,24 +255,24 @@ Follow these guidelines for \`bgColor\`
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Custom icon"
           columns={2}
           description="IconButton accepts both Gestalt [Icons](/web/icon) and custom icons, as shown in the second example. For custom icons, follow our [custom SVG icons](/foundations/iconography/library#Custom-SVG-icons) guidelines."
+          title="Custom icon"
         >
           <MainSection.Card
             cardSize="lg"
-            title="Built-in icon"
             sandpackExample={<SandpackExample code={gestaltIcon} name="Gestalt icon example" />}
+            title="Built-in icon"
           />
           <MainSection.Card
             cardSize="lg"
-            title="Custom SVG icon"
             sandpackExample={<SandpackExample code={customIcon} name="Custom icon example" />}
+            title="Custom SVG icon"
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Selected state"
           description={`IconButton has a \`selected\` state to visually indicate that the element is selected, open, and/or active. If the selected state  controls the display of a Popover-based component (open/closed), use \`accessibilityExpanded\` to inform screen reader users. See the [Accessibility](#Keyboard-interaction) guidelines to learn more.`}
+          title="Selected state"
         >
           <MainSection.Card
             cardSize="lg"
@@ -281,23 +281,23 @@ Follow these guidelines for \`bgColor\`
         </MainSection.Subsection>
       </MainSection>
       <MainSection
-        name="Writing"
         description="When pairing IconButton with [Tooltip](/web/tooltip), refer to the Tooltip component for writing guidelines.
 
 "
+        name="Writing"
       >
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description={`
 - Use a descriptive label to describe the IconButton action by beginning with a verb.
 `}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description={`Use the words "image" or "icon" in the description label; instead, prefer to use verbs that describe the action, e.g. "Save" or "Edit".`}
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>

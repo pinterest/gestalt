@@ -40,9 +40,9 @@ export default function FormHelperTextCounter({ currentLength, maxLength }: Prop
     <Fragment>
       {/* This hidden container is used to calculate the width of the character tracker and prevent spacing changes on each input value changes */}
       <Box
-        position="absolute"
-        dangerouslySetInlineStyle={{ __style: { visibility: 'hidden' } }}
         ref={ref}
+        dangerouslySetInlineStyle={{ __style: { visibility: 'hidden' } }}
+        position="absolute"
       >
         <Text color="subtle" size="100">
           {`${maxLengthChars}/${maxLengthChars}`}
@@ -56,14 +56,14 @@ export default function FormHelperTextCounter({ currentLength, maxLength }: Prop
               {maxLength?.errorAccessibilityLabel}
             </Box>
             <Box aria-hidden>
-              <Status type={status} accessibilityLabel="" />
+              <Status accessibilityLabel="" type={status} />
             </Box>
           </Fragment>
         ) : (
           <Box width={16} />
         )}
-        <Flex width={width} justifyContent="end">
-          <Text color={maxLengthReached ? textColor : 'subtle'} size="100" align="end">
+        <Flex justifyContent="end" width={width}>
+          <Text align="end" color={maxLengthReached ? textColor : 'subtle'} size="100">
             <Box display="visuallyHidden">,</Box>
             {`${currentLength?.toString() ?? ''}/${maxLengthChars}`}
           </Text>

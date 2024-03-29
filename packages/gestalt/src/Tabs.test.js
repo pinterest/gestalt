@@ -43,12 +43,12 @@ describe('<Tabs />', () => {
   test('matches snapshot with default props', () => {
     const tree = create(
       <Tabs
+        activeTabIndex={0}
+        onChange={() => {}}
         tabs={[
           { text: 'News', href: '#' },
           { text: 'You', href: '#' },
         ]}
-        activeTabIndex={0}
-        onChange={() => {}}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -57,12 +57,12 @@ describe('<Tabs />', () => {
   test('matches snapshot with wrap', () => {
     const tree = create(
       <Tabs
+        activeTabIndex={0}
+        onChange={() => {}}
         tabs={[
           { text: 'News', href: '#' },
           { text: 'You', href: '#' },
         ]}
-        activeTabIndex={0}
-        onChange={() => {}}
         wrap
       />,
     ).toJSON();
@@ -72,12 +72,12 @@ describe('<Tabs />', () => {
   test('matches snapshot with dot indicators', () => {
     const tree = create(
       <Tabs
+        activeTabIndex={0}
+        onChange={() => {}}
         tabs={[
           { text: 'News', href: '#', indicator: 'dot' },
           { text: 'You', href: '#', indicator: 'dot' },
         ]}
-        activeTabIndex={0}
-        onChange={() => {}}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();

@@ -20,28 +20,28 @@ import variantLabel from '../../examples/switch/variantLabel';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample code={main} name="Primary Switch example" hideEditor previewHeight={150} />
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
+        <SandpackExample code={main} hideEditor name="Primary Switch example" previewHeight={150} />
       </PageHeader>
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - For a binary option that can be either active or inactive.
           - Typically used on mobile, where toggling the Switch takes immediate effect.
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - Choosing between related options. Each Switch should be considered a solitary, standalone option. For multiple, related choices, use [Checkboxes](/web/checkbox) or [RadioGroup](/web/radiogroup) instead.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -49,53 +49,52 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use a label to give Switch context when possible."
-            sandpackExample={<SandpackExample code={doLabel} name="Do - label" hideEditor />}
+            sandpackExample={<SandpackExample code={doLabel} hideEditor name="Do - label" />}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Truncate label text. Instead, allow it to wrap to form another line."
             sandpackExample={
               <SandpackExample
                 code={dontTruncate}
-                name="Don't - Truncate"
                 hideControls
                 hideEditor
+                name="Don't - Truncate"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Communicate why a switch is disabled and how to enable it if possible."
-            sandpackExample={<SandpackExample code={doDisabled} name="Do - Disabled" hideEditor />}
+            sandpackExample={<SandpackExample code={doDisabled} hideEditor name="Do - Disabled" />}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use alternative styling to represent the functionality of a switch. Use Switch instead."
             sandpackExample={
               <SandpackExample
                 code={dontAlternative}
-                name="Don't - Alternative"
                 hideControls
                 hideEditor
+                name="Don't - Alternative"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
       <AccessibilitySection
-        name={generatedDocGen.displayName}
         description={`Switches should have [Labels](https://github.com/Label) that can be read by screen readers, and that can be clicked or tapped to make it easier for users to select and deselect. Make sure Label has an \`htmlFor\` prop that matches the \`id\` on the Switch. Test that the Switch and Label are properly connected by clicking or tapping on the label and confirming that it activates the Switch next to it.`}
+        name={generatedDocGen.displayName}
       >
         <MainSection.Subsection
-          title="Keyboard navigation"
           columns={2}
           description={`
     Switch has conventional keyboard support.
@@ -103,6 +102,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
     - Setting \`disabled\` will prevent Switch from receiving keyboard focus or input.
     - Once focused, the Space key toggles the Switch.
 `}
+          title="Keyboard navigation"
         />
       </AccessibilitySection>
 
@@ -114,9 +114,9 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="With a label"
           description={`
         Whenever using Switch, always use a [Label](/web/label) with it to make your component accessible.`}
+          title="With a label"
         >
           <MainSection.Card
             sandpackExample={<SandpackExample code={variantLabel} name="Variant - With a label" />}
@@ -127,8 +127,8 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             sandpackExample={
               <SandpackExample
                 code={variantCombinations}
-                name="Variant - Disabled and switched combinations"
                 layout="column"
+                name="Variant - Disabled and switched combinations"
               />
             }
           />
@@ -138,21 +138,21 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description={`
 - Be clear and brief with Switch labels so they can be easily understood.
 - When possible, use verbs to clarify the action. Something like “set…” or “show…”.
 - If possible, be clear whether the setting is activated or deactivated.
 - Use sentence case for labels.
 `}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description={`
 - Use vague language out of context, like “turn on” or “turn off” repeating the state of the switch is redundant and can clutter the interface.
 - Don’t use “you,” “your,” or “my” to describe an action. Instead describe switches objectively.
 `}
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>

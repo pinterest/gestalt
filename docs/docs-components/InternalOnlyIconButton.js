@@ -10,9 +10,9 @@ export default function InternalOnlyIconButton({ size = 'xs' }: Props): ReactNod
   return (
     <IconButton
       accessibilityLabel="Internal only"
-      size={size}
       icon="lock"
       padding={1}
+      size={size}
       tooltip={{
         text: 'Access is restricted to Pinterest employees.',
         inline: true,

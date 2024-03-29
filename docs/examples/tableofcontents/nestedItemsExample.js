@@ -6,16 +6,16 @@ export default function Example(): ReactNode {
   const { hash } = window.location;
 
   return (
-    <Box padding={8} display="flex" justifyContent="center">
+    <Box display="flex" justifyContent="center" padding={8}>
       <TableOfContents title="Title">
-        <TableOfContents.Item label="Level 1" href="#level-1" active={hash === '#level-1'}>
-          <TableOfContents.Item label="Level 2" href="#level-2" active={hash === '#level-2'}>
-            <TableOfContents.Item label="Level 3" href="#level-3" active={hash === '#level-3'}>
-              <TableOfContents.Item label="Level 4" href="#level-4" active={hash === '#level-4'}>
+        <TableOfContents.Item active={hash === '#level-1'} href="#level-1" label="Level 1">
+          <TableOfContents.Item active={hash === '#level-2'} href="#level-2" label="Level 2">
+            <TableOfContents.Item active={hash === '#level-3'} href="#level-3" label="Level 3">
+              <TableOfContents.Item active={hash === '#level-4'} href="#level-4" label="Level 4">
                 <TableOfContents.Item
-                  label="Level 5"
-                  href="#level-5"
                   active={hash === '#level-5'}
+                  href="#level-5"
+                  label="Level 5"
                 />
               </TableOfContents.Item>
             </TableOfContents.Item>

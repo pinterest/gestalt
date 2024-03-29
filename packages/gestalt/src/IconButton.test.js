@@ -5,7 +5,7 @@ import IconButton from './IconButton';
 describe('IconButton', () => {
   it('accessibilityControls', () => {
     const instance = create(
-      <IconButton accessibilityLabel="" accessibilityControls="another-element" />,
+      <IconButton accessibilityControls="another-element" accessibilityLabel="" />,
     ).root;
     expect(instance.find((element) => element.type === 'button').props['aria-controls']).toContain(
       'another-element',
@@ -13,12 +13,12 @@ describe('IconButton', () => {
   });
 
   it('accessibilityExpanded', () => {
-    const instance = create(<IconButton accessibilityLabel="" accessibilityExpanded />).root;
+    const instance = create(<IconButton accessibilityExpanded accessibilityLabel="" />).root;
     expect(instance.find((element) => element.type === 'button').props['aria-expanded']).toBe(true);
   });
 
   it('accessibilityHaspopup', () => {
-    const instance = create(<IconButton accessibilityLabel="" accessibilityHaspopup />).root;
+    const instance = create(<IconButton accessibilityHaspopup accessibilityLabel="" />).root;
     expect(instance.find((element) => element.type === 'button').props['aria-haspopup']).toBe(true);
   });
 

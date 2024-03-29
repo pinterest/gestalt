@@ -4,8 +4,8 @@ import { Accordion, Box, Flex, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Flex direction="column" gap={{ column: 2, row: 0 }} maxWidth={800} flex="grow">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Flex direction="column" flex="grow" gap={{ column: 2, row: 0 }} maxWidth={800}>
         <Accordion id="accordionExample - default - 1">
           <Text size="200">This is example content.</Text>
         </Accordion>

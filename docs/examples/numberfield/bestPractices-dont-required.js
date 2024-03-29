@@ -18,8 +18,8 @@ export default function Example(): ReactNode {
       alignItems="center"
       direction="column"
       gap={3}
-      justifyContent="center"
       height="100%"
+      justifyContent="center"
       width="100%"
     >
       <NumberField

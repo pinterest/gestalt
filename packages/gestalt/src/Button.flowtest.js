@@ -5,7 +5,7 @@ const ValidDefaultButtonType = <Button text="Next" />;
 
 const NonExistingProp = (
   // $FlowExpectedError[prop-missing]
-  <Button text="Next" nonexisting={33} />
+  <Button nonexisting={33} text="Next" />
 );
 
 // $FlowExpectedError[prop-missing]

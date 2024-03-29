@@ -11,17 +11,17 @@ export default function Example(): ReactNode {
     <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
       <Box width={400}>
         <DateField
+          errorMessage={errorText || undefined}
+          helperText="Enter your date of birth"
           id="mainExample"
           label="Date of birth"
-          helperText="Enter your date of birth"
-          onError={({ errorMessage }) => setErrorText(errorMessage)}
-          errorMessage={errorText || undefined}
+          name="bday_datefield"
           onChange={({ value }) => {
             setDateValue(value);
           }}
-          value={dateValue}
           onClearInput={() => setDateValue(null)}
-          name="bday_datefield"
+          onError={({ errorMessage }) => setErrorText(errorMessage)}
+          value={dateValue}
         />
       </Box>
     </Flex>

@@ -26,8 +26,8 @@ export default function SidebarPlatformSwitcher({
   // Do not change the order of these items
   const items = [
     'Web',
-    <AppleLogo aria-label="ios platform" key="apple" />,
-    <AndroidLogo aria-label="android platform" key="android" />,
+    <AppleLogo key="apple" aria-label="ios platform" />,
+    <AndroidLogo key="android" aria-label="android platform" />,
   ];
 
   // Updates both the cookie and the state that tracks the selected platform

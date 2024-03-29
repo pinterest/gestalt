@@ -12,7 +12,6 @@ export default function DocsPage(): ReactNode {
   return (
     <Page title="useFocusVisible">
       <PageHeader
-        name="useFocusVisible"
         description={`
     \`useFocusVisible\` manages focus interactions on the page and determines whether a focus ring should be shown. When using the \`useFocusVisible\` hook, if a user interacts with a mouse or by touch, then the focus indicator is not visible. When the user interacts with the keyboard however, the focus indicator will be visible.
 
@@ -22,6 +21,7 @@ export default function DocsPage(): ReactNode {
       <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible">:focus-visible CSS pseudo-class</a></li>
     </ul>
     `}
+        name="useFocusVisible"
         type="utility"
       />
       <AccessibilitySection name="useFocusVisible" />
@@ -31,7 +31,7 @@ export default function DocsPage(): ReactNode {
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={exampleButtons} name="Example - Buttons" layout="column" />
+              <SandpackExample code={exampleButtons} layout="column" name="Example - Buttons" />
             }
           />
         </MainSection.Subsection>

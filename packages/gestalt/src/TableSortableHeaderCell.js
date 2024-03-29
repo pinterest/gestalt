@@ -67,16 +67,16 @@ function SortIcon({
 }) {
   return (
     <Box
-      marginStart={align === 'start' ? 2 : undefined}
-      marginEnd={align === 'end' ? 2 : undefined}
       dangerouslySetInlineStyle={{
         __style: { visibility },
       }}
+      marginEnd={align === 'end' ? 2 : undefined}
+      marginStart={align === 'start' ? 2 : undefined}
     >
       <Icon
         accessibilityLabel=""
-        icon={status === 'active' && sortOrder === 'asc' ? 'sort-ascending' : 'sort-descending'}
         color={status === 'active' ? 'default' : 'subtle'}
+        icon={status === 'active' && sortOrder === 'asc' ? 'sort-ascending' : 'sort-descending'}
       />
     </Box>
   );
@@ -107,31 +107,31 @@ export default function TableSortableHeaderCell({
   return (
     <TableHeaderCell
       colSpan={colSpan}
+      previousTotalWidth={previousTotalWidth}
       rowSpan={rowSpan}
       scope={scope}
       shouldBeSticky={shouldBeSticky}
       shouldHaveShadow={shouldHaveShadow}
-      previousTotalWidth={previousTotalWidth}
     >
       <Box display="inlineBlock" width="100%">
         <TapArea
           fullWidth={false}
+          onBlur={() => setFocused(false)}
+          onFocus={() => setFocused(true)}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
           onTap={({ event }) => {
             setFocused(false);
             onSortChange({ event });
           }}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-          onFocus={() => setFocused(true)}
-          onBlur={() => setFocused(false)}
         >
           {/** Ideally, we would reverse the flex with row-reverse, but row-reverse will deviate from the DOM structure causing an accessibility issue in the order things are read */}
-          <Box display="flex" alignItems="center" justifyContent={align}>
+          <Box alignItems="center" display="flex" justifyContent={align}>
             {align === 'end' && (
               <SortIcon
                 align={align}
-                status={status}
                 sortOrder={sortOrder}
+                status={status}
                 visibility={visibility}
               />
             )}
@@ -139,8 +139,8 @@ export default function TableSortableHeaderCell({
             {align === 'start' && (
               <SortIcon
                 align={align}
-                status={status}
                 sortOrder={sortOrder}
+                status={status}
                 visibility={visibility}
               />
             )}

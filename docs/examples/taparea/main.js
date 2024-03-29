@@ -4,8 +4,8 @@ import { Avatar, Box, TapArea, Text } from 'gestalt';
 
 export default function TapAreaExample(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Box rounding={4} borderStyle="sm" width={170}>
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Box borderStyle="sm" rounding={4} width={170}>
         <TapArea rounding={4}>
           <Box alignItems="center" direction="column" display="flex" padding={3}>
             <Avatar name="Alberto" size="xl" src="https://i.ibb.co/NsK2w5y/Alberto.jpg" verified />

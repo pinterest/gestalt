@@ -8,12 +8,12 @@ export default function Example(): ReactNode {
 
   return (
     <Flex
-      gap={4}
-      direction="column"
-      height="100%"
-      width="100%"
       alignItems="center"
+      direction="column"
+      gap={4}
+      height="100%"
       justifyContent="center"
+      width="100%"
     >
       <Flex gap={{ row: 4, column: 0 }}>
         <Label htmlFor="color">

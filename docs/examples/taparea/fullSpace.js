@@ -4,7 +4,7 @@ import { Box, TapArea } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box height="100%" width="100%" color="secondary">
+    <Box color="secondary" height="100%" width="100%">
       <TapArea fullHeight fullWidth onTap={() => {}} />
     </Box>
   );

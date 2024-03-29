@@ -13,16 +13,16 @@ import {
 
 export default function AlternativeColorTokensExample(): ReactNode {
   return (
-    <Flex height="100%" justifyContent="center" alignItems="center">
+    <Flex alignItems="center" height="100%" justifyContent="center">
       <ColorSchemeProvider colorScheme="dark" id="dark-example-dont">
-        <Box color="default" padding={10} height="100%">
+        <Box color="default" height="100%" padding={10}>
           <Flex
+            alignItems="center"
             direction="column"
             gap={{
               row: 0,
               column: 8,
             }}
-            alignItems="center"
             height="100%"
           >
             <Flex
@@ -31,8 +31,8 @@ export default function AlternativeColorTokensExample(): ReactNode {
                 column: 0,
               }}
             >
-              <IconButton icon="speech" accessibilityLabel="Comment" size="md" />
-              <IconButton icon="share" iconColor="darkGray" size="md" accessibilityLabel="Share" />
+              <IconButton accessibilityLabel="Comment" icon="speech" size="md" />
+              <IconButton accessibilityLabel="Share" icon="share" iconColor="darkGray" size="md" />
             </Flex>
             <Flex
               gap={{
@@ -41,9 +41,9 @@ export default function AlternativeColorTokensExample(): ReactNode {
               }}
             >
               <Button color="red" text="Primary" />
-              <Box color="warningWeak" rounding="pill" padding={3}>
+              <Box color="warningWeak" padding={3} rounding="pill">
                 <TapArea>
-                  <Text weight="bold" color="light">
+                  <Text color="light" weight="bold">
                     Secondary
                   </Text>
                 </TapArea>
@@ -59,8 +59,8 @@ export default function AlternativeColorTokensExample(): ReactNode {
               <SearchField
                 accessibilityLabel="Search you Pins"
                 id="color-dont-search"
-                placeholder="Search your Pins"
                 onChange={() => {}}
+                placeholder="Search your Pins"
               />
             </Flex>
             <Flex

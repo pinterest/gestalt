@@ -23,7 +23,7 @@ export default function AccessibilitySection({
     <Card name="Accessibility" showHeading>
       {hideChecklist ? null : <AccessibilityChecklist component={name} />}
       {description && (
-        <Box marginTop={6} marginBottom={8} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
+        <Box marginBottom={8} marginTop={6} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
           <Markdown text={description} />
         </Box>
       )}

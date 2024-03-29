@@ -29,12 +29,12 @@ import variantsExample from '../../examples/heading/variantsExample';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
         <SandpackExample
-          name="Use to help group text and items into sections in a logical order."
           code={mainExample}
-          layout="column"
           hideEditor
+          layout="column"
+          name="Use to help group text and items into sections in a logical order."
           previewHeight={150}
         />
       </PageHeader>
@@ -44,17 +44,17 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
-            type="do"
             description={`
 - When you need to use a semantic H1–H6 heading to create a clear typographic hierarchy and page structure
 `}
+            type="do"
           />
           <MainSection.Card
-            type="don't"
             description={`
 - To emphasize text. Use [Text](/web/text) with a bold or italic [style](/web/text#Styles) instead
 - To provide an overall Page title. Use [PageHeader](/web/pageheader) instead
 `}
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -62,129 +62,129 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use to help group text and items into sections in a logical order."
             sandpackExample={
               <SandpackExample
-                name="Do - Use to help group text and items into sections in a logical order."
                 code={groupTextIntoSections}
                 hideEditor
                 layout="column"
+                name="Do - Use to help group text and items into sections in a logical order."
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use to emphasize text that you want users to read. Use a message component like [BannerSlim](/web/bannerslim), or [bold text](/web/text#Styles). You can also emphasize numbers by using [text sizes](/web/text#Sizes)."
             sandpackExample={
               <SandpackExample
-                name="Don't - Use to emphasize text that you want users to read."
                 code={dontUseToEmphasizeText}
-                layout="column"
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Don't - Use to emphasize text that you want users to read."
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Keep headings short and glanceable."
             sandpackExample={
               <SandpackExample
-                name="Do - Keep headings short and glanceable."
                 code={keepHeadingShort}
-                layout="column"
                 hideEditor
+                layout="column"
+                name="Do - Keep headings short and glanceable."
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use overly long headings. If headings are dynamically generated (like a 3rd party app name), lineClamp will work after 2 lines, but be mindful of unintended changes in meaning."
             sandpackExample={
               <SandpackExample
-                name="Don't - Use overly long headings."
                 code={dontOverlyLongHeadings}
-                layout="column"
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Don't - Use overly long headings."
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Clearly describe the section a Heading refers to."
             sandpackExample={
               <SandpackExample
-                name="Do - Clearly describe the section a Heading refers to."
                 code={clearlyDescribeTheSection}
-                layout="column"
                 hideEditor
+                layout="column"
+                name="Do - Clearly describe the section a Heading refers to."
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use vague language that doesn’t describe the section that a Heading refers to."
             sandpackExample={
               <SandpackExample
-                name="Don't - Use vague language that doesn’t describe the section that a Heading refers to."
                 code={dontUseVagueLanguage}
-                layout="column"
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Don't - Use vague language that doesn’t describe the section that a Heading refers to."
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Start-align headings to make it faster for users to read text from the point where they naturally start reading. The exceptions are headings related to integers in [Table](/web/table)."
             sandpackExample={
               <SandpackExample
-                name="Do - Start-align headings to make it faster for users to read text from the point where they naturally start reading."
                 code={startAlignHeadings}
-                layout="column"
                 hideEditor
+                layout="column"
+                name="Do - Start-align headings to make it faster for users to read text from the point where they naturally start reading."
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Center-align headings as it can make it harder for users with dyslexia who need a consistent stating edge. Paired with left-aligned paragraph text, it can make the typographic structure feel off-center and unbalanced."
             sandpackExample={
               <SandpackExample
-                name="Don't - Center-align headings."
                 code={dontCenterAlign}
-                layout="column"
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Don't - Center-align headings."
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <BannerSlim
-          type="info"
-          iconAccessibilityLabel="Info"
-          message="Gestalt's typography guidelines contain additional best practices around sizing, style and hierarchy."
           helperLink={{
             text: 'View Typography guidelines',
             accessibilityLabel: 'View Typography guidelines',
             href: '/foundations/typography',
             onClick: () => {},
           }}
+          iconAccessibilityLabel="Info"
+          message="Gestalt's typography guidelines contain additional best practices around sizing, style and hierarchy."
+          type="info"
         />
       </MainSection>
       <AccessibilitySection name={generatedDocGen?.displayName}>
@@ -255,12 +255,12 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Accessible sizing"
           description="A minimum text size of 16 px (12pt) is recommended for readability. Headings can go lower than that, but smaller sizes should be kept to a minimum. Making text brief will also help with readability."
+          title="Accessible sizing"
         />
         <MainSection.Subsection
-          title="Accessible color"
           description="For low-vision users, text color contrast is very important. To insure accessible contrast, stick to our [standard text colors](/foundations/color/usage#Standard-text-colors). See our [accessibility](/foundations/accessibility) page for design considerations and handy accessibility tools for checking color contrast."
+          title="Accessible color"
         />
       </AccessibilitySection>
 
@@ -282,9 +282,9 @@ Avoid overriding our line-height settings, as this can result in text clipping f
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Heading variants"
                 code={variantsExample}
                 layout="column"
+                name="Heading variants"
                 previewHeight={560}
               />
             }
@@ -295,9 +295,9 @@ Avoid overriding our line-height settings, as this can result in text clipping f
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Colors example"
                 code={colorsExample}
                 layout="column"
+                name="Colors example"
                 previewHeight={520}
               />
             }
@@ -308,39 +308,39 @@ Avoid overriding our line-height settings, as this can result in text clipping f
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Overflow & truncation example"
                 code={overflowAndTruncationExample}
                 layout="column"
+                name="Overflow & truncation example"
                 previewHeight={660}
               />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Alignment"
           description={`Use \`align\` to adjust the positioning of text within container elements`}
+          title="Alignment"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample name="Aligment example" code={alignmentExample} layout="column" />
+              <SandpackExample code={alignmentExample} layout="column" name="Aligment example" />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Accessibility level"
           description={`
 For accessibility purposes, we allow you to override the heading level.
 
 For certain specific situations, it is possible to use Heading without an accessibility level; however, we recommend against using this if possible.`}
+          title="Accessibility level"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Accessibility level example"
                 code={accessibilityLevelExample}
                 layout="column"
+                name="Accessibility level example"
               />
             }
           />
@@ -353,17 +353,17 @@ For certain specific situations, it is possible to use Heading without an access
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description={`
 - Keep headings short and clear
 - Use **Sentence case** for headings per our Pinterest writing standards to keep the tone conversational and make headings easier to scan`}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description={`
 - Punctuate headings unless they are posing a question or making an exclamation
 - Use **Title Case** or **ALL CAPS**`}
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>

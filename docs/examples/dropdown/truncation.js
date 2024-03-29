@@ -18,15 +18,15 @@ export default function CustomIconButtonPopoverExample(): ReactNode {
 
   return (
     <Fragment>
-      <Flex justifyContent="center" width="100%" height="100%">
+      <Flex height="100%" justifyContent="center" width="100%">
         <Box margin={2}>
           <Button
+            ref={anchorRef}
             accessibilityControls="truncation-dropdown-example"
             accessibilityExpanded={open}
             accessibilityHaspopup
             iconEnd="arrow-down"
             onClick={() => setOpen((prevVal) => !prevVal)}
-            ref={anchorRef}
             selected={open}
             size="lg"
             text="Menü"
@@ -54,17 +54,17 @@ export default function CustomIconButtonPopoverExample(): ReactNode {
           <Dropdown.Link
             href="https://help.pinterest.com/en?source=gear_menu_web"
             isExternal
-            option={{ value: 'Hilfe anfordern', label: 'Hilfe anfordern' }}
             onClick={({ event }) => event.preventDefault()}
+            option={{ value: 'Hilfe anfordern', label: 'Hilfe anfordern' }}
           />
           <Dropdown.Link
             href="https://policy.pinterest.com/en/privacy-policy"
             isExternal
+            onClick={({ event }) => event.preventDefault()}
             option={{
               value: 'Nutzungsbedingungen und Datenschutzrichtlinien anzeigen',
               label: 'Nutzungsbedingungen und Datenschutzrichtlinien anzeigen',
             }}
-            onClick={({ event }) => event.preventDefault()}
           />
         </Dropdown>
       )}

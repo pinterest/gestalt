@@ -254,9 +254,9 @@ export default function Dropdown({
         <RequestAnimationFrameProvider>
           <PartialPage
             align="start"
-            padding="default"
-            onDismiss={onDismiss}
             onAnimationEnd={mobileOnAnimationEnd}
+            onDismiss={onDismiss}
+            padding="default"
             role="dialog"
             showDismissButton
             size="auto"
@@ -281,21 +281,21 @@ export default function Dropdown({
 
   const dropdown = (
     <Popover
-      accessibilityLabel="Dropdown"
+      __dangerouslySetMaxHeight={maxHeight}
       __experimentalPopover={isInExperiment}
+      __onPositioned={() => setIsPopoverPositioned(true)}
+      accessibilityLabel="Dropdown"
       anchor={anchor}
       color="white"
-      onKeyDown={onKeyDown}
+      disablePortal
       id={id}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
+      onKeyDown={onKeyDown}
       positionRelativeToAnchor={isWithinFixedContainer}
-      disablePortal
       role="menu"
       shouldFocus={false}
       size="xl"
-      __dangerouslySetMaxHeight={maxHeight}
-      __onPositioned={() => setIsPopoverPositioned(true)}
     >
       <Box
         alignItems="center"

@@ -105,36 +105,36 @@ export default function Example(): ReactNode {
   };
 
   return (
-    <Box padding={2} width="100%" height="100%">
+    <Box height="100%" padding={2} width="100%">
       <Flex
-        width="100%"
+        alignItems="center"
+        direction="column"
+        gap={2}
         height="100%"
         justifyContent="center"
-        direction="column"
-        alignItems="center"
-        gap={2}
+        width="100%"
       >
         <Box width={320}>
           <ComboBox
             accessibilityClearButtonLabel="Clear the current value"
-            label="State"
             id="controlled"
             inputValue={inputValue}
+            label="State"
             noResultText="No results for your selection"
-            options={suggestedOptions}
             onBlur={() => {
               if (!selected) setInputValue('');
               setSuggestedOptions(usStatesOptions);
             }}
+            onChange={handleOnChange}
             onClear={() => {
               setInputValue('');
               setSelected();
               setSuggestedOptions(usStatesOptions);
             }}
-            selectedOption={selected}
-            placeholder="Select a US state"
-            onChange={handleOnChange}
             onSelect={handleSelect}
+            options={suggestedOptions}
+            placeholder="Select a US state"
+            selectedOption={selected}
           />
         </Box>
         {selected && selected.label ? (

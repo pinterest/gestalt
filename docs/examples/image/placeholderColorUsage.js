@@ -5,9 +5,9 @@ import { TOKEN_COLOR_BACKGROUND_SHOPPING } from 'gestalt-design-tokens';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       {['rgb(111, 91, 77)', 'black', TOKEN_COLOR_BACKGROUND_SHOPPING].map((color) => (
-        <Column span={3} key={color}>
+        <Column key={color} span={3}>
           <Image
             alt="example.com"
             color={color}

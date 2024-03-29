@@ -10,7 +10,7 @@ export default function Example(): ReactNode {
           We&apos;re adding new ideas to your home feed
         </Heading>
 
-        <Spinner show accessibilityLabel="Example spinner" />
+        <Spinner accessibilityLabel="Example spinner" show />
       </Flex>
     </Flex>
   );

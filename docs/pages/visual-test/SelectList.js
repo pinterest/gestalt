@@ -5,7 +5,7 @@ import { Box, SelectList } from 'gestalt';
 export default function Screenshot(): ReactNode {
   return (
     <Box color="default" display="inlineBlock" padding={1}>
-      <SelectList id="selectlistexample11" onChange={() => {}} size="md" label="Country">
+      <SelectList id="selectlistexample11" label="Country" onChange={() => {}} size="md">
         {[
           { label: 'Algeria', value: 'algeria' },
           { label: 'Belgium', value: 'belgium' },

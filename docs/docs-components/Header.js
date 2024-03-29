@@ -108,31 +108,31 @@ function Header() {
 
   return (
     <Box
-      paddingY={3}
-      paddingX={4}
-      color="default"
-      borderStyle="raisedTopShadow"
-      display="flex"
-      direction="row"
       alignItems="center"
+      borderStyle="raisedTopShadow"
+      color="default"
+      direction="row"
+      display="flex"
+      paddingX={4}
+      paddingY={3}
       role="navigation"
     >
-      <Box marginStart={-2} display="flex" alignItems="center">
+      <Box alignItems="center" display="flex" marginStart={-2}>
         {/* Small-screen menu button */}
         <Box
+          alignItems="center"
           display={isMobileSearchExpandedOpen ? 'none' : 'flex'}
           mdDisplay="none"
-          alignItems="center"
         >
           <IconButton
-            size="md"
             accessibilityLabel={`${isSidebarOpen ? 'Hide' : 'Show'} Menu`}
-            iconColor="darkGray"
             icon="menu"
+            iconColor="darkGray"
             onClick={() => {
               window.scrollTo(0, 0);
               setIsSidebarOpen((value) => !value);
             }}
+            size="md"
           />
         </Box>
         <Box display={isMobileSearchExpandedOpen ? 'none' : 'flex'}>
@@ -151,15 +151,15 @@ function Header() {
                   <GestaltLogo height={40} width={40} />
                   {/* slight tweak to vertically center to logo */}
                   <Box
-                    display="none"
-                    lgDisplay="block"
-                    paddingX={1}
                     dangerouslySetInlineStyle={{
                       __style: {
                         marginBottom: '1px',
                         fontSize: '20px',
                       },
                     }}
+                    display="none"
+                    lgDisplay="block"
+                    paddingX={1}
                   >
                     Gestalt
                   </Box>
@@ -169,8 +169,8 @@ function Header() {
           </Text>
         </Box>
       </Box>
-      <Flex alignItems="center" justifyContent="end" flex="grow">
-        <Box display="none" mdDisplay="block" flex="grow">
+      <Flex alignItems="center" flex="grow" justifyContent="end">
+        <Box display="none" flex="grow" mdDisplay="block">
           <Flex justifyContent="center">
             <Tabs
               activeTabIndex={activeTab}
@@ -182,28 +182,28 @@ function Header() {
           </Flex>
         </Box>
 
-        <Box paddingX={2} display={isMobileSearchExpandedOpen ? 'none' : 'flex'}>
+        <Box display={isMobileSearchExpandedOpen ? 'none' : 'flex'} paddingX={2}>
           <Flex alignItems="center" gap={3}>
             {devExampleMode === 'development' ? (
               <Badge
-                text="Dev mode"
                 position="middle"
-                type="info"
+                text="Dev mode"
                 tooltip={{
                   text: 'You are currently in dev mode, which allows you to see dev-only example previews.',
                   idealDirection: 'down',
                   accessibilityLabel: '',
                   zIndex: PAGE_HEADER_POPOVER_ZINDEX,
                 }}
+                type="info"
               />
             ) : null}
             {showDevelopmentEditorSwitch && (
               <IconButton
                 accessibilityLabel="Toggle dev example mode"
                 icon={devExampleMode === 'development' ? 'code-checked' : 'code'}
-                size="sm"
                 onClick={onChangeDevExampleMode}
                 selected={devExampleMode === 'development'}
+                size="sm"
                 tooltip={{
                   text: `Toggle dev example mode ${
                     devExampleMode === 'development' ? 'off' : 'on'
@@ -217,11 +217,11 @@ function Header() {
             )}
             <IconButton
               accessibilityLabel={darkModeButtonLabel}
-              iconColor="darkGray"
               icon={colorScheme === 'dark' ? 'sun' : 'moon'}
+              iconColor="darkGray"
+              onClick={onChangeColorScheme}
               selected={colorScheme === 'dark'}
               size="sm"
-              onClick={onChangeColorScheme}
               tooltip={{
                 text: darkModeButtonLabel,
                 inline: true,
@@ -251,7 +251,7 @@ export default function StickyHeader(): ReactNode {
   return isMobile ? (
     <Header />
   ) : (
-    <Sticky zIndex={PAGE_HEADER_ZINDEX} top={0}>
+    <Sticky top={0} zIndex={PAGE_HEADER_ZINDEX}>
       <Header />
     </Sticky>
   );

@@ -8,25 +8,22 @@ export default function Example(): ReactNode {
   const [preview, setPreview] = useState(false);
 
   return (
-    <Box width={1000} height="100%" display="flex" overflow="scroll">
+    <Box display="flex" height="100%" overflow="scroll" width={1000}>
       <Box maxWidth={280}>
         <SideNavigation
           accessibilityLabel="Collapsible example"
-          showBorder
           collapsed={collapsed}
-          onCollapse={setCollapsed}
-          onPreview={setPreview}
           header={
             collapsed && !preview ? (
-              <Flex gap={2} alignItems="center" justifyContent="center">
+              <Flex alignItems="center" gap={2} justifyContent="center">
                 <Flex.Item>
-                  <Icon icon="pinterest" size={36} accessibilityLabel="" color="brandPrimary" />
+                  <Icon accessibilityLabel="" color="brandPrimary" icon="pinterest" size={36} />
                 </Flex.Item>
               </Flex>
             ) : (
-              <Flex gap={2} alignItems="center">
+              <Flex alignItems="center" gap={2}>
                 <Flex.Item>
-                  <Icon icon="pinterest" size={36} accessibilityLabel="" color="brandPrimary" />
+                  <Icon accessibilityLabel="" color="brandPrimary" icon="pinterest" size={36} />
                 </Flex.Item>
                 <Flex.Item>
                   <Heading size="400">Pinterest Business</Heading>
@@ -34,49 +31,52 @@ export default function Example(): ReactNode {
               </Flex>
             )
           }
+          onCollapse={setCollapsed}
+          onPreview={setPreview}
+          showBorder
         >
           <SideNavigation.TopItem
-            href="#"
-            label="Trends"
-            icon="trending"
             active={page === '1' ? 'page' : undefined}
+            href="#"
+            icon="trending"
+            label="Trends"
             notificationAccessibilityLabel="New data available"
-            primaryAction={{ icon: 'ellipsis', tooltip: { text: 'Mark as read' } }}
             onClick={({ event }) => {
               event.preventDefault();
               setPage('1');
             }}
+            primaryAction={{ icon: 'ellipsis', tooltip: { text: 'Mark as read' } }}
           />
 
           <SideNavigation.TopItem
+            active={page === '2' ? 'page' : undefined}
+            badge={{ text: 'New', type: 'success' }}
+            counter={{ number: '10', accessibilityLabel: 'New details' }}
             href="#"
+            icon="business-hierarchy"
+            label="Business Details"
             onClick={({ event }) => {
               event.preventDefault();
               setPage('2');
             }}
-            label="Business Details"
-            icon="business-hierarchy"
-            active={page === '2' ? 'page' : undefined}
-            badge={{ text: 'New', type: 'success' }}
-            counter={{ number: '10', accessibilityLabel: 'New details' }}
           />
 
           <SideNavigation.Section label="Contacts">
             <SideNavigation.TopItem
-              href="#"
-              label="Contact Information"
-              icon="phone"
               active={page === '8' ? 'page' : undefined}
+              href="#"
+              icon="phone"
+              label="Contact Information"
               onClick={({ event }) => {
                 event.preventDefault();
                 setPage('8');
               }}
             />
             <SideNavigation.TopItem
-              href="#"
-              label="Other Details"
-              icon="history"
               active={page === '9' ? 'page' : undefined}
+              href="#"
+              icon="history"
+              label="Other Details"
               onClick={({ event }) => {
                 event.preventDefault();
                 setPage('9');

@@ -1,3 +1,63 @@
+## 146.5.13 (Mar 27, 2024)
+
+### Patch
+
+- Masonry: Multi column feature, fix first row items position when batch is small ([#3496](https://github.com/pinterest/gestalt/pull/3496)) - [Preview link](https://deploy-preview-3496--gestalt.netlify.app?devexample=true)
+
+## 146.5.12 (Mar 27, 2024)
+
+### Patch
+
+- SideNavigation: Display scrollbar only when content overflows ([#3498](https://github.com/pinterest/gestalt/pull/3498)) - [Preview link](https://deploy-preview-3498--gestalt.netlify.app?devexample=true)
+
+## 146.5.11 (Mar 26, 2024)
+
+### Patch
+
+- Internal: Bump express from 4.18.2 to 4.19.2 ([#3497](https://github.com/pinterest/gestalt/pull/3497)) - [Preview link](https://deploy-preview-3497--gestalt.netlify.app?devexample=true)
+
+## 146.5.10 (Mar 25, 2024)
+
+### Patch
+
+- Masonry: seeded random values for deterministic integration tests ([#3465](https://github.com/pinterest/gestalt/pull/3465)) - [Preview link](https://deploy-preview-3465--gestalt.netlify.app?devexample=true)
+
+## 146.5.9 (Mar 22, 2024)
+
+### Patch
+
+- Docs: Get help and Training content updates ([#3489](https://github.com/pinterest/gestalt/pull/3489)) - [Preview link](https://deploy-preview-3489--gestalt.netlify.app?devexample=true)
+
+## 146.5.8 (Mar 22, 2024)
+
+### Patch
+
+- Docs: Figma embed fixes ([#3493](https://github.com/pinterest/gestalt/pull/3493)) - [Preview link](https://deploy-preview-3493--gestalt.netlify.app?devexample=true)
+
+## 146.5.7 (Mar 22, 2024)
+
+### Patch
+
+- Masonry: Positions tcm correctly for last item on first row ([#3492](https://github.com/pinterest/gestalt/pull/3492)) - [Preview link](https://deploy-preview-3492--gestalt.netlify.app?devexample=true)
+
+## 146.5.6 (Mar 22, 2024)
+
+### Patch
+
+- PopoverEducational: fix zIndex bug + add example ([#3486](https://github.com/pinterest/gestalt/pull/3486)) - [Preview link](https://deploy-preview-3486--gestalt.netlify.app?devexample=true)
+
+## 146.5.5 (Mar 21, 2024)
+
+### Patch
+
+- Internal: Enable ESLint rule react/jsx-sort-props except for codemod folder ([#3475](https://github.com/pinterest/gestalt/pull/3475)) - [Preview link](https://deploy-preview-3475--gestalt.netlify.app?devexample=true)
+
+## 146.5.4 (Mar 21, 2024)
+
+### Patch
+
+- Masonry: Render tcm in position on first line ([#3488](https://github.com/pinterest/gestalt/pull/3488)) - [Preview link](https://deploy-preview-3488--gestalt.netlify.app?devexample=true)
+
 ## 146.5.3 (Mar 20, 2024)
 
 ### Patch

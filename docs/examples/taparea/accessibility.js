@@ -7,22 +7,22 @@ export default function MenuButtonExample(): ReactNode {
   const anchorRef = useRef<HTMLElement | null>(null);
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Fragment>
         <TapArea
-          accessibilityLabel="Open the options menu"
           accessibilityControls="menu"
           accessibilityExpanded={selected}
           accessibilityHaspopup
+          accessibilityLabel="Open the options menu"
           onTap={() => setSelected(!selected)}
         >
           <Box
             ref={anchorRef}
+            alignItems="center"
             borderStyle="sm"
             display="inlineBlock"
-            alignItems="center"
-            rounding={1}
             padding={2}
+            rounding={1}
           >
             <Flex gap={{ column: 0, row: 2 }}>
               <Box height={50} width={50}>
@@ -35,7 +35,7 @@ export default function MenuButtonExample(): ReactNode {
                   />
                 </Mask>
               </Box>
-              <Text weight="bold" align="center">
+              <Text align="center" weight="bold">
                 Menu
               </Text>
             </Flex>
@@ -50,7 +50,7 @@ export default function MenuButtonExample(): ReactNode {
               positionRelativeToAnchor={false}
               size="md"
             >
-              <Box id="menu" direction="column" display="flex" padding={2}>
+              <Box direction="column" display="flex" id="menu" padding={2}>
                 <Box padding={2}>
                   <Text weight="bold">Option 1</Text>
                 </Box>

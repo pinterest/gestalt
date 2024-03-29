@@ -11,7 +11,7 @@ export default function Example(): ReactNode {
 
   const radioGroup = useMemo(
     () => (
-      <RadioGroup legend="Date range" id="past radiogroup example">
+      <RadioGroup id="past radiogroup example" legend="Date range">
         <RadioGroup.RadioButton
           checked={period === '1'}
           id="1"
@@ -70,21 +70,21 @@ export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <DateRange
-        radioGroup={radioGroup}
         endDateValue={endDate}
-        onStartDateChange={({ value }) => {
-          setPeriod('custom');
-          setStartDate(value);
-        }}
+        onCancel={() => {}}
         onEndDateChange={({ value }) => {
           setPeriod('custom');
           setEndDate(value);
         }}
         onEndDateError={() => {}}
+        onStartDateChange={({ value }) => {
+          setPeriod('custom');
+          setStartDate(value);
+        }}
         onStartDateError={() => {}}
-        startDateValue={startDate}
         onSubmit={() => {}}
-        onCancel={() => {}}
+        radioGroup={radioGroup}
+        startDateValue={startDate}
       />
     </Flex>
   );

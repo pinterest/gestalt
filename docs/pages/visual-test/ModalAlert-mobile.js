@@ -6,10 +6,12 @@ export default function Snapshot(): ReactNode {
   return (
     <DeviceTypeProvider deviceType="mobile">
       <ColorSchemeProvider colorScheme="light">
-        <Box color="default" display="inlineBlock" width={360} height={360} padding={1}>
+        <Box color="default" display="inlineBlock" height={360} padding={1} width={360}>
           <ModalAlert
+            accessibilityDismissButtonLabel="test"
             accessibilityModalLabel="Label"
             heading="Heading"
+            onDismiss={() => {}}
             primaryAction={{
               accessibilityLabel: 'Confirm delete board',
               label: 'Delete',
@@ -22,8 +24,6 @@ export default function Snapshot(): ReactNode {
               onClick: () => {},
               role: 'button',
             }}
-            onDismiss={() => {}}
-            accessibilityDismissButtonLabel="test"
             type="error"
           >
             <Text>Children</Text>

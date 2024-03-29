@@ -17,30 +17,30 @@ function ModalWithHeading({ onDismiss }: { onDismiss: () => void }): ReactNode {
   return (
     <Modal
       accessibilityModalLabel="Edit board"
-      heading="Edit board"
-      onDismiss={onDismiss}
       footer={
         <Flex alignItems="center" justifyContent="end">
           <Button color="red" text="Save" />
         </Flex>
       }
+      heading="Edit board"
+      onDismiss={onDismiss}
       size="sm"
     >
       <Box paddingX={8}>
         <Box marginBottom={8}>
           <TextField
             id="name"
+            label="Name"
             onChange={() => {}}
             placeholder='Like "Places to go" or "Recipes to Make"'
-            label="Name"
             type="text"
           />
         </Box>
         <Checkbox
           checked={false}
+          helperText="So only you and collaborators can see it."
           id="secret"
           label="Keep this board secret"
-          helperText="So only you and collaborators can see it."
           name="languages"
           onChange={() => {}}
         />
@@ -55,7 +55,7 @@ export default function Example(): ReactNode {
   const modalZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   return (
-    <Flex width="100%" height="100%" justifyContent="center" alignItems="center">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <IconButton
         accessibilityLabel="Open edit modal"
         icon="edit"

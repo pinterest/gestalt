@@ -50,11 +50,11 @@ function List({
   return (
     // We need this InternalList to avoid the circular dependency src/List.js -> src/ListItem.js -> src/List.js
     <InternalList
-      type={type}
-      spacing={spacing}
-      size={size}
       label={label}
       labelDisplay={labelDisplay}
+      size={size}
+      spacing={spacing}
+      type={type}
     >
       {children}
     </InternalList>

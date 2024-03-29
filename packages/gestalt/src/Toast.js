@@ -172,7 +172,7 @@ export default function Toast({
 
   return (
     <div className={styles.toast} role="status">
-      <Box color={containerColor} paddingX={4} paddingY={3} width="100%" rounding={4}>
+      <Box color={containerColor} paddingX={4} paddingY={3} rounding={4} width="100%">
         <Flex alignItems="center" gap={4}>
           {isDefaultToast && _dangerouslySetThumbnail ? (
             <Flex.Item flex="none">{_dangerouslySetThumbnail}</Flex.Item>
@@ -192,7 +192,7 @@ export default function Toast({
           !!thumbnail?.icon &&
           Children.only<Element<typeof Icon>>(thumbnail.icon).type.displayName === 'Icon' ? (
             <Flex.Item flex="none">
-              <ToastIconThumbnail thumbnail={thumbnail.icon} overrideColor="inverse" />
+              <ToastIconThumbnail overrideColor="inverse" thumbnail={thumbnail.icon} />
             </Flex.Item>
           ) : null}
 
@@ -213,10 +213,10 @@ export default function Toast({
 
           <Flex.Item flex="grow">
             <ToastMessage
-              text={isTextNode ? undefined : textElement}
-              textElement={isTextNode ? textElement : undefined}
               helperLink={helperLink}
+              text={isTextNode ? undefined : textElement}
               textColor={textColor}
+              textElement={isTextNode ? textElement : undefined}
               type={type}
             />
           </Flex.Item>
@@ -256,10 +256,10 @@ export default function Toast({
           {dismissButton ? (
             <Flex.Item flex="none">
               <InternalDismissButton
-                iconColor={iconColor}
                 accessibilityLabel={
                   dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabelDefault
                 }
+                iconColor={iconColor}
                 onClick={dismissButton.onDismiss}
                 size="xs"
               />

@@ -13,52 +13,52 @@ export default function Example(): ReactNode {
   return (
     <Flex
       alignItems="center"
+      direction="column"
       gap={4}
       height="100%"
       justifyContent="center"
       width="100%"
-      direction="column"
     >
       <Box width={400}>
         <DateField
-          id="disableFuture"
-          label="Date of birth"
-          helperText="Enter your date of birth"
-          onError={({ errorMessage }) => setErrorTextDisableFuture(errorMessage)}
+          disableRange="disableFuture"
           errorMessage={
             (errorTextDisableFuture &&
               errorTextDisableFuture === 'disableFuture' &&
               'Please, enter a valid past date') ||
             undefined
           }
+          helperText="Enter your date of birth"
+          id="disableFuture"
+          label="Date of birth"
+          name="bday_datefield"
           onChange={({ value }) => {
             setDateValueDisableFuture(value);
           }}
-          value={dateValueDisableFuture}
           onClearInput={() => setDateValueDisableFuture(null)}
-          name="bday_datefield"
-          disableRange="disableFuture"
+          onError={({ errorMessage }) => setErrorTextDisableFuture(errorMessage)}
+          value={dateValueDisableFuture}
         />
       </Box>
       <Box width={400}>
         <DateField
-          id="disablePast"
-          label="Campaign activation date"
-          helperText="Enter an activation date for your campaign"
-          onError={({ errorMessage }) => setErrorTextDisablePast(errorMessage)}
+          disableRange="disablePast"
           errorMessage={
             (errorTextDisablePast &&
               errorTextDisablePast === 'disablePast' &&
               'Please, enter a valid future date') ||
             undefined
           }
+          helperText="Enter an activation date for your campaign"
+          id="disablePast"
+          label="Campaign activation date"
+          name="bday_datefield"
           onChange={({ value }) => {
             setDatealueDisablePast(value);
           }}
-          value={dateValueDisablePast}
           onClearInput={() => setDatealueDisablePast(null)}
-          name="bday_datefield"
-          disableRange="disablePast"
+          onError={({ errorMessage }) => setErrorTextDisablePast(errorMessage)}
+          value={dateValueDisablePast}
         />
       </Box>
     </Flex>

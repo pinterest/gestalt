@@ -38,8 +38,6 @@ export default function ComponentPage({
   return (
     <Page title={generatedDocGen.Dropdown?.displayName}>
       <PageHeader
-        name={generatedDocGen?.Dropdown.displayName}
-        description={generatedDocGen?.Dropdown.description}
         bannerSlimExperiment={
           <BannerSlimExperiment
             componentName="Dropdown"
@@ -47,6 +45,8 @@ export default function ComponentPage({
             pullRequest={3244}
           />
         }
+        description={generatedDocGen?.Dropdown.description}
+        name={generatedDocGen?.Dropdown.displayName}
       >
         <SandpackExample code={main} hideEditor name="Main Dropdown example" />
       </PageHeader>
@@ -57,23 +57,23 @@ export default function ComponentPage({
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
 - Displaying a list of actions, options, or links. Usually displays 3 or more options.
 - Allowing complex functionality that a [SelectList](/web/selectlist) can't accomplish.
 - Taking immediate action or navigating users to another view.
             `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
 - In cases when there are less than 3 items in the list, and there is space to display all options. Consider [RadioGroup](/web/radiogroup) or [Checkboxes](/web/checkbox) instead.
 - When it is desirable to filter a long list of options. Use [ComboBox](/web/combobox) instead.
 - Displaying a list of actions or options using the browser's native select functionality. Use [SelectList](/web/selectlist) instead.
             `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -82,80 +82,79 @@ export default function ComponentPage({
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use Dropdown when features such as subtext, custom headers or badges are needed, since this functionality is not available in [SelectList](/web/selectlist)."
             sandpackExample={
               <SandpackExample
                 code={doFeatures}
-                name="simple list of items example"
-                layout="column"
                 hideEditor
+                layout="column"
+                name="simple list of items example"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use Dropdown for a simple list of items. Use [SelectList](/web/selectlist) instead for the added native mobile functionality. The exception to this is multiple Dropdowns or SelectLists that could be grouped together to create visual inconsistency, such as filters. In this case, use Dropdowns for all."
             sandpackExample={
               <SandpackExample
                 code={dontSelectList}
-                name="Don't simple list of items"
-                layout="column"
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Don't simple list of items"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Order the items in Dropdown either alphabetically or by usage. Place destructive actions at the bottom."
             sandpackExample={
-              <SandpackExample code={doOrder} name="Do order items" layout="column" hideEditor />
+              <SandpackExample code={doOrder} hideEditor layout="column" name="Do order items" />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Attach Tooltips to menu items. Use the \`subtext\` property if additional explanation is needed."
             sandpackExample={
               <SandpackExample
                 code={dontTooltips}
-                name="Don't tooltips"
-                layout="column"
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Don't tooltips"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description={`Add an icon indicator when links are external using the \`isExternal\` prop. External links are either links outside of Pinterest or another sub-site of Pinterest.`}
             sandpackExample={
-              <SandpackExample code={doIcons} name="Do icons" layout="column" hideEditor />
+              <SandpackExample code={doIcons} hideEditor layout="column" name="Do icons" />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Add custom elements within Dropdown. While some custom elements may be technically possible, it is best to avoid customization that becomes difficult to maintain."
             sandpackExample={
-              <SandpackExample code={dontCustom} name="Don't custom" layout="column" hideEditor />
+              <SandpackExample code={dontCustom} hideEditor layout="column" name="Don't custom" />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
       <AccessibilitySection name={generatedDocGen.Dropdown?.displayName}>
         <MainSection.Subsection
-          title="ARIA attributes"
           description={`
     Remember to include the following ARIA attributes on the element used for the \`anchor\` prop:
 
@@ -163,9 +162,9 @@ export default function ComponentPage({
     * \`accessibilityHaspopup\`: lets the screen reader know that there is a Dropdown menu linked to the trigger. Populates the [aria-haspopup](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html) attribute.
     * \`accessibilityExpanded\`: informs the screen reader whether the Dropdown menu is currently open or closed. Populates the [aria-expanded](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html) attribute.
           `}
+          title="ARIA attributes"
         />
         <MainSection.Subsection
-          title="Keyboard interaction"
           description={`
     * Hitting \`Enter\` or \`Space\` key on the Dropdown's trigger opens the menu
     * \`Escape\` key closes the menu, while moving focus back on the Dropdown's trigger
@@ -173,12 +172,13 @@ export default function ComponentPage({
     * \`Enter\` key selects an item within the Menu
     * \`Tab\` or \` Shift + Tab\` close the menu and move focus accordingly
           `}
+          title="Keyboard interaction"
         />
         <MainSection.Subsection
-          title="Custom item content limitations"
           description={`
           If using custom content, do not include interactive elements, like a TextArea or Button. Because Dropdown.Item and Dropdown.Link already act as buttons and links respectively, they cannot include focusable elements as children. [Learn more about nested interactive controls](https://dequeuniversity.com/rules/axe/4.2/nested-interactive)
           `}
+          title="Custom item content limitations"
         >
           <MainSection.Card
             sandpackExample={<SandpackExample code={customItem} name="Custom item example" />}
@@ -195,59 +195,59 @@ When the text of the Dropdown.Item becomes longer than the width of the menu, ei
 
       <MainSection name="Subcomponents">
         <MainSection.Subsection
-          title={generatedDocGen?.DropdownItem?.displayName}
           description={generatedDocGen?.DropdownItem?.description}
+          title={generatedDocGen?.DropdownItem?.displayName}
         >
           <GeneratedPropTable
-            name={generatedDocGen?.DropdownItem.displayName}
-            id={generatedDocGen?.DropdownItem.displayName}
             generatedDocGen={generatedDocGen.DropdownItem}
+            id={generatedDocGen?.DropdownItem.displayName}
+            name={generatedDocGen?.DropdownItem.displayName}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title={generatedDocGen?.DropdownLink?.displayName}
           description={generatedDocGen?.DropdownLink?.description}
+          title={generatedDocGen?.DropdownLink?.displayName}
         >
           <GeneratedPropTable
-            name={generatedDocGen?.DropdownLink.displayName}
-            id={generatedDocGen?.DropdownLink.displayName}
             generatedDocGen={generatedDocGen.DropdownLink}
+            id={generatedDocGen?.DropdownLink.displayName}
+            name={generatedDocGen?.DropdownLink.displayName}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title={generatedDocGen?.DropdownSection?.displayName}
           description={generatedDocGen?.DropdownSection?.description}
+          title={generatedDocGen?.DropdownSection?.displayName}
         >
           <GeneratedPropTable
-            name={generatedDocGen?.DropdownSection.displayName}
-            id={generatedDocGen?.DropdownSection.displayName}
             generatedDocGen={generatedDocGen.DropdownSection}
+            id={generatedDocGen?.DropdownSection.displayName}
+            name={generatedDocGen?.DropdownSection.displayName}
           />
         </MainSection.Subsection>
       </MainSection>
 
       <MainSection name="Variants">
-        <MainSection.Subsection title="Types of items" columns={2}>
+        <MainSection.Subsection columns={2} title="Types of items">
           <MainSection.Card
             cardSize="md"
-            title="Action/Selection"
             description={`Typically a Dropdown item triggers an action, like “Hide a Pin”, or makes a selection, like “Cozy” for a layout setting. Use Dropdown.Item for these use cases. \`onSelect\` handles the user interaction, with the optional \`selected\` indicating the currently-selected item.`}
             sandpackExample={
-              <SandpackExample code={action} name="Action example" layout="column" />
+              <SandpackExample code={action} layout="column" name="Action example" />
             }
+            title="Action/Selection"
           />
           <MainSection.Card
             cardSize="md"
-            title="Link"
             description={`If an item navigates to a new page, use Dropdown.Link with the required \`href\` prop. If the item navigates to a page outside of the current context, (either a non-Pinterest site or a different Pinterest sub-site), the \`isExternal\` prop should also be specified to display the "up-right" icon. Optional additional actions to be taken on navigation are handled by \`onClick\`. Dropdown.Link can be paired with GlobalEventsHandlerProvider. See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
             `}
-            sandpackExample={<SandpackExample code={link} name="Link example" layout="column" />}
+            sandpackExample={<SandpackExample code={link} layout="column" name="Link example" />}
+            title="Link"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Disabled"
           description="Dropdown items can be marked as `disabled`. They will not receive focus and will appear inactive."
+          title="Disabled"
         >
           <MainSection.Card
             cardSize="lg"
@@ -256,8 +256,8 @@ When the text of the Dropdown.Item becomes longer than the width of the menu, ei
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Sections"
           description="Dropdown can also be composed of Dropdown.Section(s), which simply require a label. Use Dropdown.Section(s) to create hierarchy within a single Dropdown. Dropdown.Sections, Dropdown.Items and Dropdown.Links can be mixed as needed."
+          title="Sections"
         >
           <MainSection.Card
             cardSize="lg"
@@ -266,8 +266,8 @@ When the text of the Dropdown.Item becomes longer than the width of the menu, ei
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Custom header"
           description={`Dropdown can also contain a custom header by specifying \`headerContent\`, which always appears at the very top of the menu. It can be used instead of a section header if the menu contains only one type of content that needs additional description. It can contain anything, but most often will contain just text and/or a link.`}
+          title="Custom header"
         >
           <MainSection.Card
             cardSize="lg"
@@ -275,8 +275,8 @@ When the text of the Dropdown.Item becomes longer than the width of the menu, ei
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Subtext"
           description={`Each Dropdown item can also contain \`subtext\` below the label. This \`subtext\` will wrap if needed. Use this text to add an additional description of the Dropdown item.`}
+          title="Subtext"
         >
           <MainSection.Card
             cardSize="lg"
@@ -284,8 +284,8 @@ When the text of the Dropdown.Item becomes longer than the width of the menu, ei
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Badges"
           description={`A [Badge](/web/badge) can be used to indicate a new product surface or feature within the Dropdown using \`badgeText\`. Multiple badges within a Dropdown should be avoided when possible.`}
+          title="Badges"
         >
           <MainSection.Card
             cardSize="lg"
@@ -293,23 +293,23 @@ When the text of the Dropdown.Item becomes longer than the width of the menu, ei
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Custom item content"
           description={`
       If needed, users can supply custom content to each Dropdown.Item or Dropdown.Link. This can be useful when extra functionality is needed, like showing an Avatar. However, please use with caution and only when absolutely necessary.
 
       To ensure the entire width of the item is clickable, you will likely need to surround your custom content with a full-width Box.
           `}
+          title="Custom item content"
         >
           <BannerSlim
-            iconAccessibilityLabel="Localize the default label"
-            message="Accessibility note: custom content cannot include interactive elements, like a TextArea or Button. Because Dropdown.Item and Dropdown.Link already act as buttons and links respectively, they cannot include focusable elements as children."
-            type="info"
             helperLink={{
               text: 'Learn more',
               accessibilityLabel: 'Learn more about nested interactive elements',
               href: 'https://dequeuniversity.com/rules/axe/4.2/nested-interactive',
               onClick: () => {},
             }}
+            iconAccessibilityLabel="Localize the default label"
+            message="Accessibility note: custom content cannot include interactive elements, like a TextArea or Button. Because Dropdown.Item and Dropdown.Link already act as buttons and links respectively, they cannot include focusable elements as children."
+            type="info"
           />
           <MainSection.Card
             cardSize="lg"
@@ -318,7 +318,6 @@ When the text of the Dropdown.Item becomes longer than the width of the menu, ei
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Subcomponent composability"
           description={`
 Under the hood, Dropdown executes two actions: recognizing subcomponents by display name and sequencially indexing each subcomponent for keyboard navigation.
 
@@ -326,6 +325,7 @@ Dropdown requires its own subcomponents as children to build the list of actions
 
 When building a Dropdown, we might want to render different combinations of subcomponents conditionally. Dropdown supports simple conditional rendering of subcomponents lists wrapped in [React.Fragment](https://reactjs.org/docs/fragments.html) as well as consecutive arrays of subcomponent arrays. See the example below which illustrates both of these cases. More logic complexity might break the correct Dropdown behavior.
           `}
+          title="Subcomponent composability"
         >
           <MainSection.Card
             cardSize="lg"
@@ -334,15 +334,15 @@ When building a Dropdown, we might want to render different combinations of subc
         </MainSection.Subsection>
 
         <MainSection
-          name="Mobile"
           description={`Dropdown requires [DeviceTypeProvider](/web/utilities/devicetypeprovider) to enable its mobile user interface. The example below shows the mobile platform UI and its implementation.
 
 SheetMobile has animation. To learn more about Dropdown.Link´s \`mobileOnDismissStart\`, see the [animation variant in SheetMobile](/web/sheetmobile#Animation). \`mobileOnDismissStart\` is the equivalent of \`onDismissStart\` in SheetMobile.
 `}
+          name="Mobile"
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample code={mobile} name="Mobile example" layout="mobileRow" />
+              <SandpackExample code={mobile} layout="mobileRow" name="Mobile example" />
             }
           />
         </MainSection>

@@ -6,7 +6,7 @@ export default function Snapshot(): ReactNode {
   return (
     <ColorSchemeProvider colorScheme="dark">
       <Box color="default" padding={4} width={150}>
-        <Tooltip idealDirection="right" inline text="Share" accessibilityLabel="">
+        <Tooltip accessibilityLabel="" idealDirection="right" inline text="Share">
           <IconButton
             accessibilityLabel="Share this Pin"
             bgColor="white"

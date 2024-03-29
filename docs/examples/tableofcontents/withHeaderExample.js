@@ -6,22 +6,22 @@ export default function Example(): ReactNode {
   const { hash } = window.location;
 
   return (
-    <Box padding={8} display="flex" justifyContent="center">
+    <Box display="flex" justifyContent="center" padding={8}>
       <TableOfContents title="Promotions">
         <TableOfContents.Item
-          label="Active coupons"
-          href="#active-coupons"
           active={hash === '#active-coupons'}
+          href="#active-coupons"
+          label="Active coupons"
         />
         <TableOfContents.Item
-          label="Active credits"
-          href="#active-credits"
           active={hash === '#active-credits'}
+          href="#active-credits"
+          label="Active credits"
         />
         <TableOfContents.Item
-          label="Offer codes"
-          href="#offer-codes"
           active={hash === '#offer-codes'}
+          href="#offer-codes"
+          label="Offer codes"
         />
       </TableOfContents>
     </Box>

@@ -22,27 +22,27 @@ export default function DocsPage({ generatedDocGen }: DocType): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
+        name={generatedDocGen?.displayName}
         pdocsLink
       >
-        <SandpackExample code={main} name="TapAreaLink example" hideEditor />
+        <SandpackExample code={main} hideEditor name="TapAreaLink example" />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
-      <MainSection name="Usage guidelines" description="See [TapArea](/web/taparea)." />
+      <MainSection description="See [TapArea](/web/taparea)." name="Usage guidelines" />
 
-      <LocalizationSection name={generatedDocGen?.displayName} code={localizationLabels} />
+      <LocalizationSection code={localizationLabels} name={generatedDocGen?.displayName} />
 
-      <MainSection name="Variants" description="See [TapArea](/web/taparea) for more variants.">
+      <MainSection description="See [TapArea](/web/taparea) for more variants." name="Variants">
         <MainSection.Subsection title="Compress behavior">
           <MainSection.Card
             sandpackExample={
               <SandpackExample
-                name="Compress Behavior Example"
                 code={compressBehavior}
                 layout="column"
+                name="Compress Behavior Example"
                 previewHeight={400}
               />
             }
@@ -51,42 +51,42 @@ export default function DocsPage({ generatedDocGen }: DocType): ReactNode {
 
         <MainSection.Subsection title="Height & width">
           <MainSection.Card
-            sandpackExample={<SandpackExample name="Height & Width Example" code={heightWidth} />}
+            sandpackExample={<SandpackExample code={heightWidth} name="Height & Width Example" />}
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection title="Inline usage">
           <MainSection.Card
             description={`While TapArea doesn't provide an \`inline\` prop, this behavior can be achieved by wrapping with \`<Box display="inlineBlock">\`.`}
-            sandpackExample={<SandpackExample name="Inline Usage Example" code={inlineUsage} />}
+            sandpackExample={<SandpackExample code={inlineUsage} name="Inline Usage Example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection title="Mouse cursor">
           <MainSection.Card
-            sandpackExample={<SandpackExample name="Mouse cursor" code={mouseCursor} />}
+            sandpackExample={<SandpackExample code={mouseCursor} name="Mouse cursor" />}
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Rounding"
           description="In ordee to observe TapArea's border radius, focus on each component below navigating with the keyboard. `fullWidth={false}` might be required to wrap to the children component. Make the sure the children components match the rounding as well."
+          title="Rounding"
         >
           <CombinationNew cardSize="xs" rounding={[0, 1, 2, 3, 4, 5, 6, 7, 8, 'circle', 'pill']}>
             {({ rounding }) => (
               <TapAreaLink
+                accessibilityLabel={`rounding: ${rounding}`}
+                fullWidth={false}
                 href="#"
                 rounding={rounding}
-                fullWidth={false}
-                accessibilityLabel={`rounding: ${rounding}`}
               >
                 <Box
-                  borderStyle="lg"
-                  width={rounding === 'pill' ? 120 : 70}
-                  height={70}
-                  display="flex"
                   alignItems="center"
+                  borderStyle="lg"
+                  display="flex"
+                  height={70}
                   justifyContent="center"
                   rounding={rounding}
+                  width={rounding === 'pill' ? 120 : 70}
                 />
               </TapAreaLink>
             )}
@@ -94,7 +94,6 @@ export default function DocsPage({ generatedDocGen }: DocType): ReactNode {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="External handlers"
           description={`TapAreaLink consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).
 
 Handlers:
@@ -103,6 +102,7 @@ Handlers:
 
 See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onNavigation:-custom-navigation) for more information.
 `}
+          title="External handlers"
         />
       </MainSection>
       <QualityChecklist component={generatedDocGen?.displayName} />

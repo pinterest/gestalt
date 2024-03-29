@@ -44,29 +44,15 @@ export default function Example(): ReactNode {
   ];
 
   return (
-    <Flex height="100%" width="100%" direction="column" gap={2}>
+    <Flex direction="column" gap={2} height="100%" width="100%">
       <ChartGraph
-        title="Impressions over time"
         accessibilityLabel="Example of chart with reference area"
-        visualPatternSelected="disabled"
-        onVisualPatternChange={() => {}}
         data={data}
+        elements={[{ type: 'line', id: 'Impressions' }]}
+        onVisualPatternChange={() => {}}
         range={{
           yAxisLeft: [0, 1000000],
           xAxisBottom: ['auto', new Date(2023, 0, 10).getTime()],
-        }}
-        elements={[{ type: 'line', id: 'Impressions' }]}
-        type="line"
-        tickFormatter={{
-          yAxisLeft: (value) => {
-            if (value >= 1000000) return `${value / 1000000}m`;
-            if (value >= 1000) return `${value / 1000}k`;
-            return value;
-          },
-          timeseries: (date) =>
-            `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(
-              date,
-            )}-${new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(date)}`,
         }}
         referenceAreas={[
           {
@@ -79,6 +65,20 @@ export default function Example(): ReactNode {
             y2: 1000000,
           },
         ]}
+        tickFormatter={{
+          yAxisLeft: (value) => {
+            if (value >= 1000000) return `${value / 1000000}m`;
+            if (value >= 1000) return `${value / 1000}k`;
+            return value;
+          },
+          timeseries: (date) =>
+            `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(
+              date,
+            )}-${new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(date)}`,
+        }}
+        title="Impressions over time"
+        type="line"
+        visualPatternSelected="disabled"
       />
     </Flex>
   );

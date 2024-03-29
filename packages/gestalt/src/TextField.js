@@ -206,6 +206,7 @@ const TextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forw
 
   return (
     <InternalTextField
+      ref={ref}
       autoComplete={autoComplete}
       dataTestId={dataTestId}
       disabled={disabled}
@@ -225,9 +226,8 @@ const TextFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forw
       onFocus={onFocus}
       onKeyDown={onKeyDown}
       placeholder={placeholder}
-      size={size}
       readOnly={readOnly}
-      ref={ref}
+      size={size}
       tags={tags}
       type={type}
       value={value}

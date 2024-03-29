@@ -20,8 +20,8 @@ type Props = {
  */
 export default function DropdownSection({ label, children }: Props): ReactNode {
   return (
-    <div className={styles.DropdownSection} aria-label={label}>
-      <Box padding={2} display="flex" role="presentation">
+    <div aria-label={label} className={styles.DropdownSection}>
+      <Box display="flex" padding={2} role="presentation">
         <Text size="100">{label}</Text>
       </Box>
       {children}

@@ -24,7 +24,7 @@ export default function Example(): ReactNode {
     <OverlayPanel.DismissingElement>
       {({ onDismissStart }) => (
         <Flex alignItems="center" justifyContent="end">
-          <Button color="red" text="Create" onClick={onDismissStart} />
+          <Button color="red" onClick={onDismissStart} text="Create" />
         </Flex>
       )}
     </OverlayPanel.DismissingElement>
@@ -33,16 +33,16 @@ export default function Example(): ReactNode {
   return (
     <Fragment>
       <Box padding={8}>
-        <Button text="View example OverlayPanel" onClick={() => setShowComponent(true)} />
+        <Button onClick={() => setShowComponent(true)} text="View example OverlayPanel" />
       </Box>
       {showComponent && (
         <Layer zIndex={sheetZIndex}>
           <OverlayPanel
             accessibilityDismissButtonLabel="Close audience creation overlay panel"
             accessibilityLabel="Audience list creation for new campaign"
+            footer={footer}
             heading="Create a new audience list"
             onDismiss={() => setShowComponent(false)}
-            footer={footer}
             size="md"
           >
             <Flex
@@ -68,14 +68,14 @@ export default function Example(): ReactNode {
                 <TextField
                   id="audience-name"
                   label="Audience name"
-                  placeholder="Name your audience"
                   onChange={() => {}}
+                  placeholder="Name your audience"
                 />
                 <TextField
                   id="desc"
                   label="Audience description"
-                  placeholder="Describe your audience"
                   onChange={() => {}}
+                  placeholder="Describe your audience"
                 />
                 <Fieldset legend="When adding this audience list to an ad group:">
                   <Flex
@@ -86,18 +86,18 @@ export default function Example(): ReactNode {
                     }}
                   >
                     <RadioButton
+                      id="include"
                       label="Include list"
                       name="audience"
-                      value="include"
                       onChange={() => {}}
-                      id="include"
+                      value="include"
                     />
                     <RadioButton
+                      id="exclude"
                       label="Exclude list"
                       name="audience"
-                      value="include"
                       onChange={() => {}}
-                      id="exclude"
+                      value="include"
                     />
                   </Flex>
                 </Fieldset>
@@ -128,32 +128,32 @@ export default function Example(): ReactNode {
                     }}
                   >
                     <RadioButton
+                      id="tag"
                       label="Pinterest Tag"
                       name="source"
-                      value="pin"
                       onChange={() => {}}
-                      id="tag"
+                      value="pin"
                     />
                     <RadioButton
+                      id="mmp"
                       label="Mobile Measurement Partners (MMP)"
                       name="source"
-                      value="mmp"
                       onChange={() => {}}
-                      id="mmp"
+                      value="mmp"
                     />
                     <RadioButton
+                      id="upload"
                       label="Conversion Upload"
                       name="source"
-                      value="conversion"
                       onChange={() => {}}
-                      id="upload"
+                      value="conversion"
                     />
                     <RadioButton
+                      id="api"
                       label="API"
                       name="source"
-                      value="api"
                       onChange={() => {}}
-                      id="api"
+                      value="api"
                     />
                   </Flex>
                 </Fieldset>
@@ -174,13 +174,13 @@ export default function Example(): ReactNode {
                 <TextField
                   id="users"
                   label="Users in the past few days"
-                  placeholder="Ex. 4"
                   onChange={() => {}}
+                  placeholder="Ex. 4"
                 />
                 <Checkbox
+                  id="traffic"
                   label="Include past traffic data"
                   name="traffic"
-                  id="traffic"
                   onChange={() => {}}
                 />
               </Flex>

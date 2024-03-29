@@ -12,11 +12,11 @@ export default function Example(): ReactNode {
           <Flex direction="column" gap={8}>
             <SelectList
               id="scheme"
+              label="Color scheme"
               name="scheme"
               // $FlowFixMe[incompatible-call]
               onChange={({ value }) => setScheme(value)}
               placeholder="Select color scheme"
-              label="Color scheme"
               value={scheme}
             >
               {[

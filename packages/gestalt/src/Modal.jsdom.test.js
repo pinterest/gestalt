@@ -9,17 +9,17 @@ describe('Modal', () => {
   test('Desktop Modal renders', () => {
     const { baseElement } = render(
       <Modal
-        heading="Heading"
-        subHeading="Subheading"
         accessibilityModalLabel="Test modal"
-        onDismiss={() => {}}
-        size="sm"
         footer={
-          <Flex justifyContent="end" gap={2}>
+          <Flex gap={2} justifyContent="end">
             <Button color="gray" text="Cancel" />
             <Button color="red" text="Next" />
           </Flex>
         }
+        heading="Heading"
+        onDismiss={() => {}}
+        size="sm"
+        subHeading="Subheading"
       >
         Modal content
       </Modal>,
@@ -31,17 +31,17 @@ describe('Modal', () => {
   test('Desktop Modal contains all elements correctly', () => {
     render(
       <Modal
-        heading="Heading"
-        subHeading="Subheading"
         accessibilityModalLabel="Test modal"
-        onDismiss={() => {}}
-        size="sm"
         footer={
-          <Flex justifyContent="end" gap={2}>
+          <Flex gap={2} justifyContent="end">
             <Button color="gray" text="Cancel" />
             <Button color="red" text="Next" />
           </Flex>
         }
+        heading="Heading"
+        onDismiss={() => {}}
+        size="sm"
+        subHeading="Subheading"
       >
         Modal content
       </Modal>,
@@ -60,17 +60,17 @@ describe('Modal', () => {
     const { baseElement } = render(
       <DeviceTypeProvider deviceType="mobile">
         <Modal
-          heading="Heading"
-          subHeading="Subheading"
           accessibilityModalLabel="Test modal"
-          onDismiss={() => {}}
-          size="sm"
           footer={
-            <Flex justifyContent="end" gap={2}>
+            <Flex gap={2} justifyContent="end">
               <Button color="gray" text="Cancel" />
               <Button color="red" text="Next" />
             </Flex>
           }
+          heading="Heading"
+          onDismiss={() => {}}
+          size="sm"
+          subHeading="Subheading"
         >
           Modal content
         </Modal>
@@ -84,17 +84,17 @@ describe('Modal', () => {
     render(
       <DeviceTypeProvider deviceType="mobile">
         <Modal
-          heading="Heading"
-          subHeading="Subheading"
           accessibilityModalLabel="Test modal"
-          onDismiss={() => {}}
-          size="sm"
           footer={
-            <Flex justifyContent="end" gap={2}>
+            <Flex gap={2} justifyContent="end">
               <Button color="gray" text="Cancel" />
               <Button color="red" text="Next" />
             </Flex>
           }
+          heading="Heading"
+          onDismiss={() => {}}
+          size="sm"
+          subHeading="Subheading"
         >
           Modal content
         </Modal>

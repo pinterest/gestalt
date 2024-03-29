@@ -14,10 +14,10 @@ test('InternalLink handles onClick callback', () => {
   >();
   render(
     <InternalLink
-      wrappedComponent="button"
       href="https://example.com"
       onClick={mockOnClick}
       tabIndex={0}
+      wrappedComponent="button"
     >
       InternalLink
     </InternalLink>,

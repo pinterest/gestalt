@@ -17,43 +17,43 @@ export default function DocsPage(): ReactNode {
 
       <MainSection name="Components">
         <MainSection.Subsection
-          title="BannerCallout"
           description={`BannerCallouts sit on a page or surface and provide status alerts, information or recommendations to a user. They are used for highest priority messages, usually at the top of a page.
 
 [Go to the BannerCallout component](/web/bannercallout)`}
+          title="BannerCallout"
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample code={bannercallout} name="BannerCallout example" hideEditor />
+              <SandpackExample code={bannercallout} hideEditor name="BannerCallout example" />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="BannerSlim"
           description={`BannerSlim conveys brief information related to a specific section of a page. The message can relay success, warning, error or general information. BannerSlims are used to reference a specific section of a page, or in any dense interface where space is a concern.
 
 [Go to the BannerSlim component](/web/bannerslim)`}
+          title="BannerSlim"
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample code={bannerslim} name="BannerSlim example" hideEditor />
+              <SandpackExample code={bannerslim} hideEditor name="BannerSlim example" />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="ModalAlert"
           description={`A modal dialog can be used to alert a user of an issue, or to request confirmation after a user-generated action. ModalAlert overlays and blocks page content until it is dismissed by the user.
 
 [Go to the ModalAlert component](/web/modalalert)`}
+          title="ModalAlert"
         >
           <MainSection.Card
             sandpackExample={
               <SandpackExample
                 code={modalalert}
-                name="ModalAlert example"
                 hideEditor
+                name="ModalAlert example"
                 previewHeight={450}
               />
             }
@@ -61,7 +61,6 @@ export default function DocsPage(): ReactNode {
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Toast"
           description={`Toasts are the least disruptive of messages in that they are ephemeral and don’t require a user to act or dismiss them. They appear opposite a surface’s main navigation and overlay content without fully blocking it.
 
 Toasts can be used to:
@@ -70,10 +69,11 @@ Toasts can be used to:
 - Alert users of connectivity issues or unknown errors without disrupting their flow"
 
 [Go to the Toast component](/web/toast)`}
+          title="Toast"
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample code={toast} name="Toast example" hideEditor previewHeight={150} />
+              <SandpackExample code={toast} hideEditor name="Toast example" previewHeight={150} />
             }
           />
         </MainSection.Subsection>
@@ -88,20 +88,20 @@ Toasts can be used to:
 
           <Box>
             <iframe
-              title="Messaging Figma decision tree"
-              style={{ border: 'none' }}
-              width="100%"
+              allowFullScreen
               height="450"
               src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FXxaqjsGExBDWWs7HDRhaYW%2FMessaging-decision-tree-H2%3Fnode-id%3D102%253A1092"
-              allowFullScreen
+              style={{ border: 'none' }}
+              title="Messaging Figma decision tree"
+              width="100%"
             />
           </Box>
 
           <Text>
             <Link
+              externalLinkIcon="default"
               href="https://www.figma.com/file/XxaqjsGExBDWWs7HDRhaYW/Messaging-decision-tree-H2?node-id=102%3A1092"
               underline="always"
-              externalLinkIcon="default"
             >
               View in Figma
             </Link>

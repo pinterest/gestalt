@@ -48,7 +48,7 @@ export default function Trend({
         />
       )}
 
-      <Text size="200" color={color} weight="bold">
+      <Text color={color} size="200" weight="bold">
         {`${Math.abs(value)}%`}
       </Text>
     </Flex>

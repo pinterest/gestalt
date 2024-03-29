@@ -10,13 +10,13 @@ export default function AnimationPrinciples(): ReactNode {
   return (
     <Page title="Animation principles">
       <PageHeader
+        description="Animations can be utilized to provide feedback, add delight, and educate users. When considering adding animations to a product, consider these guiding principles."
         name="Animation principles"
         type="guidelines"
-        description="Animations can be utilized to provide feedback, add delight, and educate users. When considering adding animations to a product, consider these guiding principles."
       />
       <MainSection name="Principles">
-        <Flex gap={12} alignContent="between" wrap>
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
+        <Flex alignContent="between" gap={12} wrap>
+          <Flex.Item flex="grow" flexBasis="0%" maxWidth="45%" minWidth={275}>
             <PrincipleItem
               heading="Helpful"
               text={
@@ -29,7 +29,7 @@ export default function AnimationPrinciples(): ReactNode {
               }
             />
           </Flex.Item>
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
+          <Flex.Item flex="grow" flexBasis="0%" maxWidth="45%" minWidth={275}>
             <PrincipleItem
               heading="Direct"
               text={
@@ -42,7 +42,7 @@ export default function AnimationPrinciples(): ReactNode {
               }
             />
           </Flex.Item>
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={275} maxWidth="45%">
+          <Flex.Item flex="grow" flexBasis="0%" maxWidth="45%" minWidth={275}>
             <PrincipleItem
               heading="Accessible"
               text={

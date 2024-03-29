@@ -8,10 +8,10 @@ export default function Example(): ReactNode {
   const [checked3, setChecked3] = useState(false);
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Fieldset legend="Data personalization">
         <Flex direction="column" gap={{ column: 2, row: 0 }}>
-          <Flex gap={2} alignItems="center">
+          <Flex alignItems="center" gap={2}>
             <Checkbox
               checked={checked1}
               id="sites2"
@@ -21,13 +21,13 @@ export default function Example(): ReactNode {
               <Label htmlFor="sites2">
                 Use sites you visit to improve which recommendations and ads you see on Pinterest.
               </Label>
-              <Link href="#" display="inline">
+              <Link display="inline" href="#">
                 Learn more
               </Link>
             </Text>
           </Flex>
 
-          <Flex gap={2} alignItems="center">
+          <Flex alignItems="center" gap={2}>
             <Checkbox
               checked={checked2}
               id="partner2"
@@ -37,13 +37,13 @@ export default function Example(): ReactNode {
               <Label htmlFor="partner2">
                 Use partner info to improve which recommendations and ads you see on Pinterest.
               </Label>
-              <Link href="#" display="inline">
+              <Link display="inline" href="#">
                 Learn more
               </Link>
             </Text>
           </Flex>
 
-          <Flex gap={2} alignItems="center">
+          <Flex alignItems="center" gap={2}>
             <Checkbox
               checked={checked3}
               id="activity2"
@@ -54,7 +54,7 @@ export default function Example(): ReactNode {
                 Use your activity to improve ads you see about Pinterest on other sites or apps you
                 may visit.
               </Label>
-              <Link href="#" display="inline">
+              <Link display="inline" href="#">
                 Learn more
               </Link>
             </Text>

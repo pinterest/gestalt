@@ -23,10 +23,10 @@ test('Collection with limited viewport', () => {
         { top: 100, left: 100, width: 100, height: 100 },
       ]}
       renderItem={({ idx }) => <div>{idx}</div>}
-      viewportTop={100}
-      viewportLeft={100}
-      viewportWidth={50}
       viewportHeight={50}
+      viewportLeft={100}
+      viewportTop={100}
+      viewportWidth={50}
     />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
@@ -42,10 +42,10 @@ test('Collection with limited viewport and a few items', () => {
         { top: 100, left: 100, width: 100, height: 100 },
       ]}
       renderItem={({ idx }) => <div>{idx}</div>}
-      viewportTop={50}
-      viewportLeft={50}
-      viewportWidth={100}
       viewportHeight={100}
+      viewportLeft={50}
+      viewportTop={50}
+      viewportWidth={100}
     />,
   ).toJSON();
   expect(tree).toMatchSnapshot();

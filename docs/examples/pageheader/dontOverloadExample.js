@@ -8,14 +8,13 @@ export default function DontOverloadExample(): ReactNode {
   return (
     <Fragment>
       <PageHeader
-        title="Ads overview"
+        dropdownAccessibilityLabel="More options"
         helperIconButton={{
           accessibilityControls: '',
           accessibilityExpanded: open,
           accessibilityLabel: 'Read more information about Ads overview',
           onClick: () => setOpen(true),
         }}
-        subtext="5 active campaigns."
         helperLink={{
           text: 'Learn more.',
           accessibilityLabel: 'Learn more Pinterest.com',
@@ -27,17 +26,17 @@ export default function DontOverloadExample(): ReactNode {
             key="impressions"
             size="md"
             title="Impressions"
-            value="$1.25M"
             tooltipText="The number of times your ads were seen."
             trend={{ value: 30, accessibilityLabel: 'Trending up' }}
+            value="$1.25M"
           />,
           <Datapoint
             key="engagement"
             size="md"
             title="Engagement"
-            value="10%"
             tooltipText="The number of times your ads were clicked."
             trend={{ value: 5, accessibilityLabel: 'Trending up' }}
+            value="10%"
           />,
         ]}
         primaryAction={{
@@ -45,8 +44,8 @@ export default function DontOverloadExample(): ReactNode {
           dropdownItems: [
             <Dropdown.Item
               key="promote"
-              option={{ value: 'Promote', label: 'Promote' }}
               onSelect={() => {}}
+              option={{ value: 'Promote', label: 'Promote' }}
             />,
           ],
         }}
@@ -55,12 +54,13 @@ export default function DontOverloadExample(): ReactNode {
           dropdownItems: [
             <Dropdown.Link
               key="view-analytics"
-              option={{ value: 'View analytics', label: 'View analytics' }}
               href="https://pinterest.com"
+              option={{ value: 'View analytics', label: 'View analytics' }}
             />,
           ],
         }}
-        dropdownAccessibilityLabel="More options"
+        subtext="5 active campaigns."
+        title="Ads overview"
       />
       {open ? (
         <OverlayPanel

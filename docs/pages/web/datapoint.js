@@ -26,12 +26,12 @@ import withBadgeExample from '../../examples/datapoint/withBadgeExample';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
         <SandpackExample
-          name="Main Example"
           code={mainExample}
-          layout="column"
           hideEditor
+          layout="column"
+          name="Main Example"
           previewHeight={160}
         />
       </PageHeader>
@@ -42,20 +42,20 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - To display a single numerical metric.
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - When the information to convey is qualitative (e.g., “In Progress” or “Healthy”). Use [Status](/web/status) instead.
           - When the Datapoint’s metric/value is not clear or understandable in isolation.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -64,30 +64,30 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Whenever possible, use the full number with locale-specific separators to ensure clarity across all languages."
             sandpackExample={
               <SandpackExample
-                name="Use Full Number With Locale Separators"
                 code={useFullNumberWithLocaleSeparators}
-                layout="column"
                 hideEditor
+                layout="column"
+                name="Use Full Number With Locale Separators"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use long decimal values for `trend`. Limit the trend to one decimal point."
             sandpackExample={
               <SandpackExample
-                name="Don't Use Long Decimal Values For Trend"
                 code={dontUseLongDecimalValuesForTrend}
-                layout="column"
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Don't Use Long Decimal Values For Trend"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
@@ -95,68 +95,68 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             // This example should also display a localized trend value, but given trend accepts only a number,
             // the value cannot be localized. Once the API is changed, we should add a localized trend to this example.
             cardSize="md"
-            type="do"
             description="Make sure to localize numeric values."
             sandpackExample={
               <SandpackExample
-                name="Make Sure To Localize Numeric Values"
                 code={makeSureToLocalizeNumericValues}
-                layout="column"
                 hideEditor
+                layout="column"
+                name="Make Sure To Localize Numeric Values"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use subjective values for Datapoint's value."
             sandpackExample={
               <SandpackExample
-                name="Don't Use Subjective Values For Value"
                 code={dontUseSubjectiveValuesForValue}
-                layout="column"
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Don't Use Subjective Values For Value"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Be certain to use a positive `trendSentiment` only when the trend is overtly positive for the end user. Use a neutral `trendSentiment` in cases of ambiguity."
             sandpackExample={
               <SandpackExample
-                name="Use Positive Trend Sentiment Only When Positive"
                 code={usePositiveTrendSentiment}
-                layout="column"
                 hideEditor
+                layout="column"
+                name="Use Positive Trend Sentiment Only When Positive"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description={`
 Be cautious of using Datapoint for large volumes of data. In cases where the content is tabular, use [Table](/web/table).
 `}
             sandpackExample={
               <SandpackExample
-                name="Don't Use For Large Volumes Of Data"
                 code={dontUseForLargeVolumesOfData}
-                layout="column"
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Don't Use For Large Volumes Of Data"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
 
       <AccessibilitySection
-        name={generatedDocGen?.displayName}
         description={`Datapoint's trend prop requires an \`accessibilityLabel\` to describe the trend icon (e.g., Trending up).`}
+        name={generatedDocGen?.displayName}
       />
 
       <LocalizationSection
@@ -169,17 +169,17 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
         <MainSection.Subsection columns={2} title="Size">
           <MainSection.Card
             cardSize="lg"
-            title="Medium"
             sandpackExample={
-              <SandpackExample name="Size Example 1" code={sizeExample1} layout="column" />
+              <SandpackExample code={sizeExample1} layout="column" name="Size Example 1" />
             }
+            title="Medium"
           />
           <MainSection.Card
             cardSize="lg"
-            title="Large"
             sandpackExample={
-              <SandpackExample name="Size Example 2" code={sizeExample2} layout="column" />
+              <SandpackExample code={sizeExample2} layout="column" name="Size Example 2" />
             }
+            title="Large"
           />
         </MainSection.Subsection>
 
@@ -191,8 +191,8 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Display Change In Value Over Time"
                 code={displayChangeInValueOverTime}
+                name="Display Change In Value Over Time"
               />
             }
           />
@@ -206,8 +206,8 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Explicit Trend Sentiment Settings"
                 code={explicitTrendSentimentSettings}
+                name="Explicit Trend Sentiment Settings"
               />
             }
           />
@@ -221,8 +221,8 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Provide Context Detail Framing With Tooltip"
                 code={provideContextDetailFramingWithTooltip}
+                name="Provide Context Detail Framing With Tooltip"
               />
             }
           />
@@ -232,7 +232,7 @@ Be cautious of using Datapoint for large volumes of data. In cases where the con
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample name="With A Badge Example" code={withBadgeExample} />
+              <SandpackExample code={withBadgeExample} name="With A Badge Example" />
             }
           />
         </MainSection.Subsection>

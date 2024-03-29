@@ -6,8 +6,6 @@ export default function Snapshot(): ReactNode {
   return (
     <Box width="100vw">
       <PageHeader
-        title="Product groups"
-        subtext="S. E. All products USD"
         badge={{ text: 'Beta', tooltipText: 'This feature is on beta phase' }}
         helperIconButton={{
           accessibilityLabel: 'test',
@@ -15,6 +13,7 @@ export default function Snapshot(): ReactNode {
           accessibilityExpanded: false,
           onClick: () => {},
         }}
+        subtext="S. E. All products USD"
         thumbnail={
           <Image
             alt="square"
@@ -24,6 +23,7 @@ export default function Snapshot(): ReactNode {
             src="https://i.ibb.co/d0pQsJz/stock3.jpg"
           />
         }
+        title="Product groups"
       />
     </Box>
   );

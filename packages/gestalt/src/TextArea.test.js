@@ -18,7 +18,7 @@ describe('TextArea', () => {
 
   it('TextArea normal', () => {
     const tree = create(
-      <TextArea id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
+      <TextArea id="test" onBlur={jest.fn()} onChange={jest.fn()} onFocus={jest.fn()} />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -28,9 +28,9 @@ describe('TextArea', () => {
       <TextArea
         errorMessage="error message"
         id="test"
+        onBlur={jest.fn()}
         onChange={jest.fn()}
         onFocus={jest.fn()}
-        onBlur={jest.fn()}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -38,7 +38,7 @@ describe('TextArea', () => {
 
   it('TextArea with hasError', () => {
     const tree = create(
-      <TextArea hasError id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
+      <TextArea hasError id="test" onBlur={jest.fn()} onChange={jest.fn()} onFocus={jest.fn()} />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -46,15 +46,15 @@ describe('TextArea', () => {
   it('TextField with maxLength character counter', () => {
     const tree = create(
       <TextArea
-        name="maxLength"
         id="test"
-        onChange={jest.fn()}
-        onFocus={jest.fn()}
-        onBlur={jest.fn()}
         maxLength={{
           characterCount: 20,
           errorAccessibilityLabel: 'Exceeded',
         }}
+        name="maxLength"
+        onBlur={jest.fn()}
+        onChange={jest.fn()}
+        onFocus={jest.fn()}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -62,14 +62,14 @@ describe('TextArea', () => {
 
   it('TextArea with readOnly', () => {
     const tree = create(
-      <TextArea readOnly id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
+      <TextArea id="test" onBlur={jest.fn()} onChange={jest.fn()} onFocus={jest.fn()} readOnly />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('TextArea with disabled', () => {
     const tree = create(
-      <TextArea disabled id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
+      <TextArea disabled id="test" onBlur={jest.fn()} onChange={jest.fn()} onFocus={jest.fn()} />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -87,21 +87,21 @@ describe('TextArea', () => {
         tags={[
           <Tag
             key="a"
-            text="a@pinterest.com"
-            onRemove={() => {}}
             accessibilityRemoveIconLabel="Remove email tag"
+            onRemove={() => {}}
+            text="a@pinterest.com"
           />,
           <Tag
             key="b"
-            text="b@pinterest.com"
-            onRemove={() => {}}
             accessibilityRemoveIconLabel="Remove email tag"
+            onRemove={() => {}}
+            text="b@pinterest.com"
           />,
           <Tag
             key="c"
-            text="c@pinterest.com"
-            onRemove={() => {}}
             accessibilityRemoveIconLabel="Remove email tag"
+            onRemove={() => {}}
+            text="c@pinterest.com"
           />,
         ]}
       />,

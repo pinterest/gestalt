@@ -17,23 +17,23 @@ import scalingImageToFitContainer from '../../examples/image/scalingImageToFitCo
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName} />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
-          title="Presentational Images with Role"
           description={`
 Sometimes Images are purely presentational. For example, an Image used above an article title may be used to draw people's attention visually, but doesn't add any additional information or context about the article. In this case, the \`role\` should be set to "presentation" in order to inform screen readers and other assistive technology that this image does not need alternative text or any additional label.
     `}
+          title="Presentational Images with Role"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Images For Presentation Only"
                 code={imagesForPresentationOnly}
+                name="Images For Presentation Only"
               />
             }
           />
@@ -41,7 +41,6 @@ Sometimes Images are purely presentational. For example, an Image used above an 
       </AccessibilitySection>
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Dimensions"
           description={`
 One thing that might be unusual is that the \`width\` and the \`height\` of the component are required, yet the image will scale to the size of its container.
 
@@ -49,18 +48,19 @@ This is so that the placeholder's size can be calculated before the image has re
 
 While the exact dimensions supplied aren't used (only the ratio between them is considered), you should always try to supply the exact dimensions of the source image requested.
   `}
+          title="Dimensions"
         />
 
         <MainSection.Subsection
-          title="Placeholders"
           description={`
 The color you pass into Image will be used to fill the placeholder that shows up as an image loads. The example shown contains an image with a transparent background which allows you to visualize the placeholder color. When Mask is used to create rounded corners on Image, the placeholder color may leak through on the corners. To prevent this, remove the placeholder color."
   `}
+          title="Placeholders"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample name="Placeholder Color Usage" code={placeholderColorUsage} />
+              <SandpackExample code={placeholderColorUsage} name="Placeholder Color Usage" />
             }
           />
         </MainSection.Subsection>
@@ -72,13 +72,12 @@ The color you pass into Image will be used to fill the placeholder that shows up
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample name="Overlay Content On Image" code={overlayContentOnImage} />
+              <SandpackExample code={overlayContentOnImage} name="Overlay Content On Image" />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Fit"
           description={`
 In some cases, you may want to scale an image to fit into its container. To achieve that, you can set \`fit\` to either \`"cover"\` or \`"contain"\`, depending on the effect you wish to achieve.
 
@@ -98,14 +97,15 @@ Notes:
 * When using \`"cover"\`/\`"contain"\`, \`naturalHeight\` and \`naturalWidth\` are ignored since the aspect ratio is handled by the browser.
 * In order for \`"cover"\`/\`"contain"\` to work properly, the container must have some sort of implicit height.
   `}
+          title="Fit"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Scaling Image To Fit Container"
                 code={scalingImageToFitContainer}
                 layout="column"
+                name="Scaling Image To Fit Container"
                 previewHeight={800}
               />
             }
@@ -113,15 +113,15 @@ Notes:
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Lazy"
           description="You can delay loading images that are off-screen with the loading attribute. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/loading) for more details."
+          title="Lazy"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Delay Off-Screen Image Loading"
                 code={delayOffScreenImageLoading}
+                name="Delay Off-Screen Image Loading"
                 previewHeight={440}
               />
             }

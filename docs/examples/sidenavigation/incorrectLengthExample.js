@@ -7,23 +7,23 @@ export default function Example(): ReactNode {
     <SideNavigation accessibilityLabel="Incorrect length example">
       <SideNavigation.TopItem
         href="#"
-        onClick={({ event }) => event.preventDefault()}
         label="Your public profile: Hsiu Li user number 221"
+        onClick={({ event }) => event.preventDefault()}
       />
       <SideNavigation.TopItem
         href="#"
-        onClick={({ event }) => event.preventDefault()}
         label="Personal"
+        onClick={({ event }) => event.preventDefault()}
       />
       <SideNavigation.TopItem
         href="#"
-        onClick={({ event }) => event.preventDefault()}
         label="Account"
+        onClick={({ event }) => event.preventDefault()}
       />
       <SideNavigation.TopItem
         href="#"
-        onClick={({ event }) => event.preventDefault()}
         label="Make your home feed more relevant"
+        onClick={({ event }) => event.preventDefault()}
       />
     </SideNavigation>
   );

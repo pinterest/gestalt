@@ -75,9 +75,9 @@ export default function AccordionExpandableItem({
                 <ModuleTitle
                   badge={badge}
                   icon={icon}
-                  size={size}
                   iconAccessibilityLabel={iconAccessibilityLabel}
                   iconButton={iconButton}
+                  size={size}
                   title={title}
                   type={type}
                 />
@@ -88,7 +88,7 @@ export default function AccordionExpandableItem({
                   <Flex direction="column" gap={{ column: summaryListGap, row: 0 }}>
                     {summary.map((item, i) => (
                       // eslint-disable-next-line react/no-array-index-key
-                      <Text key={i} size="200" lineClamp={1}>
+                      <Text key={i} lineClamp={1} size="200">
                         {item}
                       </Text>
                     ))}
@@ -99,7 +99,7 @@ export default function AccordionExpandableItem({
 
             {/* Adding a max height because the line height is 24, and we don't want the icon container to expand */}
             {Boolean(children) && (
-              <Box id={id} padding={1} display="flex" alignItems="center" maxHeight={24}>
+              <Box alignItems="center" display="flex" id={id} maxHeight={24} padding={1}>
                 <Icon
                   accessibilityLabel={
                     isCollapsed ? accessibilityExpandLabel : accessibilityCollapseLabel

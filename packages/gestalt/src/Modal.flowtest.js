@@ -13,8 +13,8 @@ const NonExistingProp = <Modal nonexisting={33} />;
 const InvalidProp = (
   <Modal
     accessibilityModalLabel="Modal"
-    onDismiss={() => {}}
     heading={<Text>Test</Text>}
+    onDismiss={() => {}}
     subHeading="clever subheading"
   />
 );

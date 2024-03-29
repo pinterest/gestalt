@@ -11,10 +11,10 @@ export default function Example(): ReactNode {
         <NumberField
           id="size variant pixel input"
           label="Enter Pulsar size in pixels"
-          min={20}
           max={200}
-          step={10}
+          min={20}
           onChange={({ value }) => setSizePx(value)}
+          step={10}
         />
 
         <Pulsar size={sizePX} />

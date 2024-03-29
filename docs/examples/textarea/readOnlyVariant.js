@@ -7,14 +7,14 @@ export default function Example(): ReactNode {
     'To keep shopping inspirational and actionable, we set high standards for our Merchants. Your website was not approved due to fuzzy, low quality images.',
   );
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Box width="100%">
         <TextArea
           id="aboutmereadonly"
-          onChange={(data) => setValue(data.value)}
           label="Current errors"
-          value={value}
+          onChange={(data) => setValue(data.value)}
           readOnly
+          value={value}
         />
       </Box>
     </Box>

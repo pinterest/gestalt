@@ -345,12 +345,11 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName} />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <MainSection
-        name="Implementation"
         description={`
         To support internationalization and accessibility, Gestalt components have many required accessibility labels. This allows you to pass translated strings to ensure that users of all abilities and languages can use your app.
 
@@ -360,6 +359,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
         In the examples below, type a character to make the "clear input" icon button appear, then inspect that element and note the accessibility label.
         `}
+        name="Implementation"
       >
         <MainSection.Card
           sandpackExample={
@@ -377,8 +377,8 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         />
       </MainSection>
       <MainSection
-        name="Default strings provided"
         description="The following strings are provided by default:"
+        name="Default strings provided"
       >
         <Table accessibilityLabel="Default strings provided table">
           <Table.Header>

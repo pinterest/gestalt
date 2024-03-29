@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { ColorSchemeProvider, Masonry } from 'gestalt';
 import generateExampleItems from '../../integration-test-helpers/masonry/items-utils/generateExampleItems';
 import generateRealisticExampleItems from '../../integration-test-helpers/masonry/items-utils/generateRealisticExampleItems';
+import getRandomNumberGenerator from '../../integration-test-helpers/masonry/items-utils/getRandomNumberGenerator';
 import pinHeights, {
   type PinHeight,
 } from '../../integration-test-helpers/masonry/items-utils/pinHeights';
@@ -128,9 +129,9 @@ export default function TestPage({
           positionStore={positionStore}
           scrollContainer={booleanize(scrollContainer)}
           twoColItems={booleanize(twoColItems)}
-          virtualize={booleanize(virtualize)}
-          virtualBoundsTop={virtualBoundsTop}
           virtualBoundsBottom={virtualBoundsBottom}
+          virtualBoundsTop={virtualBoundsTop}
+          virtualize={booleanize(virtualize)}
         />
       </MaybeLazyHydrate>
     </ColorSchemeProvider>
@@ -143,7 +144,7 @@ export async function getServerSideProps(): Promise<{
   // This is used to ensure we're using the same dataset of realistic pins on the server and client
   const randomNumberSeeds = Array.from({
     length: REALISTIC_PINS_DATASET_SIZE,
-  }).map(() => Math.random());
+  }).map(getRandomNumberGenerator(12345));
   return {
     props: {
       randomNumberSeeds,

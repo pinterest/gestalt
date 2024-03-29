@@ -154,7 +154,7 @@ export default class Image extends PureComponent<Props> {
     } = this.props;
 
     const childContent = children ? (
-      <Box position="absolute" top left bottom right overflow="hidden">
+      <Box bottom left overflow="hidden" position="absolute" right top>
         {children}
       </Box>
     ) : null;
@@ -173,13 +173,13 @@ export default class Image extends PureComponent<Props> {
 
     return (
       <Box
-        position="relative"
         dangerouslySetInlineStyle={{
           __style: {
             backgroundColor: color,
             paddingBottom: isScaledImage ? undefined : `${(naturalHeight / naturalWidth) * 100}%`,
           },
         }}
+        position="relative"
         {...(isScaledImage ? { height: '100%' } : {})}
       >
         <img

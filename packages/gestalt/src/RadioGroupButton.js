@@ -150,7 +150,7 @@ const RadioGroupButtonWithForwardRef: AbstractComponent<Props, HTMLInputElement>
   }
 
   return (
-    <Box alignItems="start" display="flex" justifyContent="start" marginStart={-1} marginEnd={-1}>
+    <Box alignItems="start" display="flex" justifyContent="start" marginEnd={-1} marginStart={-1}>
       <Box paddingX={1}>
         <div
           className={classnames(bgStyle, borderStyle, borderWidth, styleSize, styles.RadioButton, {
@@ -159,6 +159,7 @@ const RadioGroupButtonWithForwardRef: AbstractComponent<Props, HTMLInputElement>
         >
           <input
             // checking for "focused" is not required by screenreaders but it prevents a11y integration tests to complain about missing label, as aria-describedby seems to shadow label in tests though it's a W3 accepeted pattern https://www.w3.org/TR/WCAG20-TECHS/ARIA1.html
+            ref={ref}
             aria-describedby={helperText && focused ? `${id}-helperText` : undefined}
             checked={checked}
             className={classnames(controlStyles.input, styleSize, {
@@ -172,7 +173,6 @@ const RadioGroupButtonWithForwardRef: AbstractComponent<Props, HTMLInputElement>
             onFocus={handleFocus}
             onMouseEnter={() => handleHover(true)}
             onMouseLeave={() => handleHover(false)}
-            ref={ref}
             type="radio"
             value={value}
           />
@@ -185,10 +185,10 @@ const RadioGroupButtonWithForwardRef: AbstractComponent<Props, HTMLInputElement>
             <Label htmlFor={id}>
               {/* marginTop: '-1px'/'2px' is needed to  visually align the label text & radiobutton input */}
               <Box
-                paddingX={1}
                 dangerouslySetInlineStyle={{
                   __style: { marginTop: size === 'md' ? '2px' : '-1px' },
                 }}
+                paddingX={1}
               >
                 <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
                   {label}
@@ -197,7 +197,7 @@ const RadioGroupButtonWithForwardRef: AbstractComponent<Props, HTMLInputElement>
             </Label>
           )}
           {badge && (
-            <Flex.Item minWidth={0} alignSelf="end">
+            <Flex.Item alignSelf="end" minWidth={0}>
               <Box dangerouslySetInlineStyle={{ __style: { top: '1px' } }} position="relative">
                 <Badge text={badge.text} type={badge.type || 'info'} />
               </Box>

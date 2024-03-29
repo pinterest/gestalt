@@ -11,20 +11,20 @@ export default function Example(): ReactNode {
   }, []);
 
   return (
-    <Flex justifyContent="center" height="100%" width="100%">
+    <Flex height="100%" justifyContent="center" width="100%">
       <Box dangerouslySetInlineStyle={{ __style: { marginTop: 140 } }} position="relative">
         <Button onClick={() => {}} text="Switch to 3-step ad creation" />
 
         <Box
           ref={anchorRef}
-          position="absolute"
-          top
           dangerouslySetInlineStyle={{
             __style: {
               marginTop: -130,
               marginLeft: -30,
             },
           }}
+          position="absolute"
+          top
         >
           <Pulsar size={300} />
         </Box>
@@ -33,8 +33,8 @@ export default function Example(): ReactNode {
           <PopoverEducational
             anchor={anchorRef.current}
             idealDirection="down"
-            onDismiss={() => {}}
             message="Our 3-step ad creation tool makes setting up an ad even faster"
+            onDismiss={() => {}}
             primaryAction={{
               text: 'Got it',
               onClick: () => {},

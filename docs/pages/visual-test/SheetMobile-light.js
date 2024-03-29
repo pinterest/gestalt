@@ -7,16 +7,16 @@ export default function Snapshot(): ReactNode {
     <ColorSchemeProvider colorScheme="light">
       <DeviceTypeProvider deviceType="mobile">
         <SheetMobile
-          heading="Heading"
-          subHeading="SubHeading"
-          primaryAction={{ accessibilityLabel: 'Next page', label: 'Next', onClick: () => {} }}
-          onDismiss={() => {}}
           footer={
-            <Flex justifyContent="center" gap={2}>
+            <Flex gap={2} justifyContent="center">
               <Button color="gray" text="Secondary" />
               <Button color="red" text="Primary" />
             </Flex>
           }
+          heading="Heading"
+          onDismiss={() => {}}
+          primaryAction={{ accessibilityLabel: 'Next page', label: 'Next', onClick: () => {} }}
+          subHeading="SubHeading"
         >
           <Text>Content</Text>
         </SheetMobile>

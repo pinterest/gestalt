@@ -7,7 +7,7 @@ import { type NodeData, type Position } from './types';
 
 // When there's a 2-col item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to minimize whitespace above the 2-col item
 // This may need to be tweaked to balance the tradeoff of delayed rendering vs having enough possible layouts
-export const TWO_COL_ITEMS_MEASURE_BATCH_SIZE = 6;
+export const TWO_COL_ITEMS_MEASURE_BATCH_SIZE = 5;
 
 function isNil(value: mixed): boolean %checks {
   return value === null || value === undefined;
@@ -38,6 +38,42 @@ function getAdjacentColumnHeightDeltas(heights: $ReadOnlyArray<number>): $ReadOn
 
 function calculateTwoColumnModuleWidth(columnWidth: number, gutter: number): number {
   return columnWidth * 2 + gutter;
+}
+
+function calculateSplitIndex({
+  oneColumnItemsLength,
+  twoColumnIndex,
+  emptyColumns,
+  fitsFirstRow,
+  replaceWithOneColItems,
+}: {
+  oneColumnItemsLength: number,
+  twoColumnIndex: number,
+  emptyColumns: number,
+  fitsFirstRow: boolean,
+  replaceWithOneColItems: boolean,
+}): number {
+  // multi column item is on its original position
+  if (fitsFirstRow) {
+    return twoColumnIndex;
+  }
+
+  // We use as many one col items as empty columns to fill first row
+  if (replaceWithOneColItems) {
+    return emptyColumns;
+  }
+
+  // If two column module is near the end of the batch
+  // we move the index so it has enough items for the graph
+  if (twoColumnIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE > oneColumnItemsLength) {
+    return Math.max(
+      oneColumnItemsLength - TWO_COL_ITEMS_MEASURE_BATCH_SIZE,
+      // We have to keep at least the items for the empty columns to fill
+      emptyColumns,
+    );
+  }
+
+  return twoColumnIndex;
 }
 
 function initializeHeightsArray<T>({
@@ -283,22 +319,41 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
     };
 
     if (hasTwoColumnItems) {
-      // If the number of items to position is greater that the batch size
-      // we identify the batch with the two column item and apply the graph only to those items
       // Currently we only support one two column item at the same time, more items will be supporped soon
       const twoColumnIndex = itemsWithoutPositions.indexOf(twoColumnItems[0]);
+      const oneColumnItems = itemsWithoutPositions.filter(
+        (item) => !item.columnSpan || item.columnSpan === 1,
+      );
 
-      // If the number of items to position is greater that the batch size
-      // we identify the batch with the two column item and apply the graph only to those items
-      const shouldBatchItems = itemsWithoutPositions.length > TWO_COL_ITEMS_MEASURE_BATCH_SIZE;
-      const splitIndex =
-        twoColumnIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE > itemsWithoutPositions.length
-          ? itemsWithoutPositions.length - TWO_COL_ITEMS_MEASURE_BATCH_SIZE
-          : twoColumnIndex;
-      const pre = shouldBatchItems ? itemsWithoutPositions.slice(0, splitIndex) : [];
-      const batchWithTwoColumnItems = shouldBatchItems
-        ? itemsWithoutPositions.slice(splitIndex, splitIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE)
-        : itemsWithoutPositions;
+      // The empty columns can be different from columnCount if there are
+      // items already positioned from previous batches
+      const emptyColumns = heights.reduce((acc, height) => (height === 0 ? acc + 1 : acc), 0);
+
+      const multiColumnItemColumnSpan = parseInt(twoColumnItems[0].columnSpan, 10);
+
+      // Skip the graph logic if the two column item can be displayed on the first row,
+      // this means graphBatch is empty and multi column item is positioned on its
+      // original position (twoColumnIndex)
+      const fitsFirstRow = emptyColumns >= multiColumnItemColumnSpan + twoColumnIndex;
+
+      // When multi column item is the last item of the first row but can't fit
+      // we need to fill those spaces with one col items
+      const replaceWithOneColItems = !fitsFirstRow && twoColumnIndex < emptyColumns;
+
+      // Calculate how many items are on pre array and how many on graphBatch
+      // pre items are positioned before the two column item
+      const splitIndex = calculateSplitIndex({
+        oneColumnItemsLength: oneColumnItems.length,
+        twoColumnIndex,
+        emptyColumns,
+        fitsFirstRow,
+        replaceWithOneColItems,
+      });
+
+      const pre = oneColumnItems.slice(0, splitIndex);
+      const graphBatch = fitsFirstRow
+        ? []
+        : oneColumnItems.slice(splitIndex, splitIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE);
 
       // Get positions and heights for painted items
       const { positions: paintedItemPositions, heights: paintedItemHeights } =
@@ -314,10 +369,6 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
           positionCache.set(item, position);
         });
       }
-
-      const oneColumnItems = batchWithTwoColumnItems.filter(
-        (item) => !item.columnSpan || item.columnSpan === 1,
-      );
 
       // Initialize the graph
       const graph = new Graph<T>();
@@ -393,7 +444,7 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
       }
 
       // For each unpainted item, start generating possible layouts
-      oneColumnItems.forEach((item, i, arr) => {
+      graphBatch.forEach((item, i, arr) => {
         addPossibleLayout({
           item,
           i,

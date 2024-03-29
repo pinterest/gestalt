@@ -25,11 +25,11 @@ export default function DocsPage({ generatedDocGen }: DocType): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
+        name={generatedDocGen?.displayName}
         pdocsLink
       >
-        <SandpackExample code={main} name="TapArea example" hideEditor />
+        <SandpackExample code={main} hideEditor name="TapArea example" />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -38,7 +38,7 @@ export default function DocsPage({ generatedDocGen }: DocType): ReactNode {
         <MainSection.Subsection title="ARIA attributes">
           <MainSection.Card
             sandpackExample={
-              <SandpackExample name="ARIA attributes examples" code={accessibility} />
+              <SandpackExample code={accessibility} name="ARIA attributes examples" />
             }
           />
         </MainSection.Subsection>
@@ -54,7 +54,7 @@ export default function DocsPage({ generatedDocGen }: DocType): ReactNode {
 TapArea with link interaction can be paired with GlobalEventsHandlerProvider. See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
   `}
             sandpackExample={
-              <SandpackExample name="With Link Button Example" code={withLinkButton} />
+              <SandpackExample code={withLinkButton} name="With Link Button Example" />
             }
           />
         </MainSection.Subsection>
@@ -63,9 +63,9 @@ TapArea with link interaction can be paired with GlobalEventsHandlerProvider. Se
           <MainSection.Card
             sandpackExample={
               <SandpackExample
-                name="Compress Behavior Example"
                 code={compressBehavior}
                 layout="column"
+                name="Compress Behavior Example"
                 previewHeight={400}
               />
             }
@@ -74,51 +74,51 @@ TapArea with link interaction can be paired with GlobalEventsHandlerProvider. Se
 
         <MainSection.Subsection title="Height & width">
           <MainSection.Card
-            sandpackExample={<SandpackExample name="Height & Width Example" code={heightWidth} />}
+            sandpackExample={<SandpackExample code={heightWidth} name="Height & Width Example" />}
           />
           <MainSection.Card
             cardSize="lg"
-            title="Full space with no children"
             sandpackExample={
-              <SandpackExample name="Full space with no children" code={fullSpace} />
+              <SandpackExample code={fullSpace} name="Full space with no children" />
             }
+            title="Full space with no children"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection title="Inline usage">
           <MainSection.Card
             description={`While TapArea doesn't provide an \`inline\` prop, this behavior can be achieved by wrapping with \`<Box display="inlineBlock">\`.`}
-            sandpackExample={<SandpackExample name="Inline Usage Example" code={inlineUsage} />}
+            sandpackExample={<SandpackExample code={inlineUsage} name="Inline Usage Example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Mouse cursor"
           description="Change the cursor on TapArea for different click interactions"
+          title="Mouse cursor"
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample name="Mouse cursor" code={mouseCursor} hideEditor />}
+            sandpackExample={<SandpackExample code={mouseCursor} hideEditor name="Mouse cursor" />}
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Rounding"
           description="In ordee to observe TapArea's border radius, focus on each component below navigating with the keyboard. `fullWidth={false}` might be required to wrap to the children component. Make the sure the children components match the rounding as well."
+          title="Rounding"
         >
           <CombinationNew cardSize="xs" rounding={[0, 1, 2, 3, 4, 5, 6, 7, 8, 'circle', 'pill']}>
             {({ rounding }) => (
               <TapArea
-                rounding={rounding}
-                fullWidth={false}
                 accessibilityLabel={`rounding: ${rounding}`}
+                fullWidth={false}
+                rounding={rounding}
               >
                 <Box
-                  borderStyle="lg"
-                  width={rounding === 'pill' ? 120 : 70}
-                  height={70}
-                  display="flex"
                   alignItems="center"
+                  borderStyle="lg"
+                  display="flex"
+                  height={70}
                   justifyContent="center"
                   rounding={rounding}
+                  width={rounding === 'pill' ? 120 : 70}
                 />
               </TapArea>
             )}

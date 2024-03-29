@@ -33,9 +33,9 @@ export default function Example(): ReactNode {
           <Layer zIndex={ABOVE_PAGE_HEADER_ZINDEX}>
             <SheetMobile
               heading="Beginnen Sie jetzt mit der Erstellung."
-              subHeading="Die Inspiration beginnt hier."
               onDismiss={() => setShowComponent(false)}
               showDismissButton
+              subHeading="Die Inspiration beginnt hier."
             >
               <Text>Inhalt</Text>
             </SheetMobile>
@@ -45,9 +45,9 @@ export default function Example(): ReactNode {
           <Button
             accessibilityLabel="Auf Pinterest erstellen."
             color="red"
-            text="Erstellen."
-            size="lg"
             onClick={() => setShowComponent(true)}
+            size="lg"
+            text="Erstellen."
           />
         </Box>
       </DeviceTypeProvider>

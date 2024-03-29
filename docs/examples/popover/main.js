@@ -20,18 +20,18 @@ export default function Example(): ReactNode {
   };
 
   return (
-    <Box padding={6} height="100%" width="100%">
+    <Box height="100%" padding={6} width="100%">
       <Flex gap={2} justifyContent="center" width="100%">
         <Button
-          accessibilityHaspopup
-          accessibilityExpanded={open}
+          ref={anchorRef}
           accessibilityControls="main-example"
+          accessibilityExpanded={open}
+          accessibilityHaspopup
           color="white"
           iconEnd="arrow-down"
           onClick={() => setOpen(!open)}
-          ref={anchorRef}
-          size="lg"
           selected={open}
+          size="lg"
           text={selectedBoard}
         />
 
@@ -44,22 +44,22 @@ export default function Example(): ReactNode {
           id="main-example"
           idealDirection="forceDown"
           onDismiss={() => setOpen(false)}
-          size="xl"
           showDismissButton
+          size="xl"
         >
           <Box width={300}>
-            <Box flex="grow" marginEnd={4} marginStart={4} marginBottom={8}>
+            <Box flex="grow" marginBottom={8} marginEnd={4} marginStart={4}>
               <Flex direction="column" gap={{ column: 6, row: 0 }}>
                 <Text align="center" color="default" weight="bold">
                   Save to board
                 </Text>
                 <SearchField
+                  ref={ref}
                   accessibilityLabel="Search boards field"
                   id="searchField"
                   onChange={() => {}}
                   placeholder="Search boards"
                   size="lg"
-                  ref={ref}
                 />
               </Flex>
             </Box>
@@ -94,8 +94,8 @@ export default function Example(): ReactNode {
                             handleImageTap(imageTitle);
                           }}
                         >
-                          <Flex gap={{ row: 2, column: 0 }} alignItems="center">
-                            <Box height={50} width={50} overflow="hidden" rounding={2}>
+                          <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
+                            <Box height={50} overflow="hidden" rounding={2} width={50}>
                               <Mask rounding={2}>
                                 <Image
                                   alt={alt}

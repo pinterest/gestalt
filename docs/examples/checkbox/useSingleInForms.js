@@ -6,7 +6,7 @@ export default function Example(): ReactNode {
   const [checked1, setChecked1] = useState(false);
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex direction="column" gap={{ column: 6, row: 0 }}>
         <TextField id="name" label="Name" onChange={() => {}} value="" />
         <TextField id="email" label="Email" onChange={() => {}} value="" />
@@ -16,7 +16,7 @@ export default function Example(): ReactNode {
           label="I agree to the Terms and Conditions"
           onChange={({ checked }) => setChecked1(checked)}
         />
-        <Button accessibilityLabel="Submit" color="red" text="Submit" size="lg" />
+        <Button accessibilityLabel="Submit" color="red" size="lg" text="Submit" />
       </Flex>
     </Box>
   );

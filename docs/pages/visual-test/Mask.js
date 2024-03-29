@@ -8,7 +8,7 @@ export default function Snapshot(): ReactNode {
       <Box color="default" display="inlineBlock" maxWidth={308} padding={1}>
         <Flex maxWidth={300} wrap>
           {[0, 2, 4, 6, 8, 'circle'].map((a) => (
-            <Box maxWidth={100} key={a}>
+            <Box key={a} maxWidth={100}>
               <Mask rounding={a}>
                 <Box height={100} width={100}>
                   <Image

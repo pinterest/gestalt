@@ -37,7 +37,7 @@ export default function Screenshot(): ReactNode {
               }}
             >
               <Text>Hovered</Text>
-              <Pog icon="heart" iconColor="red" hovered />
+              <Pog hovered icon="heart" iconColor="red" />
             </Flex>
             <Flex
               direction="column"
@@ -47,7 +47,7 @@ export default function Screenshot(): ReactNode {
               }}
             >
               <Text>Focused</Text>
-              <Pog icon="heart" iconColor="red" focused />
+              <Pog focused icon="heart" iconColor="red" />
             </Flex>
             <Flex
               direction="column"
@@ -57,7 +57,7 @@ export default function Screenshot(): ReactNode {
               }}
             >
               <Text>Active</Text>
-              <Pog icon="heart" iconColor="red" active />
+              <Pog active icon="heart" iconColor="red" />
             </Flex>
             <Flex
               direction="column"

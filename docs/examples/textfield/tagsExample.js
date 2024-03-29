@@ -50,6 +50,7 @@ export default function Example(): ReactNode {
   const renderedTags = tags.map((tag, idx) => (
     <Tag
       key={tag}
+      accessibilityRemoveIconLabel={`Remove ${tag} tag`}
       onRemove={() => {
         const newTags = [...tags];
         newTags.splice(idx, 1);
@@ -58,19 +59,18 @@ export default function Example(): ReactNode {
           ref.current.focus();
         }
       }}
-      accessibilityRemoveIconLabel={`Remove ${tag} tag`}
       text={tag}
     />
   ));
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Box padding={2} color="light">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Box color="light" padding={2}>
         <TextField
+          ref={ref}
           autoComplete="off"
           id="variants-tags"
           label="Emails"
-          ref={ref}
           onChange={onChangeTagManagement}
           onKeyDown={onKeyDownTagManagement}
           tags={renderedTags}

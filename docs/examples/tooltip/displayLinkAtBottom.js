@@ -4,11 +4,10 @@ import { Box, Flex, IconButton, Link, Text, Tooltip } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Flex gap={{ row: 2, column: 0 }} justifyContent="center" alignItems="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
         <Text>Enable expanded targeting</Text>
         <Tooltip
-          text="Use your Pin to expand your targeting."
           link={
             <Text color="inverse" size="100" weight="bold">
               <Link
@@ -19,6 +18,7 @@ export default function Example(): ReactNode {
               </Link>
             </Text>
           }
+          text="Use your Pin to expand your targeting."
         >
           <IconButton
             accessibilityLabel="Additional info."

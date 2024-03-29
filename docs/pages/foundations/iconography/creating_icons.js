@@ -10,9 +10,9 @@ export default function ToolingPage(): ReactNode {
   return (
     <Page title="Creating Icons">
       <PageHeader
+        description="If an icon does not already exist to suit your needs, you can create a new icon and submit it to the Gestalt team for addition to our icon library."
         name="Creating icons"
         type="guidelines"
-        description="If an icon does not already exist to suit your needs, you can create a new icon and submit it to the Gestalt team for addition to our icon library."
       />
       <MainSection name="Process">
         <List type="ordered">
@@ -20,7 +20,7 @@ export default function ToolingPage(): ReactNode {
             text={
               <Text>
                 First, check the{' '}
-                <Link display="inline" underline="always" href="/foundations/iconography/library">
+                <Link display="inline" href="/foundations/iconography/library" underline="always">
                   Gestalt Icon Library
                 </Link>{' '}
                 to look for any icons that may already fit your design.
@@ -33,8 +33,8 @@ export default function ToolingPage(): ReactNode {
                 If a new icon is needed, review the{' '}
                 <Link
                   display="inline"
-                  underline="always"
                   href="http://pinch.pinadmin.com/new-icon-guidelines"
+                  underline="always"
                 >
                   Icon guidelines
                 </Link>
@@ -50,8 +50,8 @@ export default function ToolingPage(): ReactNode {
                 Next, review the{' '}
                 <Link
                   display="inline"
-                  underline="always"
                   href="http://pinch.pinadmin.com/new-icon-naming"
+                  underline="always"
                 >
                   icon naming guidelines
                 </Link>
@@ -67,8 +67,8 @@ export default function ToolingPage(): ReactNode {
                 While designing, utilize the provided{' '}
                 <Link
                   display="inline"
-                  underline="always"
                   href="http://pinch.pinadmin.com/icon-grid-examples"
+                  underline="always"
                 >
                   grid examples
                 </Link>
@@ -76,8 +76,8 @@ export default function ToolingPage(): ReactNode {
                 to help create new icons. Be sure to maintain proper{' '}
                 <Link
                   display="inline"
-                  underline="always"
                   href="http://pinch.pinadmin.com/icon-source-files"
+                  underline="always"
                 >
                   source files
                 </Link>

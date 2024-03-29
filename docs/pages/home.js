@@ -14,19 +14,19 @@ import Roadmap from '../graphics/home-page/roadmap.svg';
 
 export default function HomePage(): ReactNode {
   return (
-    <Page title="Welcome to Gestalt" hideSideNav hideEditLink>
+    <Page hideEditLink hideSideNav title="Welcome to Gestalt">
       <Box width="100%">
         <Flex direction="column">
           {/* Hero */}
           <IllustrationSection>
             {/* Cannot be Flex due to display none and minWidth needed on child */}
-            <Box display="flex" alignItems="center" justifyContent="between">
+            <Box alignItems="center" display="flex" justifyContent="between">
               <Flex
+                direction="column"
                 gap={{
                   row: 0,
                   column: 6,
                 }}
-                direction="column"
               >
                 <Heading>Gestalt is Pinterest&rsquo;s design system</Heading>
                 <Text size="300">
@@ -34,15 +34,15 @@ export default function HomePage(): ReactNode {
                   they love
                 </Text>
 
-                <ButtonLink text="See what's new" href="/whats_new" />
+                <ButtonLink href="/whats_new" text="See what's new" />
               </Flex>
               <Box
-                minWidth="60%"
-                display="none"
-                mdDisplay="flex"
                 alignItems="center"
+                display="none"
                 justifyContent="end"
                 marginStart={8}
+                mdDisplay="flex"
+                minWidth="60%"
               >
                 <HeroGraphic />
               </Box>
@@ -51,57 +51,57 @@ export default function HomePage(): ReactNode {
           {/* Get started */}
           <IllustrationSection title="Get started">
             <IllustrationCard
-              headingLevel={3}
-              title="Designer onboarding and tooling"
-              href="/get_started/designers"
-              description="Our brand-new guide for designers to get started using Gestalt"
               color="blue-skycicle-450"
+              description="Our brand-new guide for designers to get started using Gestalt"
+              headingLevel={3}
+              href="/get_started/designers"
               image={<Design />}
+              title="Designer onboarding and tooling"
             />
             <IllustrationCard
+              color="blue-skycicle-450"
+              description="How to set up for development and create pull requests"
               headingLevel={3}
               href="/get_started/developers/contributing/development_process"
-              title="Developer onboarding and tooling"
-              description="How to set up for development and create pull requests"
-              color="blue-skycicle-450"
               image={<Development />}
+              title="Developer onboarding and tooling"
             />
             <IllustrationCard
+              color="blue-skycicle-450"
+              description="Guidelines on how to engage the Gestalt team, when to work with us and how to contribute"
               headingLevel={3}
               href="/team_support/contributions"
-              title="How to work with us"
-              description="Guidelines on how to engage the Gestalt team, when to work with us and how to contribute"
-              color="blue-skycicle-450"
               image={<HowToWork />}
+              title="How to work with us"
             />
           </IllustrationSection>
           {/* Guidelines */}
           <IllustrationSection title="Build">
             <IllustrationCard
-              href="/web/overview"
-              headingLevel={3}
-              title="Components"
-              description="An extensive set of UI controls and utilities to help you build great experiences"
               color="teal-spabattical-450"
+              description="An extensive set of UI controls and utilities to help you build great experiences"
+              headingLevel={3}
+              href="/web/overview"
               image={<Components />}
+              title="Components"
             />
 
             <IllustrationCard
+              color="teal-spabattical-450"
+              description="Guidelines around color palettes, typography, icons and more"
               headingLevel={3}
               href="/foundations/overview"
-              title="Foundations"
-              description="Guidelines around color palettes, typography, icons and more"
-              color="teal-spabattical-450"
               image={<Color />}
+              title="Foundations"
             />
 
             <IllustrationCard
-              headingLevel={3}
-              title="Road map"
-              href="/roadmap"
-              description="What we plan to build and update in the short and long term"
               color="teal-spabattical-450"
+              description="What we plan to build and update in the short and long term"
+              headingLevel={3}
+              href="/roadmap"
               image={<Roadmap />}
+              title="Road map"
             />
           </IllustrationSection>
         </Flex>

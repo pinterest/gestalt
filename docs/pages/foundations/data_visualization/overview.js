@@ -9,28 +9,28 @@ export default function GuidelinesPage(): ReactNode {
   return (
     <Page title="Overview">
       <PageHeader
-        name="Overview"
-        type="guidelines"
         description={`Data visualization refers to the graphical representation of data. In Pinterest products, data is generally visualized in charts via symbols like lines and bars. However, visual representations of data can also appear as sparklines, mini-bars and mini-donuts inside table cells, cards and other UI elements.
 `}
+        name="Overview"
+        type="guidelines"
       />
       <MainSection name="Principles">
         <MainSection.Subsection
-          title="Accurate"
           description={`
           Although aesthetics are important, data visualizations should be primarily accurate. Any visual treatments should reinforce the accuracy and veracity of data so that people can take the correct action.
 `}
+          title="Accurate"
         />
         <MainSection.Subsection
-          title="Purposeful"
           description={`
           Data should be visualized in a way that is readable, digestible and actionable depending on a person’s role and situation. For example, a busy campaign manager should be able to quickly read data in order to understand how a campaign is doing. A data scientist should be able to go into deeper, more complex visualizations and do the same.
 `}
+          title="Purposeful"
         />
         <MainSection.Subsection
-          title="Responsive"
           description={`
           Data visualizations should be accurate and coherent on desktop and mobile screens. Even on desktop, a data set should respond to large, medium and small views.`}
+          title="Responsive"
         />
       </MainSection>
 
@@ -42,29 +42,29 @@ export default function GuidelinesPage(): ReactNode {
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
             - When comparing, explaining or monitoring data can be done faster by using a graphical representation
             - For people who can process data visually
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
              - If data can be more simply stated by using text
              - For people who may have cognitive or other impairments that make it hard to process graphical representations of data. Use tabular data instead.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
-        <Box width="100%" marginBottom={8} marginTop={-8}>
+        <Box marginBottom={8} marginTop={-8} width="100%">
           <MainSection.Subsection
-            title="To analyze"
             description="Data visualizations can be used to help someone explore, review and analyze various data sets to get a general understanding of how things are going. An example is an advertising insights dashboard with a chart and micro-visualizations that tell an overall story."
+            title="To analyze"
           />
-          <Box maxWidth={960} maxHeight={579}>
+          <Box maxHeight={579} maxWidth={960}>
             <Image
               alt="Desktop screen showing a line graph used to analyze metrics."
               naturalHeight={1263}
@@ -74,12 +74,12 @@ export default function GuidelinesPage(): ReactNode {
           </Box>
         </Box>
 
-        <Box width="100%" marginBottom={8} marginTop={12}>
+        <Box marginBottom={8} marginTop={12} width="100%">
           <MainSection.Subsection
-            title="To monitor"
             description="Administrators may use data visualizations to monitor the health of a system and check for errors, budget usage or other issues."
+            title="To monitor"
           />
-          <Box maxWidth={960} maxHeight={579}>
+          <Box maxHeight={579} maxWidth={960}>
             <Image
               alt="Desktop screen showing a dashboard with various line graphs that show warning, error states."
               naturalHeight={1263}
@@ -87,12 +87,12 @@ export default function GuidelinesPage(): ReactNode {
               src="https://i.pinimg.com/originals/47/65/2e/47652ebc0d0f754fee793c98a4e2f03c.png"
             />
           </Box>
-          <Box width="100%" marginBottom={8} marginTop={4}>
+          <Box marginBottom={8} marginTop={4} width="100%">
             <MainSection.Subsection
               description="Similarly, an Advertiser or Creator may use a mobile app to monitor ads and content on
               the go."
             />
-            <Box maxWidth={375} maxHeight={780} marginTop={2}>
+            <Box marginTop={2} maxHeight={780} maxWidth={375}>
               <Image
                 alt="A mobile screen with align graph showing how ad impressions are going."
                 naturalHeight={2229}
@@ -103,13 +103,13 @@ export default function GuidelinesPage(): ReactNode {
           </Box>
         </Box>
         <BannerSlim
-          type="info"
           iconAccessibilityLabel="Information"
           message="Data visualization can also be used to explain, but this is generally done via custom, hand-curated reports that aren’t automated. This isn’t part of our product UI or design system, but data visualizations in our products can help people create custom reports for presentations, blog posts and reports."
+          type="info"
         />
       </MainSection>
       <MainSection name="Visualizing data in product dashboards">
-        <Box width="100%" marginBottom={8} marginTop={-8}>
+        <Box marginBottom={8} marginTop={-8} width="100%">
           <MainSection.Subsection
             description={`
         People may rely on a product dashboard to analyze and gain insights or to come up with a sales and advertising strategy. Regardless of the intent, the layout should be structured starting with the most significant and ending with the least significant details, depending on the viewer’s role. For example, a campaign manager might see a dashboard as follows:

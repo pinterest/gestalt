@@ -38,24 +38,24 @@ export default function ScrollBoundaryContainerExample(): ReactNode {
   const footer = (
     <Box flex="grow" paddingX={3} paddingY={3}>
       <Box
-        justifyContent="end"
-        marginStart={-1}
-        marginEnd={-1}
-        marginTop={-1}
-        marginBottom={-1}
         display="flex"
+        justifyContent="end"
+        marginBottom={-1}
+        marginEnd={-1}
+        marginStart={-1}
+        marginTop={-1}
         wrap
       >
         <Box paddingX={1} paddingY={1}>
-          <Button text="Cancel" size="lg" onClick={() => setShowComponent(false)} />
+          <Button onClick={() => setShowComponent(false)} size="lg" text="Cancel" />
         </Box>
         <Box paddingX={1} paddingY={1}>
           <Button
-            text="Save"
             color="red"
-            size="lg"
-            type="submit"
             onClick={() => setShowComponent(false)}
+            size="lg"
+            text="Save"
+            type="submit"
           />
         </Box>
       </Box>
@@ -67,9 +67,9 @@ export default function ScrollBoundaryContainerExample(): ReactNode {
       <Box
         direction="column"
         display="flex"
-        marginStart={-3}
-        marginEnd={-3}
         marginBottom={-3}
+        marginEnd={-3}
+        marginStart={-3}
         marginTop={-3}
         maxWidth={800}
         width="100%"
@@ -77,15 +77,15 @@ export default function ScrollBoundaryContainerExample(): ReactNode {
       >
         <Box display="flex" justifyContent="start" padding={3}>
           <Button
-            accessibilityControls="subtext-dropdown-example"
-            accessibilityHaspopup
-            accessibilityExpanded={open}
-            accessibilityLabel="Select Previous Address"
-            selected={open}
-            iconEnd="arrow-down"
-            text="Select Previous Address"
-            onClick={() => setOpen((prevVal) => !prevVal)}
             ref={anchorDropdownRef}
+            accessibilityControls="subtext-dropdown-example"
+            accessibilityExpanded={open}
+            accessibilityHaspopup
+            accessibilityLabel="Select Previous Address"
+            iconEnd="arrow-down"
+            onClick={() => setOpen((prevVal) => !prevVal)}
+            selected={open}
+            text="Select Previous Address"
           />
           {open && (
             <Dropdown
@@ -135,7 +135,7 @@ export default function ScrollBoundaryContainerExample(): ReactNode {
           <TextField id="Address_Line_2" label="Address Line 2" onChange={() => {}} />
         </Box>
         <Box flex="grow" paddingX={3} paddingY={3}>
-          <Box display="flex" marginStart={-3} marginEnd={-3} marginBottom={-3} marginTop={-3} wrap>
+          <Box display="flex" marginBottom={-3} marginEnd={-3} marginStart={-3} marginTop={-3} wrap>
             <Box flex="grow" paddingX={3} paddingY={3}>
               <TextField id="City" label="City" onChange={() => {}} />
             </Box>
@@ -151,8 +151,13 @@ export default function ScrollBoundaryContainerExample(): ReactNode {
       </Box>
       <Box flex="grow" paddingX={3} paddingY={3}>
         <ComboBox
-          id="Country"
           accessibilityClearButtonLabel="Clear countries"
+          id="Country"
+          inputValue="United States"
+          label="Country"
+          noResultText="No Results"
+          onChange={() => {}}
+          onSelect={() => {}}
           options={[
             {
               value: 'United States',
@@ -175,19 +180,14 @@ export default function ScrollBoundaryContainerExample(): ReactNode {
               label: 'Japan',
             },
           ]}
-          onChange={() => {}}
-          onSelect={() => {}}
           placeholder="Select a Country"
-          noResultText="No Results"
-          label="Country"
-          inputValue="United States"
         />
       </Box>
     </Flex>
   );
 
   return (
-    <Box padding={4} height="100%">
+    <Box height="100%" padding={4}>
       <RadioGroup id="example" legend="Select Modal or OverlayPanel">
         <RadioGroup.RadioButton
           checked={parentComponent === 'modal'}
@@ -205,15 +205,15 @@ export default function ScrollBoundaryContainerExample(): ReactNode {
           onChange={() => setParentComponent('overlaypanel')}
           value="overlaypanel"
         />
-        <Button text="Update Billing Address" onClick={() => setShowComponent(true)} />
+        <Button onClick={() => setShowComponent(true)} text="Update Billing Address" />
       </RadioGroup>
       {showComponent && (
         <Layer zIndex={MODAL_Z_INDEX}>
           {parentComponent === 'modal' ? (
             <Modal
               accessibilityModalLabel=""
-              heading="Billing Information"
               footer={footer}
+              heading="Billing Information"
               onDismiss={() => setShowComponent(false)}
               size="lg"
             >
@@ -223,8 +223,8 @@ export default function ScrollBoundaryContainerExample(): ReactNode {
             <OverlayPanel
               accessibilityDismissButtonLabel="Dismiss Billing Information OverlayPanel"
               accessibilityLabel=""
-              heading="Billing Information"
               footer={footer}
+              heading="Billing Information"
               onDismiss={() => setShowComponent(false)}
               size="lg"
             >

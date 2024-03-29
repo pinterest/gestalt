@@ -17,7 +17,7 @@ export default function Example(): ReactNode {
         },
       }}
     >
-      <Box padding={8} height="100%" display="flex" alignItems="center">
+      <Box alignItems="center" display="flex" height="100%" padding={8}>
         <BannerSlim
           dismissButton={{
             onDismiss: () => {},

@@ -70,17 +70,17 @@ export default function Example(): ReactNode {
   return (
     <Box margin={3}>
       <Box role="main">
-        <Flex justifyContent="center" width="100%" height="100%" gap={5} alignItems="center" wrap>
+        <Flex alignItems="center" gap={5} height="100%" justifyContent="center" width="100%" wrap>
           {[...new Array<void | $ReadOnlyArray<ReactNode>>(3)].map(() =>
             pins.map((pin) => (
-              <Mask rounding={2} key={pin.name} height={170} width={100}>
+              <Mask key={pin.name} height={170} rounding={2} width={100}>
                 <Image
                   alt={pin.name}
-                  role="presentation"
                   color="white"
                   fit="cover"
                   naturalHeight={1}
                   naturalWidth={1}
+                  role="presentation"
                   src={pin.src}
                 />
               </Mask>
@@ -89,20 +89,20 @@ export default function Example(): ReactNode {
         </Flex>
       </Box>
       <Box
-        role="contentinfo"
-        position="fixed"
-        bottom
         ref={anchorRef}
-        marginBottom={2}
+        bottom
         dangerouslySetInlineStyle={{
           __style: { left: '50%', transform: 'translate(-50%)' },
         }}
+        marginBottom={2}
+        position="fixed"
+        role="contentinfo"
       >
         <IconButtonFloating
           accessibilityControls="sections-dropdown-example"
           accessibilityExpanded={open}
-          accessibilityPopupRole="menu"
           accessibilityLabel="Create Pin Menu"
+          accessibilityPopupRole="menu"
           icon="add"
           onClick={() => setOpen((prevVal) => !prevVal)}
           selected={open}
@@ -113,8 +113,8 @@ export default function Example(): ReactNode {
         <Dropdown
           anchor={anchorRef.current}
           id="sections-dropdown-example"
-          onDismiss={() => setOpen(false)}
           idealDirection="up"
+          onDismiss={() => setOpen(false)}
         >
           <Dropdown.Section label="Create">
             <Dropdown.Item

@@ -6,30 +6,30 @@ import PageHeader from '../../../../docs-components/PageHeader';
 
 export default function FunnelChartsPage(): ReactNode {
   return (
-    <Page title="Funnel charts" hideSideNav>
+    <Page hideSideNav title="Funnel charts">
       <PageHeader
-        name="Funnel charts"
-        type="guidelines"
         badge="connection"
         description={`Funnel charts visualize data that goes through linear, sequential stages. An example is showing a customer’s journey from visiting a page to adding to their cart to checking out. The diminishing size of the value helps us gauge how much customer drop-off there is throughout the entire journey.
 `}
+        name="Funnel charts"
+        type="guidelines"
       />
       <Box maxWidth={892}>
         {' '}
         <BannerSlim
-          type="info"
           iconAccessibilityLabel="Info"
           message="Funnel chart guidelines are still in development. More to come soon!"
+          type="info"
         />
       </Box>
       <Box
-        maxWidth={892}
-        maxHeight={300}
         borderStyle="sm"
-        overflow="hidden"
         color="light"
-        rounding={2}
         marginBottom={0}
+        maxHeight={300}
+        maxWidth={892}
+        overflow="hidden"
+        rounding={2}
       >
         <Image
           alt="An example of a funnel chart."

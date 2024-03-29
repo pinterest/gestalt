@@ -26,18 +26,18 @@ export default function Example(): ReactNode {
   return (
     <ChartGraph
       accessibilityLabel="Example of Bar chart"
-      visualPatternSelected={visualPatternSelected}
-      onVisualPatternChange={() =>
-        setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
-      }
-      type="bar"
-      title="ChartGraph"
-      titleDisplay="hidden"
       data={data}
       elements={[
         { type: 'bar', id: 'Series_01' },
         { type: 'bar', id: 'Series_02' },
       ]}
+      onVisualPatternChange={() =>
+        setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
+      }
+      title="ChartGraph"
+      titleDisplay="hidden"
+      type="bar"
+      visualPatternSelected={visualPatternSelected}
     />
   );
 }

@@ -8,21 +8,21 @@ export default function Example(): ReactNode {
   const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   return (
-    <Flex alignItems="start" justifyContent="center" height="100%" width="100%">
+    <Flex alignItems="start" height="100%" justifyContent="center" width="100%">
       <Box padding={3}>
         <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
           <Button
-            accessibilityHaspopup
-            accessibilityExpanded={open}
+            ref={anchorRef}
             accessibilityControls="a11l-example"
+            accessibilityExpanded={open}
+            accessibilityHaspopup
             color="white"
             iconEnd="arrow-down"
             onClick={() => {
               setOpen((o) => !o);
             }}
-            ref={anchorRef}
-            size="lg"
             selected={open}
+            size="lg"
             text={selectedBoard}
           />
           <Button color="red" onClick={() => {}} size="lg" text="Save" />
@@ -42,7 +42,7 @@ export default function Example(): ReactNode {
           size="xl"
         >
           <Box width={300}>
-            <Box flex="grow" marginEnd={4} marginStart={4} marginBottom={8}>
+            <Box flex="grow" marginBottom={8} marginEnd={4} marginStart={4}>
               <Flex direction="column" gap={{ column: 6, row: 0 }}>
                 <Text align="center" color="default" weight="bold">
                   Save to board
@@ -87,8 +87,8 @@ export default function Example(): ReactNode {
                           setOpen(false);
                         }}
                       >
-                        <Flex gap={{ row: 2, column: 0 }} alignItems="center">
-                          <Box height={50} width={50} overflow="hidden" rounding={2}>
+                        <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
+                          <Box height={50} overflow="hidden" rounding={2} width={50}>
                             <Mask rounding={2}>
                               <Image
                                 alt={alt}

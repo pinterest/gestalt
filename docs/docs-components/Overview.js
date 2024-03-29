@@ -61,14 +61,14 @@ export default function Overview({ platform }: Props): ReactNode {
   const prettyPlatform = prettyPrintPlatform(platform);
 
   return (
-    <Page title={`${prettyPlatform} component overview`} hideSideNav hideEditLink>
+    <Page hideEditLink hideSideNav title={`${prettyPlatform} component overview`}>
       <Flex direction="column" width="100%">
         <IllustrationContainer justifyContent="start">
           <PageHeader
-            name={`${prettyPlatform} component overview`}
             description={`${headerCopyByPlatform[platform]}
 
 Not sure which component to use? [Reach out to the Gestalt team.](/team_support/get_help#Slack-channels)`}
+            name={`${prettyPlatform} component overview`}
             type="guidelines"
           />
         </IllustrationContainer>
@@ -86,16 +86,16 @@ Not sure which component to use? [Reach out to the Gestalt team.](/team_support/
         </IllustrationContainer>
 
         {order === 'alphabetical' ? (
-          <OverviewList platform={platform} headingLevel={2} components={platformComponentData} />
+          <OverviewList components={platformComponentData} headingLevel={2} platform={platform} />
         ) : (
           <Fragment>
             {categoryOrder.map(
               (category) =>
                 componentsByCategory[category].length > 0 && (
                   <OverviewList
+                    key={category}
                     components={componentsByCategory[category]}
                     headingLevel={3}
-                    key={category}
                     platform={platform}
                     title={category}
                   />

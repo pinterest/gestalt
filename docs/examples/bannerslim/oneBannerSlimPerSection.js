@@ -4,17 +4,17 @@ import { BannerSlim, Box } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <BannerSlim
-        type="info"
-        message="Tag manager can help you optimize your advertiser spend."
-        iconAccessibilityLabel="Information"
         helperLink={{
           text: 'Get started',
           accessibilityLabel: 'Get started with Tag manager',
           href: 'http://www.pinterest.com',
           onClick: () => {},
         }}
+        iconAccessibilityLabel="Information"
+        message="Tag manager can help you optimize your advertiser spend."
+        type="info"
       />
     </Box>
   );

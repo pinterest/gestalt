@@ -19,11 +19,11 @@ const descriptions = {
 
 export default function TapAreaExample(): ReactNode {
   return (
-    <Flex wrap gap={2}>
+    <Flex gap={2} wrap>
       {Object.keys(descriptions).map((cursor) => (
-        <TapArea key={cursor} mouseCursor={cursor} fullWidth={false}>
-          <Box borderStyle="lg" padding={4} width={250} height={250}>
-            <Flex direction="column" justifyContent="between" height="100%">
+        <TapArea key={cursor} fullWidth={false} mouseCursor={cursor}>
+          <Box borderStyle="lg" height={250} padding={4} width={250}>
+            <Flex direction="column" height="100%" justifyContent="between">
               <Box>
                 <Box marginBottom={2}>
                   <Text size="200" weight="bold">

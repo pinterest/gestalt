@@ -21,7 +21,7 @@ describe('<SelectList />', () => {
 
   it('renders a name', () => {
     const { container } = render(
-      <SelectList name="select_name" id="select_id" onChange={jest.fn()}>
+      <SelectList id="select_id" name="select_name" onChange={jest.fn()}>
         {options}
       </SelectList>,
     );
@@ -43,7 +43,7 @@ describe('<SelectList />', () => {
       screen.getByText('Error message');
     }).toThrow('Unable to find an element with the text: Error message');
     rerender(
-      <SelectList id="test" onChange={handleChange} errorMessage="Error message">
+      <SelectList errorMessage="Error message" id="test" onChange={handleChange}>
         {options}
       </SelectList>,
     );
@@ -98,9 +98,9 @@ describe('<SelectList />', () => {
   it('renders helper text', () => {
     render(
       <SelectList
+        helperText="Helper text for the select list"
         id="test"
         label="Label for the select list"
-        helperText="Helper text for the select list"
         onChange={jest.fn()}
         placeholder="option1"
       >
@@ -113,10 +113,10 @@ describe('<SelectList />', () => {
   it('hides the helper text when an error message is shown', () => {
     render(
       <SelectList
+        errorMessage="Error message for the select list"
+        helperText="Helper text for the select list"
         id="test"
         label="Label for the select list"
-        helperText="Helper text for the select list"
-        errorMessage="Error message for the select list"
         onChange={jest.fn()}
         placeholder="option1"
       >
@@ -131,7 +131,7 @@ describe('<SelectList />', () => {
   describe('size', () => {
     it('adds a "medium" classname by default', () => {
       const { container } = render(
-        <SelectList name="select_name" id="select_id" onChange={jest.fn()}>
+        <SelectList id="select_id" name="select_name" onChange={jest.fn()}>
           {options}
         </SelectList>,
       );
@@ -141,7 +141,7 @@ describe('<SelectList />', () => {
 
     it('adds a "large" classname when size is set to "lg"', () => {
       const { container } = render(
-        <SelectList name="select_name" id="select_id" onChange={jest.fn()} size="lg">
+        <SelectList id="select_id" name="select_name" onChange={jest.fn()} size="lg">
           {options}
         </SelectList>,
       );

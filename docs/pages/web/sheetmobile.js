@@ -35,22 +35,22 @@ export default function SheetMobilePage({
     <Page title={generatedDocGen?.SheetMobile.displayName}>
       <PageHeader
         badge="pilot"
-        name={generatedDocGen?.SheetMobile.displayName}
-        description={generatedDocGen?.SheetMobile.description}
-        pdocsLink
         bannerSlim={
           <BannerSlim
-            type="warning"
             iconAccessibilityLabel="Warning message"
             message="SheetMobile is in pilot phase. Expect development and design iteration and breaking API changes as well as further documentation development."
+            type="warning"
           />
         }
+        description={generatedDocGen?.SheetMobile.description}
+        name={generatedDocGen?.SheetMobile.displayName}
+        pdocsLink
       >
         <SandpackExample
           code={main}
           hideEditor
-          name="Main SheetMobile example"
           layout="mobileRow"
+          name="Main SheetMobile example"
         />
       </PageHeader>
 
@@ -60,20 +60,20 @@ export default function SheetMobilePage({
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
 - Use a partial sheet when the content of sheet compliments the content of the primary screen behind.
 - Use a full sheet when the content of the sheet does not need to reference the primary screen behind. Usually serving as a lightweight way to complete actions or move through a flow.`}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
 - If possible, similar content should remain on a primary screen. Only use SheetMobile if the content is a unique experience to the primary screen and/or to reference its content.
 - To present binary or blocking decisions. Use an ModalAlert or Modal instead.
 - For a temporary message. Use Toast instead.`}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -82,23 +82,23 @@ export default function SheetMobilePage({
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="Do"
             description={`
 - Always include a collapse affordance. SheetMobile should close when users press the dismiss icon button, a cancel/close button, when swiped away or when users tap the area outside the partial sheet.
 - Include a grabber for partial sheets. This provides a visual indicator of resizability and allows screen reader users to resize the sheet.
 - Include a header title as it adds context to the task. Headers can be either center or start aligned, but should remain consistant throughout a flow.
 -  `}
+            title="Do"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="Don't"
             description={`
 - Have more than two buttons (primary and secondary) in the footer of the sheet. This prevents unclear hierarchy and crowding on mobile screens. Footers should be simple and provide clear actions for the user.
 - Remove the wash behind the partial SheetMobile. The wash separates the sheet content from the primary content and allows for better focus and accessibility.
 - Display more than one sheet at a time or overlay sheets. For transitions and navigation within sheets, view the Interactions and transitions section below.
 - Truncate header text. Headers should be no more than two lines of text. If they are, consider revising the content.`}
+            title="Don't"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -112,20 +112,19 @@ export default function SheetMobilePage({
 
       <MainSection name="Subcomponents">
         <MainSection.Subsection
-          title={generatedDocGen?.DismissingElement.displayName}
           description={generatedDocGen?.DismissingElement.description}
+          title={generatedDocGen?.DismissingElement.displayName}
         >
           <GeneratedPropTable
-            name={generatedDocGen?.DismissingElement.displayName}
-            id={generatedDocGen?.DismissingElement.displayName}
             generatedDocGen={generatedDocGen?.DismissingElement}
+            id={generatedDocGen?.DismissingElement.displayName}
+            name={generatedDocGen?.DismissingElement.displayName}
           />
         </MainSection.Subsection>
       </MainSection>
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Size"
           columns={2}
           description={`SheetMobile is used only on mobile web experiences.
 
@@ -137,37 +136,37 @@ Use a full SheetMobile when the content of the sheet does not need to reference 
 
 There is one size variant for full Sheets: "full". See examples below for more details.
 `}
+          title="Size"
         >
           <MainSection.Card
             cardSize="lg"
-            title="Default"
             description={`A partial SheetMobile with a fix height of 50% of the screen height. When \`size\` is set to "default", SheetMobile doesn't require a visible dismiss IconButton.
 
 `}
             sandpackExample={
-              <SandpackExample code={defaultSize} name="Heading example" layout="mobileColumn" />
+              <SandpackExample code={defaultSize} layout="mobileColumn" name="Heading example" />
             }
+            title="Default"
           />
           <MainSection.Card
             cardSize="lg"
-            title="Auto"
             description={`A partial SheetMobile with a max of 90% and a min of 30% screen height. When \`size\` is set to "auto", SheetMobile doesn't require a visible dismiss IconButton.`}
             sandpackExample={
-              <SandpackExample code={autoSize} name="Heading example" layout="mobileColumn" />
+              <SandpackExample code={autoSize} layout="mobileColumn" name="Heading example" />
             }
+            title="Auto"
           />
           <MainSection.Card
             cardSize="lg"
-            title="Full"
             description={`A full SheetMobile fully fills the page. It completely covers the primary screen. When \`size\` is set to "full", SheetMobile requires a visible dismiss IconButton.`}
             sandpackExample={
-              <SandpackExample code={fullSize} name="Heading example" layout="mobileColumn" />
+              <SandpackExample code={fullSize} layout="mobileColumn" name="Heading example" />
             }
+            title="Full"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Header"
           columns={2}
           description={`SheetMobile's header has a flexible configuration.
 
@@ -178,68 +177,68 @@ There is one size variant for full Sheets: "full". See examples below for more d
 
 See the following cases for reference.
         `}
+          title="Header"
         >
           <MainSection.Card
             cardSize="lg"
-            title="Text-only header"
             sandpackExample={
               <SandpackExample
                 code={textOnlyHeader}
-                name="Heading with only text example"
                 layout="mobileColumn"
+                name="Heading with only text example"
               />
             }
+            title="Text-only header"
           />
           <MainSection.Card
             cardSize="lg"
-            title="With primary action"
             sandpackExample={
               <SandpackExample
                 code={withPrimaryActionHeader}
-                name="Heading with primary action example"
                 layout="mobileColumn"
+                name="Heading with primary action example"
               />
             }
+            title="With primary action"
           />
           <MainSection.Card
             cardSize="lg"
-            title="Dismiss button"
             description="Optional in partial SheetMobiles but required in full variants."
             sandpackExample={
               <SandpackExample
                 code={dismissButtonHeader}
-                name="Dismiss button example"
                 layout="mobileColumn"
+                name="Dismiss button example"
               />
             }
+            title="Dismiss button"
           />
           <MainSection.Card
             cardSize="lg"
-            title="Back and forward navigation"
             description="Back and forward navigation enables SheetMobile to display sequential content in a step by step flow."
             sandpackExample={
               <SandpackExample
                 code={navigationHeader}
-                name="Back and forward navigation example"
                 layout="mobileColumn"
+                name="Back and forward navigation example"
               />
             }
+            title="Back and forward navigation"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Footer"
           description={`SheetMobile's footer has a flexible configuration. \`footer\` prop accepts any kind of node. The footer can have up to two Buttons and another two IconButtons as shown in the example.`}
+          title="Footer"
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample code={footer} name="Footer example" layout="mobileRow" />
+              <SandpackExample code={footer} layout="mobileRow" name="Footer example" />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Animation"
           columns={2}
           description={`By default, SheetMobile animates *in* (*up*), with the initial render process from the entry-point, and *out* (*down*), when the \`ESC\` key is pressed, the header close button is pressed, or the user clicks outside of the SheetMobile. However, to trigger the exit-animation from other elements in other areas such as the \`children\` or \`footer\`, the following render prop can be used:
 
@@ -260,67 +259,68 @@ When using these render props, just pass the argument \`onDismissStart\` to your
 - "Close" gray button (children)
 - "Close" red button (footer)
 `}
+          title="Animation"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={animation}
-                name="Dismiss animation example"
                 layout="mobileRow"
+                name="Dismiss animation example"
               />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Preventing close on outside click"
           description={` By default, users can click outside a partial SheetMobile (on the overlay) to close it. This can be disabled by setting \`closeOnOutsideClick\` to "false".
 `}
+          title="Preventing close on outside click"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={outsideClick}
-                name="Preventing outside click dismissal example"
                 layout="mobileRow"
+                name="Preventing outside click dismissal example"
               />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Transitions"
-          description="SheetMobile slides up from the bottom as the initial transition. However, transitions between sheets should follow the following patterns."
           columns={2}
+          description="SheetMobile slides up from the bottom as the initial transition. However, transitions between sheets should follow the following patterns."
+          title="Transitions"
         >
           <MainSection.Card
-            title="Same size"
             description={`If there's a transition between SheetMobile of the same size, the content transitions in place.`}
             sandpackExample={
               <SandpackExample
                 code={navigationHeader}
-                name="Same size transition with back and forward navigation"
                 layout="mobileColumn"
+                name="Same size transition with back and forward navigation"
               />
             }
+            title="Same size"
           />
           <MainSection.Card
-            title="Different size"
             description={`If there's a transition between SheetMobile  of different sizes or with a size set to "auto", where height adjusts to content, the initial sheet will slide down to close and the new sheet will slide up to open.`}
             sandpackExample={
               <SandpackExample
-                name="Different size transition with back and forward navigation"
                 code={differentSize}
                 layout="mobileColumn"
+                name="Different size transition with back and forward navigation"
               />
             }
+            title="Different size"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="External handlers"
+          columns={2}
           description={`SheetMobile consumes external handlers from GlobalEventsHandlerProvider.
 
 Handlers:
@@ -328,7 +328,7 @@ Handlers:
 - onClose: executed when SheetMobile closes
 
 See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#SheetMobile-handlers) for more information.`}
-          columns={2}
+          title="External handlers"
         >
           <MainSection.Card
             sandpackExample={
@@ -342,27 +342,27 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#She
       </MainSection>
 
       <MainSection
-        name="Implementation guidelines"
         description={`SheetMobile is a mobile only component; therefore, there shouldn't be instances of SheetMobile in desktop experiences. To enforce proper usage, SheetMobile only renders when [DeviceTypeProvider](/web/utilities/devicetypeprovider) wraps your app and \`deviceType\` prop is set to "mobile". Otherwise, it only renders "null".`}
+        name="Implementation guidelines"
       />
 
       <MainSection name="Writing">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description={`
 - Keep headings short and clear
 - Use Sentence case for headings per our [Pinterest writing standards](/foundations/content_standards/formatting)
 `}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description={`
 - Punctuate headings unless they are posing a question or making an exclamation
 - Use Title Case or ALL CAPS
 `}
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>

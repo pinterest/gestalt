@@ -43,12 +43,12 @@ function SearchBoardField() {
 
   return (
     <SearchField
+      ref={ref}
       accessibilityLabel="Search boards field"
       id="searchField"
       onChange={() => {}}
       placeholder="Search boards"
       size="lg"
-      ref={ref}
     />
   );
 }
@@ -74,8 +74,8 @@ function List({
             }}
             rounding={2}
           >
-            <Flex gap={{ row: 2, column: 0 }} alignItems="center">
-              <Box height={50} width={50} overflow="hidden" rounding={2}>
+            <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
+              <Box height={50} overflow="hidden" rounding={2} width={50}>
                 <Mask rounding={2}>
                   <Image
                     alt={alt}
@@ -112,13 +112,13 @@ function SelectBoard() {
       <Flex direction="column" gap={{ column: 2, row: 0 }}>
         <Text size="100">Board</Text>
         <Button
-          accessibilityHaspopup
-          accessibilityExpanded={openPopover}
+          ref={anchorRef}
           accessibilityControls="popover-search-board-3"
+          accessibilityExpanded={openPopover}
+          accessibilityHaspopup
           iconEnd="arrow-down"
           onClick={() => setOpenPopover(!openPopover)}
           text={selectedBoard}
-          ref={anchorRef}
         />
       </Flex>
       {openPopover && (
@@ -129,11 +129,11 @@ function SelectBoard() {
             idealDirection="down"
             onDismiss={() => setOpenPopover(false)}
             positionRelativeToAnchor={false}
-            size="xl"
             showDismissButton
+            size="xl"
           >
             <Box width={360}>
-              <Box flex="grow" marginEnd={4} marginStart={4} marginBottom={8}>
+              <Box flex="grow" marginBottom={8} marginEnd={4} marginStart={4}>
                 <Flex direction="column" gap={{ column: 6, row: 0 }}>
                   <Text align="center" color="default" weight="bold">
                     Save to board
@@ -163,12 +163,12 @@ export default function Example(): ReactNode {
   return (
     <Box padding={6}>
       <Button
-        accessibilityHaspopup
-        accessibilityExpanded={showSheet}
         accessibilityControls="popover-overlaypanel"
-        text="Edit Pin"
+        accessibilityExpanded={showSheet}
+        accessibilityHaspopup
         onClick={() => setShowSheet(true)}
         size="lg"
+        text="Edit Pin"
       />
 
       {showSheet && (
@@ -176,35 +176,35 @@ export default function Example(): ReactNode {
           <OverlayPanel
             accessibilityDismissButtonLabel="Close edit Pin overlay panel"
             accessibilityLabel="Edit your Pin details"
-            heading="Edit Pin"
             footer={
               <Flex>
                 <Flex.Item flex="grow">
                   <Button
                     color="white"
-                    text="Delete"
-                    size="lg"
                     onClick={() => setShowSheet(false)}
+                    size="lg"
+                    text="Delete"
                   />
                 </Flex.Item>
                 <Flex gap={{ column: 0, row: 2 }}>
-                  <Button text="Cancel" size="lg" onClick={() => setShowSheet(false)} />
+                  <Button onClick={() => setShowSheet(false)} size="lg" text="Cancel" />
                   <Button
-                    text="Done"
                     color="red"
-                    size="lg"
-                    type="submit"
                     onClick={() => setShowSheet(false)}
+                    size="lg"
+                    text="Done"
+                    type="submit"
                   />
                 </Flex>
               </Flex>
             }
+            heading="Edit Pin"
             onDismiss={() => setShowSheet(false)}
             size="lg"
           >
-            <Box id="popover-overlaypanel" display="flex" height={400} paddingX={8}>
+            <Box display="flex" height={400} id="popover-overlaypanel" paddingX={8}>
               <Flex gap={{ row: 8, column: 0 }} width="100%">
-                <Box width={200} paddingX={2} rounding={4}>
+                <Box paddingX={2} rounding={4} width={200}>
                   <Mask rounding={4}>
                     <Image
                       alt="Tropic greens: The taste of Petrol and Porcelain | Interior design, Vintage Sets and Unique Pieces agave"
@@ -220,9 +220,9 @@ export default function Example(): ReactNode {
                     <SelectBoard />
                     <TextArea
                       id="note"
+                      label="Note"
                       onChange={() => {}}
                       placeholder="Add note"
-                      label="Note"
                       value=""
                     />
                   </Flex>

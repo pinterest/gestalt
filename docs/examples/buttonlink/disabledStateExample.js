@@ -8,9 +8,9 @@ export default function Example(): ReactNode {
       <ButtonLink
         accessibilityLabel="Go back"
         disabled
-        text="Go back"
-        size="lg"
         href="https://www.pinterest.com/"
+        size="lg"
+        text="Go back"
       />
     </Flex>
   );

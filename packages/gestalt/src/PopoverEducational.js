@@ -170,53 +170,19 @@ export default function PopoverEducational({
 
   if (!isInExperiment)
     return (
-      <Box zIndex={zIndex} position={zIndex ? 'relative' : undefined}>
-        <LegacyInternalPopover
-          accessibilityLabel={accessibilityLabel}
-          anchor={anchor}
-          color="blue"
-          id={id}
-          idealDirection={idealDirection}
-          onDismiss={onDismiss}
-          positionRelativeToAnchor
-          showCaret
-          shouldFocus={shouldFocus}
-          role={primaryAction && !children ? 'dialog' : role}
-          size={size}
-        >
-          {children ??
-            (message ? (
-              <Box padding={4} tabIndex={0}>
-                <Flex direction="column" gap={3}>
-                  {textElement}
-                  {primaryAction ? (
-                    <Flex.Item flex="grow" alignSelf="end">
-                      <PrimaryAction {...primaryAction} />
-                    </Flex.Item>
-                  ) : null}
-                </Flex>
-              </Box>
-            ) : null)}
-        </LegacyInternalPopover>
-      </Box>
-    );
-
-  return (
-    <Box zIndex={zIndex} position={zIndex ? 'relative' : undefined}>
-      <InternalPopover
+      <LegacyInternalPopover
         accessibilityLabel={accessibilityLabel}
         anchor={anchor}
         color="blue"
         id={id}
         idealDirection={idealDirection}
         onDismiss={onDismiss}
-        disablePortal
-        showCaret
-        shouldFocus={shouldFocus}
+        positionRelativeToAnchor
         role={primaryAction && !children ? 'dialog' : role}
+        shouldFocus={shouldFocus}
+        showCaret
         size={size}
-        hideWhenReferenceHidden
-        disableFocusTrap
+        zIndex={zIndex}
       >
         {children ??
           (message ? (
@@ -224,7 +190,40 @@ export default function PopoverEducational({
               <Flex direction="column" gap={3}>
                 {textElement}
                 {primaryAction ? (
-                  <Flex.Item flex="grow" alignSelf="end">
+                  <Flex.Item alignSelf="end" flex="grow">
+                    <PrimaryAction {...primaryAction} />
+                  </Flex.Item>
+                ) : null}
+              </Flex>
+            </Box>
+          ) : null)}
+      </LegacyInternalPopover>
+    );
+
+  return (
+    <Box position={zIndex ? 'relative' : undefined} zIndex={zIndex}>
+      <InternalPopover
+        accessibilityLabel={accessibilityLabel}
+        anchor={anchor}
+        color="blue"
+        disableFocusTrap
+        disablePortal
+        hideWhenReferenceHidden
+        id={id}
+        idealDirection={idealDirection}
+        onDismiss={onDismiss}
+        role={primaryAction && !children ? 'dialog' : role}
+        shouldFocus={shouldFocus}
+        showCaret
+        size={size}
+      >
+        {children ??
+          (message ? (
+            <Box padding={4} tabIndex={0}>
+              <Flex direction="column" gap={3}>
+                {textElement}
+                {primaryAction ? (
+                  <Flex.Item alignSelf="end" flex="grow">
                     <PrimaryAction {...primaryAction} />
                   </Flex.Item>
                 ) : null}

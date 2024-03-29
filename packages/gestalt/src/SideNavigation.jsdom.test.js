@@ -16,10 +16,10 @@ describe('SideNavigation desktop', () => {
     return (
       <SideNavigation accessibilityLabel="example1" dismissButton={{ onDismiss: () => {} }}>
         <SideNavigation.Group
+          counter={{ number: '123', accessibilityLabel: '123 counter' }}
           display={display}
           expanded={expanded}
           label="Group item"
-          counter={{ number: '123', accessibilityLabel: '123 counter' }}
           primaryAction={{
             onClick: ({ event }) => {
               event.preventDefault();
@@ -28,27 +28,28 @@ describe('SideNavigation desktop', () => {
             dropdownItems: [
               <Dropdown.Item
                 key="edit"
-                option={{ value: 'Edit', label: 'Edit' }}
                 onSelect={() => {}}
+                option={{ value: 'Edit', label: 'Edit' }}
               />,
               <Dropdown.Item
                 key="trash"
-                option={{ value: 'Delete', label: 'Delete' }}
                 onSelect={() => {}}
+                option={{ value: 'Delete', label: 'Delete' }}
               />,
             ],
           }}
         >
           <SideNavigation.NestedItem
             href="#"
-            onClick={({ event }) => event.preventDefault()}
             label="test"
+            onClick={({ event }) => event.preventDefault()}
           />
         </SideNavigation.Group>
         <SideNavigation.TopItem
+          counter={{ number: '321', accessibilityLabel: '321 counter' }}
           href="#"
-          onClick={({ event }) => event.preventDefault()}
           label="Top item"
+          onClick={({ event }) => event.preventDefault()}
           primaryAction={{
             onClick: ({ event }) => {
               event.preventDefault();
@@ -60,17 +61,16 @@ describe('SideNavigation desktop', () => {
             dropdownItems: [
               <Dropdown.Item
                 key="edit"
-                option={{ value: 'Edit', label: 'Edit' }}
                 onSelect={() => {}}
+                option={{ value: 'Edit', label: 'Edit' }}
               />,
               <Dropdown.Item
                 key="trash"
-                option={{ value: 'Delete', label: 'Delete' }}
                 onSelect={() => {}}
+                option={{ value: 'Delete', label: 'Delete' }}
               />,
             ],
           }}
-          counter={{ number: '321', accessibilityLabel: '321 counter' }}
         />
       </SideNavigation>
     );
@@ -299,8 +299,8 @@ describe('SideNavigation mobile', () => {
       <DeviceTypeProvider deviceType="mobile">
         <SideNavigation accessibilityLabel="example2" dismissButton={{ onDismiss: () => {} }}>
           <SideNavigation.Group
-            label="Group item"
             counter={{ number: '123', accessibilityLabel: '123 counter' }}
+            label="Group item"
             primaryAction={{
               onClick: ({ event }) => {
                 event.preventDefault();
@@ -309,27 +309,28 @@ describe('SideNavigation mobile', () => {
               dropdownItems: [
                 <Dropdown.Item
                   key="edit"
-                  option={{ value: 'Edit', label: 'Edit' }}
                   onSelect={() => {}}
+                  option={{ value: 'Edit', label: 'Edit' }}
                 />,
                 <Dropdown.Item
                   key="trash"
-                  option={{ value: 'Delete', label: 'Delete' }}
                   onSelect={() => {}}
+                  option={{ value: 'Delete', label: 'Delete' }}
                 />,
               ],
             }}
           >
             <SideNavigation.NestedItem
               href="#"
-              onClick={({ event }) => event.preventDefault()}
               label="test"
+              onClick={({ event }) => event.preventDefault()}
             />
           </SideNavigation.Group>
           <SideNavigation.TopItem
+            counter={{ number: '321', accessibilityLabel: '321 counter' }}
             href="#"
-            onClick={({ event }) => event.preventDefault()}
             label="Top item"
+            onClick={({ event }) => event.preventDefault()}
             primaryAction={{
               onClick: ({ event }) => {
                 event.preventDefault();
@@ -341,17 +342,16 @@ describe('SideNavigation mobile', () => {
               dropdownItems: [
                 <Dropdown.Item
                   key="edit"
-                  option={{ value: 'Edit', label: 'Edit' }}
                   onSelect={() => {}}
+                  option={{ value: 'Edit', label: 'Edit' }}
                 />,
                 <Dropdown.Item
                   key="trash"
-                  option={{ value: 'Delete', label: 'Delete' }}
                   onSelect={() => {}}
+                  option={{ value: 'Delete', label: 'Delete' }}
                 />,
               ],
             }}
-            counter={{ number: '321', accessibilityLabel: '321 counter' }}
           />
         </SideNavigation>
       </DeviceTypeProvider>

@@ -8,7 +8,7 @@ test('Switch', () => {
 });
 
 test('Switch disabled', () => {
-  const tree = create(<Switch id="test" disabled onChange={() => {}} />).toJSON();
+  const tree = create(<Switch disabled id="test" onChange={() => {}} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
@@ -18,6 +18,6 @@ test('Switch switched', () => {
 });
 
 test('Switch switched & disabled', () => {
-  const tree = create(<Switch id="test" disabled onChange={() => {}} />).toJSON();
+  const tree = create(<Switch disabled id="test" onChange={() => {}} />).toJSON();
   expect(tree).toMatchSnapshot();
 });

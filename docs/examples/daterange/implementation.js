@@ -11,12 +11,10 @@ export default function Example(): ReactNode {
   const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   return (
-    <Flex width="100%" height="100%" alignContent="start" justifyContent="start">
+    <Flex alignContent="start" height="100%" justifyContent="start" width="100%">
       <Box padding={8}>
-        <Flex gap={2} alignItems="center">
+        <Flex alignItems="center" gap={2}>
           <Status
-            type={selectedDates ? 'ok' : 'problem'}
-            title={selectedDates ? 'Campaign dates selected' : 'Select dates'}
             subtext={
               selectedDates
                 ? `${
@@ -26,11 +24,13 @@ export default function Example(): ReactNode {
                   }/${selectedDates[1].getDate()}/${selectedDates[1].getFullYear()}`
                 : undefined
             }
+            title={selectedDates ? 'Campaign dates selected' : 'Select dates'}
+            type={selectedDates ? 'ok' : 'problem'}
           />
           <IconButton
+            ref={anchorRef}
             accessibilityLabel="Open calendar"
             icon="edit"
-            selected={showComponent}
             onClick={() => {
               if (!showComponent && selectedDates) {
                 setStartDate(selectedDates[0]);
@@ -39,7 +39,7 @@ export default function Example(): ReactNode {
 
               setShowComponent((value) => !value);
             }}
-            ref={anchorRef}
+            selected={showComponent}
           />
         </Flex>
       </Box>
@@ -47,28 +47,28 @@ export default function Example(): ReactNode {
       {showComponent ? (
         <Layer>
           <Popover
-            size="flexible"
-            positionRelativeToAnchor={false}
-            onDismiss={() => {}}
             anchor={anchorRef.current}
             idealDirection="down"
+            onDismiss={() => {}}
+            positionRelativeToAnchor={false}
+            size="flexible"
           >
             <DateRange
               endDateValue={endDate}
-              onEndDateChange={({ value }) => setEndDate(value)}
-              onEndDateError={() => {}}
-              onStartDateError={() => {}}
-              onStartDateChange={({ value }) => setStartDate(value)}
-              onSubmit={() => {
-                if (startDate && endDate) setSelectedDates([startDate, endDate]);
-                setShowComponent(false);
-              }}
-              startDateValue={startDate}
               onCancel={() => {
                 setStartDate(null);
                 setEndDate(null);
                 setShowComponent(false);
               }}
+              onEndDateChange={({ value }) => setEndDate(value)}
+              onEndDateError={() => {}}
+              onStartDateChange={({ value }) => setStartDate(value)}
+              onStartDateError={() => {}}
+              onSubmit={() => {
+                if (startDate && endDate) setSelectedDates([startDate, endDate]);
+                setShowComponent(false);
+              }}
+              startDateValue={startDate}
             />
           </Popover>
         </Layer>

@@ -10,7 +10,7 @@ test('renders correctly', () => {
 test('renders correctly with props', () => {
   const tree = renderer
     .create(
-      <TableHeaderCell rowSpan={2} colSpan={3} scope="row">
+      <TableHeaderCell colSpan={3} rowSpan={2} scope="row">
         row name
       </TableHeaderCell>,
     )

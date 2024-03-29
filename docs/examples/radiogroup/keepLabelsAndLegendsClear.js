@@ -6,9 +6,9 @@ export default function RadioButtonExample(): ReactNode {
   const [favorite, setFavorite] = useState('');
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <RadioGroup legend="Campaign budget" id="bestPracticeBudget">
-        <Flex gap={{ row: 2, column: 0 }} alignItems="center" justifyContent="start">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <RadioGroup id="bestPracticeBudget" legend="Campaign budget">
+        <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="start">
           <RadioGroup.RadioButton
             checked={favorite === 'daily'}
             id="daily"
@@ -20,16 +20,16 @@ export default function RadioButtonExample(): ReactNode {
             <Flex alignItems="center">
               <Text>Daily</Text>
               <IconButton
-                size="sm"
+                accessibilityLabel="info"
                 icon="info-circle"
                 iconColor="gray"
-                accessibilityLabel="info"
+                size="sm"
                 tooltip={{ text: 'Sets a cap for the amount your campaign can spend each day' }}
               />
             </Flex>
           </Label>
         </Flex>
-        <Flex gap={{ row: 2, column: 0 }} alignItems="center" justifyContent="start">
+        <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="start">
           <RadioGroup.RadioButton
             checked={favorite === 'lifetime'}
             id="lifetime"
@@ -41,10 +41,10 @@ export default function RadioButtonExample(): ReactNode {
             <Flex alignItems="center">
               <Text>Lifetime</Text>
               <IconButton
-                size="sm"
+                accessibilityLabel="info"
                 icon="info-circle"
                 iconColor="gray"
-                accessibilityLabel="info"
+                size="sm"
                 tooltip={{
                   text: 'Sets a cap for the amount your campaign can spend over the course of its lifetime',
                 }}

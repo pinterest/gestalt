@@ -14,35 +14,35 @@ export default function Example(): ReactNode {
   }, []);
 
   return (
-    <Box width="100%" height="100%" padding={4}>
-      <Flex direction="column" width="100%" height="100%" justifyContent="between">
+    <Box height="100%" padding={4} width="100%">
+      <Flex direction="column" height="100%" justifyContent="between" width="100%">
         <Box>
           <IconButton
-            accessibilityLabel="This IconButton represents a new feature"
-            iconColor="darkGray"
-            icon="pin"
-            onClick={() => {}}
             ref={anchorRefA}
+            accessibilityLabel="This IconButton represents a new feature"
+            icon="pin"
+            iconColor="darkGray"
+            onClick={() => {}}
             size="lg"
           />
         </Box>
         {openA && (
           <PopoverEducational
             accessibilityLabel="Description of new feature"
-            size="flexible"
             anchor={anchorRefA.current}
             idealDirection="right"
-            onDismiss={() => {}}
             message="Ads allow you to reach more people who matter to you. When audiences engage with your ad, you'll be able to track performance here."
+            onDismiss={() => {}}
+            size="flexible"
           />
         )}
         <Box>
           <IconButton
-            accessibilityLabel="This IconButton represents a new feature"
-            iconColor="darkGray"
-            icon="pin"
-            onClick={() => {}}
             ref={anchorRefB}
+            accessibilityLabel="This IconButton represents a new feature"
+            icon="pin"
+            iconColor="darkGray"
+            onClick={() => {}}
             size="lg"
           />
         </Box>
@@ -51,8 +51,8 @@ export default function Example(): ReactNode {
             accessibilityLabel="Description of new feature"
             anchor={anchorRefB.current}
             idealDirection="right"
-            onDismiss={() => {}}
             message="Ads allow you to reach more people who matter to you. When audiences engage with your ad, you'll be able to track performance here."
+            onDismiss={() => {}}
           />
         )}
       </Flex>

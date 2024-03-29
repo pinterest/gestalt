@@ -5,12 +5,12 @@ import { Flex, Image, Letterbox } from 'gestalt';
 export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-      <Letterbox width={300} height={200} contentAspectRatio={1}>
+      <Letterbox contentAspectRatio={1} height={200} width={300}>
         <Image
           alt="Example image"
-          src="https://i.ibb.co/d0pQsJz/stock3.jpg"
-          naturalWidth={1}
           naturalHeight={1}
+          naturalWidth={1}
+          src="https://i.ibb.co/d0pQsJz/stock3.jpg"
         />
       </Letterbox>
     </Flex>

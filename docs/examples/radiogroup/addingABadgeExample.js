@@ -6,14 +6,14 @@ export default function RadioButtonBadgeExample(): ReactNode {
   const [option, setOption] = useState('');
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <RadioGroup legend="What badge would you like?" id="badgeExample">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <RadioGroup id="badgeExample" legend="What badge would you like?">
         <Box display="inlineBlock">
           <RadioGroup.RadioButton
-            id="success"
-            checked={option === 'success'}
-            label="I'd like a success badge"
             badge={{ text: 'badge', type: 'success' }}
+            checked={option === 'success'}
+            id="success"
+            label="I'd like a success badge"
             onChange={() => {
               setOption('success');
             }}
@@ -22,10 +22,10 @@ export default function RadioButtonBadgeExample(): ReactNode {
         </Box>
         <Box display="inlineBlock">
           <RadioGroup.RadioButton
-            id="info"
-            checked={option === 'info'}
-            label="I'd like a info badge"
             badge={{ text: 'badge', type: 'info' }}
+            checked={option === 'info'}
+            id="info"
+            label="I'd like a info badge"
             onChange={() => {
               setOption('info');
             }}
@@ -34,10 +34,10 @@ export default function RadioButtonBadgeExample(): ReactNode {
         </Box>
         <Box display="inlineBlock">
           <RadioGroup.RadioButton
-            id="warning"
-            checked={option === 'warning'}
-            label="I'd like a warning badge"
             badge={{ text: 'badge', type: 'warning' }}
+            checked={option === 'warning'}
+            id="warning"
+            label="I'd like a warning badge"
             onChange={() => {
               setOption('warning');
             }}
@@ -46,10 +46,10 @@ export default function RadioButtonBadgeExample(): ReactNode {
         </Box>
         <Box display="inlineBlock">
           <RadioGroup.RadioButton
-            id="neutral"
-            checked={option === 'neutral'}
-            label="I'd like a neutral badge"
             badge={{ text: 'badge', type: 'neutral' }}
+            checked={option === 'neutral'}
+            id="neutral"
+            label="I'd like a neutral badge"
             onChange={() => {
               setOption('neutral');
             }}

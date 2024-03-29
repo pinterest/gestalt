@@ -7,19 +7,19 @@ export default function TextFieldPopoverExample(): ReactNode {
   const anchorRef = useRef<HTMLElement | null>(null);
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Box padding={2} color="light">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Box color="light" padding={2}>
         <TextField
+          ref={anchorRef}
           id="variants-refs"
           label="Focus the TextField to show the Popover"
-          onChange={() => {}}
           onBlur={() => {
             setOpen(false);
           }}
+          onChange={() => {}}
           onFocus={() => {
             setOpen(true);
           }}
-          ref={anchorRef}
         />
         {open && (
           <Popover

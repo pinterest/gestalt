@@ -8,7 +8,7 @@ export default function Example(): ReactNode {
 
   return (
     <Box height="100%" padding={3}>
-      <Flex alignItems="center" gap={4} justifyContent="center" height="100%" width="100%">
+      <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
         <NumberField
           id="best-practices-dont-related-age"
           label="Age"

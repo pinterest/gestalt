@@ -72,13 +72,15 @@ function SandpackContainer({
     <Fragment>
       <Box
         borderStyle="sm"
-        rounding={2}
         color="darkWash"
         display={isMobileRowLayout ? 'flex' : undefined}
         justifyContent="center"
+        rounding={2}
       >
         <SandpackLayout>
           <SandpackPreview
+            showOpenInCodeSandbox={false}
+            showRefreshButton={false}
             style={{
               width: isMobileRowLayout ? MAX_EDITOR_IPHONE_SE_MOBILE_WIDTH : undefined,
               height:
@@ -86,8 +88,6 @@ function SandpackContainer({
                   ? MAX_EDITOR_IPHONE_SE_MOBILE_HEIGHT
                   : (!editorShown && previewHeight) || codeEditorHeight || MIN_EDITOR_HEIGHT,
             }}
-            showRefreshButton={false}
-            showOpenInCodeSandbox={false}
           />
           {editorShown && (
             <SandpackCodeEditor
@@ -103,13 +103,13 @@ function SandpackContainer({
         </SandpackLayout>
       </Box>
       <Box
-        marginTop={2}
         display={hideControls ? undefined : 'none'}
         height={hideControls ? 24 : undefined}
+        marginTop={2}
       />
       {!hideControls && (
         <Box marginTop={2}>
-          <Flex justifyContent="end" alignItems="center" gap={2}>
+          <Flex alignItems="center" gap={2} justifyContent="end">
             <CodeExampleDarkModeButton
               currentMode={exampleColorScheme}
               onClick={toggleExampleColorScheme}
@@ -172,7 +172,19 @@ export default function SandpackExample({
   return devExampleMode === 'default' ? (
     <SandpackProvider
       // Based on https://github.com/codesandbox/sandpack/blob/53811bb4fdfb66ea95b9881ff18c93307f12ce0d/sandpack-react/src/presets/Sandpack.tsx#L67
-      template="react"
+      customSetup={{
+        dependencies: {
+          ...(files
+            ? { classnames: 'latest' }
+            : {
+                gestalt: 'latest',
+                'gestalt-charts': 'latest',
+                'gestalt-datepicker': 'latest',
+              }),
+          react: '18.2.0',
+          'react-dom': '18.2.0',
+        },
+      }}
       files={{
         '/styles.css': {
           code: `@import "gestalt/dist/gestalt.css";
@@ -257,20 +269,8 @@ export default function SandpackExample({
           );`,
         },
       }}
+      template="react"
       theme="dark"
-      customSetup={{
-        dependencies: {
-          ...(files
-            ? { classnames: 'latest' }
-            : {
-                gestalt: 'latest',
-                'gestalt-charts': 'latest',
-                'gestalt-datepicker': 'latest',
-              }),
-          react: '18.2.0',
-          'react-dom': '18.2.0',
-        },
-      }}
     >
       <SandpackContainer
         exampleColorScheme={exampleColorScheme}

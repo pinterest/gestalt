@@ -6,7 +6,7 @@ describe('TableOfContents', () => {
   it('renders', () => {
     const tree = create(
       <TableOfContents title="Title">
-        <TableOfContents.Item label="Item" href="#" onClick={() => {}} active />
+        <TableOfContents.Item active href="#" label="Item" onClick={() => {}} />
       </TableOfContents>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -14,8 +14,8 @@ describe('TableOfContents', () => {
 
   it('renders an accessibility label', () => {
     const tree = create(
-      <TableOfContents title="Title" accessibilityLabel="Page table of contents">
-        <TableOfContents.Item label="Item" href="#" active />
+      <TableOfContents accessibilityLabel="Page table of contents" title="Title">
+        <TableOfContents.Item active href="#" label="Item" />
       </TableOfContents>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -24,8 +24,8 @@ describe('TableOfContents', () => {
   it('renders without title', () => {
     const tree = create(
       <TableOfContents>
-        <TableOfContents.Item label="Item 1" href="#" active />
-        <TableOfContents.Item label="Item 2" href="#" active={false} />
+        <TableOfContents.Item active href="#" label="Item 1" />
+        <TableOfContents.Item active={false} href="#" label="Item 2" />
       </TableOfContents>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -34,9 +34,9 @@ describe('TableOfContents', () => {
   it('renders nested items', () => {
     const tree = create(
       <TableOfContents>
-        <TableOfContents.Item label="Item 1" href="#" active={false}>
-          <TableOfContents.Item label="Subitem 1" href="#" active />
-          <TableOfContents.Item label="Subitem 2" href="#" active={false} />
+        <TableOfContents.Item active={false} href="#" label="Item 1">
+          <TableOfContents.Item active href="#" label="Subitem 1" />
+          <TableOfContents.Item active={false} href="#" label="Subitem 2" />
         </TableOfContents.Item>
       </TableOfContents>,
     ).toJSON();

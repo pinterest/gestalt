@@ -23,11 +23,11 @@ import wrapping from '../../examples/tabs/wrapping';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen.displayName} description={generatedDocGen.description}>
+      <PageHeader description={generatedDocGen.description} name={generatedDocGen.displayName}>
         <SandpackExample
           code={mainExample}
-          name="Tabs Main Example"
           hideEditor
+          name="Tabs Main Example"
           previewHeight={150}
         />
       </PageHeader>
@@ -38,21 +38,21 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - To break up a large collection of content into logical, digestible views.
           - To switch between different, yet related views, such as Updates and Messages.
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - When any UI or content above the Tabs is altered upon selection. Use [Link](/web/link) instead.
           - To break up content that is not related to each other or is not on the same hierarchical level.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -60,107 +60,107 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Place Tabs directly above the target content."
             sandpackExample={
               <SandpackExample
                 code={doAboveTarget}
-                name="Correct above target example"
                 hideEditor
+                name="Correct above target example"
                 previewHeight={250}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use Tabs as a way to filter content. Consider using [SegmentedControl](/web/segmentedcontrol) in this use-case."
             sandpackExample={
               <SandpackExample
                 code={dontFilterContent}
-                name="Dont use Tabs as content filters"
-                hideEditor
                 hideControls
+                hideEditor
+                name="Dont use Tabs as content filters"
                 previewHeight={250}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Keep Tab labels concise, ideally one to two words."
             sandpackExample={
               <SandpackExample
                 code={doBeConcise}
-                name="Be concise"
                 hideEditor
+                name="Be concise"
                 previewHeight={250}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Truncate labels in Tabs. If there is not enough horizontal space, allow the Tabs to scroll horizontally on mobile and touch surfaces. For desktop, wrap the group of tabs to multiple lines."
             sandpackExample={
               <SandpackExample
                 code={dontTruncateLabels}
-                name="Don't truncate labels"
-                hideEditor
                 hideControls
+                hideEditor
+                name="Don't truncate labels"
                 previewHeight={250}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Order Tabs by relevance — the first tab should be the most logical starting view. Ideally, sequence Tabs by association — tabs with similar content should be adjacent to each other."
             sandpackExample={
               <SandpackExample
                 code={doOrderByRelevance}
-                name="Order by relevance"
                 hideEditor
+                name="Order by relevance"
                 previewHeight={250}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Disable or hide Tabs if a Tab's content is empty. There should always be at least 2 Tabs. We don't support applying a disabled state for the Tab as it can cause usability and accessibility issues."
             sandpackExample={
               <SandpackExample
                 code={dontHide}
-                name="Don't hide labels"
-                hideEditor
                 hideControls
+                hideEditor
+                name="Don't hide labels"
                 previewHeight={250}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
       <AccessibilitySection
-        name={generatedDocGen?.displayName}
         description="Tabs are intended for page-level navigation between multiple URLs.
   Each tab must have an individual title that precisely describes the tab content. Provide a short, descriptive label for screen-readers using `accessibilityLabel`. It is helpful for users of assistive technologies so they have the necessary information to navigate the content efficiently."
+        name={generatedDocGen?.displayName}
       >
         <MainSection.Subsection
-          title="Keyboard"
+          columns={2}
           description={`
       Tab key navigates the tabs.
       Enter/return key activates a tab (i.e., it navigates to the link \`href\`).`}
-          columns={2}
+          title="Keyboard"
         />
         <MainSection.Subsection
-          title="Screen Reader"
           description={`
       The tab/link **must** announce a state of "current" if the \`href\` matches the current window URL.`}
+          title="Screen Reader"
         />
         <MainSection.Card />
       </AccessibilitySection>
@@ -173,8 +173,8 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Wrapping"
           description="Wrapping to multiple lines is available for tight spaces on desktop interfaces where horizontal scrolling is harder and less accessible."
+          title="Wrapping"
         >
           <MainSection.Card
             cardSize="md"
@@ -190,8 +190,8 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Indicator"
           description={`Use the \`indicator\` field on individual tabs to indicate notifications. You can either show a red dot or a number — numbers greater than 99 will be shown as "99+".`}
+          title="Indicator"
         >
           <MainSection.Card
             cardSize="md"

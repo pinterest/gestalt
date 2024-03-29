@@ -12,14 +12,14 @@ export default function Screenshot(): ReactNode {
           column: 4,
         }}
       >
-        <Status type="warning" title="Warning" subtext="Updated 2 days ago" />
-        <Status type="problem" title="Problem" subtext="Please try again" />
-        <Status type="unstarted" title="Unstarted" />
-        <Status type="queued" title="Queued" />
-        <Status type="inProgress" title="In progress" />
-        <Status type="halted" title="Halted" />
-        <Status type="ok" title="OK" />
-        <Status type="canceled" title="Canceled" />
+        <Status subtext="Updated 2 days ago" title="Warning" type="warning" />
+        <Status subtext="Please try again" title="Problem" type="problem" />
+        <Status title="Unstarted" type="unstarted" />
+        <Status title="Queued" type="queued" />
+        <Status title="In progress" type="inProgress" />
+        <Status title="Halted" type="halted" />
+        <Status title="OK" type="ok" />
+        <Status title="Canceled" type="canceled" />
       </Flex>
     </Box>
   );

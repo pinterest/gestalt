@@ -5,9 +5,9 @@ import { DatePicker } from 'gestalt-datepicker';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Box width="100%" height="100%">
-        <Box height="100%" width={280} overflow="scroll">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Box height="100%" width="100%">
+        <Box height="100%" overflow="scroll" width={280}>
           <SideNavigation
             accessibilityLabel="Footer example"
             footer={
@@ -49,10 +49,10 @@ export default function Example(): ReactNode {
               ].map(({ label, counter }) => (
                 <SideNavigation.TopItem
                   key={label}
-                  href="#"
-                  label={label}
-                  icon="ads-stats"
                   counter={counter}
+                  href="#"
+                  icon="ads-stats"
+                  label={label}
                 />
               ))}
             </SideNavigation.Section>

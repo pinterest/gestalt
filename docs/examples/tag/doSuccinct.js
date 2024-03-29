@@ -4,7 +4,7 @@ import { Flex, Tag } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex alignItems="center" justifyContent="center" height="100%" width="100%">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Tag onRemove={() => {}} text="Design systems" />
     </Flex>
   );

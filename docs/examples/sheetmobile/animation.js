@@ -21,27 +21,27 @@ export default function Example(): ReactNode {
       {showComponent ? (
         <Layer zIndex={ABOVE_PAGE_HEADER_ZINDEX}>
           <SheetMobile
-            heading="Heading"
-            forwardIconButton={{
-              accessibilityLabel: 'Next page',
-              onClick: ({ onDismissStart }) => onDismissStart(),
-            }}
-            onDismiss={() => setShowComponent(false)}
             footer={
               <SheetMobile.DismissingElement>
                 {({ onDismissStart }) => (
-                  <Flex justifyContent="center" gap={2}>
-                    <Button color="red" text="Close" onClick={onDismissStart} />
+                  <Flex gap={2} justifyContent="center">
+                    <Button color="red" onClick={onDismissStart} text="Close" />
                   </Flex>
                 )}
               </SheetMobile.DismissingElement>
             }
+            forwardIconButton={{
+              accessibilityLabel: 'Next page',
+              onClick: ({ onDismissStart }) => onDismissStart(),
+            }}
+            heading="Heading"
+            onDismiss={() => setShowComponent(false)}
             size="auto"
           >
             <SheetMobile.DismissingElement>
               {({ onDismissStart }) => (
-                <Flex justifyContent="center" alignItems="center" height="100%">
-                  <Button color="gray" text="Close" onClick={onDismissStart} />
+                <Flex alignItems="center" height="100%" justifyContent="center">
+                  <Button color="gray" onClick={onDismissStart} text="Close" />
                 </Flex>
               )}
             </SheetMobile.DismissingElement>
@@ -52,9 +52,9 @@ export default function Example(): ReactNode {
         <Button
           accessibilityLabel="Show SheetMobile"
           color="red"
-          text="Show SheetMobile"
-          size="lg"
           onClick={() => setShowComponent(true)}
+          size="lg"
+          text="Show SheetMobile"
         />
       </Box>
     </DeviceTypeProvider>

@@ -25,7 +25,7 @@ exports[`AvatarGroup renders AvatarGroup button with addCollaborators button 1`]
               <div
                 class="box circle relative"
                 data-test-id="gestalt-avatar-svg"
-                style="box-shadow: 0 0 0 1px var(--color-border-avatar); width: 48px; height: 48px;"
+                style="box-shadow: 0 0 0 1px var(--color-border-avatar); height: 48px; width: 48px;"
               >
                 <div
                   class="Mask circle willChangeTransform"
@@ -128,7 +128,7 @@ exports[`AvatarGroup renders AvatarGroup link with addCollaborators button 1`] =
                 <div
                   class="box circle relative"
                   data-test-id="gestalt-avatar-svg"
-                  style="box-shadow: 0 0 0 1px var(--color-border-avatar); width: 48px; height: 48px;"
+                  style="box-shadow: 0 0 0 1px var(--color-border-avatar); height: 48px; width: 48px;"
                 >
                   <div
                     class="Mask circle willChangeTransform"
@@ -226,7 +226,7 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
               <div
                 class="box circle relative"
                 data-test-id="gestalt-avatar-svg"
-                style="box-shadow: 0 0 0 1px var(--color-border-avatar); width: 48px; height: 48px;"
+                style="box-shadow: 0 0 0 1px var(--color-border-avatar); height: 48px; width: 48px;"
               >
                 <div
                   class="Mask circle willChangeTransform"
@@ -266,7 +266,7 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
               <div
                 class="box circle relative"
                 data-test-id="gestalt-avatar-svg"
-                style="box-shadow: 0 0 0 1px var(--color-border-avatar); width: 48px; height: 48px;"
+                style="box-shadow: 0 0 0 1px var(--color-border-avatar); height: 48px; width: 48px;"
               >
                 <div
                   class="Mask circle willChangeTransform"
@@ -364,7 +364,7 @@ exports[`AvatarGroup renders display-only AvatarGroup without image 1`] = `
               <div
                 class="box circle relative"
                 data-test-id="gestalt-avatar-svg"
-                style="box-shadow: 0 0 0 1px var(--color-border-avatar); width: 48px; height: 48px;"
+                style="box-shadow: 0 0 0 1px var(--color-border-avatar); height: 48px; width: 48px;"
               >
                 <div
                   class="box circle relative secondary"
@@ -496,7 +496,7 @@ exports[`AvatarGroup renders md display-only AvatarGroup with image 1`] = `
               <div
                 class="box circle relative"
                 data-test-id="gestalt-avatar-svg"
-                style="box-shadow: 0 0 0 1px var(--color-border-avatar); width: 48px; height: 48px;"
+                style="box-shadow: 0 0 0 1px var(--color-border-avatar); height: 48px; width: 48px;"
               >
                 <div
                   class="Mask circle willChangeTransform"
@@ -553,7 +553,7 @@ exports[`AvatarGroup renders sm display-only AvatarGroup with image 1`] = `
               <div
                 class="box circle relative"
                 data-test-id="gestalt-avatar-svg"
-                style="box-shadow: 0 0 0 1px var(--color-border-avatar); width: 32px; height: 32px;"
+                style="box-shadow: 0 0 0 1px var(--color-border-avatar); height: 32px; width: 32px;"
               >
                 <div
                   class="Mask circle willChangeTransform"
@@ -610,7 +610,7 @@ exports[`AvatarGroup renders xs display-only AvatarGroup with image 1`] = `
               <div
                 class="box circle relative"
                 data-test-id="gestalt-avatar-svg"
-                style="box-shadow: 0 0 0 1px var(--color-border-avatar); width: 24px; height: 24px;"
+                style="box-shadow: 0 0 0 1px var(--color-border-avatar); height: 24px; width: 24px;"
               >
                 <div
                   class="Mask circle willChangeTransform"

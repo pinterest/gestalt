@@ -55,7 +55,7 @@ type StatsProps = {
 
 function StatsColumn({ number, description }: StatsProps): ReactNode {
   return (
-    <Flex gap={2} alignItems="start" direction="column">
+    <Flex alignItems="start" direction="column" gap={2}>
       <p className="statsNumber">{number} </p>
       <Flex.Item maxWidth="250px">
         <p className="statsDescription">{description}</p>
@@ -123,85 +123,85 @@ export default function YearInReview2022(): ReactNode {
   return (
     <div className="year-in-review">
       <ColorSchemeProvider colorScheme="light" id="gestalt-yir">
-        <Flex flex="grow" direction="column">
+        <Flex direction="column" flex="grow">
           <Box
-            role="navigation"
-            position="fixed"
-            top
             left
-            padding={4}
             mdPadding={8}
+            padding={4}
+            position="fixed"
+            role="navigation"
+            top
             zIndex={BUTTON_ZINDEX}
           >
             <Link href="/home">
-              <div className="backButton" role="link" aria-label="Back to Gestalt Home">
-                <Icon icon="home" color="dark" accessibilityLabel="Home" size={28} />
+              <div aria-label="Back to Gestalt Home" className="backButton" role="link">
+                <Icon accessibilityLabel="Home" color="dark" icon="home" size={28} />
                 <GestaltLogo height={50} width={50} />
               </div>
             </Link>
           </Box>
 
           <Box
-            width="100%"
             dangerouslySetInlineStyle={{
               __style: { backgroundColor: TOKEN_COLOR_BLUE_SKYCICLE_450 },
             }}
             position="relative"
+            width="100%"
           >
-            <Flex direction="column" alignItems="center">
-              <Box marginTop={-3} column={6} mdColumn={3}>
+            <Flex alignItems="center" direction="column">
+              <Box column={6} marginTop={-3} mdColumn={3}>
                 <DiscoAnimation shouldReduceMotion={shouldReduceMotion} />
               </Box>
               <h2 className="gestalt2022">Gestalt 2022</h2>
               <h1 className="h1Font">Year in Review</h1>
             </Flex>
-            <Box width="10%" position="absolute" bottom marginStart={10}>
-              <KnobShadow width="100%" className="fadeInLeft animate" />
+            <Box bottom marginStart={10} position="absolute" width="10%">
+              <KnobShadow className="fadeInLeft animate" width="100%" />
             </Box>
             <Box
-              width="10%"
-              position="absolute"
-              top
-              right
-              marginStart={10}
               dangerouslySetInlineStyle={{
                 __style: {
                   top: '30%',
                   right: '15%',
                 },
               }}
+              marginStart={10}
+              position="absolute"
+              right
+              top
+              width="10%"
             >
               <AsteriskFilled className="introAsterisk" width="100%" />
             </Box>
             <Box
-              width="10%"
-              position="absolute"
-              marginStart={10}
               dangerouslySetInlineStyle={{
                 __style: {
                   bottom: '-10%',
                   right: '5%',
                 },
               }}
+              marginStart={10}
+              position="absolute"
+              width="10%"
             >
               <DonutHalf className="introHalfDonut" width="100%" />
             </Box>
           </Box>
-          <Flex direction="column" alignItems="center">
+          <Flex alignItems="center" direction="column">
             <div className="halfAndHalf">
               <Box
                 color="light"
-                padding={12}
-                maxWidth={MAX_CONTENT_WIDTH}
                 dangerouslySetInlineStyle={{
                   __style: {
                     border: '4px solid #111111',
                   },
                 }}
                 margin={4}
+                maxWidth={MAX_CONTENT_WIDTH}
+                padding={12}
                 zIndex={INTRO_ZINDEX}
               >
-                <Flex gap={4} direction="column">
+                <Flex direction="column" gap={4}>
                   <Text size="400">
                     It’s that time again. The days are getting shorter, the nights are getting
                     longer and people are sending out unsolicited updates on what they did this
@@ -223,11 +223,11 @@ export default function YearInReview2022(): ReactNode {
             dangerouslySetInlineStyle={{
               __style: { backgroundColor: TOKEN_COLOR_PURPLE_MYSTICOOL_200 },
             }}
-            paddingY={6}
             paddingX={SIDE_GAP}
+            paddingY={6}
             position="relative"
           >
-            <Flex direction="column" alignItems="center" justifyContent="center">
+            <Flex alignItems="center" direction="column" justifyContent="center">
               <Heading accessibilityLevel={2} align="center">
                 What&apos;s up, docs?
               </Heading>
@@ -235,19 +235,19 @@ export default function YearInReview2022(): ReactNode {
                 <Lottie animationData={Pencil} autoplay={!shouldReduceMotion} />
               </Box>
               <Box
-                width="10%"
-                position="absolute"
-                marginStart={10}
                 dangerouslySetInlineStyle={{
                   __style: {
                     top: '50%',
                     right: '-5%',
                   },
                 }}
+                marginStart={10}
+                position="absolute"
+                width="10%"
               >
                 <Donut className="fadeInRight" width="100%" />
               </Box>
-              <Flex gap={4} maxWidth={MAX_CONTENT_WIDTH} direction="column">
+              <Flex direction="column" gap={4} maxWidth={MAX_CONTENT_WIDTH}>
                 <Text size="400">
                   Documentation got tons of attention in 2021, and we doubled down this year. The
                   biggest highlight of 2022 was the complete redesign of our site, not for funsies,
@@ -262,14 +262,14 @@ export default function YearInReview2022(): ReactNode {
                   our docs at least weekly—that’s up 59 from the first half of 2020!
                 </Text>
                 <Box
-                  width="10%"
-                  position="absolute"
                   dangerouslySetInlineStyle={{
                     __style: {
                       bottom: '10%',
                       left: '-5%',
                     },
                   }}
+                  position="absolute"
+                  width="10%"
                 >
                   <Circle className="fadeInLeft" width="100%" />
                 </Box>
@@ -278,93 +278,93 @@ export default function YearInReview2022(): ReactNode {
           </Box>
           <Box
             color="light"
-            padding={12}
             display="flex"
             justifyContent="center"
+            padding={12}
             position="relative"
           >
             <Box
-              width="10%"
-              maxWidth="175px"
-              position="absolute"
               dangerouslySetInlineStyle={{
                 __style: {
                   top: '-15%',
                   left: '10%',
                 },
               }}
+              maxWidth="175px"
+              position="absolute"
+              width="10%"
             >
               <DonutShadow className="fadeInLeft" width="100%" />
             </Box>
             <Flex
               alignItems="start"
-              justifyContent="around"
-              gap={12}
-              maxWidth={MAX_CONTENT_WIDTH}
               flex="grow"
+              gap={12}
+              justifyContent="around"
+              maxWidth={MAX_CONTENT_WIDTH}
             >
               <StatsColumn
-                number="192%"
                 description="Users who visited our docs compared to 2021"
+                number="192%"
               />
-              <StatsColumn number="73%" description="Designers using docs weekly (or more!)" />
+              <StatsColumn description="Designers using docs weekly (or more!)" number="73%" />
             </Flex>
             <Box
-              width="8%"
-              maxWidth="175px"
-              position="absolute"
               dangerouslySetInlineStyle={{
                 __style: {
                   right: '10%',
                   transform: 'rotate(180deg)',
                 },
               }}
+              maxWidth="175px"
+              position="absolute"
+              width="8%"
             >
-              <KnobShadow width="100%" className="fadeInRight" />
+              <KnobShadow className="fadeInRight" width="100%" />
             </Box>
           </Box>
           <Box color="light">
             <Tokens />
-            <Box paddingY={12} paddingX={SIDE_GAP} position="relative">
-              <Flex direction="column" alignItems="center" justifyContent="center">
+            <Box paddingX={SIDE_GAP} paddingY={12} position="relative">
+              <Flex alignItems="center" direction="column" justifyContent="center">
                 <Box marginBottom={8} paddingX={SIDE_GAP}>
-                  <Heading align="center" accessibilityLevel={2}>
+                  <Heading accessibilityLevel={2} align="center">
                     Components + tokens
                   </Heading>
                 </Box>
                 <Box
-                  width="10%"
-                  position="absolute"
                   dangerouslySetInlineStyle={{
                     __style: {
                       top: '25%',
                       right: '5%',
                     },
                   }}
+                  position="absolute"
+                  width="10%"
                 >
                   <DonutShadow className="fadeInRight" width="100%" />
                 </Box>
                 <Box
-                  width="10%"
-                  position="absolute"
                   dangerouslySetInlineStyle={{
                     __style: {
                       top: '40%',
                       left: '5%',
                     },
                   }}
+                  position="absolute"
+                  width="10%"
                 >
                   <Sparkle className="fadeInLeft" width="100%" />
                 </Box>
-                <Flex gap={4} direction="column" maxWidth={MAX_CONTENT_WIDTH}>
+                <Flex direction="column" gap={4} maxWidth={MAX_CONTENT_WIDTH}>
                   <Text size="400">
                     Gestalt shipped 38 component additions and updates this year, including some
                     game-changers like the new{' '}
-                    <GestaltLink href="/web/sidenavigation" display="inlineBlock">
+                    <GestaltLink display="inlineBlock" href="/web/sidenavigation">
                       SideNavigation
                     </GestaltLink>{' '}
                     and our big{' '}
-                    <GestaltLink href="/web/pageheader" display="inlineBlock">
+                    <GestaltLink display="inlineBlock" href="/web/pageheader">
                       PageHeader
                     </GestaltLink>{' '}
                     overhaul.
@@ -373,11 +373,11 @@ export default function YearInReview2022(): ReactNode {
                     2022 saw a 11% bump in overall use of Gestalt instances in the Pinterest Web
                     codebase. We were most excited to see a 28% increase in our more complex
                     components (think something like{' '}
-                    <GestaltLink href="/web/slimbanner" display="inlineBlock">
+                    <GestaltLink display="inlineBlock" href="/web/slimbanner">
                       SlimBanner
                     </GestaltLink>{' '}
                     as opposed to{' '}
-                    <GestaltLink href="/web/text" display="inlineBlock">
+                    <GestaltLink display="inlineBlock" href="/web/text">
                       Text
                     </GestaltLink>
                     ).
@@ -410,13 +410,13 @@ export default function YearInReview2022(): ReactNode {
                 </Box>
                 <div className="statsGrid">
                   <StatsGrid
-                    number="28%"
                     description="Increase in complex Gestalt component instances"
+                    number="28%"
                   />
-                  <StatsGrid number="~2k" description="In-product accessibility enhancements" />
+                  <StatsGrid description="In-product accessibility enhancements" number="~2k" />
                   <StatsGrid
-                    number="8,342"
                     description="Lines of code removed due to Gestalt adoption"
+                    number="8,342"
                   />
                 </div>
               </Flex>
@@ -439,20 +439,20 @@ export default function YearInReview2022(): ReactNode {
               )}
             </Box>
             <Box paddingX={SIDE_GAP} position="relative">
-              <Flex direction="column" alignItems="center" justifyContent="center">
+              <Flex alignItems="center" direction="column" justifyContent="center">
                 <Box marginBottom={8}>
-                  <Heading align="center" accessibilityLevel={2}>
+                  <Heading accessibilityLevel={2} align="center">
                     Extreme makeover:
                     <br />
                     Figma edition
                   </Heading>
                 </Box>
-                <Flex gap={4} direction="column" maxWidth={MAX_CONTENT_WIDTH}>
+                <Flex direction="column" gap={4} maxWidth={MAX_CONTENT_WIDTH}>
                   <Text size="400">
                     You’ve seen our engineering achievements, but what about design? 2022 was our
                     love letter to the amazing Pinterest designers—starting with our Figma
                     libraries. And{' '}
-                    <Text size="400" inline italic>
+                    <Text inline italic size="400">
                       oof
                     </Text>
                     , they really needed work! If we told you everything we did, we’d be here until
@@ -462,7 +462,7 @@ export default function YearInReview2022(): ReactNode {
                     We completely restructured and simplified all our libraries. We used Figma’s new
                     component properties to cut 500 total variants. Dark mode variants were added to
                     all mobile components and we shipped a complete redesign of our Pin component.{' '}
-                    <Text size="400" inline italic>
+                    <Text inline italic size="400">
                       Pin
                     </Text>{' '}
                     is literally in our company name, so it was really important for us to get that
@@ -484,34 +484,34 @@ export default function YearInReview2022(): ReactNode {
                   </Text>
                 </Flex>
                 <Box
-                  width="10%"
-                  position="absolute"
                   dangerouslySetInlineStyle={{
                     __style: {
                       top: '70%',
                       right: '5%',
                     },
                   }}
+                  position="absolute"
+                  width="10%"
                 >
                   <SparkleShadow className="fadeInRight" width="100%" />
                 </Box>
                 <Box
-                  width="10%"
-                  position="absolute"
                   dangerouslySetInlineStyle={{
                     __style: {
                       top: '30%',
                       left: '5%',
                     },
                   }}
+                  position="absolute"
+                  width="10%"
                 >
                   <DonutShadow className="fadeInLeft" width="100%" />
                 </Box>
                 <Box paddingY={12}>
                   <div className="statsGrid">
-                    <StatsGrid number="1.92M" description="Total Gestalt Figma component insert" />
-                    <StatsGrid number="0.56%" description="Component detach rate" />
-                    <StatsGrid number="45%" description="Peak design adoption rate" />
+                    <StatsGrid description="Total Gestalt Figma component insert" number="1.92M" />
+                    <StatsGrid description="Component detach rate" number="0.56%" />
+                    <StatsGrid description="Peak design adoption rate" number="45%" />
                   </div>
                 </Box>
               </Flex>
@@ -520,13 +520,13 @@ export default function YearInReview2022(): ReactNode {
           <Box color="light" marginBottom={12}>
             <DSD />
             <Box paddingX={SIDE_GAP}>
-              <Flex alignItems="center" justifyContent="center" direction="column">
+              <Flex alignItems="center" direction="column" justifyContent="center">
                 <Box paddingY={12}>
-                  <Heading align="center" accessibilityLevel={2}>
+                  <Heading accessibilityLevel={2} align="center">
                     Design Systems Day-um!
                   </Heading>
                 </Box>
-                <Flex alignItems="start" justifyContent="center" gap={12} wrap>
+                <Flex alignItems="start" gap={12} justifyContent="center" wrap>
                   <Flex.Item flexBasis={600}>
                     <Flex direction="column" gap={4}>
                       <Text size="400">
@@ -545,72 +545,72 @@ export default function YearInReview2022(): ReactNode {
                     </Flex>
                   </Flex.Item>
                   <Box
-                    smDirection="row"
-                    mdDirection="column"
+                    alignItems="start"
                     display="flex"
                     justifyContent="between"
-                    alignItems="start"
+                    mdDirection="column"
+                    smDirection="row"
                   >
                     <StatsColumn
-                      number="88%"
                       description="Attendees responded the conference helped them learn how to improve product quality"
+                      number="88%"
                     />
                     <Box padding={6} />
-                    <StatsColumn number="90" description="Total conference attendees" />
+                    <StatsColumn description="Total conference attendees" number="90" />
                   </Box>
                 </Flex>
               </Flex>
             </Box>
           </Box>
           <Box
+            alignItems="center"
             dangerouslySetInlineStyle={{
               __style: { backgroundColor: TOKEN_COLOR_PURPLE_MYSTICOOL_200 },
             }}
-            paddingY={12}
-            paddingX={SIDE_GAP}
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
             direction="column"
+            display="flex"
+            justifyContent="center"
+            paddingX={SIDE_GAP}
+            paddingY={12}
           >
             <Box maxWidth="890px">
               <Lottie animationData={Vibes} autoplay={!shouldReduceMotion} />
             </Box>
             <Box position="relative" width="100%">
               <Box
-                width="10%"
-                position="absolute"
                 dangerouslySetInlineStyle={{
                   __style: {
                     top: '70%',
                     right: '5%',
                   },
                 }}
+                position="absolute"
+                width="10%"
               >
                 <CircleShadow className="fadeInRight" width="100%" />
               </Box>
               <Box
-                width="8%"
-                position="absolute"
                 dangerouslySetInlineStyle={{
                   __style: {
                     top: '10%',
                     left: '5%',
                   },
                 }}
+                position="absolute"
+                width="8%"
               >
                 <SparkleShadow className="fadeInLeft" width="100%" />
               </Box>
-              <Flex direction="column" gap={12} alignItems="center">
-                <Heading align="center" accessibilityLevel={2}>
+              <Flex alignItems="center" direction="column" gap={12}>
+                <Heading accessibilityLevel={2} align="center">
                   Impeccable vibes
                 </Heading>
 
                 <Flex
-                  direction="column"
                   alignItems="center"
-                  justifyContent="center"
+                  direction="column"
                   gap={4}
+                  justifyContent="center"
                   maxWidth={MAX_CONTENT_WIDTH}
                 >
                   <Text size="400">
@@ -628,14 +628,14 @@ export default function YearInReview2022(): ReactNode {
                     anything, all of us can agree that Gestalt helps us work faster.
                   </Text>
                 </Flex>
-                <Flex flex="grow" justifyContent="between" gap={12}>
+                <Flex flex="grow" gap={12} justifyContent="between">
                   <StatsColumn
-                    number="95.5%"
                     description="Design sentiment compared to the second half of 2021—a “paltry” 32 point increase!"
+                    number="95.5%"
                   />
                   <StatsColumn
-                    number="100%"
                     description="Engineers in our core customer base responded that Gestalt speeds up their workflow"
+                    number="100%"
                   />
                 </Flex>
               </Flex>
@@ -645,30 +645,30 @@ export default function YearInReview2022(): ReactNode {
             dangerouslySetInlineStyle={{
               __style: { backgroundColor: TOKEN_COLOR_TEAL_SPABATTICAL_700 },
             }}
-            paddingY={12}
             paddingX={4}
+            paddingY={12}
           >
-            <Flex direction="column" alignItems="center" justifyContent="center">
+            <Flex alignItems="center" direction="column" justifyContent="center">
               <Box paddingX={10}>
-                <Heading align="center" accessibilityLevel={2} color="light">
+                <Heading accessibilityLevel={2} align="center" color="light">
                   This was the year
                 </Heading>
               </Box>
 
               <Box
-                display="flex"
                 alignItems="center"
-                justifyContent="center"
                 dangerouslySetInlineStyle={{
                   __style: { flexWrap: 'wrap-reverse' },
                 }}
+                display="flex"
+                justifyContent="center"
                 margin={4}
               >
                 <Flex
+                  alignItems="center"
                   direction="column"
                   gap={12}
                   maxWidth="550px"
-                  alignItems="center"
                   mdAlignItems="start"
                 >
                   <Text color="light" size="400">

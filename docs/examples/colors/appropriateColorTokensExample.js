@@ -5,14 +5,14 @@ import { Button, Flex, IconButton, SearchField, Text } from 'gestalt';
 export default function AppropriateColorTokensExample(): ReactNode {
   return (
     <Flex
+      alignItems="center"
       direction="column"
       gap={{
         row: 0,
         column: 8,
       }}
-      alignItems="center"
-      justifyContent="center"
       height="100%"
+      justifyContent="center"
     >
       <Flex
         gap={{
@@ -20,8 +20,8 @@ export default function AppropriateColorTokensExample(): ReactNode {
           column: 0,
         }}
       >
-        <IconButton icon="speech" accessibilityLabel="Comment" size="md" />
-        <IconButton icon="share" iconColor="darkGray" accessibilityLabel="Share" size="md" />
+        <IconButton accessibilityLabel="Comment" icon="speech" size="md" />
+        <IconButton accessibilityLabel="Share" icon="share" iconColor="darkGray" size="md" />
       </Flex>
       <Flex
         gap={{
@@ -42,8 +42,8 @@ export default function AppropriateColorTokensExample(): ReactNode {
         <SearchField
           accessibilityLabel="Search you Pins"
           id="color-do-search"
-          placeholder="Search your Pins"
           onChange={() => {}}
+          placeholder="Search your Pins"
         />
       </Flex>
       <Flex

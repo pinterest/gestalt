@@ -22,25 +22,25 @@ export default function Example(): ReactNode {
       {showComponent ? (
         <Layer zIndex={ABOVE_PAGE_HEADER_ZINDEX}>
           <SheetMobile
+            footer={
+              <SheetMobile.DismissingElement>
+                {({ onDismissStart }) => (
+                  <Flex gap={2} justifyContent="center">
+                    <Button color="gray" onClick={() => onDismissStart()} text="Secondary" />
+                    <Button color="red" onClick={() => onDismissStart()} text="Primary" />
+                  </Flex>
+                )}
+              </SheetMobile.DismissingElement>
+            }
             heading="Heading"
-            subHeading="SubHeading"
+            onDismiss={() => setShowComponent(false)}
             primaryAction={{
               accessibilityLabel: 'Next page',
               label: 'Next',
               onClick: ({ onDismissStart }) => onDismissStart(),
             }}
-            onDismiss={() => setShowComponent(false)}
-            footer={
-              <SheetMobile.DismissingElement>
-                {({ onDismissStart }) => (
-                  <Flex justifyContent="center" gap={2}>
-                    <Button color="gray" text="Secondary" onClick={() => onDismissStart()} />
-                    <Button color="red" text="Primary" onClick={() => onDismissStart()} />
-                  </Flex>
-                )}
-              </SheetMobile.DismissingElement>
-            }
             size="auto"
+            subHeading="SubHeading"
           >
             <Box>
               {Array(100).map((number, index) => {
@@ -55,9 +55,9 @@ export default function Example(): ReactNode {
         <Button
           accessibilityLabel="Show SheetMobile"
           color="red"
-          text="Show SheetMobile"
-          size="lg"
           onClick={() => setShowComponent(true)}
+          size="lg"
+          text="Show SheetMobile"
         />
       </Box>
     </DeviceTypeProvider>

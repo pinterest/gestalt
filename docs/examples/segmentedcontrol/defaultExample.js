@@ -9,18 +9,18 @@ export default function SegmentedControlExample(): ReactNode {
     'News',
     'You',
     'Messages',
-    <Icon key="icon" icon="pin" accessibilityLabel="Pin" color="default" />,
+    <Icon key="icon" accessibilityLabel="Pin" color="default" icon="pin" />,
   ];
 
   const content = ['News content', 'You content', 'Messages content', 'Pins content'];
 
   return (
-    <Box padding={8} height="100%">
+    <Box height="100%" padding={8}>
       <Flex direction="column" gap={{ column: 2, row: 0 }}>
         <SegmentedControl
           items={items}
-          selectedItemIndex={itemIndex}
           onChange={({ activeIndex }) => setItemIndex(activeIndex)}
+          selectedItemIndex={itemIndex}
         />
 
         <Box borderStyle="shadow" padding={6} rounding={2}>

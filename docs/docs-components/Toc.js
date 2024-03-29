@@ -202,10 +202,10 @@ export default function Toc({ cards }: Props): ReactNode {
         __style: { marginBottom: FOOTER_HEIGHT_PX },
       }}
       // These margins counter the padding set on the <Box role="main"> in App.js
-      marginTop={-4}
-      mdMarginTop={-6}
       lgMarginTop={-8}
+      marginTop={-4}
       maxHeight={`calc(100% - ${HEADER_HEIGHT_PX}px - ${FOOTER_HEIGHT_PX}px)`}
+      mdMarginTop={-6}
       overflow="auto"
       paddingX={1}
       paddingY={8} // re-apply just the padding we need
@@ -216,17 +216,17 @@ export default function Toc({ cards }: Props): ReactNode {
         {items.map((item) => (
           <TableOfContents.Item
             key={item.id}
-            label={item.label}
-            href={`#${item.id}`}
             active={activeState === item.id}
+            href={`#${item.id}`}
+            label={item.label}
             onClick={({ event }) => handleClick({ hash: item.id, event })}
           >
             {item.children.map((subitem) => (
               <TableOfContents.Item
                 key={subitem.id}
-                label={subitem.label}
-                href={`#${subitem.id}`}
                 active={activeState === subitem.id}
+                href={`#${subitem.id}`}
+                label={subitem.label}
                 onClick={({ event }) => handleClick({ hash: subitem.id, event })}
               />
             ))}

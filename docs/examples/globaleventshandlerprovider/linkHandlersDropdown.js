@@ -68,19 +68,19 @@ export default function Example(): ReactNode {
 
           <Flex justifyContent="center">
             <Button
-              accessibilityControls="basic-dropdown-example"
-              accessibilityHaspopup
-              accessibilityExpanded={open}
-              iconEnd="arrow-down"
-              text="Menu"
               ref={anchorRef}
-              selected={open}
+              accessibilityControls="basic-dropdown-example"
+              accessibilityExpanded={open}
+              accessibilityHaspopup
+              iconEnd="arrow-down"
               onClick={() => setOpen((prevVal) => !prevVal)}
+              selected={open}
+              text="Menu"
             />
             {open && (
               <Dropdown
-                id="basic-dropdown-example"
                 anchor={anchorRef.current}
+                id="basic-dropdown-example"
                 onDismiss={() => {
                   setOpen(false);
                 }}

@@ -7,8 +7,8 @@ describe('<BannerCallout />', () => {
   test('Error BannerCallout', () => {
     const tree = create(
       <BannerCallout
-        message="Insert a clever error bannercallout message here"
         iconAccessibilityLabel="error"
+        message="Insert a clever error bannercallout message here"
         type="error"
       />,
     ).toJSON();
@@ -18,8 +18,8 @@ describe('<BannerCallout />', () => {
   test('Warning BannerCallout', () => {
     const tree = create(
       <BannerCallout
-        message="Insert a clever warning bannercallout message here"
         iconAccessibilityLabel="warning"
+        message="Insert a clever warning bannercallout message here"
         type="warning"
       />,
     ).toJSON();
@@ -29,8 +29,8 @@ describe('<BannerCallout />', () => {
   test('Info BannerCallout', () => {
     const tree = create(
       <BannerCallout
-        message="Insert a clever info bannercallout message here"
         iconAccessibilityLabel="info"
+        message="Insert a clever info bannercallout message here"
         type="info"
       />,
     ).toJSON();
@@ -40,10 +40,10 @@ describe('<BannerCallout />', () => {
   test('message + title', () => {
     const tree = create(
       <BannerCallout
-        message="Insert a clever info bannercallout message here"
         iconAccessibilityLabel="info"
-        type="info"
+        message="Insert a clever info bannercallout message here"
         title="A Title"
+        type="info"
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -52,16 +52,16 @@ describe('<BannerCallout />', () => {
   test('message + title + primaryAction with href', () => {
     const tree = create(
       <BannerCallout
-        message="Insert a clever info bannercallout message here"
         iconAccessibilityLabel="info"
+        message="Insert a clever info bannercallout message here"
         primaryAction={{
           href: 'pinterest.com',
           label: 'Visit Pinterest',
           accessibilityLabel: '',
           role: 'link',
         }}
-        type="info"
         title="A Title"
+        type="info"
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -70,11 +70,11 @@ describe('<BannerCallout />', () => {
   test('message + title + primaryAction without href', () => {
     const tree = create(
       <BannerCallout
-        message="Insert a clever info bannercallout message here"
         iconAccessibilityLabel="info"
+        message="Insert a clever info bannercallout message here"
         primaryAction={{ label: 'Visit Pinterest', accessibilityLabel: '', role: 'button' }}
-        type="info"
         title="A Title"
+        type="info"
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -83,8 +83,8 @@ describe('<BannerCallout />', () => {
   test('message + title + primaryAction + secondaryAction', () => {
     const tree = create(
       <BannerCallout
-        message="Insert a clever info bannercallout message here"
         iconAccessibilityLabel="info"
+        message="Insert a clever info bannercallout message here"
         primaryAction={{
           href: 'pinterest.com',
           label: 'Visit Pinterest',
@@ -97,8 +97,8 @@ describe('<BannerCallout />', () => {
           accessibilityLabel: 'Learn more: bannercallout messages',
           role: 'link',
         }}
-        type="info"
         title="A Title"
+        type="info"
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -107,20 +107,20 @@ describe('<BannerCallout />', () => {
   test('message + title + primaryAction + dismissButton', () => {
     const tree = create(
       <BannerCallout
-        message="Insert a clever info bannercallout message here"
+        dismissButton={{
+          accessibilityLabel: 'Dismiss banner',
+          onDismiss: () => {},
+        }}
         iconAccessibilityLabel="info"
+        message="Insert a clever info bannercallout message here"
         primaryAction={{
           href: 'pinterest.com',
           label: 'Visit Pinterest',
           accessibilityLabel: '',
           role: 'link',
         }}
-        dismissButton={{
-          accessibilityLabel: 'Dismiss banner',
-          onDismiss: () => {},
-        }}
-        type="info"
         title="A Title"
+        type="info"
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();

@@ -117,14 +117,14 @@ export default function TableRowExpandable({
 
   return (
     <Fragment>
-      <tr className={rowStyle} ref={rowRef}>
+      <tr ref={rowRef} className={rowStyle}>
         <TableCell
-          shouldBeSticky={stickyColumns ? stickyColumns > 0 : false}
           previousTotalWidth={0}
+          shouldBeSticky={stickyColumns ? stickyColumns > 0 : false}
         >
           <IconButton
-            accessibilityExpanded={isExpanded}
             accessibilityControls={id}
+            accessibilityExpanded={isExpanded}
             accessibilityLabel={isExpanded ? accessibilityCollapseLabel : accessibilityExpandLabel}
             icon={isExpanded ? 'arrow-up' : 'arrow-down'}
             iconColor="darkGray"

@@ -12,13 +12,13 @@ export default function Example(): ReactNode {
     }));
 
   return (
-    <Box padding={2} width="100%" height="100%">
-      <Flex width="100%" height="100%" justifyContent="center" alignItems="center">
+    <Box height="100%" padding={2} width="100%">
+      <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
         <Box width={320}>
           <ComboBox
             accessibilityClearButtonLabel="Clear the current value"
-            label="Choose a value"
             id="subtext"
+            label="Choose a value"
             noResultText="No results for your selection"
             options={options}
             placeholder="Select a value"

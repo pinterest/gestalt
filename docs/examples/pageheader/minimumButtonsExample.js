@@ -8,7 +8,7 @@ export default function MinimumButtonsExample(): ReactNode {
   return (
     <Fragment>
       <PageHeader
-        title="Ads overview"
+        dropdownAccessibilityLabel="More options"
         helperIconButton={{
           accessibilityControls: '',
           accessibilityExpanded: false,
@@ -20,24 +20,24 @@ export default function MinimumButtonsExample(): ReactNode {
             key="imporessions"
             size="md"
             title="Impressions"
-            value="$1.25M"
             trend={{ value: 30, accessibilityLabel: 'Trending up' }}
+            value="$1.25M"
           />,
           <Datapoint
             key="engagement"
             size="md"
             title="Engagement"
-            value="10%"
             trend={{ value: 5, accessibilityLabel: 'Trending up' }}
+            value="10%"
           />,
         ]}
         primaryAction={{
           component: <Button color="red" size="lg" text="Promote" />,
           dropdownItems: [
             <Dropdown.Item
-              option={{ value: 'Promote', label: 'Promote' }}
-              onSelect={() => {}}
               key="promote"
+              onSelect={() => {}}
+              option={{ value: 'Promote', label: 'Promote' }}
             />,
           ],
         }}
@@ -45,13 +45,13 @@ export default function MinimumButtonsExample(): ReactNode {
           component: <Button size="lg" text="View analytics" />,
           dropdownItems: [
             <Dropdown.Link
-              option={{ value: 'View analytics', label: 'View analytics' }}
-              href="https://pinterest.com"
               key="view-analytics"
+              href="https://pinterest.com"
+              option={{ value: 'View analytics', label: 'View analytics' }}
             />,
           ],
         }}
-        dropdownAccessibilityLabel="More options"
+        title="Ads overview"
       />
       {open ? (
         <OverlayPanel

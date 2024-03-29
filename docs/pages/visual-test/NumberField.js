@@ -6,8 +6,8 @@ export default function Screenshot(): ReactNode {
   return (
     <Box color="default" display="inlineBlock" padding={1}>
       <NumberField
-        id="variant-helperText"
         helperText="Round up to the nearest whole number"
+        id="variant-helperText"
         label="Average value"
         onChange={() => {}}
         value={5}

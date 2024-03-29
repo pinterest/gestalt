@@ -4,7 +4,7 @@ import { Flex, HelpButton, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex height="100%" justifyContent="center" alignItems="center" gap={1}>
+    <Flex alignItems="center" gap={1} height="100%" justifyContent="center">
       <Text>This is Gestalt</Text>
       <HelpButton
         accessibilityLabel="Click to learn more about gestalt"

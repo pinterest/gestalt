@@ -11,8 +11,8 @@ export default function DocsPage(): ReactNode {
   return (
     <Page title="Screen sizes guidelines">
       <PageHeader
-        name="Screen sizes"
         description="There are a multitude of screen sizes that Pinterest operates on. Our design system is built to flex to any and all screen sizes across platforms, but for consistency and ease of handoff, we only design for a handful of screen sizes per platform. Our screen sizes are always at 1x."
+        name="Screen sizes"
         type="guidelines"
       />
       <MainSection name="Web (px)">
@@ -21,10 +21,10 @@ export default function DocsPage(): ReactNode {
           sandpackExample={
             <SandpackExample
               code={screenSizesWeb}
-              name="Web screen sizes"
-              previewHeight={350}
               hideControls
               hideEditor
+              name="Web screen sizes"
+              previewHeight={350}
             />
           }
         />
@@ -35,10 +35,10 @@ export default function DocsPage(): ReactNode {
           sandpackExample={
             <SandpackExample
               code={screenSizesIos}
-              name="iOS screen sizes"
-              previewHeight={250}
               hideControls
               hideEditor
+              name="iOS screen sizes"
+              previewHeight={250}
             />
           }
         />
@@ -49,10 +49,10 @@ export default function DocsPage(): ReactNode {
           sandpackExample={
             <SandpackExample
               code={screenSizesIos}
-              name="Android screen sizes"
-              previewHeight={250}
               hideControls
               hideEditor
+              name="Android screen sizes"
+              previewHeight={250}
             />
           }
         />

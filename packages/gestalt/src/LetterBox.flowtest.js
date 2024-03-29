@@ -2,7 +2,7 @@
 import Letterbox from './Letterbox';
 
 const Valid = (
-  <Letterbox width={50} height={50} contentAspectRatio={564 / 806}>
+  <Letterbox contentAspectRatio={564 / 806} height={50} width={50}>
     content
   </Letterbox>
 );

@@ -4,17 +4,17 @@ import { Flex, IconButtonLink } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex width="100%" height="100%" justifyContent="center" alignItems="center">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <IconButtonLink
         accessibilityLabel=""
-        icon="visit"
-        target="blank"
         href="#"
-        tooltip={{ text: 'Besuchen Sie Pinterest' }}
+        icon="visit"
         onClick={({ event, dangerouslyDisableOnNavigation }) => {
           event.preventDefault();
           dangerouslyDisableOnNavigation();
         }}
+        target="blank"
+        tooltip={{ text: 'Besuchen Sie Pinterest' }}
       />
     </Flex>
   );

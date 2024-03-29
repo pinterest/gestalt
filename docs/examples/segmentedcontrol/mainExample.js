@@ -8,18 +8,18 @@ export default function Example(): ReactNode {
     'News',
     'You',
     'Messages',
-    <Icon key="pin-icon" icon="pin" accessibilityLabel="Pin" color="default" />,
+    <Icon key="pin-icon" accessibilityLabel="Pin" color="default" icon="pin" />,
   ];
   const content = ['News content', 'You content', 'Messages content', 'Pins content'];
   return (
-    <Box padding={4} height="100%">
+    <Box height="100%" padding={4}>
       <SegmentedControl
         items={items}
-        selectedItemIndex={itemIndex}
         onChange={({ activeIndex }) => setItemIndex(activeIndex)}
+        selectedItemIndex={itemIndex}
       />
 
-      <Box borderStyle="sm" marginTop={2} padding={6} rounding={2} height="80%">
+      <Box borderStyle="sm" height="80%" marginTop={2} padding={6} rounding={2}>
         <Text>{content[itemIndex]}</Text>
       </Box>
     </Box>

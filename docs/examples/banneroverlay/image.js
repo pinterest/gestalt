@@ -14,18 +14,19 @@ export default function Example(): ReactNode {
     />
   ) : (
     <BannerOverlay
-      zIndex={new FixedZIndex(100)}
-      offset={{ top: 130, bottom: 24 }}
-      title="More to Explore"
       message={
         <Text inline>
           Discover trending{' '}
-          <Link display="inlineBlock" target="self" href="#">
+          <Link display="inlineBlock" href="#" target="self">
             fashion
           </Link>{' '}
           ideas in the app!
         </Text>
       }
+      offset={{ top: 130, bottom: 24 }}
+      onDismiss={() => {
+        setShowComponent(false);
+      }}
       primaryAction={{
         role: 'button',
         onClick: () => {
@@ -33,9 +34,6 @@ export default function Example(): ReactNode {
         },
         label: 'Get the app',
         accessibilityLabel: 'Get the app',
-      }}
-      onDismiss={() => {
-        setShowComponent(false);
       }}
       thumbnail={{
         image: (
@@ -47,6 +45,8 @@ export default function Example(): ReactNode {
           />
         ),
       }}
+      title="More to Explore"
+      zIndex={new FixedZIndex(100)}
     />
   );
 }

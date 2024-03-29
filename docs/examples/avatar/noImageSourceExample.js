@@ -4,8 +4,8 @@ import { Avatar, Flex } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex height="100%" width="100%" alignItems="center" justifyContent="center">
-      <Avatar size="lg" name="Keerthi" />
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
+      <Avatar name="Keerthi" size="lg" />
     </Flex>
   );
 }

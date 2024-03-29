@@ -6,35 +6,35 @@ export default function RadioButtonExample(): ReactNode {
   const [availability, setAvailability] = useState('');
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <RadioGroup
-        legend="Which time slot works best for you?"
         errorMessage="Please select one"
         id="VariantWithErrorMessage"
+        legend="Which time slot works best for you?"
       >
         <RadioGroup.RadioButton
           checked={availability === 'monday'}
+          helperText="Morning and afternoon"
           id="mondayError"
           label="Monday"
-          helperText="Morning and afternoon"
           name="Availability with error"
           onChange={() => setAvailability('monday')}
           value="monday"
         />
         <RadioGroup.RadioButton
           checked={availability === 'tuesday'}
+          helperText="Morning, afternoon, and evening"
           id="tuesdayError"
           label="Tuesday"
-          helperText="Morning, afternoon, and evening"
           name="Availability with error"
           onChange={() => setAvailability('tuesday')}
           value="tuesday"
         />
         <RadioGroup.RadioButton
           checked={availability === 'wednesday'}
+          helperText="Evening only"
           id="WednesdayError"
           label="Wednesday"
-          helperText="Evening only"
           name="Availability with error"
           onChange={() => setAvailability('wednesday')}
           value="wednesday"

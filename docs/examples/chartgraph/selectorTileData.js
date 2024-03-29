@@ -70,14 +70,8 @@ export default function Example(): ReactNode {
   return (
     <ChartGraph
       accessibilityLabel="Example of Bar chart"
-      visualPatternSelected="disabled"
-      onVisualPatternChange={() => {}}
-      type="bar"
-      title="Title"
-      initialTicks={3}
-      legend="none"
-      description="Description"
       data={selectedId === '01' ? dataA : dataB}
+      description="Description"
       elements={[
         {
           type: 'bar',
@@ -85,24 +79,30 @@ export default function Example(): ReactNode {
           color: getColor(selectedId || '01'),
         },
       ]}
+      initialTicks={3}
+      legend="none"
+      onVisualPatternChange={() => {}}
+      title="Title"
+      type="bar"
+      visualPatternSelected="disabled"
     >
       <TileData
-        id="01"
         color="01"
-        title="Impressions"
-        value="10M"
-        selected={isSelected('01')}
+        id="01"
         onTap={({ id }) => setSelectedId(id)}
+        selected={isSelected('01')}
+        title="Impressions"
         trend={{ value: 29, accessibilityLabel: 'Trending up' }}
+        value="10M"
       />
       <TileData
-        id="02"
         color="02"
-        title="Engagement"
-        value="2M"
-        selected={isSelected('02')}
+        id="02"
         onTap={({ id }) => setSelectedId(id)}
+        selected={isSelected('02')}
+        title="Engagement"
         trend={{ value: 29, accessibilityLabel: 'Trending up' }}
+        value="2M"
       />
     </ChartGraph>
   );

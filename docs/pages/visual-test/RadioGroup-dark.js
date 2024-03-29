@@ -6,20 +6,20 @@ export default function Snapshot(): ReactNode {
   return (
     <ColorSchemeProvider colorScheme="dark">
       <Box color="default" display="inlineBlock" padding={1}>
-        <RadioGroup legend="Favorite pet" id="testing-example">
+        <RadioGroup id="testing-example" legend="Favorite pet">
           <RadioGroup.RadioButton
             id="choice-1"
-            onChange={() => {}}
-            name="choice"
-            value="dogs"
             label="Dogs"
+            name="choice"
+            onChange={() => {}}
+            value="dogs"
           />
           <RadioGroup.RadioButton
             id="choice-2"
-            onChange={() => {}}
-            name="choice"
-            value="Cats"
             label="Cats"
+            name="choice"
+            onChange={() => {}}
+            value="Cats"
           />
         </RadioGroup>
       </Box>

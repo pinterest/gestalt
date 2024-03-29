@@ -12,7 +12,7 @@ it('inline and auto underline', () =>
   expect(
     renderer
       .create(
-        <Link href="https://example.com" display="inlineBlock" underline="auto">
+        <Link display="inlineBlock" href="https://example.com" underline="auto">
           Link
         </Link>,
       )
@@ -23,7 +23,7 @@ it('inline and overriden underline="none"', () =>
   expect(
     renderer
       .create(
-        <Link href="https://example.com" display="inlineBlock" underline="none">
+        <Link display="inlineBlock" href="https://example.com" underline="none">
           Link
         </Link>,
       )
@@ -34,7 +34,7 @@ it('inline and overriden underline="hover"', () =>
   expect(
     renderer
       .create(
-        <Link href="https://example.com" display="inlineBlock" underline="hover">
+        <Link display="inlineBlock" href="https://example.com" underline="hover">
           Link
         </Link>,
       )
@@ -78,7 +78,7 @@ it('external link with nofollow', () =>
   expect(
     renderer
       .create(
-        <Link href="https://example.com" rel="nofollow" externalLinkIcon="default">
+        <Link externalLinkIcon="default" href="https://example.com" rel="nofollow">
           Link
         </Link>,
       )

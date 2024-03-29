@@ -75,7 +75,7 @@ describe('TapArea', () => {
   it('renders a disabled TapArea', () => {
     const ref = createRef<HTMLDivElement>();
     render(
-      <TapArea disabled ref={ref}>
+      <TapArea ref={ref} disabled>
         Text
       </TapArea>,
     );
@@ -86,7 +86,7 @@ describe('TapArea', () => {
   it('renders a TapArea removed from sequential keyboard navigation via tabIndex', () => {
     const ref = createRef<HTMLDivElement>();
     render(
-      <TapArea tabIndex={-1} ref={ref}>
+      <TapArea ref={ref} tabIndex={-1}>
         Text
       </TapArea>,
     );

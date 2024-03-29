@@ -68,6 +68,15 @@ const InternalDatePickerWithForwardRef: AbstractComponent<ModifiedProps, HTMLInp
       <div className="_gestalt">
         <div className={isMobile ? undefined : '_gestalt_daterange'}>
           <ReactDatePicker
+            ref={(refElement) => {
+              if (!innerInputRef || !refElement) {
+                return null;
+              }
+
+              innerInputRef.current = refElement.input;
+
+              return null;
+            }}
             calendarClassName={styles['react-datepicker-inline']}
             dateFormat={format}
             dayClassName={() => styles['react-datepicker__days']}
@@ -92,15 +101,6 @@ const InternalDatePickerWithForwardRef: AbstractComponent<ModifiedProps, HTMLInp
             previousMonthButtonLabel={
               <Icon accessibilityLabel="" color="default" icon="arrow-back" size={16} />
             }
-            ref={(refElement) => {
-              if (!innerInputRef || !refElement) {
-                return null;
-              }
-
-              innerInputRef.current = refElement.input;
-
-              return null;
-            }}
             selected={rangeStartDate ?? undefined}
             selectsRange
             startDate={rangeStartDate ?? undefined}

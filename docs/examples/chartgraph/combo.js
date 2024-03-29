@@ -34,21 +34,19 @@ export default function Example(): ReactNode {
   ];
 
   return (
-    <Flex height="100%" width="100%" direction="column" gap={2}>
+    <Flex direction="column" gap={2} height="100%" width="100%">
       <ChartGraph
-        title="Product group sales:"
         accessibilityLabel="Example of combo chart"
-        visualPatternSelected={visualPatternSelected}
-        onVisualPatternChange={() =>
-          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
-        }
         data={data}
         elements={[
           { type: 'bar', id: 'This year' },
           { type: 'bar', id: 'Profit' },
           { type: 'line', id: 'Last year' },
         ]}
-        type="combo"
+        modalZIndex={new FixedZIndex(11)}
+        onVisualPatternChange={() =>
+          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
+        }
         tickFormatter={{
           yAxisLeft: (value) => {
             if (value >= 1000000) return `${value / 1000000}m`;
@@ -56,7 +54,9 @@ export default function Example(): ReactNode {
             return value;
           },
         }}
-        modalZIndex={new FixedZIndex(11)}
+        title="Product group sales:"
+        type="combo"
+        visualPatternSelected={visualPatternSelected}
       />
     </Flex>
   );

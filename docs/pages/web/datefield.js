@@ -100,20 +100,20 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
         badge="experimental"
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
         bannerSlim={
           <BannerSlim
-            type="warning"
             iconAccessibilityLabel="Warning message"
             message="DateField is an experimental component. Expect development and design iteration, breaking API changes or even component deprecation."
+            type="warning"
           />
         }
+        description={generatedDocGen?.description}
+        name={generatedDocGen?.displayName}
       >
         <SandpackExample
           code={main}
-          name={`Main ${generatedDocGen?.displayName} example`}
           hideEditor
+          name={`Main ${generatedDocGen?.displayName} example`}
           previewHeight={200}
         />
       </PageHeader>
@@ -121,12 +121,11 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <LocalizationSection
-        name={generatedDocGen?.displayName}
         layout="column"
+        name={generatedDocGen?.displayName}
         noDefaultLabelProvider
       >
         <MainSection.Subsection
-          title="Date format locales"
           description={`DateField supports multiple locales. Adjust the date format to each [date-fns locale](https://date-fns.org/v2.14.0/docs/Locale).
 
 The following locale examples show the different locale format variants.
@@ -141,14 +140,15 @@ import { it } from 'date-fns/locale';
 
 Use the SelectList to try out different locales by passing in the \`localeData\` prop.
 `}
+          title="Date format locales"
         >
-          <Flex gap={4} direction="row" wrap>
+          <Flex direction="row" gap={4} wrap>
             <Flex.Item flex="none">
               <SelectList
                 id="selectlistexample1"
                 label="Country"
-                size="lg"
                 onChange={({ value }) => setLocale(value)}
+                size="lg"
               >
                 {Object.keys(localeMap).map((localeKey) => (
                   <SelectList.Option
@@ -162,11 +162,11 @@ Use the SelectList to try out different locales by passing in the \`localeData\`
             <DateField
               id="DateField-example"
               label={locale ? localeMap[locale].lang : undefined}
+              localeData={locale ? localeMap[locale].localeData : undefined}
+              name={locale ? localeMap[locale].lang : undefined}
               onChange={({ value }) => setDate(value)}
               onClearInput={() => setDate(null)}
               value={date}
-              name={locale ? localeMap[locale].lang : undefined}
-              localeData={locale ? localeMap[locale].localeData : undefined}
             />
           </Flex>
         </MainSection.Subsection>
@@ -174,52 +174,51 @@ Use the SelectList to try out different locales by passing in the \`localeData\`
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Controlled component"
           description={`DateField is a controlled component. Use \`value\`, \`onChange\`, \`onClearInput\` and \`onError\` to implement it correctly.`}
+          title="Controlled component"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={main} name="Controlled component example" layout="row" />
+              <SandpackExample code={main} layout="row" name="Controlled component example" />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Error messaging"
           description={`DateField can communicate input errors to the user. Use \`onError\` and \`errorMessage\` to implement it correctly.`}
+          title="Error messaging"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={error} name="Controlled component example" layout="row" />
+              <SandpackExample code={error} layout="row" name="Controlled component example" />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="States"
           description={`DateField supports \`disabled\` and \`readOnly\` states.`}
+          title="States"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={states} name="Controlled component example" layout="row" />
+              <SandpackExample code={states} layout="row" name="Controlled component example" />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Disable past & future dates"
           description="DateField supports disabling future & past dates from being selected."
+          title="Disable past & future dates"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={disabled} name="disableRange example" layout="row" />
+              <SandpackExample code={disabled} layout="row" name="disableRange example" />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
           badge="experimental"
-          title="External handlers"
           description={`DateField consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).
 
 Handlers:
@@ -228,6 +227,7 @@ Handlers:
 
 See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onRender) for more information.
 `}
+          title="External handlers"
         />
       </MainSection>
 

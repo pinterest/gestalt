@@ -19,8 +19,8 @@ export default function SegmentedControlSnapshot(): ReactNode {
               onChange={({ activeIndex }) => {
                 setItem1Index(activeIndex);
               }}
-              size="sm"
               selectedItemIndex={item1Index}
+              size="sm"
             />
           </Flex>
 
@@ -31,9 +31,9 @@ export default function SegmentedControlSnapshot(): ReactNode {
               onChange={({ activeIndex }) => {
                 setItem2Index(activeIndex);
               }}
-              size="md"
               responsive
               selectedItemIndex={item2Index}
+              size="md"
             />
           </Flex>
           <Flex direction="column" gap={{ column: 2, row: 0 }}>
@@ -43,9 +43,9 @@ export default function SegmentedControlSnapshot(): ReactNode {
               onChange={({ activeIndex }) => {
                 setItem3Index(activeIndex);
               }}
-              size="lg"
               responsive
               selectedItemIndex={item3Index}
+              size="lg"
             />
           </Flex>
         </Flex>

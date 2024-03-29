@@ -28,8 +28,8 @@ import tooltip from '../../examples/tagdata/tooltip';
 export default function TagDataPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample code={main} name="Main Tagdata Example" hideEditor previewHeight={150} />
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
+        <SandpackExample code={main} hideEditor name="Main Tagdata Example" previewHeight={150} />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -38,20 +38,20 @@ export default function TagDataPage({ generatedDocGen }: { generatedDocGen: DocG
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
       - When selecting and/or comparing categories with an accompanying chart or graph view that displays at-a-glance data for a user to quickly view key metrics
     `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
       - Progressing or regressing a user through a step in a flow. Use [Button](https://gestalt.pinterest.systems/web/button) instead
       - In conjunction with [TextField](https://gestalt.pinterest.systems/web/textfield#Tags), [TextArea](https://gestalt.pinterest.systems/web/textarea#With-tags), and [ComboBox](https://gestalt.pinterest.systems/web/combobox#Tags). Use [Tag](https://gestalt.pinterest.systems/web/tag) instead
     `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -60,98 +60,98 @@ export default function TagDataPage({ generatedDocGen }: { generatedDocGen: DocG
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="sm"
-            type="do"
             description="Choose the right background to help it stand out in dense data interfaces. For example, set `baseColor=secondary` when using TagData against a gray background."
             sandpackExample={
               <SandpackExample
                 code={doChangeBaseColor}
-                name="show one selected tile"
-                hideEditor
                 hideControls
+                hideEditor
+                name="show one selected tile"
                 previewHeight={200}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="sm"
-            type="don't"
             description="Match TagData fill with the surrounding background color. Using the same color can make it unclear that TagData is selectable."
             sandpackExample={
               <SandpackExample
                 code={dontChangeBaseColor}
-                name="show one tile not selected"
-                hideEditor
                 hideControls
+                hideEditor
+                name="show one tile not selected"
                 previewHeight={200}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="sm"
-            type="do"
             description="Use the same variants of TagData in a group, depending on the type of behavior TagData should have."
             sandpackExample={
               <SandpackExample
                 code={doUseSameStyle}
-                name="show multiple with checkboxes"
-                hideEditor
                 hideControls
+                hideEditor
+                name="show multiple with checkboxes"
                 previewHeight={200}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="sm"
-            type="don't"
             description="Mix TagData variants in the same group. This creates an unclear pattern for the user to understand which TagDatas are removable or not."
             sandpackExample={
               <SandpackExample
                 code={dontMixStyles}
-                name="not show multiple with checkboxes"
-                hideEditor
                 hideControls
+                hideEditor
+                name="not show multiple with checkboxes"
                 previewHeight={200}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="sm"
-            type="do"
             description="Use short and clear labels for easier comprehension — ideally one or two words."
             sandpackExample={
               <SandpackExample
                 code={doUseShortLabels}
-                name="show multiple with checkboxes"
-                hideEditor
                 hideControls
+                hideEditor
+                name="show multiple with checkboxes"
                 previewHeight={200}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="sm"
-            type="don't"
             description="Use long sentences in the `text` prop, since the text in TagData truncates as needed to preserve the max width."
             sandpackExample={
               <SandpackExample
                 code={dontUseLongLabels}
-                name="not show multiple with checkboxes"
-                hideEditor
                 hideControls
+                hideEditor
+                name="not show multiple with checkboxes"
                 previewHeight={200}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
 
       <AccessibilitySection
-        name={generatedDocGen?.displayName}
         description="Users should be able to navigate or activate TagData using a keyboard or other input modalities. Be sure to include an `accessibilityRemoveIconLabel` and `tooltip.accessibilityLabel` for the screen reader with the `onRemove` prop and `tooltip` prop."
+        name={generatedDocGen?.displayName}
       />
 
       <LocalizationSection

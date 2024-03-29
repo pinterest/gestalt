@@ -7,7 +7,7 @@ export default function Snapshot(): ReactNode {
 
   return (
     <ColorSchemeProvider colorScheme="light">
-      <Box height={600} width={575} color="default">
+      <Box color="default" height={600} width={575}>
         <Flex
           gap={{
             row: 1,
@@ -17,7 +17,7 @@ export default function Snapshot(): ReactNode {
         >
           {icons.map((name) => (
             <Box key={name} padding={2}>
-              <Icon color="default" accessibilityLabel="" icon={name} />
+              <Icon accessibilityLabel="" color="default" icon={name} />
             </Box>
           ))}
         </Flex>

@@ -27,8 +27,8 @@ import variantWarning from '../../examples/tag/variantWarning';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen.description}>
-        <SandpackExample code={main} name="Tag Main Example" hideEditor />
+      <PageHeader description={generatedDocGen.description} name={generatedDocGen?.displayName}>
+        <SandpackExample code={main} hideEditor name="Tag Main Example" />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -37,19 +37,19 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - In conjunction with [TextField](/web/textfield#Tags), [TextArea](/web/textarea#With-tags), and [ComboBox](/web/combobox#Tags), or as a standalone element to display selected options.
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - As a replacement for the [Badge](/web/badge), as Badge is a singular element that gives context to a specific subject.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -58,13 +58,12 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use Tag to describe something that is related to more than one topic."
             sandpackExample={<SandpackExample code={doDescribe} hideEditor name="Do - Describe" />}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use Tag as an interactive element. Tag should not be clickable or perform an action — use [Button](/web/button) or [Link](/web/link) instead. Tag is only intended to describe a subject."
             sandpackExample={
               <SandpackExample
@@ -74,19 +73,19 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                 name="Don't - Interactive"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Write succinct labels for Tag — ideally two or fewer words."
             sandpackExample={<SandpackExample code={doSuccinct} hideEditor name="Do - Succinct" />}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Intermix removable and unremovable Tags in a group. Group or separate Tags that are removable from those that are unremovable. This creates a clear pattern to the user for which Tags can be removed and which cannot."
             sandpackExample={
               <SandpackExample
@@ -96,23 +95,24 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                 name="Don't - Intermix"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Insert Tags directly into [ComboBox](/web/combobox), [TextField](/web/textfield) or [TextArea](/web/textarea) when providing an affordance to add/edit topics or categories."
             sandpackExample={<SandpackExample code={doInput} hideEditor name="Do - Input" />}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Place Tags outside of the input used to add or edit Tags."
             sandpackExample={
               <SandpackExample code={dontInput} hideControls hideEditor name="Don't - Input" />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>

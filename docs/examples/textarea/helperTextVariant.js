@@ -5,14 +5,14 @@ import { Box, TextArea } from 'gestalt';
 export default function Example(): ReactNode {
   const [value, setValue] = useState('');
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Box width="100%">
         <TextArea
+          helperText="Describe your favorite hobbies, foods, or books."
           id="aboutmemore"
+          label="About me"
           onChange={(e) => setValue(e.value)}
           placeholder="Write something about yourself..."
-          helperText="Describe your favorite hobbies, foods, or books."
-          label="About me"
           value={value}
         />
       </Box>

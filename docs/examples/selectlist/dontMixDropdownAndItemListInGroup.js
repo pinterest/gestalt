@@ -21,8 +21,8 @@ export default function SubtextIconButtonFlyoutExample(): ReactNode {
   };
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Flex gap={2} alignItems="end">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Flex alignItems="end" gap={2}>
         <SelectList id="selectlistexample8" label="Metric" onChange={() => {}} size="lg">
           {[
             { label: 'Revenue', value: 'v1' },
@@ -38,12 +38,12 @@ export default function SubtextIconButtonFlyoutExample(): ReactNode {
 
         <Flex justifyContent="center">
           <Button
+            ref={anchorRef}
             accessibilityControls="header-dropdown-example"
-            accessibilityHaspopup
             accessibilityExpanded={open}
+            accessibilityHaspopup
             iconEnd="arrow-down"
             onClick={() => setOpen((prevVal) => !prevVal)}
-            ref={anchorRef}
             selected={open}
             size="lg"
             text="Date range"

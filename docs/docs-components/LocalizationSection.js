@@ -39,18 +39,18 @@ ${notes}
   }
 
   return (
-    <MainSection name="Localization" description={description}>
+    <MainSection description={description} name="Localization">
       {!noDefaultLabelProvider ? (
         <BannerSlim
-          iconAccessibilityLabel="Recommendation"
-          message={`${name} depends on DefaultLabelProvider for internal text strings. Localize the texts via DefaultLabelProvider.`}
-          type="recommendationBare"
           helperLink={{
             text: 'Learn more',
             accessibilityLabel: 'Learn more about DefaultLabelProvider',
             href: '/web/utilities/defaultlabelprovider',
             onClick: () => {},
           }}
+          iconAccessibilityLabel="Recommendation"
+          message={`${name} depends on DefaultLabelProvider for internal text strings. Localize the texts via DefaultLabelProvider.`}
+          type="recommendationBare"
         />
       ) : null}
       {code ? (
@@ -59,8 +59,8 @@ ${notes}
             sandpackExample={
               <SandpackExample
                 code={code}
-                name="Localization"
                 layout={layout}
+                name="Localization"
                 previewHeight={previewHeight}
               />
             }

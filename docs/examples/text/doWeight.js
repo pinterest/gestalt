@@ -8,7 +8,7 @@ export default function Example(): ReactNode {
       <Flex width={300}>
         <Text>
           For campaign optimization and delivery,{' '}
-          <Text weight="bold" inline>
+          <Text inline weight="bold">
             set optimization and delivery at the campaign level
           </Text>{' '}
           so all ad groups have the same values.

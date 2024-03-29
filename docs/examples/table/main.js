@@ -4,7 +4,7 @@ import { Box, Table, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={4} width="100%" height="100%" display="flex" justifyContent="center">
+    <Box display="flex" height="100%" justifyContent="center" padding={4} width="100%">
       <Table accessibilityLabel="Main example table">
         <Table.Header>
           <Table.Row>

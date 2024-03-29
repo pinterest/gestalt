@@ -79,17 +79,17 @@ export default function Controller({
         bgColor={bgColor}
         border={border}
         caret={caret}
+        hideWhenReferenceHidden={hideWhenReferenceHidden}
         id={id}
         idealDirection={idealDirection}
         onKeyDown={handleKeyDown}
+        onPositioned={onPositioned}
         role={role}
         rounding={rounding}
-        shouldFocus={shouldFocus}
-        width={width}
         scrollBoundary={scrollBoundary}
-        hideWhenReferenceHidden={hideWhenReferenceHidden}
-        onPositioned={onPositioned}
+        shouldFocus={shouldFocus}
         shouldTrapFocus={shouldTrapFocus}
+        width={width}
       >
         {children}
       </Contents>

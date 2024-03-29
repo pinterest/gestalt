@@ -78,8 +78,8 @@ export default function DesignTokensPage(): ReactNode {
   return (
     <Page title="Design component tokens">
       <PageHeader
-        name="Component tokens"
         description="Component tokens are under development. We do not recommend their direct consumption as they will be subject to change and documented as minor/patch releases"
+        name="Component tokens"
         type="guidelines"
       />
       {components.map((cmp) => (
@@ -92,11 +92,11 @@ export default function DesignTokensPage(): ReactNode {
             return existingTokens.length > 0 ? (
               <MainSection.Subsection key={`table${cmp}${name}`} title={`${category}-${cmp}`}>
                 <TokenTable
-                  name={name}
-                  id={id}
-                  darkValues={darkValues}
                   category={category}
+                  darkValues={darkValues}
                   data={existingTokens}
+                  id={id}
+                  name={name}
                 />
               </MainSection.Subsection>
             ) : null;

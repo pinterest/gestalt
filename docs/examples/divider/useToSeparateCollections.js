@@ -4,8 +4,8 @@ import { Avatar, Box, Divider, Flex, Heading, Tabs, TextField } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Flex width="100%" height="100%">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Flex height="100%" width="100%">
         <Box paddingX={4}>
           <Flex direction="column" width={150}>
             {['Public profile', 'Account settings', 'Home feed tuner', 'Claim', 'Permissions'].map(
@@ -26,9 +26,9 @@ export default function Example(): ReactNode {
             <Heading accessibilityLevel="none" size="300">
               Public profile
             </Heading>
-            <Avatar size="lg" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" name="Keerthi" />
-            <TextField id="first" onChange={() => {}} label="First name" value="Kate" />
-            <TextField id="last" onChange={() => {}} label="Last name" value="Dommeti" />
+            <Avatar name="Keerthi" size="lg" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" />
+            <TextField id="first" label="First name" onChange={() => {}} value="Kate" />
+            <TextField id="last" label="Last name" onChange={() => {}} value="Dommeti" />
           </Flex>
         </Box>
       </Flex>

@@ -4,7 +4,7 @@ import { Box, List } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <List label="Use the synchronous analytics endpoints if:" type="unordered">
         <List.Item text="You need data from the last 90 days" />
         <List.Item text="You want a quick response to load a user facing dashboard/component in real time" />

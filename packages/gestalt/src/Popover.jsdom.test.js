@@ -9,10 +9,10 @@ describe('PopoverEducational', () => {
     const { container } = renderWithExperiment(
       'web_gestalt_popover_v2_popovereducational',
       <PopoverEducational
-        anchor={element}
         accessibilityLabel="text"
-        onDismiss={jest.fn()}
+        anchor={element}
         message="text"
+        onDismiss={jest.fn()}
         primaryAction={{ text: 'next', role: 'button' }}
       />,
     );
@@ -38,8 +38,8 @@ describe('PopoverEducational', () => {
       <PopoverEducational
         accessibilityLabel="text"
         anchor={null}
-        onDismiss={() => {}}
         message="text"
+        onDismiss={() => {}}
         primaryAction={{ text: 'next', role: 'button' }}
       />,
     );

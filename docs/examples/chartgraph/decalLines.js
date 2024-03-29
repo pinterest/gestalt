@@ -38,21 +38,7 @@ export default function Example(): ReactNode {
 
   return (
     <ChartGraph
-      title="ChartGraph"
-      titleDisplay="hidden"
       accessibilityLabel="Example of chart with decal pattern in lines"
-      visualPatternSelected={visualPatternSelected}
-      onVisualPatternChange={() =>
-        setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
-      }
-      type="line"
-      tickFormatter={{
-        timeseries: (date) =>
-          `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(
-            date,
-          )}-${new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(date)}`,
-      }}
-      range={{ xAxisBottom: [new Date(2023, 0, 1).getTime(), new Date(2023, 11, 1).getTime()] }}
       data={data}
       elements={[
         { type: 'line', id: 'Color_01' },
@@ -63,6 +49,20 @@ export default function Example(): ReactNode {
         { type: 'line', id: 'Color_06' },
       ]}
       modalZIndex={new FixedZIndex(11)}
+      onVisualPatternChange={() =>
+        setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
+      }
+      range={{ xAxisBottom: [new Date(2023, 0, 1).getTime(), new Date(2023, 11, 1).getTime()] }}
+      tickFormatter={{
+        timeseries: (date) =>
+          `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(
+            date,
+          )}-${new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(date)}`,
+      }}
+      title="ChartGraph"
+      titleDisplay="hidden"
+      type="line"
+      visualPatternSelected={visualPatternSelected}
     />
   );
 }

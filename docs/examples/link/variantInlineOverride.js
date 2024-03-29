@@ -4,25 +4,25 @@ import { Avatar, Box, Flex, Link, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex height="100%" width="100%" gap={2} alignItems="center" justifyContent="center">
+    <Flex alignItems="center" gap={2} height="100%" justifyContent="center" width="100%">
       <Box aria-hidden>
         <Avatar
-          name="Shanice Romero"
           accessibilityLabel="Shanice Romero"
+          name="Shanice Romero"
           size="sm"
           src="https://i.ibb.co/7tGKGvb/shanice.jpg"
         />
       </Box>
       <Text>
-        <Text weight="bold" inline>
-          <Link href="https://www.pinterest.com" display="inline" underline="hover">
+        <Text inline weight="bold">
+          <Link display="inline" href="https://www.pinterest.com" underline="hover">
             {' '}
             Shanice Romero{' '}
           </Link>
         </Text>{' '}
         saved to
-        <Text weight="bold" inline>
-          <Link href="https://www.pinterest.com" display="inline" underline="hover">
+        <Text inline weight="bold">
+          <Link display="inline" href="https://www.pinterest.com" underline="hover">
             {' '}
             Capoeira{' '}
           </Link>

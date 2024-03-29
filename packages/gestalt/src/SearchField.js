@@ -179,10 +179,10 @@ const SearchFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = fo
       <Box
         alignItems="center"
         display="flex"
+        onBlur={handleBlur}
+        onFocus={handleFocus}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
         position="relative"
       >
         {!hideSearchIcon && (
@@ -196,17 +196,17 @@ const SearchFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = fo
               },
             }}
             left
-            right
             paddingX={4}
             position="absolute"
+            right
           >
-            <Icon icon="search" accessibilityLabel="" />
+            <Icon accessibilityLabel="" icon="search" />
           </Box>
         )}
         <input
+          ref={inputRef}
           aria-describedby={errorMessage ? `${id}-error` : null}
           aria-invalid={errorMessage ? 'true' : 'false'}
-          ref={inputRef}
           aria-label={accessibilityLabel}
           autoComplete={autoComplete}
           className={className}
@@ -223,15 +223,15 @@ const SearchFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = fo
           <div className={styles.clear}>
             <IconButton
               accessibilityLabel={accessibilityClearButtonLabel || ''}
-              icon="cancel"
-              size="xs"
-              padding={size === 'md' ? 1 : undefined}
               bgColor="transparent"
-              selected={focused}
+              icon="cancel"
               onClick={({ event }) => {
                 inputRef?.current?.focus();
                 onChange({ value: '', event });
               }}
+              padding={size === 'md' ? 1 : undefined}
+              selected={focused}
+              size="xs"
             />
           </div>
         )}

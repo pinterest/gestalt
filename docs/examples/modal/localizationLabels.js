@@ -28,36 +28,36 @@ export default function Example(): ReactNode {
       }}
     >
       <Box padding={8}>
-        <Button text="Modal entlassen" onClick={() => setShowComponent(true)} />
+        <Button onClick={() => setShowComponent(true)} text="Modal entlassen" />
         {showComponent && (
           <Layer zIndex={modalZIndex}>
             <Modal
               accessibilityModalLabel="Neue Tafel erstellen"
               align="start"
-              heading="Neue Tafel erstellen"
-              onDismiss={() => setShowComponent(false)}
               footer={
                 <Flex alignItems="center" justifyContent="end">
                   <Button color="red" text="Erstellen" />
                 </Flex>
               }
+              heading="Neue Tafel erstellen"
+              onDismiss={() => setShowComponent(false)}
               size="sm"
             >
               <Fragment>
                 <Box marginBottom={6}>
                   <TextField
                     id="name"
+                    label="Name"
                     onChange={() => {}}
                     placeholder='Zum Beispiel "Ausflugsziele" oder "Rezepte"'
-                    label="Name"
                     type="text"
                   />
                 </Box>
                 <Checkbox
                   checked={false}
+                  helperText="Nur Sie und Ihre Mitarbeiter können es sehen."
                   id="secret"
                   label="Dieses Board geheim halten"
-                  helperText="Nur Sie und Ihre Mitarbeiter können es sehen."
                   name="secret"
                   onChange={() => {}}
                 />

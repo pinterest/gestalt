@@ -4,18 +4,18 @@ import { Box, Datapoint, Flex } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex direction="column" gap={{ column: 4, row: 0 }}>
         <Datapoint
           title="Pin clicks"
-          value="1.23k"
           trend={{ value: 12, accessibilityLabel: 'Trending up' }}
+          value="1.23k"
         />
-        <Datapoint title="Saves" value="123" trend={{ value: 0, accessibilityLabel: '' }} />
+        <Datapoint title="Saves" trend={{ value: 0, accessibilityLabel: '' }} value="123" />
         <Datapoint
           title="Total impressions"
-          value="1.23m"
           trend={{ value: -5, accessibilityLabel: 'Trending down' }}
+          value="1.23m"
         />
       </Flex>
     </Box>

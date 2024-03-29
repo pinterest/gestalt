@@ -37,7 +37,7 @@ export default function OverviewList({
   title = '',
 }: Props): ReactNode {
   return (
-    <IllustrationSection title={title} grid="auto-fill" min={312}>
+    <IllustrationSection grid="auto-fill" min={312} title={title}>
       {[...components]
         .sort((a, b) => {
           if (a.name < b.name) {

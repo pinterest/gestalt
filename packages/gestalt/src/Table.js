@@ -86,20 +86,20 @@ export default function Table({
     <Box
       overflow="auto"
       {...(borderStyle === 'sm' ? { borderStyle: 'sm', rounding: 1 } : {})}
-      maxHeight={maxHeight}
       ref={tableRef}
+      maxHeight={maxHeight}
       tabIndex="0"
     >
       <table className={classNames}>
         <Box
-          width={1}
-          height={1}
-          overflow="hidden"
-          position="absolute"
           as="caption"
           dangerouslySetInlineStyle={{
             __style: { clip: 'rect(1px, 1px, 1px, 1px)', whiteSpace: 'nowrap' },
           }}
+          height={1}
+          overflow="hidden"
+          position="absolute"
+          width={1}
         >
           {accessibilityLabel}
         </Box>

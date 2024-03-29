@@ -54,12 +54,11 @@ export default function Example(): ReactNode {
             <Collage
               columns={3}
               height={150}
-              width={150}
               layoutKey={layoutKey}
               renderImage={({ index, width, height }) => {
                 const image = images[index] || {};
                 return (
-                  <Mask wash width={width} height={height}>
+                  <Mask height={height} wash width={width}>
                     <Image
                       alt="collage image"
                       color={image.color}
@@ -71,6 +70,7 @@ export default function Example(): ReactNode {
                   </Mask>
                 );
               }}
+              width={150}
             />
           </Box>
         ))}

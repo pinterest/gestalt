@@ -5,7 +5,7 @@ import { Avatar, Box, Button, Flex, Link, Text, WashAnimated } from 'gestalt';
 export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-      <Box maxWidth={236} padding={8} column={12}>
+      <Box column={12} maxWidth={236} padding={8}>
         <WashAnimated
           image={<Avatar name="James Jones" src="https://i.ibb.co/2Fc00R3/james.jpg" />}
         >

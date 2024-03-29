@@ -13,18 +13,18 @@ export default function Example(): ReactNode {
         <Flex direction="column" gap={4}>
           <TextField
             id="name"
+            label="Name"
             onChange={({ value }) => setName(value)}
             placeholder="First and last name"
-            label="Name"
             value={name}
           />
           <TextField
             id="email"
+            label="Email"
             onChange={({ value }) => setEmail(value)}
             placeholder="example@test.com"
-            label="Email"
-            value={email}
             type="email"
+            value={email}
           />
           <Fieldset legend="Favorite pet">
             <Flex direction="column" gap={2}>

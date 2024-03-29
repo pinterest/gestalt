@@ -183,7 +183,6 @@ export default function PartialPage({
         >
           <Backdrop closeOnOutsideClick={closeOnOutsideClick} onClick={handleBackdropClick}>
             <div
-              id={id}
               aria-label={accessibilityLabel ?? defaultAccessibilityLabel}
               className={classnames(sheetMobileStyles.wrapper, focusStyles.hideOutline, {
                 [sheetMobileStyles.defaultWrapper]: size === 'default',
@@ -192,26 +191,27 @@ export default function PartialPage({
                 [animation.animationInBottom]: animationState === ANIMATION_STATE.animatedOpening,
                 [animation.animationOutBottom]: animationState === ANIMATION_STATE.animatedClosing,
               })}
+              id={id}
               onAnimationEnd={handleOnAnimationEnd}
-              tabIndex={-1}
-              style={{ width: '100%' }}
               role={role}
+              style={{ width: '100%' }}
+              tabIndex={-1}
             >
               <ContentContainer
+                footer={footer}
                 header={
                   <Header
                     align={align}
                     backIconButton={backIconButton}
                     forwardIconButton={forwardIconButton}
+                    heading={heading}
                     id={id}
                     primaryAction={primaryAction}
-                    heading={heading}
                     showDismissButton={showDismissButton}
-                    subHeading={subHeading}
                     showGrabber
+                    subHeading={subHeading}
                   />
                 }
-                footer={footer}
                 padding={padding}
               >
                 {children}

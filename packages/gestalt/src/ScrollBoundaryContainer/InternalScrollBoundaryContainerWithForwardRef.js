@@ -49,15 +49,15 @@ const ScrollBoundaryContainerWithForwardRef: AbstractComponent<InternalProps, HT
     }, [addRef]);
     return (
       <Box
-        display={includesFooter ? 'flex' : undefined}
+        ref={anchorRef}
         direction={includesFooter ? 'column' : undefined}
+        display={includesFooter ? 'flex' : undefined}
         flex={onScroll || includesFooter ? 'grow' : undefined}
         height={height}
-        overflow={includesFooter ? 'visible' : overflow}
         onScroll={onScroll}
+        overflow={includesFooter ? 'visible' : overflow}
         padding={padding}
         position="relative"
-        ref={anchorRef}
         width={includesFooter ? '100%' : undefined}
       >
         {children}

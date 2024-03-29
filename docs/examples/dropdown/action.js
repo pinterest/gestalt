@@ -18,15 +18,15 @@ export default function CustomIconButtonPopoverExample(): ReactNode {
 
   return (
     <Fragment>
-      <Flex justifyContent="center" width="100%" height="100%">
+      <Flex height="100%" justifyContent="center" width="100%">
         <Box margin={2}>
           <Button
+            ref={anchorRef}
             accessibilityControls="action-variant-dropdown-example"
             accessibilityExpanded={open}
             accessibilityHaspopup
             iconEnd="arrow-down"
             onClick={() => setOpen((prevVal) => !prevVal)}
-            ref={anchorRef}
             selected={open}
             size="lg"
             text={selected ? selected.label : 'Display'}

@@ -23,15 +23,13 @@ export default function Example(): ReactNode {
       {showComponent ? (
         <Layer zIndex={ABOVE_PAGE_HEADER_ZINDEX}>
           <SheetMobile
-            heading="Heading"
-            onDismiss={() => setShowComponent(false)}
             footer={
-              <Flex justifyContent="between" gap={2}>
+              <Flex gap={2} justifyContent="between">
                 <IconButtonLink
                   accessibilityLabel="This IconButton is an example of IconButton acting as a link"
+                  href="https://www.pinterest.com"
                   icon="share"
                   target="blank"
-                  href="https://www.pinterest.com"
                   tooltip={{ text: 'Link example' }}
                 />
 
@@ -42,13 +40,15 @@ export default function Example(): ReactNode {
 
                 <IconButtonLink
                   accessibilityLabel="This IconButton is an example of IconButton acting as a link"
+                  href="https://www.pinterest.com"
                   icon="ellipsis"
                   target="blank"
-                  href="https://www.pinterest.com"
                   tooltip={{ text: 'Link example' }}
                 />
               </Flex>
             }
+            heading="Heading"
+            onDismiss={() => setShowComponent(false)}
             showDismissButton={false}
           >
             <Text>Content</Text>
@@ -59,9 +59,9 @@ export default function Example(): ReactNode {
         <Button
           accessibilityLabel="Show SheetMobile"
           color="red"
-          text="Show SheetMobile"
-          size="lg"
           onClick={() => setShowComponent(true)}
+          size="lg"
+          text="Show SheetMobile"
         />
       </Box>
     </DeviceTypeProvider>

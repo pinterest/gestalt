@@ -6,23 +6,23 @@ export default function Example(): ReactNode {
   return (
     <Box padding={8}>
       <Flex
-        gap={{ column: 8, row: 0 }}
-        direction="column"
-        alignItems="stretch"
         alignContent="stretch"
+        alignItems="stretch"
+        direction="column"
         flex="grow"
+        gap={{ column: 8, row: 0 }}
         width="100%"
       >
-        <Flex direction="column" alignItems="center" alignContent="center" width="100%">
+        <Flex alignContent="center" alignItems="center" direction="column" width="100%">
           <ButtonGroup>
-            <Button text="Visit" size="lg" color="gray" />
-            <Button text="Save" size="lg" color="red" />
+            <Button color="gray" size="lg" text="Visit" />
+            <Button color="red" size="lg" text="Save" />
           </ButtonGroup>
         </Flex>
         <Divider />
-        <Flex gap={{ column: 2, row: 0 }} direction="column" flex="grow" width="100%">
-          <Button text="Learn more" size="lg" color="red" fullWidth />
-          <Button text="Install now" size="lg" color="gray" fullWidth />
+        <Flex direction="column" flex="grow" gap={{ column: 2, row: 0 }} width="100%">
+          <Button color="red" fullWidth size="lg" text="Learn more" />
+          <Button color="gray" fullWidth size="lg" text="Install now" />
         </Flex>
       </Flex>
     </Box>

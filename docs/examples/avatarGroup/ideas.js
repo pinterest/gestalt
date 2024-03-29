@@ -4,9 +4,8 @@ import { AvatarGroup, Flex } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex height="100%" width="100%" alignItems="center" justifyContent="center">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <AvatarGroup
-        size="md"
         accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."
         collaborators={[
           {
@@ -22,6 +21,7 @@ export default function Example(): ReactNode {
             src: 'https://i.ibb.co/jVR29XV/stock5.jpg',
           },
         ]}
+        size="md"
       />
     </Flex>
   );

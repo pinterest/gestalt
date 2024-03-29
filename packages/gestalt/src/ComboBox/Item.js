@@ -49,6 +49,7 @@ const ComboBoxItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forwa
 
   return (
     <div
+      ref={isHovered ? ref : null}
       aria-selected={isSelected}
       className={classnames(
         focusStyles.hideOutline,
@@ -60,7 +61,6 @@ const ComboBoxItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forwa
       onKeyPress={handleEventPreventDefault}
       onMouseDown={handleEventPreventDefault}
       onMouseEnter={handleOnMouseEnter}
-      ref={isHovered ? ref : null}
       role="option"
       tabIndex={-1}
     >
@@ -83,7 +83,7 @@ const ComboBoxItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forwa
             {label}
           </Text>
           {subtext && (
-            <Text size="200" inline color="subtle" lineClamp={2}>
+            <Text color="subtle" inline lineClamp={2} size="200">
               {subtext}
             </Text>
           )}

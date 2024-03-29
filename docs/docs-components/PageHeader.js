@@ -127,12 +127,12 @@ export default function PageHeader({
 
   return (
     <Box
-      marginBottom={addGap || !showMargin ? 0 : 2}
       dangerouslySetInlineStyle={{
         __style: {
           paddingBottom: '1px',
         },
       }}
+      marginBottom={addGap || !showMargin ? 0 : 2}
     >
       <Flex
         direction="column"
@@ -148,9 +148,9 @@ export default function PageHeader({
                 {name}{' '}
                 {badge ? (
                   <Badge
-                    tooltip={{ text: badgeMap[badge].tooltipText }}
-                    text={badgeMap[badge].text}
                     position="top"
+                    text={badgeMap[badge].text}
+                    tooltip={{ text: badgeMap[badge].tooltipText }}
                     type={badgeMap[badge].type || 'info'}
                   />
                 ) : null}

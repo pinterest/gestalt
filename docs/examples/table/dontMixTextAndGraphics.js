@@ -23,10 +23,10 @@ function BaseRow({ disabled, type, title, subtext, rate }: any) {
   return (
     <Table.Row>
       <Table.Cell>
-        <Status type={type} title={title} subtext={subtext} />
+        <Status subtext={subtext} title={title} type={type} />
       </Table.Cell>
       <Table.Cell>
-        <Text overflow="noWrap" align="end" color={disabled ? 'subtle' : 'default'}>
+        <Text align="end" color={disabled ? 'subtle' : 'default'} overflow="noWrap">
           {rate}
         </Text>
       </Table.Cell>
@@ -41,16 +41,16 @@ export default function Example(): ReactNode {
     <Table accessibilityLabel={tableID}>
       <HeaderRow />
       <Table.Body>
-        <BaseRow type="inProgress" title="Active" subtext="Ends 11/20/2021" rate="100 CTR" />
+        <BaseRow rate="100 CTR" subtext="Ends 11/20/2021" title="Active" type="inProgress" />
         <BaseRow
           disabled
-          type="halted"
-          title="Paused"
-          subtext="Ends 11/20/2021"
           rate="5,000 Engagement"
+          subtext="Ends 11/20/2021"
+          title="Paused"
+          type="halted"
         />
-        <BaseRow type="warning" title="Warning" subtext="Ends 11/20/2021" rate="2 Conversions" />
-        <BaseRow type="ok" title="Complete" subtext="Ends 11/20/2021" rate="50 CTR" />
+        <BaseRow rate="2 Conversions" subtext="Ends 11/20/2021" title="Warning" type="warning" />
+        <BaseRow rate="50 CTR" subtext="Ends 11/20/2021" title="Complete" type="ok" />
       </Table.Body>
     </Table>
   );

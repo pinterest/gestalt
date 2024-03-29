@@ -17,17 +17,17 @@ export default function OnePrimaryActionExample(): ReactNode {
   const tableID = 'Audience table';
 
   return (
-    <Box width="100%" color="secondary" height="100%">
+    <Box color="secondary" height="100%" width="100%">
       <PageHeader
         borderStyle="sm"
-        title="Audiences"
+        dropdownAccessibilityLabel="More options"
         primaryAction={{
           component: <Button color="red" size="lg" text="Create audience" />,
           dropdownItems: [
             <Dropdown.Item
               key="create-audience"
-              option={{ value: 'Create audience', label: 'Create audience' }}
               onSelect={() => {}}
+              option={{ value: 'Create audience', label: 'Create audience' }}
             />,
           ],
         }}
@@ -36,20 +36,20 @@ export default function OnePrimaryActionExample(): ReactNode {
           dropdownItems: [
             <Dropdown.Item
               key="export"
-              option={{ value: 'Export', label: 'Export' }}
               onSelect={() => {}}
+              option={{ value: 'Export', label: 'Export' }}
             />,
           ],
         }}
-        dropdownAccessibilityLabel="More options"
+        title="Audiences"
       />
       <Box padding={12}>
         <Flex
+          alignItems="end"
           gap={{
             row: 7,
             column: 0,
           }}
-          alignItems="end"
         >
           <Flex.Item flex="grow">
             <Table accessibilityLabel="Audiences">
@@ -64,7 +64,7 @@ export default function OnePrimaryActionExample(): ReactNode {
                     <Box display="visuallyHidden">
                       <Label htmlFor={tableID}>Not all checkboxes are checked</Label>
                     </Box>
-                    <Checkbox id={tableID} onChange={() => {}} indeterminate size="sm" />
+                    <Checkbox id={tableID} indeterminate onChange={() => {}} size="sm" />
                   </Table.HeaderCell>
                   {['Status', 'Audience'].map((title) => (
                     <Table.HeaderCell key={title}>
@@ -81,12 +81,12 @@ export default function OnePrimaryActionExample(): ReactNode {
                   <Table.Row key={audience}>
                     <Table.Cell>
                       <Checkbox
+                        checked={checked}
                         id={`${tableID.replace(/ /g, '_').replace(/'/g, '')}_${status
                           .replace(/ /g, '_')
                           .replace(/'/g, '')}`}
                         onChange={() => {}}
                         size="sm"
-                        checked={checked}
                       />
                     </Table.Cell>
                     <Table.Cell>

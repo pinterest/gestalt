@@ -4,14 +4,14 @@ import { Box, Flex, Image, Mask, TapAreaLink, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex height="100%" alignItems="center" justifyContent="center">
+    <Flex alignItems="center" height="100%" justifyContent="center">
       <TapAreaLink
         fullWidth={false}
-        target="blank"
         href="#"
         onTap={({ event }) => event.preventDefault()}
+        target="blank"
       >
-        <Box padding={3} column={12} borderStyle="lg" width={200}>
+        <Box borderStyle="lg" column={12} padding={3} width={200}>
           <Mask rounding={2}>
             <Image
               alt="Antelope Canyon"

@@ -20,7 +20,7 @@ export default function ScrollBoundaryContainerPage({
 }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName} />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
@@ -28,11 +28,11 @@ export default function ScrollBoundaryContainerPage({
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Height"
           description={`
 When scrolling is desired, we must explicitly set a height. Unless a height is set, the content will push the parent container's height.
 
 In ScrollBoundaryContainer, height is an optional prop with a default value of \`100%\`. If ScrollBoundaryContainer’s immediate parent is a component with a fixed height, do not pass a height to ScrollBoundaryContainer as seen in first example below. On the other hand, if there isn’t an immediate parent fixing the height, you must specify the ScrollBoundaryContainer height as seen in the  second example below.`}
+          title="Height"
         >
           <MainSection.Card
             cardSize="lg"
@@ -46,7 +46,6 @@ In ScrollBoundaryContainer, height is an optional prop with a default value of \
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Overflow"
           description={`
 In most cases, \`overflow\` set to "auto" is the expected behavior for most containers. If the scrolling container is large enough, Popover-based components are displayed without problems.
 
@@ -55,37 +54,38 @@ However, if ScrollBoundaryContainer is small and hides Popover-based components 
 Use this approach if implementing ScrollBoundaryContainer in a higher parent container doesn't fix your Popover-based components positioning issues as expected.
 
 See the examples below to compare the implementation in both circumnstances.`}
+          title="Overflow"
         >
           <MainSection.Card
-            title={`Overflow="auto"`}
             cardSize="lg"
             sandpackExample={
               <SandpackExample code={autoOverflowExample} name="Overflow prop set to auto" />
             }
+            title={`Overflow="auto"`}
           />{' '}
           <MainSection.Card
-            title={`Overflow="visible"`}
             cardSize="lg"
             sandpackExample={
               <SandpackExample code={visibleOverflowExample} name="Overflow prop set to visible" />
             }
+            title={`Overflow="visible"`}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Built-in component"
           description={`
 Modal and OverlayPanel come with ScrollBoundaryContainer built-in, so any anchored components used in their children tree should work out-of-the-box. Passing an additional ScrollBoundaryContainer will break the existing styling on scroll.
 
 The following example shows the internal ScrollBoundaryContainer in action. The main content of both Modal and OverlayPanel is a form which includes Dropdown and ComboBox.`}
+          title="Built-in component"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                previewHeight={600}
-                layout="column"
                 code={modalExample}
+                layout="column"
                 name="Built-in component"
+                previewHeight={600}
               />
             }
           />

@@ -22,20 +22,20 @@ function DatePickerWrap({
 
   return (
     <DateField
-      id="mainExample"
       disabled={disabled}
-      label="Date of birth"
-      helperText="Enter your date of birth"
-      onError={() => {}}
-      onChange={({ value }) => setDate(value)}
-      value={date}
-      onClearInput={() => setDate(null)}
       errorMessage={errorMessage}
+      helperText="Enter your date of birth"
+      id="mainExample"
+      label="Date of birth"
       // $FlowExpectedError[prop-missing]
       // $FlowExpectedError[incompatible-exact]
       localeData={localeData}
-      readOnly={readOnly}
       name="test"
+      onChange={({ value }) => setDate(value)}
+      onClearInput={() => setDate(null)}
+      onError={() => {}}
+      readOnly={readOnly}
+      value={date}
     />
   );
 }

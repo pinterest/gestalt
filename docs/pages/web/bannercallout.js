@@ -28,12 +28,12 @@ import variantWarning from '../../examples/bannercallout/variantWarning';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
         <SandpackExample
           code={main}
-          name={`Main ${generatedDocGen?.displayName} example`}
-          layout="column"
           hideEditor
+          layout="column"
+          name={`Main ${generatedDocGen?.displayName} example`}
         />
       </PageHeader>
 
@@ -43,23 +43,23 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - When displaying high priority, surface-level information to the user.
           - When providing persistent, non-blocking feedback.
           - When communicating updates to the state or status of the surface.
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - When providing messaging/guidance for specific elements or areas within a surface. [Let the team know](https://app.slack.com/client/T024LJUGB/C0HUV5J93) if this is needed.
           - When displaying information that is intended for promotional/marketing purposes. Use [BannerUpsell](/web/bannerupsell) instead.
           - When interacting with the BannerCallout is required for the user to proceed with a task or flow. Use [Modal](/web/modal) instead.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -68,71 +68,70 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection>
           <MainSection.Card
             cardSize="lg"
-            type="do"
             description="Use BannerCallout for messages coming from the product or user interaction. Can be used in both Business and Pinner products."
             sandpackExample={
               <SandpackExample
-                name="Do - Use BannerCallout for product messages"
                 code={productMessages}
-                layout="column"
                 hideEditor
+                layout="column"
+                name="Do - Use BannerCallout for product messages"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="lg"
-            type="do"
             description={`
         Place BannerCallout at the top of the page, under the primary navigation or page header when possible.
         `}
             sandpackExample={
               <SandpackExample
-                name="Do - Place BannerCallout at the top of the page"
                 code={placeAtTop}
-                layout="column"
                 hideEditor
+                layout="column"
+                name="Do - Place BannerCallout at the top of the page"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="lg"
-            type="don't"
             description={`
         Use BannerCallouts for marketing new products or features. Use [BannerUpsell](/web/bannerupsell) instead.
         `}
             sandpackExample={
               <SandpackExample
-                name="Don't - Use BannerCallouts for marketing new products or features"
                 code={dontUseForMarketing}
                 hideControls
-                layout="column"
                 hideEditor
+                layout="column"
+                name="Don't - Use BannerCallouts for marketing new products or features"
               />
             }
+            type="don't"
           />
           <MainSection.Card
             cardSize="lg"
-            type="don't"
             description={`
         Stack BannerCallouts. In the case that banners must be stacked, BannerCallouts should come before BannerUpsells.
         `}
             sandpackExample={
               <SandpackExample
-                name="Don't - Stack BannerCallouts"
                 code={dontStack}
                 hideControls
-                layout="column"
                 hideEditor
+                layout="column"
+                name="Don't - Stack BannerCallouts"
                 previewHeight={552}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
 
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
-          title="Labels"
           description={`
       \`iconAccessibilityLabel\`, \`dismissButton\`, \`primaryAction\` and \`secondaryAction\` each require a short, descriptive label for screen readers. These labels should communicate the intent of the icon, such as “Error”, “Info” or “Warning”. They should also be localized.
 
@@ -140,14 +139,15 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       For the \`dismissButton\`, the label provided should indicate the intent, like “Dismiss this banner”.
       `}
+          title="Labels"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="BannerCallout labels"
                 code={accessibilityExample}
                 layout="column"
+                name="BannerCallout labels"
                 // hideEditor
               />
             }
@@ -163,16 +163,16 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Info"
           description="Info BannerCallouts communicate helpful messages to users about the product. In most cases, they should provide an action for users to take."
+          title="Info"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Variants - Info"
                 code={variantInfo}
                 layout="column"
+                name="Variants - Info"
                 // hideEditor
               />
             }
@@ -187,9 +187,9 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Variants - Recommendation"
                 code={variantRecommendation}
                 layout="column"
+                name="Variants - Recommendation"
                 // hideEditor
               />
             }
@@ -203,9 +203,9 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Variants - Success"
                 code={variantSuccess}
                 layout="column"
+                name="Variants - Success"
                 // hideEditor
               />
             }
@@ -213,16 +213,16 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Warning"
           description="Warning BannerCallouts communicate cautionary messages to users. Action shouldn't be required. The BannerCallout should provide clear guidance on how to correct an issue and/or learn more about it."
+          title="Warning"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Variants - Warning"
                 code={variantWarning}
                 layout="column"
+                name="Variants - Warning"
                 // hideEditor
                 previewHeight={460}
               />
@@ -231,16 +231,16 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Error"
           description="Error BannerCallouts inform users of problems that require immediate action to correct. Further actions on the page might be blocked if users don't correct the problems. The BannerCallout should also provide clear guidance on how to correct the issue and/or learn more about it."
+          title="Error"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Variants - Error"
                 code={variantError}
                 layout="column"
+                name="Variants - Error"
                 // hideEditor
                 previewHeight={380}
               />
@@ -249,7 +249,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Actions"
           description={`
         BannerCallouts can have either one primary action, or a primary action and a secondary action. These actions can be [Links](/web/link), by specifying the \`href\` property, or [Buttons](/web/button), when no \`href\` is supplied.
 
@@ -260,14 +259,15 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         If needed, actions can become disabled after clicking by setting \`disabled: true\` in the action data.
 
         `}
+          title="Actions"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="BannerCallout actions"
                 code={actionsExample}
                 layout="column"
+                name="BannerCallout actions"
                 // hideEditor
               />
             }
@@ -275,7 +275,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Dismissible"
           description={`
         \`dismissButton\` can be used when BannerCallout doesn't indicate a persistent state. This will most commonly be used in \`type="info"\` BannerCallouts.
 
@@ -283,14 +282,15 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         - There is a persistent account or page status that the user must address.
         - The user must access BannerCallout's information again in order to perform a task.
         `}
+          title="Dismissible"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Dismissable BannerCallout"
                 code={dismissibleExample}
                 layout="column"
+                name="Dismissable BannerCallout"
                 // hideEditor
               />
             }
@@ -308,9 +308,9 @@ The \`message\` prop accepts either a string or [Text](/web/text). Use a string 
           cardSize="lg"
           sandpackExample={
             <SandpackExample
-              name="BannerCallout 'message' prop example"
               code={variantMessage}
               layout="column"
+              name="BannerCallout 'message' prop example"
             />
           }
         />

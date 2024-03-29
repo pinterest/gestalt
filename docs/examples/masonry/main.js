@@ -81,24 +81,24 @@ export default function Example(): ReactNode {
 
   return (
     <Box
-      height="100%"
-      marginStart="auto"
-      marginEnd="auto"
-      padding={4}
       ref={(el) => {
         scrollContainerRef.current = el;
       }}
+      height="100%"
+      marginEnd="auto"
+      marginStart="auto"
+      padding={4}
       width="100%"
     >
       {scrollContainerRef.current && (
         <Masonry
+          ref={(ref) => {
+            gridRef.current = ref;
+          }}
           columnWidth={170}
           gutterWidth={20}
           items={pins}
           layout="basicCentered"
-          ref={(ref) => {
-            gridRef.current = ref;
-          }}
           renderItem={({ data }) => <GridComponent data={data} />}
           // $FlowFixMe[incompatible-type]
           scrollContainer={() => scrollContainerRef.current}

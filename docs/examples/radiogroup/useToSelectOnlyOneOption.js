@@ -6,8 +6,8 @@ export default function RadioButtonExample(): ReactNode {
   const [favorite, setFavorite] = useState('reading');
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <RadioGroup legend="If you had to pick one, which hobby would you pick?" id="bestPracticeDo">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <RadioGroup id="bestPracticeDo" legend="If you had to pick one, which hobby would you pick?">
         <RadioGroup.RadioButton
           checked={favorite === 'knitting'}
           id="knitting"

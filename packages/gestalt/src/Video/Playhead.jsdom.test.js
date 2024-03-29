@@ -16,9 +16,9 @@ test('VideoPlayhead handles on mouse down and up events', () => {
       accessibilityProgressBarLabel="Progress bar"
       currentTime={50}
       duration={100}
-      seek={() => {}}
       onPlayheadDown={mockOnPlayheadDown}
       onPlayheadUp={mockOnPlayheadUp}
+      seek={() => {}}
     />,
   );
 
@@ -48,9 +48,9 @@ test('VideoPlayhead ends seek when mouse leaves', () => {
       accessibilityProgressBarLabel="Progress bar"
       currentTime={50}
       duration={100}
-      seek={() => {}}
       onPlayheadDown={mockOnPlayheadDown}
       onPlayheadUp={mockOnPlayheadUp}
+      seek={() => {}}
     />,
   );
   fireEvent.mouseDown(screen.getByRole('progressbar'), {

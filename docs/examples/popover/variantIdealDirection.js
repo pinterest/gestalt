@@ -12,16 +12,16 @@ export default function Example(): ReactNode {
   }, []);
 
   return (
-    <Flex alignItems="center" justifyContent="center" height="100%" width="100%">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <ScrollBoundaryContainer>
         <Box
+          ref={viewRef}
+          alignItems="center"
           color="default"
           display="flex"
-          alignItems="center"
-          ref={viewRef}
+          height={200}
           padding={4}
           width={600}
-          height={200}
         >
           <Flex gap={{ column: 0, row: 2 }}>
             <Box width={300}>
@@ -52,11 +52,11 @@ export default function Example(): ReactNode {
               size={240}
             >
               <Box
-                height={100}
-                width={300}
-                display="flex"
                 alignItems="center"
+                display="flex"
+                height={100}
                 justifyContent="center"
+                width={300}
               >
                 <Text align="center">Content</Text>
               </Box>

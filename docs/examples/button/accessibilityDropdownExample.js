@@ -19,14 +19,14 @@ export default function ActionDropdownExample(): ReactNode {
   }) => setSelected(item);
 
   return (
-    <Box padding={8} display="flex" justifyContent="center" width="100%">
+    <Box display="flex" justifyContent="center" padding={8} width="100%">
       <Button
+        ref={anchorRef}
         accessibilityControls="action-variant-dropdown-example"
         accessibilityExpanded={open}
         accessibilityHaspopup
         iconEnd="arrow-down"
         onClick={() => setOpen((prevVal) => !prevVal)}
-        ref={anchorRef}
         selected={open}
         size="lg"
         text={selected ? selected.label : 'Display'}

@@ -26,12 +26,12 @@ export default function Header({
   const { decal: showVisualPattern } = useChartContext();
 
   return (
-    <Box width="100%" marginBottom={5}>
+    <Box marginBottom={5} width="100%">
       <Flex width="100%">
         <Flex.Item flex="grow">
           {titleDisplay === 'hidden' ? null : (
             <Flex direction="column">
-              <Flex gap={2} alignItems="center">
+              <Flex alignItems="center" gap={2}>
                 <Heading color={readyToRender ? 'default' : 'inverse'} size="300">
                   {title}
                 </Heading>
@@ -46,23 +46,23 @@ export default function Header({
         </Flex.Item>
         <IconButton
           accessibilityLabel=""
+          bgColor={readyToRender ? undefined : 'transparent'}
           icon="table"
           iconColor={readyToRender ? 'darkGray' : 'white'}
-          bgColor={readyToRender ? undefined : 'transparent'}
+          name="table"
           onClick={toggleTabularDataModal}
           selected={showTabularData}
           size="xs"
           tooltip={{ text: tabularData }}
-          name="table"
         />
         {showVisualPattern === 'disabled' ? null : (
           <IconButton
             accessibilityLabel=""
+            bgColor={readyToRender ? undefined : 'transparent'}
             icon="accessibility"
-            name="accessibility"
             // We need this hack to tick the eye while chart is not rendered and title/description is repositioning. This prevents from seeing title/description flick.
             iconColor={readyToRender ? 'darkGray' : 'white'}
-            bgColor={readyToRender ? undefined : 'transparent'}
+            name="accessibility"
             onClick={onVisualPatternChange}
             selected={showVisualPattern === 'visualPattern'}
             size="xs"

@@ -4,8 +4,8 @@ import { BannerCallout, BannerSlim, Box, Flex } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Flex width="100%" direction="column" gap={{ column: 2, row: 0 }}>
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Flex direction="column" gap={{ column: 2, row: 0 }} width="100%">
         <BannerCallout
           dismissButton={{
             accessibilityLabel: 'Dismiss this banner',
@@ -24,9 +24,9 @@ export default function Example(): ReactNode {
           type="info"
         />
         <BannerSlim
-          type="warning"
-          message="You haven't added any tags."
           iconAccessibilityLabel="Warning"
+          message="You haven't added any tags."
+          type="warning"
         />
       </Flex>
     </Box>

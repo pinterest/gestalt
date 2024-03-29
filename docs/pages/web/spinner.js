@@ -22,11 +22,11 @@ import main from '../../examples/spinner/main';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
         <SandpackExample
           code={main}
-          name="Primary Spinner example"
           hideEditor
+          name="Primary Spinner example"
           previewHeight={150}
         />
       </PageHeader>
@@ -37,19 +37,19 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - When loading or updating content on a surface.
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - To communicate that a UI element, such as a button, is performing an action that takes a perceptible amount of time. Contact us if this is needed.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -58,94 +58,94 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Only show Spinner if the expected wait time is perceptible — typically more than a second. Remember that wait times can vary based on the user's network connection."
             sandpackExample={
-              <SandpackExample code={doWait} name="Do - Wait" hideEditor previewHeight={400} />
+              <SandpackExample code={doWait} hideEditor name="Do - Wait" previewHeight={400} />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use Spinner if the wait time is likely longer than 10 seconds. Show incremental loading/completion progress instead."
             sandpackExample={
               <SandpackExample
                 code={dontWait}
-                name="Don't - Wait"
                 hideControls
                 hideEditor
+                name="Don't - Wait"
                 previewHeight={400}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Show Spinner where the content is being loaded or updated to create a clear association with where results will appear."
             sandpackExample={
               <SandpackExample
                 code={doLocation}
-                name="Do - Location"
                 hideEditor
+                name="Do - Location"
                 previewHeight={400}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Show more than one Spinner at a time to avoid an overly-busy interface. Show a single Spinner over the collection of loading content instead."
             sandpackExample={
               <SandpackExample
                 code={dontMultiple}
-                name="Don't - Multiple"
                 hideControls
                 hideEditor
+                name="Don't - Multiple"
                 previewHeight={400}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Screen underlying content when overlaid by Spinner."
             sandpackExample={
               <SandpackExample
                 code={doOverlay}
-                name="Do - Overlay"
                 hideEditor
+                name="Do - Overlay"
                 previewHeight={400}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Display a loading label adjacent to Spinner when the label is redundant."
             sandpackExample={
               <SandpackExample
                 code={dontLabel}
-                name="Don't - Label"
                 hideControls
                 hideEditor
+                name="Don't - Label"
                 previewHeight={400}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
 
       <AccessibilitySection
-        name={generatedDocGen?.displayName}
         description={`
       Be sure to include \`accessibilityLabel\`. Labels should relate to the specific part of the product where Spinner is being used (e.g. "Loading homefeed" when used on the homefeed surface). Don't forget to localize the label!
       `}
+        name={generatedDocGen?.displayName}
       />
 
       <LocalizationSection

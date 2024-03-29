@@ -29,7 +29,7 @@ describe('Accordion', () => {
   test('renders an icon correctly', () => {
     const tree = renderer
       .create(
-        <Accordion id="accordion-test" title="Testing" icon="lock" iconAccessibilityLabel="locked">
+        <Accordion icon="lock" iconAccessibilityLabel="locked" id="accordion-test" title="Testing">
           <Text>Testing</Text>
         </Accordion>,
       )
@@ -52,10 +52,10 @@ describe('Accordion', () => {
     const tree = renderer
       .create(
         <Accordion
-          id="accordion-test"
-          title="Testing"
           icon="lock"
           iconAccessibilityLabel="there is an error"
+          id="accordion-test"
+          title="Testing"
           type="error"
         >
           <Text>Testing</Text>
@@ -69,18 +69,18 @@ describe('Accordion', () => {
     const tree = renderer
       .create(
         <Accordion
-          id="accordion-test"
-          title="Testing"
           iconButton={
             <IconButton
+              accessibilityLabel="Get help"
               bgColor="lightGray"
               icon="question-mark"
               iconColor="darkGray"
-              accessibilityLabel="Get help"
-              size="xs"
               onClick={() => {}}
+              size="xs"
             />
           }
+          id="accordion-test"
+          title="Testing"
         >
           <Text>Testing</Text>
         </Accordion>,

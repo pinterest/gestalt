@@ -27,7 +27,6 @@ export default function IllustrationSection({
           </Heading>
         )}
         <Box
-          width="100%"
           dangerouslySetInlineStyle={{
             __style: {
               display: 'grid',
@@ -36,6 +35,7 @@ export default function IllustrationSection({
               rowGap: '40px',
             },
           }}
+          width="100%"
         >
           {children}
         </Box>

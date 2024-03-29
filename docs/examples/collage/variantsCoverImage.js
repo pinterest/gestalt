@@ -26,23 +26,23 @@ const nonCoverImages = [
 export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-      <Box color="secondary" width={300} height={300}>
+      <Box color="secondary" height={300} width={300}>
         <Collage
           columns={3}
           cover
-          height={300}
           gutter={8}
+          height={300}
           renderImage={({ index, width, height }) => {
             const image = index === 0 ? coverImage : nonCoverImages[index - 1];
             return (
-              <Mask width={width} height={height}>
+              <Mask height={height} width={width}>
                 <Image
                   alt="cover image"
-                  src={image.src}
                   color={image.color}
+                  fit="cover"
                   naturalHeight={image.naturalHeight}
                   naturalWidth={image.naturalWidth}
-                  fit="cover"
+                  src={image.src}
                 />
               </Mask>
             );

@@ -6,7 +6,7 @@ export default function Example(): ReactNode {
   const [value, setValue] = useState('https://www.pinterest.com/pin/768145280205600341/');
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Box width="100%">
         <TextArea
           id="best-practices-dont-single-line"

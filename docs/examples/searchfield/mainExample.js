@@ -6,13 +6,13 @@ export default function SearchFieldExample(): ReactNode {
   const [searchValue, setSearchValue] = useState('');
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Flex gap={{ row: 4, column: 0 }} alignItems="center" flex="grow">
-        <Icon icon="pinterest" color="brandPrimary" size={20} accessibilityLabel="Pinterest" />
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Flex alignItems="center" flex="grow" gap={{ row: 4, column: 0 }}>
+        <Icon accessibilityLabel="Pinterest" color="brandPrimary" icon="pinterest" size={20} />
         <Flex.Item flex="grow">
           <SearchField
-            accessibilityLabel="Search all of Pinterest"
             accessibilityClearButtonLabel="Clear search field"
+            accessibilityLabel="Search all of Pinterest"
             id="searchFieldMainExample"
             onChange={({ value }) => setSearchValue(value)}
             placeholder="Search and explore"

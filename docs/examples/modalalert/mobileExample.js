@@ -11,9 +11,9 @@ export default function Example(): ReactNode {
         <Button
           accessibilityLabel="Show Modal"
           color="red"
-          text="Show Modal"
-          size="lg"
           onClick={() => setShowComponent(true)}
+          size="lg"
+          text="Show Modal"
         />
       </Box>
       {showComponent ? (

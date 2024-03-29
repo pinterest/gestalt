@@ -43,24 +43,26 @@ export default function SubheadingExample(): ReactNode {
   return (
     <Fragment>
       <Box padding={8}>
-        <Button text="View subheading example" onClick={() => setShowComponent(true)} />
+        <Button onClick={() => setShowComponent(true)} text="View subheading example" />
       </Box>
       {showComponent && (
         <Layer zIndex={sheetZIndex}>
           <OverlayPanel
             accessibilityDismissButtonLabel="Close"
             accessibilityLabel="Example overlay panel to demonstrate subHeading"
-            heading="OverlayPanel with subHeading"
-            onDismiss={() => setShowComponent(false)}
             footer={
               <Flex justifyContent="end">
                 <Button color="red" text="Apply changes" />
               </Flex>
             }
+            heading="OverlayPanel with subHeading"
+            onDismiss={() => setShowComponent(false)}
             size="md"
             subHeading={
-              <Box marginBottom={4} marginStart={8} marginEnd={8}>
+              <Box marginBottom={4} marginEnd={8} marginStart={8}>
                 <Tabs
+                  activeTabIndex={activeTabIndex}
+                  onChange={handleChangeTab}
                   tabs={[
                     {
                       text: 'English',
@@ -79,8 +81,6 @@ export default function SubheadingExample(): ReactNode {
                       href: '#',
                     },
                   ]}
-                  activeTabIndex={activeTabIndex}
-                  onChange={handleChangeTab}
                 />
               </Box>
             }
