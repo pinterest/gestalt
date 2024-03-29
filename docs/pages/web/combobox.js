@@ -1,7 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
-import { BannerSlimExperiment } from '../../docs-components/BannerSlimExperiment';
 import docGen, { type DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
@@ -28,17 +27,7 @@ const PREVIEW_HEIGHT = 320;
 export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        bannerSlimExperiment={
-          <BannerSlimExperiment
-            componentName="ComboBox"
-            description="fix and improve underlying Popover component behavior. No visual updates"
-            pullRequest={3244}
-          />
-        }
-        description={generatedDocGen?.description}
-        name={generatedDocGen?.displayName}
-      >
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
         <SandpackExample
           code={main}
           hideEditor
