@@ -85,7 +85,7 @@ type Props = {
    */
   tooltip?: TooltipProps,
   /**
-   * Object detailing the trend value (change in time - e.g., +30%), and accessibility label to describe the trend's icon (e.g., "Trending up").  See the [trend variant](https://gestalt.pinterest.systems/web/datapoint#Trend) to learn more.
+   * Object detailing the trend value (change in time - e.g. +30%), and accessibility label to describe the trend's icon (e.g., "Trending up").  See the [trend variant](https://gestalt.pinterest.systems/web/datapoint#Trend) to learn more.
    */
   trend?: TrendObject,
   /**
