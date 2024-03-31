@@ -1,19 +1,25 @@
 ---
-title: About design contributions
-description: A design contribution is any design proposal that's approved for compliant release through the Gestalt Design System for other teams to reuse. Currently, we are prioritizing the contributions of components for use in our shared component Figma libraries for iOS, Android and web.
+title: Contribution types and criteria
+description: There are many types of design contributions, from components to icons. Currently, we are prioritizing the contributions of components for use in our shared component Figma libraries for iOS, Android and web. Below are guidelines to consider before submitting a contribution request.
 fullwidth: true
 ---
-## Contribution levels
+## Decision tree
+Start by quickly checking your design against Gesalt libraries and documentation to see if it has potential.
 
+<br/>
+<iframe style={{border:0}} width="100%" height="800" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F6zf0xNW6i8XHuUBVxtnGSB%2FContributions-flow-diagrams%3Ftype%3Dwhiteboard%26node-id%3D2%253A645%26t%3D2glNSrcZEWIEZZts-1" allowFullScreen></iframe>
+
+## Contribution levels
 To help unblock teams and ship faster, we've created two levels of component designs that are accepted in our system.
+
 ### Compliant contributions
-A compliant contribution contains the basic elements of visual and interaction consistency to go into Gestalt for reuse by other teams are met without introducing redundancy. This is a contribution that's considered “good enough” for release and reuse. “Good enough” includes:
+A compliant contribution contains the basic elements of visual and interaction consistency to go into Gestalt for reuse by other teams ‌without introducing redundancy. This is a contribution that's considered “good enough” for release and reuse. “Good enough” includes:
 - Design principles are met
 - Gestalt tokens and design foundations are used
 - All subcomponents are from Gestalt
-The design is a crucial part of a product feature that multiple designers are working on
+- The design is a crucial part of a product feature that multiple designers are working on
 
-For examples of the minimum work that's required to be compliant, see our [Contribution templates](https://www.figma.com/file/d8wqI2ogUtq9tl3OGfl4bK/Staging---Component-contributions?type=design&node-id=12-4910&mode=design&t=66MCS6vhDwkHSySC-11)
+For examples of the minimum work that's required to be compliant, see our [Contribution templates](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/Gestalt-Handoff-Kit?type=design&node-id=4178-1149&mode=design&t=p5YsvcbdF0QfUaqZ-11)
 
 ### Certified contributions
 A contribution that adheres to all quality standards. Mainly handled by the Gestalt Team, but external teams can also help a contribution become certified. Things that make a contribution certified include:
@@ -38,7 +44,7 @@ There are four types of valid component contributions:
 - Related component
 
 ### Net new component criteria
-A brand new component with no functional equivalent in Gestalt
+A brand new component with no functional equivalent in Gestalt.
 
 <br/>
 <ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/83t0kws845u8ut15mf7e2l8y0x2y246m/contributions-design-net-new-png.png" alt="pending"/>
@@ -51,7 +57,7 @@ A brand new component with no functional equivalent in Gestalt
 - User-tests are positive
 
 ### Component enhancement criteria
-An update or new variant of an existing Gestalt component
+An update or new variant of an existing Gestalt component.
 
 <br/>
 <ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/3vt2j4214020pv57kkv0k5isr62e6hm4/contributions-design-enhancement-png.png" alt="pending"/>
@@ -70,7 +76,7 @@ An update or new variant of an existing Gestalt component
 Completely replacing an existing component with a new one.
 
 <br/>
-<ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/sihtl8868te51548ly0tp31wy6bx7774/contributions-design-replacement-png.png" alt="pending"/>
+<ImgContainer noPadding src="https://www.pinterest-assets.com/AssetLink/sihtl8868te51548ly0tp31wy6bx7774/contributions-design-replacement-png.png" alt="pending"/>
 <br/>
 ***Please don't try this at home.***
 
@@ -100,9 +106,3 @@ Related to or an alternative to an existing  component. It doesn’t replace the
 - A visually different way to perform the same action as the related component—for example, multi-selecting via tags vs a checkbox list
 - This component doesn’t replace an existing component completely, but complements it as an alternate component
 - The related component doesn’t introduce redundancies anywhere else—another team isn’t already using a similar component
-
-## Decision tree
-To see if you have a potential contribution, go through our contribution decision tree:
-
-<br/>
-<iframe style={{border:0}} width="100%" height="800" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F6zf0xNW6i8XHuUBVxtnGSB%2FContributions-flow-diagrams%3Ftype%3Dwhiteboard%26node-id%3D2%253A645%26t%3D2glNSrcZEWIEZZts-1" allowFullScreen></iframe>

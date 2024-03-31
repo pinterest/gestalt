@@ -10,7 +10,7 @@ const teamSupportTiles: $ReadOnlyArray<DesignOverview> = [
     svg: <DesignContributionsTile />,
     title: 'Design contributions',
     description: 'Guidelines and resources for contributing designs to our system',
-    path: '/team_support/design_contributions/quick_reference',
+    path: '/team_support/design_contributions/design_contributions_overview',
   },
   {
     svg: <DesignFileHygiene />,

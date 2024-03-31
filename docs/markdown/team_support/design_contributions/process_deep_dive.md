@@ -1,5 +1,5 @@
 ---
-title: How to contribute
+title: Process deep dive
 description: The design contribution process is simple—discover a use case during your standard design process, confirm that it is a valid contribution and submit it via Slack for review, approval and release.
 fullwidth: true
 ---
@@ -7,8 +7,8 @@ fullwidth: true
 <ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/832itu8mf6vv12u8ahol4ef8oht84776/process-main-png.png" alt="pending"/>
 
 ## Before submitting a contribution
-- To speed up the process, check that you have a [valid design contribution](team_support/design_contributions/about_design_contributions#Types_of_valid_component_contributions).
-- This isn’t required, but, if you are feeling up to it, place your contribution in a starter template in our [Contribution staging Figma](https://www.figma.com/file/d8wqI2ogUtq9tl3OGfl4bK/Staging---Component-contributions?type=design&node-id=12-4910&mode=design&t=66MCS6vhDwkHSySC-11).
+- To speed up the process, review our [validation guidance](team_support/design_contributions/about_design_contributions#Types_of_valid_component_contributions).
+- If you need help organizing your contribution, go to our [Figma contribution templates](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/Gestalt-Handoff-Kit?type=design&node-id=4178-1149&mode=design&t=p5YsvcbdF0QfUaqZ-11).
 
 ## Submit via Slack
 Once ready, design contributions for our Figma component libraries can be submitted via the Gestalt Design Contribution Form in the #gestalt-design Slack channel.
@@ -39,8 +39,7 @@ Once a design is reviewed and approved to move forward, the Gestalt Team will:
 
 This will generally be handled in 1–2 design sprints, depending on the urgency of the contribution.
 
-## Rejected contributions
-If Gestalt decides that a contribution isn’t valid after review with other designers, teams‌ can escalate the decision if they feel that the design should go into the system. Note that if all teams follow our principles and visual design standards, it should be pretty rare that something has to be escalated.
-<br/>
-<iframe style={{border:0}} width="100%" height="800" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F6zf0xNW6i8XHuUBVxtnGSB%2FContributions-flow-diagrams%3Ftype%3Dwhiteboard%26node-id%3D6%253A1182%26t%3D2glNSrcZEWIEZZts-1" allowFullScreen></iframe>
-**The escalation process if needed.**
+## When contributions aren’t accepted
+
+If the Gestalt Team decides not to accept a contribution, there can still be a path forward, whether it’s keeping the design in a local library, or discussing further with Gestalt, product management and leadership. Contact us to find out more.
+
