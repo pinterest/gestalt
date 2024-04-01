@@ -1,3 +1,9 @@
+## 146.5.14 (Apr 1, 2024)
+
+### Patch
+
+- TileData: Fixing width Overlap issues ([#3490](https://github.com/pinterest/gestalt/pull/3490)) - [Preview link](https://deploy-preview-3490--gestalt.netlify.app?devexample=true)
+
 ## 146.5.13 (Mar 27, 2024)
 
 ### Patch
