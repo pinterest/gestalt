@@ -1,3 +1,9 @@
+## 146.5.15 (Apr 1, 2024)
+
+### Patch
+
+- Tokens: remove dead code in color token ([#3502](https://github.com/pinterest/gestalt/pull/3502)) - [Preview link](https://deploy-preview-3502--gestalt.netlify.app?devexample=true)
+
 ## 146.5.14 (Apr 1, 2024)
 
 ### Patch
