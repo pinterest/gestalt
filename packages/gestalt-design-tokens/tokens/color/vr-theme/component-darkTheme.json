@@ -203,7 +203,7 @@
         },
         "secondary": {
           "default": {
-            "value": "{color.gray.roboflow.600.value}",
+            "value": "{color.grayscale.600.value}",
             "comment": "Secondary button background color."
           },
           "hover": {
@@ -302,7 +302,7 @@
         },
         "disabled": {
           "default": {
-            "value": "{color.gray.roboflow.600.value}",
+            "value": "{color.grayscale.600.value}",
             "comment": "Disabled button background color."
           }
         },
@@ -662,7 +662,7 @@
       "table": {
         "row": {
           "selected": {
-            "value": "{color.white.mochimalist.0.value}",
+            "value": "{color.grayscale.0.value}",
             "comment": "Tag component disabled border color."
           }
         }

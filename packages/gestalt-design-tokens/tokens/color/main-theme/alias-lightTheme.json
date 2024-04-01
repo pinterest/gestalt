@@ -2,11 +2,11 @@
   "color": {
     "text": {
       "default": {
-        "value": "{color.black.cosmicore.900.value}",
+        "value": "{color.grayscale.900.value}",
         "comment": "Default text color"
       },
       "subtle": {
-        "value": "{color.gray.roboflow.500.value}",
+        "value": "{color.grayscale.500.value}",
         "comment": "Secondary, subtle text color"
       },
       "success": {
@@ -14,7 +14,7 @@
         "comment": "Text color to indicate success"
       },
       "disabled": {
-        "value": "{color.gray.roboflow.400.value}",
+        "value": "{color.grayscale.400.value}",
         "comment": "Disabled text color"
       },
       "error": {
@@ -26,15 +26,15 @@
         "comment": "Text color to indicate a warning or caution"
       },
       "inverse": {
-        "value": "{color.white.mochimalist.0.value}",
+        "value": "{color.grayscale.0.value}",
         "comment": "Text color to use on inverted backgrounds"
       },
       "dark": {
-        "value": "{color.black.cosmicore.900.value}",
+        "value": "{color.grayscale.900.value}",
         "comment": "Dark text color that won't change in dark mode"
       },
       "light": {
-        "value": "{color.white.mochimalist.0.value}",
+        "value": "{color.grayscale.0.value}",
         "comment": "Light text color that won't change in dark mode"
       },
       "shopping": {
@@ -48,11 +48,11 @@
     },
     "icon": {
       "default": {
-        "value": "{color.black.cosmicore.900.value}",
+        "value": "{color.grayscale.900.value}",
         "comment": "Default color for icons"
       },
       "subtle": {
-        "value": "{color.gray.roboflow.500.value}",
+        "value": "{color.grayscale.500.value}",
         "comment": "Subtle, secondary color for icons"
       },
       "success": {
@@ -60,7 +60,7 @@
         "comment": "Icon color to indicate success"
       },
       "disabled": {
-        "value": "{color.gray.roboflow.400.value}",
+        "value": "{color.grayscale.400.value}",
         "comment": "Disabled color for icons"
       },
       "error": {
@@ -80,7 +80,7 @@
         "comment": "Icon color to use for recommendations"
       },
       "inverse": {
-        "value": "{color.white.mochimalist.0.value}",
+        "value": "{color.grayscale.0.value}",
         "comment": "Icon color to use on inverted backgrounds"
       },
       "shopping": {
@@ -94,17 +94,17 @@
         }
       },
       "light": {
-        "value": "{color.white.mochimalist.0.value}",
+        "value": "{color.grayscale.0.value}",
         "comment": "Icon color that will always remain light"
       },
       "dark": {
-        "value": "{color.black.cosmicore.900.value}",
+        "value": "{color.grayscale.900.value}",
         "comment": "Icon color that will always remain dark"
       }
     },
     "background": {
       "default": {
-        "value": "{color.white.mochimalist.0.value}",
+        "value": "{color.grayscale.0.value}",
         "comment": "Background color that will match the current color scheme"
       },
       "info": {
@@ -163,7 +163,7 @@
         }
       },
       "neutral": {
-        "value": "{color.gray.roboflow.500.value}",
+        "value": "{color.grayscale.500.value}",
         "comment": "Background color to indicate neutral information"
       },
       "shopping": {
@@ -186,53 +186,53 @@
       },
       "secondary": {
         "base": {
-          "value": "{color.gray.roboflow.200.value}",
+          "value": "{color.grayscale.200.value}",
           "comment": "Secondary background color"
         },
         "strong": {
-          "value": "{color.gray.roboflow.400.value}",
+          "value": "{color.grayscale.400.value}",
           "comment": "Strong version of secondary background color, used for hover"
         },
         "weak": {
-          "value": "{color.gray.roboflow.300.value}",
+          "value": "{color.grayscale.300.value}",
           "comment": "Weak version of secondary background color, used for hover"
         }
       },
       "tertiary": {
         "base": {
-          "value": "{color.gray.roboflow.500.value}",
+          "value": "{color.grayscale.500.value}",
           "comment": "Tertiary background color"
         },
         "strong": {
-          "value": "{color.gray.roboflow.700.value}",
+          "value": "{color.grayscale.700.value}",
           "comment": "Strong version of tertiary background color, used for hover"
         },
         "weak": {
-          "value": "{color.gray.roboflow.300.value}",
+          "value": "{color.grayscale.300.value}",
           "comment": "Weak version of tertiary background color, used for hover"
         }
       },
       "selected": {
         "base": {
-          "value": "{color.black.cosmicore.900.value}",
+          "value": "{color.grayscale.900.value}",
           "comment": "Background color to indicate selected state, like a selected IconButton"
         },
         "strong": {
-          "value": "{color.gray.roboflow.700.value}",
+          "value": "{color.grayscale.700.value}",
           "comment": "Strong version of the selected background color, used for hover"
         },
         "weak": {
-          "value": "{color.gray.roboflow.400.value}",
+          "value": "{color.grayscale.400.value}",
           "comment": "Weak version of the selected background color, used for hover"
         }
       },
       "inverse": {
         "base": {
-          "value": "{color.black.cosmicore.900.value}",
+          "value": "{color.grayscale.900.value}",
           "comment": "Background color for use on inverted backgrounds"
         },
         "strong": {
-          "value": "{color.gray.roboflow.200.value}",
+          "value": "{color.grayscale.200.value}",
           "comment": "Strong version of inverse background color, used for hover"
         }
       },
@@ -255,16 +255,16 @@
         }
       },
       "dark": {
-        "value": "{color.black.cosmicore.900.value}",
+        "value": "{color.grayscale.900.value}",
         "comment": "Background color that will always be dark, no matter the color scheme"
       },
       "light": {
-        "value": "{color.white.mochimalist.0.value}",
+        "value": "{color.grayscale.0.value}",
         "comment": "Background color that will always be light, no matter the color scheme"
       },
       "elevation": {
         "accent": {
-          "value": "{color.gray.roboflow.100.value}",
+          "value": "{color.grayscale.100.value}",
           "comment": "Background color used to accent containers when shadows are not an option "
         },
         "floating": {
@@ -279,11 +279,11 @@
     },
     "border": {
       "container": {
-        "value": "{color.gray.roboflow.300.value}",
+        "value": "{color.grayscale.300.value}",
         "comment": "Used to delineate a larger container, like Card or TextArea"
       },
       "default": {
-        "value": "{color.gray.roboflow.500.value}",
+        "value": "{color.grayscale.500.value}",
         "comment": "Used to indicate specific UI element boundaries, like Checkbox or RadioButton"
       },
       "error": {

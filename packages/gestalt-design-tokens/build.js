@@ -157,6 +157,19 @@ StyleDictionary.registerFilter({
   },
 });
 
+// Filters out deprecated tokens
+StyleDictionary.registerFilter({
+  name: 'deprecatedColorFilter',
+  matcher(token) {
+    const isColor =
+      token.attributes.category === 'color' || token.attributes.category === 'elevation';
+    const isDeprecated = token?.deprecated;
+
+    if (isColor && !isDeprecated) return true;
+    return false;
+  },
+});
+
 // Filters only tokens with data-visualization
 StyleDictionary.registerFilter({
   name: 'dataVisualizationFilter',
@@ -180,25 +193,25 @@ StyleDictionary.registerTransform({
   },
 });
 
-// $FlowFixMe[missing-local-annot]
-function getMatchedThemeName(filePath) {
-  const regexa = /(.*\/)(.*)(-theme\/.*)/;
-  const matchedThemeName = filePath.match(regexa);
-
-  return matchedThemeName && matchedThemeName.length > 2 ? matchedThemeName[2] : '';
-}
-
 StyleDictionary.registerTransform({
-  name: 'name/prefix/theme',
+  name: 'name/prefix/token',
   type: 'name',
   matcher(prop) {
-    return prop.filePath.includes('theme') && !prop.filePath.includes('main-theme');
+    return !prop.filePath.includes('deprecated-main-theme');
   },
   transformer(prop) {
-    const pinregex = /pink/;
-    const isPink = pinregex.test(prop.name);
-    const prefix = getMatchedThemeName(prop.filePath);
-    return isPink ? prop.name : prop.name.replace(/^[^_]*/, (match) => `${prefix}_${match}`);
+    const pathSplit = prop.filePath.split('/');
+    const file = pathSplit[pathSplit.length - 1];
+    const isBase = file.startsWith('base');
+    let prefix = isBase ? 'base' : 'sema';
+
+    if (file.startsWith('component')) {
+      prefix = 'comp';
+    }
+
+    const isSnake = prop.name.includes('_');
+
+    return prop.name.replace(/^[^_]*/, (match) => `${prefix}${isSnake ? '_' : '-'}${match}`);
   },
 });
 
@@ -209,9 +222,22 @@ StyleDictionary.registerTransformGroup({
   transforms: [
     'attribute/cti',
     'name/cti/snake',
-    'name/prefix/theme',
+    'name/prefix/token',
     'color/hex8android',
     'size/pxToDpOrSp',
+  ],
+});
+
+StyleDictionary.registerTransformGroup({
+  name: 'webTransformGroup',
+  transforms: [
+    'attribute/cti',
+    'name/cti/kebab',
+    'name/prefix/token',
+    'time/seconds',
+    'content/icon',
+    'size/rem',
+    'color/css',
   ],
 });
 
@@ -237,7 +263,7 @@ function getWebConfig({ theme, mode }) {
     ],
     'platforms': {
       'css': {
-        'transformGroup': 'css',
+        'transformGroup': 'webTransformGroup',
         '_transformGroup_comment':
           'https://amzn.github.io/style-dictionary/#/transform_groups?id=css',
         'buildPath': 'dist/css/',
@@ -454,11 +480,14 @@ function getAndroidConfiguration({ theme, mode }) {
                   '_format_comment':
                     'https://amzn.github.io/style-dictionary/#/formats?id=androidcolors',
                   'resourceType': 'color',
-                  'filter': {
-                    'attributes': {
-                      'category': 'color',
-                    },
-                  },
+                  'filter':
+                    theme === 'vr-theme'
+                      ? 'deprecatedColorFilter'
+                      : {
+                          'attributes': {
+                            'category': 'color',
+                          },
+                        },
                   'options': {
                     'outputReferences': true,
                   },
@@ -532,11 +561,14 @@ function getAndroidConfiguration({ theme, mode }) {
                   '_format_comment':
                     'https://amzn.github.io/style-dictionary/#/formats?id=androidcolors',
                   'resourceType': 'color',
-                  'filter': {
-                    'attributes': {
-                      'category': 'color',
-                    },
-                  },
+                  'filter':
+                    theme === 'vr-theme'
+                      ? 'deprecatedColorFilter'
+                      : {
+                          'attributes': {
+                            'category': 'color',
+                          },
+                        },
                   'options': {
                     'outputReferences': true,
                   },
@@ -758,7 +790,7 @@ const platformFileMap = {
       platformFileMap.android.forEach((platform) => StyleDictionaryAndroid.buildPlatform(platform));
     }
 
-    // // web platform
+    // web platform
     if (theme === 'main-theme' || theme === 'vr-theme') {
       const StyleDictionaryWeb = StyleDictionary.extend(getWebConfig({ mode, theme }));
       platformFileMap.web.forEach((platform) => StyleDictionaryWeb.buildPlatform(platform));

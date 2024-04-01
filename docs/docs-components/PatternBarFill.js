@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, Flex, Mask, Text, useColorScheme } from 'gestalt';
-import { TOKEN_COLOR_WHITE_MOCHIMALIST_0 } from 'gestalt-design-tokens';
+import { TOKEN_COLOR_GRAYSCALE_0 } from 'gestalt-design-tokens';
 import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
 import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-light.json';
 
@@ -81,7 +81,7 @@ export default function PatternBarFill(): ReactNode {
                             <circle
                               cx="3"
                               cy="3"
-                              fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0}
+                              fill={TOKEN_COLOR_GRAYSCALE_0}
                               r="2.5"
                               stroke={hexColor('04')}
                               strokeWidth="1px"
@@ -97,7 +97,7 @@ export default function PatternBarFill(): ReactNode {
                             <path
                               d="M 0 0 L 4 8 L 8 0"
                               fill="none"
-                              stroke={TOKEN_COLOR_WHITE_MOCHIMALIST_0}
+                              stroke={TOKEN_COLOR_GRAYSCALE_0}
                               strokeWidth="1"
                             />
                           </pattern>
@@ -108,7 +108,7 @@ export default function PatternBarFill(): ReactNode {
                             width="4"
                           >
                             <rect
-                              fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0}
+                              fill={TOKEN_COLOR_GRAYSCALE_0}
                               height="4"
                               stroke={hexColor('06')}
                               strokeWidth="1px"
@@ -179,13 +179,7 @@ export default function PatternBarFill(): ReactNode {
                             y="0"
                           >
                             <rect fill={hexColor('12')} height="8" width="8" x="0" y="0" />
-                            <rect
-                              fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0}
-                              height="4"
-                              width="4"
-                              x="0"
-                              y="0"
-                            />
+                            <rect fill={TOKEN_COLOR_GRAYSCALE_0} height="4" width="4" x="0" y="0" />
                           </pattern>
                         </defs>
                         <rect

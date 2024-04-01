@@ -2,7 +2,7 @@
 import {
   TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY,
   TOKEN_COLOR_BORDER_DEFAULT,
-  TOKEN_COLOR_GRAY_ROBOFLOW_300,
+  TOKEN_COLOR_GRAYSCALE_300,
   TOKEN_COLOR_TRANSPARENT,
 } from 'gestalt-design-tokens';
 
@@ -30,7 +30,7 @@ export default function getCheckboxColor({
 
   if (state.disabled) {
     return {
-      backgroundColor: TOKEN_COLOR_GRAY_ROBOFLOW_300,
+      backgroundColor: TOKEN_COLOR_GRAYSCALE_300,
       borderColor: defaultBorderColor,
     };
   }

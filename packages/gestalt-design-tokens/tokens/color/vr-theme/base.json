@@ -162,29 +162,19 @@
         "900": { "value": "#662400" }
       }
     },
-    "white": {
-      "mochimalist": {
-        "0": { "value": "#FFFFFF" }
-      }
-    },
-    "gray": {
-      "roboflow": {
-        "50": { "value": "#F9F9F9" },
-        "100": { "value": "#F1F1F1" },
-        "200": { "value": "#E9E9E9" },
-        "300": { "value": "#CDCDCD" },
-        "400": { "value": "#A5A5A5" },
-        "500": { "value": "#767676" },
-        "550": { "value": "#5F5F5F" },
-        "600": { "value": "#4A4A4A" },
-        "700": { "value": "#2B2B2B" },
-        "800": { "value": "#191919" }
-      }
-    },
-    "black": {
-      "cosmicore": {
-        "900": { "value": "#111111" }
-      }
+    "grayscale": {
+      "0": { "value": "#FFFFFF" },
+      "50": { "value": "#FFFEF7" },
+      "100": { "value": "#F5F4ED" },
+      "200": { "value": "#E8E7E1" },
+      "300": { "value": "#C7C6C1" },
+      "400": { "value": "#969292" },
+      "450": { "value": "#757570" },
+      "500": { "value": "#636361" },
+      "600": { "value": "#4C4C4A" },
+      "700": { "value": "#2E2E2D" },
+      "800": { "value": "#1C1B1B" },
+      "900": { "value": "#000000" }
     },
     "transparent": {
       "value": "transparent"

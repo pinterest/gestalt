@@ -110,11 +110,7 @@ export default function ColorPage(): ReactNode {
               fullTokenName="color-gray-roboflow-200"
               number={200}
             />
-            <ColorTile
-              description="Mochimalist 0"
-              fullTokenName="color-white-mochimalist-0"
-              number={0}
-            />
+            <ColorTile description="Mochimalist 0" fullTokenName="color-grayscale-0" number={0} />
           </ColorSchemeCard>
           <ColorSchemeCard colorScheme="dark">
             <ColorTile
@@ -122,11 +118,7 @@ export default function ColorPage(): ReactNode {
               fullTokenName="color-red-pushpin-450"
               number={450}
             />
-            <ColorTile
-              description="Mochimalist 0"
-              fullTokenName="color-white-mochimalist-0"
-              number={0}
-            />
+            <ColorTile description="Mochimalist 0" fullTokenName="color-grayscale-0" number={0} />
             <ColorTile
               description="Skycicle 300"
               fullTokenName="color-blue-skycicle-300"

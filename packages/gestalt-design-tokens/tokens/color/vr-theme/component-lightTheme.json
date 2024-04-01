@@ -236,7 +236,7 @@
         },
         "white": {
           "default": {
-            "value": "{color.white.mochimalist.0.value}",
+            "value": "{color.grayscale.0.value}",
             "comment": "Button white background color for images with background"
           },
           "hover": {
@@ -477,7 +477,7 @@
             "comment": "Switch disabled unselected background color"
           },
           "selected": {
-            "value": "{color.gray.roboflow.500.value}",
+            "value": "{color.grayscale.500.value}",
             "comment": "Switch disabled selected background color"
           }
         }
@@ -643,14 +643,14 @@
       "table": {
         "row": {
           "selected": {
-            "value": "{color.black.cosmicore.900.value}",
+            "value": "{color.grayscale.900.value}",
             "comment": "Tag component disabled border color."
           }
         }
       },
       "tag": {
         "disabled": {
-          "value": "{color.gray.roboflow.500.value}",
+          "value": "{color.grayscale.500.value}",
           "comment": "Tag component disabled border color."
         }
       }
@@ -662,11 +662,11 @@
           "comment": "Formfield default text color."
         },
         "disabled": {
-          "value": "{color.gray.roboflow.500.value}",
+          "value": "{color.grayscale.500.value}",
           "comment": "Formfield disabled text color."
         },
         "placeholder": {
-          "value": "{color.gray.roboflow.500.value}",
+          "value": "{color.grayscale.500.value}",
           "comment": "Formfield placeholder text color."
         }
       }

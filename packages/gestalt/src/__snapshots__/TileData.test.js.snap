@@ -2853,7 +2853,7 @@ exports[`TileData Tiledata is disabled 1`] = `
                       className="checked borderSelected borderRadiusSm sizeSm check"
                       style={
                         Object {
-                          "backgroundColor": "var(--color-gray-roboflow-300)",
+                          "backgroundColor": "var(--color-grayscale-300)",
                           "borderColor": "var(--color-transparent)",
                         }
                       }

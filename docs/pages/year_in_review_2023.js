@@ -18,10 +18,10 @@ import {
 import {
   TOKEN_COLOR_BACKGROUND_DEFAULT,
   TOKEN_COLOR_BLUE_SKYCICLE_100,
+  TOKEN_COLOR_GRAYSCALE_0,
   TOKEN_COLOR_GREEN_MATCHACADO_100,
   TOKEN_COLOR_PINK_100,
   TOKEN_COLOR_PINK_200,
-  TOKEN_COLOR_WHITE_MOCHIMALIST_0,
 } from 'gestalt-design-tokens';
 import GestaltLogo from '../docs-components/GestaltLogo';
 import Docs from '../graphics/year-in-review-2023/lottie/yir-2023-docs.json';
@@ -311,7 +311,7 @@ export default function YearInReview2023(): ReactNode {
           </Box>
           <Box
             dangerouslySetInlineStyle={{
-              __style: { backgroundColor: TOKEN_COLOR_WHITE_MOCHIMALIST_0 },
+              __style: { backgroundColor: TOKEN_COLOR_GRAYSCALE_0 },
             }}
           >
             <Box paddingX={SIDE_GAP} paddingY={12} position="relative">
@@ -542,7 +542,7 @@ export default function YearInReview2023(): ReactNode {
                   dangerouslySetInlineStyle={{
                     __style: {
                       border: '4px solid #111111',
-                      backgroundColor: TOKEN_COLOR_WHITE_MOCHIMALIST_0,
+                      backgroundColor: TOKEN_COLOR_GRAYSCALE_0,
                     },
                   }}
                   display="inlineBlock"
@@ -726,7 +726,7 @@ export default function YearInReview2023(): ReactNode {
           </Box>
           <Box
             dangerouslySetInlineStyle={{
-              __style: { backgroundColor: TOKEN_COLOR_WHITE_MOCHIMALIST_0 },
+              __style: { backgroundColor: TOKEN_COLOR_GRAYSCALE_0 },
             }}
             paddingX={4}
             paddingY={12}

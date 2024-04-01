@@ -9,7 +9,7 @@ const getIllustrationCardColor = (category: ComponentCategory, hasDarkBackground
   const grayBackgrounds = ['Utilities', 'Building blocks'];
 
   if (hasDarkBackground) {
-    return 'gray-roboflow-600';
+    return 'grayscale-600';
   }
 
   if (tealBackgrounds.includes(category)) {
@@ -17,7 +17,7 @@ const getIllustrationCardColor = (category: ComponentCategory, hasDarkBackground
   }
 
   if (grayBackgrounds.includes(category)) {
-    return 'gray-roboflow-100';
+    return 'grayscale-100';
   }
 
   return 'green-matchacado-50';

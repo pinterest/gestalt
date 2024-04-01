@@ -1343,7 +1343,7 @@ exports[`TagData renders disabled selected state 1`] = `
                       className="checked borderSelected borderRadiusSm sizeSm check"
                       style={
                         Object {
-                          "backgroundColor": "var(--color-gray-roboflow-300)",
+                          "backgroundColor": "var(--color-grayscale-300)",
                           "borderColor": "var(--color-transparent)",
                         }
                       }
@@ -1467,7 +1467,7 @@ exports[`TagData renders disabled unselected state 1`] = `
                       className="enabled border borderRadiusSm sizeSm check"
                       style={
                         Object {
-                          "backgroundColor": "var(--color-gray-roboflow-300)",
+                          "backgroundColor": "var(--color-grayscale-300)",
                           "borderColor": "var(--color-transparent)",
                         }
                       }

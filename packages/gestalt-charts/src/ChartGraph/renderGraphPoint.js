@@ -1,6 +1,6 @@
 // @flow strict-local
 import { type Node as ReactNode } from 'react';
-import { TOKEN_COLOR_WHITE_MOCHIMALIST_0 } from 'gestalt-design-tokens';
+import { TOKEN_COLOR_GRAYSCALE_0 } from 'gestalt-design-tokens';
 import { type DataVisualizationColors } from './types';
 import { useHexColor } from './usePatterns';
 
@@ -35,9 +35,7 @@ export function GraphPoint({ color, cx, cy, noReposition = false }: Props): Reac
   return cy === null ? null : (
     <use
       fill={
-        decalDotCoordCorrection[color].fill === 'empty'
-          ? TOKEN_COLOR_WHITE_MOCHIMALIST_0
-          : hexColor(color)
+        decalDotCoordCorrection[color].fill === 'empty' ? TOKEN_COLOR_GRAYSCALE_0 : hexColor(color)
       }
       href={`#points-${color}`}
       stroke={hexColor(color)}

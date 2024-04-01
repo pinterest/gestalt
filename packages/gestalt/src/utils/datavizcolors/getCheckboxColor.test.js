@@ -2,7 +2,7 @@
 import {
   TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY,
   TOKEN_COLOR_BORDER_DEFAULT,
-  TOKEN_COLOR_GRAY_ROBOFLOW_300,
+  TOKEN_COLOR_GRAYSCALE_300,
   TOKEN_COLOR_TRANSPARENT,
 } from 'gestalt-design-tokens';
 import getCheckboxColor from './getCheckboxColor';
@@ -52,7 +52,7 @@ describe('DataViz Color Unit Tests', () => {
       colorStyles: { borderColor, backgroundColor },
       opts: { showByDefault: true },
     });
-    expect(color.backgroundColor).toBe(TOKEN_COLOR_GRAY_ROBOFLOW_300);
+    expect(color.backgroundColor).toBe(TOKEN_COLOR_GRAYSCALE_300);
     expect(color.borderColor).toBe(TOKEN_COLOR_TRANSPARENT);
   });
 

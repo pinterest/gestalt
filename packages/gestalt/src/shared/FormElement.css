@@ -11,7 +11,7 @@
 }
 
 .normal:hover:not(:focus):not(.disabled) {
-  border-color: var(--color-gray-roboflow-400);
+  border-color: var(--color-grayscale-400);
 }
 
 .errored {

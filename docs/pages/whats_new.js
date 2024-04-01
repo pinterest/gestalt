@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode, useState } from 'react';
 import { Badge, Box, Divider, Flex, Heading, Image, Mask, RadioGroup } from 'gestalt';
-import { TOKEN_COLOR_WHITE_MOCHIMALIST_0 } from 'gestalt-design-tokens';
+import { TOKEN_COLOR_GRAYSCALE_0 } from 'gestalt-design-tokens';
 import blogPosts from './BlogPosts.json';
 import MainSection from '../docs-components/MainSection';
 import Markdown from '../docs-components/Markdown';
@@ -45,9 +45,7 @@ function PostLayout({
           borderStyle="sm"
           dangerouslySetInlineStyle={{
             __style: {
-              backgroundColor: imageColor
-                ? `var(--color-${imageColor})`
-                : TOKEN_COLOR_WHITE_MOCHIMALIST_0,
+              backgroundColor: imageColor ? `var(--color-${imageColor})` : TOKEN_COLOR_GRAYSCALE_0,
             },
           }}
           display="none"

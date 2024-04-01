@@ -1,10 +1,7 @@
 // @flow strict-local
 import { type Node as ReactNode } from 'react';
 import { useColorScheme } from 'gestalt';
-import {
-  TOKEN_COLOR_BORDER_CONTAINER,
-  TOKEN_COLOR_WHITE_MOCHIMALIST_0,
-} from 'gestalt-design-tokens';
+import { TOKEN_COLOR_BORDER_CONTAINER, TOKEN_COLOR_GRAYSCALE_0 } from 'gestalt-design-tokens';
 import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
 import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-light.json';
 import { type DataVisualizationColors } from './types';
@@ -90,21 +87,21 @@ export default function usePatterns(): ReactNode {
       </pattern>
 
       <pattern height="5" id="pattern-02" patternUnits="userSpaceOnUse" width="5">
-        <rect fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} height="5" width="5" />
+        <rect fill={TOKEN_COLOR_GRAYSCALE_0} height="5" width="5" />
         <circle cx="2" cy="2" fill={hexColor('02')} r="2" />
       </pattern>
 
       <pattern height="3" id="pattern-03" patternUnits="userSpaceOnUse" width="3">
-        <rect fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} height="3" width="3" />
+        <rect fill={TOKEN_COLOR_GRAYSCALE_0} height="3" width="3" />
         <rect fill={hexColor('03')} height="2" width="2" />
       </pattern>
 
       <pattern height="7" id="pattern-04" patternUnits="userSpaceOnUse" width="7">
-        <rect fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} height="7" width="7" />
+        <rect fill={TOKEN_COLOR_GRAYSCALE_0} height="7" width="7" />
         <circle
           cx="3"
           cy="3"
-          fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0}
+          fill={TOKEN_COLOR_GRAYSCALE_0}
           r="2.5"
           stroke={hexColor('04')}
           strokeWidth="1px"
@@ -113,17 +110,12 @@ export default function usePatterns(): ReactNode {
 
       <pattern height="8" id="pattern-05" patternUnits="userSpaceOnUse" width="8">
         <rect fill={hexColor('05')} height="8" width="8" x="0" y="0" />
-        <path
-          d="M 0 0 L 4 8 L 8 0"
-          fill="none"
-          stroke={TOKEN_COLOR_WHITE_MOCHIMALIST_0}
-          strokeWidth="1"
-        />
+        <path d="M 0 0 L 4 8 L 8 0" fill="none" stroke={TOKEN_COLOR_GRAYSCALE_0} strokeWidth="1" />
       </pattern>
 
       <pattern height="4" id="pattern-06" patternUnits="userSpaceOnUse" width="4">
         <rect
-          fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0}
+          fill={TOKEN_COLOR_GRAYSCALE_0}
           height="4"
           stroke={hexColor('06')}
           strokeWidth="1px"
@@ -138,12 +130,12 @@ export default function usePatterns(): ReactNode {
         patternUnits="userSpaceOnUse"
         width="8"
       >
-        <rect fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} height="8" width="8" />
+        <rect fill={TOKEN_COLOR_GRAYSCALE_0} height="8" width="8" />
         <path d="M 0 0 L 4 8 L 8 0" fill="none" stroke={hexColor('07')} strokeWidth="1" />
       </pattern>
 
       <pattern height="8" id="pattern-08" patternUnits="userSpaceOnUse" width="8" x="0" y="0">
-        <rect fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} height="8" width="8" />
+        <rect fill={TOKEN_COLOR_GRAYSCALE_0} height="8" width="8" />
         <rect fill={hexColor('08')} height="4" width="4" x="0" y="0" />
         <rect fill={hexColor('08')} height="4" width="4" x="4" y="4" />
       </pattern>
@@ -155,7 +147,7 @@ export default function usePatterns(): ReactNode {
         patternUnits="userSpaceOnUse"
         width="4"
       >
-        <rect fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} height="4" width="4" />
+        <rect fill={TOKEN_COLOR_GRAYSCALE_0} height="4" width="4" />
         <rect fill={hexColor('09')} height="4" width="2" />
       </pattern>
 
@@ -168,7 +160,7 @@ export default function usePatterns(): ReactNode {
         x="0"
         y="0"
       >
-        <rect fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} height="8" width="8" />
+        <rect fill={TOKEN_COLOR_GRAYSCALE_0} height="8" width="8" />
         <rect fill={hexColor('10')} height="5" width="5" x="0" y="0" />
       </pattern>
 
@@ -179,7 +171,7 @@ export default function usePatterns(): ReactNode {
         patternUnits="userSpaceOnUse"
         width="4"
       >
-        <rect fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} height="4" width="4" />
+        <rect fill={TOKEN_COLOR_GRAYSCALE_0} height="4" width="4" />
         <rect fill={hexColor('11')} height="4" width="2" />
       </pattern>
 
@@ -193,7 +185,7 @@ export default function usePatterns(): ReactNode {
         y="0"
       >
         <rect fill={hexColor('12')} height="8" width="8" x="0" y="0" />
-        <rect fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0} height="4" width="4" x="0" y="0" />
+        <rect fill={TOKEN_COLOR_GRAYSCALE_0} height="4" width="4" x="0" y="0" />
       </pattern>
 
       <pattern
