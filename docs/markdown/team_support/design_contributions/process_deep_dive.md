@@ -8,7 +8,7 @@ fullwidth: true
 
 ## Before submitting a contribution
 - To speed up the process, review our [validation guidance](team_support/design_contributions/about_design_contributions#Types_of_valid_component_contributions).
-- If you need help organizing your contribution, go to our [Figma contribution templates](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/Gestalt-Handoff-Kit?type=design&node-id=4178-1149&mode=design&t=p5YsvcbdF0QfUaqZ-11).
+- If you need help organizing your contribution, go to our [Figma contribution templates](http://pinch.pinadmin.com/contribution-templates).
 
 ## Submit via Slack
 Once ready, design contributions for our Figma component libraries can be submitted via the Gestalt Design Contribution Form in the #gestalt-design Slack channel.

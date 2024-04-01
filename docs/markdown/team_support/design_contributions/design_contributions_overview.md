@@ -20,7 +20,7 @@ fullwidth: true
 
 ### What happens next?
 
-1. Your form responses are automatically posted in [#gestalt-design](https://pinterest.slack.com/archives/C0HUV5J93) as a thread to discuss your request with the Gestalt Team
+1. Your form responses are automatically posted in [#gestalt-design](http://pinch.pinadmin.com/gestalt-design) as a thread to discuss your request with the Gestalt Team
 2. A Gestalt On-Call designer reviews your request and responds within two business days
 3. Gestalt designers co-design with the submitter, using validation checklists, component best practices and Figma templates
 4. Approval with all parties

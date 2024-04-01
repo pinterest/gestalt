@@ -19,7 +19,7 @@ A compliant contribution contains the basic elements of visual and interaction c
 - All subcomponents are from Gestalt
 - The design is a crucial part of a product feature that multiple designers are working on
 
-For examples of the minimum work that's required to be compliant, see our [Contribution templates](https://www.figma.com/file/50RRYnFcgPTQzy1AIjQoWB/Gestalt-Handoff-Kit?type=design&node-id=4178-1149&mode=design&t=p5YsvcbdF0QfUaqZ-11)
+For examples of the minimum work that's required to be compliant, see our [Contribution templates](http://pinch.pinadmin.com/contribution-templates)
 
 ### Certified contributions
 A contribution that adheres to all quality standards. Mainly handled by the Gestalt Team, but external teams can also help a contribution become certified. Things that make a contribution certified include:
