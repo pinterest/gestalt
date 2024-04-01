@@ -1,5 +1,5 @@
 ---
-title: Inclusive Language
+title: Inclusive Language (WIP)
 description: Here are a few guidelines we recommend you follow when writing about groups and using certain terms
 fullwidth: true
 ---
