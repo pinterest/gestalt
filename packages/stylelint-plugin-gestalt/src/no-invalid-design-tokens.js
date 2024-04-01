@@ -6,14 +6,14 @@ const {
   utils: { report, ruleMessages, validateOptions },
 } = stylelint;
 
-const ruleName = 'selector-no-foo';
+const ruleName = 'stylelint-gestalt-plugin/no-invalid-design-tokens';
 
 const messages = ruleMessages(ruleName, {
   rejected: (selector) => `Unexpected "foo" within selector "${selector}"`,
 });
 
 const meta = {
-  url: 'https://github.com/stylelint-selector-no-foo/blob/main/README.md',
+  url: 'https://gestalt.pinterest.systems/get_started/developers/eslint_plugin',
 };
 
 /** @type {import('stylelint').Rule} */
@@ -24,9 +24,10 @@ const ruleFunction = (primary) => (root, result) => {
     possible: [true],
   });
 
-  if (!validOptions) return;
+  if (!validOptions) return; // If the options are invalid, don't lint
 
-  root.walkRules((ruleNode) => {
+  root.walkDecls((ruleNode) => {
+    console.log(ruleNode.value);
     const { selector } = ruleNode;
 
     if (!selector.includes('foo')) return;

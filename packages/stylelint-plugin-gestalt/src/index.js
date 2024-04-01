@@ -1,11 +1,7 @@
 // @flow strict
-/* eslint-disable import/no-import-module-exports */
-
-import test from './test';
 
 module.exports = {
   rules: {
-    'test': test,
+    'stylelint-gestalt-plugin/no-foo': true,
   },
 };
-/* eslint-enable import/no-import-module-exports */
