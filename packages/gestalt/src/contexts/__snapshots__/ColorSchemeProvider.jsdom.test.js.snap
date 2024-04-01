@@ -192,7 +192,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-background-wash-light: rgba(255, 255, 255, 0.9);
   --color-background-dark: #111111;
   --color-background-light: #ffffff;
-  --color-background-elevation-accent: #f1f1f1;
+  --color-background-elevation-accent: #191919;
   --color-background-elevation-floating: #2b2b2b;
   --color-background-elevation-raised: #4a4a4a;
   --color-background-avatar-placeholder: #404040;
@@ -225,7 +225,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-background-box-inverse: #f9f9f9;
   --color-background-box-brand: #e60023;
   --color-background-box-education: #75bfff;
-  --color-background-box-elevation-accent: #f1f1f1;
+  --color-background-box-elevation-accent: #191919;
   --color-background-box-elevation-floating: #2b2b2b;
   --color-background-box-elevation-raised: #4a4a4a;
   --color-background-box-lightwash: #535353;
@@ -1561,7 +1561,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-background-wash-light: rgba(255, 255, 255, 0.9);
   --color-background-dark: #111111;
   --color-background-light: #ffffff;
-  --color-background-elevation-accent: #f1f1f1;
+  --color-background-elevation-accent: #191919;
   --color-background-elevation-floating: #2b2b2b;
   --color-background-elevation-raised: #4a4a4a;
   --color-background-avatar-placeholder: #404040;
@@ -1594,7 +1594,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-background-box-inverse: #f9f9f9;
   --color-background-box-brand: #e60023;
   --color-background-box-education: #75bfff;
-  --color-background-box-elevation-accent: #f1f1f1;
+  --color-background-box-elevation-accent: #191919;
   --color-background-box-elevation-floating: #2b2b2b;
   --color-background-box-elevation-raised: #4a4a4a;
   --color-background-box-lightwash: #535353;
