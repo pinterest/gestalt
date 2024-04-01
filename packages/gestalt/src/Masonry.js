@@ -218,6 +218,7 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
       return;
     }
 
+    console.log('update scroll pos', getScrollPos(scrollContainer));
     this.setState({
       scrollTop: getScrollPos(scrollContainer),
     });
@@ -436,6 +437,8 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
         ? offsetScrollPos + this.containerHeight + virtualBoundsBottom
         : offsetScrollPos + this.containerHeight + virtualBuffer;
 
+      console.log('viewport', viewportTop, viewportBottom)
+
       isVisible = !(position.top + position.height < viewportTop || position.top > viewportBottom);
     } else {
       // if no scroll container is passed in, items should always be visible
@@ -445,6 +448,12 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
     // This assumes `document.dir` exists, since this method is only invoked
     // on the client. If that assumption changes, this will need to be revisited
     const isRtl = document?.dir === 'rtl';
+    console.log({
+      text: itemData.name,
+      isVisible,
+      top: position.top,
+      scrollTop: this.state.scrollTop,
+    });
 
     const itemComponent = (
       <div

@@ -1,10 +1,12 @@
 // @flow strict
 import {
+  type AbstractComponent,
   forwardRef,
   type Node as ReactNode,
   useCallback,
   useEffect,
   useImperativeHandle,
+  useLayoutEffect,
   useMemo,
   useReducer,
   useRef,
@@ -113,7 +115,11 @@ type Props<T> = {
 };
 
 type MasonryRef = {
+  +handleResize: () => void,
   +reflow: () => void,
+  +state: {
+    width: ?number,
+  },
 };
 
 /**
@@ -150,13 +156,53 @@ function useElementWidth(element: ?HTMLDivElement) {
   return width;
 }
 
+// function useObserveGridWrapper() {
+//   const [gridWrapperEl, setGridWrapperEl] = useState<?HTMLDivElement>(null);
+//   const [width, setWidth] = useState<?number>(null);
+//   const [top, setTop] = useState<?number>(null);
+//   const gridWrapperRef = useCallback((el: ?HTMLDivElement) => {
+//     if (el) {
+//       setGridWrapperEl(el);
+//     }
+//   }, []);
+
+//   useEffect(() => {
+//     if (!gridWrapperEl) {
+//       return () => {};
+//     }
+//     const observer = new IntersectionObserver((entries) => {
+//       const entry = entries[0];
+//       const { top: elTop, width: elWidth } = entry.boundingClientRect;
+//       if (top !== elTop) {
+//         setTop(elTop);
+//       }
+//       if (width !== elWidth) {
+//         setWidth(elWidth);
+//       }
+//     });
+//     observer.observe(gridWrapperEl);
+//     return () => {
+//       observer.disconnect();
+//     };
+//   }, [gridWrapperEl]);
+
+//   return {
+//     gridWrapperEl,
+//     top,
+//     ref: gridWrapperRef,
+//     width,
+//   };
+// }
+
 function useScrollContainer({
   gridWrapper,
+  // gridWrapperTop,
   scrollContainer,
 }: {
   gridWrapper: ?HTMLElement,
   scrollContainer: ?HTMLElement,
 }) {
+  const [containerOffset, setContainerOffset] = useState(0);
   const subscribeToScrollEvent = useCallback(
     (callback: () => void) => {
       scrollContainer?.addEventListener('scroll', callback);
@@ -180,12 +226,12 @@ function useScrollContainer({
     return getElementHeight(scrollContainer);
   }, [scrollContainer]);
 
-  const containerOffset = useMemo(() => {
+  useLayoutEffect(() => {
+    // recalculate container offset right before browser paints in order to ensure getBoundingClientRect is accurate
     if (scrollContainer && gridWrapper instanceof HTMLElement) {
       const relativeScrollTop = getRelativeScrollTop(scrollContainer);
-      return gridWrapper.getBoundingClientRect().top + relativeScrollTop;
+      setContainerOffset(gridWrapper.getBoundingClientRect().top + relativeScrollTop);
     }
-    return 0;
   }, [gridWrapper, scrollContainer]);
 
   return {
@@ -204,6 +250,7 @@ function useFetchOnScroll({
   loadItems,
   scrollTop,
   scrollContainerElement,
+  width,
 }: {
   containerHeight: number,
   containerOffset: number,
@@ -217,34 +264,33 @@ function useFetchOnScroll({
   ) => void,
   scrollTop: number,
   scrollContainerElement: ?HTMLElement,
+  width: ?number,
 }) {
   const isFetching = useRef<boolean>(false);
   const itemLength = items.length;
+  const scrollHeight = height + containerOffset;
+  const scrollBuffer = containerHeight * 3;
+  const shouldFetchMore =
+    loadItems &&
+    typeof loadItems === 'function' &&
+    scrollContainerElement &&
+    width != null &&
+    !isFetching.current &&
+    !hasPendingMeasurements &&
+    scrollTop + scrollBuffer > scrollHeight;
 
   useEffect(() => {
+    // indicate that we're no longer fetching once we've detected a change in item length
     isFetching.current = false;
   }, [itemLength]);
 
   useEffect(() => {
-    const shouldFetchMore = !(isFetching.current || hasPendingMeasurements);
-    if (scrollContainerElement && loadItems && typeof loadItems === 'function' && shouldFetchMore) {
-      const scrollHeight = height + containerOffset;
-      const scrollBuffer = containerHeight * 3;
-      if (scrollTop + scrollBuffer > scrollHeight) {
-        isFetching.current = true;
-        loadItems({ from: itemLength });
-      }
+    // after each render, if we've indicated that we should fetch more items, do so
+    if (shouldFetchMore) {
+      isFetching.current = true;
+      loadItems({ from: itemLength });
     }
-  }, [
-    containerOffset,
-    hasPendingMeasurements,
-    height,
-    itemLength,
-    loadItems,
-    scrollTop,
-    scrollContainerElement,
-    containerHeight,
-  ]);
+  });
 }
 
 function useLayout<T: { +[string]: mixed }>({
@@ -277,8 +323,7 @@ function useLayout<T: { +[string]: mixed }>({
   positions: $ReadOnlyArray<?Position>,
   updateMeasurement: (T, number) => void,
 } {
-  const itemToMeasureCount = minCols;
-  const forceUpdate = useForceUpdate();
+  const itemToMeasureCount = 6;
   const layoutFunction = getLayoutAlgorithm({
     columnWidth,
     gutter,
@@ -293,9 +338,22 @@ function useLayout<T: { +[string]: mixed }>({
     _logTwoColWhitespace,
   });
 
-  const calculatePositions = () => {
-    console.log('calculate positions');
-    const rawPositions = layoutFunction(items);
+  const itemMeasurements = items.filter((item) => measurementStore.has(item));
+  const itemMeasurementsCount = itemMeasurements.length;
+  const hasPendingMeasurements = itemMeasurementsCount < items.length;
+  const canPerformLayout = width != null;
+
+  const positions: $ReadOnlyArray<?Position> = useMemo(() => {
+    if (!canPerformLayout) {
+      return [];
+    }
+    // we currently calculate positions separately for items that have been measured and items that haven't
+    // maintain this paradigm for now for parity but ideally we should just able to pass all items to the layout function
+    const itemsWithMeasurements = items.filter((item) => measurementStore.has(item));
+    const itemsWithoutMeasurements = items.filter((item) => !measurementStore.has(item));
+    const rawPositions = layoutFunction(itemsWithMeasurements).concat(
+      layoutFunction(itemsWithoutMeasurements),
+    );
     let measureItemCount = 0;
     // eslint-disable-next-line flowtype/no-mutable-array
     return items.reduce((acc: Array<?Position>, item, i) => {
@@ -303,28 +361,27 @@ function useLayout<T: { +[string]: mixed }>({
       if (!position) {
         acc.push(null);
       } else {
-        const isMeasuring = position.top < 0 && position.left < 0;
-        if (isMeasuring) {
-          if (measureItemCount < itemToMeasureCount) {
-            acc.push(position);
-            measureItemCount += 1;
-          } else {
-            acc.push(null);
-          }
-        } else {
+        const hasMeasurement = measurementStore.has(item);
+        if (hasMeasurement) {
           acc.push(position);
+        } else if (measureItemCount < itemToMeasureCount) {
+          acc.push(position);
+          measureItemCount += 1;
+        } else {
+          acc.push(null);
         }
       }
       return acc;
     }, []);
-  };
+    // only recalculate positions when certain things change
+    // - items: if we get new items, we should always recalculate positions
+    // - itemMeasurementsCount: if we have a change in the number of items we've measured, we should always recalculage
+    // - canPerformLayout: if we don't have a width, we can't calculate positions yet. so recalculate once we're able to
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [itemMeasurementsCount, items, canPerformLayout]);
 
-  const hasPendingMeasurements = items.some((item) => !!item && !measurementStore.has(item));
-  const positions = calculatePositions();
   const updateMeasurement = (item: T, itemHeight: number) => {
     measurementStore.set(item, itemHeight);
-    // force update to retrigger position calculations
-    forceUpdate();
   };
 
   // Math.max() === -Infinity when there are no positions
@@ -340,9 +397,49 @@ function useLayout<T: { +[string]: mixed }>({
   };
 }
 
+function useViewport({
+  containerHeight,
+  containerOffset,
+  scrollContainer,
+  scrollTop,
+  virtualBufferFactor,
+  virtualBoundsTop,
+  virtualBoundsBottom,
+  virtualize,
+}: {
+  containerHeight: number,
+  containerOffset: number,
+  scrollContainer: ?HTMLElement,
+  scrollTop: number,
+  virtualBufferFactor: number,
+  virtualBoundsTop: ?number,
+  virtualBoundsBottom: ?number,
+  virtualize: boolean,
+}) {
+  if (virtualize && scrollContainer && Boolean(virtualBufferFactor)) {
+    const virtualBuffer = containerHeight * virtualBufferFactor;
+    const offsetScrollPos = scrollTop - containerOffset;
+    const viewportTop = virtualBoundsTop
+      ? offsetScrollPos - virtualBoundsTop
+      : offsetScrollPos - virtualBuffer;
+    const viewportBottom = virtualBoundsBottom
+      ? offsetScrollPos + containerHeight + virtualBoundsBottom
+      : offsetScrollPos + containerHeight + virtualBuffer;
+
+    return {
+      viewportTop,
+      viewportBottom,
+    };
+  }
+  return {
+    viewportTop: -Infinity,
+    viewportBottom: Infinity,
+  };
+}
+
 function Masonry<T: { +[string]: mixed }>(
   props: Props<T>,
-  ref: { current: ?MasonryRef },
+  ref: { current: null | MasonryRef, ... } | ((null | MasonryRef) => mixed),
 ): ReactNode {
   const {
     columnWidth = 236,
@@ -362,7 +459,19 @@ function Masonry<T: { +[string]: mixed }>(
   } = props;
 
   const hasSetInitialWidth = useRef(false);
-  const gridWrapperRef = useRef<?HTMLDivElement>();
+  const [gridWrapperEl, setGridWrapperEl] = useState<?HTMLDivElement>(null);
+  const gridWrapperRef = useCallback((el: ?HTMLDivElement) => {
+    if (el) {
+      setGridWrapperEl(el);
+    }
+  }, []);
+  // const {
+  //   gridWrapperEl,
+  //   top: gridWrapperTop,
+  //   ref: gridWrapperRef,
+  //   width: gridWrapperWidth,
+  // } = useObserveGridWrapper();
+
   const heightsStore = useMemo(() => new HeightsStore(), []);
 
   const measurementStore = useMemo(
@@ -379,33 +488,41 @@ function Masonry<T: { +[string]: mixed }>(
     () => (typeof window !== 'undefined' ? scrollContainer?.() : null),
     [scrollContainer],
   );
-  const width = useElementWidth(gridWrapperRef.current);
+
+  const width = useElementWidth(gridWrapperEl);
   const { containerHeight, containerOffset, scrollTop } = useScrollContainer({
-    gridWrapper: gridWrapperRef.current,
+    gridWrapper: gridWrapperEl,
+    // gridWrapperTop,
     scrollContainer: scrollContainerElement,
   });
-  const [isPending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
   const forceUpdate = useForceUpdate();
 
-  useImperativeHandle(ref, () => ({
-    reflow: () => {
-      measurementStore.reset();
-      positionStore.reset();
-      heightsStore.reset();
+  const reflow = () => {
+    measurementStore.reset();
+    positionStore.reset();
+    heightsStore.reset();
 
-      startTransition(() => {
-        forceUpdate();
-      });
+    startTransition(() => {
+      forceUpdate();
+    });
+  };
+
+  useImperativeHandle(ref, () => ({
+    handleResize: () => reflow(),
+    reflow,
+    state: {
+      width,
     },
   }));
 
+  // respond to changes in width (e.g. resize)
   useEffect(() => {
     if (hasSetInitialWidth.current && width != null) {
       // whenever the width changes, we need to reset all measurements
       // we only want to do this after the initial width has been set, so we use a ref to track that
-      measurementStore.reset();
-      positionStore.reset();
-      heightsStore.reset();
+      // reflow the grid
+      reflow();
     }
 
     if (!hasSetInitialWidth.current && width != null) {
@@ -413,8 +530,6 @@ function Masonry<T: { +[string]: mixed }>(
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width]);
-
-  let gridBody = null;
 
   const { hasPendingMeasurements, height, positions, updateMeasurement } = useLayout({
     columnWidth,
@@ -439,67 +554,55 @@ function Masonry<T: { +[string]: mixed }>(
     loadItems,
     scrollTop,
     scrollContainerElement,
+    width,
   });
 
-  console.log({ containerHeight, containerOffset, height, items, isPending, positions, scrollTop });
+  const isServerRenderOrHydration = width == null && hasPendingMeasurements;
+  const canPerformFullLayout = width != null;
 
-  if (width == null && hasPendingMeasurements) {
-    // When hyrdating from a server render, we don't have the width of the grid
-    // and the measurement store is empty
+  const { viewportTop, viewportBottom } = useViewport({
+    containerHeight,
+    containerOffset,
+    scrollContainer: scrollContainerElement,
+    scrollTop,
+    virtualBufferFactor,
+    virtualBoundsTop,
+    virtualBoundsBottom,
+    virtualize,
+  });
 
-    gridBody = (
-      <div className={styles.Masonry} role="list" style={{ height: 0, width }}>
-        {items.filter(Boolean).map((item, i) => (
-          <div // keep this in sync with renderMasonryComponent
-            // eslint-disable-next-line react/no-array-index-key
-            key={`item-${i}`}
-            ref={(el) => {
-              // purposely not checking for layout === 'serverRenderedFlexible' here
-              if (el && layout !== 'flexible') {
-                // if we're hydrating from the server, we should only measure items on the initial render pass
-                // if we're not rendering a flexible layout.  "serverRenderedFlexible" is an exception because we assume
-                // that the caller has added the proper CSS to ensure the layout is correct during server render
-                measurementStore.set(item, el.clientHeight);
-              }
-            }}
-            className="static"
-            data-column-span={item.columnSpan ?? 1}
-            data-grid-item
-            role="listitem"
-            style={{
-              top: 0,
-              left: 0,
-              transform: 'translateX(0px) translateY(0px)',
-              WebkitTransform: 'translateX(0px) translateY(0px)',
-              width:
-                layout === 'flexible' || layout === 'serverRenderedFlexible'
-                  ? undefined // we can't set a width for server rendered flexible items
-                  : layoutNumberToCssDimension(
-                      typeof item.columnSpan === 'number' && columnWidth != null && gutter != null
-                        ? columnWidth * item.columnSpan + gutter * (item.columnSpan - 1)
-                        : columnWidth,
-                    ),
-            }}
-          >
-            {renderItem({ data: item, itemIdx: i, isMeasuring: false })}
-          </div>
-        ))}
-      </div>
-    );
-  } else if (width != null) {
-    // This assumes `document.dir` exists, since this method is only invoked
-    // on the client. If that assumption changes, this will need to be revisited
-    const isRtl = document?.dir === 'rtl';
+  // This isn't great since it currently returns false during server render/hydration and potentially true after
+  // This should be revisited
+  const isRtl =
+    isServerRenderOrHydration || typeof document === 'undefined' ? false : document?.dir === 'rtl';
 
-    gridBody = (
-      <div className={styles.Masonry} role="list" style={{ height, width }}>
-        {items.map((item, i) => {
+  const gridBody =
+    isServerRenderOrHydration || canPerformFullLayout
+      ? items.filter(Boolean).map((item, i) => {
           const key = `item-${i}`;
-          const position = positions[i];
+          const position = canPerformFullLayout
+            ? positions[i]
+            : {
+                top: 0,
+                left: 0,
+                // we don't know the height yet when server rendering or hydrating
+                height: undefined,
+                width:
+                  // eslint-disable-next-line no-nested-ternary
+                  layout === 'flexible' || layout === 'serverRenderedFlexible'
+                    ? undefined // we can't set a width for server rendered flexible items
+                    : typeof item.columnSpan === 'number' && columnWidth != null && gutter != null
+                    ? columnWidth * item.columnSpan + gutter * (item.columnSpan - 1)
+                    : columnWidth,
+              };
+
+          const className = isServerRenderOrHydration ? 'static' : styles.Masonry__Item;
+
           if (!position) {
             return null;
           }
-          const isMeasurement = position.top < 0 && position.left < 0;
+
+          const isMeasurement = canPerformFullLayout ? !measurementStore.has(item) : false;
           const style = isMeasurement
             ? {
                 visibility: 'hidden',
@@ -521,62 +624,72 @@ function Masonry<T: { +[string]: mixed }>(
                 width: layoutNumberToCssDimension(position.width),
                 height: layoutNumberToCssDimension(position.height),
               };
-          let isVisible = true;
+          const isVisible =
+            isServerRenderOrHydration || isMeasurement
+              ? true
+              : !(
+                  position.top + (position.height ?? 0) < viewportTop ||
+                  position.top > viewportBottom
+                );
 
-          if (scrollContainer && Boolean(virtualBufferFactor) && !isMeasurement) {
-            const virtualBuffer = containerHeight * virtualBufferFactor;
-            const offsetScrollPos = scrollTop - containerOffset;
-            const viewportTop = virtualBoundsTop
-              ? offsetScrollPos - virtualBoundsTop
-              : offsetScrollPos - virtualBuffer;
-            const viewportBottom = virtualBoundsBottom
-              ? offsetScrollPos + containerHeight + virtualBoundsBottom
-              : offsetScrollPos + containerHeight + virtualBuffer;
-
-            isVisible = !(
-              position.top + position.height < viewportTop || position.top > viewportBottom
-            );
-          } else {
-            // if no scroll container is passed in, items should always be visible
-            isVisible = true;
-          }
-
-          const itemComponent = (
-            <div
-              key={key}
-              ref={(el) => {
+          const refCallback = isServerRenderOrHydration
+            ? (el: ?HTMLDivElement) => {
+                // purposely not checking for layout === 'serverRenderedFlexible' here
+                if (el && layout !== 'flexible') {
+                  // if we're hydrating from the server, we should only measure items on the initial render pass
+                  // if we're not rendering a flexible layout.  "serverRenderedFlexible" is an exception because we assume
+                  // that the caller has added the proper CSS to ensure the layout is correct during server render
+                  updateMeasurement(item, el.clientHeight);
+                }
+              }
+            : (el: ?HTMLDivElement) => {
                 if (el && isMeasurement) {
                   startTransition(() => {
                     updateMeasurement(item, el.clientHeight);
                   });
                 }
-              }}
-              className={[styles.Masonry__Item].join(' ')}
+              };
+          console.log('viewport', viewportTop, viewportBottom);
+          console.log({
+            text: item.name,
+            isVisible,
+            height: position.height,
+            top: position.top,
+            scrollTop,
+            viewportTop,
+            viewportBottom,
+          });
+          return isVisible ? (
+            <div
+              key={key}
+              ref={refCallback}
+              className={className}
+              data-column-span={item.columnSpan ?? 1}
               data-grid-item
               role="listitem"
               style={style}
             >
               {renderItem({ data: item, itemIdx: i, isMeasuring: isMeasurement })}
             </div>
-          );
-
-          return virtualize ? (isVisible && itemComponent) || null : itemComponent;
-        })}
-      </div>
-    );
-  }
+          ) : null;
+        })
+      : null;
 
   return (
     <div ref={gridWrapperRef} style={{ width: '100%' }}>
-      {gridBody}
+      <div className={styles.Masonry} role="list" style={{ height, width }}>
+        {gridBody}
+      </div>
     </div>
   );
 }
 
-// const { itemsToRender, itemsToMeasure, positions, updateMeasurement } = useLayout();
+const MasonryWithForwardRef: AbstractComponent<
+  Props<{ +[string]: mixed }>,
+  MasonryRef,
+> = forwardRef<Props<{ +[string]: mixed }>, MasonryRef>(Masonry);
 
-const MasonryWithForwardRef: AbstractComponent<Props, ?MasonryRef> = forwardRef(Masonry);
-
+// $FlowFixMe[prop-missing] can't get flow to be happy with this
 MasonryWithForwardRef.createMeasurementStore = createMeasurementStore;
 
 export default MasonryWithForwardRef;
