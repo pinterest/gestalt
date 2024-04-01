@@ -5,7 +5,7 @@ description: A design contribution is any design proposal that's completed and a
 fullwidth: true
 ---
 
-<ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/827rbd1qx67v7dw578m4a103058ufw61/process-slack-png.png" alt="pending"/>
+<ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/827rbd1qx67v7dw578m4a103058ufw61/process-slack-png.png" alt="Screenshot of the Slack interface with the link to the contribution form circled in red."/>
 <br/>
 
 **Note: Design contributions can only be made by Pinterest employees at the moment.**

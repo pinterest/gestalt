@@ -4,7 +4,7 @@ description: The design contribution process is simple—discover a use case dur
 fullwidth: true
 ---
 
-<ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/832itu8mf6vv12u8ahol4ef8oht84776/process-main-png.png" alt="pending"/>
+<ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/832itu8mf6vv12u8ahol4ef8oht84776/process-main-png.png" alt="Diagram of the contribution process flow from design to submit to review to approval to publish in Figma."/>
 
 ## Before submitting a contribution
 - To speed up the process, review our [validation guidance](team_support/design_contributions/about_design_contributions#Types_of_valid_component_contributions).
@@ -14,7 +14,7 @@ fullwidth: true
 Once ready, design contributions for our Figma component libraries can be submitted via the Gestalt Design Contribution Form in the #gestalt-design Slack channel.
 <br/>
 
-<ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/rfme323pbu31p3u81e1gwp4v6078143j/process-slack-png.png" alt="pending"/>
+<ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/rfme323pbu31p3u81e1gwp4v6078143j/process-slack-png.png" alt="Screenshot of the Slack interface with a link to the contribution form circled in red."/>
 <br/>
 **Pro tip:** You can also start a contribution submission from anywhere in Slack by typing the commands **/contribution** or **/gestalt** in a message box.
 
@@ -42,4 +42,3 @@ This will generally be handled in 1–2 design sprints, depending on the urgency
 ## When contributions aren’t accepted
 
 If the Gestalt Team decides not to accept a contribution, there can still be a path forward, whether it’s keeping the design in a local library, or discussing further with Gestalt, product management and leadership. Contact us to find out more.
-

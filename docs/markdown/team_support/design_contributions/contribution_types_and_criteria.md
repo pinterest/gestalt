@@ -47,7 +47,7 @@ There are four types of valid component contributions:
 A brand new component with no functional equivalent in Gestalt.
 
 <br/>
-<ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/83t0kws845u8ut15mf7e2l8y0x2y246m/contributions-design-net-new-png.png" alt="pending"/>
+<ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/83t0kws845u8ut15mf7e2l8y0x2y246m/contributions-design-net-new-png.png" alt="Screenshot of the Figma library search panel showing now results for pagination. It's followed by a screenshot of a proposed pagination component."/>
 <br/>
 **Note: This has a lower bar for approval because there is no existing functionality that may introduce redundancy to consider. Any of the below can qualify this as a valid contribution**
 
@@ -60,7 +60,7 @@ A brand new component with no functional equivalent in Gestalt.
 An update or new variant of an existing Gestalt component.
 
 <br/>
-<ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/3vt2j4214020pv57kkv0k5isr62e6hm4/contributions-design-enhancement-png.png" alt="pending"/>
+<ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/3vt2j4214020pv57kkv0k5isr62e6hm4/contributions-design-enhancement-png.png" alt="Screenshot of existing Toast variants followed by a screenshot of a new loading variant with a loadign spinner in place of a thumbnail."/>
 
 <br/>
 **Note: This has the highest bar for approval because this will impact multiple product teams and experiences.**
@@ -76,7 +76,7 @@ An update or new variant of an existing Gestalt component.
 Completely replacing an existing component with a new one.
 
 <br/>
-<ImgContainer noPadding src="https://www.pinterest-assets.com/AssetLink/sihtl8868te51548ly0tp31wy6bx7774/contributions-design-replacement-png.png" alt="pending"/>
+<ImgContainer noPadding src="https://www.pinterest-assets.com/AssetLink/sihtl8868te51548ly0tp31wy6bx7774/contributions-design-replacement-png.png" alt="Screenshot of our existing nav bar component with icons for each section of the nav. It's followed by a suggested replacement that is a dropdown instead."/>
 <br/>
 ***Please don't try this at home.***
 
@@ -92,7 +92,7 @@ Completely replacing an existing component with a new one.
 ### Related component criteria
 Related to or an alternative to an existing  component. It doesn’t replace the existing component.
 <br/>
-<ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/mx16r0b62801xk5h0yjparuy1d2m65l6/contributions-design-related-png.png" alt="pending"/>
+<ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/mx16r0b62801xk5h0yjparuy1d2m65l6/contributions-design-related-png.png" alt="Screenshot of a radio group component followed by a screenshot of the same functionality, but in larger tiles that allow for images and more text."/>
 
 <br/>
 **Note: This has the highest bar for approval because this will impact multiple product teams and experiences.**
