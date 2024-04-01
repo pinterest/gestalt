@@ -85,7 +85,7 @@ type Props = {
    */
   tooltip?: TooltipProps,
   /**
-   * Object detailing the trend value (change in time - e.g., +30%), and accessibility label to describe the trend's icon (e.g., "Trending up").  See the [trend variant](https://gestalt.pinterest.systems/web/datapoint#Trend) to learn more.
+   * Object detailing the trend value (change in time - e.g. +30%), and accessibility label to describe the trend's icon (e.g., "Trending up").  See the [trend variant](https://gestalt.pinterest.systems/web/datapoint#Trend) to learn more.
    */
   trend?: TrendObject,
   /**
@@ -145,7 +145,7 @@ export default function TileData({
 
   return (
     <MaybeTooltip disabled={disabled} tooltip={tooltip}>
-      <Box maxWidth={196}>
+      <Box>
         <TapArea
           disabled={disabled}
           onBlur={handleOnBlur}
@@ -160,7 +160,9 @@ export default function TileData({
               <InternalDatapoint
                 disabled={disabled}
                 lineClamp={2}
+                maxTitleWidth={135}
                 minTitleWidth={80}
+                numTitleRows={2}
                 title={title}
                 trend={trend}
                 trendSentiment={trendSentiment}
