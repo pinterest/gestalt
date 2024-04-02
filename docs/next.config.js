@@ -35,7 +35,7 @@ module.exports = {
       'www.pinterest-assets.com',
     ],
   },
-  reactStrictMode: false,
+  reactStrictMode: true,
   redirects: async () /*: RedirectsReturn */ => redirects,
   serverRuntimeConfig: {
     DOCS_ROOT: __dirname,

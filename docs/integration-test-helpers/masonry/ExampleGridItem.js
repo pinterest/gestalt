@@ -1,5 +1,5 @@
 // @flow strict
-import { type Element, type Node as ReactNode, useEffect, useState } from 'react';
+import { type Element, useEffect, useState } from 'react';
 
 type Props = {
   // $FlowFixMe[unclear-type]
