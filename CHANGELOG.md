@@ -1,3 +1,9 @@
+## 146.6.1 (Apr 2, 2024)
+
+### Patch
+
+- SideNavigation: Fix scrollbar clipping in collapsed state ([#3500](https://github.com/pinterest/gestalt/pull/3500)) - [Preview link](https://deploy-preview-3500--gestalt.netlify.app?devexample=true)
+
 ## 146.6.0 (Apr 2, 2024)
 
 ### Minor
