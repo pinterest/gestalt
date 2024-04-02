@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, Text } from 'gestalt';
+import { TOKEN_COLOR_TRANSPARENT } from 'gestalt-design-tokens';
 import tokens from 'gestalt-design-tokens/dist/json/variables.json';
 import ColorTile from './ColorTile';
 
@@ -22,7 +23,7 @@ function ColorPalette({ name, tokenId }: Props): ReactNode {
       </Text>
       {isTransparent ? (
         <Box marginTop={2}>
-          <ColorTile description="" fullTokenName="var(--color-color-transparent)" number={0} />
+          <ColorTile description="" number={0} token={TOKEN_COLOR_TRANSPARENT} />
         </Box>
       ) : (
         <Box marginTop={2}>
@@ -32,9 +33,9 @@ function ColorPalette({ name, tokenId }: Props): ReactNode {
             return tokens[colorVariableName] ? (
               <ColorTile
                 description={`${number}`}
-                fullTokenName={colorVariableName}
                 number={number}
                 textColor={textColor}
+                token={colorVariableName}
               />
             ) : null;
           })}
