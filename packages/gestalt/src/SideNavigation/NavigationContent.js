@@ -94,6 +94,7 @@ export default function NavigationContent({
   const contentWidth = isCollapsed ? collapsedWidth : normalWidth;
 
   return (
+    // 1st wrapper - always has dynamic width, but in overlay-preview state its width is static
     <Box
       ref={mainContainer}
       aria-label={accessibilityLabel}
@@ -105,6 +106,7 @@ export default function NavigationContent({
       width={sideNavigationCollapsed ? collapsedContainerWidth : undefined}
       zIndex={overlayPreview ? new FixedZIndex(1) : undefined}
     >
+      {/* 2nd wrapper - mainly acts as scroll-container and has dynamic width */}
       <div
         ref={scrollContainer}
         className={classnames(styles.fullHeight, layoutStyles.overflowAutoY, {
@@ -115,6 +117,7 @@ export default function NavigationContent({
         })}
         style={{ width: collapsible ? 'max-content' : undefined }}
       >
+        {/* 3rd wrapper - when collapsible=true, it has static width and responsible for expand/collpase transition */}
         <div
           className={classnames({ [styles.contentWidthTransition]: collapsible })}
           style={{ width: collapsible ? contentWidth : undefined }}
