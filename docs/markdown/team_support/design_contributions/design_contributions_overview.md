@@ -14,7 +14,7 @@ fullwidth: true
 
 ### One step to contribute
 
-- One step to get started: **complete the intake form**
+- One step to get started: **[complete the intake form](http://pinch.pinadmin.com/design-contribution-form)**
 - All you need is a Figma link for your design—your contribution doesn't need to be finalized or componentized. You’ll have a chance to answer “how done is this design” when submitting. For further tips on getting your design closer to completion, go to [Contribution levels and criteria](team_support/design_contributions/contribution_levels_and_criteria)
 <br/>
 
