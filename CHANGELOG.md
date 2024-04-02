@@ -1,3 +1,9 @@
+## 146.6.0 (Apr 2, 2024)
+
+### Minor
+
+- PopoverEducational: Release v2 ([#3501](https://github.com/pinterest/gestalt/pull/3501)) - [Preview link](https://deploy-preview-3501--gestalt.netlify.app?devexample=true)
+
 ## 146.5.15 (Apr 1, 2024)
 
 ### Patch
