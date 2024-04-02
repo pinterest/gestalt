@@ -113,6 +113,10 @@ type Props<T> = {
    * This is an experimental prop and may be removed in the future.
    */
   _logTwoColWhitespace?: (number) => void,
+  /**
+   * Experimental prop to measure all items in one batch
+   */
+  _measureAll?: boolean,
 };
 
 type MasonryRef = {
@@ -268,6 +272,7 @@ function useLayout<T: { +[string]: mixed }>({
   width,
   _twoColItems,
   _logTwoColWhitespace,
+  _measureAll,
 }: {
   columnWidth: number,
   gutter?: number,
@@ -280,6 +285,7 @@ function useLayout<T: { +[string]: mixed }>({
   width: ?number,
   _twoColItems?: boolean,
   _logTwoColWhitespace?: (number) => void,
+  _measureAll?: boolean,
 }): {
   height: number,
   hasPendingMeasurements: boolean,
@@ -330,7 +336,7 @@ function useLayout<T: { +[string]: mixed }>({
         const hasMeasurement = measurementStore.has(item);
         if (hasMeasurement) {
           acc.push(position);
-        } else if (measureItemCount < itemToMeasureCount) {
+        } else if (_measureAll || measureItemCount < itemToMeasureCount) {
           acc.push(position);
           measureItemCount += 1;
         } else {
@@ -421,6 +427,7 @@ function Masonry<T: { +[string]: mixed }>(
     virtualize = false,
     _twoColItems,
     _logTwoColWhitespace,
+    _measureAll,
   }: Props<T>,
   ref: { current: null | MasonryRef, ... } | ((null | MasonryRef) => mixed),
 ): ReactNode {
@@ -505,6 +512,7 @@ function Masonry<T: { +[string]: mixed }>(
     width,
     _twoColItems,
     _logTwoColWhitespace,
+    _measureAll,
   });
 
   useFetchOnScroll({
