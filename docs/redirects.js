@@ -203,6 +203,11 @@ const misc = [
     permanent: true,
   },
   {
+    source: '/team_support/contributions',
+    destination: '/team_support/design_contributions/design_contributions_overview',
+    permanent: true,
+  },
+  {
     source: '/how_to_hack_around_gestalt',
     destination: '/get_started/developers/hacking_gestalt',
     permanent: true,
