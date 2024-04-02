@@ -1,3 +1,9 @@
+## 146.7.1 (Apr 2, 2024)
+
+### Patch
+
+- Docs: Design contributions updates ([#3494](https://github.com/pinterest/gestalt/pull/3494)) - [Preview link](https://deploy-preview-3494--gestalt.netlify.app?devexample=true)
+
 ## 146.7.0 (Apr 2, 2024)
 
 ### Minor
