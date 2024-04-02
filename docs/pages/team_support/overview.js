@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Flex } from 'gestalt';
+import { TOKEN_COLOR_TEAL_SPABATTICAL_50 } from 'gestalt-design-tokens';
 import teamSupportTiles from '../../docs-components/data/teamSupport';
 import IllustrationCard from '../../docs-components/IllustrationCard';
 import IllustrationContainer from '../../docs-components/IllustrationContainer';
@@ -23,7 +24,7 @@ export default function TeamSupportOverview(): ReactNode {
           {teamSupportTiles.map(({ description, path, svg, title }) => (
             <IllustrationCard
               key={title}
-              color="teal-spabattical-50"
+              backgroundColor={TOKEN_COLOR_TEAL_SPABATTICAL_50}
               description={description}
               headingLevel={2}
               href={path}

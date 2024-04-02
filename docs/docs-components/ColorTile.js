@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, Text, useColorScheme } from 'gestalt';
+import { TOKEN_COLOR_TRANSPARENT } from 'gestalt-design-tokens';
 import tokens from 'gestalt-design-tokens/dist/json/variables.json';
 import darkModeTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
 
@@ -12,7 +13,7 @@ type Props = {
 };
 
 function ColorTile({ description, fullTokenName, number = 400, textColor }: Props): ReactNode {
-  const isTransparent = fullTokenName === 'color-transparent';
+  const isTransparent = fullTokenName === TOKEN_COLOR_TRANSPARENT;
   const newTextColor = textColor || (number > 400 ? 'light' : 'dark');
   const borderNeeded =
     fullTokenName?.includes('white') ||
@@ -26,7 +27,7 @@ function ColorTile({ description, fullTokenName, number = 400, textColor }: Prop
       alignItems="center"
       borderStyle={borderNeeded ? 'lg' : 'none'}
       dangerouslySetInlineStyle={{
-        __style: { backgroundColor: `var(--${fullTokenName})` },
+        __style: { backgroundColor: fullTokenName },
       }}
       display="flex"
       height={50}

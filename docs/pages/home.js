@@ -1,6 +1,10 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, ButtonLink, Flex, Heading, Text } from 'gestalt';
+import {
+  TOKEN_COLOR_BLUE_SKYCICLE_450,
+  TOKEN_COLOR_TEAL_SPABATTICAL_450,
+} from 'gestalt-design-tokens';
 import IllustrationCard from '../docs-components/IllustrationCard';
 import IllustrationSection from '../docs-components/IllustrationSection';
 import Page from '../docs-components/Page';
@@ -51,7 +55,7 @@ export default function HomePage(): ReactNode {
           {/* Get started */}
           <IllustrationSection title="Get started">
             <IllustrationCard
-              color="blue-skycicle-450"
+              backgroundColor={TOKEN_COLOR_BLUE_SKYCICLE_450}
               description="Our brand-new guide for designers to get started using Gestalt"
               headingLevel={3}
               href="/get_started/designers"
@@ -59,7 +63,7 @@ export default function HomePage(): ReactNode {
               title="Designer onboarding and tooling"
             />
             <IllustrationCard
-              color="blue-skycicle-450"
+              backgroundColor={TOKEN_COLOR_BLUE_SKYCICLE_450}
               description="How to set up for development and create pull requests"
               headingLevel={3}
               href="/get_started/developers/contributing/development_process"
@@ -67,7 +71,7 @@ export default function HomePage(): ReactNode {
               title="Developer onboarding and tooling"
             />
             <IllustrationCard
-              color="blue-skycicle-450"
+              backgroundColor={TOKEN_COLOR_BLUE_SKYCICLE_450}
               description="Guidelines on how to engage the Gestalt team, when to work with us and how to contribute"
               headingLevel={3}
               href="/team_support/contributions"
@@ -78,7 +82,7 @@ export default function HomePage(): ReactNode {
           {/* Guidelines */}
           <IllustrationSection title="Build">
             <IllustrationCard
-              color="teal-spabattical-450"
+              backgroundColor={TOKEN_COLOR_TEAL_SPABATTICAL_450}
               description="An extensive set of UI controls and utilities to help you build great experiences"
               headingLevel={3}
               href="/web/overview"
@@ -87,7 +91,7 @@ export default function HomePage(): ReactNode {
             />
 
             <IllustrationCard
-              color="teal-spabattical-450"
+              backgroundColor={TOKEN_COLOR_TEAL_SPABATTICAL_450}
               description="Guidelines around color palettes, typography, icons and more"
               headingLevel={3}
               href="/foundations/overview"
@@ -96,7 +100,7 @@ export default function HomePage(): ReactNode {
             />
 
             <IllustrationCard
-              color="teal-spabattical-450"
+              backgroundColor={TOKEN_COLOR_TEAL_SPABATTICAL_450}
               description="What we plan to build and update in the short and long term"
               headingLevel={3}
               href="/roadmap"

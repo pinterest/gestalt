@@ -22,13 +22,13 @@ function ColorPalette({ name, tokenId }: Props): ReactNode {
       </Text>
       {isTransparent ? (
         <Box marginTop={2}>
-          <ColorTile description="" fullTokenName="color-transparent" number={0} />
+          <ColorTile description="" fullTokenName="var(--color-color-transparent)" number={0} />
         </Box>
       ) : (
         <Box marginTop={2}>
           {tokenNumbers.map((number) => {
             const textColor = number > 400 ? 'light' : 'dark';
-            const colorVariableName = `color-${colorId}-${number}`;
+            const colorVariableName = `var(--color-${colorId}-${number})`;
             return tokens[colorVariableName] ? (
               <ColorTile
                 description={`${number}`}

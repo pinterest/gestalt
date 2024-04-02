@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Flex } from 'gestalt';
+import { TOKEN_COLOR_TEAL_SPABATTICAL_50 } from 'gestalt-design-tokens';
 import foundationsTiles from '../../docs-components/data/foundations';
 import IllustrationCard from '../../docs-components/IllustrationCard';
 import IllustrationContainer from '../../docs-components/IllustrationContainer';
@@ -23,7 +24,7 @@ export default function FoundationsOverview(): ReactNode {
           {foundationsTiles.map(({ description, path, svg, title }) => (
             <IllustrationCard
               key={title}
-              color="teal-spabattical-50"
+              backgroundColor={TOKEN_COLOR_TEAL_SPABATTICAL_50}
               description={description}
               headingLevel={2}
               href={path}
