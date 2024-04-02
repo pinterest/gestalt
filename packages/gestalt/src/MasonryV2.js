@@ -16,6 +16,7 @@ import {
 } from 'react';
 import styles from './Masonry.css';
 import { type Cache } from './Masonry/Cache';
+import { TWO_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/defaultTwoColumnModuleLayout';
 import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
 import HeightsStore, { type HeightsStoreInterface } from './Masonry/HeightsStore';
 import MeasurementStore from './Masonry/MeasurementStore';
@@ -63,7 +64,7 @@ type Props<T> = {
   /**
    * Minimum number of columns to display, regardless of the container width.
    */
-  minCols: number,
+  minCols?: number,
   /**
    * Masonry internally caches positions using a position store. If `positionStore` is provided, Masonry will use it as its cache and will keep it updated with future positions.
    */
@@ -156,44 +157,6 @@ function useElementWidth(element: ?HTMLDivElement) {
   return width;
 }
 
-// function useObserveGridWrapper() {
-//   const [gridWrapperEl, setGridWrapperEl] = useState<?HTMLDivElement>(null);
-//   const [width, setWidth] = useState<?number>(null);
-//   const [top, setTop] = useState<?number>(null);
-//   const gridWrapperRef = useCallback((el: ?HTMLDivElement) => {
-//     if (el) {
-//       setGridWrapperEl(el);
-//     }
-//   }, []);
-
-//   useEffect(() => {
-//     if (!gridWrapperEl) {
-//       return () => {};
-//     }
-//     const observer = new IntersectionObserver((entries) => {
-//       const entry = entries[0];
-//       const { top: elTop, width: elWidth } = entry.boundingClientRect;
-//       if (top !== elTop) {
-//         setTop(elTop);
-//       }
-//       if (width !== elWidth) {
-//         setWidth(elWidth);
-//       }
-//     });
-//     observer.observe(gridWrapperEl);
-//     return () => {
-//       observer.disconnect();
-//     };
-//   }, [gridWrapperEl]);
-
-//   return {
-//     gridWrapperEl,
-//     top,
-//     ref: gridWrapperRef,
-//     width,
-//   };
-// }
-
 function useScrollContainer({
   gridWrapper,
   // gridWrapperTop,
@@ -202,6 +165,7 @@ function useScrollContainer({
   gridWrapper: ?HTMLElement,
   scrollContainer: ?HTMLElement,
 }) {
+  const [containerHeight, setContainerHeight] = useState(0);
   const [containerOffset, setContainerOffset] = useState(0);
   const subscribeToScrollEvent = useCallback(
     (callback: () => void) => {
@@ -219,11 +183,10 @@ function useScrollContainer({
     () => 0,
   );
 
-  const containerHeight = useMemo(() => {
-    if (!scrollContainer) {
-      return 0;
+  useLayoutEffect(() => {
+    if (scrollContainer) {
+      setContainerHeight(getElementHeight(scrollContainer));
     }
-    return getElementHeight(scrollContainer);
   }, [scrollContainer]);
 
   useLayoutEffect(() => {
@@ -323,7 +286,10 @@ function useLayout<T: { +[string]: mixed }>({
   positions: $ReadOnlyArray<?Position>,
   updateMeasurement: (T, number) => void,
 } {
-  const itemToMeasureCount = 6;
+  const hasTwoColumnItems =
+    _twoColItems &&
+    items.filter((item) => item && !positionStore.has(item)).some((item) => item.columnSpan === 2);
+  const itemToMeasureCount = hasTwoColumnItems ? TWO_COL_ITEMS_MEASURE_BATCH_SIZE : minCols;
   const layoutFunction = getLayoutAlgorithm({
     columnWidth,
     gutter,
@@ -438,16 +404,15 @@ function useViewport({
 }
 
 function Masonry<T: { +[string]: mixed }>(
-  props: Props<T>,
-  ref: { current: null | MasonryRef, ... } | ((null | MasonryRef) => mixed),
-): ReactNode {
-  const {
+  {
     columnWidth = 236,
     gutterWidth: gutter,
     items,
     layout = 'basic',
     loadItems = () => {},
+    measurementStore: measurementStoreProp,
     minCols = 3,
+    positionStore: positionStoreProp,
     renderItem,
     scrollContainer,
     virtualBufferFactor = 0.7,
@@ -456,8 +421,9 @@ function Masonry<T: { +[string]: mixed }>(
     virtualize = false,
     _twoColItems,
     _logTwoColWhitespace,
-  } = props;
-
+  }: Props<T>,
+  ref: { current: null | MasonryRef, ... } | ((null | MasonryRef) => mixed),
+): ReactNode {
   const hasSetInitialWidth = useRef(false);
   const [gridWrapperEl, setGridWrapperEl] = useState<?HTMLDivElement>(null);
   const gridWrapperRef = useCallback((el: ?HTMLDivElement) => {
@@ -465,23 +431,17 @@ function Masonry<T: { +[string]: mixed }>(
       setGridWrapperEl(el);
     }
   }, []);
-  // const {
-  //   gridWrapperEl,
-  //   top: gridWrapperTop,
-  //   ref: gridWrapperRef,
-  //   width: gridWrapperWidth,
-  // } = useObserveGridWrapper();
 
   const heightsStore = useMemo(() => new HeightsStore(), []);
 
   const measurementStore = useMemo(
-    () => props.measurementStore || createMeasurementStore(),
-    [props.measurementStore],
+    () => measurementStoreProp || createMeasurementStore(),
+    [measurementStoreProp],
   );
 
   const positionStore = useMemo(
-    () => props.positionStore || createMeasurementStore(),
-    [props.positionStore],
+    () => positionStoreProp || createMeasurementStore(),
+    [positionStoreProp],
   );
 
   const scrollContainerElement = useMemo(
@@ -492,9 +452,9 @@ function Masonry<T: { +[string]: mixed }>(
   const width = useElementWidth(gridWrapperEl);
   const { containerHeight, containerOffset, scrollTop } = useScrollContainer({
     gridWrapper: gridWrapperEl,
-    // gridWrapperTop,
     scrollContainer: scrollContainerElement,
   });
+
   const [, startTransition] = useTransition();
   const forceUpdate = useForceUpdate();
 
@@ -508,6 +468,8 @@ function Masonry<T: { +[string]: mixed }>(
     });
   };
 
+  // these are all for backwards compatibility with the old Masonry
+  // will work on removing these once this lands
   useImperativeHandle(ref, () => ({
     handleResize: () => reflow(),
     reflow,
@@ -649,16 +611,7 @@ function Masonry<T: { +[string]: mixed }>(
                   });
                 }
               };
-          console.log('viewport', viewportTop, viewportBottom);
-          console.log({
-            text: item.name,
-            isVisible,
-            height: position.height,
-            top: position.top,
-            scrollTop,
-            viewportTop,
-            viewportBottom,
-          });
+
           return isVisible ? (
             <div
               key={key}
@@ -684,12 +637,11 @@ function Masonry<T: { +[string]: mixed }>(
   );
 }
 
-const MasonryWithForwardRef: AbstractComponent<
-  Props<{ +[string]: mixed }>,
-  MasonryRef,
-> = forwardRef<Props<{ +[string]: mixed }>, MasonryRef>(Masonry);
+const MasonryWithForwardRef: AbstractComponent<Props<{ ... }>, MasonryRef> & {
+  createMeasurementStore: <T1: { ... }, T2>() => MeasurementStore<T1, T2>,
+  // $FlowIssue[incompatible-type] Flow really doesn't like adding createMeasurementStore as a static property to AbstractComponent
+} = forwardRef<Props<{ ... }>, MasonryRef>(Masonry);
 
-// $FlowFixMe[prop-missing] can't get flow to be happy with this
 MasonryWithForwardRef.createMeasurementStore = createMeasurementStore;
 
 export default MasonryWithForwardRef;

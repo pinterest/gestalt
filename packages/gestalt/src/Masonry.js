@@ -13,15 +13,13 @@ import HeightsStore, { type HeightsStoreInterface } from './Masonry/HeightsStore
 import MeasurementStore from './Masonry/MeasurementStore';
 import ScrollContainer from './Masonry/ScrollContainer';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
-import { type Position } from './Masonry/types';
+import { type Layout, type Position } from './Masonry/types';
 import uniformRowLayout from './Masonry/uniformRowLayout';
 import throttle, { type ThrottleReturn } from './throttle';
 
 const RESIZE_DEBOUNCE = 300;
 
 const layoutNumberToCssDimension = (n: ?number) => (n !== Infinity ? n : undefined);
-
-type Layout = 'basic' | 'basicCentered' | 'flexible' | 'serverRenderedFlexible' | 'uniformRow';
 
 type Props<T> = {
   /**
@@ -50,13 +48,11 @@ type Props<T> = {
    *
    * _Note that `scrollContainer` must be specified._
    */
-  loadItems?:
-    | false
-    | ((
-        ?{
-          from: number,
-        },
-      ) => void | boolean | { ... }),
+  loadItems?: (
+    ?{
+      from: number,
+    },
+  ) => void,
   /**
    * Masonry internally caches item heights using a measurement store. If `measurementStore` is provided, Masonry will use it as its cache and will keep it updated with future measurements. This is often used to prevent re-measurement when users navigate away from and back to a grid. Create a new measurement store with `Masonry.createMeasurementStore()`.
    */
@@ -138,13 +134,11 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
   static defaultProps: {
     columnWidth?: number,
     layout?: Layout,
-    loadItems?:
-      | false
-      | ((
-          ?{
-            from: number,
-          },
-        ) => void | boolean | { ... }),
+    loadItems?: (
+      ?{
+        from: number,
+      },
+    ) => void,
     minCols: number,
     virtualBufferFactor: number,
     virtualize?: boolean,
@@ -218,7 +212,6 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
       return;
     }
 
-    console.log('update scroll pos', getScrollPos(scrollContainer));
     this.setState({
       scrollTop: getScrollPos(scrollContainer),
     });
@@ -437,8 +430,6 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
         ? offsetScrollPos + this.containerHeight + virtualBoundsBottom
         : offsetScrollPos + this.containerHeight + virtualBuffer;
 
-      console.log('viewport', viewportTop, viewportBottom)
-
       isVisible = !(position.top + position.height < viewportTop || position.top > viewportBottom);
     } else {
       // if no scroll container is passed in, items should always be visible
@@ -448,12 +439,6 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
     // This assumes `document.dir` exists, since this method is only invoked
     // on the client. If that assumption changes, this will need to be revisited
     const isRtl = document?.dir === 'rtl';
-    console.log({
-      text: itemData.name,
-      isVisible,
-      top: position.top,
-      scrollTop: this.state.scrollTop,
-    });
 
     const itemComponent = (
       <div

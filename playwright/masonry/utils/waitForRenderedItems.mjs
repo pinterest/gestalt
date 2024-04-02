@@ -97,7 +97,6 @@ export default async function waitForRenderedItems(
       { polling: 'raf', timeout }
     )
     .catch(async (err) => {
-      console.log(err);
       const {
         targetItems,
         targetItemsLT,
