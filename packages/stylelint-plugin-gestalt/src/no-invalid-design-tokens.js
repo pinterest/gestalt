@@ -1,6 +1,6 @@
 // @flow strict
-import stylelint from 'stylelint';
-import tokens from 'gestalt-design-tokens/dist/js/constants';
+const tokens = require('gestalt-design-tokens/dist/js/constants');
+const stylelint = require('stylelint');
 
 const {
   createPlugin,
@@ -49,9 +49,9 @@ const ruleFunction = (primary) => (root, result) => {
   });
 };
 
-ruleFunction.ruleName = ruleName;
-ruleFunction.messages = messages;
-ruleFunction.meta = meta;
+module.exports.ruleName = ruleName;
+module.exports.messages = messages;
+module.exports.meta = meta;
 
 // $FlowFixMe[signature-verification-failure]
-export default createPlugin(ruleName, ruleFunction);
+module.exports = createPlugin(ruleName, ruleFunction);
