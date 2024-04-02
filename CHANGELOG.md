@@ -1,3 +1,9 @@
+## 146.7.0 (Apr 2, 2024)
+
+### Minor
+
+- OverlayPanel: Use ConfirmationPopover v2 #3501 ([#3506](https://github.com/pinterest/gestalt/pull/3506)) - [Preview link](https://deploy-preview-3506--gestalt.netlify.app?devexample=true)
+
 ## 146.6.1 (Apr 2, 2024)
 
 ### Patch
