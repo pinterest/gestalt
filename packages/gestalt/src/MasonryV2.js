@@ -6,7 +6,6 @@ import {
   useCallback,
   useEffect,
   useImperativeHandle,
-  useLayoutEffect,
   useMemo,
   useReducer,
   useRef,
@@ -22,6 +21,7 @@ import HeightsStore, { type HeightsStoreInterface } from './Masonry/HeightsStore
 import MeasurementStore from './Masonry/MeasurementStore';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { type Layout, type Position } from './Masonry/types';
+import useIsomorphicLayoutEffect from './useIsomorphicLayoutEffect';
 
 const layoutNumberToCssDimension = (n: ?number) => (n !== Infinity ? n : undefined);
 
@@ -183,13 +183,13 @@ function useScrollContainer({
     () => 0,
   );
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (scrollContainer) {
       setContainerHeight(getElementHeight(scrollContainer));
     }
   }, [scrollContainer]);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     // recalculate container offset right before browser paints in order to ensure getBoundingClientRect is accurate
     if (scrollContainer && gridWrapper instanceof HTMLElement) {
       const relativeScrollTop = getRelativeScrollTop(scrollContainer);
