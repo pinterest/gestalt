@@ -1,3 +1,2 @@
-coverage
-docs/build
 node_modules
+packages/stylelint-plugin-gestalt/src/__fixtures__/
