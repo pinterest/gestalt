@@ -31,4 +31,3 @@ Are you the type of person who wants all of the details? Then head over to:
 - [Contribution types and criteria](team_support/design_contributions/contribution_levels_and_criteria)
 - [Process deep dive](team_support/design_contributions/process_deep_dive)
 - [Process flow visualizations](team_support/design_contributions/process_diagrams)
-
