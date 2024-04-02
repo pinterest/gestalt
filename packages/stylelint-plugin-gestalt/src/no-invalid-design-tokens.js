@@ -1,5 +1,6 @@
 // @flow strict
 import stylelint from 'stylelint';
+import tokens from 'gestalt-design-tokens/dist/js/constants';
 
 const {
   createPlugin,
@@ -9,7 +10,7 @@ const {
 const ruleName = 'stylelint-gestalt-plugin/no-invalid-design-tokens';
 
 const messages = ruleMessages(ruleName, {
-  rejected: (selector) => `Unexpected "foo" within selector "${selector}"`,
+  rejected: (tokenName) => `This design token is invalid: ${tokenName}`,
 });
 
 const meta = {
@@ -24,20 +25,27 @@ const ruleFunction = (primary) => (root, result) => {
     possible: [true],
   });
 
+  const tokensValues = Object.entries(tokens);
+
   if (!validOptions) return; // If the options are invalid, don't lint
 
   root.walkDecls((ruleNode) => {
-    console.log(ruleNode.value);
-    const { selector } = ruleNode;
+    const match = ['color', 'font', 'rounding', 'elevation', 'opacity', 'spacing'].some(
+      (category) => ruleNode.value.startsWith(`var(--${category}`),
+    );
 
-    if (!selector.includes('foo')) return;
+    if (!match) return;
+
+    const isValid = tokensValues.some(([, value]) => ruleNode.value === value);
+
+    if (isValid) return;
 
     report({
       result,
       ruleName,
-      message: messages.rejected(selector),
+      message: messages.rejected(ruleNode.value),
       node: ruleNode,
-      word: selector,
+      word: 'hi',
     });
   });
 };
