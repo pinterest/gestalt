@@ -163,7 +163,6 @@ function useElementWidth(element: ?HTMLDivElement) {
 
 function useScrollContainer({
   gridWrapper,
-  // gridWrapperTop,
   scrollContainer,
 }: {
   gridWrapper: ?HTMLElement,
