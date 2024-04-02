@@ -1,7 +1,10 @@
 {
   "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
   "ignoreFiles": ["packages/*/dist/**/*.css", "packages/**/*.js"],
-  "plugins": ["stylelint-order", "./packages/stylelint-plugin-gestalt/src/no-invalid-design-tokens.js"],
+  "plugins": [
+    "stylelint-order",
+    "./packages/stylelint-plugin-gestalt/src/no-invalid-design-tokens.js"
+  ],
   "rules": {
     "stylelint-gestalt-plugin/no-invalid-design-tokens": true,
     "alpha-value-notation": null,
