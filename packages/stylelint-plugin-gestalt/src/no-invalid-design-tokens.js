@@ -30,20 +30,22 @@ const ruleFunction = (primary) => (root, result) => {
   if (!validOptions) return; // If the options are invalid, don't lint
 
   root.walkDecls((ruleNode) => {
-    const match = ['color', 'font', 'rounding', 'elevation', 'opacity', 'spacing'].some(
-      (category) => ruleNode.value.startsWith(`var(--${category}`),
-    );
+    const regex = /(var\(--(color|rounding|font)-[a-zA-Z0-9-]+?\))/;
+
+    const match = ruleNode.value.match(regex);
 
     if (!match) return;
 
-    const isValid = tokensValues.some(([, value]) => ruleNode.value === value);
+    // console.log(match);
+
+    const isValid = tokensValues.some(([, value]) => match[0] === value);
 
     if (isValid) return;
 
     report({
       result,
       ruleName,
-      message: messages.rejected(ruleNode.value),
+      message: messages.rejected(match[0]),
       node: ruleNode,
       word: 'hi',
     });

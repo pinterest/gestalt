@@ -8,8 +8,11 @@ const pathFormatter = getPathFormatterByRuleName(fileName);
 
 const validNonGestalt = getTestByPath(pathFormatter('valid-non-gestalt'));
 const validCodeColor = getTestByPath(pathFormatter('valid-color'));
+const validCodeComposedColor = getTestByPath(pathFormatter('valid-composed-color'));
 const validCodeRounding = getTestByPath(pathFormatter('valid-rounding'));
 const invalidCodeColor = getTestByPath(pathFormatter('invalid-color'));
+const invalidCodeComposedColor = getTestByPath(pathFormatter('invalid-composed-color'));
+
 const invalidCodeRounding = getTestByPath(pathFormatter('invalid-rounding'));
 
 const { lint } = stylelint;
@@ -36,6 +39,23 @@ it('valid color', async () => {
     results: [{ warnings, parseErrors }],
   } = await lint({
     files: [validCodeColor],
+    config: {
+      plugins: rule,
+      rules: {
+        'stylelint-gestalt-plugin/no-invalid-design-tokens': true,
+      },
+    },
+  });
+
+  expect(parseErrors).toHaveLength(0);
+  expect(warnings).toHaveLength(0);
+});
+
+it('valid composed color', async () => {
+  const {
+    results: [{ warnings, parseErrors }],
+  } = await lint({
+    files: [validCodeComposedColor],
     config: {
       plugins: rule,
       rules: {
@@ -87,6 +107,30 @@ it('invalid color', async () => {
     'This design token is invalid: var(--color-gray-roboflow-420) (stylelint-gestalt-plugin/no-invalid-design-tokens)',
   );
   expect(line).toBe(2);
+});
+
+it('invalid composed color', async () => {
+  const {
+    results: [{ warnings, parseErrors }],
+  } = await lint({
+    files: [invalidCodeComposedColor],
+    config: {
+      plugins: rule,
+      rules: {
+        'stylelint-gestalt-plugin/no-invalid-design-tokens': true,
+      },
+    },
+  });
+
+  const [{ text, line }] = warnings;
+
+  expect(parseErrors).toHaveLength(0);
+  expect(warnings).toHaveLength(1);
+
+  expect(text).toBe(
+    'This design token is invalid: var(--color-gray-roboflow-420) (stylelint-gestalt-plugin/no-invalid-design-tokens)',
+  );
+  expect(line).toBe(3);
 });
 
 it('invalid rounding', async () => {
