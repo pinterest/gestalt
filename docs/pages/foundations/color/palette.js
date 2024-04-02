@@ -3,12 +3,12 @@ import { type Node as ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
 import {
   TOKEN_COLOR_BLACK_COSMICORE_900,
-  TOKEN_COLOR_BLUE_SKYCICLE_50,
   TOKEN_COLOR_BLUE_SKYCICLE_300,
   TOKEN_COLOR_BLUE_SKYCICLE_450,
-  TOKEN_COLOR_GRAY_ROBOFLOW_50,
+  TOKEN_COLOR_BLUE_SKYCICLE_500,
   TOKEN_COLOR_GRAY_ROBOFLOW_200,
   TOKEN_COLOR_GRAY_ROBOFLOW_300,
+  TOKEN_COLOR_GRAY_ROBOFLOW_500,
   TOKEN_COLOR_GREEN_MATCHACADO_450,
   TOKEN_COLOR_ORANGE_FIRETINI_450,
   TOKEN_COLOR_PINK_FLAMINGLOW_450,
@@ -40,37 +40,37 @@ const colors = [
   {
     name: 'Skycicle',
     id: 'blue',
-    token: { TOKEN_COLOR_BLUE_SKYCICLE_450 },
+    token: TOKEN_COLOR_BLUE_SKYCICLE_450,
     textColor: 'dark',
   },
   {
     name: 'Spabattical',
     id: 'teal',
-    token: { TOKEN_COLOR_TEAL_SPABATTICAL_450 },
+    token: TOKEN_COLOR_TEAL_SPABATTICAL_450,
     textColor: 'dark',
   },
   {
     name: 'Matchacado',
     id: 'green',
-    token: { TOKEN_COLOR_GREEN_MATCHACADO_450 },
+    token: TOKEN_COLOR_GREEN_MATCHACADO_450,
     textColor: 'dark',
   },
   {
     name: 'Mysticool',
     id: 'purple',
-    token: { TOKEN_COLOR_PURPLE_MYSTICOOL_450 },
+    token: TOKEN_COLOR_PURPLE_MYSTICOOL_450,
     textColor: 'light',
   },
   {
     name: 'Firetini',
     id: 'orange',
-    token: { TOKEN_COLOR_ORANGE_FIRETINI_450 },
+    token: TOKEN_COLOR_ORANGE_FIRETINI_450,
     textColor: 'dark',
   },
   {
     name: 'Caramellow',
     id: 'yellow',
-    token: { TOKEN_COLOR_YELLOW_CARAMELLOW_450 },
+    token: TOKEN_COLOR_YELLOW_CARAMELLOW_450,
     textColor: 'dark',
   },
 ];
@@ -151,12 +151,12 @@ export default function ColorPage(): ReactNode {
             <ColorTile
               description="Skycicle 500"
               number={500}
-              token={TOKEN_COLOR_BLUE_SKYCICLE_50}
+              token={TOKEN_COLOR_BLUE_SKYCICLE_500}
             />
             <ColorTile
               description="Roboflow 500"
               number={500}
-              token={TOKEN_COLOR_GRAY_ROBOFLOW_50}
+              token={TOKEN_COLOR_GRAY_ROBOFLOW_500}
             />
             <ColorTile
               description="Roboflow 200"
@@ -189,7 +189,7 @@ export default function ColorPage(): ReactNode {
             <ColorTile
               description="Roboflow 500"
               number={500}
-              token={TOKEN_COLOR_GRAY_ROBOFLOW_50}
+              token={TOKEN_COLOR_GRAY_ROBOFLOW_500}
             />
             <ColorTile
               description="Cosmicore 900"
@@ -204,13 +204,8 @@ export default function ColorPage(): ReactNode {
         name="Reserved colors"
       >
         <Flex direction="column">
-          {colors.map(({ id, name, textColor }) => (
-            <ColorTile
-              key={name}
-              description={`${name} 450`}
-              textColor={textColor}
-              token={`var(--color-${id}-${name.toLowerCase()}-450)`}
-            />
+          {colors.map(({ name, token, textColor }) => (
+            <ColorTile key={name} description={`${name} 450`} textColor={textColor} token={token} />
           ))}
         </Flex>
       </MainSection>
