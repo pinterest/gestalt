@@ -460,7 +460,10 @@ When building SideNavigation, we might want to render different combinations of 
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description="Providing `collapsed` prop to SideNavigation makes the component collapsible. Collapsible variant of SideNavigation is a controlled component and it has expand/collapse icon button at the top. Clicking the icon button reveals a complete list of navigation options when expanded and minimizes these options, often to a series of compact icons or completely hidden when collapsed. This variant is not available for mobile."
+          description={`Providing \`collapsed\` prop to SideNavigation makes the component collapsible. Collapsible variant of SideNavigation is a controlled component and it has expand/collapse icon button at the top. Clicking the icon button reveals a complete list of navigation options when expanded and minimizes these options, often to a series of compact icons or completely hidden when collapsed. This variant is not available for mobile.
+
+It is recommended the wrapper to be \`sticky\` (not \`fixed\`) so that it stays visible and keeps its position "relative" to other elements. Being sticky means SideNavigation's can naturally shift the adjacent elements/components.
+          `}
           title="Collapsible"
         >
           <MainSection.Card
