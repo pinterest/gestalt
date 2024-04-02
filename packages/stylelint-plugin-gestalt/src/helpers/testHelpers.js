@@ -1,14 +1,6 @@
 // @flow strict
 import path from 'path';
 
-export const parserOptions = {
-  sourceType: 'module',
-  ecmaVersion: 6,
-  ecmaFeatures: {
-    jsx: true,
-  },
-};
-
 type Formatter = (string) => string;
 export const getPathFormatterByRuleName =
   (ruleName: string): Formatter =>
