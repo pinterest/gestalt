@@ -5,7 +5,7 @@ description: A design contribution is any design proposal that's completed and a
 fullwidth: true
 ---
 
-<ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/827rbd1qx67v7dw578m4a103058ufw61/process-slack-png.png" alt="Screenshot of the Slack interface with the link to the contribution form circled in red."/>
+<ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/xp1o28h7ds7al708l06t13q76m2ruo85/updated-hero-png.png" alt="Screenshot of the Slack interface with the link to the contribution form circled in red."/>
 <br/>
 
 **Note: Design contributions can only be made by Pinterest employees at the moment.**
@@ -31,4 +31,3 @@ Are you the type of person who wants all of the details? Then head over to:
 - [Contribution types and criteria](team_support/design_contributions/contribution_levels_and_criteria)
 - [Process deep dive](team_support/design_contributions/process_deep_dive)
 - [Process flow visualizations](team_support/design_contributions/process_diagrams)
-
