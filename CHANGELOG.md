@@ -1,3 +1,9 @@
+## 146.7.2 (Apr 3, 2024)
+
+### Patch
+
+- Docs: Update contributions image ([#3508](https://github.com/pinterest/gestalt/pull/3508)) - [Preview link](https://deploy-preview-3508--gestalt.netlify.app?devexample=true)
+
 ## 146.7.1 (Apr 2, 2024)
 
 ### Patch
