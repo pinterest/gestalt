@@ -192,6 +192,11 @@ const misc = [
     destination: '/foundations/international_design/rtl_guidelines/typography',
     permanent: true,
   },
+    {
+    source: '/foundations/typography/guidelines',
+    destination: '/foundations/typography',
+    permanent: true,
+  },
   {
     source: '/get_started/developers/development_process',
     destination: '/get_started/developers/contributing/development_process',
