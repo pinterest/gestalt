@@ -123,7 +123,7 @@ module.exports = {
   },
   'overrides': [
     {
-      'files': ['packages/gestalt-design-tokens/**/*'],
+      'files': ['packages/gestalt-design-tokens/**/*.js'],
       'rules': {
         'gestalt/only-valid-tokens': OFF,
       },
