@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
-import { BannerSlimExperiment } from '../../docs-components/BannerSlimExperiment';
 import docGen, { type DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
@@ -22,17 +21,7 @@ type DocsType = {
 export default function DocsPage({ generatedDocGen }: DocsType): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        bannerSlimExperiment={
-          <BannerSlimExperiment
-            componentName="HelpButton"
-            description="fix and improve underlying Popover component behavior. No visual updates"
-            pullRequest={3244}
-          />
-        }
-        description={generatedDocGen?.description}
-        name={generatedDocGen?.displayName}
-      >
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
         <SandpackExample code={main} hideEditor name="Main example" previewHeight={200} />
       </PageHeader>
 
