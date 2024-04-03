@@ -12,15 +12,7 @@ import { useAppContext } from '../appContext';
 const enabledExperiments = {
   ComboBox: ['web_gestalt_popover_v2_combobox', 'mweb_gestalt_popover_v2_combobox'],
   Dropdown: ['web_gestalt_popover_v2_dropdown', 'mweb_gestalt_popover_v2_dropdown'],
-  OverlayPanel: [
-    'web_gestalt_popover_v2_confirmationpopover',
-    'mweb_gestalt_popover_v2_confirmationpopover',
-  ],
   Popover: ['web_gestalt_popover_v2', 'mweb_gestalt_popover_v2'],
-  PopoverEducational: [
-    'web_gestalt_popover_v2_popovereducational',
-    'mweb_gestalt_popover_v2_popovereducational',
-  ],
   Tooltip: ['web_gestalt_tooltip_v2', 'mweb_gestalt_tooltip_v2'],
 };
 

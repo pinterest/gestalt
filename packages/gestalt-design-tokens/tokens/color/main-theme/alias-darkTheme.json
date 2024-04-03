@@ -284,8 +284,6 @@
       },
       "elevation": {
         "accent": {
-          "value": "{color.gray.roboflow.100.value}",
-          "_darkMode": "Unsupported color",
           "value": "{color.gray.roboflow.800.value}",
           "comment": "Background color used to accent containers when shadows are not an option "
         },

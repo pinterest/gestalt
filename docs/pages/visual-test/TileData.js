@@ -8,7 +8,8 @@ export default function Snapshot(): ReactNode {
       <Box color="default" display="inlineBlock" padding={1}>
         <TileData
           selected
-          title="Impressions"
+          showCheckbox
+          title="Total CPA and thisisasuperlongtitle (Checkout)"
           trend={{ value: -5, accessibilityLabel: 'Trending down' }}
           value="1.23M"
         />

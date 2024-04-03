@@ -6,10 +6,8 @@ import ButtonLink from './ButtonLink';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import Flex from './Flex';
 import InternalPopover from './Popover/InternalPopover';
-import LegacyInternalPopover from './Popover/LegacyInternalPopover';
 import styles from './PopoverEducational.css';
 import Text from './Text';
-import useInExperiment from './useInExperiment';
 import { type Indexable } from './zIndex';
 
 type Size = 'sm' | 'flexible';
@@ -140,11 +138,6 @@ export default function PopoverEducational({
   const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
-  const isInExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_popover_v2_popovereducational',
-    mwebExperimentName: 'mweb_gestalt_popover_v2_popovereducational',
-  });
-
   if (!anchor) {
     return null;
   }
@@ -167,38 +160,6 @@ export default function PopoverEducational({
 
     textElement = <span className={textColorOverrideStyles}>{message}</span>;
   }
-
-  if (!isInExperiment)
-    return (
-      <LegacyInternalPopover
-        accessibilityLabel={accessibilityLabel}
-        anchor={anchor}
-        color="blue"
-        id={id}
-        idealDirection={idealDirection}
-        onDismiss={onDismiss}
-        positionRelativeToAnchor
-        role={primaryAction && !children ? 'dialog' : role}
-        shouldFocus={shouldFocus}
-        showCaret
-        size={size}
-        zIndex={zIndex}
-      >
-        {children ??
-          (message ? (
-            <Box padding={4} tabIndex={0}>
-              <Flex direction="column" gap={3}>
-                {textElement}
-                {primaryAction ? (
-                  <Flex.Item alignSelf="end" flex="grow">
-                    <PrimaryAction {...primaryAction} />
-                  </Flex.Item>
-                ) : null}
-              </Flex>
-            </Box>
-          ) : null)}
-      </LegacyInternalPopover>
-    );
 
   return (
     <Box position={zIndex ? 'relative' : undefined} zIndex={zIndex}>

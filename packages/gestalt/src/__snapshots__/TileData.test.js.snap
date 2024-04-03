@@ -20,11 +20,6 @@ exports[`TileData TileData renders all colors as expected 1`] = `
       >
         <div
           className="box"
-          style={
-            Object {
-              "maxWidth": 196,
-            }
-          }
         >
           <div
             aria-disabled={false}
@@ -80,6 +75,8 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="box"
                             style={
                               Object {
+                                "maxWidth": 135,
+                                "minHeight": "2em",
                                 "minWidth": 80,
                               }
                             }
@@ -168,11 +165,6 @@ exports[`TileData TileData renders all colors as expected 1`] = `
       >
         <div
           className="box"
-          style={
-            Object {
-              "maxWidth": 196,
-            }
-          }
         >
           <div
             aria-disabled={false}
@@ -228,6 +220,8 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="box"
                             style={
                               Object {
+                                "maxWidth": 135,
+                                "minHeight": "2em",
                                 "minWidth": 80,
                               }
                             }
@@ -316,11 +310,6 @@ exports[`TileData TileData renders all colors as expected 1`] = `
       >
         <div
           className="box"
-          style={
-            Object {
-              "maxWidth": 196,
-            }
-          }
         >
           <div
             aria-disabled={false}
@@ -376,6 +365,8 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="box"
                             style={
                               Object {
+                                "maxWidth": 135,
+                                "minHeight": "2em",
                                 "minWidth": 80,
                               }
                             }
@@ -464,11 +455,6 @@ exports[`TileData TileData renders all colors as expected 1`] = `
       >
         <div
           className="box"
-          style={
-            Object {
-              "maxWidth": 196,
-            }
-          }
         >
           <div
             aria-disabled={false}
@@ -524,6 +510,8 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="box"
                             style={
                               Object {
+                                "maxWidth": 135,
+                                "minHeight": "2em",
                                 "minWidth": 80,
                               }
                             }
@@ -612,11 +600,6 @@ exports[`TileData TileData renders all colors as expected 1`] = `
       >
         <div
           className="box"
-          style={
-            Object {
-              "maxWidth": 196,
-            }
-          }
         >
           <div
             aria-disabled={false}
@@ -672,6 +655,8 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="box"
                             style={
                               Object {
+                                "maxWidth": 135,
+                                "minHeight": "2em",
                                 "minWidth": 80,
                               }
                             }
@@ -760,11 +745,6 @@ exports[`TileData TileData renders all colors as expected 1`] = `
       >
         <div
           className="box"
-          style={
-            Object {
-              "maxWidth": 196,
-            }
-          }
         >
           <div
             aria-disabled={false}
@@ -820,6 +800,8 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="box"
                             style={
                               Object {
+                                "maxWidth": 135,
+                                "minHeight": "2em",
                                 "minWidth": 80,
                               }
                             }
@@ -908,11 +890,6 @@ exports[`TileData TileData renders all colors as expected 1`] = `
       >
         <div
           className="box"
-          style={
-            Object {
-              "maxWidth": 196,
-            }
-          }
         >
           <div
             aria-disabled={false}
@@ -968,6 +945,8 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="box"
                             style={
                               Object {
+                                "maxWidth": 135,
+                                "minHeight": "2em",
                                 "minWidth": 80,
                               }
                             }
@@ -1056,11 +1035,6 @@ exports[`TileData TileData renders all colors as expected 1`] = `
       >
         <div
           className="box"
-          style={
-            Object {
-              "maxWidth": 196,
-            }
-          }
         >
           <div
             aria-disabled={false}
@@ -1116,6 +1090,8 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="box"
                             style={
                               Object {
+                                "maxWidth": 135,
+                                "minHeight": "2em",
                                 "minWidth": 80,
                               }
                             }
@@ -1204,11 +1180,6 @@ exports[`TileData TileData renders all colors as expected 1`] = `
       >
         <div
           className="box"
-          style={
-            Object {
-              "maxWidth": 196,
-            }
-          }
         >
           <div
             aria-disabled={false}
@@ -1264,6 +1235,8 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="box"
                             style={
                               Object {
+                                "maxWidth": 135,
+                                "minHeight": "2em",
                                 "minWidth": 80,
                               }
                             }
@@ -1352,11 +1325,6 @@ exports[`TileData TileData renders all colors as expected 1`] = `
       >
         <div
           className="box"
-          style={
-            Object {
-              "maxWidth": 196,
-            }
-          }
         >
           <div
             aria-disabled={false}
@@ -1412,6 +1380,8 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="box"
                             style={
                               Object {
+                                "maxWidth": 135,
+                                "minHeight": "2em",
                                 "minWidth": 80,
                               }
                             }
@@ -1500,11 +1470,6 @@ exports[`TileData TileData renders all colors as expected 1`] = `
       >
         <div
           className="box"
-          style={
-            Object {
-              "maxWidth": 196,
-            }
-          }
         >
           <div
             aria-disabled={false}
@@ -1560,6 +1525,8 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="box"
                             style={
                               Object {
+                                "maxWidth": 135,
+                                "minHeight": "2em",
                                 "minWidth": 80,
                               }
                             }
@@ -1648,11 +1615,6 @@ exports[`TileData TileData renders all colors as expected 1`] = `
       >
         <div
           className="box"
-          style={
-            Object {
-              "maxWidth": 196,
-            }
-          }
         >
           <div
             aria-disabled={false}
@@ -1708,6 +1670,8 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                             className="box"
                             style={
                               Object {
+                                "maxWidth": 135,
+                                "minHeight": "2em",
                                 "minWidth": 80,
                               }
                             }
@@ -1797,11 +1761,6 @@ exports[`TileData TileData renders with tooltip 1`] = `
   >
     <div
       className="box"
-      style={
-        Object {
-          "maxWidth": 196,
-        }
-      }
     >
       <div
         aria-disabled={false}
@@ -1857,6 +1816,8 @@ exports[`TileData TileData renders with tooltip 1`] = `
                         className="box"
                         style={
                           Object {
+                            "maxWidth": 135,
+                            "minHeight": "2em",
                             "minWidth": 80,
                           }
                         }
@@ -1950,11 +1911,6 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
       >
         <div
           className="box"
-          style={
-            Object {
-              "maxWidth": 196,
-            }
-          }
         >
           <div
             aria-disabled={false}
@@ -2010,6 +1966,8 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                             className="box"
                             style={
                               Object {
+                                "maxWidth": 135,
+                                "minHeight": "2em",
                                 "minWidth": 80,
                               }
                             }
@@ -2151,11 +2109,6 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
       >
         <div
           className="box"
-          style={
-            Object {
-              "maxWidth": 196,
-            }
-          }
         >
           <div
             aria-disabled={false}
@@ -2211,6 +2164,8 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                             className="box"
                             style={
                               Object {
+                                "maxWidth": 135,
+                                "minHeight": "2em",
                                 "minWidth": 80,
                               }
                             }
@@ -2352,11 +2307,6 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
       >
         <div
           className="box"
-          style={
-            Object {
-              "maxWidth": 196,
-            }
-          }
         >
           <div
             aria-disabled={false}
@@ -2412,6 +2362,8 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                             className="box"
                             style={
                               Object {
+                                "maxWidth": 135,
+                                "minHeight": "2em",
                                 "minWidth": 80,
                               }
                             }
@@ -2554,11 +2506,6 @@ exports[`TileData TileData title truncates when really long 1`] = `
   >
     <div
       className="box"
-      style={
-        Object {
-          "maxWidth": 196,
-        }
-      }
     >
       <div
         aria-disabled={false}
@@ -2614,6 +2561,8 @@ exports[`TileData TileData title truncates when really long 1`] = `
                         className="box"
                         style={
                           Object {
+                            "maxWidth": 135,
+                            "minHeight": "2em",
                             "minWidth": 80,
                           }
                         }
@@ -2701,11 +2650,6 @@ exports[`TileData Tiledata is disabled 1`] = `
   >
     <div
       className="box"
-      style={
-        Object {
-          "maxWidth": 196,
-        }
-      }
     >
       <div
         aria-disabled={true}
@@ -2757,6 +2701,8 @@ exports[`TileData Tiledata is disabled 1`] = `
                         className="box"
                         style={
                           Object {
+                            "maxWidth": 135,
+                            "minHeight": "2em",
                             "minWidth": 80,
                           }
                         }
@@ -2887,11 +2833,6 @@ exports[`TileData Tiledata is disabled 1`] = `
 exports[`TileData renders 1`] = `
 <div
   className="box"
-  style={
-    Object {
-      "maxWidth": 196,
-    }
-  }
 >
   <div
     aria-disabled={false}
@@ -2947,6 +2888,8 @@ exports[`TileData renders 1`] = `
                     className="box"
                     style={
                       Object {
+                        "maxWidth": 135,
+                        "minHeight": "2em",
                         "minWidth": 80,
                       }
                     }
