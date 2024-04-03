@@ -13,7 +13,6 @@ declare module.exports: {|
   +'errorBase': string,
   +'errorWeak': string,
   +'infoBase': string,
-  +'infoStrong': string,
   +'infoWeak': string,
   +'inverse': string,
   +'lgCol0': string,

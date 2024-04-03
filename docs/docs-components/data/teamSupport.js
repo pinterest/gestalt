@@ -1,44 +1,36 @@
 // @flow strict
 import { type DesignOverview } from './types';
-import ComponentRequest from '../../graphics/team_support/component-request.svg';
-import ContributionsTile from '../../graphics/team_support/contributions.svg';
+import DesignContributionsTile from '../../graphics/team_support/design-contributions.svg';
 import DesignFileHygiene from '../../graphics/team_support/design-file-hygiene.svg';
 import GetHelpTile from '../../graphics/team_support/get-help.svg';
 import TrainingTile from '../../graphics/team_support/training.svg';
 
 const teamSupportTiles: $ReadOnlyArray<DesignOverview> = [
   {
-    svg: <ComponentRequest />,
-    title: 'Component request',
-    description:
-      'Instructions on how to request new components or updates to an existent component.',
-    path: '/team_support/component_request',
+    svg: <DesignContributionsTile />,
+    title: 'Design contributions',
+    description: 'Guidelines and resources for contributing designs to our system',
+    path: '/team_support/design_contributions/design_contributions_overview',
   },
   {
     svg: <DesignFileHygiene />,
     title: 'Design file hygiene',
     description:
-      'Practical instructions on how to maintain consistency and quality on design systems files when collaborating with Gestalt on Figma files.',
+      'Practical instructions on how to maintain consistency and quality on design systems files when collaborating with Gestalt on Figma files',
     path: '/team_support/design_file_hygiene/naming_convention',
-  },
-  {
-    svg: <ContributionsTile />,
-    title: 'Contributions',
-    description: 'Resources, Slack channels, meetings and events.',
-    path: '/team_support/contributions',
   },
   {
     svg: <GetHelpTile />,
     title: 'Get help',
     description:
-      'Resources on how to engage with the Gestalt team, join office hours, meetings and events.',
+      'Resources on how to engage with the Gestalt team, join office hours, meetings and events',
     path: '/team_support/get_help',
   },
   {
     svg: <TrainingTile />,
     title: 'Training',
     description:
-      'Gestalt design systems specific training to support design workflow and systems mindset.',
+      'Gestalt design systems specific training to support design workflow and systems mindset',
     path: '/team_support/training',
   },
 ];

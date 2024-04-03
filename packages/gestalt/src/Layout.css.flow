@@ -50,6 +50,7 @@ declare module.exports: {|
   +'orderFirst': string,
   +'orderLast': string,
   +'overflowAuto': string,
+  +'overflowAutoY': string,
   +'overflowHidden': string,
   +'overflowScroll': string,
   +'overflowScrollX': string,

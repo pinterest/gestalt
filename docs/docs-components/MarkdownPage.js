@@ -28,6 +28,7 @@ type Props = {
 
 const isExternal: (string) => 'blank' | void = (href) => {
   if (href.startsWith('https://')) return 'blank';
+  if (href.startsWith('http://pinch')) return 'blank';
   return undefined;
 };
 

@@ -1,3 +1,57 @@
+## 146.8.1 (Apr 3, 2024)
+
+### Patch
+
+- Internal: added Stylelint rule to prevent Gestalt token errors ([#3504](https://github.com/pinterest/gestalt/pull/3504)) - [Preview link](https://deploy-preview-3504--gestalt.netlify.app?devexample=true)
+
+## 146.8.0 (Apr 3, 2024)
+
+### Minor
+
+- HelpButton: Use Popover v2 ([#3509](https://github.com/pinterest/gestalt/pull/3509)) - [Preview link](https://deploy-preview-3509--gestalt.netlify.app?devexample=true)
+
+## 146.7.2 (Apr 3, 2024)
+
+### Patch
+
+- Docs: Update contributions image ([#3508](https://github.com/pinterest/gestalt/pull/3508)) - [Preview link](https://deploy-preview-3508--gestalt.netlify.app?devexample=true)
+
+## 146.7.1 (Apr 2, 2024)
+
+### Patch
+
+- Docs: Design contributions updates ([#3494](https://github.com/pinterest/gestalt/pull/3494)) - [Preview link](https://deploy-preview-3494--gestalt.netlify.app?devexample=true)
+
+## 146.7.0 (Apr 2, 2024)
+
+### Minor
+
+- OverlayPanel: Use ConfirmationPopover v2 #3501 ([#3506](https://github.com/pinterest/gestalt/pull/3506)) - [Preview link](https://deploy-preview-3506--gestalt.netlify.app?devexample=true)
+
+## 146.6.1 (Apr 2, 2024)
+
+### Patch
+
+- SideNavigation: Fix scrollbar clipping in collapsed state ([#3500](https://github.com/pinterest/gestalt/pull/3500)) - [Preview link](https://deploy-preview-3500--gestalt.netlify.app?devexample=true)
+
+## 146.6.0 (Apr 2, 2024)
+
+### Minor
+
+- PopoverEducational: Release v2 ([#3501](https://github.com/pinterest/gestalt/pull/3501)) - [Preview link](https://deploy-preview-3501--gestalt.netlify.app?devexample=true)
+
+## 146.5.15 (Apr 1, 2024)
+
+### Patch
+
+- Tokens: remove dead code in color token ([#3502](https://github.com/pinterest/gestalt/pull/3502)) - [Preview link](https://deploy-preview-3502--gestalt.netlify.app?devexample=true)
+
+## 146.5.14 (Apr 1, 2024)
+
+### Patch
+
+- TileData: Fixing width Overlap issues ([#3490](https://github.com/pinterest/gestalt/pull/3490)) - [Preview link](https://deploy-preview-3490--gestalt.netlify.app?devexample=true)
+
 ## 146.5.13 (Mar 27, 2024)
 
 ### Patch
