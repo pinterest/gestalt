@@ -1,3 +1,9 @@
+## 146.8.1 (Apr 3, 2024)
+
+### Patch
+
+- Internal: added Stylelint rule to prevent Gestalt token errors ([#3504](https://github.com/pinterest/gestalt/pull/3504)) - [Preview link](https://deploy-preview-3504--gestalt.netlify.app?devexample=true)
+
 ## 146.8.0 (Apr 3, 2024)
 
 ### Minor
