@@ -1,47 +1,46 @@
 // @flow strict
-import { type Node as ReactNode } from 'react';
+import { Fragment, type Node as ReactNode } from 'react';
 import { Box, Text } from 'gestalt';
-import { TOKEN_COLOR_TRANSPARENT } from 'gestalt-design-tokens';
-import tokens from 'gestalt-design-tokens/dist/json/variables.json';
 import ColorTile from './ColorTile';
 
 type Props = {
   name: string,
   tokenId: string,
+  tokenData: $ReadOnlyArray<string>,
 };
 
-function ColorPalette({ name, tokenId }: Props): ReactNode {
-  const tokenNumbers = [0, 50, 100, 200, 300, 400, 500, 550, 600, 700, 800, 900];
-  const colorId = `${tokenId}-${name.toLowerCase()}`;
+function ColorPalette({ name, tokenId, tokenData }: Props): ReactNode {
+  if (tokenData) {
+    const tiles = tokenData.map(([reference, token]) => {
+      const grade = reference.split('_').slice(-1)[0];
+      const isTransparent = tokenId === 'transparent';
+      const textColor = Number(grade) <= 400 || isTransparent ? 'dark' : 'light';
 
-  const isTransparent = tokenId === 'transparent';
+      if (!Number.isNaN(Number(grade)) || isTransparent) {
+        return (
+          <ColorTile
+            key={reference}
+            description={grade || 'transparent'}
+            number={Number(grade) || 0}
+            textColor={textColor}
+            token={token}
+          />
+        );
+      }
 
-  return (
-    <Box marginBottom={8} marginTop={8}>
-      <Text weight="bold">
-        {name} ({tokenId})
-      </Text>
-      {isTransparent ? (
-        <Box marginTop={2}>
-          <ColorTile description="" number={0} token={TOKEN_COLOR_TRANSPARENT} />
+      return null;
+    });
+
+    return (
+      <Fragment>
+        <Box marginBottom={8} marginTop={8}>
+          <Text weight="bold">
+            {name} ({tokenId})
+          </Text>
         </Box>
-      ) : (
-        <Box marginTop={2}>
-          {tokenNumbers.map((number) => {
-            const textColor = number > 400 ? 'light' : 'dark';
-            const colorVariableName = `var(--color-${colorId}-${number})`;
-            return tokens[colorVariableName] ? (
-              <ColorTile
-                description={`${number}`}
-                number={number}
-                textColor={textColor}
-                token={colorVariableName}
-              />
-            ) : null;
-          })}
-        </Box>
-      )}
-    </Box>
-  );
+        {tiles}
+      </Fragment>
+    );
+  }
 }
 export default ColorPalette;

@@ -1,7 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
-import {
+import tokens, {
   TOKEN_COLOR_BLACK_COSMICORE_900,
   TOKEN_COLOR_BLUE_SKYCICLE_300,
   TOKEN_COLOR_BLUE_SKYCICLE_450,
@@ -24,69 +24,130 @@ import MainSection from '../../../docs-components/MainSection';
 import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';
 
-const colors = [
+type DataType = $ReadOnlyArray<{
+  name: string,
+  id: string,
+  tokenData: [string, string],
+  brandToken?: string,
+  textColor: 'light' | 'dark',
+}>;
+
+const tokensData = Object.entries(tokens);
+
+const colors: DataType = [
   {
     name: 'Pushpin',
     id: 'red',
-    token: TOKEN_COLOR_RED_PUSHPIN_450,
+    // $FlowFixMe[incompatible-call]
+    tokenData: tokensData.filter(([, value]) => typeof value === 'string' && value.includes('red')),
+    brandToken: TOKEN_COLOR_RED_PUSHPIN_450,
     textColor: 'light',
   },
   {
     name: 'Flaminglow',
     id: 'pink',
-    token: TOKEN_COLOR_PINK_FLAMINGLOW_450,
+    // $FlowFixMe[incompatible-call]
+    tokenData: tokensData.filter(
+      ([, value]) => typeof value === 'string' && value.includes('pink'),
+    ),
+    brandToken: TOKEN_COLOR_PINK_FLAMINGLOW_450,
     textColor: 'dark',
   },
   {
     name: 'Skycicle',
     id: 'blue',
-    token: TOKEN_COLOR_BLUE_SKYCICLE_450,
+    // $FlowFixMe[incompatible-call]
+    tokenData: tokensData.filter(
+      ([, value]) => typeof value === 'string' && value.includes('blue'),
+    ),
+    brandToken: TOKEN_COLOR_BLUE_SKYCICLE_450,
     textColor: 'dark',
   },
   {
     name: 'Spabattical',
     id: 'teal',
-    token: TOKEN_COLOR_TEAL_SPABATTICAL_450,
+    // $FlowFixMe[incompatible-call]
+    tokenData: tokensData.filter(
+      ([, value]) => typeof value === 'string' && value.includes('teal'),
+    ),
+    brandToken: TOKEN_COLOR_TEAL_SPABATTICAL_450,
     textColor: 'dark',
   },
   {
     name: 'Matchacado',
     id: 'green',
-    token: TOKEN_COLOR_GREEN_MATCHACADO_450,
+    // $FlowFixMe[incompatible-call]
+    tokenData: tokensData.filter(
+      ([, value]) => typeof value === 'string' && value.includes('green'),
+    ),
+    brandToken: TOKEN_COLOR_GREEN_MATCHACADO_450,
     textColor: 'dark',
   },
   {
     name: 'Mysticool',
     id: 'purple',
-    token: TOKEN_COLOR_PURPLE_MYSTICOOL_450,
+    // $FlowFixMe[incompatible-call]
+    tokenData: tokensData.filter(
+      ([, value]) => typeof value === 'string' && value.includes('purple'),
+    ),
+    brandToken: TOKEN_COLOR_PURPLE_MYSTICOOL_450,
     textColor: 'light',
   },
   {
     name: 'Firetini',
     id: 'orange',
-    token: TOKEN_COLOR_ORANGE_FIRETINI_450,
+    // $FlowFixMe[incompatible-call]
+    tokenData: tokensData.filter(
+      ([, value]) => typeof value === 'string' && value.includes('orange'),
+    ),
+    brandToken: TOKEN_COLOR_ORANGE_FIRETINI_450,
     textColor: 'dark',
   },
   {
     name: 'Caramellow',
     id: 'yellow',
-    token: TOKEN_COLOR_YELLOW_CARAMELLOW_450,
+    // $FlowFixMe[incompatible-call]
+    tokenData: tokensData.filter(
+      ([, value]) => typeof value === 'string' && value.includes('yellow'),
+    ),
+    brandToken: TOKEN_COLOR_YELLOW_CARAMELLOW_450,
     textColor: 'dark',
   },
 ];
 
-const neutrals = [
-  { name: 'Mochimalist', id: 'white', textColor: 'dark' },
-  { name: 'Roboflow', id: 'gray', textColor: 'dark' },
-  { name: 'Cosmicore', id: 'black', textColor: 'light' },
+const neutrals: DataType = [
+  {
+    name: 'Mochimalist',
+    id: 'white',
+    textColor: 'dark',
+    // $FlowFixMe[incompatible-call]
+    tokenData: tokensData.filter(
+      ([, value]) => typeof value === 'string' && value.includes('white'),
+    ),
+  },
+  {
+    name: 'Roboflow',
+    id: 'gray',
+    textColor: 'dark', // $FlowFixMe[incompatible-call]
+    tokenData: tokensData.filter(
+      ([, value]) => typeof value === 'string' && value.includes('gray'),
+    ),
+  },
+  {
+    name: 'Cosmicore',
+    id: 'black',
+    textColor: 'light', // $FlowFixMe[incompatible-call]
+    tokenData: tokensData.filter(
+      ([, value]) => typeof value === 'string' && value.includes('black'),
+    ),
+  },
 ];
-
-const transparent = [{ name: '', id: 'transparent', textColor: 'dark' }];
 
 type ColorCardProps = {
   children: ReactNode,
   colorScheme: 'light' | 'dark',
 };
+
 function ColorSchemeCard({ children, colorScheme }: ColorCardProps): ReactNode {
   return (
     <Flex
@@ -204,8 +265,13 @@ export default function ColorPage(): ReactNode {
         name="Reserved colors"
       >
         <Flex direction="column">
-          {colors.map(({ name, token, textColor }) => (
-            <ColorTile key={name} description={`${name} 450`} textColor={textColor} token={token} />
+          {colors.map(({ name, brandToken, textColor }) => (
+            <ColorTile
+              key={name}
+              description={`${name} 450`}
+              textColor={textColor}
+              token={brandToken}
+            />
           ))}
         </Flex>
       </MainSection>
@@ -226,23 +292,30 @@ export default function ColorPage(): ReactNode {
             }}
             wrap
           >
-            {colors.map(({ id, name }) => (
-              <ColorPalette key={name} name={name} tokenId={id} />
+            {colors.map(({ id, name, tokenData }) => (
+              <ColorPalette key={name} name={name} tokenData={tokenData} tokenId={id} />
             ))}
           </Flex>
         </MainSection.Subsection>
         <MainSection.Subsection description="Pinterest name (common name)" title="Neutrals">
           <Flex direction="column">
-            {neutrals.map(({ id, name }) => (
-              <ColorPalette key={name} name={name} tokenId={id} />
+            {neutrals.map(({ id, name, tokenData }) => (
+              <ColorPalette key={name} name={name} tokenData={tokenData} tokenId={id} />
             ))}
           </Flex>
         </MainSection.Subsection>
         <MainSection.Subsection description="(common name)" title="Transparent">
           <Flex direction="column">
-            {transparent.map(({ id, name }) => (
-              <ColorPalette key={name} name={name} tokenId={id} />
-            ))}
+            <ColorPalette
+              key=""
+              name=""
+              // $FlowFixMe[incompatible-call]
+              tokenData={tokensData.filter(
+                ([, value]) => typeof value === 'string' && value.includes('color-transparent'),
+              )}
+              tokenId="transparent"
+            />
+            {/* const transparent = [{ name: '', id: 'transparent', }]; */}
           </Flex>
         </MainSection.Subsection>
         <MainSection.Subsection

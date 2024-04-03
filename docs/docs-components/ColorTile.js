@@ -6,7 +6,7 @@ import tokens from 'gestalt-design-tokens/dist/json/variables.json';
 import darkModeTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
 
 type Props = {
-  token: string,
+  token: ?string,
   description: string,
   number?: number,
   textColor?: 'dark' | 'light' | 'default' | 'inverse',
@@ -23,13 +23,13 @@ function ColorTile({ description, token, number = 400, textColor }: Props): Reac
   const { colorSchemeName } = useColorScheme();
 
   const regex = /(?<=--)(.*?)(?=\))/g;
-  const tokenName = token.match(regex)?.[0];
+  const tokenName = token?.match(regex)?.[0];
   return (
     <Box
       alignItems="center"
       borderStyle={borderNeeded ? 'lg' : 'none'}
       dangerouslySetInlineStyle={{
-        __style: { backgroundColor: token },
+        __style: token ? { backgroundColor: token } : {},
       }}
       display="flex"
       height={50}

@@ -4,7 +4,7 @@ description: Sheets are bottom-anchored overlays that that allow the user to eas
 fullwidth: true
 ---
 
-<ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/fd/6e/db/fd6edb6190b3b20a78ceff1ea7c799c4.png" alt="Example of a sheet receding off the view of the image"/>
+<ImgContainer shadedsrc="https://i.pinimg.com/originals/fd/6e/db/fd6edb6190b3b20a78ceff1ea7c799c4.png" alt="Example of a sheet receding off the view of the image"/>
 
 ## Usage guidelines
 <TwoCol>
@@ -33,12 +33,12 @@ fullwidth: true
 <br/>
 <TwoCol>
   <Group>
-    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/30/a6/ad/30a6ad96aca8c75257fa114322da9695.png" alt="a partial sheet with a close button and a grabber to allow for multiple ways to close and collapse"/>
+    <ImgContainer shadedsrc="https://i.pinimg.com/originals/30/a6/ad/30a6ad96aca8c75257fa114322da9695.png" alt="a partial sheet with a close button and a grabber to allow for multiple ways to close and collapse"/>
     <Do title="Do" />
   Include visible close options — multiple if possible. For example, X, back arrow, grabber, close button or outside tap.
   </Group>
   <Group>
-    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/90/a5/20/90a520154834ee4d9a1eea0b6dd9ed20.png" alt="a partial sheet with a button in the top right corner of the header"/>
+    <ImgContainer shadedsrc="https://i.pinimg.com/originals/90/a5/20/90a520154834ee4d9a1eea0b6dd9ed20.png" alt="a partial sheet with a button in the top right corner of the header"/>
     <Dont title="Don't" />
   Avoid using Buttons in the header of Sheet as this can lead to sizing and internationalization problems.
   </Group>
@@ -46,12 +46,12 @@ fullwidth: true
 
 <TwoCol>
   <Group>
-    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/78/09/18/7809189c7e2b229302f9325ca245e5d7.png" alt="a partial sheet with a grabber to help resize"/>
+    <ImgContainer shadedsrc="https://i.pinimg.com/originals/78/09/18/7809189c7e2b229302f9325ca245e5d7.png" alt="a partial sheet with a grabber to help resize"/>
     <Do title="Do" />
       Include a grabber for resizable sheets to signal adjustability and to provide better accessibility.
   </Group>
   <Group>
-    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/7e/67/ab/7e67ab782d7cfc7441a7d790ce1c9924.png" alt="a full sheet with rounded corners"/>
+    <ImgContainer shadedsrc="https://i.pinimg.com/originals/7e/67/ab/7e67ab782d7cfc7441a7d790ce1c9924.png" alt="a full sheet with rounded corners"/>
     <Dont title="Don't" />
     Round the corners of full sheets. Only partial sheets should be rounded.
   </Group>
@@ -182,7 +182,7 @@ If there's a transition between Sheets of different sizes or with a size set to 
 ## Localization
 Be sure to localize the header, body content and any footer items. Note that localization can lengthen text by 20 to 30 percent.
 <br/>
-<ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/e8/49/65/e849656ad7870ca554554a73723c0b28.png" alt="Example of a sheet that has been localized. The contents are flipped"/>
+<ImgContainer shadedsrc="https://i.pinimg.com/originals/e8/49/65/e849656ad7870ca554554a73723c0b28.png" alt="Example of a sheet that has been localized. The contents are flipped"/>
 
 ## Animation
 By default, the Sheet animates up from the screen’s bottom when prompted by the user and animates down from the top when the user takes an action to exit. Visit Material Design for more information on [container motion](https://material.io/design/motion/the-motion-system.html#container-transform).
