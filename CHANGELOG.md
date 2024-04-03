@@ -1,3 +1,9 @@
+## 146.9.1 (Apr 3, 2024)
+
+### Patch
+
+- Docs: Contributions ([#3511](https://github.com/pinterest/gestalt/pull/3511)) - [Preview link](https://deploy-preview-3511--gestalt.netlify.app?devexample=true)
+
 ## 146.9.0 (Apr 3, 2024)
 
 ### Minor
