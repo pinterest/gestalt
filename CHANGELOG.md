@@ -1,3 +1,9 @@
+## 146.8.0 (Apr 3, 2024)
+
+### Minor
+
+- HelpButton: Use Popover v2 ([#3509](https://github.com/pinterest/gestalt/pull/3509)) - [Preview link](https://deploy-preview-3509--gestalt.netlify.app?devexample=true)
+
 ## 146.7.2 (Apr 3, 2024)
 
 ### Patch
