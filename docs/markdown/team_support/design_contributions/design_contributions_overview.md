@@ -15,7 +15,7 @@ fullwidth: true
 ### One step to contribute
 
 - One step to get started: **[complete the intake form](http://pinch.pinadmin.com/design-contribution-form)**
-- All you need is a Figma link for your design—your contribution doesn't need to be finalized or componentized. You’ll have a chance to answer “how done is this design” when submitting. For further tips on getting your design closer to completion, go to [Contribution levels and criteria](team_support/design_contributions/contribution_levels_and_criteria)
+- All you need is a Figma link for your design—your contribution doesn't need to be finalized or componentized. You’ll have a chance to answer “how done is this design” when submitting. For further tips on getting your design closer to completion, go to [Contribution types and criteria](team_support/design_contributions/contribution_types_and_criteria)
 <br/>
 
 ### What happens next?
@@ -28,6 +28,6 @@ fullwidth: true
 
 ## Contribution deep dive
 Are you the type of person who wants all of the details? Then head over to:
-- [Contribution types and criteria](team_support/design_contributions/contribution_levels_and_criteria)
+- [Contribution types and criteria](team_support/design_contributions/contribution_types_and_criteria)
 - [Process deep dive](team_support/design_contributions/process_deep_dive)
 - [Process flow visualizations](team_support/design_contributions/process_diagrams)
