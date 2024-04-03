@@ -32,7 +32,7 @@ type DataType = $ReadOnlyArray<{
   textColor: 'light' | 'dark',
 }>;
 
-const tokensData = Object.entries(tokens);
+const tokensData = Object.entries(tokens || {});
 
 const colors: DataType = [
   {
@@ -315,7 +315,6 @@ export default function ColorPage(): ReactNode {
               )}
               tokenId="transparent"
             />
-            {/* const transparent = [{ name: '', id: 'transparent', }]; */}
           </Flex>
         </MainSection.Subsection>
         <MainSection.Subsection
