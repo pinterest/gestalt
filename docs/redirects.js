@@ -192,7 +192,7 @@ const misc = [
     destination: '/foundations/international_design/rtl_guidelines/typography',
     permanent: true,
   },
-    {
+  {
     source: '/foundations/typography/guidelines',
     destination: '/foundations/typography',
     permanent: true,
