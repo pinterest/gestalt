@@ -1,3 +1,9 @@
+## 146.8.2 (Apr 3, 2024)
+
+### Patch
+
+- Docs: Update redirects.js ([#3510](https://github.com/pinterest/gestalt/pull/3510)) - [Preview link](https://deploy-preview-3510--gestalt.netlify.app?devexample=true)
+
 ## 146.8.1 (Apr 3, 2024)
 
 ### Patch
