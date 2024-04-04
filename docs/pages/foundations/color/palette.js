@@ -39,7 +39,7 @@ const filterToken = (color: string) =>
     .filter((value) => typeof value === 'string' && value.includes(color))
     .map((name) => `var(--${name})`);
 
-const getColors: ($ReadOnlyArray<string>) => DataType = (array = []) => [
+const getColors: () => DataType = () => [
   {
     name: 'Pushpin',
     id: 'red',
@@ -98,7 +98,7 @@ const getColors: ($ReadOnlyArray<string>) => DataType = (array = []) => [
   },
 ];
 
-const getNeutrals: ($ReadOnlyArray<string>) => DataType = (array) => [
+const getNeutrals: () => DataType = () => [
   {
     name: 'Mochimalist',
     id: 'white',
@@ -109,9 +109,7 @@ const getNeutrals: ($ReadOnlyArray<string>) => DataType = (array) => [
     name: 'Roboflow',
     id: 'gray',
     textColor: 'dark',
-    tokenData: array
-      .filter((value) => typeof value === 'string' && value.includes('gray'))
-      .map((name) => `var(--${name})`),
+    tokenData: filterToken('gray'),
   },
   {
     name: 'Cosmicore',
@@ -155,12 +153,6 @@ function ColorSchemeCard({ children, colorScheme }: ColorCardProps): ReactNode {
 }
 
 export default function ColorPage(): ReactNode {
-  const [allTokens, setAllTokens] = useState<$ReadOnlyArray<string>>([]);
-
-  useEffect(() => {
-    if (tokens) setAllTokens(Object.keys(tokens));
-  }, []);
-
   return (
     <Page title="Color palette">
       <PageHeader
@@ -249,7 +241,7 @@ export default function ColorPage(): ReactNode {
         name="Reserved colors"
       >
         <Flex direction="column">
-          {getColors(allTokens).map(({ name, brandToken, textColor }) => (
+          {getColors().map(({ name, brandToken, textColor }) => (
             <ColorTile
               key={name}
               description={`${name} 450`}
@@ -276,14 +268,14 @@ export default function ColorPage(): ReactNode {
             }}
             wrap
           >
-            {getColors(allTokens).map(({ id, name, tokenData }) => (
+            {getColors().map(({ id, name, tokenData }) => (
               <ColorPalette key={name} name={name} tokenData={tokenData} tokenId={id} />
             ))}
           </Flex>
         </MainSection.Subsection>
         <MainSection.Subsection description="Pinterest name (common name)" title="Neutrals">
           <Flex direction="column">
-            {getNeutrals(allTokens).map(({ id, name, tokenData }) => (
+            {getNeutrals().map(({ id, name, tokenData }) => (
               <ColorPalette key={name} name={name} tokenData={tokenData} tokenId={id} />
             ))}
           </Flex>
