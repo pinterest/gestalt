@@ -1,3 +1,9 @@
+## 146.10.0 (Apr 4, 2024)
+
+### Minor
+
+- Revert "ComboBox: Use Popover v2" ([#3516](https://github.com/pinterest/gestalt/pull/3516)) - [Preview link](https://deploy-preview-3516--gestalt.netlify.app?devexample=true)
+
 ## 146.9.4 (Apr 4, 2024)
 
 ### Patch
