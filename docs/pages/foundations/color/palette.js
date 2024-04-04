@@ -1,5 +1,5 @@
 // @flow strict
-import { type Node as ReactNode, useEffect, useState } from 'react';
+import { type Node as ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
 import {
   TOKEN_COLOR_BLACK_COSMICORE_900,
