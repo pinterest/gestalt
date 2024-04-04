@@ -17,7 +17,7 @@ function ColorPalette({ name, tokenId, tokenData }: Props): ReactNode {
       const isTransparent = tokenId === 'transparent';
       const textColor = Number(grade) <= 400 || isTransparent ? 'dark' : 'light';
 
-      if (!Number.isNaN(Number(grade)) || isTransparent) {
+      if (isTransparent || (grade !== '450' && !Number.isNaN(Number(grade)))) {
         return (
           <ColorTile
             key={token}
