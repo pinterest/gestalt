@@ -11,15 +11,16 @@ type Props = {
 
 function ColorPalette({ name, tokenId, tokenData }: Props): ReactNode {
   if (tokenData) {
-    const tiles = tokenData.map(([reference, token]) => {
-      const grade = reference.split('_').slice(-1)[0];
+    const tiles = tokenData.map((token) => {
+      const regex = /\d+(?=\D*$)/;
+      const grade = (token.match(regex) || [])[0];
       const isTransparent = tokenId === 'transparent';
       const textColor = Number(grade) <= 400 || isTransparent ? 'dark' : 'light';
 
       if (!Number.isNaN(Number(grade)) || isTransparent) {
         return (
           <ColorTile
-            key={reference}
+            key={token}
             description={grade || 'transparent'}
             number={Number(grade) || 0}
             textColor={textColor}
