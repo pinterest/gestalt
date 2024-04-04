@@ -1,3 +1,9 @@
+## 146.9.4 (Apr 4, 2024)
+
+### Patch
+
+- PageHeader: update heading to BreakAll to split on long titles ([#3514](https://github.com/pinterest/gestalt/pull/3514)) - [Preview link](https://deploy-preview-3514--gestalt.netlify.app?devexample=true)
+
 ## 146.9.3 (Apr 4, 2024)
 
 ### Patch
