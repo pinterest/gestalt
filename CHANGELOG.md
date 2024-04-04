@@ -1,3 +1,9 @@
+## 146.9.2 (Apr 4, 2024)
+
+### Patch
+
+- Internal: replace interpolated strings with design tokens constants. ([#3513](https://github.com/pinterest/gestalt/pull/3513)) - [Preview link](https://deploy-preview-3513--gestalt.netlify.app?devexample=true)
+
 ## 146.9.1 (Apr 3, 2024)
 
 ### Patch
