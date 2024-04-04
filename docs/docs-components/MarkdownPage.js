@@ -4,7 +4,11 @@ import { type Node as ReactNode } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import Image from 'next/image';
 import { Box, ButtonLink, Datapoint, Flex, Icon, Link, List, Text } from 'gestalt';
-import { TOKEN_COLOR_BACKGROUND_SECONDARY_BASE } from 'gestalt-design-tokens';
+import {
+  TOKEN_COLOR_BACKGROUND_DEFAULT,
+  TOKEN_COLOR_BACKGROUND_ELEVATION_ACCENT,
+  TOKEN_COLOR_BACKGROUND_SECONDARY_BASE,
+} from 'gestalt-design-tokens';
 import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
 import Highlighter from './highlight';
 import IllustrationCard from './IllustrationCard';
@@ -262,7 +266,7 @@ const components = {
     width,
     height,
     padding,
-    color,
+    shaded,
   }: {
     src: string,
     caption?: string,
@@ -270,13 +274,15 @@ const components = {
     width?: number,
     height?: number,
     padding?: 'standard' | 'none',
-    color?: string,
+    shaded?: boolean,
   }) => {
     const layout = width || height ? 'fixed' : 'fill';
 
     const colorStyle = {
       __style: {
-        backgroundColor: color ? `var(--color-${color})` : 'white',
+        backgroundColor: shaded
+          ? TOKEN_COLOR_BACKGROUND_ELEVATION_ACCENT
+          : TOKEN_COLOR_BACKGROUND_DEFAULT,
       },
     };
 

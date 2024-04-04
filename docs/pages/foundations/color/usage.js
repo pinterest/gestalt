@@ -1,6 +1,39 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
+import {
+  TOKEN_COLOR_BACKGROUND_BRAND,
+  TOKEN_COLOR_BACKGROUND_ERROR_BASE,
+  TOKEN_COLOR_BACKGROUND_ERROR_WEAK,
+  TOKEN_COLOR_BACKGROUND_INFO_BASE,
+  TOKEN_COLOR_BACKGROUND_INFO_WEAK,
+  TOKEN_COLOR_BACKGROUND_INVERSE_BASE,
+  TOKEN_COLOR_BACKGROUND_PRIMARY_BASE,
+  TOKEN_COLOR_BACKGROUND_RECOMMENDATION_BASE,
+  TOKEN_COLOR_BACKGROUND_RECOMMENDATION_WEAK,
+  TOKEN_COLOR_BACKGROUND_SECONDARY_BASE,
+  TOKEN_COLOR_BACKGROUND_SHOPPING,
+  TOKEN_COLOR_BACKGROUND_SUCCESS_BASE,
+  TOKEN_COLOR_BACKGROUND_SUCCESS_WEAK,
+  TOKEN_COLOR_BACKGROUND_TERTIARY_BASE,
+  TOKEN_COLOR_BACKGROUND_WARNING_BASE,
+  TOKEN_COLOR_BACKGROUND_WARNING_WEAK,
+  TOKEN_COLOR_ICON_DEFAULT,
+  TOKEN_COLOR_ICON_ERROR,
+  TOKEN_COLOR_ICON_INFO,
+  TOKEN_COLOR_ICON_INVERSE,
+  TOKEN_COLOR_ICON_RECOMMENDATION,
+  TOKEN_COLOR_ICON_SUBTLE,
+  TOKEN_COLOR_ICON_SUCCESS,
+  TOKEN_COLOR_ICON_WARNING,
+  TOKEN_COLOR_TEXT_DEFAULT,
+  TOKEN_COLOR_TEXT_ERROR,
+  TOKEN_COLOR_TEXT_INVERSE,
+  TOKEN_COLOR_TEXT_SHOPPING,
+  TOKEN_COLOR_TEXT_SUBTLE,
+  TOKEN_COLOR_TEXT_SUCCESS,
+  TOKEN_COLOR_TEXT_WARNING,
+} from 'gestalt-design-tokens';
 import ColorTile from '../../../docs-components/ColorTile';
 import MainSection from '../../../docs-components/MainSection';
 import Page from '../../../docs-components/Page';
@@ -73,14 +106,10 @@ export default function ColorUsagePage(): ReactNode {
           <ColorSchemeLayout>
             <ColorTile
               description="Primary base"
-              fullTokenName="color-background-primary-base"
               textColor="light"
+              token={TOKEN_COLOR_BACKGROUND_PRIMARY_BASE}
             />
-            <ColorTile
-              description="Brand"
-              fullTokenName="color-background-brand"
-              textColor="light"
-            />
+            <ColorTile description="Brand" textColor="light" token={TOKEN_COLOR_BACKGROUND_BRAND} />
           </ColorSchemeLayout>
         </Flex>
       </MainSection>
@@ -94,8 +123,8 @@ export default function ColorUsagePage(): ReactNode {
         <ColorSchemeLayout>
           <ColorTile
             description="Secondary base"
-            fullTokenName="color-background-secondary-base"
             textColor="default"
+            token={TOKEN_COLOR_BACKGROUND_SECONDARY_BASE}
           />
         </ColorSchemeLayout>
       </MainSection>
@@ -109,8 +138,8 @@ export default function ColorUsagePage(): ReactNode {
         <ColorSchemeLayout>
           <ColorTile
             description="Tertiary base"
-            fullTokenName="color-background-tertiary-base"
             textColor="inverse"
+            token={TOKEN_COLOR_BACKGROUND_TERTIARY_BASE}
           />
         </ColorSchemeLayout>
       </MainSection>
@@ -124,9 +153,9 @@ export default function ColorUsagePage(): ReactNode {
         <ColorSchemeLayout>
           <ColorTile
             description="Shopping"
-            fullTokenName="color-background-shopping"
             number={500}
             textColor="inverse"
+            token={TOKEN_COLOR_BACKGROUND_SHOPPING}
           />
         </ColorSchemeLayout>
       </MainSection>
@@ -147,33 +176,33 @@ export default function ColorUsagePage(): ReactNode {
           <ColorSchemeLayout>
             <ColorTile
               description="Info base"
-              fullTokenName="color-background-info-base"
               textColor="inverse"
+              token={TOKEN_COLOR_BACKGROUND_INFO_BASE}
             />
             <ColorTile
               description="Recommendation base"
-              fullTokenName="color-background-recommendation-base"
               textColor="inverse"
+              token={TOKEN_COLOR_BACKGROUND_RECOMMENDATION_BASE}
             />
             <ColorTile
               description="Success base"
-              fullTokenName="color-background-success-base"
               textColor="inverse"
+              token={TOKEN_COLOR_BACKGROUND_SUCCESS_BASE}
             />
             <ColorTile
               description="Warning base"
-              fullTokenName="color-background-warning-base"
               textColor="inverse"
+              token={TOKEN_COLOR_BACKGROUND_WARNING_BASE}
             />
             <ColorTile
               description="Error base"
-              fullTokenName="color-background-error-base"
               textColor="inverse"
+              token={TOKEN_COLOR_BACKGROUND_ERROR_BASE}
             />
             <ColorTile
               description="Neutral (tertiary base)"
-              fullTokenName="color-background-tertiary-base"
               textColor="inverse"
+              token={TOKEN_COLOR_BACKGROUND_TERTIARY_BASE}
             />
           </ColorSchemeLayout>
         </MainSection.Subsection>
@@ -190,28 +219,28 @@ export default function ColorUsagePage(): ReactNode {
           <ColorSchemeLayout>
             <ColorTile
               description="Info weak"
-              fullTokenName="color-background-info-weak"
               textColor="default"
+              token={TOKEN_COLOR_BACKGROUND_INFO_WEAK}
             />
             <ColorTile
               description="Recommendation weak"
-              fullTokenName="color-background-recommendation-weak"
               textColor="default"
+              token={TOKEN_COLOR_BACKGROUND_RECOMMENDATION_WEAK}
             />
             <ColorTile
               description="Success weak"
-              fullTokenName="color-background-success-weak"
               textColor="default"
+              token={TOKEN_COLOR_BACKGROUND_SUCCESS_WEAK}
             />
             <ColorTile
               description="Warning weak"
-              fullTokenName="color-background-warning-weak"
               textColor="default"
+              token={TOKEN_COLOR_BACKGROUND_WARNING_WEAK}
             />
             <ColorTile
               description="Error weak"
-              fullTokenName="color-background-error-weak"
               textColor="default"
+              token={TOKEN_COLOR_BACKGROUND_ERROR_WEAK}
             />
           </ColorSchemeLayout>
         </MainSection.Subsection>
@@ -225,8 +254,8 @@ export default function ColorUsagePage(): ReactNode {
           <ColorSchemeLayout>
             <ColorTile
               description="Inverse base"
-              fullTokenName="color-background-inverse-base"
               textColor="inverse"
+              token={TOKEN_COLOR_BACKGROUND_INVERSE_BASE}
             />
           </ColorSchemeLayout>
         </MainSection.Subsection>
@@ -244,16 +273,12 @@ export default function ColorUsagePage(): ReactNode {
           title="Standard text colors"
         >
           <ColorSchemeLayout>
-            <ColorTile
-              description="Default"
-              fullTokenName="color-text-default"
-              textColor="inverse"
-            />
-            <ColorTile description="Subtle" fullTokenName="color-text-subtle" textColor="inverse" />
+            <ColorTile description="Default" textColor="inverse" token={TOKEN_COLOR_TEXT_DEFAULT} />
+            <ColorTile description="Subtle" textColor="inverse" token={TOKEN_COLOR_TEXT_SUBTLE} />
             <ColorTile
               description="Shopping"
-              fullTokenName="color-text-shopping"
               textColor="inverse"
+              token={TOKEN_COLOR_TEXT_SHOPPING}
             />
           </ColorSchemeLayout>
         </MainSection.Subsection>
@@ -267,17 +292,9 @@ export default function ColorUsagePage(): ReactNode {
           title="Status text colors"
         >
           <ColorSchemeLayout>
-            <ColorTile
-              description="Success"
-              fullTokenName="color-text-success"
-              textColor="inverse"
-            />
-            <ColorTile
-              description="Warning"
-              fullTokenName="color-text-warning"
-              textColor="inverse"
-            />
-            <ColorTile description="Error" fullTokenName="color-text-error" textColor="inverse" />
+            <ColorTile description="Success" textColor="inverse" token={TOKEN_COLOR_TEXT_SUCCESS} />
+            <ColorTile description="Warning" textColor="inverse" token={TOKEN_COLOR_TEXT_WARNING} />
+            <ColorTile description="Error" textColor="inverse" token={TOKEN_COLOR_TEXT_ERROR} />
           </ColorSchemeLayout>
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -288,11 +305,7 @@ export default function ColorUsagePage(): ReactNode {
           title="Inverse text color"
         >
           <ColorSchemeLayout>
-            <ColorTile
-              description="Inverse"
-              fullTokenName="color-text-inverse"
-              textColor="default"
-            />
+            <ColorTile description="Inverse" textColor="default" token={TOKEN_COLOR_TEXT_INVERSE} />
           </ColorSchemeLayout>
         </MainSection.Subsection>
       </MainSection>
@@ -312,18 +325,18 @@ export default function ColorUsagePage(): ReactNode {
         name="Iconography color"
       >
         <ColorSchemeLayout>
-          <ColorTile description="Default" fullTokenName="color-icon-default" textColor="inverse" />
-          <ColorTile description="Subtle" fullTokenName="color-icon-subtle" textColor="inverse" />
-          <ColorTile description="Info" fullTokenName="color-icon-info" textColor="inverse" />
+          <ColorTile description="Default" textColor="inverse" token={TOKEN_COLOR_ICON_DEFAULT} />
+          <ColorTile description="Subtle" textColor="inverse" token={TOKEN_COLOR_ICON_SUBTLE} />
+          <ColorTile description="Info" textColor="inverse" token={TOKEN_COLOR_ICON_INFO} />
           <ColorTile
             description="Recommendation"
-            fullTokenName="color-icon-recommendation"
             textColor="inverse"
+            token={TOKEN_COLOR_ICON_RECOMMENDATION}
           />
-          <ColorTile description="Success" fullTokenName="color-icon-success" textColor="inverse" />
-          <ColorTile description="Warning" fullTokenName="color-icon-warning" textColor="inverse" />
-          <ColorTile description="Error" fullTokenName="color-icon-error" textColor="inverse" />
-          <ColorTile description="Inverse" fullTokenName="color-icon-inverse" textColor="default" />
+          <ColorTile description="Success" textColor="inverse" token={TOKEN_COLOR_ICON_SUCCESS} />
+          <ColorTile description="Warning" textColor="inverse" token={TOKEN_COLOR_ICON_WARNING} />
+          <ColorTile description="Error" textColor="inverse" token={TOKEN_COLOR_ICON_ERROR} />
+          <ColorTile description="Inverse" textColor="default" token={TOKEN_COLOR_ICON_INVERSE} />
         </ColorSchemeLayout>
       </MainSection>
       <MainSection
