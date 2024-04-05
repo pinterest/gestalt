@@ -1,3 +1,9 @@
+## 146.11.0 (Apr 5, 2024)
+
+### Minor
+
+- Masonry: Experimental Masonry Refactor ([#3505](https://github.com/pinterest/gestalt/pull/3505)) - [Preview link](https://deploy-preview-3505--gestalt.netlify.app?devexample=true)
+
 ## 146.10.0 (Apr 4, 2024)
 
 ### Minor
