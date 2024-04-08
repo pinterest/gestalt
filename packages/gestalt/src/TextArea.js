@@ -25,6 +25,10 @@ type Props = {
    */
   disabled?: boolean,
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string,
+  /**
    * For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in Link or TapArea. See the [error message example](https://gestalt.pinterest.systems/web/textarea#Error-message) for more details.
    */
   errorMessage?: ReactNode,
@@ -125,6 +129,7 @@ const TextAreaWithForwardRef: AbstractComponent<Props, HTMLTextAreaElement> = fo
   HTMLTextAreaElement,
 >(function TextArea(
   {
+    dataTestId,
     disabled = false,
     errorMessage,
     hasError = false,
@@ -209,6 +214,7 @@ const TextAreaWithForwardRef: AbstractComponent<Props, HTMLTextAreaElement> = fo
       aria-describedby={focused ? ariaDescribedby : undefined}
       aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
       className={tags ? styles.unstyledTextArea : classes}
+      data-test-id={dataTestId}
       disabled={disabled}
       id={id}
       maxLength={maxLength?.characterCount}

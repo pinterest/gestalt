@@ -30,9 +30,12 @@ type Props = {
    */
   autoComplete?: 'on' | 'off',
   /**
-   * Indicate if the input is disabled.
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
    */
-  disabled?: boolean,
+  dataTestId?: string,
+  /**
+   * Indicate if the input is disabled.
+   */ disabled?: boolean,
   /**
    * For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in [Link](https://gestalt.pinterest.systems/web/link) or [TapArea](https://gestalt.pinterest.systems/web/taparea).
    */
@@ -133,6 +136,7 @@ const NumberFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = fo
 >(function NumberField(
   {
     autoComplete,
+    dataTestId,
     disabled = false,
     mobileEnterKeyHint,
     errorMessage,
@@ -157,6 +161,7 @@ const NumberFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = fo
   return (
     <InternalTextField
       autoComplete={autoComplete}
+      dataTestId={dataTestId}
       disabled={disabled}
       mobileEnterKeyHint={mobileEnterKeyHint}
       errorMessage={errorMessage}
