@@ -17,7 +17,7 @@ type Props = {
  */
 export default function Container({ children }: Props): ReactNode {
   return (
-    <Box justifyContent="center" display="flex">
+    <Box display="flex" justifyContent="center">
       <Box maxWidth={800} width="100%">
         {children}
       </Box>

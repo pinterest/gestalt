@@ -50,15 +50,15 @@ function ExternalIcon({ externalLinkIcon }: { externalLinkIcon: ExternalLinkIcon
   return externalLinkIcon === 'none' ? null : (
     <Box aria-hidden display="inlineBlock" marginStart={1}>
       <Icon
-        inline
-        icon="visit"
         accessibilityLabel=""
+        color={externalLinkIcon === 'default' ? 'default' : externalLinkIcon?.color ?? 'default'}
+        icon="visit"
+        inline
         size={
           externalLinkIcon === 'default'
             ? externalLinkIconMap['300']
             : externalLinkIconMap[externalLinkIcon?.size ?? '300']
         }
-        color={externalLinkIcon === 'default' ? 'default' : externalLinkIcon?.color ?? 'default'}
       />
     </Box>
   );
@@ -242,9 +242,10 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
 
   return (
     <a
+      ref={innerRef}
       aria-label={ariaLabel}
-      data-test-id={dataTestId}
       className={className}
+      data-test-id={dataTestId}
       href={href}
       id={id}
       onBlur={(event) => {
@@ -274,14 +275,13 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
           onFocus({ event });
         }
       }}
+      onKeyPress={handleKeyPress}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
-      onKeyPress={handleKeyPress}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
-      ref={innerRef}
+      onTouchMove={handleTouchMove}
+      onTouchStart={handleTouchStart}
       rel={[
         ...(target === 'blank' ? ['noopener', 'noreferrer'] : []),
         ...(rel === 'nofollow' ? ['nofollow'] : []),

@@ -7,23 +7,23 @@ export default function Example(): ReactNode {
     <SideNavigation accessibilityLabel="Incorrect grouping example">
       <SideNavigation.TopItem
         href="#"
-        onClick={({ event }) => event.preventDefault()}
         label="Pinterest tag manager"
+        onClick={({ event }) => event.preventDefault()}
       />
       <SideNavigation.TopItem
         href="#"
-        onClick={({ event }) => event.preventDefault()}
         label="Conversion file upload"
+        onClick={({ event }) => event.preventDefault()}
       />
       <SideNavigation.TopItem
         href="#"
-        onClick={({ event }) => event.preventDefault()}
         label="Conversion upload history"
+        onClick={({ event }) => event.preventDefault()}
       />
       <SideNavigation.TopItem
         href="#"
-        onClick={({ event }) => event.preventDefault()}
         label="Pinterest tag health"
+        onClick={({ event }) => event.preventDefault()}
       />
     </SideNavigation>
   );

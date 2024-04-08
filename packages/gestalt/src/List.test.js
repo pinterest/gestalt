@@ -101,7 +101,7 @@ describe('List', () => {
 
   it('renders an list with a hidden label', () => {
     const tree = create(
-      <List labelDisplay="hidden" label="label test" type="ordered">
+      <List label="label test" labelDisplay="hidden" type="ordered">
         <List.Item text="List item text" />
       </List>,
     ).toJSON();
@@ -111,7 +111,7 @@ describe('List', () => {
 
   it('renders an condensed list', () => {
     const tree = create(
-      <List spacing="condensed" label="label test" type="ordered">
+      <List label="label test" spacing="condensed" type="ordered">
         <List.Item text="List item text" />
       </List>,
     ).toJSON();
@@ -121,7 +121,7 @@ describe('List', () => {
 
   it('renders an list item with custom text', () => {
     const tree = create(
-      <List spacing="condensed" label="label test" type="ordered">
+      <List label="label test" spacing="condensed" type="ordered">
         <List.Item text={<Text weight="bold">List item text</Text>} />
       </List>,
     ).toJSON();

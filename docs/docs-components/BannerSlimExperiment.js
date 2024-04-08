@@ -9,13 +9,6 @@ export function BareBannerSlimExperiment({ componentName }: { componentName: str
 
   return (
     <BannerSlim
-      iconAccessibilityLabel="Component under experiment"
-      message={
-        experiments === componentName
-          ? `The current ${componentName} example is displaying experimental changes.`
-          : `The current ${componentName} example is NOT displaying experimental changes.`
-      }
-      type="warningBare"
       helperLink={{
         text:
           experiments === componentName
@@ -25,6 +18,13 @@ export function BareBannerSlimExperiment({ componentName }: { componentName: str
         href: '#',
         onClick: () => {},
       }}
+      iconAccessibilityLabel="Component under experiment"
+      message={
+        experiments === componentName
+          ? `The current ${componentName} example is displaying experimental changes.`
+          : `The current ${componentName} example is NOT displaying experimental changes.`
+      }
+      type="warningBare"
     />
   );
 }
@@ -45,9 +45,6 @@ export function BannerSlimExperiment({
 
   return (
     <BannerSlim
-      iconAccessibilityLabel="Component under experiment"
-      message={`${componentName} is under an experiment to ${description}.`}
-      type="warning"
       helperLink={{
         text: 'Visit the Pull Request to learn more.',
         accessibilityLabel: '',
@@ -55,6 +52,8 @@ export function BannerSlimExperiment({
         onClick: () => {},
         target: 'blank',
       }}
+      iconAccessibilityLabel="Component under experiment"
+      message={`${componentName} is under an experiment to ${description}.`}
       primaryAction={{
         accessibilityLabel:
           experiments === componentName
@@ -71,6 +70,7 @@ export function BannerSlimExperiment({
           role: 'link',
         }),
       }}
+      type="warning"
     />
   );
 }

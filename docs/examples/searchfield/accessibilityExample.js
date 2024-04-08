@@ -5,13 +5,13 @@ import { Box, Flex, Icon, IconButton, SearchField } from 'gestalt';
 export default function SearchFieldExample(): ReactNode {
   const [searchValue, setSearchValue] = useState('');
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex alignItems="center" flex="grow" gap={{ row: 4, column: 0 }}>
         <Icon accessibilityLabel="Pinterest" color="brandPrimary" icon="pinterest" size={20} />
         <Flex.Item flex="grow">
           <SearchField
-            accessibilityLabel="Search all of Pinterest"
             accessibilityClearButtonLabel="Clear search field"
+            accessibilityLabel="Search all of Pinterest"
             id="searchFieldA11yExample"
             onChange={({ value }) => setSearchValue(value)}
             placeholder="Search and explore"

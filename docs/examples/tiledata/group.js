@@ -32,12 +32,12 @@ export default function Example(): ReactNode {
   const [selectedItems, setSelectedItems] = useState(allIds);
 
   return (
-    <Flex gap={4} justifyContent="center" alignItems="center" width="100%" height="100%" wrap>
+    <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%" wrap>
       {dataSources.map(({ id, color, tooltip, name, value }) => (
         <TileData
           key={id}
+          color={color}
           id={id}
-          showCheckbox
           onTap={({ id: selectedId, selected }) => {
             if (!selectedId) {
               return;
@@ -50,11 +50,11 @@ export default function Example(): ReactNode {
             );
           }}
           selected={selectedItems.includes(id)}
-          color={color}
-          tooltip={{ text: tooltip }}
+          showCheckbox
           title={name}
-          value={value}
+          tooltip={{ text: tooltip }}
           trend={{ value: 20, accessibilityLabel: 'Trending up' }}
+          value={value}
         />
       ))}
     </Flex>

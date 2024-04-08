@@ -9,7 +9,6 @@ export default function ReleasesPage(): ReactNode {
     <Page title="Releases">
       <PageHeader name="Releases" type="guidelines" />
       <MainSection
-        name="Automated releases"
         description={`The Gestalt library development approach is continuous releasing.
 
 Each major, minor, and patch change is merged to master and released as the latest supported Gestalt version. Check the [release log](https://github.com/pinterest/gestalt/releases).
@@ -36,10 +35,10 @@ components,
 - Publish to npm
 - Update [Gestalt documentation](https://gestalt.pinterest.systems)
 `}
+        name="Automated releases"
       />
 
       <MainSection
-        name="Alpha releases"
         description={`Gestalt's deployment system supports automatic alpha releases.
 
 To run an alpha release, follow these steps:
@@ -54,10 +53,10 @@ To run an alpha release, follow these steps:
 - In package.json, replace the Gestalt dependency with the released alpha version
 - Run <code>yarn</code>
 `}
+        name="Alpha releases"
       />
 
       <MainSection
-        name="Codemods"
         description={`Run codemods to automate required code changes related to major releases (breaking changes in usage or in typing) in Gestalt.
 
 Every major release in the component library comes with a codemod to ease the upgrade of the Gestalt dependency. Some codemods are custom built for each upgrade while others take advantage of generic codemods that only require running a codemod command with arguments.
@@ -70,9 +69,9 @@ For a dry run to see what the changes will be, add the **-d** (dry run) and **-p
 
 Do you want to learn more about how codemods work or want to start developing generic codemods? Read our [codemod README](https://github.com/pinterest/gestalt/tree/master/packages/gestalt-codemods#readme) for a walkthrough of the development process.
 `}
+        name="Codemods"
       />
       <MainSection
-        name="Generic codemods"
         description={`Generic codemods for common tasks like renaming components or props can be found in this [directory](https://github.com/pinterest/gestalt/tree/master/packages/gestalt-codemods/generic-codemods).
 
 Codemods modifying prop-values also throw errors when they encouter spread props used in Gestalt components. Spread props are opaque to codemods and require manual action.
@@ -85,9 +84,9 @@ To output the results into a CSV file, append the following code into the comman
   > ~/path/to/your/code/gestalt-codemode-output.csv</code>
 ~~~
 `}
+        name="Generic codemods"
       >
         <MainSection.Subsection
-          title="renameComponent"
           description={`
 Codemod to **RENAME** Gestalt **components**
 
@@ -125,9 +124,9 @@ yarn codemod renameComponent ~/code/pinboard/webapp
 
 See codemod code: [renameComponent](https://github.com/pinterest/gestalt/blob/master/packages/gestalt-codemods/generic-codemods/renameComponent.js)
       `}
+          title="renameComponent"
         />
         <MainSection.Subsection
-          title="modifyProp"
           description={`
 Codemod to **MODIFY (REPLACE or REMOVE)** Gestalt component **props**.
 
@@ -197,9 +196,9 @@ yarn codemod modifyProp ~/code/pinboard/webapp
 
 See codemod code: [modifyProp](https://github.com/pinterest/gestalt/blob/master/packages/gestalt-codemods/generic-codemods/modifyProp.js)
       `}
+          title="modifyProp"
         />
         <MainSection.Subsection
-          title="modifyPropValue"
           description={`
 Codemod to **MODIFY (REPLACE, ADD, or REMOVE)** **prop-value combinations** in Gestalt component. It supports string, number, and boolean values.
 
@@ -306,9 +305,9 @@ yarn codemod modifyPropValue ~/code/pinboard/webapp
 
 See codemod code: [modifyPropValue](https://github.com/pinterest/gestalt/blob/master/packages/gestalt-codemods/generic-codemods/modifyPropValue.js)
       `}
+          title="modifyPropValue"
         />
         <MainSection.Subsection
-          title="detectManualReplacement"
           description={`
 Codemod to **DETECT COMPLEX MANUAL CHANGES** of components, props, and prop-value combinations in Gestalt components. The codemod  throws error messages upon detection of matching instances. Supports string, number, and boolean values.
 
@@ -353,10 +352,10 @@ value=error
 
 See codemod code: [detectManualReplacement](https://github.com/pinterest/gestalt/blob/master/packages/gestalt-codemods/generic-codemods/detectManualReplacement.jss)
       `}
+          title="detectManualReplacement"
         />
       </MainSection>
       <MainSection
-        name="Custom release codemods"
         description={`Custom codemods are only necessary when generic codemods cannot support major releases with complex breaking API changes.
 
 Custom codemods can be found in this [directory](https://github.com/pinterest/gestalt/tree/master/packages/gestalt-codemods) under the corresponding upgrade version. The name of the folder should reflect the resulting version number of your PR.
@@ -367,6 +366,7 @@ yarn codemod --parser=flow -t={relative/path/to/codemod} relative/path/to/your/c
 ~~~
 
       `}
+        name="Custom release codemods"
       />
     </Page>
   );

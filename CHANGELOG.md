@@ -1,3 +1,327 @@
+## 146.11.1 (Apr 8, 2024)
+
+### Patch
+
+- Icon: Added icon to Android folder ([#3517](https://github.com/pinterest/gestalt/pull/3517)) - [Preview link](https://deploy-preview-3517--gestalt.netlify.app?devexample=true)
+
+## 146.11.0 (Apr 5, 2024)
+
+### Minor
+
+- Masonry: Experimental Masonry Refactor ([#3505](https://github.com/pinterest/gestalt/pull/3505)) - [Preview link](https://deploy-preview-3505--gestalt.netlify.app?devexample=true)
+
+## 146.10.0 (Apr 4, 2024)
+
+### Minor
+
+- Revert "ComboBox: Use Popover v2" ([#3516](https://github.com/pinterest/gestalt/pull/3516)) - [Preview link](https://deploy-preview-3516--gestalt.netlify.app?devexample=true)
+
+## 146.9.4 (Apr 4, 2024)
+
+### Patch
+
+- PageHeader: update heading to BreakAll to split on long titles ([#3514](https://github.com/pinterest/gestalt/pull/3514)) - [Preview link](https://deploy-preview-3514--gestalt.netlify.app?devexample=true)
+
+## 146.9.3 (Apr 4, 2024)
+
+### Patch
+
+- Internal: Bump undici from 5.28.3 to 5.28.4 ([#3515](https://github.com/pinterest/gestalt/pull/3515)) - [Preview link](https://deploy-preview-3515--gestalt.netlify.app?devexample=true)
+
+## 146.9.2 (Apr 4, 2024)
+
+### Patch
+
+- Internal: replace interpolated strings with design tokens constants. ([#3513](https://github.com/pinterest/gestalt/pull/3513)) - [Preview link](https://deploy-preview-3513--gestalt.netlify.app?devexample=true)
+
+## 146.9.1 (Apr 3, 2024)
+
+### Patch
+
+- Docs: Contributions ([#3511](https://github.com/pinterest/gestalt/pull/3511)) - [Preview link](https://deploy-preview-3511--gestalt.netlify.app?devexample=true)
+
+## 146.9.0 (Apr 3, 2024)
+
+### Minor
+
+- ComboBox: Use Popover v2 ([#3512](https://github.com/pinterest/gestalt/pull/3512)) - [Preview link](https://deploy-preview-3512--gestalt.netlify.app?devexample=true)
+
+## 146.8.2 (Apr 3, 2024)
+
+### Patch
+
+- Docs: Update redirects.js ([#3510](https://github.com/pinterest/gestalt/pull/3510)) - [Preview link](https://deploy-preview-3510--gestalt.netlify.app?devexample=true)
+
+## 146.8.1 (Apr 3, 2024)
+
+### Patch
+
+- Internal: added Stylelint rule to prevent Gestalt token errors ([#3504](https://github.com/pinterest/gestalt/pull/3504)) - [Preview link](https://deploy-preview-3504--gestalt.netlify.app?devexample=true)
+
+## 146.8.0 (Apr 3, 2024)
+
+### Minor
+
+- HelpButton: Use Popover v2 ([#3509](https://github.com/pinterest/gestalt/pull/3509)) - [Preview link](https://deploy-preview-3509--gestalt.netlify.app?devexample=true)
+
+## 146.7.2 (Apr 3, 2024)
+
+### Patch
+
+- Docs: Update contributions image ([#3508](https://github.com/pinterest/gestalt/pull/3508)) - [Preview link](https://deploy-preview-3508--gestalt.netlify.app?devexample=true)
+
+## 146.7.1 (Apr 2, 2024)
+
+### Patch
+
+- Docs: Design contributions updates ([#3494](https://github.com/pinterest/gestalt/pull/3494)) - [Preview link](https://deploy-preview-3494--gestalt.netlify.app?devexample=true)
+
+## 146.7.0 (Apr 2, 2024)
+
+### Minor
+
+- OverlayPanel: Use ConfirmationPopover v2 #3501 ([#3506](https://github.com/pinterest/gestalt/pull/3506)) - [Preview link](https://deploy-preview-3506--gestalt.netlify.app?devexample=true)
+
+## 146.6.1 (Apr 2, 2024)
+
+### Patch
+
+- SideNavigation: Fix scrollbar clipping in collapsed state ([#3500](https://github.com/pinterest/gestalt/pull/3500)) - [Preview link](https://deploy-preview-3500--gestalt.netlify.app?devexample=true)
+
+## 146.6.0 (Apr 2, 2024)
+
+### Minor
+
+- PopoverEducational: Release v2 ([#3501](https://github.com/pinterest/gestalt/pull/3501)) - [Preview link](https://deploy-preview-3501--gestalt.netlify.app?devexample=true)
+
+## 146.5.15 (Apr 1, 2024)
+
+### Patch
+
+- Tokens: remove dead code in color token ([#3502](https://github.com/pinterest/gestalt/pull/3502)) - [Preview link](https://deploy-preview-3502--gestalt.netlify.app?devexample=true)
+
+## 146.5.14 (Apr 1, 2024)
+
+### Patch
+
+- TileData: Fixing width Overlap issues ([#3490](https://github.com/pinterest/gestalt/pull/3490)) - [Preview link](https://deploy-preview-3490--gestalt.netlify.app?devexample=true)
+
+## 146.5.13 (Mar 27, 2024)
+
+### Patch
+
+- Masonry: Multi column feature, fix first row items position when batch is small ([#3496](https://github.com/pinterest/gestalt/pull/3496)) - [Preview link](https://deploy-preview-3496--gestalt.netlify.app?devexample=true)
+
+## 146.5.12 (Mar 27, 2024)
+
+### Patch
+
+- SideNavigation: Display scrollbar only when content overflows ([#3498](https://github.com/pinterest/gestalt/pull/3498)) - [Preview link](https://deploy-preview-3498--gestalt.netlify.app?devexample=true)
+
+## 146.5.11 (Mar 26, 2024)
+
+### Patch
+
+- Internal: Bump express from 4.18.2 to 4.19.2 ([#3497](https://github.com/pinterest/gestalt/pull/3497)) - [Preview link](https://deploy-preview-3497--gestalt.netlify.app?devexample=true)
+
+## 146.5.10 (Mar 25, 2024)
+
+### Patch
+
+- Masonry: seeded random values for deterministic integration tests ([#3465](https://github.com/pinterest/gestalt/pull/3465)) - [Preview link](https://deploy-preview-3465--gestalt.netlify.app?devexample=true)
+
+## 146.5.9 (Mar 22, 2024)
+
+### Patch
+
+- Docs: Get help and Training content updates ([#3489](https://github.com/pinterest/gestalt/pull/3489)) - [Preview link](https://deploy-preview-3489--gestalt.netlify.app?devexample=true)
+
+## 146.5.8 (Mar 22, 2024)
+
+### Patch
+
+- Docs: Figma embed fixes ([#3493](https://github.com/pinterest/gestalt/pull/3493)) - [Preview link](https://deploy-preview-3493--gestalt.netlify.app?devexample=true)
+
+## 146.5.7 (Mar 22, 2024)
+
+### Patch
+
+- Masonry: Positions tcm correctly for last item on first row ([#3492](https://github.com/pinterest/gestalt/pull/3492)) - [Preview link](https://deploy-preview-3492--gestalt.netlify.app?devexample=true)
+
+## 146.5.6 (Mar 22, 2024)
+
+### Patch
+
+- PopoverEducational: fix zIndex bug + add example ([#3486](https://github.com/pinterest/gestalt/pull/3486)) - [Preview link](https://deploy-preview-3486--gestalt.netlify.app?devexample=true)
+
+## 146.5.5 (Mar 21, 2024)
+
+### Patch
+
+- Internal: Enable ESLint rule react/jsx-sort-props except for codemod folder ([#3475](https://github.com/pinterest/gestalt/pull/3475)) - [Preview link](https://deploy-preview-3475--gestalt.netlify.app?devexample=true)
+
+## 146.5.4 (Mar 21, 2024)
+
+### Patch
+
+- Masonry: Render tcm in position on first line ([#3488](https://github.com/pinterest/gestalt/pull/3488)) - [Preview link](https://deploy-preview-3488--gestalt.netlify.app?devexample=true)
+
+## 146.5.3 (Mar 20, 2024)
+
+### Patch
+
+- Masonry: Revert splitIndex change ([#3487](https://github.com/pinterest/gestalt/pull/3487)) - [Preview link](https://deploy-preview-3487--gestalt.netlify.app?devexample=true)
+
+## 146.5.2 (Mar 19, 2024)
+
+### Patch
+
+- Masonry: Update scroll performance test ([#3480](https://github.com/pinterest/gestalt/pull/3480)) - [Preview link](https://deploy-preview-3480--gestalt.netlify.app?devexample=true)
+
+## 146.5.1 (Mar 19, 2024)
+
+### Patch
+
+- Masonry: Adds a data attribute for two column module on ssr ([#3482](https://github.com/pinterest/gestalt/pull/3482)) - [Preview link](https://deploy-preview-3482--gestalt.netlify.app?devexample=true)
+
+## 146.5.0 (Mar 15, 2024)
+
+### Minor
+
+- SideNavigation: Collapsible SideNavigation ([#3476](https://github.com/pinterest/gestalt/pull/3476)) - [Preview link](https://deploy-preview-3476--gestalt.netlify.app?devexample=true)
+
+## 146.4.1 (Mar 15, 2024)
+
+### Patch
+
+- Internal: testing data-id for HelixBot to detect page title ([#3483](https://github.com/pinterest/gestalt/pull/3483)) - [Preview link](https://deploy-preview-3483--gestalt.netlify.app?devexample=true)
+
+## 146.4.0 (Mar 13, 2024)
+
+### Minor
+
+- Icon: Add arrow double icons ([#3481](https://github.com/pinterest/gestalt/pull/3481)) - [Preview link](https://deploy-preview-3481--gestalt.netlify.app?devexample=true)
+
+## 146.3.1 (Mar 12, 2024)
+
+### Patch
+
+- Masonry: Enable corrent positioning of two column module when initial heights are 0 ([#3478](https://github.com/pinterest/gestalt/pull/3478)) - [Preview link](https://deploy-preview-3478--gestalt.netlify.app?devexample=true)
+
+## 146.3.0 (Mar 12, 2024)
+
+### Minor
+
+- Tokens: theming folders and config for automatic token builds ([#3474](https://github.com/pinterest/gestalt/pull/3474)) - [Preview link](https://deploy-preview-3474--gestalt.netlify.app?devexample=true)
+
+## 146.2.0 (Mar 11, 2024)
+
+### Minor
+
+- ESLint plugin: `only-valid-tokens` ([#3477](https://github.com/pinterest/gestalt/pull/3477)) - [Preview link](https://deploy-preview-3477--gestalt.netlify.app?devexample=true)
+
+## 146.1.1 (Mar 11, 2024)
+
+### Patch
+
+- Masonry: Enable two column module on secod batch ([#3473](https://github.com/pinterest/gestalt/pull/3473)) - [Preview link](https://deploy-preview-3473--gestalt.netlify.app?devexample=true)
+
+## 146.1.0 (Mar 6, 2024)
+
+### Minor
+
+- Dropdown: Add disabled variant ([#3463](https://github.com/pinterest/gestalt/pull/3463)) - [Preview link](https://deploy-preview-3463--gestalt.netlify.app?devexample=true)
+
+## 146.0.4 (Mar 6, 2024)
+
+### Patch
+
+- Docs: Fix md page width ([#3470](https://github.com/pinterest/gestalt/pull/3470)) - [Preview link](https://deploy-preview-3470--gestalt.netlify.app?devexample=true)
+
+## 146.0.3 (Mar 6, 2024)
+
+### Patch
+
+- Tokens: Refactored tokens style-dictionary build ([#3466](https://github.com/pinterest/gestalt/pull/3466)) - [Preview link](https://deploy-preview-3466--gestalt.netlify.app?devexample=true)
+
+## 146.0.2 (Mar 6, 2024)
+
+### Patch
+
+- Button: Fix Font Sizing ([#3469](https://github.com/pinterest/gestalt/pull/3469)) - [Preview link](https://deploy-preview-3469--gestalt.netlify.app?devexample=true)
+
+## 146.0.1 (Mar 6, 2024)
+
+### Patch
+
+- Tokens: generate commonJS constant file ([#3471](https://github.com/pinterest/gestalt/pull/3471)) - [Preview link](https://deploy-preview-3471--gestalt.netlify.app?devexample=true)
+
+## 146.0.0 (Mar 5, 2024)
+
+### Major
+
+- Internal: migration to token constants ([#3459](https://github.com/pinterest/gestalt/pull/3459)) - [Preview link](https://deploy-preview-3459--gestalt.netlify.app?devexample=true)
+
+## 145.5.2 (Mar 5, 2024)
+
+### Patch
+
+- Internal: run all visual snapshots for updated snapshots of components ([#3467](https://github.com/pinterest/gestalt/pull/3467)) - [Preview link](https://deploy-preview-3467--gestalt.netlify.app?devexample=true)
+
+## 145.5.1 (Mar 5, 2024)
+
+### Patch
+
+- Internal: Add initial unit test for masonry two column module ([#3449](https://github.com/pinterest/gestalt/pull/3449)) - [Preview link](https://deploy-preview-3449--gestalt.netlify.app?devexample=true)
+
+## 145.5.0 (Mar 4, 2024)
+
+### Minor
+
+- TagData: Move to BreakAll ([#3462](https://github.com/pinterest/gestalt/pull/3462)) - [Preview link](https://deploy-preview-3462--gestalt.netlify.app?devexample=true)
+
+## 145.4.6 (Mar 4, 2024)
+
+### Patch
+
+- Docs: Newsletter Feb 2024 ([#3464](https://github.com/pinterest/gestalt/pull/3464)) - [Preview link](https://deploy-preview-3464--gestalt.netlify.app?devexample=true)
+
+## 145.4.5 (Mar 1, 2024)
+
+### Patch
+
+- TagData: Fix Heights and Captions ([#3457](https://github.com/pinterest/gestalt/pull/3457)) - [Preview link](https://deploy-preview-3457--gestalt.netlify.app?devexample=true)
+
+## 145.4.4 (Mar 1, 2024)
+
+### Patch
+
+- TextField: Update Docs examples and cleanup ([#3376](https://github.com/pinterest/gestalt/pull/3376)) - [Preview link](https://deploy-preview-3376--gestalt.netlify.app?devexample=true)
+
+## 145.4.3 (Mar 1, 2024)
+
+### Patch
+
+- Masonry: Fix initial flash for two-column mode ([#3458](https://github.com/pinterest/gestalt/pull/3458)) - [Preview link](https://deploy-preview-3458--gestalt.netlify.app?devexample=true)
+
+## 145.4.2 (Feb 29, 2024)
+
+### Patch
+
+- Tokens: set `outputReferences": true` for android/resources ([#3460](https://github.com/pinterest/gestalt/pull/3460)) - [Preview link](https://deploy-preview-3460--gestalt.netlify.app?devexample=true)
+
+## 145.4.1 (Feb 29, 2024)
+
+### Patch
+
+- Tokens: organized packages/gestalt-design-tokens/config.json & packages/gestalt-design-tokens/build.js + constants.js file ([#3456](https://github.com/pinterest/gestalt/pull/3456)) - [Preview link](https://deploy-preview-3456--gestalt.netlify.app?devexample=true)
+
+## 145.4.0 (Feb 28, 2024)
+
+### Minor
+
+- TextField: Adding new autocomplete strings ([#3455](https://github.com/pinterest/gestalt/pull/3455)) - [Preview link](https://deploy-preview-3455--gestalt.netlify.app?devexample=true)
+
 ## 145.3.6 (Feb 27, 2024)
 
 ### Patch

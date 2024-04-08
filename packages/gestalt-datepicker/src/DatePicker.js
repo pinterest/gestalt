@@ -186,6 +186,7 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElement> = for
 
   return (
     <InternalDatePicker
+      ref={innerInputRef}
       disabled={disabled}
       errorMessage={errorMessage}
       excludeDates={excludeDates}
@@ -206,7 +207,6 @@ const DatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElement> = for
       rangeStartDate={rangeStartDate}
       selectLists={selectLists}
       value={value}
-      ref={innerInputRef}
     />
   );
 });

@@ -8,7 +8,7 @@ export default function Example(): ReactNode {
   const [checked3, setChecked3] = useState(false);
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Table accessibilityLabel="Campaign selection" maxHeight={200}>
         <Table.Header sticky>
           <Table.Row>
@@ -28,15 +28,15 @@ export default function Example(): ReactNode {
                 <Checkbox
                   checked={checked1}
                   id="4"
-                  onChange={({ checked }) => setChecked1(checked)}
-                  size="sm"
                   label="Select Summertime picnic row"
                   labelDisplay="hidden"
+                  onChange={({ checked }) => setChecked1(checked)}
+                  size="sm"
                 />
               </Box>
             </Table.Cell>
             <Table.Cell>
-              <Checkbox id="5" onChange={() => {}} size="sm" label="off" />
+              <Checkbox id="5" label="off" onChange={() => {}} size="sm" />
             </Table.Cell>
             <Table.Cell>
               <Text>Summertime picnic</Text>
@@ -48,15 +48,15 @@ export default function Example(): ReactNode {
                 <Checkbox
                   checked={checked2}
                   id="6"
-                  onChange={({ checked }) => setChecked2(checked)}
-                  size="sm"
                   label="Select Summer 1950 row"
                   labelDisplay="hidden"
+                  onChange={({ checked }) => setChecked2(checked)}
+                  size="sm"
                 />
               </Box>
             </Table.Cell>
             <Table.Cell>
-              <Checkbox checked id="7" onChange={() => {}} size="sm" label="on" />
+              <Checkbox checked id="7" label="on" onChange={() => {}} size="sm" />
             </Table.Cell>
             <Table.Cell>
               <Text>Summer 1950</Text>
@@ -68,15 +68,15 @@ export default function Example(): ReactNode {
                 <Checkbox
                   checked={checked3}
                   id="8"
-                  onChange={({ checked }) => setChecked3(checked)}
-                  size="sm"
                   label="Select Back to school row"
                   labelDisplay="hidden"
+                  onChange={({ checked }) => setChecked3(checked)}
+                  size="sm"
                 />
               </Box>
             </Table.Cell>
             <Table.Cell>
-              <Checkbox id="9" onChange={() => {}} size="sm" label="off" />
+              <Checkbox id="9" label="off" onChange={() => {}} size="sm" />
             </Table.Cell>
             <Table.Cell>
               <Text>Back to school</Text>

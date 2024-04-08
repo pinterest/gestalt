@@ -31,8 +31,8 @@ export default function useCustomTooltip({
       label: string | number,
     }) => (
       <Box
-        color={isDarkMode ? 'elevationFloating' : 'default'}
         borderStyle={isDarkMode ? undefined : 'shadow'}
+        color={isDarkMode ? 'elevationFloating' : 'default'}
         maxWidth={300}
         padding={4}
         rounding={4}

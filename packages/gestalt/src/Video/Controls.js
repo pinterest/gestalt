@@ -124,7 +124,7 @@ function VideoControls({
   return (
     <div className={styles.controls}>
       <Box padding={2}>
-        <TapArea onTap={handlePlayingChange} fullWidth={false}>
+        <TapArea fullWidth={false} onTap={handlePlayingChange}>
           <Icon
             accessibilityLabel={
               playing ? defaultAccessibilityPauseLabel : defaultAccessibilityPlayLabel
@@ -137,7 +137,7 @@ function VideoControls({
       </Box>
       {captionsButton && (
         <Box padding={2}>
-          <TapArea onTap={handleCaptionsChange} fullWidth={false}>
+          <TapArea fullWidth={false} onTap={handleCaptionsChange}>
             <Icon
               accessibilityLabel={
                 captionsButton === 'enabled'
@@ -150,23 +150,23 @@ function VideoControls({
             />
             {captionsButton === 'enabled' && (
               <Box
-                position="absolute"
-                marginTop={1}
                 color="light"
-                width={20}
                 height={2}
+                marginTop={1}
+                position="absolute"
                 rounding={4}
+                width={20}
               />
             )}
           </TapArea>
         </Box>
       )}
-      <Box width={50} padding={2}>
+      <Box padding={2} width={50}>
         <Text align="end" color="light" overflow="normal" size="100">
           {timeToString(currentTime)}
         </Text>
       </Box>
-      <Box padding={2} flex="grow">
+      <Box flex="grow" padding={2}>
         <VideoPlayhead
           accessibilityProgressBarLabel={defaultAccessibilityProgressLabel}
           currentTime={currentTime}
@@ -176,13 +176,13 @@ function VideoControls({
           seek={seek}
         />
       </Box>
-      <Box width={50} padding={2}>
+      <Box padding={2} width={50}>
         <Text align="end" color="light" overflow="normal" size="100">
           {timeToString(duration)}
         </Text>
       </Box>
       <Box padding={2}>
-        <TapArea onTap={handleVolumeChange} fullWidth={false}>
+        <TapArea fullWidth={false} onTap={handleVolumeChange}>
           <Icon
             accessibilityLabel={
               muted ? defaultAccessibilityUnmuteLabel : defaultAccessibilityMuteLabel
@@ -195,7 +195,7 @@ function VideoControls({
       </Box>
       {showFullscreenButton && (
         <Box padding={2}>
-          <TapArea onTap={handleFullscreenChange} fullWidth={false}>
+          <TapArea fullWidth={false} onTap={handleFullscreenChange}>
             <Icon
               accessibilityLabel={
                 fullscreen ? defaultAccessibilityMinimizeLabel : defaultAccessibilityMaximizeLabel

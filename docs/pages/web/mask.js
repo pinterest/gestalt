@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, Mask } from 'gestalt';
+import { TOKEN_COLOR_TEAL_SPABATTICAL_400 } from 'gestalt-design-tokens';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { type DocGen } from '../../docs-components/docgen';
@@ -18,7 +19,7 @@ import variantWillChangeTransform from '../../examples/mask/variantWillChangeTra
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
         <SandpackExample code={variantContent} hideEditor name="Image Mask example" />
       </PageHeader>
 
@@ -34,8 +35,8 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Masking other content"
           description="You can compose images with other content (like images or videos) to produce different shapes like rounded rectangles or circles."
+          title="Masking other content"
         >
           <MainSection.Card
             sandpackExample={<SandpackExample code={variantContent} name="Image Mask example" />}
@@ -43,8 +44,8 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Adding a wash"
           description="If you expect the masked content to be nearly white, you can apply a wash to emphasize the edge of the mask."
+          title="Adding a wash"
         >
           <MainSection.Card
             sandpackExample={<SandpackExample code={variantWash} name="Image Mask example" />}
@@ -54,15 +55,15 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection title="Rounding">
           <CombinationNew hasCheckerboard rounding={['circle', 0, 1, 2, 3, 4, 5, 6, 7, 8]}>
             {({ rounding }) => (
-              <Mask height={70} width={70} rounding={rounding}>
+              <Mask height={70} rounding={rounding} width={70}>
                 <Box
-                  height={70}
-                  width={70}
                   dangerouslySetInlineStyle={{
                     __style: {
-                      backgroundColor: 'var(--color-teal-spabattical-400)',
+                      backgroundColor: TOKEN_COLOR_TEAL_SPABATTICAL_400,
                     },
                   }}
+                  height={70}
+                  width={70}
                 />
               </Mask>
             )}
@@ -70,8 +71,8 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="willChangeTransform"
           description="If you want to turn off the `willChange:transform` property for rendering reasons, you can set this to false. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/will-change) for more details."
+          title="willChangeTransform"
         >
           <MainSection.Card
             sandpackExample={

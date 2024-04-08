@@ -11,7 +11,7 @@ export default function Example(): ReactNode {
   }, []);
 
   return (
-    <Flex width="100%" height="100%" justifyContent="center" alignItems="center">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <TapArea fullWidth={false} rounding={3}>
         <Box borderStyle="shadow" padding={3} rounding={3} width={400}>
           <Flex direction="column" gap={3}>
@@ -30,7 +30,7 @@ export default function Example(): ReactNode {
                 <Icon accessibilityLabel="" icon="arrow-forward" />
               </Flex.Item>
             </Flex>
-            <Box width="100%" aria-hidden>
+            <Box aria-hidden width="100%">
               <Mask rounding={1} wash>
                 <Image
                   alt=""
@@ -48,10 +48,10 @@ export default function Example(): ReactNode {
       {open && (
         <PopoverEducational
           accessibilityLabel={`Description of new "More ideas" feature`}
-          idealDirection="right"
           anchor={anchorRef.current}
-          onDismiss={() => {}}
+          idealDirection="right"
           message="Explore your recent searches in more details"
+          onDismiss={() => {}}
         />
       )}
     </Flex>

@@ -5,18 +5,18 @@ import { Button, Flex, IconButton } from 'gestalt';
 export default function DistinctionExample(): ReactNode {
   return (
     <Flex
+      alignItems="center"
       gap={{
         row: 4,
         column: 0,
       }}
-      justifyContent="center"
-      alignItems="center"
       height="100%"
+      justifyContent="center"
     >
-      <IconButton icon="speech" iconColor="darkGray" size="md" accessibilityLabel="Comment" />
+      <IconButton accessibilityLabel="Comment" icon="speech" iconColor="darkGray" size="md" />
       <Button color="gray" text="Visit" />
       <Button color="red" text="Save" />
-      <IconButton icon="share" iconColor="darkGray" accessibilityLabel="Share" size="md" />
+      <IconButton accessibilityLabel="Share" icon="share" iconColor="darkGray" size="md" />
     </Flex>
   );
 }

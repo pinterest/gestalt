@@ -6,7 +6,7 @@ export default function Example(): ReactNode {
   const [currentValue, setCurrentValue] = useState<void | number>(undefined);
 
   return (
-    <Flex alignItems="center" justifyContent="center" height="100%" width="100%">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <NumberField
         errorMessage="Please enter a value of at least $5"
         helperText="Minimum is $5"

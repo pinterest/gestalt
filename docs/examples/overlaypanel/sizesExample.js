@@ -42,26 +42,26 @@ export default function Example(): ReactNode {
       <Box padding={8}>
         <Box padding={1}>
           <Button
-            text="Small OverlayPanel"
             onClick={() => {
               dispatch({ type: 'small' });
             }}
+            text="Small OverlayPanel"
           />
         </Box>
         <Box padding={1}>
           <Button
-            text="Medium OverlayPanel"
             onClick={() => {
               dispatch({ type: 'medium' });
             }}
+            text="Medium OverlayPanel"
           />
         </Box>
         <Box padding={1}>
           <Button
-            text="Large OverlayPanel"
             onClick={() => {
               dispatch({ type: 'large' });
             }}
+            text="Large OverlayPanel"
           />
         </Box>
       </Box>
@@ -72,7 +72,7 @@ export default function Example(): ReactNode {
             accessibilityLabel="Example overlay panel to demonstrate different sizes"
             footer={
               <Flex justifyContent="end">
-                <Button text="Apply changes" color="red" />
+                <Button color="red" text="Apply changes" />
               </Flex>
             }
             heading={state.heading}
@@ -100,12 +100,12 @@ export default function Example(): ReactNode {
                   selected ad groups.
                 </Text>
                 <Flex.Item flex="none">
-                  <Button text="Reset bids" disabled />
+                  <Button disabled text="Reset bids" />
                 </Flex.Item>
               </Flex>
               <Accordion.Expandable
-                id="accordionExample - default"
                 expandedIndex={0}
+                id="accordionExample - default"
                 items={[
                   {
                     children: (
@@ -132,18 +132,18 @@ export default function Example(): ReactNode {
                             checked={false}
                             id="favoriteCat"
                             label="Automatic (recommended)"
-                            subtext="Pinterest aims to get the most clicks for your budget"
                             name="favorite"
                             onChange={() => {}}
+                            subtext="Pinterest aims to get the most clicks for your budget"
                             value="cats"
                           />
                           <RadioButton
                             checked={false}
                             id="favoritePlants"
                             label="Custom"
-                            subtext="You control how much to bid at auctions"
                             name="favorite"
                             onChange={() => {}}
+                            subtext="You control how much to bid at auctions"
                             value="plants"
                           />
                         </Flex>

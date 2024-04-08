@@ -699,13 +699,14 @@ export default class Video extends PureComponent<Props, State> {
           loop={loop}
           muted={volume === 0}
           {...(objectFit ? { style: { objectFit } } : null)}
+          ref={this.setVideoRef}
           onCanPlay={this.handleCanPlay}
           onDurationChange={this.handleDurationChange}
           onEnded={this.handleEnded}
           onError={this.handleError}
           onLoadStart={this.handleLoadStart}
-          onPlay={this.handlePlay}
           onPause={this.handlePause}
+          onPlay={this.handlePlay}
           onPlaying={this.handlePlaying}
           onProgress={this.handleProgress}
           onSeeked={this.handleSeek}
@@ -717,14 +718,13 @@ export default class Video extends PureComponent<Props, State> {
           poster={poster}
           preload={preload}
           src={typeof src === 'string' ? src : undefined}
-          ref={this.setVideoRef}
         >
           {Array.isArray(src) &&
             src.map((source) => <source key={source.src} src={source.src} type={source.type} />)}
           <track kind="captions" src={captions} />
         </video>
         {Boolean(children) && (
-          <Box position="absolute" top left bottom right overflow="hidden">
+          <Box bottom left overflow="hidden" position="absolute" right top>
             {children}
           </Box>
         )}
@@ -736,11 +736,11 @@ export default class Video extends PureComponent<Props, State> {
             duration={duration}
             fullscreen={fullscreen}
             onCaptionsChange={this.toggleCaptions}
+            onFullscreenChange={this.toggleFullscreen}
+            onPause={this.handleControlsPause}
             onPlay={this.handleControlsPlay}
             onPlayheadDown={this.handlePlayheadDown}
             onPlayheadUp={this.handlePlayheadUp}
-            onPause={this.handleControlsPause}
-            onFullscreenChange={this.toggleFullscreen}
             onVolumeChange={this.handleVolumeChange}
             playing={playing}
             seek={this.seek}

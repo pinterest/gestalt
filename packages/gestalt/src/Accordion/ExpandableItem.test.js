@@ -8,13 +8,13 @@ describe('AccordionExpandableItem', () => {
     const tree = renderer
       .create(
         <AccordionExpandableItem
-          id="uniqueTestID"
-          accessibilityExpandLabel="click to expand"
           accessibilityCollapseLabel="click to collapse"
-          title="test title"
+          accessibilityExpandLabel="click to expand"
+          id="uniqueTestID"
           isCollapsed
-          type="info"
           onExpand={() => {}}
+          title="test title"
+          type="info"
         />,
       )
       .toJSON();
@@ -25,15 +25,15 @@ describe('AccordionExpandableItem', () => {
     const tree = renderer
       .create(
         <AccordionExpandableItem
-          id="uniqueTestID"
-          accessibilityExpandLabel="click to expand"
           accessibilityCollapseLabel="click to collapse"
-          title="test title"
-          isCollapsed
+          accessibilityExpandLabel="click to expand"
           icon="lock"
           iconAccessibilityLabel="lock icon label"
-          type="info"
+          id="uniqueTestID"
+          isCollapsed
           onExpand={() => {}}
+          title="test title"
+          type="info"
         />,
       )
       .toJSON();
@@ -44,8 +44,8 @@ describe('AccordionExpandableItem', () => {
     const tree = renderer
       .create(
         <AccordionExpandableItem
-          accessibilityExpandLabel="click to expand"
           accessibilityCollapseLabel="click to collapse"
+          accessibilityExpandLabel="click to expand"
           badge={{ text: 'Try it out!' }}
           id="uniqueTestID"
           isCollapsed
@@ -62,23 +62,23 @@ describe('AccordionExpandableItem', () => {
     const tree = renderer
       .create(
         <AccordionExpandableItem
-          id="uniqueTestID"
-          accessibilityExpandLabel="click to expand"
           accessibilityCollapseLabel="click to collapse"
-          title="test title"
-          isCollapsed
+          accessibilityExpandLabel="click to expand"
           iconButton={
             <IconButton
+              accessibilityLabel="Get help"
               bgColor="lightGray"
               icon="question-mark"
               iconColor="darkGray"
-              accessibilityLabel="Get help"
-              size="xs"
               onClick={() => {}}
+              size="xs"
             />
           }
-          type="info"
+          id="uniqueTestID"
+          isCollapsed
           onExpand={() => {}}
+          title="test title"
+          type="info"
         />,
       )
       .toJSON();
@@ -89,14 +89,14 @@ describe('AccordionExpandableItem', () => {
     const tree = renderer
       .create(
         <AccordionExpandableItem
-          id="uniqueTestID"
-          accessibilityExpandLabel="click to expand"
           accessibilityCollapseLabel="click to collapse"
-          title="test title"
+          accessibilityExpandLabel="click to expand"
+          id="uniqueTestID"
           isCollapsed
-          summary={['summary1', 'summary2', 'summary3']}
-          type="info"
           onExpand={() => {}}
+          summary={['summary1', 'summary2', 'summary3']}
+          title="test title"
+          type="info"
         />,
       )
       .toJSON();
@@ -107,14 +107,14 @@ describe('AccordionExpandableItem', () => {
     const tree = renderer
       .create(
         <AccordionExpandableItem
-          id="uniqueTestID"
-          accessibilityExpandLabel="click to expand"
           accessibilityCollapseLabel="click to collapse"
-          title="test title"
+          accessibilityExpandLabel="click to expand"
           iconAccessibilityLabel="there is an error"
+          id="uniqueTestID"
           isCollapsed
-          type="error"
           onExpand={() => {}}
+          title="test title"
+          type="error"
         />,
       )
       .toJSON();
@@ -125,13 +125,13 @@ describe('AccordionExpandableItem', () => {
     const tree = renderer
       .create(
         <AccordionExpandableItem
-          id="uniqueTestID"
-          accessibilityExpandLabel="click to expand"
           accessibilityCollapseLabel="click to collapse"
-          title="test title"
+          accessibilityExpandLabel="click to expand"
+          id="uniqueTestID"
           isCollapsed
-          type="info"
           onExpand={() => {}}
+          title="test title"
+          type="info"
         />,
       )
       .toJSON();
@@ -142,14 +142,14 @@ describe('AccordionExpandableItem', () => {
     const tree = renderer
       .create(
         <AccordionExpandableItem
-          id="uniqueTestID"
-          accessibilityExpandLabel="click to expand"
           accessibilityCollapseLabel="click to collapse"
-          title="test title"
+          accessibilityExpandLabel="click to expand"
+          id="uniqueTestID"
           isCollapsed={false}
-          summary={['summary1', 'summary2', 'summary3']}
-          type="info"
           onExpand={() => {}}
+          summary={['summary1', 'summary2', 'summary3']}
+          title="test title"
+          type="info"
         >
           <div>test children</div>
         </AccordionExpandableItem>,

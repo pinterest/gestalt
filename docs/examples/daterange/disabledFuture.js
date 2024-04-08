@@ -11,18 +11,18 @@ export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <DateRange
-        maxDate={new Date()}
-        endDateValue={endDate}
         endDateErrorMessage={endErrorMessage}
-        onStartDateChange={({ value }) => setStartDate(value)}
+        endDateValue={endDate}
+        maxDate={new Date()}
+        onCancel={() => {}}
         onEndDateChange={({ value }) => setEndDate(value)}
-        onStartDateError={() => {}}
         onEndDateError={({ errorMessage }) =>
           setEndErrorMessage(errorMessage ? 'Please, enter a valid date' : null)
         }
-        startDateValue={startDate}
+        onStartDateChange={({ value }) => setStartDate(value)}
+        onStartDateError={() => {}}
         onSubmit={() => {}}
-        onCancel={() => {}}
+        startDateValue={startDate}
       />
     </Flex>
   );

@@ -42,10 +42,10 @@ export default function DocsPage({
   return (
     <Page title={generatedDocGen.Table?.displayName}>
       <PageHeader
-        name={generatedDocGen.Table?.displayName}
         description={generatedDocGen.Table?.description}
+        name={generatedDocGen.Table?.displayName}
       >
-        <SandpackExample code={main} name="Main Table example" hideEditor />
+        <SandpackExample code={main} hideEditor name="Main Table example" />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen.Table} />
@@ -54,60 +54,59 @@ export default function DocsPage({
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - Displaying a set of structured data in a scannable way, that populates 2 or more rows.
           - Allowing users to compare information in rows and columns.
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - There will never be enough data to populate at least 2 rows.
           - Displaying content that doesn’t follow a consistent pattern and can't be broken down into columns.
           - Providing robust data that doesn't fit in a tabular format. If there is a need to display a more complex data relationship, consider an info-graphic or a non-tabular format.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
 
       <MainSection name="Best practices">
-        <MainSection.Subsection title="Style" columns={2}>
+        <MainSection.Subsection columns={2} title="Style">
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use accessible Gestalt grays for table text, and reserve colors to sparingly accent important status and information. Avoid over-styling text."
             sandpackExample={
               <SandpackExample
-                name="Do - Use accessible Gestalt grays for table text"
                 code={avoidOverStylingText}
                 hideEditor
                 layout="column"
+                name="Do - Use accessible Gestalt grays for table text"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Overuse color and styling for text in tables; it can make it hard to scan for important status updates and crucial information."
             sandpackExample={
               <SandpackExample
-                name="Don't - Overuse color and styling for text in tables"
                 code={dontOverStyleText}
-                layout="column"
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Don't - Overuse color and styling for text in tables"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
-        <MainSection.Subsection title="Alignment" columns={2}>
+        <MainSection.Subsection columns={2} title="Alignment">
           <MainSection.Card
             cardSize="md"
-            type="do"
             description={`Align content so that it’s easy to scan, read and compare:
 - Start-align text and combo-content (combinations of text, numbers and/or graphics)
 - End-align numbers only
@@ -115,16 +114,16 @@ export default function DocsPage({
 - Use tabular lining for numbers`}
             sandpackExample={
               <SandpackExample
-                name="Do - Align content"
                 code={alignContent}
-                layout="column"
                 hideEditor
+                layout="column"
+                name="Do - Align content"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description={`Align content so that it makes it harder to scan, read, and compare.
 - Center-align content
 - Use proportional figures for numbers as they don’t quite align
@@ -133,48 +132,48 @@ export default function DocsPage({
 `}
             sandpackExample={
               <SandpackExample
-                name="Align content so that it makes it harder to scan, read, and compare.\n- Center-align content\n- Use proportional figures for numbers as they don’t quite align\n- End-align text and combo-content (combinations of text, numbers and/or graphics)\n- Misalign headers with their corresponding content"
                 code={dontAlignContent}
-                layout="column"
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Align content so that it makes it harder to scan, read, and compare.\n- Center-align content\n- Use proportional figures for numbers as they don’t quite align\n- End-align text and combo-content (combinations of text, numbers and/or graphics)\n- Misalign headers with their corresponding content"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Place unit type on a separate column so that amounts can still align and be compared."
             sandpackExample={
               <SandpackExample
-                name="Do - Place unit type on a separate column"
                 code={separateUnitType}
-                layout="column"
                 hideEditor
+                layout="column"
+                name="Do - Place unit type on a separate column"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Mix text and graphics with numbers that need to be compared with each other."
             sandpackExample={
               <SandpackExample
-                name="Don't - Mix text and graphics with numbers"
                 code={dontMixTextAndGraphics}
-                layout="column"
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Don't - Mix text and graphics with numbers"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
-        <MainSection.Subsection title="Content" columns={2}>
+        <MainSection.Subsection columns={2} title="Content">
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Make content digestible and scannable:
 - Keep headers clear and concise
 - Include an a visual indicator for cells that don’t have content.
@@ -184,64 +183,64 @@ export default function DocsPage({
 "
             sandpackExample={
               <SandpackExample
-                name="Do - Make content digestible and scannable:\n- Keep headers clear and concise\n- Include an a visual indicator for cells that don’t have content.\n- Give enough space for content to account for localization.\n- Wrap important content to multiple lines\n- Truncate secondary information, especially if a user is going to get the full content upon click of a link in the table.\n"
                 code={makeContentDigestable}
-                layout="column"
                 hideEditor
+                layout="column"
+                name="Do - Make content digestible and scannable:\n- Keep headers clear and concise\n- Include an a visual indicator for cells that don’t have content.\n- Give enough space for content to account for localization.\n- Wrap important content to multiple lines\n- Truncate secondary information, especially if a user is going to get the full content upon click of a link in the table.\n"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Add so much content that it’s hard for a user to read, examine and scan:
 - Don’t truncate content that a user needs to examine in relation to other content in the table.
 - Leave cells blank so that it isn’t clear if all data has loaded."
             sandpackExample={
               <SandpackExample
-                name="Don't - Add so much content"
                 code={dontAddSoMuchContent}
-                layout="column"
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Don't - Add so much content"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection>
           <MainSection.Card
             cardSize="lg"
-            type="do"
             description="Expand rows if the additional content is simple, doesn’t contain a lot of interaction and doesn’t take up more than 50% of the screen."
             sandpackExample={
               <SandpackExample
-                name="Do - Expand rows"
                 code={expandRows}
-                layout="column"
                 hideEditor
+                layout="column"
+                name="Do - Expand rows"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="lg"
-            type="don't"
             description="Use an expand to display dense, highly-interactive content. Use a new page or [OverlayPanel](/web/overlaypanel) for that."
             sandpackExample={
               <SandpackExample
-                name="Don't - Use an expand for dense content"
                 code={dontUseExpandForDenseContent}
-                layout="column"
-                hideEditor
                 hideControls
+                hideEditor
+                layout="column"
+                name="Don't - Use an expand for dense content"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
 
       <AccessibilitySection name={generatedDocGen.Table?.displayName}>
         <MainSection.Subsection
-          title="Labels"
           description={`
 Use  \`accessibilityLabel\` to properly announce the content of the table. For example, use "Campaign Status Information".
 
@@ -249,41 +248,42 @@ Don’t include the word “table” as part of the label to prevent redundancy:
 
 In terms of structure and content, HTML tables already provide accessible ways to navigate content via cells \`<td>\` and headers \`<th>\`.
   `}
+          title="Labels"
         />
         <MainSection.Subsection
-          title="Keyboard navigation"
           description={`
 The Tab key should only place the focus on interactive elements like sortable headers, expands and links. If a cell does not contain interactive content, tabbing should skip the cell. Enter, Space and Return activate buttons and other controls after focusing. Arrow keys can be used to scroll table content vertically and horizontally.`}
+          title="Keyboard navigation"
         />
         <MainSection.Subsection
           columns={2}
-          title="Other considerations"
           description={`
 Internally, Gestalt Table implements \`visually-hidden\` captions through the \`accessibilityLabel\` prop. Therefore, if we want to add visual captions (at the top or bottom of the Table), we must prevent redundancy. Any top or bottom text that describes the Table should be removed from navigation using \`aria-hidden\`.
 
 See the examples below for more details.`}
+          title="Other considerations"
         >
           <MainSection.Card
             cardSize="md"
-            title="Top captions"
             sandpackExample={
               <SandpackExample
-                name="Top caption example"
                 code={topCaptionExample}
                 layout="column"
+                name="Top caption example"
               />
             }
+            title="Top captions"
           />
           <MainSection.Card
             cardSize="md"
-            title="Bottom captions"
             sandpackExample={
               <SandpackExample
-                name="Bottom caption example"
                 code={bottomCaptionExample}
                 layout="column"
+                name="Bottom caption example"
               />
             }
+            title="Bottom captions"
           />
         </MainSection.Subsection>
       </AccessibilitySection>
@@ -298,97 +298,97 @@ See the examples below for more details.`}
 
       <MainSection name="Subcomponents">
         <MainSection.Subsection
-          title={generatedDocGen?.TableHeader?.displayName}
           description={generatedDocGen?.TableHeader?.description}
+          title={generatedDocGen?.TableHeader?.displayName}
         >
           <GeneratedPropTable
             generatedDocGen={generatedDocGen.TableHeader}
-            name={generatedDocGen?.TableHeader?.displayName}
             id={generatedDocGen?.TableHeader?.displayName}
+            name={generatedDocGen?.TableHeader?.displayName}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title={generatedDocGen?.TableBody?.displayName}
           description={generatedDocGen?.TableBody?.description}
+          title={generatedDocGen?.TableBody?.displayName}
         >
           <GeneratedPropTable
             generatedDocGen={generatedDocGen.TableBody}
-            name={generatedDocGen?.TableBody?.displayName}
             id={generatedDocGen?.TableBody?.displayName}
+            name={generatedDocGen?.TableBody?.displayName}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title={generatedDocGen?.TableFooter?.displayName}
           description={generatedDocGen?.TableFooter?.description}
+          title={generatedDocGen?.TableFooter?.displayName}
         >
           <GeneratedPropTable
             generatedDocGen={generatedDocGen.TableFooter}
-            name={generatedDocGen?.TableFooter?.displayName}
             id={generatedDocGen?.TableFooter?.displayName}
+            name={generatedDocGen?.TableFooter?.displayName}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title={generatedDocGen?.TableCell?.displayName}
           description={generatedDocGen?.TableCell?.description}
+          title={generatedDocGen?.TableCell?.displayName}
         >
           <GeneratedPropTable
+            excludeProps={['shouldBeSticky', 'previousTotalWidth', 'shouldHaveShadow']}
             generatedDocGen={generatedDocGen.TableCell}
-            name={generatedDocGen?.TableCell?.displayName}
             id={generatedDocGen?.TableCell?.displayName}
-            excludeProps={['shouldBeSticky', 'previousTotalWidth', 'shouldHaveShadow']}
+            name={generatedDocGen?.TableCell?.displayName}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title={generatedDocGen?.TableHeaderCell?.displayName}
           description={generatedDocGen?.TableHeaderCell?.description}
+          title={generatedDocGen?.TableHeaderCell?.displayName}
         >
           <GeneratedPropTable
+            excludeProps={['shouldBeSticky', 'previousTotalWidth', 'shouldHaveShadow']}
             generatedDocGen={generatedDocGen.TableHeaderCell}
-            name={generatedDocGen?.TableHeaderCell?.displayName}
             id={generatedDocGen?.TableHeaderCell?.displayName}
-            excludeProps={['shouldBeSticky', 'previousTotalWidth', 'shouldHaveShadow']}
+            name={generatedDocGen?.TableHeaderCell?.displayName}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title={generatedDocGen?.TableSortableHeaderCell?.displayName}
           description={generatedDocGen?.TableSortableHeaderCell?.description}
+          title={generatedDocGen?.TableSortableHeaderCell?.displayName}
         >
           <GeneratedPropTable
-            generatedDocGen={generatedDocGen.TableSortableHeaderCell}
-            name={generatedDocGen?.TableSortableHeaderCell?.displayName}
-            id={generatedDocGen?.TableSortableHeaderCell?.displayName}
             excludeProps={['shouldBeSticky', 'previousTotalWidth', 'shouldHaveShadow']}
+            generatedDocGen={generatedDocGen.TableSortableHeaderCell}
+            id={generatedDocGen?.TableSortableHeaderCell?.displayName}
+            name={generatedDocGen?.TableSortableHeaderCell?.displayName}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title={generatedDocGen?.TableRow?.displayName}
           description={generatedDocGen?.TableRow?.description}
+          title={generatedDocGen?.TableRow?.displayName}
         >
           <GeneratedPropTable
             generatedDocGen={generatedDocGen.TableRow}
-            name={generatedDocGen?.TableRow?.displayName}
             id={generatedDocGen?.TableRow?.displayName}
+            name={generatedDocGen?.TableRow?.displayName}
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title={generatedDocGen?.TableRowExpandable?.displayName}
           description={generatedDocGen?.TableRowExpandable?.description}
+          title={generatedDocGen?.TableRowExpandable?.displayName}
         >
           <GeneratedPropTable
             generatedDocGen={generatedDocGen.TableRowExpandable}
-            name={generatedDocGen?.TableRowExpandable?.displayName}
             id={generatedDocGen?.TableRowExpandable?.displayName}
+            name={generatedDocGen?.TableRowExpandable?.displayName}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title={generatedDocGen?.TableRowDrawer?.displayName}
           description={generatedDocGen?.TableRowDrawer?.description}
+          title={generatedDocGen?.TableRowDrawer?.displayName}
         >
           <GeneratedPropTable
             generatedDocGen={generatedDocGen.TableRowDrawer}
-            name={generatedDocGen?.TableRowDrawer?.displayName}
             id={generatedDocGen?.TableRowDrawer?.displayName}
+            name={generatedDocGen?.TableRowDrawer?.displayName}
           />
         </MainSection.Subsection>
       </MainSection>
@@ -399,73 +399,73 @@ See the examples below for more details.`}
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Sticky header & footer example"
                 code={stickyHeaderFooterExample}
                 layout="column"
+                name="Sticky header & footer example"
               />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Sticky Column"
           description="Try scrolling horizontally to see the first column remain in place."
+          title="Sticky Column"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Sticky column example"
                 code={stickyColumnExample}
                 layout="column"
+                name="Sticky column example"
               />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Multiple sticky columns"
           description="Try scrolling horizontally to see the first 3 columns remain in place."
+          title="Multiple sticky columns"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Multiple sticky columns example"
                 code={multipleStickyColumnsExample}
                 layout="column"
+                name="Multiple sticky columns example"
               />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Sticky header and sticky columns"
           description="Try scrolling horizontally and vertically to see the columns and header remain in place."
+          title="Sticky header and sticky columns"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Sticky header and sticky columns example"
                 code={stickyHeaderColumnExample}
                 layout="column"
+                name="Sticky header and sticky columns example"
               />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Controlled/Uncontrolled Table.RowExpandable"
+          columns={2}
           description={`To set Table.RowExpandable to be a controlled component, use the \`expanded\` prop. When \`expanded\` is not passed (\`expanded\` set to undefined), Table.RowExpandable stays uncontrolled. Use \`onExpand\` prop to have access to the internal state of the component via render props <code>({ event, expanded }) => { expanded }</code>"
 
 When Table.RowExpandable is uncontrolled, use the clickable expand/collapse icon button to hide/show the content.`}
-          columns={2}
+          title="Controlled/Uncontrolled Table.RowExpandable"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={controlledExpandable}
-                name="Controlled Table.RowExpandable example"
                 hideEditor
+                name="Controlled Table.RowExpandable example"
               />
             }
           />
@@ -475,56 +475,56 @@ When Table.RowExpandable is uncontrolled, use the clickable expand/collapse icon
             sandpackExample={
               <SandpackExample
                 code={uncontrolledExpandable}
-                name="Uncontrolled Table.RowExpandable example"
                 hideEditor
+                name="Uncontrolled Table.RowExpandable example"
               />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Table.RowExpandable with Sticky Columns"
           description="When specifying `stickyColumns` with expandable rows, include the column of arrows in your count. This example sets `stickyColumns` to 3."
+          title="Table.RowExpandable with Sticky Columns"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Table.RowExpandable with Sticky Columns example"
                 code={rowExpandableWithStickyColumns}
                 layout="column"
+                name="Table.RowExpandable with Sticky Columns example"
               />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Table.RowDrawer implementation"
           description="Drawer row that is able to hold additional content."
+          title="Table.RowDrawer implementation"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Drawer row that is able to hold additional content"
                 code={drawerRowExample}
                 layout="column"
+                name="Drawer row that is able to hold additional content"
               />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Sortable header cells"
           description={`Sortable header cells are clickable in an accessible way and have an icon to display whether the table is currently being sorted by that column.  <br/>
           Depending on the table contents, use the \`align\` property to set the alignment of the header cell and sort icon position.`}
+          title="Sortable header cells"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Sortable header cells example"
                 code={sortableTableCells}
                 layout="column"
+                name="Sortable header cells example"
               />
             }
           />
@@ -534,25 +534,25 @@ When Table.RowExpandable is uncontrolled, use the clickable expand/collapse icon
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Sortable header cells with sticky columns"
                 code={sortableHeaderCellsWithStickyColumns}
                 layout="column"
+                name="Sortable header cells with sticky columns"
               />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Selected & hovered state"
           description={`Table.Row, Table.RowExpandable and Table.RowDrawer support hovered and selected states.
 
 If a row subcomponent is selectable, toggle the \`selected\` prop between "selected" and "unselected" to keep a constant border space in the row that is only visible when the row is selected.
 
 If the row is not selectable, the \`selected\` prop should not be set. In this case, it doesn't set a side border.
           `}
+          title="Selected & hovered state"
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample code={selected} name="Selected example" layout="column" />
+              <SandpackExample code={selected} layout="column" name="Selected example" />
             }
           />
         </MainSection.Subsection>

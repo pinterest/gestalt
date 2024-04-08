@@ -12,3 +12,10 @@ export type NodeData<T> = {
   heights: $ReadOnlyArray<number>,
   positions: $ReadOnlyArray<{ item: T, position: Position }>,
 };
+
+export type Layout =
+  | 'basic'
+  | 'basicCentered'
+  | 'flexible'
+  | 'serverRenderedFlexible'
+  | 'uniformRow';

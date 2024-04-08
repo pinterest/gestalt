@@ -4,13 +4,13 @@ import OverlayPanel from './OverlayPanel';
 
 const ValidWithNodeProps = (
   <OverlayPanel
+    ref={createRef()}
     accessibilityDismissButtonLabel="Dismiss"
     accessibilityLabel="OverlayPanel"
     closeOnOutsideClick
     footer={<footer />}
     heading="OverlayPanel title"
     onDismiss={() => {}}
-    ref={createRef()}
     size="sm"
     subHeading={<nav />}
   >
@@ -20,6 +20,7 @@ const ValidWithNodeProps = (
 
 const ValidWithRenderProps = (
   <OverlayPanel
+    ref={createRef()}
     accessibilityDismissButtonLabel="Dismiss"
     accessibilityLabel="OverlayPanel"
     closeOnOutsideClick
@@ -30,7 +31,6 @@ const ValidWithRenderProps = (
     }
     heading="OverlayPanel title"
     onDismiss={() => {}}
-    ref={createRef()}
     size="sm"
     subHeading={
       <OverlayPanel.DismissingElement>
@@ -84,8 +84,8 @@ const NonExistingProp = (
   <OverlayPanel
     accessibilityDismissButtonLabel="Dismiss"
     accessibilityLabel="OverlayPanel"
-    onDismiss={() => {}}
     nonExisting={33}
+    onDismiss={() => {}}
   >
     <section />
   </OverlayPanel>

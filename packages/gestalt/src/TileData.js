@@ -85,7 +85,7 @@ type Props = {
    */
   tooltip?: TooltipProps,
   /**
-   * Object detailing the trend value (change in time - e.g., +30%), and accessibility label to describe the trend's icon (e.g., "Trending up").  See the [trend variant](https://gestalt.pinterest.systems/web/datapoint#Trend) to learn more.
+   * Object detailing the trend value (change in time - e.g. +30%), and accessibility label to describe the trend's icon (e.g., "Trending up").  See the [trend variant](https://gestalt.pinterest.systems/web/datapoint#Trend) to learn more.
    */
   trend?: TrendObject,
   /**
@@ -144,23 +144,25 @@ export default function TileData({
   });
 
   return (
-    <MaybeTooltip tooltip={tooltip} disabled={disabled}>
-      <Box maxWidth={196}>
+    <MaybeTooltip disabled={disabled} tooltip={tooltip}>
+      <Box>
         <TapArea
           disabled={disabled}
           onBlur={handleOnBlur}
-          onTap={({ event }) => onTap?.({ event, id, selected: !selected })}
           onMouseEnter={handleOnMouseEnter}
           onMouseLeave={handleOnMouseLeave}
+          onTap={({ event }) => onTap?.({ event, id, selected: !selected })}
           role="button"
           rounding={4}
         >
-          <div style={tileStyle} className={getClasses()}>
+          <div className={getClasses()} style={tileStyle}>
             <Flex direction="row" gap={2}>
               <InternalDatapoint
                 disabled={disabled}
                 lineClamp={2}
+                maxTitleWidth={135}
                 minTitleWidth={80}
+                numTitleRows={2}
                 title={title}
                 trend={trend}
                 trendSentiment={trendSentiment}
@@ -168,8 +170,8 @@ export default function TileData({
               />
               {showCheckbox && (
                 <InternalCheckbox
-                  id={`readonly-checkbox-blah-${checkboxId}`}
                   checked={selected}
+                  id={`readonly-checkbox-blah-${checkboxId}`}
                   readOnly
                   size="sm"
                   style={checkBoxStyle}

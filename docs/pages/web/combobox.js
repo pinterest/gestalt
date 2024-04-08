@@ -29,8 +29,6 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name={generatedDocGen?.displayName}
-        description={generatedDocGen?.description}
         bannerSlimExperiment={
           <BannerSlimExperiment
             componentName="ComboBox"
@@ -38,11 +36,13 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
             pullRequest={3244}
           />
         }
+        description={generatedDocGen?.description}
+        name={generatedDocGen?.displayName}
       >
         <SandpackExample
           code={main}
-          name="Main Combobox example"
           hideEditor
+          name="Main Combobox example"
           previewHeight={PREVIEW_HEIGHT}
         />
       </PageHeader>
@@ -51,19 +51,19 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - Presenting users with a long list of options (typically 10 or more) that can be filtered by typing in the text field.
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - For shorter lists of items where filtering is not needed, typically under 10 items.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -72,24 +72,24 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use ComboBox to allow the user to edit or copy the textfield input values to select and/or narrow down from a given list of options."
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use ComboBox for a simple list of items. Use [SelectList](/web/selectlist) instead for the added native mobile functionality."
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
-          title="Labels"
           description={`
       ComboBox requires both \`label\` and \`accessibilityClearButtonLabel\`. By default, the \`label\` is visible above TextField. However, if the form items are labeled by content elsewhere on the page, or a more complex label is needed, the \`labelDisplay\` prop can be used to visually hide the label. In this case, it is still available to screen reader users, but will not appear visually on the screen.
 
       In the example below, the "Discover this week's top searched trends across all categories" text is acting as a heading, so instead of repeating another label, we visually hide the label. When a user focuses on the ComboBox, a screen reader will announce "Choose a category to display top search trends, Select category".
       `}
+          title="Labels"
         >
           <MainSection.Card
             cardSize="lg"
@@ -102,7 +102,6 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
             }
           />
           <MainSection.Subsection
-            title="Keyboard interaction"
             description={`
     * Hitting \`Enter\` or \`Space\` key on the ComboBox's trigger opens the options list
     * Once an item is selected, hitting \`Enter\` or \`Space\` on the clear button clears the selection and returns focus to the input textfield
@@ -111,6 +110,7 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
     * \`Enter\` key selects an item within the options list
     * \`Tab\` or \` Shift + Tab\` close the options list and move focus accordingly
   `}
+            title="Keyboard interaction"
           />
         </MainSection.Subsection>
       </AccessibilitySection>
@@ -128,7 +128,6 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
         >
           <MainSection.Card
             cardSize="lg"
-            title="Uncontrolled ComboBox"
             description={`An uncontrolled ComboBox should be used for basic cases where no default value or tags are required. Don't pass \`inputValue\` or \`selectedOptions\` props to keep the component uncontrolled. By passing \`inputValue\` to ComboBox, the component fully manages its internal state: any value different from \`null\` and \`undefined\` makes Combobox controlled.`}
             sandpackExample={
               <SandpackExample
@@ -137,10 +136,10 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
+            title="Uncontrolled ComboBox"
           />
           <MainSection.Card
             cardSize="lg"
-            title="Controlled ComboBox"
             description={` A controlled ComboBox is required if a selected value is set, as shown in the first example. In the second example, values are set programatically. Controlled Comboboxes with [tags](#Tags) are also controlled components. A controlled ComboBox requires three value props: \`options\`,  \`inputValue\`,  and \`selectedOptions\`. ComboBox is notified of changes via the \`onChange\`, \`onSelect\`, \`onBlur\`, \`onFocus\`, \`onKeyDown\`, and \`onClear\` props. All values displayed by ComboBox at any time are controlled externally. To clear \`inputValue\`, set the value to an empty string \`inputValue\` = \` "" \`, \`null\`  or \` undefined\` values turn ComboBox into an uncontrolled component.`}
             sandpackExample={
               <SandpackExample
@@ -149,6 +148,7 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
+            title="Controlled ComboBox"
           />
           <MainSection.Card
             cardSize="lg"
@@ -183,10 +183,10 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
         >
           <MainSection.Card
             cardSize="lg"
-            title="Focus management with ref example"
             sandpackExample={
               <SandpackExample code={ref} name="ref" previewHeight={PREVIEW_HEIGHT} />
             }
+            title="Focus management with ref example"
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -201,7 +201,7 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="ComboBox can have different sizes. The default size is medium (40px). The large size is 48px. For a dense variant, use the `sm` (32px) variant."
+          description="ComboBox can have different sizes. The default size is `md` (40px). The `lg` size is 48px. For a dense variant, use the `sm` (32px) variant."
           title="Size"
         >
           <MainSection.Card
@@ -212,8 +212,8 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Helper text"
           description="Whenever you want to provide more information about a form field, you should use `helperText`."
+          title="Helper text"
         >
           <MainSection.Card
             cardSize="lg"
@@ -227,8 +227,8 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Error message"
           description="For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in [Link](/web/link) or [TapArea](/web/taparea)"
+          title="Error message"
         >
           <MainSection.Card
             cardSize="lg"

@@ -23,12 +23,12 @@ export default function ColorExamplesPage(): ReactNode {
   return (
     <Page title="Color examples">
       <PageHeader
-        name="Color examples"
         description="Color principles and best practices examples of applying color to product UI."
+        name="Color examples"
         type="guidelines"
       />
       <MainSection name="Color principles">
-        <Flex gap={12} alignContent="between" wrap>
+        <Flex alignContent="between" gap={12} wrap>
           <Flex.Item flex="grow" flexBasis="0%" minWidth={260}>
             <PrincipleItem
               heading="Ease of content"
@@ -89,177 +89,177 @@ export default function ColorExamplesPage(): ReactNode {
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use colors to support creating distinction between elements, such as define primary and secondary actions. See [color usage](/foundations/color/usage) for reference and appropriate tokens."
             sandpackExample={
               <SandpackExample
                 code={distinctionExample}
-                name="Color distinction example"
                 hideEditor
+                name="Color distinction example"
                 previewHeight={286}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use color as a sole indicator of information. Color-only changes do not work well for those who may be color blind or have low vision; always supply an icon or text label for context."
             sandpackExample={
               <SandpackExample
                 code={soleIndicatorExample}
-                name="Sole indicator example"
-                hideEditor
                 hideControls
+                hideEditor
+                name="Sole indicator example"
                 previewHeight={286}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use colors purposefully as it can convey meaning in multiple ways. Our extended color palette is used for communicating status or enhancing illustrations when needed. See [color usage](/foundations/color/usage) for reference."
             sandpackExample={
               <SandpackExample
                 code={communicateStatusExample}
-                name="Communicate status example"
                 hideEditor
+                name="Communicate status example"
                 previewHeight={286}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Repurpose colors. Using colors for their intended meaning supports good comprehension and avoids usability and accessibility issues."
             sandpackExample={
               <SandpackExample
                 code={repurposeExample}
-                name="Repurpose colors example"
-                hideEditor
                 hideControls
+                hideEditor
+                name="Repurpose colors example"
                 previewHeight={286}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use extended colors to emphasize brand moments and reinforce Pinterest's style when appropriate to a specific use case without breaking an actual product UI pattern (e.g., onboarding, marketing announcements). Please reach out to the [Core Brand](https://brand.pinterest.com/) team for guidance."
             sandpackExample={
               <SandpackExample
                 code={extendedColors}
-                name="Extended colors example"
                 hideEditor
+                name="Extended colors example"
                 previewHeight={400}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Apply alternative colors modifying Gestalt components or UI patterns as it can create inconsistency and cognitive issues."
             sandpackExample={
               <SandpackExample
                 code={alternativeColors}
-                name="Alternative colors example"
-                hideEditor
                 hideControls
+                hideEditor
+                name="Alternative colors example"
                 previewHeight={400}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use the established [typography](/foundations/color/usage#Typography-color) and [iconography](/foundations/color/usage#Iconography-color) color tokens so users can quickly scan and identify sentiment."
             sandpackExample={
               <SandpackExample
                 code={establishedExample}
-                name="Established colors example"
                 hideEditor
+                name="Established colors example"
                 previewHeight={286}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Apply alternative colors to text and icons. Always refer to [color usage](/foundations/color/usage) for the appropriate color pattern. "
             sandpackExample={
               <SandpackExample
                 code={alternativeColorTextExample}
-                name="Alternative color text example"
-                hideEditor
                 hideControls
+                hideEditor
+                name="Alternative color text example"
                 previewHeight={286}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use the appropriate [color tokens](/foundations/design_tokens) to switch between themes (light and dark mode). It ensures consistency and avoids accessibility issues."
             sandpackExample={
               <SandpackExample
                 code={appropriateColorTokensExample}
-                name="Appropriate color tokens example"
                 hideEditor
+                name="Appropriate color tokens example"
                 previewHeight={400}
               />
             }
+            type="do"
           />
 
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Apply alternative colors not specified in our color tokens when switching between themes. If a new color value is needed for a specific use case, [let the Gestalt team know](/team_support/get_help#Meetings-and-events) and we will evaluate."
             sandpackExample={
               <SandpackExample
                 code={alternativeColorTokensExample}
-                name="Alternative color tokens example"
-                hideEditor
                 hideControls
+                hideEditor
+                name="Alternative color tokens example"
                 previewHeight={400}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use designated elevation color values and styles on light and dark mode themes. See [elevation guidelines](/foundations/elevation) for guidance."
             sandpackExample={
               <SandpackExample
                 code={validElevationExample}
-                name="Valid elevation example"
                 hideEditor
+                name="Valid elevation example"
                 previewHeight={400}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Apply colors and styles not available in our elevation tokens to elevate surfaces as it can create inconsistency, and eye strain. If a different color value is needed for a specific elevation use case, [let the Gestalt team know](/team_support/get_help#Meetings-and-events) and we will assist."
             sandpackExample={
               <SandpackExample
                 code={invalidElevationExample}
-                name="Invalid elevation example"
-                hideEditor
                 hideControls
+                hideEditor
+                name="Invalid elevation example"
                 previewHeight={400}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>

@@ -16,7 +16,7 @@ test('renders correctly', () => {
 test('renders correctly with border', () => {
   const tree = renderer
     .create(
-      <Table borderStyle="sm" accessibilityLabel="test">
+      <Table accessibilityLabel="test" borderStyle="sm">
         <div>rest of table</div>
       </Table>,
     )
@@ -27,7 +27,7 @@ test('renders correctly with border', () => {
 test('renders correctly with maxHeight', () => {
   const tree = renderer
     .create(
-      <Table maxHeight={100} accessibilityLabel="test">
+      <Table accessibilityLabel="test" maxHeight={100}>
         <div>rest of table</div>
       </Table>,
     )
@@ -38,7 +38,7 @@ test('renders correctly with maxHeight', () => {
 test('renders correctly with stickyColumns', () => {
   const tree = renderer
     .create(
-      <Table stickyColumns={2} accessibilityLabel="test">
+      <Table accessibilityLabel="test" stickyColumns={2}>
         <div>rest of table</div>
       </Table>,
     )

@@ -6,7 +6,7 @@ import NumberField from './NumberField';
 describe('NumberField', () => {
   it('renders error message on errorMessage prop change', () => {
     const { rerender } = render(
-      <NumberField id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
+      <NumberField id="test" onBlur={jest.fn()} onChange={jest.fn()} onFocus={jest.fn()} />,
     );
     expect(() => {
       screen.getByText('Error message');
@@ -16,9 +16,9 @@ describe('NumberField', () => {
       <NumberField
         errorMessage="Error message"
         id="test"
+        onBlur={jest.fn()}
         onChange={jest.fn()}
         onFocus={jest.fn()}
-        onBlur={jest.fn()}
       />,
     );
     expect(screen.getByText('Error message')).toBeVisible();
@@ -29,9 +29,9 @@ describe('NumberField', () => {
       <NumberField
         errorMessage="Error message"
         id="test"
+        onBlur={jest.fn()}
         onChange={jest.fn()}
         onFocus={jest.fn()}
-        onBlur={jest.fn()}
         value={42}
       />,
     );
@@ -43,12 +43,12 @@ describe('NumberField', () => {
     const ref = createRef<HTMLInputElement>();
     render(
       <NumberField
+        ref={ref}
         id="test"
+        onBlur={jest.fn()}
         onChange={jest.fn()}
         onFocus={jest.fn()}
-        onBlur={jest.fn()}
         value={42}
-        ref={ref}
       />,
     );
     expect(ref.current instanceof HTMLInputElement).toEqual(true);
@@ -132,9 +132,9 @@ describe('NumberField', () => {
   it('shows helper text for the number field', () => {
     render(
       <NumberField
+        helperText="Helper text for the number field"
         id="test"
         label="Label for the number field"
-        helperText="Helper text for the number field"
         onChange={() => {}}
         value={42}
       />,
@@ -145,10 +145,10 @@ describe('NumberField', () => {
   it('hides the helper text for the number field when an error message is shown', () => {
     render(
       <NumberField
+        errorMessage="Error message for the number field"
+        helperText="Helper text for the number field"
         id="test"
         label="Label for the number field"
-        helperText="Helper text for the number field"
-        errorMessage="Error message for the number field"
         onChange={() => {}}
         value={42}
       />,
@@ -166,7 +166,7 @@ describe('NumberField', () => {
 
   it('adds a "large" classname when size is set to "lg"', () => {
     const { container } = render(
-      <NumberField id="test" onChange={() => {}} value={42} size="lg" />,
+      <NumberField id="test" onChange={() => {}} size="lg" value={42} />,
     );
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(container.querySelector('.large')).toBeVisible();

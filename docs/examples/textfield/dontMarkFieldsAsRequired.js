@@ -10,7 +10,7 @@ export default function Example(): ReactNode {
   });
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex direction="column" gap={{ column: 3, row: 0 }}>
         <TextField
           helperText="* This field is required."

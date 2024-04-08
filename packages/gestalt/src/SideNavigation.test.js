@@ -26,21 +26,21 @@ describe('SideNavigation', () => {
 
   it('renders Icon + Badge/Notification + Counter + Border', () => {
     const tree = create(
-      <SideNavigation showBorder accessibilityLabel="label">
+      <SideNavigation accessibilityLabel="label" showBorder>
         <SideNavigation.Section label="section">
           <SideNavigation.TopItem
+            badge={{ text: 'New', type: 'info' }}
+            counter={{ number: '20', accessibilityLabel: 'You have 20 notifications' }}
             href="#"
             icon="bell"
             label="test"
-            badge={{ text: 'New', type: 'info' }}
-            counter={{ number: '20', accessibilityLabel: 'You have 20 notifications' }}
           />
           <SideNavigation.TopItem
+            counter={{ number: '20', accessibilityLabel: 'You have 20 notifications' }}
             href="#"
             icon="bell"
             label="test"
             notificationAccessibilityLabel="You have new messages"
-            counter={{ number: '20', accessibilityLabel: 'You have 20 notifications' }}
           />
         </SideNavigation.Section>
       </SideNavigation>,
@@ -52,8 +52,8 @@ describe('SideNavigation', () => {
     const tree = create(
       <SideNavigation
         accessibilityLabel="label"
-        header={<Box height={100} width="100%" color="default" />}
-        footer={<Box height={100} width="100%" color="default" />}
+        footer={<Box color="default" height={100} width="100%" />}
+        header={<Box color="default" height={100} width="100%" />}
       >
         <SideNavigation.TopItem href="#" label="test" />
       </SideNavigation>,
@@ -66,64 +66,64 @@ describe('SideNavigation', () => {
       <SideNavigation accessibilityLabel="Nested items example">
         <SideNavigation.TopItem
           href="#"
-          onClick={({ event }) => event.preventDefault()}
-          label="Reporting"
           icon="ads-stats"
+          label="Reporting"
+          onClick={({ event }) => event.preventDefault()}
         />
         <SideNavigation.TopItem
           href="#"
-          onClick={({ event }) => event.preventDefault()}
-          label="Conversions"
           icon="replace"
+          label="Conversions"
+          onClick={({ event }) => event.preventDefault()}
         />
         <SideNavigation.Section label="Audiences">
           <SideNavigation.TopItem
             href="#"
-            onClick={({ event }) => event.preventDefault()}
-            label="Thanksgiving"
             icon="people"
+            label="Thanksgiving"
+            onClick={({ event }) => event.preventDefault()}
           />
-          <SideNavigation.Group label="Christmas" icon="people">
+          <SideNavigation.Group icon="people" label="Christmas">
             <SideNavigation.NestedItem
               href="#"
-              onClick={({ event }) => event.preventDefault()}
               label="Luxury Christmas"
+              onClick={({ event }) => event.preventDefault()}
             />
             <SideNavigation.NestedGroup label="Classic Christmas">
               <SideNavigation.NestedItem
                 href="#"
-                onClick={({ event }) => event.preventDefault()}
                 label="West Coast"
+                onClick={({ event }) => event.preventDefault()}
               />
               <SideNavigation.NestedItem
                 href="#"
-                onClick={({ event }) => event.preventDefault()}
                 label="East Coast"
+                onClick={({ event }) => event.preventDefault()}
               />
             </SideNavigation.NestedGroup>
             <SideNavigation.NestedGroup label="Alternative Christmas">
               <SideNavigation.NestedItem
                 href="#"
-                onClick={({ event }) => event.preventDefault()}
                 label="West Coast"
+                onClick={({ event }) => event.preventDefault()}
               />
               <SideNavigation.NestedItem
                 href="#"
-                onClick={({ event }) => event.preventDefault()}
                 label="East Coast"
+                onClick={({ event }) => event.preventDefault()}
               />
             </SideNavigation.NestedGroup>
           </SideNavigation.Group>
-          <SideNavigation.Group label="Halloween" icon="people">
+          <SideNavigation.Group icon="people" label="Halloween">
             <SideNavigation.NestedItem
               href="#"
-              onClick={({ event }) => event.preventDefault()}
               label="East Coast"
+              onClick={({ event }) => event.preventDefault()}
             />
             <SideNavigation.NestedItem
               href="#"
-              onClick={({ event }) => event.preventDefault()}
               label="West Coast"
+              onClick={({ event }) => event.preventDefault()}
             />
           </SideNavigation.Group>
         </SideNavigation.Section>
@@ -135,22 +135,22 @@ describe('SideNavigation', () => {
   it('renders static group', () => {
     const tree = create(
       <SideNavigation accessibilityLabel="Static items example">
-        <SideNavigation.Group label="Christmas" icon="people" display="static">
+        <SideNavigation.Group display="static" icon="people" label="Christmas">
           <SideNavigation.NestedItem
             href="#"
-            onClick={({ event }) => event.preventDefault()}
             label="Luxury Christmas"
+            onClick={({ event }) => event.preventDefault()}
           />
-          <SideNavigation.NestedGroup label="Classic Christmas" display="static">
+          <SideNavigation.NestedGroup display="static" label="Classic Christmas">
             <SideNavigation.NestedItem
               href="#"
-              onClick={({ event }) => event.preventDefault()}
               label="West Coast"
+              onClick={({ event }) => event.preventDefault()}
             />
             <SideNavigation.NestedItem
               href="#"
-              onClick={({ event }) => event.preventDefault()}
               label="East Coast"
+              onClick={({ event }) => event.preventDefault()}
             />
           </SideNavigation.NestedGroup>
         </SideNavigation.Group>
@@ -162,22 +162,22 @@ describe('SideNavigation', () => {
   it('renders expanded group', () => {
     const tree = create(
       <SideNavigation accessibilityLabel="Nested items example">
-        <SideNavigation.Group label="Christmas" icon="people" display="expandable" expanded>
+        <SideNavigation.Group display="expandable" expanded icon="people" label="Christmas">
           <SideNavigation.NestedItem
             href="#"
-            onClick={({ event }) => event.preventDefault()}
             label="Luxury Christmas"
+            onClick={({ event }) => event.preventDefault()}
           />
-          <SideNavigation.NestedGroup label="Classic Christmas" display="expandable" expanded>
+          <SideNavigation.NestedGroup display="expandable" expanded label="Classic Christmas">
             <SideNavigation.NestedItem
               href="#"
-              onClick={({ event }) => event.preventDefault()}
               label="West Coast"
+              onClick={({ event }) => event.preventDefault()}
             />
             <SideNavigation.NestedItem
               href="#"
-              onClick={({ event }) => event.preventDefault()}
               label="East Coast"
+              onClick={({ event }) => event.preventDefault()}
             />
           </SideNavigation.NestedGroup>
         </SideNavigation.Group>

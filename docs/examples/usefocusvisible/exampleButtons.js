@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode, useState } from 'react';
 import { Flex, Text, useFocusVisible } from 'gestalt';
+import { TOKEN_COLOR_BORDER_FOCUS } from 'gestalt-design-tokens';
 
 export default function Example(): ReactNode {
   const { isFocusVisible } = useFocusVisible();
@@ -10,7 +11,7 @@ export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
       <Flex alignItems="center" direction="column" gap={12}>
-        <Flex direction="column" alignItems="center" gap={4}>
+        <Flex alignItems="center" direction="column" gap={4}>
           <Text>Using useFocusVisible(): Focus ring is only visible when using keyboard</Text>
           <button
             onBlur={() => setFocusedButton1(false)}
@@ -18,7 +19,7 @@ export default function Example(): ReactNode {
             style={{
               outline: 'none',
               boxShadow:
-                isFocusVisible && focusedButton1 ? '0 0 0 4px var(--color-border-focus)' : null,
+                isFocusVisible && focusedButton1 ? `0 0 0 4px ${TOKEN_COLOR_BORDER_FOCUS}` : null,
             }}
             type="button"
           >
@@ -33,7 +34,7 @@ export default function Example(): ReactNode {
             onFocus={() => setFocusedButton2(true)}
             style={{
               outline: 'none',
-              boxShadow: focusedButton2 ? '0 0 0 4px var(--color-border-focus)' : null,
+              boxShadow: focusedButton2 ? `0 0 0 4px ${TOKEN_COLOR_BORDER_FOCUS}` : null,
             }}
             type="button"
           >

@@ -14,22 +14,22 @@ export default function Example(): ReactNode {
         },
       }}
     >
-      <Box padding={8} display="flex" justifyContent="center">
+      <Box display="flex" justifyContent="center" padding={8}>
         <TableOfContents title="Beförderungen">
           <TableOfContents.Item
-            label="Aktive Gutscheine"
-            href="#active-coupons"
             active={hash === '#active-coupons'}
+            href="#active-coupons"
+            label="Aktive Gutscheine"
           />
           <TableOfContents.Item
-            label="Aktive Kredite"
-            href="#active-credits"
             active={hash === '#active-credits'}
+            href="#active-credits"
+            label="Aktive Kredite"
           />
           <TableOfContents.Item
-            label="Angebot Codes"
-            href="#offer-codes"
             active={hash === '#offer-codes'}
+            href="#offer-codes"
+            label="Angebot Codes"
           />
         </TableOfContents>
       </Box>

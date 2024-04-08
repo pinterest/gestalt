@@ -6,12 +6,12 @@ test('BannerCallout handles onDismiss callback', () => {
   const mockOnDismiss = jest.fn<[], void>();
   render(
     <BannerCallout
-      message="Insert a clever error bannercallout message here"
       dismissButton={{
         accessibilityLabel: 'Dismiss banner',
         onDismiss: mockOnDismiss,
       }}
       iconAccessibilityLabel="error"
+      message="Insert a clever error bannercallout message here"
       type="error"
     />,
   );

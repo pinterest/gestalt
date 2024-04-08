@@ -5,8 +5,8 @@ import Icon from './Icon';
 
 const Valid = (
   <BannerUpsell
-    message="BannerUpsell message"
     imageData={{ component: <Icon accessibilityLabel="test" /> }}
+    message="BannerUpsell message"
   />
 );
 
@@ -18,5 +18,5 @@ const MissingProp = <BannerUpsell />;
 
 const InvalidImage = (
   // $FlowExpectedError[incompatible-type]
-  <BannerUpsell message="BannerUpsell message" imageData={{ component: <Box /> }} />
+  <BannerUpsell imageData={{ component: <Box /> }} message="BannerUpsell message" />
 );

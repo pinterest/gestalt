@@ -44,7 +44,7 @@ export default function ScreenSizesWeb(): ReactNode {
           <Table.Row>
             <Table.Cell>
               <Text>Desktop Breakpoints (min-width)</Text>
-              <Box paddingY={2} maxWidth={500}>
+              <Box maxWidth={500} paddingY={2}>
                 <Text italic>
                   Components in Gestalt adjust to browser size at these breakpoints. When designing,
                   please make sure your designs take these breakpoints into consideration.

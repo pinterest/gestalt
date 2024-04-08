@@ -77,12 +77,12 @@ export default function ExampleCode({
         }}
       >
         <Flex
-          justifyContent="between"
           alignItems="center"
           gap={{
             row: 2,
             column: 0,
           }}
+          justifyContent="between"
         >
           <Flex justifyContent="start">
             <OpenSandboxButton
@@ -107,7 +107,7 @@ export default function ExampleCode({
           </Flex>
           {readOnly && (
             <Box>
-              <Text size="100" italic>
+              <Text italic size="100">
                 Edits made below will not be reflected in the example above, open the sandbox
                 instead.
               </Text>
@@ -117,11 +117,8 @@ export default function ExampleCode({
         <Flex direction="column" width="100%">
           <Box
             display="flex"
-            overflow="hidden"
             maxHeight={containerBoxMaxHeight}
-            dangerouslySetInlineStyle={{
-              __style: { transition: 'max-height 0.4s' },
-            }}
+            overflow="hidden"
             position="relative"
             rounding={2}
           >
@@ -132,8 +129,8 @@ export default function ExampleCode({
               }}
             >
               <div
-                className={!expanded ? 'LiveEditor__textarea__notExpanded' : undefined}
                 ref={codeExampleRef}
+                className={!expanded ? 'LiveEditor__textarea__notExpanded' : undefined}
               >
                 {/* We can not pass in an id for LiveEditor which links to the underlying text area */}
                 {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}

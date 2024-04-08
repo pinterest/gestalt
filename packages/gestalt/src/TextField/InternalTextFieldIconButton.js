@@ -49,8 +49,8 @@ export default function InternalTextFieldIconButton({
     // styles.actionButtonContainer is required for RTL positioning
     <div className={classnames(styles.actionButtonContainer)}>
       <Box
-        aria-hidden={accessibilityHidden}
         alignItems="center"
+        aria-hidden={accessibilityHidden}
         display="flex"
         height="100%"
         marginEnd={2}

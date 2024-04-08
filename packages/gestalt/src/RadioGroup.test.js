@@ -5,8 +5,8 @@ import RadioGroup from './RadioGroup';
 describe('RadioGroup', () => {
   it('renders', () => {
     const tree = create(
-      <RadioGroup legend="testing" id="testing-example">
-        <RadioGroup.RadioButton id="choice-1" onChange={() => {}} name="choice" value="choice-1" />
+      <RadioGroup id="testing-example" legend="testing">
+        <RadioGroup.RadioButton id="choice-1" name="choice" onChange={() => {}} value="choice-1" />
       </RadioGroup>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -14,8 +14,8 @@ describe('RadioGroup', () => {
 
   it('renders a hidden legend', () => {
     const tree = create(
-      <RadioGroup legend="testing" legendDisplay="hidden" id="hiddenEx">
-        <RadioGroup.RadioButton id="choice-1" onChange={() => {}} name="choice" value="choice-1" />
+      <RadioGroup id="hiddenEx" legend="testing" legendDisplay="hidden">
+        <RadioGroup.RadioButton id="choice-1" name="choice" onChange={() => {}} value="choice-1" />
       </RadioGroup>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -23,8 +23,8 @@ describe('RadioGroup', () => {
 
   it('renders in different direction', () => {
     const tree = create(
-      <RadioGroup legend="testing" legendDisplay="hidden" id="hiddenEx" direction="row">
-        <RadioGroup.RadioButton id="choice-1" onChange={() => {}} name="choice" value="choice-1" />
+      <RadioGroup direction="row" id="hiddenEx" legend="testing" legendDisplay="hidden">
+        <RadioGroup.RadioButton id="choice-1" name="choice" onChange={() => {}} value="choice-1" />
       </RadioGroup>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -32,8 +32,8 @@ describe('RadioGroup', () => {
 
   it('renders an error', () => {
     const tree = create(
-      <RadioGroup legend="testing" errorMessage="please pick one" id="testingErrorEx">
-        <RadioGroup.RadioButton id="choice-1" onChange={() => {}} name="choice" value="choice-1" />
+      <RadioGroup errorMessage="please pick one" id="testingErrorEx" legend="testing">
+        <RadioGroup.RadioButton id="choice-1" name="choice" onChange={() => {}} value="choice-1" />
       </RadioGroup>,
     ).toJSON();
     expect(tree).toMatchSnapshot();

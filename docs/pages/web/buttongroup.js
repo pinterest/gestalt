@@ -14,8 +14,8 @@ import variantsWrap from '../../examples/buttongroup/variantsWrap';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen.description}>
-        <SandpackExample code={main} name="ButtonGroup Main Example" hideEditor />
+      <PageHeader description={generatedDocGen.description} name={generatedDocGen?.displayName}>
+        <SandpackExample code={main} hideEditor name="ButtonGroup Main Example" />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -24,21 +24,21 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - Arranging a group of buttons in a horizontal or vertical stack due to limited space.
           - Showing all the available options at one glance.
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - Grouping 4 or more actions, consider using an ellipses [IconButton](/web/iconbutton) after 3 options.
           - Switching between different views. Use [SegmentedControl](/web/segmentedcontrol) instead.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -47,13 +47,13 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Wrap"
           description="When buttons don't fit within the container, they will automatically wrap to the next line."
+          title="Wrap"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={variantsWrap} name="Variants - Wrap" layout="column" />
+              <SandpackExample code={variantsWrap} layout="column" name="Variants - Wrap" />
             }
           />
         </MainSection.Subsection>

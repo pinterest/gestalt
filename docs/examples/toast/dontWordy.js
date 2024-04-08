@@ -4,8 +4,8 @@ import { Box, Flex, Image, Link, Text, Toast } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box paddingY={4} width="100%" height="100%">
-      <Flex alignItems="end" justifyContent="center" width="100%" height="100%">
+    <Box height="100%" paddingY={4} width="100%">
+      <Flex alignItems="end" height="100%" justifyContent="center" width="100%">
         <Toast
           primaryAction={{
             accessibilityLabel: 'Save to a board',
@@ -18,8 +18,8 @@ export default function Example(): ReactNode {
               The pin{' '}
               <Link
                 display="inline"
-                target="blank"
                 href="https://www.pinterest.com/search/pins/?q=home%20decor"
+                target="blank"
               >
                 Wedding cakes for you
               </Link>{' '}

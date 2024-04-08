@@ -1,5 +1,6 @@
 // eslint-disable-next-line flowtype/require-valid-file-annotation
 import babel from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 
@@ -36,6 +37,7 @@ const rollupConfig = {
       plugins: ['@babel/proposal-class-properties'],
       exclude: 'node_modules/**',
     }),
+    commonjs(),
   ],
 };
 

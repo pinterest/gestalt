@@ -38,6 +38,7 @@ type Props = {
   badge?: BadgeType,
   children?: ReactNode,
   dataTestId?: string,
+  disabled?: boolean,
   hoveredItemIndex: ?number,
   href?: string,
   id: string,
@@ -66,6 +67,7 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
     badge,
     children,
     dataTestId,
+    disabled,
     onSelect,
     hoveredItemIndex,
     href,
@@ -95,6 +97,8 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
     if (!href && !children) {
       event.preventDefault();
     }
+
+    if (disabled) return;
     onSelect?.({ event, item: option });
   };
 
@@ -104,8 +108,11 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
     [focusStyles.accessibilityOutline]: isFocusVisible,
     [focusStyles.accessibilityOutlineFocusWithin]: isFocusVisible,
     [styles.fullWidth]: true,
-    [styles.pointer]: true,
+    [styles.pointer]: !disabled,
+    [styles.noDrop]: disabled,
   });
+
+  const textColor = disabled ? 'subtle' : 'default';
 
   const optionItemContent = (
     <Flex>
@@ -113,10 +120,16 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
         <Flex alignItems="center">
           {children || (
             <Fragment>
-              <Text color="default" inline lineClamp={1} weight={textWeight}>
+              <Text
+                color={textColor}
+                inline
+                lineClamp={1}
+                title={disabled ? '' : undefined}
+                weight={textWeight}
+              >
                 {option?.label}
               </Text>
-              {badge && (
+              {badge && !disabled && (
                 <Box marginStart={2} marginTop={1}>
                   {/* Adds a pause for screen reader users between the text content */}
                   <Box display="visuallyHidden">{`, `}</Box>
@@ -127,7 +140,7 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
           )}
         </Flex>
         {option.subtext && (
-          <Text size="200" color="subtle">
+          <Text color="subtle" size="200">
             {option.subtext}
           </Text>
         )}
@@ -147,15 +160,15 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
       {isExternal && (
         <Box
           // aria-hidden is required to prevent assistive technologies from accessing the icon as the actual link already announces that the link opens a new tab
-          aria-hidden
           alignItems="center"
+          aria-hidden
           color="transparent"
           display="flex"
           justifyContent="center"
           // marginStart is for spacing relative to Badge, should not be moved to parent Flex's gap
           marginStart={2}
         >
-          <Icon accessibilityLabel="" color="default" icon="visit" size={12} />
+          <Icon accessibilityLabel="" color={textColor} icon="visit" size={12} />
         </Box>
       )}
     </Flex>
@@ -163,37 +176,41 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
 
   return (
     <div
+      ref={index === hoveredItemIndex ? ref : null}
+      aria-disabled={disabled}
       className={className}
       data-test-id={dataTestId}
-      id={`${id}-item-${index}`}
-      onClick={handleOnTap}
       // These event.stopPropagation are important so interactive anchors don't receive the onFocus/onBlur event
-      onFocus={(event) => event.stopPropagation()}
+      id={`${id}-item-${index}`}
       onBlur={(event) => event.stopPropagation()}
+      onClick={handleOnTap}
+      // This event.stopPropagation is important so interactive anchors don't compress with the onMouseDown event
+      onFocus={(event) => event.stopPropagation()}
       onKeyPress={(event) => {
         event.preventDefault();
       }}
-      // This event.stopPropagation is important so interactive anchors don't compress with the onMouseDown event
       onMouseDown={(event) => {
         event.stopPropagation();
         event.preventDefault();
       }}
-      onMouseEnter={() => setHoveredItemIndex(index)}
-      ref={index === hoveredItemIndex ? ref : null}
+      onMouseEnter={() => {
+        if (!disabled) {
+          setHoveredItemIndex(index);
+        }
+      }}
       role="menuitem"
       rounding={2}
-      tabIndex={isMobile ? 0 : -1}
+      tabIndex={isMobile && !disabled ? 0 : -1}
     >
       <Box
-        color={index === hoveredItemIndex ? 'secondary' : 'transparent'}
+        color={index === hoveredItemIndex && !disabled ? 'secondary' : 'transparent'}
         direction="column"
         display="flex"
         padding={2}
         rounding={2}
       >
-        {href ? (
+        {href && !disabled ? (
           <Link
-            underline="none"
             href={href}
             onClick={({ event, dangerouslyDisableOnNavigation }) =>
               onClick?.({
@@ -203,6 +220,7 @@ const OptionItemWithForwardRef: AbstractComponent<Props, ?HTMLElement> = forward
               })
             }
             target={isExternal ? 'blank' : 'self'}
+            underline="none"
           >
             {optionItemContent}
           </Link>

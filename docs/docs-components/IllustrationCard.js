@@ -5,7 +5,7 @@ import { MIN_SVG_ILLUSTRATION_WIDTH } from './IllustrationSection';
 import illustrations, { type Illustrations } from '../graphics/index';
 
 export type Props = {
-  color: string,
+  backgroundColor: string,
   description?: string,
   headingLevel: 2 | 3,
   href: string,
@@ -15,7 +15,7 @@ export type Props = {
 };
 
 export default function IllustrationCard({
-  color,
+  backgroundColor,
   description,
   headingLevel,
   href,
@@ -28,36 +28,36 @@ export default function IllustrationCard({
     typeof image === 'string' && illustrations[image] ? illustrations[image] : undefined;
 
   return (
-    <TapAreaLink href={href} accessibilityLabel={`${title} page`}>
+    <TapAreaLink accessibilityLabel={`${title} page`} href={href}>
       <Box minWidth={MIN_SVG_ILLUSTRATION_WIDTH}>
         <WashAnimated>
           <Flex direction="column" height={320}>
             <Box
-              display="flex"
-              rounding={2}
               alignItems="center"
-              justifyContent="center"
-              height="60%"
-              width="100%"
               dangerouslySetInlineStyle={{
                 __style: {
-                  backgroundColor: `var(--color-${color})`,
+                  backgroundColor,
                 },
               }}
+              display="flex"
+              height="60%"
+              justifyContent="center"
+              rounding={2}
+              width="100%"
             >
               {Illustration ? <Illustration /> : image}
             </Box>
             <Box
               color="default"
-              height="40%"
-              paddingY={6}
-              display="flex"
               direction="column"
+              display="flex"
+              height="40%"
               justifyContent="start"
+              paddingY={6}
             >
               <Flex
-                direction="row"
                 alignItems="baseline"
+                direction="row"
                 gap={{
                   row: 2,
                   column: 0,

@@ -27,9 +27,9 @@ class ErrorBoundary extends React.Component<{ children: ReactNode }, { hasError:
             <h4>Oops, sorry, something went wrong with showing this page!</h4>
           </Text>
           <Button
-            size="sm"
             color="gray"
             onClick={() => this.setState({ hasError: false })}
+            size="sm"
             text="Try again?"
           />
         </div>

@@ -19,11 +19,11 @@ function SearchBox({ popoverZIndex }: { popoverZIndex?: FixedZIndex }) {
       <form className="searchbox">
         <div className="searchbox__wrapper">
           <input
-            id={INPUT_ID}
-            className="searchbox__input"
-            type="search"
-            placeholder="Search Gestalt"
             aria-label="Search Gestalt docs"
+            className="searchbox__input"
+            id={INPUT_ID}
+            placeholder="Search Gestalt"
+            type="search"
           />
           <Box
             dangerouslySetInlineStyle={{
@@ -35,11 +35,11 @@ function SearchBox({ popoverZIndex }: { popoverZIndex?: FixedZIndex }) {
               },
             }}
             left
-            right
             paddingX={4}
             position="absolute"
+            right
           >
-            <Icon icon="search" accessibilityLabel="" />
+            <Icon accessibilityLabel="" icon="search" />
           </Box>
         </div>
       </form>
@@ -152,8 +152,8 @@ export default function DocSearch({
       <Box
         alignItems="center"
         display={isMobileSearchExpandedOpen ? 'flex' : 'none'}
-        lgDisplay="flex"
         flex="shrink"
+        lgDisplay="flex"
         marginStart={2}
         mdMarginStart={0}
       >
@@ -164,6 +164,7 @@ export default function DocSearch({
 
       <Box display="block" lgDisplay="none" marginStart={2}>
         <IconButton
+          ref={anchorRef}
           accessibilityControls="site-settings-dropdown"
           accessibilityExpanded={isMobileSearchExpandedOpen}
           accessibilityHaspopup
@@ -171,7 +172,6 @@ export default function DocSearch({
           icon={isMobileSearchExpandedOpen ? 'cancel' : 'search'}
           iconColor="darkGray"
           onClick={toggleSearchBarOpen}
-          ref={anchorRef}
           size="sm"
           tooltip={{
             text: isMobileSearchExpandedOpen ? 'Close search' : 'Search Gestalt',

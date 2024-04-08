@@ -1,16 +1,17 @@
 // @flow strict
 import React, { type Node as ReactNode } from 'react';
 import { Box, Flex, Heading, SideNavigation } from 'gestalt';
+import { TOKEN_COLOR_BORDER_CONTAINER } from 'gestalt-design-tokens';
 
 export default function Example(): ReactNode {
   return (
     <Box direction="column" width="100%">
       <Box
-        paddingY={4}
-        paddingX={8}
         dangerouslySetInlineStyle={{
-          __style: { borderBottom: '1px solid var(--color-border-container)' },
+          __style: { borderBottom: `1px solid ${TOKEN_COLOR_BORDER_CONTAINER}` },
         }}
+        paddingX={8}
+        paddingY={4}
       >
         {/* This is replacing an actual PageHeader so we don't run into accessibility error in the page */}
         <Heading accessibilityLevel="none" size="500">
@@ -21,21 +22,21 @@ export default function Example(): ReactNode {
         <SideNavigation accessibilityLabel="Correct headings example" showBorder>
           <SideNavigation.TopItem
             href="#"
-            onClick={({ event }) => event.preventDefault()}
-            label="Tag manager"
             icon="margins-small"
+            label="Tag manager"
+            onClick={({ event }) => event.preventDefault()}
           />
           <SideNavigation.TopItem
             href="#"
             icon="refresh"
-            onClick={({ event }) => event.preventDefault()}
             label="Upload file"
+            onClick={({ event }) => event.preventDefault()}
           />
           <SideNavigation.TopItem
             href="#"
             icon="visit"
-            onClick={({ event }) => event.preventDefault()}
             label="Upload history"
+            onClick={({ event }) => event.preventDefault()}
           />
         </SideNavigation>
         <Box padding={4}>

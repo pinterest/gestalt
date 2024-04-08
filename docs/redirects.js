@@ -193,6 +193,11 @@ const misc = [
     permanent: true,
   },
   {
+    source: '/foundations/typography/guidelines',
+    destination: '/foundations/typography',
+    permanent: true,
+  },
+  {
     source: '/get_started/developers/development_process',
     destination: '/get_started/developers/contributing/development_process',
     permanent: true,
@@ -200,6 +205,11 @@ const misc = [
   {
     source: '/get_started/how_to_work_with_us',
     destination: '/team_support/overview',
+    permanent: true,
+  },
+  {
+    source: '/team_support/contributions',
+    destination: '/team_support/design_contributions/design_contributions_overview',
     permanent: true,
   },
   {

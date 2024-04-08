@@ -39,8 +39,8 @@ describe('ComboBox', () => {
   const tagsInput = PRONOUNS.map((pronoun) => (
     <Tag
       key={pronoun}
-      onRemove={() => {}}
       accessibilityRemoveIconLabel={REMOVE_TAG}
+      onRemove={() => {}}
       text={pronoun}
     />
   ));

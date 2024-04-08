@@ -15,13 +15,13 @@ export default function LayoutsExample(): ReactNode {
         width="100%"
         wrap
       >
-        <Heading size="400" accessibilityLevel={2}>
+        <Heading accessibilityLevel={2} size="400">
           Form Title
         </Heading>
 
         <TextField
-          label="TextField 1"
           id="textfield1"
+          label="TextField 1"
           onChange={() => {}}
           placeholder="Placeholder"
         />
@@ -29,16 +29,16 @@ export default function LayoutsExample(): ReactNode {
         <Flex gap={3} wrap>
           <Flex.Item flex="grow" minWidth={250}>
             <TextField
-              label="TextField 2"
               id="textfield2"
+              label="TextField 2"
               onChange={() => {}}
               placeholder="Placeholder"
             />
           </Flex.Item>
           <Flex.Item flex="grow" minWidth={250}>
             <TextField
-              label="TextField 3"
               id="textfield3"
+              label="TextField 3"
               onChange={() => {}}
               placeholder="Placeholder"
             />
@@ -46,10 +46,10 @@ export default function LayoutsExample(): ReactNode {
         </Flex>
 
         <SelectList
-          label="SelectList"
           id="selectlist"
-          placeholder="Placeholder"
+          label="SelectList"
           onChange={() => {}}
+          placeholder="Placeholder"
         >
           {[
             { value: 'belgium', label: 'Belgium' },
@@ -68,8 +68,8 @@ export default function LayoutsExample(): ReactNode {
           justifyContent="end"
           wrap
         >
-          <Button text="Cancel" size="lg" />
-          <Button text="Submit" color="red" size="lg" type="submit" />
+          <Button size="lg" text="Cancel" />
+          <Button color="red" size="lg" text="Submit" type="submit" />
         </Flex>
       </Flex>
     </Box>

@@ -6,7 +6,7 @@ export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Flex alignItems="center" gap={2}>
-        <Icon icon="sound" accessibilityLabel="" color="default" />
+        <Icon accessibilityLabel="" color="default" icon="sound" />
         <Text size="300" weight="bold">
           24 monthly views
         </Text>

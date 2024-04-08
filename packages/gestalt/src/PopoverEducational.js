@@ -6,10 +6,8 @@ import ButtonLink from './ButtonLink';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import Flex from './Flex';
 import InternalPopover from './Popover/InternalPopover';
-import LegacyInternalPopover from './Popover/LegacyInternalPopover';
 import styles from './PopoverEducational.css';
 import Text from './Text';
-import useInExperiment from './useInExperiment';
 import { type Indexable } from './zIndex';
 
 type Size = 'sm' | 'flexible';
@@ -140,11 +138,6 @@ export default function PopoverEducational({
   const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
-  const isInExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_popover_v2_popovereducational',
-    mwebExperimentName: 'mweb_gestalt_popover_v2_popovereducational',
-  });
-
   if (!anchor) {
     return null;
   }
@@ -168,55 +161,22 @@ export default function PopoverEducational({
     textElement = <span className={textColorOverrideStyles}>{message}</span>;
   }
 
-  if (!isInExperiment)
-    return (
-      <Box zIndex={zIndex} position={zIndex ? 'relative' : undefined}>
-        <LegacyInternalPopover
-          accessibilityLabel={accessibilityLabel}
-          anchor={anchor}
-          color="blue"
-          id={id}
-          idealDirection={idealDirection}
-          onDismiss={onDismiss}
-          positionRelativeToAnchor
-          showCaret
-          shouldFocus={shouldFocus}
-          role={primaryAction && !children ? 'dialog' : role}
-          size={size}
-        >
-          {children ??
-            (message ? (
-              <Box padding={4} tabIndex={0}>
-                <Flex direction="column" gap={3}>
-                  {textElement}
-                  {primaryAction ? (
-                    <Flex.Item flex="grow" alignSelf="end">
-                      <PrimaryAction {...primaryAction} />
-                    </Flex.Item>
-                  ) : null}
-                </Flex>
-              </Box>
-            ) : null)}
-        </LegacyInternalPopover>
-      </Box>
-    );
-
   return (
-    <Box zIndex={zIndex} position={zIndex ? 'relative' : undefined}>
+    <Box position={zIndex ? 'relative' : undefined} zIndex={zIndex}>
       <InternalPopover
         accessibilityLabel={accessibilityLabel}
         anchor={anchor}
         color="blue"
+        disableFocusTrap
+        disablePortal
+        hideWhenReferenceHidden
         id={id}
         idealDirection={idealDirection}
         onDismiss={onDismiss}
-        disablePortal
-        showCaret
-        shouldFocus={shouldFocus}
         role={primaryAction && !children ? 'dialog' : role}
+        shouldFocus={shouldFocus}
+        showCaret
         size={size}
-        hideWhenReferenceHidden
-        disableFocusTrap
       >
         {children ??
           (message ? (
@@ -224,7 +184,7 @@ export default function PopoverEducational({
               <Flex direction="column" gap={3}>
                 {textElement}
                 {primaryAction ? (
-                  <Flex.Item flex="grow" alignSelf="end">
+                  <Flex.Item alignSelf="end" flex="grow">
                     <PrimaryAction {...primaryAction} />
                   </Flex.Item>
                 ) : null}

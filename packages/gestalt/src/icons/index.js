@@ -34,6 +34,8 @@ import arrowCircleDown from './arrow-circle-down.svg';
 import arrowCircleForward from './arrow-circle-forward.svg';
 import arrowCircleUp from './arrow-circle-up.svg';
 import arrowCounterClockwise from './arrow-counter-clockwise.svg';
+import arrowDoubleBack from './arrow-double-back.svg';
+import arrowDoubleForward from './arrow-double-forward.svg';
 import arrowDown from './arrow-down.svg';
 import arrowEnd from './arrow-end.svg';
 import arrowForward from './arrow-forward.svg';
@@ -300,6 +302,8 @@ const icons = Object.freeze({
   'arrow-circle-forward': arrowCircleForward,
   'arrow-circle-up': arrowCircleUp,
   'arrow-counter-clockwise': arrowCounterClockwise,
+  'arrow-double-forward': arrowDoubleForward,
+  'arrow-double-back': arrowDoubleBack,
   'arrow-down': arrowDown,
   'arrow-end': arrowEnd,
   'arrow-forward': arrowForward,

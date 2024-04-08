@@ -19,14 +19,14 @@ export default function Example(): ReactNode {
   ];
 
   return (
-    <Flex height="100%" width="100%" alignItems="center" justifyContent="center">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <AvatarGroup
         accessibilityLabel="Visit group activity board."
-        role="link"
-        onClick={() => {}}
-        size="md"
         collaborators={collaborators}
         href="#Role"
+        onClick={() => {}}
+        role="link"
+        size="md"
       />
     </Flex>
   );

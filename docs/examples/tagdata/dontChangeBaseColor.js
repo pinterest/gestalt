@@ -4,12 +4,12 @@ import { Box, Flex, TagData } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex justifyContent="center" alignItems="center" height="100%" width="100%">
-      <Box width="100%" height="100%" display="flex" justifyContent="center" alignItems="center">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
+      <Box alignItems="center" display="flex" height="100%" justifyContent="center" width="100%">
         <Flex gap={2} wrap>
-          <TagData text="Impressions" baseColor="secondary" />
-          <TagData text="CPM" baseColor="secondary" />
-          <TagData text="Spend" baseColor="secondary" />
+          <TagData baseColor="secondary" text="Impressions" />
+          <TagData baseColor="secondary" text="CPM" />
+          <TagData baseColor="secondary" text="Spend" />
         </Flex>
       </Box>
     </Flex>

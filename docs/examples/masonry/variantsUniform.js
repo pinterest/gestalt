@@ -82,8 +82,6 @@ export default function Example(): ReactNode {
   return (
     <Box padding={2}>
       <div
-        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-        tabIndex={0}
         ref={(el) => {
           scrollContainerRef.current = el;
         }}
@@ -94,17 +92,19 @@ export default function Example(): ReactNode {
           overflowY: 'scroll',
           width: `800px`,
         }}
+        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+        tabIndex={0}
       >
         {scrollContainerRef.current && (
           <Masonry
+            ref={(ref) => {
+              gridRef.current = ref;
+            }}
             columnWidth={170}
             gutterWidth={20}
             items={pins}
             layout="uniformRow"
             minCols={1}
-            ref={(ref) => {
-              gridRef.current = ref;
-            }}
             renderItem={({ data }) => <GridComponent data={data} />}
             // $FlowFixMe[incompatible-type]
             scrollContainer={() => scrollContainerRef.current}

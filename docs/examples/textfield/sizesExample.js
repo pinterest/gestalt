@@ -13,15 +13,15 @@ export default function TextFieldSizes(): Node {
         <Flex direction="column" gap={{ column: 3, row: 0 }}>
           <Heading size="300">Small</Heading>
           <TextField
-            id="field1"
             helperText="Enter a title that captures the imagination of Pinners"
+            id="field1"
             label="Email Address"
             onChange={({ value }) => {
               setInput1Text(value);
             }}
             placeholder="Enter your pin title"
-            type="text"
             size="sm"
+            type="text"
             value={input1text}
           />
         </Flex>
@@ -29,14 +29,14 @@ export default function TextFieldSizes(): Node {
         <Flex direction="column" gap={{ column: 3, row: 0 }}>
           <Heading size="300">Medium</Heading>
           <TextField
-            id="field2"
             helperText="Enter a title that captures the imagination of Pinners"
+            id="field2"
             label="Title"
             onChange={({ value }) => {
               setInput2Text(value);
             }}
-            size="md"
             placeholder="Enter your pin title"
+            size="md"
             type="text"
             value={input2text}
           />
@@ -44,15 +44,15 @@ export default function TextFieldSizes(): Node {
         <Flex direction="column" gap={{ column: 3, row: 0 }}>
           <Heading size="300">Large</Heading>
           <TextField
-            id="field3"
             helperText="Enter a title that captures the imagination of Pinners"
+            id="field3"
             label="Title"
             onChange={({ value }) => {
               setInput3Text(value);
             }}
             placeholder="Enter your pin title"
-            type="text"
             size="lg"
+            type="text"
             value={input3text}
           />
         </Flex>

@@ -90,8 +90,8 @@ export default function Badge({
   return isInfoType && tooltip?.text ? (
     <Tooltip
       accessibilityLabel={tooltip.accessibilityLabel}
-      inline
       idealDirection={tooltip.idealDirection}
+      inline
       text={tooltip.text}
       zIndex={tooltip.zIndex}
     >

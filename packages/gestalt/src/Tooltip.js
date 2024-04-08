@@ -54,9 +54,9 @@ export default function Tooltip({
   return (
     <InternalTooltip
       accessibilityLabel={accessibilityLabel}
-      link={link}
       idealDirection={idealDirection}
       inline={inline}
+      link={link}
       text={text}
       zIndex={zIndex}
     >

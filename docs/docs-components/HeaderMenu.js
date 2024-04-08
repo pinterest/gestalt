@@ -14,8 +14,8 @@ export default function HeaderMenu({
     <Box
       alignItems="center"
       display={isHeader ? 'none' : 'flex'}
-      mdDisplay={isHeader ? 'flex' : 'none'}
       justifyContent={isHeader ? undefined : 'center'}
+      mdDisplay={isHeader ? 'flex' : 'none'}
     >
       <Tooltip
         inline

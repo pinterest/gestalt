@@ -4,13 +4,13 @@ import { Box, Image, Mask, Table, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Box width="60%">
         <Table
           accessibilityLabel="Multiple sticky columns"
+          borderStyle="none"
           maxHeight={200}
           stickyColumns={3}
-          borderStyle="none"
         >
           <Table.Header>
             <Table.Row>
@@ -48,9 +48,9 @@ export default function Example(): ReactNode {
                   <Mask rounding="circle">
                     <Image
                       alt="Tony"
-                      src="https://i.ibb.co/r3R04Y9/ironman.jpg"
                       naturalHeight={50}
                       naturalWidth={50}
+                      src="https://i.ibb.co/r3R04Y9/ironman.jpg"
                     />
                   </Mask>
                 </Box>
@@ -84,9 +84,9 @@ export default function Example(): ReactNode {
                   <Mask rounding="circle">
                     <Image
                       alt="Peter"
-                      src="https://i.ibb.co/64NxM43/spiderman.png"
                       naturalHeight={50}
                       naturalWidth={50}
+                      src="https://i.ibb.co/64NxM43/spiderman.png"
                     />
                   </Mask>
                 </Box>
@@ -120,9 +120,9 @@ export default function Example(): ReactNode {
                   <Mask rounding="circle">
                     <Image
                       alt="Wanda"
-                      src="https://i.ibb.co/hV6Vpbf/scarlet.png"
                       naturalHeight={50}
                       naturalWidth={50}
+                      src="https://i.ibb.co/hV6Vpbf/scarlet.png"
                     />
                   </Mask>
                 </Box>
@@ -156,9 +156,9 @@ export default function Example(): ReactNode {
                   <Mask rounding="circle">
                     <Image
                       alt="Black Panther"
-                      src="https://i.ibb.co/GpNtW5N/black-Panther.png"
                       naturalHeight={50}
                       naturalWidth={50}
+                      src="https://i.ibb.co/GpNtW5N/black-Panther.png"
                     />
                   </Mask>
                 </Box>

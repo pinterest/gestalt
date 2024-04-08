@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, Flex, Mask, Text, useColorScheme } from 'gestalt';
+import { TOKEN_COLOR_WHITE_MOCHIMALIST_0 } from 'gestalt-design-tokens';
 import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
 import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-light.json';
 
@@ -40,159 +41,159 @@ export default function PatternBarFill(): ReactNode {
             <Text size="300" weight="bold">
               {`${palette.name} palette`}
             </Text>
-            <Flex wrap gap={2}>
+            <Flex gap={2} wrap>
               {palette.data.map((color, idx) => (
                 <Flex key={color} direction="column" gap={2}>
                   <Box height={100} width={100}>
-                    <Mask height={100} width={100} rounding={4}>
+                    <Mask height={100} rounding={4} width={100}>
                       <svg height="100" width="100">
                         <defs>
                           <pattern
-                            id={`pattern-01-${idx}-${palette.name}`}
-                            width="4"
                             height="4"
+                            id={`pattern-01-${idx}-${palette.name}`}
                             patternUnits="userSpaceOnUse"
+                            width="4"
                           >
-                            <rect width="4" height="4" fill={hexColor('01')} />
+                            <rect fill={hexColor('01')} height="4" width="4" />
                           </pattern>
                           <pattern
-                            id={`pattern-02-${idx}-${palette.name}`}
-                            width="5"
                             height="5"
+                            id={`pattern-02-${idx}-${palette.name}`}
                             patternUnits="userSpaceOnUse"
+                            width="5"
                           >
-                            <circle cx="2" cy="2" r="2" fill={hexColor('02')} />
+                            <circle cx="2" cy="2" fill={hexColor('02')} r="2" />
                           </pattern>
                           <pattern
-                            id={`pattern-03-${idx}-${palette.name}`}
-                            width="3"
                             height="3"
+                            id={`pattern-03-${idx}-${palette.name}`}
                             patternUnits="userSpaceOnUse"
+                            width="3"
                           >
-                            <rect width="2" height="2" fill={hexColor('03')} />
+                            <rect fill={hexColor('03')} height="2" width="2" />
                           </pattern>
                           <pattern
-                            id={`pattern-04-${idx}-${palette.name}`}
-                            width="7"
                             height="7"
+                            id={`pattern-04-${idx}-${palette.name}`}
                             patternUnits="userSpaceOnUse"
+                            width="7"
                           >
                             <circle
                               cx="3"
                               cy="3"
+                              fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0}
                               r="2.5"
-                              fill="var(--color-white-mochimalist-0)"
                               stroke={hexColor('04')}
                               strokeWidth="1px"
                             />
                           </pattern>
                           <pattern
-                            id={`pattern-05-${idx}-${palette.name}`}
-                            width="8"
                             height="8"
+                            id={`pattern-05-${idx}-${palette.name}`}
                             patternUnits="userSpaceOnUse"
+                            width="8"
                           >
-                            <rect x="0" width="8" height="8" y="0" fill={hexColor('05')} />
+                            <rect fill={hexColor('05')} height="8" width="8" x="0" y="0" />
                             <path
                               d="M 0 0 L 4 8 L 8 0"
-                              stroke="var(--color-white-mochimalist-0)"
-                              strokeWidth="1"
                               fill="none"
+                              stroke={TOKEN_COLOR_WHITE_MOCHIMALIST_0}
+                              strokeWidth="1"
                             />
                           </pattern>
                           <pattern
-                            id={`pattern-06-${idx}-${palette.name}`}
-                            width="4"
                             height="4"
+                            id={`pattern-06-${idx}-${palette.name}`}
                             patternUnits="userSpaceOnUse"
+                            width="4"
                           >
                             <rect
-                              width="4"
+                              fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0}
                               height="4"
-                              fill="var(--color-white-mochimalist-0)"
                               stroke={hexColor('06')}
                               strokeWidth="1px"
+                              width="4"
                             />
                           </pattern>
                           <pattern
-                            id={`pattern-07-${idx}-${palette.name}`}
-                            width="8"
                             height="8"
-                            patternUnits="userSpaceOnUse"
+                            id={`pattern-07-${idx}-${palette.name}`}
                             patternTransform="rotate(90)"
+                            patternUnits="userSpaceOnUse"
+                            width="8"
                           >
                             <path
                               d="M 0 0 L 4 8 L 8 0"
+                              fill="none"
                               stroke={hexColor('07')}
                               strokeWidth="1"
-                              fill="none"
                             />
                           </pattern>
                           <pattern
+                            height="8"
                             id={`pattern-08-${idx}-${palette.name}`}
+                            patternUnits="userSpaceOnUse"
+                            width="8"
                             x="0"
                             y="0"
-                            width="8"
-                            height="8"
-                            patternUnits="userSpaceOnUse"
                           >
-                            <rect x="0" width="4" height="4" y="0" fill={hexColor('08')} />
-                            <rect x="4" width="4" height="4" y="4" fill={hexColor('08')} />
+                            <rect fill={hexColor('08')} height="4" width="4" x="0" y="0" />
+                            <rect fill={hexColor('08')} height="4" width="4" x="4" y="4" />
                           </pattern>
                           <pattern
+                            height="4"
                             id={`pattern-09-${idx}-${palette.name}`}
-                            width="4"
-                            height="4"
-                            patternUnits="userSpaceOnUse"
                             patternTransform="rotate(90)"
-                          >
-                            <rect width="2" height="4" fill={hexColor('09')} />
-                          </pattern>
-                          <pattern
-                            id={`pattern-10-${idx}-${palette.name}`}
-                            x="0"
-                            y="0"
-                            width="8"
-                            height="8"
                             patternUnits="userSpaceOnUse"
-                            patternTransform="rotate(45)"
-                          >
-                            <rect x="0" width="5" height="5" y="0" fill={hexColor('10')} />
-                          </pattern>
-                          <pattern
-                            id={`pattern-11-${idx}-${palette.name}`}
                             width="4"
-                            height="4"
-                            patternUnits="userSpaceOnUse"
-                            patternTransform="rotate(180)"
                           >
-                            <rect width="2" height="4" fill={hexColor('11')} />
+                            <rect fill={hexColor('09')} height="4" width="2" />
                           </pattern>
                           <pattern
-                            id={`pattern-12-${idx}-${palette.name}`}
+                            height="8"
+                            id={`pattern-10-${idx}-${palette.name}`}
+                            patternTransform="rotate(45)"
+                            patternUnits="userSpaceOnUse"
+                            width="8"
                             x="0"
                             y="0"
-                            width="8"
-                            height="8"
-                            patternUnits="userSpaceOnUse"
-                            patternTransform="rotate(45)"
                           >
-                            <rect x="0" width="8" height="8" y="0" fill={hexColor('12')} />
+                            <rect fill={hexColor('10')} height="5" width="5" x="0" y="0" />
+                          </pattern>
+                          <pattern
+                            height="4"
+                            id={`pattern-11-${idx}-${palette.name}`}
+                            patternTransform="rotate(180)"
+                            patternUnits="userSpaceOnUse"
+                            width="4"
+                          >
+                            <rect fill={hexColor('11')} height="4" width="2" />
+                          </pattern>
+                          <pattern
+                            height="8"
+                            id={`pattern-12-${idx}-${palette.name}`}
+                            patternTransform="rotate(45)"
+                            patternUnits="userSpaceOnUse"
+                            width="8"
+                            x="0"
+                            y="0"
+                          >
+                            <rect fill={hexColor('12')} height="8" width="8" x="0" y="0" />
                             <rect
-                              x="0"
-                              width="4"
+                              fill={TOKEN_COLOR_WHITE_MOCHIMALIST_0}
                               height="4"
+                              width="4"
+                              x="0"
                               y="0"
-                              fill="var(--color-white-mochimalist-0)"
                             />
                           </pattern>
                         </defs>
                         <rect
+                          height="100"
                           style={{ fill: `url(#pattern-${color}-${idx}-${palette.name})` }}
+                          width="100"
                           x="0"
                           y="0"
-                          height="100"
-                          width="100"
                         />
                       </svg>
                     </Mask>

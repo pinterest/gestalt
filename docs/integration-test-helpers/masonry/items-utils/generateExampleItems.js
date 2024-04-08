@@ -27,7 +27,7 @@ export default function generateExampleItems({
   twoColItems,
 }: Args): $ReadOnlyArray<ExampleItem> {
   const getRandomNumber = getRandomNumberGenerator(randomNumberSeed);
-  const twoColItemIndex = twoColItems ? Math.floor(Math.random() * numberOfItems) : undefined;
+  const twoColItemIndex = twoColItems ? Math.floor(getRandomNumber() * numberOfItems) : undefined;
 
   return Array.from({ length: numberOfItems }).map((_, i) => {
     const pin = {
@@ -35,7 +35,7 @@ export default function generateExampleItems({
       height: baseHeight + previousItemCount + i,
       color: getRandomColor(getRandomNumber),
     };
-    return Boolean(twoColItemIndex) && i === twoColItemIndex
+    return twoColItemIndex !== undefined && i === twoColItemIndex
       ? {
           ...pin,
           columnSpan: 2,

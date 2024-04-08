@@ -74,16 +74,16 @@ describe('<BannerUpsell />', () => {
   test('message + title + primaryAction + dismissButton', () => {
     const tree = create(
       <BannerUpsell
+        dismissButton={{
+          accessibilityLabel: 'Dismiss banner',
+          onDismiss: () => {},
+        }}
         message="Insert a clever upsell message here"
         primaryAction={{
           href: 'pinterest.com',
           label: 'Visit Pinterest',
           accessibilityLabel: '',
           role: 'link',
-        }}
-        dismissButton={{
-          accessibilityLabel: 'Dismiss banner',
-          onDismiss: () => {},
         }}
         title="A Title"
       />,
@@ -94,6 +94,13 @@ describe('<BannerUpsell />', () => {
   test('message + title + primaryAction + dismissButton + image', () => {
     const tree = create(
       <BannerUpsell
+        dismissButton={{
+          accessibilityLabel: 'Dismiss banner',
+          onDismiss: () => {},
+        }}
+        imageData={{
+          component: <Icon accessibilityLabel="Pin" color="default" icon="pinterest" size={32} />,
+        }}
         message="Insert a clever upsell message here"
         primaryAction={{
           href: 'pinterest.com',
@@ -101,14 +108,7 @@ describe('<BannerUpsell />', () => {
           accessibilityLabel: '',
           role: 'link',
         }}
-        dismissButton={{
-          accessibilityLabel: 'Dismiss banner',
-          onDismiss: () => {},
-        }}
         title="A Title"
-        imageData={{
-          component: <Icon icon="pinterest" accessibilityLabel="Pin" color="default" size={32} />,
-        }}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -117,22 +117,22 @@ describe('<BannerUpsell />', () => {
   test('message + title + dismissButton + image + form', () => {
     const tree = create(
       <BannerUpsell
-        message="Insert a clever upsell message here"
         dismissButton={{
           accessibilityLabel: 'Dismiss banner',
           onDismiss: () => {},
         }}
-        title="A Title"
         imageData={{
-          component: <Icon icon="pinterest" accessibilityLabel="Pin" color="default" size={32} />,
+          component: <Icon accessibilityLabel="Pin" color="default" icon="pinterest" size={32} />,
         }}
+        message="Insert a clever upsell message here"
+        title="A Title"
       >
         <BannerUpsell.Form
           onSubmit={() => {}}
-          submitButtonText="Submit"
           submitButtonAccessibilityLabel="Submit button"
+          submitButtonText="Submit"
         >
-          <TextField id="name" placeholder="Name" onChange={() => {}} />
+          <TextField id="name" onChange={() => {}} placeholder="Name" />
         </BannerUpsell.Form>
       </BannerUpsell>,
     ).toJSON();

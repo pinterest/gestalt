@@ -14,10 +14,8 @@ export default function Example(): ReactNode {
     />
   ) : (
     <BannerOverlay
-      zIndex={new FixedZIndex(100)}
-      offset={{ top: 130, bottom: 24 }}
-      title="Dismissable Banner"
       message="You can dismiss this banner with the primary action!"
+      offset={{ top: 130, bottom: 24 }}
       primaryAction={{
         role: 'button',
         onClick: () => {
@@ -27,8 +25,10 @@ export default function Example(): ReactNode {
         accessibilityLabel: 'Got it!',
       }}
       thumbnail={{
-        icon: <Icon accessibilityLabel="Sparkle" icon="info-circle" color="info" />,
+        icon: <Icon accessibilityLabel="Sparkle" color="info" icon="info-circle" />,
       }}
+      title="Dismissable Banner"
+      zIndex={new FixedZIndex(100)}
     />
   );
 }

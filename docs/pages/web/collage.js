@@ -18,8 +18,8 @@ import variantsLayoutKey from '../../examples/collage/variantsLayoutKey';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample code={main} name="Main Collage example" hideEditor previewHeight={325} />
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
+        <SandpackExample code={main} hideEditor name="Main Collage example" previewHeight={325} />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -31,7 +31,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={variantsColumns} name="Variants - Columns" layout="column" />
+              <SandpackExample code={variantsColumns} layout="column" name="Variants - Columns" />
             }
           />
         </MainSection.Subsection>
@@ -42,8 +42,8 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             sandpackExample={
               <SandpackExample
                 code={variantsGutter}
-                name="Variants - Gutter"
                 layout="column"
+                name="Variants - Gutter"
                 previewHeight={325}
               />
             }
@@ -56,8 +56,8 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             sandpackExample={
               <SandpackExample
                 code={variantsCoverImage}
-                name="Variants - Cover image"
                 layout="column"
+                name="Variants - Cover image"
                 previewHeight={325}
               />
             }
@@ -70,28 +70,28 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             sandpackExample={
               <SandpackExample
                 code={variantsColumnsCoverImage}
-                name="Variants - Columns with cover image"
                 layout="column"
+                name="Variants - Columns with cover image"
               />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Layout key"
           description={`
             You can pick a layout using the layout key (layout key is 0 by default).
             Depending on the number of columns of the collage, there may be multiple layouts available.
             If there are N layouts available, (layoutKey % N) will determine which layout is used.
         `}
+          title="Layout key"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={variantsLayoutKey}
-                name="Variants - Layout key"
                 layout="column"
+                name="Variants - Layout key"
               />
             }
           />

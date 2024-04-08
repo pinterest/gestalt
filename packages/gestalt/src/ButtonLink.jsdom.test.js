@@ -15,7 +15,7 @@ describe('ButtonLink', () => {
       void,
     >();
 
-    render(<ButtonLink href="#" text="ButtonText" onClick={mockOnClick} />);
+    render(<ButtonLink href="#" onClick={mockOnClick} text="ButtonText" />);
 
     screen.getByText('ButtonText').click();
     expect(mockOnClick).toHaveBeenCalled();
@@ -26,10 +26,10 @@ describe('ButtonLink', () => {
       <ButtonLink
         href="#"
         iconEnd="visit"
-        size="lg"
-        text="Visit Pinterest"
         rel="nofollow"
+        size="lg"
         target="blank"
+        text="Visit Pinterest"
       />,
     );
     expect(
@@ -46,13 +46,13 @@ describe('ButtonLink', () => {
 
     render(
       <ButtonLink
-        href="#"
         accessibilityLabel="Visit Pinterest"
+        href="#"
         iconEnd="visit"
-        size="lg"
-        text="Visit Pinterest"
         rel="nofollow"
+        size="lg"
         target="blank"
+        text="Visit Pinterest"
       />,
     );
 
@@ -61,7 +61,7 @@ describe('ButtonLink', () => {
 
   it('renders with sequential keyboard navigation and forwards a ref to the innermost <a> element', () => {
     const ref = createRef<HTMLAnchorElement>();
-    render(<ButtonLink text="test" href="http://www.pinterest.com" ref={ref} target="blank" />);
+    render(<ButtonLink ref={ref} href="http://www.pinterest.com" target="blank" text="test" />);
     expect(ref.current instanceof HTMLAnchorElement).toEqual(true);
     expect(ref.current instanceof HTMLAnchorElement && ref.current?.href).toEqual(
       'http://www.pinterest.com/',
@@ -72,7 +72,7 @@ describe('ButtonLink', () => {
   it('renders disabled', () => {
     const ref = createRef<HTMLAnchorElement>();
     render(
-      <ButtonLink text="test" href="http://www.pinterest.com" disabled ref={ref} target="blank" />,
+      <ButtonLink ref={ref} disabled href="http://www.pinterest.com" target="blank" text="test" />,
     );
     expect(ref.current instanceof HTMLAnchorElement).toEqual(true);
     expect(ref.current instanceof HTMLAnchorElement && ref.current?.href).toEqual('');
@@ -83,11 +83,11 @@ describe('ButtonLink', () => {
     const ref = createRef<HTMLAnchorElement>();
     render(
       <ButtonLink
-        text="test"
-        href="http://www.pinterest.com"
         ref={ref}
+        href="http://www.pinterest.com"
         tabIndex={-1}
         target="blank"
+        text="test"
       />,
     );
     expect(ref.current instanceof HTMLAnchorElement).toEqual(true);
@@ -99,12 +99,12 @@ describe('ButtonLink', () => {
     render(
       <ButtonLink
         dataTestId={TEST_ID}
-        iconEnd="visit"
-        size="lg"
-        text="Visit Pinterest"
-        rel="nofollow"
-        target="blank"
         href="#"
+        iconEnd="visit"
+        rel="nofollow"
+        size="lg"
+        target="blank"
+        text="Visit Pinterest"
       />,
     );
     expect(

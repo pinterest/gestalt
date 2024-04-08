@@ -11,16 +11,19 @@ export default function DefaultExample(): ReactNode {
   return (
     <Box padding={3}>
       <Button
-        text="Show modal"
         onClick={() => {
           setShowComponent(true);
         }}
+        text="Show modal"
       />
       {showComponent && (
         <Layer zIndex={zIndex}>
           <ModalAlert
             accessibilityModalLabel="Delete board 70s Furniture"
             heading="Delete this board?"
+            onDismiss={() => {
+              setShowComponent(false);
+            }}
             primaryAction={{
               accessibilityLabel: 'Confirm delete board',
               label: 'Yes, delete',
@@ -32,9 +35,6 @@ export default function DefaultExample(): ReactNode {
               label: 'No, keep',
               onClick: () => setShowComponent(false),
               role: 'button',
-            }}
-            onDismiss={() => {
-              setShowComponent(false);
             }}
           >
             <Text>

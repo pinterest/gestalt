@@ -8,10 +8,10 @@ describe('BannerUpsellForm', () => {
     const tree = create(
       <BannerUpsellForm
         onSubmit={() => {}}
-        submitButtonText="Submit"
         submitButtonAccessibilityLabel="Submit button"
+        submitButtonText="Submit"
       >
-        <TextField id="name" placeholder="Name" onChange={() => {}} />
+        <TextField id="name" onChange={() => {}} placeholder="Name" />
       </BannerUpsellForm>,
     ).toJSON();
     expect(tree).toMatchSnapshot();

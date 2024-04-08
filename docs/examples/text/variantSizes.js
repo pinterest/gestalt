@@ -5,7 +5,7 @@ import { Flex, Text } from 'gestalt';
 export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-      <Flex direction="column" alignItems="start" gap={{ row: 2, column: 0 }}>
+      <Flex alignItems="start" direction="column" gap={{ row: 2, column: 0 }}>
         <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
           <Text inline size="100">
             Size 100

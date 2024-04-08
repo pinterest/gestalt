@@ -19,9 +19,10 @@ export default function CustomIconButtonPopoverExample(): ReactNode {
 
   return (
     <Fragment>
-      <Flex justifyContent="center" width="100%" height="100%">
+      <Flex height="100%" justifyContent="center" width="100%">
         <Box margin={2}>
           <IconButton
+            ref={anchorRef}
             accessibilityControls="custom-dropdown-example"
             accessibilityExpanded={open}
             accessibilityHaspopup
@@ -29,7 +30,6 @@ export default function CustomIconButtonPopoverExample(): ReactNode {
             icon="add"
             iconColor="darkGray"
             onClick={() => setOpen((prevVal) => !prevVal)}
-            ref={anchorRef}
             selected={open}
             size="lg"
           />
@@ -46,18 +46,18 @@ export default function CustomIconButtonPopoverExample(): ReactNode {
           <Dropdown.Section label="Currently in">
             <Dropdown.Link
               href="#"
-              option={{ value: 'item 1', label: 'Custom link 1' }}
               onClick={({ event }) => event.preventDefault()}
+              option={{ value: 'item 1', label: 'Custom link 1' }}
             >
               <Box width="100%">
-                <Flex gap={2} alignItems="center">
+                <Flex alignItems="center" gap={2}>
                   <Avatar name="Tia" size="md" src="https://i.ibb.co/7tGKGvb/shanice.jpg" />
                   <Flex direction="column">
                     <Text>Tia Marz</Text>
-                    <Text size="200" color="subtle">
+                    <Text color="subtle" size="200">
                       Personal
                     </Text>
-                    <Text size="200" color="subtle">
+                    <Text color="subtle" size="200">
                       travel@theworld.com
                     </Text>
                   </Flex>
@@ -68,15 +68,15 @@ export default function CustomIconButtonPopoverExample(): ReactNode {
           <Dropdown.Section label="Your accounts">
             <Dropdown.Link
               href="#"
-              option={{ value: 'item 2', label: 'Another custom link' }}
               onClick={({ event }) => event.preventDefault()}
+              option={{ value: 'item 2', label: 'Another custom link' }}
             >
               <Box width="100%">
-                <Flex gap={2} alignItems="center">
+                <Flex alignItems="center" gap={2}>
                   <Avatar name="Bruno" size="md" src="https://i.ibb.co/4Mbhbnb/Bruno.jpg" />
                   <Flex direction="column">
                     <Text>Bruno</Text>
-                    <Text size="200" color="subtle">
+                    <Text color="subtle" size="200">
                       Business
                     </Text>
                   </Flex>
@@ -87,14 +87,14 @@ export default function CustomIconButtonPopoverExample(): ReactNode {
           <Dropdown.Section label="More options">
             <Dropdown.Link
               href="#"
-              option={{ value: 'settings', label: 'Settings' }}
               onClick={({ event }) => event.preventDefault()}
+              option={{ value: 'settings', label: 'Settings' }}
             />
             <Dropdown.Link
               href="#"
               isExternal
-              option={{ value: 'help', label: 'Get help' }}
               onClick={({ event }) => event.preventDefault()}
+              option={{ value: 'help', label: 'Get help' }}
             />
           </Dropdown.Section>
         </Dropdown>

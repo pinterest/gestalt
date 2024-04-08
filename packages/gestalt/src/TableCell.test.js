@@ -10,7 +10,7 @@ test('renders correctly', () => {
 test('renders correctly with colSpan and rowSpan', () => {
   const tree = renderer
     .create(
-      <TableCell rowSpan={2} colSpan={3}>
+      <TableCell colSpan={3} rowSpan={2}>
         cell content
       </TableCell>,
     )
@@ -21,7 +21,7 @@ test('renders correctly with colSpan and rowSpan', () => {
 test('renders correctly when sticky and with shadows', () => {
   const tree = renderer
     .create(
-      <TableCell shouldBeSticky shouldHaveShadow previousTotalWidth={120}>
+      <TableCell previousTotalWidth={120} shouldBeSticky shouldHaveShadow>
         cell content
       </TableCell>,
     )

@@ -1,4 +1,10 @@
 // @flow strict
+import {
+  TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY,
+  TOKEN_COLOR_BORDER_DEFAULT,
+  TOKEN_COLOR_GRAY_ROBOFLOW_300,
+  TOKEN_COLOR_TRANSPARENT,
+} from 'gestalt-design-tokens';
 import getCheckboxColor from './getCheckboxColor';
 import getDataVisualizationColor from './getDataVisualizationColor';
 
@@ -10,8 +16,8 @@ describe('DataViz Color Unit Tests', () => {
       state: { hovered: false, disabled: false, selected: false },
       colorStyles: { borderColor, backgroundColor },
     });
-    expect(color.backgroundColor).toBe('transparent');
-    expect(color.borderColor).toBe('transparent');
+    expect(color.backgroundColor).toBe(TOKEN_COLOR_TRANSPARENT);
+    expect(color.borderColor).toBe(TOKEN_COLOR_TRANSPARENT);
   });
 
   it('gives a visible checkbox when show by default is set', () => {
@@ -22,8 +28,8 @@ describe('DataViz Color Unit Tests', () => {
       colorStyles: { borderColor, backgroundColor },
       opts: { showByDefault: true },
     });
-    expect(color.backgroundColor).toBe('var(--color-background-formfield-primary)');
-    expect(color.borderColor).toBe('var(--color-border-default)');
+    expect(color.backgroundColor).toBe(TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY);
+    expect(color.borderColor).toBe(TOKEN_COLOR_BORDER_DEFAULT);
   });
 
   it('gives a colored checkbox when selected', () => {
@@ -35,7 +41,7 @@ describe('DataViz Color Unit Tests', () => {
       opts: { showByDefault: true },
     });
     expect(color.backgroundColor).toBe('#11a69c');
-    expect(color.borderColor).toBe('transparent');
+    expect(color.borderColor).toBe(TOKEN_COLOR_TRANSPARENT);
   });
 
   it('gives a disabled checkbox, no border, when disabled', () => {
@@ -46,8 +52,8 @@ describe('DataViz Color Unit Tests', () => {
       colorStyles: { borderColor, backgroundColor },
       opts: { showByDefault: true },
     });
-    expect(color.backgroundColor).toBe('var(--color-gray-roboflow-300)');
-    expect(color.borderColor).toBe('transparent');
+    expect(color.backgroundColor).toBe(TOKEN_COLOR_GRAY_ROBOFLOW_300);
+    expect(color.borderColor).toBe(TOKEN_COLOR_TRANSPARENT);
   });
 
   it('gives a border on hover', () => {
@@ -58,7 +64,7 @@ describe('DataViz Color Unit Tests', () => {
       colorStyles: { borderColor, backgroundColor },
       opts: { showByDefault: true },
     });
-    expect(color.backgroundColor).toBe('var(--color-background-formfield-primary)');
-    expect(color.borderColor).toBe('var(--color-border-default)');
+    expect(color.backgroundColor).toBe(TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY);
+    expect(color.borderColor).toBe(TOKEN_COLOR_BORDER_DEFAULT);
   });
 });

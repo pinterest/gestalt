@@ -10,7 +10,7 @@ export default function Example(): ReactNode {
           Your promotion has been submitted and is being reviewed
         </Heading>
 
-        <Spinner show accessibilityLabel="Example spinner" />
+        <Spinner accessibilityLabel="Example spinner" show />
       </Flex>
     </Flex>
   );

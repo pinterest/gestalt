@@ -4,6 +4,11 @@ import { type Node as ReactNode } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import Image from 'next/image';
 import { Box, ButtonLink, Datapoint, Flex, Icon, Link, List, Text } from 'gestalt';
+import {
+  TOKEN_COLOR_BACKGROUND_DEFAULT,
+  TOKEN_COLOR_BACKGROUND_ELEVATION_ACCENT,
+  TOKEN_COLOR_BACKGROUND_SECONDARY_BASE,
+} from 'gestalt-design-tokens';
 import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
 import Highlighter from './highlight';
 import IllustrationCard from './IllustrationCard';
@@ -27,6 +32,7 @@ type Props = {
 
 const isExternal: (string) => 'blank' | void = (href) => {
   if (href.startsWith('https://')) return 'blank';
+  if (href.startsWith('http://pinch')) return 'blank';
   return undefined;
 };
 
@@ -40,10 +46,10 @@ const components = {
     display: 'inline' | 'inlineBlock' | 'block',
   }) => (
     <Link
+      display="inline"
+      externalLinkIcon={isExternal(href) === 'blank' ? 'default' : 'none'}
       href={href}
       target={isExternal(href)}
-      externalLinkIcon={isExternal(href) === 'blank' ? 'default' : 'none'}
-      display="inline"
     >
       {children}
     </Link>
@@ -52,28 +58,32 @@ const components = {
   ul: (props) => {
     const filtered = Object.values(props.children).filter((a) => a !== '\n');
     return (
-      <List>
-        {filtered.map((a, index) => (
-          <List.Item
-            key={JSON.stringify(a?.props.child ?? index)}
-            text={<Text>{a?.props.children}</Text>}
-          />
-        ))}
-      </List>
+      <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
+        <List>
+          {filtered.map((a, index) => (
+            <List.Item
+              key={JSON.stringify(a?.props.child ?? index)}
+              text={<Text>{a?.props.children}</Text>}
+            />
+          ))}
+        </List>
+      </Box>
     );
   },
   // $FlowFixMe[missing-local-annot]
   ol: (props) => {
     const filtered = Object.values(props.children).filter((a) => a !== '\n');
     return (
-      <List type="ordered">
-        {filtered.map((a, index) => (
-          <List.Item
-            key={JSON.stringify(a?.props.child ?? index)}
-            text={<Text>{a?.props.children}</Text>}
-          />
-        ))}
-      </List>
+      <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
+        <List type="ordered">
+          {filtered.map((a, index) => (
+            <List.Item
+              key={JSON.stringify(a?.props.child ?? index)}
+              text={<Text>{a?.props.children}</Text>}
+            />
+          ))}
+        </List>
+      </Box>
     );
   },
   // $FlowFixMe[missing-local-annot]
@@ -88,17 +98,17 @@ const components = {
     </Highlighter>
   ),
   figure: ({ src, caption }: { src: string, caption?: string }) => (
-    <Flex wrap justifyContent="center">
+    <Flex justifyContent="center" wrap>
       <Box as="figure" width={400}>
         <Image
-          src={src}
           alt="image"
-          width="100%"
           height="100%"
           layout="responsive"
           objectFit="contain"
+          src={src}
+          width="100%"
         />
-        <Text size="100" align="center">
+        <Text align="center" size="100">
           <Box as="figcaption" marginTop={3}>
             {caption || ''}
           </Box>
@@ -108,22 +118,24 @@ const components = {
   ),
   // $FlowFixMe[missing-local-annot]
   h2: (props) => (
-    <Box marginTop={12} marginBottom={0}>
+    <Box marginBottom={0} marginTop={12}>
       <MainSection name={props.children} />
     </Box>
   ),
   hr: () => (
-    <Box marginTop={8} marginBottom={8}>
+    <Box marginBottom={8} marginTop={8}>
       <hr />
     </Box>
   ),
+  // $FlowFixMe[missing-local-annot]
+  p: (props) => <p style={{ maxWidth: DOCS_COPY_MAX_WIDTH_PX }}> {props.children} </p>,
   ActionButton: ({ children, href }: { href: string, children: string | null }) => (
     <ButtonLink
+      accessibilityLabel=""
+      color="gray"
       href={href}
       target="blank"
       text={children || ''}
-      color="gray"
-      accessibilityLabel=""
     />
   ),
   Datapoint: ({
@@ -144,9 +156,9 @@ const components = {
     <Datapoint
       size={size}
       title={title}
-      value={value}
       trend={{ value: trendValue, accessibilityLabel: trendAccessibilityLabel }}
       trendSentiment={trendSentiment}
+      value={value}
     />
   ),
   PrivateLink: ({
@@ -159,7 +171,7 @@ const components = {
     display: 'inline' | 'inlineBlock' | 'block',
   }) => (
     <Text inline>
-      <Link target="blank" href={href} display={display || 'block'}>
+      <Link display={display || 'block'} href={href} target="blank">
         <Flex alignItems="baseline">
           {children}
           <InternalOnlyIconButton size="xs" />
@@ -172,15 +184,15 @@ const components = {
       className="md-hint"
       style={{
         padding: '1rem',
-        backgroundColor: 'var(--color-background-secondary-base)',
+        backgroundColor: TOKEN_COLOR_BACKGROUND_SECONDARY_BASE,
       }}
     >
       <Flex
+        alignItems="center"
         gap={{
           row: 2,
           column: 0,
         }}
-        alignItems="center"
         width="full"
       >
         <Icon accessibilityLabel="Hint" icon="lightbulb" size={16} />
@@ -190,17 +202,17 @@ const components = {
   ),
   h3: ({ children }: { children: string }) => (
     <Box>
-      <MainSection.Subsection title={children} marginBottom="compact" />
+      <MainSection.Subsection marginBottom="compact" title={children} />
     </Box>
   ),
   img: (props: { src: string }) => (
     <Image
-      src={props.src}
       alt="image"
-      width="100%"
       height="100%"
       layout="responsive"
       objectFit="contain"
+      src={props.src}
+      width="100%"
     />
   ),
   IllustrationCard,
@@ -220,12 +232,12 @@ const components = {
   },
   Group: ({ children }: { children: ReactNode }) => <Box marginBottom={12}>{children}</Box>,
   Do: (props: { children?: ReactNode, title: string }) => (
-    <MainSection.Card type="do" title={props.title || 'Do'} marginBottom="none">
+    <MainSection.Card marginBottom="none" title={props.title || 'Do'} type="do">
       {props.children}
     </MainSection.Card>
   ),
   Dont: (props: { children?: ReactNode, title: string }) => (
-    <MainSection.Card type="don't" title={props.title || "Don't"} marginBottom="none">
+    <MainSection.Card marginBottom="none" title={props.title || "Don't"} type="don't">
       {props.children}
     </MainSection.Card>
   ),
@@ -243,8 +255,8 @@ const components = {
     height: number,
     alt: string,
   }) => (
-    <div width="100%" style={{ aspectRatio: `${width}/${height}` }}>
-      <Image src={src} alt={alt} width={width} height={height} fill />
+    <div style={{ aspectRatio: `${width}/${height}` }} width="100%">
+      <Image alt={alt} fill height={height} src={src} width={width} />
     </div>
   ),
   ImgContainer: ({
@@ -254,7 +266,7 @@ const components = {
     width,
     height,
     padding,
-    color,
+    shaded,
   }: {
     src: string,
     caption?: string,
@@ -262,13 +274,15 @@ const components = {
     width?: number,
     height?: number,
     padding?: 'standard' | 'none',
-    color?: string,
+    shaded?: boolean,
   }) => {
     const layout = width || height ? 'fixed' : 'fill';
 
     const colorStyle = {
       __style: {
-        backgroundColor: color ? `var(--color-${color})` : 'white',
+        backgroundColor: shaded
+          ? TOKEN_COLOR_BACKGROUND_ELEVATION_ACCENT
+          : TOKEN_COLOR_BACKGROUND_DEFAULT,
       },
     };
 
@@ -277,32 +291,32 @@ const components = {
     return (
       <Box>
         <Box
+          borderStyle="sm"
+          dangerouslySetInlineStyle={colorStyle}
+          height="250px"
           padding={defaultPadding === 'standard' ? 8 : 0}
           rounding={2}
-          borderStyle="sm"
-          height="250px"
-          dangerouslySetInlineStyle={colorStyle}
         >
           <Box
+            alignItems="center"
+            display="flex"
+            height="100%"
+            justifyContent="center"
             position="relative"
             width="100%"
-            height="100%"
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
           >
             <Image
-              src={src}
               alt={alt}
-              width={layout === 'fill' ? undefined : width || '100%'}
               height={layout === 'fill' ? undefined : height || '100%'}
               layout={layout}
               objectFit="contain"
+              src={src}
+              width={layout === 'fill' ? undefined : width || '100%'}
             />
           </Box>
         </Box>
         {caption && (
-          <Text size="300" align="start">
+          <Text align="start" size="300">
             <Box as="figcaption" marginTop={3}>
               {caption}
             </Box>
@@ -340,12 +354,12 @@ export default function MarkdownPage({
 
   return (
     <MDXProvider components={components}>
-      <Page title={meta.title} pageSourceUrl={pageSourceUrl}>
+      <Page pageSourceUrl={pageSourceUrl} title={meta.title}>
         <PageHeader
-          name={meta.title}
           badge={meta.badge}
           description={meta.description}
           margin="none"
+          name={meta.title}
           platform={platform}
           type={meta.component ? 'component' : 'guidelines'}
         />

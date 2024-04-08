@@ -5,8 +5,7 @@ import { Button, Dropdown, PageHeader } from 'gestalt';
 export default function IncludeImageExample(): ReactNode {
   return (
     <PageHeader
-      title="Create product group"
-      subtext="2,131 catalog products."
+      dropdownAccessibilityLabel="Additional options"
       helperLink={{
         accessibilityLabel: '',
         text: 'Learn more about bulk product catalog uploads.',
@@ -18,12 +17,13 @@ export default function IncludeImageExample(): ReactNode {
         dropdownItems: [
           <Dropdown.Item
             key="quick-create"
-            option={{ value: 'Quick create', label: 'Quick create' }}
             onSelect={() => {}}
+            option={{ value: 'Quick create', label: 'Quick create' }}
           />,
         ],
       }}
-      dropdownAccessibilityLabel="Additional options"
+      subtext="2,131 catalog products."
+      title="Create product group"
     />
   );
 }

@@ -4,24 +4,24 @@ import { Box, Heading, Image } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Box
-        display="flex"
         alignContent="center"
-        justifyContent="between"
-        direction="column"
         borderStyle="sm"
+        direction="column"
+        display="flex"
         height={300}
+        justifyContent="between"
         width={300}
       >
         <Box height={200} width="100%">
           <Image
             alt=""
-            role="presentation"
             color="#000"
             fit="cover"
             naturalHeight={1}
             naturalWidth={1}
+            role="presentation"
             src="https://i.ibb.co/FY2MKr5/stock6.jpg"
           />
         </Box>

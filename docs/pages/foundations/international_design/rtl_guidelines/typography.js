@@ -10,16 +10,15 @@ export default function FormsLayoutOverview(): ReactNode {
   return (
     <Page title="Typography">
       <PageHeader
-        name="Typography"
-        type="guidelines"
         description={`
 Another important consideration is typography. RTL scripts require a different typography. The choice of font can also have a significant impact on the readability of RTL content. For example, letters can connect to each other, rather than standing alone as they do in LTR languages. This means that fonts need to be chosen carefully, to make sure that they are appropriate for the language being used.
 
 Many **scripts**, such as **Arabic**, have special [orthographic](https://en.wikipedia.org/wiki/Orthographic_rules) rules that require certain combinations of letterforms to be combined into special  [ligature forms](https://en.wikipedia.org/wiki/Ligature_(typography).  The rules governing ligature formation in Arabic can be quite complex, requiring special script-shaping technologies.
         `}
+        name="Typography"
+        type="guidelines"
       />
       <MainSection
-        name="Leverage our existing fonts, Text and Heading components"
         description={`
 In Pinterest products, we default to device fonts so that fallbacks for RTL are handled automatically. Also, if you use our existing components for text, alignment and spacing are also handled out-of-the box.
 - [Heading component](https://gestalt.pinterest.systems/web/heading)
@@ -27,10 +26,10 @@ In Pinterest products, we default to device fonts so that fallbacks for RTL are 
 
 Pinterest marketing sites using Pinterest Sans. For more information, refer to the [brand guidelines](http://pinch.pinadmin.com/brand-typography)
 `}
+        name="Leverage our existing fonts, Text and Heading components"
       >
         <MainSection name="Typography considerations for non-product or brand applications" />
         <MainSection.Subsection
-          title="How to select fonts for RTL and LTR"
           description={`
 Fonts are an essential element of web development, as they can influence the readability, accessibility‌ and the aesthetics of your app or site. When selecting fonts for RTL and LTR web development, you need to consider language support, font style, font size and spacing.
 
@@ -38,39 +37,40 @@ Language support is vital; you should use tools such as Google Fonts or Font Squ
 
 Finally, adjust the font size and spacing according to the text direction and the characteristics of the script. For example, RTL scripts tend to have more vertical strokes than LTR scripts, so you may need to increase the font size and line height for RTL text. CSS logical properties or SASS mixins can be used to apply different font styles based on the text direction.
         `}
+          title="How to select fonts for RTL and LTR"
         />
       </MainSection>
       <MainSection
-        name="Date and time formatting"
         description="Date and time formatting is another important consideration. In RTL languages, the date and time should be displayed from right to left, rather than left to right. In addition to the alignment of the date, dates should be formatted according to the user’s local, indicated in their OS settings. The appropriate formatting codes in the localization software can achieve this."
+        name="Date and time formatting"
       >
         <MainSection
-          name="Numbers and currency"
           description="Numbers and currency are also formatted differently in RTL languages. In Arabic, for example, the decimal separator is a comma, rather than a period as it is in English. Currency symbols follow numbers in Arabic—they're placed on the left. Similarly to the dates formatting, currency formatting should follow the user’s selected local formatting in their OS settings."
+          name="Numbers and currency"
         >
           <MainSection.Subsection
-            title="Number enumeration"
             description={`
 Numbers in RTL scripts are LTR; When enumerating numbers the list of numbers starts from right and flows to the left; however, 2 digit+ numbers are written from left to right and shouldn't be reversed.
   `}
+            title="Number enumeration"
           >
-            <Flex gap={6} alignContent="between" wrap direction="row">
+            <Flex alignContent="between" direction="row" gap={6} wrap>
               <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
                 <Box
-                  width="100%"
-                  minHeight={164}
-                  overflow="hidden"
-                  color="light"
-                  rounding={2}
                   borderStyle="sm"
-                  marginBottom={3}
+                  color="light"
                   display="inlineBlock"
                   justifyContent="center"
+                  marginBottom={3}
+                  minHeight={164}
+                  overflow="hidden"
+                  rounding={2}
+                  width="100%"
                 >
                   <Image
                     alt="A pagination component with numbers from large to small reading from left to right."
-                    naturalWidth={1107}
                     naturalHeight={888}
+                    naturalWidth={1107}
                     src="https://i.pinimg.com/originals/34/56/b1/3456b1eccc619a5430e08ab8121f9794.png"
                   />
                 </Box>
@@ -82,20 +82,20 @@ Numbers in RTL scripts are LTR; When enumerating numbers the list of numbers sta
               </Flex.Item>
               <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
                 <Box
-                  width="100%"
-                  minHeight={164}
-                  overflow="hidden"
-                  color="light"
-                  rounding={2}
                   borderStyle="sm"
-                  marginBottom={3}
+                  color="light"
                   display="inlineBlock"
                   justifyContent="center"
+                  marginBottom={3}
+                  minHeight={164}
+                  overflow="hidden"
+                  rounding={2}
+                  width="100%"
                 >
                   <Image
                     alt="A pagination component with numbers from large to small reading from right to left."
-                    naturalWidth={1107}
                     naturalHeight={888}
+                    naturalWidth={1107}
                     src="https://i.pinimg.com/originals/5f/67/1c/5f671cff85060d9dadc750222203bccd.png"
                   />
                 </Box>
@@ -108,28 +108,28 @@ Numbers in RTL scripts are LTR; When enumerating numbers the list of numbers sta
             </Flex>
           </MainSection.Subsection>
           <MainSection.Subsection
-            title="Phone numbers"
             description={`
   Phone numbers should be written the same way as in English; if they are written in an international format, the leading + should be to the left of the phone number (like in English), next to the leading digit. Use bidirectional algorithms to format numbers correctly.
   `}
+            title="Phone numbers"
           >
-            <Flex gap={6} alignContent="between" wrap direction="row">
+            <Flex alignContent="between" direction="row" gap={6} wrap>
               <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
                 <Box
-                  width="100%"
-                  minHeight={164}
-                  overflow="hidden"
-                  color="light"
-                  rounding={2}
                   borderStyle="sm"
-                  marginBottom={3}
+                  color="light"
                   display="inlineBlock"
                   justifyContent="center"
+                  marginBottom={3}
+                  minHeight={164}
+                  overflow="hidden"
+                  rounding={2}
+                  width="100%"
                 >
                   <Image
                     alt="A list of left-aligned phone numbers in English will all of the text reading from left to right."
-                    naturalWidth={1107}
                     naturalHeight={888}
+                    naturalWidth={1107}
                     src="https://i.pinimg.com/originals/55/01/10/550110041ad3b06987a69ec7c125ad30.png"
                   />
                 </Box>
@@ -141,20 +141,20 @@ Numbers in RTL scripts are LTR; When enumerating numbers the list of numbers sta
               </Flex.Item>
               <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
                 <Box
-                  width="100%"
-                  minHeight={164}
-                  overflow="hidden"
-                  color="light"
-                  rounding={2}
                   borderStyle="sm"
-                  marginBottom={3}
+                  color="light"
                   display="inlineBlock"
                   justifyContent="center"
+                  marginBottom={3}
+                  minHeight={164}
+                  overflow="hidden"
+                  rounding={2}
+                  width="100%"
                 >
                   <Image
                     alt="A list of right-aligned phone numbers in Arabic. The heading and descriptions of the numbers read from right to left, but the numbers themselves read from left to right."
-                    naturalWidth={1107}
                     naturalHeight={888}
+                    naturalWidth={1107}
                     src="https://i.pinimg.com/originals/57/fa/9c/57fa9c7b1bb55f796712253f151fbeae.png"
                   />
                 </Box>
@@ -167,30 +167,30 @@ Numbers in RTL scripts are LTR; When enumerating numbers the list of numbers sta
             </Flex>
           </MainSection.Subsection>
           <MainSection.Subsection
-            title="Western vs Eastern Arabic digits"
             description={`
 Different RTL languages can use different number systems.
 
 For example, Hebrew text uses Western Arabic numerals and Hebrew Numerals, whereas Arabic text might use either Western or Eastern Arabic numerals.
   `}
+            title="Western vs Eastern Arabic digits"
           >
-            <Flex gap={6} alignContent="between" wrap direction="row">
+            <Flex alignContent="between" direction="row" gap={6} wrap>
               <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
                 <Box
-                  width="100%"
-                  minHeight={164}
-                  overflow="hidden"
-                  color="light"
-                  rounding={2}
                   borderStyle="sm"
-                  marginBottom={3}
+                  color="light"
                   display="inlineBlock"
                   justifyContent="center"
+                  marginBottom={3}
+                  minHeight={164}
+                  overflow="hidden"
+                  rounding={2}
+                  width="100%"
                 >
                   <Image
                     alt="The numbers 4,5,6 as Western digits."
-                    naturalWidth={1107}
                     naturalHeight={888}
+                    naturalWidth={1107}
                     src="https://i.pinimg.com/originals/39/af/f1/39aff12a780fb6e3268f7c6c5d247019.png"
                   />
                 </Box>
@@ -202,20 +202,20 @@ For example, Hebrew text uses Western Arabic numerals and Hebrew Numerals, where
               </Flex.Item>
               <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
                 <Box
-                  width="100%"
-                  minHeight={164}
-                  overflow="hidden"
-                  color="light"
-                  rounding={2}
                   borderStyle="sm"
-                  marginBottom={3}
+                  color="light"
                   display="inlineBlock"
                   justifyContent="center"
+                  marginBottom={3}
+                  minHeight={164}
+                  overflow="hidden"
+                  rounding={2}
+                  width="100%"
                 >
                   <Image
                     alt="The numbers 4,5,6 as Eastern digits reading from right to left."
-                    naturalWidth={1107}
                     naturalHeight={888}
+                    naturalWidth={1107}
                     src="https://i.pinimg.com/originals/16/0e/e3/160ee3007efad1c437b36dd525f6d19e.png"
                   />
                 </Box>
@@ -230,30 +230,30 @@ For example, Hebrew text uses Western Arabic numerals and Hebrew Numerals, where
           </MainSection.Subsection>
           <Box marginBottom={10}>
             <BannerCallout
-              type="warning"
               iconAccessibilityLabel="Warning"
-              title="Don't release without testing"
               message="Testing is an indispensable step in localization, especially when it comes to RTL languages. Always have native, in-market speakers review the full content to ensure that you have the content catered for the target audience and, more importantly, present it so it can be read effortlessly. What’s more, the lessons learned from testing can always be applied to the next round of development, making it more streamlined and cost-effective."
+              title="Don't release without testing"
+              type="warning"
             />
           </Box>
         </MainSection>
         <MainSection
-          name="Additional considerations"
           description={`
             As mentioned previously, bidirectional content includes both RTL (for example, Arabic words) and LTR (for example, English) script components.
         `}
+          name="Additional considerations"
         />
-        <Box maxHeight={163} marginBottom={3} borderStyle="sm" rounding={4}>
+        <Box borderStyle="sm" marginBottom={3} maxHeight={163} rounding={4}>
           <Mask rounding={4}>
             <Image
               alt="The top of a long form as part of a setting screen."
-              naturalWidth={2688}
               naturalHeight={489}
+              naturalWidth={2688}
               src="https://i.pinimg.com/originals/16/7c/89/167c89b73098adc08391b013caf57a29.png"
             />
           </Mask>
         </Box>
-        <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginBottom={6}>
+        <Box marginBottom={6} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
           <Text size="300">
             Example of a sentence in Arabic that contains a number or an English word (like
             &#8220;Pinterest&#8221;)
@@ -271,7 +271,6 @@ How do the rules affect the order of the bidi content?
         `}
         />
         <MainSection.Subsection
-          title="Note to engineers"
           description={`
 In all major web browsers, the order of characters in memory (logical) isn't the same as the order in which they are displayed (visual).
 
@@ -285,6 +284,7 @@ The set of rules applied by the browser to produce the correct order at the time
 - Mirrored Characters
 
         `}
+          title="Note to engineers"
         />
       </MainSection>
     </Page>

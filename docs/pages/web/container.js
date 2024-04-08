@@ -13,7 +13,7 @@ import variantsResponsive from '../../examples/container/variantsResponsive';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description} />
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName} />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
@@ -21,16 +21,16 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Responsive content"
           description="On small screens, the container is the width of the screen. On large screens, it centers the content with a max-width of 800px."
+          title="Responsive content"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={variantsResponsive}
-                name="Variants - Responsive content"
                 layout="column"
+                name="Variants - Responsive content"
               />
             }
           />

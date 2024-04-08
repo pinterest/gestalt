@@ -28,22 +28,19 @@ export default function Example(): ReactNode {
   ];
 
   return (
-    <Flex height="100%" width="100%" direction="column" gap={2}>
+    <Flex direction="column" gap={2} height="100%" width="100%">
       <ChartGraph
-        title="Views by demographics and device"
         accessibilityLabel="Example of chart with tooltip"
-        visualPatternSelected={visualPatternSelected}
-        onVisualPatternChange={() =>
-          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
-        }
-        initialTicks={3}
         data={data}
         elements={[
           { type: 'bar', id: '18-30' },
           { type: 'bar', id: '30-50' },
           { type: 'bar', id: '50+' },
         ]}
-        type="bar"
+        initialTicks={3}
+        onVisualPatternChange={() =>
+          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
+        }
         tickFormatter={{
           yAxisLeft: (value) => {
             if (value >= 1000000) return `${value / 1000000}m`;
@@ -51,6 +48,9 @@ export default function Example(): ReactNode {
             return value;
           },
         }}
+        title="Views by demographics and device"
+        type="bar"
+        visualPatternSelected={visualPatternSelected}
       />
     </Flex>
   );

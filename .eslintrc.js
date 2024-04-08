@@ -24,6 +24,7 @@ module.exports = {
   'plugins': [
     'eslint-comments',
     'flowtype',
+    'eslint-plugin-gestalt',
     'import',
     'jest',
     'jsx-a11y',
@@ -57,6 +58,7 @@ module.exports = {
     'flowtype/space-after-type-colon': [ERROR, ALWAYS, { 'allowLineBreak': true }],
     'flowtype/space-before-type-colon': [ERROR, NEVER],
     'flowtype/type-import-style': ERROR,
+    'gestalt/only-valid-tokens': ERROR,
     'import/extensions': [ERROR, 'ignorePackages', { 'js': 'never' }],
     'import/first': ERROR,
     'import/newline-after-import': ERROR,
@@ -90,6 +92,7 @@ module.exports = {
     'react/jsx-fragments': [ERROR, 'element'],
     'react/jsx-key': [ERROR, { 'checkFragmentShorthand': true }],
     'react/jsx-props-no-spreading': OFF,
+    'react/jsx-sort-props': ERROR,
     'react/no-access-state-in-setstate': ERROR,
     'react/no-array-index-key': ERROR,
     'react/react-in-jsx-scope': OFF,
@@ -120,6 +123,12 @@ module.exports = {
   },
   'overrides': [
     {
+      'files': ['packages/gestalt-design-tokens/**/*.js'],
+      'rules': {
+        'gestalt/only-valid-tokens': OFF,
+      },
+    },
+    {
       'files': ['scripts/templates/*.js'],
       'rules': {
         'import/no-unresolved': OFF,
@@ -131,6 +140,12 @@ module.exports = {
         'flowtype/no-mutable-array': OFF,
         'flowtype/require-exact-type': OFF,
         'flowtype/require-valid-file-annotation': OFF,
+      },
+    },
+    {
+      'files': ['packages/gestalt-codemods/**/*.js'],
+      'rules': {
+        'react/jsx-sort-props': OFF,
       },
     },
     {

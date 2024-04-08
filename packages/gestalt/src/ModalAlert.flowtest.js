@@ -4,8 +4,8 @@ import Text from './Text';
 
 const Valid = (
   <ModalAlert
-    heading="Delete Pin?"
     accessibilityModalLabel="Modal"
+    heading="Delete Pin?"
     onDismiss={() => {}}
     primaryAction={{
       accessibilityLabel: 'Acknowledge expired card',
@@ -27,9 +27,9 @@ const NonExistingProp = <ModalAlert nonexisting={33} />;
 const InvalidProp = (
   <ModalAlert
     accessibilityModalLabel="Modal"
-    onDismiss={() => {}}
     // $FlowExpectedError[incompatible-type]
     heading={<Text>Heading</Text>}
+    onDismiss={() => {}}
     primaryAction={{
       accessibilityLabel: 'Acknowledge expired card',
       label: 'Got it',

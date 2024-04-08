@@ -29,13 +29,13 @@ export default function SearchFieldPage({
 }): ReactNode {
   return (
     <Page title="SearchField">
-      <PageHeader name="SearchField" description={generatedDocGen?.description}>
+      <PageHeader description={generatedDocGen?.description} name="SearchField">
         <SandpackExample
-          name="Main example"
           code={mainExample}
-          hideEditor
           hideControls
+          hideEditor
           layout="column"
+          name="Main example"
         />
       </PageHeader>
 
@@ -45,20 +45,20 @@ export default function SearchFieldPage({
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - To search or filter content within a surface.
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - As a means of inputting content to a form. Use [TextField](/web/textfield) instead.
           - To act as an auto-complete input. Use [ComboBox](/web/combobox) instead.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -67,111 +67,111 @@ export default function SearchFieldPage({
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            showCode={false}
-            type="do"
             description="Place SearchField above the content the user will be searching."
             sandpackExample={
               <SandpackExample
-                name="Do - Place SearchField above the content the user will be searching."
                 code={placeAboveContent}
                 hideEditor
                 layout="column"
+                name="Do - Place SearchField above the content the user will be searching."
               />
             }
+            showCode={false}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Hide SearchField behind an IconButton if there is enough space for the full component."
             sandpackExample={
               <SandpackExample
-                name="Don't - Hide SearchField behind an IconButton if there is enough space for the full component."
                 code={dontHideBehindIcon}
-                hideEditor
                 hideControls
+                hideEditor
                 layout="column"
+                name="Don't - Hide SearchField behind an IconButton if there is enough space for the full component."
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Make the `placeholder` specific. Give the user a hint about the content they're searching and/or what parameters they can use to search."
             sandpackExample={
               <SandpackExample
-                name="Do - Make the `placeholder` specific"
                 code={makePlaceholderSpecific}
                 hideEditor
                 layout="column"
+                name="Do - Make the `placeholder` specific"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Add critical information to the `placeholder`. The `placeholder` text disappears once the user begins entering data and will therefore be unavailable."
             sandpackExample={
               <SandpackExample
-                name="Don't - Add critical information to the `placeholder`."
                 code={dontAddCriticalInfoToPlaceholder}
-                hideEditor
                 hideControls
+                hideEditor
                 layout="column"
+                name="Don't - Add critical information to the `placeholder`."
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Make sure SearchField is displayed wide enough to completely display common search terms."
             sandpackExample={
               <SandpackExample
-                name="Do - Make sure SearchField is displayed wide enough to completely display common search terms."
                 code={makeSearchFieldWide}
                 hideEditor
                 layout="column"
+                name="Do - Make sure SearchField is displayed wide enough to completely display common search terms."
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Truncate or wrap text within SearchField."
             sandpackExample={
               <SandpackExample
-                name="Don't - Truncate or wrap text within SearchField."
                 code={dontTruncateText}
-                hideEditor
                 hideControls
+                hideEditor
                 layout="column"
+                name="Don't - Truncate or wrap text within SearchField."
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
 
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
-          title="Labels"
           description={`
       SearchField should ideally have a visible label above the input using the \`label\` prop. However, if need be, \`accessibilityLabel\` can be used to provide screen readers with context about the SearchField.
 
       Be sure to also specify (and localize) a string for the \`accessibilityClearButtonLabel\`.
       `}
+          title="Labels"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="Accessibility example"
                 code={accessibilityExample}
                 layout="column"
+                name="Accessibility example"
               />
             }
           />
@@ -179,45 +179,45 @@ export default function SearchFieldPage({
       </AccessibilitySection>
 
       <LocalizationSection
+        code={localizationExample}
         name={generatedDocGen?.displayName}
         noDefaultLabelProvider
         notes={`Also localize \`value\` for those cases when it can be translated.`}
-        code={localizationExample}
       />
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Visible label"
           description={`When specified, \`label\` adds a label above the SearchField. If \`label\` is specified, \`accessibilityLabel\` can be an empty string.`}
+          title="Visible label"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample name="Variants example" code={variantsExample} layout="column" />
+              <SandpackExample code={variantsExample} layout="column" name="Variants example" />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Sizes"
           description={`There are 2 sizes available: \`md\` (default) and \`lg\`.`}
+          title="Sizes"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample name="Sizes example" code={sizesExample} layout="column" />
+              <SandpackExample code={sizesExample} layout="column" name="Sizes example" />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Error"
           description={`An \`errorMessage\` can be specified if needed.`}
+          title="Error"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample name="Error example" code={errorExample} layout="column" />
+              <SandpackExample code={errorExample} layout="column" name="Error example" />
             }
           />
         </MainSection.Subsection>

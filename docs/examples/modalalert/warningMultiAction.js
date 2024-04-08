@@ -14,17 +14,17 @@ export default function Example(): ReactNode {
         <Button
           accessibilityLabel="Show Modal"
           color="red"
-          text="Show Modal"
-          size="lg"
           onClick={() => setShowComponent(true)}
+          size="lg"
+          text="Show Modal"
         />
       </Box>
       {showComponent ? (
         <Layer zIndex={zIndex}>
           <ModalAlert
-            type="warning"
             accessibilityModalLabel="Spam link warning"
             heading="This site may lead to spam"
+            onDismiss={() => {}}
             primaryAction={{
               accessibilityLabel: 'Continue to Pin site',
               label: 'Continue to site',
@@ -37,7 +37,7 @@ export default function Example(): ReactNode {
               onClick: () => {},
               role: 'button',
             }}
-            onDismiss={() => {}}
+            type="warning"
           >
             <Text>
               We aren&apos;t sure of the contents of this site and can&apos;t verify that you will

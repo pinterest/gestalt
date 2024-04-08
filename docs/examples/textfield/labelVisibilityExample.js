@@ -4,16 +4,16 @@ import { Box, Flex, Text, TextField } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Flex gap={{ column: 2, row: 0 }} direction="column">
-        <Text weight="bold" size="300">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
+        <Text size="300" weight="bold">
           First name
         </Text>
         <TextField
           id="textfieldexampleHiddenLabel"
-          onChange={() => {}}
           label="First name"
           labelDisplay="hidden"
+          onChange={() => {}}
           size="lg"
         />
       </Flex>

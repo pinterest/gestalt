@@ -100,20 +100,18 @@ export default function Example(): ReactNode {
             </Label>
           </Flex.Item>
           <input
-            id={labelId}
-            type="range"
             defaultValue={800}
-            onChange={updateWidth}
-            min={200}
+            id={labelId}
             max={800}
+            min={200}
+            onChange={updateWidth}
             step={5}
             style={{ width: '400px', display: 'block', margin: '10px auto' }}
+            type="range"
           />
         </Flex>
 
         <div
-          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-          tabIndex={0}
           ref={(el) => {
             scrollContainerRef.current = el;
           }}
@@ -124,17 +122,19 @@ export default function Example(): ReactNode {
             overflowY: 'scroll',
             width: `${width}px`,
           }}
+          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+          tabIndex={0}
         >
           {scrollContainerRef.current && (
             <Masonry
+              ref={(ref) => {
+                gridRef.current = ref;
+              }}
               columnWidth={170}
               gutterWidth={20}
               items={pins}
               layout="basicCentered"
               minCols={1}
-              ref={(ref) => {
-                gridRef.current = ref;
-              }}
               renderItem={({ data }) => <GridComponent data={data} />}
               // $FlowFixMe[incompatible-type]
               scrollContainer={() => scrollContainerRef.current}

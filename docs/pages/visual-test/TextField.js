@@ -13,8 +13,8 @@ export default function TextFieldScreenshot(): ReactNode {
     <Tag
       key={tag}
       accessibilityRemoveIconLabel={`Remove ${tag} tag`}
-      text={tag}
       onRemove={() => {}}
+      text={tag}
     />
   ));
 
@@ -24,115 +24,115 @@ export default function TextFieldScreenshot(): ReactNode {
         <Flex direction="column" gap={{ column: 6, row: 0 }}>
           <Flex direction="column" gap={{ column: 2, row: 0 }}>
             <TextField
-              label="small field"
               helperText="Helper text"
               id="field0"
+              label="small field"
               onChange={({ value }) => {
                 setInput1Text(value);
               }}
               placeholder="Placeholder"
-              type="text"
               size="sm"
+              type="text"
               value={input1text}
             />
           </Flex>
           <Flex direction="column" gap={{ column: 2, row: 0 }}>
             <TextField
-              label="medium field"
               helperText="Helper text"
               id="field1"
+              label="medium field"
               onChange={({ value }) => {
                 setInput2Text(value);
               }}
               placeholder="Placeholder"
-              type="text"
               size="md"
+              type="text"
               value={input2text}
             />
           </Flex>
           <Flex direction="column" gap={{ column: 2, row: 0 }}>
             <TextField
-              label="large field"
               helperText="Helper text"
               id="field2"
+              label="large field"
               onChange={({ value }) => {
                 setInput3Text(value);
               }}
               placeholder="Placeholder"
-              type="text"
               size="lg"
+              type="text"
               value={input3text}
             />
           </Flex>
           <Flex direction="column" gap={{ column: 4, row: 0 }}>
             <Heading size="300">Tags</Heading>
             <TextField
-              name="small"
-              label="small field"
+              errorMessage="This field has an error"
               helperText="Helper text"
               id="field2"
-              errorMessage="This field has an error"
+              label="small field"
+              name="small"
               onChange={() => {}}
-              type="text"
               size="sm"
+              type="text"
               value={input3text}
             />
             <TextField
-              name="medium"
+              errorMessage="This field has an error"
+              helperText="Helper text"
+              id="field2"
               label="medium field"
-              helperText="Helper text"
-              id="field2"
-              errorMessage="This field has an error"
+              name="medium"
               onChange={() => {}}
-              type="text"
               size="md"
+              type="text"
               value={input3text}
             />
             <TextField
-              name="large"
-              label="large field"
+              errorMessage="This field has an error"
               helperText="Helper text"
               id="field2"
-              errorMessage="This field has an error"
+              label="large field"
+              name="large"
               onChange={() => {}}
-              type="text"
               size="lg"
+              type="text"
               value={input3text}
             />
           </Flex>
           <Flex direction="column" gap={{ column: 4, row: 0 }}>
             <Heading size="300">Tags</Heading>
             <TextField
-              name="small"
-              label="small field"
               helperText="Helper text"
               id="field2"
+              label="small field"
+              name="small"
               onChange={() => {}}
+              size="sm"
               tags={renderedTags}
               type="text"
-              size="sm"
               value={input3text}
             />
             <TextField
-              name="medium"
-              label="medium field"
+              helperText="Helper text"
               id="field3"
+              label="medium field"
+              name="medium"
               onChange={() => {}}
-              tags={renderedTags}
-              helperText="Helper text"
-              type="text"
               size="md"
+              tags={renderedTags}
+              type="text"
               value={input3text}
             />
             <TextField
-              name="large"
-              label="large field"
               helperText="Helper text"
               id="field1"
+              label="large field"
+              name="large"
               onChange={() => {}}
+              size="lg"
               tags={renderedTags}
               type="text"
-              size="lg"
               value={input3text}
             />
           </Flex>

@@ -1,42 +1,43 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
+import { TOKEN_COLOR_BACKGROUND_EDUCATION, TOKEN_COLOR_TEXT_INVERSE } from 'gestalt-design-tokens';
 
 export default function HeroGraphic({ animate = true }: { animate?: boolean }): ReactNode {
   return (
     <svg
-      width="501"
+      aria-hidden
+      fill="none"
       height="392"
       viewBox="0 0 501 392"
-      fill="none"
+      width="501"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      aria-hidden
     >
-      <rect y="97" width="125" height="138" rx="18.9762" fill="url(#pattern0)" />
+      <rect fill="url(#pattern0)" height="138" rx="18.9762" width="125" y="97" />
 
       <path
         className="animation-draw"
         d="M75 269L75 391L184 391L184 365.5"
-        stroke="var(--color-background-education)"
-        strokeWidth="2"
+        stroke={TOKEN_COLOR_BACKGROUND_EDUCATION}
+        strokeDasharray="8 8"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeDasharray="8 8"
+        strokeWidth="2"
       />
       <path
         d="M75 269L75 391L184 391L184 365.5"
-        stroke="var(--color-text-inverse)"
-        strokeWidth="2"
+        stroke={TOKEN_COLOR_TEXT_INVERSE}
+        strokeDasharray="8 8"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeDasharray="8 8"
+        strokeWidth="2"
       />
       <path
         className={animate ? 'animation-6' : undefined}
-        fillRule="evenodd"
         clipRule="evenodd"
         d="M62.9328 332C62.9328 330.895 62.0374 330 60.9328 330H25C23.8954 330 23 330.895 23 332V356.286C23 357.39 23.8954 358.286 25 358.286H60.9328C62.0374 358.286 62.9328 357.39 62.9328 356.286V349.14C62.9328 348.426 63.314 347.765 63.9328 347.408L66.5882 345.875C67.9216 345.105 67.9216 343.181 66.5882 342.411L63.9328 340.878C63.314 340.521 62.9328 339.86 62.9328 339.146V332Z"
         fill="#007CFF"
+        fillRule="evenodd"
       />
       <path
         className={animate ? 'animation-6' : undefined}
@@ -47,68 +48,68 @@ export default function HeroGraphic({ animate = true }: { animate?: boolean }): 
         className={animate ? 'animation-3' : undefined}
         cx="301"
         cy="37"
-        r="19"
         fill="#007CFF"
+        r="19"
       />
       <rect
         className={animate ? 'animation-3' : undefined}
-        x="294.667"
-        y="30.6667"
-        width="12.6667"
+        fill="white"
         height="12.6667"
         rx="6.33333"
-        fill="white"
+        width="12.6667"
+        x="294.667"
+        y="30.6667"
       />
-      <mask id="mask0_263_5069" maskUnits="userSpaceOnUse" x="140" y="0" width="126" height="184">
-        <rect x="140" width="125.363" height="184" rx="18.9762" fill="#D7EDFF" />
+      <mask height="184" id="mask0_263_5069" maskUnits="userSpaceOnUse" width="126" x="140" y="0">
+        <rect fill="#D7EDFF" height="184" rx="18.9762" width="125.363" x="140" />
       </mask>
       <g mask="url(#mask0_263_5069)">
-        <rect x="140" width="125.363" height="184" rx="18.9762" fill="url(#pattern1)" />
+        <rect fill="url(#pattern1)" height="184" rx="18.9762" width="125.363" x="140" />
       </g>
-      <mask id="mask1_263_5069" maskUnits="userSpaceOnUse" x="140" y="200" width="125" height="159">
-        <rect x="140" y="200" width="125" height="159" rx="18.9762" fill="#D7EDFF" />
+      <mask height="159" id="mask1_263_5069" maskUnits="userSpaceOnUse" width="125" x="140" y="200">
+        <rect fill="#D7EDFF" height="159" rx="18.9762" width="125" x="140" y="200" />
       </mask>
       <g mask="url(#mask1_263_5069)">
-        <rect x="135.283" y="199" width="129.717" height="165" rx="19.6923" fill="url(#pattern2)" />
+        <rect fill="url(#pattern2)" height="165" rx="19.6923" width="129.717" x="135.283" y="199" />
       </g>
-      <mask id="mask2_263_5069" maskUnits="userSpaceOnUse" x="281" y="67" width="192" height="247">
-        <rect x="281" y="67" width="192" height="247" rx="18.7699" fill="#CCF6EE" />
+      <mask height="247" id="mask2_263_5069" maskUnits="userSpaceOnUse" width="192" x="281" y="67">
+        <rect fill="#CCF6EE" height="247" rx="18.7699" width="192" x="281" y="67" />
       </mask>
       <g mask="url(#mask2_263_5069)">
-        <rect x="281" y="67" width="166.102" height="247" rx="18.7699" fill="url(#pattern3)" />
+        <rect fill="url(#pattern3)" height="247" rx="18.7699" width="166.102" x="281" y="67" />
       </g>
       <rect
         className={animate ? 'animation-5' : undefined}
-        x="349"
-        y="239"
-        width="152"
+        fill="#007CFF"
         height="51"
         rx="25.5"
-        fill="#007CFF"
+        width="152"
+        x="349"
+        y="239"
       />
       <path
         className={animate ? 'animation-5' : undefined}
-        fillRule="evenodd"
         clipRule="evenodd"
         d="M480.32 259.374L472.5 267.098L464.682 259.374C463.839 258.542 462.474 258.542 461.632 259.374C460.789 260.205 460.789 261.556 461.632 262.388L472.5 273.125L483.368 262.388C483.789 261.971 484 261.425 484 260.88C484 260.335 483.789 259.79 483.368 259.374C482.948 258.958 482.396 258.75 481.844 258.75C481.292 258.75 480.741 258.958 480.32 259.374Z"
         fill="#D7EDFF"
+        fillRule="evenodd"
       />
       <rect
         className={animate ? 'animation-5' : undefined}
-        x="366"
-        y="260"
-        width="83"
+        fill="#D7EDFF"
         height="8"
         rx="4"
-        fill="#D7EDFF"
+        width="83"
+        x="366"
+        y="260"
       />
       <circle
         className={animate ? 'animation-2' : undefined}
+        fill="#007CFF"
         r="30"
         transform="matrix(-1 0 0 1 95.0001 55)"
-        fill="#007CFF"
       />
-      <g clipPath="url(#clip0_263_5069)" className={animate ? 'animation-2' : undefined}>
+      <g className={animate ? 'animation-2' : undefined} clipPath="url(#clip0_263_5069)">
         <path
           d="M83.87 71.5L82.895 60.19L77 51.1L87.515 46.72L95 38.5L102.485 46.735L113 51.1L107.105 60.175L106.13 71.5L95 68.5L83.87 71.5Z"
           fill="#F7FBFF"
@@ -120,90 +121,90 @@ export default function HeroGraphic({ animate = true }: { animate?: boolean }): 
       </g>
       <rect
         className={animate ? 'animation-4' : undefined}
-        x="281"
-        y="330"
-        width="53.8548"
+        fill="#0074E8"
         height="53.8548"
         rx="17.9516"
-        fill="#0074E8"
+        width="53.8548"
+        x="281"
+        y="330"
       />
       <path
         className={animate ? 'animation-4' : undefined}
-        fillRule="evenodd"
         clipRule="evenodd"
         d="M304.561 368.147L295.285 358.889C294.19 357.796 294.19 356.023 295.285 354.929C296.38 353.836 298.157 353.836 299.252 354.929L304.561 360.228L316.603 348.211C317.698 347.117 319.475 347.117 320.57 348.211C321.665 349.304 321.665 351.076 320.57 352.169L304.561 368.147Z"
         fill="white"
+        fillRule="evenodd"
       />
       <path
-        fillRule="evenodd"
+        className={animate ? 'animation-1' : undefined}
         clipRule="evenodd"
         d="M71.6 246C59.1184 246 49 256.118 49 268.6C49 281.082 59.1184 291.2 71.6 291.2H101.733C114.215 291.2 124.333 281.082 124.333 268.6C124.333 256.118 114.215 246 101.733 246H71.6Z"
         fill="#007CFF"
-        className={animate ? 'animation-1' : undefined}
+        fillRule="evenodd"
       />
 
       <path
-        fillRule="evenodd"
+        className={animate ? 'animation-1' : undefined}
         clipRule="evenodd"
         d="M101.733 289.317C113.175 289.317 122.45 280.042 122.45 268.6C122.45 257.158 113.175 247.883 101.733 247.883C90.2918 247.883 81.0167 257.158 81.0167 268.6C81.0167 280.042 90.2918 289.317 101.733 289.317Z"
         fill="#D7EDFF"
-        className={animate ? 'animation-1' : undefined}
+        fillRule="evenodd"
       />
       <defs>
-        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+        <pattern height="1" id="pattern0" patternContentUnits="objectBoundingBox" width="1">
           <use
-            xlinkHref="#image0_263_5069"
             transform="translate(-0.548242 -0.217391) scale(0.000500549)"
+            xlinkHref="#image0_263_5069"
           />
         </pattern>
-        <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
+        <pattern height="1" id="pattern1" patternContentUnits="objectBoundingBox" width="1">
           <use
-            xlinkHref="#image1_263_5069"
             transform="translate(-0.255259 -0.210758) scale(0.000492865 0.000335798)"
+            xlinkHref="#image1_263_5069"
           />
         </pattern>
-        <pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
+        <pattern height="1" id="pattern2" patternContentUnits="objectBoundingBox" width="1">
           <use
-            xlinkHref="#image2_263_5069"
             transform="translate(0.00602612 -0.27673) scale(0.000424361)"
+            xlinkHref="#image2_263_5069"
           />
         </pattern>
-        <pattern id="pattern3" patternContentUnits="objectBoundingBox" width="1" height="1">
+        <pattern height="1" id="pattern3" patternContentUnits="objectBoundingBox" width="1">
           <use
-            xlinkHref="#image3_263_5069"
             transform="translate(0 -0.00448245) scale(0.0003663 0.000246329)"
+            xlinkHref="#image3_263_5069"
           />
         </pattern>
         <clipPath id="clip0_263_5069">
-          <rect width="36" height="33" fill="white" transform="translate(77 38.5)" />
+          <rect fill="white" height="33" transform="translate(77 38.5)" width="36" />
         </clipPath>
         <image
+          alt="Popsicle"
+          height="2733"
           id="image0_263_5069"
           width="4096"
-          height="2733"
           xlinkHref="https://i.ibb.co/9h2TGqd/img-popcycle.jpg"
-          alt="Popsicle"
         />
         <image
+          alt="Door"
+          height="4096"
           id="image1_263_5069"
           width="2730"
-          height="4096"
           xlinkHref="https://i.ibb.co/cbjgZft/img-door.jpg"
-          alt="Door"
         />
         <image
+          alt="Person"
+          height="4096"
           id="image2_263_5069"
           width="2730"
-          height="4096"
           xlinkHref="https://i.ibb.co/SsnchKx/img-dude.jpg"
-          alt="Person"
         />
         <image
+          alt="Glasses"
+          height="4096"
           id="image3_263_5069"
           width="2730"
-          height="4096"
           xlinkHref="https://i.ibb.co/qn2Z0yN/img-glasses.jpg"
-          alt="Glasses"
         />
       </defs>
     </svg>

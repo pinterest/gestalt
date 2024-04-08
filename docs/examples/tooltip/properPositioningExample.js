@@ -17,12 +17,12 @@ export default function ScrollBoundaryContainerExample(): ReactNode {
   const [device, setDevice] = useState<string | null>(null);
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <ScrollBoundaryContainer overflow="scrollY" height={200}>
-        <Flex width={300} direction="column" gap={{ column: 4, row: 0 }}>
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <ScrollBoundaryContainer height={200} overflow="scrollY">
+        <Flex direction="column" gap={{ column: 4, row: 0 }} width={300}>
           <Flex direction="column" gap={{ column: 2, row: 0 }}>
             <Flex alignItems="center" gap={{ row: 1, column: 0 }}>
-              <Text weight="bold" size="400">
+              <Text size="400" weight="bold">
                 Content type
               </Text>
               <Tooltip
@@ -37,7 +37,7 @@ export default function ScrollBoundaryContainerExample(): ReactNode {
                 />
               </Tooltip>
             </Flex>
-            <Box display="flex" direction="column">
+            <Box direction="column" display="flex">
               <Box paddingY={1}>
                 <RadioButton
                   checked={content === 'all'}
@@ -72,17 +72,17 @@ export default function ScrollBoundaryContainerExample(): ReactNode {
           </Flex>
           <Flex direction="column" gap={{ column: 2, row: 0 }}>
             <Flex alignItems="center" gap={{ row: 1, column: 0 }}>
-              <Text weight="bold" size="400">
+              <Text size="400" weight="bold">
                 Claimed account
               </Text>
               <Tooltip
                 idealDirection="right"
                 text="See stats for Pins linked to your claimed accounts like websites, Etsy, Instagram or Youtube. The Other Pins category includes Pins you’ve published or saved that don’t link to any of your claimed accounts."
               >
-                <Icon icon="info-circle" accessibilityLabel="Information" color="default" />
+                <Icon accessibilityLabel="Information" color="default" icon="info-circle" />
               </Tooltip>
             </Flex>
-            <Box display="flex" direction="column">
+            <Box direction="column" display="flex">
               <Box paddingY={1}>
                 <RadioButton
                   checked={claimed === 'all'}
@@ -117,17 +117,17 @@ export default function ScrollBoundaryContainerExample(): ReactNode {
           </Flex>
           <Flex direction="column" gap={{ column: 2, row: 0 }}>
             <Flex alignItems="center" gap={{ row: 1, column: 0 }}>
-              <Text weight="bold" size="400">
+              <Text size="400" weight="bold">
                 Device
               </Text>
               <Tooltip
                 idealDirection="right"
                 text="See stats for the different devices your Pinterest traffic is coming from."
               >
-                <Icon icon="info-circle" accessibilityLabel="Information" color="default" />
+                <Icon accessibilityLabel="Information" color="default" icon="info-circle" />
               </Tooltip>
             </Flex>
-            <Box display="flex" direction="column">
+            <Box direction="column" display="flex">
               <Box paddingY={1}>
                 <RadioButton
                   checked={device === 'all'}

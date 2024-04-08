@@ -18,7 +18,7 @@ export default function Example(): ReactNode {
       }}
     >
       <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-        <Box paddingY={8} paddingX={8}>
+        <Box paddingX={8} paddingY={8}>
           <BannerCallout
             dismissButton={{
               accessibilityLabel: 'Verwerfen Sie dieses Banner.',

@@ -12,8 +12,8 @@ function DatePickerWrap({ showMonthYearDropdown }: { showMonthYearDropdown?: boo
     <DatePicker
       id="fake_id"
       onChange={({ value }) => setDate(value)}
-      value={date}
       selectLists={showMonthYearDropdown ? ['year', 'month'] : undefined}
+      value={date}
     />
   );
 }

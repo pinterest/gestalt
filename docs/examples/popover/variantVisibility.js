@@ -11,13 +11,13 @@ export default function Example(): ReactNode {
   }, []);
 
   return (
-    <Flex alignItems="center" justifyContent="center" height="100%" width="100%">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <IconButton
-        accessibilityLabel="Default IconButton"
-        iconColor="darkGray"
-        icon="pin"
-        onClick={() => {}}
         ref={anchorRef}
+        accessibilityLabel="Default IconButton"
+        icon="pin"
+        iconColor="darkGray"
+        onClick={() => {}}
         size="lg"
       />
 
@@ -31,11 +31,11 @@ export default function Example(): ReactNode {
             size="xs"
           >
             <Box
-              height={100}
-              width={300}
-              display="flex"
               alignItems="center"
+              display="flex"
+              height={100}
               justifyContent="center"
+              width={300}
             >
               <Text align="center">Content</Text>
             </Box>

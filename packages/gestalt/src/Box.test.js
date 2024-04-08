@@ -9,7 +9,7 @@ test('Box renders', () => {
 
 test('Box has correct *-hide classes when display is false', () => {
   const tree = create(
-    <Box display="none" smDisplay="none" mdDisplay="none" lgDisplay="none" />,
+    <Box display="none" lgDisplay="none" mdDisplay="none" smDisplay="none" />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -21,7 +21,7 @@ test('Box has correct classes when display is flex', () => {
 
 test('Box has correct *-flex-column classes when display is flexColumn', () => {
   const tree = create(
-    <Box direction="column" smDirection="column" mdDirection="column" lgDirection="column" />,
+    <Box direction="column" lgDirection="column" mdDirection="column" smDirection="column" />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -30,9 +30,9 @@ test('Box has correct *-inline-block classes when display is inlineBlock', () =>
   const tree = create(
     <Box
       display="inlineBlock"
-      smDisplay="inlineBlock"
-      mdDisplay="inlineBlock"
       lgDisplay="inlineBlock"
+      mdDisplay="inlineBlock"
+      smDisplay="inlineBlock"
     />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
@@ -54,11 +54,11 @@ test('Box correctly sets visually hidden', () => {
 });
 
 test('Box has correct marginStart and marginEnd when marginStart equals 1 and marginEnd equals 2', () => {
-  expect(create(<Box marginStart={1} marginEnd={2} />)).toMatchSnapshot();
+  expect(create(<Box marginEnd={2} marginStart={1} />)).toMatchSnapshot();
 });
 
 test('Box has correct marginStart and marginEnd when marginStart and marginEnd are negative', () => {
-  expect(create(<Box marginStart={-1} marginEnd={-3} />)).toMatchSnapshot();
+  expect(create(<Box marginEnd={-3} marginStart={-1} />)).toMatchSnapshot();
 });
 
 test('Box allows auto margin', () => {

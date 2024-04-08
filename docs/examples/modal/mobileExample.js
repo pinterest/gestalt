@@ -21,18 +21,18 @@ export default function Example(): ReactNode {
       {showComponent ? (
         <Layer zIndex={new CompositeZIndex([HEADER_ZINDEX])}>
           <Modal
-            align="center"
             accessibilityModalLabel="Mobile Modal example"
-            heading="Heading"
-            subHeading="SubHeading"
-            onDismiss={() => setShowComponent(false)}
+            align="center"
             footer={
-              <Flex justifyContent="center" gap={2}>
+              <Flex gap={2} justifyContent="center">
                 <Button color="gray" text="Secondary" />
                 <Button color="red" text="Primary" />
               </Flex>
             }
+            heading="Heading"
+            onDismiss={() => setShowComponent(false)}
             size="lg"
+            subHeading="SubHeading"
           >
             <Box>{Array(100).fill(<Text>Content</Text>)}</Box>
           </Modal>
@@ -42,9 +42,9 @@ export default function Example(): ReactNode {
         <Button
           accessibilityLabel="Show Modal"
           color="red"
-          text="Show Modal"
-          size="lg"
           onClick={() => setShowComponent(true)}
+          size="lg"
+          text="Show Modal"
         />
       </Box>
     </DeviceTypeProvider>

@@ -1,6 +1,14 @@
 // @flow strict
 import { type Element, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
+import {
+  TOKEN_FONT_SIZE_100,
+  TOKEN_FONT_SIZE_200,
+  TOKEN_FONT_SIZE_300,
+  TOKEN_FONT_SIZE_400,
+  TOKEN_FONT_SIZE_500,
+  TOKEN_FONT_SIZE_600,
+} from 'gestalt-design-tokens';
 import { useList } from './contexts/ListProvider';
 import styles from './List.css';
 import getChildrenToArray from './List/getChildrenToArray';
@@ -32,6 +40,15 @@ function ListItem({ text, children }: Props): ReactNode {
     style: inheritedStyle,
     size: inheritedFontSize,
   } = useList();
+
+  const sizeMap: { [string]: string } = {
+    '100': TOKEN_FONT_SIZE_100,
+    '200': TOKEN_FONT_SIZE_200,
+    '300': TOKEN_FONT_SIZE_300,
+    '400': TOKEN_FONT_SIZE_400,
+    '500': TOKEN_FONT_SIZE_500,
+    '600': TOKEN_FONT_SIZE_600,
+  };
 
   const isOrdered = inheritedType === 'ordered';
   const isUnordered = inheritedType === 'unordered';
@@ -72,11 +89,8 @@ function ListItem({ text, children }: Props): ReactNode {
   });
 
   return (
-    <li
-      className={className}
-      style={{ fontSize: inheritedFontSize && `var(--font-size-${inheritedFontSize})` }}
-    >
-      <ListText text={text} size={inheritedFontSize || undefined} />
+    <li className={className} style={{ fontSize: inheritedFontSize && sizeMap[inheritedFontSize] }}>
+      <ListText size={inheritedFontSize || undefined} text={text} />
       {listChildren}
     </li>
   );

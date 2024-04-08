@@ -24,11 +24,11 @@ export default function Example(): ReactNode {
 
   return (
     <Box padding={8}>
-      <Flex justifyContent="between" alignItems="start" gap={8}>
-        <Flex flex="grow" direction="column" gap={2}>
+      <Flex alignItems="start" gap={8} justifyContent="between">
+        <Flex direction="column" flex="grow" gap={2}>
           <Heading>Your dashboard</Heading>
 
-          <Heading size="500" id="section-1">
+          <Heading id="section-1" size="500">
             Section 1
           </Heading>
           <Text>
@@ -37,7 +37,7 @@ export default function Example(): ReactNode {
             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </Text>
 
-          <Heading size="500" id="section-2">
+          <Heading id="section-2" size="500">
             Section 2
           </Heading>
           <Text>
@@ -46,7 +46,7 @@ export default function Example(): ReactNode {
             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </Text>
 
-          <Heading size="500" id="section-3">
+          <Heading id="section-3" size="500">
             Section 3
           </Heading>
           <Text>
@@ -56,8 +56,8 @@ export default function Example(): ReactNode {
           </Text>
         </Flex>
 
-        <Box width="200px" position="relative">
-          <Box width="200px" height="100%" overflow="auto" position="fixed" top marginTop={8}>
+        <Box position="relative" width="200px">
+          <Box height="100%" marginTop={8} overflow="auto" position="fixed" top width="200px">
             <TableOfContents title="Page Contents">
               {items.map((item) => (
                 <TableOfContents.Item key={item.label} {...item} />

@@ -127,12 +127,12 @@ export default function PageHeader({
 
   return (
     <Box
-      marginBottom={addGap || !showMargin ? 0 : 2}
       dangerouslySetInlineStyle={{
         __style: {
           paddingBottom: '1px',
         },
       }}
+      marginBottom={addGap || !showMargin ? 0 : 2}
     >
       <Flex
         direction="column"
@@ -143,18 +143,19 @@ export default function PageHeader({
       >
         <Flex direction="column" gap={3}>
           <Flex justifyContent="between" wrap>
-            <Heading>
-              {name}{' '}
-              {badge ? (
-                <Badge
-                  tooltip={{ text: badgeMap[badge].tooltipText }}
-                  text={badgeMap[badge].text}
-                  position="top"
-                  type={badgeMap[badge].type || 'info'}
-                />
-              ) : null}
-            </Heading>
-
+            <Box data-id="helix-title">
+              <Heading>
+                {name}{' '}
+                {badge ? (
+                  <Badge
+                    position="top"
+                    text={badgeMap[badge].text}
+                    tooltip={{ text: badgeMap[badge].tooltipText }}
+                    type={badgeMap[badge].type || 'info'}
+                  />
+                ) : null}
+              </Heading>
+            </Box>
             {/* Enable this when we have a consistent directory structure */}
             {['component' /* 'utility' */].includes(type) && (
               <Flex direction="column" gap={1}>

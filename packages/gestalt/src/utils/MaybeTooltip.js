@@ -25,9 +25,9 @@ export default function MaybeTooltip({
   return (
     <InternalTooltip
       accessibilityLabel={tooltip.accessibilityLabel}
-      inline={tooltip.inline}
       disabled={disabled}
       idealDirection={tooltip?.idealDirection || 'up'}
+      inline={tooltip.inline}
       text={tooltip.text}
       zIndex={tooltip?.zIndex}
     >

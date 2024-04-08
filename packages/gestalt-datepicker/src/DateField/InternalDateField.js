@@ -105,25 +105,25 @@ const CustomTextField = forwardRef(
     );
 
     return (
-      <Box ref={containerRef} rounding={4} position="relative" display="flex" flex="grow">
+      <Box ref={containerRef} display="flex" flex="grow" position="relative" rounding={4}>
         <input
+          ref={inputRef}
           autoComplete={ownerState?.passthroughProps?.autoComplete ?? 'off'}
-          id={ownerState?.passthroughProps?.id}
           className={styledClasses}
           disabled={disabled}
-          ref={inputRef}
-          placeholder={placeholder}
-          value={value}
           enterKeyHint={ownerState?.passthroughProps?.enterKeyHint}
+          id={ownerState?.passthroughProps?.id}
           inputMode="numeric"
-          readOnly={readOnly}
+          onBlur={(event) => ownerState?.passthroughProps?.onBlur?.({ event, value })}
+          onChange={onChange}
           onClick={onClick}
           onFocus={(event) => ownerState?.passthroughProps?.onFocus?.({ event, value })}
-          onBlur={(event) => ownerState?.passthroughProps?.onBlur?.({ event, value })}
-          onPaste={onPaste}
-          onChange={onChange}
           onKeyDown={onKeyDown}
           onMouseUp={onMouseUp}
+          onPaste={onPaste}
+          placeholder={placeholder}
+          readOnly={readOnly}
+          value={value}
         />
         {!disabled && !readOnly && ownerState?.passthroughProps?.onClearInput ? (
           <div className={classnames(styles.actionButtonWrapper)}>
@@ -318,8 +318,8 @@ function InternalDateField({
   return (
     <StyledEngineProvider injectFirst>
       <LocalizationProvider
-        dateAdapter={AdapterDateFns}
         adapterLocale={localeData}
+        dateAdapter={AdapterDateFns}
         localeText={translations}
       >
         <Box>
@@ -335,20 +335,17 @@ function InternalDateField({
               </div>
             </label>
           ) : null}
-          <Box position="relative" display="flex" alignItems="center">
+          <Box alignItems="center" display="flex" position="relative">
             <MUIDatePicker
-              onChange={(dateValue) => onChange({ value: dateValue })}
               disabled={disabled}
-              formatDensity="spacious"
-              readOnly={readOnly}
-              onError={(error) => onError?.({ errorMessage: error, value })}
-              errorMessage={!!errorMessage}
-              maxDate={maxDate}
-              minDate={minDate}
               disableFuture={disableRange === 'disableFuture'}
               disablePast={disableRange === 'disablePast'}
-              slots={{ field: CustomDateField }}
-              value={value}
+              errorMessage={!!errorMessage}
+              formatDensity="spacious"
+              maxDate={maxDate}
+              minDate={minDate}
+              onChange={(dateValue) => onChange({ value: dateValue })}
+              onError={(error) => onError?.({ errorMessage: error, value })}
               passthroughProps={{
                 autoComplete,
                 id,
@@ -360,11 +357,14 @@ function InternalDateField({
                 onClearInput,
                 size,
               }}
+              readOnly={readOnly}
+              slots={{ field: CustomDateField }}
+              value={value}
               viewRenderers={null}
             />
           </Box>
           {helperText && !errorMessage ? (
-            <Box marginTop={2} id={`${id}-helperText`}>
+            <Box id={`${id}-helperText`} marginTop={2}>
               <Flex gap={4}>
                 <Flex.Item flex="grow">
                   {helperText ? (

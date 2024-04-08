@@ -14,7 +14,7 @@ import stackingUsingZIndexExample from '../../examples/layer/stackingUsingZIndex
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title="Layer">
-      <PageHeader name="Layer" description={generatedDocGen?.description} />
+      <PageHeader description={generatedDocGen?.description} name="Layer" />
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
@@ -22,11 +22,11 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Server Rendering"
           description="
     Because creating a portal in Layer depends on DOM manipulation, if document is not present,
     such as in a server rendering environment, the children will not be rendered.
   "
+          title="Server Rendering"
         />
 
         <MainSection.Subsection
@@ -38,24 +38,24 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           <MainSection.Card
             sandpackExample={
               <SandpackExample
-                name="Child Content Rendered Outside Example"
                 code={childContentRenderedOutsideExample}
+                name="Child Content Rendered Outside Example"
               />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="zIndex"
           description="
 The example below shows using a \`FixedZIndex\` for the header zIndex and a \`CompositeZIndex\` to stack the Layer on top of it. Visit our [Z-Index documentation](/web/zindex_classes) for more details on how to use these utility classes.
     "
+          title="zIndex"
         >
           <MainSection.Card
             sandpackExample={
               <SandpackExample
-                name="Stacking Using Z-Index Example"
                 code={stackingUsingZIndexExample}
+                name="Stacking Using Z-Index Example"
               />
             }
           />

@@ -1,5 +1,3 @@
-coverage
-docs/build
 docs/.next
 docs/docs-components/metadata.js
 flow-typed

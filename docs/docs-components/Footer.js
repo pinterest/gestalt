@@ -28,7 +28,7 @@ const links: $ReadOnlyArray<{
 export default function Footer(): ReactNode {
   return (
     <Box padding={4}>
-      <Flex direction="row" alignItems="center" wrap>
+      <Flex alignItems="center" direction="row" wrap>
         <Box column={12} mdColumn={3} padding={2}>
           <Flex
             alignItems="center"
@@ -38,7 +38,7 @@ export default function Footer(): ReactNode {
             }}
           >
             <Box aria-hidden>
-              <Icon icon="pinterest" color="default" size={24} accessibilityLabel="" />
+              <Icon accessibilityLabel="" color="default" icon="pinterest" size={24} />
             </Box>
             <Text size="100">
               <Link
@@ -53,22 +53,22 @@ export default function Footer(): ReactNode {
           </Flex>
         </Box>
         <Box
-          column={12}
-          mdColumn={6}
-          padding={2}
-          display="inlineBlock"
-          mdDisplay="flex"
           alignItems="center"
+          column={12}
+          display="inlineBlock"
           justifyContent="center"
+          mdColumn={6}
+          mdDisplay="flex"
+          padding={2}
           wrap
         >
           {links.map(({ external, title, url }) => (
-            <Box marginBottom={2} lgMarginBottom={0} smMarginEnd={4} key={title}>
+            <Box key={title} lgMarginBottom={0} marginBottom={2} smMarginEnd={4}>
               <Text inline>
                 <Link
+                  externalLinkIcon={external ? 'default' : 'none'}
                   href={url}
                   onClick={() => trackButtonClick(title)}
-                  externalLinkIcon={external ? 'default' : 'none'}
                   target={external ? 'blank' : undefined}
                 >
                   {title}
@@ -79,17 +79,17 @@ export default function Footer(): ReactNode {
         </Box>
         <Box
           column={12}
-          mdColumn={3}
-          padding={2}
           display="block"
-          mdDisplay="flex"
           justifyContent="end"
+          mdColumn={3}
+          mdDisplay="flex"
+          padding={2}
         >
           <Text inline size="100">
             <Link
+              externalLinkIcon={{ color: 'default', size: '100' }}
               href="https://www.netlify.com/"
               target="blank"
-              externalLinkIcon={{ color: 'default', size: '100' }}
             >
               This site is powered by Netlify
             </Link>

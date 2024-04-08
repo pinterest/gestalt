@@ -5,8 +5,7 @@ import { Dropdown, IconButton, Image, PageHeader } from 'gestalt';
 export default function IncludeProfilePictureExample(): ReactNode {
   return (
     <PageHeader
-      title="My apps"
-      subtext="5 total apps"
+      dropdownAccessibilityLabel="Additional options"
       primaryAction={{
         component: (
           <IconButton
@@ -21,12 +20,12 @@ export default function IncludeProfilePictureExample(): ReactNode {
         dropdownItems: [
           <Dropdown.Item
             key="refresh-page"
-            option={{ value: 'Refresh page', label: 'Refresh page' }}
             onSelect={() => {}}
+            option={{ value: 'Refresh page', label: 'Refresh page' }}
           />,
         ],
       }}
-      dropdownAccessibilityLabel="Additional options"
+      subtext="5 total apps"
       thumbnail={
         <Image
           alt="square"
@@ -36,6 +35,7 @@ export default function IncludeProfilePictureExample(): ReactNode {
           src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
         />
       }
+      title="My apps"
     />
   );
 }

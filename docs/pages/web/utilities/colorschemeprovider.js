@@ -15,8 +15,8 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
-        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
+        name={generatedDocGen?.displayName}
         type="utility"
       />
 
@@ -26,8 +26,8 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Color scheme"
           description="Specify a light or dark color scheme for components"
+          title="Color scheme"
         >
           <MainSection.Card
             cardSize="lg"

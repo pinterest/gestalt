@@ -6,7 +6,7 @@ export default function Example(): ReactNode {
   const [switched, setSwitched] = useState(false);
 
   return (
-    <Flex alignItems="center" justifyContent="center" height="100%" width="100%">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Flex alignItems="center" gap={2}>
         <Label htmlFor="introExample">
           <Text>Airplane mode</Text>

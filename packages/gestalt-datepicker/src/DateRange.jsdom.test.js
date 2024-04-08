@@ -45,8 +45,8 @@ describe('DateRange', () => {
   it('renders correctly with no default dates with locale', () => {
     render(
       <DateRangeWrap
-        initialStartDate={new Date('December 16, 1995 03:24:00')}
         initialEndDate={new Date('December 17, 1995 03:24:00')}
+        initialStartDate={new Date('December 16, 1995 03:24:00')}
         localeData={id}
       />,
     );
@@ -61,8 +61,8 @@ describe('DateRange', () => {
   it('renders correctly with default dates', () => {
     render(
       <DateRangeWrap
-        initialStartDate={new Date('December 16, 1995 03:24:00')}
         initialEndDate={new Date('December 17, 1995 03:24:00')}
+        initialStartDate={new Date('December 16, 1995 03:24:00')}
       />,
     );
 
@@ -75,8 +75,8 @@ describe('DateRange', () => {
   it('handles new selection', async () => {
     render(
       <DateRangeWrap
-        initialStartDate={new Date('December 16, 1995 03:24:00')}
         initialEndDate={new Date('December 17, 1995 03:24:00')}
+        initialStartDate={new Date('December 16, 1995 03:24:00')}
       />,
     );
 
@@ -130,8 +130,8 @@ describe('DateRange', () => {
 
     render(
       <DateRangeWrap
-        initialStartDate={initialStartDate}
         initialEndDate={initialEndDate}
+        initialStartDate={initialStartDate}
         onEndDateChange={onEndDateChangeMock}
         onStartDateChange={onStartDateChangeMock}
       />,

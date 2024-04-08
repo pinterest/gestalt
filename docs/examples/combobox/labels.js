@@ -56,21 +56,21 @@ export default function Example(): ReactNode {
         </Heading>
         <Text inline>
           Wanna learn how trends work?
-          <Text weight="bold" inline>
+          <Text inline weight="bold">
             {' '}
             Read{' '}
             <Link
               accessibilityLabel="Learn how trends on Pinterest work"
-              target="blank"
               display="inlineBlock"
               href="https://business.pinterest.com/content/pinterest-predicts/"
+              target="blank"
             >
               {' '}
               additional information
             </Link>
           </Text>
         </Text>
-        <Flex width="100%" justifyContent="center">
+        <Flex justifyContent="center" width="100%">
           <Box width={320}>
             <ComboBox
               accessibilityClearButtonLabel="Clear category value"

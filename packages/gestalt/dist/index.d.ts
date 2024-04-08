@@ -121,6 +121,8 @@ type Icons =
   | 'arrow-circle-forward'
   | 'arrow-circle-up'
   | 'arrow-counter-clockwise'
+  | 'arrow-double-forward'
+  | 'arrow-double-back'
   | 'arrow-down'
   | 'arrow-end'
   | 'arrow-forward'
@@ -1349,7 +1351,6 @@ interface MeasurementStore<K, V> {
 }
 
 interface MasonryProps<T = any> {
-  _batchPaints?: boolean | undefined;
   items: ReadonlyArray<T>;
   renderItem: (args: { data: T; itemIdx: number; isMeasuring: boolean }) => Node;
 
@@ -1370,6 +1371,20 @@ interface MasonryProps<T = any> {
   virtualBoundsTop?: number | undefined;
   virtualBufferFactor?: number | undefined;
   virtualize?: boolean | undefined;
+  _twoColItems?: boolean | undefined;
+  _logTwoColWhitespace?: (number) => void;
+}
+
+interface MasonryV2Props<T = any> extends MasonryProps<T> {
+  _measureAll?: boolean | undefined;
+}
+
+interface MasonryV2Ref {
+  handleResize: () => void;
+  reflow: () => void;
+  state: {
+    width: number | undefined;
+  }
 }
 
 interface ModalProps {
@@ -2264,13 +2279,65 @@ interface TextFieldProps {
   id: string;
   onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { value: string }>;
   autoComplete?:
-    | 'bday'
-    | 'current-password'
-    | 'email'
-    | 'new-password'
     | 'on'
     | 'off'
+    | 'address-line1'
+    | 'address-line2'
+    | 'address-line3'
+    | 'address-level1'
+    | 'address-level2'
+    | 'address-level3'
+    | 'address-level4'
+    | 'street-address'
+    | 'country'
+    | 'country-name'
+    | 'postal-code'
+    | 'name'
+    | 'additional-name'
+    | 'family-name'
+    | 'given-name'
+    | 'honoric-prefix'
+    | 'honoric-suffix'
+    | 'nickname'
+    | 'organization-title'
     | 'username'
+    | 'new-password'
+    | 'current-password'
+    | 'bday'
+    | 'bday-day'
+    | 'bday-month'
+    | 'bday-year'
+    | 'billing'
+    | 'sex'
+    | 'one-time-code'
+    | 'organization'
+    | 'cc-name'
+    | 'cc-given-name'
+    | 'cc-additional-name'
+    | 'cc-family-name'
+    | 'cc-number'
+    | 'cc-exp'
+    | 'cc-exp-month'
+    | 'cc-exp-year'
+    | 'cc-csc'
+    | 'cc-type'
+    | 'transaction-currency'
+    | 'transaction-amount'
+    | 'language'
+    | 'url'
+    | 'email'
+    | 'photo'
+    | 'shipping'
+    | 'tel'
+    | 'tel-country-code'
+    | 'tel-national'
+    | 'tel-area-code'
+    | 'tel-local'
+    | 'tel-local-prefix'
+    | 'tel-local-suffix'
+    | 'tel-extension'
+    | 'impp'
+    | 'webauthn'
     | undefined;
   dataTestId?: string | undefined;
   disabled?: boolean | undefined;
@@ -2690,6 +2757,11 @@ export const Mask: React.FunctionComponent<MaskProps>;
  * https://gestalt.pinterest.systems/web/masonry
  */
 export const Masonry: React.FunctionComponent<MasonryProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/masonry
+ */
+export const MasonryV2: ReactForwardRef<MasonryV2Ref, MasonryV2Props>;
 
 /**
  * https://gestalt.pinterest.systems/web/modal

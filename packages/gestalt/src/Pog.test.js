@@ -13,12 +13,12 @@ test('Pog renders with size and default padding', () => {
 });
 
 test('Pog renders with size and custom padding', () => {
-  const tree = create(<Pog icon="heart" size="xl" padding={1} />).toJSON();
+  const tree = create(<Pog icon="heart" padding={1} size="xl" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
 test('Pog renders with accessibilityLabel', () => {
-  const tree = create(<Pog icon="people" accessibilityLabel="Following" />).toJSON();
+  const tree = create(<Pog accessibilityLabel="Following" icon="people" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
@@ -28,16 +28,16 @@ test('Pog renders with svg', () => {
 });
 
 test('Pog active renders', () => {
-  const tree = create(<Pog icon="heart" active />).toJSON();
+  const tree = create(<Pog active icon="heart" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
 test('Pog focused renders', () => {
-  const tree = create(<Pog icon="heart" focused />).toJSON();
+  const tree = create(<Pog focused icon="heart" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
 test('Pog hovered renders', () => {
-  const tree = create(<Pog icon="heart" hovered />).toJSON();
+  const tree = create(<Pog hovered icon="heart" />).toJSON();
   expect(tree).toMatchSnapshot();
 });

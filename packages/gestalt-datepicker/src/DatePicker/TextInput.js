@@ -55,28 +55,28 @@ function DatePickerTextField(props: Props) {
     >
       <Box column={12} flex="grow">
         <TextField
+          ref={(input) => forwardedRef && forwardedRef(input || null)}
           autoComplete="off"
           disabled={disabled}
+          errorMessage={errorMessage}
+          helperText={helperText}
           id={id}
           mobileInputMode="none"
+          name={name}
           onBlur={(data) => onBlur?.(data.event)}
+          onChange={(data) => onChange?.(data.event)}
           onFocus={(data) => {
             onFocus?.(data.event);
             onClick?.();
           }}
-          errorMessage={errorMessage}
-          helperText={helperText}
-          name={name}
-          onChange={(data) => onChange?.(data.event)}
           onKeyDown={(data) => onKeyDown?.(data.event)}
           placeholder={placeholder}
-          ref={(input) => forwardedRef && forwardedRef(input || null)}
           size="lg"
           value={value}
         />
       </Box>
       <div className={styles.calendarIcon}>
-        <Box position="relative" marginEnd={4} display="flex" alignItems="center" minHeight={48}>
+        <Box alignItems="center" display="flex" marginEnd={4} minHeight={48} position="relative">
           <div className={disabled ? styles.disabled : undefined}>
             <Icon accessibilityLabel="" color="default" icon="calendar" />
           </div>

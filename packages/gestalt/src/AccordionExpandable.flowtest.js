@@ -6,9 +6,8 @@ const ValidWithMinimumProps = <AccordionExpandable id="accordion-expandable-id" 
 
 const ValidWithBaseProps = (
   <AccordionExpandable
-    id="accordion-expandable-id"
     expandedIndex={0}
-    onExpandedChange={() => {}}
+    id="accordion-expandable-id"
     items={[
       {
         children: 'test children',
@@ -17,14 +16,14 @@ const ValidWithBaseProps = (
         type: 'info',
       },
     ]}
+    onExpandedChange={() => {}}
   />
 );
 
 const ValidWithBadgeTextProps = (
   <AccordionExpandable
-    id="accordion-expandable-id"
     expandedIndex={0}
-    onExpandedChange={() => {}}
+    id="accordion-expandable-id"
     items={[
       {
         badge: { text: 'badge-text' },
@@ -34,14 +33,14 @@ const ValidWithBadgeTextProps = (
         type: 'info',
       },
     ]}
+    onExpandedChange={() => {}}
   />
 );
 
 const ValidWithIconProps = (
   <AccordionExpandable
-    id="accordion-expandable-id"
     expandedIndex={0}
-    onExpandedChange={() => {}}
+    id="accordion-expandable-id"
     items={[
       {
         children: 'test children',
@@ -52,25 +51,25 @@ const ValidWithIconProps = (
         type: 'info',
       },
     ]}
+    onExpandedChange={() => {}}
   />
 );
 
 const ValidWithIconButtonProps = (
   <AccordionExpandable
-    id="accordion-expandable-id"
     expandedIndex={0}
-    onExpandedChange={() => {}}
+    id="accordion-expandable-id"
     items={[
       {
         children: 'test children',
         iconButton: (
           <IconButton
+            accessibilityLabel="Get help"
             bgColor="lightGray"
             icon="question-mark"
             iconColor="darkGray"
-            accessibilityLabel="Get help"
-            size="xs"
             onClick={() => {}}
+            size="xs"
           />
         ),
         summary: ['summary1', 'summary2', 'summary3'],
@@ -78,6 +77,7 @@ const ValidWithIconButtonProps = (
         type: 'info',
       },
     ]}
+    onExpandedChange={() => {}}
   />
 );
 

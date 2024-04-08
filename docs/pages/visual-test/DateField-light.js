@@ -8,14 +8,14 @@ export default function Snapshot(): ReactNode {
     <ColorSchemeProvider colorScheme="light">
       <Box color="default" padding={1}>
         <DateField
+          helperText="Enter your date of birth"
           id="mainExample"
           label="Date of birth"
-          helperText="Enter your date of birth"
-          onError={() => {}}
-          onChange={() => {}}
-          value={null}
-          onClearInput={() => {}}
           name="test"
+          onChange={() => {}}
+          onClearInput={() => {}}
+          onError={() => {}}
+          value={null}
         />
       </Box>
     </ColorSchemeProvider>

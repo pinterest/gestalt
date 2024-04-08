@@ -4,25 +4,25 @@ import { Box, SideNavigation } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box height={362} width={280} overflow="scroll">
+    <Box height={362} overflow="scroll" width={280}>
       <SideNavigation accessibilityLabel="Nested items example">
-        <SideNavigation.Group label="Christmas" icon="people">
+        <SideNavigation.Group icon="people" label="Christmas">
           <SideNavigation.NestedItem
             href="#"
-            onClick={({ event }) => event.preventDefault()}
             label="Luxury Christmas"
+            onClick={({ event }) => event.preventDefault()}
           />
           <SideNavigation.NestedGroup label="Classic Christmas">
             <SideNavigation.NestedItem
               href="#"
-              onClick={({ event }) => event.preventDefault()}
               label="West Coast"
+              onClick={({ event }) => event.preventDefault()}
             />
           </SideNavigation.NestedGroup>
           <SideNavigation.NestedItem
             href="#"
-            onClick={({ event }) => event.preventDefault()}
             label="Luxury Christmas"
+            onClick={({ event }) => event.preventDefault()}
           />
         </SideNavigation.Group>
       </SideNavigation>

@@ -29,18 +29,18 @@ export function PageHeaderTitle({
   return (
     <Fragment>
       <Box display="block" smDisplay="none">
-        <Heading size="400" lineClamp={1} accessibilityLevel={1}>
+        <Heading accessibilityLevel={1} lineClamp={1} overflow="breakAll" size="400">
           {title}
         </Heading>
       </Box>
       <Box
-        display="none"
-        smDisplay="block"
         dangerouslySetInlineStyle={{
           __style: marginTop ? { marginTop: `${marginTop}px` } : {},
         }}
+        display="none"
+        smDisplay="block"
       >
-        <Heading size="500" lineClamp={1} accessibilityLevel={1}>
+        <Heading accessibilityLevel={1} lineClamp={1} overflow="breakAll" size="500">
           {title}
         </Heading>
       </Box>
@@ -54,7 +54,7 @@ export function PageHeaderThumbnail({
   thumbnail: Element<typeof Image>,
 }): ReactNode {
   return (
-    <Box display="none" smDisplay="block" aria-hidden>
+    <Box aria-hidden display="none" smDisplay="block">
       <Mask height={48} rounding={2} width={48}>
         {thumbnail}
       </Mask>
@@ -73,17 +73,17 @@ export function PageHeaderBadge({
 }): ReactNode {
   return badgeTooltipText ? (
     <Badge
-      text={badgeText}
-      type={type}
       position="middle"
+      text={badgeText}
       tooltip={{
         accessibilityLabel: '',
         text: badgeTooltipText,
         idealDirection: 'up',
       }}
+      type={type}
     />
   ) : (
-    <Badge text={badgeText} type={type} position="middle" />
+    <Badge position="middle" text={badgeText} type={type} />
   );
 }
 
@@ -140,10 +140,10 @@ export function PageHeaderSubtext({
             <Text inline>
               <Link
                 accessibilityLabel={helperLink.accessibilityLabel}
+                display="inlineBlock"
                 href={helperLink.href}
                 onClick={helperLink.onClick}
                 target="blank"
-                display="inlineBlock"
               >
                 {helperLink.text}
               </Link>
@@ -184,12 +184,12 @@ export function PageHeaderActionBlock({
         <Flex gap={{ column: 0, row: 2 }}>
           {/* 48px height needed to maintain proper sizing when action is a Link */}
           {secondaryAction ? (
-            <Box height={48} display="flex" alignItems="center">
+            <Box alignItems="center" display="flex" height={48}>
               {secondaryAction.component}
             </Box>
           ) : null}
           {primaryAction ? (
-            <Box height={48} display="flex" alignItems="center">
+            <Box alignItems="center" display="flex" height={48}>
               {primaryAction.component}
             </Box>
           ) : null}
@@ -197,6 +197,7 @@ export function PageHeaderActionBlock({
       </Box>
       <Box display="block" mdDisplay="none">
         <IconButton
+          ref={anchorRef}
           accessibilityControls="pageheader-dropdown"
           accessibilityExpanded={open}
           accessibilityHaspopup
@@ -204,7 +205,6 @@ export function PageHeaderActionBlock({
           icon="ellipsis"
           iconColor="darkGray"
           onClick={() => setOpen((prevVal) => !prevVal)}
-          ref={anchorRef}
           selected={open}
           size="lg"
         />

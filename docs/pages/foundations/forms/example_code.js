@@ -8,15 +8,15 @@ import LayoutsExample from '../../../examples/layouts/layoutsExample';
 
 export default function DocsPage(): ReactNode {
   return (
-    <Page title="Example code" hideSideNav>
+    <Page hideSideNav title="Example code">
       <PageHeader
-        name="Example code"
         description="Easy-to-copy code for RTL-friendly form layout on desktop and mobile web."
+        name="Example code"
         type="guidelines"
       />
       <MainSection
-        name="One-column form layout"
         description="A responsive &amp; RTL-friendly form layout for default screen densities."
+        name="One-column form layout"
       >
         <MainSection.Card
           cardSize="lg"

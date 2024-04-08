@@ -110,7 +110,7 @@ type Props = {
    */
   ref?: Element<'input'>, // eslint-disable-line react/no-unused-prop-types
   /**
-   * Sets the size of NumberField: sm: 32px, md: 40px (default), lg: 48px. See the [size variant](https://gestalt.pinterest.systems/web/numberfield#Size) for more details.
+   * Defines the height of NumberField: sm: 32px, md: 40px (default), lg: 48px. See the [size variant](https://gestalt.pinterest.systems/web/NumberField#Size) for more details.
    */
   size?: 'sm' | 'md' | 'lg',
   /**
@@ -160,10 +160,10 @@ const NumberFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = fo
 ): ReactNode {
   return (
     <InternalTextField
+      ref={ref}
       autoComplete={autoComplete}
       dataTestId={dataTestId}
       disabled={disabled}
-      mobileEnterKeyHint={mobileEnterKeyHint}
       errorMessage={errorMessage}
       helperText={helperText}
       id={id}
@@ -171,6 +171,7 @@ const NumberFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = fo
       labelDisplay={labelDisplay}
       max={max}
       min={min}
+      mobileEnterKeyHint={mobileEnterKeyHint}
       name={name}
       onBlur={parseHandlerValue(onBlur)}
       onChange={parseHandlerValue(onChange)}
@@ -179,7 +180,6 @@ const NumberFieldWithForwardRef: AbstractComponent<Props, HTMLInputElement> = fo
       placeholder={placeholder}
       size={size}
       step={step}
-      ref={ref}
       type="number"
       // See comment above — we need to stringify what we give InternalTextField
       value={value === undefined ? value : String(value)}

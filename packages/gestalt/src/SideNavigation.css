@@ -1,5 +1,6 @@
 .ulItem {
   list-style: none;
+  margin: 0;
   padding: 0;
 }
 
@@ -14,13 +15,44 @@
 
 .fullHeight {
   height: 100%;
-  overflow: scroll;
+}
+
+.contentWidthTransition {
+  transition: width 0.2s;
 }
 
 .section {
+  margin-bottom: var(--space-600);
   margin-top: var(--space-600);
 }
 
-.section:nth-child(1) {
+.section:first-child {
   margin-top: 0;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.sectionStartDivider {
+  display: none;
+  margin-bottom: var(--space-600);
+}
+
+.sectionEndDivider {
+  margin-top: var(--space-600);
+}
+
+/*
+  Here TopItem and Group subcomponents are selected with `.liItem:not(.section)`
+  For example, if TopItem is the previous adjacent sibling of Section,
+  the section's top divider should appear.
+*/
+
+.liItem:not(.section) + .section .sectionStartDivider {
+  display: block;
+}
+
+.section:last-child .sectionEndDivider {
+  display: none;
 }

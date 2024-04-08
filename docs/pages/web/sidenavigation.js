@@ -12,6 +12,10 @@ import SandpackExample from '../../docs-components/SandpackExample';
 import activeItemExample from '../../examples/sidenavigation/activeItemExample';
 import badgeExample from '../../examples/sidenavigation/badgeExample';
 import borderExample from '../../examples/sidenavigation/borderExample';
+import collapsibleExample from '../../examples/sidenavigation/collapsibleExample';
+import collapsibleHeaderExample from '../../examples/sidenavigation/collapsibleHeaderExample';
+import collapsibleWithMixedIconsExample from '../../examples/sidenavigation/collapsibleWithMixedIconsExample';
+import collapsibleWithoutIconsExample from '../../examples/sidenavigation/collapsibleWithoutIconsExample';
 import correctGroupingExample from '../../examples/sidenavigation/correctGroupingExample';
 import correctHeadingExample from '../../examples/sidenavigation/correctHeadingExample';
 import correctIconExample from '../../examples/sidenavigation/correctIconExample';
@@ -45,13 +49,13 @@ export default function SideNavigationPage({
   return (
     <Page title={generatedDocGen.SideNavigation?.displayName ?? ''}>
       <PageHeader
-        name={generatedDocGen.SideNavigation?.displayName}
         description={generatedDocGen.SideNavigation?.description}
+        name={generatedDocGen.SideNavigation?.displayName}
       >
         <SandpackExample
           code={mainExample}
-          name="SideNavigation Main Example"
           hideEditor
+          name="SideNavigation Main Example"
           previewHeight={208}
         />
       </PageHeader>
@@ -62,21 +66,21 @@ export default function SideNavigationPage({
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
 - When [Tabs](/web/tabs) or a top navigation cannot accommodate the number of links or sections you need to navigate through
 - When a deep hierarchy of navigation items is needed
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
 - When you only have two to five items to navigate through. Use [Tabs](/web/tabs) instead
 - When you need to open a menu of external links and actions via a button. Use [Dropdown](/web/dropdown) instead
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -85,127 +89,127 @@ export default function SideNavigationPage({
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Keep item labels brief and clear to keep them memorable and scannable."
             sandpackExample={
               <SandpackExample
                 code={correctLengthExample}
-                name="Correct length example"
                 hideEditor
+                name="Correct length example"
                 previewHeight={230}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use long text labels that end up wrapping, especially in certain languages. Don’t shorten labels so much that they are hard to understand."
             sandpackExample={
               <SandpackExample
                 code={incorrectLengthExample}
-                name="Incorrect length example"
-                hideEditor
-                previewHeight={230}
                 hideControls
+                hideEditor
+                name="Incorrect length example"
+                previewHeight={230}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Group related items and use section headings to help users parse information and help with redundancy."
             sandpackExample={
               <SandpackExample
                 code={correctGroupingExample}
-                name="Correct grouping example"
                 hideEditor
+                name="Correct grouping example"
                 previewHeight={286}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Provide an unordered “kitchen sink” of features that is hard to parse and creates redundancy."
             sandpackExample={
               <SandpackExample
                 code={incorrectGroupingExample}
-                name="Incorrect grouping example"
-                hideEditor
-                previewHeight={286}
                 hideControls
+                hideEditor
+                name="Incorrect grouping example"
+                previewHeight={286}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use icons that clearly match their text labels and serve as bullet points for the content."
             sandpackExample={
               <SandpackExample
                 code={correctIconExample}
-                name="Correct icon example"
                 hideEditor
+                name="Correct icon example"
                 previewHeight={164}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use icons if you’ll be forced to include icons that don’t quite reinforce their text labels."
             sandpackExample={
               <SandpackExample
                 code={incorrectIconExample}
-                name="Incorrect icon example"
-                hideEditor
-                previewHeight={164}
                 hideControls
+                hideEditor
+                name="Incorrect icon example"
+                previewHeight={164}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection>
           <MainSection.Card
             cardSize="lg"
-            type="do"
             description="Place under the PageHeader when SideNav is used to navigate urls that are sub-sections of a main page"
             sandpackExample={
               <SandpackExample
                 code={correctHeadingExample}
-                name="Correct heading example"
                 hideEditor
                 layout="column"
+                name="Correct heading example"
                 previewHeight={230}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="lg"
-            type="don't"
             description="Omit a PageHeader and make it seem like each SideNav item is a primary, independent page."
             sandpackExample={
               <SandpackExample
                 code={incorrectHeadingExample}
-                name="Incorrect heading example"
+                hideControls
                 hideEditor
                 layout="column"
+                name="Incorrect heading example"
                 previewHeight={210}
-                hideControls
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
 
       <AccessibilitySection name={generatedDocGen.SideNavigation?.displayName}>
         <MainSection.Subsection
-          title="Active item"
           description={`SideNavigation.TopItem and SideNavigation.NestedItem have an "active" state that visually identifies it. To set them to "active" set 'active="page"' (page redirect) or 'active="section"'. Use routing hooks from React.Router or other frameworks to identify the current route. For example, if the current pathname matches the SideNavigation.TopItem href, set SideNavigation.TopItem to "page". Use the example below as a reference.`}
+          title="Active item"
         >
           <MainSection.Card
             sandpackExample={
@@ -227,61 +231,61 @@ Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvid
 
       <MainSection name="Subcomponents">
         <MainSection.Subsection
-          title={generatedDocGen.SideNavigationSection?.displayName}
           description={generatedDocGen.SideNavigationSection?.description}
+          title={generatedDocGen.SideNavigationSection?.displayName}
         >
           <GeneratedPropTable
-            name={generatedDocGen.SideNavigationSection?.displayName}
-            id={generatedDocGen.SideNavigationSection?.displayName}
             generatedDocGen={generatedDocGen.SideNavigationSection}
+            id={generatedDocGen.SideNavigationSection?.displayName}
+            name={generatedDocGen.SideNavigationSection?.displayName}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title={generatedDocGen.SideNavigationTopItem?.displayName}
           description={generatedDocGen.SideNavigationTopItem?.description}
+          title={generatedDocGen.SideNavigationTopItem?.displayName}
         >
           <GeneratedPropTable
-            name={generatedDocGen.SideNavigationTopItem?.displayName}
-            id={generatedDocGen.SideNavigationTopItem?.displayName}
             generatedDocGen={generatedDocGen.SideNavigationTopItem}
+            id={generatedDocGen.SideNavigationTopItem?.displayName}
+            name={generatedDocGen.SideNavigationTopItem?.displayName}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title={generatedDocGen.SideNavigationNestedItem?.displayName}
           description={generatedDocGen.SideNavigationNestedItem?.description}
+          title={generatedDocGen.SideNavigationNestedItem?.displayName}
         >
           <GeneratedPropTable
-            name={generatedDocGen.SideNavigationNestedItem?.displayName}
-            id={generatedDocGen.SideNavigationNestedItem?.displayName}
             generatedDocGen={generatedDocGen.SideNavigationNestedItem}
+            id={generatedDocGen.SideNavigationNestedItem?.displayName}
+            name={generatedDocGen.SideNavigationNestedItem?.displayName}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title={generatedDocGen.SideNavigationGroup?.displayName}
           description={generatedDocGen.SideNavigationGroup?.description}
+          title={generatedDocGen.SideNavigationGroup?.displayName}
         >
           <GeneratedPropTable
-            name={generatedDocGen.SideNavigationGroup?.displayName}
-            id={generatedDocGen.SideNavigationGroup?.displayName}
             generatedDocGen={generatedDocGen.SideNavigationGroup}
+            id={generatedDocGen.SideNavigationGroup?.displayName}
+            name={generatedDocGen.SideNavigationGroup?.displayName}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title={generatedDocGen.SideNavigationNestedGroup?.displayName}
           description={generatedDocGen.SideNavigationNestedGroup?.description}
+          title={generatedDocGen.SideNavigationNestedGroup?.displayName}
         >
           <GeneratedPropTable
-            name={generatedDocGen.SideNavigationNestedGroup?.displayName}
-            id={generatedDocGen.SideNavigationNestedGroup?.displayName}
             generatedDocGen={generatedDocGen.SideNavigationNestedGroup}
+            id={generatedDocGen.SideNavigationNestedGroup?.displayName}
+            name={generatedDocGen.SideNavigationNestedGroup?.displayName}
           />
         </MainSection.Subsection>
       </MainSection>
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Sections"
           description="Sections help with categorizing navigation menu items into groups and also avoid redundant language in labels."
+          title="Sections"
         >
           <MainSection.Card
             sandpackExample={
@@ -290,8 +294,8 @@ Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvid
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Header"
           description="Headers allow for sorting filters or another UI control to be included at the top of the navigation."
+          title="Header"
         >
           <MainSection.Card
             sandpackExample={
@@ -300,49 +304,49 @@ Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvid
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Footer"
           description="Footers allow for filters, additional external links or other UI controls to be included at the bottom of the navigation."
+          title="Footer"
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample name="Footer Variant Example" code={footerVariant} />}
+            sandpackExample={<SandpackExample code={footerVariant} name="Footer Variant Example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Badge"
           description="A badge can be added to a menu label with information that may be useful to a person, such as whether a page is new or is a beta or deprecated feature. Only supported in SideNavigation.TopItem and SideNavigation.Group."
+          title="Badge"
         >
           <MainSection.Card
             sandpackExample={<SandpackExample code={badgeExample} name="Badge example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Border"
           description="A border can be added to the end edge of the navigation on dense surfaces with tight spacing where it helps to visually separate the nav from other content."
+          title="Border"
         >
           <MainSection.Card
             sandpackExample={<SandpackExample code={borderExample} name="Border example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Icons"
           description="Icons are used when simple, clear icons help users with scanning the content of a menu. Only supported in SideNavigation.TopItem and SideNavigation.Group."
+          title="Icons"
         >
           <MainSection.Card
             cardSize="lg"
-            title="Gestalt icon"
             sandpackExample={<SandpackExample code={iconsExample} name="Icons example" />}
+            title="Gestalt icon"
           />
           <MainSection.Card
             cardSize="lg"
-            title="Custom icon"
             sandpackExample={
               <SandpackExample code={customIconsExample} name="Custom icon example" />
             }
+            title="Custom icon"
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Notification"
           description="A red indicator dot can be added to signify new items on a page or things that need your attention. Only supported in SideNavigation.TopItem and SideNavigation.Group."
+          title="Notification"
         >
           <MainSection.Card
             sandpackExample={
@@ -351,24 +355,24 @@ Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvid
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Counters"
           description="Counters can be included as indicators of the number of items on a page or section.
 
 Only include counters if the information is useful for the user to know before clicking on a menu item.
 
 To prevent visual overload, do not include counters in the parent if the children have counters.
 "
+          title="Counters"
         >
           <MainSection.Card
             sandpackExample={<SandpackExample code={counterExample} name="Counters example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Primary action"
           description={`SideNavigation.TopItem and SideNavigation.Group support an optional \`primaryAction\`.
 
 \`primaryAction\` can be a simple [IconButton](https://gestalt.pinterest.systems/web/iconbutton) or a [Dropdown](https://gestalt.pinterest.systems/web/dropdown). For the latter, set \`dropdownItems\` using an array of [Dropdown.Item](https://gestalt.pinterest.systems/web/dropdown#Dropdown.Item).
           `}
+          title="Primary action"
         >
           <MainSection.Card
             sandpackExample={
@@ -382,8 +386,8 @@ To prevent visual overload, do not include counters in the parent if the childre
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Nested directory"
           description="SideNavigation supports three navigation levels. The top level is composed of [SideNavigation.TopItem](#SideNavigation.TopItem) and [SideNavigation.Group](#SideNavigation.Group). The second nested level is composed of [SideNavigation.NestedGroup](#SideNavigation.NestedGroup) and [SideNavigation.Item](#SideNavigation.Item). The third nested level is composed of SideNavigation.Item"
+          title="Nested directory"
         >
           <MainSection.Card
             sandpackExample={<SandpackExample code={nestedExample} name="Nested example" />}
@@ -391,7 +395,6 @@ To prevent visual overload, do not include counters in the parent if the childre
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Group display"
           columns={2}
           description={`Group display can be:
 
@@ -404,43 +407,45 @@ To work as controlled components, set \`expand\` prop to a boolean value. If not
 
 Beware that when controlled, the list path to the active item is not automatically expanded.
 `}
+          title="Group display"
         >
           <MainSection.Card
-            title="display='static'"
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={displayStatic} name="Static display example" layout="column" />
+              <SandpackExample code={displayStatic} layout="column" name="Static display example" />
             }
+            title="display='static'"
           />
           <MainSection.Card
-            title="display='expandable'"
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                layout="column"
                 code={displayExpandable}
+                layout="column"
                 name="Expandable display example"
               />
             }
+            title="display='expandable'"
           />
           <MainSection.Card
-            title="Controlled group display"
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                layout="column"
                 code={displayExpanded}
+                layout="column"
                 name="Controlled group display"
               />
             }
+            title="Controlled group display"
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
-          title="Subcomponent composability"
           description={`SideNavigation requires its own subcomponents as children to build the list of navigation items.
 
 When building SideNavigation, we might want to render different combinations of subcomponents conditionally. SideNavigation supports simple conditional rendering of subcomponents lists wrapped in [React.Fragment](https://reactjs.org/docs/fragments.html) as well as consecutive arrays of subcomponent arrays. See the example below which illustrates both of these cases. More logic complexity might break the correct SideNavigation behavior.
           `}
+          title="Subcomponent composability"
         >
           <MainSection.Card
             cardSize="lg"
@@ -455,17 +460,77 @@ When building SideNavigation, we might want to render different combinations of 
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Mobile"
+          description={`Providing \`collapsed\` prop to SideNavigation makes the component collapsible. Collapsible variant of SideNavigation is a controlled component and it has expand/collapse icon button at the top. Clicking the icon button reveals a complete list of navigation options when expanded and minimizes these options, often to a series of compact icons or completely hidden when collapsed. This variant is not available for mobile.
+
+It is recommended the wrapper to be \`sticky\` (not \`fixed\`) so that it stays visible and keeps its position "relative" to other elements. Being sticky means SideNavigation's can naturally shift the adjacent elements/components.
+          `}
+          title="Collapsible"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            description="When collapsed, if all the navigation items have icons, SideNavigation is displayed as a compact set of icons."
+            sandpackExample={
+              <SandpackExample
+                code={collapsibleExample}
+                name="Collapsible with icons example"
+                previewHeight={500}
+              />
+            }
+            title="Items with icons"
+          />
+
+          <MainSection.Card
+            cardSize="lg"
+            description="If some of the navigation items don't have icons, those items are collapsed into an ellipsis. Clicking on ellipses expands the SideNavigation in preview mode and when an item is selected, the component is collapsed again."
+            sandpackExample={
+              <SandpackExample
+                code={collapsibleWithMixedIconsExample}
+                name="Collapsible mixed icons example"
+                previewHeight={500}
+              />
+            }
+            title="Mixed items with and without icons"
+          />
+
+          <MainSection.Card
+            cardSize="lg"
+            description="When collapsed, the header and the footer of SideNavigation should be rendered accordingly."
+            sandpackExample={
+              <SandpackExample
+                code={collapsibleHeaderExample}
+                name="Collapsible header example"
+                previewHeight={500}
+              />
+            }
+            title="Collapsible header"
+          />
+
+          <MainSection.Card
+            cardSize="lg"
+            description="If none of the SideNavigation items have icons, the component is collapsed only with expand icon button."
+            sandpackExample={
+              <SandpackExample
+                code={collapsibleWithoutIconsExample}
+                name="Collapsible without icons example"
+                previewHeight={500}
+              />
+            }
+            title="Items without icons"
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
           description={`SideNavigation requires [DeviceTypeProvider](/web/utilities/devicetypeprovider) to enable its mobile user interface. The example below shows the mobile platform UI and its implementation.
 
 For mobile, \`title\` and \`dismissButton\` become required props.
 
 Notice that the mobile UI requires logic to hide and show SideNavigation full width. If [Button](/web/button) or [TapArea](/web/taparea) control the visibility of SideNavigation, use \`accessibilityControls\` so that screen reader users can identify the relationship between elements.
   `}
+          title="Mobile"
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample code={mobileExample} name="Mobile example" layout="mobileRow" />
+              <SandpackExample code={mobileExample} layout="mobileRow" name="Mobile example" />
             }
           />
         </MainSection.Subsection>
@@ -475,16 +540,16 @@ Notice that the mobile UI requires logic to hide and show SideNavigation full wi
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description={`
 - Keep menu item labels brief, remembering that length is language-dependent`}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description={`
 - Use complete sentences or lengthy descriptions
 - Be redundant; use a section header if you find yourself repeating the same word over and over again in labels`}
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>

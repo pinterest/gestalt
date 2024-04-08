@@ -269,7 +269,7 @@ exports[`BannerSlim renders primary action and dismiss button 1`] = `
                 className="button hideOutline block accessibilityOutline tapTransition sm white enabled childrenDiv"
               >
                 <div
-                  className="Text fontSize300 default alignCenter fontWeightSemiBold"
+                  className="Text fontSize200 default alignCenter fontWeightSemiBold"
                 >
                   test
                 </div>
@@ -351,7 +351,7 @@ exports[`BannerSlim renders primary action and dismiss button 1`] = `
         className="button hideOutline block accessibilityOutline tapTransition sm white enabled childrenDiv"
       >
         <div
-          className="Text fontSize300 default alignCenter fontWeightSemiBold"
+          className="Text fontSize200 default alignCenter fontWeightSemiBold"
         >
           test
         </div>

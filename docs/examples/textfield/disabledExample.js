@@ -6,7 +6,7 @@ export default function Example(): ReactNode {
   const [value, setValue] = useState('');
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <TextField
         disabled
         id="variants-disabled"

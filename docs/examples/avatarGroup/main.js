@@ -5,15 +5,14 @@ import { AvatarGroup, Box, Flex } from 'gestalt';
 export default function Example(): ReactNode {
   return (
     <Flex
-      gap={{ row: 4, column: 0 }}
-      wrap
-      height="100%"
       alignContent="center"
+      gap={{ row: 4, column: 0 }}
+      height="100%"
       justifyContent="center"
+      wrap
     >
-      <Box width={300} height={125}>
+      <Box height={125} width={300}>
         <AvatarGroup
-          size="fit"
           accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."
           collaborators={[
             {
@@ -29,6 +28,7 @@ export default function Example(): ReactNode {
               src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
             },
           ]}
+          size="fit"
         />
       </Box>
     </Flex>

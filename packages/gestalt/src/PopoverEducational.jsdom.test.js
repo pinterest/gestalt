@@ -10,10 +10,10 @@ test('PopoverEducational renders', () => {
     <PopoverEducational
       accessibilityLabel="test"
       anchor={element}
-      onDismiss={jest.fn()}
-      size="sm"
       message="text"
+      onDismiss={jest.fn()}
       primaryAction={{ text: 'next', role: 'button', onClick: () => {} }}
+      size="sm"
     />,
   );
 

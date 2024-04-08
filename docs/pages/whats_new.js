@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode, useState } from 'react';
 import { Badge, Box, Divider, Flex, Heading, Image, Mask, RadioGroup } from 'gestalt';
+import { TOKEN_COLOR_WHITE_MOCHIMALIST_0 } from 'gestalt-design-tokens';
 import blogPosts from './BlogPosts.json';
 import MainSection from '../docs-components/MainSection';
 import Markdown from '../docs-components/Markdown';
@@ -11,8 +12,8 @@ const POST_WIDTH_PX = 600;
 const POST_IMAGE_HEIGHT_PX = 340;
 
 const badges = {
-  Design: <Badge key="design" type="info" text="Design" />,
-  Engineering: <Badge key="engineering" type="success" text="Engineering" />,
+  Design: <Badge key="design" text="Design" type="info" />,
+  Engineering: <Badge key="engineering" text="Engineering" type="success" />,
 };
 
 export type Post = {
@@ -41,27 +42,27 @@ function PostLayout({
 
       {imageSrc && (
         <Box
-          height={POST_IMAGE_HEIGHT_PX}
-          maxWidth={POST_WIDTH_PX}
-          display="none"
-          mdDisplay="block"
-          marginBottom={4}
-          lgMarginBottom={0}
           borderStyle="sm"
-          rounding={2}
           dangerouslySetInlineStyle={{
             __style: {
-              backgroundColor: imageColor ? `var(--color-${imageColor})` : 'white',
+              backgroundColor: imageColor || TOKEN_COLOR_WHITE_MOCHIMALIST_0,
             },
           }}
+          display="none"
+          height={POST_IMAGE_HEIGHT_PX}
+          lgMarginBottom={0}
+          marginBottom={4}
+          maxWidth={POST_WIDTH_PX}
+          mdDisplay="block"
+          rounding={2}
         >
-          <Mask rounding={2} height={POST_IMAGE_HEIGHT_PX - 2}>
+          <Mask height={POST_IMAGE_HEIGHT_PX - 2} rounding={2}>
             <Image
-              src={imageSrc}
               alt={imageAltText ?? ''}
+              fit="contain"
               naturalHeight={900}
               naturalWidth={1600}
-              fit="contain"
+              src={imageSrc}
             />
           </Mask>
         </Box>
@@ -107,20 +108,20 @@ export default function Blog(): ReactNode {
   return (
     <Page title="What's New Blog">
       <PageHeader
-        name="What's New"
         description={`
     Follow along to learn about documentation updates, new components, events, and more!
     To get the full details for each version, view the [changelog in GitHub](https://github.com/pinterest/gestalt/blob/master/CHANGELOG.md).
     `}
+        name="What's New"
         type="guidelines"
       />
 
-      <RadioGroup id="filter" legend="Filter posts by" direction="row">
+      <RadioGroup direction="row" id="filter" legend="Filter posts by">
         {radioButtons.map(({ label, value }) => (
           <RadioGroup.RadioButton
+            key={value}
             checked={filter === value}
             id={label}
-            key={value}
             label={label}
             onChange={() => {
               setFilter(value);
@@ -137,8 +138,8 @@ export default function Blog(): ReactNode {
             {i > 0 && <Divider />}
 
             <MainSection
-              name={week ? `Week of ${week}` : `Month of ${month ?? ''}`}
               description={summary}
+              name={week ? `Week of ${week}` : `Month of ${month ?? ''}`}
             >
               <Flex direction="column" gap={8}>
                 {posts.map(

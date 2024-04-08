@@ -6,34 +6,34 @@ export default function Example(): ReactNode {
   return (
     <Box padding={8}>
       <Flex
-        gap={{ column: 8, row: 0 }}
-        direction="column"
-        alignItems="stretch"
         alignContent="stretch"
+        alignItems="stretch"
+        direction="column"
         flex="grow"
+        gap={{ column: 8, row: 0 }}
         width="100%"
       >
-        <Flex direction="column" alignItems="center" alignContent="center" width="100%">
+        <Flex alignContent="center" alignItems="center" direction="column" width="100%">
           <ButtonGroup>
-            <ButtonLink text="Visit" size="lg" color="gray" href="pinterest.com" />
-            <ButtonLink text="Save" size="lg" color="red" href="pinterest.com" />
+            <ButtonLink color="gray" href="pinterest.com" size="lg" text="Visit" />
+            <ButtonLink color="red" href="pinterest.com" size="lg" text="Save" />
           </ButtonGroup>
         </Flex>
         <Divider />
-        <Flex gap={{ column: 2, row: 0 }} direction="column" flex="grow" width="100%">
+        <Flex direction="column" flex="grow" gap={{ column: 2, row: 0 }} width="100%">
           <ButtonLink
-            text="Learn more"
-            size="lg"
             color="red"
             fullWidth
             href="https://gestalt.pinterest.systems/"
+            size="lg"
+            text="Learn more"
           />
           <ButtonLink
-            text="Install now"
-            size="lg"
             color="gray"
             fullWidth
             href="https://gestalt.pinterest.systems/get_started/developers/installation"
+            size="lg"
+            text="Install now"
           />
         </Flex>
       </Flex>

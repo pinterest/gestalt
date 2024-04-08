@@ -6,11 +6,11 @@ export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <ButtonLink
-        text="Visit Pinterest"
-        disabled
-        size="lg"
         color="red"
+        disabled
         href="https://www.pinterest.com/"
+        size="lg"
+        text="Visit Pinterest"
       />
       <Box>
         <Tooltip text="You need to fill in a username to create an account">

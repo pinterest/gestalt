@@ -23,27 +23,27 @@ export default function ActivationCardPage({
 }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample name="Main Example" code={mainExample} layout="column" hideEditor />
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
+        <SandpackExample code={mainExample} hideEditor layout="column" name="Main Example" />
       </PageHeader>
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
       <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - Use in groups to describe the user's stage in a sequential path toward an overall action.
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - As a single element communicating updates to the state or status of the surface. Use [BannerCallout](/web/bannercallout) instead.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -59,28 +59,28 @@ export default function ActivationCardPage({
         <MainSection.Subsection title="Not Started">
           <MainSection.Card
             sandpackExample={
-              <SandpackExample name="Not Started Variant" code={notStartedVariant} />
+              <SandpackExample code={notStartedVariant} name="Not Started Variant" />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection title="Pending">
           <MainSection.Card
-            sandpackExample={<SandpackExample name="Pending Variant" code={pendingVariant} />}
+            sandpackExample={<SandpackExample code={pendingVariant} name="Pending Variant" />}
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection title="Needs Attention">
           <MainSection.Card
             sandpackExample={
-              <SandpackExample name="Needs Attention Variant" code={needsAttentionVariant} />
+              <SandpackExample code={needsAttentionVariant} name="Needs Attention Variant" />
             }
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection title="Complete">
           <MainSection.Card
-            sandpackExample={<SandpackExample name="Complete Variant" code={completeVariant} />}
+            sandpackExample={<SandpackExample code={completeVariant} name="Complete Variant" />}
           />
         </MainSection.Subsection>
       </MainSection>

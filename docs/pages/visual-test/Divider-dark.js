@@ -5,7 +5,7 @@ import { Box, ColorSchemeProvider, Divider, Flex } from 'gestalt';
 export default function Snapshot(): ReactNode {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <Box color="default" borderStyle="shadow" display="inlineBlock" padding={1}>
+      <Box borderStyle="shadow" color="default" display="inlineBlock" padding={1}>
         <Flex
           direction="column"
           gap={{
@@ -13,9 +13,9 @@ export default function Snapshot(): ReactNode {
             column: 2,
           }}
         >
-          <Box width={150} height={25} />
+          <Box height={25} width={150} />
           <Divider />
-          <Box width={150} height={25} />
+          <Box height={25} width={150} />
         </Flex>
       </Box>
     </ColorSchemeProvider>

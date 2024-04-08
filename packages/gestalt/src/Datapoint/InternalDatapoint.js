@@ -43,6 +43,14 @@ type Props = {
    * Min width length for the title
    */
   minTitleWidth?: number,
+  /**
+   * Max width for the title
+   */
+  maxTitleWidth?: number,
+  /**
+   * number of lines to have the row height for the title
+   */
+  numTitleRows?: number,
   size?: 'md' | 'lg',
   title: string,
   tooltipText?: string,
@@ -52,8 +60,24 @@ type Props = {
   value: string,
 };
 
-function MaybeMinWidth({ minWidth, children }: { minWidth?: number, children: ReactNode }) {
-  return minWidth ? <Box minWidth={minWidth}>{children}</Box> : children;
+function MaybeMinWidth({
+  minWidth,
+  maxWidth,
+  numTitleRows,
+  children,
+}: {
+  minWidth?: number,
+  maxWidth?: number,
+  numTitleRows?: number,
+  children: ReactNode,
+}) {
+  return minWidth ? (
+    <Box maxWidth={maxWidth} minHeight={`${numTitleRows || 1}em`} minWidth={minWidth}>
+      {children}
+    </Box>
+  ) : (
+    children
+  );
 }
 
 export default function InternalDatapoint({
@@ -61,6 +85,8 @@ export default function InternalDatapoint({
   disabled = false,
   lineClamp,
   minTitleWidth,
+  maxTitleWidth,
+  numTitleRows,
   size = 'md',
   title,
   tooltipText,
@@ -71,10 +97,14 @@ export default function InternalDatapoint({
 }: Props): ReactNode {
   const textColor = disabled ? 'subtle' : 'default';
   return (
-    <Flex gap={{ column: 1, row: 0 }} direction="column">
-      <Flex gap={{ row: 1, column: 0 }} alignItems="center" minHeight={24}>
-        <MaybeMinWidth minWidth={minTitleWidth}>
-          <Text size="200" color={textColor} lineClamp={lineClamp}>
+    <Flex direction="column" gap={{ column: 1, row: 0 }}>
+      <Flex alignItems="center" gap={{ row: 1, column: 0 }} minHeight={24}>
+        <MaybeMinWidth
+          maxWidth={maxTitleWidth}
+          minWidth={minTitleWidth}
+          numTitleRows={numTitleRows}
+        >
+          <Text color={textColor} lineClamp={lineClamp} size="200">
             {title}
             <AccessibilityPause />
           </Text>
@@ -89,14 +119,14 @@ export default function InternalDatapoint({
             {/* Interactive elements require an a11yLabel on them or their children.
             That's why we set`accessibilityLabel` on `TapArea` instead of `Tooltip` */}
             <TapArea accessibilityLabel={tooltipText} rounding="circle" tapStyle="none">
-              <Icon accessibilityLabel="" size={16} icon="info-circle" color="subtle" />
+              <Icon accessibilityLabel="" color="subtle" icon="info-circle" size={16} />
             </TapArea>
           </Tooltip>
         )}
         {badge && <Badge text={badge.text} type={badge.type} />}
       </Flex>
-      <Flex gap={size === 'lg' ? 4 : 2} alignItems="center">
-        <Text size={size === 'lg' ? '500' : '400'} weight="bold" color={textColor}>
+      <Flex alignItems="center" gap={size === 'lg' ? 4 : 2}>
+        <Text color={textColor} size={size === 'lg' ? '500' : '400'} weight="bold">
           {value}
           <AccessibilityPause />
         </Text>
@@ -104,9 +134,9 @@ export default function InternalDatapoint({
         {trend && (
           <DatapointTrend
             disabled={disabled}
+            iconAccessibilityLabel={trend.accessibilityLabel}
             sentiment={trendSentiment}
             value={trend.value}
-            iconAccessibilityLabel={trend.accessibilityLabel}
           />
         )}
       </Flex>

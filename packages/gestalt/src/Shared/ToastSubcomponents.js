@@ -79,26 +79,26 @@ export function ToastMessage({
       {textElement ?? null}
       {!textElement && text ? (
         <Text
-          inline
+          ref={textRef}
           align="start"
           color={textColor}
-          weight={isError ? 'bold' : undefined}
+          inline
           lineClamp={2}
-          ref={textRef}
-          // Set title prop manually if text is truncated
           title={isTruncated && typeof text === 'string' ? text : undefined}
+          // Set title prop manually if text is truncated
+          weight={isError ? 'bold' : undefined}
         >
           {text}
           {helperLink ? (
             <Fragment>
               {' '}
-              <Text inline color={textColor} weight={isError ? 'bold' : undefined}>
+              <Text color={textColor} inline weight={isError ? 'bold' : undefined}>
                 <Link
                   accessibilityLabel={helperLink.accessibilityLabel}
+                  display="inlineBlock"
                   href={helperLink.href}
                   onClick={helperLink.onClick}
                   target="blank"
-                  display="inlineBlock"
                 >
                   {helperLink.text}
                 </Link>
@@ -112,8 +112,8 @@ export function ToastMessage({
         <Text color={textColor} weight={isError ? 'bold' : undefined}>
           <Link
             accessibilityLabel={helperLink?.accessibilityLabel ?? ''}
-            href={helperLink?.href ?? ''}
             display="inlineBlock"
+            href={helperLink?.href ?? ''}
             onClick={helperLink?.onClick}
             target="blank"
           >
@@ -180,9 +180,9 @@ export function ToastTypeThumbnail({
     <Fragment>
       {type === 'error' ? (
         <Icon
+          accessibilityLabel={accessibilityIconErrorLabel}
           color="inverse"
           icon="workflow-status-problem"
-          accessibilityLabel={accessibilityIconErrorLabel}
           size={SIZE_ICON}
         />
       ) : null}
@@ -192,9 +192,9 @@ export function ToastTypeThumbnail({
           id="icon-toast-success"
         >
           <Icon
+            accessibilityLabel={accessibilityIconSuccessLabel}
             color="success"
             icon="workflow-status-ok"
-            accessibilityLabel={accessibilityIconSuccessLabel}
             size={SIZE_ICON}
           />
         </ColorSchemeProvider>

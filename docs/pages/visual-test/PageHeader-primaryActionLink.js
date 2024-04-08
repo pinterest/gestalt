@@ -4,9 +4,9 @@ import { Box, Dropdown, Link, PageHeader, Text } from 'gestalt';
 
 export default function Snapshot(): ReactNode {
   return (
-    <Box width="100vw" height={170}>
+    <Box height={170} width="100vw">
       <PageHeader
-        title="Product groups"
+        dropdownAccessibilityLabel="test"
         primaryAction={{
           component: (
             <Text weight="bold">
@@ -24,7 +24,7 @@ export default function Snapshot(): ReactNode {
             />,
           ],
         }}
-        dropdownAccessibilityLabel="test"
+        title="Product groups"
       />
     </Box>
   );

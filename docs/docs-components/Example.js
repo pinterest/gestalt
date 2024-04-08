@@ -34,17 +34,17 @@ function Example({
 
   return (
     <Card
-      name={name}
       description={description}
-      id={id}
-      stacked
-      showHeading={showHeading}
       headingSize={headingSize === 'md' ? '500' : '400'}
+      id={id}
+      name={name}
+      showHeading={showHeading}
+      stacked
     >
       <LiveProvider code={code} scope={scope} theme={theme}>
-        <Box display="flex" direction="column" marginStart={-2} marginEnd={-2} marginBottom={6}>
-          <Box padding={2} height="100%" width="100%">
-            <Box position="relative" padding={4} borderStyle="sm" rounding={2} color="default">
+        <Box direction="column" display="flex" marginBottom={6} marginEnd={-2} marginStart={-2}>
+          <Box height="100%" padding={2} width="100%">
+            <Box borderStyle="sm" color="default" padding={4} position="relative" rounding={2}>
               <LivePreview />
             </Box>
           </Box>

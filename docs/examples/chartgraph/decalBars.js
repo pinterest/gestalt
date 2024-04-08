@@ -19,15 +19,7 @@ export default function Example(): ReactNode {
 
   return (
     <ChartGraph
-      title="ChartGraph"
-      titleDisplay="hidden"
       accessibilityLabel="Example of chart with decal pattern in bars"
-      visualPatternSelected={visualPatternSelected}
-      onVisualPatternChange={() =>
-        setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
-      }
-      range={[0, 100]}
-      type="bar"
       data={data}
       elements={[
         { type: 'bar', id: 'Color_01' },
@@ -37,6 +29,14 @@ export default function Example(): ReactNode {
         { type: 'bar', id: 'Color_05' },
         { type: 'bar', id: 'Color_06' },
       ]}
+      onVisualPatternChange={() =>
+        setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
+      }
+      range={[0, 100]}
+      title="ChartGraph"
+      titleDisplay="hidden"
+      type="bar"
+      visualPatternSelected={visualPatternSelected}
     />
   );
 }

@@ -4,7 +4,7 @@ import { AvatarGroup, Box, Divider, Flex, Icon, Mask, Text } from 'gestalt';
 
 function Block({ title, url, locked }: { title: string, url: string, locked?: boolean }) {
   return (
-    <Flex gap={{ row: 2, column: 0 }} alignItems="center">
+    <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
       <Box maxWidth={60}>
         <Mask rounding={4}>
           {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
@@ -12,7 +12,7 @@ function Block({ title, url, locked }: { title: string, url: string, locked?: bo
         </Mask>
       </Box>
       <Flex.Item flex="grow">
-        <Text weight="bold" size="200">
+        <Text size="200" weight="bold">
           {title}
         </Text>
       </Flex.Item>
@@ -21,7 +21,6 @@ function Block({ title, url, locked }: { title: string, url: string, locked?: bo
       ) : (
         <AvatarGroup
           accessibilityLabel="Collaborators."
-          size="sm"
           collaborators={[
             {
               name: 'Keerthi',
@@ -36,6 +35,7 @@ function Block({ title, url, locked }: { title: string, url: string, locked?: bo
               src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
             },
           ]}
+          size="sm"
         />
       )}
     </Flex>
@@ -44,9 +44,9 @@ function Block({ title, url, locked }: { title: string, url: string, locked?: bo
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex direction="column" gap={{ column: 10, row: 0 }} width={300}>
-        <Block title="Home decor" url="https://i.ibb.co/121JJzC/stock7.jpg" locked />
+        <Block locked title="Home decor" url="https://i.ibb.co/121JJzC/stock7.jpg" />
         <Divider />
         <Block title="Plants" url="https://i.ibb.co/FY2MKr5/stock6.jpg" />
       </Flex>

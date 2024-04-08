@@ -35,17 +35,17 @@ export default function Example(): ReactNode {
   ];
 
   return (
-    <Flex height="100%" width="100%" direction="column" gap={2}>
-      <Flex width="100%" justifyContent="between" wrap>
-        <RadioGroup legend="ChartGraph type" direction="row" id="layout-type">
+    <Flex direction="column" gap={2} height="100%" width="100%">
+      <Flex justifyContent="between" width="100%" wrap>
+        <RadioGroup direction="row" id="layout-type" legend="ChartGraph type">
           <RadioGroup.RadioButton
             checked={type === 'bar'}
             id="layout-type-bar"
             label="Bar"
             name="bar"
             onChange={() => setType('bar')}
-            value="bar"
             size="sm"
+            value="bar"
           />
           <RadioGroup.RadioButton
             checked={type === 'line'}
@@ -53,8 +53,8 @@ export default function Example(): ReactNode {
             label="Line"
             name="line"
             onChange={() => setType('line')}
-            value="line"
             size="sm"
+            value="line"
           />
           <RadioGroup.RadioButton
             checked={type === 'combo'}
@@ -62,19 +62,19 @@ export default function Example(): ReactNode {
             label="Combo"
             name="combo"
             onChange={() => setType('combo')}
-            value="combo"
             size="sm"
+            value="combo"
           />
         </RadioGroup>
-        <RadioGroup legend="Layout" direction="row" id="layout_layout">
+        <RadioGroup direction="row" id="layout_layout" legend="Layout">
           <RadioGroup.RadioButton
             checked={layout === 'horizontal'}
             id="layout_layout-horizontal"
             label="Horizontal"
             name="horizontal"
             onChange={() => setLayout('horizontal')}
-            value="horizontal"
             size="sm"
+            value="horizontal"
           />
           <RadioGroup.RadioButton
             checked={layout === 'horizontalBiaxial'}
@@ -82,8 +82,8 @@ export default function Example(): ReactNode {
             label="HorizontalBiaxial"
             name="horizontalBiaxial"
             onChange={() => setLayout('horizontalBiaxial')}
-            value="horizontalBiaxial"
             size="sm"
+            value="horizontalBiaxial"
           />
           <RadioGroup.RadioButton
             checked={layout === 'vertical'}
@@ -91,8 +91,8 @@ export default function Example(): ReactNode {
             label="Vertical"
             name="vertical"
             onChange={() => setLayout('vertical')}
-            value="vertical"
             size="sm"
+            value="vertical"
           />
           <RadioGroup.RadioButton
             checked={layout === 'verticalBiaxial'}
@@ -100,23 +100,14 @@ export default function Example(): ReactNode {
             label="VerticalBiaxial"
             name="verticalBiaxial"
             onChange={() => setLayout('verticalBiaxial')}
-            value="verticalBiaxial"
             size="sm"
+            value="verticalBiaxial"
           />
         </RadioGroup>
       </Flex>
 
       <ChartGraph
-        title="ChartGraph"
-        titleDisplay="hidden"
         accessibilityLabel="Example of chart with decal custom dimension"
-        visualPatternSelected={visualPatternSelected}
-        onVisualPatternChange={() =>
-          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
-        }
-        layout={layout}
-        type={type}
-        legend="none"
         data={data}
         elements={[
           {
@@ -130,6 +121,15 @@ export default function Example(): ReactNode {
             axis: axisSeries02,
           },
         ]}
+        layout={layout}
+        legend="none"
+        onVisualPatternChange={() =>
+          setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
+        }
+        title="ChartGraph"
+        titleDisplay="hidden"
+        type={type}
+        visualPatternSelected={visualPatternSelected}
       />
     </Flex>
   );

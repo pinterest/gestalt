@@ -58,10 +58,10 @@ export default function Example(): ReactNode {
         ].map(({ label, counter }) => (
           <SideNavigation.TopItem
             key={label}
-            href="#"
-            label={label}
-            icon="ads-stats"
             counter={counter}
+            href="#"
+            icon="ads-stats"
+            label={label}
           />
         ))}
       </SideNavigation.Section>

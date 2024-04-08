@@ -4,13 +4,12 @@ import { AvatarGroup, Box, Flex, Link, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex height="100%" width="100%" alignItems="center" justifyContent="center">
-      <Box width={600} height={100} padding={2}>
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
+      <Box height={100} padding={2} width={600}>
         <Flex alignItems="center" height="100%">
           <Box column={5} height="100%">
             <AvatarGroup
               accessibilityLabel="Collaborators: Keerthi, Alberto, and Shanice."
-              size="fit"
               collaborators={[
                 {
                   name: 'Keerthi',
@@ -25,6 +24,7 @@ export default function Example(): ReactNode {
                   src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
                 },
               ]}
+              size="fit"
             />
           </Box>
           <Box column={7} marginStart={2}>

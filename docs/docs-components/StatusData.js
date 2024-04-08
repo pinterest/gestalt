@@ -17,24 +17,24 @@ export default function StatusData({ status, text, href }: Props): ReactNode {
 
   return (
     <Flex
+      alignItems="center"
       gap={{
         row: 2,
         column: 0,
       }}
-      alignItems="center"
     >
       {STATUS_EQUIVALENCY_MAP[status] === 'notAvailable' ? (
         <Icon accessibilityLabel="Not available" icon="dash" />
       ) : (
         <Status
           accessibilityLabel={`This component is ${label}`}
-          type={STATUS_EQUIVALENCY_MAP[status]}
           title={href ? '' : label}
+          type={STATUS_EQUIVALENCY_MAP[status]}
         />
       )}
       {href ? (
         <Text size="200">
-          <Link underline="always" href={href}>
+          <Link href={href} underline="always">
             {label === 'Not available' ? 'N/A' : label}{' '}
           </Link>
         </Text>

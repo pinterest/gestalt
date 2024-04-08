@@ -84,6 +84,7 @@ const tokenCategories: $ReadOnlyArray<{
     id: 'elevation',
     infoPage: { name: 'Box', path: 'web/box#Elevation' },
     darkValues: true,
+    excludedItems: EXCLUSION_LIST,
   },
   {
     name: 'Font size',
@@ -126,6 +127,7 @@ const tokenCategories: $ReadOnlyArray<{
     id: 'rounding',
     infoPage: { name: 'Box', path: 'web/box#Rounding' },
     darkValues: false,
+    excludedItems: EXCLUSION_LIST,
   },
 ];
 
@@ -152,33 +154,33 @@ export default function DesignTokensPage(): ReactNode {
   return (
     <Page title="Design tokens guidelines">
       <PageHeader
-        name="Design tokens"
         description={`
 Design tokens represent the values used within a design system to construct layouts and components, such as spacing and color. Because the tokens are an abstraction, the underlying value can change in different scenarios without affecting the designer or developer experience. [Learn more about Design Tokens](https://uxdesign.cc/design-tokens-cheatsheet-927fc1404099).
 
 The design color tokens on this section, those that start with \`$color-\` are alias (or semantic tokens) as they give semantic usage information through their name. They point to Gestalt's base color tokens (hence the name "alias"). To learn more about the complete set of Gestalt's base color tokens, read our [extended color palette section](http://localhost:8888/foundations/color/palette#Extended-palette).
         `}
+        name="Design tokens"
         type="guidelines"
       />
       <MainSection name="Token values">
         {tokenCategories.map(({ name, id, darkValues, infoPage, category, excludedItems }) => (
           <MainSection.Subsection
             key={`table${name}`}
-            title={name}
             description={`
 Visit the [${infoPage?.name} page](/${infoPage?.path}) for guidelines and usage.`}
+            title={name}
           >
             <TokenTable
-              name={name}
-              id={id}
-              darkValues={darkValues}
               category={category}
-              excludedItems={excludedItems}
+              darkValues={darkValues}
               data={(name === 'Data visualization' ? dataVizColorTokens : allTokens).filter(
                 ({ name: tokenName }) =>
                   tokenName.startsWith(`${id}`) &&
                   !excludedItems?.some((item) => tokenName.startsWith(`${id}-${item}`)),
               )}
+              excludedItems={excludedItems}
+              id={id}
+              name={name}
             />
           </MainSection.Subsection>
         ))}

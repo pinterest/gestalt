@@ -211,6 +211,7 @@ const TextAreaWithForwardRef: AbstractComponent<Props, HTMLTextAreaElement> = fo
   const inputElement = (
     <textarea
       // checking for "focused" is not required by screenreaders but it prevents a11y integration tests to complain about missing label, as aria-describedby seems to shadow label in tests though it's a W3 accepeted pattern https://www.w3.org/TR/WCAG20-TECHS/ARIA1.html
+      ref={ref}
       aria-describedby={focused ? ariaDescribedby : undefined}
       aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
       className={tags ? styles.unstyledTextArea : classes}
@@ -225,7 +226,6 @@ const TextAreaWithForwardRef: AbstractComponent<Props, HTMLTextAreaElement> = fo
       onKeyDown={handleKeyDown}
       placeholder={placeholder}
       readOnly={readOnly}
-      ref={ref}
       rows={tags ? undefined : rows}
       value={value}
     />
@@ -243,7 +243,7 @@ const TextAreaWithForwardRef: AbstractComponent<Props, HTMLTextAreaElement> = fo
         <div className={classes} style={tagsWrapperStyle}>
           {tags.map((tag, tagIndex) => (
             // eslint-disable-next-line react/no-array-index-key
-            <Box key={tagIndex} marginEnd={1} marginBottom={1}>
+            <Box key={tagIndex} marginBottom={1} marginEnd={1}>
               {tag}
             </Box>
           ))}
@@ -264,10 +264,10 @@ const TextAreaWithForwardRef: AbstractComponent<Props, HTMLTextAreaElement> = fo
       )}
       {(helperText || maxLength) && !errorMessage ? (
         <FormHelperText
-          id={`${id}-helperText`}
-          text={helperText}
-          maxLength={maxLength}
           currentLength={currentLength}
+          id={`${id}-helperText`}
+          maxLength={maxLength}
+          text={helperText}
         />
       ) : null}
       {hasErrorMessage && <FormErrorMessage id={`${id}-error`} text={errorMessage} />}

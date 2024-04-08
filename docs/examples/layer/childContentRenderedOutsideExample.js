@@ -6,23 +6,23 @@ export default function Example(): ReactNode {
   const [showLayer, setShowLayer] = useState(false);
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Fragment>
-        <Button text="Show Layer" onClick={() => setShowLayer(!showLayer)} />
+        <Button onClick={() => setShowLayer(!showLayer)} text="Show Layer" />
         {showLayer && (
           <Layer>
             <Box
-              color="darkWash"
-              position="fixed"
-              top
-              left
-              right
-              bottom
-              display="flex"
               alignItems="center"
+              bottom
+              color="darkWash"
+              display="flex"
               justifyContent="center"
+              left
+              position="fixed"
+              right
+              top
             >
-              <Box color="light" padding={3} display="flex" alignItems="center">
+              <Box alignItems="center" color="light" display="flex" padding={3}>
                 <Text>Layer Content</Text>
                 <Box marginStart={2}>
                   <IconButton

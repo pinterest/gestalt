@@ -40,8 +40,8 @@ export default function Example(): ReactNode {
                 : undefined
             }
             heading="Business guidelines"
-            subHeading="Create Pins in no time with our flexible tools."
             onDismiss={() => setShowComponent(false)}
+            subHeading="Create Pins in no time with our flexible tools."
           >
             <Fragment>
               {page === 1 ? (
@@ -70,9 +70,9 @@ export default function Example(): ReactNode {
         <Button
           accessibilityLabel="Show SheetMobile"
           color="red"
-          text="Show SheetMobile"
-          size="lg"
           onClick={() => setShowComponent(true)}
+          size="lg"
+          text="Show SheetMobile"
         />
       </Box>
     </DeviceTypeProvider>

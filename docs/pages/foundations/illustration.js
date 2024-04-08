@@ -36,12 +36,12 @@ export default function IllustrationPage(): ReactNode {
   return (
     <Page title="Illustration">
       <PageHeader
-        name="Illustration"
-        type="guidelines"
         description={`Illustrations bring meaning and emotion to otherwise simple layouts. They can add context, enhance information comprehension and add visual interest. Generally, illustrations should be used in conjunction with blocks of informative text.
 `}
+        name="Illustration"
+        type="guidelines"
       />
-      <Flex width="100%" justifyContent="center" alignItems="center" overflow="hidden">
+      <Flex alignItems="center" justifyContent="center" overflow="hidden" width="100%">
         <IllHeader />
       </Flex>
 
@@ -49,35 +49,35 @@ export default function IllustrationPage(): ReactNode {
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
             - In support of a text block relating to the states: Empty, Error, Success and Loading
             - In experiences that are full page or in alignment with blocks of informative content
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
             - Without a purpose as a decorative element. Illustrations should always accompany content
             - In an experience that competes with user content and Pins
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
 
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
-          <MainSection.Card type="do" description="Use illustrations at the recommended size.">
+          <MainSection.Card description="Use illustrations at the recommended size." type="do">
             <Flex overflow="hidden">
               <IllSuccess />
             </Flex>
           </MainSection.Card>
           <MainSection.Card
-            type="don't"
             description="Increase or shrink the size of illustrations past their prescribed size. If you need something smaller, consider using an icon."
+            type="don't"
           >
             <Flex overflow="hidden">
               <IllResize />
@@ -87,24 +87,24 @@ export default function IllustrationPage(): ReactNode {
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
-            type="do"
             description="Allow the illustrations to have plenty of surrounding white space."
+            type="do"
           >
             <Flex overflow="hidden">
               <IllWhitespace />
             </Flex>
           </MainSection.Card>
           <MainSection.Card
-            type="don't"
             description="Place illustrations on top of other elements such as images or text."
+            type="don't"
           >
-            <Box width="100%" height="100%" overflow="hidden">
+            <Box height="100%" overflow="hidden" width="100%">
               <Image
-                src="https://i.pinimg.com/originals/de/5e/95/de5e95c743ace131cc81b4e50a9e6aed.jpg"
-                naturalWidth={834}
-                naturalHeight={614}
-                fit="contain"
                 alt="An illustration placed on top of an image."
+                fit="contain"
+                naturalHeight={614}
+                naturalWidth={834}
+                src="https://i.pinimg.com/originals/de/5e/95/de5e95c743ace131cc81b4e50a9e6aed.jpg"
               />
             </Box>
           </MainSection.Card>
@@ -112,16 +112,16 @@ export default function IllustrationPage(): ReactNode {
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
-            type="do"
             description="Use the correct illustration type in the correct context. For example, use a loading illustration for content about processing."
+            type="do"
           >
             <Flex overflow="hidden">
               <IllContext />
             </Flex>
           </MainSection.Card>
           <MainSection.Card
-            type="don't"
             description="Change the color, line thickness or subject of the illustration."
+            type="don't"
           >
             <Flex overflow="hidden">
               <IllColor />
@@ -131,16 +131,16 @@ export default function IllustrationPage(): ReactNode {
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
-            type="do"
             description="Use illustrations in experiences that are full-page or in alignment with blocks of informative content."
+            type="do"
           >
             <Flex overflow="hidden">
               <IllFullpage />
             </Flex>
           </MainSection.Card>
           <MainSection.Card
-            type="don't"
             description="Use illustrations to replace crucial or in-the-moment messaging patterns like BannerCallout, BannerSlim or Toast. Learn more about [available messaging components](messaging/available_components)"
+            type="don't"
           >
             <Flex overflow="hidden">
               <IllMessaging />
@@ -151,26 +151,26 @@ export default function IllustrationPage(): ReactNode {
 
       <MainSection name="Accessibility">
         <MainSection.Subsection
-          title="Pair with text"
           description={`Illustrations should always accompany content. Different cultures don’t always interpret illustrations in the same way. Accompanying content can help to add the appropriate context.
         `}
+          title="Pair with text"
         />
 
         <MainSection.Subsection
-          title="Include a title"
           description={`Illustrations should include a title that describes the image. A title adds valuable information for low-vision or screen reader users.
         `}
+          title="Include a title"
         >
-          <Flex gap={6} alignContent="between" wrap direction="row">
+          <Flex alignContent="between" direction="row" gap={6} wrap>
             <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
               <Box
-                overflow="hidden"
-                color="light"
-                rounding={2}
                 borderStyle="sm"
-                marginBottom={3}
+                color="light"
                 display="inlineBlock"
                 justifyContent="center"
+                marginBottom={3}
+                overflow="hidden"
+                rounding={2}
               >
                 <IllAlt1 />
               </Box>
@@ -178,13 +178,13 @@ export default function IllustrationPage(): ReactNode {
             </Flex.Item>
             <Flex.Item flex="grow" flexBasis="0%" maxWidth="100%">
               <Box
-                overflow="hidden"
-                color="light"
-                rounding={2}
                 borderStyle="sm"
-                marginBottom={3}
+                color="light"
                 display="inlineBlock"
                 justifyContent="center"
+                marginBottom={3}
+                overflow="hidden"
+                rounding={2}
               >
                 <IllAlt2 />
               </Box>
@@ -198,16 +198,16 @@ export default function IllustrationPage(): ReactNode {
       </MainSection>
 
       <MainSection name="Size">
-        <Flex gap={6} alignContent="between" wrap direction="row">
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
+        <Flex alignContent="between" direction="row" gap={6} wrap>
+          <Flex.Item flex="grow" flexBasis="0%" maxWidth="45%" minWidth={280}>
             <Box
-              overflow="hidden"
-              color="light"
-              rounding={2}
               borderStyle="sm"
-              marginBottom={3}
+              color="light"
               display="inlineBlock"
               justifyContent="center"
+              marginBottom={3}
+              overflow="hidden"
+              rounding={2}
             >
               <IllLarge />
             </Box>
@@ -220,15 +220,15 @@ export default function IllustrationPage(): ReactNode {
               </Text>
             </Flex>
           </Flex.Item>
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
+          <Flex.Item flex="grow" flexBasis="0%" maxWidth="45%" minWidth={280}>
             <Box
-              overflow="hidden"
-              color="light"
-              rounding={2}
               borderStyle="sm"
-              marginBottom={3}
+              color="light"
               display="inlineBlock"
               justifyContent="center"
+              marginBottom={3}
+              overflow="hidden"
+              rounding={2}
             >
               <IllMedium />
             </Box>
@@ -240,15 +240,15 @@ export default function IllustrationPage(): ReactNode {
               </Text>
             </Flex>
           </Flex.Item>
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
+          <Flex.Item flex="grow" flexBasis="0%" maxWidth="45%" minWidth={280}>
             <Box
-              overflow="hidden"
-              color="light"
-              rounding={2}
               borderStyle="sm"
-              marginBottom={3}
+              color="light"
               display="inlineBlock"
               justifyContent="center"
+              marginBottom={3}
+              overflow="hidden"
+              rounding={2}
             >
               <IllSmall />
             </Box>
@@ -265,20 +265,20 @@ export default function IllustrationPage(): ReactNode {
 
       <MainSection name="Status">
         <MainSection.Subsection
-          title="Empty"
           description={`Display when content is not currently available or is unable to load. For example, when a user is interacting with a card in a dashboard for the first time. `}
+          title="Empty"
         />
 
-        <Flex gap={6} alignContent="between" wrap direction="row">
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
+        <Flex alignContent="between" direction="row" gap={6} wrap>
+          <Flex.Item flex="grow" flexBasis="0%" maxWidth="45%" minWidth={280}>
             <Box
-              overflow="hidden"
-              color="light"
-              rounding={2}
               borderStyle="sm"
-              marginBottom={3}
+              color="light"
               display="inlineBlock"
               justifyContent="center"
+              marginBottom={3}
+              overflow="hidden"
+              rounding={2}
             >
               <IllEmptyLarge />
             </Box>
@@ -287,15 +287,15 @@ export default function IllustrationPage(): ReactNode {
               <Text>Large empty</Text>
             </Flex>
           </Flex.Item>
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
+          <Flex.Item flex="grow" flexBasis="0%" maxWidth="45%" minWidth={280}>
             <Box
-              overflow="hidden"
-              color="light"
-              rounding={2}
               borderStyle="sm"
-              marginBottom={3}
+              color="light"
               display="inlineBlock"
               justifyContent="center"
+              marginBottom={3}
+              overflow="hidden"
+              rounding={2}
             >
               <IllEmptyMedium1 />
             </Box>
@@ -306,15 +306,15 @@ export default function IllustrationPage(): ReactNode {
               </Flex>
             </Flex>
           </Flex.Item>
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
+          <Flex.Item flex="grow" flexBasis="0%" maxWidth="45%" minWidth={280}>
             <Box
-              overflow="hidden"
-              color="light"
-              rounding={2}
               borderStyle="sm"
-              marginBottom={3}
+              color="light"
               display="inlineBlock"
               justifyContent="center"
+              marginBottom={3}
+              overflow="hidden"
+              rounding={2}
             >
               <IllEmptyMedium2 />
             </Box>
@@ -325,20 +325,20 @@ export default function IllustrationPage(): ReactNode {
           </Flex.Item>
         </Flex>
         <MainSection.Subsection
-          title="Success"
           description={`Display when something goes right. Used for success or celebration moments that are more permanent or long-lasting. `}
+          title="Success"
         />
 
-        <Flex gap={6} alignContent="between" wrap direction="row">
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
+        <Flex alignContent="between" direction="row" gap={6} wrap>
+          <Flex.Item flex="grow" flexBasis="0%" maxWidth="45%" minWidth={280}>
             <Box
-              overflow="hidden"
-              color="light"
-              rounding={2}
               borderStyle="sm"
-              marginBottom={3}
+              color="light"
               display="inlineBlock"
               justifyContent="center"
+              marginBottom={3}
+              overflow="hidden"
+              rounding={2}
             >
               <IllSuccessLarge />
             </Box>
@@ -347,15 +347,15 @@ export default function IllustrationPage(): ReactNode {
               <Text>Success</Text>
             </Flex>
           </Flex.Item>
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
+          <Flex.Item flex="grow" flexBasis="0%" maxWidth="45%" minWidth={280}>
             <Box
-              overflow="hidden"
-              color="light"
-              rounding={2}
               borderStyle="sm"
-              marginBottom={3}
+              color="light"
               display="inlineBlock"
               justifyContent="center"
+              marginBottom={3}
+              overflow="hidden"
+              rounding={2}
             >
               <IllSuccessMedium1 />
             </Box>
@@ -364,15 +364,15 @@ export default function IllustrationPage(): ReactNode {
               <Text>Disco ball</Text>
             </Flex>
           </Flex.Item>
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
+          <Flex.Item flex="grow" flexBasis="0%" maxWidth="45%" minWidth={280}>
             <Box
-              overflow="hidden"
-              color="light"
-              rounding={2}
               borderStyle="sm"
-              marginBottom={3}
+              color="light"
               display="inlineBlock"
               justifyContent="center"
+              marginBottom={3}
+              overflow="hidden"
+              rounding={2}
             >
               <IllSuccessMedium2 />
             </Box>
@@ -383,20 +383,20 @@ export default function IllustrationPage(): ReactNode {
           </Flex.Item>
         </Flex>
         <MainSection.Subsection
-          title="Error"
           description={`Display when something goes wrong or extra care should be taken. Used for moments that are more permanent/long-lasting, for example a 404 page. If the message is more critical or requires action, use an [appropriate messaging component](messaging/available_components) instead. `}
+          title="Error"
         />
 
-        <Flex gap={6} alignContent="between" wrap direction="row">
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
+        <Flex alignContent="between" direction="row" gap={6} wrap>
+          <Flex.Item flex="grow" flexBasis="0%" maxWidth="45%" minWidth={280}>
             <Box
-              overflow="hidden"
-              color="light"
-              rounding={2}
               borderStyle="sm"
-              marginBottom={3}
+              color="light"
               display="inlineBlock"
               justifyContent="center"
+              marginBottom={3}
+              overflow="hidden"
+              rounding={2}
             >
               <IllErrorLarge />
             </Box>
@@ -405,15 +405,15 @@ export default function IllustrationPage(): ReactNode {
               <Text>Error</Text>
             </Flex>
           </Flex.Item>
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
+          <Flex.Item flex="grow" flexBasis="0%" maxWidth="45%" minWidth={280}>
             <Box
-              overflow="hidden"
-              color="light"
-              rounding={2}
               borderStyle="sm"
-              marginBottom={3}
+              color="light"
               display="inlineBlock"
               justifyContent="center"
+              marginBottom={3}
+              overflow="hidden"
+              rounding={2}
             >
               <IllErrorMedium1 />
             </Box>
@@ -422,15 +422,15 @@ export default function IllustrationPage(): ReactNode {
               <Text>Sad plant</Text>
             </Flex>
           </Flex.Item>
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
+          <Flex.Item flex="grow" flexBasis="0%" maxWidth="45%" minWidth={280}>
             <Box
-              overflow="hidden"
-              color="light"
-              rounding={2}
               borderStyle="sm"
-              marginBottom={3}
+              color="light"
               display="inlineBlock"
               justifyContent="center"
+              marginBottom={3}
+              overflow="hidden"
+              rounding={2}
             >
               <IllErrorMedium2 />
             </Box>
@@ -441,20 +441,20 @@ export default function IllustrationPage(): ReactNode {
           </Flex.Item>
         </Flex>
         <MainSection.Subsection
-          title="Loading"
           description={`Display when information may take time to process or when keeping users informed on system status. If processing time is short and does not require the user to leave and return to the page, use the Spinnerinstead. `}
+          title="Loading"
         />
 
-        <Flex gap={6} alignContent="between" wrap direction="row">
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
+        <Flex alignContent="between" direction="row" gap={6} wrap>
+          <Flex.Item flex="grow" flexBasis="0%" maxWidth="45%" minWidth={280}>
             <Box
-              overflow="hidden"
-              color="light"
-              rounding={2}
               borderStyle="sm"
-              marginBottom={3}
+              color="light"
               display="inlineBlock"
               justifyContent="center"
+              marginBottom={3}
+              overflow="hidden"
+              rounding={2}
             >
               <IllLoadingLarge />
             </Box>
@@ -463,15 +463,15 @@ export default function IllustrationPage(): ReactNode {
               <Text>Loading</Text>
             </Flex>
           </Flex.Item>
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
+          <Flex.Item flex="grow" flexBasis="0%" maxWidth="45%" minWidth={280}>
             <Box
-              overflow="hidden"
-              color="light"
-              rounding={2}
               borderStyle="sm"
-              marginBottom={3}
+              color="light"
               display="inlineBlock"
               justifyContent="center"
+              marginBottom={3}
+              overflow="hidden"
+              rounding={2}
             >
               <IllLoadingMedium1 />
             </Box>
@@ -480,15 +480,15 @@ export default function IllustrationPage(): ReactNode {
               <Text>Hourglass</Text>
             </Flex>
           </Flex.Item>
-          <Flex.Item flex="grow" flexBasis="0%" minWidth={280} maxWidth="45%">
+          <Flex.Item flex="grow" flexBasis="0%" maxWidth="45%" minWidth={280}>
             <Box
-              overflow="hidden"
-              color="light"
-              rounding={2}
               borderStyle="sm"
-              marginBottom={3}
+              color="light"
               display="inlineBlock"
               justifyContent="center"
+              marginBottom={3}
+              overflow="hidden"
+              rounding={2}
             >
               <IllLoadingMedium2 />
             </Box>
@@ -502,16 +502,16 @@ export default function IllustrationPage(): ReactNode {
 
       <MainSection name="Illustration in use">
         <MainSection.Subsection title="Mobile">
-          <Flex width="100%" justifyContent="center" alignItems="center">
+          <Flex alignItems="center" justifyContent="center" width="100%">
             <IllMobileExample />
           </Flex>
         </MainSection.Subsection>
         <MainSection.Subsection title="Web">
           <Flex
-            maxWidth="100%"
-            maxHeight="561"
-            justifyContent="center"
             alignItems="center"
+            justifyContent="center"
+            maxHeight="561"
+            maxWidth="100%"
             overflow="hidden"
           >
             <IllWebExample />
@@ -521,22 +521,22 @@ export default function IllustrationPage(): ReactNode {
 
       <MainSection name="Future updates">
         <MainSection.Subsection
-          title="Research and iteration"
           description={`Gestalt plans to keep an eye on illustration use and design requests. As we gather data from designers and engineers, we will iterate on the illustration library to better serve a broad set of use cases.
         `}
+          title="Research and iteration"
         />
         <MainSection.Subsection
-          title="Need an illustration?"
           description={`If you are looking for a new illustration, please first check the existing set and make sure there isn’t something similar already in the library. If there is not an applicable illustration or if you have an idea for a new illustration:
 
 - [Reach out via Slack](http://pinch.pinadmin.com/gestalt-design-slack)
 - [Schedule an office hours slot](https://pinch.pinadmin.com/gestaltSignUp)
         `}
+          title="Need an illustration?"
         />
         <MainSection.Subsection
-          title="Future collaboration model"
           description={`If there is a signal that teams are interested in using illustration in a broader context, Gestalt will publish documentation on illustration creation and how to graduate an illustration into the system.
         `}
+          title="Future collaboration model"
         />
       </MainSection>
 

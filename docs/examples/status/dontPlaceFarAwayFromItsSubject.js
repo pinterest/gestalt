@@ -4,10 +4,10 @@ import { Box, Flex, Status, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Flex gap={{ column: 12, row: 0 }} direction="column" alignItems="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Flex alignItems="center" direction="column" gap={{ column: 12, row: 0 }}>
         <Status accessibilityLabel="This item is paused" type="halted" />
-        <Text weight="bold" size="300">
+        <Text size="300" weight="bold">
           Campaign paused
         </Text>
       </Flex>

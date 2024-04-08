@@ -63,9 +63,9 @@ export default function Letterbox({
   const offsetLeft = (contentWidth - width) / -2;
 
   return (
-    <Mask width={width} height={height}>
+    <Mask height={height} width={width}>
       <div style={{ marginTop: offsetTop, marginLeft: offsetLeft }}>
-        <Mask width={contentWidth} height={contentHeight}>
+        <Mask height={contentHeight} width={contentWidth}>
           {children}
         </Mask>
       </div>

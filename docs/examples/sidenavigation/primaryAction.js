@@ -6,21 +6,21 @@ export default function Example(): ReactNode {
   const [mobile, setMobile] = useState(false);
 
   return (
-    <Box color="lightWash" padding={4} height="100%">
+    <Box color="lightWash" height="100%" padding={4}>
       <Flex gap={12}>
-        <Button text="View mobile" onClick={() => setMobile(true)} color="red" />
+        <Button color="red" onClick={() => setMobile(true)} text="View mobile" />
         <DeviceTypeProvider deviceType={mobile ? 'mobile' : 'desktop'}>
-          <Box position={mobile ? 'absolute' : undefined} top bottom left right id="sidenavigation">
+          <Box bottom id="sidenavigation" left position={mobile ? 'absolute' : undefined} right top>
             <SideNavigation
               accessibilityLabel="Notification example"
               dismissButton={{ onDismiss: () => setMobile((value) => !value) }}
             >
               <SideNavigation.TopItem
                 href="#"
+                label="Campaign z-168i"
                 onClick={({ event }) => {
                   event.preventDefault();
                 }}
-                label="Campaign z-168i"
                 primaryAction={{
                   icon: 'edit',
                   onClick: ({ event }) => {
@@ -31,10 +31,10 @@ export default function Example(): ReactNode {
               />
               <SideNavigation.TopItem
                 href="#"
+                label="Campaign a-j6ki (inactive)"
                 onClick={({ event }) => {
                   event.preventDefault();
                 }}
-                label="Campaign a-j6ki (inactive)"
                 primaryAction={{
                   icon: 'trash-can',
                   onClick: ({ event }) => {
@@ -44,8 +44,8 @@ export default function Example(): ReactNode {
                 }}
               />
               <SideNavigation.Group
-                label="Campaign drafts"
                 counter={{ number: '12', accessibilityLabel: '12 campaign drafts' }}
+                label="Campaign drafts"
                 primaryAction={{
                   onClick: ({ event }) => {
                     event.preventDefault();
@@ -54,13 +54,13 @@ export default function Example(): ReactNode {
                   dropdownItems: [
                     <Dropdown.Item
                       key="edit"
-                      option={{ value: 'Edit', label: 'Edit' }}
                       onSelect={() => {}}
+                      option={{ value: 'Edit', label: 'Edit' }}
                     />,
                     <Dropdown.Item
                       key="trash"
-                      option={{ value: 'Delete', label: 'Delete' }}
                       onSelect={() => {}}
+                      option={{ value: 'Delete', label: 'Delete' }}
                     />,
                   ],
                 }}
@@ -71,19 +71,20 @@ export default function Example(): ReactNode {
                     accessibilityLabel: 'You have 10 messages in your inbox',
                   }}
                   href="#"
-                  onClick={({ event }) => event.preventDefault()}
                   label="West Coast"
+                  onClick={({ event }) => event.preventDefault()}
                 />
                 <SideNavigation.NestedItem
                   href="#"
-                  onClick={({ event }) => event.preventDefault()}
                   label="East Coast"
+                  onClick={({ event }) => event.preventDefault()}
                 />
               </SideNavigation.Group>
               <SideNavigation.TopItem
+                counter={{ number: '87', accessibilityLabel: '87 archived campaings' }}
                 href="#"
-                onClick={({ event }) => event.preventDefault()}
                 label="Archived campaigns"
+                onClick={({ event }) => event.preventDefault()}
                 primaryAction={{
                   onClick: ({ event }) => {
                     event.preventDefault();
@@ -92,17 +93,16 @@ export default function Example(): ReactNode {
                   dropdownItems: [
                     <Dropdown.Item
                       key="edit"
-                      option={{ value: 'Edit', label: 'Edit' }}
                       onSelect={() => {}}
+                      option={{ value: 'Edit', label: 'Edit' }}
                     />,
                     <Dropdown.Item
                       key="trash"
-                      option={{ value: 'Delete', label: 'Delete' }}
                       onSelect={() => {}}
+                      option={{ value: 'Delete', label: 'Delete' }}
                     />,
                   ],
                 }}
-                counter={{ number: '87', accessibilityLabel: '87 archived campaings' }}
               />
             </SideNavigation>
           </Box>

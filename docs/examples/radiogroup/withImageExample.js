@@ -6,64 +6,64 @@ export default function RadioButtonExample(): ReactNode {
   const [artPreference, setArtPreference] = useState('');
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <RadioGroup legend="Pick a placeholder image" id="imageExample">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <RadioGroup id="imageExample" legend="Pick a placeholder image">
         <RadioGroup.RadioButton
           checked={artPreference === 'coral'}
-          id="coral"
-          label="Coral"
           helperText="Botanical art in coral and green"
+          id="coral"
           image={
             <Box height={100} width={80}>
               <Image
                 alt="Botanical art in coral and green"
-                src="https://i.ibb.co/7bQQYkX/stock2.jpg"
                 fit="cover"
-                naturalWidth={1}
                 naturalHeight={1}
+                naturalWidth={1}
+                src="https://i.ibb.co/7bQQYkX/stock2.jpg"
               />
             </Box>
           }
+          label="Coral"
           name="Art Preference"
           onChange={() => setArtPreference('coral')}
           value="coral"
         />
         <RadioGroup.RadioButton
           checked={artPreference === 'blue'}
-          id="blue"
-          label="Blue"
           helperText="Typography and shoe in blue"
+          id="blue"
           image={
             <Box height={100} width={80}>
               <Image
                 alt="Typography and shoe in blue"
-                src="https://i.ibb.co/jVR29XV/stock5.jpg"
                 fit="cover"
-                naturalWidth={1}
                 naturalHeight={1}
+                naturalWidth={1}
+                src="https://i.ibb.co/jVR29XV/stock5.jpg"
               />
             </Box>
           }
+          label="Blue"
           name="Art Preference"
           onChange={() => setArtPreference('blue')}
           value="blue"
         />
         <RadioGroup.RadioButton
           checked={artPreference === 'green'}
-          id="green"
-          label="Green"
           helperText="Abstract art in green"
+          id="green"
           image={
             <Box height={100} width={80}>
               <Image
                 alt="Abstract art in green"
-                src="https://i.ibb.co/FY2MKr5/stock6.jpg"
                 fit="cover"
-                naturalWidth={1}
                 naturalHeight={1}
+                naturalWidth={1}
+                src="https://i.ibb.co/FY2MKr5/stock6.jpg"
               />
             </Box>
           }
+          label="Green"
           name="Art Preference"
           onChange={() => setArtPreference('green')}
           value="green"

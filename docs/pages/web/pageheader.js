@@ -35,16 +35,16 @@ export default function PageHeaderPage({
   return (
     <Page title={generatedDocGen?.displayName}>
       <DocsPageHeader
-        name={generatedDocGen?.displayName}
         description={generatedDocGen?.description}
+        name={generatedDocGen?.displayName}
         pdocsLink
       >
         <SandpackExample
           code={defaultExample}
-          name="PageHeader Example"
-          layout="column"
-          previewHeight={85}
           hideEditor
+          layout="column"
+          name="PageHeader Example"
+          previewHeight={85}
         />
       </DocsPageHeader>
 
@@ -54,22 +54,22 @@ export default function PageHeaderPage({
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
 - To inform a user about the overall content of a page
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
 - As a header for an overlay surface like a Modal, Popover or OverlayPanel
 - As page navigation
 - As a title for sections inside of a page—there should only be one page header on a page
 - As a toolbar
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -78,129 +78,128 @@ export default function PageHeaderPage({
         <MainSection.Subsection>
           <MainSection.Card
             cardSize="lg"
-            type="do"
             description="Use only one primary action style in PageHeader. This should also be the only primary action on the page."
             sandpackExample={
               <SandpackExample
                 code={onePrimaryActionExample}
+                hideEditor
                 layout="column"
                 name="PageHeader one primary action example"
                 previewHeight={80}
-                hideEditor
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="lg"
-            type="don't"
             description="Use more than one primary action style in PageHeader, or include a primary action when there’s already a primary action elsewhere on the page. If there's already a primary action elsewhere on the page, PageHeader can have 1 or 2 secondary actions."
             sandpackExample={
               <SandpackExample
                 code={multiplePrimaryActionsExample}
+                hideControls
+                hideEditor
                 layout="column"
                 name="PageHeader one primary action example"
-                hideEditor
-                hideControls
                 previewHeight={320}
               />
             }
+            type="don't"
           />
           <MainSection.Card
             cardSize="lg"
-            type="do"
             description={`
 Plan for most PageHeaders to be full width. A \`maxWidth\` should only be supplied when the content of the page is center aligned. The PageHeader’s padding should match the page’s overall padding.
         `}
             sandpackExample={
               <SandpackExample
                 code={centerAlignedExample}
+                hideEditor
                 layout="column"
                 name="PageHeader center aligned example"
-                hideEditor
                 previewHeight={420}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="lg"
-            type="don't"
             description={`Provide \`maxWidth\` for PageHeader content that is different from the page content`}
             sandpackExample={
               <SandpackExample
                 code={maxWidthExample}
+                hideControls
+                hideEditor
                 layout="column"
                 name="PageHeader max width example"
-                hideEditor
-                hideControls
                 previewHeight={420}
               />
             }
+            type="don't"
           />
           <MainSection.Card
             cardSize="lg"
-            type="do"
             description="Include an image when unique to the page content, such as a page dedicated to a developer’s apps"
             sandpackExample={
               <SandpackExample
                 code={includeImageExample}
+                hideEditor
                 layout="column"
                 name="PageHeader include image example"
                 previewHeight={80}
-                hideEditor
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="lg"
-            type="don't"
             description="Include a profile avatar image in PageHeader, as the user avatar should be provided in the main app navigation"
             sandpackExample={
               <SandpackExample
                 code={includeProfilePictureExample}
+                hideControls
+                hideEditor
                 layout="column"
                 name="PageHeader include image example"
                 previewHeight={80}
-                hideEditor
-                hideControls
               />
             }
+            type="don't"
           />
           <MainSection.Card
             cardSize="lg"
-            type="do"
             description={`
 Keep additional help buttons and links to a minimum, choosing one source of help per PageHeader`}
             sandpackExample={
               <SandpackExample
                 code={minimumButtonsExample}
+                hideEditor
                 layout="column"
                 name="PageHeader minimum buttons example"
-                hideEditor
                 previewHeight={200}
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="lg"
-            type="don't"
             description={`Overload PageHeader with a help IconButton, help Link and info Tooltips. Too many sources of help on the page may confuse users. If there are multiple items to explain, use the help IconButton to open an [OverlayPanel](/web/overlaypanel) with further help. If you want to lead users to external documentation, add a help Link with the \`helperLink\` prop.`}
             sandpackExample={
               <SandpackExample
                 code={dontOverloadExample}
+                hideControls
+                hideEditor
                 layout="column"
                 name="PageHeader do not overload example"
-                hideEditor
-                hideControls
                 previewHeight={200}
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
 
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
-          title="Labels"
           description={`
 PageHeader has built-in components that require accessibility labels.
 - [Dropdown](/web/dropdown) (displayed in small screens) requires \`dropdownAccessibilityLabel\`
@@ -209,14 +208,15 @@ PageHeader has built-in components that require accessibility labels.
 
 Follow the accessibility guidelines for any other Gestalt component passed to \`primaryaction\`, \`secondaryAction\` or \`items\`.
 `}
+          title="Labels"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={defaultExample}
-                name="Accessibility example"
                 layout="column"
+                name="Accessibility example"
                 previewHeight={85}
               />
             }
@@ -225,20 +225,20 @@ Follow the accessibility guidelines for any other Gestalt component passed to \`
       </AccessibilitySection>
 
       <LocalizationSection
-        name={generatedDocGen?.displayName}
-        noDefaultLabelProvider
         code={localizationExample}
         layout="column"
+        name={generatedDocGen?.displayName}
+        noDefaultLabelProvider
       />
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Title"
           description={`PageHeader's \`title\` is the main part of the component as it represents the page's main heading (it will always be a level 1 heading).
 
 It can be complemented with three additional elements: a thumbnail (left) and a badge and/or a help Icon (right). The badge style can be changed through [type](/web/badge#Type) option of \`badge\` prop.
 
 Don't forget to localize its content.`}
+          title="Title"
         >
           <MainSection.Card
             cardSize="lg"
@@ -254,7 +254,6 @@ Don't forget to localize its content.`}
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Primary action"
           description={`PageHeader supports an optional \`primaryAction\`. It can be a [Button](/web/button), a [Link](/web/link) or an [IconButton](/web/iconbutton) with a [Tooltip](/web/tooltip) and optional [Dropdown](/web/dropdown). Any Buttons or IconButtons should be \`size="lg"\`.
 
 If there's already a primary action elsewhere on the page, PageHeader can have 1 or 2 secondary actions. Use \`primaryAction\` as an additional secondary action.
@@ -265,6 +264,7 @@ For example, Button should be complemented with [Dropdown.Item](/web/dropdown#Dr
 
 Resize your window to observe how the PageHeaders below adapt to smaller screen widths.
 `}
+          title="Primary action"
         >
           <MainSection.Card
             cardSize="lg"
@@ -279,7 +279,6 @@ Resize your window to observe how the PageHeaders below adapt to smaller screen 
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Secondary action"
           description={`PageHeader also supports an optional \`secondaryAction\`. It will likely be a [Button](/web/button) or an [IconButton](/web/iconbutton) with a [Tooltip](/web/tooltip) and optional [Dropdown](/web/dropdown). Any Buttons or IconButtons should be \`size="lg"\`.
 
 Primary and secondary actions are consolidated into [Dropdown](/web/dropdown) below the [sm breakpoint](/foundations/screen_sizes#Web-(px)). \`secondaryAction\` takes both the main component and its equivalent using Dropdown subcomponents.
@@ -289,6 +288,7 @@ For example, Button should be complemented with [Dropdown.Item](/web/dropdown#Dr
 Resize your window to observe how the PageHeaders below adapt to smaller screen widths.
 
           `}
+          title="Secondary action"
         >
           <MainSection.Card
             cardSize="lg"
@@ -303,8 +303,8 @@ Resize your window to observe how the PageHeaders below adapt to smaller screen 
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Complementary items"
           description={`PageHeader supports an optional pair of components next to the CTA section. It's strongly recommended to limit this space to data display components, mostly [Datapoint](/web/datapoint). The complementary component section is hidden in small breakpoints.`}
+          title="Complementary items"
         >
           <MainSection.Card
             cardSize="lg"
@@ -335,10 +335,10 @@ Resize your window to observe how the PageHeaders below adapt to smaller screen 
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Max width & border"
           description={` A \`maxWidth\` should only be supplied when the content of the page is center aligned. The PageHeader’s padding should match the page’s overall padding.
 
 PageHeader also supports a bottom border to show the division between PageHeader and the page content below.`}
+          title="Max width & border"
         >
           <MainSection.Card
             cardSize="lg"
@@ -353,21 +353,21 @@ PageHeader also supports a bottom border to show the division between PageHeader
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="Responsive"
           columns={2}
           description={`PageHeader is responsive to different [viewport breakpoints](/foundations/screen_sizes#Web-(px)).
 
 Therefore, PageHeader’s behavior relies on the window size and requires PageHeader to be used on a full-window width to correctly respond to different breakpoints. Don’t use PageHeader right next to elements such as side-navigation bars that wouldn’t allow PageHeader to extend the full width of the window.
 
 PageHeader doesn't depend on DeviceTypeProvider to display a mobile view; instead, it adjusts to the smallest viewport breakpoint. The example below forces a mobile viewport width to render Pageheader at that particular viewport.`}
+          title="Responsive"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={responsiveExample}
-                name="PageHeader max width & border example"
                 layout="mobileRow"
+                name="PageHeader max width & border example"
               />
             }
           />
@@ -378,18 +378,18 @@ PageHeader doesn't depend on DeviceTypeProvider to display a mobile view; instea
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description={`
 - Use sentences for titles capitalizing proper names and product names, including the word “Pin”
 - Make sure page titles match the menu item that was used to navigate to the page
 - Keep subtext short to account for localization and smaller screens
 `}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description={`
 - Make page titles, subtext and action text lengthy so that it truncates quickly at smaller screen sizes`}
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>

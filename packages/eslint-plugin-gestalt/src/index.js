@@ -9,6 +9,7 @@ import noMediumFormfields from './no-medium-formfields';
 import noRoleLinkComponents from './no-role-link-components';
 import noSpreadProps from './no-spread-props';
 import noWorkflowStatusIcon from './no-workflow-status-icon';
+import onlyValidTokens from './only-valid-tokens';
 import preferBoxAsTag from './prefer-box-as-tag';
 import preferBoxInlineStyle from './prefer-box-inline-style';
 import preferBoxNoClassname from './prefer-box-no-disallowed';
@@ -28,6 +29,7 @@ module.exports = {
     'no-role-link-components': noRoleLinkComponents,
     'no-spread-props': noSpreadProps,
     'no-workflow-status-icon': noWorkflowStatusIcon,
+    'only-valid-tokens': onlyValidTokens,
     'prefer-box-inline-style': preferBoxInlineStyle,
     'prefer-box-no-disallowed': preferBoxNoClassname,
     'prefer-box-as-tag': preferBoxAsTag,

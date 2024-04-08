@@ -6,8 +6,8 @@ test('SegmentedControl renders', () => {
   const tree = create(
     <SegmentedControl
       items={['News', 'You', 'Messages', <div key="dummy" />]}
-      selectedItemIndex={0}
       onChange={() => {}}
+      selectedItemIndex={0}
     />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
@@ -16,10 +16,10 @@ test('SegmentedControl renders', () => {
 test('SegmentedControl with responsive widths renders', () => {
   const tree = create(
     <SegmentedControl
-      responsive
       items={['Short', 'Really really really long title']}
-      selectedItemIndex={0}
       onChange={() => {}}
+      responsive
+      selectedItemIndex={0}
     />,
   ).toJSON();
   expect(tree).toMatchSnapshot();

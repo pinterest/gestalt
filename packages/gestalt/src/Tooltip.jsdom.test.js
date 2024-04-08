@@ -69,7 +69,7 @@ test('Tooltip should render as expected when hovered', () => {
 
 test('Tooltip renders with idealDirection', async () => {
   const { container } = render(
-    <Tooltip text="This is a tooltip" idealDirection="up">
+    <Tooltip idealDirection="up" text="This is a tooltip">
       <div>Hi</div>
     </Tooltip>,
   );

@@ -15,7 +15,7 @@ export default function Example(): ReactNode {
         },
       }}
     >
-      <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+      <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
         <TextField
           id="enter-password"
           label="Konto-Passwort"

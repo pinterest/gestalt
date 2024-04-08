@@ -86,7 +86,7 @@ export default function TableRowDrawer({
 
   return (
     <Fragment>
-      <tr aria-details={drawerContents ? id : undefined} className={rowStyle} ref={rowRef}>
+      <tr ref={rowRef} aria-details={drawerContents ? id : undefined} className={rowStyle}>
         {/* This needs to be fixed for children wrapped in React.Fragment when sticky columns are present */}
         {Number(stickyColumns) > 0 ? Children.map(children, renderCellWithAdjustedIndex) : children}
       </tr>

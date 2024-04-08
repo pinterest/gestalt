@@ -10,7 +10,7 @@ function HeaderRow({ id }: { id: string }) {
           <Box display="visuallyHidden">
             <Label htmlFor={id}>Not all checkboxes are checked</Label>
           </Box>
-          <Checkbox id={id} onChange={() => {}} indeterminate size="sm" />
+          <Checkbox id={id} indeterminate onChange={() => {}} size="sm" />
         </Table.HeaderCell>
         {['Status', 'Campaign'].map((title) => (
           <Table.HeaderCell key={title}>
@@ -30,13 +30,13 @@ function BaseRow({ id, checked, disabled, text, campaign, bold, underline, itali
     <Table.Row>
       <Table.Cell>
         <Checkbox
+          checked={checked}
+          disabled={disabled}
           id={`${id.replace(/ /g, '_').replace(/'/g, '')}_${text
             .replace(/ /g, '_')
             .replace(/'/g, '')}`}
           onChange={() => {}}
-          disabled={disabled}
           size="sm"
-          checked={checked}
         />
       </Table.Cell>
       <Table.Cell>
@@ -46,9 +46,9 @@ function BaseRow({ id, checked, disabled, text, campaign, bold, underline, itali
             .replace(/'/g, '')}`}
         >
           <Text
-            weight={bold ? 'bold' : 'normal'}
-            underline={underline ? true : undefined}
             italic={italic ? true : undefined}
+            underline={underline ? true : undefined}
+            weight={bold ? 'bold' : 'normal'}
           >
             {text}
           </Text>
@@ -68,38 +68,38 @@ export default function Example(): ReactNode {
     <Table accessibilityLabel={tableID}>
       <HeaderRow id={tableID} />
       <Table.Body>
-        <BaseRow id={tableID} checked text="The best ad" campaign="Engagement" color="red" />
+        <BaseRow campaign="Engagement" checked color="red" id={tableID} text="The best ad" />
         <BaseRow
-          id={tableID}
-          disabled
           bold
-          text="This ad is great"
           campaign="Awareness"
           color="blue"
+          disabled
+          id={tableID}
+          text="This ad is great"
         />
         <BaseRow
-          id={tableID}
-          checked
           bold
+          campaign="Catalogs"
+          checked
+          color="red"
+          id={tableID}
           italic
           text="Mary's pincycle"
-          campaign="Catalogs"
-          color="red"
         />
         <BaseRow
-          id={tableID}
-          checked={false}
-          underline
-          text="BEST PURCHASE WINS"
           campaign="Awareness"
+          checked={false}
           color="purple"
+          id={tableID}
+          text="BEST PURCHASE WINS"
+          underline
         />
         <BaseRow
-          id={tableID}
-          checked={false}
-          text="The third campaign"
           campaign="CONVERSIONS"
+          checked={false}
           color="green"
+          id={tableID}
+          text="The third campaign"
         />
       </Table.Body>
     </Table>

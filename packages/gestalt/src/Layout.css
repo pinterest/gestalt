@@ -44,6 +44,11 @@
   overflow: auto;
 }
 
+.overflowAutoY {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 .fit {
   max-width: 100%;
 }

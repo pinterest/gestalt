@@ -1,17 +1,15 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, useColorScheme } from 'gestalt';
+import { TOKEN_COLOR_BACKGROUND_DARK } from 'gestalt-design-tokens';
 
 export default function Checkerboard(): ReactNode {
   const { colorSchemeName } = useColorScheme();
   const color =
-    colorSchemeName === 'lightMode'
-      ? 'var(--color-background-dark)'
-      : '#efefef'.replace('#', '%23');
+    colorSchemeName === 'lightMode' ? TOKEN_COLOR_BACKGROUND_DARK : '#efefef'.replace('#', '%23');
+
   return (
     <Box
-      height="100%"
-      width="100%"
       dangerouslySetInlineStyle={{
         __style: {
           backgroundImage: `
@@ -28,6 +26,8 @@ export default function Checkerboard(): ReactNode {
           backgroundSize: '16px 16px',
         },
       }}
+      height="100%"
+      width="100%"
     />
   );
 }

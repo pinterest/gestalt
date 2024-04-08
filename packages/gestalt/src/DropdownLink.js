@@ -36,6 +36,10 @@ type Props = {
    */
   dataTestId?: string,
   /**
+   * Disabled items appear inactive and cannot be interacted with.
+   */
+  disabled?: boolean,
+  /**
    * Directs users to the url when item is selected. See the [Types of items](https://gestalt.pinterest.systems/web/dropdown#Types-of-items) variant to learn more.
    */
   href: string,
@@ -68,6 +72,7 @@ export default function DropdownLink({
   badge,
   children,
   dataTestId,
+  disabled,
   href,
   _index = 0,
   isExternal,
@@ -78,18 +83,19 @@ export default function DropdownLink({
     <DropdownContextConsumer>
       {({ id, hoveredItemIndex, setHoveredItemIndex, setOptionRef }) => (
         <OptionItem
+          key={`${option.value + _index}`}
+          ref={setOptionRef}
           badge={badge}
           dataTestId={dataTestId}
+          disabled={disabled}
           hoveredItemIndex={hoveredItemIndex}
           href={href}
           id={id}
           index={_index}
           isExternal={isExternal}
-          key={`${option.value + _index}`}
           onClick={onClick}
           option={option}
           setHoveredItemIndex={setHoveredItemIndex}
-          ref={setOptionRef}
           textWeight="bold"
         >
           {children}

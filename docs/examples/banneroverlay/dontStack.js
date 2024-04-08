@@ -15,22 +15,23 @@ export default function Example(): ReactNode {
   ) : (
     <Fragment>
       <BannerOverlay
-        zIndex={new FixedZIndex(100)}
-        offset={{ top: 130, bottom: 24 }}
-        title="More to explore"
         message="Discover more ideas!"
+        offset={{ top: 130, bottom: 24 }}
         onDismiss={() => {
           setShowComponent(false);
         }}
         thumbnail={{
-          avatar: <Avatar src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" name="Keerthi" />,
+          avatar: <Avatar name="Keerthi" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" />,
         }}
+        title="More to explore"
+        zIndex={new FixedZIndex(100)}
       />
       <BannerOverlay
-        zIndex={new FixedZIndex(100)}
-        offset={{ top: 220, bottom: 114 }}
-        title="Mmmmm...tasty!"
         message="Make similar recipes!"
+        offset={{ top: 220, bottom: 114 }}
+        onDismiss={() => {
+          setShowComponent(false);
+        }}
         primaryAction={{
           role: 'button',
           onClick: () => {
@@ -38,9 +39,6 @@ export default function Example(): ReactNode {
           },
           label: 'Get the app',
           accessibilityLabel: 'Get the app',
-        }}
-        onDismiss={() => {
-          setShowComponent(false);
         }}
         thumbnail={{
           image: (
@@ -52,6 +50,8 @@ export default function Example(): ReactNode {
             />
           ),
         }}
+        title="Mmmmm...tasty!"
+        zIndex={new FixedZIndex(100)}
       />
     </Fragment>
   );

@@ -36,51 +36,51 @@ export default function Example(): ReactNode {
 
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-      <Flex gap={8} direction="column" width="90%">
-        <Flex gap={2} direction="column">
-          <Box display="flex" alignItems="center">
+      <Flex direction="column" gap={8} width="90%">
+        <Flex direction="column" gap={2}>
+          <Box alignItems="center" display="flex">
             <Box paddingX={2} WIDTH>
               <Label htmlFor="longText">
                 <Text>Show long text</Text>
               </Label>
             </Box>
             <Switch
-              onChange={() => setShowLongText(!showLongText)}
               id="longText"
+              onChange={() => setShowLongText(!showLongText)}
               switched={showLongText}
             />
           </Box>
-          <Box display="flex" alignItems="center">
+          <Box alignItems="center" display="flex">
             <Box paddingX={2}>
               <Label htmlFor="truncation">
                 <Text>Apply truncation detection</Text>
               </Label>
             </Box>
             <Switch
-              onChange={() => setApplyTruncationDetection(!applyTruncationDetection)}
               id="truncation"
+              onChange={() => setApplyTruncationDetection(!applyTruncationDetection)}
               switched={applyTruncationDetection}
             />
           </Box>
         </Flex>
         <Flex direction="column">
           <Text
-            inline
-            align="start"
-            lineClamp={2}
             ref={textRef}
+            align="start"
+            inline
+            lineClamp={2}
             title={ellipsisActive && typeof veryLongText === 'string' ? veryLongText : undefined}
           >
             {showLongText ? veryLongText : text}{' '}
             <Text inline>
-              <Link accessibilityLabel="Visit our Help Site" href="#" display="inline">
+              <Link accessibilityLabel="Visit our Help Site" display="inline" href="#">
                 Visit our Help Site
               </Link>
             </Text>
           </Text>
           {ellipsisActive && applyTruncationDetection ? (
             <Text>
-              <Link accessibilityLabel="Visit our Help Site" href="#" display="inline">
+              <Link accessibilityLabel="Visit our Help Site" display="inline" href="#">
                 Visit our Help Site
               </Link>
             </Text>

@@ -55,11 +55,10 @@ test('renders correctly with multiple items with expandedId', () => {
   const tree = renderer
     .create(
       <AccordionExpandable
-        id="uniqueTestID"
-        accessibilityExpandLabel="click to expand"
         accessibilityCollapseLabel="click to collapse"
+        accessibilityExpandLabel="click to expand"
         expandedIndex={0}
-        onExpandedChange={() => {}}
+        id="uniqueTestID"
         items={[
           {
             title: 'Title1',
@@ -78,6 +77,7 @@ test('renders correctly with multiple items with expandedId', () => {
             type: 'error',
           },
         ]}
+        onExpandedChange={() => {}}
       />,
     )
     .toJSON();

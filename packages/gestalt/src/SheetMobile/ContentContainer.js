@@ -39,23 +39,23 @@ export default function ContentContainer({ children, header, footer, padding }: 
   }, [updateShadows]);
 
   return (
-    <Box position="relative" display="flex" direction="column" width="100%">
+    <Box direction="column" display="flex" position="relative" width="100%">
       <Box
-        padding={4}
         borderStyle={showTopShadow ? 'raisedTopShadow' : undefined}
-        position="relative"
         fit
+        padding={4}
+        position="relative"
       >
         {header}
       </Box>
 
       <Box
+        ref={contentRef}
+        flex="grow"
+        onScroll={updateShadows}
+        overflow="auto"
         paddingX={padding === 'none' ? 0 : 4}
         paddingY={2}
-        flex="grow"
-        overflow="auto"
-        onScroll={updateShadows}
-        ref={contentRef}
       >
         {children}
       </Box>
@@ -63,8 +63,8 @@ export default function ContentContainer({ children, header, footer, padding }: 
       {Boolean(footer) && (
         <Box
           borderStyle={showBottomShadow ? 'raisedBottomShadow' : undefined}
-          position="relative"
           fit
+          position="relative"
         >
           <Box padding={4}>{footer}</Box>
         </Box>

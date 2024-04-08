@@ -10,5 +10,5 @@ const NonExistingProp = (
 
 const IncompatibleDefaultTapAreaProps = (
   // $FlowExpectedError[prop-missing]
-  <TapArea type="button" target="blank" />
+  <TapArea target="blank" type="button" />
 );

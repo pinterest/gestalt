@@ -7,9 +7,9 @@ describe('Datapoint', () => {
     const tree = create(
       <Datapoint
         title="Title"
-        value="1M"
         trend={{ value: 30, accessibilityLabel: 'Value change icon accessibility label' }}
         trendSentiment="good"
+        value="1M"
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -19,8 +19,8 @@ describe('Datapoint', () => {
     const tree = create(
       <Datapoint
         title="Title"
-        value="1M"
         trend={{ value: 30, accessibilityLabel: 'Value change icon accessibility label' }}
+        value="1M"
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -30,9 +30,9 @@ describe('Datapoint', () => {
     const tree = create(
       <Datapoint
         title="Title"
-        value="1M"
         tooltipText="This is a good sign"
         trend={{ value: 30, accessibilityLabel: 'Value change icon accessibility label' }}
+        value="1M"
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -41,10 +41,10 @@ describe('Datapoint', () => {
   it('renders a badge', () => {
     const tree = create(
       <Datapoint
-        title="Title"
-        value="1M"
         badge={{ text: 'Early access' }}
+        title="Title"
         trend={{ value: 30, accessibilityLabel: 'Value change icon accessibility label' }}
+        value="1M"
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();

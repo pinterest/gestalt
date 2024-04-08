@@ -4,11 +4,11 @@ import { Box, Button, Flex, Pulsar } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex alignItems="center" justifyContent="center" height="100%" width="100%" gap={4}>
+    <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
       <Box position="relative">
         <Button text="Visit" />
 
-        <Box position="absolute" top marginTop={-5} marginStart={-3}>
+        <Box marginStart={-3} marginTop={-5} position="absolute" top>
           <Pulsar size={80} />
         </Box>
       </Box>
@@ -16,7 +16,7 @@ export default function Example(): ReactNode {
       <Box position="relative">
         <Button color="red" text="Save" />
 
-        <Box position="absolute" top marginTop={-5} marginStart={-2}>
+        <Box marginStart={-2} marginTop={-5} position="absolute" top>
           <Pulsar size={78} />
         </Box>
       </Box>

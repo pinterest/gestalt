@@ -29,7 +29,7 @@ export default function Screenshot(): ReactNode {
               <Label htmlFor="2">
                 <Text>Not switched</Text>
               </Label>
-              <Switch onChange={() => {}} id="2" />
+              <Switch id="2" onChange={() => {}} />
             </Flex>
             <Flex
               direction="column"
@@ -41,7 +41,7 @@ export default function Screenshot(): ReactNode {
               <Label htmlFor="4">
                 <Text>Not switched, disabled</Text>
               </Label>
-              <Switch onChange={() => {}} id="4" disabled />
+              <Switch disabled id="4" onChange={() => {}} />
             </Flex>
           </Flex>
           <Flex
@@ -60,7 +60,7 @@ export default function Screenshot(): ReactNode {
               <Label htmlFor="1">
                 <Text>Switched</Text>
               </Label>
-              <Switch onChange={() => {}} id="1" switched />
+              <Switch id="1" onChange={() => {}} switched />
             </Flex>
             <Flex
               direction="column"
@@ -72,7 +72,7 @@ export default function Screenshot(): ReactNode {
               <Label htmlFor="3">
                 <Text>Switched, disabled</Text>
               </Label>
-              <Switch onChange={() => {}} id="3" switched disabled />
+              <Switch disabled id="3" onChange={() => {}} switched />
             </Flex>
           </Flex>
         </Flex>

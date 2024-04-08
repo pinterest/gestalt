@@ -12,89 +12,89 @@ export default function Example(): ReactNode {
           accessibilityControls="sidenav"
           accessibilityLabel={`Toggle to ${deviceType === 'desktop' ? 'mobile' : 'desktop'} view`}
           color="red"
-          text={`Toggle to ${deviceType === 'desktop' ? 'mobile' : 'desktop'} view`}
-          size="lg"
           onClick={() => setDeviceType((value) => (value === 'desktop' ? 'mobile' : 'desktop'))}
+          size="lg"
+          text={`Toggle to ${deviceType === 'desktop' ? 'mobile' : 'desktop'} view`}
         />
       </Box>
       <Flex.Item flex="grow">
         <DeviceTypeProvider deviceType={deviceType}>
           <Box
-            display="flex"
             alignItems="center"
-            justifyContent="center"
             color="secondary"
+            display="flex"
             height={500}
+            justifyContent="center"
           >
-            <Box height={450} width={280} color="default" id="sidenav">
+            <Box color="default" height={450} id="sidenav" width={280}>
               <SideNavigation
-                mobileTitle="Advertisement"
                 accessibilityLabel="Mobile device example"
                 dismissButton={{
                   onDismiss: () => {},
                   accessibilityLabel: 'Close navigation',
                 }}
+                mobileTitle="Advertisement"
               >
                 <SideNavigation.TopItem
                   href="#"
-                  onClick={({ event }) => event.preventDefault()}
-                  label="Reporting"
                   icon="ads-stats"
+                  label="Reporting"
+                  onClick={({ event }) => event.preventDefault()}
                 />
                 <SideNavigation.TopItem
                   href="#"
-                  onClick={({ event }) => event.preventDefault()}
-                  label="Conversions"
                   icon="replace"
+                  label="Conversions"
+                  onClick={({ event }) => event.preventDefault()}
                 />
                 <SideNavigation.Section label="Audiences">
                   <SideNavigation.TopItem
                     href="#"
-                    onClick={({ event }) => event.preventDefault()}
-                    label="Thanksgiving"
                     icon="people"
+                    label="Thanksgiving"
+                    onClick={({ event }) => event.preventDefault()}
                   />
-                  <SideNavigation.Group label="Christmas" icon="people">
+                  <SideNavigation.Group icon="people" label="Christmas">
                     <SideNavigation.NestedItem
                       href="#"
-                      onClick={({ event }) => event.preventDefault()}
                       label="Luxury Christmas"
+                      onClick={({ event }) => event.preventDefault()}
                     />
                     <SideNavigation.NestedGroup label="Classic Christmas">
                       <SideNavigation.NestedItem
                         href="#"
-                        onClick={({ event }) => event.preventDefault()}
                         label="West Coast"
+                        onClick={({ event }) => event.preventDefault()}
                       />
                       <SideNavigation.NestedItem
                         href="#"
-                        onClick={({ event }) => event.preventDefault()}
                         label="East Coast"
+                        onClick={({ event }) => event.preventDefault()}
                       />
                     </SideNavigation.NestedGroup>
                     <SideNavigation.NestedGroup label="Alternative Christmas">
                       <SideNavigation.NestedItem
                         href="#"
-                        onClick={({ event }) => event.preventDefault()}
                         label="West Coast"
+                        onClick={({ event }) => event.preventDefault()}
                       />
                       <SideNavigation.NestedItem
                         href="#"
-                        onClick={({ event }) => event.preventDefault()}
                         label="East Coast"
+                        onClick={({ event }) => event.preventDefault()}
                       />
                     </SideNavigation.NestedGroup>
                   </SideNavigation.Group>
-                  <SideNavigation.Group label="Halloween" icon="people" display="static">
+                  <SideNavigation.Group display="static" icon="people" label="Halloween">
                     <SideNavigation.NestedItem
                       href="#"
-                      onClick={({ event }) => event.preventDefault()}
                       label="East Coast"
+                      onClick={({ event }) => event.preventDefault()}
                     />
                     <SideNavigation.NestedItem
                       href="#"
-                      onClick={({ event }) => event.preventDefault()}
                       label="West Coast"
+                      onClick={({ event }) => event.preventDefault()}
                     />
                   </SideNavigation.Group>
                 </SideNavigation.Section>

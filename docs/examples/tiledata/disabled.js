@@ -4,13 +4,13 @@ import { Flex, TileData } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex justifyContent="center" alignItems="center" width="100%" height="100%">
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <TileData
-        tooltip={{ text: 'Weekly Active Users' }}
-        title="WAU"
-        value="1.25M"
         disabled
+        title="WAU"
+        tooltip={{ text: 'Weekly Active Users' }}
         trend={{ value: 20, accessibilityLabel: 'Trending up' }}
+        value="1.25M"
       />
     </Flex>
   );

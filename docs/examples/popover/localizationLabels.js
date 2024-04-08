@@ -20,13 +20,13 @@ export default function Example(): ReactNode {
       }}
     >
       <Flex height="100%" width="100%">
-        <Box width="100%" display="flex" alignItems="start" justifyContent="center" padding={2}>
+        <Box alignItems="start" display="flex" justifyContent="center" padding={2} width="100%">
           <Button
+            ref={anchorRef}
             color="red"
+            onClick={() => setOpen((value) => !value)}
             size="lg"
             text="Sparen"
-            ref={anchorRef}
-            onClick={() => setOpen((value) => !value)}
           />
         </Box>
         {open && (
@@ -37,15 +37,15 @@ export default function Example(): ReactNode {
               idealDirection="down"
               onDismiss={() => setOpen(false)}
               positionRelativeToAnchor
-              size={240}
               showDismissButton
+              size={240}
             >
               <Box
-                height={200}
-                width={240}
-                display="flex"
                 alignItems="center"
+                display="flex"
+                height={200}
                 justifyContent="center"
+                width={240}
               >
                 <Text align="center">Inhalt</Text>
               </Box>

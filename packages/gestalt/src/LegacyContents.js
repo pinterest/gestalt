@@ -23,6 +23,7 @@ import {
   getContainerNode,
   getPopoverDir,
 } from './utils/positioningUtils';
+import { type Indexable } from './zIndex';
 
 export type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 
@@ -45,6 +46,7 @@ type OwnProps = {
   triggerRect: ?ClientRect,
   width: ?number,
   __dangerouslyIgnoreScrollBoundaryContainerSize?: boolean,
+  zIndex?: Indexable,
 };
 
 type HookProps = {
@@ -237,8 +239,18 @@ class LegacyContents extends Component<Props, State> {
   }
 
   render(): ReactNode {
-    const { accessibilityLabel, bgColor, border, caret, children, id, role, rounding, width } =
-      this.props;
+    const {
+      accessibilityLabel,
+      bgColor,
+      border,
+      caret,
+      children,
+      id,
+      role,
+      rounding,
+      width,
+      zIndex,
+    } = this.props;
     const { caretOffset, popoverOffset, popoverDir } = this.state;
 
     // Needed to prevent UI thrashing
@@ -252,6 +264,7 @@ class LegacyContents extends Component<Props, State> {
 
     return (
       <div
+        ref={this.setPopoverRef}
         className={classnames(
           styles.container,
           rounding === 2 && borders.rounding2,
@@ -260,10 +273,15 @@ class LegacyContents extends Component<Props, State> {
           styles.maxDimensions,
           width !== null && styles.minDimensions,
         )}
-        ref={this.setPopoverRef}
-        tabIndex={-1}
         // popoverOffset positions the Popover component
-        style={{ visibility, ...popoverOffset, ...topValue }}
+        style={{
+          zIndex: zIndex ? zIndex?.index() : undefined,
+          visibility,
+          ...popoverOffset,
+          ...topValue,
+        }}
+        // popoverOffset positions the Popover component
+        tabIndex={-1}
       >
         {caret && popoverDir && (
           <div
@@ -287,8 +305,6 @@ class LegacyContents extends Component<Props, State> {
         )}
         <div
           aria-label={accessibilityLabel}
-          id={id}
-          role={role}
           className={classnames(
             border && styles.border,
             rounding === 2 && borders.rounding2,
@@ -302,6 +318,8 @@ class LegacyContents extends Component<Props, State> {
               [styles.education]: bgColor === 'blue',
             },
           )}
+          id={id}
+          role={role}
           style={{ maxWidth: width, maxHeight: height }}
         >
           {children}

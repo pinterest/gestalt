@@ -4,7 +4,7 @@ import { Box, Flex, Status, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex alignItems="end" direction="column" gap={{ column: 1, row: 0 }}>
         <Status title="This item has a problem" type="problem" />
         <Text align="center" weight="bold">

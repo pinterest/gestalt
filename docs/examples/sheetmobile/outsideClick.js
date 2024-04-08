@@ -21,8 +21,8 @@ export default function Example(): ReactNode {
       {showComponent ? (
         <Layer zIndex={ABOVE_PAGE_HEADER_ZINDEX}>
           <SheetMobile
-            heading="Heading"
             closeOnOutsideClick={false}
+            heading="Heading"
             onDismiss={() => setShowComponent(false)}
           >
             <Text>Content</Text>
@@ -33,9 +33,9 @@ export default function Example(): ReactNode {
         <Button
           accessibilityLabel="Show SheetMobile"
           color="red"
-          text="Show SheetMobile"
-          size="lg"
           onClick={() => setShowComponent(true)}
+          size="lg"
+          text="Show SheetMobile"
         />
       </Box>
     </DeviceTypeProvider>

@@ -24,16 +24,6 @@ describe('<Toast />', () => {
   test('Text + Image', () => {
     const tree = create(
       <Toast
-        thumbnail={{
-          image: (
-            <Image
-              alt=""
-              naturalHeight={1}
-              naturalWidth={1}
-              src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
-            />
-          ),
-        }}
         text={
           <Text inline weight="bold">
             Saved to{' '}
@@ -46,6 +36,16 @@ describe('<Toast />', () => {
             </Link>
           </Text>
         }
+        thumbnail={{
+          image: (
+            <Image
+              alt=""
+              naturalHeight={1}
+              naturalWidth={1}
+              src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
+            />
+          ),
+        }}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -54,15 +54,12 @@ describe('<Toast />', () => {
   test('Text + Image + Button', () => {
     const tree = create(
       <Toast
-        thumbnail={{
-          image: (
-            <Image
-              alt=""
-              naturalHeight={1}
-              naturalWidth={1}
-              src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
-            />
-          ),
+        primaryAction={{
+          accessibilityLabel: 'Undo undo action',
+          label: 'Undo',
+          size: 'lg',
+          role: 'button',
+          onClick: () => {},
         }}
         text={
           <Text inline weight="bold">
@@ -76,12 +73,15 @@ describe('<Toast />', () => {
             </Link>
           </Text>
         }
-        primaryAction={{
-          accessibilityLabel: 'Undo undo action',
-          label: 'Undo',
-          size: 'lg',
-          role: 'button',
-          onClick: () => {},
+        thumbnail={{
+          image: (
+            <Image
+              alt=""
+              naturalHeight={1}
+              naturalWidth={1}
+              src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
+            />
+          ),
         }}
       />,
     ).toJSON();
@@ -91,6 +91,7 @@ describe('<Toast />', () => {
   test('Text + _dangerouslySetPrimaryAction', () => {
     const tree = create(
       <Toast
+        _dangerouslySetPrimaryAction={<Button accessibilityLabel="test" size="lg" text="Undo" />}
         text={
           <Text inline weight="bold">
             Saved to{' '}
@@ -103,7 +104,6 @@ describe('<Toast />', () => {
             </Link>
           </Text>
         }
-        _dangerouslySetPrimaryAction={<Button accessibilityLabel="test" size="lg" text="Undo" />}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();

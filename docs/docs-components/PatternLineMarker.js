@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, Flex, Text, useColorScheme } from 'gestalt';
+import { TOKEN_COLOR_WHITE_MOCHIMALIST_0 } from 'gestalt-design-tokens';
 import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
 import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-light.json';
 
@@ -55,14 +56,14 @@ export default function PatternBarFill(): ReactNode {
             <Text size="300" weight="bold">
               {`${palette.name} palette`}
             </Text>
-            <Flex wrap gap={2}>
+            <Flex gap={2} wrap>
               {palette.data.map((color, idx) => (
                 <Flex key={color} direction="column" gap={2}>
                   <Box height={100} width={100}>
-                    <svg width="100" height="100" viewBox="-10 -10 20 20">
+                    <svg height="100" viewBox="-10 -10 20 20" width="100">
                       <defs>
                         <g id={`points-01-${idx}-${palette.name}`}>
-                          <rect width="8" height="8" />
+                          <rect height="8" width="8" />
                         </g>
 
                         <g id={`points-02-${idx}-${palette.name}`}>
@@ -81,11 +82,11 @@ export default function PatternBarFill(): ReactNode {
                         </g>
 
                         <g id={`points-05-${idx}-${palette.name}`}>
-                          <rect width="6" height="6" transform="rotate(45)" />
+                          <rect height="6" transform="rotate(45)" width="6" />
                         </g>
 
                         <g id={`points-06-${idx}-${palette.name}`}>
-                          <rect width="8" height="8" />
+                          <rect height="8" width="8" />
                         </g>
 
                         <g id={`points-07-${idx}-${palette.name}`}>
@@ -107,7 +108,7 @@ export default function PatternBarFill(): ReactNode {
                         </g>
 
                         <g id={`points-10-${idx}-${palette.name}`}>
-                          <rect width="6" height="6" transform="rotate(45)" />
+                          <rect height="6" transform="rotate(45)" width="6" />
                         </g>
 
                         <g id={`points-11-${idx}-${palette.name}`}>
@@ -122,16 +123,16 @@ export default function PatternBarFill(): ReactNode {
                         </g>
                       </defs>
                       <use
-                        x={0 - decalDotCoordCorrection[color].coordinate[0]}
-                        y={0 - decalDotCoordCorrection[color].coordinate[1]}
-                        href={`#points-${color}-${idx}-${palette.name}`}
                         fill={
                           decalDotCoordCorrection[color].fill === 'empty'
-                            ? 'var(--color-white-mochimalist-0)'
+                            ? TOKEN_COLOR_WHITE_MOCHIMALIST_0
                             : hexColor(color)
                         }
+                        href={`#points-${color}-${idx}-${palette.name}`}
                         stroke={hexColor(color)}
                         strokeWidth={decalDotCoordCorrection[color].stroke === 'bold' ? '6' : '1.5'}
+                        x={0 - decalDotCoordCorrection[color].coordinate[0]}
+                        y={0 - decalDotCoordCorrection[color].coordinate[1]}
                       />
                     </svg>
                   </Box>

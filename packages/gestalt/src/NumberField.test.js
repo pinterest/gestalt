@@ -17,7 +17,7 @@ describe('NumberField', () => {
 
   it('NumberField normal', () => {
     const tree = create(
-      <NumberField id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
+      <NumberField id="test" onBlur={jest.fn()} onChange={jest.fn()} onFocus={jest.fn()} />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -27,9 +27,9 @@ describe('NumberField', () => {
       <NumberField
         errorMessage="error message"
         id="test"
+        onBlur={jest.fn()}
         onChange={jest.fn()}
         onFocus={jest.fn()}
-        onBlur={jest.fn()}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -38,11 +38,11 @@ describe('NumberField', () => {
   it('NumberField with enterKeyHint', () => {
     const tree = create(
       <NumberField
-        mobileEnterKeyHint="go"
         id="test"
+        mobileEnterKeyHint="go"
+        onBlur={jest.fn()}
         onChange={jest.fn()}
         onFocus={jest.fn()}
-        onBlur={jest.fn()}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -51,11 +51,11 @@ describe('NumberField', () => {
   it('NumberField with name', () => {
     const tree = create(
       <NumberField
-        name="email"
         id="test"
+        name="email"
+        onBlur={jest.fn()}
         onChange={jest.fn()}
         onFocus={jest.fn()}
-        onBlur={jest.fn()}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -65,11 +65,11 @@ describe('NumberField', () => {
     const tree = create(
       <NumberField
         autoComplete="on"
-        name="email"
         id="test"
+        name="email"
+        onBlur={jest.fn()}
         onChange={jest.fn()}
         onFocus={jest.fn()}
-        onBlur={jest.fn()}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();

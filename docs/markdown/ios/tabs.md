@@ -40,12 +40,12 @@ fullwidth: true
     Hide or disable Tabs if that Tab is empty. Additionally, there should always be at least two tabs.
   </Group>
   <Group>
-    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/0a/78/0e/0a780ed4af7d051e3cc0858cd6f94c6b.png" alt="example of tabs scrolling horizontally"/>
+    <ImgContainer shaded src="https://i.pinimg.com/originals/0a/78/0e/0a780ed4af7d051e3cc0858cd6f94c6b.png" alt="example of tabs scrolling horizontally"/>
     <Do title="Do" />
     Allow tabs to scroll horizontally.
   </Group>
   <Group>
-    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/f4/92/6a/f4926a15c54ff1d39165a60a78d77bd6.png" alt="example of tabs with truncated labels"/>
+    <ImgContainer shaded src="https://i.pinimg.com/originals/f4/92/6a/f4926a15c54ff1d39165a60a78d77bd6.png" alt="example of tabs with truncated labels"/>
     <Dont title="Don't" />
     Truncate tabs to fit within a view.
   </Group>
@@ -87,11 +87,11 @@ This variant may be used if you have two or three tabs. Center-aligned Tabs shou
 
 <TwoCol>
   <Group>
-    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/14/9f/bb/149fbbdaea9804901a88bbadaa086814.png" alt="start aligned tabs"/>
+    <ImgContainer shaded src="https://i.pinimg.com/originals/14/9f/bb/149fbbdaea9804901a88bbadaa086814.png" alt="start aligned tabs"/>
     **Start or end aligned (Default)**
   </Group>
   <Group>
-    <ImgContainer color="gray-roboflow-100" src="https://i.pinimg.com/originals/a1/6a/d8/a16ad89fc328d3e46411c1fa2682030e.png" alt="center aligned tabs"/>
+    <ImgContainer shaded src="https://i.pinimg.com/originals/a1/6a/d8/a16ad89fc328d3e46411c1fa2682030e.png" alt="center aligned tabs"/>
     **Center aligned**
   </Group>
 </TwoCol>

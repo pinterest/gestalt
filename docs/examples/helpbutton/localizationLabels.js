@@ -12,7 +12,7 @@ export default function Example(): ReactNode {
         },
       }}
     >
-      <Flex height="100%" justifyContent="center" alignItems="center">
+      <Flex alignItems="center" height="100%" justifyContent="center">
         <HelpButton
           accessibilityLabel="Klicken Sie hier, um mehr über die Schaltfläche Hilfe zu erfahren."
           accessibilityPopoverLabel="Erweiterte Informationen über die Schaltfläche Hilfe"

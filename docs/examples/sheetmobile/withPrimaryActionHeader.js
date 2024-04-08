@@ -24,17 +24,13 @@ export default function Example(): ReactNode {
         <Layer zIndex={ABOVE_PAGE_HEADER_ZINDEX}>
           <SheetMobile
             align="center"
-            heading="Create a new personal account"
-            onDismiss={() => setShowComponent(false)}
-            showDismissButton={false}
-            primaryAction={{ accessibilityLabel: 'Next page', label: 'Next', onClick: () => {} }}
             footer={
-              <Flex justifyContent="between" gap={2}>
+              <Flex gap={2} justifyContent="between">
                 <IconButtonLink
                   accessibilityLabel="This IconButton is an example of IconButton acting as a link"
+                  href="https://www.pinterest.com"
                   icon="share"
                   target="blank"
-                  href="https://www.pinterest.com"
                   tooltip={{ text: 'Link example' }}
                 />
                 <Flex gap={2}>
@@ -42,13 +38,17 @@ export default function Example(): ReactNode {
                 </Flex>
                 <IconButtonLink
                   accessibilityLabel="This IconButton is an example of IconButton acting as a link"
+                  href="https://www.pinterest.com"
                   icon="ellipsis"
                   target="blank"
-                  href="https://www.pinterest.com"
                   tooltip={{ text: 'Link example' }}
                 />
               </Flex>
             }
+            heading="Create a new personal account"
+            onDismiss={() => setShowComponent(false)}
+            primaryAction={{ accessibilityLabel: 'Next page', label: 'Next', onClick: () => {} }}
+            showDismissButton={false}
           >
             <TextField
               autoComplete="username"
@@ -64,9 +64,9 @@ export default function Example(): ReactNode {
       <Box padding={2}>
         <Button
           color="red"
-          text="Show SheetMobile"
-          size="lg"
           onClick={() => setShowComponent(true)}
+          size="lg"
+          text="Show SheetMobile"
         />
       </Box>
     </DeviceTypeProvider>

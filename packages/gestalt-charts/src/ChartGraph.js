@@ -17,6 +17,7 @@ import {
   Tooltip,
 } from 'recharts';
 import { Box, Flex, HelpButton, TagData, TileData, useColorScheme, useDefaultLabel } from 'gestalt';
+import { TOKEN_COLOR_BORDER_CONTAINER, TOKEN_OPACITY_100 } from 'gestalt-design-tokens';
 import { ChartProvider } from './ChartGraph/ChartGraphContext';
 import EmptyBox from './ChartGraph/EmptyBox';
 import Header from './ChartGraph/Header';
@@ -441,21 +442,21 @@ function ChartGraph({
   return (
     <ChartProvider decal={visualPatternSelected}>
       <Box
-        width={isHorizontalLayout ? '100%' : undefined}
-        display="flex"
-        direction="column"
         color="default"
+        direction="column"
+        display="flex"
         padding={4}
+        width={isHorizontalLayout ? '100%' : undefined}
       >
         <Header
+          description={description}
+          helpButton={helpButton}
+          onVisualPatternChange={onVisualPatternChange}
           readyToRender={chartWidth > 0}
+          showTabularData={showTabularDataModal}
           title={title}
           titleDisplay={titleDisplay}
-          description={description}
-          onVisualPatternChange={onVisualPatternChange}
-          helpButton={helpButton}
           toggleTabularDataModal={toggleTabularDataModal}
-          showTabularData={showTabularDataModal}
         />
 
         {children ? (
@@ -464,17 +465,17 @@ function ChartGraph({
           </Box>
         ) : null}
         <div style={{ direction: 'ltr' }}>
-          <Box width="100%" height="100%" maxWidth={960}>
+          <Box height="100%" maxWidth={960} width="100%">
             <ResponsiveContainer
               debounce={150}
+              height={internalHeight}
+              minHeight={internalHeight}
+              minWidth="100%"
               onResize={(width, height) => {
                 setChartHeight(height);
                 setChartWidth(width);
               }}
-              minWidth="100%"
               width="100%"
-              minHeight={internalHeight}
-              height={internalHeight}
             >
               <ChartType
                 title={`${accessibilityLabelPrefixText}. ${accessibilityLabel}`}
@@ -491,26 +492,23 @@ function ChartGraph({
                 {/* Patterns cannot be moved into a Patterns subcomponent as Recharts doesn't recognize the wrapper component */}
                 {patterns}
                 <CartesianGrid
-                  stroke="var(--color-border-container)"
                   horizontal={isVerticalLayout ? false : undefined}
+                  stroke={TOKEN_COLOR_BORDER_CONTAINER}
                   vertical={isVerticalLayout ? undefined : false}
                 />
                 {/* Axis cannot be moved into an Axis subcomponent as Recharts doesn't recognize the wrapper component */}
                 {axisElements}
                 {renderTooltip === 'none' ? (
-                  <Tooltip isAnimationActive={false} content={<EmptyBox />} />
+                  <Tooltip content={<EmptyBox />} isAnimationActive={false} />
                 ) : (
                   <Tooltip
-                    cursor={{ fill: 'rgb(0 0 0 / var(--opacity-100))' }}
-                    isAnimationActive={false}
                     content={renderTooltip === 'auto' ? defaultTooltip : customTooltip}
+                    cursor={{ fill: `rgb(0 0 0 / ${TOKEN_OPACITY_100}` }}
+                    isAnimationActive={false}
                   />
                 )}
                 <Legend
-                  verticalAlign={legendVerticalAlign}
                   align={legendAlign}
-                  iconSize={16}
-                  iconType="square"
                   content={
                     legend === 'auto' || isVerticalBiaxialLayout || isHorizontalBiaxialLayout ? (
                       defaultLegend
@@ -518,6 +516,9 @@ function ChartGraph({
                       <EmptyBox />
                     )
                   }
+                  iconSize={16}
+                  iconType="square"
+                  verticalAlign={legendVerticalAlign}
                 />
                 {referenceAreas && referenceAreasElements}
                 {chartElements}
@@ -529,12 +530,12 @@ function ChartGraph({
       {showTabularDataModal ? (
         <TabularDataModal
           data={data}
-          title={title}
-          toggleTabularDataModal={toggleTabularDataModal}
-          tickFormatter={tickFormatter}
+          isHorizontalLayout={isHorizontalLayout}
           labelMap={labelMap}
           modalZIndex={modalZIndex}
-          isHorizontalLayout={isHorizontalLayout}
+          tickFormatter={tickFormatter}
+          title={title}
+          toggleTabularDataModal={toggleTabularDataModal}
         />
       ) : null}
     </ChartProvider>

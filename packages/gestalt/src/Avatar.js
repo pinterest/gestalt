@@ -1,5 +1,9 @@
 // @flow strict
 import { type Node as ReactNode, useState } from 'react';
+import {
+  TOKEN_COLOR_BACKGROUND_AVATAR_PLACEHOLDER,
+  TOKEN_COLOR_BORDER_AVATAR,
+} from 'gestalt-design-tokens';
 import DefaultAvatar from './Avatar/DefaultAvatar';
 import Box from './Box';
 import Icon from './Icon';
@@ -63,26 +67,26 @@ function Avatar(props: Props): ReactNode {
         ? {
             dangerouslySetInlineStyle: {
               __style: {
-                boxShadow: `0 0 0 1px var(--color-border-avatar)`,
+                boxShadow: `0 0 0 1px ${TOKEN_COLOR_BORDER_AVATAR}`,
               },
             },
           }
         : {})}
-      width={width}
+      data-test-id="gestalt-avatar-svg"
       height={height}
       position="relative"
       rounding="circle"
-      data-test-id="gestalt-avatar-svg"
+      width={width}
     >
       {src && isImageLoaded ? (
         <Mask rounding="circle" wash>
           <Image
             alt={accessibilityLabel ?? name}
-            color="var(--color-background-avatar-placeholder)"
+            color={TOKEN_COLOR_BACKGROUND_AVATAR_PLACEHOLDER}
             naturalHeight={1}
             naturalWidth={1}
-            src={src}
             onError={handleImageError}
+            src={src}
           />
         </Mask>
       ) : (
@@ -91,20 +95,20 @@ function Avatar(props: Props): ReactNode {
 
       {verified && (
         <Box
-          position="absolute"
-          width="25%"
-          height="25%"
-          minWidth={12}
-          minHeight={12}
           dangerouslySetInlineStyle={{
             __style: {
               bottom: '4%',
               right: '4%',
             },
           }}
+          height="25%"
+          minHeight={12}
+          minWidth={12}
+          position="absolute"
+          width="25%"
         >
-          <Box color="default" width="100%" height="100%" rounding="circle">
-            <Icon color="brandPrimary" icon="check-circle" accessibilityLabel="" size="100%" />
+          <Box color="default" height="100%" rounding="circle" width="100%">
+            <Icon accessibilityLabel="" color="brandPrimary" icon="check-circle" size="100%" />
           </Box>
         </Box>
       )}

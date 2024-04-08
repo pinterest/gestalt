@@ -4,7 +4,7 @@ import { BannerUpsell, Box, Icon } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <BannerUpsell
         dismissButton={{
           accessibilityLabel: 'Dismiss banner',
@@ -13,9 +13,9 @@ export default function Example(): ReactNode {
         imageData={{
           component: (
             <Icon
-              icon="workflow-status-warning"
               accessibilityLabel="Warning"
               color="default"
+              icon="workflow-status-warning"
               size={32}
             />
           ),

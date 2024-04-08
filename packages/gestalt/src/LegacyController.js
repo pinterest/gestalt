@@ -6,6 +6,7 @@ import { ESCAPE } from './keyCodes';
 import LegacyContents, { type Role } from './LegacyContents';
 import { type ClientRect, type Coordinates } from './utils/positioningTypes';
 import { getTriggerRect } from './utils/positioningUtils';
+import { type Indexable } from './zIndex';
 
 const SIZE_WIDTH_MAP = {
   xs: 180,
@@ -31,6 +32,7 @@ type OwnProps = {
   shouldFocus?: boolean,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
   __dangerouslyIgnoreScrollBoundaryContainerSize?: boolean,
+  zIndex?: Indexable,
 };
 
 type HookProps = {
@@ -135,6 +137,7 @@ class LegacyController extends Component<Props, State> {
       shouldFocus,
       size,
       __dangerouslyIgnoreScrollBoundaryContainerSize,
+      zIndex,
     } = this.props;
     const { relativeOffset, triggerBoundingRect } = this.state;
 
@@ -143,6 +146,9 @@ class LegacyController extends Component<Props, State> {
     return (
       <OutsideEventBehavior onClick={this.handlePageClick}>
         <LegacyContents
+          __dangerouslyIgnoreScrollBoundaryContainerSize={
+            __dangerouslyIgnoreScrollBoundaryContainerSize
+          }
           accessibilityLabel={accessibilityLabel}
           anchor={anchor}
           bgColor={bgColor}
@@ -159,9 +165,7 @@ class LegacyController extends Component<Props, State> {
           shouldFocus={shouldFocus}
           triggerRect={triggerBoundingRect}
           width={width}
-          __dangerouslyIgnoreScrollBoundaryContainerSize={
-            __dangerouslyIgnoreScrollBoundaryContainerSize
-          }
+          zIndex={zIndex}
         >
           {children}
         </LegacyContents>

@@ -4,60 +4,60 @@ import { Box, Flex, Pog, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex gap={4}>
-        <Flex gap={4} direction="column">
+        <Flex direction="column" gap={4}>
           <Text>bgColor=red</Text>
-          <Flex gap={2} alignItems="center">
-            <Pog icon="saved" bgColor="red" />
+          <Flex alignItems="center" gap={2}>
+            <Pog bgColor="red" icon="saved" />
           </Flex>
-          <Flex gap={2} alignItems="center">
-            <Pog icon="saved" bgColor="red" hovered /> <Text size="100">hovered</Text>
+          <Flex alignItems="center" gap={2}>
+            <Pog bgColor="red" hovered icon="saved" /> <Text size="100">hovered</Text>
           </Flex>
-          <Flex gap={2} alignItems="center">
-            <Pog icon="saved" bgColor="red" focused /> <Text size="100">focused</Text>
+          <Flex alignItems="center" gap={2}>
+            <Pog bgColor="red" focused icon="saved" /> <Text size="100">focused</Text>
           </Flex>
-          <Flex gap={2} alignItems="center">
-            <Pog icon="saved" bgColor="red" active /> <Text size="100">active</Text>
+          <Flex alignItems="center" gap={2}>
+            <Pog active bgColor="red" icon="saved" /> <Text size="100">active</Text>
           </Flex>
-          <Flex gap={2} alignItems="center">
-            <Pog icon="saved" bgColor="red" selected /> <Text size="100">selected</Text>
+          <Flex alignItems="center" gap={2}>
+            <Pog bgColor="red" icon="saved" selected /> <Text size="100">selected</Text>
           </Flex>
         </Flex>
-        <Flex gap={4} direction="column">
+        <Flex direction="column" gap={4}>
           <Text>bgColor=lightGray</Text>
-          <Flex gap={2} alignItems="center">
-            <Pog icon="visit" bgColor="lightGray" />
+          <Flex alignItems="center" gap={2}>
+            <Pog bgColor="lightGray" icon="visit" />
           </Flex>
-          <Flex gap={2} alignItems="center">
-            <Pog icon="visit" bgColor="lightGray" hovered /> <Text size="100">hovered</Text>
+          <Flex alignItems="center" gap={2}>
+            <Pog bgColor="lightGray" hovered icon="visit" /> <Text size="100">hovered</Text>
           </Flex>
-          <Flex gap={2} alignItems="center">
-            <Pog icon="visit" bgColor="lightGray" focused /> <Text size="100">focused</Text>
+          <Flex alignItems="center" gap={2}>
+            <Pog bgColor="lightGray" focused icon="visit" /> <Text size="100">focused</Text>
           </Flex>
-          <Flex gap={2} alignItems="center">
-            <Pog icon="visit" bgColor="lightGray" active /> <Text size="100">active</Text>
+          <Flex alignItems="center" gap={2}>
+            <Pog active bgColor="lightGray" icon="visit" /> <Text size="100">active</Text>
           </Flex>
-          <Flex gap={2} alignItems="center">
-            <Pog icon="visit" bgColor="lightGray" selected /> <Text size="100">selected</Text>
+          <Flex alignItems="center" gap={2}>
+            <Pog bgColor="lightGray" icon="visit" selected /> <Text size="100">selected</Text>
           </Flex>
         </Flex>
-        <Flex gap={4} direction="column">
+        <Flex direction="column" gap={4}>
           <Text>bgColor=gray</Text>
-          <Flex gap={2} alignItems="center">
-            <Pog icon="saved" bgColor="gray" />
+          <Flex alignItems="center" gap={2}>
+            <Pog bgColor="gray" icon="saved" />
           </Flex>
-          <Flex gap={2} alignItems="center">
-            <Pog icon="saved" bgColor="gray" hovered /> <Text size="100">hovered</Text>
+          <Flex alignItems="center" gap={2}>
+            <Pog bgColor="gray" hovered icon="saved" /> <Text size="100">hovered</Text>
           </Flex>
-          <Flex gap={2} alignItems="center">
-            <Pog icon="saved" bgColor="gray" focused /> <Text size="100">focused</Text>
+          <Flex alignItems="center" gap={2}>
+            <Pog bgColor="gray" focused icon="saved" /> <Text size="100">focused</Text>
           </Flex>
-          <Flex gap={2} alignItems="center">
-            <Pog icon="saved" bgColor="gray" active /> <Text size="100">active</Text>
+          <Flex alignItems="center" gap={2}>
+            <Pog active bgColor="gray" icon="saved" /> <Text size="100">active</Text>
           </Flex>
-          <Flex gap={2} alignItems="center">
-            <Pog icon="saved" bgColor="gray" selected /> <Text size="100">selected</Text>
+          <Flex alignItems="center" gap={2}>
+            <Pog bgColor="gray" icon="saved" selected /> <Text size="100">selected</Text>
           </Flex>
         </Flex>
       </Flex>

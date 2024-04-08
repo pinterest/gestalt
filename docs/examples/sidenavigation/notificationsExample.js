@@ -6,33 +6,33 @@ export default function Example(): ReactNode {
   return (
     <SideNavigation accessibilityLabel="Notification example">
       <SideNavigation.TopItem
-        href="#"
-        onClick={({ event }) => event.preventDefault()}
-        label="Notifications"
         counter={{ number: '20', accessibilityLabel: 'You have 20 notifications in your inbox' }}
+        href="#"
+        label="Notifications"
         notificationAccessibilityLabel="New notifications"
+        onClick={({ event }) => event.preventDefault()}
       />
       <SideNavigation.TopItem
-        href="#"
-        onClick={({ event }) => event.preventDefault()}
-        label="Messages"
         counter={{ number: '10', accessibilityLabel: 'You have 10 messages in your inbox' }}
+        href="#"
+        label="Messages"
         notificationAccessibilityLabel="New messages"
+        onClick={({ event }) => event.preventDefault()}
       />
       <SideNavigation.TopItem
         href="#"
-        onClick={({ event }) => event.preventDefault()}
         label="Settings"
+        onClick={({ event }) => event.preventDefault()}
       />
       <SideNavigation.TopItem
         href="#"
-        onClick={({ event }) => event.preventDefault()}
         label="Business Access"
+        onClick={({ event }) => event.preventDefault()}
       />
       <SideNavigation.TopItem
         href="#"
-        onClick={({ event }) => event.preventDefault()}
         label="Tune your home feed"
+        onClick={({ event }) => event.preventDefault()}
       />
     </SideNavigation>
   );

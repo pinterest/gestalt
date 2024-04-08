@@ -9,9 +9,9 @@ export default function Example(): ReactNode {
         <Text inline>
           To see how you can grow your business, visit{' '}
           <Link
-            href="https://business.pinterest.com/advertise"
             display="inlineBlock"
             externalLinkIcon="default"
+            href="https://business.pinterest.com/advertise"
             target="blank"
           >
             Pinterest Ads

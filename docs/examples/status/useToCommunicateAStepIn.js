@@ -4,8 +4,8 @@ import { Box, Status } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Status type="ok" accessibilityLabel="This item is ok" />
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Status accessibilityLabel="This item is ok" type="ok" />
     </Box>
   );
 }

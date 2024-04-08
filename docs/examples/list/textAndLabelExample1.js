@@ -4,7 +4,7 @@ import { Box, List, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <List
         label={
           <Text size="400" weight="bold">
@@ -16,7 +16,7 @@ export default function Example(): ReactNode {
         <List.Item
           text={
             <Text inline>
-              <Text weight="bold" inline>
+              <Text inline weight="bold">
                 Pin type settings:{' '}
               </Text>
               Pin type settings control what content Pinners can save from your page
@@ -26,7 +26,7 @@ export default function Example(): ReactNode {
         <List.Item
           text={
             <Text inline>
-              <Text weight="bold" inline>
+              <Text inline weight="bold">
                 Button style settings:{' '}
               </Text>
               Button style settings control how your button looks
@@ -36,7 +36,7 @@ export default function Example(): ReactNode {
         <List.Item
           text={
             <Text inline>
-              <Text weight="bold" inline>
+              <Text inline weight="bold">
                 Source settings:{' '}
               </Text>
               Source settings control canonical sources, including descriptions, urls and images

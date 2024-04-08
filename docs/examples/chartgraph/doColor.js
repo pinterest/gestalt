@@ -23,24 +23,22 @@ export default function Example(): ReactNode {
 
   return (
     <ChartGraph
-      title="Pin clicks over time"
       accessibilityLabel="Pin clicks over time (example)"
-      visualPatternSelected={visualPatternSelected}
-      onVisualPatternChange={() =>
-        setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
-      }
-      initialTicks={3}
-      type="line"
-      range={{
-        xAxisBottom: ['auto', 'auto'],
-      }}
-      layout="vertical"
       data={data}
       elements={[
         { type: 'line', id: 'Paid' },
         { type: 'line', id: 'Organic' },
         { type: 'line', id: 'Earned' },
       ]}
+      initialTicks={3}
+      layout="vertical"
+      modalZIndex={new FixedZIndex(11)}
+      onVisualPatternChange={() =>
+        setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
+      }
+      range={{
+        xAxisBottom: ['auto', 'auto'],
+      }}
       tickFormatter={{
         timeseries: (date) =>
           `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(
@@ -48,7 +46,9 @@ export default function Example(): ReactNode {
           )}-${new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(date)}`,
         yAxisLeft: (value) => `${value / 1000}K`,
       }}
-      modalZIndex={new FixedZIndex(11)}
+      title="Pin clicks over time"
+      type="line"
+      visualPatternSelected={visualPatternSelected}
     />
   );
 }

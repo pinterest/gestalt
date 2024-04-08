@@ -8,9 +8,10 @@ export default function Snapshot(): ReactNode {
 
   return (
     <ColorSchemeProvider colorScheme="light">
-      <Box color="default" padding={4} width={300} height={250}>
+      <Box color="default" height={250} padding={4} width={300}>
         <Flex justifyContent="center">
           <IconButton
+            ref={anchorRef}
             accessibilityControls="link-dropdown-example"
             accessibilityExpanded={open}
             accessibilityHaspopup
@@ -18,7 +19,6 @@ export default function Snapshot(): ReactNode {
             icon="arrow-down"
             iconColor="darkGray"
             onClick={() => setOpen((prevVal) => !prevVal)}
-            ref={anchorRef}
             selected={open}
             size="lg"
           />

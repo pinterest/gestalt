@@ -7,21 +7,21 @@ export default function Example(): ReactNode {
     <SideNavigation accessibilityLabel="Correct icon example">
       <SideNavigation.TopItem
         href="#"
-        onClick={({ event }) => event.preventDefault()}
-        label="Tag manager"
         icon="tag"
+        label="Tag manager"
+        onClick={({ event }) => event.preventDefault()}
       />
       <SideNavigation.TopItem
         href="#"
         icon="arrow-circle-up"
-        onClick={({ event }) => event.preventDefault()}
         label="Upload file"
+        onClick={({ event }) => event.preventDefault()}
       />
       <SideNavigation.TopItem
         href="#"
         icon="clock"
-        onClick={({ event }) => event.preventDefault()}
         label="Upload history"
+        onClick={({ event }) => event.preventDefault()}
       />
     </SideNavigation>
   );

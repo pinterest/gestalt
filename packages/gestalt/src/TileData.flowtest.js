@@ -1,12 +1,12 @@
 // @flow strict
 import TileData from './TileData';
 
-const Valid = <TileData title="Text Impressions" value="1.23M" selected onTap={() => {}} />;
+const Valid = <TileData onTap={() => {}} selected title="Text Impressions" value="1.23M" />;
 
 // $FlowExpectedError[prop-missing]
 const InvalidProps = <TileData nonexisting={33} />;
 
 const wrongColor = (
   // $FlowExpectedError[incompatible-type]
-  <TileData title="Text Impressions" color="1" value="1.23M" selected onTap={() => {}} />
+  <TileData color="1" onTap={() => {}} selected title="Text Impressions" value="1.23M" />
 );

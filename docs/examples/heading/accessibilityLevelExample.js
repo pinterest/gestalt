@@ -4,15 +4,15 @@ import { Box, Flex, Heading } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex direction="column" gap={{ column: 4, row: 0 }}>
-        <Heading size="500" accessibilityLevel={2}>
+        <Heading accessibilityLevel={2} size="500">
           Medium heading level 2
         </Heading>
-        <Heading size="400" accessibilityLevel={3}>
+        <Heading accessibilityLevel={3} size="400">
           Small heading level 3
         </Heading>
-        <Heading size="400" accessibilityLevel="none">
+        <Heading accessibilityLevel="none" size="400">
           Small heading without a level
         </Heading>
       </Flex>

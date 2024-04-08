@@ -1,12 +1,12 @@
 // @flow strict
 import Tag from './Tag';
 
-const Valid = <Tag text="New" onRemove={() => {}} accessibilityRemoveIconLabel="Remove" />;
+const Valid = <Tag accessibilityRemoveIconLabel="Remove" onRemove={() => {}} text="New" />;
 
 const ValidDisabled = <Tag disabled onRemove={() => {}} text="New" />;
 
 const ValidError = (
-  <Tag text="New" onRemove={() => {}} accessibilityRemoveIconLabel="Remove" type="error" />
+  <Tag accessibilityRemoveIconLabel="Remove" onRemove={() => {}} text="New" type="error" />
 );
 
 // $FlowExpectedError[prop-missing]

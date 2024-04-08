@@ -10,7 +10,7 @@ export default function Example(): ReactNode {
   return (
     <Box padding={2}>
       <Flex alignItems="center" direction="column" gap={4}>
-        <Button text={text} onClick={() => setIsPulsing((currVal) => !currVal)} size="md" />
+        <Button onClick={() => setIsPulsing((currVal) => !currVal)} size="md" text={text} />
 
         <Pulsar paused={!isPulsing} />
       </Flex>

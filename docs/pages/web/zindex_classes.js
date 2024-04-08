@@ -13,8 +13,8 @@ export default function DocsPage(): ReactNode {
   return (
     <Page title="Z-Index Classes">
       <PageHeader
-        name="Z-Index Classes"
         description="FixedZIndex and CompositeZIndex are utility classes that generate z-indices for Gestalt components."
+        name="Z-Index Classes"
       />
 
       <MainSection name="FixedZIndex">
@@ -58,7 +58,6 @@ const highestCompositeZIndex = new CompositeZIndex([fixedZIndex, compositeZIndex
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description={`
 Export FixedZIndex and CompositeZIndex rather than the z-index values itself.
 ~~~jsx
@@ -73,10 +72,10 @@ import { BaseZIndex } from './path/to/your/zindex/file';
 const BoxWithZIndex = <Box zIndex={BaseZIndex}/>
 ~~~
 `}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description={`
 Export constant z-index values to create FixedZIndex and CompositeZIndex.
 ~~~jsx
@@ -92,12 +91,12 @@ const BoxZIndex = new FixedZIndex(BaseZIndex);
 const BoxWithZIndex = <Box zIndex={BoxZIndex}/>
 ~~~
 `}
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description={`
 Use CompositeZIndex to compose z-indices.
 ~~~jsx
@@ -116,10 +115,10 @@ const composedZIndex = new CompositeZIndex([BaseZIndex]);
 const BoxWithZIndex = <Box zIndex={composedZIndex}/>
 ~~~
 `}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description={`
 Use FixedZIndex to manually compose z-indices.
 ~~~jsx
@@ -135,12 +134,12 @@ const composedZIndex = new FixedZIndex(BaseZIndex + 1);
 const BoxWithZIndex = <Box zIndex={composedZIndex}/>
 ~~~
 `}
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description={`
 Use the lowest possible z-index values and compose them.
 ~~~jsx
@@ -159,10 +158,10 @@ const modalZindex = new CompositeZIndex([SheetZindex]);
 const ModalWithZIndex = <Layer zIndex={modalZindex}><Modal/></Layer>
 ~~~
 `}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description={`
 Use unnecessarily high fixed z-index values.
 ~~~jsx
@@ -179,12 +178,12 @@ const modalZindex = new FixedZIndex(100000);
 const ModalWithZIndex = <Layer zIndex={modalZindex}><Modal/></Layer>
 ~~~
 `}
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description={`
 Wrap non-Gestaltifiable HTML tags in Box and pass z-index classes.
 ~~~jsx
@@ -203,10 +202,10 @@ const canvas = (
 );
 ~~~
 `}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description={`
 Extract z-index values from either z-index classes to use in non-Gestaltifiable HTML Tags. See [z-index in non-Gestalt components](#z-index-in-non-Gestalt-components) to learn more.
 ~~~jsx
@@ -224,12 +223,12 @@ const canvas = (
 );
 ~~~
 `}
+            type="don't"
           />
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="lg"
-            type="do"
             description={`
 Use Layer instead of z-index when a component needs to visually break out of its parent container, for example, in the case of [Modals](/web/modal), [OverlayPanels](/web/overlaypanel) and [Tooltips](/web/tooltip). See [Z-Index in foundational components](#zIndex-in-foundational-components) and [Z-Index in Layer](#zIndex-in-Layer) to learn more.
 ~~~jsx
@@ -242,10 +241,10 @@ const modal = (
 );
 ~~~
 `}
+            type="do"
           />
           <MainSection.Card
             cardSize="lg"
-            type="don't"
             description={`
 Use Box with high fixed z-index values to position your components at the top of the stacking context or use them redundantly with [Layer](/web/layer). See [z-Index in foundational components](#zIndex-in-foundational-components) and [ZIndex in Layer](#zIndex-in-Layer) to learn more.
 ~~~jsx
@@ -274,6 +273,7 @@ const modalB = (
 
 ~~~
 `}
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -282,28 +282,27 @@ const modalB = (
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="z-index in foundational components"
           description={`
 [Box](/web/box), [Sticky](/web/sticky), and [Layer](/web/layer) are foundational components that have \`zIndex\` props. If any other components need to be positioned within their stacking context, wrap with one of these foundational components to set the z-index.
 
 Layer creates a new stacking context. Unless there's a conflict with another z-index, don't pass unnecessary \`zIndex\` to Layer.
 
 The following example sets a z-index in the Layer wrapping [OverlayPanel](/web/overlaypanel) to position OverlayPanel over the page header in the Docs. Set \`PAGE_HEADER_ZINDEX\` below 10 to see the importance of z-index in this example.`}
+          title="z-index in foundational components"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="z-index in foundational components"
                 code={foundationalComponentsExample}
-                previewHeight={400}
                 layout="column"
+                name="z-index in foundational components"
+                previewHeight={400}
               />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="z-index in Layer"
           description={`
 [Modal](/web/modal) and [OverlayPanel](/web/overlaypanel) always require a parent [Layer](/web/layer) to position themselves outside the DOM hierarchy.
 
@@ -312,21 +311,21 @@ Components built on top of [Popover](/web/popover), such as [Tooltip](/web/toolt
 However, Modal and OverlayPanel have a built-in [ScrollBoundaryContainer](/web/utilities/scrollboundarycontainer) wrapping their children, so you shouldn’t need to pass z-index values when using Popover-based children.
 
 The following example sets a z-index in the Layer wrapping [Modal](/web/modal) to position Modal over the page header in the Docs. Thanks to ScrollBoundaryContainer, child Tooltips don't require z-index.`}
+          title="z-index in Layer"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                name="z-index in Layer"
                 code={layerExample}
-                previewHeight={400}
                 layout="column"
+                name="z-index in Layer"
+                previewHeight={400}
               />
             }
           />{' '}
         </MainSection.Subsection>
         <MainSection.Subsection
-          title="z-index in non-Gestalt components"
           description={`FixedZIndex and CompositeZIndex work with Gestalt components. To stay consistent across the codebase using Gestalt’s zIndex classes, you can extract z-index values from both FixedZIndex and CompositeZIndex in cases where the component doesn’t accept Gestalt’s z-index classes.
 
 ~~~jsx
@@ -341,6 +340,7 @@ const compositeZIndexValue = compositeZIndex.index(); // 2
 
 However, this is an escape hatch that should only be used when the source code is not accessible, such as working with a third-party library. Otherwise, a better approach is to wrap the component or HTML element that needs a z-index in a Box. See [Best Practices](#Best-practices) for more info.
 `}
+          title="z-index in non-Gestalt components"
         />
       </MainSection>
 

@@ -9,7 +9,7 @@ export default function Example(): ReactNode {
         .fill()
         .map((_, i) => (
           // eslint-disable-next-line react/no-array-index-key
-          <Column span={6} key={i}>
+          <Column key={i} span={6}>
             <Box color="secondary" padding={1}>
               <Box color="default" paddingY={2}>
                 <Text align="center">

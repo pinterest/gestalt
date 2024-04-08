@@ -101,24 +101,24 @@ function InternalList({
 
   return (
     <ListProvider
-      type={listType}
-      spacing={spacing}
       size={size}
+      spacing={spacing}
       style={
         isListParent
           ? { ol: STYLE_SEQUENCE_ORDERED, ul: STYLE_SEQUENCE_UNORDERED }
           : { ol: newInheritedStyleOl ?? [], ul: newInheritedStyleUl ?? [] }
       }
+      type={listType}
     >
       <NestingProvider componentName="List" maxNestedLevels={6}>
         {label && isListParent ? (
           <Flex direction="column">
             <Box
-              id={id}
               display={hiddenLabel ? 'visuallyHidden' : 'block'}
+              id={id}
               marginBottom={hiddenLabel ? 0 : 4}
             >
-              <ListText text={label} size={inheritedFontSize} />
+              <ListText size={inheritedFontSize} text={label} />
             </Box>
             {formattedListElement}
           </Flex>

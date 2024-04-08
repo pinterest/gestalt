@@ -97,6 +97,7 @@ const CheckboxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
 ): ReactNode {
   return (
     <InternalCheckbox
+      ref={ref}
       checked={checked}
       disabled={disabled}
       errorMessage={errorMessage}
@@ -110,7 +111,6 @@ const CheckboxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
       onChange={onChange}
       onClick={onClick}
       size={size}
-      ref={ref}
     />
   );
 });

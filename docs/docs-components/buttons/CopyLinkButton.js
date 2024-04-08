@@ -15,12 +15,12 @@ export default function CopyLinkButton({ name, onClick }: Props): ReactNode {
     <IconButton
       accessibilityLabel={`${label} to ${name}`}
       icon="link"
+      iconColor="darkGray"
       onClick={() => {
         trackButtonClick(label, name);
         onClick();
       }}
       size="xs"
-      iconColor="darkGray"
       tooltip={{ text: label, inline: true, accessibilityLabel: '' }}
     />
   );

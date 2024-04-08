@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import classnames from 'classnames';
+import { TOKEN_COLOR_BORDER_AVATAR, TOKEN_COLOR_TEXT_DEFAULT } from 'gestalt-design-tokens';
 import avatarStyles from '../AvatarGroup.css';
 import Box from '../Box';
 import styles from '../Icon.css';
@@ -19,21 +20,21 @@ function ResponsiveFitSizeBox({ children, outline }: ResponsiveFitSizeBoxProps):
         __style: {
           // When specifying a padding by percentage, it's always based on the width of the parent container so we get a property that's equal to the width.s
           paddingBottom: '100%',
-          boxShadow: outline ? '0 0 0 1px var(--color-border-avatar)' : undefined,
+          boxShadow: outline ? `0 0 0 1px ${TOKEN_COLOR_BORDER_AVATAR}` : undefined,
         },
       }}
       position="relative"
       rounding="circle"
     >
       <Box
-        position="absolute"
-        // top left bottom right constrains the circle to the exact dimensions of the responsive parent square
-        top
-        left
         bottom
-        right
+        // top left bottom right constrains the circle to the exact dimensions of the responsive parent square
         display="flex"
         justifyContent="center"
+        left
+        position="absolute"
+        right
+        top
       >
         {children}
       </Box>
@@ -66,24 +67,24 @@ export default function AvatarFoundation({
     <ResponsiveFitSizeBox outline={outline}>
       {content === 'text' ? (
         <svg
-          width="100%"
-          viewBox="-50 -50 100 100"
-          version="1.1"
           preserveAspectRatio="xMidYMid meet"
+          version="1.1"
+          viewBox="-50 -50 100 100"
+          width="100%"
           xmlns="http://www.w3.org/2000/svg"
         >
           {title ? <title>{title}</title> : null}
           <text
-            fontSize={fontSize}
-            fill="var(--color-text-default)"
-            dy="0.35em"
-            textAnchor={textAnchor}
             className={[
               typography.antialiased,
               typography.sansSerif,
               typography.fontWeightSemiBold,
               translate && avatarStyles[translate], // if addCollaborator button is present, translateX moves numbers closer to the edge
             ].join(' ')}
+            dy="0.35em"
+            fill={TOKEN_COLOR_TEXT_DEFAULT}
+            fontSize={fontSize}
+            textAnchor={textAnchor}
           >
             {children}
           </text>
@@ -92,11 +93,11 @@ export default function AvatarFoundation({
       {content === 'icon' ? (
         <svg
           className={cs}
-          width={`${ICON_SIZE_RATIO}%`} // percentual width to the parent container, reduces icon to 20px on a 48px parent container and keeps proportions upon resizing
-          viewBox="0 0 24 24" // full icon size
-          role="img"
+          preserveAspectRatio="xMidYMid meet" // percentual width to the parent container, reduces icon to 20px on a 48px parent container and keeps proportions upon resizing
+          role="img" // full icon size
           version="1.1"
-          preserveAspectRatio="xMidYMid meet"
+          viewBox="0 0 24 24"
+          width={`${ICON_SIZE_RATIO}%`}
           xmlns="http://www.w3.org/2000/svg"
         >
           <title>Icon</title>

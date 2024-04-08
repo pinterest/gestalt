@@ -33,32 +33,31 @@ export default function TypographyPage(): ReactNode {
   return (
     <Page title="Typography">
       <PageHeader
-        name="Typography"
         description={`Our typographic system creates a content hierarchy that is scannable and efficient.
     `}
+        name="Typography"
         type="guidelines"
       />
 
       <MainSection name="Principles">
         <MainSection.Subsection
-          title="Speedy"
           description={`Native system font families are used so that products load quickly and can be read efficiently across all devices.
 `}
+          title="Speedy"
         />
         <MainSection.Subsection
-          title="Inclusive"
           description={`We stick to standard line-spacing defaults or percentages to ensure text can be read regardless of a user’s preferred language or font size.
 `}
+          title="Inclusive"
         />
         <MainSection.Subsection
-          title="Minimal"
           description={`Gestalt uses a limited number of weights and sizes to keep our interfaces focusedon our customers’ rich content.
 `}
+          title="Minimal"
         />
       </MainSection>
 
       <MainSection
-        name="Typography components"
         description={`
 We have several React components that use typography as the primary element.
 
@@ -66,23 +65,24 @@ We have several React components that use typography as the primary element.
 - [Heading](/web/heading): Used for [semantic headings](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements) on a surface.
 - [Link](/web/link): For both inline and standalone hyperlinks.
 `}
+        name="Typography components"
       />
 
       <MainSection name="Font families">
         <MainSection.Subsection
-          title="Product"
           description="For our product interfaces, we default to *system fonts*. See our [font family design tokens](/foundations/design_tokens/overview#Font-family) for more information."
+          title="Product"
         />
         <MainSection.Subsection
-          title="Brand"
           description="Our custom typeface, Pinterest Sans, can be used occasionally for branded graphics in our products, but never for UI. For more info, consult our [brand guidelines](https://brand.pinterest.com/typography)."
+          title="Brand"
         />
       </MainSection>
 
       <MainSection name="Scale">
         <MainSection.Subsection
-          title="Font sizes"
           description="In order to keep our content hierarchy clean and simple, we have a limited number of font sizes. These should cover all current use cases for minimal product UI, where our customers’ content is the primary focus of a surface or page."
+          title="Font sizes"
         >
           <Table accessibilityLabel="Font sizes">
             <Table.Header>
@@ -162,10 +162,10 @@ We have several React components that use typography as the primary element.
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Line length"
           description="For long-form, multi-line paragraphs set at our default font size, use a maximum width of 664 to allow for a max of about 90 characters. Otherwise, it can get hard for users to scan and read text."
+          title="Line length"
         >
-          <Box width="100%" color="infoWeak" overflow="hidden">
+          <Box color="infoWeak" overflow="hidden" width="100%">
             <LineLength />
           </Box>
         </MainSection.Subsection>
@@ -173,12 +173,12 @@ We have several React components that use typography as the primary element.
 
       <MainSection name="Spacing">
         <MainSection.Subsection
-          title="Line height"
           description="Proper line spacing line height (or leading) is important for readability. If lines of text get too close together, it can be hard to read them; if they are too far apart it can make it difficult to sense a clear hierarchy and group related text blocks. Given that we use system fonts, we rely on percentages on web and system defaults on mobile to ensure blocks are text are still readable for internationalization and dynamic sizing."
+          title="Line height"
         />
         <MainSection.Subsection>
           <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
-            <Heading size="300" accessibilityLevel={4}>
+            <Heading accessibilityLevel={4} size="300">
               Web
             </Heading>
             <Markdown
@@ -234,7 +234,7 @@ We use browser defaults on web UIs so that lines of text are readable in all lan
 
         <MainSection.Subsection>
           <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
-            <Heading size="300" accessibilityLevel={4}>
+            <Heading accessibilityLevel={4} size="300">
               iOS
             </Heading>
             <Markdown
@@ -276,8 +276,8 @@ iOS leading is automatically determined by a font’s size. Below is a breakdown
         </MainSection.Subsection>
 
         <MainSection.Subsection>
-          <Box maxWidth={DOCS_COPY_MAX_WIDTH_PX} marginBottom={6}>
-            <Heading size="300" accessibilityLevel={4}>
+          <Box marginBottom={6} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
+            <Heading accessibilityLevel={4} size="300">
               Android
             </Heading>
             <Markdown
@@ -289,8 +289,8 @@ Line height is automatically determined by a font’s size. For more info, refer
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Paragraph spacing"
           description="Spacing after a paragraph in body copy should be 75% of the body copy font size."
+          title="Paragraph spacing"
         >
           <Box color="infoWeak" overflow="hidden">
             <ParagraphSpacing />
@@ -298,8 +298,8 @@ Line height is automatically determined by a font’s size. For more info, refer
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Character spacing"
           description="Character spacing is set to system defaults across all devices and platforms"
+          title="Character spacing"
         />
       </MainSection>
 
@@ -325,7 +325,7 @@ Line height is automatically determined by a font’s size. For more info, refer
               }}
               maxWidth={420}
             >
-              <Heading size="300" accessibilityLevel={4}>
+              <Heading accessibilityLevel={4} size="300">
                 Start-aligned
               </Heading>
               <Markdown
@@ -367,7 +367,7 @@ Line height is automatically determined by a font’s size. For more info, refer
                 }}
                 maxWidth={420}
               >
-                <Heading size="300" accessibilityLevel={4}>
+                <Heading accessibilityLevel={4} size="300">
                   Centered
                 </Heading>
                 <Markdown text="Use center-aligned text for very short blocks of content, like text inside of buttons or tabs." />
@@ -393,7 +393,7 @@ Line height is automatically determined by a font’s size. For more info, refer
                 }}
                 maxWidth={420}
               >
-                <Heading size="300" accessibilityLevel={4}>
+                <Heading accessibilityLevel={4} size="300">
                   End-aligned
                 </Heading>
                 <Markdown text="End-align integers in tables so that they are easy to compare." />
@@ -405,8 +405,8 @@ Line height is automatically determined by a font’s size. For more info, refer
 
       <MainSection name="Formatting">
         <MainSection.Subsection
-          title="Font weight"
           description="On Pinner surfaces, the main focus is a user’s visual content. On business surfaces, visuals are supported by denser text content and data visualization. Therefore, typographic weight shouldn’t be so heavy that it causes visual noise, nor should it be too light to read. Use the following guidelines for choosing font weight:"
+          title="Font weight"
         >
           <Table accessibilityLabel="Font weight treatments">
             <Table.Header>
@@ -430,7 +430,7 @@ Line height is automatically determined by a font’s size. For more info, refer
                   </Table.Cell>
                 ))}
                 <Table.Cell>
-                  <Box color="selected" rounding={2} padding={2} display="inlineBlock">
+                  <Box color="selected" display="inlineBlock" padding={2} rounding={2}>
                     <Text color="inverse" size="100">
                       This is text in a tooltip
                     </Text>
@@ -444,10 +444,10 @@ Line height is automatically determined by a font’s size. For more info, refer
                   </Table.Cell>
                 ))}
                 <Table.Cell>
-                  <Box color="selected" rounding={2} padding={2} display="inlineBlock">
-                    <Text color="inverse" size="100" overflow="noWrap" inline>
+                  <Box color="selected" display="inlineBlock" padding={2} rounding={2}>
+                    <Text color="inverse" inline overflow="noWrap" size="100">
                       Figma is{' '}
-                      <Text weight="bold" color="inverse" size="100" overflow="noWrap" inline>
+                      <Text color="inverse" inline overflow="noWrap" size="100" weight="bold">
                         not a design system
                       </Text>
                     </Text>
@@ -493,16 +493,16 @@ Line height is automatically determined by a font’s size. For more info, refer
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Text decoration"
           description="Underline links when shown inline, inside of a text block or line of text."
+          title="Text decoration"
         >
           <Box color="infoWeak" paddingX={6} paddingY={8}>
             <Text color="dark">
               This is a paragraph with a{' '}
               <Link
+                display="inlineBlock"
                 href="https://gestalt.pinterest.systems"
                 underline="always"
-                display="inlineBlock"
               >
                 link
               </Link>{' '}
@@ -513,8 +513,8 @@ Line height is automatically determined by a font’s size. For more info, refer
       </MainSection>
 
       <MainSection
-        name="Hierarchy"
         description="Font size and weight, along with line height, spacing, and width allow us to create a scannable and readable hierarchy that guides a user through a product experience."
+        name="Hierarchy"
       >
         <Table accessibilityLabel="Typographic hierarchy">
           <Table.Header>
@@ -531,7 +531,7 @@ Line height is automatically determined by a font’s size. For more info, refer
           <Table.Body>
             <Table.Row>
               <Table.Cell>
-                <Text size="100" overflow="noWrap">
+                <Text overflow="noWrap" size="100">
                   Help text
                 </Text>
               </Table.Cell>
@@ -543,7 +543,7 @@ Line height is automatically determined by a font’s size. For more info, refer
             </Table.Row>
             <Table.Row>
               <Table.Cell>
-                <Text size="200" overflow="noWrap">
+                <Text overflow="noWrap" size="200">
                   Body, dense
                 </Text>
               </Table.Cell>
@@ -559,7 +559,7 @@ Line height is automatically determined by a font’s size. For more info, refer
             </Table.Row>
             <Table.Row>
               <Table.Cell>
-                <Text size="300" overflow="noWrap">
+                <Text overflow="noWrap" size="300">
                   Body, default
                 </Text>
               </Table.Cell>
@@ -573,7 +573,7 @@ Line height is automatically determined by a font’s size. For more info, refer
             </Table.Row>
             <Table.Row>
               <Table.Cell>
-                <Text size="400" weight="bold" overflow="noWrap">
+                <Text overflow="noWrap" size="400" weight="bold">
                   Heading, sm
                 </Text>
               </Table.Cell>
@@ -591,7 +591,7 @@ Line height is automatically determined by a font’s size. For more info, refer
             </Table.Row>
             <Table.Row>
               <Table.Cell>
-                <Text size="500" weight="bold" overflow="noWrap">
+                <Text overflow="noWrap" size="500" weight="bold">
                   Heading, md
                 </Text>
               </Table.Cell>
@@ -609,7 +609,7 @@ Line height is automatically determined by a font’s size. For more info, refer
             </Table.Row>
             <Table.Row>
               <Table.Cell>
-                <Text size="600" weight="bold" overflow="noWrap">
+                <Text overflow="noWrap" size="600" weight="bold">
                   Heading, lg
                 </Text>
               </Table.Cell>
@@ -630,52 +630,52 @@ Line height is automatically determined by a font’s size. For more info, refer
       </MainSection>
 
       <MainSection name="Best practices">
-        <Heading size="400" accessibilityLevel={3}>
+        <Heading accessibilityLevel={3} size="400">
           Accessibility
         </Heading>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use a font size of 14–16px and above for most use cases, especially long-form text. Smaller fonts are ok for less important information, but should be used sparingly. This ensures that content is accessible to all of our customers, including users with low vision."
             sandpackExample={
               <SandpackExample
-                name="Use proper font size for most cases"
                 code={useProperFontSize}
-                hideEditor
                 hideControls
+                hideEditor
                 layout="column"
+                name="Use proper font size for most cases"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use font sizes below 14px for body copy and UI controls, unless the text is very brief and secondary."
             sandpackExample={
               <SandpackExample
-                name="Don't use small sizes for UI and body"
                 code={dontUseSmallSizes}
+                hideControls
                 hideEditor
                 layout="column"
-                hideControls
+                name="Don't use small sizes for UI and body"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Follow a logical hierarchy by using headings based on a numerical order, not on font size. This makes our content more accessible for SEO and screen readers."
+            type="do"
           >
             <HierarchyDo />
           </MainSection.Card>
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use headings in an illogical order, since this will confuse screen readers. For example, don’t start a section with an H2 or H3, and place an H1 further down in the hierarchy."
+            type="don't"
           >
             <HierarchyDont />
           </MainSection.Card>
@@ -684,27 +684,26 @@ Line height is automatically determined by a font’s size. For more info, refer
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Stick to our [design tokens](/foundations/design_tokens) and use color combinations with a 4.5:1 contrast ratio between foreground and background."
+            type="do"
           >
             <ContrastHigh />
           </MainSection.Card>
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use text that doesn’t pass 4.5:1 contrast ratio when testing with Figma accessibility plugins."
+            type="don't"
           >
             <ContrastLow />
           </MainSection.Card>
         </MainSection.Subsection>
 
-        <Heading size="400" accessibilityLevel={3}>
+        <Heading accessibilityLevel={3} size="400">
           Localization
         </Heading>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description={`
 Use standards that will make it easier to translate to other languages:
 - Since character heights vary between font families, keep line heights to percentages or system defaults so that text isn’t cut off and lines aren’t too close together.
@@ -713,129 +712,130 @@ Use standards that will make it easier to translate to other languages:
 `}
             sandpackExample={
               <SandpackExample
-                name="Use standards for language translation"
                 code={useStandardsForLanguageTranslation}
-                hideEditor
                 hideControls
+                hideEditor
                 layout="column"
+                name="Use standards for language translation"
               />
             }
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Set line height to specific sizes, use fonts that don’t have broad language support, or use ALL CAPS."
             sandpackExample={
               <SandpackExample
-                name="Don't use fixed size line height and caps"
                 code={dontUseFixedSizeLineHeightAndCaps}
+                hideControls
                 hideEditor
                 layout="column"
-                hideControls
+                name="Don't use fixed size line height and caps"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
-        <Heading size="400" accessibilityLevel={3}>
+        <Heading accessibilityLevel={3} size="400">
           Style
         </Heading>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Align, space and style text so that a user can easily read it and understand what actions to take."
             sandpackExample={
               <SandpackExample
-                name="Align and space text for readability"
                 code={alignAndSpaceTextForReadability}
                 hideControls
                 hideEditor
                 layout="column"
+                name="Align and space text for readability"
               />
             }
+            type="do"
           />
 
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Center-align text with tight leading and underlined text that can be mistaken for links while using colors that are too light to read."
             sandpackExample={
               <SandpackExample
-                name="Don't center text with tight leading"
                 code={dontCenterTextWithTightLeading}
+                hideControls
                 hideEditor
                 layout="column"
-                hideControls
+                name="Don't center text with tight leading"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
-        <Heading size="400" accessibilityLevel={3}>
+        <Heading accessibilityLevel={3} size="400">
           Text wrapping and truncation
         </Heading>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Wrap text to multiple lines when a user needs to see the full text to understand what is expected. This is likely to happen when translated to languages with longer line lengths."
             sandpackExample={
               <SandpackExample
-                name="Wrap text when needed"
                 code={wrapTextWhenNeeded}
                 hideControls
                 hideEditor
                 layout="column"
+                name="Wrap text when needed"
               />
             }
+            type="do"
           />
 
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Truncate text in UI controls like buttons and menus where it can make it hard for a user to understand what is expected. On touch surfaces, a user won’t have a tooltip on hover."
             sandpackExample={
               <SandpackExample
-                name="Don't truncate text in UI controls"
                 code={dontTruncateTextInControls}
+                hideControls
                 hideEditor
                 layout="column"
-                hideControls
+                name="Don't truncate text in UI controls"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Truncate for secondary text that isn’t essential to a user’s comprehension of steps to take. Examples include dynamic data ad IDs in tables, lists of user names, and Pin titles that come from outside sources. Use an ellipsis or a link that indicates there is more content available."
             sandpackExample={
               <SandpackExample
-                name="Truncate for non-essential secondary text"
                 code={truncateForSecondaryText}
                 hideControls
                 hideEditor
                 layout="column"
+                name="Truncate for non-essential secondary text"
               />
             }
+            type="do"
           />
 
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Truncate paragraph text, which can be misread and change the original meaning of the text."
             sandpackExample={
               <SandpackExample
-                name="Don't truncate paragraph text"
                 code={dontTruncateParagraphText}
+                hideControls
                 hideEditor
                 layout="column"
-                hideControls
+                name="Don't truncate paragraph text"
               />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>

@@ -6,8 +6,8 @@ const noop = () => {};
 
 export default function RadioButtonExample(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <RadioGroup legend="Choose all of your favorite hobbies" id="bestPracticeDont">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <RadioGroup id="bestPracticeDont" legend="Choose all of your favorite hobbies">
         <RadioGroup.RadioButton
           checked={false}
           id="knitting-dont"

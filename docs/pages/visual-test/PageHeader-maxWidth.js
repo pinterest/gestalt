@@ -6,20 +6,20 @@ export default function Snapshot(): ReactNode {
   return (
     <Box width="100vw">
       <PageHeader
-        title="Product groups"
-        subtext="S. E. All products USD"
+        dropdownAccessibilityLabel="test"
+        maxWidth={600}
         primaryAction={{
           component: <Button color="red" size="lg" text="Create group" />,
           dropdownItems: [
             <Dropdown.Item
               key="maxWidth"
-              option={{ value: 'Create group', label: 'Create group' }}
               onSelect={() => {}}
+              option={{ value: 'Create group', label: 'Create group' }}
             />,
           ],
         }}
-        dropdownAccessibilityLabel="test"
-        maxWidth={600}
+        subtext="S. E. All products USD"
+        title="Product groups"
       />
     </Box>
   );

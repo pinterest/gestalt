@@ -82,14 +82,6 @@ export default function Example(): ReactNode {
   return (
     <ChartGraph
       accessibilityLabel="Example of Bar chart"
-      visualPatternSelected={visualPatternSelected}
-      initialTicks={3}
-      onVisualPatternChange={() =>
-        setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
-      }
-      type="bar"
-      title="Clickthroughs per region"
-      legend="none"
       data={[
         {
           name: 'NorthWest',
@@ -111,30 +103,38 @@ export default function Example(): ReactNode {
         },
       ]}
       elements={elements}
+      initialTicks={3}
+      legend="none"
+      onVisualPatternChange={() =>
+        setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
+      }
+      title="Clickthroughs per region"
+      type="bar"
+      visualPatternSelected={visualPatternSelected}
     >
       <TagData
-        id="Campaign Autumn"
         color="01"
-        text="Campaign Autumn"
+        id="Campaign Autumn"
+        onTap={({ id, selected }) => handleSelectors({ id, selected })}
         selected={isSelected('Campaign Autumn')}
-        onTap={({ id, selected }) => handleSelectors({ id, selected })}
         showCheckbox
+        text="Campaign Autumn"
       />
       <TagData
-        id="Campaign Winter"
         color="02"
-        text="Campaign Winter"
-        selected={isSelected('Campaign Winter')}
+        id="Campaign Winter"
         onTap={({ id, selected }) => handleSelectors({ id, selected })}
+        selected={isSelected('Campaign Winter')}
         showCheckbox
+        text="Campaign Winter"
       />
       <TagData
-        id="Campaign Spring"
         color="03"
-        text="Campaign Spring"
-        selected={isSelected('Campaign Spring')}
+        id="Campaign Spring"
         onTap={({ id, selected }) => handleSelectors({ id, selected })}
+        selected={isSelected('Campaign Spring')}
         showCheckbox
+        text="Campaign Spring"
       />
     </ChartGraph>
   );

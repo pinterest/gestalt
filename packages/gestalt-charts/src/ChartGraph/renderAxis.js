@@ -1,6 +1,12 @@
 // @flow strict-local
 import { Fragment, type Node as ReactNode } from 'react';
 import { XAxis, YAxis } from 'recharts';
+import {
+  TOKEN_COLOR_TEXT_SUBTLE,
+  TOKEN_FONT_FAMILY_DEFAULT_LATIN,
+  TOKEN_FONT_SIZE_100,
+  TOKEN_FONT_WEIGHT_NORMAL,
+} from 'gestalt-design-tokens';
 
 export default function renderAxis({
   isHorizontalLayout,
@@ -58,16 +64,16 @@ export default function renderAxis({
   tickCount: 5 | 3,
 }): ReactNode {
   const FONT_STYLE_CATEGORIES = {
-    fontSize: 'var(--font-size-100)',
-    fontFamily: 'var(--font-family-default-latin)',
-    fontWeight: 'var(--font-weight-normal)',
+    fontSize: TOKEN_FONT_SIZE_100,
+    fontFamily: TOKEN_FONT_FAMILY_DEFAULT_LATIN,
+    fontWeight: TOKEN_FONT_WEIGHT_NORMAL,
   };
 
   const FONT_STYLE_VALUES = {
-    color: 'var(--color-text-subtle)',
-    fontSize: 'var(--font-size-100)',
-    fontFamily: 'var(--font-family-default-latin)',
-    fontWeight: 'var(--font-weight-normal)',
+    color: TOKEN_COLOR_TEXT_SUBTLE,
+    fontSize: TOKEN_FONT_SIZE_100,
+    fontFamily: TOKEN_FONT_FAMILY_DEFAULT_LATIN,
+    fontWeight: TOKEN_FONT_WEIGHT_NORMAL,
   };
 
   const isRtl = document?.dir === 'rtl';
@@ -77,12 +83,12 @@ export default function renderAxis({
       {isHorizontalLayout && (
         <Fragment>
           <XAxis
-            reversed={isRtl}
-            padding={isTimeSeries && (isBar || isCombo) ? { left: 100, right: 100 } : undefined}
             axisLine={false}
             dataKey="name"
             domain={isTimeSeries ? !Array.isArray(range) && range?.xAxisBottom : undefined}
             orientation="bottom"
+            padding={isTimeSeries && (isBar || isCombo) ? { left: 100, right: 100 } : undefined}
+            reversed={isRtl}
             scale={isTimeSeries ? 'time' : undefined}
             style={FONT_STYLE_CATEGORIES}
             tickFormatter={
@@ -99,10 +105,10 @@ export default function renderAxis({
             domain={Array.isArray(range) ? range : range?.yAxisLeft}
             orientation={isRtl ? 'right' : 'left'}
             style={FONT_STYLE_VALUES}
-            tickLine={false}
             tickCount={tickCount}
-            yAxisId="left"
             tickFormatter={tickFormatter?.yAxisLeft}
+            tickLine={false}
+            yAxisId="left"
           />
         </Fragment>
       )}
@@ -112,50 +118,50 @@ export default function renderAxis({
           domain={Array.isArray(range) ? range : range?.yAxisLeft}
           orientation={isRtl ? 'left' : 'right'}
           style={FONT_STYLE_VALUES}
-          tickLine={false}
           tickCount={tickCount}
-          yAxisId="right"
           tickFormatter={tickFormatter?.yAxisRight}
+          tickLine={false}
+          yAxisId="right"
         />
       )}
       {isVerticalLayout && (
         <Fragment>
           <XAxis
-            reversed={isRtl}
             axisLine={false}
             domain={range}
-            type="number"
             orientation="bottom"
+            reversed={isRtl}
             style={FONT_STYLE_VALUES}
-            tickLine={false}
             tickCount={tickCount}
-            xAxisId="bottom"
             tickFormatter={tickFormatter?.xAxisBottom}
+            tickLine={false}
+            type="number"
+            xAxisId="bottom"
           />
           <YAxis
             axisLine={false}
             dataKey="name"
-            type="category"
-            style={FONT_STYLE_CATEGORIES}
-            tickLine={false}
             orientation={isRtl ? 'right' : 'left'}
+            style={FONT_STYLE_CATEGORIES}
             tickFormatter={(value: string) => labelMap?.[value] || value}
+            tickLine={false}
+            type="category"
             // DO NOT SET yAxisId here
           />
         </Fragment>
       )}
       {isVerticalBiaxialLayout && (
         <XAxis
-          reversed={isRtl}
           axisLine={false}
           domain={range}
           orientation="top"
+          reversed={isRtl}
           style={FONT_STYLE_VALUES}
-          tickLine={false}
           tickCount={tickCount}
+          tickFormatter={tickFormatter?.xAxisTop}
+          tickLine={false}
           type="number"
           xAxisId="top"
-          tickFormatter={tickFormatter?.xAxisTop}
         />
       )}
     </Fragment>

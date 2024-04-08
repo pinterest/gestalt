@@ -25,9 +25,9 @@ export default function Example(): ReactNode {
         <Button
           accessibilityLabel="Show Modal"
           color="red"
-          text="Show Modal"
-          size="lg"
           onClick={() => setShowComponent(true)}
+          size="lg"
+          text="Show Modal"
         />
       </Box>
       {showComponent ? (
@@ -35,6 +35,7 @@ export default function Example(): ReactNode {
           <ModalAlert
             accessibilityModalLabel="Delete current Pin draft confirmation"
             heading="Delete this page?"
+            onDismiss={() => {}}
             primaryAction={{
               accessibilityLabel: 'Delete page',
               label: 'Delete page',
@@ -47,9 +48,8 @@ export default function Example(): ReactNode {
               onClick: () => {},
               role: 'button',
             }}
-            onDismiss={() => {}}
           >
-            <Flex direction="column" gap={4} flex="grow">
+            <Flex direction="column" flex="grow" gap={4}>
               <Text>
                 If you change your mind, you&apos;ll have to create this pin again—starting from the
                 very beginning.

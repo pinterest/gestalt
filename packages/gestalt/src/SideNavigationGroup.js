@@ -1,17 +1,19 @@
 // @flow strict
 import { type Element, type Node as ReactNode, useEffect, useId, useState } from 'react';
 import classnames from 'classnames';
+import { TOKEN_SPACE_400 } from 'gestalt-design-tokens';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
 import { NestingProvider, useNesting } from './contexts/NestingProvider';
 import { useSideNavigation } from './contexts/SideNavigationProvider';
 import Dropdown from './Dropdown';
 import icons from './icons/index';
 import styles from './SideNavigation.css';
-import getChildrenToArray from './SideNavigation/getChildrenToArray';
 import SideNavigationGroupContent from './SideNavigation/GroupContent';
 import SideNavigationGroupMobile from './SideNavigation/GroupMobile';
+import { getChildrenActiveProp, validateChildren } from './SideNavigation/navigationChildrenUtils';
 import { NESTING_MARGIN_START_MAP } from './SideNavigationTopItem';
 import TapArea from './TapArea';
+import { flattenChildrenWithKeys } from './utils/flattenChildren';
 import { type Indexable } from './zIndex';
 
 type IconType = $Keys<typeof icons> | { __path: string };
@@ -104,37 +106,19 @@ export default function SideNavigationGroup({
 
   // Manages children
   const itemId = useId();
-
   const { nestedLevel } = useNesting();
+  const {
+    collapsed: sideNavigationCollapsed,
+    overlayPreview,
+    setOverlayPreview,
+    selectedItemId,
+    setSelectedItemId,
+  } = useSideNavigation();
 
-  const { selectedItemId, setSelectedItemId } = useSideNavigation();
+  const navigationChildren = flattenChildrenWithKeys(children);
+  const hasAnyActiveChild = !!getChildrenActiveProp(navigationChildren);
 
-  const navigationChildren = getChildrenToArray({
-    children,
-    filterLevel: 'nested',
-  });
-
-  const hasActiveChildCallback = (child: { props: { active: 'page' | 'section' } }) =>
-    child?.props?.active && ['page', 'section'].includes(child?.props?.active);
-
-  const hasActiveChildren = !!navigationChildren.find(hasActiveChildCallback);
-
-  let hasActiveGrandChildren;
-
-  if (nestedLevel === 0 && !hasActiveChildren) {
-    hasActiveGrandChildren = navigationChildren
-      .filter((child) => child?.type?.displayName === 'SideNavigation.NestedGroup')
-      .map((child) =>
-        getChildrenToArray({
-          children: child?.props?.children,
-          filterLevel: 'nested',
-        }).find(hasActiveChildCallback),
-      )
-      .filter(Boolean);
-  }
-
-  const hasAnyActiveChild =
-    !!hasActiveChildren || (!!hasActiveGrandChildren && !!hasActiveGrandChildren[0]);
+  validateChildren({ children: navigationChildren, filterLevel: 'nested' });
 
   const isExpandable = display === 'expandable';
 
@@ -153,10 +137,14 @@ export default function SideNavigationGroup({
 
   const itemColor = hovered ? 'secondary' : undefined;
 
-  const paddingStyle = {
-    paddingInlineStart: NESTING_MARGIN_START_MAP[nestedLevel],
-    paddingInlineEnd: 'var(--space-400)',
-  };
+  const collapsed = sideNavigationCollapsed && !overlayPreview;
+
+  const paddingStyle = !collapsed
+    ? {
+        paddingInlineStart: NESTING_MARGIN_START_MAP[nestedLevel],
+        paddingInlineEnd: TOKEN_SPACE_400,
+      }
+    : {};
 
   if (isMobile) {
     return (
@@ -182,12 +170,10 @@ export default function SideNavigationGroup({
           <TapArea
             accessibilityControls={itemId}
             accessibilityExpanded={isExpanded}
+            onBlur={() => setFocused(false)}
+            onFocus={() => setFocused(true)}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            onFocus={() => setFocused(true)}
-            onBlur={() => setFocused(false)}
-            rounding={2}
-            tapStyle={compression}
             onTap={() => {
               if (display === 'expandable' && expandedProp === undefined) {
                 setExpanded((value) => {
@@ -197,47 +183,55 @@ export default function SideNavigationGroup({
               } else {
                 onExpand?.({ expanded: !isExpanded });
               }
+
+              if (collapsed) {
+                setOverlayPreview(true);
+              }
             }}
+            rounding={2}
+            tapStyle={compression}
           >
             <SideNavigationGroupContent
-              itemColor={itemColor}
-              expanded={isExpanded}
-              selectedItemId={selectedItemId}
-              itemId={itemId}
-              paddingStyle={paddingStyle}
-              icon={icon}
-              label={label}
               badge={badge}
-              notificationAccessibilityLabel={notificationAccessibilityLabel}
               counter={counter}
               display={display}
-              primaryAction={primaryAction}
-              setCompression={setCompression}
-              hovered={hovered}
+              expanded={isExpanded}
               focused={focused}
+              hasActiveChild={hasAnyActiveChild}
+              hovered={hovered}
+              icon={icon}
+              itemColor={itemColor}
+              itemId={itemId}
+              label={label}
+              notificationAccessibilityLabel={notificationAccessibilityLabel}
+              paddingStyle={paddingStyle}
+              primaryAction={primaryAction}
+              selectedItemId={selectedItemId}
+              setCompression={setCompression}
             />
           </TapArea>
         ) : (
           <SideNavigationGroupContent
-            hovered={hovered}
-            focused={focused}
-            itemColor={itemColor}
-            expanded={isExpanded}
-            selectedItemId={selectedItemId}
-            itemId={itemId}
-            paddingStyle={paddingStyle}
-            icon={icon}
-            label={label}
             badge={badge}
-            notificationAccessibilityLabel={notificationAccessibilityLabel}
             counter={counter}
             display={display}
+            expanded={isExpanded}
+            focused={focused}
+            hasActiveChild={hasAnyActiveChild}
+            hovered={hovered}
+            icon={icon}
+            itemColor={itemColor}
+            itemId={itemId}
+            label={label}
+            notificationAccessibilityLabel={notificationAccessibilityLabel}
+            paddingStyle={paddingStyle}
             primaryAction={primaryAction}
+            selectedItemId={selectedItemId}
             setCompression={setCompression}
           />
         )}
-        {isExpanded ? (
-          <ul id={itemId} className={classnames(styles.ulItem)}>
+        {!collapsed && isExpanded ? (
+          <ul className={classnames(styles.ulItem)} id={itemId}>
             {navigationChildren}
           </ul>
         ) : null}

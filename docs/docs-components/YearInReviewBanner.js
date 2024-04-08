@@ -2,6 +2,7 @@
 import { type Node as ReactNode } from 'react';
 import Lottie from 'lottie-react';
 import { Box, ButtonLink, Flex, Heading, TapAreaLink, Text, useReducedMotion } from 'gestalt';
+import { TOKEN_COLOR_BORDER_DEFAULT } from 'gestalt-design-tokens';
 import Asterisk from '../graphics/year-in-review/asteriskFilled.svg';
 import DonutHalf from '../graphics/year-in-review/donutHalf.svg';
 import discoStars from '../graphics/year-in-review/lottie/discoStars.json';
@@ -10,26 +11,26 @@ export default function YearInReviewBanner(): ReactNode {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <div role="banner" aria-label="Check out the 2022 Gestalt Recap">
-      <TapAreaLink href="/year_in_review_2022" accessibilityLabel="2022 Year In Review">
+    <div aria-label="Check out the 2022 Gestalt Recap" role="banner">
+      <TapAreaLink accessibilityLabel="2022 Year In Review" href="/year_in_review_2022">
         <Box
+          alignItems="center"
           color="infoWeak"
           dangerouslySetInlineStyle={{
             __style: {
-              border: '2px solid var(--color-border-default)',
+              border: `2px solid ${TOKEN_COLOR_BORDER_DEFAULT}`,
             },
           }}
-          width="100%"
+          display="flex"
+          justifyContent="around"
           minHeight="140px"
+          overflow="hidden"
           paddingX={12}
           paddingY={4}
-          display="flex"
-          alignItems="center"
-          justifyContent="around"
-          overflow="hidden"
+          width="100%"
         >
-          <Flex alignItems="center" justifyContent="end" flex="grow" wrap gap={6}>
-            <Box display="none" mdDisplay="block" height="100%" position="relative">
+          <Flex alignItems="center" flex="grow" gap={6} justifyContent="end" wrap>
+            <Box display="none" height="100%" mdDisplay="block" position="relative">
               <Flex alignItems="end">
                 <Box
                   dangerouslySetInlineStyle={{
@@ -38,16 +39,16 @@ export default function YearInReviewBanner(): ReactNode {
                     },
                   }}
                 >
-                  <DonutHalf width="50px" height="50px" />
+                  <DonutHalf height="50px" width="50px" />
                 </Box>
-                <Box width="200px" height="160px" marginTop={-6} display="none" mdDisplay="block">
+                <Box display="none" height="160px" marginTop={-6} mdDisplay="block" width="200px">
                   <Lottie animationData={discoStars} autoplay={!shouldReduceMotion} />
                 </Box>
-                <Asterisk width="40px" height="40px" />
+                <Asterisk height="40px" width="40px" />
               </Flex>
             </Box>
             <Flex.Item flex="grow">
-              <Flex direction="column" gap={2} flex="grow">
+              <Flex direction="column" flex="grow" gap={2}>
                 <Heading accessibilityLevel={2} size="500">
                   Hey! Check out our 2022 recap.
                 </Heading>
@@ -56,9 +57,9 @@ export default function YearInReviewBanner(): ReactNode {
             </Flex.Item>
             <ButtonLink
               href="/year_in_review_2022"
-              text="View the recap"
               iconEnd="directional-arrow-right"
               size="lg"
+              text="View the recap"
             />
           </Flex>
         </Box>

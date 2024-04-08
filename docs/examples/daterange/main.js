@@ -10,14 +10,14 @@ export default function Example(): ReactNode {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <DateRange
-        startDateValue={startDate}
         endDateValue={endDate}
-        onStartDateChange={({ value }) => setStartDate(value)}
-        onEndDateChange={({ value }) => setEndDate(value)}
-        onStartDateError={() => {}}
-        onEndDateError={() => {}}
-        onSubmit={() => {}}
         onCancel={() => {}}
+        onEndDateChange={({ value }) => setEndDate(value)}
+        onEndDateError={() => {}}
+        onStartDateChange={({ value }) => setStartDate(value)}
+        onStartDateError={() => {}}
+        onSubmit={() => {}}
+        startDateValue={startDate}
       />
     </Flex>
   );

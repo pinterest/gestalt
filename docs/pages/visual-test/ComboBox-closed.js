@@ -8,44 +8,44 @@ export default function Snapshot(): ReactNode {
       <Flex direction="column" gap={4}>
         <ComboBox
           accessibilityClearButtonLabel="Clear the current values"
-          label="Select your favorite shape"
+          helperText="Pick your favorite shape"
           id="favoriteShape"
+          label="Select your favorite shape"
+          noResultText="No results for your selection"
+          options={[
+            { label: 'square', value: '1' },
+            { label: 'circle', value: '2' },
+          ]}
+          placeholder="Select a shape"
           size="sm"
+        />
+
+        <ComboBox
+          accessibilityClearButtonLabel="Clear the current values"
+          helperText="Pick your favorite shape"
+          id="favoriteShape"
+          label="Select your favorite shape"
           noResultText="No results for your selection"
           options={[
             { label: 'square', value: '1' },
             { label: 'circle', value: '2' },
           ]}
           placeholder="Select a shape"
-          helperText="Pick your favorite shape"
-        />
-
-        <ComboBox
-          accessibilityClearButtonLabel="Clear the current values"
-          label="Select your favorite shape"
-          id="favoriteShape"
           size="md"
-          noResultText="No results for your selection"
-          options={[
-            { label: 'square', value: '1' },
-            { label: 'circle', value: '2' },
-          ]}
-          placeholder="Select a shape"
-          helperText="Pick your favorite shape"
         />
 
         <ComboBox
           accessibilityClearButtonLabel="Clear the current values"
-          label="Select your favorite shape"
-          size="lg"
+          helperText="Pick your favorite shape"
           id="favoriteShape"
+          label="Select your favorite shape"
           noResultText="No results for your selection"
           options={[
             { label: 'square', value: '1' },
             { label: 'circle', value: '2' },
           ]}
           placeholder="Select a shape"
-          helperText="Pick your favorite shape"
+          size="lg"
         />
       </Flex>
     </Box>

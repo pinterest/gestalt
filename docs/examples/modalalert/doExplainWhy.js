@@ -14,24 +14,24 @@ export default function Example(): ReactNode {
         <Button
           accessibilityLabel="Show Modal"
           color="red"
-          text="Show Modal"
-          size="lg"
           onClick={() => setShowComponent(true)}
+          size="lg"
+          text="Show Modal"
         />
       </Box>
       {showComponent ? (
         <Layer zIndex={zIndex}>
           <ModalAlert
-            type="warning"
             accessibilityModalLabel="Unable to follow more people"
             heading="Follower limit reached"
+            onDismiss={() => {}}
             primaryAction={{
               accessibilityLabel: '',
               label: 'Got it',
               onClick: () => {},
               role: 'button',
             }}
-            onDismiss={() => {}}
+            type="warning"
           >
             <Text>
               You&apos;ve hit a spam block and can&apos;t follow any more people right now. Try

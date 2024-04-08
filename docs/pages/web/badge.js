@@ -21,8 +21,8 @@ import variantsType from '../../examples/badge/variantsType';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample code={main} name="Main Badge example" hideEditor previewHeight={150} />
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
+        <SandpackExample code={main} hideEditor name="Main Badge example" previewHeight={150} />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -31,20 +31,20 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
-            title="When to use"
             description={`
           - Labeling and bringing awareness to a specific element or feature (e.g., something is new or required).
         `}
+            title="When to use"
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
-            title="When not to use"
             description={`
           - Providing feedback at the element level (e.g., displaying error messages). Use inline text instead.
           - Requiring interaction from users since Badges are always static and non-interactive.
         `}
+            title="When not to use"
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -53,52 +53,51 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Use established color patterns so users can quickly scan and identify sentiment. However, the badge text should always clearly indicate the sentiment, so color is not the sole indicator of information."
             sandpackExample={<SandpackExample code={doColor} hideEditor name="Do - Color" />}
+            type="do"
           />
 
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use colored badges over media. Instead use the dark or light wash."
             sandpackExample={
-              <SandpackExample code={dontColor} hideEditor hideControls name="Don't - Color" />
+              <SandpackExample code={dontColor} hideControls hideEditor name="Don't - Color" />
             }
+            type="don't"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description="Align the badge to the top of large accompanying text (anything larger than 16px). Center align for standard size text."
             sandpackExample={<SandpackExample code={doAlign} hideEditor name="Do - Align" />}
+            type="do"
           />
 
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description="Use complex or verbose language. Instead use a single, scannable word. For example: 'New'."
             sandpackExample={
-              <SandpackExample code={dontComplex} hideEditor hideControls name="Don't - Complex" />
+              <SandpackExample code={dontComplex} hideControls hideEditor name="Don't - Complex" />
             }
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>
 
       <AccessibilitySection
-        name={generatedDocGen?.displayName}
         description={`
         The badge text is read out by assistive technologies like screen readers so all users can access the meaning of the badge in context. Text should demonstrate the sentiment clearly enough to be understood immediately without relying on color alone.
         `}
+        name={generatedDocGen?.displayName}
       />
 
       <LocalizationSection name={generatedDocGen?.displayName} noDefaultLabelProvider />
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          title="Type"
           description={`
           Badge is available in five styles. Each \`type\` represents a messaging sentiment.
 
@@ -120,13 +119,14 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           6. **Recommendation**
           Highlights a suggestion that will improve the experience and achieve better results. For example, 'Recommended for you'.
  `}
+          title="Type"
         >
           <MainSection.Card
             sandpackExample={
               <SandpackExample
                 code={variantsType}
-                name="Variants - Type"
                 layout="column"
+                name="Variants - Type"
                 previewHeight={400}
               />
             }
@@ -134,7 +134,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Over media"
           description={`
           Badge may be used over media using two wash styles.
 
@@ -144,6 +143,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           2. **Over media - Dark wash**
           The dark wash badge should be used over media that is light or utilizes a light gradient overlay.
 `}
+          title="Over media"
         >
           <MainSection.Card
             sandpackExample={
@@ -157,8 +157,8 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          title="Positioning"
           description="By default, Badge is rendered inline within the parent element. However, the `position` prop can be used to adjust the alignment. Badges should align to the top of large accompanying text."
+          title="Positioning"
         >
           <MainSection.Card
             sandpackExample={
@@ -172,18 +172,18 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            type="do"
             description={`
 - Use a single word to describe the status of an element. For example, “New” not “New post.”
 - Where applicable, describe the status in past tense. For example, “Archived” not “Archive.”
 `}
+            type="do"
           />
           <MainSection.Card
             cardSize="md"
-            type="don't"
             description={`
 - Use conflicting language with defined type sentiments. For example, the error badge should not say “Complete.”
 `}
+            type="don't"
           />
         </MainSection.Subsection>
       </MainSection>

@@ -312,10 +312,10 @@ describe('OverlayPanel', () => {
 
     render(
       <OverlayPanel
-        dismissConfirmation={{}}
         accessibilityDismissButtonLabel="Dismiss"
         accessibilityLabel="Test OverlayPanel"
         closeOnOutsideClick
+        dismissConfirmation={{}}
         onDismiss={mockOnDismiss}
       >
         <section />
@@ -335,10 +335,10 @@ describe('OverlayPanel', () => {
 
     render(
       <OverlayPanel
-        dismissConfirmation={{}}
         accessibilityDismissButtonLabel="Dismiss"
         accessibilityLabel="Test OverlayPanel"
         closeOnOutsideClick
+        dismissConfirmation={{}}
         onDismiss={mockOnDismiss}
       >
         <section />
@@ -358,10 +358,10 @@ describe('OverlayPanel', () => {
 
     render(
       <OverlayPanel
-        dismissConfirmation={{}}
         accessibilityDismissButtonLabel="Dismiss"
         accessibilityLabel="Test OverlayPanel"
         closeOnOutsideClick
+        dismissConfirmation={{}}
         onDismiss={mockOnDismiss}
       >
         <section />
@@ -384,10 +384,10 @@ describe('OverlayPanel', () => {
 
     const { container } = render(
       <OverlayPanel
-        dismissConfirmation={{}}
         accessibilityDismissButtonLabel="Dismiss"
         accessibilityLabel="Test OverlayPanel"
         closeOnOutsideClick
+        dismissConfirmation={{}}
         onDismiss={mockOnDismiss}
       >
         <section />
@@ -407,10 +407,10 @@ describe('OverlayPanel', () => {
 
     render(
       <OverlayPanel
-        dismissConfirmation={{}}
         accessibilityDismissButtonLabel="Dismiss"
         accessibilityLabel="Test OverlayPanel"
         closeOnOutsideClick
+        dismissConfirmation={{}}
         onDismiss={mockOnDismiss}
       >
         <section />
@@ -474,15 +474,15 @@ describe('OverlayPanel', () => {
 
     render(
       <OverlayPanel
+        accessibilityDismissButtonLabel="Dismiss"
+        accessibilityLabel="Test OverlayPanel"
+        closeOnOutsideClick
         dismissConfirmation={{
           message,
           subtext,
           primaryAction: { text: primaryAction, accessibilityLabel: primaryActionLabel },
           secondaryAction: { text: secondaryAction, accessibilityLabel: secondaryActionLabel },
         }}
-        accessibilityDismissButtonLabel="Dismiss"
-        accessibilityLabel="Test OverlayPanel"
-        closeOnOutsideClick
         onDismiss={mockOnDismiss}
       >
         <section />

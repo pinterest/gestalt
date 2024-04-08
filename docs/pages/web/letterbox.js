@@ -18,8 +18,8 @@ import variantWide from '../../examples/letterbox/variantWide';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader name={generatedDocGen?.displayName} description={generatedDocGen?.description}>
-        <SandpackExample code={main} name="Main Letterbox example" hideEditor previewHeight={250} />
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
+        <SandpackExample code={main} hideEditor name="Main Letterbox example" previewHeight={250} />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -27,10 +27,10 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
       <MainSection
-        name="Variants"
         description={`
         Much of the math and understanding about Letterbox comes from Vjeaux's [excellent blog post on image resizing](http://blog.vjeux.com/2013/image/css-container-and-cover.html).
       `}
+        name="Variants"
       >
         <MainSection.Subsection title="Tall content (564:806)">
           <MainSection.Card

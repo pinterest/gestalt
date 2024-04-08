@@ -69,7 +69,7 @@ describe('SelectList', () => {
 
   it('renders with a hidden label', () => {
     const tree = create(
-      <SelectList label="testing" labelDisplay="hidden" id="test" onChange={jest.fn()}>
+      <SelectList id="test" label="testing" labelDisplay="hidden" onChange={jest.fn()}>
         {options}
       </SelectList>,
     ).toJSON();

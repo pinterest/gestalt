@@ -8,21 +8,25 @@ export default function Example(): ReactNode {
       <Flex direction="column" gap={6}>
         <Text weight="bold">Simple message string with helperText</Text>
         <BannerSlim
-          type="info"
-          message="This ad group is part of a campaign that is using campaign budget optimization. Changes to schedule or budget must be made at the campaign level."
-          iconAccessibilityLabel="Information"
           helperLink={{
             text: 'Learn more',
             accessibilityLabel: 'Learn more about campaign budget optimization',
             href: 'http://www.pinterest.com',
             onClick: () => {},
           }}
+          iconAccessibilityLabel="Information"
+          message="This ad group is part of a campaign that is using campaign budget optimization. Changes to schedule or budget must be made at the campaign level."
+          type="info"
         />
 
         <Text weight="bold">Rich message with Text component</Text>
 
         <BannerSlim
-          type="recommendation"
+          dismissButton={{
+            accessibilityLabel: 'Dismiss banner',
+            onDismiss: () => {},
+          }}
+          iconAccessibilityLabel="Recommendation"
           message={
             <Text inline>
               {' '}
@@ -43,11 +47,7 @@ export default function Example(): ReactNode {
             onClick: () => {},
             role: 'button',
           }}
-          dismissButton={{
-            accessibilityLabel: 'Dismiss banner',
-            onDismiss: () => {},
-          }}
-          iconAccessibilityLabel="Recommendation"
+          type="recommendation"
         />
       </Flex>
     </Box>

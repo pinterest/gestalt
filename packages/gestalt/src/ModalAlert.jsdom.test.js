@@ -7,8 +7,8 @@ describe('ModalAlert', () => {
   test('Desktop ModalAlert renders (default)', () => {
     const { baseElement } = render(
       <ModalAlert
-        heading="Delete Pin?"
         accessibilityModalLabel="Test ModalAlert"
+        heading="Delete Pin?"
         onDismiss={() => {}}
         primaryAction={{
           accessibilityLabel: 'Acknowledge expired card',
@@ -27,9 +27,8 @@ describe('ModalAlert', () => {
   test('Desktop ModalAlert renders (warning)', () => {
     const { baseElement } = render(
       <ModalAlert
-        type="warning"
-        heading="Delete Pin?"
         accessibilityModalLabel="Test ModalAlert"
+        heading="Delete Pin?"
         onDismiss={() => {}}
         primaryAction={{
           accessibilityLabel: 'Acknowledge expired card',
@@ -37,6 +36,7 @@ describe('ModalAlert', () => {
           onClick: () => {},
           role: 'button',
         }}
+        type="warning"
       >
         Modal content
       </ModalAlert>,
@@ -48,9 +48,8 @@ describe('ModalAlert', () => {
   test('Desktop ModalAlert renders (error)', () => {
     const { baseElement } = render(
       <ModalAlert
-        type="error"
-        heading="Delete Pin?"
         accessibilityModalLabel="Test ModalAlert"
+        heading="Delete Pin?"
         onDismiss={() => {}}
         primaryAction={{
           accessibilityLabel: 'Acknowledge expired card',
@@ -58,6 +57,7 @@ describe('ModalAlert', () => {
           onClick: () => {},
           role: 'button',
         }}
+        type="error"
       >
         Modal content
       </ModalAlert>,
@@ -70,8 +70,8 @@ describe('ModalAlert', () => {
     const { baseElement } = render(
       <DeviceTypeProvider deviceType="mobile">
         <ModalAlert
-          heading="Delete Pin?"
           accessibilityModalLabel="Test ModalAlert"
+          heading="Delete Pin?"
           onDismiss={() => {}}
           primaryAction={{
             accessibilityLabel: 'Acknowledge expired card',

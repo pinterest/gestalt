@@ -14,10 +14,8 @@ export default function Example(): ReactNode {
     />
   ) : (
     <BannerOverlay
-      zIndex={new FixedZIndex(100)}
-      offset={{ top: 130, bottom: 24 }}
-      title="You've got great taste!"
       message="Discover new recipes today. Elevate your dinner with recipes like sheet-pan dinner and slow-cooker favorites. Find recipes will save your dinner routine."
+      offset={{ top: 130, bottom: 24 }}
       onDismiss={() => {
         setShowComponent(false);
       }}
@@ -39,6 +37,8 @@ export default function Example(): ReactNode {
           />
         ),
       }}
+      title="You've got great taste!"
+      zIndex={new FixedZIndex(100)}
     />
   );
 }

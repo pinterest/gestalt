@@ -19,7 +19,7 @@ export default function Example(): ReactNode {
   };
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <BannerUpsell
         dismissButton={{
           accessibilityLabel: 'Dismiss banner',
@@ -47,25 +47,25 @@ export default function Example(): ReactNode {
           submitButtonText="Contact me"
         >
           <Box display="block" smDisplay="flex">
-            <Box flex="grow" smMarginEnd={1} marginEnd={0} smMarginBottom={0} marginBottom={2}>
+            <Box flex="grow" marginBottom={2} marginEnd={0} smMarginBottom={0} smMarginEnd={1}>
               <TextField
                 id="name"
-                onChange={({ value }) => setNameValue(value)}
-                placeholder="Name"
                 label="Full name"
                 labelDisplay="hidden"
+                onChange={({ value }) => setNameValue(value)}
+                placeholder="Name"
                 value={nameValue}
               />
             </Box>
 
-            <Box flex="grow" smMarginStart={1} marginStart={0}>
+            <Box flex="grow" marginStart={0} smMarginStart={1}>
               <TextField
                 id="email"
+                label="Email address"
+                labelDisplay="hidden"
                 onChange={({ value }) => setEmailValue(value)}
                 placeholder="Email"
                 type="email"
-                label="Email address"
-                labelDisplay="hidden"
                 value={emailValue}
               />
             </Box>

@@ -95,18 +95,7 @@ export default function Example(): ReactNode {
 
   return (
     <ChartGraph
-      title="Engagement rate"
       accessibilityLabel="Engagement rate (example)"
-      visualPatternSelected={visualPatternSelected}
-      onVisualPatternChange={() =>
-        setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
-      }
-      initialTicks={3}
-      type="line"
-      range={{
-        xAxisBottom: ['auto', 'auto'],
-      }}
-      layout="vertical"
       data={data}
       elements={[
         { type: 'line', id: 'Paid 10% per click on average' },
@@ -114,11 +103,22 @@ export default function Example(): ReactNode {
         { type: 'line', id: 'Earned' },
         { type: 'line', id: 'Converted' },
       ]}
+      initialTicks={3}
+      layout="vertical"
+      modalZIndex={new FixedZIndex(11)}
+      onVisualPatternChange={() =>
+        setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
+      }
+      range={{
+        xAxisBottom: ['auto', 'auto'],
+      }}
       tickFormatter={{
         timeseries: (date) =>
           `${new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(date)}`,
       }}
-      modalZIndex={new FixedZIndex(11)}
+      title="Engagement rate"
+      type="line"
+      visualPatternSelected={visualPatternSelected}
     />
   );
 }

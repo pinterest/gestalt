@@ -4,9 +4,9 @@ import { Box, Flex, Status } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex>
-        <Status type="ok" title="OK" subtext="Updated 2 days ago" />
+        <Status subtext="Updated 2 days ago" title="OK" type="ok" />
       </Flex>
     </Box>
   );

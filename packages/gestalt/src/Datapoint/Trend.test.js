@@ -7,8 +7,8 @@ describe('DatapointTrend', () => {
     const tree = create(
       <DatapointTrend
         iconAccessibilityLabel="Value change icon accessibility label"
-        value={30}
         sentiment="good"
+        value={30}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();

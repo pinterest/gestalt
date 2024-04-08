@@ -1,10 +1,12 @@
 {
   "name": "gestalt-design-tokens",
-  "version": "145.3.6",
+  "version": "146.11.1",
   "license": "Apache-2.0",
   "homepage": "https://gestalt.pinterest.systems/",
   "description": "Design tokens style dictionary for Gestalt",
-  "main": "dist/css/variables.css",
+  "main": "dist/js/constants.js",
+  "jsnext:main": "dist/js/constants.es.js",
+  "module": "dist/js/constants.es.js",
   "files": [
     "dist",
     "tokens"

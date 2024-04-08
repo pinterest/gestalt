@@ -130,8 +130,8 @@ describe('HelpButton', () => {
       <HelpButton
         accessibilityLabel="Click to learn more about Pinterest"
         accessibilityPopoverLabel="Expanded information about Pinterest"
-        text="Good test"
         link={{ href: 'https://www.pinterest.com', text: 'Good test' }}
+        text="Good test"
       />,
     );
 
@@ -147,12 +147,12 @@ describe('HelpButton', () => {
       <HelpButton
         accessibilityLabel="Click to learn more about Pinterest"
         accessibilityPopoverLabel="Expanded information about Pinterest"
-        text="Good test"
         link={{
           href: 'https://www.pinterest.com',
           accessibilityLabel: 'Good test',
           text: 'New link text',
         }}
+        text="Good test"
       />,
     );
 
@@ -178,12 +178,12 @@ describe('HelpButton', () => {
       <HelpButton
         accessibilityLabel="Click to learn more about Pinterest"
         accessibilityPopoverLabel="Expanded information about Pinterest"
-        text="Good test"
         link={{
           href: 'https://www.pinterest.com',
           text: 'Good test',
           onClick: spy,
         }}
+        text="Good test"
       />,
     );
 

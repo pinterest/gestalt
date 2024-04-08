@@ -90,7 +90,7 @@ export default function TrapFocusBehavior({ children }: Props): ReactNode {
   }, [elRef, previouslyFocusedElRef]);
 
   return (
-    <div name="trap-focus" ref={setElRef}>
+    <div ref={setElRef} name="trap-focus">
       {children}
     </div>
   );

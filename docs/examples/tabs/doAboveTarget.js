@@ -8,8 +8,8 @@ export default function Example(): ReactNode {
 
   return (
     <Box padding={4}>
-      <Flex width="100%" minWidth="100%" alignItems="center" direction="column" gap={4} flex="grow">
-        <Flex gap={{ column: 4, row: 0 }} direction="column">
+      <Flex alignItems="center" direction="column" flex="grow" gap={4} minWidth="100%" width="100%">
+        <Flex direction="column" gap={{ column: 4, row: 0 }}>
           <Heading size="200">Tune your home feed</Heading>
         </Flex>
 
@@ -45,8 +45,8 @@ export default function Example(): ReactNode {
                 <Text weight="bold">Interior Design - 19 Pins</Text>
               </Label>
               <Switch
-                onChange={() => setSwitched(!switched)}
                 id="interiorDesignBoard"
+                onChange={() => setSwitched(!switched)}
                 switched={switched}
               />
             </Flex>

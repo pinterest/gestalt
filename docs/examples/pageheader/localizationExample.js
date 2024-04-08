@@ -5,8 +5,7 @@ import { Button, Datapoint, Dropdown, PageHeader } from 'gestalt';
 export default function PageHeaderLocalizationExample(): ReactNode {
   return (
     <PageHeader
-      title="Anzeigenübersicht"
-      subtext="5 aktive Kampagnen."
+      dropdownAccessibilityLabel="Mehr Optionen"
       helperLink={{
         text: 'Mehr erfahren.',
         accessibilityLabel: 'Erfahren Sie mehr auf Pinterest.com',
@@ -18,17 +17,17 @@ export default function PageHeaderLocalizationExample(): ReactNode {
           key="imporessions"
           size="md"
           title="Impressionen"
-          value="$1.25M"
           trend={{ value: 30, accessibilityLabel: 'Aufwärtstrend' }}
+          value="$1.25M"
         />,
       ]}
       primaryAction={{
         component: <Button color="red" size="lg" text="Fördern" />,
         dropdownItems: [
           <Dropdown.Item
-            option={{ value: 'Fördern', label: 'Fördern' }}
-            onSelect={() => {}}
             key="fordern"
+            onSelect={() => {}}
+            option={{ value: 'Fördern', label: 'Fördern' }}
           />,
         ],
       }}
@@ -37,12 +36,13 @@ export default function PageHeaderLocalizationExample(): ReactNode {
         dropdownItems: [
           <Dropdown.Link
             key="analysen"
-            option={{ value: 'Analysen anzeigen', label: 'Analysen anzeigen' }}
             href="https://pinterest.com"
+            option={{ value: 'Analysen anzeigen', label: 'Analysen anzeigen' }}
           />,
         ],
       }}
-      dropdownAccessibilityLabel="Mehr Optionen"
+      subtext="5 aktive Kampagnen."
+      title="Anzeigenübersicht"
     />
   );
 }

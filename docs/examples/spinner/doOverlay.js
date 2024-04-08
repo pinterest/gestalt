@@ -31,7 +31,7 @@ function DataTable() {
 
 function Overlay() {
   return (
-    <Box color="default" height="100%" opacity={0.8} position="absolute" top left width="100%" />
+    <Box color="default" height="100%" left opacity={0.8} position="absolute" top width="100%" />
   );
 }
 
@@ -42,9 +42,9 @@ export default function Example(): ReactNode {
 
       <Overlay />
 
-      <Box height="100%" position="absolute" top left width="100%">
+      <Box height="100%" left position="absolute" top width="100%">
         <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-          <Spinner show accessibilityLabel="Example spinner" />
+          <Spinner accessibilityLabel="Example spinner" show />
         </Flex>
       </Box>
     </Fragment>

@@ -9,22 +9,22 @@ export default function Example(): ReactNode {
 
   return (
     <Box padding={8}>
-      <Button text="View Modal" onClick={() => setShowComponent(true)} />
+      <Button onClick={() => setShowComponent(true)} text="View Modal" />
       {showComponent && (
         <Layer zIndex={modalZIndex}>
           <Modal
             accessibilityModalLabel="Resume account creation"
             align="start"
-            heading="Resume your work?"
-            subHeading="Welcome back to the business account creation process!"
-            onDismiss={() => setShowComponent(false)}
             footer={
-              <Flex alignItems="center" justifyContent="end" gap={2}>
-                <Button text="Cancel" onClick={() => setShowComponent(false)} />
+              <Flex alignItems="center" gap={2} justifyContent="end">
+                <Button onClick={() => setShowComponent(false)} text="Cancel" />
                 <Button color="red" text="Resume" />
               </Flex>
             }
+            heading="Resume your work?"
+            onDismiss={() => setShowComponent(false)}
             size="sm"
+            subHeading="Welcome back to the business account creation process!"
           >
             <Text>
               Want to continue where you left off? Click &quot;Resume&quot; to continue creating

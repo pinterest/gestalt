@@ -7,11 +7,11 @@ export default function Snapshot(): ReactNode {
 
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <Box color="default" display="inlineBlock" padding={1} width={300} height={150}>
-        <Flex justifyContent="center" height="100%" width="100%">
+      <Box color="default" display="inlineBlock" height={150} padding={1} width={300}>
+        <Flex height="100%" justifyContent="center" width="100%">
           <Box dangerouslySetInlineStyle={{ __style: { marginTop: 40 } }} position="relative">
             <Button onClick={() => {}} text="Button" />
-            <Box ref={anchorRef} position="absolute" top marginTop={-7} marginStart={-3}>
+            <Box ref={anchorRef} marginStart={-3} marginTop={-7} position="absolute" top>
               <Pulsar size={100} />
             </Box>
           </Box>

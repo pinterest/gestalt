@@ -1,5 +1,13 @@
 // @flow strict
 import { type AbstractComponent, forwardRef, type Node as ReactNode, useState } from 'react';
+import {
+  TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_ACTIVE,
+  TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_BASE,
+  TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_HOVER,
+  TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_ACTIVE,
+  TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_BASE,
+  TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_HOVER,
+} from 'gestalt-design-tokens';
 import Box from './Box';
 import Flex from './Flex';
 import TapAreaLink from './TapAreaLink';
@@ -91,14 +99,14 @@ const TAB_INNER_PADDING = 2;
 
 const COLORS = {
   default: {
-    base: 'var(--color-background-tabs-default-base)',
-    active: 'var(--color-background-tabs-default-active)',
-    hover: 'var(--color-background-tabs-default-hover)',
+    base: TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_BASE,
+    active: TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_ACTIVE,
+    hover: TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_HOVER,
   },
   transparent: {
-    base: 'var(--color-background-tabs-transparent-base)',
-    active: 'var(--color-background-tabs-transparent-active)',
-    hover: 'var(--color-background-tabs-transparent-hover)',
+    base: TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_BASE,
+    active: TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_ACTIVE,
+    hover: TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_HOVER,
   },
 };
 
@@ -120,16 +128,16 @@ const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
   }
 
   return (
-    <Box id={id} paddingY={3} ref={ref}>
+    <Box ref={ref} id={id} paddingY={3}>
       <TapAreaLink
         accessibilityCurrent={isActive ? 'page' : undefined}
         href={href}
         onBlur={() => setFocused(false)}
         onFocus={() => setFocused(true)}
         onMouseDown={() => setPressed(true)}
-        onMouseUp={() => setPressed(false)}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
+        onMouseUp={() => setPressed(false)}
         onTap={({ event, dangerouslyDisableOnNavigation }) => {
           onChange({
             activeTabIndex: index,
@@ -228,15 +236,15 @@ export default function Tabs({
     <Flex alignItems="center" gap={{ row: 4, column: 0 }} justifyContent="start" wrap={wrap}>
       {tabs.map(({ href, id, indicator, ref, text }, index) => (
         <TabWithForwardRef
+          key={id || `${href}_${index}`}
+          ref={ref}
           bgColor={bgColor}
           href={href}
           id={id}
           index={index}
-          isActive={activeTabIndex === index}
           indicator={indicator}
-          key={id || `${href}_${index}`}
+          isActive={activeTabIndex === index}
           onChange={onChange}
-          ref={ref}
           text={text}
         />
       ))}

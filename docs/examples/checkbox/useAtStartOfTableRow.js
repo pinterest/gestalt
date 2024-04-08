@@ -8,7 +8,7 @@ export default function Example(): ReactNode {
   const [checked3, setChecked3] = useState(false);
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Table accessibilityLabel="Campaign selection" maxHeight={200}>
         <Table.Header sticky>
           <Table.Row>
@@ -25,10 +25,10 @@ export default function Example(): ReactNode {
                 <Checkbox
                   checked={checked1}
                   id="1"
-                  onChange={({ checked }) => setChecked1(checked)}
-                  size="sm"
                   label="Select Summertime picnic row"
                   labelDisplay="hidden"
+                  onChange={({ checked }) => setChecked1(checked)}
+                  size="sm"
                 />
               </Box>
             </Table.Cell>
@@ -42,10 +42,10 @@ export default function Example(): ReactNode {
                 <Checkbox
                   checked={checked2}
                   id="2"
-                  onChange={({ checked }) => setChecked2(checked)}
-                  size="sm"
                   label="Select Summer 1950 row"
                   labelDisplay="hidden"
+                  onChange={({ checked }) => setChecked2(checked)}
+                  size="sm"
                 />
               </Box>
             </Table.Cell>
@@ -59,10 +59,10 @@ export default function Example(): ReactNode {
                 <Checkbox
                   checked={checked3}
                   id="3"
-                  onChange={({ checked }) => setChecked3(checked)}
-                  size="sm"
                   label="Select Back to school row"
                   labelDisplay="hidden"
+                  onChange={({ checked }) => setChecked3(checked)}
+                  size="sm"
                 />
               </Box>
             </Table.Cell>

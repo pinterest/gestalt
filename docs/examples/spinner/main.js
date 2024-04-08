@@ -9,13 +9,13 @@ export default function Example(): ReactNode {
     <Fragment>
       <Box padding={2}>
         <Button
-          text={show ? 'Hide spinner' : 'Show spinner'}
           onClick={() => setShow((currVal) => !currVal)}
           size="md"
+          text={show ? 'Hide spinner' : 'Show spinner'}
         />
       </Box>
 
-      <Spinner show={show} accessibilityLabel="Example spinner" />
+      <Spinner accessibilityLabel="Example spinner" show={show} />
     </Fragment>
   );
 }

@@ -79,7 +79,7 @@ function Th({ children }: { children?: ReactNode }) {
   return (
     <th style={{ borderBottom: '2px solid #ddd' }}>
       <Box padding={2}>
-        <Text size="200" overflow="normal" weight="bold">
+        <Text overflow="normal" size="200" weight="bold">
           {children}
         </Text>
       </Box>
@@ -102,16 +102,16 @@ function Td({
 }) {
   return (
     <td
+      colSpan={colspan}
       style={{
         borderBottom: border ? '1px solid #ddd' : null,
         padding: 0,
         verticalAlign: 'top',
         width: shrink ? '1px' : null,
       }}
-      colSpan={colspan}
     >
-      <Box paddingX={2} marginTop={2} marginBottom={border ? 2 : 0}>
-        <Text overflow="normal" color={color}>
+      <Box marginBottom={border ? 2 : 0} marginTop={2} paddingX={2}>
+        <Text color={color} overflow="normal">
           {children}
         </Text>
       </Box>
@@ -135,31 +135,31 @@ export default function PropTable({
 
   return (
     <Card
-      id={propsId}
       headingSize={proptableName ? '400' : '500'}
+      id={propsId}
       name={proptableName ? `${proptableName} Props` : 'Props'}
       toggle={
         <Tooltip inline text={`${propTableVariant === 'expanded' ? 'Collapse' : 'Expand'} props`}>
           <IconButton
-            icon={propTableVariant === 'expanded' ? 'minimize' : 'maximize'}
             accessibilityLabel={`${
               propTableVariant === 'expanded' ? 'Collapse' : 'Expand'
             } props for ${componentName || ''}`}
+            icon={propTableVariant === 'expanded' ? 'minimize' : 'maximize'}
             iconColor="darkGray"
-            size="xs"
             onClick={() =>
               setPropTableVariant(propTableVariant === 'expanded' ? 'collapsed' : 'expanded')
             }
+            size="xs"
           />
         </Tooltip>
       }
     >
       {propTableVariant === 'expanded' ? (
         <Box
+          dangerouslySetInlineStyle={{ __style: { overflowY: 'hidden' } }}
           marginBottom={12}
           marginTop={4}
           overflow="auto"
-          dangerouslySetInlineStyle={{ __style: { overflowY: 'hidden' } }}
         >
           <table
             style={{
@@ -169,10 +169,6 @@ export default function PropTable({
             }}
           >
             <Box
-              width={1}
-              height={1}
-              overflow="hidden"
-              position="absolute"
               as="caption"
               dangerouslySetInlineStyle={{
                 __style: {
@@ -180,6 +176,10 @@ export default function PropTable({
                   whiteSpace: 'nowrap',
                 },
               }}
+              height={1}
+              overflow="hidden"
+              position="absolute"
+              width={1}
             >
               {proptableName ? `${proptableName} subcomponent props` : 'Component props'}
             </Box>
@@ -215,14 +215,14 @@ export default function PropTable({
                     const transformedDefaultValue = transformDefaultValue(defaultValue);
                     newAcc.push(
                       <tr key={name}>
-                        <Td shrink border={!propNameHasSecondRow}>
+                        <Td border={!propNameHasSecondRow} shrink>
                           <Box
-                            id={`${propsId}-${name}`}
                             dangerouslySetInlineStyle={{
                               __style: {
                                 scrollMarginTop: 60,
                               },
                             }}
+                            id={`${propsId}-${name}`}
                           >
                             <Flex
                               gap={{
@@ -272,9 +272,9 @@ export default function PropTable({
                         </Td>
 
                         <Td
-                          shrink
-                          color={defaultValue != null ? 'default' : 'subtle'}
                           border={!propNameHasSecondRow}
+                          color={defaultValue != null ? 'default' : 'subtle'}
+                          shrink
                         >
                           {defaultValue != null ? (
                             <code>{JSON.stringify(transformedDefaultValue)}</code>
@@ -301,7 +301,7 @@ export default function PropTable({
                               </Box>
                             )}
                           </Td>
-                          <Td colspan={1} color="default">
+                          <Td color="default" colspan={1}>
                             {description && (
                               <Box marginTop={6}>
                                 {Array.isArray(description) ? (
@@ -322,7 +322,7 @@ export default function PropTable({
                 )
               ) : (
                 <tr>
-                  <Td colspan={3} color="subtle">
+                  <Td color="subtle" colspan={3}>
                     No properties
                   </Td>
                 </tr>

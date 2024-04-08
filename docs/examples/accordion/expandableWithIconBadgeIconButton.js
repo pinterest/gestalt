@@ -7,7 +7,7 @@ export default function Example(): ReactNode {
   const anchorRef = useRef<HTMLElement | null>(null);
 
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Box column={12} maxWidth={800} padding={2}>
         <Accordion.Expandable
           id="accordionExample"
@@ -27,13 +27,13 @@ export default function Example(): ReactNode {
               children: <Text size="200">Children3</Text>,
               iconButton: (
                 <IconButton
+                  ref={anchorRef}
+                  accessibilityLabel="Get help"
                   bgColor="lightGray"
                   icon="question-mark"
                   iconColor="darkGray"
-                  accessibilityLabel="Get help"
-                  size="xs"
                   onClick={() => setShowPopover((currVal) => !currVal)}
-                  ref={anchorRef}
+                  size="xs"
                 />
               ),
               title: 'Example with icon button',

@@ -4,9 +4,9 @@ import { Box, Flex, Heading, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
-      <Flex direction="column" gap={4} alignItems="center">
-        <Heading align="center" accessibilityLevel={4} size="400">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Flex alignItems="center" direction="column" gap={4}>
+        <Heading accessibilityLevel={4} align="center" size="400">
           Shopify Marketing would like permission to:
         </Heading>
         <Text color="subtle">See your account settings</Text>

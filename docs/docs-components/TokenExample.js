@@ -1,6 +1,13 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box } from 'gestalt';
+import {
+  TOKEN_COLOR_TEXT_DEFAULT,
+  TOKEN_COLOR_TRANSPARENT,
+  TOKEN_FONT_SIZE_500,
+  TOKEN_FONT_SIZE_600,
+  TOKEN_SPACE_1600,
+} from 'gestalt-design-tokens';
 import { type Token } from '../pages/foundations/design_tokens/overview';
 
 type BaseProps = {
@@ -23,16 +30,16 @@ const WIDTH = 250;
 export function ColorBox({ token }: BaseProps): ReactNode {
   return (
     <Box
+      alignItems="center"
+      borderStyle={token.name.includes('inverse') ? 'sm' : 'none'}
       dangerouslySetInlineStyle={{
         __style: { backgroundColor: `var(--${token.name})` },
       }}
-      height={HEIGHT}
-      width={WIDTH}
       display="flex"
-      alignItems="center"
+      height={HEIGHT}
       justifyContent="between"
       paddingX={2}
-      borderStyle={token.name.includes('inverse') ? 'sm' : 'none'}
+      width={WIDTH}
     />
   );
 }
@@ -40,10 +47,10 @@ export function ColorBox({ token }: BaseProps): ReactNode {
 export function RoundingBox({ token }: BaseProps): ReactNode {
   return (
     <Box
+      borderStyle="lg"
       dangerouslySetInlineStyle={{
         __style: { 'borderRadius': `var(--${token.name})` },
       }}
-      borderStyle="lg"
       height={HEIGHT}
       width={WIDTH}
     />
@@ -56,22 +63,22 @@ export function SpacingBox({ token }: BaseProps): ReactNode {
     const marginLeftDimension = `calc(64px + ${token.value})`;
     return (
       <Box
+        borderStyle="lg"
         dangerouslySetInlineStyle={{
           __style: { marginLeft: marginLeftDimension },
         }}
-        borderStyle="lg"
-        width={absoluteDimension}
         height={absoluteDimension}
+        width={absoluteDimension}
       />
     );
   }
 
   return (
     <Box
-      dangerouslySetInlineStyle={{ __style: { marginLeft: '64px' } }}
       color="brand"
-      width={token.value}
+      dangerouslySetInlineStyle={{ __style: { marginLeft: TOKEN_SPACE_1600 } }}
       height={token.value}
+      width={token.value}
     />
   );
 }
@@ -88,16 +95,16 @@ export function TextColorBox({ token }: BaseProps): ReactNode {
 
   return (
     <Box
-      dangerouslySetInlineStyle={{
-        __style: { color: `var(--${token.name})`, fontSize: '32px' },
-      }}
-      height={HEIGHT}
-      width={WIDTH}
-      display="flex"
       alignItems="center"
+      color={backgroundColor}
+      dangerouslySetInlineStyle={{
+        __style: { color: `var(--${token.name})`, fontSize: TOKEN_FONT_SIZE_500 },
+      }}
+      display="flex"
+      height={HEIGHT}
       justifyContent="between"
       paddingX={2}
-      color={backgroundColor}
+      width={WIDTH}
     >
       Gestalt
     </Box>
@@ -107,15 +114,15 @@ export function TextColorBox({ token }: BaseProps): ReactNode {
 export function BorderBox({ token }: BaseProps): ReactNode {
   return (
     <Box
+      alignItems="center"
       dangerouslySetInlineStyle={{
         __style: { border: `2px solid var(--${token.name})` },
       }}
-      height={HEIGHT}
-      width={WIDTH}
       display="flex"
-      alignItems="center"
+      height={HEIGHT}
       justifyContent="between"
       paddingX={2}
+      width={WIDTH}
     />
   );
 }
@@ -123,20 +130,20 @@ export function BorderBox({ token }: BaseProps): ReactNode {
 export function OpacityBox({ token }: BaseProps): ReactNode {
   return (
     <Box
-      color="recommendationWeak"
-      height={HEIGHT}
-      width={WIDTH}
-      display="flex"
-      justifyContent="center"
       alignItems="center"
+      color="recommendationWeak"
+      display="flex"
+      height={HEIGHT}
+      justifyContent="center"
+      width={WIDTH}
     >
       <Box
+        color="inverse"
         dangerouslySetInlineStyle={{
           __style: { opacity: `var(--${token.name})` },
         }}
         height={HEIGHT}
         width={WIDTH}
-        color="inverse"
       />
     </Box>
   );
@@ -145,18 +152,20 @@ export function OpacityBox({ token }: BaseProps): ReactNode {
 export function ElevationBox({ token }: BaseProps): ReactNode {
   return (
     <Box
+      alignItems="center"
       dangerouslySetInlineStyle={{
         __style: {
           boxShadow: `var(--${token.name})`,
-          backgroundColor: token.name.includes('color') ? `var(--${token.name})` : 'transparent',
+          backgroundColor: token.name.includes('color')
+            ? `var(--${token.name})`
+            : TOKEN_COLOR_TRANSPARENT,
         },
       }}
-      height={HEIGHT}
-      width={WIDTH}
       display="flex"
-      alignItems="center"
+      height={HEIGHT}
       justifyContent="between"
       paddingX={2}
+      width={WIDTH}
     />
   );
 }
@@ -164,24 +173,24 @@ export function ElevationBox({ token }: BaseProps): ReactNode {
 export function FontBox({ token, type }: FontBoxProps): ReactNode {
   const fontWeightStyle = type === 'weight' ? `var(--${token.name})` : undefined;
   const fontFamilyStyle = type === 'family' ? `var(--${token.name})` : undefined;
-  const fontSizeStyle = type === 'size' ? `var(--${token.name})` : `var(--font-size-600)`;
+  const fontSizeStyle = type === 'size' ? `var(--${token.name})` : TOKEN_FONT_SIZE_600;
 
   return (
     <Box
+      alignItems="center"
       dangerouslySetInlineStyle={{
         __style: {
           fontWeight: fontWeightStyle,
           fontFamily: fontFamilyStyle,
           fontSize: fontSizeStyle,
-          color: 'var(--color-text-default)',
+          color: TOKEN_COLOR_TEXT_DEFAULT,
         },
       }}
-      height={HEIGHT}
-      width={WIDTH}
       display="flex"
-      alignItems="center"
+      height={HEIGHT}
       justifyContent="between"
       paddingX={2}
+      width={WIDTH}
     >
       {token.name.includes('japanese') ? 'ゲシュタルト' : 'Gestalt'}
     </Box>

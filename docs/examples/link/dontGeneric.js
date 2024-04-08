@@ -4,7 +4,7 @@ import { Flex, Link, Text } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex height="100%" alignItems="center" justifyContent="center">
+    <Flex alignItems="center" height="100%" justifyContent="center">
       <Text>
         For more information,{' '}
         <Text inline>

@@ -4,7 +4,7 @@ import { Box, Datapoint, Flex } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Box padding={8} height="100%" display="flex" alignItems="center" justifyContent="center">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex direction="column" gap={{ column: 4, row: 0 }}>
         <Datapoint size="md" title="January spend" value="$14,325" />
         <Datapoint size="md" title="February spend" value="$12,150" />

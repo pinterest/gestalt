@@ -429,10 +429,6 @@
   background-color: var(--color-background-box-info-base);
 }
 
-.infoStrong {
-  background-color: var(--color-background-box-info-strong);
-}
-
 .infoWeak {
   background-color: var(--color-background-box-info-weak);
 }

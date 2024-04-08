@@ -4,8 +4,8 @@ import { Flex, Image, Mask } from 'gestalt';
 
 export default function Example(): ReactNode {
   return (
-    <Flex height="100%" width="100%" alignItems="center" justifyContent="center">
-      <Mask rounding={3} width={150} height={150}>
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
+      <Mask height={150} rounding={3} width={150}>
         <Image
           alt="Keerthi Avatar"
           color="#000"
