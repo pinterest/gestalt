@@ -1,3 +1,9 @@
+## 146.11.1 (Apr 8, 2024)
+
+### Patch
+
+- Icon: Added icon to Android folder ([#3517](https://github.com/pinterest/gestalt/pull/3517)) - [Preview link](https://deploy-preview-3517--gestalt.netlify.app?devexample=true)
+
 ## 146.11.0 (Apr 5, 2024)
 
 ### Minor
