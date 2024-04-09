@@ -13,6 +13,7 @@ import {
   useSyncExternalStore,
   useTransition,
 } from 'react';
+import debounce from './debounce';
 import styles from './Masonry.css';
 import { type Cache } from './Masonry/Cache';
 import { TWO_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/defaultTwoColumnModuleLayout';
@@ -22,6 +23,8 @@ import MeasurementStore from './Masonry/MeasurementStore';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { type Layout, type Position } from './Masonry/types';
 import useIsomorphicLayoutEffect from './useIsomorphicLayoutEffect';
+
+const RESIZE_DEBOUNCE = 300;
 
 const layoutNumberToCssDimension = (n: ?number) => (n !== Infinity ? n : undefined);
 
@@ -138,26 +141,45 @@ function createMeasurementStore<T1: { ... }, T2>(): MeasurementStore<T1, T2> {
   return new MeasurementStore();
 }
 
-function subscribeToResizeEvent(callback: () => void) {
-  window.addEventListener('resize', callback);
-  return () => {
-    window.removeEventListener('resize', callback);
-  };
-}
-
 // helper hook to force update a component
 function useForceUpdate() {
   const [, forceUpdate] = useReducer<number, void>((x) => x + 1, 0);
   return forceUpdate;
 }
 
+// useElementWidth returns the width of the gridWrapper element
+// and uses useSyncExternalStore to subscribe to window resize events
 function useElementWidth(element: ?HTMLDivElement) {
-  const getElementWidth = useCallback(() => {
-    const elWidth = element?.clientWidth;
-    return elWidth;
-  }, [element]);
+  const prevElementRef = useRef<?HTMLDivElement>(null);
+  const elementWidthRef = useRef<?number>(null);
 
-  const width = useSyncExternalStore(subscribeToResizeEvent, getElementWidth, () => null);
+  // update elementWidthRef whenever element changes
+  if (element && element !== prevElementRef.current) {
+    elementWidthRef.current = element.clientWidth;
+    prevElementRef.current = element;
+  }
+
+  const subscribeToResizeEvent = useCallback(
+    (callback: () => void) => {
+      const handler = debounce(() => {
+        // update elementWidthRef whenever we have a resize event
+        elementWidthRef.current = element?.clientWidth;
+        callback();
+      }, RESIZE_DEBOUNCE);
+      window.addEventListener('resize', handler);
+      return () => {
+        window.removeEventListener('resize', handler);
+      };
+    },
+    [element],
+  );
+
+  const width = useSyncExternalStore(
+    subscribeToResizeEvent,
+    () => elementWidthRef.current,
+    () => null,
+  );
+
   return width;
 }
 
