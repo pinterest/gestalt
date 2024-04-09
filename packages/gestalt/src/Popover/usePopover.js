@@ -114,7 +114,7 @@ export default function usePopover({
       isForceDown ? undefined : popoverFlip,
       popoverShift,
       popoverArrow,
-      hideWhenReferenceHidden && popoverHide,
+      popoverHide,
     ],
   });
 
