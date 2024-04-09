@@ -15,6 +15,10 @@ import FormLabel from './shared/FormLabel';
 
 type Props = {
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string,
+  /**
    * One or more SelectList.Option components, which may be grouped using SelectList.Group.
    */
   children: ReactNode,
@@ -75,6 +79,7 @@ type Props = {
  *
  */
 function SelectList({
+  dataTestId,
   children,
   disabled = false,
   errorMessage,
@@ -155,6 +160,7 @@ function SelectList({
           aria-describedby={focused ? ariaDescribedby : undefined}
           aria-invalid={errorMessage ? 'true' : 'false'}
           className={classes}
+          data-test-id={dataTestId}
           disabled={disabled}
           id={id}
           name={name}

@@ -1473,6 +1473,7 @@ interface NumberFieldProps {
     }
   >;
   autoComplete?: 'on' | 'off' | undefined;
+  dataTestId?: string,
   disabled?: boolean | undefined;
   errorMessage?: Node | undefined;
   helperText?: string | undefined;
@@ -1746,6 +1747,7 @@ interface SelectListProps {
   children: Node;
   id: string;
   onChange: AbstractEventHandler<React.SyntheticEvent<HTMLElement>, { value: string }>;
+  dataTestId?: string,
   disabled?: boolean | undefined;
   errorMessage?: string | undefined;
   helperText?: string | undefined;
@@ -2248,6 +2250,7 @@ interface TextProps {
 interface TextAreaProps {
   id: string;
   onChange: AbstractEventHandler<React.SyntheticEvent<HTMLTextAreaElement>, { value: string }>;
+  dataTestId?: string,
   disabled?: boolean | undefined;
   errorMessage?: Node | undefined;
   hasError?: boolean | undefined;
