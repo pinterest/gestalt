@@ -1351,7 +1351,6 @@ interface MeasurementStore<K, V> {
 }
 
 interface MasonryProps<T = any> {
-  _batchPaints?: boolean | undefined;
   items: ReadonlyArray<T>;
   renderItem: (args: { data: T; itemIdx: number; isMeasuring: boolean }) => Node;
 
@@ -1372,6 +1371,20 @@ interface MasonryProps<T = any> {
   virtualBoundsTop?: number | undefined;
   virtualBufferFactor?: number | undefined;
   virtualize?: boolean | undefined;
+  _twoColItems?: boolean | undefined;
+  _logTwoColWhitespace?: (number) => void;
+}
+
+interface MasonryV2Props<T = any> extends MasonryProps<T> {
+  _measureAll?: boolean | undefined;
+}
+
+interface MasonryV2Ref {
+  handleResize: () => void;
+  reflow: () => void;
+  state: {
+    width: number | undefined;
+  }
 }
 
 interface ModalProps {
@@ -2741,6 +2754,11 @@ export const Mask: React.FunctionComponent<MaskProps>;
  * https://gestalt.pinterest.systems/web/masonry
  */
 export const Masonry: React.FunctionComponent<MasonryProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/masonry
+ */
+export const MasonryV2: ReactForwardRef<MasonryV2Ref, MasonryV2Props>;
 
 /**
  * https://gestalt.pinterest.systems/web/modal

@@ -1,35 +1,129 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
+import {
+  TOKEN_COLOR_BLACK_COSMICORE_900,
+  TOKEN_COLOR_BLUE_SKYCICLE_300,
+  TOKEN_COLOR_BLUE_SKYCICLE_450,
+  TOKEN_COLOR_BLUE_SKYCICLE_500,
+  TOKEN_COLOR_GRAY_ROBOFLOW_200,
+  TOKEN_COLOR_GRAY_ROBOFLOW_300,
+  TOKEN_COLOR_GRAY_ROBOFLOW_500,
+  TOKEN_COLOR_GREEN_MATCHACADO_450,
+  TOKEN_COLOR_ORANGE_FIRETINI_450,
+  TOKEN_COLOR_PINK_FLAMINGLOW_450,
+  TOKEN_COLOR_PURPLE_MYSTICOOL_450,
+  TOKEN_COLOR_RED_PUSHPIN_450,
+  TOKEN_COLOR_TEAL_SPABATTICAL_450,
+  TOKEN_COLOR_TRANSPARENT,
+  TOKEN_COLOR_WHITE_MOCHIMALIST_0,
+  TOKEN_COLOR_YELLOW_CARAMELLOW_450,
+} from 'gestalt-design-tokens';
+import tokens from 'gestalt-design-tokens/dist/json/variables.json';
 import ColorPalette from '../../../docs-components/ColorPalette';
 import ColorTile from '../../../docs-components/ColorTile';
 import MainSection from '../../../docs-components/MainSection';
 import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';
 
-const colors = [
-  { name: 'Pushpin', id: 'red', textColor: 'light' },
-  { name: 'Flaminglow', id: 'pink', textColor: 'dark' },
-  { name: 'Skycicle', id: 'blue', textColor: 'dark' },
-  { name: 'Spabattical', id: 'teal', textColor: 'dark' },
-  { name: 'Matchacado', id: 'green', textColor: 'dark' },
-  { name: 'Mysticool', id: 'purple', textColor: 'light' },
-  { name: 'Firetini', id: 'orange', textColor: 'dark' },
-  { name: 'Caramellow', id: 'yellow', textColor: 'dark' },
+type DataType = $ReadOnlyArray<{
+  name: string,
+  id: string,
+  tokenData: $ReadOnlyArray<string>,
+  brandToken?: string,
+  textColor: 'light' | 'dark',
+}>;
+
+const filterToken = (color: string) =>
+  Object.keys(tokens)
+    .filter((value) => typeof value === 'string' && value.includes(color))
+    .map((name) => `var(--${name})`);
+
+const getColors: () => DataType = () => [
+  {
+    name: 'Pushpin',
+    id: 'red',
+    tokenData: filterToken('red'),
+    brandToken: TOKEN_COLOR_RED_PUSHPIN_450,
+    textColor: 'light',
+  },
+  {
+    name: 'Flaminglow',
+    id: 'pink',
+    tokenData: filterToken('pink'),
+    brandToken: TOKEN_COLOR_PINK_FLAMINGLOW_450,
+    textColor: 'dark',
+  },
+  {
+    name: 'Skycicle',
+    id: 'blue',
+    tokenData: filterToken('blue'),
+    brandToken: TOKEN_COLOR_BLUE_SKYCICLE_450,
+    textColor: 'dark',
+  },
+  {
+    name: 'Spabattical',
+    id: 'teal',
+    tokenData: filterToken('teal'),
+    brandToken: TOKEN_COLOR_TEAL_SPABATTICAL_450,
+    textColor: 'dark',
+  },
+  {
+    name: 'Matchacado',
+    id: 'green',
+    tokenData: filterToken('green'),
+    brandToken: TOKEN_COLOR_GREEN_MATCHACADO_450,
+    textColor: 'dark',
+  },
+  {
+    name: 'Mysticool',
+    id: 'purple',
+    tokenData: filterToken('purple'),
+    brandToken: TOKEN_COLOR_PURPLE_MYSTICOOL_450,
+    textColor: 'light',
+  },
+  {
+    name: 'Firetini',
+    id: 'orange',
+    tokenData: filterToken('orange'),
+    brandToken: TOKEN_COLOR_ORANGE_FIRETINI_450,
+    textColor: 'dark',
+  },
+  {
+    name: 'Caramellow',
+    id: 'yellow',
+    tokenData: filterToken('yellow'),
+    brandToken: TOKEN_COLOR_YELLOW_CARAMELLOW_450,
+    textColor: 'dark',
+  },
 ];
 
-const neutrals = [
-  { name: 'Mochimalist', id: 'white', textColor: 'dark' },
-  { name: 'Roboflow', id: 'gray', textColor: 'dark' },
-  { name: 'Cosmicore', id: 'black', textColor: 'light' },
+const getNeutrals: () => DataType = () => [
+  {
+    name: 'Mochimalist',
+    id: 'white',
+    textColor: 'dark',
+    tokenData: [TOKEN_COLOR_WHITE_MOCHIMALIST_0],
+  },
+  {
+    name: 'Roboflow',
+    id: 'gray',
+    textColor: 'dark',
+    tokenData: filterToken('gray'),
+  },
+  {
+    name: 'Cosmicore',
+    id: 'black',
+    textColor: 'light',
+    tokenData: [TOKEN_COLOR_BLACK_COSMICORE_900],
+  },
 ];
-
-const transparent = [{ name: '', id: 'transparent', textColor: 'dark' }];
 
 type ColorCardProps = {
   children: ReactNode,
   colorScheme: 'light' | 'dark',
 };
+
 function ColorSchemeCard({ children, colorScheme }: ColorCardProps): ReactNode {
   return (
     <Flex
@@ -85,67 +179,59 @@ export default function ColorPage(): ReactNode {
           wrap
         >
           <ColorSchemeCard colorScheme="light">
-            <ColorTile
-              description="Pushpin 450"
-              fullTokenName="color-red-pushpin-450"
-              number={450}
-            />
+            <ColorTile description="Pushpin 450" number={450} token={TOKEN_COLOR_RED_PUSHPIN_450} />
             <ColorTile
               description="Cosmicore 900"
-              fullTokenName="color-black-cosmicore-900"
               number={900}
+              token={TOKEN_COLOR_BLACK_COSMICORE_900}
             />
             <ColorTile
               description="Skycicle 500"
-              fullTokenName="color-blue-skycicle-500"
               number={500}
+              token={TOKEN_COLOR_BLUE_SKYCICLE_500}
             />
             <ColorTile
               description="Roboflow 500"
-              fullTokenName="color-gray-roboflow-500"
               number={500}
+              token={TOKEN_COLOR_GRAY_ROBOFLOW_500}
             />
             <ColorTile
               description="Roboflow 200"
-              fullTokenName="color-gray-roboflow-200"
               number={200}
+              token={TOKEN_COLOR_GRAY_ROBOFLOW_200}
             />
             <ColorTile
               description="Mochimalist 0"
-              fullTokenName="color-white-mochimalist-0"
               number={0}
+              token={TOKEN_COLOR_WHITE_MOCHIMALIST_0}
             />
           </ColorSchemeCard>
           <ColorSchemeCard colorScheme="dark">
-            <ColorTile
-              description="Pushpin 450"
-              fullTokenName="color-red-pushpin-450"
-              number={450}
-            />
+            <ColorTile description="Pushpin 450" number={450} token={TOKEN_COLOR_RED_PUSHPIN_450} />
             <ColorTile
               description="Mochimalist 0"
-              fullTokenName="color-white-mochimalist-0"
               number={0}
+              token={TOKEN_COLOR_WHITE_MOCHIMALIST_0}
             />
             <ColorTile
               description="Skycicle 300"
-              fullTokenName="color-blue-skycicle-300"
               number={300}
+              token={TOKEN_COLOR_BLUE_SKYCICLE_300}
             />
             <ColorTile
               description="Roboflow 300"
-              fullTokenName="color-gray-roboflow-300"
               number={300}
+              token={TOKEN_COLOR_GRAY_ROBOFLOW_300}
             />
             <ColorTile
               description="Roboflow 500"
-              fullTokenName="color-gray-roboflow-500"
               number={500}
+              token={TOKEN_COLOR_GRAY_ROBOFLOW_500}
             />
             <ColorTile
               description="Cosmicore 900"
-              fullTokenName="color-black-cosmicore-900"
               number={900}
+              token={TOKEN_COLOR_BLACK_COSMICORE_900}
             />
           </ColorSchemeCard>
         </Flex>
@@ -155,12 +241,12 @@ export default function ColorPage(): ReactNode {
         name="Reserved colors"
       >
         <Flex direction="column">
-          {colors.map(({ id, name, textColor }) => (
+          {getColors().map(({ name, brandToken, textColor }) => (
             <ColorTile
               key={name}
               description={`${name} 450`}
-              fullTokenName={`color-${id}-${name.toLowerCase()}-450`}
               textColor={textColor}
+              token={brandToken}
             />
           ))}
         </Flex>
@@ -182,23 +268,25 @@ export default function ColorPage(): ReactNode {
             }}
             wrap
           >
-            {colors.map(({ id, name }) => (
-              <ColorPalette key={name} name={name} tokenId={id} />
+            {getColors().map(({ id, name, tokenData }) => (
+              <ColorPalette key={name} name={name} tokenData={tokenData} tokenId={id} />
             ))}
           </Flex>
         </MainSection.Subsection>
         <MainSection.Subsection description="Pinterest name (common name)" title="Neutrals">
           <Flex direction="column">
-            {neutrals.map(({ id, name }) => (
-              <ColorPalette key={name} name={name} tokenId={id} />
+            {getNeutrals().map(({ id, name, tokenData }) => (
+              <ColorPalette key={name} name={name} tokenData={tokenData} tokenId={id} />
             ))}
           </Flex>
         </MainSection.Subsection>
         <MainSection.Subsection description="(common name)" title="Transparent">
           <Flex direction="column">
-            {transparent.map(({ id, name }) => (
-              <ColorPalette key={name} name={name} tokenId={id} />
-            ))}
+            <ColorPalette
+              name="transparent"
+              tokenData={[TOKEN_COLOR_TRANSPARENT]}
+              tokenId="transparent"
+            />
           </Flex>
         </MainSection.Subsection>
         <MainSection.Subsection

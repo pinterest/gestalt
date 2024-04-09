@@ -45,9 +45,7 @@ function PostLayout({
           borderStyle="sm"
           dangerouslySetInlineStyle={{
             __style: {
-              backgroundColor: imageColor
-                ? `var(--color-${imageColor})`
-                : TOKEN_COLOR_WHITE_MOCHIMALIST_0,
+              backgroundColor: imageColor || TOKEN_COLOR_WHITE_MOCHIMALIST_0,
             },
           }}
           display="none"

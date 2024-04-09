@@ -7,7 +7,7 @@ fullwidth: true
 <ImgContainer noPadding color="background-default" src="https://www.pinterest-assets.com/AssetLink/832itu8mf6vv12u8ahol4ef8oht84776/process-main-png.png" alt="Diagram of the contribution process flow from design to submit to review to approval to publish in Figma."/>
 
 ## Before submitting a contribution
-- To speed up the process, review our [validation guidance](team_support/design_contributions/about_design_contributions#Types_of_valid_component_contributions).
+- To speed up the process, review our [validation guidance](team_support/design_contributions/contribution_types_and_criteria#Types-of-valid-component-contributions).
 - If you need help organizing your contribution, go to our [Figma contribution templates](http://pinch.pinadmin.com/contribution-templates).
 
 ## Submit via Slack

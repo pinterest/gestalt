@@ -1,3 +1,57 @@
+## 146.11.1 (Apr 8, 2024)
+
+### Patch
+
+- Icon: Added icon to Android folder ([#3517](https://github.com/pinterest/gestalt/pull/3517)) - [Preview link](https://deploy-preview-3517--gestalt.netlify.app?devexample=true)
+
+## 146.11.0 (Apr 5, 2024)
+
+### Minor
+
+- Masonry: Experimental Masonry Refactor ([#3505](https://github.com/pinterest/gestalt/pull/3505)) - [Preview link](https://deploy-preview-3505--gestalt.netlify.app?devexample=true)
+
+## 146.10.0 (Apr 4, 2024)
+
+### Minor
+
+- Revert "ComboBox: Use Popover v2" ([#3516](https://github.com/pinterest/gestalt/pull/3516)) - [Preview link](https://deploy-preview-3516--gestalt.netlify.app?devexample=true)
+
+## 146.9.4 (Apr 4, 2024)
+
+### Patch
+
+- PageHeader: update heading to BreakAll to split on long titles ([#3514](https://github.com/pinterest/gestalt/pull/3514)) - [Preview link](https://deploy-preview-3514--gestalt.netlify.app?devexample=true)
+
+## 146.9.3 (Apr 4, 2024)
+
+### Patch
+
+- Internal: Bump undici from 5.28.3 to 5.28.4 ([#3515](https://github.com/pinterest/gestalt/pull/3515)) - [Preview link](https://deploy-preview-3515--gestalt.netlify.app?devexample=true)
+
+## 146.9.2 (Apr 4, 2024)
+
+### Patch
+
+- Internal: replace interpolated strings with design tokens constants. ([#3513](https://github.com/pinterest/gestalt/pull/3513)) - [Preview link](https://deploy-preview-3513--gestalt.netlify.app?devexample=true)
+
+## 146.9.1 (Apr 3, 2024)
+
+### Patch
+
+- Docs: Contributions ([#3511](https://github.com/pinterest/gestalt/pull/3511)) - [Preview link](https://deploy-preview-3511--gestalt.netlify.app?devexample=true)
+
+## 146.9.0 (Apr 3, 2024)
+
+### Minor
+
+- ComboBox: Use Popover v2 ([#3512](https://github.com/pinterest/gestalt/pull/3512)) - [Preview link](https://deploy-preview-3512--gestalt.netlify.app?devexample=true)
+
+## 146.8.2 (Apr 3, 2024)
+
+### Patch
+
+- Docs: Update redirects.js ([#3510](https://github.com/pinterest/gestalt/pull/3510)) - [Preview link](https://deploy-preview-3510--gestalt.netlify.app?devexample=true)
+
 ## 146.8.1 (Apr 3, 2024)
 
 ### Patch

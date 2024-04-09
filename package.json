@@ -60,6 +60,7 @@
     "flow-bin": "^0.216.1",
     "flow-remove-types": "^2.184.0",
     "flow-upgrade": "^2.2.0",
+    "eslint-plugin-gestalt": ">0.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "28.0.3",
     "jest-environment-jsdom": "^28.0.2",
