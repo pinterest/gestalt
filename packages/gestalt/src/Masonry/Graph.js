@@ -85,12 +85,12 @@ export default class Graph<T> implements GraphInterface<T> {
       }
       const scores = edges.map((edge) => edge.score);
       const minScore = Math.min(...scores);
-      if (lowestScore === null || minScore < lowestScore) {
-        lowestScore = minScore;
-        lowestScoreNode = node.data;
-      }
 
       edges.forEach((edge) => {
+        if (edge.score === minScore && (lowestScore === null || minScore < lowestScore)) {
+          lowestScore = minScore;
+          lowestScoreNode = edge.node.data;
+        }
         findLowestScoreRecursive(edge.node);
       });
     }
