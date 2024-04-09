@@ -1441,7 +1441,7 @@ interface AccordionProps {
   icon?: Icons | undefined;
   iconAccessibilityLabel?: string | undefined;
   iconButton?: React.ReactElement<typeof IconButton> | undefined;
-  size: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg';
   title?: string | undefined;
   type?: 'error' | 'info' | undefined;
 }
