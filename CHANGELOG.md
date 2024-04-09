@@ -1,3 +1,9 @@
+## 146.12.1 (Apr 9, 2024)
+
+### Patch
+
+- Masonry: Fix incorrect node to solve graph positioning for two column items ([#3519](https://github.com/pinterest/gestalt/pull/3519)) - [Preview link](https://deploy-preview-3519--gestalt.netlify.app?devexample=true)
+
 ## 146.12.0 (Apr 9, 2024)
 
 ### Minor
