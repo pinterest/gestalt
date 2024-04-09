@@ -256,24 +256,29 @@ describe('two column layout test cases', () => {
       measurementStore.set(item, item.height);
     });
     const updatedItems = items.concat(newItems);
-    const positions = layout(updatedItems);
+
+    // perform positioning of batch with two column item
+    layout(updatedItems);
+
+    const positions = updatedItems.map((item) => positionCache.get(item));
     expect(positions.length).toEqual(updatedItems.length);
     expect(positions).toEqual([
-      { 'height': 210, 'left': 607, 'top': 436, 'width': 240 },
-      { 'height': 212, 'left': 861, 'top': 438, 'width': 240 },
-      { 'height': 214, 'left': 99, 'top': 654, 'width': 240 },
-      { 'height': 213, 'left': 353, 'top': 660, 'width': 494 },
-      { 'height': 200, 'left': 99, 'top': 0, 'width': 240 },
-      { 'height': 201, 'left': 353, 'top': 0, 'width': 240 },
-      { 'height': 202, 'left': 607, 'top': 0, 'width': 240 },
-      { 'height': 203, 'left': 861, 'top': 0, 'width': 240 },
-      { 'height': 204, 'left': 99, 'top': 214, 'width': 240 },
-      { 'height': 205, 'left': 353, 'top': 215, 'width': 240 },
-      { 'height': 206, 'left': 607, 'top': 216, 'width': 240 },
-      { 'height': 207, 'left': 861, 'top': 217, 'width': 240 },
-      { 'height': 208, 'left': 99, 'top': 432, 'width': 240 },
-      { 'height': 209, 'left': 353, 'top': 434, 'width': 240 },
-      { 'height': 211, 'left': 861, 'top': 664, 'width': 240 },
+      { 'top': 0, 'left': 99, 'width': 240, 'height': 200 },
+      { 'top': 0, 'left': 353, 'width': 240, 'height': 201 },
+      { 'top': 0, 'left': 607, 'width': 240, 'height': 202 },
+      { 'top': 0, 'left': 861, 'width': 240, 'height': 203 },
+      { 'top': 214, 'left': 99, 'width': 240, 'height': 204 },
+      { 'top': 215, 'left': 353, 'width': 240, 'height': 205 },
+      { 'top': 216, 'left': 607, 'width': 240, 'height': 206 },
+      { 'top': 217, 'left': 861, 'width': 240, 'height': 207 },
+      { 'top': 432, 'left': 99, 'width': 240, 'height': 208 },
+      { 'top': 434, 'left': 353, 'width': 240, 'height': 209 },
+      { 'top': 436, 'left': 607, 'width': 240, 'height': 210 },
+      { 'top': 657, 'left': 353, 'width': 240, 'height': 211 },
+      { 'top': 438, 'left': 861, 'width': 240, 'height': 212 },
+      // Position of two col item
+      { 'top': 882, 'left': 99, 'width': 494, 'height': 213 },
+      { 'top': 654, 'left': 99, 'width': 240, 'height': 214 },
     ]);
   });
 
