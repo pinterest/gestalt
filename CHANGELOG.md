@@ -1,3 +1,9 @@
+## 146.12.0 (Apr 9, 2024)
+
+### Minor
+
+- TextArea, NumberField, SelectList: Adding new datatestids ([#3518](https://github.com/pinterest/gestalt/pull/3518)) - [Preview link](https://deploy-preview-3518--gestalt.netlify.app?devexample=true)
+
 ## 146.11.2 (Apr 9, 2024)
 
 ### Patch
