@@ -1,3 +1,9 @@
+## 146.11.2 (Apr 9, 2024)
+
+### Patch
+
+- Masonry: Update useElementWidth for MasonryV2 ([#3521](https://github.com/pinterest/gestalt/pull/3521)) - [Preview link](https://deploy-preview-3521--gestalt.netlify.app?devexample=true)
+
 ## 146.11.1 (Apr 8, 2024)
 
 ### Patch
