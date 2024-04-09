@@ -505,14 +505,13 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
             idealDirection="down"
             onDismiss={handleOnDismiss}
             onKeyDown={handleKeyDown}
-            role="dialog"
+            role="listbox"
             shouldFocus={false}
             size="flexible"
           >
             <Box
               ref={dropdownRef}
               alignItems="center"
-              aria-expanded={showOptionsList}
               direction="column"
               display="flex"
               flex="grow"
@@ -520,7 +519,6 @@ const ComboBoxWithForwardRef: AbstractComponent<Props, HTMLInputElement> = forwa
               maxHeight="30vh"
               overflow="auto"
               padding={2}
-              role="listbox"
               rounding={4}
               width={innerRef?.current?.offsetWidth}
             >

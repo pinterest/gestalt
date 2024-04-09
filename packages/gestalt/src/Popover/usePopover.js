@@ -31,6 +31,8 @@ export const SIDES_MAP: Record<Side, MainDirections> = {
   'top': 'up',
 };
 
+const POPOVER_OFFSET_VALUE = 8; // pixels
+
 interface Props {
   /**
    * Reference element
@@ -79,9 +81,9 @@ export default function usePopover({
   // #region Middlewares
 
   // Distance between anchor and popover
-  const popoverOffset = offset(8);
-  // Hides popover when anchor is outside of viewport
-  const popoverHide = hideWhenReferenceHidden && hide();
+  const popoverOffset = offset(POPOVER_OFFSET_VALUE);
+  // Hides popover when anchor is outside of viewport. Padding is negative so that it compensates for `popoverOffset`
+  const popoverHide = hideWhenReferenceHidden && hide({ padding: -POPOVER_OFFSET_VALUE });
   // Calculates the positon of caret
   const popoverArrow = caretElement && arrow({ element: caretElement });
   // Flips popover direction based on available space
