@@ -1,3 +1,9 @@
+## 146.12.2 (Apr 9, 2024)
+
+### Patch
+
+- Icon: Pinterest logo change ([#3522](https://github.com/pinterest/gestalt/pull/3522)) - [Preview link](https://deploy-preview-3522--gestalt.netlify.app?devexample=true)
+
 ## 146.12.1 (Apr 9, 2024)
 
 ### Patch
