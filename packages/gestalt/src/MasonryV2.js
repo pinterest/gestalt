@@ -569,7 +569,7 @@ function Masonry<T: { +[string]: mixed }>(
 
   const gridBody =
     isServerRenderOrHydration || canPerformFullLayout
-      ? items.map((item, i) => {
+      ? items.filter(Boolean).map((item, i) => {
           const key = `item-${i}`;
           const position = canPerformFullLayout
             ? positions[i]
