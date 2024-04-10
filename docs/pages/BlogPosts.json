@@ -14,28 +14,28 @@
           {
             "title": "ESLint plugin for tokens!",
             "audience": ["Engineering"],
-            "content": "The new 'only-valid-tokens' ESLint rule prevent the consumption of Gestalt tokens via hard-coded strings p.e. var(--color-border-error). Instead import constant from 'gestalt-design-tokens' p.e. import { TOKEN_COLOR_BORDER_ERROR } from 'gestalt-design-tokens'. Comes with autofix!"
+            "content": "The new ['only-valid-tokens' ESLint rule](https://gestalt.pinterest.systems/get_started/developers/eslint_plugin#gestaltonly-valid-tokens) prevents the consumption of Gestalt tokens via hard-coded strings p.e. var(--color-border-error). Instead import constant from 'gestalt-design-tokens' p.e. import { TOKEN_COLOR_BORDER_ERROR } from 'gestalt-design-tokens'. Comes with autofix!"
           },
           {
             "title": "Dropdown new features!",
             "audience": ["Design", "Engineering"],
             "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/ca058948-1640-4158-b1be-0e4c47c15d03",
             "imageAltText": "Gestalt dropdown menu showing a disabled item",
-            "content": "Disabled item states are now available on dropdown menus"
+            "content": "[Disabled item states](https://gestalt.pinterest.systems/web/dropdown#Disabled) are now available on dropdown menus"
           },
           {
             "title": "SideNavigation new features!",
             "audience": ["Design", "Engineering"],
             "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/34e8cda7-549d-4089-b56e-4f2038a62785",
             "imageAltText": "Gestalt SideNavigation showing a collapsible variant",
-            "content": "The collapsible SideNavigation, in web code, is now available. Many have been waiting for this BIG update, and it’s finally here. Hooray! The update is also available in our SideNavigation Figma component"
+            "content": "The [collapsible SideNavigation](https://gestalt.pinterest.systems/web/sidenavigation#Collapsible), in web code, is now available. Many have been waiting for this BIG update, and it’s finally here. Hooray! The update is also available in our [SideNavigation Figma component](https://shorturl.at/rsBG7)"
           },
           {
             "title": "Android Banners",
             "audience": ["Design"],
             "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/fbcb523e-0582-4886-b1f1-ac332c29efb0",
             "imageAltText": "A Banner illustration in geometric shapes representing our Android banners",
-            "content": "We’ve published Android Banners in our Figma library."
+            "content": "We’ve published [Android Banners](https://shorturl.at/oCDV7) in our Figma library."
           }
         ]
       },
