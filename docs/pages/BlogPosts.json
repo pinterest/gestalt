@@ -3,6 +3,43 @@
     "year": "2024",
     "digests": [
       {
+        "month": "March",
+        "summary": "",
+        "posts": [
+          {
+            "title": "Gestalt March Newsletter",
+            "audience": ["Engineering", "Design"],
+            "content": "A recap of significant changes from March."
+          },
+          {
+            "title": "ESLint plugin for tokens!",
+            "audience": ["Engineering"],
+            "content": "The new 'only-valid-tokens' ESLint rule prevent the consumption of Gestalt tokens via hard-coded strings p.e. var(--color-border-error). Instead import constant from 'gestalt-design-tokens' p.e. import { TOKEN_COLOR_BORDER_ERROR } from 'gestalt-design-tokens'. Comes with autofix!"
+          },
+          {
+            "title": "Dropdown new features!",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/ca058948-1640-4158-b1be-0e4c47c15d03",
+            "imageAltText": "Gestalt dropdown menu showing a disabled item",
+            "content": "Disabled item states are now available on dropdown menus"
+          },
+          {
+            "title": "SideNavigation new features!",
+            "audience": ["Design", "Engineering"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/34e8cda7-549d-4089-b56e-4f2038a62785",
+            "imageAltText": "Gestalt SideNavigation showing a collapsible variant",
+            "content": "The collapsible SideNavigation, in web code, is now available. Many have been waiting for this BIG update, and it’s finally here. Hooray! The update is also available in our SideNavigation Figma component"
+          },
+          {
+            "title": "Android Banners",
+            "audience": ["Design"],
+            "imageSrc": "https://github.com/pinterest/gestalt/assets/10593890/fbcb523e-0582-4886-b1f1-ac332c29efb0",
+            "imageAltText": "A Banner illustration in geometric shapes representing our Android banners",
+            "content": "We’ve published Android Banners in our Figma library."
+          }
+        ]
+      },
+      {
         "month": "February",
         "summary": "",
         "posts": [
