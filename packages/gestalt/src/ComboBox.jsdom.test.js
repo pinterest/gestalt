@@ -1,9 +1,8 @@
 // @flow strict
-import { fireEvent, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ComboBox from './ComboBox';
 import Tag from './Tag';
-import renderWithExperiment from './utils/testing/renderWithExperiment';
 
 describe('ComboBox', () => {
   const PRONOUNS = [
@@ -90,10 +89,7 @@ describe('ComboBox', () => {
     size?: $ElementType<React$ElementConfig<typeof ComboBox>, 'size'>,
     tags?: $ElementType<React$ElementConfig<typeof ComboBox>, 'tags'>,
   }) =>
-    // Remove experiment after ComboxBox v2 is fully released
-    renderWithExperiment(
-      'web_gestalt_popover_v2_combobox',
-
+    render(
       <ComboBox
         accessibilityClearButtonLabel={accessibilityClearButtonLabel}
         disabled={disabled}
@@ -116,6 +112,7 @@ describe('ComboBox', () => {
         tags={tags}
       />,
     );
+
   describe('Uncontrolled ComboBox', () => {
     it('renders default', () => {
       const { baseElement } = renderComboBox(Object.freeze({}));
@@ -124,38 +121,37 @@ describe('ComboBox', () => {
       expect(baseElement).toMatchSnapshot();
     });
 
-    it('renders disabled state', () => {
+    it('renders disabled state', async () => {
       const { baseElement } = renderComboBox({ disabled: true });
       expect(baseElement).toMatchSnapshot();
 
       expect(screen.queryByRole('button')).not.toBeInTheDocument();
 
-      fireEvent.click(screen.getByLabelText(LABEL));
+      await userEvent.click(screen.getByLabelText(LABEL));
 
       expect(screen.queryByText(PRONOUNS[3])).not.toBeInTheDocument();
     });
 
-    it('renders dropdown with options on click', () => {
+    it('renders dropdown with options on click', async () => {
       renderComboBox(Object.freeze({}));
 
-      fireEvent.click(screen.getByLabelText(LABEL));
+      await userEvent.click(screen.getByLabelText(LABEL));
 
       expect(screen.getAllByRole('option').length).toBe(defaultOptionsLength);
       expect(screen.getByText(PRONOUNS[1])).toBeVisible();
       expect(screen.getByText(PRONOUNS[3])).toBeVisible();
     });
 
-    it('selects an option on click', () => {
+    it('selects an option on click', async () => {
       renderComboBox(Object.freeze({}));
 
-      fireEvent.click(screen.getByLabelText(LABEL));
-
-      fireEvent.click(screen.getByText(PRONOUNS[1]));
+      await userEvent.click(screen.getByLabelText(LABEL));
+      await userEvent.click(screen.getByRole('option', { name: PRONOUNS[1] }));
 
       expect(screen.getByDisplayValue(PRONOUNS[1])).toBeVisible();
       expect(screen.queryByText(PRONOUNS[3])).not.toBeInTheDocument();
 
-      fireEvent.click(screen.getByLabelText(LABEL));
+      await userEvent.click(screen.getByLabelText(LABEL));
 
       expect(screen.getByRole('option', { name: 'he / him Selected item' })).toBeVisible();
     });
@@ -187,14 +183,14 @@ describe('ComboBox', () => {
       );
     });
 
-    it('resets options after selecting', () => {
+    it('resets options after selecting', async () => {
       renderComboBox(Object.freeze({}));
 
-      fireEvent.click(screen.getByLabelText(LABEL));
+      await userEvent.click(screen.getByLabelText(LABEL));
 
-      fireEvent.click(screen.getByText(PRONOUNS[1]));
+      await userEvent.click(screen.getByText(PRONOUNS[1]));
 
-      fireEvent.click(screen.getByDisplayValue(PRONOUNS[1]));
+      await userEvent.click(screen.getByDisplayValue(PRONOUNS[1]));
 
       expect(screen.getAllByRole('option').length).toBe(defaultOptionsLength);
     });
@@ -216,8 +212,8 @@ describe('ComboBox', () => {
 
       expect(screen.queryByRole('button')).not.toBeInTheDocument();
 
-      fireEvent.click(screen.getByLabelText(LABEL));
-      fireEvent.click(screen.getByText(PRONOUNS[1]));
+      await userEvent.click(screen.getByLabelText(LABEL));
+      await userEvent.click(screen.getByText(PRONOUNS[1]));
 
       expect(await screen.findByRole('button', { name: CLEAR })).toBeVisible();
     });
@@ -227,17 +223,17 @@ describe('ComboBox', () => {
       const SPACE = '{space}';
       const ENTER = '{enter}';
 
-      fireEvent.click(screen.getByLabelText(LABEL));
+      await userEvent.click(screen.getByLabelText(LABEL));
 
-      fireEvent.click(screen.getByText(PRONOUNS[1]));
+      await userEvent.click(screen.getByText(PRONOUNS[1]));
 
       expect(screen.getByDisplayValue(PRONOUNS[1])).toBeVisible();
 
-      fireEvent.click(screen.getByRole('button', { name: CLEAR }));
+      await userEvent.click(screen.getByRole('button', { name: CLEAR }));
 
-      fireEvent.click(screen.getByLabelText(LABEL));
+      await userEvent.click(screen.getByLabelText(LABEL));
 
-      fireEvent.click(screen.getByText(PRONOUNS[1]));
+      await userEvent.click(screen.getByText(PRONOUNS[1]));
 
       await userEvent.tab();
 
@@ -246,9 +242,9 @@ describe('ComboBox', () => {
 
       expect(screen.getByDisplayValue(EMPTY_STRING)).toBeVisible();
 
-      fireEvent.click(screen.getByLabelText(LABEL));
+      await userEvent.click(screen.getByLabelText(LABEL));
 
-      fireEvent.click(screen.getByText(PRONOUNS[1]));
+      await userEvent.click(screen.getByText(PRONOUNS[1]));
 
       await userEvent.tab();
 
@@ -266,16 +262,16 @@ describe('ComboBox', () => {
 
       expect(screen.getByLabelText(LABEL)).toHaveFocus();
 
-      fireEvent.click(screen.getByLabelText(LABEL));
+      await userEvent.click(screen.getByLabelText(LABEL));
 
-      fireEvent.click(screen.getByText(PRONOUNS[1]));
+      await userEvent.click(screen.getByText(PRONOUNS[1]));
 
       await userEvent.tab();
 
       // The element is hidden as Popover uses IntersectionObserver which is not supported by testing-library
       expect(screen.getByRole('button', { name: CLEAR, hidden: true })).toHaveFocus();
 
-      fireEvent.click(screen.getByRole('button', { name: CLEAR, hidden: true }));
+      await userEvent.click(screen.getByRole('button', { name: CLEAR, hidden: true }));
 
       expect(screen.getByLabelText(LABEL)).toHaveFocus();
 
@@ -311,20 +307,20 @@ describe('ComboBox', () => {
       expect(baseElement).toMatchSnapshot();
     });
 
-    it('shows dropdown with options on click', () => {
+    it('shows dropdown with options on click', async () => {
       renderComboBox({
         inputValue: '',
         options: controlledOptions,
       });
 
-      fireEvent.click(screen.getByLabelText(LABEL));
+      await userEvent.click(screen.getByLabelText(LABEL));
 
       expect(screen.queryByRole('button')).not.toBeInTheDocument();
       expect(screen.getAllByRole('option').length).toBe(controlledOptionsLength);
       expect(screen.getByText(PRONOUNS[1])).toBeVisible();
     });
 
-    it('shows controlled input value', () => {
+    it('shows controlled input value', async () => {
       const input1 = 'he';
 
       renderComboBox({
@@ -332,7 +328,7 @@ describe('ComboBox', () => {
         options: controlledOptions,
       });
 
-      fireEvent.click(screen.getByDisplayValue(input1));
+      await userEvent.click(screen.getByDisplayValue(input1));
 
       // The element is hidden as Popover uses IntersectionObserver which is not supported by testing-library
       expect(screen.getByRole('button', { name: CLEAR, hidden: true })).toBeVisible();
@@ -353,7 +349,7 @@ describe('ComboBox', () => {
       expect(screen.getByRole('button', { name: CLEAR })).toBeVisible();
     });
 
-    it('shows selected option in dropdown', () => {
+    it('shows selected option in dropdown', async () => {
       const input1 = controlledOptions[0].label;
 
       renderComboBox({
@@ -365,7 +361,7 @@ describe('ComboBox', () => {
       expect(screen.getByDisplayValue(input1)).toBeVisible();
       expect(screen.getByRole('button', { name: CLEAR })).toBeVisible();
 
-      fireEvent.click(screen.getByDisplayValue(input1));
+      await userEvent.click(screen.getByDisplayValue(input1));
 
       expect(screen.getByRole('option', { name: 'ey / em Selected item' })).toBeVisible();
       expect(screen.getByRole('img', { name: 'Selected item' })).toBeVisible();
@@ -398,6 +394,30 @@ describe('ComboBox', () => {
 
       expect(screen.getByRole('button', { name: CLEAR })).toBeVisible();
       expect(screen.getByDisplayValue(input1)).toBeVisible();
+    });
+  });
+
+  describe('ComboBox accessibility', () => {
+    it('renders combobox visible and without focus trap', async () => {
+      renderComboBox({});
+      await userEvent.click(screen.getByLabelText(LABEL));
+
+      expect(screen.getByRole('listbox')).toBeVisible();
+      expect(screen.getByText(PRONOUNS[1])).toBeVisible();
+
+      // Select an option
+      await userEvent.click(screen.getByText(PRONOUNS[1]));
+
+      expect(screen.getByLabelText(LABEL)).toBeVisible();
+      expect(screen.getByLabelText(CLEAR)).toBeVisible();
+
+      // Open popover again to check if everything stays accessible
+      await userEvent.click(screen.getByLabelText(LABEL));
+
+      expect(screen.getByRole('listbox')).toBeVisible();
+      expect(screen.getByText(PRONOUNS[1])).toBeVisible();
+      expect(screen.getByLabelText(LABEL)).toBeVisible();
+      expect(screen.getByLabelText(CLEAR)).toBeVisible();
     });
   });
 });

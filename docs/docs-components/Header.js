@@ -35,7 +35,6 @@ function getTabs(componentPlatform: 'web' | 'android' | 'ios') {
     },
     { href: '/team_support/overview', text: 'Team support' },
     { href: '/whats_new', text: "What's new" },
-    { href: '/roadmap', text: 'Roadmap' },
   ];
 }
 

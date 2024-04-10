@@ -78,22 +78,16 @@ export default class Graph<T> implements GraphInterface<T> {
     let lowestScore = null;
     let lowestScoreNode = startNode;
 
-    function findLowestScoreRecursive(node: GraphNodeInterface<T>): void {
-      const edges = node.getEdges();
-      if (edges.length === 0) {
-        return;
-      }
-      const scores = edges.map((edge) => edge.score);
-      const minScore = Math.min(...scores);
-      if (lowestScore === null || minScore < lowestScore) {
-        lowestScore = minScore;
-        lowestScoreNode = node.data;
-      }
-
-      edges.forEach((edge) => {
-        findLowestScoreRecursive(edge.node);
+    const findLowestScoreRecursive = (node: GraphNodeInterface<T>) => {
+      node.getEdges().forEach((edge) => {
+        const { score, node: edgeNode } = edge;
+        if (lowestScore === null || score < lowestScore) {
+          lowestScore = score;
+          lowestScoreNode = edgeNode.data;
+        }
+        findLowestScoreRecursive(edgeNode);
       });
-    }
+    };
 
     const startGraphNode = this.nodes.get(startNode);
     if (startGraphNode) {

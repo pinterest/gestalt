@@ -5,6 +5,11 @@ import { Box, Text } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import * as gestaltChart from 'gestalt-charts'; // eslint-disable-line import/no-namespace
 import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
+import {
+  TOKEN_COLOR_BACKGROUND_DEFAULT,
+  TOKEN_COLOR_BACKGROUND_ERROR_BASE,
+  TOKEN_COLOR_BACKGROUND_SUCCESS_BASE,
+} from 'gestalt-design-tokens';
 import theme from './atomDark';
 import OpenSandboxButton from './buttons/OpenSandboxButton';
 import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
@@ -39,7 +44,13 @@ const CARD_SIZE_NAME_TO_PIXEL = {
   lg: '100%',
 };
 
-const TYPE_TO_COLOR = {
+const TYPE_TO_COLOR_TOKEN = {
+  do: TOKEN_COLOR_BACKGROUND_SUCCESS_BASE,
+  "don't": TOKEN_COLOR_BACKGROUND_ERROR_BASE,
+  info: TOKEN_COLOR_BACKGROUND_DEFAULT,
+};
+
+const TYPE_TO_COLOR_TEXT = {
   do: 'success',
   "don't": 'error',
   info: 'default',
@@ -61,8 +72,9 @@ function MainSectionCard({
 }: Props): ReactNode {
   const code = defaultCode?.trim();
   const scope = { ...gestalt, ...gestaltChart, ...gestaltDatepicker };
-  const borderStyle =
-    type !== 'info' ? `3px solid var(--color-background-${TYPE_TO_COLOR[type]}-base)` : undefined;
+
+  const borderStyle = type !== 'info' ? `3px solid ${TYPE_TO_COLOR_TOKEN[type]}` : undefined;
+
   const cardTitle = Array.isArray(title) ? title.join(', ') : title;
   // Only show code if it's a md or lg card and it's not a Do/Don't
   const shouldShowCode = showCode && cardSize !== 'sm' && type === 'info';
@@ -99,7 +111,7 @@ function MainSectionCard({
     >
       {(title || type !== 'info') && (
         <Box display="flex" justifyContent="between" paddingY={1}>
-          <Text color={TYPE_TO_COLOR[type]} weight="bold">
+          <Text color={TYPE_TO_COLOR_TEXT[type]} weight="bold">
             {cardTitle || capitalizeFirstLetter(type)}
           </Text>
           {type === 'do' && code && (

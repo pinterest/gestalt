@@ -1,5 +1,11 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
+import {
+  TOKEN_COLOR_GRAY_ROBOFLOW_100,
+  TOKEN_COLOR_GRAY_ROBOFLOW_600,
+  TOKEN_COLOR_GREEN_MATCHACADO_50,
+  TOKEN_COLOR_TEAL_SPABATTICAL_700,
+} from 'gestalt-design-tokens';
 import { type ComponentCategory, type Platform, type PlatformData } from './data/types';
 import IllustrationCard from './IllustrationCard';
 import IllustrationSection from './IllustrationSection';
@@ -9,18 +15,18 @@ const getIllustrationCardColor = (category: ComponentCategory, hasDarkBackground
   const grayBackgrounds = ['Utilities', 'Building blocks'];
 
   if (hasDarkBackground) {
-    return 'gray-roboflow-600';
+    return TOKEN_COLOR_GRAY_ROBOFLOW_600;
   }
 
   if (tealBackgrounds.includes(category)) {
-    return 'teal-spabattical-700';
+    return TOKEN_COLOR_TEAL_SPABATTICAL_700;
   }
 
   if (grayBackgrounds.includes(category)) {
-    return 'gray-roboflow-100';
+    return TOKEN_COLOR_GRAY_ROBOFLOW_100;
   }
 
-  return 'green-matchacado-50';
+  return TOKEN_COLOR_GREEN_MATCHACADO_50;
 };
 
 type Props = {
@@ -53,7 +59,7 @@ export default function OverviewList({
             key={name}
             // This is kind of a hacky assumption
             // We should consider better ways to handle components with multiple categories
-            color={getIllustrationCardColor(category[0], hasDarkBackground)}
+            backgroundColor={getIllustrationCardColor(category[0], hasDarkBackground)}
             description={description}
             headingLevel={headingLevel}
             href={path ?? `/${platform}/${name.replace(/\s/g, '_').toLowerCase()}`}

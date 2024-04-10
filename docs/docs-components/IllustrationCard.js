@@ -5,7 +5,7 @@ import { MIN_SVG_ILLUSTRATION_WIDTH } from './IllustrationSection';
 import illustrations, { type Illustrations } from '../graphics/index';
 
 export type Props = {
-  color: string,
+  backgroundColor: string,
   description?: string,
   headingLevel: 2 | 3,
   href: string,
@@ -15,7 +15,7 @@ export type Props = {
 };
 
 export default function IllustrationCard({
-  color,
+  backgroundColor,
   description,
   headingLevel,
   href,
@@ -36,7 +36,7 @@ export default function IllustrationCard({
               alignItems="center"
               dangerouslySetInlineStyle={{
                 __style: {
-                  backgroundColor: `var(--color-${color})`,
+                  backgroundColor,
                 },
               }}
               display="flex"

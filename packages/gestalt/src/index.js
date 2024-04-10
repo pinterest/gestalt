@@ -44,6 +44,7 @@ import Link from './Link';
 import List from './List';
 import Mask from './Mask';
 import Masonry from './Masonry';
+import MasonryV2 from './MasonryV2';
 import Modal from './Modal';
 import ModalAlert from './ModalAlert';
 import NumberField from './NumberField';
@@ -130,6 +131,7 @@ export {
   List,
   Mask,
   Masonry,
+  MasonryV2,
   Modal,
   ModalAlert,
   NumberField,

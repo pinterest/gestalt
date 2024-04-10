@@ -1,6 +1,24 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Flex, Heading, Text } from 'gestalt';
+import {
+  TOKEN_COLOR_DATA_VISUALIZATION_01,
+  TOKEN_COLOR_DATA_VISUALIZATION_02,
+  TOKEN_COLOR_DATA_VISUALIZATION_03,
+  TOKEN_COLOR_DATA_VISUALIZATION_04,
+  TOKEN_COLOR_DATA_VISUALIZATION_05,
+  TOKEN_COLOR_DATA_VISUALIZATION_06,
+  TOKEN_COLOR_DATA_VISUALIZATION_07,
+  TOKEN_COLOR_DATA_VISUALIZATION_08,
+  TOKEN_COLOR_DATA_VISUALIZATION_09,
+  TOKEN_COLOR_DATA_VISUALIZATION_10,
+  TOKEN_COLOR_DATA_VISUALIZATION_11,
+  TOKEN_COLOR_DATA_VISUALIZATION_12,
+  TOKEN_COLOR_DATA_VISUALIZATION_ERROR_GRAPH,
+  TOKEN_COLOR_DATA_VISUALIZATION_ERROR_TEXT,
+  TOKEN_COLOR_DATA_VISUALIZATION_SUCCESS_GRAPH,
+  TOKEN_COLOR_DATA_VISUALIZATION_SUCCESS_TEXT,
+} from 'gestalt-design-tokens';
 import ColorTile from '../../../../docs-components/ColorTile';
 import MainSection from '../../../../docs-components/MainSection';
 import Page from '../../../../docs-components/Page';
@@ -8,26 +26,43 @@ import PageHeader from '../../../../docs-components/PageHeader';
 import capitalizeFirstLetter from '../../../../utils/capitalizeFirstLetter';
 
 const MAIN_STEPS = [
-  { name: '01', lightText: 'light', darkText: 'light' },
-  { name: '02', lightText: 'dark', darkText: 'dark' },
-  { name: '03', lightText: 'light', darkText: 'dark' },
-  { name: '04', lightText: 'dark', darkText: 'dark' },
-  { name: '05', lightText: 'dark', darkText: 'dark' },
-  { name: '06', lightText: 'dark', darkText: 'light' },
+  {
+    name: '01',
+    token: TOKEN_COLOR_DATA_VISUALIZATION_01,
+    lightText: 'light',
+    darkText: 'light',
+  },
+  {
+    name: '02',
+    token: TOKEN_COLOR_DATA_VISUALIZATION_02,
+    lightText: 'dark',
+    darkText: 'dark',
+  },
+  {
+    name: '03',
+    token: TOKEN_COLOR_DATA_VISUALIZATION_03,
+    lightText: 'light',
+    darkText: 'dark',
+  },
+  { name: '04', token: TOKEN_COLOR_DATA_VISUALIZATION_04, lightText: 'dark', darkText: 'dark' },
+  { name: '05', token: TOKEN_COLOR_DATA_VISUALIZATION_05, lightText: 'dark', darkText: 'dark' },
+  { name: '06', token: TOKEN_COLOR_DATA_VISUALIZATION_06, lightText: 'dark', darkText: 'light' },
 ];
 const EXTENDED_STEPS = [
-  { name: '07', lightText: 'dark', darkText: 'dark' },
-  { name: '08', lightText: 'light', darkText: 'light' },
-  { name: '09', lightText: 'dark', darkText: 'dark' },
-  { name: '10', lightText: 'light', darkText: 'light' },
-  { name: '11', lightText: 'light', darkText: 'dark' },
-  { name: '12', lightText: 'light', darkText: 'dark' },
+  {
+    name: '07',
+    token: TOKEN_COLOR_DATA_VISUALIZATION_07,
+    lightText: 'dark',
+    darkText: 'dark',
+  },
+  { name: '08', token: TOKEN_COLOR_DATA_VISUALIZATION_08, lightText: 'light', darkText: 'light' },
+  { name: '09', token: TOKEN_COLOR_DATA_VISUALIZATION_09, lightText: 'dark', darkText: 'dark' },
+  { name: '10', token: TOKEN_COLOR_DATA_VISUALIZATION_10, lightText: 'light', darkText: 'light' },
+  { name: '11', token: TOKEN_COLOR_DATA_VISUALIZATION_11, lightText: 'light', darkText: 'dark' },
+  { name: '12', token: TOKEN_COLOR_DATA_VISUALIZATION_12, lightText: 'light', darkText: 'dark' },
 ];
 
-type ColorCardProps = {
-  colorScheme: 'light' | 'dark',
-};
-function SemanticThemeExample({ colorScheme }: ColorCardProps): ReactNode {
+function SemanticThemeExample({ colorScheme }: { colorScheme: 'light' | 'dark' }): ReactNode {
   return (
     <ColorSchemeProvider colorScheme={colorScheme} id={colorScheme}>
       <Box color="default" padding={4}>
@@ -42,25 +77,25 @@ function SemanticThemeExample({ colorScheme }: ColorCardProps): ReactNode {
           <Flex direction="column">
             <ColorTile
               description="Success (Graph)"
-              fullTokenName="color-data-visualization-success-graph"
               textColor={colorScheme}
+              token={TOKEN_COLOR_DATA_VISUALIZATION_SUCCESS_GRAPH}
             />
             <ColorTile
               description="Success (Text/Icon)"
-              fullTokenName="color-data-visualization-success-text"
               textColor={colorScheme}
+              token={TOKEN_COLOR_DATA_VISUALIZATION_SUCCESS_TEXT}
             />
           </Flex>
           <Flex direction="column">
             <ColorTile
               description="Error (Graph)"
-              fullTokenName="color-data-visualization-error-graph"
               textColor={colorScheme}
+              token={TOKEN_COLOR_DATA_VISUALIZATION_ERROR_GRAPH}
             />
             <ColorTile
               description="Error (Text/Icon)"
-              fullTokenName="color-data-visualization-error-text"
               textColor={colorScheme}
+              token={TOKEN_COLOR_DATA_VISUALIZATION_ERROR_TEXT}
             />
           </Flex>
         </Flex>
@@ -71,7 +106,7 @@ function SemanticThemeExample({ colorScheme }: ColorCardProps): ReactNode {
 }
 
 function getColorTiles(
-  colors: $ReadOnlyArray<{ darkText: string, lightText: string, name: string }>,
+  colors: $ReadOnlyArray<{ darkText: string, lightText: string, token: string, name: string }>,
   mode: string = 'light',
 ): ReactNode {
   return (
@@ -86,8 +121,8 @@ function getColorTiles(
         <ColorTile
           key={`${step.name}`}
           description={`Data Visualization ${step.name}`}
-          fullTokenName={`color-data-visualization-${step.name}`}
           textColor={step[`${mode}Text`]}
+          token={step.token}
         />
       ))}
     </Flex>

@@ -29,7 +29,7 @@ export function PageHeaderTitle({
   return (
     <Fragment>
       <Box display="block" smDisplay="none">
-        <Heading accessibilityLevel={1} lineClamp={1} size="400">
+        <Heading accessibilityLevel={1} lineClamp={1} overflow="breakAll" size="400">
           {title}
         </Heading>
       </Box>
@@ -40,7 +40,7 @@ export function PageHeaderTitle({
         display="none"
         smDisplay="block"
       >
-        <Heading accessibilityLevel={1} lineClamp={1} size="500">
+        <Heading accessibilityLevel={1} lineClamp={1} overflow="breakAll" size="500">
           {title}
         </Heading>
       </Box>

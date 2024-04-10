@@ -81,7 +81,7 @@ export default function Contents({
   return (
     <FloatingFocusManager
       context={context}
-      disabled={role === 'tooltip'}
+      disabled={role === 'tooltip' || role === 'listbox'}
       modal={shouldTrapFocus ?? false}
       returnFocus={false}
     >

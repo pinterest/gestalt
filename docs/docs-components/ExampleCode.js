@@ -116,9 +116,6 @@ export default function ExampleCode({
         </Flex>
         <Flex direction="column" width="100%">
           <Box
-            dangerouslySetInlineStyle={{
-              __style: { transition: 'max-height 0.4s' },
-            }}
             display="flex"
             maxHeight={containerBoxMaxHeight}
             overflow="hidden"

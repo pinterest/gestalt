@@ -1,3 +1,141 @@
+## 146.13.0 (Apr 9, 2024)
+
+### Minor
+
+- ComboBox: Use Popover v2 ([#3520](https://github.com/pinterest/gestalt/pull/3520)) - [Preview link](https://deploy-preview-3520--gestalt.netlify.app?devexample=true)
+
+## 146.12.2 (Apr 9, 2024)
+
+### Patch
+
+- Icon: Pinterest logo change ([#3522](https://github.com/pinterest/gestalt/pull/3522)) - [Preview link](https://deploy-preview-3522--gestalt.netlify.app?devexample=true)
+
+## 146.12.1 (Apr 9, 2024)
+
+### Patch
+
+- Masonry: Fix incorrect node to solve graph positioning for two column items ([#3519](https://github.com/pinterest/gestalt/pull/3519)) - [Preview link](https://deploy-preview-3519--gestalt.netlify.app?devexample=true)
+
+## 146.12.0 (Apr 9, 2024)
+
+### Minor
+
+- TextArea, NumberField, SelectList: Adding new datatestids ([#3518](https://github.com/pinterest/gestalt/pull/3518)) - [Preview link](https://deploy-preview-3518--gestalt.netlify.app?devexample=true)
+
+## 146.11.2 (Apr 9, 2024)
+
+### Patch
+
+- Masonry: Update useElementWidth for MasonryV2 ([#3521](https://github.com/pinterest/gestalt/pull/3521)) - [Preview link](https://deploy-preview-3521--gestalt.netlify.app?devexample=true)
+
+## 146.11.1 (Apr 8, 2024)
+
+### Patch
+
+- Icon: Added icon to Android folder ([#3517](https://github.com/pinterest/gestalt/pull/3517)) - [Preview link](https://deploy-preview-3517--gestalt.netlify.app?devexample=true)
+
+## 146.11.0 (Apr 5, 2024)
+
+### Minor
+
+- Masonry: Experimental Masonry Refactor ([#3505](https://github.com/pinterest/gestalt/pull/3505)) - [Preview link](https://deploy-preview-3505--gestalt.netlify.app?devexample=true)
+
+## 146.10.0 (Apr 4, 2024)
+
+### Minor
+
+- Revert "ComboBox: Use Popover v2" ([#3516](https://github.com/pinterest/gestalt/pull/3516)) - [Preview link](https://deploy-preview-3516--gestalt.netlify.app?devexample=true)
+
+## 146.9.4 (Apr 4, 2024)
+
+### Patch
+
+- PageHeader: update heading to BreakAll to split on long titles ([#3514](https://github.com/pinterest/gestalt/pull/3514)) - [Preview link](https://deploy-preview-3514--gestalt.netlify.app?devexample=true)
+
+## 146.9.3 (Apr 4, 2024)
+
+### Patch
+
+- Internal: Bump undici from 5.28.3 to 5.28.4 ([#3515](https://github.com/pinterest/gestalt/pull/3515)) - [Preview link](https://deploy-preview-3515--gestalt.netlify.app?devexample=true)
+
+## 146.9.2 (Apr 4, 2024)
+
+### Patch
+
+- Internal: replace interpolated strings with design tokens constants. ([#3513](https://github.com/pinterest/gestalt/pull/3513)) - [Preview link](https://deploy-preview-3513--gestalt.netlify.app?devexample=true)
+
+## 146.9.1 (Apr 3, 2024)
+
+### Patch
+
+- Docs: Contributions ([#3511](https://github.com/pinterest/gestalt/pull/3511)) - [Preview link](https://deploy-preview-3511--gestalt.netlify.app?devexample=true)
+
+## 146.9.0 (Apr 3, 2024)
+
+### Minor
+
+- ComboBox: Use Popover v2 ([#3512](https://github.com/pinterest/gestalt/pull/3512)) - [Preview link](https://deploy-preview-3512--gestalt.netlify.app?devexample=true)
+
+## 146.8.2 (Apr 3, 2024)
+
+### Patch
+
+- Docs: Update redirects.js ([#3510](https://github.com/pinterest/gestalt/pull/3510)) - [Preview link](https://deploy-preview-3510--gestalt.netlify.app?devexample=true)
+
+## 146.8.1 (Apr 3, 2024)
+
+### Patch
+
+- Internal: added Stylelint rule to prevent Gestalt token errors ([#3504](https://github.com/pinterest/gestalt/pull/3504)) - [Preview link](https://deploy-preview-3504--gestalt.netlify.app?devexample=true)
+
+## 146.8.0 (Apr 3, 2024)
+
+### Minor
+
+- HelpButton: Use Popover v2 ([#3509](https://github.com/pinterest/gestalt/pull/3509)) - [Preview link](https://deploy-preview-3509--gestalt.netlify.app?devexample=true)
+
+## 146.7.2 (Apr 3, 2024)
+
+### Patch
+
+- Docs: Update contributions image ([#3508](https://github.com/pinterest/gestalt/pull/3508)) - [Preview link](https://deploy-preview-3508--gestalt.netlify.app?devexample=true)
+
+## 146.7.1 (Apr 2, 2024)
+
+### Patch
+
+- Docs: Design contributions updates ([#3494](https://github.com/pinterest/gestalt/pull/3494)) - [Preview link](https://deploy-preview-3494--gestalt.netlify.app?devexample=true)
+
+## 146.7.0 (Apr 2, 2024)
+
+### Minor
+
+- OverlayPanel: Use ConfirmationPopover v2 #3501 ([#3506](https://github.com/pinterest/gestalt/pull/3506)) - [Preview link](https://deploy-preview-3506--gestalt.netlify.app?devexample=true)
+
+## 146.6.1 (Apr 2, 2024)
+
+### Patch
+
+- SideNavigation: Fix scrollbar clipping in collapsed state ([#3500](https://github.com/pinterest/gestalt/pull/3500)) - [Preview link](https://deploy-preview-3500--gestalt.netlify.app?devexample=true)
+
+## 146.6.0 (Apr 2, 2024)
+
+### Minor
+
+- PopoverEducational: Release v2 ([#3501](https://github.com/pinterest/gestalt/pull/3501)) - [Preview link](https://deploy-preview-3501--gestalt.netlify.app?devexample=true)
+
+## 146.5.15 (Apr 1, 2024)
+
+### Patch
+
+- Tokens: remove dead code in color token ([#3502](https://github.com/pinterest/gestalt/pull/3502)) - [Preview link](https://deploy-preview-3502--gestalt.netlify.app?devexample=true)
+
+## 146.5.14 (Apr 1, 2024)
+
+### Patch
+
+- TileData: Fixing width Overlap issues ([#3490](https://github.com/pinterest/gestalt/pull/3490)) - [Preview link](https://deploy-preview-3490--gestalt.netlify.app?devexample=true)
+
 ## 146.5.13 (Mar 27, 2024)
 
 ### Patch

@@ -2,7 +2,6 @@
 import { type Node as ReactNode } from 'react';
 import { BannerSlim, Link, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
-import { BannerSlimExperiment } from '../../docs-components/BannerSlimExperiment';
 import { type DocGen, multipleDocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
@@ -31,13 +30,6 @@ export default function SheetPage({
   return (
     <Page title={generatedDocGen?.OverlayPanel.displayName}>
       <PageHeader
-        bannerSlimExperiment={
-          <BannerSlimExperiment
-            componentName="OverlayPanel"
-            description="fix and improve underlying Popover component behavior. No visual updates"
-            pullRequest={3244}
-          />
-        }
         description={generatedDocGen?.OverlayPanel.description}
         name={generatedDocGen?.OverlayPanel.displayName}
       >

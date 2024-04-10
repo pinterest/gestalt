@@ -1,6 +1,6 @@
 // @flow strict
 import { Component, createRef, type Element } from 'react';
-import { Masonry } from 'gestalt';
+import { Masonry, MasonryV2 } from 'gestalt';
 import ExampleGridItem from './ExampleGridItem';
 import getClassicGridServerStyles from './getClassicGridServerStyles';
 import getFlexibleGridServerStyles from './getFlexibleGridServerStyles';
@@ -24,7 +24,7 @@ type MasonryProps<T> = $PropertyType<Masonry<T>, 'props'>;
 
 type Props<T> = {
   // The actual Masonry component to be used (if using an experimental version of Masonry).
-  MasonryComponent: typeof Masonry,
+  MasonryComponent: typeof Masonry | typeof MasonryV2,
   // Sets up props to display a collage layout.
   collage?: boolean,
   // Constrains the width of the grid rendering.
