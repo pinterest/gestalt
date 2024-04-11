@@ -240,6 +240,137 @@ function getTwoColItemPosition<T>({
   };
 }
 
+function getGraphPositions<T>({
+  items,
+  positions,
+  heights,
+  whitespaceThreshold,
+  ...commonGetPositionArgs
+}: {
+  items: $ReadOnlyArray<T>,
+  heights: $ReadOnlyArray<number>,
+  positions: $ReadOnlyArray<{ item: T, position: Position }>,
+  whitespaceThreshold?: number,
+  centerOffset: number,
+  columnWidth: number,
+  columnWidthAndGutter: number,
+  gutter: number,
+  measurementCache: Cache<T, number>,
+  positionCache?: Cache<T, Position>,
+}): {
+  winningNode: NodeData<T>,
+  additionalWhitespace: number,
+} {
+  // When whitespace threshold is set this variables store the score and node if found
+  let bailoutScore;
+  let bailoutNode;
+
+  // Initialize the graph
+  const graph = new Graph<T>();
+  // Start node will be what's been painted so far
+  const startNodeData = {
+    id: 'start',
+    heights,
+    positions,
+  };
+  graph.addNode(startNodeData);
+
+  const startingAdjacentColumnHeightDeltas = getAdjacentColumnHeightDeltas(heights);
+  const startingLowestAdjacentColumnHeightDelta = Math.min(...startingAdjacentColumnHeightDeltas);
+
+  // Recursive function to add possible layouts to the graph
+  function addPossibleLayout({
+    item,
+    i,
+    arr,
+    prevNode,
+    heightsArr,
+    itemsSoFar = [],
+  }: {
+    item: T,
+    i: number,
+    arr: $ReadOnlyArray<T>,
+    prevNode: NodeData<T>,
+    heightsArr: $ReadOnlyArray<number>,
+    itemsSoFar?: $ReadOnlyArray<T>,
+  }) {
+    if (bailoutNode) {
+      return;
+    }
+
+    // Copy the heights array so we don't mutate
+    const heightsSoFar = [...heightsArr];
+
+    // Get the positions and heights after adding this item
+    const { positions: updatedPositions, heights: updatedHeights } = getOneColumnItemPositions<T>({
+      items: [...itemsSoFar, item],
+      heights: heightsSoFar,
+      ...commonGetPositionArgs,
+    });
+
+    // Add the new node to the graph
+    const paintedItemData = {
+      id: item,
+      heights: updatedHeights,
+      positions: updatedPositions,
+    };
+
+    const adjacentColumnHeightDeltas = getAdjacentColumnHeightDeltas(updatedHeights);
+    const lowestAdjacentColumnHeightDelta = Math.min(...adjacentColumnHeightDeltas);
+
+    graph.addNode(paintedItemData);
+    graph.addEdge(prevNode, paintedItemData, lowestAdjacentColumnHeightDelta);
+
+    if (
+      typeof whitespaceThreshold === 'number' &&
+      lowestAdjacentColumnHeightDelta < whitespaceThreshold
+    ) {
+      bailoutScore = lowestAdjacentColumnHeightDelta;
+      bailoutNode = paintedItemData;
+      return;
+    }
+
+    // If there are items remaining in the array that haven't yet been laid out, keep going
+    if (arr.length > 1) {
+      const otherItems = [...arr];
+      otherItems.splice(i, 1);
+      otherItems.forEach((otherItem, index, array) => {
+        addPossibleLayout({
+          item: otherItem,
+          i: index,
+          arr: array,
+          heightsArr,
+          prevNode: paintedItemData,
+          itemsSoFar: [...itemsSoFar, item],
+        });
+      });
+    }
+  }
+
+  // For each unpainted item, start generating possible layouts
+  items.forEach((item, i, arr) => {
+    addPossibleLayout({
+      item,
+      i,
+      arr,
+      heightsArr: heights,
+      prevNode: startNodeData,
+    });
+  });
+
+  const { lowestScoreNode, lowestScore } = bailoutNode
+    ? {
+        lowestScoreNode: bailoutNode,
+        lowestScore: bailoutScore ?? 0,
+      }
+    : graph.findLowestScore(startNodeData);
+
+  // The best solution may be "no solution", i.e. laying out the 2-col item first
+  return lowestScore === null || lowestScore < startingLowestAdjacentColumnHeightDelta
+    ? { winningNode: lowestScoreNode, additionalWhitespace: lowestScore ?? 0 }
+    : { winningNode: startNodeData, additionalWhitespace: startingLowestAdjacentColumnHeightDelta };
+}
+
 const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
   columnWidth = 236,
   gutter = 14,
@@ -251,6 +382,7 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
   positionCache,
   rawItemCount,
   width,
+  whitespaceThreshold,
 }: {
   columnWidth?: number,
   gutter?: number,
@@ -262,6 +394,7 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
   positionCache: Cache<T, Position>,
   rawItemCount: number,
   width?: ?number,
+  whitespaceThreshold?: number,
 }): ((items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>) => {
   const columnWidthAndGutter = columnWidth + gutter;
   const columnCount = isNil(width)
@@ -370,114 +503,28 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
         });
       }
 
-      // Initialize the graph
-      const graph = new Graph<T>();
-      // Start node will be what's been painted so far
-      const startNodeData = {
-        id: 'start',
-        heights: paintedItemHeights,
+      // Get a node with the required whitespace
+      const { winningNode, additionalWhitespace } = getGraphPositions({
+        items: graphBatch,
         positions: paintedItemPositions,
-      };
-      graph.addNode(startNodeData);
-
-      const startingAdjacentColumnHeightDeltas = getAdjacentColumnHeightDeltas(paintedItemHeights);
-      const startingLowestAdjacentColumnHeightDelta = Math.min(
-        ...startingAdjacentColumnHeightDeltas,
-      );
-
-      // Recursive function to add possible layouts to the graph
-      // eslint-disable-next-line no-inner-declarations
-      function addPossibleLayout({
-        item,
-        i,
-        arr,
-        prevNode,
-        heightsArr,
-        itemsSoFar = [],
-      }: {
-        item: T,
-        i: number,
-        arr: $ReadOnlyArray<T>,
-        prevNode: NodeData<T>,
-        heightsArr: $ReadOnlyArray<number>,
-        itemsSoFar?: $ReadOnlyArray<T>,
-      }) {
-        // Copy the heights array so we don't mutate
-        const heightsSoFar = [...heightsArr];
-
-        // Get the positions and heights after adding this item
-        const { positions: updatedPositions, heights: updatedHeights } =
-          getOneColumnItemPositions<T>({
-            items: [...itemsSoFar, item],
-            heights: heightsSoFar,
-            ...commonGetPositionArgs,
-          });
-
-        // Add the new node to the graph
-        const paintedItemData = {
-          id: item,
-          heights: updatedHeights,
-          positions: updatedPositions,
-        };
-
-        const adjacentColumnHeightDeltas = getAdjacentColumnHeightDeltas(updatedHeights);
-        const lowestAdjacentColumnHeightDelta = Math.min(...adjacentColumnHeightDeltas);
-
-        graph.addNode(paintedItemData);
-        graph.addEdge(prevNode, paintedItemData, lowestAdjacentColumnHeightDelta);
-
-        // If there are items remaining in the array that haven't yet been laid out, keep going
-        if (arr.length > 1) {
-          const otherItems = [...arr];
-          otherItems.splice(i, 1);
-          otherItems.forEach((otherItem, index, array) => {
-            addPossibleLayout({
-              item: otherItem,
-              i: index,
-              arr: array,
-              heightsArr,
-              prevNode: paintedItemData,
-              itemsSoFar: [...itemsSoFar, item],
-            });
-          });
-        }
-      }
-
-      // For each unpainted item, start generating possible layouts
-      graphBatch.forEach((item, i, arr) => {
-        addPossibleLayout({
-          item,
-          i,
-          arr,
-          heightsArr: paintedItemHeights,
-          prevNode: startNodeData,
-        });
+        heights: paintedItemHeights,
+        whitespaceThreshold,
+        ...commonGetPositionArgs,
       });
-
-      const { lowestScore, lowestScoreNode } = graph.findLowestScore(startNodeData);
-
-      // The best solution may be "no solution", i.e. laying out the 2-col item first
-      const winningNode =
-        lowestScore === null || lowestScore < startingLowestAdjacentColumnHeightDelta
-          ? lowestScoreNode
-          : startNodeData;
-
-      const { positions } = winningNode;
 
       // Insert 2-col item(s)
       const twoColItem = twoColumnItems[0]; // this should always only be one
-      const {
-        additionalWhitespace,
-        heights: updatedHeights,
-        position: twoColItemPosition,
-      } = getTwoColItemPosition<T>({
+      const { heights: updatedHeights, position: twoColItemPosition } = getTwoColItemPosition<T>({
         item: twoColItem,
         heights: winningNode.heights,
         ...commonGetPositionArgs,
       });
 
       // Combine winning positions and 2-col item position, add to cache
-      const winningPositions = positions.concat({ item: twoColItem, position: twoColItemPosition });
+      const winningPositions = winningNode.positions.concat({
+        item: twoColItem,
+        position: twoColItemPosition,
+      });
 
       const positionedItems = new Set(winningPositions.map(({ item }) => item));
       // depending on where the 2-col item is positioned, there may be items that are still not positioned
@@ -493,10 +540,7 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
 
       // Log additional whitespace shown above the 2-col module
       // This may need to be tweaked or removed if pin leveling is implemented
-      const additionalWhitespaceAboveTwoColModule = additionalWhitespace
-        ? Math.min(additionalWhitespace, startingLowestAdjacentColumnHeightDelta)
-        : startingLowestAdjacentColumnHeightDelta;
-      logWhitespace?.(additionalWhitespaceAboveTwoColModule);
+      logWhitespace?.(additionalWhitespace);
 
       finalPositions.forEach(({ item, position }) => {
         positionCache.set(item, position);
