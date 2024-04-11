@@ -1,3 +1,9 @@
+## 146.13.2 (Apr 11, 2024)
+
+### Patch
+
+- Masonry: Implement graph early bailout feature ([#3527](https://github.com/pinterest/gestalt/pull/3527)) - [Preview link](https://deploy-preview-3527--gestalt.netlify.app?devexample=true)
+
 ## 146.13.1 (Apr 10, 2024)
 
 ### Patch
