@@ -263,7 +263,6 @@ type Icons =
   | 'phone'
   | 'pin'
   | 'pin-hide'
-  | 'pincode'
   | 'pinterest'
   | 'play'
   | 'protect'

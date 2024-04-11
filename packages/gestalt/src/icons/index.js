@@ -176,7 +176,6 @@ import personAdd from './person-add.svg';
 import phone from './phone.svg';
 import pin from './pin.svg';
 import pinHide from './pin-hide.svg';
-import pincode from './pincode.svg';
 import pinterest from './pinterest.svg';
 import play from './play.svg';
 import protect from './protect.svg';
@@ -443,7 +442,6 @@ const icons = Object.freeze({
   'person-add': personAdd,
   phone,
   pin,
-  pincode,
   'pin-hide': pinHide,
   pinterest,
   play,
