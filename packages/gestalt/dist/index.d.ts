@@ -280,6 +280,7 @@ type Icons =
   | 'scale'
   | 'scissors'
   | 'search'
+  | 'search-by-image'
   | 'security'
   | 'send'
   | 'service-dropbox'
