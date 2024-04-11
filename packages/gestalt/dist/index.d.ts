@@ -1,4 +1,4 @@
-import React = require('react');
+import React = require("react");
 
 /**
  * =========================================================
@@ -8,10 +8,13 @@ import React = require('react');
 
 type Node = React.ReactNode;
 
-type AbstractEventHandler<T extends React.SyntheticEvent<HTMLElement> | Event, U = {}> = (
+type AbstractEventHandler<
+  T extends React.SyntheticEvent<HTMLElement> | Event,
+  U = {}
+> = (
   arg: U & {
     readonly event: T;
-  },
+  }
 ) => void;
 
 type ReactForwardRef<T, P> = React.ForwardRefExoticComponent<
@@ -24,8 +27,8 @@ type ReactForwardRef<T, P> = React.ForwardRefExoticComponent<
  * =========================================================
  */
 
-type FourDirections = 'up' | 'right' | 'down' | 'left';
-type PopoverDirections = 'up' | 'right' | 'down' | 'left' | 'forceDown';
+type FourDirections = "up" | "right" | "down" | "left";
+type PopoverDirections = "up" | "right" | "down" | "left" | "forceDown";
 
 type TapAreaEventHandlerType = AbstractEventHandler<
   React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>
@@ -47,28 +50,45 @@ type ButtonLinkEventHandlerType = AbstractEventHandler<
   { dangerouslyDisableOnNavigation: (() => void) | undefined }
 >;
 
-type VideoEventHandlerType = AbstractEventHandler<React.SyntheticEvent<HTMLVideoElement>>;
+type VideoEventHandlerType = AbstractEventHandler<
+  React.SyntheticEvent<HTMLVideoElement>
+>;
 
-type EventHandlerType = (args: { readonly event: React.SyntheticEvent }) => void;
+type EventHandlerType = (args: {
+  readonly event: React.SyntheticEvent;
+}) => void;
 
 type UnsignedUpTo12 = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-type SignedUpTo12 = -12 | -11 | -10 | -9 | -8 | -7 | -6 | -5 | -4 | -3 | -2 | -1 | UnsignedUpTo12;
+type SignedUpTo12 =
+  | -12
+  | -11
+  | -10
+  | -9
+  | -8
+  | -7
+  | -6
+  | -5
+  | -4
+  | -3
+  | -2
+  | -1
+  | UnsignedUpTo12;
 
-type OnAnimationEndType = (args: { animationState: 'in' | 'out' }) => void;
+type OnAnimationEndType = (args: { animationState: "in" | "out" }) => void;
 
 interface BadgeObject {
   text: string;
   type?:
-  | 'info'
-  | 'error'
-  | 'warning'
-  | 'success'
-  | 'neutral'
-  | 'darkWash'
-  | 'lightWash'
-  | 'recommendation'
-  | undefined;
+    | "info"
+    | "error"
+    | "warning"
+    | "success"
+    | "neutral"
+    | "darkWash"
+    | "lightWash"
+    | "recommendation"
+    | undefined;
 }
 
 interface OnDismissButtonObject {
@@ -86,312 +106,319 @@ interface Indexable {
 }
 
 type Icons =
-  | '3D'
-  | '3D-move'
-  | '360'
-  | 'accessibility'
-  | 'ad'
-  | 'ad-group'
-  | 'add'
-  | 'add-circle'
-  | 'add-layout'
-  | 'add-pin'
-  | 'add-section'
-  | 'ads-overview'
-  | 'ads-stats'
-  | 'alert'
-  | 'align-bottom'
-  | 'align-bottom-center'
-  | 'align-bottom-left'
-  | 'align-bottom-right'
-  | 'align-middle'
-  | 'align-top'
-  | 'align-top-center'
-  | 'align-top-left'
-  | 'align-top-right'
-  | 'alphabetical'
-  | 'android-share'
-  | 'angled-pin'
-  | 'api'
-  | 'apple'
-  | 'apps'
-  | 'arrow-back'
-  | 'arrow-circle-back'
-  | 'arrow-circle-down'
-  | 'arrow-circle-forward'
-  | 'arrow-circle-up'
-  | 'arrow-counter-clockwise'
-  | 'arrow-double-forward'
-  | 'arrow-double-back'
-  | 'arrow-down'
-  | 'arrow-end'
-  | 'arrow-forward'
-  | 'arrow-left-curved'
-  | 'arrow-start'
-  | 'arrow-up'
-  | 'arrow-up-left'
-  | 'arrow-up-right'
-  | 'arrows-vertical'
-  | 'bell'
-  | 'board'
-  | 'briefcase'
-  | 'business-hierarchy'
-  | 'calendar'
-  | 'calendar-check'
-  | 'camera'
-  | 'camera-flip'
-  | 'camera-roll'
-  | 'cancel'
-  | 'canonical-pin'
-  | 'captions'
-  | 'captions-outline'
-  | 'check'
-  | 'check-circle'
-  | 'chevron-up-circle'
-  | 'circle-outline'
-  | 'clear'
-  | 'clock'
-  | 'clock-checked'
-  | 'code'
-  | 'code-checked'
-  | 'cog'
-  | 'collapse'
-  | 'color-picker'
-  | 'color-solid'
-  | 'color-split'
-  | 'compass'
-  | 'compose'
-  | 'conversion-tag'
-  | 'copy-to-clipboard'
-  | 'credit-card'
-  | 'crop'
-  | 'dash'
-  | 'data-source'
-  | 'desktop'
-  | 'diagnostics'
-  | 'directional-arrow-left'
-  | 'directional-arrow-right'
-  | 'download'
-  | 'drag-drop'
-  | 'duplicate'
-  | 'edit'
-  | 'ellipsis'
-  | 'ellipsis-circle-outline'
-  | 'envelope'
-  | 'expand'
-  | 'eye'
-  | 'eye-hide'
-  | 'face-happy'
-  | 'face-neutral'
-  | 'face-sad'
-  | 'face-smiley'
-  | 'face-tryon'
-  | 'facebook'
-  | 'fade'
-  | 'file-box'
-  | 'file-unknown'
-  | 'fill-opaque'
-  | 'fill-transparent'
-  | 'filter'
-  | 'flag'
-  | 'flame'
-  | 'flash'
-  | 'flashlight'
-  | 'flipHorizontal'
-  | 'flipVertical'
-  | 'folder'
-  | 'forward'
-  | 'gif'
-  | 'globe'
-  | 'globe-checked'
-  | 'gmail'
-  | 'graph-bar'
-  | 'graph-pie'
-  | 'hand-pointing'
-  | 'handle'
-  | 'heart'
-  | 'heart-broken'
-  | 'heart-health'
-  | 'heart-outline'
-  | 'history'
-  | 'home'
-  | 'idea-pin'
-  | 'image-portrait'
-  | 'impressum'
-  | 'info-circle'
-  | 'information'
-  | 'insights-audience'
-  | 'insights-conversion'
-  | 'instagram'
-  | 'invoice'
-  | 'key'
-  | 'knoop'
-  | 'layout'
-  | 'lightbulb'
-  | 'lightning-bolt-circle'
-  | 'link'
-  | 'lips'
-  | 'live'
-  | 'location'
-  | 'lock'
-  | 'logo-large'
-  | 'logo-small'
-  | 'logout'
-  | 'magic-pen'
-  | 'manage-access'
-  | 'margins-large'
-  | 'margins-medium'
-  | 'margins-small'
-  | 'maximize'
-  | 'megaphone'
-  | 'menu'
-  | 'minimize'
-  | 'mobile'
-  | 'moon'
-  | 'move'
-  | 'move-pin'
-  | 'music-off'
-  | 'music-on'
-  | 'mute'
-  | 'overlay-text'
-  | 'overlay-text-outline'
-  | 'overview'
-  | 'pause'
-  | 'people'
-  | 'person'
-  | 'person-add'
-  | 'phone'
-  | 'pin'
-  | 'pin-hide'
-  | 'pincode'
-  | 'pinterest'
-  | 'play'
-  | 'protect'
-  | 'question-mark'
-  | 'refresh'
-  | 'remove'
-  | 'reorder-images'
-  | 'replace'
-  | 'report'
-  | 'rewind'
-  | 'rotate'
-  | 'save-outline'
-  | 'saved'
-  | 'scale'
-  | 'scissors'
-  | 'search'
-  | 'search-by-image'
-  | 'security'
-  | 'send'
-  | 'service-dropbox'
-  | 'service-etsy'
-  | 'service-messenger'
-  | 'service-outlook'
-  | 'service-yahoo'
-  | 'service-youtube'
-  | 'share'
-  | 'shopping-bag'
-  | 'shrink'
-  | 'skintone'
-  | 'smiley'
-  | 'smiley-outline'
-  | 'sort-ascending'
-  | 'sort-descending'
-  | 'sound'
-  | 'sparkle'
-  | 'speech'
-  | 'speech-ellipsis'
-  | 'speech-exclamation-point'
-  | 'speech-heart'
-  | 'speech-outline'
-  | 'spread'
-  | 'star'
-  | 'star-half'
-  | 'star-outline'
-  | 'sticker'
-  | 'sun'
-  | 'switch-account'
-  | 'table'
-  | 'tag'
-  | 'target'
-  | 'terms'
-  | 'text-align-center'
-  | 'text-align-left'
-  | 'text-align-right'
-  | 'text-all-caps'
-  | 'text-extra-small'
-  | 'text-large'
-  | 'text-line-height'
-  | 'text-medium'
-  | 'text-sentence-case'
-  | 'text-size'
-  | 'text-small'
-  | 'text-spacing'
-  | 'thumbs-down'
-  | 'thumbs-up'
-  | 'trash-can'
-  | 'trending'
-  | 'twitter'
-  | 'upload-feed'
-  | 'video-advance-10-seconds'
-  | 'video-camera'
-  | 'video-rewind-10-seconds'
-  | 'view-type-default'
-  | 'view-type-dense'
-  | 'view-type-list'
-  | 'view-type-space'
-  | 'visit'
-  | 'whats-app'
-  | 'wifi-no'
-  | 'workflow-status-all'
-  | 'workflow-status-canceled'
-  | 'workflow-status-halted'
-  | 'workflow-status-in-progress'
-  | 'workflow-status-ok'
-  | 'workflow-status-problem'
-  | 'workflow-status-queued'
-  | 'workflow-status-unstarted'
-  | 'workflow-status-warning'
-  | 'x';
+  | "3D"
+  | "3D-move"
+  | "360"
+  | "accessibility"
+  | "ad"
+  | "ad-group"
+  | "add"
+  | "add-circle"
+  | "add-layout"
+  | "add-pin"
+  | "add-section"
+  | "ads-overview"
+  | "ads-stats"
+  | "alert"
+  | "align-bottom"
+  | "align-bottom-center"
+  | "align-bottom-left"
+  | "align-bottom-right"
+  | "align-middle"
+  | "align-top"
+  | "align-top-center"
+  | "align-top-left"
+  | "align-top-right"
+  | "alphabetical"
+  | "android-share"
+  | "angled-pin"
+  | "api"
+  | "apple"
+  | "apps"
+  | "arrow-back"
+  | "arrow-circle-back"
+  | "arrow-circle-down"
+  | "arrow-circle-forward"
+  | "arrow-circle-up"
+  | "arrow-counter-clockwise"
+  | "arrow-double-forward"
+  | "arrow-double-back"
+  | "arrow-down"
+  | "arrow-end"
+  | "arrow-forward"
+  | "arrow-left-curved"
+  | "arrow-start"
+  | "arrow-up"
+  | "arrow-up-left"
+  | "arrow-up-right"
+  | "arrows-vertical"
+  | "bell"
+  | "board"
+  | "briefcase"
+  | "business-hierarchy"
+  | "calendar"
+  | "calendar-check"
+  | "camera"
+  | "camera-flip"
+  | "camera-roll"
+  | "cancel"
+  | "canonical-pin"
+  | "captions"
+  | "captions-outline"
+  | "check"
+  | "check-circle"
+  | "chevron-up-circle"
+  | "circle-outline"
+  | "clear"
+  | "clock"
+  | "clock-checked"
+  | "code"
+  | "code-checked"
+  | "cog"
+  | "collapse"
+  | "color-picker"
+  | "color-solid"
+  | "color-split"
+  | "compass"
+  | "compose"
+  | "conversion-tag"
+  | "copy-to-clipboard"
+  | "credit-card"
+  | "crop"
+  | "dash"
+  | "data-source"
+  | "desktop"
+  | "diagnostics"
+  | "directional-arrow-left"
+  | "directional-arrow-right"
+  | "download"
+  | "drag-drop"
+  | "duplicate"
+  | "edit"
+  | "ellipsis"
+  | "ellipsis-circle-outline"
+  | "envelope"
+  | "expand"
+  | "eye"
+  | "eye-hide"
+  | "face-happy"
+  | "face-neutral"
+  | "face-sad"
+  | "face-smiley"
+  | "face-tryon"
+  | "facebook"
+  | "fade"
+  | "file-box"
+  | "file-unknown"
+  | "fill-opaque"
+  | "fill-transparent"
+  | "filter"
+  | "flag"
+  | "flame"
+  | "flash"
+  | "flashlight"
+  | "flipHorizontal"
+  | "flipVertical"
+  | "folder"
+  | "forward"
+  | "gif"
+  | "globe"
+  | "globe-checked"
+  | "gmail"
+  | "graph-bar"
+  | "graph-pie"
+  | "hand-pointing"
+  | "handle"
+  | "heart"
+  | "heart-broken"
+  | "heart-health"
+  | "heart-outline"
+  | "history"
+  | "home"
+  | "idea-pin"
+  | "image-portrait"
+  | "impressum"
+  | "info-circle"
+  | "information"
+  | "insights-audience"
+  | "insights-conversion"
+  | "instagram"
+  | "invoice"
+  | "key"
+  | "knoop"
+  | "layout"
+  | "lightbulb"
+  | "lightning-bolt-circle"
+  | "link"
+  | "lips"
+  | "live"
+  | "location"
+  | "lock"
+  | "logo-large"
+  | "logo-small"
+  | "logout"
+  | "magic-pen"
+  | "manage-access"
+  | "margins-large"
+  | "margins-medium"
+  | "margins-small"
+  | "maximize"
+  | "megaphone"
+  | "menu"
+  | "minimize"
+  | "mobile"
+  | "moon"
+  | "move"
+  | "move-pin"
+  | "music-off"
+  | "music-on"
+  | "mute"
+  | "overlay-text"
+  | "overlay-text-outline"
+  | "overview"
+  | "pause"
+  | "people"
+  | "person"
+  | "person-add"
+  | "phone"
+  | "pin"
+  | "pin-hide"
+  | "pincode"
+  | "pinterest"
+  | "play"
+  | "protect"
+  | "question-mark"
+  | "refresh"
+  | "remove"
+  | "reorder-images"
+  | "replace"
+  | "report"
+  | "rewind"
+  | "rotate"
+  | "save-outline"
+  | "saved"
+  | "scale"
+  | "scissors"
+  | "search"
+  | "search-by-image"
+  | "security"
+  | "send"
+  | "service-dropbox"
+  | "service-etsy"
+  | "service-messenger"
+  | "service-outlook"
+  | "service-yahoo"
+  | "service-youtube"
+  | "share"
+  | "shopping-bag"
+  | "shrink"
+  | "skintone"
+  | "smiley"
+  | "smiley-outline"
+  | "sort-ascending"
+  | "sort-descending"
+  | "sound"
+  | "sparkle"
+  | "speech"
+  | "speech-ellipsis"
+  | "speech-exclamation-point"
+  | "speech-heart"
+  | "speech-outline"
+  | "spread"
+  | "star"
+  | "star-half"
+  | "star-outline"
+  | "sticker"
+  | "sun"
+  | "switch-account"
+  | "table"
+  | "tag"
+  | "target"
+  | "terms"
+  | "text-align-center"
+  | "text-align-left"
+  | "text-align-right"
+  | "text-all-caps"
+  | "text-extra-small"
+  | "text-large"
+  | "text-line-height"
+  | "text-medium"
+  | "text-sentence-case"
+  | "text-size"
+  | "text-small"
+  | "text-spacing"
+  | "thumbs-down"
+  | "thumbs-up"
+  | "trash-can"
+  | "trending"
+  | "twitter"
+  | "upload-feed"
+  | "video-advance-10-seconds"
+  | "video-camera"
+  | "video-rewind-10-seconds"
+  | "view-type-default"
+  | "view-type-dense"
+  | "view-type-list"
+  | "view-type-space"
+  | "visit"
+  | "whats-app"
+  | "wifi-no"
+  | "workflow-status-all"
+  | "workflow-status-canceled"
+  | "workflow-status-halted"
+  | "workflow-status-in-progress"
+  | "workflow-status-ok"
+  | "workflow-status-problem"
+  | "workflow-status-queued"
+  | "workflow-status-unstarted"
+  | "workflow-status-warning"
+  | "x";
 
-type RoundingType = 'pill' | 'circle' | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
+type RoundingType = "pill" | "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-type RelType = 'none' | 'nofollow';
+type RelType = "none" | "nofollow";
 
-type TargetType = null | 'self' | 'blank';
+type TargetType = null | "self" | "blank";
 
-type TextSizeType = '100' | '200' | '300' | '400' | '500' | '600';
+type TextSizeType = "100" | "200" | "300" | "400" | "500" | "600";
 
-type TextAlignType = 'start' | 'end' | 'center' | 'forceLeft' | 'forceRight';
+type TextAlignType = "start" | "end" | "center" | "forceLeft" | "forceRight";
 
 type BaseTextColorType =
-  | 'default'
-  | 'subtle'
-  | 'success'
-  | 'error'
-  | 'warning'
-  | 'shopping'
-  | 'inverse'
-  | 'light'
-  | 'dark';
+  | "default"
+  | "subtle"
+  | "success"
+  | "error"
+  | "warning"
+  | "shopping"
+  | "inverse"
+  | "light"
+  | "dark";
 
-type IdealDirectionType = 'up' | 'right' | 'down' | 'left';
+type IdealDirectionType = "up" | "right" | "down" | "left";
 
-type MobileEnterKeyHintType = 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+type MobileEnterKeyHintType =
+  | "enter"
+  | "done"
+  | "go"
+  | "next"
+  | "previous"
+  | "search"
+  | "send";
 
 type DataVisualizationColors =
-  | '01'
-  | '02'
-  | '03'
-  | '04'
-  | '05'
-  | '06'
-  | '07'
-  | '08'
-  | '09'
-  | '10'
-  | '11'
-  | '12';
+  | "01"
+  | "02"
+  | "03"
+  | "04"
+  | "05"
+  | "06"
+  | "07"
+  | "08"
+  | "09"
+  | "10"
+  | "11"
+  | "12";
 
 type TrendObject = {
   accessibilityLabel: string;
@@ -403,7 +430,7 @@ interface ButtonActionData {
   disabled?: boolean;
   label: string;
   onClick?: ButtonEventHandlerType | undefined;
-  role?: 'button';
+  role?: "button";
 }
 
 interface LinkActionData {
@@ -413,11 +440,13 @@ interface LinkActionData {
   label: string;
   onClick?: ButtonLinkEventHandlerType | undefined;
   rel?: RelType | undefined;
-  role: 'link';
+  role: "link";
   target?: TargetType | undefined;
 }
 
-type DismissingElementChildrenType = (arg: { onDismissStart: () => void }) => Node;
+type DismissingElementChildrenType = (arg: {
+  onDismissStart: () => void;
+}) => Node;
 
 /**
  * =========================================================
@@ -427,128 +456,128 @@ type DismissingElementChildrenType = (arg: { onDismissStart: () => void }) => No
 
 interface ColorSchemeProviderProps {
   children: Node;
-  colorScheme: 'light' | 'dark' | 'userPreference';
+  colorScheme: "light" | "dark" | "userPreference";
   id?: string | undefined;
 }
 
 interface DefaultLabelProviderProps {
   children: Node;
   labels?:
-  | {
-    Accordion: {
-      accessibilityCollapseLabel: string;
-      accessibilityExpandLabel: string;
-    };
-    ActivationCard: {
-      accessibilityDismissButtonLabel: string;
-    };
-    BannerOverlay: {
-      accessibilityDismissButtonLabel: string;
-    };
-    BannerCallout: {
-      accessibilityDismissButtonLabel: string;
-      iconAccessibilityLabelError: string;
-      iconAccessibilityLabelInfo: string;
-      iconAccessibilityLabelRecommendation: string;
-      iconAccessibilityLabelWarning: string;
-      iconAccessibilityLabelSuccess: string;
-    };
-    ChartGraph: {
-      accessibilityLabelPrefixText: string;
-      defaultViewText: string;
-      accessibleViewText: string;
-      tabularData: string;
-      accessibilityLabelDismissModal: string;
-      tableSeriesText: string;
-      tableXAxisText: string;
-      tableYAxisText: string;
-      downloadCsvButtonText: string;
-      cancelButtonText: string;
-    };
-    ComboBox: {
-      noResultText: string;
-      accessibilityClearButtonLabel: string;
-    };
-    Link: {
-      accessibilityNewTabLabel: string;
-    };
-    Modal: {
-      accessibilityDismissButtonLabel: string;
-    };
-    Popover: {
-      accessibilityDismissButtonLabel: string;
-    };
-    OverlayPanel: {
-      accessibilityDismissButtonLabel: string;
-      dismissConfirmationMessage: string;
-      dismissConfirmationSubtext: string;
-      dismissConfirmationPrimaryActionText: string;
-      dismissConfirmationPrimaryActionTextLabel: string;
-      dismissConfirmationSecondaryActionText: string;
-      dismissConfirmationSecondaryActionTextLabel: string;
-    };
-    SheetMobile: {
-      accessibilityDismissButtonLabel: string;
-      accessibilityGrabberLabel: string;
-      accessibilityLabel: string;
-    };
-    SideNavigation: {
-      accessibilityDismissButtonLabel: string;
-    };
-    BannerSlim: {
-      accessibilityDismissButtonLabel: string;
-      iconAccessibilityLabelError: string;
-      iconAccessibilityLabelInfo: string;
-      iconAccessibilityLabelRecommendation: string;
-      iconAccessibilityLabelWarning: string;
-      iconAccessibilityLabelSuccess: string;
-    };
-    Spinner: {
-      accessibilityLabel: string;
-    };
-    Tag: {
-      accessibilityErrorIconLabel: string;
-      accessibilityRemoveIconLabel: string;
-      accessibilityWarningIconLabel: string;
-    };
-    TagData: {
-      accessibilityRemoveIconLabel: string;
-    };
-    TextField: {
-      accessibilityHidePasswordLabel: string;
-      accessibilityShowPasswordLabel: string;
-    };
-    BannerUpsell: {
-      accessibilityDismissButtonLabel: string;
-    };
-    Video: {
-      accessibilityMaximizeLabel: string;
-      accessibilityMinimizeLabel: string;
-      accessibilityMuteLabel: string;
-      accessibilityPauseLabel: string;
-      accessibilityPlayLabel: string;
-      accessibilityProgressLabel: string;
-      accessibilityUnmuteLabel: string;
-      accessibilityHideCaptionsLabel: string;
-      accessibilityShowCaptionsLabel: string;
-    };
-    HelpButton: {
-      tooltipMessage: string;
-    };
-    Toast: {
-      accessibilityDismissButtonLabel: string;
-      accessibilityIconSuccessLabel: string;
-      accessibilityIconErrorLabel: string;
-      accessibilityProcessingLabel: string;
-    };
-  }
-  | null
-  | undefined;
+    | {
+        Accordion: {
+          accessibilityCollapseLabel: string;
+          accessibilityExpandLabel: string;
+        };
+        ActivationCard: {
+          accessibilityDismissButtonLabel: string;
+        };
+        BannerOverlay: {
+          accessibilityDismissButtonLabel: string;
+        };
+        BannerCallout: {
+          accessibilityDismissButtonLabel: string;
+          iconAccessibilityLabelError: string;
+          iconAccessibilityLabelInfo: string;
+          iconAccessibilityLabelRecommendation: string;
+          iconAccessibilityLabelWarning: string;
+          iconAccessibilityLabelSuccess: string;
+        };
+        ChartGraph: {
+          accessibilityLabelPrefixText: string;
+          defaultViewText: string;
+          accessibleViewText: string;
+          tabularData: string;
+          accessibilityLabelDismissModal: string;
+          tableSeriesText: string;
+          tableXAxisText: string;
+          tableYAxisText: string;
+          downloadCsvButtonText: string;
+          cancelButtonText: string;
+        };
+        ComboBox: {
+          noResultText: string;
+          accessibilityClearButtonLabel: string;
+        };
+        Link: {
+          accessibilityNewTabLabel: string;
+        };
+        Modal: {
+          accessibilityDismissButtonLabel: string;
+        };
+        Popover: {
+          accessibilityDismissButtonLabel: string;
+        };
+        OverlayPanel: {
+          accessibilityDismissButtonLabel: string;
+          dismissConfirmationMessage: string;
+          dismissConfirmationSubtext: string;
+          dismissConfirmationPrimaryActionText: string;
+          dismissConfirmationPrimaryActionTextLabel: string;
+          dismissConfirmationSecondaryActionText: string;
+          dismissConfirmationSecondaryActionTextLabel: string;
+        };
+        SheetMobile: {
+          accessibilityDismissButtonLabel: string;
+          accessibilityGrabberLabel: string;
+          accessibilityLabel: string;
+        };
+        SideNavigation: {
+          accessibilityDismissButtonLabel: string;
+        };
+        BannerSlim: {
+          accessibilityDismissButtonLabel: string;
+          iconAccessibilityLabelError: string;
+          iconAccessibilityLabelInfo: string;
+          iconAccessibilityLabelRecommendation: string;
+          iconAccessibilityLabelWarning: string;
+          iconAccessibilityLabelSuccess: string;
+        };
+        Spinner: {
+          accessibilityLabel: string;
+        };
+        Tag: {
+          accessibilityErrorIconLabel: string;
+          accessibilityRemoveIconLabel: string;
+          accessibilityWarningIconLabel: string;
+        };
+        TagData: {
+          accessibilityRemoveIconLabel: string;
+        };
+        TextField: {
+          accessibilityHidePasswordLabel: string;
+          accessibilityShowPasswordLabel: string;
+        };
+        BannerUpsell: {
+          accessibilityDismissButtonLabel: string;
+        };
+        Video: {
+          accessibilityMaximizeLabel: string;
+          accessibilityMinimizeLabel: string;
+          accessibilityMuteLabel: string;
+          accessibilityPauseLabel: string;
+          accessibilityPlayLabel: string;
+          accessibilityProgressLabel: string;
+          accessibilityUnmuteLabel: string;
+          accessibilityHideCaptionsLabel: string;
+          accessibilityShowCaptionsLabel: string;
+        };
+        HelpButton: {
+          tooltipMessage: string;
+        };
+        Toast: {
+          accessibilityDismissButtonLabel: string;
+          accessibilityIconSuccessLabel: string;
+          accessibilityIconErrorLabel: string;
+          accessibilityProcessingLabel: string;
+        };
+      }
+    | null
+    | undefined;
 }
 
 interface DeviceTypeProviderProps {
   children: Node;
-  deviceType: 'desktop' | 'mobile';
+  deviceType: "desktop" | "mobile";
 }
 
 interface GlobalEventsHandlerProviderProps {
@@ -560,18 +589,18 @@ interface GlobalEventsHandlerProviderProps {
   linkHandlers?: {
     onNavigation: (arg: {
       href: string;
-      target?: null | 'self' | 'blank' | undefined;
+      target?: null | "self" | "blank" | undefined;
     }) => EventHandlerType | null | void;
   };
   sheetMobileHandlers?:
-  | { onOpen?: (() => void) | undefined; onClose?: (() => void) | undefined }
-  | undefined;
+    | { onOpen?: (() => void) | undefined; onClose?: (() => void) | undefined }
+    | undefined;
 }
 
 interface ScrollBoundaryContainerProps {
   children: Node;
   height?: number | string | undefined;
-  overflow?: 'scroll' | 'scrollX' | 'scrollY' | 'auto' | 'visible' | undefined;
+  overflow?: "scroll" | "scrollX" | "scrollY" | "auto" | "visible" | undefined;
 }
 
 /**
@@ -582,32 +611,32 @@ interface ScrollBoundaryContainerProps {
 
 interface ActivationCardProps {
   message: string;
-  status: 'notStarted' | 'pending' | 'needsAttention' | 'complete';
+  status: "notStarted" | "pending" | "needsAttention" | "complete";
   statusMessage: string;
   title: string;
   dismissButton?:
-  | {
-    accessibilityLabel?: string;
-    onDismiss: () => void;
-  }
-  | undefined;
+    | {
+        accessibilityLabel?: string;
+        onDismiss: () => void;
+      }
+    | undefined;
   link?:
-  | {
-    accessibilityLabel: string;
-    href: string;
-    label: string;
-    onClick?: ButtonLinkEventHandlerType | undefined;
-    rel?: RelType | undefined;
-    target?: TargetType | undefined;
-  }
-  | undefined;
+    | {
+        accessibilityLabel: string;
+        href: string;
+        label: string;
+        onClick?: ButtonLinkEventHandlerType | undefined;
+        rel?: RelType | undefined;
+        target?: TargetType | undefined;
+      }
+    | undefined;
 }
 
 interface AvatarProps {
   name: string;
   accessibilityLabel?: string | undefined;
   outline?: boolean | undefined;
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fit' | undefined;
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "fit" | undefined;
   src?: string | undefined;
   verified?: boolean | undefined;
 }
@@ -621,16 +650,16 @@ interface AvatarGroupProps {
   addCollaborators?: boolean | undefined;
   href?: string | undefined;
   onClick?:
-  | AbstractEventHandler<
-    | React.MouseEvent<HTMLDivElement>
-    | React.KeyboardEvent<HTMLDivElement>
-    | React.MouseEvent<HTMLAnchorElement>
-    | React.KeyboardEvent<HTMLAnchorElement>,
-    { dangerouslyDisableOnNavigation?: (() => void) | undefined }
-  >
-  | undefined;
-  role?: 'button' | 'link' | undefined;
-  size?: 'xs' | 'sm' | 'md' | 'fit' | undefined;
+    | AbstractEventHandler<
+        | React.MouseEvent<HTMLDivElement>
+        | React.KeyboardEvent<HTMLDivElement>
+        | React.MouseEvent<HTMLAnchorElement>
+        | React.KeyboardEvent<HTMLAnchorElement>,
+        { dangerouslyDisableOnNavigation?: (() => void) | undefined }
+      >
+    | undefined;
+  role?: "button" | "link" | undefined;
+  size?: "xs" | "sm" | "md" | "fit" | undefined;
 }
 
 interface BannerOverlayProps {
@@ -638,71 +667,90 @@ interface BannerOverlayProps {
   message: string | React.ReactElement<typeof Text>;
   offset?: { bottom: number; top: number };
   helperLink?:
-  | {
-    text: string;
-    accessibilityLabel: string;
-    href: string;
-    onClick?: AbstractEventHandler<
-      React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>,
-      { dangerouslyDisableOnNavigation: () => void }
-    >;
-  }
-  | undefined;
+    | {
+        text: string;
+        accessibilityLabel: string;
+        href: string;
+        onClick?: AbstractEventHandler<
+          React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>,
+          { dangerouslyDisableOnNavigation: () => void }
+        >;
+      }
+    | undefined;
   primaryAction?:
-  | {
-    accessibilityLabel: string;
-    label: string;
-    href: string | undefined;
-    onClick?: ButtonEventHandlerType | undefined;
-    rel?: RelType | undefined;
-    role: 'link';
-    size?: 'sm' | 'md' | 'lg' | undefined;
-    target?: TargetType | undefined;
-  }
-  | {
-    accessibilityLabel: string;
-    label: string;
-    onClick: ButtonEventHandlerType | undefined;
-    role?: 'button';
-    size?: 'sm' | 'md' | 'lg' | undefined;
-  };
+    | {
+        accessibilityLabel: string;
+        label: string;
+        href: string | undefined;
+        onClick?: ButtonEventHandlerType | undefined;
+        rel?: RelType | undefined;
+        role: "link";
+        size?: "sm" | "md" | "lg" | undefined;
+        target?: TargetType | undefined;
+      }
+    | {
+        accessibilityLabel: string;
+        label: string;
+        onClick: ButtonEventHandlerType | undefined;
+        role?: "button";
+        size?: "sm" | "md" | "lg" | undefined;
+      };
   thumbnail?:
-  | { image: React.ReactElement<typeof Image> }
-  | { avatar: React.ReactElement<typeof Avatar> }
-  | { icon: React.ReactElement<typeof Icon> }
-  | undefined;
+    | { image: React.ReactElement<typeof Image> }
+    | { avatar: React.ReactElement<typeof Avatar> }
+    | { icon: React.ReactElement<typeof Icon> }
+    | undefined;
   title?: string;
   zIndex?: Indexable;
 }
 
 interface BadgeProps {
   text: string;
-  position?: 'middle' | 'top' | undefined;
+  position?: "middle" | "top" | undefined;
   type?:
-  | 'info'
-  | 'error'
-  | 'warning'
-  | 'success'
-  | 'neutral'
-  | 'darkWash'
-  | 'lightWash'
-  | 'recommendation'
-  | undefined;
+    | "info"
+    | "error"
+    | "warning"
+    | "success"
+    | "neutral"
+    | "darkWash"
+    | "lightWash"
+    | "recommendation"
+    | undefined;
 }
 
 type BoxPassthroughProps = Omit<
-  React.ComponentProps<'div'>,
-  'onClick' | 'className' | 'style' | 'ref'
+  React.ComponentProps<"div">,
+  "onClick" | "className" | "style" | "ref"
 > &
   React.RefAttributes<HTMLDivElement>;
 
-type AlignContentType = 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly' | 'stretch';
-type AlignItemsType = 'start' | 'end' | 'center' | 'baseline' | 'stretch';
-type DirectionType = 'row' | 'column';
-type DisplayType = 'none' | 'flex' | 'block' | 'inlineBlock' | 'visuallyHidden';
-type FlexType = 'grow' | 'shrink' | 'none';
-type JustifyContentType = 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly';
-type OverflowType = 'visible' | 'hidden' | 'scroll' | 'scrollX' | 'scrollY' | 'auto';
+type AlignContentType =
+  | "start"
+  | "end"
+  | "center"
+  | "between"
+  | "around"
+  | "evenly"
+  | "stretch";
+type AlignItemsType = "start" | "end" | "center" | "baseline" | "stretch";
+type DirectionType = "row" | "column";
+type DisplayType = "none" | "flex" | "block" | "inlineBlock" | "visuallyHidden";
+type FlexType = "grow" | "shrink" | "none";
+type JustifyContentType =
+  | "start"
+  | "end"
+  | "center"
+  | "between"
+  | "around"
+  | "evenly";
+type OverflowType =
+  | "visible"
+  | "hidden"
+  | "scroll"
+  | "scrollX"
+  | "scrollY"
+  | "auto";
 
 interface BoxProps extends BoxPassthroughProps {
   alignContent?: AlignContentType | undefined;
@@ -710,73 +758,73 @@ interface BoxProps extends BoxPassthroughProps {
   smAlignItems?: AlignItemsType | undefined;
   mdAlignItems?: AlignItemsType | undefined;
   lgAlignItems?: AlignItemsType | undefined;
-  alignSelf?: 'auto' | AlignItemsType | undefined;
+  alignSelf?: "auto" | AlignItemsType | undefined;
   as?:
-  | 'article'
-  | 'aside'
-  | 'caption'
-  | 'details'
-  | 'div'
-  | 'figcaption'
-  | 'figure'
-  | 'footer'
-  | 'header'
-  | 'main'
-  | 'nav'
-  | 'section'
-  | 'summary'
-  | undefined;
+    | "article"
+    | "aside"
+    | "caption"
+    | "details"
+    | "div"
+    | "figcaption"
+    | "figure"
+    | "footer"
+    | "header"
+    | "main"
+    | "nav"
+    | "section"
+    | "summary"
+    | undefined;
   borderStyle?:
-  | 'sm'
-  | 'lg'
-  | 'shadow'
-  | 'raisedTopShadow'
-  | 'raisedBottomShadow'
-  | 'none'
-  | undefined;
+    | "sm"
+    | "lg"
+    | "shadow"
+    | "raisedTopShadow"
+    | "raisedBottomShadow"
+    | "none"
+    | undefined;
   bottom?: boolean | undefined;
   children?: Node | undefined;
   color?:
-  | 'darkWash'
-  | 'lightWash'
-  | 'transparent'
-  | 'transparentDarkGray'
-  | 'default'
-  | 'infoBase'
-  | 'infoWeak'
-  | 'errorBase'
-  | 'errorWeak'
-  | 'warningBase'
-  | 'warningWeak'
-  | 'successBase'
-  | 'successWeak'
-  | 'recommendationBase'
-  | 'recommendationWeak'
-  | 'shopping'
-  | 'primary'
-  | 'secondary'
-  | 'tertiary'
-  | 'selected'
-  | 'inverse'
-  | 'brand'
-  | 'education'
-  | 'elevationAccent'
-  | 'elevationFloating'
-  | 'elevationRaised'
-  | 'dark'
-  | 'light'
-  | undefined;
+    | "darkWash"
+    | "lightWash"
+    | "transparent"
+    | "transparentDarkGray"
+    | "default"
+    | "infoBase"
+    | "infoWeak"
+    | "errorBase"
+    | "errorWeak"
+    | "warningBase"
+    | "warningWeak"
+    | "successBase"
+    | "successWeak"
+    | "recommendationBase"
+    | "recommendationWeak"
+    | "shopping"
+    | "primary"
+    | "secondary"
+    | "tertiary"
+    | "selected"
+    | "inverse"
+    | "brand"
+    | "education"
+    | "elevationAccent"
+    | "elevationFloating"
+    | "elevationRaised"
+    | "dark"
+    | "light"
+    | undefined;
   column?: UnsignedUpTo12 | undefined;
   smColumn?: UnsignedUpTo12 | undefined;
   mdColumn?: UnsignedUpTo12 | undefined;
   lgColumn?: UnsignedUpTo12 | undefined;
   dangerouslySetInlineStyle?:
-  | {
-    __style: {
-      [key: string]: string | number | undefined;
-    };
-  }
-  | undefined;
+    | {
+        __style: {
+          [key: string]: string | number | undefined;
+        };
+      }
+    | undefined;
   direction?: DirectionType | undefined;
   smDirection?: DirectionType | undefined;
   mdDirection?: DirectionType | undefined;
@@ -790,31 +838,43 @@ interface BoxProps extends BoxPassthroughProps {
   height?: number | string | undefined;
   justifyContent?: JustifyContentType | undefined;
   left?: boolean | undefined;
-  margin?: SignedUpTo12 | 'auto' | undefined;
-  smMargin?: SignedUpTo12 | 'auto' | undefined;
-  mdMargin?: SignedUpTo12 | 'auto' | undefined;
-  lgMargin?: SignedUpTo12 | 'auto' | undefined;
-  marginBottom?: SignedUpTo12 | 'auto' | undefined;
-  smMarginBottom?: SignedUpTo12 | 'auto' | undefined;
-  mdMarginBottom?: SignedUpTo12 | 'auto' | undefined;
-  lgMarginBottom?: SignedUpTo12 | 'auto' | undefined;
-  marginEnd?: SignedUpTo12 | 'auto' | undefined;
-  smMarginEnd?: SignedUpTo12 | 'auto' | undefined;
-  mdMarginEnd?: SignedUpTo12 | 'auto' | undefined;
-  lgMarginEnd?: SignedUpTo12 | 'auto' | undefined;
-  marginStart?: SignedUpTo12 | 'auto' | undefined;
-  smMarginStart?: SignedUpTo12 | 'auto' | undefined;
-  mdMarginStart?: SignedUpTo12 | 'auto' | undefined;
-  lgMarginStart?: SignedUpTo12 | 'auto' | undefined;
-  marginTop?: SignedUpTo12 | 'auto' | undefined;
-  smMarginTop?: SignedUpTo12 | 'auto' | undefined;
-  mdMarginTop?: SignedUpTo12 | 'auto' | undefined;
-  lgMarginTop?: SignedUpTo12 | 'auto' | undefined;
+  margin?: SignedUpTo12 | "auto" | undefined;
+  smMargin?: SignedUpTo12 | "auto" | undefined;
+  mdMargin?: SignedUpTo12 | "auto" | undefined;
+  lgMargin?: SignedUpTo12 | "auto" | undefined;
+  marginBottom?: SignedUpTo12 | "auto" | undefined;
+  smMarginBottom?: SignedUpTo12 | "auto" | undefined;
+  mdMarginBottom?: SignedUpTo12 | "auto" | undefined;
+  lgMarginBottom?: SignedUpTo12 | "auto" | undefined;
+  marginEnd?: SignedUpTo12 | "auto" | undefined;
+  smMarginEnd?: SignedUpTo12 | "auto" | undefined;
+  mdMarginEnd?: SignedUpTo12 | "auto" | undefined;
+  lgMarginEnd?: SignedUpTo12 | "auto" | undefined;
+  marginStart?: SignedUpTo12 | "auto" | undefined;
+  smMarginStart?: SignedUpTo12 | "auto" | undefined;
+  mdMarginStart?: SignedUpTo12 | "auto" | undefined;
+  lgMarginStart?: SignedUpTo12 | "auto" | undefined;
+  marginTop?: SignedUpTo12 | "auto" | undefined;
+  smMarginTop?: SignedUpTo12 | "auto" | undefined;
+  mdMarginTop?: SignedUpTo12 | "auto" | undefined;
+  lgMarginTop?: SignedUpTo12 | "auto" | undefined;
   maxHeight?: number | string | undefined;
   maxWidth?: number | string | undefined;
   minHeight?: number | string | undefined;
   minWidth?: number | string | undefined;
-  opacity?: 0 | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1 | undefined;
+  opacity?:
+    | 0
+    | 0.1
+    | 0.2
+    | 0.3
+    | 0.4
+    | 0.5
+    | 0.6
+    | 0.7
+    | 0.8
+    | 0.9
+    | 1
+    | undefined;
   overflow?: OverflowType | undefined;
   padding?: UnsignedUpTo12 | undefined;
   smPadding?: UnsignedUpTo12 | undefined;
@@ -828,12 +888,12 @@ interface BoxProps extends BoxPassthroughProps {
   smPaddingY?: UnsignedUpTo12 | undefined;
   mdPaddingY?: UnsignedUpTo12 | undefined;
   lgPaddingY?: UnsignedUpTo12 | undefined;
-  position?: 'static' | 'absolute' | 'relative' | 'fixed' | undefined;
+  position?: "static" | "absolute" | "relative" | "fixed" | undefined;
   right?: boolean | undefined;
   role?: string | undefined;
   rounding?: RoundingType | undefined;
   top?: boolean | undefined;
-  userSelect?: 'auto' | 'none' | undefined;
+  userSelect?: "auto" | "none" | undefined;
   width?: number | string | undefined;
   wrap?: boolean | undefined;
   zIndex?: Indexable | undefined;
@@ -845,14 +905,14 @@ interface ButtonProps {
   accessibilityHaspopup?: boolean | undefined;
   accessibilityLabel?: string | undefined;
   color?:
-  | 'gray'
-  | 'red'
-  | 'blue'
-  | 'transparent'
-  | 'semiTransparentWhite'
-  | 'transparentWhiteText'
-  | 'white'
-  | undefined;
+    | "gray"
+    | "red"
+    | "blue"
+    | "transparent"
+    | "semiTransparentWhite"
+    | "transparentWhiteText"
+    | "white"
+    | undefined;
   dataTestId?: string;
   disabled?: boolean | undefined;
   fullWidth?: boolean | undefined;
@@ -860,30 +920,30 @@ interface ButtonProps {
   name?: string | undefined;
   onClick?: ButtonEventHandlerType | undefined;
   selected?: boolean | undefined;
-  size?: 'sm' | 'md' | 'lg' | undefined;
+  size?: "sm" | "md" | "lg" | undefined;
   tabIndex?: -1 | 0 | undefined;
   text: string;
-  type?: 'button' | 'submit' | undefined;
+  type?: "button" | "submit" | undefined;
 }
 
 interface ButtonLinkProps {
   accessibilityLabel?: string | undefined;
   color?:
-  | 'gray'
-  | 'red'
-  | 'blue'
-  | 'transparent'
-  | 'semiTransparentWhite'
-  | 'transparentWhiteText'
-  | 'white'
-  | undefined;
+    | "gray"
+    | "red"
+    | "blue"
+    | "transparent"
+    | "semiTransparentWhite"
+    | "transparentWhiteText"
+    | "white"
+    | undefined;
   dataTestId?: string;
   disabled?: boolean | undefined;
   iconEnd?: Icons | undefined;
   fullWidth?: boolean | undefined;
   tabIndex?: -1 | 0 | undefined;
   onClick?: ButtonLinkEventHandlerType | undefined;
-  size?: 'sm' | 'md' | 'lg' | undefined;
+  size?: "sm" | "md" | "lg" | undefined;
   text: string;
   href: string;
   rel?: RelType | undefined;
@@ -897,13 +957,13 @@ interface ButtonGroupProps {
 interface BannerCalloutProps {
   iconAccessibilityLabel: string;
   message: string;
-  type: 'error' | 'info' | 'recommendation' | 'success' | 'warning';
+  type: "error" | "info" | "recommendation" | "success" | "warning";
   dismissButton?:
-  | {
-    accessibilityLabel?: string;
-    onDismiss: () => void;
-  }
-  | undefined;
+    | {
+        accessibilityLabel?: string;
+        onDismiss: () => void;
+      }
+    | undefined;
   primaryAction?: ButtonActionData | LinkActionData | undefined;
   secondaryAction?: ButtonActionData | LinkActionData | undefined;
   title?: string | undefined;
@@ -911,7 +971,10 @@ interface BannerCalloutProps {
 
 interface CheckboxProps {
   id: string;
-  onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { checked: boolean }>;
+  onChange: AbstractEventHandler<
+    React.SyntheticEvent<HTMLInputElement>,
+    { checked: boolean }
+  >;
   checked?: boolean | undefined;
   disabled?: boolean | undefined;
   errorMessage?: string | undefined;
@@ -919,12 +982,15 @@ interface CheckboxProps {
   image?: Node | undefined;
   indeterminate?: boolean | undefined;
   label?: string | undefined;
-  labelDisplay?: 'visible' | 'hidden' | undefined;
+  labelDisplay?: "visible" | "hidden" | undefined;
   name?: string | undefined;
   onClick?:
-  | AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { checked: boolean }>
-  | undefined;
-  size?: 'sm' | 'md' | undefined;
+    | AbstractEventHandler<
+        React.SyntheticEvent<HTMLInputElement>,
+        { checked: boolean }
+      >
+    | undefined;
+  size?: "sm" | "md" | undefined;
 }
 
 interface CollageProps {
@@ -961,30 +1027,43 @@ interface ComboBoxProps {
   errorMessage?: string | undefined;
   helperText?: string | undefined;
   inputValue?: string | null | undefined;
-  labelDisplay?: 'visible' | 'hidden' | undefined;
+  labelDisplay?: "visible" | "hidden" | undefined;
   onChange?:
-  | AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { value: string }>
-  | undefined;
+    | AbstractEventHandler<
+        React.SyntheticEvent<HTMLInputElement>,
+        { value: string }
+      >
+    | undefined;
   onBlur?:
-  | AbstractEventHandler<
-    React.FocusEvent<HTMLInputElement> | React.SyntheticEvent<HTMLInputElement>,
-    { value: string }
-  >
-  | undefined;
-  onFocus?: AbstractEventHandler<React.FocusEvent<HTMLInputElement>, { value: string }> | undefined;
+    | AbstractEventHandler<
+        | React.FocusEvent<HTMLInputElement>
+        | React.SyntheticEvent<HTMLInputElement>,
+        { value: string }
+      >
+    | undefined;
+  onFocus?:
+    | AbstractEventHandler<
+        React.FocusEvent<HTMLInputElement>,
+        { value: string }
+      >
+    | undefined;
   onKeyDown?:
-  | AbstractEventHandler<React.KeyboardEvent<HTMLInputElement>, { value: string }>
-  | undefined;
+    | AbstractEventHandler<
+        React.KeyboardEvent<HTMLInputElement>,
+        { value: string }
+      >
+    | undefined;
   onClear?: (() => void) | undefined;
   onSelect?:
-  | AbstractEventHandler<
-    React.SyntheticEvent<HTMLInputElement> | React.KeyboardEvent<HTMLInputElement>,
-    { item: ComboBoxItemType }
-  >
-  | undefined;
+    | AbstractEventHandler<
+        | React.SyntheticEvent<HTMLInputElement>
+        | React.KeyboardEvent<HTMLInputElement>,
+        { item: ComboBoxItemType }
+      >
+    | undefined;
   placeholder?: string | undefined;
   selectedOption?: ComboBoxItemType | undefined;
-  size?: 'sm' | 'md' | 'lg' | undefined;
+  size?: "sm" | "md" | "lg" | undefined;
   tags?: ReadonlyArray<React.ReactElement<TagProps, typeof Tag>> | undefined;
   zIndex?: Indexable | undefined;
 }
@@ -997,11 +1076,11 @@ interface DatapointProps {
   title: string;
   value: string;
   badge?: BadgeObject | undefined;
-  size?: 'md' | 'lg' | undefined;
+  size?: "md" | "lg" | undefined;
   tooltipText?: string | undefined;
   tooltipZIndex?: Indexable | undefined;
   trend?: TrendObject | undefined;
-  trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto' | undefined;
+  trendSentiment?: "good" | "bad" | "neutral" | "auto" | undefined;
 }
 
 interface DropdownProps {
@@ -1013,7 +1092,7 @@ interface DropdownProps {
   headerContent?: Node | undefined;
   idealDirection?: FourDirections | undefined;
   isWithinFixedContainer?: boolean | undefined;
-  maxHeight?: '30vh' | undefined;
+  maxHeight?: "30vh" | undefined;
   mobileOnAnimationEnd?: OnAnimationEndType | undefined;
   zIndex?: Indexable | undefined;
 }
@@ -1046,11 +1125,15 @@ interface DropdownLinkProps {
   dataTestId?: string | undefined;
   isExternal?: boolean | undefined;
   onClick?:
-  | AbstractEventHandler<
-    React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-    { dangerouslyDisableOnNavigation: () => void; mobileOnDismissStart: () => void }
-  >
-  | undefined;
+    | AbstractEventHandler<
+        | React.MouseEvent<HTMLAnchorElement>
+        | React.KeyboardEvent<HTMLAnchorElement>,
+        {
+          dangerouslyDisableOnNavigation: () => void;
+          mobileOnDismissStart: () => void;
+        }
+      >
+    | undefined;
 }
 
 interface DropdownSectionProps {
@@ -1063,13 +1146,13 @@ interface FieldsetProps {
   legend: string;
   id?: string;
   errorMessage?: string;
-  legendDisplay?: 'visible' | 'hidden' | undefined;
+  legendDisplay?: "visible" | "hidden" | undefined;
 }
 
 interface FlexProps {
   alignContent?: AlignContentType | undefined;
   alignItems?: AlignItemsType | undefined;
-  alignSelf?: 'auto' | AlignItemsType | undefined;
+  alignSelf?: "auto" | AlignItemsType | undefined;
   smAlignItems?: AlignItemsType | undefined;
   mdAlignItems?: AlignItemsType | undefined;
   lgAlignItems?: AlignItemsType | undefined;
@@ -1077,7 +1160,10 @@ interface FlexProps {
   dataTestId?: string | undefined;
   direction?: DirectionType | undefined;
   flex?: FlexType | undefined;
-  gap?: UnsignedUpTo12 | { row: UnsignedUpTo12; column: UnsignedUpTo12 } | undefined;
+  gap?:
+    | UnsignedUpTo12
+    | { row: UnsignedUpTo12; column: UnsignedUpTo12 }
+    | undefined;
   height?: number | string | undefined;
   justifyContent?: JustifyContentType | undefined;
   maxHeight?: number | string | undefined;
@@ -1090,7 +1176,7 @@ interface FlexProps {
 }
 
 interface FlexItemProps {
-  alignSelf?: 'auto' | AlignItemsType | undefined;
+  alignSelf?: "auto" | AlignItemsType | undefined;
   children?: Node | undefined;
   dataTestId?: string | undefined;
   flex?: FlexType | undefined;
@@ -1100,13 +1186,13 @@ interface FlexItemProps {
 }
 
 interface HeadingProps {
-  accessibilityLevel?: 1 | 2 | 3 | 4 | 5 | 6 | 'none' | undefined;
+  accessibilityLevel?: 1 | 2 | 3 | 4 | 5 | 6 | "none" | undefined;
   align?: TextAlignType | undefined;
   children?: Node | undefined;
   color?: BaseTextColorType | undefined;
   id?: string | undefined;
   lineClamp?: number | undefined;
-  overflow?: 'normal' | 'breakAll' | 'breakWord' | undefined;
+  overflow?: "normal" | "breakAll" | "breakWord" | undefined;
   size?: TextSizeType | undefined;
 }
 
@@ -1117,29 +1203,30 @@ interface HelpButtonProps {
   idealDirection?: IdealDirectionType | undefined;
   isWithinFixedContainer?: boolean | undefined;
   link?:
-  | {
-    accessibilityLabel?: string | undefined;
-    externalLinkIcon?:
-    | 'none'
-    | 'default'
     | {
-      color: IconProps['color'];
-      size: IconProps['size'];
-    }
-    | undefined;
-    href: string;
-    onClick?:
-    | AbstractEventHandler<
-      React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-      {
-        dangerouslyDisableOnNavigation: () => void;
+        accessibilityLabel?: string | undefined;
+        externalLinkIcon?:
+          | "none"
+          | "default"
+          | {
+              color: IconProps["color"];
+              size: IconProps["size"];
+            }
+          | undefined;
+        href: string;
+        onClick?:
+          | AbstractEventHandler<
+              | React.MouseEvent<HTMLAnchorElement>
+              | React.KeyboardEvent<HTMLAnchorElement>,
+              {
+                dangerouslyDisableOnNavigation: () => void;
+              }
+            >
+          | undefined;
+        ref?: React.Ref<"a">;
+        target?: TargetType | undefined;
       }
-    >
     | undefined;
-    ref?: React.Ref<'a'>;
-    target?: TargetType | undefined;
-  }
-  | undefined;
   onClick?: TapAreaEventHandlerType | undefined;
   zIndex?: Indexable | undefined;
 }
@@ -1147,19 +1234,19 @@ interface HelpButtonProps {
 interface IconProps {
   accessibilityLabel: string;
   color?:
-  | 'default'
-  | 'subtle'
-  | 'success'
-  | 'error'
-  | 'warning'
-  | 'info'
-  | 'recommendation'
-  | 'inverse'
-  | 'shopping'
-  | 'brandPrimary'
-  | 'light'
-  | 'dark'
-  | undefined;
+    | "default"
+    | "subtle"
+    | "success"
+    | "error"
+    | "warning"
+    | "info"
+    | "recommendation"
+    | "inverse"
+    | "shopping"
+    | "brandPrimary"
+    | "light"
+    | "dark"
+    | undefined;
   dangerouslySetSvgPath?: { __path: string } | undefined;
   icon?: Icons | undefined;
   inline?: boolean | undefined;
@@ -1171,70 +1258,90 @@ interface IconButtonProps {
   accessibilityControls?: string | undefined;
   accessibilityExpanded?: boolean | undefined;
   accessibilityHaspopup?: boolean | undefined;
-  accessibilityPopupRole?: 'menu' | 'dialog' | undefined;
+  accessibilityPopupRole?: "menu" | "dialog" | undefined;
   bgColor?:
-  | 'transparent'
-  | 'transparentDarkGray'
-  | 'gray'
-  | 'lightGray'
-  | 'white'
-  | 'red'
-  | undefined;
+    | "transparent"
+    | "transparentDarkGray"
+    | "gray"
+    | "lightGray"
+    | "white"
+    | "red"
+    | undefined;
   dangerouslySetSvgPath?: { __path: string } | undefined;
   dataTestId?: string | undefined;
   disabled?: boolean | undefined;
   icon?: Icons | undefined;
-  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | undefined;
+  iconColor?:
+    | "gray"
+    | "darkGray"
+    | "red"
+    | "white"
+    | "brandPrimary"
+    | undefined;
   name?: string;
   onClick?:
-  | AbstractEventHandler<
-    React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>
-  >
-  | undefined;
+    | AbstractEventHandler<
+        | React.MouseEvent<HTMLButtonElement>
+        | React.KeyboardEvent<HTMLButtonElement>
+      >
+    | undefined;
   padding?: 1 | 2 | 3 | 4 | 5 | undefined;
   selected?: boolean | undefined;
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | undefined;
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | undefined;
   tabIndex?: -1 | 0 | undefined;
-  type?: 'button' | 'submit' | undefined;
+  type?: "button" | "submit" | undefined;
   tooltip?:
-  | Pick<TooltipProps, 'accessibilityLabel' | 'inline' | 'idealDirection' | 'text' | 'zIndex'>
-  | undefined;
+    | Pick<
+        TooltipProps,
+        "accessibilityLabel" | "inline" | "idealDirection" | "text" | "zIndex"
+      >
+    | undefined;
 }
 
 interface IconButtonLinkProps {
   accessibilityLabel: string;
   bgColor?:
-  | 'transparent'
-  | 'transparentDarkGray'
-  | 'gray'
-  | 'lightGray'
-  | 'white'
-  | 'red'
-  | undefined;
+    | "transparent"
+    | "transparentDarkGray"
+    | "gray"
+    | "lightGray"
+    | "white"
+    | "red"
+    | undefined;
   dangerouslySetSvgPath?: { __path: string } | undefined;
   dataTestId?: string | undefined;
   disabled?: boolean | undefined;
   href: string;
   icon?: Icons | undefined;
-  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | undefined;
+  iconColor?:
+    | "gray"
+    | "darkGray"
+    | "red"
+    | "white"
+    | "brandPrimary"
+    | undefined;
   onClick?:
-  | AbstractEventHandler<
-    React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-    { dangerouslyDisableOnNavigation: (() => void) | undefined }
-  >
-  | undefined;
+    | AbstractEventHandler<
+        | React.MouseEvent<HTMLAnchorElement>
+        | React.KeyboardEvent<HTMLAnchorElement>,
+        { dangerouslyDisableOnNavigation: (() => void) | undefined }
+      >
+    | undefined;
   padding?: 1 | 2 | 3 | 4 | 5 | undefined;
   rel?: RelType | undefined;
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | undefined;
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | undefined;
   tabIndex?: -1 | 0 | undefined;
   target?: TargetType | undefined;
   tooltip?:
-  | Pick<TooltipProps, 'accessibilityLabel' | 'inline' | 'idealDirection' | 'text' | 'zIndex'>
-  | undefined;
+    | Pick<
+        TooltipProps,
+        "accessibilityLabel" | "inline" | "idealDirection" | "text" | "zIndex"
+      >
+    | undefined;
 }
 
 interface IconButtonFloatingProps {
-  accessibilityPopupRole: 'menu' | 'dialog';
+  accessibilityPopupRole: "menu" | "dialog";
   accessibilityLabel: string;
   icon: Icons;
   onClick: AbstractEventHandler<
@@ -1260,15 +1367,19 @@ interface ImageProps {
   src: string;
   children?: Node | undefined;
   color?: string | undefined;
-  crossOrigin?: 'anonymous' | 'use-credentials' | undefined;
-  decoding?: 'sync' | 'async' | 'auto' | undefined;
+  crossOrigin?: "anonymous" | "use-credentials" | undefined;
+  decoding?: "sync" | "async" | "auto" | undefined;
   elementTiming?: string | undefined;
-  fetchPriority?: 'high' | 'low' | 'auto' | undefined;
-  fit?: 'cover' | 'contain' | 'none' | undefined;
-  loading?: 'eager' | 'lazy' | 'auto' | undefined;
-  onError?: AbstractEventHandler<React.SyntheticEvent<HTMLImageElement>> | undefined;
-  onLoad?: AbstractEventHandler<React.SyntheticEvent<HTMLImageElement>> | undefined;
-  role?: 'img' | 'presentation' | undefined;
+  fetchPriority?: "high" | "low" | "auto" | undefined;
+  fit?: "cover" | "contain" | "none" | undefined;
+  loading?: "eager" | "lazy" | "auto" | undefined;
+  onError?:
+    | AbstractEventHandler<React.SyntheticEvent<HTMLImageElement>>
+    | undefined;
+  onLoad?:
+    | AbstractEventHandler<React.SyntheticEvent<HTMLImageElement>>
+    | undefined;
+  role?: "img" | "presentation" | undefined;
   sizes?: string | undefined;
   srcSet?: string | undefined;
 }
@@ -1295,50 +1406,55 @@ interface LinkProps {
   accessibilityLabel?: string | undefined;
   dataTestId?: string | undefined;
   children?: Node | undefined;
-  display?: 'inline' | 'inlineBlock' | 'block' | undefined;
+  display?: "inline" | "inlineBlock" | "block" | undefined;
   externalLinkIcon?:
-  | 'none'
-  | 'default'
-  | { color: IconProps['color']; size: TextProps['size'] }
-  | undefined;
+    | "none"
+    | "default"
+    | { color: IconProps["color"]; size: TextProps["size"] }
+    | undefined;
 
   id?: string | undefined;
-  onBlur?: AbstractEventHandler<React.FocusEvent<HTMLAnchorElement>> | undefined;
+  onBlur?:
+    | AbstractEventHandler<React.FocusEvent<HTMLAnchorElement>>
+    | undefined;
   onClick?:
-  | AbstractEventHandler<
-    React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-    { dangerouslyDisableOnNavigation?: (() => void) | undefined }
-  >
-  | undefined;
-  onFocus?: AbstractEventHandler<React.FocusEvent<HTMLAnchorElement>> | undefined;
+    | AbstractEventHandler<
+        | React.MouseEvent<HTMLAnchorElement>
+        | React.KeyboardEvent<HTMLAnchorElement>,
+        { dangerouslyDisableOnNavigation?: (() => void) | undefined }
+      >
+    | undefined;
+  onFocus?:
+    | AbstractEventHandler<React.FocusEvent<HTMLAnchorElement>>
+    | undefined;
   rel?: RelType | undefined;
   rounding?: RoundingType | undefined;
-  tapStyle?: 'none' | 'compress' | undefined;
+  tapStyle?: "none" | "compress" | undefined;
   target?: TargetType | undefined;
-  underline?: 'auto' | 'none' | 'always' | 'hover' | undefined;
+  underline?: "auto" | "none" | "always" | "hover" | undefined;
 }
 
 interface ListProps {
   children: Node;
   label?: string | React.ReactElement<typeof Text>;
-  labelDisplay?: 'visible' | 'hidden' | undefined;
-  spacing?: 'regular' | 'condensed' | undefined;
-  type?: 'bare' | 'ordered' | 'unordered' | undefined;
+  labelDisplay?: "visible" | "hidden" | undefined;
+  spacing?: "regular" | "condensed" | undefined;
+  type?: "bare" | "ordered" | "unordered" | undefined;
 }
 
 interface ListItemProps {
   text: string | React.ReactElement<typeof Text>;
   children?:
-  | string
-  | React.ReactElement<typeof List>
-  | React.ReactElement<typeof List.Item>
-  | undefined;
+    | string
+    | React.ReactElement<typeof List>
+    | React.ReactElement<typeof List.Item>
+    | undefined;
 }
 
 interface MaskProps {
   children?: Node | undefined;
   height?: number | string | undefined;
-  rounding?: 'circle' | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | undefined;
+  rounding?: "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | undefined;
   wash?: boolean | undefined;
   width?: number | string | undefined;
   willChangeTransform?: boolean | undefined;
@@ -1353,18 +1469,25 @@ interface MeasurementStore<K, V> {
 
 interface MasonryProps<T = any> {
   items: ReadonlyArray<T>;
-  renderItem: (args: { data: T; itemIdx: number; isMeasuring: boolean }) => Node;
+  renderItem: (args: {
+    data: T;
+    itemIdx: number;
+    isMeasuring: boolean;
+  }) => Node;
 
   columnWidth?: number | undefined;
   gutterWidth?: number | undefined;
   layout?:
-  | 'basic'
-  | 'basicCentered'
-  | 'flexible'
-  | 'serverRenderedFlexible'
-  | 'uniformRow'
-  | undefined;
-  loadItems?: false | ((_arg?: { from: number }) => undefined | boolean | {}) | undefined;
+    | "basic"
+    | "basicCentered"
+    | "flexible"
+    | "serverRenderedFlexible"
+    | "uniformRow"
+    | undefined;
+  loadItems?:
+    | false
+    | ((_arg?: { from: number }) => undefined | boolean | {})
+    | undefined;
   measurementStore?: MeasurementStore<T, any>;
   minCols?: number | undefined;
   scrollContainer?: (() => HTMLElement) | undefined;
@@ -1385,21 +1508,21 @@ interface MasonryV2Ref {
   reflow: () => void;
   state: {
     width: number | undefined;
-  }
+  };
 }
 
 interface ModalProps {
   accessibilityModalLabel: string;
   onDismiss: () => void;
   _dangerouslyDisableScrollBoundaryContainer?: boolean;
-  align?: 'center' | 'start' | undefined;
+  align?: "center" | "start" | undefined;
   children?: Node | undefined;
   closeOnOutsideClick?: boolean | undefined;
   footer?: Node | undefined;
   heading?: Node | undefined;
-  padding?: 'defaut' | 'none' | undefined;
-  role?: 'alertdialog' | 'dialog' | undefined;
-  size?: 'sm' | 'md' | 'lg' | number | undefined;
+  padding?: "defaut" | "none" | undefined;
+  role?: "alertdialog" | "dialog" | undefined;
+  size?: "sm" | "md" | "lg" | number | undefined;
   subHeading?: string | undefined;
 }
 
@@ -1411,7 +1534,7 @@ interface ModalAlertButtonActionDataType {
   label: string;
   onClick?: ButtonEventHandlerType | undefined;
   rel?: RelType | undefined;
-  role: 'link';
+  role: "link";
   target?: TargetType | undefined;
 }
 
@@ -1421,7 +1544,7 @@ interface ModalAlertLinkActionDataType {
   disabled?: boolean | undefined;
   label: string;
   onClick?: ButtonLinkEventHandlerType | undefined;
-  role?: 'button';
+  role?: "button";
 }
 
 interface ModalAlertProps {
@@ -1431,8 +1554,11 @@ interface ModalAlertProps {
   onDismiss: () => void;
   primaryAction: ModalAlertButtonActionDataType | ModalAlertLinkActionDataType;
   accessibilityDismissButtonLabel?: string | undefined;
-  secondaryAction?: ModalAlertButtonActionDataType | ModalAlertLinkActionDataType | undefined;
-  type?: 'default' | 'warning' | 'error' | undefined;
+  secondaryAction?:
+    | ModalAlertButtonActionDataType
+    | ModalAlertLinkActionDataType
+    | undefined;
+  type?: "default" | "warning" | "error" | undefined;
 }
 
 interface AccordionProps {
@@ -1442,9 +1568,9 @@ interface AccordionProps {
   icon?: Icons | undefined;
   iconAccessibilityLabel?: string | undefined;
   iconButton?: React.ReactElement<typeof IconButton> | undefined;
-  size?: 'sm' | 'md' | 'lg';
+  size?: "sm" | "md" | "lg";
   title?: string | undefined;
-  type?: 'error' | 'info' | undefined;
+  type?: "error" | "info" | undefined;
 }
 
 interface AccordionExpandableProps {
@@ -1457,9 +1583,11 @@ interface AccordionExpandableProps {
     children?: Node | undefined;
     icon?: Icons | undefined;
     iconAccessibilityLabel?: string | undefined;
-    iconButton?: React.ReactElement<typeof IconButton | typeof IconButtonLink> | undefined;
+    iconButton?:
+      | React.ReactElement<typeof IconButton | typeof IconButtonLink>
+      | undefined;
     summary?: ReadonlyArray<string> | undefined;
-    type?: 'info' | 'error' | undefined;
+    type?: "info" | "error" | undefined;
   }>;
   expandedIndex?: number | null | undefined;
   onExpandedChange?: ((expandedIndex: number | null) => void) | undefined;
@@ -1473,43 +1601,43 @@ interface NumberFieldProps {
       value: number | undefined;
     }
   >;
-  autoComplete?: 'on' | 'off' | undefined;
-  dataTestId?: string,
+  autoComplete?: "on" | "off" | undefined;
+  dataTestId?: string;
   disabled?: boolean | undefined;
   errorMessage?: Node | undefined;
   helperText?: string | undefined;
   label?: string | undefined;
-  labelDisplay?: 'visible' | 'hidden' | undefined;
+  labelDisplay?: "visible" | "hidden" | undefined;
   max?: number | undefined;
   min?: number | undefined;
   mobileEnterKeyHint?: MobileEnterKeyHintType | undefined;
   name?: string | undefined;
   onBlur?:
-  | AbstractEventHandler<
-    React.FocusEvent<HTMLInputElement>,
-    {
-      value: number | undefined;
-    }
-  >
-  | undefined;
+    | AbstractEventHandler<
+        React.FocusEvent<HTMLInputElement>,
+        {
+          value: number | undefined;
+        }
+      >
+    | undefined;
   onFocus?:
-  | AbstractEventHandler<
-    React.FocusEvent<HTMLInputElement>,
-    {
-      value: number | undefined;
-    }
-  >
-  | undefined;
+    | AbstractEventHandler<
+        React.FocusEvent<HTMLInputElement>,
+        {
+          value: number | undefined;
+        }
+      >
+    | undefined;
   onKeyDown?:
-  | AbstractEventHandler<
-    React.KeyboardEvent<HTMLInputElement>,
-    {
-      value: number | undefined;
-    }
-  >
-  | undefined;
+    | AbstractEventHandler<
+        React.KeyboardEvent<HTMLInputElement>,
+        {
+          value: number | undefined;
+        }
+      >
+    | undefined;
   placeholder?: string | undefined;
-  size?: 'sm' | 'md' | 'lg' | undefined;
+  size?: "sm" | "md" | "lg" | undefined;
   step?: number | undefined;
   value?: number | undefined;
 }
@@ -1539,7 +1667,7 @@ interface OverlayPanelProps {
   footer?: NodeOrRenderProp | undefined;
   heading?: string | undefined;
   onAnimationEnd?: OnAnimationEndType | undefined;
-  size?: 'sm' | 'md' | 'lg' | undefined;
+  size?: "sm" | "md" | "lg" | undefined;
   subHeading?: NodeOrRenderProp | undefined;
 }
 
@@ -1549,48 +1677,53 @@ interface OverlayPanelDismissingElementProps {
 
 interface PageHeaderAction {
   component:
-  | React.ReactElement<
-    | typeof Button
-    | typeof ButtonLink
-    | typeof IconButton
-    | typeof Link
-    | typeof Tooltip
-    | typeof Text
-  >
-  | undefined;
+    | React.ReactElement<
+        | typeof Button
+        | typeof ButtonLink
+        | typeof IconButton
+        | typeof Link
+        | typeof Tooltip
+        | typeof Text
+      >
+    | undefined;
   dropdownItems:
-  | ReadonlyArray<
-    React.ReactElement<typeof Dropdown.Item | typeof Dropdown.Link, typeof Dropdown>
-  >
-  | undefined;
+    | ReadonlyArray<
+        React.ReactElement<
+          typeof Dropdown.Item | typeof Dropdown.Link,
+          typeof Dropdown
+        >
+      >
+    | undefined;
 }
 
 interface PageHeaderProps {
   title: string;
   badge?:
-  | {
-    text: string;
-    tooltipText?: string | undefined;
-  }
-  | undefined;
-  borderStyle?: 'sm' | 'none' | undefined;
+    | {
+        text: string;
+        tooltipText?: string | undefined;
+      }
+    | undefined;
+  borderStyle?: "sm" | "none" | undefined;
   dropdownAccessibilityLabel?: string | undefined;
   helperIconButton?:
-  | {
-    accessibilityLabel: string | undefined;
-    accessibilityControls: string | undefined;
-    accessibilityExpanded: boolean | undefined;
-    onClick: AbstractEventHandler<
-      React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>
-    >;
-  }
-  | undefined;
+    | {
+        accessibilityLabel: string | undefined;
+        accessibilityControls: string | undefined;
+        accessibilityExpanded: boolean | undefined;
+        onClick: AbstractEventHandler<
+          | React.MouseEvent<HTMLButtonElement>
+          | React.KeyboardEvent<HTMLButtonElement>
+        >;
+      }
+    | undefined;
   helperLink?: {
     accessibilityLabel: string;
     text: string;
     href: string;
     onClick?: AbstractEventHandler<
-      React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
+      | React.MouseEvent<HTMLAnchorElement>
+      | React.KeyboardEvent<HTMLAnchorElement>,
       { dangerouslyDisableOnNavigation?: (() => void) | undefined }
     >;
   };
@@ -1606,21 +1739,27 @@ interface PogProps {
   accessibilityLabel?: string | undefined;
   active?: boolean | undefined;
   bgColor?:
-  | 'transparent'
-  | 'transparentDarkGray'
-  | 'gray'
-  | 'lightGray'
-  | 'white'
-  | 'red'
-  | undefined;
+    | "transparent"
+    | "transparentDarkGray"
+    | "gray"
+    | "lightGray"
+    | "white"
+    | "red"
+    | undefined;
   dangerouslySetSvgPath?: { __path: string } | undefined;
   focused?: boolean | undefined;
   hovered?: boolean | undefined;
   icon?: Icons | undefined;
-  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | undefined;
+  iconColor?:
+    | "gray"
+    | "darkGray"
+    | "red"
+    | "white"
+    | "brandPrimary"
+    | undefined;
   padding?: 1 | 2 | 3 | 4 | 5 | undefined;
   selected?: boolean | undefined;
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | undefined;
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | undefined;
 }
 
 interface PopoverProps {
@@ -1629,17 +1768,17 @@ interface PopoverProps {
   accessibilityDismissButtonLabel?: string | undefined;
   accessibilityLabel?: string | undefined;
   children?: Node | undefined;
-  color?: 'deprecatedBlue' | 'red' | 'white' | 'darkGray' | undefined;
+  color?: "deprecatedBlue" | "red" | "white" | "darkGray" | undefined;
   id?: string | undefined;
   idealDirection?: PopoverDirections | undefined;
   onKeyDown?: AbstractEventHandler<React.KeyboardEvent<HTMLElement>>;
   positionRelativeToAnchor?: boolean | undefined;
-  role?: 'dialog' | 'listbox' | 'menu' | 'tooltip' | undefined;
+  role?: "dialog" | "listbox" | "menu" | "tooltip" | undefined;
   shouldFocus?: boolean | undefined;
   _deprecatedShowCaret?: boolean | undefined;
   showDismissButton?: boolean | undefined;
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number | undefined;
-  __dangerouslySetMaxHeight?: '30vh' | undefined;
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "flexible" | number | undefined;
+  __dangerouslySetMaxHeight?: "30vh" | undefined;
 }
 
 interface PopoverEducationalProps {
@@ -1651,25 +1790,25 @@ interface PopoverEducationalProps {
   idealDirection?: FourDirections | undefined;
   message?: string | React.ReactElement<typeof Text> | undefined;
   primaryAction?:
-  | {
-    accessibilityLabel?: string | undefined;
-    onClick?: ButtonEventHandlerType | undefined;
-    role?: 'button';
-    text: string | undefined;
-  }
-  | {
-    accessibilityLabel?: string | undefined;
-    href: string | undefined;
-    onClick?: ButtonLinkEventHandlerType | undefined;
-    rel?: RelType | undefined;
-    role: 'link';
-    target?: TargetType | undefined;
-    text: string | undefined;
-  }
-  | undefined;
-  role?: 'dialog' | 'tooltip' | undefined;
+    | {
+        accessibilityLabel?: string | undefined;
+        onClick?: ButtonEventHandlerType | undefined;
+        role?: "button";
+        text: string | undefined;
+      }
+    | {
+        accessibilityLabel?: string | undefined;
+        href: string | undefined;
+        onClick?: ButtonLinkEventHandlerType | undefined;
+        rel?: RelType | undefined;
+        role: "link";
+        target?: TargetType | undefined;
+        text: string | undefined;
+      }
+    | undefined;
+  role?: "dialog" | "tooltip" | undefined;
   shouldFocus?: boolean | undefined;
-  size?: 'sm' | 'flexible' | undefined;
+  size?: "sm" | "flexible" | undefined;
   zIndex?: Indexable | undefined;
 }
 
@@ -1680,14 +1819,17 @@ interface PulsarProps {
 
 interface RadioButtonProps {
   id: string;
-  onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { checked: boolean }>;
+  onChange: AbstractEventHandler<
+    React.SyntheticEvent<HTMLInputElement>,
+    { checked: boolean }
+  >;
   value: string;
   checked?: boolean | undefined;
   disabled?: boolean | undefined;
   image?: Node | undefined;
   label?: string | undefined;
   name?: string | undefined;
-  size?: 'sm' | 'md' | undefined;
+  size?: "sm" | "md" | undefined;
   subtext?: string | undefined;
 }
 
@@ -1695,14 +1837,17 @@ interface RadioGroupProps {
   id: string;
   children: Node;
   legend: string;
-  direction?: 'column' | 'row' | undefined;
+  direction?: "column" | "row" | undefined;
   errorMessage?: string | undefined;
-  legendDisplay?: 'visible' | 'hidden' | undefined;
+  legendDisplay?: "visible" | "hidden" | undefined;
 }
 
 interface RadioGroupRadioButtonProps {
   id: string;
-  onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { checked: boolean }>;
+  onChange: AbstractEventHandler<
+    React.SyntheticEvent<HTMLInputElement>,
+    { checked: boolean }
+  >;
   value: string;
   badge?: BadgeObject | undefined;
   checked?: boolean | undefined;
@@ -1711,52 +1856,70 @@ interface RadioGroupRadioButtonProps {
   image?: Node | undefined;
   label?: string | undefined;
   name?: string | undefined;
-  size?: 'sm' | 'md' | undefined;
+  size?: "sm" | "md" | undefined;
 }
 
 interface SearchFieldProps {
   accessibilityLabel: string;
   id: string;
-  onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement | HTMLButtonElement>, { value: string }>;
+  onChange: AbstractEventHandler<
+    React.SyntheticEvent<HTMLInputElement | HTMLButtonElement>,
+    { value: string }
+  >;
   accessibilityClearButtonLabel?: string | undefined;
-  autoComplete?: 'on' | 'off' | 'username' | 'name' | undefined;
+  autoComplete?: "on" | "off" | "username" | "name" | undefined;
   errorMessage?: string | undefined;
   label?: string | undefined;
   onBlur?:
-  | AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { value: string }>
-  | undefined;
+    | AbstractEventHandler<
+        React.SyntheticEvent<HTMLInputElement>,
+        { value: string }
+      >
+    | undefined;
   onFocus?:
-  | AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { value: string }>
-  | undefined;
+    | AbstractEventHandler<
+        React.SyntheticEvent<HTMLInputElement>,
+        { value: string }
+      >
+    | undefined;
   onKeyDown?:
-  | AbstractEventHandler<React.KeyboardEvent<HTMLInputElement>, { value: string }>
-  | undefined;
+    | AbstractEventHandler<
+        React.KeyboardEvent<HTMLInputElement>,
+        { value: string }
+      >
+    | undefined;
   placeholder?: string | undefined;
-  size?: 'md' | 'lg' | undefined;
+  size?: "md" | "lg" | undefined;
   value?: string | undefined;
 }
 
 interface SegmentedControlProps {
   items: Node[];
-  onChange: AbstractEventHandler<React.MouseEvent<HTMLButtonElement>, { activeIndex: number }>;
+  onChange: AbstractEventHandler<
+    React.MouseEvent<HTMLButtonElement>,
+    { activeIndex: number }
+  >;
   selectedItemIndex: number;
   responsive?: boolean | undefined;
-  size: 'sm' | 'md' | 'lg';
+  size: "sm" | "md" | "lg";
 }
 
 interface SelectListProps {
   children: Node;
   id: string;
-  onChange: AbstractEventHandler<React.SyntheticEvent<HTMLElement>, { value: string }>;
-  dataTestId?: string,
+  onChange: AbstractEventHandler<
+    React.SyntheticEvent<HTMLElement>,
+    { value: string }
+  >;
+  dataTestId?: string;
   disabled?: boolean | undefined;
   errorMessage?: string | undefined;
   helperText?: string | undefined;
   label?: string | undefined;
-  labelDisplay?: 'visible' | 'hidden' | undefined;
+  labelDisplay?: "visible" | "hidden" | undefined;
   name?: string | undefined;
   placeholder?: string | undefined;
-  size?: 'md' | 'lg' | undefined;
+  size?: "md" | "lg" | undefined;
   value?: string | undefined;
 }
 
@@ -1773,21 +1936,21 @@ interface SelectListGroupProps {
 }
 
 type PrimaryActionType = {
-  icon?: 'ellipsis' | 'edit' | 'trash-can';
+  icon?: "ellipsis" | "edit" | "trash-can";
   onClick?: BareButtonEventHandlerType | undefined;
   tooltip: {
     accessibilityLabel?: string | undefined;
     text: string;
     zIndex?: Indexable | undefined;
   };
-  dropdownItems?: Array<React.ReactElement<typeof Dropdown['Item']>>;
+  dropdownItems?: Array<React.ReactElement<(typeof Dropdown)["Item"]>>;
 };
 
 interface SheetMobileProps {
   heading: string;
   onDismiss: () => void;
   accessibilityLabel?: string | undefined;
-  align?: 'start' | 'center' | undefined;
+  align?: "start" | "center" | undefined;
   backIconButton?: {
     accessibilityLabel: string;
     onClick: AbstractEventHandler<
@@ -1811,7 +1974,9 @@ interface SheetMobileProps {
       { onDismissStart: () => void }
     >;
   };
-  onOutsideClick?: AbstractEventHandler<React.MouseEvent<HTMLDivElement>> | undefined;
+  onOutsideClick?:
+    | AbstractEventHandler<React.MouseEvent<HTMLDivElement>>
+    | undefined;
   onAnimationEnd?: OnAnimationEndType | undefined;
   primaryAction?: {
     accessibilityLabel: string;
@@ -1825,13 +1990,13 @@ interface SheetMobileProps {
     >;
     href?: string | undefined;
     rel?: RelType | undefined;
-    size?: 'sm' | 'md' | 'lg' | undefined;
+    size?: "sm" | "md" | "lg" | undefined;
     target?: TargetType | undefined;
   };
-  role?: 'alertdialog' | 'dialog' | undefined;
+  role?: "alertdialog" | "dialog" | undefined;
   showDismissButton?: boolean | undefined;
   subHeading?: string | undefined;
-  size?: 'default' | 'full' | 'auto' | undefined;
+  size?: "default" | "full" | "auto" | undefined;
   zIndex?: Indexable | undefined;
 }
 
@@ -1842,7 +2007,9 @@ interface SheetMobileDismissingElementProps {
 interface SideNavigationProps {
   accessibilityLabel: string;
   children: Node;
-  dismissButton?: { accessibilityLabel?: string; onDismiss: () => void } | undefined;
+  dismissButton?:
+    | { accessibilityLabel?: string; onDismiss: () => void }
+    | undefined;
   footer?: Node | undefined;
   header?: Node | undefined;
   showBorder?: boolean | undefined;
@@ -1857,22 +2024,23 @@ interface SideNavigationSectionProps {
 interface SideNavigationTopItemProps {
   href: string;
   label: string;
-  active?: 'page' | 'section' | undefined;
+  active?: "page" | "section" | undefined;
   badge?:
-  | {
-    text: string;
-    type?: 'info' | 'error' | 'warning' | 'success' | 'neutral' | undefined;
-  }
-  | undefined;
+    | {
+        text: string;
+        type?: "info" | "error" | "warning" | "success" | "neutral" | undefined;
+      }
+    | undefined;
   counter?: { number: string; accessibilityLabel: string } | undefined;
   icon?: Icons | { __path: string } | undefined;
   notificationAccessibilityLabel?: string | undefined;
   onClick?:
-  | AbstractEventHandler<
-    React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-    { dangerouslyDisableOnNavigation?: (() => void) | undefined }
-  >
-  | undefined;
+    | AbstractEventHandler<
+        | React.MouseEvent<HTMLAnchorElement>
+        | React.KeyboardEvent<HTMLAnchorElement>,
+        { dangerouslyDisableOnNavigation?: (() => void) | undefined }
+      >
+    | undefined;
   primaryAction?: PrimaryActionType | undefined;
   ref?: HTMLLIElement;
 }
@@ -1880,13 +2048,14 @@ interface SideNavigationTopItemProps {
 interface SideNavigationNestedItemProps {
   href: string;
   label: string;
-  active?: 'page' | 'section' | undefined;
+  active?: "page" | "section" | undefined;
   counter?: { number: string; accessibilityLabel: string } | undefined;
   onClick?:
-  | AbstractEventHandler<
-    React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>
-  >
-  | undefined;
+    | AbstractEventHandler<
+        | React.MouseEvent<HTMLButtonElement>
+        | React.KeyboardEvent<HTMLButtonElement>
+      >
+    | undefined;
   ref?: HTMLLIElement;
 }
 
@@ -1895,7 +2064,7 @@ interface SideNavigationGroupProps {
   label: string;
   badge?: BadgeProps | undefined;
   counter?: { number: string; accessibilityLabel: string } | undefined;
-  display?: 'expandable' | 'static' | undefined;
+  display?: "expandable" | "static" | undefined;
   expanded?: boolean;
   icon?: Icons | undefined;
   notificationAccessibilityLabel?: string | undefined;
@@ -1907,7 +2076,7 @@ interface SideNavigationNestedGroupProps {
   children: Node;
   label: string;
   counter?: { number: string; accessibilityLabel: string } | undefined;
-  display?: 'expandable' | 'static' | undefined;
+  display?: "expandable" | "static" | undefined;
   expanded?: boolean;
   onExpand: (args: { expanded: boolean }) => void;
 }
@@ -1915,85 +2084,88 @@ interface SideNavigationNestedGroupProps {
 interface BannerSlimProps {
   message: React.ReactElement<typeof Text> | string;
   dismissButton?:
-  | {
-    accessibilityLabel?: string;
-    onDismiss: () => void;
-  }
-  | undefined;
+    | {
+        accessibilityLabel?: string;
+        onDismiss: () => void;
+      }
+    | undefined;
   helperLink?: {
     accessibilityLabel: string;
     href: string;
     text: string;
     target?: TargetType | undefined;
     onClick?:
-    | AbstractEventHandler<
-      React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-      { dangerouslyDisableOnNavigation?: (() => void) | undefined }
-    >
-    | undefined;
+      | AbstractEventHandler<
+          | React.MouseEvent<HTMLAnchorElement>
+          | React.KeyboardEvent<HTMLAnchorElement>,
+          { dangerouslyDisableOnNavigation?: (() => void) | undefined }
+        >
+      | undefined;
   };
   iconAccessibilityLabel?: string | undefined;
   primaryAction?:
-  | {
-    accessibilityLabel: string;
-    disabled?: boolean | undefined;
-    href: string | undefined;
-    label: string;
-    onClick?:
-    | AbstractEventHandler<
-      React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>
-    >
+    | {
+        accessibilityLabel: string;
+        disabled?: boolean | undefined;
+        href: string | undefined;
+        label: string;
+        onClick?:
+          | AbstractEventHandler<
+              | React.MouseEvent<HTMLAnchorElement>
+              | React.KeyboardEvent<HTMLAnchorElement>
+            >
+          | undefined;
+        rel?: RelType | undefined;
+        role: "link";
+        target?: TargetType | undefined;
+      }
+    | {
+        accessibilityLabel: string;
+        disabled?: boolean | undefined;
+        label: string;
+        onClick:
+          | AbstractEventHandler<
+              | React.MouseEvent<HTMLButtonElement>
+              | React.KeyboardEvent<HTMLButtonElement>
+            >
+          | undefined;
+        role?: "button";
+      }
     | undefined;
-    rel?: RelType | undefined;
-    role: 'link';
-    target?: TargetType | undefined;
-  }
-  | {
-    accessibilityLabel: string;
-    disabled?: boolean | undefined;
-    label: string;
-    onClick:
-    | AbstractEventHandler<
-      React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>
-    >
-    | undefined;
-    role?: 'button';
-  }
-  | undefined;
 
   type?:
-  | 'neutral'
-  | 'error'
-  | 'info'
-  | 'warning'
-  | 'success'
-  | 'recommendation'
-  | 'errorBare'
-  | 'infoBare'
-  | 'warningBare'
-  | 'successBare'
-  | 'recommendationBare'
-  | undefined;
+    | "neutral"
+    | "error"
+    | "info"
+    | "warning"
+    | "success"
+    | "recommendation"
+    | "errorBare"
+    | "infoBare"
+    | "warningBare"
+    | "successBare"
+    | "recommendationBare"
+    | undefined;
 }
 
 interface SpinnerProps {
   accessibilityLabel?: string;
   show: boolean;
-  color?: 'default' | 'subtle' | undefined;
+  color?: "default" | "subtle" | undefined;
   delay?: boolean | undefined;
-  size?: 'sm' | 'md' | undefined;
+  size?: "sm" | "md" | undefined;
 }
 
 interface StatusProps {
   type:
-  | 'unstarted'
-  | 'queued'
-  | 'inProgress'
-  | 'halted'
-  | 'ok'
-  | 'problem'
-  | 'canceled'
-  | 'warning';
+    | "unstarted"
+    | "queued"
+    | "inProgress"
+    | "halted"
+    | "ok"
+    | "problem"
+    | "canceled"
+    | "warning";
   accessibilityLabel?: string | undefined;
   subtext?: string | undefined;
   title?: string | undefined;
@@ -2011,7 +2183,10 @@ interface StickyProps {
 
 interface SwitchProps {
   id: string;
-  onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { value: boolean }>;
+  onChange: AbstractEventHandler<
+    React.SyntheticEvent<HTMLInputElement>,
+    { value: boolean }
+  >;
   disabled?: boolean | undefined;
   name?: string | undefined;
   switched?: boolean | undefined;
@@ -2020,14 +2195,14 @@ interface SwitchProps {
 interface TableProps {
   accessibilityLabel: string;
   children: Node;
-  borderStyle?: 'sm' | 'none' | undefined;
+  borderStyle?: "sm" | "none" | undefined;
   maxHeight?: number | string | undefined;
   stickyColumns?: number | undefined;
 }
 
 interface TableHeaderProps {
   children: Node;
-  display?: 'tableHeaderGroup' | 'visuallyHidden' | undefined;
+  display?: "tableHeaderGroup" | "visuallyHidden" | undefined;
   sticky?: boolean | undefined;
 }
 
@@ -2048,26 +2223,26 @@ interface TableCellProps {
 
 interface TableHeaderCellProps {
   children: Node;
-  scope?: 'col' | 'row' | 'colgroup' | 'rowgroup' | undefined;
+  scope?: "col" | "row" | "colgroup" | "rowgroup" | undefined;
   colSpan?: number | undefined;
   rowSpan?: number | undefined;
 }
 
 interface TableSortableHeaderCellProps {
-  align?: 'start' | 'end';
+  align?: "start" | "end";
   children: Node;
   onSortChange: TapAreaEventHandlerType;
-  sortOrder: 'asc' | 'desc';
-  status: 'active' | 'inactive';
-  scope?: 'col' | 'row' | 'colgroup' | 'rowgroup' | undefined;
+  sortOrder: "asc" | "desc";
+  status: "active" | "inactive";
+  scope?: "col" | "row" | "colgroup" | "rowgroup" | undefined;
   colSpan?: number | undefined;
   rowSpan?: number | undefined;
 }
 
 interface TableRowProps {
   children: Node;
-  hoverStyle?: 'gray' | 'none' | undefined;
-  selected?: 'selected' | 'unselected' | undefined;
+  hoverStyle?: "gray" | "none" | undefined;
+  selected?: "selected" | "unselected" | undefined;
 }
 
 interface TableRowExpandableProps {
@@ -2077,37 +2252,42 @@ interface TableRowExpandableProps {
   expandedContents: Node;
   id: string;
   expanded?: boolean;
-  hoverStyle?: 'gray' | 'none';
+  hoverStyle?: "gray" | "none";
   onExpand?: AbstractEventHandler<
-    React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>,
+    | React.MouseEvent<HTMLButtonElement>
+    | React.KeyboardEvent<HTMLButtonElement>,
     { expanded: boolean }
   >;
-  selected?: 'selected' | 'unselected';
+  selected?: "selected" | "unselected";
 }
 
 interface TableRowDrawerProps {
   children: Node;
   drawerContents: Node;
-  hoverStyle?: 'gray' | 'none' | undefined;
+  hoverStyle?: "gray" | "none" | undefined;
   id: string;
-  selected?: 'selected' | 'unselected' | undefined;
+  selected?: "selected" | "unselected" | undefined;
 }
 
 interface TabsProps {
   activeTabIndex: number;
   onChange: AbstractEventHandler<
-    React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-    { activeTabIndex: number; dangerouslyDisableOnNavigation?: (() => void) | undefined }
+    | React.MouseEvent<HTMLAnchorElement>
+    | React.KeyboardEvent<HTMLAnchorElement>,
+    {
+      activeTabIndex: number;
+      dangerouslyDisableOnNavigation?: (() => void) | undefined;
+    }
   >;
   tabs: ReadonlyArray<{
     href: string;
     text: Node;
     id?: string | undefined;
-    indicator?: 'dot' | number | undefined;
+    indicator?: "dot" | number | undefined;
     ref?: { current?: HTMLElement | undefined } | undefined;
   }>;
   wrap?: boolean | undefined;
-  bgColor?: 'default' | 'transparent' | undefined;
+  bgColor?: "default" | "transparent" | undefined;
 }
 
 interface TagProps {
@@ -2115,28 +2295,28 @@ interface TagProps {
   text: string;
   accessibilityRemoveIconLabel?: string | undefined;
   disabled?: boolean | undefined;
-  size?: 'sm' | 'md' | 'lg';
-  type?: 'default' | 'error' | 'warning' | undefined;
+  size?: "sm" | "md" | "lg";
+  type?: "default" | "error" | "warning" | undefined;
 }
 
 interface TagDataProps {
   accessibilityRemoveIconLabel?: string | undefined;
-  baseColor?: 'primary' | 'secondary';
+  baseColor?: "primary" | "secondary";
   color?: DataVisualizationColors;
   disabled?: boolean;
   id?: string;
   onTap?:
-  | AbstractEventHandler<
-    | React.MouseEvent<HTMLDivElement>
-    | React.KeyboardEvent<HTMLDivElement>
-    | React.MouseEvent<HTMLAnchorElement>
-    | React.KeyboardEvent<HTMLAnchorElement>,
-    { selected: boolean; id?: string | undefined }
-  >
-  | undefined;
+    | AbstractEventHandler<
+        | React.MouseEvent<HTMLDivElement>
+        | React.KeyboardEvent<HTMLDivElement>
+        | React.MouseEvent<HTMLAnchorElement>
+        | React.KeyboardEvent<HTMLAnchorElement>,
+        { selected: boolean; id?: string | undefined }
+      >
+    | undefined;
   onRemove: AbstractEventHandler<React.MouseEvent<HTMLButtonElement>>;
   selected?: boolean;
-  size?: 'sm' | 'md' | 'lg';
+  size?: "sm" | "md" | "lg";
   showCheckbox?: boolean;
   text: string;
   tooltip?: ExtendedTooltipProps;
@@ -2154,49 +2334,55 @@ interface TapAreaProps {
   fullHeight?: boolean | undefined;
   fullWidth?: boolean | undefined;
   mouseCursor?:
-  | 'default'
-  | 'copy'
-  | 'grab'
-  | 'grabbing'
-  | 'move'
-  | 'noDrop'
-  | 'pointer'
-  | 'zoomIn'
-  | 'zoomOut'
-  | undefined;
-  onBlur?: AbstractEventHandler<React.FocusEvent<HTMLDivElement | HTMLAnchorElement>> | undefined;
-  onFocus?: AbstractEventHandler<React.FocusEvent<HTMLDivElement | HTMLAnchorElement>> | undefined;
+    | "default"
+    | "copy"
+    | "grab"
+    | "grabbing"
+    | "move"
+    | "noDrop"
+    | "pointer"
+    | "zoomIn"
+    | "zoomOut"
+    | undefined;
+  onBlur?:
+    | AbstractEventHandler<React.FocusEvent<HTMLDivElement | HTMLAnchorElement>>
+    | undefined;
+  onFocus?:
+    | AbstractEventHandler<React.FocusEvent<HTMLDivElement | HTMLAnchorElement>>
+    | undefined;
   onKeyDown?:
-  | AbstractEventHandler<React.KeyboardEvent<HTMLDivElement | HTMLAnchorElement>>
-  | undefined;
+    | AbstractEventHandler<
+        React.KeyboardEvent<HTMLDivElement | HTMLAnchorElement>
+      >
+    | undefined;
   onMouseDown?:
-  | AbstractEventHandler<React.MouseEvent<HTMLDivElement | HTMLAnchorElement>>
-  | undefined;
+    | AbstractEventHandler<React.MouseEvent<HTMLDivElement | HTMLAnchorElement>>
+    | undefined;
   onMouseUp?:
-  | AbstractEventHandler<React.MouseEvent<HTMLDivElement | HTMLAnchorElement>>
-  | undefined;
+    | AbstractEventHandler<React.MouseEvent<HTMLDivElement | HTMLAnchorElement>>
+    | undefined;
   onMouseEnter?:
-  | AbstractEventHandler<React.MouseEvent<HTMLDivElement | HTMLAnchorElement>>
-  | undefined;
+    | AbstractEventHandler<React.MouseEvent<HTMLDivElement | HTMLAnchorElement>>
+    | undefined;
   onMouseLeave?:
-  | AbstractEventHandler<React.MouseEvent<HTMLDivElement | HTMLAnchorElement>>
-  | undefined;
+    | AbstractEventHandler<React.MouseEvent<HTMLDivElement | HTMLAnchorElement>>
+    | undefined;
   onTap?: TapAreaEventHandlerType | undefined;
   rounding?: RoundingType | undefined;
   tabIndex?: -1 | 0 | undefined;
-  tapStyle?: 'none' | 'compress' | undefined;
-  role?: 'button' | 'switch' | undefined;
+  tapStyle?: "none" | "compress" | undefined;
+  role?: "button" | "switch" | undefined;
 }
 interface TapAreaLinkProps {
   accessibilityCurrent?:
-  | 'page'
-  | 'step'
-  | 'location'
-  | 'date'
-  | 'time'
-  | 'true'
-  | 'false'
-  | 'section';
+    | "page"
+    | "step"
+    | "location"
+    | "date"
+    | "time"
+    | "true"
+    | "false"
+    | "section";
   accessibilityLabel?: string | undefined;
   children: Node;
   dataTestId?: string;
@@ -2205,70 +2391,97 @@ interface TapAreaLinkProps {
   fullWidth?: boolean | undefined;
   href: string;
   mouseCursor?:
-  | 'copy'
-  | 'grab'
-  | 'grabbing'
-  | 'move'
-  | 'noDrop'
-  | 'pointer'
-  | 'zoomIn'
-  | 'zoomOut'
-  | undefined;
-  onBlur?: AbstractEventHandler<React.FocusEvent<HTMLAnchorElement>> | undefined;
-  onFocus?: AbstractEventHandler<React.FocusEvent<HTMLAnchorElement>> | undefined;
-  onKeyDown?: AbstractEventHandler<React.KeyboardEvent<HTMLAnchorElement>> | undefined;
-  onMouseDown?: AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>> | undefined;
-  onMouseUp?: AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>> | undefined;
-  onMouseEnter?: AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>> | undefined;
-  onMouseLeave?: AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>> | undefined;
+    | "copy"
+    | "grab"
+    | "grabbing"
+    | "move"
+    | "noDrop"
+    | "pointer"
+    | "zoomIn"
+    | "zoomOut"
+    | undefined;
+  onBlur?:
+    | AbstractEventHandler<React.FocusEvent<HTMLAnchorElement>>
+    | undefined;
+  onFocus?:
+    | AbstractEventHandler<React.FocusEvent<HTMLAnchorElement>>
+    | undefined;
+  onKeyDown?:
+    | AbstractEventHandler<React.KeyboardEvent<HTMLAnchorElement>>
+    | undefined;
+  onMouseDown?:
+    | AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>>
+    | undefined;
+  onMouseUp?:
+    | AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>>
+    | undefined;
+  onMouseEnter?:
+    | AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>>
+    | undefined;
+  onMouseLeave?:
+    | AbstractEventHandler<React.MouseEvent<HTMLAnchorElement>>
+    | undefined;
   onTap?:
-  | AbstractEventHandler<
-    React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-    { dangerouslyDisableOnNavigation: (() => void) | undefined }
-  >
-  | undefined;
+    | AbstractEventHandler<
+        | React.MouseEvent<HTMLAnchorElement>
+        | React.KeyboardEvent<HTMLAnchorElement>,
+        { dangerouslyDisableOnNavigation: (() => void) | undefined }
+      >
+    | undefined;
   rel?: RelType | undefined;
   rounding?: RoundingType | undefined;
   tabIndex?: -1 | 0 | undefined;
-  tapStyle?: 'none' | 'compress' | undefined;
+  tapStyle?: "none" | "compress" | undefined;
   target?: TargetType | undefined;
 }
 
 interface TextProps {
   align?: TextAlignType | undefined;
   children?: Node | undefined;
-  color?: BaseTextColorType | 'link' | undefined;
+  color?: BaseTextColorType | "link" | undefined;
   inline?: boolean | undefined;
   italic?: boolean | undefined;
   lineClamp?: number | undefined;
-  overflow?: 'normal' | 'breakWord' | 'breakAll' | 'noWrap' | undefined;
+  overflow?: "normal" | "breakWord" | "breakAll" | "noWrap" | undefined;
   size?: TextSizeType | undefined;
   underline?: boolean | undefined;
-  weight?: 'bold' | 'normal' | undefined;
+  weight?: "bold" | "normal" | undefined;
   title?: string | undefined;
 }
 
 interface TextAreaProps {
   id: string;
-  onChange: AbstractEventHandler<React.SyntheticEvent<HTMLTextAreaElement>, { value: string }>;
-  dataTestId?: string,
+  onChange: AbstractEventHandler<
+    React.SyntheticEvent<HTMLTextAreaElement>,
+    { value: string }
+  >;
+  dataTestId?: string;
   disabled?: boolean | undefined;
   errorMessage?: Node | undefined;
   hasError?: boolean | undefined;
   helperText?: string | undefined;
   label?: string | undefined;
-  labelDisplay?: 'visible' | 'hidden' | undefined;
+  labelDisplay?: "visible" | "hidden" | undefined;
   maxLength?: MaxLength | undefined;
   name?: string | undefined;
   onBlur?:
-  | AbstractEventHandler<React.FocusEvent<HTMLTextAreaElement>, { value: string }>
-  | undefined;
+    | AbstractEventHandler<
+        React.FocusEvent<HTMLTextAreaElement>,
+        { value: string }
+      >
+    | undefined;
   onFocus?:
-  | AbstractEventHandler<React.FocusEvent<HTMLTextAreaElement>, { value: string }>
-  | undefined;
+    | AbstractEventHandler<
+        React.FocusEvent<HTMLTextAreaElement>,
+        { value: string }
+      >
+    | undefined;
   onKeyDown?:
-  | AbstractEventHandler<React.KeyboardEvent<HTMLTextAreaElement>, { value: string }>
-  | undefined;
+    | AbstractEventHandler<
+        React.KeyboardEvent<HTMLTextAreaElement>,
+        { value: string }
+      >
+    | undefined;
   placeholder?: string | undefined;
   readonly?: boolean | undefined;
   rows?: number | undefined;
@@ -2278,88 +2491,104 @@ interface TextAreaProps {
 
 interface TextFieldProps {
   id: string;
-  onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement>, { value: string }>;
+  onChange: AbstractEventHandler<
+    React.SyntheticEvent<HTMLInputElement>,
+    { value: string }
+  >;
   autoComplete?:
-  | 'on'
-  | 'off'
-  | 'address-line1'
-  | 'address-line2'
-  | 'address-line3'
-  | 'address-level1'
-  | 'address-level2'
-  | 'address-level3'
-  | 'address-level4'
-  | 'street-address'
-  | 'country'
-  | 'country-name'
-  | 'postal-code'
-  | 'name'
-  | 'additional-name'
-  | 'family-name'
-  | 'given-name'
-  | 'honoric-prefix'
-  | 'honoric-suffix'
-  | 'nickname'
-  | 'organization-title'
-  | 'username'
-  | 'new-password'
-  | 'current-password'
-  | 'bday'
-  | 'bday-day'
-  | 'bday-month'
-  | 'bday-year'
-  | 'billing'
-  | 'sex'
-  | 'one-time-code'
-  | 'organization'
-  | 'cc-name'
-  | 'cc-given-name'
-  | 'cc-additional-name'
-  | 'cc-family-name'
-  | 'cc-number'
-  | 'cc-exp'
-  | 'cc-exp-month'
-  | 'cc-exp-year'
-  | 'cc-csc'
-  | 'cc-type'
-  | 'transaction-currency'
-  | 'transaction-amount'
-  | 'language'
-  | 'url'
-  | 'email'
-  | 'photo'
-  | 'shipping'
-  | 'tel'
-  | 'tel-country-code'
-  | 'tel-national'
-  | 'tel-area-code'
-  | 'tel-local'
-  | 'tel-local-prefix'
-  | 'tel-local-suffix'
-  | 'tel-extension'
-  | 'impp'
-  | 'webauthn'
-  | undefined;
+    | "on"
+    | "off"
+    | "address-line1"
+    | "address-line2"
+    | "address-line3"
+    | "address-level1"
+    | "address-level2"
+    | "address-level3"
+    | "address-level4"
+    | "street-address"
+    | "country"
+    | "country-name"
+    | "postal-code"
+    | "name"
+    | "additional-name"
+    | "family-name"
+    | "given-name"
+    | "honoric-prefix"
+    | "honoric-suffix"
+    | "nickname"
+    | "organization-title"
+    | "username"
+    | "new-password"
+    | "current-password"
+    | "bday"
+    | "bday-day"
+    | "bday-month"
+    | "bday-year"
+    | "billing"
+    | "sex"
+    | "one-time-code"
+    | "organization"
+    | "cc-name"
+    | "cc-given-name"
+    | "cc-additional-name"
+    | "cc-family-name"
+    | "cc-number"
+    | "cc-exp"
+    | "cc-exp-month"
+    | "cc-exp-year"
+    | "cc-csc"
+    | "cc-type"
+    | "transaction-currency"
+    | "transaction-amount"
+    | "language"
+    | "url"
+    | "email"
+    | "photo"
+    | "shipping"
+    | "tel"
+    | "tel-country-code"
+    | "tel-national"
+    | "tel-area-code"
+    | "tel-local"
+    | "tel-local-prefix"
+    | "tel-local-suffix"
+    | "tel-extension"
+    | "impp"
+    | "webauthn"
+    | undefined;
   dataTestId?: string | undefined;
   disabled?: boolean | undefined;
   errorMessage?: Node | undefined;
   hasError?: boolean | undefined;
   helperText?: string | undefined;
   label?: string | undefined;
-  labelDisplay?: 'visible' | 'hidden' | undefined;
+  labelDisplay?: "visible" | "hidden" | undefined;
   maxLength?: MaxLength | undefined;
   mobileEnterKeyHint?: MobileEnterKeyHintType | undefined;
-  mobileInputMode?: 'none' | 'text' | 'decimal' | 'numeric' | undefined;
+  mobileInputMode?: "none" | "text" | "decimal" | "numeric" | undefined;
   name?: string | undefined;
-  onBlur?: AbstractEventHandler<React.FocusEvent<HTMLInputElement>, { value: string }> | undefined;
-  onFocus?: AbstractEventHandler<React.FocusEvent<HTMLInputElement>, { value: string }> | undefined;
+  onBlur?:
+    | AbstractEventHandler<
+        React.FocusEvent<HTMLInputElement>,
+        { value: string }
+      >
+    | undefined;
+  onFocus?:
+    | AbstractEventHandler<
+        React.FocusEvent<HTMLInputElement>,
+        { value: string }
+      >
+    | undefined;
   onKeyDown?:
-  | AbstractEventHandler<React.KeyboardEvent<HTMLInputElement>, { value: string }>
-  | undefined;
+    | AbstractEventHandler<
+        React.KeyboardEvent<HTMLInputElement>,
+        { value: string }
+      >
+    | undefined;
   placeholder?: string | undefined;
-  size?: 'sm' | 'md' | 'lg' | undefined;
+  size?: "sm" | "md" | "lg" | undefined;
   tags?: ReadonlyArray<React.ReactElement<TagProps, typeof Tag>> | undefined;
-  type?: 'date' | 'email' | 'password' | 'text' | 'url' | 'tel' | undefined;
+  type?: "date" | "email" | "password" | "text" | "url" | "tel" | undefined;
   value?: string | undefined;
 }
 
@@ -2368,66 +2597,66 @@ interface TileDataProps {
   disabled?: boolean | undefined;
   id?: string | undefined;
   onTap?:
-  | AbstractEventHandler<
-    | React.MouseEvent<HTMLDivElement>
-    | React.KeyboardEvent<HTMLDivElement>
-    | React.MouseEvent<HTMLAnchorElement>
-    | React.KeyboardEvent<HTMLAnchorElement>,
-    { selected: boolean; id?: string | undefined }
-  >
-  | undefined;
+    | AbstractEventHandler<
+        | React.MouseEvent<HTMLDivElement>
+        | React.KeyboardEvent<HTMLDivElement>
+        | React.MouseEvent<HTMLAnchorElement>
+        | React.KeyboardEvent<HTMLAnchorElement>,
+        { selected: boolean; id?: string | undefined }
+      >
+    | undefined;
   selected?: boolean | undefined;
   showCheckbox?: boolean | undefined;
   title: string;
   tooltip?: ExtendedTooltipProps | undefined;
   trend?: TrendObject | undefined;
-  trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto' | undefined;
+  trendSentiment?: "good" | "bad" | "neutral" | "auto" | undefined;
   value: string;
 }
 
 interface ToastProps {
   text: string | React.ReactElement<typeof Text>;
   dismissButton:
-  | {
-    accessibilityLabel?: string | undefined;
-    onDismiss: () => void;
-  }
-  | undefined;
+    | {
+        accessibilityLabel?: string | undefined;
+        onDismiss: () => void;
+      }
+    | undefined;
   helperLink?:
-  | {
-    text: string;
-    accessibilityLabel: string;
-    href: string;
-    onClick?: AbstractEventHandler<
-      React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>,
-      { dangerouslyDisableOnNavigation: () => void }
-    >;
-  }
-  | undefined;
+    | {
+        text: string;
+        accessibilityLabel: string;
+        href: string;
+        onClick?: AbstractEventHandler<
+          React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>,
+          { dangerouslyDisableOnNavigation: () => void }
+        >;
+      }
+    | undefined;
   primaryAction?:
-  | {
-    accessibilityLabel: string;
-    label: string;
-    href: string | undefined;
-    onClick?: ButtonEventHandlerType | undefined;
-    rel?: RelType | undefined;
-    role: 'link';
-    size?: 'sm' | 'md' | 'lg' | undefined;
-    target?: TargetType | undefined;
-  }
-  | {
-    accessibilityLabel: string;
-    label: string;
-    onClick: ButtonEventHandlerType | undefined;
-    role?: 'button';
-    size?: 'sm' | 'md' | 'lg' | undefined;
-  };
+    | {
+        accessibilityLabel: string;
+        label: string;
+        href: string | undefined;
+        onClick?: ButtonEventHandlerType | undefined;
+        rel?: RelType | undefined;
+        role: "link";
+        size?: "sm" | "md" | "lg" | undefined;
+        target?: TargetType | undefined;
+      }
+    | {
+        accessibilityLabel: string;
+        label: string;
+        onClick: ButtonEventHandlerType | undefined;
+        role?: "button";
+        size?: "sm" | "md" | "lg" | undefined;
+      };
   thumbnail?:
-  | { image: React.ReactElement<typeof Image> }
-  | { avatar: React.ReactElement<typeof Avatar> }
-  | { icon: React.ReactElement<typeof Icon> }
-  | undefined;
-  type?: 'default' | 'success' | 'error' | 'progress' | undefined;
+    | { image: React.ReactElement<typeof Image> }
+    | { avatar: React.ReactElement<typeof Avatar> }
+    | { icon: React.ReactElement<typeof Icon> }
+    | undefined;
+  type?: "default" | "success" | "error" | "progress" | undefined;
 }
 
 interface TooltipProps {
@@ -2440,7 +2669,7 @@ interface TooltipProps {
   zIndex?: Indexable | undefined;
 }
 
-type TooltipTemp = Omit<TooltipProps, 'text'>;
+type TooltipTemp = Omit<TooltipProps, "text">;
 
 interface ExtendedTooltipProps extends TooltipTemp {
   text: string | string[];
@@ -2450,23 +2679,23 @@ interface UpsellProps {
   message: string | React.ReactElement<typeof Text>;
   children?: React.ReactElement<typeof BannerUpsell.Form>;
   dismissButton?:
-  | {
-    accessibilityLabel?: string;
-    onDismiss: () => void;
-  }
-  | undefined;
-  imageData?:
-  | {
-    component: React.ReactElement<typeof Image | typeof Icon>;
-    width?: number | undefined;
-    mask?:
     | {
-      rounding: 'circle' | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
-      wash: boolean;
-    }
+        accessibilityLabel?: string;
+        onDismiss: () => void;
+      }
     | undefined;
-  }
-  | undefined;
+  imageData?:
+    | {
+        component: React.ReactElement<typeof Image | typeof Icon>;
+        width?: number | undefined;
+        mask?:
+          | {
+              rounding: "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
+              wash: boolean;
+            }
+          | undefined;
+      }
+    | undefined;
   primaryAction?: ButtonActionData | LinkActionData | undefined;
   secondaryAction?: ButtonActionData | LinkActionData | undefined;
   title?: string | undefined;
@@ -2484,50 +2713,80 @@ interface VideoProps {
   aspectRatio: number;
   onPlay: AbstractEventHandler<React.SyntheticEvent<HTMLVideoElement>>;
   onPlayError: (args: { error: Error }) => void;
-  src: string | ReadonlyArray<{ type: 'video/m3u8' | 'video/mp4' | 'video/ogg'; src: string }>;
+  src:
+    | string
+    | ReadonlyArray<{
+        type: "video/m3u8" | "video/mp4" | "video/ogg";
+        src: string;
+      }>;
   autoplay?: boolean | undefined;
-  backgroundColor?: 'black' | 'transparent' | undefined;
+  backgroundColor?: "black" | "transparent" | undefined;
   captions?: string | undefined;
   children?: Node | undefined;
   controls?: boolean | undefined;
-  crossOrigin?: 'anonymous' | 'use-credentials' | undefined;
+  crossOrigin?: "anonymous" | "use-credentials" | undefined;
   disableRemotePlayback?: boolean | undefined;
   loop?: boolean | undefined;
-  objectFit?: 'fill' | 'contain' | 'cover' | 'none' | 'scale-down' | undefined;
-  onControlsPause?: AbstractEventHandler<React.SyntheticEvent<HTMLDivElement>> | undefined;
-  onControlsPlay?: AbstractEventHandler<React.SyntheticEvent<HTMLDivElement>> | undefined;
+  objectFit?: "fill" | "contain" | "cover" | "none" | "scale-down" | undefined;
+  onControlsPause?:
+    | AbstractEventHandler<React.SyntheticEvent<HTMLDivElement>>
+    | undefined;
+  onControlsPlay?:
+    | AbstractEventHandler<React.SyntheticEvent<HTMLDivElement>>
+    | undefined;
   onDurationChange?:
-  | AbstractEventHandler<React.SyntheticEvent<HTMLVideoElement>, { duration: number }>
-  | undefined;
+    | AbstractEventHandler<
+        React.SyntheticEvent<HTMLVideoElement>,
+        { duration: number }
+      >
+    | undefined;
   onEnded?: VideoEventHandlerType | undefined;
   onError?: VideoEventHandlerType | undefined;
   onFullscreenChange?:
-  | AbstractEventHandler<React.SyntheticEvent<HTMLVideoElement>, { fullscreen: boolean }>
-  | undefined;
+    | AbstractEventHandler<
+        React.SyntheticEvent<HTMLVideoElement>,
+        { fullscreen: boolean }
+      >
+    | undefined;
   onLoadedChange?:
-  | AbstractEventHandler<React.SyntheticEvent<HTMLVideoElement>, { loaded: number }>
-  | undefined;
+    | AbstractEventHandler<
+        React.SyntheticEvent<HTMLVideoElement>,
+        { loaded: number }
+      >
+    | undefined;
   onLoadStart?: VideoEventHandlerType | undefined;
-  onPause?: AbstractEventHandler<React.SyntheticEvent<HTMLDivElement>> | undefined;
-  onPlayheadDown?: AbstractEventHandler<React.MouseEvent<HTMLDivElement>> | undefined;
-  onPlayheadUp?: AbstractEventHandler<React.MouseEvent<HTMLDivElement>> | undefined;
+  onPause?:
+    | AbstractEventHandler<React.SyntheticEvent<HTMLDivElement>>
+    | undefined;
+  onPlayheadDown?:
+    | AbstractEventHandler<React.MouseEvent<HTMLDivElement>>
+    | undefined;
+  onPlayheadUp?:
+    | AbstractEventHandler<React.MouseEvent<HTMLDivElement>>
+    | undefined;
   onPlaying?: VideoEventHandlerType | undefined;
   onReady?: VideoEventHandlerType | undefined;
   onSeek?: VideoEventHandlerType | undefined;
   onSeeking?: VideoEventHandlerType | undefined;
   onStalled?: VideoEventHandlerType | undefined;
   onTimeChange?:
-  | AbstractEventHandler<React.SyntheticEvent<HTMLVideoElement>, { time: number }>
-  | undefined;
+    | AbstractEventHandler<
+        React.SyntheticEvent<HTMLVideoElement>,
+        { time: number }
+      >
+    | undefined;
   onVolumeChange?:
-  | AbstractEventHandler<React.SyntheticEvent<HTMLDivElement>, { volume: number }>
-  | undefined;
+    | AbstractEventHandler<
+        React.SyntheticEvent<HTMLDivElement>,
+        { volume: number }
+      >
+    | undefined;
   onWaiting?: VideoEventHandlerType | undefined;
   playbackRate?: number | undefined;
   playing?: boolean | undefined;
   playsInline?: boolean | undefined;
   poster?: string | undefined;
-  preload?: 'auto' | 'metadata' | 'none' | undefined;
+  preload?: "auto" | "metadata" | "none" | undefined;
   startTime?: number | undefined;
   volume?: number | undefined;
 }
@@ -2536,8 +2795,12 @@ interface WashAnimatedProps {
   active?: boolean | undefined;
   children?: Node | undefined;
   image?: Node | undefined;
-  onMouseEnter?: AbstractEventHandler<React.MouseEvent<HTMLDivElement>> | undefined;
-  onMouseLeave?: AbstractEventHandler<React.MouseEvent<HTMLDivElement>> | undefined;
+  onMouseEnter?:
+    | AbstractEventHandler<React.MouseEvent<HTMLDivElement>>
+    | undefined;
+  onMouseLeave?:
+    | AbstractEventHandler<React.MouseEvent<HTMLDivElement>>
+    | undefined;
 }
 
 /**
@@ -2579,7 +2842,10 @@ export const Box: ReactForwardRef<HTMLDivElement, BoxProps>;
 /**
  * https://gestalt.pinterest.systems/web/button
  */
-export const Button: ReactForwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>;
+export const Button: ReactForwardRef<
+  HTMLButtonElement | HTMLAnchorElement,
+  ButtonProps
+>;
 
 /**
  * https://gestalt.pinterest.systems/web/buttonlink
@@ -2665,7 +2931,8 @@ export interface DropdownSubComponents {
  * https://gestalt.pinterest.systems/web/dropdown#Dropdown.Section
  * https://gestalt.pinterest.systems/web/dropdown#Dropdown.Item
  */
-export const Dropdown: React.FunctionComponent<DropdownProps> & DropdownSubComponents;
+export const Dropdown: React.FunctionComponent<DropdownProps> &
+  DropdownSubComponents;
 
 /**
  * https://gestalt.pinterest.systems/web/fieldset
@@ -2706,7 +2973,10 @@ export const IconButton: ReactForwardRef<HTMLButtonElement, IconButtonProps>;
 /**
  * https://gestalt.pinterest.systems/web/iconbuttonlink
  */
-export const IconButtonLink: ReactForwardRef<HTMLAnchorElement, IconButtonLinkProps>;
+export const IconButtonLink: ReactForwardRef<
+  HTMLAnchorElement,
+  IconButtonLinkProps
+>;
 
 /**
  * https://gestalt.pinterest.systems/web/iconbuttonfloating
@@ -2747,7 +3017,8 @@ export interface ListSubComponents {
  * Subcomponents:
  * https://gestalt.pinterest.systems/web/list#List.Itemt
  */
-export const List: React.FunctionComponent<React.PropsWithChildren<ListProps>> & ListSubComponents;
+export const List: React.FunctionComponent<React.PropsWithChildren<ListProps>> &
+  ListSubComponents;
 
 /**
  * https://gestalt.pinterest.systems/web/mask
@@ -2772,7 +3043,9 @@ export const Modal: ReactForwardRef<HTMLDivElement, ModalProps>;
 /**
  * https://gestalt.pinterest.systems/web/modalalert
  */
-export const ModalAlert: React.FunctionComponent<React.PropsWithChildren<ModalAlertProps>>;
+export const ModalAlert: React.FunctionComponent<
+  React.PropsWithChildren<ModalAlertProps>
+>;
 
 export interface AccordionSubComponents {
   Expandable: React.FunctionComponent<AccordionExpandableProps>;
@@ -2783,7 +3056,9 @@ export interface AccordionSubComponents {
  * Subcomponents:
  * https://gestalt.pinterest.systems/web/accordion#Accordion.Expandable
  */
-export const Accordion: React.FunctionComponent<React.PropsWithChildren<AccordionProps>> &
+export const Accordion: React.FunctionComponent<
+  React.PropsWithChildren<AccordionProps>
+> &
   AccordionSubComponents;
 
 /**
@@ -2847,7 +3122,8 @@ export interface RadioGroupSubComponents {
  * Subcomponents:
  * https://gestalt.pinterest.systems/web/radiogroup#RadioGroup.RadioButtonProps
  */
-export const RadioGroup: React.FunctionComponent<RadioGroupProps> & RadioGroupSubComponents;
+export const RadioGroup: React.FunctionComponent<RadioGroupProps> &
+  RadioGroupSubComponents;
 
 /**
  * https://gestalt.pinterest.systems/web/scrollboundarycontainer
@@ -2875,7 +3151,8 @@ export interface SelectListSubComponents {
  * https://gestalt.pinterest.systems/web/selectlist#SelectList.Group
  * https://gestalt.pinterest.systems/web/selectlist#SelectList.Option
  */
-export const SelectList: React.FunctionComponent<SelectListProps> & SelectListSubComponents;
+export const SelectList: React.FunctionComponent<SelectListProps> &
+  SelectListSubComponents;
 
 export interface SheetMobileSubComponents {
   DismissingElement: React.FunctionComponent<SheetMobileDismissingElementProps>;
@@ -2979,7 +3256,9 @@ export interface TableOfContentsProps {
 }
 
 export interface TableOfContentsSubComponents {
-  Item: React.FunctionComponent<React.PropsWithChildren<TableOfContentsItemProps>>;
+  Item: React.FunctionComponent<
+    React.PropsWithChildren<TableOfContentsItemProps>
+  >;
 }
 
 export const TableOfContents: React.FunctionComponent<TableOfContentsProps> &
@@ -3049,7 +3328,8 @@ export interface UpsellSubComponents {
  * Subcomponents:
  * https://gestalt.pinterest.systems/web/bannerupsell#BannerUpsell.Form
  */
-export const BannerUpsell: React.FunctionComponent<UpsellProps> & UpsellSubComponents;
+export const BannerUpsell: React.FunctionComponent<UpsellProps> &
+  UpsellSubComponents;
 
 /**
  * https://gestalt.pinterest.systems/web/video
@@ -3107,7 +3387,7 @@ export const ScrollFetch: React.FunctionComponent<ScrollFetchProps>;
  */
 interface ExperimentProviderProps {
   children: Node;
-  colorScheme: 'light' | 'dark' | 'userPreference';
+  colorScheme: "light" | "dark" | "userPreference";
   fullDimensions?: boolean;
   id?: string | undefined;
 }
@@ -3127,7 +3407,7 @@ export function useGlobalEventsHandler(): {
   linkHandlers?: {
     onNavigation?: (args: {
       href: string;
-      target?: null | 'self' | 'blank';
+      target?: null | "self" | "blank";
     }) => AbstractEventHandler<React.SyntheticEvent<HTMLElement>>;
   };
   radioGroupHandlers?: { onRender?: () => void };
@@ -3136,7 +3416,7 @@ export function useGlobalEventsHandler(): {
 /**
  * Undocumented
  */
-export function useDeviceType(): 'desktop' | 'mobile';
+export function useDeviceType(): "desktop" | "mobile";
 
 /**
  * Undocumented
@@ -3147,5 +3427,5 @@ export function useDefaultLabel(componentName: string): { [k: string]: string };
  * Undocumented
  */
 export function useColorScheme(): {
-  name: 'lightMode' | 'darkMode';
+  name: "lightMode" | "darkMode";
 };
