@@ -1,3 +1,9 @@
+## 146.13.3 (Apr 11, 2024)
+
+### Patch
+
+- Icon: New icon for search by image ([#3528](https://github.com/pinterest/gestalt/pull/3528)) - [Preview link](https://deploy-preview-3528--gestalt.netlify.app?devexample=true)
+
 ## 146.13.2 (Apr 11, 2024)
 
 ### Patch
