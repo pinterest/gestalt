@@ -1199,6 +1199,12 @@
       "keywords": ["find", "magnifying glass"]
     },
     {
+      "name": "search-by-image",
+      "categories": ["Utility and tools"],
+      "description": "Indicates a visual search feature",
+      "keywords": ["search", "visual", "camera"]
+    },
+    {
       "name": "security",
       "categories": ["Utility and tools"],
       "description": "Indicates security standards",
