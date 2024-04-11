@@ -1352,7 +1352,6 @@ interface MeasurementStore<K, V> {
 }
 
 interface MasonryProps<T = any> {
-  _batchPaints?: boolean | undefined;
   items: ReadonlyArray<T>;
   renderItem: (args: { data: T; itemIdx: number; isMeasuring: boolean }) => Node;
 
@@ -1373,6 +1372,20 @@ interface MasonryProps<T = any> {
   virtualBoundsTop?: number | undefined;
   virtualBufferFactor?: number | undefined;
   virtualize?: boolean | undefined;
+  _twoColItems?: boolean | undefined;
+  _logTwoColWhitespace?: (number) => void;
+}
+
+interface MasonryV2Props<T = any> extends MasonryProps<T> {
+  _measureAll?: boolean | undefined;
+}
+
+interface MasonryV2Ref {
+  handleResize: () => void;
+  reflow: () => void;
+  state: {
+    width: number | undefined;
+  }
 }
 
 interface ModalProps {
@@ -1429,7 +1442,7 @@ interface AccordionProps {
   icon?: Icons | undefined;
   iconAccessibilityLabel?: string | undefined;
   iconButton?: React.ReactElement<typeof IconButton> | undefined;
-  size: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg';
   title?: string | undefined;
   type?: 'error' | 'info' | undefined;
 }
@@ -1461,6 +1474,7 @@ interface NumberFieldProps {
     }
   >;
   autoComplete?: 'on' | 'off' | undefined;
+  dataTestId?: string,
   disabled?: boolean | undefined;
   errorMessage?: Node | undefined;
   helperText?: string | undefined;
@@ -1734,6 +1748,7 @@ interface SelectListProps {
   children: Node;
   id: string;
   onChange: AbstractEventHandler<React.SyntheticEvent<HTMLElement>, { value: string }>;
+  dataTestId?: string,
   disabled?: boolean | undefined;
   errorMessage?: string | undefined;
   helperText?: string | undefined;
@@ -2236,6 +2251,7 @@ interface TextProps {
 interface TextAreaProps {
   id: string;
   onChange: AbstractEventHandler<React.SyntheticEvent<HTMLTextAreaElement>, { value: string }>;
+  dataTestId?: string,
   disabled?: boolean | undefined;
   errorMessage?: Node | undefined;
   hasError?: boolean | undefined;
@@ -2742,6 +2758,11 @@ export const Mask: React.FunctionComponent<MaskProps>;
  * https://gestalt.pinterest.systems/web/masonry
  */
 export const Masonry: React.FunctionComponent<MasonryProps>;
+
+/**
+ * https://gestalt.pinterest.systems/web/masonry
+ */
+export const MasonryV2: ReactForwardRef<MasonryV2Ref, MasonryV2Props>;
 
 /**
  * https://gestalt.pinterest.systems/web/modal
