@@ -1091,12 +1091,6 @@
       "keywords": []
     },
     {
-      "name": "pincode",
-      "categories": ["Utility and tools"],
-      "description": "Indicates the ability to scan and open a Pincode",
-      "keywords": ["scan", "code"]
-    },
-    {
       "name": "pinterest",
       "categories": ["Social", "Utility and tools"],
       "description": "Indicates the Pinterest logo",
