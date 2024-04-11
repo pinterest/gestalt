@@ -193,6 +193,7 @@ import saved from './saved.svg';
 import scale from './scale.svg';
 import scissors from './scissors.svg';
 import search from './search.svg';
+import searchByImage from './search-by-image.svg';
 import security from './security.svg';
 import send from './send.svg';
 import serviceDropbox from './service-dropbox.svg';
@@ -461,6 +462,7 @@ const icons = Object.freeze({
   scale,
   scissors,
   search,
+  'search-by-image': searchByImage,
   security,
   'service-dropbox': serviceDropbox,
   'service-etsy': serviceEtsy,
