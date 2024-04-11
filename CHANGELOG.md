@@ -1,3 +1,9 @@
+## 147.0.0 (Apr 11, 2024)
+
+### Major
+
+- Icon: deprecate "pincode" icon ([#3526](https://github.com/pinterest/gestalt/pull/3526)) - [Preview link](https://deploy-preview-3526--gestalt.netlify.app?devexample=true)
+
 ## 146.13.3 (Apr 11, 2024)
 
 ### Patch
