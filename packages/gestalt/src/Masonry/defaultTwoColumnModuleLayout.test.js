@@ -388,6 +388,55 @@ describe('two column layout test cases', () => {
     });
   });
 
+  test('bails out graph when whitespace threshold is found', () => {
+    const measurementStore = new MeasurementStore<{ ... }, number>();
+    const positionCache = new MeasurementStore<{ ... }, Position>();
+    const heightsCache = new HeightsStore();
+
+    // Placing the first one col item after first line we have a whitespace of 10
+    // so we break early although the next combination has 0 whitespace
+    const items = [
+      { 'name': 'Pin 0', 'height': 300, 'color': '#E230BA' },
+      { 'name': 'Pin 1', 'height': 150, 'color': '#F67076' },
+      { 'name': 'Pin 2', 'height': 350, 'color': '#FAB032' },
+      { 'name': 'Pin 3', 'height': 140, 'color': '#EDF21D' },
+      { 'name': 'Pin 4', 'height': 200, 'color': '#CF4509', columnSpan: 2 },
+      { 'name': 'Pin 5', 'height': 200, 'color': '#230BAF' },
+      { 'name': 'Pin 6', 'height': 150, 'color': '#67076F' },
+      { 'name': 'Pin 7', 'height': 207, 'color': '#AB032E' },
+      { 'name': 'Pin 8', 'height': 209, 'color': '#DF21DC' },
+      { 'name': 'Pin 9', 'height': 200, 'color': '#F45098' },
+    ];
+    items.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+
+    const layout = defaultTwoColumnModuleLayout({
+      columnWidth: 240,
+      measurementCache: measurementStore,
+      heightsCache,
+      justify: 'start',
+      minCols: 3,
+      positionCache,
+      rawItemCount: items.length,
+      width: 1000,
+      gutter: 0,
+      whitespaceThreshold: 11,
+    });
+
+    items.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+    layout(items);
+
+    expect(positionCache.get(items[4])).toEqual({
+      height: 200,
+      left: 500,
+      top: 350,
+      width: 480,
+    });
+  });
+
   test('correctly position two column item when initial heights are 0', () => {
     const measurementStore = new MeasurementStore<{ ... }, number>();
     const positionCache = new MeasurementStore<{ ... }, Position>();
