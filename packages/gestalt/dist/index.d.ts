@@ -1846,6 +1846,9 @@ interface SideNavigationProps {
   header?: Node | undefined;
   showBorder?: boolean | undefined;
   mobileTitle?: string | undefined;
+  collapsed?: boolean;
+  onCollapse?: (isCollapsed: boolean) => void;
+  onPreview?: (isOnPreview: boolean) => void;
 }
 
 interface SideNavigationSectionProps {
