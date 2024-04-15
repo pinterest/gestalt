@@ -1,3 +1,9 @@
+## 147.0.1 (Apr 15, 2024)
+
+### Patch
+
+- SideNavigation: add type fixes based on component prop definition ([#3529](https://github.com/pinterest/gestalt/pull/3529)) - [Preview link](https://deploy-preview-3529--gestalt.netlify.app?devexample=true)
+
 ## 147.0.0 (Apr 11, 2024)
 
 ### Major
