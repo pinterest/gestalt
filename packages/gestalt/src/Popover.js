@@ -142,6 +142,7 @@ export default function Popover({
         idealDirection={idealDirection}
         onDismiss={onDismiss}
         onKeyDown={onKeyDown}
+        overflow={__overflow}
         positionRelativeToAnchor={positionRelativeToAnchor}
         role={role}
         shouldFocus={shouldFocus}

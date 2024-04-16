@@ -1,6 +1,7 @@
 // @flow strict
 import { Component, type Node as ReactNode } from 'react';
 import OutsideEventBehavior from './behaviors/OutsideEventBehavior';
+import { type Overflow } from './boxTypes';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider';
 import { ESCAPE } from './keyCodes';
 import LegacyContents, { type Role } from './LegacyContents';
@@ -33,6 +34,7 @@ type OwnProps = {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
   __dangerouslyIgnoreScrollBoundaryContainerSize?: boolean,
   zIndex?: Indexable,
+  overflow?: Extract<Overflow, 'auto' | 'hidden' | 'visible'>,
 };
 
 type HookProps = {
@@ -138,6 +140,7 @@ class LegacyController extends Component<Props, State> {
       size,
       __dangerouslyIgnoreScrollBoundaryContainerSize,
       zIndex,
+      overflow,
     } = this.props;
     const { relativeOffset, triggerBoundingRect } = this.state;
 
@@ -158,6 +161,7 @@ class LegacyController extends Component<Props, State> {
           idealDirection={idealDirection}
           onKeyDown={this.handleKeyDown}
           onResize={this.handleResize}
+          overflow={overflow}
           positionRelativeToAnchor={positionRelativeToAnchor}
           relativeOffset={relativeOffset}
           role={role}
