@@ -43,11 +43,14 @@ function getAdjacentColumnHeightDeltas(
   }
 
   return adjacentHeightDeltas.reduce((acc, _, index) => {
-    let sum = 0;
-    adjacentHeightDeltas.slice(index, index + columnSpan).forEach((delta) => {
-      sum += delta;
-    });
-    return [...acc, sum / (columnSpan - 1)];
+    if (index + columnSpan - 2 < adjacentHeightDeltas.length) {
+      let sum = 0;
+      adjacentHeightDeltas.slice(index, index + columnSpan - 1).forEach((delta) => {
+        sum += delta;
+      });
+      return [...acc, sum / (columnSpan - 1)];
+    }
+    return acc;
   }, []);
 }
 
