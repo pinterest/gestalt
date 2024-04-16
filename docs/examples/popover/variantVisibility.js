@@ -35,7 +35,7 @@ export default function Example(): ReactNode {
               display="flex"
               height={100}
               justifyContent="center"
-              width={300}
+              // width={300}
             >
               <Text align="center">Content</Text>
             </Box>

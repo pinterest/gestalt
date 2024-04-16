@@ -3,9 +3,11 @@ import { type Node as ReactNode, useEffect, useRef } from 'react';
 import { FloatingFocusManager } from '@floating-ui/react';
 import classnames from 'classnames';
 import usePopover, { DIRECTIONS_MAP, SIDES_MAP } from './usePopover';
-import borders from '../Borders.css';
+import borderStyles from '../Borders.css';
+import { type Overflow } from '../boxTypes';
 import Caret from '../Caret';
 import styles from '../Contents.css';
+import layoutStyles from '../Layout.css';
 import { type MainDirections } from '../utils/positioningTypes';
 import { CARET_HEIGHT, CARET_WIDTH } from '../utils/positioningUtils';
 
@@ -29,6 +31,7 @@ type Props = {
   hideWhenReferenceHidden?: boolean,
   onPositioned?: () => void,
   shouldTrapFocus?: boolean,
+  overflow?: Extract<Overflow, 'auto' | 'hidden' | 'visible'>,
 };
 
 export default function Contents({
@@ -49,6 +52,7 @@ export default function Contents({
   hideWhenReferenceHidden,
   onPositioned,
   shouldTrapFocus,
+  overflow = 'auto',
 }: Props): ReactNode {
   const caretRef = useRef<HTMLElement | null>(null);
   const idealPlacement = idealDirection ? DIRECTIONS_MAP[idealDirection] : 'top';
@@ -63,7 +67,7 @@ export default function Contents({
   });
 
   const caretOffset = middlewareData.arrow;
-  const visibility = middlewareData.hide?.referenceHidden === true ? 'hidden' : 'visible';
+  const isAnchorInViewport = middlewareData.hide?.referenceHidden === true;
 
   const isCaretVertical = placement === 'top' || placement === 'bottom';
 
@@ -88,27 +92,33 @@ export default function Contents({
       <div
         ref={refs.setFloating}
         className={classnames(
-          styles.container,
-          rounding === 2 && borders.rounding2,
-          rounding === 4 && borders.rounding4,
-          styles.contents,
-          styles.maxDimensions,
-          width !== null && styles.minDimensions,
+          layoutStyles.absolute,
+          layoutStyles.block,
+          layoutStyles.borderBox,
+          borderStyles.shadow,
+          {
+            [borderStyles.rounding2]: rounding === 2,
+            [borderStyles.rounding4]: rounding === 4,
+          },
         )}
-        style={{ ...floatingStyles, visibility }}
+        style={{
+          ...floatingStyles,
+          visibility: isAnchorInViewport ? 'hidden' : 'visible',
+          outline: 'none', // inlined to aviod overrides by non-Gestalt CSS
+        }}
         tabIndex={-1}
       >
         {caret && (
           <div
             ref={caretRef}
-            className={classnames(styles.caret, {
+            className={classnames(styles.caret, layoutStyles.flex, layoutStyles.absolute, {
               [styles.caretPrimary]: bgColor === 'white',
               [styles.caretSecondary]: bgColor === 'darkGray',
               [styles.caretEducation]: bgColor === 'blue',
             })}
             style={{
-              left: caretOffset?.x != null ? `${caretOffset.x}px` : '',
-              top: caretOffset?.y != null ? `${caretOffset.y}px` : '',
+              left: caretOffset?.x,
+              top: caretOffset?.y,
               [placement]: '100%',
             }}
           >
@@ -122,24 +132,18 @@ export default function Contents({
 
         <div
           aria-label={accessibilityLabel}
-          className={classnames(
-            border && styles.border,
-            rounding === 2 && borders.rounding2,
-            rounding === 4 && borders.rounding4,
-            styles.innerContents,
-            styles.maxDimensions,
-            width !== null && styles.minDimensions,
-            {
-              [styles.primary]: bgColor === 'white',
-              [styles.secondary]: bgColor === 'darkGray',
-              [styles.education]: bgColor === 'blue',
-            },
-          )}
+          className={classnames(layoutStyles.relative, styles.maxDimensions, {
+            [styles.minDimensions]: width !== null,
+            [styles.border]: border,
+            [styles.primary]: bgColor === 'white',
+            [styles.secondary]: bgColor === 'darkGray',
+            [styles.education]: bgColor === 'blue',
+            [borderStyles.rounding2]: rounding === 2,
+            [borderStyles.rounding4]: rounding === 4,
+          })}
           id={id}
           role={role}
-          style={{
-            maxWidth: width,
-          }}
+          style={{ maxWidth: width, overflow }}
         >
           {children}
         </div>

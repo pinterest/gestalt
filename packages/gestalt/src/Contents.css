@@ -1,13 +1,3 @@
-.container {
-  composes: absolute from "./Layout.css";
-}
-
-.contents {
-  composes: block borderBox from "./Layout.css";
-  composes: shadow from "./Borders.css";
-  outline: none;
-}
-
 .border {
   border: 1px solid currentColor;
 }
@@ -22,15 +12,7 @@
   min-width: 180px;
 }
 
-.innerContents {
-  composes: flex from "./Layout.css";
-  composes: overflowAuto from "./Layout.css";
-  position: relative;
-}
-
 .caret {
-  composes: absolute from "./Layout.css";
-  composes: flex from "./Layout.css";
   fill: currentColor;
   pointer-events: none;
 }

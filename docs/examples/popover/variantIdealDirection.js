@@ -51,13 +51,7 @@ export default function Example(): ReactNode {
               positionRelativeToAnchor
               size={240}
             >
-              <Box
-                alignItems="center"
-                display="flex"
-                height={100}
-                justifyContent="center"
-                width={300}
-              >
+              <Box alignItems="center" display="flex" height={100} justifyContent="center">
                 <Text align="center">Content</Text>
               </Box>
             </Popover>
