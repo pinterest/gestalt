@@ -145,7 +145,7 @@ exports[`Tag renders a disabled tag 1`] = `
   }
 >
   <div
-    className="box marginEnd5 xsDisplayFlex xsItemsCenter"
+    className="box marginEnd0 xsDisplayFlex xsItemsCenter"
     style={
       Object {
         "height": "100%",

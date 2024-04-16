@@ -154,7 +154,7 @@ export default function Tag({
       position="relative"
       rounding={rounding}
     >
-      <Box alignItems="center" display="flex" height="100%" marginEnd={5}>
+      <Box alignItems="center" display="flex" height="100%" marginEnd={disabled ? 0 : 5}>
         {(type === 'error' || type === 'warning') && (
           <Box marginEnd={1} marginStart={1}>
             <Icon
