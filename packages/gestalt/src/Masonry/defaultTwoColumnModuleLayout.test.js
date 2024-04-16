@@ -510,6 +510,83 @@ describe('two column layout test cases', () => {
     });
   });
 
+  test('correctly position multi column item when initial heights are 0', () => {
+    const measurementStore = new MeasurementStore<{ ... }, number>();
+    const positionCache = new MeasurementStore<{ ... }, Position>();
+    const heightsCache = new HeightsStore();
+    const items = [
+      { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
+      { 'name': 'Pin 1', 'height': 201, 'color': '#F67076' },
+      { 'name': 'Pin 2', 'height': 202, 'color': '#FAB032' },
+      { 'name': 'Pin 3', 'height': 203, 'color': '#EDF21D' },
+      { 'name': 'Pin 4', 'height': 204, 'color': '#CF4509' },
+      { 'name': 'Pin 5', 'height': 205, 'color': '#230BAF' },
+    ];
+    items.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+
+    const layout = defaultTwoColumnModuleLayout({
+      columnWidth: 240,
+      measurementCache: measurementStore,
+      heightsCache,
+      justify: 'start',
+      minCols: 5,
+      positionCache,
+      rawItemCount: items.length,
+      width: 1440,
+    });
+
+    let mockItems;
+    let multiColumnModuleIndex;
+    let columnSpan;
+
+    // Correct position when multi column module is on the start of the first row
+    multiColumnModuleIndex = 0;
+    columnSpan = 3;
+
+    mockItems = [
+      ...items.slice(0, multiColumnModuleIndex),
+      { ...items[multiColumnModuleIndex], columnSpan },
+      ...items.slice(multiColumnModuleIndex + 1),
+    ];
+    mockItems.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+    layout(mockItems);
+    // First slot
+    expect(positionCache.get(mockItems[multiColumnModuleIndex])).toEqual({
+      height: 200,
+      left: 92,
+      top: 0,
+      width: 748,
+    });
+
+    // Correct position when multi column module is at the end of the first row
+    measurementStore.reset();
+    positionCache.reset();
+    heightsCache.reset();
+
+    multiColumnModuleIndex = 1;
+    columnSpan = 4;
+    mockItems = [
+      ...items.slice(0, multiColumnModuleIndex),
+      { ...items[multiColumnModuleIndex], columnSpan },
+      ...items.slice(multiColumnModuleIndex + 1),
+    ];
+    mockItems.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+    layout(mockItems);
+    // Starting on second position until end of first row
+    expect(positionCache.get(mockItems[multiColumnModuleIndex])).toEqual({
+      height: 201,
+      left: 346,
+      top: 0,
+      width: 1002,
+    });
+  });
+
   test('fills in remaining columns in the first row when multi column item cannot fit', () => {
     const measurementStore = new MeasurementStore<{ ... }, number>();
     const positionCache = new MeasurementStore<{ ... }, Position>();
