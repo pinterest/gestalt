@@ -20,16 +20,16 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
         tabindex="0"
       />
       <div
-        class="container rounding4 contents maxDimensions minDimensions"
-        style="position: absolute; left: 0px; top: 0px; visibility: visible; transform: translate(0px, 0px);"
+        class="absolute block borderBox shadow rounding4"
+        style="position: absolute; left: 0px; top: 0px; visibility: visible; outline: none; transform: translate(0px, 0px);"
         tabindex="0"
       >
         <div
           aria-label="Dropdown"
-          class="border rounding4 innerContents maxDimensions minDimensions primary"
+          class="relative maxDimensions minDimensions border primary rounding4"
           id="ex-1"
           role="menu"
-          style="max-width: 360px;"
+          style="max-width: 360px; overflow: auto;"
         >
           <div
             class="box flexGrow marginBottom2 marginEnd2 marginStart2 marginTop2 xsDirectionColumn xsDisplayFlex xsItemsCenter"
@@ -575,16 +575,16 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
         tabindex="0"
       />
       <div
-        class="container rounding4 contents maxDimensions minDimensions"
-        style="position: absolute; left: 0px; top: 0px; visibility: visible; transform: translate(0px, 0px);"
+        class="absolute block borderBox shadow rounding4"
+        style="position: absolute; left: 0px; top: 0px; visibility: visible; outline: none; transform: translate(0px, 0px);"
         tabindex="-1"
       >
         <div
           aria-label="Dropdown"
-          class="border rounding4 innerContents maxDimensions minDimensions primary"
+          class="relative maxDimensions minDimensions border primary rounding4"
           id="ex-1"
           role="menu"
-          style="max-width: 360px;"
+          style="max-width: 360px; overflow: auto;"
         >
           <div
             class="box flexGrow marginBottom2 marginEnd2 marginStart2 marginTop2 xsDirectionColumn xsDisplayFlex xsItemsCenter"

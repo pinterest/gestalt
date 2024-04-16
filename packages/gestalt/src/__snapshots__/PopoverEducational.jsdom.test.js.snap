@@ -7,12 +7,12 @@ exports[`PopoverEducational renders 1`] = `
   >
     <div>
       <div
-        class="container rounding4 contents maxDimensions minDimensions"
-        style="position: absolute; left: 0px; top: 0px; visibility: visible; transform: translate(0px, 0px);"
+        class="absolute block borderBox shadow rounding4"
+        style="position: absolute; left: 0px; top: 0px; visibility: visible; outline: none; transform: translate(0px, 0px);"
         tabindex="-1"
       >
         <div
-          class="caret caretEducation"
+          class="caret flex absolute caretEducation"
           style="top: 100%;"
         >
           <svg
@@ -27,9 +27,9 @@ exports[`PopoverEducational renders 1`] = `
         </div>
         <div
           aria-label="test"
-          class="border rounding4 innerContents maxDimensions minDimensions education"
+          class="relative maxDimensions minDimensions border education rounding4"
           role="dialog"
-          style="max-width: 230px;"
+          style="max-width: 230px; overflow: auto;"
         >
           <div
             class="box paddingX4 paddingY4"
