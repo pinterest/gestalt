@@ -1,3 +1,9 @@
+## 147.0.2 (Apr 16, 2024)
+
+### Patch
+
+- Popover: Add experimental overflow prop ([#3531](https://github.com/pinterest/gestalt/pull/3531)) - [Preview link](https://deploy-preview-3531--gestalt.netlify.app?devexample=true)
+
 ## 147.0.1 (Apr 15, 2024)
 
 ### Patch
