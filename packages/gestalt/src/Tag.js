@@ -173,7 +173,15 @@ export default function Tag({
         <Box>
           {!disabled && (
             <button className={removeIconClasses} onClick={onRemove} type="button">
-              <Box alignItems="center" display="flex" justifyContent="center" width="100%">
+              <Box
+                alignItems="center"
+                dangerouslySetInlineStyle={{
+                  __style: { marginTop: '1px' },
+                }}
+                display="flex"
+                justifyContent="center"
+                width="100%"
+              >
                 <Icon
                   accessibilityLabel={
                     accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault

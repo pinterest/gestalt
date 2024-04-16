@@ -374,6 +374,7 @@ exports[`TextField TextField with tags 1`] = `
                   className="box justifyCenter xsDisplayFlex xsItemsCenter"
                   style={
                     Object {
+                      "marginTop": "1px",
                       "width": "100%",
                     }
                   }
@@ -446,6 +447,7 @@ exports[`TextField TextField with tags 1`] = `
                   className="box justifyCenter xsDisplayFlex xsItemsCenter"
                   style={
                     Object {
+                      "marginTop": "1px",
                       "width": "100%",
                     }
                   }
@@ -518,6 +520,7 @@ exports[`TextField TextField with tags 1`] = `
                   className="box justifyCenter xsDisplayFlex xsItemsCenter"
                   style={
                     Object {
+                      "marginTop": "1px",
                       "width": "100%",
                     }
                   }

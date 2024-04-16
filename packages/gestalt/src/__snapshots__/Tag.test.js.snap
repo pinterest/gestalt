@@ -42,6 +42,7 @@ exports[`Tag clips long strings 1`] = `
           className="box justifyCenter xsDisplayFlex xsItemsCenter"
           style={
             Object {
+              "marginTop": "1px",
               "width": "100%",
             }
           }
@@ -108,6 +109,7 @@ exports[`Tag renders 1`] = `
           className="box justifyCenter xsDisplayFlex xsItemsCenter"
           style={
             Object {
+              "marginTop": "1px",
               "width": "100%",
             }
           }
@@ -229,6 +231,7 @@ exports[`Tag renders a tag with a warning state 1`] = `
           className="box justifyCenter xsDisplayFlex xsItemsCenter"
           style={
             Object {
+              "marginTop": "1px",
               "width": "100%",
             }
           }
@@ -312,6 +315,7 @@ exports[`Tag renders a tag with an error state 1`] = `
           className="box justifyCenter xsDisplayFlex xsItemsCenter"
           style={
             Object {
+              "marginTop": "1px",
               "width": "100%",
             }
           }
