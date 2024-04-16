@@ -3,7 +3,7 @@
 exports[`Controller renders 1`] = `
 <div>
   <div
-    className="container contents maxDimensions minDimensions"
+    className="absolute block borderBox shadow"
     style={
       Object {
         "left": -10,
@@ -36,12 +36,13 @@ exports[`Controller renders 1`] = `
       </svg>
     </div>
     <div
-      className="border innerContents maxDimensions minDimensions secondary"
+      className="relative maxDimensions minDimensions border secondary"
       id=""
       style={
         Object {
           "maxHeight": 691.1999999999999,
           "maxWidth": 230,
+          "overflow": "auto",
         }
       }
     />
