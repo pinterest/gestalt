@@ -1,5 +1,6 @@
 // @flow strict
 import { type Node as ReactNode } from 'react';
+import { type Overflow } from './boxTypes';
 import InternalPopover from './Popover/InternalPopover';
 import LegacyInternalPopover from './Popover/LegacyInternalPopover';
 import useInExperiment from './useInExperiment';
@@ -87,6 +88,8 @@ type Props = {
   __experimentalPopover?: boolean,
   // Callback fired when Popover is correctly positioned after it's mounted.
   __onPositioned?: () => void,
+  // Controls overflow property of Popover
+  __overflow?: Extract<Overflow, 'auto' | 'hidden' | 'visible'>,
 };
 
 /**
@@ -120,6 +123,7 @@ export default function Popover({
   __dangerouslySetMaxHeight,
   __experimentalPopover,
   __onPositioned,
+  __overflow,
 }: Props): null | ReactNode {
   const isInExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_popover_v2',
@@ -138,6 +142,7 @@ export default function Popover({
         idealDirection={idealDirection}
         onDismiss={onDismiss}
         onKeyDown={onKeyDown}
+        overflow={__overflow}
         positionRelativeToAnchor={positionRelativeToAnchor}
         role={role}
         shouldFocus={shouldFocus}
@@ -163,6 +168,7 @@ export default function Popover({
       onDismiss={onDismiss}
       onKeyDown={onKeyDown}
       onPositioned={__onPositioned}
+      overflow={__overflow}
       role={role}
       scrollBoundary={scrollBoundary}
       shouldFocus={shouldFocus}

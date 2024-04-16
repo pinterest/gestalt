@@ -89,15 +89,15 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
               tabindex="0"
             />
             <div
-              class="container rounding4 contents maxDimensions minDimensions"
-              style="position: absolute; left: 0px; top: 0px; visibility: visible; transform: translate(0px, 0px);"
+              class="absolute block borderBox shadow rounding4"
+              style="position: absolute; left: 0px; top: 0px; visibility: visible; outline: none; transform: translate(0px, 0px);"
               tabindex="-1"
             >
               <div
                 aria-label="Popover"
-                class="border rounding4 innerContents maxDimensions minDimensions primary"
+                class="relative maxDimensions minDimensions border primary rounding4"
                 role="dialog"
-                style="max-width: 284px;"
+                style="max-width: 284px; overflow: auto;"
               >
                 <div
                   name="trap-focus"

@@ -1,6 +1,7 @@
 // @flow strict
 import { type Node as ReactNode, useEffect, useRef } from 'react';
 import Box from '../Box';
+import { type Overflow } from '../boxTypes';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import Flex from '../Flex';
 import LegacyController from '../LegacyController';
@@ -29,6 +30,7 @@ type Props = {|
   size?: Size,
   __dangerouslySetMaxHeight?: '30vh',
   zIndex?: Indexable,
+  overflow?: Extract<Overflow, 'auto' | 'hidden' | 'visible'>,
 |};
 
 export default function InternalPopover({
@@ -49,6 +51,7 @@ export default function InternalPopover({
   size = 'sm',
   __dangerouslySetMaxHeight,
   zIndex,
+  overflow,
 }: Props): null | ReactNode {
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Popover');
@@ -75,6 +78,7 @@ export default function InternalPopover({
       idealDirection={idealDirection}
       onDismiss={onDismiss}
       onKeyDown={onKeyDown}
+      overflow={overflow}
       positionRelativeToAnchor={positionRelativeToAnchor}
       role={role}
       rounding={4}

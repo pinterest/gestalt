@@ -28,7 +28,7 @@ export default function Example(): ReactNode {
             idealDirection="down"
             onDismiss={() => {}}
             positionRelativeToAnchor
-            size={240}
+            size={400}
           >
             <Box
               alignItems="center"

@@ -3,6 +3,7 @@ import { type Node as ReactNode } from 'react';
 import { FloatingPortal } from '@floating-ui/react';
 import Contents, { type Role } from './Contents';
 import OutsideEventBehavior from '../behaviors/OutsideEventBehavior';
+import { type Overflow } from '../boxTypes';
 import { ESCAPE } from '../keyCodes';
 
 const SIZE_WIDTH_MAP = {
@@ -33,6 +34,7 @@ type Props = {
   hideWhenReferenceHidden?: boolean,
   onPositioned?: () => void,
   shouldTrapFocus?: boolean,
+  overflow?: Extract<Overflow, 'auto' | 'hidden' | 'visible'>,
 };
 
 export default function Controller({
@@ -55,6 +57,7 @@ export default function Controller({
   hideWhenReferenceHidden,
   onPositioned,
   shouldTrapFocus,
+  overflow,
 }: Props): ReactNode {
   const width = typeof size === 'string' ? SIZE_WIDTH_MAP[size] : size;
 
@@ -84,6 +87,7 @@ export default function Controller({
         idealDirection={idealDirection}
         onKeyDown={handleKeyDown}
         onPositioned={onPositioned}
+        overflow={overflow}
         role={role}
         rounding={rounding}
         scrollBoundary={scrollBoundary}

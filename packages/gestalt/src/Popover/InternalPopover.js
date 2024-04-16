@@ -2,6 +2,7 @@
 import { type Node as ReactNode, useRef } from 'react';
 import Controller from './Controller';
 import Box from '../Box';
+import { type Overflow } from '../boxTypes';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import Flex from '../Flex';
 import InternalDismissButton from '../shared/InternalDismissButton';
@@ -30,6 +31,7 @@ type Props = {
   hideWhenReferenceHidden?: boolean,
   onPositioned?: () => void,
   disableFocusTrap?: boolean,
+  overflow?: Extract<Overflow, 'auto' | 'hidden' | 'visible'>,
 };
 
 export default function InternalPopover({
@@ -52,6 +54,7 @@ export default function InternalPopover({
   hideWhenReferenceHidden,
   onPositioned,
   disableFocusTrap = false,
+  overflow,
 }: Props): null | ReactNode {
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Popover');
@@ -76,6 +79,7 @@ export default function InternalPopover({
       onDismiss={onDismiss}
       onKeyDown={onKeyDown}
       onPositioned={onPositioned}
+      overflow={overflow}
       role={role}
       rounding={4}
       scrollBoundary={scrollBoundary}
@@ -83,7 +87,7 @@ export default function InternalPopover({
       shouldTrapFocus={!disableFocusTrap}
       size={size === 'flexible' ? null : size}
     >
-      {showDismissButton ? (
+      {showDismissButton && (
         <Flex direction="column">
           <Box alignSelf="end" padding={2}>
             <InternalDismissButton
@@ -96,11 +100,10 @@ export default function InternalPopover({
               size="xs"
             />
           </Box>
-          {children}
         </Flex>
-      ) : (
-        children
       )}
+
+      {children}
     </Controller>
   );
 }

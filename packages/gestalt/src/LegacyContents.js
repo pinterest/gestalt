@@ -1,10 +1,12 @@
 // @flow strict
 import { Component, type Node as ReactNode } from 'react';
 import classnames from 'classnames';
-import borders from './Borders.css';
+import borderStyles from './Borders.css';
+import { type Overflow } from './boxTypes';
 import Caret from './Caret';
 import styles from './Contents.css';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider';
+import layoutStyles from './Layout.css';
 import {
   type CaretOffset,
   type ClientRect,
@@ -47,6 +49,7 @@ type OwnProps = {
   width: ?number,
   __dangerouslyIgnoreScrollBoundaryContainerSize?: boolean,
   zIndex?: Indexable,
+  overflow?: Extract<Overflow, 'auto' | 'hidden' | 'visible'>,
 };
 
 type HookProps = {
@@ -250,6 +253,7 @@ class LegacyContents extends Component<Props, State> {
       rounding,
       width,
       zIndex,
+      overflow = 'auto',
     } = this.props;
     const { caretOffset, popoverOffset, popoverDir } = this.state;
 
@@ -266,12 +270,14 @@ class LegacyContents extends Component<Props, State> {
       <div
         ref={this.setPopoverRef}
         className={classnames(
-          styles.container,
-          rounding === 2 && borders.rounding2,
-          rounding === 4 && borders.rounding4,
-          styles.contents,
-          styles.maxDimensions,
-          width !== null && styles.minDimensions,
+          layoutStyles.absolute,
+          layoutStyles.block,
+          layoutStyles.borderBox,
+          borderStyles.shadow,
+          {
+            [borderStyles.rounding2]: rounding === 2,
+            [borderStyles.rounding4]: rounding === 4,
+          },
         )}
         // popoverOffset positions the Popover component
         style={{
@@ -305,22 +311,18 @@ class LegacyContents extends Component<Props, State> {
         )}
         <div
           aria-label={accessibilityLabel}
-          className={classnames(
-            border && styles.border,
-            rounding === 2 && borders.rounding2,
-            rounding === 4 && borders.rounding4,
-            styles.innerContents,
-            styles.maxDimensions,
-            width !== null && styles.minDimensions,
-            {
-              [styles.primary]: bgColor === 'white',
-              [styles.secondary]: bgColor === 'darkGray',
-              [styles.education]: bgColor === 'blue',
-            },
-          )}
+          className={classnames(layoutStyles.relative, styles.maxDimensions, {
+            [styles.minDimensions]: width !== null,
+            [styles.border]: border,
+            [styles.primary]: bgColor === 'white',
+            [styles.secondary]: bgColor === 'darkGray',
+            [styles.education]: bgColor === 'blue',
+            [borderStyles.rounding2]: rounding === 2,
+            [borderStyles.rounding4]: rounding === 4,
+          })}
           id={id}
           role={role}
-          style={{ maxWidth: width, maxHeight: height }}
+          style={{ maxWidth: width, maxHeight: height, overflow }}
         >
           {children}
         </div>
