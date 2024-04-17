@@ -30,28 +30,25 @@ function getAdjacentColumnHeightDeltas(
   heights: $ReadOnlyArray<number>,
   columnSpan: number,
 ): $ReadOnlyArray<number> {
-  const adjacentHeightDeltas = heights.reduce((acc: $ReadOnlyArray<number>, height, index) => {
-    const adjacentColumnHeight = heights[index + 1];
-    if (adjacentColumnHeight >= 0) {
-      return [...acc, Math.abs(height - adjacentColumnHeight)];
-    }
-    return acc;
-  }, []);
+  const adjacentHeightDeltas = [];
+  for (let i = 0; i < heights.length - 1; i += 1) {
+    adjacentHeightDeltas.push(Math.abs(heights[i] - heights[i + 1]));
+  }
 
   if (columnSpan === 2) {
     return adjacentHeightDeltas;
   }
 
-  return adjacentHeightDeltas.reduce((acc, _, index) => {
-    if (index + columnSpan - 2 < adjacentHeightDeltas.length) {
-      let sum = 0;
-      adjacentHeightDeltas.slice(index, index + columnSpan - 1).forEach((delta) => {
-        sum += delta;
-      });
-      return [...acc, sum / (columnSpan - 1)];
-    }
-    return acc;
-  }, []);
+  // When column span is more than 2 the deltas are not enough to know the best placement,
+  // in this case we get the avgs of the deltas required to position the module
+  const adjacentDeltaAvgs = [];
+  for (let i = 0; i + columnSpan - 2 < adjacentHeightDeltas.length; i += 1) {
+    const sum = adjacentHeightDeltas
+      .slice(i, i + columnSpan - 1)
+      .reduce((acc, delta) => acc + delta, 0);
+    adjacentDeltaAvgs.push(sum / (columnSpan - 1));
+  }
+  return adjacentDeltaAvgs;
 }
 
 function calculateMultiColumnModuleWidth(
@@ -255,9 +252,9 @@ function getMultiColItemPosition<T>({
   // Increase the heights of both adjacent columns
   const tallestColumnFinalHeight = heights[tallestColumn] + heightAndGutter;
 
-  Array.from({ length: columnSpan }).forEach((_, index) => {
-    heights[index + lowestAdjacentColumnHeightDeltaIndex] = tallestColumnFinalHeight;
-  });
+  for (let i = 0; i < columnSpan; i += 1) {
+    heights[i + lowestAdjacentColumnHeightDeltaIndex] = tallestColumnFinalHeight;
+  }
 
   return {
     additionalWhitespace: adjacentColumnHeightDeltas[lowestAdjacentColumnHeightDeltaIndex],

@@ -579,7 +579,7 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
       const hasMultiColumnItems =
         _twoColItems &&
         itemsWithoutPositions.some(
-          (item) => typeof item.columnSpan === 'number' && item.columnSpan > 2,
+          (item) => typeof item.columnSpan === 'number' && item.columnSpan > 1,
         );
 
       // If there are 2-col items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
