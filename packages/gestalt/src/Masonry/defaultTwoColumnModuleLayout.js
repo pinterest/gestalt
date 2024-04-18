@@ -5,9 +5,9 @@ import { type HeightsStoreInterface } from './HeightsStore';
 import mindex from './mindex';
 import { type NodeData, type Position } from './types';
 
-// When there's a 2-col item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to minimize whitespace above the 2-col item
+// When there's a multi column item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to minimize whitespace above the 2-col item
 // This may need to be tweaked to balance the tradeoff of delayed rendering vs having enough possible layouts
-export const TWO_COL_ITEMS_MEASURE_BATCH_SIZE = 5;
+export const MULTI_COL_ITEMS_MEASURE_BATCH_SIZE = 5;
 
 function isNil(value: mixed): boolean %checks {
   return value === null || value === undefined;
@@ -26,36 +26,55 @@ function getPositionsOnly<T>(
   return positions.map(({ position }) => position);
 }
 
-function getAdjacentColumnHeightDeltas(heights: $ReadOnlyArray<number>): $ReadOnlyArray<number> {
-  return heights.reduce((acc, height, index) => {
-    const adjacentColumnHeight = heights[index + 1];
-    if (adjacentColumnHeight >= 0) {
-      return [...acc, Math.abs(height - adjacentColumnHeight)];
-    }
-    return acc;
-  }, []);
+function getAdjacentColumnHeightDeltas(
+  heights: $ReadOnlyArray<number>,
+  columnSpan: number,
+): $ReadOnlyArray<number> {
+  const adjacentHeightDeltas = [];
+  for (let i = 0; i < heights.length - 1; i += 1) {
+    adjacentHeightDeltas.push(Math.abs(heights[i] - heights[i + 1]));
+  }
+
+  if (columnSpan === 2) {
+    return adjacentHeightDeltas;
+  }
+
+  // When column span is more than 2 the deltas are not enough to know the best placement,
+  // in this case we get the avgs of the deltas required to position the module
+  const adjacentDeltaAvgs = [];
+  for (let i = 0; i + columnSpan - 2 < adjacentHeightDeltas.length; i += 1) {
+    const sum = adjacentHeightDeltas
+      .slice(i, i + columnSpan - 1)
+      .reduce((acc, delta) => acc + delta, 0);
+    adjacentDeltaAvgs.push(sum / (columnSpan - 1));
+  }
+  return adjacentDeltaAvgs;
 }
 
-function calculateTwoColumnModuleWidth(columnWidth: number, gutter: number): number {
-  return columnWidth * 2 + gutter;
+function calculateMultiColumnModuleWidth(
+  columnWidth: number,
+  gutter: number,
+  columnSpan: number,
+): number {
+  return columnWidth * columnSpan + gutter * (columnSpan - 1);
 }
 
 function calculateSplitIndex({
   oneColumnItemsLength,
-  twoColumnIndex,
+  multiColumnIndex,
   emptyColumns,
   fitsFirstRow,
   replaceWithOneColItems,
 }: {
   oneColumnItemsLength: number,
-  twoColumnIndex: number,
+  multiColumnIndex: number,
   emptyColumns: number,
   fitsFirstRow: boolean,
   replaceWithOneColItems: boolean,
 }): number {
   // multi column item is on its original position
   if (fitsFirstRow) {
-    return twoColumnIndex;
+    return multiColumnIndex;
   }
 
   // We use as many one col items as empty columns to fill first row
@@ -65,15 +84,15 @@ function calculateSplitIndex({
 
   // If two column module is near the end of the batch
   // we move the index so it has enough items for the graph
-  if (twoColumnIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE > oneColumnItemsLength) {
+  if (multiColumnIndex + MULTI_COL_ITEMS_MEASURE_BATCH_SIZE > oneColumnItemsLength) {
     return Math.max(
-      oneColumnItemsLength - TWO_COL_ITEMS_MEASURE_BATCH_SIZE,
+      oneColumnItemsLength - MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
       // We have to keep at least the items for the empty columns to fill
       emptyColumns,
     );
   }
 
-  return twoColumnIndex;
+  return multiColumnIndex;
 }
 
 function initializeHeightsArray<T>({
@@ -98,8 +117,9 @@ function initializeHeightsArray<T>({
     const position = positionCache?.get(item);
     if (position) {
       const col = (position.left - centerOffset) / columnWidthAndGutter;
+      // TODO: Change this to handle multi column
       const isTwoColumnModule =
-        position.width === calculateTwoColumnModuleWidth(columnWidth, gutter);
+        position.width === calculateMultiColumnModuleWidth(columnWidth, gutter, 2);
       const heightToAdd = position.height + gutter;
       heights[col] += heightToAdd;
       if (isTwoColumnModule) {
@@ -173,13 +193,14 @@ function getOneColumnItemPositions<T>({
   return { positions, heights };
 }
 
-function getTwoColItemPosition<T>({
+function getMultiColItemPosition<T>({
   centerOffset,
   columnWidth,
   columnWidthAndGutter,
   gutter,
   heights: heightsArg,
   item,
+  columnSpan,
   measurementCache,
 }: {
   centerOffset: number,
@@ -188,6 +209,7 @@ function getTwoColItemPosition<T>({
   gutter: number,
   heights: $ReadOnlyArray<number>,
   item: T,
+  columnSpan: number,
   measurementCache: Cache<T, number>,
   positionCache?: Cache<T, Position>,
 }): {
@@ -209,24 +231,30 @@ function getTwoColItemPosition<T>({
   const heightAndGutter = height + gutter;
 
   // Find height deltas for each column as compared to the next column
-  const adjacentColumnHeightDeltas = getAdjacentColumnHeightDeltas(heights);
+  const adjacentColumnHeightDeltas = getAdjacentColumnHeightDeltas(heights, columnSpan);
   const lowestAdjacentColumnHeightDeltaIndex = adjacentColumnHeightDeltas.indexOf(
     Math.min(...adjacentColumnHeightDeltas),
   );
-  // Deltas can go either way, so find which of the two adjacent columns is higher
-  const leftIsTaller =
-    heights[lowestAdjacentColumnHeightDeltaIndex] >
-    heights[lowestAdjacentColumnHeightDeltaIndex + 1];
-  const tallestColumn = leftIsTaller
-    ? lowestAdjacentColumnHeightDeltaIndex
-    : lowestAdjacentColumnHeightDeltaIndex + 1;
+
+  const lowestAdjacentColumnHeights = heights.slice(
+    lowestAdjacentColumnHeightDeltaIndex,
+    lowestAdjacentColumnHeightDeltaIndex + columnSpan,
+  );
+
+  // Find the tallest column on the lowest adjacent heights
+  const tallestColumn =
+    lowestAdjacentColumnHeightDeltaIndex +
+    lowestAdjacentColumnHeights.indexOf(Math.max(...lowestAdjacentColumnHeights));
 
   const top = heights[tallestColumn];
   const left = lowestAdjacentColumnHeightDeltaIndex * columnWidthAndGutter + centerOffset;
 
   // Increase the heights of both adjacent columns
-  heights[tallestColumn] += heightAndGutter;
-  heights[leftIsTaller ? tallestColumn + 1 : tallestColumn - 1] = heights[tallestColumn];
+  const tallestColumnFinalHeight = heights[tallestColumn] + heightAndGutter;
+
+  for (let i = 0; i < columnSpan; i += 1) {
+    heights[i + lowestAdjacentColumnHeightDeltaIndex] = tallestColumnFinalHeight;
+  }
 
   return {
     additionalWhitespace: adjacentColumnHeightDeltas[lowestAdjacentColumnHeightDeltaIndex],
@@ -234,7 +262,7 @@ function getTwoColItemPosition<T>({
     position: {
       top,
       left,
-      width: calculateTwoColumnModuleWidth(columnWidth, gutter),
+      width: calculateMultiColumnModuleWidth(columnWidth, gutter, columnSpan),
       height,
     },
   };
@@ -245,12 +273,14 @@ function getGraphPositions<T>({
   positions,
   heights,
   whitespaceThreshold,
+  columnSpan,
   ...commonGetPositionArgs
 }: {
   items: $ReadOnlyArray<T>,
   heights: $ReadOnlyArray<number>,
   positions: $ReadOnlyArray<{ item: T, position: Position }>,
   whitespaceThreshold?: number,
+  columnSpan: number,
   centerOffset: number,
   columnWidth: number,
   columnWidthAndGutter: number,
@@ -275,7 +305,7 @@ function getGraphPositions<T>({
   };
   graph.addNode(startNodeData);
 
-  const startingAdjacentColumnHeightDeltas = getAdjacentColumnHeightDeltas(heights);
+  const startingAdjacentColumnHeightDeltas = getAdjacentColumnHeightDeltas(heights, columnSpan);
   const startingLowestAdjacentColumnHeightDelta = Math.min(...startingAdjacentColumnHeightDeltas);
 
   // Recursive function to add possible layouts to the graph
@@ -315,7 +345,7 @@ function getGraphPositions<T>({
       positions: updatedPositions,
     };
 
-    const adjacentColumnHeightDeltas = getAdjacentColumnHeightDeltas(updatedHeights);
+    const adjacentColumnHeightDeltas = getAdjacentColumnHeightDeltas(updatedHeights, columnSpan);
     const lowestAdjacentColumnHeightDelta = Math.min(...adjacentColumnHeightDeltas);
 
     graph.addNode(paintedItemData);
@@ -365,7 +395,7 @@ function getGraphPositions<T>({
       }
     : graph.findLowestScore(startNodeData);
 
-  // The best solution may be "no solution", i.e. laying out the 2-col item first
+  // The best solution may be "no solution", i.e. laying out the multi column item first
   return lowestScore === null || lowestScore < startingLowestAdjacentColumnHeightDelta
     ? { winningNode: lowestScoreNode, additionalWhitespace: lowestScore ?? 0 }
     : { winningNode: startNodeData, additionalWhitespace: startingLowestAdjacentColumnHeightDelta };
@@ -439,8 +469,10 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
     const itemsWithPositions = items.filter((item) => positionCache?.has(item));
     const itemsWithoutPositions = items.filter((item) => !positionCache?.has(item));
 
-    const twoColumnItems = itemsWithoutPositions.filter((item) => item.columnSpan === 2);
-    const hasTwoColumnItems = twoColumnItems.length > 0;
+    const multiColumnItems = itemsWithoutPositions.filter(
+      (item) => typeof item.columnSpan === 'number' && item.columnSpan > 1,
+    );
+    const hasMultiColumnItems = multiColumnItems.length > 0;
 
     const commonGetPositionArgs = {
       centerOffset,
@@ -451,9 +483,9 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
       positionCache,
     };
 
-    if (hasTwoColumnItems) {
+    if (hasMultiColumnItems) {
       // Currently we only support one two column item at the same time, more items will be supporped soon
-      const twoColumnIndex = itemsWithoutPositions.indexOf(twoColumnItems[0]);
+      const multiColumnIndex = itemsWithoutPositions.indexOf(multiColumnItems[0]);
       const oneColumnItems = itemsWithoutPositions.filter(
         (item) => !item.columnSpan || item.columnSpan === 1,
       );
@@ -462,22 +494,22 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
       // items already positioned from previous batches
       const emptyColumns = heights.reduce((acc, height) => (height === 0 ? acc + 1 : acc), 0);
 
-      const multiColumnItemColumnSpan = parseInt(twoColumnItems[0].columnSpan, 10);
+      const multiColumnItemColumnSpan = parseInt(multiColumnItems[0].columnSpan, 10);
 
       // Skip the graph logic if the two column item can be displayed on the first row,
       // this means graphBatch is empty and multi column item is positioned on its
       // original position (twoColumnIndex)
-      const fitsFirstRow = emptyColumns >= multiColumnItemColumnSpan + twoColumnIndex;
+      const fitsFirstRow = emptyColumns >= multiColumnItemColumnSpan + multiColumnIndex;
 
       // When multi column item is the last item of the first row but can't fit
       // we need to fill those spaces with one col items
-      const replaceWithOneColItems = !fitsFirstRow && twoColumnIndex < emptyColumns;
+      const replaceWithOneColItems = !fitsFirstRow && multiColumnIndex < emptyColumns;
 
       // Calculate how many items are on pre array and how many on graphBatch
       // pre items are positioned before the two column item
       const splitIndex = calculateSplitIndex({
         oneColumnItemsLength: oneColumnItems.length,
-        twoColumnIndex,
+        multiColumnIndex,
         emptyColumns,
         fitsFirstRow,
         replaceWithOneColItems,
@@ -486,7 +518,7 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
       const pre = oneColumnItems.slice(0, splitIndex);
       const graphBatch = fitsFirstRow
         ? []
-        : oneColumnItems.slice(splitIndex, splitIndex + TWO_COL_ITEMS_MEASURE_BATCH_SIZE);
+        : oneColumnItems.slice(splitIndex, splitIndex + MULTI_COL_ITEMS_MEASURE_BATCH_SIZE);
 
       // Get positions and heights for painted items
       const { positions: paintedItemPositions, heights: paintedItemHeights } =
@@ -509,25 +541,28 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
         positions: paintedItemPositions,
         heights: paintedItemHeights,
         whitespaceThreshold,
+        columnSpan: multiColumnItemColumnSpan,
         ...commonGetPositionArgs,
       });
 
-      // Insert 2-col item(s)
-      const twoColItem = twoColumnItems[0]; // this should always only be one
-      const { heights: updatedHeights, position: twoColItemPosition } = getTwoColItemPosition<T>({
-        item: twoColItem,
-        heights: winningNode.heights,
-        ...commonGetPositionArgs,
-      });
+      // Insert multi column item(s)
+      const multiColItem = multiColumnItems[0]; // this should always only be one
+      const { heights: updatedHeights, position: multiColItemPosition } =
+        getMultiColItemPosition<T>({
+          item: multiColItem,
+          heights: winningNode.heights,
+          columnSpan: multiColumnItemColumnSpan,
+          ...commonGetPositionArgs,
+        });
 
-      // Combine winning positions and 2-col item position, add to cache
+      // Combine winning positions and multi column item position, add to cache
       const winningPositions = winningNode.positions.concat({
-        item: twoColItem,
-        position: twoColItemPosition,
+        item: multiColItem,
+        position: multiColItemPosition,
       });
 
       const positionedItems = new Set(winningPositions.map(({ item }) => item));
-      // depending on where the 2-col item is positioned, there may be items that are still not positioned
+      // depending on where the multi column item is positioned, there may be items that are still not positioned
       // calculate the remaining items and add them to the list of final positions
       const remainingItems = items.filter((item) => !positionedItems.has(item));
       const { heights: finalHeights, positions: remainingItemPositions } =
@@ -538,7 +573,7 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
         });
       const finalPositions = winningPositions.concat(remainingItemPositions);
 
-      // Log additional whitespace shown above the 2-col module
+      // Log additional whitespace shown above the multi column module
       // This may need to be tweaked or removed if pin leveling is implemented
       logWhitespace?.(additionalWhitespace);
 
@@ -548,7 +583,7 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
       heightsCache?.setHeights(finalHeights);
 
       // FUTURE OPTIMIZATION - do we want a min threshold for an acceptably low score?
-      // If so, we could save the 2-col item somehow and try again with the next batch of items
+      // If so, we could save the multi column item somehow and try again with the next batch of items
 
       return getPositionsOnly(finalPositions);
     }

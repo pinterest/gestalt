@@ -6,7 +6,7 @@ import styles from './Masonry.css';
 import { type Cache } from './Masonry/Cache';
 import defaultLayout from './Masonry/defaultLayout';
 import defaultTwoColumnModuleLayout, {
-  TWO_COL_ITEMS_MEASURE_BATCH_SIZE,
+  MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
 } from './Masonry/defaultTwoColumnModuleLayout';
 import fullWidthLayout from './Masonry/fullWidthLayout';
 import HeightsStore, { type HeightsStoreInterface } from './Masonry/HeightsStore';
@@ -576,13 +576,16 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
       // Full layout is possible
       const itemsToRender = items.filter((item) => item && measurementStore.has(item));
       const itemsWithoutPositions = items.filter((item) => item && !positionStore.has(item));
-      const hasTwoColumnItems =
-        _twoColItems && itemsWithoutPositions.some((item) => item.columnSpan === 2);
+      const hasMultiColumnItems =
+        _twoColItems &&
+        itemsWithoutPositions.some(
+          (item) => typeof item.columnSpan === 'number' && item.columnSpan > 1,
+        );
 
       // If there are 2-col items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
       // we need the batch size (number of one column items for the graph) + 1 (two column item)
-      const itemsToMeasureCount = hasTwoColumnItems
-        ? TWO_COL_ITEMS_MEASURE_BATCH_SIZE + 1
+      const itemsToMeasureCount = hasMultiColumnItems
+        ? MULTI_COL_ITEMS_MEASURE_BATCH_SIZE + 1
         : minCols;
       const itemsToMeasure = items
         .filter((item) => item && !measurementStore.has(item))

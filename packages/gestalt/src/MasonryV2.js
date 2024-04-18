@@ -16,7 +16,7 @@ import {
 import debounce from './debounce';
 import styles from './Masonry.css';
 import { type Cache } from './Masonry/Cache';
-import { TWO_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/defaultTwoColumnModuleLayout';
+import { MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/defaultTwoColumnModuleLayout';
 import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
 import HeightsStore, { type HeightsStoreInterface } from './Masonry/HeightsStore';
 import MeasurementStore from './Masonry/MeasurementStore';
@@ -313,10 +313,12 @@ function useLayout<T: { +[string]: mixed }>({
   positions: $ReadOnlyArray<?Position>,
   updateMeasurement: (T, number) => void,
 } {
-  const hasTwoColumnItems =
+  const hasMultiColumnItems =
     _twoColItems &&
-    items.filter((item) => item && !positionStore.has(item)).some((item) => item.columnSpan === 2);
-  const itemToMeasureCount = hasTwoColumnItems ? TWO_COL_ITEMS_MEASURE_BATCH_SIZE : minCols;
+    items
+      .filter((item) => item && !positionStore.has(item))
+      .some((item) => typeof item.columnSpan === 'number' && item.columnSpan > 1);
+  const itemToMeasureCount = hasMultiColumnItems ? MULTI_COL_ITEMS_MEASURE_BATCH_SIZE : minCols;
   const layoutFunction = getLayoutAlgorithm({
     columnWidth,
     gutter,
