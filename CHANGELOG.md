@@ -1,3 +1,9 @@
+## 147.0.3 (Apr 18, 2024)
+
+### Patch
+
+- Masonry: Enable n-column modules on first row ([#3530](https://github.com/pinterest/gestalt/pull/3530)) - [Preview link](https://deploy-preview-3530--gestalt.netlify.app?devexample=true)
+
 ## 147.0.2 (Apr 16, 2024)
 
 ### Patch
