@@ -5,7 +5,7 @@ import { type HeightsStoreInterface } from './HeightsStore';
 import mindex from './mindex';
 import { type NodeData, type Position } from './types';
 
-// When there's a 2-col item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to minimize whitespace above the 2-col item
+// When there's a multi column item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to minimize whitespace above the 2-col item
 // This may need to be tweaked to balance the tradeoff of delayed rendering vs having enough possible layouts
 export const MULTI_COL_ITEMS_MEASURE_BATCH_SIZE = 5;
 
@@ -395,7 +395,7 @@ function getGraphPositions<T>({
       }
     : graph.findLowestScore(startNodeData);
 
-  // The best solution may be "no solution", i.e. laying out the 2-col item first
+  // The best solution may be "no solution", i.e. laying out the multi column item first
   return lowestScore === null || lowestScore < startingLowestAdjacentColumnHeightDelta
     ? { winningNode: lowestScoreNode, additionalWhitespace: lowestScore ?? 0 }
     : { winningNode: startNodeData, additionalWhitespace: startingLowestAdjacentColumnHeightDelta };
@@ -545,7 +545,7 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
         ...commonGetPositionArgs,
       });
 
-      // Insert n-col item(s)
+      // Insert multi column item(s)
       const multiColItem = multiColumnItems[0]; // this should always only be one
       const { heights: updatedHeights, position: multiColItemPosition } =
         getMultiColItemPosition<T>({
@@ -555,14 +555,14 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
           ...commonGetPositionArgs,
         });
 
-      // Combine winning positions and 2-col item position, add to cache
+      // Combine winning positions and multi column item position, add to cache
       const winningPositions = winningNode.positions.concat({
         item: multiColItem,
         position: multiColItemPosition,
       });
 
       const positionedItems = new Set(winningPositions.map(({ item }) => item));
-      // depending on where the 2-col item is positioned, there may be items that are still not positioned
+      // depending on where the multi column item is positioned, there may be items that are still not positioned
       // calculate the remaining items and add them to the list of final positions
       const remainingItems = items.filter((item) => !positionedItems.has(item));
       const { heights: finalHeights, positions: remainingItemPositions } =
@@ -573,7 +573,7 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
         });
       const finalPositions = winningPositions.concat(remainingItemPositions);
 
-      // Log additional whitespace shown above the 2-col module
+      // Log additional whitespace shown above the multi column module
       // This may need to be tweaked or removed if pin leveling is implemented
       logWhitespace?.(additionalWhitespace);
 
@@ -583,7 +583,7 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
       heightsCache?.setHeights(finalHeights);
 
       // FUTURE OPTIMIZATION - do we want a min threshold for an acceptably low score?
-      // If so, we could save the 2-col item somehow and try again with the next batch of items
+      // If so, we could save the multi column item somehow and try again with the next batch of items
 
       return getPositionsOnly(finalPositions);
     }
