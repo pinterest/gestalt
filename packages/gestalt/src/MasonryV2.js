@@ -2,6 +2,7 @@
 import {
   type AbstractComponent,
   forwardRef,
+  memo,
   type Node as ReactNode,
   useCallback,
   useEffect,
@@ -22,6 +23,7 @@ import HeightsStore, { type HeightsStoreInterface } from './Masonry/HeightsStore
 import MeasurementStore from './Masonry/MeasurementStore';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { type Layout, type Position } from './Masonry/types';
+import throttle from './throttle';
 import useIsomorphicLayoutEffect from './useIsomorphicLayoutEffect';
 
 const RESIZE_DEBOUNCE = 300;
@@ -192,11 +194,18 @@ function useScrollContainer({
 }) {
   const [containerHeight, setContainerHeight] = useState(0);
   const [containerOffset, setContainerOffset] = useState(0);
+  const scrollPos = useRef(0);
+
   const subscribeToScrollEvent = useCallback(
     (callback: () => void) => {
-      scrollContainer?.addEventListener('scroll', callback);
+      const handler = throttle(() => {
+        // update elementWidthRef whenever we have a resize event
+        scrollPos.current = scrollContainer ? getScrollPos(scrollContainer) : 0;
+        callback();
+      });
+      window.addEventListener('scroll', handler);
       return () => {
-        scrollContainer?.removeEventListener('scroll', callback);
+        window.removeEventListener('scroll', handler);
       };
     },
     [scrollContainer],
@@ -204,7 +213,7 @@ function useScrollContainer({
 
   const scrollTop = useSyncExternalStore(
     subscribeToScrollEvent,
-    () => (scrollContainer ? getScrollPos(scrollContainer) : 0),
+    () => scrollPos.current,
     () => 0,
   );
 
@@ -375,9 +384,12 @@ function useLayout<T: { +[string]: mixed }>({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemMeasurementsCount, items, canPerformLayout]);
 
-  const updateMeasurement = (item: T, itemHeight: number) => {
-    measurementStore.set(item, itemHeight);
-  };
+  const updateMeasurement = useCallback(
+    (item: T, itemHeight: number) => {
+      measurementStore.set(item, itemHeight);
+    },
+    [measurementStore],
+  );
 
   // Math.max() === -Infinity when there are no positions
   const height = positions.length
@@ -431,6 +443,88 @@ function useViewport({
     viewportBottom: Infinity,
   };
 }
+
+function MasonryItem<T: { +[string]: mixed }>({
+  height,
+  idx,
+  isMeasurement,
+  isServerRenderOrHydration,
+  item,
+  layout,
+  left,
+  renderItem,
+  startTransition,
+  top,
+  updateMeasurement,
+  width,
+}: {
+  height: ?number,
+  idx: number,
+  isMeasurement: boolean,
+  isServerRenderOrHydration: boolean,
+  item: T,
+  left: number,
+  layout: Layout,
+  renderItem: $PropertyType<Props<T>, 'renderItem'>,
+  startTransition: (() => void) => void,
+  top: number,
+  updateMeasurement: (T, number) => void,
+  width: ?number,
+}): ReactNode {
+  // This isn't great since it currently returns false during server render/hydration and potentially true after
+  // This should be revisited
+  const isRtl =
+    isServerRenderOrHydration || typeof document === 'undefined' ? false : document?.dir === 'rtl';
+  const className = isServerRenderOrHydration ? 'static' : styles.Masonry__Item;
+  const refCallback = isServerRenderOrHydration
+    ? (el: ?HTMLDivElement) => {
+        // purposely not checking for layout === 'serverRenderedFlexible' here
+        if (el && layout !== 'flexible') {
+          // if we're hydrating from the server, we should only measure items on the initial render pass
+          // if we're not rendering a flexible layout.  "serverRenderedFlexible" is an exception because we assume
+          // that the caller has added the proper CSS to ensure the layout is correct during server render
+          updateMeasurement(item, el.clientHeight);
+        }
+      }
+    : (el: ?HTMLDivElement) => {
+        if (el && isMeasurement) {
+          startTransition(() => {
+            updateMeasurement(item, el.clientHeight);
+          });
+        }
+      };
+  const style = isMeasurement
+    ? {
+        visibility: 'hidden',
+        position: 'absolute',
+        top: layoutNumberToCssDimension(top),
+        left: layoutNumberToCssDimension(left),
+        width: layoutNumberToCssDimension(width),
+        height: layoutNumberToCssDimension(height),
+      }
+    : {
+        top: 0,
+        ...(isRtl ? { right: 0 } : { left: 0 }),
+        transform: `translateX(${isRtl ? left * -1 : left}px) translateY(${top}px)`,
+        WebkitTransform: `translateX(${isRtl ? left * -1 : left}px) translateY(${top}px)`,
+        width: layoutNumberToCssDimension(width),
+        height: layoutNumberToCssDimension(height),
+      };
+  return (
+    <div
+      ref={refCallback}
+      className={className}
+      data-column-span={item.columnSpan ?? 1}
+      data-grid-item
+      role="listitem"
+      style={style}
+    >
+      {renderItem({ data: item, itemIdx: idx, isMeasuring: isMeasurement })}
+    </div>
+  );
+}
+
+const MasonryItemMemo = memo(MasonryItem);
 
 function Masonry<T: { +[string]: mixed }>(
   {
@@ -564,11 +658,6 @@ function Masonry<T: { +[string]: mixed }>(
     virtualize,
   });
 
-  // This isn't great since it currently returns false during server render/hydration and potentially true after
-  // This should be revisited
-  const isRtl =
-    isServerRenderOrHydration || typeof document === 'undefined' ? false : document?.dir === 'rtl';
-
   const gridBody =
     isServerRenderOrHydration || canPerformFullLayout
       ? items.filter(Boolean).map((item, i) => {
@@ -589,34 +678,11 @@ function Masonry<T: { +[string]: mixed }>(
                     : columnWidth,
               };
 
-          const className = isServerRenderOrHydration ? 'static' : styles.Masonry__Item;
-
           if (!position) {
             return null;
           }
 
           const isMeasurement = canPerformFullLayout ? !measurementStore.has(item) : false;
-          const style = isMeasurement
-            ? {
-                visibility: 'hidden',
-                position: 'absolute',
-                top: layoutNumberToCssDimension(position.top),
-                left: layoutNumberToCssDimension(position.left),
-                width: layoutNumberToCssDimension(position.width),
-                height: layoutNumberToCssDimension(position.height),
-              }
-            : {
-                top: 0,
-                ...(isRtl ? { right: 0 } : { left: 0 }),
-                transform: `translateX(${
-                  isRtl ? position.left * -1 : position.left
-                }px) translateY(${position.top}px)`,
-                WebkitTransform: `translateX(${
-                  isRtl ? position.left * -1 : position.left
-                }px) translateY(${position.top}px)`,
-                width: layoutNumberToCssDimension(position.width),
-                height: layoutNumberToCssDimension(position.height),
-              };
           const isVisible =
             isServerRenderOrHydration || isMeasurement
               ? true
@@ -625,36 +691,23 @@ function Masonry<T: { +[string]: mixed }>(
                   position.top > viewportBottom
                 );
 
-          const refCallback = isServerRenderOrHydration
-            ? (el: ?HTMLDivElement) => {
-                // purposely not checking for layout === 'serverRenderedFlexible' here
-                if (el && layout !== 'flexible') {
-                  // if we're hydrating from the server, we should only measure items on the initial render pass
-                  // if we're not rendering a flexible layout.  "serverRenderedFlexible" is an exception because we assume
-                  // that the caller has added the proper CSS to ensure the layout is correct during server render
-                  updateMeasurement(item, el.clientHeight);
-                }
-              }
-            : (el: ?HTMLDivElement) => {
-                if (el && isMeasurement) {
-                  startTransition(() => {
-                    updateMeasurement(item, el.clientHeight);
-                  });
-                }
-              };
-
           return isVisible ? (
-            <div
+            <MasonryItemMemo
               key={key}
-              ref={refCallback}
-              className={className}
-              data-column-span={item.columnSpan ?? 1}
-              data-grid-item
-              role="listitem"
-              style={style}
-            >
-              {renderItem({ data: item, itemIdx: i, isMeasuring: isMeasurement })}
-            </div>
+              height={position.height}
+              idx={i}
+              isMeasurement={isMeasurement}
+              isServerRenderOrHydration={isServerRenderOrHydration}
+              // $FlowFixMe[incompatible-type] something about the generics between Masonry and MasonryItem is causing flow to be confused
+              item={item}
+              layout={layout}
+              left={position.left}
+              renderItem={renderItem}
+              startTransition={startTransition}
+              top={position.top}
+              updateMeasurement={updateMeasurement}
+              width={position.width}
+            />
           ) : null;
         })
       : null;
