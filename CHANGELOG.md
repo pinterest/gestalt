@@ -1,3 +1,9 @@
+## 147.0.4 (Apr 22, 2024)
+
+### Patch
+
+- Masonry: Scroll throttle + memo component (MasonryV2) ([#3533](https://github.com/pinterest/gestalt/pull/3533)) - [Preview link](https://deploy-preview-3533--gestalt.netlify.app?devexample=true)
+
 ## 147.0.3 (Apr 18, 2024)
 
 ### Patch
