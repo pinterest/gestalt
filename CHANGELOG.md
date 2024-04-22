@@ -1,3 +1,9 @@
+## 147.0.5 (Apr 22, 2024)
+
+### Patch
+
+- Docs: updated broken/deprecated links to drive links ([#3534](https://github.com/pinterest/gestalt/pull/3534)) - [Preview link](https://deploy-preview-3534--gestalt.netlify.app?devexample=true)
+
 ## 147.0.4 (Apr 22, 2024)
 
 ### Patch
