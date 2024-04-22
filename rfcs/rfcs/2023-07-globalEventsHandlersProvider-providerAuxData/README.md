@@ -30,7 +30,7 @@ Gestalt wrappers have a set of problems:
 
 - For each wrapper, we need an Eslint rules to avoid direct Gestalt usage. Despite Eslint rules, engineers still use them increasing the amount of disabled comments in imports.
 
-See previous [onInteraction proposal](https://paper.dropbox.com/doc/Proposal-New-onInteraction-functionality-in-Gestalt-components--B416h3YCf4BRIgvCtDUTVrKLAg-rOblYZwoXPm1MzHeLbVyx)
+See previous [onInteraction proposal](https://docs.google.com/document/d/1XrExto5jnGcdUfyJYelq5_-9B28V0QSPEFRiWaLLg1U/edit#heading=h.omn153lt56vb)
 
 ### Impact
 
@@ -119,7 +119,7 @@ No. New props in API. It is not a breaking change
 
 ## Alternatives
 
-Previous implementation approaches are on the following [onInteraction proposal document](https://paper.dropbox.com/doc/Proposal-New-onInteraction-functionality-in-Gestalt-components--B416h3YCf4BRIgvCtDUTVrKLAg-rOblYZwoXPm1MzHeLbVyx)
+Previous implementation approaches are on the following [onInteraction proposal document](https://docs.google.com/document/d/1XrExto5jnGcdUfyJYelq5_-9B28V0QSPEFRiWaLLg1U/edit#heading=h.omn153lt56vb)
 
 ## Open Questions
 
