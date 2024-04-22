@@ -908,13 +908,15 @@ const componentData: $ReadOnlyArray<ComponentData> = [
             {
               title: 'No UTC support',
               description: 'Documented issues.',
-              internalDocUrl: 'https://coda.io/d/_d2LeXkQ1kVX/DatePicker_suvau',
+              internalDocUrl:
+                'https://docs.google.com/document/d/115HWoM-n4jpl5O41_M6-38pGw3U6HKaBeIs9exqMBcM/edit?usp=drive_link',
             },
             {
               title: 'Single month issues',
               description:
                 "DatePicker doesn't trap focus and close the calendar on blur when the date range is within the same month and there are no previous/next month IconButtons",
-              internalDocUrl: 'https://coda.io/d/_d2LeXkQ1kVX/DatePicker_suvau',
+              internalDocUrl:
+                'https://docs.google.com/document/d/115HWoM-n4jpl5O41_M6-38pGw3U6HKaBeIs9exqMBcM/edit?usp=drive_link',
             },
           ],
         },

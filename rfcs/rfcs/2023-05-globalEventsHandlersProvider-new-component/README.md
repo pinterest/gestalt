@@ -28,7 +28,7 @@ Most components have default tracking data but custom tracking is also allowed t
 
 These logs are used to extend the insights on experimentation allowing the Ads team to track user flows and increase Ads/campaigns optimizations.
 
-See previous [onInteraction proposal](https://paper.dropbox.com/doc/Proposal-New-onInteraction-functionality-in-Gestalt-components--B416h3YCf4BRIgvCtDUTVrKLAg-rOblYZwoXPm1MzHeLbVyx)
+See previous [onInteraction proposal](https://docs.google.com/document/d/1XrExto5jnGcdUfyJYelq5_-9B28V0QSPEFRiWaLLg1U/edit#heading=h.omn153lt56vb)
 
 ## Detailed Design
 
