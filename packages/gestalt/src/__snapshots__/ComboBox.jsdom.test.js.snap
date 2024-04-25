@@ -140,7 +140,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     >
                       <div
                         class="box justifyCenter xsDisplayFlex xsItemsCenter"
-                        style="width: 100%;"
+                        style="margin-top: 1px; width: 100%;"
                       >
                         <svg
                           aria-label="Remove tag"
@@ -188,7 +188,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     >
                       <div
                         class="box justifyCenter xsDisplayFlex xsItemsCenter"
-                        style="width: 100%;"
+                        style="margin-top: 1px; width: 100%;"
                       >
                         <svg
                           aria-label="Remove tag"
@@ -236,7 +236,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     >
                       <div
                         class="box justifyCenter xsDisplayFlex xsItemsCenter"
-                        style="width: 100%;"
+                        style="margin-top: 1px; width: 100%;"
                       >
                         <svg
                           aria-label="Remove tag"
@@ -284,7 +284,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     >
                       <div
                         class="box justifyCenter xsDisplayFlex xsItemsCenter"
-                        style="width: 100%;"
+                        style="margin-top: 1px; width: 100%;"
                       >
                         <svg
                           aria-label="Remove tag"
@@ -332,7 +332,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     >
                       <div
                         class="box justifyCenter xsDisplayFlex xsItemsCenter"
-                        style="width: 100%;"
+                        style="margin-top: 1px; width: 100%;"
                       >
                         <svg
                           aria-label="Remove tag"
@@ -380,7 +380,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     >
                       <div
                         class="box justifyCenter xsDisplayFlex xsItemsCenter"
-                        style="width: 100%;"
+                        style="margin-top: 1px; width: 100%;"
                       >
                         <svg
                           aria-label="Remove tag"
@@ -428,7 +428,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     >
                       <div
                         class="box justifyCenter xsDisplayFlex xsItemsCenter"
-                        style="width: 100%;"
+                        style="margin-top: 1px; width: 100%;"
                       >
                         <svg
                           aria-label="Remove tag"
@@ -476,7 +476,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     >
                       <div
                         class="box justifyCenter xsDisplayFlex xsItemsCenter"
-                        style="width: 100%;"
+                        style="margin-top: 1px; width: 100%;"
                       >
                         <svg
                           aria-label="Remove tag"
@@ -524,7 +524,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                     >
                       <div
                         class="box justifyCenter xsDisplayFlex xsItemsCenter"
-                        style="width: 100%;"
+                        style="margin-top: 1px; width: 100%;"
                       >
                         <svg
                           aria-label="Remove tag"
