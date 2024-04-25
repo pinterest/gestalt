@@ -655,7 +655,7 @@ describe('multi column layout test cases', () => {
     expect(positions.length).toEqual(13);
 
     // Confirm that the second item had the correct width
-    expect(positionCache.get(items.filter((item) => item.columnSpan > 1)[1])).toEqual({
+    expect(positionCache.get(items[4])).toEqual({
       height: 204,
       left: 600,
       top: 216,
