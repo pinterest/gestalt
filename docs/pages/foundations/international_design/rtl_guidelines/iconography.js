@@ -20,7 +20,7 @@ Instead of going out to find your own icons, please leverage existing icons and 
         type="guidelines"
       />
       <MainSection
-        description="Our Icon component handles CSS transforms and SVG attributes to mirror icons for RTL. Additionally, we have a robust icon library that should be used in all Pinterest products. If you find issues with icons, or need to adapt an icon, [submit a request](https://gestalt.pinterest.systems/team_support/component_request#Filling-a-request-form)"
+        description="Our Icon component handles CSS transforms and SVG attributes to mirror icons for RTL. Additionally, we have a robust icon library that should be used in all Pinterest products. If you find issues with icons, or need to adapt an icon, [submit a request](https://slack.com/shortcuts/Ft070W7W96D7/bff22ece5368dcd9c083079577b0c2ba)"
         name="Leverage existing components and icons"
       >
         <MainSection
@@ -608,7 +608,7 @@ representations of time. In RTL, decide whether to show circular or horizontal d
           />
           <MainSection.Subsection
             description={`
-          **[Icon requests](https://gestalt.pinterest.systems/team_support/component_request#Filling-a-request-form)**
+          **[Icon requests](https://slack.com/shortcuts/Ft070W7W96D7/bff22ece5368dcd9c083079577b0c2ba)**
           How to request an icon if it doesn't exist in our library
           `}
           />
