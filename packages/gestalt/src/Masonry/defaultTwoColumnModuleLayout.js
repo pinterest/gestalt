@@ -485,8 +485,13 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
 
     if (hasMultiColumnItems) {
       // Currently we only support one two column item at the same time, more items will be supporped soon
-      const multiColumnIndex = itemsWithoutPositions.indexOf(multiColumnItems[0]);
-      const oneColumnItems = itemsWithoutPositions.filter(
+      const itemsToPosition =
+        multiColumnItems.length > 1
+          ? itemsWithoutPositions.slice(0, itemsWithoutPositions.indexOf(multiColumnItems[1]))
+          : itemsWithoutPositions;
+
+      const multiColumnIndex = itemsToPosition.indexOf(multiColumnItems[0]);
+      const oneColumnItems = itemsToPosition.filter(
         (item) => !item.columnSpan || item.columnSpan === 1,
       );
 
@@ -564,7 +569,7 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
       const positionedItems = new Set(winningPositions.map(({ item }) => item));
       // depending on where the multi column item is positioned, there may be items that are still not positioned
       // calculate the remaining items and add them to the list of final positions
-      const remainingItems = items.filter((item) => !positionedItems.has(item));
+      const remainingItems = itemsToPosition.filter((item) => !positionedItems.has(item));
       const { heights: finalHeights, positions: remainingItemPositions } =
         getOneColumnItemPositions<T>({
           items: remainingItems,
