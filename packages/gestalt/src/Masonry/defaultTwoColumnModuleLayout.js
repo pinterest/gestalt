@@ -201,6 +201,7 @@ function getMultiColItemPosition<T>({
   heights: heightsArg,
   item,
   columnSpan,
+  resizeRatio,
   measurementCache,
 }: {
   centerOffset: number,
@@ -210,6 +211,7 @@ function getMultiColItemPosition<T>({
   heights: $ReadOnlyArray<number>,
   item: T,
   columnSpan: number,
+  resizeRatio: number,
   measurementCache: Cache<T, number>,
   positionCache?: Cache<T, Position>,
 }): {
@@ -218,9 +220,9 @@ function getMultiColItemPosition<T>({
   position: Position,
 } {
   const heights = [...heightsArg];
-  const height = measurementCache.get(item);
+  const originalHeight = measurementCache.get(item);
 
-  if (isNil(height)) {
+  if (isNil(originalHeight)) {
     return {
       additionalWhitespace: null,
       heights,
@@ -228,6 +230,7 @@ function getMultiColItemPosition<T>({
     };
   }
 
+  const height = originalHeight * resizeRatio;
   const heightAndGutter = height + gutter;
 
   // Find height deltas for each column as compared to the next column
@@ -494,7 +497,13 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
       // items already positioned from previous batches
       const emptyColumns = heights.reduce((acc, height) => (height === 0 ? acc + 1 : acc), 0);
 
-      const multiColumnItemColumnSpan = parseInt(multiColumnItems[0].columnSpan, 10);
+      const originalColumnSpan = parseInt(multiColumnItems[0].columnSpan, 10);
+      const resizeRatio =
+        columnCount < originalColumnSpan
+          ? calculateMultiColumnModuleWidth(columnWidth, gutter, columnCount) /
+            calculateMultiColumnModuleWidth(columnWidth, gutter, originalColumnSpan)
+          : 1;
+      const multiColumnItemColumnSpan = resizeRatio < 1 ? columnCount : originalColumnSpan;
 
       // Skip the graph logic if the two column item can be displayed on the first row,
       // this means graphBatch is empty and multi column item is positioned on its
@@ -552,6 +561,7 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
           item: multiColItem,
           heights: winningNode.heights,
           columnSpan: multiColumnItemColumnSpan,
+          resizeRatio,
           ...commonGetPositionArgs,
         });
 

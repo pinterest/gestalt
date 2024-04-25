@@ -608,6 +608,82 @@ describe('multi column layout test cases', () => {
     });
   });
 
+  test('correctly resizes multi column module when column span is larger than column count', () => {
+    const measurementStore = new MeasurementStore<{ ... }, number>();
+    const positionCache = new MeasurementStore<{ ... }, Position>();
+    const heightsCache = new HeightsStore();
+    const items = [
+      { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
+      { 'name': 'Pin 1', 'height': 201, 'color': '#F67076' },
+      { 'name': 'Pin 2', 'height': 202, 'color': '#FAB032' },
+      { 'name': 'Pin 3', 'height': 203, 'color': '#EDF21D' },
+      { 'name': 'Pin 4', 'height': 200, 'color': '#CF4509' },
+      { 'name': 'Pin 5', 'height': 205, 'color': '#230BAF' },
+    ];
+    items.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+
+    const layout = defaultTwoColumnModuleLayout({
+      columnWidth: 240,
+      measurementCache: measurementStore,
+      heightsCache,
+      justify: 'start',
+      minCols: 3,
+      positionCache,
+      rawItemCount: items.length,
+      width: 1200,
+    });
+
+    let mockItems;
+    let multiColumnModuleIndex;
+    const columnSpan = 5;
+    const resizedHeight = 159.55414012738854;
+
+    // Correctly resizes and position multi column module when is on the start of the batch
+    multiColumnModuleIndex = 0;
+
+    mockItems = [
+      ...items.slice(0, multiColumnModuleIndex),
+      { ...items[multiColumnModuleIndex], columnSpan },
+      ...items.slice(multiColumnModuleIndex + 1),
+    ];
+    mockItems.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+    layout(mockItems);
+    // First slot
+    expect(positionCache.get(mockItems[multiColumnModuleIndex])).toEqual({
+      height: resizedHeight,
+      left: 99,
+      top: 0,
+      width: 1002,
+    });
+
+    // Correctly resizes and position multi column module when is on the second row
+    measurementStore.reset();
+    positionCache.reset();
+    heightsCache.reset();
+
+    multiColumnModuleIndex = 4;
+    mockItems = [
+      ...items.slice(0, multiColumnModuleIndex),
+      { ...items[multiColumnModuleIndex], columnSpan },
+      ...items.slice(multiColumnModuleIndex + 1),
+    ];
+    mockItems.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+    layout(mockItems);
+    // Second row
+    expect(positionCache.get(mockItems[multiColumnModuleIndex])).toEqual({
+      height: resizedHeight,
+      left: 99,
+      top: 217,
+      width: 1002,
+    });
+  });
+
   test.each([
     [5, 2],
     [4, 3],
