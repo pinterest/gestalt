@@ -1,3 +1,9 @@
+## 147.0.6 (Apr 25, 2024)
+
+### Patch
+
+- Tag: Fix disabled tag spacing ([#3532](https://github.com/pinterest/gestalt/pull/3532)) - [Preview link](https://deploy-preview-3532--gestalt.netlify.app?devexample=true)
+
 ## 147.0.5 (Apr 22, 2024)
 
 ### Patch
