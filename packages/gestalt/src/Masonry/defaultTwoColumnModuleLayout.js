@@ -433,13 +433,13 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
 
   return (items): $ReadOnlyArray<Position> => {
     if (isNil(width) || !items.every((item) => measurementCache.has(item))) {
-      return items.map((item) =>
-        offscreen(
-          typeof item.columnSpan === 'number'
-            ? columnWidth * item.columnSpan + gutter * (item.columnSpan - 1)
-            : columnWidth,
-        ),
-      );
+      return items.map((item) => {
+        if (typeof item.columnSpan === 'number' && item.columnSpan > 1) {
+          const columnSpan = Math.min(item.columnSpan, columnCount);
+          return offscreen(columnWidth * columnSpan + gutter * (columnSpan - 1));
+        }
+        return offscreen(columnWidth);
+      });
     }
 
     const centerOffset =
@@ -499,7 +499,10 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
       // items already positioned from previous batches
       const emptyColumns = heights.reduce((acc, height) => (height === 0 ? acc + 1 : acc), 0);
 
-      const multiColumnItemColumnSpan = parseInt(multiColumnItems[0].columnSpan, 10);
+      const multiColumnItemColumnSpan = Math.min(
+        parseInt(multiColumnItems[0].columnSpan, 10),
+        columnCount,
+      );
 
       // Skip the graph logic if the two column item can be displayed on the first row,
       // this means graphBatch is empty and multi column item is positioned on its
