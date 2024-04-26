@@ -1,3 +1,9 @@
+## 147.2.0 (Apr 26, 2024)
+
+### Minor
+
+- Icon: adding 62 new icons (TEST PR for perf testing) ([#3540](https://github.com/pinterest/gestalt/pull/3540)) - [Preview link](https://deploy-preview-3540--gestalt.netlify.app?devexample=true)
+
 ## 147.1.0 (Apr 26, 2024)
 
 ### Minor
