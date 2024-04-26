@@ -608,6 +608,102 @@ describe('multi column layout test cases', () => {
     });
   });
 
+  test('set correct offscreen position when multi column item has to be scaled to fit', () => {
+    const measurementStore = new MeasurementStore<{ ... }, number>();
+    const positionCache = new MeasurementStore<{ ... }, Position>();
+    const heightsCache = new HeightsStore();
+    const items = [
+      { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
+      { 'name': 'Pin 1', 'height': 201, 'color': '#F67076' },
+      { 'name': 'Pin 2', 'height': 202, 'color': '#FAB032', columnSpan: 5 },
+      { 'name': 'Pin 3', 'height': 203, 'color': '#EDF21D' },
+      { 'name': 'Pin 4', 'height': 204, 'color': '#CF4509' },
+      { 'name': 'Pin 5', 'height': 205, 'color': '#230BAF' },
+    ];
+
+    const layout = defaultTwoColumnModuleLayout({
+      columnWidth: 240,
+      measurementCache: measurementStore,
+      heightsCache,
+      justify: 'start',
+      minCols: 3,
+      positionCache,
+      rawItemCount: items.length,
+      width: 1200,
+    });
+
+    const multiColumnModuleIndex = 2;
+
+    // Correct position when two column module is on the start of the batch
+    const positions = layout(items);
+
+    expect(positions[multiColumnModuleIndex].width).toEqual(1002);
+  });
+
+  test('set correct width for multi col item that is scaled to fit', () => {
+    const measurementStore = new MeasurementStore<{ ... }, number>();
+    const positionCache = new MeasurementStore<{ ... }, Position>();
+    const heightsCache = new HeightsStore();
+    const items = [
+      { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
+      { 'name': 'Pin 1', 'height': 201, 'color': '#F67076' },
+      { 'name': 'Pin 2', 'height': 202, 'color': '#FAB032' },
+      { 'name': 'Pin 3', 'height': 203, 'color': '#EDF21D' },
+      { 'name': 'Pin 4', 'height': 204, 'color': '#CF4509' },
+      { 'name': 'Pin 5', 'height': 205, 'color': '#230BAF' },
+    ];
+    items.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+
+    const layout = defaultTwoColumnModuleLayout({
+      columnWidth: 240,
+      measurementCache: measurementStore,
+      heightsCache,
+      justify: 'start',
+      minCols: 3,
+      positionCache,
+      rawItemCount: items.length,
+      width: 1200,
+    });
+
+    const columnSpan = 5;
+    let mockItems;
+    let multiColumnModuleIndex;
+
+    // Correct position when two column module is on the start of the batch
+    multiColumnModuleIndex = 0;
+    mockItems = [
+      ...items.slice(0, multiColumnModuleIndex),
+      { ...items[multiColumnModuleIndex], columnSpan },
+      ...items.slice(multiColumnModuleIndex + 1),
+    ];
+    mockItems.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+    layout(mockItems);
+    // First slot
+    expect(positionCache.get(mockItems[multiColumnModuleIndex])?.width).toEqual(1002);
+
+    // Correct position when two column module is at the middle of the batch and fits on the row
+    measurementStore.reset();
+    positionCache.reset();
+    heightsCache.reset();
+
+    multiColumnModuleIndex = 4;
+    mockItems = [
+      ...items.slice(0, multiColumnModuleIndex),
+      { ...items[multiColumnModuleIndex], columnSpan },
+      ...items.slice(multiColumnModuleIndex + 1),
+    ];
+    mockItems.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+    layout(mockItems);
+    // First row third position
+    expect(positionCache.get(mockItems[multiColumnModuleIndex])?.width).toEqual(1002);
+  });
+
   test('correctly position multiple multi column items', () => {
     const measurementStore = new MeasurementStore<{ ... }, number>();
     const positionCache = new MeasurementStore<{ ... }, Position>();
