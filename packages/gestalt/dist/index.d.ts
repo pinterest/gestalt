@@ -351,7 +351,74 @@ type Icons =
   | 'workflow-status-queued'
   | 'workflow-status-unstarted'
   | 'workflow-status-warning'
-  | 'x';
+  | 'x'
+  | 'animate'
+  | 'arrow-nested'
+  | 'aspect-ratio'
+  | 'audio-bars'
+  | 'audio-mix'
+  | 'audio-playing'
+  | 'board-stickerLarge'
+  | 'board-stickerSmall'
+  | 'border'
+  | 'border-shadow'
+  | 'clips'
+  | 'collage'
+  | 'color-palette'
+  | 'color'
+  | 'contrast'
+  | 'cutout'
+  | 'design'
+  | 'draw'
+  | 'erase-auto'
+  | 'erase'
+  | 'flash-slash'
+  | 'gauge'
+  | 'ghost'
+  | 'hand'
+  | 'highlights'
+  | 'lab-flask'
+  | 'lasso-magic'
+  | 'magic-wand'
+  | 'microphone'
+  | 'orientation-landscape'
+  | 'orientation-portrait'
+  | 'paper-clip'
+  | 'paper-lines-plus'
+  | 'pen-auto'
+  | 'pen'
+  | 'person-magnifying-glass'
+  | 'record-limit-5'
+  | 'record-limit-10'
+  | 'record-limit-15'
+  | 'record-limit-30'
+  | 'record-limit-60'
+  | 'record-limit'
+  | 'redo'
+  | 'saturation'
+  | 'select'
+  | 'shadows'
+  | 'shapes'
+  | 'shuffles'
+  | 'slide'
+  | 'soundSlash'
+  | 'speed-.3x'
+  | 'speed-.5x'
+  | 'speed-1x'
+  | 'speed-2x'
+  | 'speed-3x'
+  | 'speed'
+  | 'sticker-image'
+  | 'swap'
+  | 'template'
+  | 'text-sticker'
+  | 'text'
+  | 'timer-3'
+  | 'timer-10'
+  | 'timer'
+  | 'undo'
+  | 'warmth'
+  | 'wave';
 
 type RoundingType = 'pill' | 'circle' | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
@@ -1384,7 +1451,7 @@ interface MasonryV2Ref {
   reflow: () => void;
   state: {
     width: number | undefined;
-  }
+  };
 }
 
 interface ModalProps {
@@ -1473,7 +1540,7 @@ interface NumberFieldProps {
     }
   >;
   autoComplete?: 'on' | 'off' | undefined;
-  dataTestId?: string,
+  dataTestId?: string;
   disabled?: boolean | undefined;
   errorMessage?: Node | undefined;
   helperText?: string | undefined;
@@ -1716,7 +1783,10 @@ interface RadioGroupRadioButtonProps {
 interface SearchFieldProps {
   accessibilityLabel: string;
   id: string;
-  onChange: AbstractEventHandler<React.SyntheticEvent<HTMLInputElement | HTMLButtonElement>, { value: string }>;
+  onChange: AbstractEventHandler<
+    React.SyntheticEvent<HTMLInputElement | HTMLButtonElement>,
+    { value: string }
+  >;
   accessibilityClearButtonLabel?: string | undefined;
   autoComplete?: 'on' | 'off' | 'username' | 'name' | undefined;
   errorMessage?: string | undefined;
@@ -1747,7 +1817,7 @@ interface SelectListProps {
   children: Node;
   id: string;
   onChange: AbstractEventHandler<React.SyntheticEvent<HTMLElement>, { value: string }>;
-  dataTestId?: string,
+  dataTestId?: string;
   disabled?: boolean | undefined;
   errorMessage?: string | undefined;
   helperText?: string | undefined;
@@ -2253,7 +2323,7 @@ interface TextProps {
 interface TextAreaProps {
   id: string;
   onChange: AbstractEventHandler<React.SyntheticEvent<HTMLTextAreaElement>, { value: string }>;
-  dataTestId?: string,
+  dataTestId?: string;
   disabled?: boolean | undefined;
   errorMessage?: Node | undefined;
   hasError?: boolean | undefined;

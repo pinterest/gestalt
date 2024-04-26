@@ -25,6 +25,7 @@ import alignTopRight from './align-top-right.svg';
 import alphabetical from './alphabetical.svg';
 import androidShare from './android-share.svg';
 import angledPin from './angled-pin.svg';
+import animate from './animate.svg';
 import api from './api.svg';
 import apple from './apple.svg';
 import apps from './apps.svg';
@@ -40,13 +41,22 @@ import arrowDown from './arrow-down.svg';
 import arrowEnd from './arrow-end.svg';
 import arrowForward from './arrow-forward.svg';
 import arrowLeftCurved from './arrow-left-curved.svg';
+import arrowNested from './arrow-nested.svg';
 import arrowStart from './arrow-start.svg';
 import arrowUp from './arrow-up.svg';
 import arrowUpLeft from './arrow-up-left.svg';
 import arrowUpRight from './arrow-up-right.svg';
 import arrowsVertical from './arrows-vertical.svg';
+import aspectRatio from './aspect-ratio.svg';
+import audioBars from './audio-bars.svg';
+import audioMix from './audio-mix.svg';
+import audioPlaying from './audio-playing.svg';
 import bell from './bell.svg';
 import board from './board.svg';
+import boardStickerLarge from './board-sticker-large.svg';
+import boardStickerSmall from './board-sticker-small.svg';
+import border from './border.svg';
+import borderShadow from './border-shadow.svg';
 import briefcase from './briefcase.svg';
 import businessHierarchy from './business-hierarchy.svg';
 import calendar from './calendar.svg';
@@ -63,34 +73,44 @@ import checkCircle from './check-circle.svg';
 import chevronUpCircle from './chevron-up-circle.svg';
 import circleOutline from './circle-outline.svg';
 import clear from './clear.svg';
+import clips from './clips.svg';
 import clock from './clock.svg';
 import clockChecked from './clock-checked.svg';
 import code from './code.svg';
 import codeChecked from './code-checked.svg';
 import cog from './cog.svg';
+import collage from './collage.svg';
 import collapse from './collapse.svg';
+import color from './color.svg';
+import colorPalette from './color-palette.svg';
 import colorPicker from './color-picker.svg';
 import colorSolid from './color-solid.svg';
 import colorSplit from './color-split.svg';
 import compass from './compass.svg';
 import compose from './compose.svg';
+import contrast from './contrast.svg';
 import conversionTag from './conversion-tag.svg';
 import copyToClipboard from './copy-to-clipboard.svg';
 import creditCard from './credit-card.svg';
 import crop from './crop.svg';
+import cutout from './cutout.svg';
 import dash from './dash.svg';
 import dataSource from './data-source.svg';
+import design from './design.svg';
 import desktop from './desktop.svg';
 import diagnostics from './diagnostics.svg';
 import directionalArrowLeft from './directional-arrow-left.svg';
 import directionalArrowRight from './directional-arrow-right.svg';
 import download from './download.svg';
 import dragDrop from './drag-drop.svg';
+import draw from './draw.svg';
 import duplicate from './duplicate.svg';
 import edit from './edit.svg';
 import ellipsis from './ellipsis.svg';
 import ellipsisCircleOutline from './ellipsis-circle-outline.svg';
 import envelope from './envelope.svg';
+import erase from './erase.svg';
+import eraseAuto from './erase-auto.svg';
 import expand from './expand.svg';
 import eye from './eye.svg';
 import eyeHide from './eye-hide.svg';
@@ -109,23 +129,28 @@ import filter from './filter.svg';
 import flag from './flag.svg';
 import flame from './flame.svg';
 import flash from './flash.svg';
+import flashSlash from './flash-slash.svg';
 import flashlight from './flashlight.svg';
 import flipHorizontal from './flip-horizontal.svg';
 import flipVertical from './flip-vertical.svg';
 import folder from './folder.svg';
 import forward from './forward.svg';
+import gauge from './gauge.svg';
+import ghost from './ghost.svg';
 import gif from './gif.svg';
 import globe from './globe.svg';
 import globeChecked from './globe-checked.svg';
 import gmail from './gmail.svg';
 import graphBar from './graph-bar.svg';
 import graphPie from './graph-pie.svg';
+import hand from './hand.svg';
 import handPointing from './hand-pointing.svg';
 import handle from './handle.svg';
 import heart from './heart.svg';
 import heartBroken from './heart-broken.svg';
 import heartHealth from './heart-health.svg';
 import heartOutline from './heart-outline.svg';
+import highlights from './highlights.svg';
 import history from './history.svg';
 import home from './home.svg';
 import ideaPin from './idea-pin.svg';
@@ -139,6 +164,8 @@ import instagram from './instagram.svg';
 import invoice from './invoice.svg';
 import key from './key.svg';
 import knoop from './knoop.svg';
+import labFlask from './lab-flask.svg';
+import lassoMagic from './lasso-magic.svg';
 import layout from './layout.svg';
 import lightbulb from './lightbulb.svg';
 import lightningBoltCircle from './lightning-bolt-circle.svg';
@@ -151,6 +178,7 @@ import logoLarge from './logo-large.svg';
 import logoSmall from './logo-small.svg';
 import logout from './logout.svg';
 import magicPen from './magic-pen.svg';
+import magicWand from './magic-wand.svg';
 import manageAccess from './manage-access.svg';
 import marginsLarge from './margins-large.svg';
 import marginsMedium from './margins-medium.svg';
@@ -158,6 +186,7 @@ import marginsSmall from './margins-small.svg';
 import maximize from './maximize.svg';
 import megaphone from './megaphone.svg';
 import menu from './menu.svg';
+import microphone from './microphone.svg';
 import minimize from './minimize.svg';
 import mobile from './mobile.svg';
 import moon from './moon.svg';
@@ -166,13 +195,20 @@ import movePin from './move-pin.svg';
 import musicOff from './music-off.svg';
 import musicOn from './music-on.svg';
 import mute from './mute.svg';
+import orientationLandscape from './orientation-landscape.svg';
+import orientationPortrait from './orientation-portrait.svg';
 import overlayText from './overlay-text.svg';
 import overlayTextOutline from './overlay-text-outline.svg';
 import overview from './overview.svg';
+import paperClip from './paper-clip.svg';
+import paperLinesPlus from './paper-lines-plus.svg';
 import pause from './pause.svg';
+import pen from './pen.svg';
+import penAuto from './pen-auto.svg';
 import people from './people.svg';
 import person from './person.svg';
 import personAdd from './person-add.svg';
+import personMagnifyingGlass from './person-magnifying-glass.svg';
 import phone from './phone.svg';
 import pin from './pin.svg';
 import pinHide from './pin-hide.svg';
@@ -180,6 +216,13 @@ import pinterest from './pinterest.svg';
 import play from './play.svg';
 import protect from './protect.svg';
 import questionMark from './question-mark.svg';
+import recordLimit from './record-limit.svg';
+import recordLimit5 from './record-limit-5.svg';
+import recordLimit10 from './record-limit-10.svg';
+import recordLimit15 from './record-limit-15.svg';
+import recordLimit30 from './record-limit-30.svg';
+import recordLimit60 from './record-limit-60.svg';
+import redo from './redo.svg';
 import refresh from './refresh.svg';
 import remove from './remove.svg';
 import reorderImages from './reorder-images.svg';
@@ -187,6 +230,7 @@ import replace from './replace.svg';
 import report from './report.svg';
 import rewind from './rewind.svg';
 import rotate from './rotate.svg';
+import saturation from './saturation.svg';
 import saveOutline from './save-outline.svg';
 import saved from './saved.svg';
 import scale from './scale.svg';
@@ -194,6 +238,7 @@ import scissors from './scissors.svg';
 import search from './search.svg';
 import searchByImage from './search-by-image.svg';
 import security from './security.svg';
+import select from './select.svg';
 import send from './send.svg';
 import serviceDropbox from './service-dropbox.svg';
 import serviceEtsy from './service-etsy.svg';
@@ -201,32 +246,47 @@ import serviceMessenger from './service-messenger.svg';
 import serviceOutlook from './service-outlook.svg';
 import serviceYahoo from './service-yahoo.svg';
 import serviceYoutube from './service-youtube.svg';
+import shadows from './shadows.svg';
+import shapes from './shapes.svg';
 import share from './share.svg';
 import shoppingBag from './shopping-bag.svg';
 import shrink from './shrink.svg';
+import shuffles from './shuffles.svg';
 import skintone from './skintone.svg';
+import slide from './slide.svg';
 import smiley from './smiley.svg';
 import smileyOutline from './smiley-outline.svg';
 import sortAscending from './sort-ascending.svg';
 import sortDescending from './sort-descending.svg';
 import sound from './sound.svg';
+import soundSlash from './sound-slash.svg';
 import sparkle from './sparkle.svg';
 import speech from './speech.svg';
 import speechEllipsis from './speech-ellipsis.svg';
 import speechExclamationPoint from './speech-exclamation-point.svg';
 import speechHeart from './speech-heart.svg';
 import speechOutline from './speech-outline.svg';
+import speed from './speed.svg';
+import speedThird from './speed-.3x.svg';
+import speedHalf from './speed-.5x.svg';
+import speed1x from './speed-1x.svg';
+import speed2x from './speed-2x.svg';
+import speed3x from './speed-3x.svg';
 import spread from './spread.svg';
 import star from './star.svg';
 import starHalf from './star-half.svg';
 import starOutline from './star-outline.svg';
 import sticker from './sticker.svg';
+import stickerImage from './sticker-image.svg';
 import sun from './sun.svg';
+import swap from './swap.svg';
 import switchAccount from './switch-account.svg';
 import table from './table.svg';
 import tag from './tag.svg';
 import target from './target.svg';
+import template from './template.svg';
 import terms from './terms.svg';
+import text from './text.svg';
 import textAlignCenter from './text-align-center.svg';
 import textAlignLeft from './text-align-left.svg';
 import textAlignRight from './text-align-right.svg';
@@ -239,11 +299,16 @@ import textSentenceCase from './text-sentence-case.svg';
 import textSize from './text-size.svg';
 import textSmall from './text-small.svg';
 import textSpacing from './text-spacing.svg';
+import textSticker from './text-sticker.svg';
 import thumbsDown from './thumbs-down.svg';
 import thumbsUp from './thumbs-up.svg';
+import timer from './timer.svg';
+import timer3 from './timer-3.svg';
+import timer10 from './timer-10.svg';
 import trashCan from './trash-can.svg';
 import trending from './trending.svg';
 import twitter from './twitter.svg';
+import undo from './undo.svg';
 import uploadFeed from './upload-feed.svg';
 import videoAdvance10Seconds from './video-advance-10-seconds.svg';
 import videoCamera from './video-camera.svg';
@@ -253,6 +318,8 @@ import viewTypeDense from './view-type-dense.svg';
 import viewTypeList from './view-type-list.svg';
 import viewTypeSpace from './view-type-space.svg';
 import visit from './visit.svg';
+import warmth from './warmth.svg';
+import wave from './wave.svg';
 import whatsApp from './whats-app.svg';
 import wifiNo from './wifi-no.svg';
 import workflowStatusAll from './workflow-status-all.svg';
@@ -533,6 +600,74 @@ const icons = Object.freeze({
   'workflow-status-unstarted': workflowStatusUnstarted,
   'workflow-status-warning': workflowStatusWarning,
   x,
+  // test. to be sorted alphabetically later
+  animate,
+  'arrow-nested': arrowNested,
+  'aspect-ratio': aspectRatio,
+  'audio-bars': audioBars,
+  'audio-mix': audioMix,
+  'audio-playing': audioPlaying,
+  'board-stickerLarge': boardStickerLarge,
+  'board-stickerSmall': boardStickerSmall,
+  border,
+  'border-shadow': borderShadow,
+  clips,
+  collage,
+  'color-palette': colorPalette,
+  color,
+  contrast,
+  cutout,
+  design,
+  draw,
+  'erase-auto': eraseAuto,
+  erase,
+  'flash-slash': flashSlash,
+  gauge,
+  ghost,
+  hand,
+  highlights,
+  'lab-flask': labFlask,
+  'lasso-magic': lassoMagic,
+  'magic-wand': magicWand,
+  microphone,
+  'orientation-landscape': orientationLandscape,
+  'orientation-portrait': orientationPortrait,
+  'paper-clip': paperClip,
+  'paper-lines-plus': paperLinesPlus,
+  'pen-auto': penAuto,
+  pen,
+  'person-magnifying-glass': personMagnifyingGlass,
+  'record-limit-5': recordLimit5,
+  'record-limit-10': recordLimit10,
+  'record-limit-15': recordLimit15,
+  'record-limit-30': recordLimit30,
+  'record-limit-60': recordLimit60,
+  'record-limit': recordLimit,
+  redo,
+  saturation,
+  select,
+  shadows,
+  shapes,
+  shuffles,
+  slide,
+  'soundSlash': soundSlash,
+  'speed-.3x': speedThird,
+  'speed-.5x': speedHalf,
+  'speed-1x': speed1x,
+  'speed-2x': speed2x,
+  'speed-3x': speed3x,
+  speed,
+  'sticker-image': stickerImage,
+  swap,
+  template,
+  'text-sticker': textSticker,
+  text,
+  'timer-3': timer3,
+  'timer-10': timer10,
+  timer,
+  undo,
+  warmth,
+  wave,
 });
 
 export default icons;
