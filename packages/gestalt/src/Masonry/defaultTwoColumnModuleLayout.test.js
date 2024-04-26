@@ -683,7 +683,7 @@ describe('multi column layout test cases', () => {
     });
     layout(mockItems);
     // First slot
-    expect(positionCache.get(mockItems[multiColumnModuleIndex]).width).toEqual(1002);
+    expect(positionCache.get(mockItems[multiColumnModuleIndex])?.width).toEqual(1002);
 
     // Correct position when two column module is at the middle of the batch and fits on the row
     measurementStore.reset();
@@ -701,7 +701,7 @@ describe('multi column layout test cases', () => {
     });
     layout(mockItems);
     // First row third position
-    expect(positionCache.get(mockItems[multiColumnModuleIndex]).width).toEqual(1002);
+    expect(positionCache.get(mockItems[multiColumnModuleIndex])?.width).toEqual(1002);
   });
 
   test('correctly position multiple multi column items', () => {
