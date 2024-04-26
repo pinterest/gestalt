@@ -1,3 +1,9 @@
+## 147.0.8 (Apr 26, 2024)
+
+### Patch
+
+- Docs: RTL icons update ([#3536](https://github.com/pinterest/gestalt/pull/3536)) - [Preview link](https://deploy-preview-3536--gestalt.netlify.app?devexample=true)
+
 ## 147.0.7 (Apr 25, 2024)
 
 ### Patch
