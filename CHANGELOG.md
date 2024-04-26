@@ -1,3 +1,9 @@
+## 147.0.9 (Apr 26, 2024)
+
+### Patch
+
+- Masonry: Correctly set width when multi column item is set to scale to fit ([#3538](https://github.com/pinterest/gestalt/pull/3538)) - [Preview link](https://deploy-preview-3538--gestalt.netlify.app?devexample=true)
+
 ## 147.0.8 (Apr 26, 2024)
 
 ### Patch
