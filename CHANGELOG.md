@@ -1,3 +1,9 @@
+## 147.1.0 (Apr 26, 2024)
+
+### Minor
+
+- Icon: more Icons for Android ([#3539](https://github.com/pinterest/gestalt/pull/3539)) - [Preview link](https://deploy-preview-3539--gestalt.netlify.app?devexample=true)
+
 ## 147.0.9 (Apr 26, 2024)
 
 ### Patch
