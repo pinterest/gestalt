@@ -1,3 +1,9 @@
+## 147.2.1 (Apr 29, 2024)
+
+### Patch
+
+- Docs: Update iOS component status to reflect the latest ([#3542](https://github.com/pinterest/gestalt/pull/3542)) - [Preview link](https://deploy-preview-3542--gestalt.netlify.app?devexample=true)
+
 ## 147.2.0 (Apr 26, 2024)
 
 ### Minor
