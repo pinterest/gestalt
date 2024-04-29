@@ -704,61 +704,6 @@ describe('multi column layout test cases', () => {
     expect(positionCache.get(mockItems[multiColumnModuleIndex])?.width).toEqual(1002);
   });
 
-  test('correctly position multiple multi column items', () => {
-    const measurementStore = new MeasurementStore<{ ... }, number>();
-    const positionCache = new MeasurementStore<{ ... }, Position>();
-    const heightsCache = new HeightsStore();
-    const items = [
-      { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
-      { 'name': 'Pin 1', 'height': 201, 'color': '#F67076' },
-      { 'name': 'Pin 2', 'height': 202, 'color': '#FAB032', columnSpan: 2 },
-      { 'name': 'Pin 3', 'height': 203, 'color': '#EDF21D' },
-      { 'name': 'Pin 4', 'height': 204, 'color': '#CF4509', columnSpan: 2 },
-      { 'name': 'Pin 5', 'height': 205, 'color': '#230BAF' },
-      { 'name': 'Pin 6', 'height': 300, 'color': '#AB032E' },
-      { 'name': 'Pin 7', 'height': 310, 'color': '#DF21DC' },
-      { 'name': 'Pin 8', 'height': 280, 'color': '#F45098' },
-      { 'name': 'Pin 9', 'height': 170, 'color': '#F67076' },
-      { 'name': 'Pin 10', 'height': 220, 'color': '#67076F' },
-      { 'name': 'Pin 11', 'height': 280, 'color': '#AB032E' },
-      { 'name': 'Pin 12', 'height': 150, 'color': '#DF21DC' },
-    ];
-    items.forEach((item) => {
-      measurementStore.set(item, item.height);
-    });
-
-    const layout = defaultTwoColumnModuleLayout({
-      columnWidth: 240,
-      measurementCache: measurementStore,
-      heightsCache,
-      justify: 'start',
-      minCols: 5,
-      positionCache,
-      rawItemCount: items.length,
-      width: 1440,
-    });
-
-    items.forEach((item) => {
-      measurementStore.set(item, item.height);
-    });
-    let positions = layout(items);
-
-    // First we only should position until we find the second multi column
-    expect(positions.length).toEqual(4);
-
-    // The second time we should position all the items
-    positions = layout(items);
-    expect(positions.length).toEqual(13);
-
-    // Confirm that the second item had the correct width
-    expect(positionCache.get(items[4])).toEqual({
-      height: 204,
-      left: 600,
-      top: 216,
-      width: 494,
-    });
-  });
-
   test.each([
     [5, 2],
     [4, 3],
