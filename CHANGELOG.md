@@ -1,3 +1,9 @@
+## 147.2.2 (Apr 29, 2024)
+
+### Patch
+
+- Revert "Masonry: Enable multiple multi column items on layout logic (… ([#3543](https://github.com/pinterest/gestalt/pull/3543)) - [Preview link](https://deploy-preview-3543--gestalt.netlify.app?devexample=true)
+
 ## 147.2.1 (Apr 29, 2024)
 
 ### Patch
