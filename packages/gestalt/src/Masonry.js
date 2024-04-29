@@ -601,15 +601,17 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
       gridBody = (
         <div ref={this.setGridWrapperRef} style={{ width: '100%' }}>
           <div className={styles.Masonry} role="list" style={{ height, width }}>
-            {itemsToRender.map((item, i) =>
-              this.renderMasonryComponent(
-                item,
-                i,
-                // If we have items in the positionStore (newer way of tracking positions used for 2-col support), use that. Otherwise fall back to the classic way of tracking positions
-                // this is only required atm because the two column layout doesn't not return positions in their original item order
-                positionStore.get(item) ?? positions[i],
-              ),
-            )}
+            {itemsToRender
+              .filter((item, i) => positionStore.get(item) || positions[i])
+              .map((item, i) =>
+                this.renderMasonryComponent(
+                  item,
+                  i,
+                  // If we have items in the positionStore (newer way of tracking positions used for 2-col support), use that. Otherwise fall back to the classic way of tracking positions
+                  // this is only required atm because the two column layout doesn't not return positions in their original item order
+                  positionStore.get(item) ?? positions[i],
+                ),
+              )}
           </div>
           <div className={styles.Masonry} style={{ width }}>
             {itemsToMeasure.map((data, i) => {

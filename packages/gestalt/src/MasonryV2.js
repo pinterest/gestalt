@@ -322,12 +322,13 @@ function useLayout<T: { +[string]: mixed }>({
   positions: $ReadOnlyArray<?Position>,
   updateMeasurement: (T, number) => void,
 } {
-  const hasMultiColumnItems =
-    _twoColItems &&
-    items
-      .filter((item) => item && !positionStore.has(item))
-      .some((item) => typeof item.columnSpan === 'number' && item.columnSpan > 1);
-  const itemToMeasureCount = hasMultiColumnItems ? MULTI_COL_ITEMS_MEASURE_BATCH_SIZE : minCols;
+  const multiColumnItemsCount = _twoColItems
+    ? items
+        .filter((item) => item && !positionStore.has(item))
+        .filter((item) => typeof item.columnSpan === 'number' && item.columnSpan > 1).length
+    : 0;
+  const itemToMeasureCount =
+    multiColumnItemsCount > 0 ? MULTI_COL_ITEMS_MEASURE_BATCH_SIZE : minCols;
   const layoutFunction = getLayoutAlgorithm({
     columnWidth,
     gutter,
@@ -382,7 +383,7 @@ function useLayout<T: { +[string]: mixed }>({
     // - itemMeasurementsCount: if we have a change in the number of items we've measured, we should always recalculage
     // - canPerformLayout: if we don't have a width, we can't calculate positions yet. so recalculate once we're able to
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [itemMeasurementsCount, items, canPerformLayout]);
+  }, [itemMeasurementsCount, items, canPerformLayout, multiColumnItemsCount]);
 
   const updateMeasurement = useCallback(
     (item: T, itemHeight: number) => {
