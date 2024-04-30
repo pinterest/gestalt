@@ -1,3 +1,9 @@
+## 147.2.3 (Apr 30, 2024)
+
+### Patch
+
+- Dropdown: fix ts file bug ([#3546](https://github.com/pinterest/gestalt/pull/3546)) - [Preview link](https://deploy-preview-3546--gestalt.netlify.app?devexample=true)
+
 ## 147.2.2 (Apr 29, 2024)
 
 ### Patch
