@@ -1,3 +1,9 @@
+## 147.2.4 (Apr 30, 2024)
+
+### Patch
+
+- Masonry: Enable multiple multi column items, second take ([#3545](https://github.com/pinterest/gestalt/pull/3545)) - [Preview link](https://deploy-preview-3545--gestalt.netlify.app?devexample=true)
+
 ## 147.2.3 (Apr 30, 2024)
 
 ### Patch
