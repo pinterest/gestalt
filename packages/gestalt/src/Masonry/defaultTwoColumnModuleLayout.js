@@ -468,17 +468,6 @@ function getPositionsWithMultiColumnItem<T: { +[string]: mixed }>({
     ? []
     : oneColumnItems.slice(splitIndex, splitIndex + MULTI_COL_ITEMS_MEASURE_BATCH_SIZE);
 
-  console.log({
-    multiColumnIndex,
-    emptyColumns,
-    fitsFirstRow,
-    replaceWithOneColItems,
-    splitIndex,
-    heights,
-    pre: pre.map((item) => itemsToPosition.indexOf(item)),
-    graphBatch: graphBatch.map((item) => itemsToPosition.indexOf(item)),
-  });
-
   // Get positions and heights for painted items
   const { positions: paintedItemPositions, heights: paintedItemHeights } =
     getOneColumnItemPositions({
@@ -486,11 +475,6 @@ function getPositionsWithMultiColumnItem<T: { +[string]: mixed }>({
       heights,
       ...commonGetPositionArgs,
     });
-
-  console.log({
-    paintedItemPositions,
-    paintedItemHeights,
-  });
 
   // Adding the extra prev column items to the position cache
   paintedItemPositions.forEach(({ item, position }) => {
@@ -505,10 +489,6 @@ function getPositionsWithMultiColumnItem<T: { +[string]: mixed }>({
     whitespaceThreshold,
     columnSpan: multiColumnItemColumnSpan,
     ...commonGetPositionArgs,
-  });
-
-  console.log({
-    winningNode,
   });
 
   // Insert multi column item(s)
@@ -526,10 +506,6 @@ function getPositionsWithMultiColumnItem<T: { +[string]: mixed }>({
     position: multiColItemPosition,
   });
 
-  console.log({
-    winningPositions,
-  });
-
   const positionedItems = new Set(winningPositions.map(({ item }) => item));
   // depending on where the multi column item is positioned, there may be items that are still not positioned
   // calculate the remaining items and add them to the list of final positions
@@ -542,8 +518,6 @@ function getPositionsWithMultiColumnItem<T: { +[string]: mixed }>({
     },
   );
   const finalPositions = winningPositions.concat(remainingItemPositions);
-
-  console.log({ finalPositions });
 
   // Log additional whitespace shown above the multi column module
   // This may need to be tweaked or removed if pin leveling is implemented
