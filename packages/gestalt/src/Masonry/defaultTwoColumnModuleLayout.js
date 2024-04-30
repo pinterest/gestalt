@@ -202,6 +202,7 @@ function getMultiColItemPosition<T>({
   item,
   columnSpan,
   measurementCache,
+  fitsFirstRow,
 }: {
   centerOffset: number,
   columnWidth: number,
@@ -212,6 +213,7 @@ function getMultiColItemPosition<T>({
   columnSpan: number,
   measurementCache: Cache<T, number>,
   positionCache?: Cache<T, Position>,
+  fitsFirstRow: boolean,
 }): {
   additionalWhitespace: number | null,
   heights: $ReadOnlyArray<number>,
@@ -232,9 +234,9 @@ function getMultiColItemPosition<T>({
 
   // Find height deltas for each column as compared to the next column
   const adjacentColumnHeightDeltas = getAdjacentColumnHeightDeltas(heights, columnSpan);
-  const lowestAdjacentColumnHeightDeltaIndex = adjacentColumnHeightDeltas.indexOf(
-    Math.min(...adjacentColumnHeightDeltas),
-  );
+  const lowestAdjacentColumnHeightDeltaIndex = fitsFirstRow
+    ? heights.indexOf(0)
+    : adjacentColumnHeightDeltas.indexOf(Math.min(...adjacentColumnHeightDeltas));
 
   const lowestAdjacentColumnHeights = heights.slice(
     lowestAdjacentColumnHeightDeltaIndex,
@@ -401,6 +403,162 @@ function getGraphPositions<T>({
     : { winningNode: startNodeData, additionalWhitespace: startingLowestAdjacentColumnHeightDelta };
 }
 
+function getPositionsWithMultiColumnItem<T: { +[string]: mixed }>({
+  multiColumnItem,
+  itemsToPosition,
+  heights,
+  whitespaceThreshold,
+  columnCount,
+  heightsCache,
+  logWhitespace,
+  ...commonGetPositionArgs
+}: {
+  multiColumnItem: T,
+  itemsToPosition: $ReadOnlyArray<T>,
+  heights: $ReadOnlyArray<number>,
+  whitespaceThreshold?: number,
+  logWhitespace?: (number) => void,
+  columnCount: number,
+  centerOffset: number,
+  columnWidth: number,
+  columnWidthAndGutter: number,
+  gutter: number,
+  measurementCache: Cache<T, number>,
+  positionCache: Cache<T, Position>,
+  heightsCache?: HeightsStoreInterface,
+}): {
+  positions: $ReadOnlyArray<{ item: T, position: Position }>,
+  heights: $ReadOnlyArray<number>,
+} {
+  const { positionCache } = commonGetPositionArgs;
+
+  // This is the index inside the items to position array
+  const multiColumnIndex = itemsToPosition.indexOf(multiColumnItem);
+  const oneColumnItems = itemsToPosition.filter(
+    (item) => !item.columnSpan || item.columnSpan === 1,
+  );
+
+  // The empty columns can be different from columnCount if there are
+  // items already positioned from previous batches
+  const emptyColumns = heights.reduce((acc, height) => (height === 0 ? acc + 1 : acc), 0);
+
+  const multiColumnItemColumnSpan = Math.min(parseInt(multiColumnItem.columnSpan, 10), columnCount);
+
+  // Skip the graph logic if the two column item can be displayed on the first row,
+  // this means graphBatch is empty and multi column item is positioned on its
+  // original position (twoColumnIndex)
+  const fitsFirstRow = emptyColumns >= multiColumnItemColumnSpan + multiColumnIndex;
+
+  // When multi column item is the last item of the first row but can't fit
+  // we need to fill those spaces with one col items
+  const replaceWithOneColItems = !fitsFirstRow && multiColumnIndex < emptyColumns;
+
+  // Calculate how many items are on pre array and how many on graphBatch
+  // pre items are positioned before the two column item
+  const splitIndex = calculateSplitIndex({
+    oneColumnItemsLength: oneColumnItems.length,
+    multiColumnIndex,
+    emptyColumns,
+    fitsFirstRow,
+    replaceWithOneColItems,
+  });
+
+  const pre = oneColumnItems.slice(0, splitIndex);
+  const graphBatch = fitsFirstRow
+    ? []
+    : oneColumnItems.slice(splitIndex, splitIndex + MULTI_COL_ITEMS_MEASURE_BATCH_SIZE);
+
+  console.log({
+    multiColumnIndex,
+    emptyColumns,
+    fitsFirstRow,
+    replaceWithOneColItems,
+    splitIndex,
+    heights,
+    pre: pre.map((item) => itemsToPosition.indexOf(item)),
+    graphBatch: graphBatch.map((item) => itemsToPosition.indexOf(item)),
+  });
+
+  // Get positions and heights for painted items
+  const { positions: paintedItemPositions, heights: paintedItemHeights } =
+    getOneColumnItemPositions({
+      items: pre,
+      heights,
+      ...commonGetPositionArgs,
+    });
+
+  console.log({
+    paintedItemPositions,
+    paintedItemHeights,
+  });
+
+  // Adding the extra prev column items to the position cache
+  paintedItemPositions.forEach(({ item, position }) => {
+    positionCache.set(item, position);
+  });
+
+  // Get a node with the required whitespace
+  const { winningNode, additionalWhitespace } = getGraphPositions({
+    items: graphBatch,
+    positions: paintedItemPositions,
+    heights: paintedItemHeights,
+    whitespaceThreshold,
+    columnSpan: multiColumnItemColumnSpan,
+    ...commonGetPositionArgs,
+  });
+
+  console.log({
+    winningNode,
+  });
+
+  // Insert multi column item(s)
+  const { heights: updatedHeights, position: multiColItemPosition } = getMultiColItemPosition<T>({
+    item: multiColumnItem,
+    heights: winningNode.heights,
+    columnSpan: multiColumnItemColumnSpan,
+    fitsFirstRow,
+    ...commonGetPositionArgs,
+  });
+
+  // Combine winning positions and multi column item position, add to cache
+  const winningPositions = winningNode.positions.concat({
+    item: multiColumnItem,
+    position: multiColItemPosition,
+  });
+
+  console.log({
+    winningPositions,
+  });
+
+  const positionedItems = new Set(winningPositions.map(({ item }) => item));
+  // depending on where the multi column item is positioned, there may be items that are still not positioned
+  // calculate the remaining items and add them to the list of final positions
+  const remainingItems = itemsToPosition.filter((item) => !positionedItems.has(item));
+  const { heights: finalHeights, positions: remainingItemPositions } = getOneColumnItemPositions<T>(
+    {
+      items: remainingItems,
+      heights: updatedHeights,
+      ...commonGetPositionArgs,
+    },
+  );
+  const finalPositions = winningPositions.concat(remainingItemPositions);
+
+  console.log({ finalPositions });
+
+  // Log additional whitespace shown above the multi column module
+  // This may need to be tweaked or removed if pin leveling is implemented
+  logWhitespace?.(additionalWhitespace);
+
+  finalPositions.forEach(({ item, position }) => {
+    positionCache.set(item, position);
+  });
+  heightsCache?.setHeights(finalHeights);
+
+  // FUTURE OPTIMIZATION - do we want a min threshold for an acceptably low score?
+  // If so, we could save the multi column item somehow and try again with the next batch of items
+  return { positions: finalPositions, heights: finalHeights };
+}
+
 const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
   columnWidth = 236,
   gutter = 14,
@@ -472,7 +630,6 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
     const multiColumnItems = itemsWithoutPositions.filter(
       (item) => typeof item.columnSpan === 'number' && item.columnSpan > 1,
     );
-    const hasMultiColumnItems = multiColumnItems.length > 0;
 
     const commonGetPositionArgs = {
       centerOffset,
@@ -483,112 +640,41 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
       positionCache,
     };
 
-    if (hasMultiColumnItems) {
-      // Currently we only support one two column item at the same time, more items will be supporped soon
-      const multiColumnIndex = itemsWithoutPositions.indexOf(multiColumnItems[0]);
-      const oneColumnItems = itemsWithoutPositions.filter(
-        (item) => !item.columnSpan || item.columnSpan === 1,
-      );
-
-      // The empty columns can be different from columnCount if there are
-      // items already positioned from previous batches
-      const emptyColumns = heights.reduce((acc, height) => (height === 0 ? acc + 1 : acc), 0);
-
-      const multiColumnItemColumnSpan = Math.min(
-        parseInt(multiColumnItems[0].columnSpan, 10),
-        columnCount,
-      );
-
-      // Skip the graph logic if the two column item can be displayed on the first row,
-      // this means graphBatch is empty and multi column item is positioned on its
-      // original position (twoColumnIndex)
-      const fitsFirstRow = emptyColumns >= multiColumnItemColumnSpan + multiColumnIndex;
-
-      // When multi column item is the last item of the first row but can't fit
-      // we need to fill those spaces with one col items
-      const replaceWithOneColItems = !fitsFirstRow && multiColumnIndex < emptyColumns;
-
-      // Calculate how many items are on pre array and how many on graphBatch
-      // pre items are positioned before the two column item
-      const splitIndex = calculateSplitIndex({
-        oneColumnItemsLength: oneColumnItems.length,
-        multiColumnIndex,
-        emptyColumns,
-        fitsFirstRow,
-        replaceWithOneColItems,
-      });
-
-      const pre = oneColumnItems.slice(0, splitIndex);
-      const graphBatch = fitsFirstRow
-        ? []
-        : oneColumnItems.slice(splitIndex, splitIndex + MULTI_COL_ITEMS_MEASURE_BATCH_SIZE);
-
-      // Get positions and heights for painted items
+    if (multiColumnItems.length > 0) {
       const { positions: paintedItemPositions, heights: paintedItemHeights } =
         getOneColumnItemPositions({
-          items: [...itemsWithPositions, ...pre],
+          items: itemsWithPositions,
           heights,
           ...commonGetPositionArgs,
         });
 
-      // Adding the extra prev column items to the position cache
-      if (paintedItemPositions.length > itemsWithPositions.length) {
-        paintedItemPositions.forEach(({ item, position }) => {
-          positionCache.set(item, position);
-        });
+      let currentPositions = paintedItemPositions;
+      let currentHeights = paintedItemHeights;
+
+      for (let i = 0; i < multiColumnItems.length; i += 1) {
+        // For the items that are not the last one we only postion up to the next multi col item
+        const itemsToPosition =
+          i === multiColumnItems.length - 1
+            ? items.filter((item) => !positionCache.get(item))
+            : items
+                .slice(0, items.indexOf(multiColumnItems[i + 1]))
+                .filter((item) => !positionCache.get(item));
+        const { heights: updatedHeights, positions: updatedPositions } =
+          getPositionsWithMultiColumnItem({
+            multiColumnItem: multiColumnItems[i],
+            itemsToPosition,
+            heights: currentHeights,
+            whitespaceThreshold,
+            logWhitespace,
+            columnCount,
+            heightsCache,
+            ...commonGetPositionArgs,
+          });
+        currentPositions = currentPositions.concat(updatedPositions);
+        currentHeights = updatedHeights;
       }
 
-      // Get a node with the required whitespace
-      const { winningNode, additionalWhitespace } = getGraphPositions({
-        items: graphBatch,
-        positions: paintedItemPositions,
-        heights: paintedItemHeights,
-        whitespaceThreshold,
-        columnSpan: multiColumnItemColumnSpan,
-        ...commonGetPositionArgs,
-      });
-
-      // Insert multi column item(s)
-      const multiColItem = multiColumnItems[0]; // this should always only be one
-      const { heights: updatedHeights, position: multiColItemPosition } =
-        getMultiColItemPosition<T>({
-          item: multiColItem,
-          heights: winningNode.heights,
-          columnSpan: multiColumnItemColumnSpan,
-          ...commonGetPositionArgs,
-        });
-
-      // Combine winning positions and multi column item position, add to cache
-      const winningPositions = winningNode.positions.concat({
-        item: multiColItem,
-        position: multiColItemPosition,
-      });
-
-      const positionedItems = new Set(winningPositions.map(({ item }) => item));
-      // depending on where the multi column item is positioned, there may be items that are still not positioned
-      // calculate the remaining items and add them to the list of final positions
-      const remainingItems = items.filter((item) => !positionedItems.has(item));
-      const { heights: finalHeights, positions: remainingItemPositions } =
-        getOneColumnItemPositions<T>({
-          items: remainingItems,
-          heights: updatedHeights,
-          ...commonGetPositionArgs,
-        });
-      const finalPositions = winningPositions.concat(remainingItemPositions);
-
-      // Log additional whitespace shown above the multi column module
-      // This may need to be tweaked or removed if pin leveling is implemented
-      logWhitespace?.(additionalWhitespace);
-
-      finalPositions.forEach(({ item, position }) => {
-        positionCache.set(item, position);
-      });
-      heightsCache?.setHeights(finalHeights);
-
-      // FUTURE OPTIMIZATION - do we want a min threshold for an acceptably low score?
-      // If so, we could save the multi column item somehow and try again with the next batch of items
-
-      return getPositionsOnly(finalPositions);
+      return getPositionsOnly<T>(currentPositions);
     }
 
     const { heights: finalHeights, positions: itemPositions } = getOneColumnItemPositions<T>({
