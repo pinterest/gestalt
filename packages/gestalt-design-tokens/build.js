@@ -456,7 +456,7 @@ function getWebConfig({ theme = 'main-theme', mode = 'light' }) {
                 {
                   'destination': 'constants.ts',
                   'format': 'constantLibrary-commonJS/flow',
-                  '_format_comment': 'Custom. See packages/gestalt-design-tokens/build.ts',
+                  '_format_comment': 'Custom.',
                 },
                 {
                   'destination': nameOutputFile({ name: 'tokens.ts', theme }),
