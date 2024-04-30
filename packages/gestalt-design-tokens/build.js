@@ -90,15 +90,6 @@ StyleDictionary.registerFormat({
 });
 
 StyleDictionary.registerFormat({
-  name: 'javascript/es6/ts',
-  // https://amzn.github.io/style-dictionary/#/formats?id=javascriptes6
-  formatter: ({ dictionary }) =>
-    `${StyleDictionary.format['javascript/es6']({
-      dictionary,
-    })}`,
-});
-
-StyleDictionary.registerFormat({
   name: 'json/flat/flow',
   formatter: ({ dictionary }) => formatFlowTypes(dictionary.allTokens),
 });
@@ -470,12 +461,14 @@ function getWebConfig({ theme = 'main-theme', mode = 'light' }) {
                 {
                   'destination': nameOutputFile({ name: 'tokens.ts', theme }),
                   'format': 'commonJS/flow',
-                  '_format_comment': 'Custom.',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=javascriptes6',
                 },
                 {
                   'destination': nameOutputFile({ name: 'tokens_individual.ts', theme }),
-                  'format': 'javascript/es6/ts',
-                  '_format_comment': 'Custom.',
+                  'format': 'javascript/es6',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=javascriptes6',
                 },
                 {
                   'destination': nameOutputFile({ name: 'data-viz-tokens.ts', theme }),
@@ -486,8 +479,9 @@ function getWebConfig({ theme = 'main-theme', mode = 'light' }) {
                 },
                 {
                   'destination': nameOutputFile({ name: 'data-viz-tokens_individual.ts', theme }),
-                  'format': 'javascript/es6/ts',
-                  '_format_comment': 'Custom.',
+                  'format': 'javascript/es6',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=javascriptes6',
                   'filter': 'dataVisualizationFilter',
                   '_filter_comment': 'Custom.',
                 },
@@ -500,8 +494,9 @@ function getWebConfig({ theme = 'main-theme', mode = 'light' }) {
                 },
                 {
                   'destination': nameOutputFile({ name: 'tokens_individual_dark.ts', theme }),
-                  'format': 'javascript/es6/ts',
-                  '_format_comment': 'Custom.',
+                  'format': 'javascript/es6',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=javascriptes6',
                 },
                 {
                   'destination': nameOutputFile({ name: 'data-viz-tokens_dark.ts', theme }),
@@ -515,8 +510,9 @@ function getWebConfig({ theme = 'main-theme', mode = 'light' }) {
                     name: 'data-viz-tokens_individual_dark.ts',
                     theme,
                   }),
-                  'format': 'javascript/es6/ts',
-                  '_format_comment': 'Custom.',
+                  'format': 'javascript/es6',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=javascriptes6',
                   'filter': 'dataVisualizationFilter',
                   '_filter_comment': 'Custom.',
                 },
