@@ -738,10 +738,6 @@ describe('multi column layout test cases', () => {
       width: 1440,
     });
 
-    items.forEach((item) => {
-      measurementStore.set(item, item.height);
-    });
-
     const positions = layout(items);
     expect(positions.length).toEqual(13);
 
