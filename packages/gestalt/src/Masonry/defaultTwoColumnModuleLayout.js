@@ -407,6 +407,7 @@ function getPositionsWithMultiColumnItem<T: { +[string]: mixed }>({
   multiColumnItem,
   itemsToPosition,
   heights,
+  prevPositions,
   whitespaceThreshold,
   columnCount,
   heightsCache,
@@ -416,6 +417,7 @@ function getPositionsWithMultiColumnItem<T: { +[string]: mixed }>({
   multiColumnItem: T,
   itemsToPosition: $ReadOnlyArray<T>,
   heights: $ReadOnlyArray<number>,
+  prevPositions: $ReadOnlyArray<{ item: T, position: Position }>,
   whitespaceThreshold?: number,
   logWhitespace?: (number) => void,
   columnCount: number,
@@ -530,7 +532,7 @@ function getPositionsWithMultiColumnItem<T: { +[string]: mixed }>({
 
   // FUTURE OPTIMIZATION - do we want a min threshold for an acceptably low score?
   // If so, we could save the multi column item somehow and try again with the next batch of items
-  return { positions: finalPositions, heights: finalHeights };
+  return { positions: prevPositions.concat(finalPositions), heights: finalHeights };
 }
 
 const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
@@ -615,6 +617,17 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
     };
 
     if (multiColumnItems.length > 0) {
+      const batchSize = multiColumnItems.length;
+      const batches = Array.from({ length: batchSize }, (): $ReadOnlyArray<T> => []).map(
+        (batch, i) => {
+          const startIndex = i === 0 ? 0 : items.indexOf(multiColumnItems[i]);
+          const endIndex =
+            i + 1 === multiColumnItems.length
+              ? items.length
+              : items.indexOf(multiColumnItems[i + 1]);
+          return items.slice(startIndex, endIndex);
+        },
+      );
       const { positions: paintedItemPositions, heights: paintedItemHeights } =
         getOneColumnItemPositions({
           items: itemsWithPositions,
@@ -622,31 +635,26 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
           ...commonGetPositionArgs,
         });
 
-      let currentPositions = paintedItemPositions;
-      let currentHeights = paintedItemHeights;
-
-      for (let i = 0; i < multiColumnItems.length; i += 1) {
-        // For the items that are not the last one we only postion up to the next multi col item
-        const itemsToPosition =
-          i === multiColumnItems.length - 1
-            ? items.filter((item) => !positionCache.get(item))
-            : items
-                .slice(0, items.indexOf(multiColumnItems[i + 1]))
-                .filter((item) => !positionCache.get(item));
-        const { heights: updatedHeights, positions: updatedPositions } =
+      const {
+        positions: currentPositions,
+      }: {
+        heights: $ReadOnlyArray<number>,
+        positions: $ReadOnlyArray<{ item: T, position: Position }>,
+      } = batches.reduce(
+        (acc, itemsToPosition, i) =>
           getPositionsWithMultiColumnItem({
             multiColumnItem: multiColumnItems[i],
             itemsToPosition,
-            heights: currentHeights,
+            heights: acc.heights,
+            prevPositions: acc.positions,
             whitespaceThreshold,
             logWhitespace,
             columnCount,
             heightsCache,
             ...commonGetPositionArgs,
-          });
-        currentPositions = currentPositions.concat(updatedPositions);
-        currentHeights = updatedHeights;
-      }
+          }),
+        { heights: paintedItemHeights, positions: paintedItemPositions },
+      );
 
       return getPositionsOnly<T>(currentPositions);
     }
