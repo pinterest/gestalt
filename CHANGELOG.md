@@ -1,3 +1,9 @@
+## 147.2.5 (Apr 30, 2024)
+
+### Patch
+
+- Internal: remove dead dev dependency ([#3549](https://github.com/pinterest/gestalt/pull/3549)) - [Preview link](https://deploy-preview-3549--gestalt.netlify.app?devexample=true)
+
 ## 147.2.4 (Apr 30, 2024)
 
 ### Patch
