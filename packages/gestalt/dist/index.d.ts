@@ -1097,6 +1097,7 @@ interface DropdownItemProps {
       item: DropdownOption;
     }
   >;
+  disabled?: boolean | undefined;
   option: DropdownOption;
   badge?: BadgeObject | undefined;
   children?: Node;
@@ -1110,6 +1111,7 @@ interface DropdownLinkProps {
   badge?: BadgeObject | undefined;
   children?: Node;
   dataTestId?: string | undefined;
+  disabled?: boolean | undefined;
   isExternal?: boolean | undefined;
   onClick?:
     | AbstractEventHandler<
