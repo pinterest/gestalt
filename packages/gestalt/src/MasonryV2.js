@@ -151,7 +151,7 @@ function useForceUpdate() {
 
 // useElementWidth returns the width of the gridWrapper element
 // and uses useSyncExternalStore to subscribe to window resize events
-function useElementWidth(element: ?HTMLDivElement) {
+function useElementWidth(element: ?HTMLDivElement): [() => void, ?number] {
   const prevElementRef = useRef<?HTMLDivElement>(null);
   const elementWidthRef = useRef<?number>(null);
 
@@ -161,11 +161,17 @@ function useElementWidth(element: ?HTMLDivElement) {
     prevElementRef.current = element;
   }
 
+  const updateElementWidth = useCallback(() => {
+    if (element) {
+      elementWidthRef.current = element.clientWidth;
+    }
+  }, [element]);
+
   const subscribeToResizeEvent = useCallback(
     (callback: () => void) => {
       const handler = debounce(() => {
         // update elementWidthRef whenever we have a resize event
-        elementWidthRef.current = element?.clientWidth;
+        updateElementWidth();
         callback();
       }, RESIZE_DEBOUNCE);
       window.addEventListener('resize', handler);
@@ -173,7 +179,7 @@ function useElementWidth(element: ?HTMLDivElement) {
         window.removeEventListener('resize', handler);
       };
     },
-    [element],
+    [updateElementWidth],
   );
 
   const width = useSyncExternalStore(
@@ -182,7 +188,7 @@ function useElementWidth(element: ?HTMLDivElement) {
     () => null,
   );
 
-  return width;
+  return [updateElementWidth, width];
 }
 
 function useScrollContainer({
@@ -573,7 +579,7 @@ function Masonry<T: { +[string]: mixed }>(
     [scrollContainer],
   );
 
-  const width = useElementWidth(gridWrapperEl);
+  const [updateElementWidth, width] = useElementWidth(gridWrapperEl);
   const { containerHeight, containerOffset, scrollTop } = useScrollContainer({
     gridWrapper: gridWrapperEl,
     scrollContainer: scrollContainerElement,
@@ -586,6 +592,7 @@ function Masonry<T: { +[string]: mixed }>(
     measurementStore.reset();
     positionStore.reset();
     heightsStore.reset();
+    updateElementWidth();
 
     startTransition(() => {
       forceUpdate();
@@ -595,7 +602,7 @@ function Masonry<T: { +[string]: mixed }>(
   // these are all for backwards compatibility with the old Masonry
   // will work on removing these once this lands
   useImperativeHandle(ref, () => ({
-    handleResize: () => reflow(),
+    handleResize: () => updateElementWidth(),
     reflow,
     state: {
       width,
