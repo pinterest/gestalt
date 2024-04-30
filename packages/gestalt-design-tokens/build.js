@@ -378,7 +378,7 @@ function getWebConfig({ theme = 'main-theme', mode = 'light' }) {
                 {
                   'destination': 'constants.js',
                   'format': 'constantLibrary-commonJS/flow',
-                  '_format_comment': 'Custom. See packages/gestalt-design-tokens/build.js',
+                  '_format_comment': 'Custom.',
                 },
                 {
                   'destination': nameOutputFile({ name: 'tokens.js', theme }),
@@ -682,7 +682,7 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
                   },
                   'options': {
                     'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom. See packages/gestalt-design-tokens/build.js',
+                    '_fileHeader_comment': 'Custom.',
                     'showFileHeader': true,
                   },
                 },
@@ -700,7 +700,7 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
                   },
                   'options': {
                     'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom. See packages/gestalt-design-tokens/build.js',
+                    '_fileHeader_comment': 'Custom.',
                     'showFileHeader': true,
                   },
                 },
@@ -720,7 +720,7 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
                   },
                   'options': {
                     'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom. See packages/gestalt-design-tokens/build.js',
+                    '_fileHeader_comment': 'Custom.',
                     'showFileHeader': true,
                   },
                 },
@@ -738,7 +738,7 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
                   },
                   'options': {
                     'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom. See packages/gestalt-design-tokens/build.js',
+                    '_fileHeader_comment': 'Custom.',
                     'showFileHeader': true,
                   },
                 },
@@ -760,7 +760,7 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
                   'className': 'GestaltDesignTokens',
                   'options': {
                     'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom. See packages/gestalt-design-tokens/build.js',
+                    '_fileHeader_comment': 'Custom.',
                     'showFileHeader': true,
                   },
                 },
@@ -774,7 +774,7 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
                   'className': 'GestaltDesignTokens',
                   'options': {
                     'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom. See packages/gestalt-design-tokens/build.js',
+                    '_fileHeader_comment': 'Custom.',
                     'showFileHeader': true,
                   },
                 },
@@ -801,7 +801,7 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
                   },
                   'options': {
                     'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom. See packages/gestalt-design-tokens/build.js',
+                    '_fileHeader_comment': 'Custom.',
                     'showFileHeader': true,
                   },
                 },
@@ -820,7 +820,7 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
                   },
                   'options': {
                     'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom. See packages/gestalt-design-tokens/build.js',
+                    '_fileHeader_comment': 'Custom.',
                     'showFileHeader': true,
                   },
                 },
