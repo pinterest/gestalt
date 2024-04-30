@@ -162,7 +162,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         status: {
           documentation: 'ready',
           figmaStatus: 'ready',
-          status: 'planned',
+          status: 'ready',
         },
       },
     },
@@ -241,7 +241,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         status: {
           documentation: 'ready',
           figmaStatus: 'ready',
-          status: 'planned',
+          status: 'ready',
         },
       },
     },
@@ -296,7 +296,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         status: {
           documentation: 'ready',
           figmaStatus: 'ready',
-          status: 'planned',
+          status: 'ready',
         },
       },
     },
@@ -471,7 +471,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         status: {
           documentation: 'ready',
           figmaStatus: 'ready',
-          status: 'planned',
+          status: 'ready',
         },
       },
     },
@@ -580,7 +580,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         status: {
           documentation: 'ready',
           figmaStatus: 'ready',
-          status: 'planned',
+          status: 'ready',
         },
       },
     },
@@ -681,7 +681,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         status: {
           documentation: 'ready',
           figmaStatus: 'ready',
-          status: 'planned',
+          status: 'ready',
         },
       },
     },
@@ -1240,7 +1240,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         status: {
           documentation: 'ready',
           figmaStatus: 'ready',
-          status: 'planned',
+          status: 'ready',
         },
       },
     },
@@ -1998,7 +1998,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         status: {
           documentation: 'ready',
           figmaStatus: 'ready',
-          status: 'planned',
+          status: 'ready',
         },
       },
     },
@@ -2031,7 +2031,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         status: {
           documentation: 'ready',
           figmaStatus: 'partial',
-          status: 'planned',
+          status: 'ready',
         },
       },
     },
@@ -2341,7 +2341,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         status: {
           documentation: 'ready',
           figmaStatus: 'ready',
-          status: 'planned',
+          status: 'ready',
         },
       },
     },
@@ -2599,7 +2599,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         status: {
           documentation: 'ready',
           figmaStatus: 'ready',
-          status: 'planned',
+          status: 'ready',
         },
       },
     },
@@ -2654,7 +2654,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         status: {
           documentation: 'ready',
           figmaStatus: 'ready',
-          status: 'planned',
+          status: 'ready',
         },
       },
     },
@@ -2709,7 +2709,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         status: {
           documentation: 'ready',
           figmaStatus: 'ready',
-          status: 'planned',
+          status: 'ready',
         },
       },
     },
@@ -2796,7 +2796,7 @@ const componentData: $ReadOnlyArray<ComponentData> = [
         status: {
           documentation: 'ready',
           figmaStatus: 'ready',
-          status: 'planned',
+          status: 'ready',
         },
       },
     },
