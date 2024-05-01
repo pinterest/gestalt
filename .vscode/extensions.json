@@ -4,6 +4,7 @@
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
     "flowtype.flow-for-vscode",
+    "yoavbls.pretty-ts-errors",
     "orta.vscode-jest",
     "timonwong.shellcheck"
   ]

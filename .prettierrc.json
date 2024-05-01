@@ -2,7 +2,7 @@
   "singleQuote": true,
   "overrides": [
     {
-      "files": ["*.js", "*.d.ts"],
+      "files": ["*.js", "*.ts", "*.tsx", "*.d.ts"],
       "options": {
         "arrowParens": "always",
         "printWidth": 100,

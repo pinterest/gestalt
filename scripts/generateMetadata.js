@@ -2,8 +2,15 @@
 const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
+const enhancedResolve = require('enhanced-resolve');
 
 const reactDocsImport = import('react-docgen'); // v6 forces to use `import`
+
+// $FlowFixMe[signature-verification-failure]
+const resolveSync = enhancedResolve.create.sync({
+  extensions: ['.tsx', '.ts', '.js'],
+  fullySpecified: false,
+});
 
 const root = path.join(__dirname, '../');
 const docsPath = path.join(root, '/docs');
@@ -14,10 +21,10 @@ const docsPath = path.join(root, '/docs');
 
 // Files/components that doesn't have data to parse
 const excludedPaths = [
-  '/packages/gestalt/src/contexts/ExperimentProvider.js',
-  '/packages/gestalt/src/useReducedMotion.js',
-  '/packages/gestalt/src/useFocusVisible.js',
-  '/packages/gestalt/src/zIndex.js',
+  '/packages/gestalt/src/contexts/ExperimentProvider.ts',
+  '/packages/gestalt/src/useReducedMotion.ts',
+  '/packages/gestalt/src/useFocusVisible.ts',
+  '/packages/gestalt/src/zIndex.ts',
 ].map((filePath) => path.join(root, filePath));
 
 function logError(message) {
@@ -42,7 +49,10 @@ async function docgen(filePath) {
   // Not all files have data to parse
   try {
     // Take only the first exported component
-    const [parsed] = reactDocs.parse(contents, { resolver });
+    const [parsed] = reactDocs.parse(contents, {
+      resolver,
+      filename: filePath, // so that react-docgen knows code is in TypeScript, not Flow.
+    });
 
     if (parsed.description) {
       parsed.description = parsed.description
@@ -61,7 +71,7 @@ async function docgen(filePath) {
   }
 }
 
-const getComponentNameFromFile = (file) => path.basename(file).replace(/\.js/, '');
+const getComponentNameFromFile = (file) => path.basename(file).replace(/\.tsx$/, '');
 
 /** Analyzes subcomponents of a component in given path and extracts paths they're imported from. */
 function getSubcomponentPaths(componentPath) {
@@ -73,7 +83,7 @@ function getSubcomponentPaths(componentPath) {
     'g',
   );
 
-  const fileContent = fs.readFileSync(path.join(root, componentPath), 'utf-8');
+  const fileContent = fs.readFileSync(componentPath, 'utf-8');
   const subcomponentNameMatches = fileContent.matchAll(subcomponentRegExp);
   const subcomponentNames = [...subcomponentNameMatches].map((a) => a.groups.subcomponentName);
 
@@ -86,21 +96,21 @@ function getSubcomponentPaths(componentPath) {
   );
 
   const subcomponentPathMatches = fileContent.matchAll(subcomponentPathRegExp);
-  const subcomponentPaths = [...subcomponentPathMatches].map(
-    (match) => `${path.join(componentPath, '../', match.groups.path)}.js`,
+  const subcomponentPaths = [...subcomponentPathMatches].map((match) =>
+    resolveSync(path.dirname(componentPath), match.groups.path),
   );
 
   return subcomponentPaths;
 }
 
 /**
- * Gets components that are imported in `index.js` of given directory (assuming they're all exported).
+ * Gets components that are imported in `index.ts` of given directory (assuming they're all exported).
  */
 function getExposedFilesFromDirectory(directoryPath) {
-  const indexFile = fs.readFileSync(path.join(root, directoryPath, 'index.js'), 'utf-8');
+  const indexFile = fs.readFileSync(path.join(root, directoryPath, 'index.ts'), 'utf-8');
   const importMatches = indexFile.matchAll(/from '(?<path>.+)'/g);
-  const filePaths = [...importMatches].map(
-    (match) => `${path.join(directoryPath, match.groups.path)}.js`,
+  const filePaths = [...importMatches].map((match) =>
+    resolveSync(path.join(root, directoryPath), match.groups.path),
   );
   const subcomponentPaths = filePaths.map(getSubcomponentPaths).flat();
 
@@ -116,7 +126,7 @@ function getExposedFilesFromDirectory(directoryPath) {
 
   const parsedDataArray = await Promise.all(
     files.map(async (file) => {
-      const parsedFile = await docgen(path.join(root, file));
+      const parsedFile = await docgen(file);
 
       return parsedFile ? { [getComponentNameFromFile(file)]: parsedFile } : null;
     }),

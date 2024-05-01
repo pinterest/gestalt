@@ -1,22 +1,25 @@
-// @flow strict
-const flowRemoveTypes = require('flow-remove-types');
+// @noflow
 const prettier = require('prettier');
+const { transform } = require('sucrase');
 
 /**
  * This Webpack loader is used to clean up the docs code examples for display in the Sandpack code editor. It removes Flow types and eslint disable comments.
  */
 // $FlowFixMe[missing-this-annot]
-module.exports = function removeFlowTypesLoader(source /*: string */) {
+module.exports = function exampleCleanupLoader(tsSource /*: string */) {
   const callback = this.async();
   this.cacheable();
 
-  // Remove Flow declarations/types
-  const removed = flowRemoveTypes(source)
-    .toString()
-    // Also remove what's left of the initial declaration comment
-    .replace('//       strict', '')
-    // Remove FlowFixMe comments
-    .replace(/\/\/\s*\$FlowFixMe.*\n/gm, '')
+  // return detype.transform(tsSource, this.resourcePath).then((jsSource) => {
+  const jsSource = transform(tsSource, {
+    transforms: ['typescript', 'jsx'],
+    jsxRuntime: 'preserve',
+  }).code;
+
+  // Remove suppression comments
+  const removed = jsSource
+    .replace(/\/\/\s*@ts-expect-error.*\n/gm, '') // Remove @ts-expect-error comments
+    .replace(/\{\/\*\s+@ts-expect-error.*\*\/\}\n/gm, '') // Remove @ts-expect-error comments
     // Remove eslint disable comments
     .replace(/\/\/\s*eslint-disable-line.*\n/gm, '')
     .replace(/\/\/\s*eslint-disable-next-line.*\n/gm, '');
@@ -39,4 +42,5 @@ module.exports = function removeFlowTypesLoader(source /*: string */) {
       .replace(/\u2029/g, '\\u2029');
     callback(null, `export default ${json};`);
   });
+  // });
 };

@@ -5,18 +5,26 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "isolatedModules": true,
-    "jsx": "react",
-    "module": "commonjs",
+    "jsx": "react-jsx",
+    "module": "esnext",
     "lib": ["es6", "dom"],
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
     "target": "es6",
     "noEmit": true,
-    "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "strictFunctionTypes": true,
-    "skipLibCheck": false
+    "skipLibCheck": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": { "customMatcher": "\\.css$" }
+      }
+    ]
   },
   "exclude": [
     "node_modules",

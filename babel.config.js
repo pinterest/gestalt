@@ -1,17 +1,19 @@
-// @flow strict
-
-const tranformPlugin /*: string */ =
-  process.env.NODE_ENV === 'development'
-    ? '@babel/plugin-transform-react-jsx-self'
-    : '@babel/plugin-transform-react-jsx';
-const modules /*: string | boolean */ = process.env.NODE_ENV === 'production' ? false : 'auto';
+// @noflow
 
 module.exports = {
-  presets: [['@babel/preset-env', { modules }], '@babel/react', '@babel/flow'],
+  presets: [
+    ['@babel/preset-env', { modules: process.env.NODE_ENV === 'production' ? false : 'auto' }],
+    ['@babel/react', { 'runtime': 'automatic' }],
+    '@babel/flow',
+    '@babel/preset-typescript',
+  ],
   plugins: [
     '@babel/proposal-class-properties',
+    // '@babel/transform-typescript',
     [
-      tranformPlugin,
+      process.env.NODE_ENV === 'development'
+        ? '@babel/plugin-transform-react-jsx-self'
+        : '@babel/plugin-transform-react-jsx',
       {
         runtime: 'automatic',
         useBuiltIns: true,
