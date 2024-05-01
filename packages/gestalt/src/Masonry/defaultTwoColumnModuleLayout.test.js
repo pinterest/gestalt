@@ -1,6 +1,5 @@
 // @flow strict
 import defaultTwoColumnModuleLayout from './defaultTwoColumnModuleLayout';
-import HeightsStore from './HeightsStore';
 import MeasurementStore from './MeasurementStore';
 import { type Position } from './types';
 
@@ -215,7 +214,6 @@ describe('multi column layout test cases', () => {
   test('returns positions for all items', () => {
     const measurementStore = new MeasurementStore<{ ... }, number>();
     const positionCache = new MeasurementStore<{ ... }, Position>();
-    const heightsCache = new HeightsStore();
     const items = [
       { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
       { 'name': 'Pin 1', 'height': 201, 'color': '#F67076' },
@@ -235,7 +233,6 @@ describe('multi column layout test cases', () => {
     const layout = defaultTwoColumnModuleLayout({
       columnWidth: 240,
       measurementCache: measurementStore,
-      heightsCache,
       justify: 'start',
       minCols: 3,
       positionCache,
@@ -306,7 +303,6 @@ describe('multi column layout test cases', () => {
   test('correctly positions two column items regardless of on where they are in the batch', () => {
     const measurementStore = new MeasurementStore<{ ... }, number>();
     const positionCache = new MeasurementStore<{ ... }, Position>();
-    const heightsCache = new HeightsStore();
 
     // We use same height so the two column item is always at the start of the two column batch
     const items = [
@@ -333,7 +329,6 @@ describe('multi column layout test cases', () => {
     const layout = defaultTwoColumnModuleLayout({
       columnWidth: 240,
       measurementCache: measurementStore,
-      heightsCache,
       justify: 'start',
       minCols: 3,
       positionCache,
@@ -365,7 +360,6 @@ describe('multi column layout test cases', () => {
     // Correct position when two column module is on the middle of the batch
     measurementStore.reset();
     positionCache.reset();
-    heightsCache.reset();
 
     twoColumnModuleIndex = 7;
     mockItems = [
@@ -388,7 +382,6 @@ describe('multi column layout test cases', () => {
     // Correct position when two column module is at the start of the batch
     measurementStore.reset();
     positionCache.reset();
-    heightsCache.reset();
 
     twoColumnModuleIndex = 5;
     mockItems = [
@@ -412,7 +405,6 @@ describe('multi column layout test cases', () => {
   test('bails out graph when whitespace threshold is found', () => {
     const measurementStore = new MeasurementStore<{ ... }, number>();
     const positionCache = new MeasurementStore<{ ... }, Position>();
-    const heightsCache = new HeightsStore();
 
     // Placing the first one col item after first line we have a whitespace of 10
     // so we break early although the next combination has 0 whitespace
@@ -435,7 +427,6 @@ describe('multi column layout test cases', () => {
     const layout = defaultTwoColumnModuleLayout({
       columnWidth: 240,
       measurementCache: measurementStore,
-      heightsCache,
       justify: 'start',
       minCols: 3,
       positionCache,
@@ -461,7 +452,6 @@ describe('multi column layout test cases', () => {
   test('correctly position two column item when initial heights are 0', () => {
     const measurementStore = new MeasurementStore<{ ... }, number>();
     const positionCache = new MeasurementStore<{ ... }, Position>();
-    const heightsCache = new HeightsStore();
     const items = [
       { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
       { 'name': 'Pin 1', 'height': 201, 'color': '#F67076' },
@@ -477,7 +467,6 @@ describe('multi column layout test cases', () => {
     const layout = defaultTwoColumnModuleLayout({
       columnWidth: 240,
       measurementCache: measurementStore,
-      heightsCache,
       justify: 'start',
       minCols: 3,
       positionCache,
@@ -510,7 +499,6 @@ describe('multi column layout test cases', () => {
     // Correct position when two column module is at the middle of the batch and fits on the row
     measurementStore.reset();
     positionCache.reset();
-    heightsCache.reset();
 
     twoColumnModuleIndex = 2;
     mockItems = [
@@ -534,7 +522,6 @@ describe('multi column layout test cases', () => {
   test('correctly position multi column item when initial heights are 0', () => {
     const measurementStore = new MeasurementStore<{ ... }, number>();
     const positionCache = new MeasurementStore<{ ... }, Position>();
-    const heightsCache = new HeightsStore();
     const items = [
       { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
       { 'name': 'Pin 1', 'height': 201, 'color': '#F67076' },
@@ -550,7 +537,6 @@ describe('multi column layout test cases', () => {
     const layout = defaultTwoColumnModuleLayout({
       columnWidth: 240,
       measurementCache: measurementStore,
-      heightsCache,
       justify: 'start',
       minCols: 5,
       positionCache,
@@ -586,7 +572,6 @@ describe('multi column layout test cases', () => {
     // Correct position when multi column module is at the end of the first row
     measurementStore.reset();
     positionCache.reset();
-    heightsCache.reset();
 
     multiColumnModuleIndex = 1;
     columnSpan = 4;
@@ -611,7 +596,6 @@ describe('multi column layout test cases', () => {
   test('set correct offscreen position when multi column item has to be scaled to fit', () => {
     const measurementStore = new MeasurementStore<{ ... }, number>();
     const positionCache = new MeasurementStore<{ ... }, Position>();
-    const heightsCache = new HeightsStore();
     const items = [
       { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
       { 'name': 'Pin 1', 'height': 201, 'color': '#F67076' },
@@ -624,7 +608,6 @@ describe('multi column layout test cases', () => {
     const layout = defaultTwoColumnModuleLayout({
       columnWidth: 240,
       measurementCache: measurementStore,
-      heightsCache,
       justify: 'start',
       minCols: 3,
       positionCache,
@@ -643,7 +626,6 @@ describe('multi column layout test cases', () => {
   test('set correct width for multi col item that is scaled to fit', () => {
     const measurementStore = new MeasurementStore<{ ... }, number>();
     const positionCache = new MeasurementStore<{ ... }, Position>();
-    const heightsCache = new HeightsStore();
     const items = [
       { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
       { 'name': 'Pin 1', 'height': 201, 'color': '#F67076' },
@@ -659,7 +641,6 @@ describe('multi column layout test cases', () => {
     const layout = defaultTwoColumnModuleLayout({
       columnWidth: 240,
       measurementCache: measurementStore,
-      heightsCache,
       justify: 'start',
       minCols: 3,
       positionCache,
@@ -688,7 +669,6 @@ describe('multi column layout test cases', () => {
     // Correct position when two column module is at the middle of the batch and fits on the row
     measurementStore.reset();
     positionCache.reset();
-    heightsCache.reset();
 
     multiColumnModuleIndex = 4;
     mockItems = [
@@ -707,7 +687,6 @@ describe('multi column layout test cases', () => {
   test('correctly position multiple multi column items', () => {
     const measurementStore = new MeasurementStore<{ ... }, number>();
     const positionCache = new MeasurementStore<{ ... }, Position>();
-    const heightsCache = new HeightsStore();
     const items = [
       { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
       { 'name': 'Pin 1', 'height': 201, 'color': '#F67076' },
@@ -730,7 +709,6 @@ describe('multi column layout test cases', () => {
     const layout = defaultTwoColumnModuleLayout({
       columnWidth: 240,
       measurementCache: measurementStore,
-      heightsCache,
       justify: 'start',
       minCols: 5,
       positionCache,
@@ -759,7 +737,6 @@ describe('multi column layout test cases', () => {
     (multiColumnModuleIndex, columnSpan) => {
       const measurementStore = new MeasurementStore<{ ... }, number>();
       const positionCache = new MeasurementStore<{ ... }, Position>();
-      const heightsCache = new HeightsStore();
       const items = [
         { name: 'Pin 0', height: 250, color: '#E230BA' },
         { name: 'Pin 1', height: 202, color: '#FAB032' },
@@ -795,7 +772,6 @@ describe('multi column layout test cases', () => {
         columnWidth,
         gutter: 0,
         measurementCache: measurementStore,
-        heightsCache,
         justify: 'start',
         minCols: 3,
         positionCache,
@@ -826,7 +802,6 @@ describe('multi column layout test cases', () => {
     (multiColumnModuleIndex, columnSpan) => {
       const measurementStore = new MeasurementStore<{ ... }, number>();
       const positionCache = new MeasurementStore<{ ... }, Position>();
-      const heightsCache = new HeightsStore();
       const items = [
         { name: 'Pin 0', height: 250, color: '#E230BA' },
         { name: 'Pin 1', height: 202, color: '#FAB032' },
@@ -852,7 +827,6 @@ describe('multi column layout test cases', () => {
         columnWidth,
         gutter: 0,
         measurementCache: measurementStore,
-        heightsCache,
         justify: 'start',
         minCols: 3,
         positionCache,

@@ -9,7 +9,6 @@ import defaultTwoColumnModuleLayout, {
   MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
 } from './Masonry/defaultTwoColumnModuleLayout';
 import fullWidthLayout from './Masonry/fullWidthLayout';
-import HeightsStore, { type HeightsStoreInterface } from './Masonry/HeightsStore';
 import MeasurementStore from './Masonry/MeasurementStore';
 import ScrollContainer from './Masonry/ScrollContainer';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
@@ -163,7 +162,6 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
       props.measurementStore || Masonry.createMeasurementStore();
 
     this.positionStore = props.positionStore || Masonry.createMeasurementStore();
-    this.heightsStore = new HeightsStore();
 
     this.state = {
       hasPendingMeasurements: props.items.some((item) => !!item && !measurementStore.has(item)),
@@ -180,8 +178,6 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
   containerOffset: number;
 
   gridWrapper: ?HTMLElement;
-
-  heightsStore: HeightsStoreInterface;
 
   positionStore: Cache<T, Position>;
 
@@ -252,7 +248,6 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
     if (prevState.width != null && this.state.width !== prevState.width) {
       measurementStore.reset();
       this.positionStore.reset();
-      this.heightsStore.reset();
     }
     // calculate whether we still have pending measurements
     const hasPendingMeasurements = items.some((item) => !!item && !measurementStore.has(item));
@@ -399,7 +394,6 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
     }
     this.state.measurementStore.reset();
     this.positionStore.reset();
-    this.heightsStore.reset();
 
     this.measureContainer();
     this.forceUpdate();
@@ -501,7 +495,6 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
         positionCache: positionStore,
         columnWidth,
         gutter,
-        heightsCache: this.heightsStore,
         justify: layout === 'basicCentered' ? 'center' : 'start',
         logWhitespace: _logTwoColWhitespace,
         minCols,

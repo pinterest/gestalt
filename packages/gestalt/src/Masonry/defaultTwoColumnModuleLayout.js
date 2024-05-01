@@ -1,7 +1,6 @@
 // @flow strict
 import { type Cache } from './Cache';
 import Graph from './Graph';
-import { type HeightsStoreInterface } from './HeightsStore';
 import mindex from './mindex';
 import { type NodeData, type Position } from './types';
 
@@ -19,6 +18,10 @@ const offscreen = (width: number, height: number = Infinity) => ({
   width,
   height,
 });
+
+function getItemColumnSpan<T: { +[string]: mixed }>(item: T): number {
+  return typeof item.columnSpan === 'number' ? item.columnSpan : 1;
+}
 
 function getPositionsOnly<T>(
   positions: $ReadOnlyArray<{ item: T, position: Position }>,
@@ -95,10 +98,9 @@ function calculateSplitIndex({
   return multiColumnIndex;
 }
 
-function initializeHeightsArray<T>({
+function initializeHeightsArray<T: { +[string]: mixed }>({
   centerOffset,
   columnCount,
-  columnWidth,
   columnWidthAndGutter,
   gutter,
   items,
@@ -106,7 +108,6 @@ function initializeHeightsArray<T>({
 }: {
   centerOffset: number,
   columnCount: number,
-  columnWidth: number,
   columnWidthAndGutter: number,
   gutter: number,
   items: $ReadOnlyArray<T>,
@@ -117,15 +118,22 @@ function initializeHeightsArray<T>({
     const position = positionCache?.get(item);
     if (position) {
       const col = (position.left - centerOffset) / columnWidthAndGutter;
-      // TODO: Change this to handle multi column
-      const isTwoColumnModule =
-        position.width === calculateMultiColumnModuleWidth(columnWidth, gutter, 2);
-      const heightToAdd = position.height + gutter;
-      heights[col] += heightToAdd;
-      if (isTwoColumnModule) {
-        // if position width is greater than columnWidth
-        // increment height of the neighboring column as well
-        heights[col + 1] += heightToAdd;
+      const columnSpan = getItemColumnSpan(item);
+      const moduleHeight = position.height + gutter;
+      if (position.top < heights[col]) {
+        // handles the case where the column height is already taller because of a previously added multi-column module
+        return;
+      }
+      if (columnSpan > 1) {
+        // find tallest column
+        const colHeights = heights.slice(col, col + columnSpan);
+        const maxColHeight = Math.max(...colHeights);
+        const newHeight = maxColHeight + moduleHeight;
+        for (let i = col; i < col + columnSpan; i += 1) {
+          heights[i] = newHeight;
+        }
+      } else {
+        heights[col] += moduleHeight;
       }
     }
   });
@@ -410,7 +418,6 @@ function getPositionsWithMultiColumnItem<T: { +[string]: mixed }>({
   prevPositions,
   whitespaceThreshold,
   columnCount,
-  heightsCache,
   logWhitespace,
   ...commonGetPositionArgs
 }: {
@@ -427,7 +434,6 @@ function getPositionsWithMultiColumnItem<T: { +[string]: mixed }>({
   gutter: number,
   measurementCache: Cache<T, number>,
   positionCache: Cache<T, Position>,
-  heightsCache?: HeightsStoreInterface,
 }): {
   positions: $ReadOnlyArray<{ item: T, position: Position }>,
   heights: $ReadOnlyArray<number>,
@@ -528,7 +534,6 @@ function getPositionsWithMultiColumnItem<T: { +[string]: mixed }>({
   finalPositions.forEach(({ item, position }) => {
     positionCache.set(item, position);
   });
-  heightsCache?.setHeights(finalHeights);
 
   // FUTURE OPTIMIZATION - do we want a min threshold for an acceptably low score?
   // If so, we could save the multi column item somehow and try again with the next batch of items
@@ -538,7 +543,6 @@ function getPositionsWithMultiColumnItem<T: { +[string]: mixed }>({
 const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
   columnWidth = 236,
   gutter = 14,
-  heightsCache,
   justify,
   logWhitespace,
   measurementCache,
@@ -550,7 +554,6 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
 }: {
   columnWidth?: number,
   gutter?: number,
-  heightsCache?: HeightsStoreInterface,
   justify: 'center' | 'start',
   logWhitespace?: (number) => void,
   measurementCache: Cache<T, number>,
@@ -587,18 +590,14 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
         : Math.max(Math.floor((width - columnWidthAndGutter * columnCount + gutter) / 2), 0);
 
     // the total height of each column
-    const heights =
-      heightsCache && heightsCache.getHeights().length > 0
-        ? heightsCache.getHeights()
-        : initializeHeightsArray({
-            centerOffset,
-            columnCount,
-            columnWidth,
-            columnWidthAndGutter,
-            gutter,
-            items,
-            positionCache,
-          });
+    const heights = initializeHeightsArray({
+      centerOffset,
+      columnCount,
+      columnWidthAndGutter,
+      gutter,
+      items,
+      positionCache,
+    });
 
     const itemsWithPositions = items.filter((item) => positionCache?.has(item));
     const itemsWithoutPositions = items.filter((item) => !positionCache?.has(item));
@@ -650,7 +649,6 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
             whitespaceThreshold,
             logWhitespace,
             columnCount,
-            heightsCache,
             ...commonGetPositionArgs,
           }),
         { heights: paintedItemHeights, positions: paintedItemPositions },
@@ -659,7 +657,7 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
       return getPositionsOnly<T>(currentPositions);
     }
 
-    const { heights: finalHeights, positions: itemPositions } = getOneColumnItemPositions<T>({
+    const { positions: itemPositions } = getOneColumnItemPositions<T>({
       items,
       heights,
       ...commonGetPositionArgs,
@@ -667,7 +665,6 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
     itemPositions.forEach(({ item, position }) => {
       positionCache?.set(item, position);
     });
-    heightsCache?.setHeights(finalHeights);
 
     return getPositionsOnly<T>(itemPositions);
   };
