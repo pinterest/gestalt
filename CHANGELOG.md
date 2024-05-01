@@ -1,3 +1,9 @@
+## 147.2.6 (May 1, 2024)
+
+### Patch
+
+- Masonry: Update element height on reflow (MasonryV2) ([#3547](https://github.com/pinterest/gestalt/pull/3547)) - [Preview link](https://deploy-preview-3547--gestalt.netlify.app?devexample=true)
+
 ## 147.2.5 (Apr 30, 2024)
 
 ### Patch
