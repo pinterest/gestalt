@@ -36,6 +36,29 @@ const svgPath = () => ({
   },
 });
 
+const svgPathVR = () => ({
+  name: 'svgPath',
+  load(id) {
+    if (extname(id) !== '.svg') {
+      return null;
+    }
+
+    const data = readFileSync(id.replace('/icons/', '/iconsVR/'), 'utf-8');
+
+    return new Promise((resolve, reject) => {
+      parseString(data, (err, result) => {
+        if (err) {
+          reject(err);
+        } else {
+          const path = result.svg.path[0].$.d;
+          const code = `export default '${path}';`;
+          resolve({ code });
+        }
+      });
+    });
+  },
+});
+
 const cssModules = (options = {}) => {
   const cssExportMap = {};
   const scopeNames = {};
@@ -130,7 +153,7 @@ const cssModules = (options = {}) => {
   };
 };
 
-const plugins = (name) => [
+const plugins = (name, vr) => [
   cssModules({
     output: `../${name}/dist/${name}`,
   }),
@@ -141,7 +164,7 @@ const plugins = (name) => [
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     },
   }),
-  svgPath(),
+  vr ? svgPathVR() : svgPath(),
   json({
     preferConst: true,
   }),

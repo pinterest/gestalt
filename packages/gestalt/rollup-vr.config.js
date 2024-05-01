@@ -1,0 +1,38 @@
+// eslint-disable-next-line flowtype/require-valid-file-annotation, import/no-relative-packages
+import plugins from '../gestalt-core/build';
+
+const rollupConfig = {
+  input: 'src/index.js',
+  output: [
+    {
+      file: 'dist/gestalt-vr.js',
+      format: 'umd',
+      name: 'gestalt',
+      exports: 'named',
+      globals: {
+        react: 'React',
+        classnames: 'classnames',
+        'classnames/bind': 'classnames',
+        'react-dom': 'ReactDOM',
+      },
+      sourcemap: true,
+    },
+    {
+      file: 'dist/gestalt-vr.es.js',
+      format: 'es',
+      name: 'gestalt',
+      exports: 'named',
+      globals: {
+        react: 'React',
+        classnames: 'classnames',
+        'classnames/bind': 'classnames',
+        'react-dom': 'ReactDOM',
+      },
+      sourcemap: true,
+    },
+  ],
+  external: ['react', 'classnames/bind', 'classnames', 'react-dom'],
+  plugins: plugins('gestalt', true),
+};
+
+export default rollupConfig;

@@ -24,6 +24,7 @@
   },
   "scripts": {
     "build": "rollup -c rollup.config.js",
+    "buildVR": "rollup -c rollup-vr.config.js",
     "build:prod": "NODE_ENV=production rollup -c rollup.config.js",
     "postpack": "rm README.md",
     "prepack": "cp ../../README.md .",
