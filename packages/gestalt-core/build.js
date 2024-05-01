@@ -13,37 +13,14 @@ import postcssPresetEnv from 'postcss-preset-env';
 import { parseString } from 'xml2js';
 import classnameBuilder from './lib/classnameBuilder';
 
-const svgPath = () => ({
+const svgPath = (isVR) => ({
   name: 'svgPath',
   load(id) {
     if (extname(id) !== '.svg') {
       return null;
     }
 
-    const data = readFileSync(id, 'utf-8');
-
-    return new Promise((resolve, reject) => {
-      parseString(data, (err, result) => {
-        if (err) {
-          reject(err);
-        } else {
-          const path = result.svg.path[0].$.d;
-          const code = `export default '${path}';`;
-          resolve({ code });
-        }
-      });
-    });
-  },
-});
-
-const svgPathVR = () => ({
-  name: 'svgPath',
-  load(id) {
-    if (extname(id) !== '.svg') {
-      return null;
-    }
-
-    const data = readFileSync(id.replace('/icons/', '/iconsVR/'), 'utf-8');
+    const data = readFileSync(isVR ? id.replace('/icons/', '/iconsVR/') : id, 'utf-8');
 
     return new Promise((resolve, reject) => {
       parseString(data, (err, result) => {
@@ -153,7 +130,7 @@ const cssModules = (options = {}) => {
   };
 };
 
-const plugins = (name, vr) => [
+const plugins = (name, isVR) => [
   cssModules({
     output: `../${name}/dist/${name}`,
   }),
@@ -164,7 +141,7 @@ const plugins = (name, vr) => [
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     },
   }),
-  vr ? svgPathVR() : svgPath(),
+  svgPath(isVR),
   json({
     preferConst: true,
   }),
