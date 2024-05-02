@@ -1,3 +1,9 @@
+## 147.2.7 (May 2, 2024)
+
+### Patch
+
+- DatePicker: upgraded react-datepicker to 6.9.0 ([#3551](https://github.com/pinterest/gestalt/pull/3551)) - [Preview link](https://deploy-preview-3551--gestalt.netlify.app?devexample=true)
+
 ## 147.2.6 (May 1, 2024)
 
 ### Patch
