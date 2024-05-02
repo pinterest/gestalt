@@ -383,6 +383,12 @@
       "keywords": ["time", "schedule", "time range", "select", "set time"]
     },
     {
+      "name": "cloud-server",
+      "categories": ["Utility and tools", "Ads and measurement"],
+      "description": "Indicates integration, conversions and APIs via the cloud",
+      "keywords": ["API", "computing", "conversions", "integration", "nodes"]
+    },
+    {
       "name": "code",
       "categories": ["Utility and tools"],
       "description": "Indicates a code view or connection",

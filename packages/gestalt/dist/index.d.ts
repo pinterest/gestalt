@@ -152,6 +152,7 @@ type Icons =
   | 'clear'
   | 'clock'
   | 'clock-checked'
+  | 'cloud-server'
   | 'code'
   | 'code-checked'
   | 'cog'
