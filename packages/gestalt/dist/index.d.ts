@@ -1441,7 +1441,7 @@ interface MasonryProps<T = any> {
   virtualBufferFactor?: number | undefined;
   virtualize?: boolean | undefined;
   _twoColItems?: boolean | undefined;
-  _logTwoColWhitespace?: (number) => void;
+  _logTwoColWhitespace?: (arg: number) => void;
 }
 
 interface MasonryV2Props<T = any> extends MasonryProps<T> {
@@ -1506,6 +1506,7 @@ interface ModalAlertProps {
 interface AccordionProps {
   id: string;
   badge?: BadgeObject | undefined;
+  borderStyle?: 'sm' | 'shadow' | 'none';
   children?: Node | undefined;
   icon?: Icons | undefined;
   iconAccessibilityLabel?: string | undefined;
@@ -1518,6 +1519,7 @@ interface AccordionProps {
 interface AccordionExpandableProps {
   accessibilityCollapseLabel: string;
   accessibilityExpandLabel: string;
+  borderStyle?: 'sm' | 'shadow' | 'none';
   id: string;
   items: ReadonlyArray<{
     title: string;

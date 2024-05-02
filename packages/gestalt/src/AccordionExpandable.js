@@ -44,9 +44,14 @@ type Props = {
    */
   accessibilityExpandLabel?: string,
   /**
+   * Specify a border. See [Box's border options](https://gestalt.pinterest.systems/web/box#Borders)
+   */
+  borderStyle?: 'sm' | 'shadow' | 'none',
+  /**
    * The 0-based index indicating the item that should currently be expanded. This must be updated via `onExpandedChange` to ensure the correct item is expanded. See [Expandable](https://gestalt.pinterest.systems/web/accordion#Expandable) variant to learn more.
    */
   expandedIndex?: ?number,
+
   /**
    * Unique id to identify this Accordion. See [Expandable](https://gestalt.pinterest.systems/web/accordion#Expandable) variant to learn more.
    */
@@ -80,6 +85,7 @@ type Props = {
 export default function AccordionExpandable({
   accessibilityExpandLabel,
   accessibilityCollapseLabel,
+  borderStyle = 'shadow',
   expandedIndex,
   id,
   items,
@@ -114,7 +120,7 @@ export default function AccordionExpandable({
 
   return (
     <Box
-      borderStyle="shadow"
+      borderStyle={borderStyle !== 'none' ? borderStyle : undefined}
       color={isDarkMode ? 'elevationFloating' : 'default'}
       rounding={rounding}
     >

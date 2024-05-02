@@ -29,6 +29,10 @@ type Props = {
    */
   badge?: BadgeType,
   /**
+   * Specify a border. See [Box's border options](https://gestalt.pinterest.systems/web/box#Borders)
+   */
+  borderStyle?: 'sm' | 'shadow' | 'none',
+  /**
    * Content to display underneath Accordion title.
    */
   children?: ReactNode,
@@ -71,6 +75,7 @@ type Props = {
  */
 export default function Accordion({
   badge,
+  borderStyle = 'shadow',
   children,
   icon,
   iconAccessibilityLabel,
@@ -87,7 +92,7 @@ export default function Accordion({
 
   return (
     <Box
-      borderStyle="shadow"
+      borderStyle={borderStyle !== 'none' ? borderStyle : undefined}
       color={isDarkMode ? 'elevationFloating' : 'default'}
       id={id}
       padding={padding}
