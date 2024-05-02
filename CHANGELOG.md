@@ -1,3 +1,9 @@
+## 147.4.0 (May 2, 2024)
+
+### Minor
+
+- Accordion: support borderStyles prop ([#3552](https://github.com/pinterest/gestalt/pull/3552)) - [Preview link](https://deploy-preview-3552--gestalt.netlify.app?devexample=true)
+
 ## 147.3.0 (May 2, 2024)
 
 ### Minor
