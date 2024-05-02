@@ -48,6 +48,10 @@ to prevent conflict with another CSS module */
   color: var(--color-text-default);
 }
 
+:global ._gestalt .react-datepicker__aria-live {
+  display: none;
+}
+
 :global ._gestalt .react-datepicker__day--highlighted {
   background-color: var(--color-background-datepicker-button-selected);
   color: var(--color-text-inverse);
