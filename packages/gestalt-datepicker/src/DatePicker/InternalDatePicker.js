@@ -144,14 +144,6 @@ const InternalDatePickerWithForwardRef: AbstractComponent<Props, HTMLInputElemen
         onMonthChange={(newMonth: Date) => setMonth(newMonth.getMonth())}
         placeholderText={placeholder ?? format?.toUpperCase()}
         popperClassName={styles['react-datepicker-popper']}
-        popperModifiers={[
-          {
-            name: 'offset',
-            options: {
-              offset: [0, 20],
-            },
-          },
-        ]}
         popperPlacement={popperPlacement[idealDirection]}
         previousMonthButtonLabel={
           <Icon accessibilityLabel="" color="default" icon="arrow-back" size={16} />

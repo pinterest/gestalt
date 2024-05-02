@@ -19,9 +19,10 @@
     "@mui/material": "^5.12.0",
     "@mui/x-date-pickers": "6.11.0",
     "classnames": "^2.2.6",
-    "react-datepicker": "4.0.0"
+    "react-datepicker": "6.9.0"
   },
   "peerDependencies": {
+    "@floating-ui/react": "^0.25.4",
     "gestalt": ">0.0.0",
     "react": "^18.0",
     "react-dom": "^18.0"
