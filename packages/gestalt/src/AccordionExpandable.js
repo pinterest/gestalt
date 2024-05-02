@@ -46,7 +46,7 @@ type Props = {
   /**
    * Specify a border. See [Box's border options](https://gestalt.pinterest.systems/web/box#Borders)
    */
-  borderStyle: 'sm' | 'shadow' | 'none',
+  borderStyle?: 'sm' | 'shadow' | 'none',
   /**
    * The 0-based index indicating the item that should currently be expanded. This must be updated via `onExpandedChange` to ensure the correct item is expanded. See [Expandable](https://gestalt.pinterest.systems/web/accordion#Expandable) variant to learn more.
    */

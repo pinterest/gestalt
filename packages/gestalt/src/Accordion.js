@@ -31,7 +31,7 @@ type Props = {
   /**
    * Specify a border. See [Box's border options](https://gestalt.pinterest.systems/web/box#Borders)
    */
-  borderStyle: 'sm' | 'shadow' | 'none',
+  borderStyle?: 'sm' | 'shadow' | 'none',
   /**
    * Content to display underneath Accordion title.
    */
