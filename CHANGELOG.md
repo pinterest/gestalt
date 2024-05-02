@@ -1,3 +1,9 @@
+## 147.3.0 (May 2, 2024)
+
+### Minor
+
+- Tokens: support .ts outputs for web ([#3548](https://github.com/pinterest/gestalt/pull/3548)) - [Preview link](https://deploy-preview-3548--gestalt.netlify.app?devexample=true)
+
 ## 147.2.7 (May 2, 2024)
 
 ### Patch
