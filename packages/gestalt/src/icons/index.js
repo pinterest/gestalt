@@ -76,6 +76,7 @@ import clear from './clear.svg';
 import clips from './clips.svg';
 import clock from './clock.svg';
 import clockChecked from './clock-checked.svg';
+import cloudServer from './cloud-server.svg';
 import code from './code.svg';
 import codeChecked from './code-checked.svg';
 import cog from './cog.svg';
@@ -401,6 +402,7 @@ const icons = Object.freeze({
   clear,
   clock,
   'clock-checked': clockChecked,
+  'cloud-server': cloudServer,
   code,
   'code-checked': codeChecked,
   cog,
