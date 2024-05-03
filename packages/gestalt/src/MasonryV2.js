@@ -19,7 +19,6 @@ import styles from './Masonry.css';
 import { type Cache } from './Masonry/Cache';
 import { MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/defaultTwoColumnModuleLayout';
 import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
-import HeightsStore, { type HeightsStoreInterface } from './Masonry/HeightsStore';
 import MeasurementStore from './Masonry/MeasurementStore';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { type Layout, type Position } from './Masonry/types';
@@ -299,7 +298,6 @@ function useFetchOnScroll({
 function useLayout<T: { +[string]: mixed }>({
   columnWidth,
   gutter,
-  heightsStore,
   items,
   layout,
   measurementStore,
@@ -312,7 +310,6 @@ function useLayout<T: { +[string]: mixed }>({
 }: {
   columnWidth: number,
   gutter?: number,
-  heightsStore: HeightsStoreInterface,
   items: $ReadOnlyArray<T>,
   layout: Layout,
   measurementStore: Cache<T, number>,
@@ -337,7 +334,6 @@ function useLayout<T: { +[string]: mixed }>({
   const layoutFunction = getLayoutAlgorithm({
     columnWidth,
     gutter,
-    heightsStore,
     items,
     layout,
     measurementStore,
@@ -562,8 +558,6 @@ function Masonry<T: { +[string]: mixed }>(
     }
   }, []);
 
-  const heightsStore = useMemo(() => new HeightsStore(), []);
-
   const measurementStore = useMemo(
     () => measurementStoreProp || createMeasurementStore(),
     [measurementStoreProp],
@@ -591,7 +585,6 @@ function Masonry<T: { +[string]: mixed }>(
   const reflow = () => {
     measurementStore.reset();
     positionStore.reset();
-    heightsStore.reset();
     updateElementWidth();
 
     startTransition(() => {
@@ -627,7 +620,6 @@ function Masonry<T: { +[string]: mixed }>(
   const { hasPendingMeasurements, height, positions, updateMeasurement } = useLayout({
     columnWidth,
     gutter,
-    heightsStore,
     items,
     layout,
     measurementStore,

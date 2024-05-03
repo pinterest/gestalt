@@ -3,14 +3,12 @@ import { type Cache } from './Cache';
 import defaultLayout from './defaultLayout';
 import defaultTwoColumnModuleLayout from './defaultTwoColumnModuleLayout';
 import fullWidthLayout from './fullWidthLayout';
-import { type HeightsStoreInterface } from './HeightsStore';
 import { type Layout, type Position } from './types';
 import uniformRowLayout from './uniformRowLayout';
 
 export default function getLayoutAlgorithm<T: { +[string]: mixed }>({
   columnWidth,
   gutter,
-  heightsStore,
   items,
   layout,
   measurementStore,
@@ -22,7 +20,6 @@ export default function getLayoutAlgorithm<T: { +[string]: mixed }>({
 }: {
   columnWidth: number,
   gutter?: number,
-  heightsStore: HeightsStoreInterface,
   items: $ReadOnlyArray<T>,
   layout: Layout,
   measurementStore: Cache<T, number>,
@@ -56,7 +53,6 @@ export default function getLayoutAlgorithm<T: { +[string]: mixed }>({
       positionCache: positionStore,
       columnWidth,
       gutter,
-      heightsCache: heightsStore,
       justify: layout === 'basicCentered' ? 'center' : 'start',
       logWhitespace: _logTwoColWhitespace,
       minCols,
