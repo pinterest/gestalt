@@ -1,3 +1,9 @@
+## 147.4.2 (May 3, 2024)
+
+### Patch
+
+- Icon: added cloud-server-icon ([#3553](https://github.com/pinterest/gestalt/pull/3553)) - [Preview link](https://deploy-preview-3553--gestalt.netlify.app?devexample=true)
+
 ## 147.4.1 (May 3, 2024)
 
 ### Patch
