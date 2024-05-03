@@ -1,3 +1,9 @@
+## 147.4.1 (May 3, 2024)
+
+### Patch
+
+- Masonry: Remove heights cache ([#3544](https://github.com/pinterest/gestalt/pull/3544)) - [Preview link](https://deploy-preview-3544--gestalt.netlify.app?devexample=true)
+
 ## 147.4.0 (May 2, 2024)
 
 ### Minor
