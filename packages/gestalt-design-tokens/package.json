@@ -6,7 +6,7 @@
   "description": "Design tokens style dictionary for Gestalt",
   "main": "dist/js/constants.js",
   "jsnext:main": "dist/js/constants.es.js",
-  "types": "dist/index.es.d.ts",
+  "types": "dist/ts/constants.es.d.ts",
   "module": "dist/js/constants.es.js",
   "files": [
     "dist",
