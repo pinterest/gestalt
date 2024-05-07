@@ -454,7 +454,17 @@ function getWebConfig({ theme = 'main-theme', mode = 'light' }) {
                   '_format_comment': 'Custom.',
                 },
                 {
+                  'destination': 'constants.es.d.ts',
+                  'format': 'constantLibrary-javascript/es6/ts',
+                  '_format_comment': 'Custom.',
+                },
+                {
                   'destination': 'constants.ts',
+                  'format': 'constantLibrary-commonJS/flow',
+                  '_format_comment': 'Custom.',
+                },
+                {
+                  'destination': 'constants.d.ts',
                   'format': 'constantLibrary-commonJS/flow',
                   '_format_comment': 'Custom.',
                 },
