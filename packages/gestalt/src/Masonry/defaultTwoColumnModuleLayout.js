@@ -98,7 +98,7 @@ function calculateSplitIndex({
   return multiColumnIndex;
 }
 
-function initializeHeightsArray<T: { +[string]: mixed }>({
+export function initializeHeightsArray<T: { +[string]: mixed }>({
   centerOffset,
   columnCount,
   columnWidthAndGutter,
@@ -119,21 +119,15 @@ function initializeHeightsArray<T: { +[string]: mixed }>({
     if (position) {
       const col = (position.left - centerOffset) / columnWidthAndGutter;
       const columnSpan = getItemColumnSpan(item);
-      const moduleHeight = position.height + gutter;
-      if (position.top < heights[col]) {
-        // handles the case where the column height is already taller because of a previously added multi-column module
-        return;
-      }
-      if (columnSpan > 1) {
-        // find tallest column
-        const colHeights = heights.slice(col, col + columnSpan);
-        const maxColHeight = Math.max(...colHeights);
-        const newHeight = maxColHeight + moduleHeight;
-        for (let i = col; i < col + columnSpan; i += 1) {
-          heights[i] = newHeight;
+      // the height of the column is just the sum of the top and height of the item
+      const absoluteHeight = position.top + position.height + gutter;
+      for (let i = col; i < col + columnSpan; i += 1) {
+        // for each column the module spans -
+        // if we've already set a taller height, we don't want to override it
+        // otherwise, override the height of the column
+        if (absoluteHeight > heights[i]) {
+          heights[i] = absoluteHeight;
         }
-      } else {
-        heights[col] += moduleHeight;
       }
     }
   });
