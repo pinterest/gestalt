@@ -859,98 +859,29 @@ describe('initializeHeightsArray', () => {
     const measurementStore = new MeasurementStore<{ ... }, number>();
     const positionCache = new MeasurementStore<{ ... }, Position>();
     const items: $ReadOnlyArray<Item> = [
-      {
-        'name': 'Pin 0',
-        'height': 476,
-      },
-      {
-        'name': 'Pin 1',
-        'height': 381,
-      },
-      {
-        'name': 'Pin 2',
-        'height': 274,
-      },
-      {
-        'name': 'Pin 3',
-        'height': 303,
-      },
-      {
-        'name': 'Pin 4',
-        'height': 475,
-      },
-      {
-        'name': 'Pin 5',
-        'height': 496,
-      },
-      {
-        'name': 'Pin 6',
-        'height': 177,
-      },
-      {
-        'name': 'Pin 7',
-        'height': 440,
-      },
-      {
-        'name': 'Pin 8',
-        'height': 497,
-      },
-      {
-        'name': 'Pin 9',
-        'height': 430,
-      },
-      {
-        'name': 'Pin 10',
-        'height': 409,
-      },
-      {
-        'name': 'Pin 11',
-        'height': 452,
-      },
-      {
-        'name': 'Pin 12',
-        'height': 458,
-      },
-      {
-        'name': 'Pin 13',
-        'height': 510,
-      },
-      {
-        'name': 'Pin 14',
-        'height': 336,
-      },
-      {
-        'name': 'Pin 15',
-        'height': 293,
-      },
-      {
-        'name': 'Pin 16',
-        'height': 416,
-      },
-      {
-        'name': 'Pin 17',
-        'height': 92,
-      },
-      {
-        'name': 'Pin 18',
-        'height': 475,
-      },
-      {
-        'name': 'Pin 19',
-        'height': 457,
-      },
-      {
-        'name': 'Pin 20',
-        'height': 300,
-      },
-      {
-        'name': 'Pin 21',
-        'height': 322,
-      },
-      {
-        'name': 'Pin 22',
-        'height': 417,
-      },
+      { name: 'Pin 0', height: 476 },
+      { name: 'Pin 1', height: 381 },
+      { name: 'Pin 2', height: 274 },
+      { name: 'Pin 3', height: 303 },
+      { name: 'Pin 4', height: 475 },
+      { name: 'Pin 5', height: 496 },
+      { name: 'Pin 6', height: 177 },
+      { name: 'Pin 7', height: 440 },
+      { name: 'Pin 8', height: 497 },
+      { name: 'Pin 9', height: 430 },
+      { name: 'Pin 10', height: 409 },
+      { name: 'Pin 11', height: 452 },
+      { name: 'Pin 12', height: 458 },
+      { name: 'Pin 13', height: 510 },
+      { name: 'Pin 14', height: 336 },
+      { name: 'Pin 15', height: 293 },
+      { name: 'Pin 16', height: 416 },
+      { name: 'Pin 17', height: 92 },
+      { name: 'Pin 18', height: 475 },
+      { name: 'Pin 19', height: 457 },
+      { name: 'Pin 20', height: 300 },
+      { name: 'Pin 21', height: 322 },
+      { name: 'Pin 22', height: 417 },
     ];
     items.forEach((item) => {
       measurementStore.set(item, item.height);
@@ -1011,99 +942,29 @@ describe('initializeHeightsArray', () => {
     const measurementStore = new MeasurementStore<{ ... }, number>();
     const positionCache = new MeasurementStore<{ ... }, Position>();
     const items = [
-      {
-        'name': 'Pin 0',
-        'height': 476,
-      },
-      {
-        'name': 'Pin 1',
-        'height': 381,
-      },
-      {
-        'name': 'Pin 2',
-        'height': 274,
-      },
-      {
-        'name': 'Pin 3',
-        'height': 303,
-      },
-      {
-        'name': 'Pin 4',
-        'height': 475,
-      },
-      {
-        'name': 'Pin 5',
-        'height': 496,
-      },
-      {
-        'name': 'Pin 6',
-        'height': 177,
-      },
-      {
-        'name': 'Pin 7',
-        'height': 440,
-      },
-      {
-        'name': 'Pin 8',
-        'height': 497,
-      },
-      {
-        'name': 'Pin 9',
-        'height': 430,
-      },
-      {
-        'name': 'Pin 10',
-        'height': 409,
-      },
-      {
-        'name': 'Pin 11',
-        'height': 452,
-      },
-      {
-        'name': 'Pin 12',
-        'height': 458,
-      },
-      {
-        'name': 'Pin 13',
-        'height': 510,
-      },
-      {
-        'name': 'Pin 14',
-        'height': 336,
-      },
-      {
-        'name': 'Pin 15',
-        'height': 293,
-        columnSpan: 2,
-      },
-      {
-        'name': 'Pin 16',
-        'height': 416,
-      },
-      {
-        'name': 'Pin 17',
-        'height': 92,
-      },
-      {
-        'name': 'Pin 18',
-        'height': 475,
-      },
-      {
-        'name': 'Pin 19',
-        'height': 457,
-      },
-      {
-        'name': 'Pin 20',
-        'height': 300,
-      },
-      {
-        'name': 'Pin 21',
-        'height': 322,
-      },
-      {
-        'name': 'Pin 22',
-        'height': 417,
-      },
+      { name: 'Pin 0', height: 476 },
+      { name: 'Pin 1', height: 381 },
+      { name: 'Pin 2', height: 274 },
+      { name: 'Pin 3', height: 303 },
+      { name: 'Pin 4', height: 475 },
+      { name: 'Pin 5', height: 496 },
+      { name: 'Pin 6', height: 177 },
+      { name: 'Pin 7', height: 440 },
+      { name: 'Pin 8', height: 497 },
+      { name: 'Pin 9', height: 430 },
+      { name: 'Pin 10', height: 409 },
+      { name: 'Pin 11', height: 452 },
+      { name: 'Pin 12', height: 458 },
+      { name: 'Pin 13', height: 510 },
+      { name: 'Pin 14', height: 336 },
+      { name: 'Pin 15', height: 293, columnSpan: 2 },
+      { name: 'Pin 16', height: 416 },
+      { name: 'Pin 17', height: 92 },
+      { name: 'Pin 18', height: 475 },
+      { name: 'Pin 19', height: 457 },
+      { name: 'Pin 20', height: 300 },
+      { name: 'Pin 21', height: 322 },
+      { name: 'Pin 22', height: 417 },
     ];
     items.forEach((item) => {
       measurementStore.set(item, item.height);
@@ -1158,62 +1019,20 @@ describe('initializeHeightsArray', () => {
     expect(heights).toEqual([924, 871, 1053, 1220, 843, 1421, 1421, 982, 829]);
 
     const additionalItems = [
-      {
-        'name': 'Pin: 23',
-        'height': 428,
-      },
-      {
-        'name': 'Pin: 24',
-        'height': 340,
-      },
-      {
-        'name': 'Pin: 25',
-        'height': 458,
-      },
-      {
-        'name': 'Pin: 26',
-        'height': 475,
-      },
-      {
-        'name': 'Pin: 27',
-        'height': 303,
-      },
-      {
-        'name': 'Pin: 28',
-        'height': 519,
-      },
-      {
-        'name': 'Pin: 29',
-        'height': 440,
-      },
-      {
-        'name': 'Pin: 30',
-        'height': 391,
-      },
-      {
-        'name': 'Pin: 31',
-        'height': 475,
-      },
-      {
-        'name': 'Pin: 32',
-        'height': 458,
-      },
-      {
-        'name': 'Pin: 33',
-        'height': 292,
-      },
-      {
-        'name': 'Pin: 34',
-        'height': 215,
-      },
-      {
-        'name': 'Pin: 35',
-        'height': 400,
-      },
-      {
-        'name': 'Pin: 36',
-        'height': 153,
-      },
+      { name: 'Pin 23', height: 428 },
+      { name: 'Pin 24', height: 340 },
+      { name: 'Pin 25', height: 458 },
+      { name: 'Pin 26', height: 475 },
+      { name: 'Pin 27', height: 303 },
+      { name: 'Pin 28', height: 519 },
+      { name: 'Pin 29', height: 440 },
+      { name: 'Pin 30', height: 391 },
+      { name: 'Pin 31', height: 475 },
+      { name: 'Pin 32', height: 458 },
+      { name: 'Pin 33', height: 292 },
+      { name: 'Pin 34', height: 215 },
+      { name: 'Pin 35', height: 400 },
+      { name: 'Pin 36', height: 153 },
     ];
     additionalItems.forEach((item) => {
       measurementStore.set(item, item.height);
@@ -1235,6 +1054,8 @@ describe('initializeHeightsArray', () => {
       }, [])
       .map((column) => column.sort((a, b) => (a?.top ?? 0) - (b?.top ?? 0)));
 
+    // initializeHeights is run for each layout so this helps validate that running initializeHeights against the new set of items
+    // yields the correct positions based on the heights we validated above.
     const newTops = newPositionsByColumns.map((column) => column[0].top);
     expect(newTops).toEqual(heights);
   });
