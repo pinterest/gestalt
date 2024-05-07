@@ -1,3 +1,9 @@
+## 147.5.0 (May 7, 2024)
+
+### Minor
+
+- Tokens: add declaration file for constant tokens ([#3554](https://github.com/pinterest/gestalt/pull/3554)) - [Preview link](https://deploy-preview-3554--gestalt.netlify.app?devexample=true)
+
 ## 147.4.2 (May 3, 2024)
 
 ### Patch
