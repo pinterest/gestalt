@@ -1,3 +1,9 @@
+## 147.5.1 (May 8, 2024)
+
+### Patch
+
+- Masonry: Fix heights init ([#3555](https://github.com/pinterest/gestalt/pull/3555)) - [Preview link](https://deploy-preview-3555--gestalt.netlify.app?devexample=true)
+
 ## 147.5.0 (May 7, 2024)
 
 ### Minor
