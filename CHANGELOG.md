@@ -1,3 +1,9 @@
+## 147.5.2 (May 8, 2024)
+
+### Patch
+
+- Tag: fix padding in mobile browsers in button tag ([#3556](https://github.com/pinterest/gestalt/pull/3556)) - [Preview link](https://deploy-preview-3556--gestalt.netlify.app?devexample=true)
+
 ## 147.5.1 (May 8, 2024)
 
 ### Patch
