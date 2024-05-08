@@ -1,5 +1,7 @@
 // @flow strict
-import defaultTwoColumnModuleLayout from './defaultTwoColumnModuleLayout';
+import defaultTwoColumnModuleLayout, {
+  initializeHeightsArray,
+} from './defaultTwoColumnModuleLayout';
 import MeasurementStore from './MeasurementStore';
 import { type Position } from './types';
 
@@ -848,4 +850,213 @@ describe('multi column layout test cases', () => {
       });
     },
   );
+});
+
+describe('initializeHeightsArray', () => {
+  test('correctly determines column heights before laying out new items (default layout)', () => {
+    const gutter = 16;
+    const columnWidth = 236;
+    const measurementStore = new MeasurementStore<{ ... }, number>();
+    const positionCache = new MeasurementStore<{ ... }, Position>();
+    const items: $ReadOnlyArray<Item> = [
+      { name: 'Pin 0', height: 476 },
+      { name: 'Pin 1', height: 381 },
+      { name: 'Pin 2', height: 274 },
+      { name: 'Pin 3', height: 303 },
+      { name: 'Pin 4', height: 475 },
+      { name: 'Pin 5', height: 496 },
+      { name: 'Pin 6', height: 177 },
+      { name: 'Pin 7', height: 440 },
+      { name: 'Pin 8', height: 497 },
+      { name: 'Pin 9', height: 430 },
+      { name: 'Pin 10', height: 409 },
+      { name: 'Pin 11', height: 452 },
+      { name: 'Pin 12', height: 458 },
+      { name: 'Pin 13', height: 510 },
+      { name: 'Pin 14', height: 336 },
+      { name: 'Pin 15', height: 293 },
+      { name: 'Pin 16', height: 416 },
+      { name: 'Pin 17', height: 92 },
+      { name: 'Pin 18', height: 475 },
+      { name: 'Pin 19', height: 457 },
+      { name: 'Pin 20', height: 300 },
+      { name: 'Pin 21', height: 322 },
+      { name: 'Pin 22', height: 417 },
+    ];
+    items.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+    const layout = defaultTwoColumnModuleLayout({
+      columnWidth,
+      gutter,
+      measurementCache: measurementStore,
+      justify: 'start',
+      minCols: 3,
+      positionCache,
+      rawItemCount: items.length,
+      width: 2255,
+    });
+    const positions = layout(items);
+    expect(positions).toEqual([
+      { height: 476, left: 1, top: 0, width: 236 },
+      { height: 381, left: 253, top: 0, width: 236 },
+      { height: 274, left: 505, top: 0, width: 236 },
+      { height: 303, left: 757, top: 0, width: 236 },
+      { height: 475, left: 1009, top: 0, width: 236 },
+      { height: 496, left: 1261, top: 0, width: 236 },
+      { height: 177, left: 1513, top: 0, width: 236 },
+      { height: 440, left: 1765, top: 0, width: 236 },
+      { height: 497, left: 2017, top: 0, width: 236 },
+      { height: 430, left: 1513, top: 193, width: 236 },
+      { height: 409, left: 505, top: 290, width: 236 },
+      { height: 452, left: 757, top: 319, width: 236 },
+      { height: 458, left: 253, top: 397, width: 236 },
+      { height: 510, left: 1765, top: 456, width: 236 },
+      { height: 336, left: 1009, top: 491, width: 236 },
+      { height: 293, left: 1, top: 492, width: 236 },
+      { height: 416, left: 1261, top: 512, width: 236 },
+      { height: 92, left: 2017, top: 513, width: 236 },
+      { height: 475, left: 2017, top: 621, width: 236 },
+      { height: 457, left: 1513, top: 639, width: 236 },
+      { height: 300, left: 505, top: 715, width: 236 },
+      { height: 322, left: 757, top: 787, width: 236 },
+      { height: 417, left: 1, top: 801, width: 236 },
+    ]);
+
+    const heights = initializeHeightsArray({
+      centerOffset: 1,
+      columnCount: 9,
+      columnWidthAndGutter: columnWidth + gutter,
+      gutter,
+      items,
+      positionCache,
+    });
+
+    expect(heights.length).toEqual(9);
+    expect(heights).toEqual([1234, 871, 1031, 1125, 843, 944, 1112, 982, 1112]);
+  });
+
+  test('correctly determines column heights before laying out new items (multi column layout)', () => {
+    const gutter = 16;
+    const columnWidth = 236;
+    const measurementStore = new MeasurementStore<{ ... }, number>();
+    const positionCache = new MeasurementStore<{ ... }, Position>();
+    const items = [
+      { name: 'Pin 0', height: 476 },
+      { name: 'Pin 1', height: 381 },
+      { name: 'Pin 2', height: 274 },
+      { name: 'Pin 3', height: 303 },
+      { name: 'Pin 4', height: 475 },
+      { name: 'Pin 5', height: 496 },
+      { name: 'Pin 6', height: 177 },
+      { name: 'Pin 7', height: 440 },
+      { name: 'Pin 8', height: 497 },
+      { name: 'Pin 9', height: 430 },
+      { name: 'Pin 10', height: 409 },
+      { name: 'Pin 11', height: 452 },
+      { name: 'Pin 12', height: 458 },
+      { name: 'Pin 13', height: 510 },
+      { name: 'Pin 14', height: 336 },
+      { name: 'Pin 15', height: 293, columnSpan: 2 },
+      { name: 'Pin 16', height: 416 },
+      { name: 'Pin 17', height: 92 },
+      { name: 'Pin 18', height: 475 },
+      { name: 'Pin 19', height: 457 },
+      { name: 'Pin 20', height: 300 },
+      { name: 'Pin 21', height: 322 },
+      { name: 'Pin 22', height: 417 },
+    ];
+    items.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+    const layout = defaultTwoColumnModuleLayout({
+      columnWidth,
+      gutter,
+      measurementCache: measurementStore,
+      justify: 'start',
+      minCols: 3,
+      positionCache,
+      rawItemCount: items.length,
+      width: 2255,
+    });
+    const positions = layout(items);
+    expect(positions).toEqual([
+      { top: 492, left: 1, width: 236, height: 416 },
+      { top: 512, left: 1261, width: 236, height: 92 },
+      { top: 513, left: 2017, width: 236, height: 300 },
+      { top: 620, left: 1261, width: 236, height: 475 },
+      { top: 639, left: 1513, width: 236, height: 457 },
+      { top: 1112, left: 1261, width: 488, height: 293 },
+      { top: 0, left: 1, width: 236, height: 476 },
+      { top: 0, left: 253, width: 236, height: 381 },
+      { top: 0, left: 505, width: 236, height: 274 },
+      { top: 0, left: 757, width: 236, height: 303 },
+      { top: 0, left: 1009, width: 236, height: 475 },
+      { top: 0, left: 1261, width: 236, height: 496 },
+      { top: 0, left: 1513, width: 236, height: 177 },
+      { top: 0, left: 1765, width: 236, height: 440 },
+      { top: 0, left: 2017, width: 236, height: 497 },
+      { top: 193, left: 1513, width: 236, height: 430 },
+      { top: 290, left: 505, width: 236, height: 409 },
+      { top: 319, left: 757, width: 236, height: 452 },
+      { top: 397, left: 253, width: 236, height: 458 },
+      { top: 456, left: 1765, width: 236, height: 510 },
+      { top: 491, left: 1009, width: 236, height: 336 },
+      { top: 715, left: 505, width: 236, height: 322 },
+      { top: 787, left: 757, width: 236, height: 417 },
+    ]);
+
+    const heights = initializeHeightsArray({
+      centerOffset: 1,
+      columnCount: 9,
+      columnWidthAndGutter: columnWidth + gutter,
+      gutter,
+      items,
+      positionCache,
+    });
+
+    expect(heights.length).toEqual(9);
+    expect(heights).toEqual([924, 871, 1053, 1220, 843, 1421, 1421, 982, 829]);
+
+    const additionalItems = [
+      { name: 'Pin 23', height: 428 },
+      { name: 'Pin 24', height: 340 },
+      { name: 'Pin 25', height: 458 },
+      { name: 'Pin 26', height: 475 },
+      { name: 'Pin 27', height: 303 },
+      { name: 'Pin 28', height: 519 },
+      { name: 'Pin 29', height: 440 },
+      { name: 'Pin 30', height: 391 },
+      { name: 'Pin 31', height: 475 },
+      { name: 'Pin 32', height: 458 },
+      { name: 'Pin 33', height: 292 },
+      { name: 'Pin 34', height: 215 },
+      { name: 'Pin 35', height: 400 },
+      { name: 'Pin 36', height: 153 },
+    ];
+    additionalItems.forEach((item) => {
+      measurementStore.set(item, item.height);
+    });
+
+    layout(items.concat(additionalItems));
+
+    const newPositions = additionalItems.map((item) => positionCache.get(item));
+
+    const newPositionsByColumns = newPositions
+      // $FlowFixMe[missing-local-annot]
+      .reduce((acc, position) => {
+        const column = Math.floor((position?.left ?? 0) / (columnWidth + gutter));
+        if (!acc[column]) {
+          acc[column] = [];
+        }
+        acc[column].push(position);
+        return acc;
+      }, [])
+      .map((column) => column.sort((a, b) => (a?.top ?? 0) - (b?.top ?? 0)));
+
+    // initializeHeights is run for each layout so this helps validate that running initializeHeights against the new set of items
+    // yields the correct positions based on the heights we validated above.
+    const newTops = newPositionsByColumns.map((column) => column[0].top);
+    expect(newTops).toEqual(heights);
+  });
 });
