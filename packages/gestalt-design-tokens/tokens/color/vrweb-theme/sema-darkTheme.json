@@ -1,0 +1,481 @@
+{
+  "color": {
+    "background": {
+      "default": {
+        "value": "{color.grayscale.500.value}",
+        "comment": "Background color that will match the current color scheme"
+      },
+      "disabled": {
+        "value": "{color.grayscale.400.value}"
+      },
+      "education": {
+        "value": "{color.blue.200.value}",
+        "comment": "Background color to indicate educational moments or messages"
+      },
+      "wash": {
+        "dark": {
+          "value": "{color.grayscale.500.value}",
+          "_darkMode": "Unsupported color",
+          "comment": "Background color to supply a dark wash over an item"
+        },
+        "light": {
+          "value": "{color.grayscale.0.value}",
+          "_darkMode": "Unsupported color",
+          "comment": "Background color to supply a light wash over an item"
+        },
+        "component": {
+          "overlay": {
+            "value": "{color.grayscale.500.value}"
+          }
+        },
+        "pin": {
+          "overlay": {
+            "value": "{color.grayscale.500.value}"
+          }
+        },
+        "in": {
+          "feed": {
+            "overlay": {
+              "value": "{color.grayscale.250.value}"
+            }
+          }
+        }
+      },
+      "dark": {
+        "value": "{color.grayscale.500.value}",
+        "_darkMode": "Unsupported color",
+        "comment": "Background color that will always be dark, no matter the color scheme"
+      },
+      "light": {
+        "value": "{color.grayscale.0.value}",
+        "_darkMode": "Unsupported color",
+        "comment": "Background color that will always be light, no matter the color scheme"
+      },
+      "error": {
+        "default": {
+          "value": "{color.red.200.value}"
+        },
+        "weak": {
+          "value": "{color.red.500.value}",
+          "comment": "Weak background color to indicate errors, can be used behind text"
+        },
+        "base": {
+          "value": "{color.background.error.default.value}",
+          "comment": "Background color to indicate errors",
+          "deprecated": true
+        }
+      },
+      "info": {
+        "default": {
+          "value": "{color.blue.200.value}"
+        },
+        "weak": {
+          "value": "{color.blue.500.value}",
+          "comment": "Weak background color to indicate neutral information, can be used behind text"
+        },
+        "strong": {
+          "value": "{color.blue.100.value}",
+          "comment": "Strong background color to indicate neutral information, can be used for hover"
+        },
+        "base": {
+          "value": "{color.background.info.default.value}",
+          "comment": "Background color to indicate neutral information",
+          "deprecated": true
+        }
+      },
+      "neutral": {
+        "default": {
+          "value": "{color.grayscale.150.value}"
+        },
+        "weak": {
+          "value": "{color.grayscale.300.value}"
+        },
+        "value": "{color.background.neutral.default.value}",
+        "comment": "Background color to indicate neutral information",
+        "deprecated": true
+      },
+      "success": {
+        "default": {
+          "value": "{color.green.200.value}"
+        },
+        "weak": {
+          "value": "{color.green.500.value}",
+          "comment": "Weak background color to indicate success, can be used behind text"
+        },
+        "base": {
+          "value": "{color.background.success.default.value}",
+          "comment": "Background color to indicate success",
+          "deprecated": true
+        }
+      },
+      "recommendation": {
+        "default": {
+          "value": "{color.purple.200.value}"
+        },
+        "weak": {
+          "value": "{color.purple.500.value}",
+          "comment": "Weak background color to indicate recommendations, can be used behind text"
+        },
+        "base": {
+          "value": "{color.background.recommendation.default.value}",
+          "comment": "Background color to indicate recommendations",
+          "deprecated": true
+        }
+      },
+      "warning": {
+        "default": {
+          "value": "{color.orange.200.value}"
+        },
+        "weak": {
+          "value": "{color.orange.500.value}",
+          "comment": "Weak background color to indicate warnings, can be used behind text"
+        },
+        "base": {
+          "value": "{color.background.warning.default.value}",
+          "comment": "Background color to indicate warnings",
+          "deprecated": true
+        }
+      },
+      "primary": {
+        "default": {
+          "value": "{color.red.300.value}"
+        },
+        "strong": {
+          "value": "{color.red.400.value}",
+          "_darkMode": "Unsupported color",
+          "comment": "Strong version of the primary background color, used for hover"
+        },
+        "weak": {
+          "value": "{color.red.200.value}",
+          "_darkMode": "Unsupported color",
+          "comment": "Weak version of the primary background color, used for hover"
+        },
+        "base": {
+          "value": "{color.background.primary.default.value}",
+          "_darkMode": "Unsupported color",
+          "comment": "Primary background color",
+          "deprecated": true
+        }
+      },
+      "secondary": {
+        "default": {
+          "value": "{color.grayscale.250.value}"
+        },
+        "strong": {
+          "value": "{color.grayscale.200.value}",
+          "_darkMode": "Unsupported color",
+          "comment": "Strong version of secondary background color, used for hover"
+        },
+        "weak": {
+          "value": "{color.grayscale.150.value}",
+          "_darkMode": "Unsupported color",
+          "comment": "Weak version of secondary background color, used for hover"
+        },
+        "base": {
+          "value": "{color.background.secondary.default.value}",
+          "comment": "Secondary background color",
+          "deprecated": true
+        }
+      },
+      "tertiary": {
+        "default": {
+          "value": "{color.grayscale.150.value}"
+        },
+        "strong": {
+          "value": "{color.grayscale.400.value}",
+          "_darkMode": "Unsupported color",
+          "comment": "Strong version of tertiary background color, used for hover"
+        },
+        "weak": {
+          "value": "{color.grayscale.150.value}",
+          "_darkMode": "Unsupported color",
+          "comment": "Weak version of tertiary background color, used for hover"
+        },
+        "base": {
+          "value": "{color.background.tertiary.default.value}",
+          "comment": "Tertiary background color",
+          "deprecated": true
+        }
+      },
+      "selected": {
+        "default": {
+          "value": "{color.grayscale.100.value}"
+        },
+        "strong": {
+          "value": "{color.grayscale.400.value}",
+          "_darkMode": "Unsupported color",
+          "comment": "Strong version of the selected background color, used for hover"
+        },
+        "weak": {
+          "value": "{color.grayscale.200.value}",
+          "_darkMode": "Unsupported color",
+          "comment": "Weak version of the selected background color, used for hover"
+        },
+        "base": {
+          "value": "{color.background.selected.default.value}",
+          "comment": "Background color to indicate selected state, like a selected IconButton",
+          "deprecated": true
+        }
+      },
+      "inverse": {
+        "default": {
+          "value": "{color.grayscale.0.value}"
+        },
+        "strong": {
+          "value": "{color.grayscale.100.value}",
+          "_darkMode": "Unsupported color",
+          "comment": "Strong version of inverse background color, used for hover"
+        },
+        "base": {
+          "value": "{color.background.inverse.default.value}",
+          "comment": "Background color for use on inverted backgrounds",
+          "deprecated": true
+        }
+      },
+      "transparent": {
+        "value": "rgba (0,0,0,0)"
+      },
+      "scrim": {
+        "value": "{color.grayscale.450.value}"
+      },
+      "elevation": {
+        "value": "{color.grayscale.400.value}",
+        "accent": {
+          "value": "{color.background.scrim.value}",
+          "_darkMode": "Unsupported color",
+          "comment": "Background color used to accent containers when shadows are not an option ",
+          "deprecated": true
+        },
+        "floating": {
+          "value": "{color.background.elevation.value}",
+          "comment": "Background color used for floating elements in dark mode (like Modal or OverlayPanel) ",
+          "deprecated": true
+        },
+        "raised": {
+          "value": "{color.background.elevation.value}",
+          "comment": "Background color used for raised elements in dark mode, like sticky headers or navigation footers ",
+          "deprecated": true
+        }
+      },
+      "shopping": {
+        "value": "{color.background.info.default.value}",
+        "comment": "Background color to indicate shopping-related features",
+        "deprecated": true
+      },
+      "brand": {
+        "value": "{color.background.primary.default.value}",
+        "_darkMode": "Unsupported color",
+        "comment": "Background color to signify the Pinterest brand",
+        "deprecated": true
+      }
+    },
+    "border": {
+      "decorative": {
+        "value": "{color.grayscale.250.value}"
+      },
+      "interactive": {
+        "value": "{color.grayscale.150.value}"
+      },
+      "selected ": {
+        "value": "{color.grayscale.0.value}"
+      },
+      "disabled": {
+        "value": "{color.grayscale.350.value}"
+      },
+      "focus ": {
+        "value": "{color.blue.400.value}"
+      },
+      "success": {
+        "value": "{color.green.200.value}"
+      },
+      "error": {
+        "value": "{color.red.200.value}",
+        "comment": "Used to indicate an error on a contained element, like TextField or TextArea"
+      },
+      "inverse": {
+        "value": "{color.grayscale.500.value}"
+      },
+      "container": {
+        "value": "{color.border.decorative.value}",
+        "comment": "Used to delineate a larger container, like Card or TextArea",
+        "deprecated": true
+      },
+      "default": {
+        "value": "{color.border.interactive.value}",
+        "comment": "Used to indicate specific UI element boundaries, like Checkbox or RadioButton",
+        "deprecated": true
+      },
+      "focus": {
+        "value": "rgba(0, 132, 255, 0.5)",
+        "_darkMode": "Unsupported color",
+        "comment": "Used to indicate a focused state on interactive elements, like TextField or Button"
+      }
+    },
+    "text": {
+      "default": {
+        "value": "{color.grayscale.0.value}",
+        "comment": "Default text color"
+      },
+      "subtle": {
+        "value": "{color.grayscale.200.value}",
+        "comment": "Secondary, subtle text color"
+      },
+      "disabled": {
+        "value": "{color.grayscale.350.value}",
+        "comment": "Disabled text color"
+      },
+      "link": {
+        "value": "{color.blue.skycicle.400.value}",
+        "comment": "Text color to use for links in documentation sites"
+      },
+      "info": {
+        "value": "{color.blue.100.value}"
+      },
+      "success": {
+        "value": "{color.green.100.value}",
+        "comment": "Text color to indicate success"
+      },
+      "primary": {
+        "value": "{color.red.300.value}"
+      },
+      "error": {
+        "value": "{color.red.100.value}",
+        "comment": "Text color to indicate an error"
+      },
+      "warning": {
+        "value": "{color.orange.100.value}",
+        "comment": "Text color to indicate a warning or caution"
+      },
+      "recommendation": {
+        "value": "{color.purple.100.value}"
+      },
+      "neutral": {
+        "value": "{color.grayscale.100.value}"
+      },
+      "dark": {
+        "value": "{color.grayscale.500.value}",
+        "_darkMode": "Unsupported color",
+        "comment": "Dark text color that won't change in dark mode"
+      },
+      "light": {
+        "value": "{color.grayscale.0.value}",
+        "_darkMode": "Unsupported color",
+        "comment": "Light text color that won't change in dark mode"
+      },
+      "inverse": {
+        "value": "{color.grayscale.500.value}",
+        "comment": "Text color to use on inverted backgrounds"
+      },
+      "shopping": {
+        "value": "{color.text.default.value}",
+        "comment": "Text color to use for shopping surfaces",
+        "deprecated": true
+      }
+    },
+    "icon": {
+      "default": {
+        "value": "{color.grayscale.0.value}",
+        "comment": "Default color for icons"
+      },
+      "subtle": {
+        "value": "{color.grayscale.200.value}",
+        "comment": "Subtle, secondary color for icons"
+      },
+      "disabled": {
+        "value": "{color.grayscale.350.value}",
+        "comment": "Disabled color for icons"
+      },
+      "info": {
+        "value": "{color.blue.100.value}",
+        "comment": "Icon color to use for information"
+      },
+      "success": {
+        "value": "{color.green.100.value}",
+        "comment": "Icon color to indicate success"
+      },
+      "primary": {
+        "value": "{color.red.300.value}"
+      },
+      "error": {
+        "value": "{color.red.100.value}",
+        "comment": "Icon color to indicate an error"
+      },
+      "warning": {
+        "value": "{color.orange.100.value}",
+        "comment": "Icon color to indicate a warning or caution"
+      },
+      "recommendation": {
+        "value": "{color.purple.100.value}",
+        "comment": "Icon color to use for recommendations"
+      },
+      "neutral": {
+        "value": "{color.grayscale.100.value}"
+      },
+      "dark": {
+        "value": "{color.grayscale.500.value}",
+        "_darkMode": "Unsupported color",
+        "comment": "Icon color that will always remain dark"
+      },
+      "light": {
+        "value": "{color.grayscale.0.value}",
+        "_darkMode": "Unsupported color",
+        "comment": "Icon color that will always remain light"
+      },
+      "inverse": {
+        "value": "{color.grayscale.500.value}",
+        "comment": "Icon color to use on inverted backgrounds"
+      },
+      "shopping": {
+        "value": "{color.icon.default.value}",
+        "comment": "Icon color to use for shopping surfaces",
+        "deprecated": true
+      },
+      "brand": {
+        "primary": {
+          "value": "{color.icon.primary.value}",
+          "_darkMode": "Unsupported color",
+          "comment": "Icon color to use solely for representing the Pinterest brand",
+          "deprecated": true
+        }
+      }
+    },
+    "data-viz": {
+      "10": {
+        "value": "{color.dataVisualization.22.value}"
+      },
+      "11": {
+        "value": "{color.dataVisualization.23.value}"
+      },
+      "12": {
+        "value": "{color.dataVisualization.24.value}"
+      },
+      "01": {
+        "value": "{color.dataVisualization.13.value}"
+      },
+      "02": {
+        "value": "{color.dataVisualization.14.value}"
+      },
+      "03": {
+        "value": "{color.dataVisualization.15.value}"
+      },
+      "04": {
+        "value": "{color.dataVisualization.16.value}"
+      },
+      "05": {
+        "value": "{color.dataVisualization.17.value}"
+      },
+      "06": {
+        "value": "{color.dataVisualization.18.value}"
+      },
+      "07": {
+        "value": "{color.dataVisualization.19.value}"
+      },
+      "08": {
+        "value": "{color.dataVisualization.20.value}"
+      },
+      "09": {
+        "value": "{color.dataVisualization.21.value}"
+      }
+    }
+  }
+}
