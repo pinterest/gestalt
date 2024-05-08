@@ -1,3 +1,9 @@
+## 147.5.3 (May 8, 2024)
+
+### Patch
+
+- Docs: Update Android component status to reflect the latest ([#3557](https://github.com/pinterest/gestalt/pull/3557)) - [Preview link](https://deploy-preview-3557--gestalt.netlify.app?devexample=true)
+
 ## 147.5.2 (May 8, 2024)
 
 ### Patch
