@@ -6,11 +6,11 @@
     },
     "raised": {
       "top": {
-        "value": "0 0.5px 0 {color.gray.roboflow.50.value}",
+        "value": "0 0.5px 0 {color.grayscale.400.value}",
         "comment": "Used to indicate a sticky UI element where content can scroll underneath, like a header"
       },
       "bottom": {
-        "value": "0 -0.5px 0 {color.gray.roboflow.50.value}",
+        "value": "0 -0.5px 0 {color.grayscale.400.value}",
         "comment": "Used to indicate a sticky UI element that sits on top of content, like a footer or navigation bar"
       }
     }
