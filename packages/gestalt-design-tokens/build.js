@@ -5,7 +5,7 @@ const StyleDictionary = require('style-dictionary');
 
 // $FlowFixMe[missing-local-annot]
 function nameOutputFile({ name, theme }) {
-  const filePrefix = theme === 'main-theme' ? '' : `${theme.split('-')[0]}-`;
+  const filePrefix = theme === 'classic' ? '' : `${theme.split('-')[0]}-`;
   return `${filePrefix}${name}`;
 }
 
@@ -214,7 +214,7 @@ StyleDictionary.registerTransform({
   name: 'name/prefix/theme',
   type: 'name',
   matcher(prop) {
-    return prop.filePath.includes('theme') && !prop.filePath.includes('main-theme');
+    return prop.filePath.includes('theme') && !prop.filePath.includes('classic');
   },
   transformer(prop) {
     const prefix = getMatchedThemeName(prop.filePath);
@@ -238,7 +238,7 @@ StyleDictionary.registerTransformGroup({
 // BUILD CONFIGURATION
 
 // $FlowFixMe[missing-local-annot]
-function getWebConfig({ theme = 'main-theme', mode = 'light' }) {
+function getWebConfig({ theme = 'classic', mode = 'light' }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
 
   return {
@@ -533,7 +533,7 @@ function getWebConfig({ theme = 'main-theme', mode = 'light' }) {
 }
 
 // $FlowFixMe[missing-local-annot]
-function getAndroidConfiguration({ theme = 'main-theme', mode = 'light' }) {
+function getAndroidConfiguration({ theme = 'classic', mode = 'light' }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
 
   return {
@@ -654,7 +654,7 @@ function getAndroidConfiguration({ theme = 'main-theme', mode = 'light' }) {
 }
 
 // $FlowFixMe[missing-local-annot]
-function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
+function getIOSConfiguration({ theme = 'classic', mode = 'light' }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
 
   return {
@@ -848,9 +848,9 @@ const platformFileMap = {
   ios: ['ios', 'ios-swift', 'ios-swift-separate-enums'],
 };
 
-['main-theme', 'vr-theme'].forEach((theme) =>
+['classic', 'vr-theme'].forEach((theme) =>
   ['light', 'dark'].forEach((mode) => {
-    if (theme === 'main-theme') {
+    if (theme === 'classic') {
       // iOS platform
       const StyleDictionaryIOS = StyleDictionary.extend(getIOSConfiguration({ mode, theme }));
       platformFileMap.ios.forEach((platform) => StyleDictionaryIOS.buildPlatform(platform));
