@@ -267,7 +267,8 @@
         "value": "{color.grayscale.150.value}"
       },
       "focus ": {
-        "value": "{color.blue.400.value}"
+        "value": "{color.blue.400.value}",
+        "comment": "Used to indicate a focused state on interactive elements, like TextField or Button"
       },
       "success": {
         "value": "{color.green.400.value}"
@@ -288,10 +289,6 @@
         "value": "{color.border.interactive.value}",
         "comment": "Used to indicate specific UI element boundaries, like Checkbox or RadioButton",
         "deprecated": true
-      },
-      "focus": {
-        "value": "rgba(0, 132, 255, 0.5)",
-        "comment": "Used to indicate a focused state on interactive elements, like TextField or Button"
       }
     },
     "text": {
