@@ -5,8 +5,8 @@ const StyleDictionary = require('style-dictionary');
 
 // $FlowFixMe[missing-local-annot]
 function nameOutputFile({ name, theme }) {
-  const filePrefix = theme === 'classic' ? '' : `${theme.split('-')[0]}-`;
-  return `${filePrefix}${name}`;
+  const filePrefix = theme === 'classic' ? '' : `${theme.split('-')[0]}`;
+  return `${filePrefix}/${name}`;
 }
 
 // $FlowFixMe[missing-local-annot]
@@ -245,8 +245,8 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
     'source': [
       `tokens/color/${theme}/base.json`,
       `tokens/color/${theme}/data-visualization/base${modeTheme}.json`,
-      `tokens/color/${theme}/data-visualization/alias${modeTheme}.json`,
-      `tokens/color/${theme}/alias${modeTheme}.json`,
+      `tokens/color/${theme}/data-visualization/sema${modeTheme}.json`,
+      `tokens/color/${theme}/sema${modeTheme}.json`,
       `tokens/color/${theme}/component${modeTheme}.json`,
       `tokens/elevation/${theme}/base${modeTheme}.json`,
       `tokens/elevation/${theme}/component${modeTheme}.json`,
@@ -371,12 +371,12 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
           mode === 'light'
             ? [
                 {
-                  'destination': 'constants.es.js',
+                  'destination': nameOutputFile({ name: 'contants.es.js', theme }),
                   'format': 'constantLibrary-javascript/es6/flow',
                   '_format_comment': 'Custom.',
                 },
                 {
-                  'destination': 'constants.js',
+                  'destination': nameOutputFile({ name: 'contants.js', theme }),
                   'format': 'constantLibrary-commonJS/flow',
                   '_format_comment': 'Custom.',
                 },
@@ -449,22 +449,22 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
           mode === 'light'
             ? [
                 {
-                  'destination': 'constants.es.ts',
+                  'destination': nameOutputFile({ name: 'constants.es.ts', theme }),
                   'format': 'constantLibrary-javascript/es6/ts',
                   '_format_comment': 'Custom.',
                 },
                 {
-                  'destination': 'constants.es.d.ts',
+                  'destination': nameOutputFile({ name: 'constants.es.d.ts', theme }),
                   'format': 'constantLibrary-javascript/es6/ts',
                   '_format_comment': 'Custom.',
                 },
                 {
-                  'destination': 'constants.ts',
+                  'destination': nameOutputFile({ name: 'constants.ts', theme }),
                   'format': 'constantLibrary-commonJS/flow',
                   '_format_comment': 'Custom.',
                 },
                 {
-                  'destination': 'constants.d.ts',
+                  'destination': nameOutputFile({ name: 'constants.d.ts', theme }),
                   'format': 'constantLibrary-commonJS/flow',
                   '_format_comment': 'Custom.',
                 },
@@ -540,8 +540,8 @@ function getAndroidConfiguration({ theme = 'classic', mode = 'light' }) {
     'source': [
       `tokens/color/${theme}/base.json`,
       `tokens/color/${theme}/data-visualization/base${modeTheme}.json`,
-      `tokens/color/${theme}/data-visualization/alias${modeTheme}.json`,
-      `tokens/color/${theme}/alias${modeTheme}.json`,
+      `tokens/color/${theme}/data-visualization/sema${modeTheme}.json`,
+      `tokens/color/${theme}/sema${modeTheme}.json`,
       `tokens/elevation/${theme}/base${modeTheme}.json`,
       'tokens/font/base.json',
       'tokens/opacity/base.json',
@@ -661,8 +661,8 @@ function getIOSConfiguration({ theme = 'classic', mode = 'light' }) {
     'source': [
       `tokens/color/${theme}/base.json`,
       `tokens/color/${theme}/data-visualization/base${modeTheme}.json`,
-      `tokens/color/${theme}/data-visualization/alias${modeTheme}.json`,
-      `tokens/color/${theme}/alias${modeTheme}.json`,
+      `tokens/color/${theme}/data-visualization/sema${modeTheme}.json`,
+      `tokens/color/${theme}/sema${modeTheme}.json`,
       `tokens/elevation/${theme}/base${modeTheme}.json`,
       'tokens/font/base.json',
       'tokens/opacity/base.json',
@@ -848,17 +848,19 @@ const platformFileMap = {
   ios: ['ios', 'ios-swift', 'ios-swift-separate-enums'],
 };
 
-['classic', 'vr-theme'].forEach((theme) =>
+['classic', 'vr-theme', 'vrweb-theme'].forEach((theme) =>
   ['light', 'dark'].forEach((mode) => {
-    if (theme === 'classic') {
+    if (theme !== 'vrweb-theme') {
       // iOS platform
       const StyleDictionaryIOS = StyleDictionary.extend(getIOSConfiguration({ mode, theme }));
       platformFileMap.ios.forEach((platform) => StyleDictionaryIOS.buildPlatform(platform));
-    }
 
-    // Android platform
-    const StyleDictionaryAndroid = StyleDictionary.extend(getAndroidConfiguration({ mode, theme }));
-    platformFileMap.android.forEach((platform) => StyleDictionaryAndroid.buildPlatform(platform));
+      // Android platform
+      const StyleDictionaryAndroid = StyleDictionary.extend(
+        getAndroidConfiguration({ mode, theme }),
+      );
+      platformFileMap.android.forEach((platform) => StyleDictionaryAndroid.buildPlatform(platform));
+    }
 
     // // web platform
     const StyleDictionaryWeb = StyleDictionary.extend(getWebConfig({ mode, theme }));
