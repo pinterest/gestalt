@@ -37,6 +37,8 @@
 .closeButton {
   composes: noBorder from "./Borders.css";
   composes: pointer from "./Cursor.css";
+  composes: paddingX0 from "./boxWhitespace.css";
+  composes: paddingY0 from "./boxWhitespace.css";
   height: 100%;
   outline: none;
   position: absolute;
