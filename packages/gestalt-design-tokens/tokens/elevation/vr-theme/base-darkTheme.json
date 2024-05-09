@@ -1,18 +1,19 @@
 {
   "elevation": {
-    "floating": {
-      "value": "none",
-      "comment": "Used to highlight an item that floats above other content, like a Modal"
+    "100": {
+      "value": "0 1 2px 0 #000000 30%, 0 0 1px, 0 #000000 28%"
     },
-    "raised": {
-      "top": {
-        "value": "0 0.5px 0 {color.grayscale.400.value}",
-        "comment": "Used to indicate a sticky UI element where content can scroll underneath, like a header"
-      },
-      "bottom": {
-        "value": "0 -0.5px 0 {color.grayscale.400.value}",
-        "comment": "Used to indicate a sticky UI element that sits on top of content, like a footer or navigation bar"
-      }
+    "200": {
+      "value": "0 4 16px 0 #000000 20%, 0 1 4px 0 #00000 20%"
+    },
+    "300": {
+      "value": "0 0 0 0.5 #636361 70%, 0 6 1 0 #000000 30%, 0 2 1 0 #000000 25%"
+    },
+    "325": {
+      "value": "0 0 1 0.5 #636361 70%, 0 8 2 0 #000000 30%, 0 2 1 0 #000000 26%"
+    },
+    "350": {
+      "value": "0 0 -1 0.5 #636361 70%, 0 8 -2 0 #000000 30%, 0 2 -1 0 #000000 26%"
     }
   }
 }

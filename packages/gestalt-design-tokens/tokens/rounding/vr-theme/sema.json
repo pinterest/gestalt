@@ -1,0 +1,38 @@
+{
+  "rounding": {
+    "date": {
+      "container": {
+        "value": "{rounding.16.value}"
+      },
+      "range": {
+        "middle": {
+          "value": "{rounding.0.value}"
+        }
+      },
+      "start": {
+        "value": "50% 0px 0px 50%"
+      },
+      "end": {
+        "value": "0px 50% 50% 0px"
+      }
+    },
+    "XL": {
+      "value": "{rounding.20.value}"
+    },
+    "LG": {
+      "value": "{rounding.16.value}"
+    },
+    "MD": {
+      "value": "{rounding.12.value}"
+    },
+    "SM": {
+      "value": "{rounding.8.value}"
+    },
+    "XS": {
+      "value": "{rounding.4.value}"
+    },
+    "circle": {
+      "value": "{rounding.circle-base.value}"
+    }
+  }
+}

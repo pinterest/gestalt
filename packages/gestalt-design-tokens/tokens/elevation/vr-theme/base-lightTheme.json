@@ -1,18 +1,19 @@
 {
   "elevation": {
-    "floating": {
-      "value": "0 0 8px rgba(0, 0, 0, 0.10)",
-      "comment": "Used to highlight an item that floats above other content, like a Modal"
+    "100": {
+      "value": "0 1 2px 0 #000000 10%, 0 0 1px 0 #000000 8%"
     },
-    "raised": {
-      "top": {
-        "value": "0 2px 8px rgba(0, 0, 0, 0.12)",
-        "comment": "Used to indicate a sticky UI element where content can scroll underneath, like a header"
-      },
-      "bottom": {
-        "value": "0 -2px 8px rgba(0, 0, 0, 0.12)",
-        "comment": "Used to indicate a sticky UI element that sits on top of content, like a footer or navigation bar"
-      }
+    "200": {
+      "value": "0 4 16px 0 #00000, 0 1 4px #00000"
+    },
+    "300": {
+      "value": "0 0 0 0.5 #969292 15%, 0 6 1 0 #000000 10%, 0 2 1 0 #000000 6%"
+    },
+    "325": {
+      "value": "0 0 1 0.5 #969292 15%, 0 8 2 0 #000000 12%, 0 2 1 0 #000000 6%"
+    },
+    "350": {
+      "value": "0 0 -1 0.5 #969292 15%, 0 8 -2 0 #000000 12%, 0 2 -1 0 #000000 6%"
     }
   }
 }

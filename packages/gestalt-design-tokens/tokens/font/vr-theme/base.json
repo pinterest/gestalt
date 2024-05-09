@@ -1,0 +1,48 @@
+{
+  "font": {
+    "weight": {
+      "400": {
+        "value": "400"
+      },
+      "500": {
+        "value": "500"
+      },
+      "700": {
+        "value": "600"
+      }
+    },
+    "size": {
+      "12": {
+        "value": "12px"
+      },
+      "14": {
+        "value": "14px"
+      },
+      "16": {
+        "value": "16px"
+      },
+      "20": {
+        "value": "20px"
+      },
+      "28": {
+        "value": "28px"
+      },
+      "36": {
+        "value": "36px"
+      }
+    },
+    "family": {
+      "default": {
+        "latin": {
+          "value": "‘Pin-Sans’, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif"
+        },
+        "japanese": {
+          "value": ""
+        }
+      },
+      "code": {
+        "value": ""
+      }
+    }
+  }
+}

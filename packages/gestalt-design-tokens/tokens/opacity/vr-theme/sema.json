@@ -1,0 +1,24 @@
+{
+  "opacity": {
+    "transparent": {
+      "value": "{opacity.0.value}"
+    },
+    "pin": {
+      "wash": {
+        "value": "{opacity.4.value}"
+      }
+    },
+    "light": {
+      "value": "{opacity.20.value}"
+    },
+    "medium": {
+      "value": "{opacity.40.value}"
+    },
+    "overlay": {
+      "value": "{opacity.80.value}"
+    },
+    "heavy": {
+      "value": "{opacity.90.value}"
+    }
+  }
+}
