@@ -590,18 +590,18 @@ export async function getServerSideProps(): Promise<{
     'TableRowDrawer',
   ]);
 
-  docGen.Table.props.children.flowType.raw =
+  docGen.Table.props.children.tsType.raw =
     'React.ChildrenArray<React.Element<typeof Table.Body | typeof Table.Footer | typeof Table.Header>>';
-  docGen.TableHeader.props.children.flowType.raw = 'React.Element<typeof Table.Row>';
-  docGen.TableBody.props.children.flowType.raw =
+  docGen.TableHeader.props.children.tsType.raw = 'React.Element<typeof Table.Row>';
+  docGen.TableBody.props.children.tsType.raw =
     'React.ChildrenArray<React.Element<typeof Table.Row | typeof Table.RowExpandable>>';
-  docGen.TableFooter.props.children.flowType.raw =
+  docGen.TableFooter.props.children.tsType.raw =
     'React.ChildrenArray<React.Element<typeof Table.Row | typeof Table.RowExpandable>>';
-  docGen.TableRow.props.children.flowType.raw =
+  docGen.TableRow.props.children.tsType.raw =
     'React.ChildrenArray<React.Element<typeof Table.Cell | typeof Table.HeaderCell | typeof Table.SortableHeaderCell>>';
-  docGen.TableRowExpandable.props.children.flowType.raw =
+  docGen.TableRowExpandable.props.children.tsType.raw =
     'React.ChildrenArray<React.Element<typeof Table.Cell>>';
-  docGen.TableRowDrawer.props.children.flowType.raw =
+  docGen.TableRowDrawer.props.children.tsType.raw =
     'React.ChildrenArray<React.Element<typeof Table.Cell>>';
 
   return {

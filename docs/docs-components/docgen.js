@@ -13,7 +13,7 @@ export type DocGen = {
       },
       required: boolean,
       description: string,
-      flowType: {
+      tsType: {
         raw?: string,
         nullable?: boolean,
         name: string,
@@ -47,7 +47,7 @@ export function overrideTypes(docGenArg: DocGen, typeOverrides: { [string]: stri
   Object.keys(typeOverrides).forEach((key) => {
     if (docGenArg?.props?.[key]) {
       // eslint-disable-next-line no-param-reassign
-      docGenArg.props[key].flowType = {
+      docGenArg.props[key].tsType = {
         name: 'union',
         raw: typeOverrides[key],
       };

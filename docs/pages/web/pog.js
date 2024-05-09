@@ -112,7 +112,7 @@ export async function getServerSideProps(): Promise<{
 
   generatedDocGen.props.icon = {
     ...generatedDocGen.props.icon,
-    flowType: {
+    tsType: {
       name: 'string',
       raw: 'Icon[icon]',
     },

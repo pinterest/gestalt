@@ -73,7 +73,7 @@ export default function GeneratedPropTable({
   // Using Object.keys because of https://github.com/facebook/flow/issues/2174
   const props = Object.keys(generatedDocGen.props)
     .map((key: string) => {
-      const { flowType, description, required, defaultValue } = generatedDocGen.props[key];
+      const { tsType, description, required, defaultValue } = generatedDocGen.props[key];
 
       // Filter out "_fooInternalProp" internal props that we don't want to document
       if (key.startsWith('_')) {
@@ -81,7 +81,7 @@ export default function GeneratedPropTable({
       }
 
       // Filter out PropType only types & excluded props
-      if (!flowType || excludeProps.includes(key)) {
+      if (!tsType || excludeProps.includes(key)) {
         return null;
       }
 
@@ -100,9 +100,9 @@ export default function GeneratedPropTable({
 
       // Trim leading `|`
       const transformedType = (
-        flowType.raw?.replace(/^\|/, '').trim() ??
-        flowType?.value ??
-        flowType.name ??
+        tsType.raw?.replace(/^\|/, '').trim() ??
+        tsType?.value ??
+        tsType.name ??
         ''
       )
         // Replace "Node" with "React.Node" to match docs convention
@@ -122,7 +122,7 @@ export default function GeneratedPropTable({
         description: descriptionWithoutOverrides?.trim(),
         required,
         defaultValue: defaultValue?.value?.replace(/'/g, ''),
-        nullable: flowType?.nullable || false,
+        nullable: tsType?.nullable || false,
         ...overrides,
       };
     })

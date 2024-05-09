@@ -375,8 +375,8 @@ export async function getServerSideProps(): Promise<{
 }> {
   const docGen = await multipleDocGen(['List', 'ListItem']);
 
-  docGen.List.props.children.flowType.raw = '<Element<typeof List.Item>>';
-  docGen.ListItem.props.children.flowType.raw = '<Element<typeof List | typeof List.Item>>';
+  docGen.List.props.children.tsType.raw = '<Element<typeof List.Item>>';
+  docGen.ListItem.props.children.tsType.raw = '<Element<typeof List | typeof List.Item>>';
 
   return {
     props: {

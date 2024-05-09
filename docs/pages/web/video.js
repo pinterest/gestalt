@@ -171,7 +171,7 @@ export async function getServerSideProps(): Promise<{ props: { generatedDocGen: 
   generatedDocGen.props.ref = {
     required: false,
     defaultValue: null,
-    flowType: {
+    tsType: {
       name: 'Ref',
       raw: 'Ref<typeof Video>',
     },

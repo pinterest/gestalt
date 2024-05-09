@@ -234,7 +234,7 @@ export async function getServerSideProps(): Promise<{
 
   docGen.Accordion.props.icon = {
     ...docGen.Accordion.props.icon,
-    flowType: {
+    tsType: {
       name: 'string',
       raw: 'Icon[icon]',
     },

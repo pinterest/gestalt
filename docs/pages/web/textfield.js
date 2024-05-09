@@ -503,7 +503,7 @@ export async function getServerSideProps(): Promise<{
 }> {
   const generatedDocGen = await docGen('TextField');
 
-  generatedDocGen.props.autoComplete.flowType.raw = `'bday' | 'current-password' | 'email' | 'new-password' | 'on' | 'off' | 'username' | 52 more ...`;
+  generatedDocGen.props.autoComplete.tsType.raw = `'bday' | 'current-password' | 'email' | 'new-password' | 'on' | 'off' | 'username' | 52 more ...`;
 
   return {
     props: { generatedDocGen: await docGen('TextField') },

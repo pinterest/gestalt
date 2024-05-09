@@ -166,7 +166,7 @@ export async function getServerSideProps(): Promise<{
 
   generatedDocGen.props.measurementStore = {
     ...generatedDocGen.props.measurementStore,
-    flowType: {
+    tsType: {
       name: 'string',
       raw: 'typeof MeasurementStore',
     },

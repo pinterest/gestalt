@@ -34,7 +34,7 @@ export async function getServerSideProps(): Promise<{
     generatedDocGen.props[prop] = {
       defaultValue: null,
       required: false,
-      flowType: {
+      tsType: {
         name: 'number | string',
         raw: `number | string`,
       },
