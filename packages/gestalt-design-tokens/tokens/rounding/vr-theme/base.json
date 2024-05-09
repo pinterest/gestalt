@@ -1,0 +1,37 @@
+{
+  "rounding": {
+    "0": {
+      "value": "0px"
+    },
+    "4": {
+      "value": "4px"
+    },
+    "8": {
+      "value": "8px"
+    },
+    "12": {
+      "value": "12px"
+    },
+    "16": {
+      "value": "16px"
+    },
+    "20": {
+      "value": "20px"
+    },
+    "24": {
+      "value": "24px"
+    },
+    "28": {
+      "value": "28px"
+    },
+    "32": {
+      "value": "32px"
+    },
+    "pill": {
+      "value": "999px"
+    },
+    "circle-base": {
+      "value": "50%"
+    }
+  }
+}
