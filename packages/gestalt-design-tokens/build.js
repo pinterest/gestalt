@@ -4,6 +4,27 @@ const StyleDictionary = require('style-dictionary');
 // HELPERS
 
 // $FlowFixMe[missing-local-annot]
+const getTokenSourcePaths = (theme, modeTheme) => {
+  const paths = [
+    `tokens/color/${theme}/base.json`,
+    `tokens/color/${theme}/data-visualization/base${modeTheme}.json`,
+    `tokens/color/${theme}/data-visualization/sema${modeTheme}.json`,
+    `tokens/color/${theme}/sema${modeTheme}.json`,
+    `tokens/elevation/${theme}/base${modeTheme}.json`,
+    `tokens/elevation/${theme}/sema.json`,
+    `tokens/font/${theme}/base.json`,
+    `tokens/font/${theme}/sema.json`,
+    `tokens/space/${theme}/base.json`,
+    `tokens/space/${theme}/sema.json`,
+    `tokens/opacity/${theme}/base.json`,
+    `tokens/opacity/${theme}/sema.json`,
+    `tokens/rounding/${theme}/base.json`,
+    `tokens/rounding/${theme}/sema.json`,
+  ];
+  return paths;
+};
+
+// $FlowFixMe[missing-local-annot]
 function nameOutputFile({ name, theme }) {
   const filePrefix = theme === 'classic' ? '' : `${theme.split('-')[0]}`;
   return `${filePrefix}/${name}`;
@@ -222,6 +243,18 @@ StyleDictionary.registerTransform({
   },
 });
 
+// StyleDictionary.registerTransform({
+//   name: 'name/prefix/token-type',
+//   type: 'name',
+//   matcher(prop) {
+//     return prop.filePath.includes('theme') && !prop.filePath.includes('classic');
+//   },
+//   transformer(prop) {
+//     const prefix = prop.filePath.includes('base') ? 'base' : 'sema';
+//     return prop.name.replace(/^[^_]*/, (match) => `${prefix}_${match}`);
+//   },
+// });
+
 // REGISTER TRANSFORM GROUPS
 
 StyleDictionary.registerTransformGroup({
@@ -241,20 +274,12 @@ StyleDictionary.registerTransformGroup({
 function getWebConfig({ theme = 'classic', mode = 'light' }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
 
+  const sourcePaths = getTokenSourcePaths(theme, modeTheme);
+
+  // add component tokens for web
+  sourcePaths.push(`tokens/color/${theme}/component${modeTheme}.json`);
   return {
-    'source': [
-      `tokens/color/${theme}/base.json`,
-      `tokens/color/${theme}/data-visualization/base${modeTheme}.json`,
-      `tokens/color/${theme}/data-visualization/sema${modeTheme}.json`,
-      `tokens/color/${theme}/sema${modeTheme}.json`,
-      `tokens/color/${theme}/component${modeTheme}.json`,
-      `tokens/elevation/${theme}/base${modeTheme}.json`,
-      `tokens/elevation/${theme}/component${modeTheme}.json`,
-      'tokens/font/*.json',
-      'tokens/opacity/*.json',
-      'tokens/rounding/*.json',
-      'tokens/space/*.json',
-    ],
+    'source': sourcePaths,
     'platforms': {
       'css': {
         'transformGroup': 'css',
@@ -536,18 +561,10 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
 function getAndroidConfiguration({ theme = 'classic', mode = 'light' }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
 
+  const sourcePaths = getTokenSourcePaths(theme, modeTheme);
+
   return {
-    'source': [
-      `tokens/color/${theme}/base.json`,
-      `tokens/color/${theme}/data-visualization/base${modeTheme}.json`,
-      `tokens/color/${theme}/data-visualization/sema${modeTheme}.json`,
-      `tokens/color/${theme}/sema${modeTheme}.json`,
-      `tokens/elevation/${theme}/base${modeTheme}.json`,
-      'tokens/font/base.json',
-      'tokens/opacity/base.json',
-      'tokens/rounding/base.json',
-      'tokens/space/base.json',
-    ],
+    'source': sourcePaths,
     'platforms': {
       'android': {
         'transformGroup': 'androidTransformGroup',
@@ -577,7 +594,7 @@ function getAndroidConfiguration({ theme = 'classic', mode = 'light' }) {
                   },
                 },
                 {
-                  'destination': 'font-size.xml',
+                  'destination': nameOutputFile({ name: 'font-size.xml', theme }),
                   'format': 'android/resources',
                   '_format_comment':
                     'https://amzn.github.io/style-dictionary/#/formats?id=androidresources',
@@ -657,18 +674,10 @@ function getAndroidConfiguration({ theme = 'classic', mode = 'light' }) {
 function getIOSConfiguration({ theme = 'classic', mode = 'light' }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
 
+  const sourcePaths = getTokenSourcePaths(theme, modeTheme);
+
   return {
-    'source': [
-      `tokens/color/${theme}/base.json`,
-      `tokens/color/${theme}/data-visualization/base${modeTheme}.json`,
-      `tokens/color/${theme}/data-visualization/sema${modeTheme}.json`,
-      `tokens/color/${theme}/sema${modeTheme}.json`,
-      `tokens/elevation/${theme}/base${modeTheme}.json`,
-      'tokens/font/base.json',
-      'tokens/opacity/base.json',
-      'tokens/rounding/base.json',
-      'tokens/space/base.json',
-    ],
+    'source': sourcePaths,
     'platforms': {
       'ios': {
         'transformGroup': 'ios',
