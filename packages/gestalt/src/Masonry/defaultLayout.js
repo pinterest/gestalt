@@ -44,10 +44,7 @@ const defaultLayout =
 
       centerOffset = Math.max(Math.floor((width - contentWidth) / 2), 0);
     } else {
-      centerOffset = Math.max(
-        Math.floor((width - columnWidthAndGutter * columnCount + gutter) / 2),
-        0,
-      );
+      centerOffset = 0;
     }
 
     return items.reduce((acc, item) => {
