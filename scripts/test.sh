@@ -27,24 +27,11 @@ yarn svgIcons:validate
 echo "TypeScript"
 yarn tsc
 
-echo "CSS: flow types"
-yarn run flow-generate:css
-
 echo "CSS: variables"
 yarn run css:validate
 
 echo "Shell check"
 yarn run lint:sh
-
-FILES=$(git diff --name-only -- '*.flow')
-if [[ "$FILES" ]]; then
-  echo "CSS Flow types need to be updated."
-  echo "Run \`yarn run flow-generate:css\` and commit your changes."
-  echo "----"
-  echo "Following files require changes:"
-  git diff -- '*.flow'
-  exit 1
-fi
 
 if [ -z "${GITHUB_ACTIONS:-}" ] && git diff HEAD master --name-only | grep -q packages/gestalt; then
   echo "Found changes to Components"
