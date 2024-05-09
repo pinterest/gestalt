@@ -243,18 +243,6 @@ StyleDictionary.registerTransform({
   },
 });
 
-// StyleDictionary.registerTransform({
-//   name: 'name/prefix/token-type',
-//   type: 'name',
-//   matcher(prop) {
-//     return prop.filePath.includes('theme') && !prop.filePath.includes('classic');
-//   },
-//   transformer(prop) {
-//     const prefix = prop.filePath.includes('base') ? 'base' : 'sema';
-//     return prop.name.replace(/^[^_]*/, (match) => `${prefix}_${match}`);
-//   },
-// });
-
 // REGISTER TRANSFORM GROUPS
 
 StyleDictionary.registerTransformGroup({
@@ -396,12 +384,12 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
           mode === 'light'
             ? [
                 {
-                  'destination': nameOutputFile({ name: 'contants.es.js', theme }),
+                  'destination': nameOutputFile({ name: 'constants.es.js', theme }),
                   'format': 'constantLibrary-javascript/es6/flow',
                   '_format_comment': 'Custom.',
                 },
                 {
-                  'destination': nameOutputFile({ name: 'contants.js', theme }),
+                  'destination': nameOutputFile({ name: 'constants.js', theme }),
                   'format': 'constantLibrary-commonJS/flow',
                   '_format_comment': 'Custom.',
                 },
