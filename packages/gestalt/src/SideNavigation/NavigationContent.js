@@ -43,8 +43,8 @@ export default function NavigationContent({
   } = useSideNavigation();
 
   const mainContainer = useRef<HTMLElement | null>(null);
-  const transitionContainer = useRef<HTMLElement | null>(null);
   const scrollContainer = useRef<HTMLDivElement | null>(null);
+  const transitionContainer = useRef<HTMLElement | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [collapsedContainerWidth, setCollapsedContainerWidth] = useState<number | void>();
   const previewTimeoutRef = useRef<?Timeout>();
