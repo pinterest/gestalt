@@ -16,8 +16,8 @@ jobs:
       matrix:
         shard: ['1/5', '2/5', '3/5', '4/5', '5/5']
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '16'
           cache: 'yarn'
@@ -35,7 +35,7 @@ jobs:
           (echo "==== Playwright run attempt ====" && exit 1)
       - name: Upload test results
         if: always()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: playwright-test-results
           path: playwright/test-results/

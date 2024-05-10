@@ -55,11 +55,11 @@ jobs:
           LABELS=$(echo "${JSON_DATA}" | jq '.repository.object.associatedPullRequests.edges[0].node.labels.edges[].node.name' | tr '\n' ', ')
           echo "::set-output name=labels::${LABELS}"
       - name: Checkout the repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: 16
       - name: Setup npm
