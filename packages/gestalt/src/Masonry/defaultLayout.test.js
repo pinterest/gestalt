@@ -1,7 +1,7 @@
 // @flow strict
 import defaultLayout from './defaultLayout';
 
-const stubCache = (measurements?: { [item: string]: number, ... } = {}) => {
+const stubCache = (measurements?: { [item: string]: number, ... } = { }) => {
   let cache = measurements;
 
   return {
@@ -69,20 +69,20 @@ test('centers grid within the viewport', () => {
   const items = ['a', 'b', 'c', 'd'];
   const layout = defaultLayout({
     cache: stubCache(measurements),
-    justify: 'start',
+    justify: 'center',
     minCols: 2,
     rawItemCount: items.length,
     width: 8000,
   });
   expect(layout(items)).toEqual([
-    { top: 0, height: 100, left: 7, width: 236 },
-    { top: 0, height: 120, left: 257, width: 236 },
-    { top: 0, height: 80, left: 507, width: 236 },
-    { top: 0, height: 100, left: 757, width: 236 },
+    { top: 0, height: 100, left: 3493, width: 236 },
+    { top: 0, height: 120, left: 3743, width: 236 },
+    { top: 0, height: 80, left: 3993, width: 236 },
+    { top: 0, height: 100, left: 4243, width: 236 },
   ]);
 });
 
-test('floors values when centering', () => {
+test('left align grid within the viewport', () => {
   const measurements = { a: 100, b: 120, c: 80, d: 100 };
   const items = ['a', 'b', 'c', 'd'];
   const layout = defaultLayout({
@@ -92,10 +92,10 @@ test('floors values when centering', () => {
     width: 501,
   });
   expect(layout(items)).toEqual([
-    { top: 0, height: 100, left: 7, width: 236 },
-    { top: 0, height: 120, left: 257, width: 236 },
-    { top: 114, height: 80, left: 7, width: 236 },
-    { top: 134, height: 100, left: 257, width: 236 },
+    { top: 0, height: 100, left: 0, width: 236 },
+    { top: 0, height: 120, left: 250, width: 236 },
+    { top: 114, height: 80, left: 0, width: 236 },
+    { top: 134, height: 100, left: 250, width: 236 },
   ]);
 });
 
