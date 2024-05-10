@@ -39,13 +39,27 @@ export default function NavigationContent({
     overlayPreview,
     setOverlayPreview,
     transitioning,
+    setTransitioning,
   } = useSideNavigation();
 
   const mainContainer = useRef<HTMLElement | null>(null);
+  const transitionContainer = useRef<HTMLElement | null>(null);
   const scrollContainer = useRef<HTMLDivElement | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [collapsedContainerWidth, setCollapsedContainerWidth] = useState<number | void>();
   const previewTimeoutRef = useRef<?Timeout>();
+
+  useEffect(() => {
+    const element = transitionContainer.current;
+
+    const transitionEndHandler = ({ target }: Event) => {
+      if (target === element) setTransitioning(false);
+    };
+
+    element?.addEventListener('transitionend', transitionEndHandler);
+
+    return () => element?.removeEventListener('transitionend', transitionEndHandler);
+  }, [setTransitioning]);
 
   useEffect(() => {
     const element = scrollContainer.current;
@@ -71,7 +85,6 @@ export default function NavigationContent({
     element?.addEventListener('mouseleave', mouseLeaveHandler);
 
     return () => {
-      clearTimeout(previewTimeoutRef.current);
       element?.removeEventListener('scroll', scrollHandler);
       element?.removeEventListener('mouseenter', mouseEnterHandler);
       element?.removeEventListener('mouseleave', mouseLeaveHandler);
@@ -112,13 +125,13 @@ export default function NavigationContent({
         className={classnames(styles.fullHeight, layoutStyles.overflowAutoY, {
           [borderStyles.borderRight]: showBorder && !overlayPreview,
           [borderStyles.raisedBottom]: overlayPreview,
-          [styles.contentWidthTransition]: collapsible,
           [boxStyles.default]: collapsible,
         })}
         style={{ width: collapsible ? 'max-content' : undefined }}
       >
         {/* 3rd wrapper - when collapsible=true, it has static width and responsible for expand/collpase transition */}
         <div
+          ref={transitionContainer}
           className={classnames({ [styles.contentWidthTransition]: collapsible })}
           style={{ width: collapsible ? contentWidth : undefined }}
         >
