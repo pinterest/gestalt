@@ -1,3 +1,9 @@
+## 147.5.4 (May 10, 2024)
+
+### Patch
+
+- Internal: Upgrade GitHub actions to v4 ([#3562](https://github.com/pinterest/gestalt/pull/3562)) - [Preview link](https://deploy-preview-3562--gestalt.netlify.app?devexample=true)
+
 ## 147.5.3 (May 8, 2024)
 
 ### Patch
