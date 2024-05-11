@@ -634,10 +634,10 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
         heights: $ReadOnlyArray<number>,
         positions: $ReadOnlyArray<{ item: T, position: Position }>,
       } = batches.reduce(
-        (acc, itemsToPosition, i) =>
+        (acc, itemsInBatch, i) =>
           getPositionsWithMultiColumnItem({
             multiColumnItem: multiColumnItems[i],
-            itemsToPosition,
+            itemsToPosition: itemsInBatch.filter((item) => !positionCache.get(item)),
             heights: acc.heights,
             prevPositions: acc.positions,
             whitespaceThreshold,
