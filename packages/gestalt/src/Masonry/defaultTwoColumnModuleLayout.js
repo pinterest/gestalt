@@ -637,7 +637,7 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
         (acc, itemsInBatch, i) =>
           getPositionsWithMultiColumnItem({
             multiColumnItem: multiColumnItems[i],
-            itemsToPosition: itemsInBatch.filter((item) => !positionCache.get(item)),
+            itemsToPosition: itemsInBatch.filter((item) => !positionCache.has(item)),
             heights: acc.heights,
             prevPositions: acc.positions,
             whitespaceThreshold,
