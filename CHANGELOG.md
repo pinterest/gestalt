@@ -1,3 +1,9 @@
+## 147.5.5 (May 13, 2024)
+
+### Patch
+
+- SideNavigation: Use TransitionEvent ([#3561](https://github.com/pinterest/gestalt/pull/3561)) - [Preview link](https://deploy-preview-3561--gestalt.netlify.app?devexample=true)
+
 ## 147.5.4 (May 10, 2024)
 
 ### Patch
