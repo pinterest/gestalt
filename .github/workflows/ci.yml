@@ -12,14 +12,11 @@ jobs:
   test:
     name: Tests
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node_version: [18, 20]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node_version }}
+          node-version: 20
       - id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - uses: actions/cache@v4
