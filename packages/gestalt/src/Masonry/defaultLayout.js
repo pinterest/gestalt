@@ -1,4 +1,5 @@
 // @flow strict
+import { type Justify } from 'gestalt/src//Masonry/types';
 import { type Cache } from './Cache';
 import mindex from './mindex';
 import { type Position } from './types';
@@ -22,7 +23,7 @@ const defaultLayout =
   }: {
     columnWidth?: number,
     gutter?: number,
-    justify: 'center' | 'start',
+    justify: Justify,
     cache: Cache<T, number>,
     minCols?: number,
     rawItemCount: number,
@@ -43,8 +44,10 @@ const defaultLayout =
       const contentWidth = Math.min(rawItemCount, columnCount) * columnWidthAndGutter + gutter;
 
       centerOffset = Math.max(Math.floor((width - contentWidth) / 2), 0);
-    } else {
+    } else if (justify === 'start') {
       centerOffset = 0;
+    } else if (justify === 'end') {
+      centerOffset = width - (columnWidthAndGutter * columnCount - gutter);
     }
 
     return items.reduce((acc, item) => {

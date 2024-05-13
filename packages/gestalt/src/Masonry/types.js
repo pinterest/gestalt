@@ -13,6 +13,11 @@ export type NodeData<T> = {
   positions: $ReadOnlyArray<{ item: T, position: Position }>,
 };
 
+export type Justify = 
+  | 'start'
+  | 'center'
+  | 'end'
+
 export type Layout =
   | 'basic'
   | 'basicCentered'

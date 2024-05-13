@@ -1,7 +1,7 @@
 // @flow strict
 import defaultLayout from './defaultLayout';
 
-const stubCache = (measurements?: { [item: string]: number, ... } = { }) => {
+const stubCache = (measurements?: { [item: string]: number, ... } = {}) => {
   let cache = measurements;
 
   return {
@@ -64,6 +64,24 @@ test('wrapping items', () => {
   ]);
 });
 
+test('left-aligns grid within the viewport', () => {
+  const measurements = { a: 100, b: 120, c: 80, d: 100 };
+  const items = ['a', 'b', 'c', 'd'];
+  const layout = defaultLayout({
+    cache: stubCache(measurements),
+    justify: 'start',
+    minCols: 2,
+    rawItemCount: items.length,
+    width: 8000,
+  });
+  expect(layout(items)).toEqual([
+    { top: 0, height: 100, left: 0, width: 236 },
+    { top: 0, height: 120, left: 250, width: 236 },
+    { top: 0, height: 80, left: 500, width: 236 },
+    { top: 0, height: 100, left: 750, width: 236 },
+  ]);
+});
+
 test('centers grid within the viewport', () => {
   const measurements = { a: 100, b: 120, c: 80, d: 100 };
   const items = ['a', 'b', 'c', 'd'];
@@ -82,20 +100,21 @@ test('centers grid within the viewport', () => {
   ]);
 });
 
-test('left align grid within the viewport', () => {
+test('right-aligns grid within the viewport', () => {
   const measurements = { a: 100, b: 120, c: 80, d: 100 };
   const items = ['a', 'b', 'c', 'd'];
   const layout = defaultLayout({
     cache: stubCache(measurements),
-    justify: 'start',
+    justify: 'end',
+    minCols: 2,
     rawItemCount: items.length,
-    width: 501,
+    width: 8000,
   });
   expect(layout(items)).toEqual([
-    { top: 0, height: 100, left: 0, width: 236 },
-    { top: 0, height: 120, left: 250, width: 236 },
-    { top: 114, height: 80, left: 0, width: 236 },
-    { top: 134, height: 100, left: 250, width: 236 },
+    { top: 0, height: 100, left: 14, width: 236 },
+    { top: 0, height: 120, left: 264, width: 236 },
+    { top: 0, height: 80, left: 514, width: 236 },
+    { top: 0, height: 100, left: 764, width: 236 },
   ]);
 });
 

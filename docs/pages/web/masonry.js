@@ -9,6 +9,7 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
+import justify from '../../examples/masonry/justify';
 import main from '../../examples/masonry/main';
 import variantsBasic from '../../examples/masonry/variantsBasic';
 import variantsFlexible from '../../examples/masonry/variantsFlexible';
@@ -88,6 +89,26 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                 code={variantsUniform}
                 layout="column"
                 name="Variants - Uniform example"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
+      <MainSection name="Justify">
+        <MainSection.Subsection
+          description={`
+          The justify property controls the horizontal alignment of items within the Masonry grid, determining how items are distributed across the available horizontal space of the container. The justify options allow you to align items to the start, center, or end of the container.
+        `}
+          title="Justify options"
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={justify}
+                layout="column"
+                name="Variants - Basic example"
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
