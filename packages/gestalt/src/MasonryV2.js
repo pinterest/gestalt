@@ -330,7 +330,7 @@ function useLayout<T: { +[string]: mixed }>({
     items
       .filter((item) => item && !positionStore.has(item))
       .some((item) => typeof item.columnSpan === 'number' && item.columnSpan > 1);
-  const itemToMeasureCount = hasMultiColumnItems ? MULTI_COL_ITEMS_MEASURE_BATCH_SIZE : minCols;
+  const itemToMeasureCount = hasMultiColumnItems ? MULTI_COL_ITEMS_MEASURE_BATCH_SIZE + 1 : minCols;
   const layoutFunction = getLayoutAlgorithm({
     columnWidth,
     gutter,
