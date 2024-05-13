@@ -1,3 +1,9 @@
+## 147.5.6 (May 13, 2024)
+
+### Patch
+
+- Internal: Upgrade to Node 20 ([#3563](https://github.com/pinterest/gestalt/pull/3563)) - [Preview link](https://deploy-preview-3563--gestalt.netlify.app?devexample=true)
+
 ## 147.5.5 (May 13, 2024)
 
 ### Patch
