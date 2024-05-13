@@ -613,12 +613,12 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
       const batchSize = multiColumnItems.length;
       const batches = Array.from({ length: batchSize }, (): $ReadOnlyArray<T> => []).map(
         (batch, i) => {
-          const startIndex = i === 0 ? 0 : items.indexOf(multiColumnItems[i]);
+          const startIndex = i === 0 ? 0 : itemsWithoutPositions.indexOf(multiColumnItems[i]);
           const endIndex =
             i + 1 === multiColumnItems.length
-              ? items.length
-              : items.indexOf(multiColumnItems[i + 1]);
-          return items.slice(startIndex, endIndex);
+              ? itemsWithoutPositions.length
+              : itemsWithoutPositions.indexOf(multiColumnItems[i + 1]);
+          return itemsWithoutPositions.slice(startIndex, endIndex);
         },
       );
       const { positions: paintedItemPositions, heights: paintedItemHeights } =
@@ -634,10 +634,10 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
         heights: $ReadOnlyArray<number>,
         positions: $ReadOnlyArray<{ item: T, position: Position }>,
       } = batches.reduce(
-        (acc, itemsInBatch, i) =>
+        (acc, itemsToPosition, i) =>
           getPositionsWithMultiColumnItem({
             multiColumnItem: multiColumnItems[i],
-            itemsToPosition: itemsInBatch.filter((item) => !positionCache.has(item)),
+            itemsToPosition,
             heights: acc.heights,
             prevPositions: acc.positions,
             whitespaceThreshold,
