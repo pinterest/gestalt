@@ -41,7 +41,7 @@ const defaultLayout =
 
     let centerOffset;
     if (justify === 'center') {
-      const contentWidth = Math.min(rawItemCount, columnCount) * columnWidthAndGutter + gutter;
+      const contentWidth = Math.min(rawItemCount, columnCount) * columnWidthAndGutter - gutter;
 
       centerOffset = Math.max(Math.floor((width - contentWidth) / 2), 0);
     } else if (justify === 'start') {

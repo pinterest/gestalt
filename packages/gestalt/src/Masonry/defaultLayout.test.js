@@ -93,10 +93,10 @@ test('centers grid within the viewport', () => {
     width: 8000,
   });
   expect(layout(items)).toEqual([
-    { top: 0, height: 100, left: 3493, width: 236 },
-    { top: 0, height: 120, left: 3743, width: 236 },
-    { top: 0, height: 80, left: 3993, width: 236 },
-    { top: 0, height: 100, left: 4243, width: 236 },
+    { top: 0, height: 100, left: 3507, width: 236 },
+    { top: 0, height: 120, left: 3757, width: 236 },
+    { top: 0, height: 80, left: 4007, width: 236 },
+    { top: 0, height: 100, left: 4257, width: 236 },
   ]);
 });
 
