@@ -847,7 +847,7 @@ const platformFileMap = {
 
 ['classic', 'vr-theme', 'vrweb-theme'].forEach((theme) =>
   ['light', 'dark'].forEach((mode) => {
-    if (theme !== 'vrweb-theme') {
+    if (['classic', 'vr-theme'] === theme) {
       // iOS platform
       const StyleDictionaryIOS = StyleDictionary.extend(getIOSConfiguration({ mode, theme }));
       platformFileMap.ios.forEach((platform) => StyleDictionaryIOS.buildPlatform(platform));
@@ -859,8 +859,10 @@ const platformFileMap = {
       platformFileMap.android.forEach((platform) => StyleDictionaryAndroid.buildPlatform(platform));
     }
 
-    // // web platform
-    const StyleDictionaryWeb = StyleDictionary.extend(getWebConfig({ mode, theme }));
-    platformFileMap.web.forEach((platform) => StyleDictionaryWeb.buildPlatform(platform));
+    if (['classic', 'vrweb-theme'] === theme) {
+      // // web platform
+      const StyleDictionaryWeb = StyleDictionary.extend(getWebConfig({ mode, theme }));
+      platformFileMap.web.forEach((platform) => StyleDictionaryWeb.buildPlatform(platform));
+    }
   }),
 );
