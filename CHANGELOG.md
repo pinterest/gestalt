@@ -1,3 +1,9 @@
+## 147.5.7 (May 14, 2024)
+
+### Patch
+
+- Internal: remove `.flowtest.js` ([#3566](https://github.com/pinterest/gestalt/pull/3566)) - [Preview link](https://deploy-preview-3566--gestalt.netlify.app?devexample=true)
+
 ## 147.5.6 (May 13, 2024)
 
 ### Patch
