@@ -153,7 +153,6 @@ async function createGitHubRelease({ newVersion, releaseNotes }) {
 function cleanSource() {
   packages.forEach((packageName) => {
     const src = srcDirectory(packageName);
-    shell.exec(`find ${src} -type f -name "*.flowtest.js" -delete`);
     shell.exec(`find ${src} -type f -name "*.test.js" -delete`);
     shell.exec(`find ${src} -type d -name "__fixtures__" -exec rm -rf {} +`);
     shell.exec(`find ${src} -type d -name "__snapshots__" -exec rm -rf {} +`);
