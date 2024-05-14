@@ -43,6 +43,10 @@ interface Props {
    */
   caretElement?: HTMLElement | null;
   /**
+   * Padding between caret and the *edges* of Popover. This will prevent caret from overflowing the corners
+   */
+  caretPadding?: number;
+  /**
    * Container element in which Popover flips directions or shifts itself upon reaching its viewport boundaries.
    * Default is window viewport.
    */
@@ -69,6 +73,7 @@ interface Props {
 export default function usePopover({
   anchor,
   caretElement,
+  caretPadding,
   direction,
   strategy,
   scrollBoundary,
@@ -85,7 +90,7 @@ export default function usePopover({
   // Hides popover when anchor is outside of viewport. Padding is negative so that it compensates for `popoverOffset`
   const popoverHide = hideWhenReferenceHidden && hide({ padding: -POPOVER_OFFSET_VALUE });
   // Calculates the positon of caret
-  const popoverArrow = caretElement && arrow({ element: caretElement });
+  const popoverArrow = caretElement && arrow({ element: caretElement, padding: caretPadding });
   // Flips popover direction based on available space
   const popoverFlip = flip({
     boundary: scrollBoundary,
@@ -94,7 +99,6 @@ export default function usePopover({
   // Shifts popover to prevent clipping near viewport edges
   const popoverShift = shift({
     padding: 8,
-    crossAxis: false,
     boundary: scrollBoundary,
     limiter: limitShift({
       offset: 5,
@@ -111,8 +115,8 @@ export default function usePopover({
     // Do not reorder middlewares! Order is important as the calculations are passed along
     middleware: [
       popoverOffset,
-      isForceDown ? undefined : popoverFlip,
       popoverShift,
+      isForceDown ? undefined : popoverFlip,
       popoverArrow,
       popoverHide,
     ],

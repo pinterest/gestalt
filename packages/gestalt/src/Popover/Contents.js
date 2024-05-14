@@ -60,6 +60,7 @@ export default function Contents({
   const { refs, placement, floatingStyles, middlewareData, context, isPositioned } = usePopover({
     anchor,
     caretElement: caretRef.current,
+    caretPadding: rounding && rounding * 4,
     direction: idealPlacement,
     scrollBoundary,
     hideWhenReferenceHidden,
