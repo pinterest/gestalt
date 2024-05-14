@@ -27,5 +27,7 @@ packages/gestalt-design-tokens/dist
 
 playwright/test-results
 
+.rollup.cache/
+
 # Local Netlify folder
 .netlify
