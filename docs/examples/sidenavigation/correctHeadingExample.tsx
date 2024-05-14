@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Box, Flex, Heading, SideNavigation } from 'gestalt';
 import { TOKEN_COLOR_BORDER_CONTAINER } from 'gestalt-design-tokens';
 

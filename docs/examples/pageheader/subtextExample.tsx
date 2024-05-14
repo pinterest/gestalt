@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Button, Dropdown, PageHeader } from 'gestalt';
 
 export default function IncludeImageExample() {

@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';

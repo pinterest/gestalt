@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';

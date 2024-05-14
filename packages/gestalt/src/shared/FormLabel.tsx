@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import styles from './FormLabel.css';
 import InternalLabel from '../Label/InternalLabel';
 import Text from '../Text';

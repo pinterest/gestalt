@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { TOKEN_COLOR_BACKGROUND_EDUCATION, TOKEN_COLOR_TEXT_INVERSE } from 'gestalt-design-tokens';
 
 export default function HeroGraphic({ animate = true }: { animate?: boolean }) {

@@ -16,8 +16,8 @@ describe('Video loading', () => {
     } as const;
 
     const { container, rerender } = render(<Video {...props} />);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     // @ts-expect-error - TS2769 - No overload matches this call.
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(<Video {...props} volume={0} />);
@@ -39,8 +39,8 @@ describe('Video loading', () => {
     } as const;
 
     const { container, rerender } = render(<Video {...props} />);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     // @ts-expect-error - TS2769 - No overload matches this call.
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(<Video {...props} volume={0} />);
@@ -57,8 +57,8 @@ describe('Video loading', () => {
     } as const;
 
     const { container, rerender } = render(<Video {...props} />);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     // @ts-expect-error - TS2769 - No overload matches this call.
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(<Video {...props} src="https://media.w3.org/2010/05/bunny/movie.mp4" />);
@@ -75,8 +75,8 @@ describe('Video loading', () => {
     } as const;
 
     const { container, rerender } = render(<Video {...props} />);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     // @ts-expect-error - TS2769 - No overload matches this call.
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(
@@ -108,8 +108,8 @@ describe('Video loading', () => {
     } as const;
 
     const { container, rerender } = render(<Video {...props} />);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     // @ts-expect-error - TS2769 - No overload matches this call.
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(<Video {...props} src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />);
@@ -131,8 +131,8 @@ describe('Video loading', () => {
     } as const;
 
     const { container, rerender } = render(<Video {...props} />);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     // @ts-expect-error - TS2769 - No overload matches this call.
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(
@@ -164,8 +164,8 @@ describe('Video loading', () => {
     } as const;
 
     const { container, rerender } = render(<Video {...props} />);
-    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     // @ts-expect-error - TS2769 - No overload matches this call.
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(

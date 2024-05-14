@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { ColorSchemeProvider, DeviceTypeProvider, SheetMobile } from 'gestalt';
 
 export default function Snapshot() {

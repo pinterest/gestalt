@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, ColorSchemeProvider, DeviceTypeProvider, ModalAlert, Text } from 'gestalt';
 
 export default function Snapshot() {

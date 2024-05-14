@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ComponentProps, ReactNode } from 'react';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';

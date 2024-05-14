@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, useState } from 'react';
+import { Fragment, useState } from 'react';
 import { Box, Button, CompositeZIndex, FixedZIndex, IconButton, Layer, Text } from 'gestalt';
 
 const HEADER_ZINDEX = new FixedZIndex(100);

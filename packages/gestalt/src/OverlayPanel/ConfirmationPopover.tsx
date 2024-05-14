@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext';
 import TrapFocusBehavior from '../behaviors/TrapFocusBehavior';
 import Box from '../Box';

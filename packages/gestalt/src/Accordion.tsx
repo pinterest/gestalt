@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import applyModuleDensityStyle from './Accordion/applyModuleDensity';
 import AccordionTitle from './Accordion/Title';
 import AccordionExpandable from './AccordionExpandable';

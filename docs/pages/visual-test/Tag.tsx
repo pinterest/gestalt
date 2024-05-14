@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Flex, Tag } from 'gestalt';
 
 export default function Snapshot() {

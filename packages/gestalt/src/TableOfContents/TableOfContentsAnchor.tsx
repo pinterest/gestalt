@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ComponentProps } from 'react';
 import classNames from 'classnames';
 import styles from './TableOfContentsAnchor.css';
 import Box from '../Box';
@@ -37,9 +37,15 @@ export default function TableOfContentsAnchor({ label, active, href, onClick }: 
       <Flex>
         <Box color={hasMarker ? markerColor : 'transparent'} minWidth={4} rounding="pill" />
         <div
-          className={classNames(styles.item, styles[`nestingIndentation${nestedLevel}`], {
-            [styles.itemHover]: isHovered,
-          })}
+          className={classNames(
+            styles.item,
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore cannot infer type with dynamic property name
+            styles[`nestingIndentation${nestedLevel}`],
+            {
+              [styles.itemHover]: isHovered,
+            },
+          )}
         >
           <Text size={nestingFontSize} weight={active ? 'bold' : 'normal'}>
             {label}

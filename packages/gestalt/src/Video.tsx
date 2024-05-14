@@ -1,4 +1,4 @@
-import { ReactNode, PureComponent } from 'react';
+import { PureComponent, ReactNode } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import styles from './Video.css';
@@ -301,15 +301,10 @@ export default class Video extends PureComponent<Props, State> {
   } = {
     startTime: 0,
     disableRemotePlayback: false,
-    // eslint-disable-next-line react/default-props-match-prop-types
     backgroundColor: 'black',
-    // eslint-disable-next-line react/default-props-match-prop-types
     playbackRate: 1,
-    // eslint-disable-next-line react/default-props-match-prop-types
     playing: false,
-    // eslint-disable-next-line react/default-props-match-prop-types
     preload: 'auto',
-    // eslint-disable-next-line react/default-props-match-prop-types
     volume: 0,
   };
 

@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { ColorSchemeProvider } from 'gestalt';
 import BannerOverlay from './BannerOverlay';
 

@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, useRef, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import { Button, Divider, Dropdown, Flex, IconButton, PageHeader, Tooltip } from 'gestalt';
 
 export default function SecondaryActionsExample() {

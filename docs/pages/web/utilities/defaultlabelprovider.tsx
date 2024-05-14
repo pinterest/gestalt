@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Link, Table, Text } from 'gestalt';
 import docGen, { DocGen } from '../../../docs-components/docgen';
 import GeneratedPropTable from '../../../docs-components/GeneratedPropTable';

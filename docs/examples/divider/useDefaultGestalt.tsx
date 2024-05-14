@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, Divider, Flex, Heading, Link, Text } from 'gestalt';
 
 function Block({ title, text }: { title: string; text: ReadonlyArray<string> }) {

@@ -1,4 +1,4 @@
-import { Fragment, ReactNode } from 'react';
+import { Fragment } from 'react';
 import classnames from 'classnames';
 import styles from './ActivationCard.css';
 import Box from './Box';
@@ -102,7 +102,14 @@ type CardProps = Props & {
     onDismiss: () => void;
   };
 };
-function CompletedCard({ dismissButton, message, status, statusMessage, title }: CardProps) {
+
+function CompletedCard({
+  dismissButton,
+  message,
+  status,
+  statusMessage,
+  title,
+}: Omit<CardProps, 'link'>) {
   const icon = STATUS_ICONS[status];
 
   return (

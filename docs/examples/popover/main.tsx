@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Box, Button, Flex, Image, Mask, Popover, SearchField, TapArea, Text } from 'gestalt';
 
 export default function Example() {

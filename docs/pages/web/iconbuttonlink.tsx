@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { BannerSlim, Icon } from 'gestalt';
 import docGen, { DocGen, DocType, overrideTypes } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';

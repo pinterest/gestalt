@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { BannerSlim, Box, Table, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { DocGen } from '../../docs-components/docgen';

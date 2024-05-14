@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { FixedZIndex, Flex } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 

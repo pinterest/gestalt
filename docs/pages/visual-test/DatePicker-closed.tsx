@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, ColorSchemeProvider } from 'gestalt';
 import { DatePicker } from 'gestalt-datepicker';
 

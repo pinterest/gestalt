@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, Flex, Text } from 'gestalt';
 
 function ReactionLove() {

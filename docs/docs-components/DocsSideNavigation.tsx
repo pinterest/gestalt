@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Flex, SelectList, SideNavigation } from 'gestalt';
 import SidebarPlatformSwitcher from './buttons/SidebarPlatformSwitcher';

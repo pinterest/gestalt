@@ -1,4 +1,4 @@
-import { Fragment, ReactNode } from 'react';
+import { Fragment } from 'react';
 import { Box, Flex, Heading, Link, List, Text } from 'gestalt';
 import Card from '../../docs-components/Card';
 import Markdown from '../../docs-components/Markdown';

@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 import { Box, ComboBox, DefaultLabelProvider, Flex, Heading } from 'gestalt';
 
 const myI18nTranslator = (val: string) => val.toUpperCase();

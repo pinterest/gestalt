@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import AvatarFoundation from './Foundation';
 
 type Props = {

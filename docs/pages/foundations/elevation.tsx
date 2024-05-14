@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ComponentProps } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
 import MainSection from '../../docs-components/MainSection';
 import Page from '../../docs-components/Page';

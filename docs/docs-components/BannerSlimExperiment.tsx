@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { useRouter } from 'next/router';
 import { BannerSlim } from 'gestalt';
 import { useAppContext } from './appContext';

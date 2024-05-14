@@ -1,4 +1,4 @@
-import { ReactNode, useReducer } from 'react';
+import { useReducer } from 'react';
 import { Box, Button, CompositeZIndex, FixedZIndex, Heading, Layer, Modal } from 'gestalt';
 
 type Size = 'small' | 'medium' | 'large' | 'none';

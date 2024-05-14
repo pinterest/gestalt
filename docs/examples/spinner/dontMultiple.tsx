@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, Flex, Heading, Spinner } from 'gestalt';
 
 function Card({ text }: { text: string }) {

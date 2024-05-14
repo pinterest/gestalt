@@ -1,4 +1,4 @@
-import { ReactElement, forwardRef, ReactNode, useEffect, useState } from 'react';
+import { forwardRef, ReactNode, useEffect, useState } from 'react';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Tag from './Tag';
 import InternalTextField, { autoCompleteType } from './TextField/InternalTextField';

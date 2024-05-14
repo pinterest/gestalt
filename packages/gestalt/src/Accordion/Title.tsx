@@ -1,4 +1,3 @@
-import { ReactElement, ReactNode } from 'react';
 import applyModuleDensityStyle from './applyModuleDensity';
 import Badge from '../Badge';
 import Box from '../Box';

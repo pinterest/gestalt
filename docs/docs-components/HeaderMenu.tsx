@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, CompositeZIndex, Link as GestaltLink, Text, Tooltip } from 'gestalt';
 import trackButtonClick from './buttons/trackButtonClick';
 

@@ -6,7 +6,6 @@ The getStaticPaths() will look at the files in the ./markdown folder and try to 
 We do this so we don't have to define each page, and can just define the pages in the markdown folder.
 */
 
-import { ReactNode } from 'react';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import remarkBreaks from 'remark-breaks';

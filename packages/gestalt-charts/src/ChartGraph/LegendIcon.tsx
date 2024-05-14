@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { useColorScheme } from 'gestalt';
 import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
 import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-light.json';

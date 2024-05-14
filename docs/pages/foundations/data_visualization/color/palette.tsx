@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Flex, Heading, Text } from 'gestalt';
 import {
   TOKEN_COLOR_DATA_VISUALIZATION_01,

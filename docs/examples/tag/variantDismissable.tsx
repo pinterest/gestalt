@@ -1,9 +1,9 @@
-import { ReactElement, Fragment, ReactNode, useState } from 'react';
+import { Fragment, useState } from 'react';
 import { Box, Button, Flex, Tag } from 'gestalt';
 
 export default function Example() {
-  // eslint-disable-next-line no-use-before-define
   // @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // eslint-disable-next-line no-use-before-define
   const [tags, setTags] = useState<ReadonlyArray<Element<typeof Tag>>>([generateTag()]);
 
   // @ts-expect-error - TS2315 - Type 'Element' is not generic.

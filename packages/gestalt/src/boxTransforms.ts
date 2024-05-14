@@ -223,6 +223,8 @@ const transformNumberOrPassthrough =
     }
 
     if (m === 'auto') {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore cannot infer type with dynamic property name
       return fromClassName(whitespace[`${selector}Auto`]);
     }
 
@@ -259,6 +261,8 @@ const maxHeight: Functor<Dimension> = (d) => fromInlineStyle({ maxHeight: d });
 const maxWidth: Functor<Dimension> = (d) => fromInlineStyle({ maxWidth: d });
 const minHeight: Functor<Dimension> = (d) => fromInlineStyle({ minHeight: d });
 const minWidth: Functor<Dimension> = (d) => fromInlineStyle({ minWidth: d });
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore cannot infer type with dynamic property name
 const opacityMap = mapClassName((name) => styles[name]);
 const opacity: Functor<Opacity> = (val) => {
   if (val > 0 && val < 1) {

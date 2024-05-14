@@ -1,4 +1,4 @@
-import { ReactNode, PureComponent } from 'react';
+import { PureComponent, ReactNode } from 'react';
 import FetchItems from './FetchItems';
 import ScrollContainer from './Masonry/ScrollContainer';
 import { getElementHeight, getScrollHeight, getScrollPos } from './Masonry/scrollUtils';

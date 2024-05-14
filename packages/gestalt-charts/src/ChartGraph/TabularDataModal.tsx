@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { Layer, Modal, useDefaultLabel } from 'gestalt';
 import TabularDataModalFooter from './TabularDataModalFooter';
 import TabularDataModalHeading from './TabularDataModalHeading';

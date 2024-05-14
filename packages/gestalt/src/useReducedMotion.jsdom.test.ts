@@ -14,7 +14,7 @@ describe('useReducedMotion', () => {
   test('returns true if "Reduced Motion" is enabled', () => {
     window.matchMedia = jest
       .fn<
-        _,
+        MediaQueryList,
         // @ts-expect-error - TS2344 - Type '{ addEventListener: any; matches: boolean; media: any; onchange: null; removeEventListener: any; }' does not satisfy the constraint 'any[]'.
         {
           addEventListener: jest.MockedFunction<any>;
@@ -37,7 +37,7 @@ describe('useReducedMotion', () => {
   test('returns false if "Reduced Motion" is disabled', () => {
     window.matchMedia = jest
       .fn<
-        _,
+        MediaQueryList,
         // @ts-expect-error - TS2344 - Type '{ addEventListener: any; matches: boolean; media: any; onchange: null; removeEventListener: any; }' does not satisfy the constraint 'any[]'.
         {
           addEventListener: jest.MockedFunction<any>;

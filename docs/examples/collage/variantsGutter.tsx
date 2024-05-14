@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, Collage, Flex, Image, Mask } from 'gestalt';
 
 const images = [

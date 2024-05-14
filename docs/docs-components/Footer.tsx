@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, Flex, Icon, Link, Text } from 'gestalt';
 import trackButtonClick from './buttons/trackButtonClick';
 

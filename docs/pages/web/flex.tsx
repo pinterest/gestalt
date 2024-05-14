@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';

@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode, useEffect, useId, useState } from 'react';
+import { ReactNode, useEffect, useId, useState } from 'react';
 import classnames from 'classnames';
 import { TOKEN_SPACE_400 } from 'gestalt-design-tokens';
 import { useDeviceType } from './contexts/DeviceTypeProvider';

@@ -1,4 +1,4 @@
-import { ReactNode, PureComponent } from 'react';
+import { PureComponent, ReactNode } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import styles from './Image.css';
@@ -94,7 +94,6 @@ export default class Image extends PureComponent<Props> {
     fit?: 'contain' | 'cover' | 'none';
     loading?: 'eager' | 'lazy' | 'auto';
   } = {
-    // eslint-disable-next-line react/default-props-match-prop-types
     color: 'transparent',
     fetchPriority: 'auto',
     fit: 'none',

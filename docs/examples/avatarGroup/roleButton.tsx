@@ -1,4 +1,4 @@
-import { ReactNode, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Avatar, AvatarGroup, Box, Flex, Layer, Popover, Text } from 'gestalt';
 
 const collaborators = [

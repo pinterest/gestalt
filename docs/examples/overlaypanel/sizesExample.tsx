@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, useReducer } from 'react';
+import { Fragment, useReducer } from 'react';
 import {
   Accordion,
   Box,

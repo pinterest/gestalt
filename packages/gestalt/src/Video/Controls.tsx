@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import VideoPlayhead from './Playhead';
 import Box from '../Box';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';

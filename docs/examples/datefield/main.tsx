@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 import { Box, Flex } from 'gestalt';
 import { DateField } from 'gestalt-datepicker';
 

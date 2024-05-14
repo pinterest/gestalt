@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { BaseStackType } from './constants';
 import HoverOverlay from './HoverOverlay';
 import PositioningWrapper from './PositioningWrapper';

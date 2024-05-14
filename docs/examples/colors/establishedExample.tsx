@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Flex, Status } from 'gestalt';
 
 export default function EstablishedExample() {

@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import VisuallyHidden from './VisuallyHidden';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 

@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 // @ts-expect-error - TS7016 - Could not find a declaration file for module 'gestalt-design-tokens/dist/js/data-viz-tokens'. '/home/jackhsu/code/gestalt/packages/gestalt-design-tokens/dist/js/data-viz-tokens.js' implicitly has an 'any' type.
 import dataVizTokens from 'gestalt-design-tokens/dist/js/data-viz-tokens';
 // @ts-expect-error - TS7016 - Could not find a declaration file for module 'gestalt-design-tokens/dist/js/tokens'. '/home/jackhsu/code/gestalt/packages/gestalt-design-tokens/dist/js/tokens.js' implicitly has an 'any' type.

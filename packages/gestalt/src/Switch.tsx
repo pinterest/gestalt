@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 import classnames from 'classnames';
 import focusStyles from './Focus.css';
 import styles from './Switch.css';

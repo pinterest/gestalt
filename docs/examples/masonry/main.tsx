@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Box, Flex, Image, Masonry, Text } from 'gestalt';
 
 type Pin = {

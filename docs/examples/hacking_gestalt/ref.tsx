@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Flex, TextField } from 'gestalt';
 
 export default function Example() {

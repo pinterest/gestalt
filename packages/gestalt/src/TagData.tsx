@@ -1,4 +1,4 @@
-import { ReactNode, useId } from 'react';
+import { useId } from 'react';
 import classnames from 'classnames';
 import borderStyles from './Borders.css';
 import Box from './Box';

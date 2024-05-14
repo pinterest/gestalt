@@ -1,5 +1,4 @@
 import 'highlight.js/styles/a11y-light.css';
-import { ReactNode } from 'react';
 import highlightjs from 'highlight.js';
 // @ts-expect-error - TS7016 - Could not find a declaration file for module 'marked'. '/home/jackhsu/code/gestalt/node_modules/marked/lib/marked.cjs' implicitly has an 'any' type.
 import { marked, Renderer } from 'marked';

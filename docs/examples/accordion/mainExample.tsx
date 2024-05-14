@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Accordion, Box, Flex, Text } from 'gestalt';
 
 export default function Example() {

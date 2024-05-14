@@ -38,9 +38,17 @@ type ColumnProps = {
 export default function Column(props: ColumnProps) {
   const { children } = props;
   const cs = classnames(
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore cannot infer type with dynamic property name
     props.span != null && styles[`xsCol${props.span}`],
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore cannot infer type with dynamic property name
     props.smSpan != null && styles[`smCol${props.smSpan}`],
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore cannot infer type with dynamic property name
     props.mdSpan != null && styles[`mdCol${props.mdSpan}`],
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore cannot infer type with dynamic property name
     props.lgSpan != null && styles[`lgCol${props.lgSpan}`],
   );
   return <div className={cs}>{children}</div>;

@@ -1,4 +1,4 @@
-import { Context, createContext, ReactElement, ReactNode, useContext } from 'react';
+import { Context, createContext, ReactNode, useContext } from 'react';
 
 type Size = '100' | '200' | '300' | '400' | '500' | '600';
 type ListTypeContextValues = 'bare' | 'ordered' | 'unordered';

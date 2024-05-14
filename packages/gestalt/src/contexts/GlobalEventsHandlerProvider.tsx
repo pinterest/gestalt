@@ -1,11 +1,11 @@
-import { Context, createContext, ReactElement, ReactNode, useContext } from 'react';
+import React, { Context, createContext, ReactNode, useContext } from 'react';
 
 export type NoopType = () => void;
 
 type OnLinkNavigationType = (arg1: {
   href: string;
   target?: null | 'self' | 'blank';
-}) => (arg1: { readonly event: React.SyntheticEvent }) => void | null | undefined;
+}) => (arg2: { readonly event: React.SyntheticEvent }) => void | null | undefined;
 
 type GlobalEventsHandlerContextType =
   | {
@@ -68,7 +68,7 @@ type Props = {
     onNavigation?: (arg1: {
       href: string;
       target?: null | 'self' | 'blank';
-    }) => (arg1: { readonly event: React.SyntheticEvent }) => void | null | undefined;
+    }) => (arg2: { readonly event: React.SyntheticEvent }) => void | null | undefined;
   };
   /**
    * Handlers consumed by [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup).

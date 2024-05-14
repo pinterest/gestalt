@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { MainDirections } from './utils/positioningTypes';
 
 const PATHS = {

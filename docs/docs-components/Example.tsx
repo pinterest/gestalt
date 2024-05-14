@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { LiveError, LivePreview, LiveProvider } from 'react-live';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import * as gestaltChart from 'gestalt-charts'; // eslint-disable-line import/no-namespace

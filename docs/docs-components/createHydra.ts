@@ -32,7 +32,7 @@ import { Context, createContext, ReactNode, useContext } from 'react';
 
 export type Hydra<ContextType> = {
   Provider: Context<ContextType | undefined>['Provider'];
-  Consumer: (arg1: { children: (arg1: ContextType) => ReactNode }) => ReactNode;
+  Consumer: (props: { children: (arg1: ContextType) => ReactNode }) => ReactNode;
   useHook: () => ContextType;
 };
 

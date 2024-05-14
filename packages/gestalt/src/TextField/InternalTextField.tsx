@@ -1,12 +1,4 @@
-import {
-  cloneElement,
-  ReactElement,
-  forwardRef,
-  ReactNode,
-  useImperativeHandle,
-  useRef,
-  useState,
-} from 'react';
+import { cloneElement, forwardRef, ReactNode, useImperativeHandle, useRef, useState } from 'react';
 import classnames from 'classnames';
 import { TOKEN_SPACE_100 } from 'gestalt-design-tokens';
 import styles from './InternalTextField.css';

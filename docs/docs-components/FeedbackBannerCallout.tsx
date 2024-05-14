@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 import { BannerCallout, Box } from 'gestalt';
 
 const BASE_LINK =

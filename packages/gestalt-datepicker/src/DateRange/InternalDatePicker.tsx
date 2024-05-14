@@ -1,4 +1,4 @@
-import { ReactElement, forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { Icon, useDeviceType } from 'gestalt';
 import { Props } from '../DatePicker';

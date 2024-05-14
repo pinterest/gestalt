@@ -1,4 +1,4 @@
-import { createRef } from 'react';
+import { ComponentProps, createRef } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import TextArea from './TextArea';
@@ -19,7 +19,6 @@ const renderTextArea = ({
   onChange?: ComponentProps<typeof TextArea>['onChange'];
   onFocus?: ComponentProps<typeof TextArea>['onFocus'];
   onBlur?: ComponentProps<typeof TextArea>['onBlur'];
-  id?: ComponentProps<typeof TextArea>['id'];
   maxLength?: ComponentProps<typeof TextArea>['maxLength'];
 }) =>
   render(

@@ -1,4 +1,4 @@
-import { ComponentProps, ReactNode, useState } from 'react';
+import { ComponentProps, useState } from 'react';
 import {
   Box,
   Flex,

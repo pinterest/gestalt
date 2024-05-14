@@ -1,6 +1,5 @@
 import {
   cloneElement,
-  ReactElement,
   forwardRef,
   Fragment,
   ReactNode,

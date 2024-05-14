@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 import { Badge, Box, Divider, Flex, Heading, Image, Mask, RadioGroup } from 'gestalt';
 import { TOKEN_COLOR_WHITE_MOCHIMALIST_0 } from 'gestalt-design-tokens';
 import blogPosts from './BlogPosts.json';

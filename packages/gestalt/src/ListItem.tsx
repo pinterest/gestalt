@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import classnames from 'classnames';
 import {
   TOKEN_FONT_SIZE_100,

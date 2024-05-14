@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import { BannerSlimExperiment } from '../../docs-components/BannerSlimExperiment';
 import docGen, { DocGen } from '../../docs-components/docgen';

@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, Flex, Pog, Text } from 'gestalt';
 
 export default function Screenshot() {

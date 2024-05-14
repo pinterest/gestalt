@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 import {
   TOKEN_COLOR_BACKGROUND_AVATAR_PLACEHOLDER,
   TOKEN_COLOR_BORDER_AVATAR,

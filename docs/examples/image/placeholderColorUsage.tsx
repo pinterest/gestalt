@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, Column, Image } from 'gestalt';
 import { TOKEN_COLOR_BACKGROUND_SHOPPING } from 'gestalt-design-tokens';
 

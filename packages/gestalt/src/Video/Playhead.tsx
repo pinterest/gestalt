@@ -1,4 +1,4 @@
-import { ReactNode, PureComponent } from 'react';
+import { PureComponent, ReactNode } from 'react';
 import Box from '../Box';
 import styles from '../Video.css';
 
@@ -59,7 +59,6 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     let supportsPassive = false;
     try {
       const opts = Object.defineProperty({}, 'passive', {
-        // eslint-disable-next-line getter-return
         get() {
           supportsPassive = true;
         },
@@ -116,7 +115,6 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     let supportsPassive = false;
     try {
       const opts = Object.defineProperty({}, 'passive', {
-        // eslint-disable-next-line getter-return
         get() {
           supportsPassive = true;
         },

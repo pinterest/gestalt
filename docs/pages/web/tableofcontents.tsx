@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import { DocGen, multipleDocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';

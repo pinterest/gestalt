@@ -1,4 +1,4 @@
-import { ReactElement, forwardRef, ReactNode, useImperativeHandle, useRef } from 'react';
+import { forwardRef, ReactNode, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import { AriaCurrent } from '../ariaTypes';
 import buttonStyles from '../Button.css';
@@ -138,6 +138,8 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
       : {},
     isButton && colorClass
       ? {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore cannot infer type with dynamic property name
           [buttonStyles[colorClass]]: !disabled && !selected,
         }
       : {},

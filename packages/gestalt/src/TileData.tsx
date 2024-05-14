@@ -1,4 +1,4 @@
-import { ReactNode, useId } from 'react';
+import { useId } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import InternalCheckbox from './Checkbox/InternalCheckbox';

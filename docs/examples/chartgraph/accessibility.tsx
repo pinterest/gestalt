@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Example() {

@@ -1,4 +1,4 @@
-import { ReactNode, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useGlobalEventsHandler } from 'gestalt';
 import InternalDateField from './DateField/InternalDateField';
 

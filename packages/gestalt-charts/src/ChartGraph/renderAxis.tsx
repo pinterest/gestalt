@@ -1,4 +1,4 @@
-import { Fragment, ReactNode } from 'react';
+import { Fragment } from 'react';
 import { XAxis, YAxis } from 'recharts';
 import {
   TOKEN_COLOR_TEXT_SUBTLE,

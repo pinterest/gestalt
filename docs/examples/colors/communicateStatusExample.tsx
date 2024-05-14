@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Badge, Flex } from 'gestalt';
 
 export default function CommunicateStatusExample() {

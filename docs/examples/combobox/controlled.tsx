@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 import { Box, ComboBox, Flex, Text } from 'gestalt';
 
 const US_STATES = [

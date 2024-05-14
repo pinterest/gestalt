@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useMemo, useState } from 'react';
+import { ComponentProps, useCallback, useMemo, useState } from 'react';
 import {
   Box,
   ButtonLink,

@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, Flex, Heading, Link, Text } from 'gestalt';
 import InternalOnlyIconButton from './InternalOnlyIconButton';
 

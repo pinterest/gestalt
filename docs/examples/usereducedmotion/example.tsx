@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, Flex, Text, useReducedMotion } from 'gestalt';
 
 export default function Example() {

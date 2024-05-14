@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Flex, Icon, Link, Status, Text } from 'gestalt';
 import { STATUS_DESCRIPTION, STATUS_EQUIVALENCY_MAP } from './data/componentStatusMessaging';
 import { StatusType } from './data/types';

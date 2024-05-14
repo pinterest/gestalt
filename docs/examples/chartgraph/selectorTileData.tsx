@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 import { TileData } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 

@@ -1,4 +1,4 @@
-import { Children, ReactElement, ComponentProps, Fragment, ReactNode } from 'react';
+import { Children, ComponentProps, Fragment } from 'react';
 import Avatar from './Avatar';
 import styles from './BannerOverlay.css';
 import CallToAction from './BannerOverlay/CalltoAction';

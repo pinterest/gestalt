@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 import { Flex, NumberField } from 'gestalt';
 
 export default function Example() {

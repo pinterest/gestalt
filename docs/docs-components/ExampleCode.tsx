@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { LiveEditor } from 'react-live';
 import { Box, Flex, Text } from 'gestalt';
 import { useAppContext } from './appContext';

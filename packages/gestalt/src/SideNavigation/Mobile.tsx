@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, useEffect, useRef } from 'react';
+import { Fragment, useEffect, useRef } from 'react';
 import classnames from 'classnames';
 import getChildrenToArray from './getChildrenToArray';
 import borderStyles from '../Borders.css';

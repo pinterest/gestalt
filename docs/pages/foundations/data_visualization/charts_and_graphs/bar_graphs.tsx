@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, Image } from 'gestalt';
 import MainSection from '../../../../docs-components/MainSection';
 import Page from '../../../../docs-components/Page';

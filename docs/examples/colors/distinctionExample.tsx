@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Button, Flex, IconButton } from 'gestalt';
 
 export default function DistinctionExample() {

@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import InternalList from './List/InternalList';
 import ListItem from './ListItem'; // eslint-disable import/no-cycle
 import Text from './Text';

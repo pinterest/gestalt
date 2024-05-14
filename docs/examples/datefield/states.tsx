@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, Flex } from 'gestalt';
 import { DateField } from 'gestalt-datepicker';
 

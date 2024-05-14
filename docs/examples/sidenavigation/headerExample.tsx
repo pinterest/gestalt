@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, useState } from 'react';
+import { Fragment, useState } from 'react';
 import { Flex, RadioGroup, SideNavigation } from 'gestalt';
 
 export default function Example() {

@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import classnames from 'classnames';
 import { TOKEN_COLOR_BORDER_TAG_DISABLED } from 'gestalt-design-tokens';
 import Box from './Box';
@@ -140,7 +139,6 @@ export default function Tag({
   return (
     <Box
       aria-disabled={disabled}
-      // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"selected" | "default" | "shopping" | "inverse" | "light" | "dark" | "darkWash" | "lightWash" | "transparent" | "transparentDarkGray" | "infoBase" | "infoWeak" | "errorBase" | ... 15 more ... | undefined'.
       color={bgColor}
       dangerouslySetInlineStyle={{
         __style:
@@ -162,17 +160,21 @@ export default function Tag({
           <Box marginEnd={1} marginStart={1}>
             <Icon
               accessibilityLabel={accessibilityLabels[type]}
-              // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'IconColor | undefined'.
               color={fgColor}
-              // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"replace" | "search" | "link" | "text" | "dash" | "3D" | "3D-move" | "360" | "accessibility" | "ad" | "ad-group" | "add" | "add-circle" | "add-layout" | "add-pin" | "add-section" | ... 318 more ... | undefined'.
               icon={iconsByType[type]}
               size={iconSize}
             />
           </Box>
         )}
 
-        {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"link" | "warning" | "error" | "default" | "subtle" | "success" | "shopping" | "inverse" | "light" | "dark" | undefined'. | TS2322 - Type 'string' is not assignable to type 'Size | undefined'. */}
-        <Text color={fgColor} inline lineClamp={1} overflow="breakAll" size={fontSize}>
+        <Text
+          color={fgColor}
+          inline
+          lineClamp={1}
+          overflow="breakAll"
+          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'Size | undefined'.
+          size={fontSize}
+        >
           {text}
         </Text>
 
@@ -193,7 +195,6 @@ export default function Tag({
                   accessibilityLabel={
                     accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault
                   }
-                  // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'IconColor | undefined'.
                   color={fgColor}
                   icon="cancel"
                   size={removeIconSize}

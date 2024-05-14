@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Button, ButtonGroup, Flex } from 'gestalt';
 
 export default function Example() {

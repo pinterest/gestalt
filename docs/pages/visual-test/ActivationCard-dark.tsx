@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { ActivationCard, Box, ColorSchemeProvider, Flex } from 'gestalt';
 
 export default function Snapshot() {

@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import Flex from '../Flex';
 import Icon from '../Icon';
 import Text from '../Text';

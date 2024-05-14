@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import Lottie from 'lottie-react';
 import Link from 'next/link';
 import {

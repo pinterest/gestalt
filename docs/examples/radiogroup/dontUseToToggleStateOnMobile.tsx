@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, Flex, RadioGroup, Text } from 'gestalt';
 
 const noop = () => {};

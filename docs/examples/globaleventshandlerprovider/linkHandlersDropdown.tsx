@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useMemo, useRef, useState } from 'react';
+import { ComponentProps, useCallback, useMemo, useRef, useState } from 'react';
 import {
   Button,
   Divider,

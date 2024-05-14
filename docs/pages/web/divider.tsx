@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import LocalizationSection from '../../docs-components/LocalizationSection';

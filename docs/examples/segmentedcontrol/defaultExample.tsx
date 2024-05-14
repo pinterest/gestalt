@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 import { Box, Flex, Icon, SegmentedControl, Text } from 'gestalt';
 
 export default function SegmentedControlExample() {

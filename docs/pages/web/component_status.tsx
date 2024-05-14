@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Badge, Box, Column, Flex, Link, Table, Text } from 'gestalt';
 import componentData from '../../docs-components/data/components';
 import {

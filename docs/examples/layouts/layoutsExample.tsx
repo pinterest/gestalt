@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, Button, Flex, Heading, SelectList, TextField } from 'gestalt';
 
 export default function LayoutsExample() {

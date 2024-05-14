@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, useState } from 'react';
+import { Fragment, useState } from 'react';
 import { Button, Datapoint, Dropdown, OverlayPanel, PageHeader, Text } from 'gestalt';
 
 export default function MinimumButtonsExample() {

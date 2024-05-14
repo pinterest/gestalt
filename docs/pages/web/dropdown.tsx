@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { BannerSlim } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import { BannerSlimExperiment } from '../../docs-components/BannerSlimExperiment';

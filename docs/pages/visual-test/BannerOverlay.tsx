@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { BannerOverlay, FixedZIndex, Image, Link, Text } from 'gestalt';
 
 export default function Example() {

@@ -33,7 +33,7 @@ export default function getLayoutAlgorithm<
   width: number | null | undefined;
   _twoColItems?: boolean;
   _logTwoColWhitespace?: (arg1: number) => void;
-}): (items: ReadonlyArray<T>) => ReadonlyArray<Position> {
+}): (forItems: ReadonlyArray<T>) => ReadonlyArray<Position> {
   if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
     return fullWidthLayout({
       gutter,

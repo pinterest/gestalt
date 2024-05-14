@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, useState } from 'react';
+import { Fragment, useState } from 'react';
 import { Box, Button, Flex, Layer, Modal, Text } from 'gestalt';
 
 export default function PreventCloseExample() {

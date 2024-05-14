@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { AvatarGroup, Box, Divider, Flex, Icon, Mask, Text } from 'gestalt';
 
 function Block({ title, url, locked }: { title: string; url: string; locked?: boolean }) {

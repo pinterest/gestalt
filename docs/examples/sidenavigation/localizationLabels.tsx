@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { DefaultLabelProvider, SideNavigation } from 'gestalt';
 
 export default function Example() {

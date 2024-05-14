@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, Checkbox } from 'gestalt';
 
 export default function CheckboxExample() {

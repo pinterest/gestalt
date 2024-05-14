@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { useRouter } from 'next/router';
 import { SideNavigation } from 'gestalt';
 import { useNavigationContext } from './navigationContext';

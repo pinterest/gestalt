@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Flex, TagData } from 'gestalt';
 
 export default function Example() {

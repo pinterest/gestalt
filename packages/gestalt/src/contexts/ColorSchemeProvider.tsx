@@ -1,12 +1,4 @@
-import {
-  Context,
-  createContext,
-  ReactElement,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
+import { Context, createContext, ReactNode, useContext, useEffect, useState } from 'react';
 import classnames from 'classnames';
 import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
 import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-light.json';

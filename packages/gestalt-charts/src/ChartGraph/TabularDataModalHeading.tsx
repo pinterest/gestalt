@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Flex, Heading, IconButton, Text, useDefaultLabel, useDeviceType } from 'gestalt';
 
 type Props = {

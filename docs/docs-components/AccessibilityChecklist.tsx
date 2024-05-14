@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Accordion, Box, Table, Text } from 'gestalt';
 import componentData from './data/components';
 import {
@@ -94,7 +93,6 @@ export default function AccessibilityChecklist({ component }: Props) {
           ) : (
             <AccessibilityTable accessibilityData={data?.status?.accessible} />
           ),
-          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'Icons | undefined'.
           icon: STATUS_ICON_EQUIVALENCY_MAP[a11ySummary ?? 'notAvailable'],
           iconAccessibilityLabel: 'title icon',
           title: a11ySummaryNotAvailable

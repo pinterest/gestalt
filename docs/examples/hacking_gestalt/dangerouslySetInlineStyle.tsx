@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, Flex } from 'gestalt';
 import { TOKEN_COLOR_PINK_FLAMINGLOW_400 } from 'gestalt-design-tokens';
 

@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import AccessibilitySection from '../../../docs-components/AccessibilitySection';
 import MainSection from '../../../docs-components/MainSection';
 import Page from '../../../docs-components/Page';

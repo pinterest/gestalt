@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { BannerSlim, Flex, Link, Status, Table, Text } from 'gestalt';
 import componentData from './data/components';
 import { COMPONENT_STATUS_MESSAGING, STATUS_DESCRIPTION } from './data/componentStatusMessaging';

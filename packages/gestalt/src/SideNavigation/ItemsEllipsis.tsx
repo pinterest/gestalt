@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import Box from '../Box';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import { useSideNavigation } from '../contexts/SideNavigationProvider';

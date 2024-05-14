@@ -1,4 +1,4 @@
-import { Children, ReactElement, ReactNode } from 'react';
+import { Children, ComponentProps } from 'react';
 import classnames from 'classnames';
 import styles from './BannerCallout.css';
 import Box from './Box';

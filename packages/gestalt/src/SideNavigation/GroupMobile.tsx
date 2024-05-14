@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, useCallback, useEffect, useId, useMemo, useState } from 'react';
+import { Fragment, useCallback, useEffect, useId, useMemo, useState } from 'react';
 import classnames from 'classnames';
 import { TOKEN_SPACE_400 } from 'gestalt-design-tokens';
 import getChildrenToArray from './getChildrenToArray';

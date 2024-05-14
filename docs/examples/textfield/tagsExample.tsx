@@ -1,4 +1,4 @@
-import { ReactNode, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Box, Tag, TextField } from 'gestalt';
 
 type ChangeTagHandler = (arg1: {

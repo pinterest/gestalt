@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Flex, Status } from 'gestalt';
 
 export default function Screenshot() {

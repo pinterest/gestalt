@@ -1,4 +1,4 @@
-import { ReactNode, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Box, Popover, Text, TextField } from 'gestalt';
 
 export default function TextFieldPopoverExample() {

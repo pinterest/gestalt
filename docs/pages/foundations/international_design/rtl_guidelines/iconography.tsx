@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Box, Flex, Heading, Icon, Image, Mask, Table, Text } from 'gestalt';
 import { DOCS_COPY_MAX_WIDTH_PX } from '../../../../docs-components/consts';
 import MainSection from '../../../../docs-components/MainSection';

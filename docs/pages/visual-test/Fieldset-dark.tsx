@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, Checkbox, ColorSchemeProvider, Fieldset, Flex } from 'gestalt';
 
 export default function Snapshot() {

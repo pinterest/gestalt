@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 import { Box, Flex, TagData } from 'gestalt';
 
 type DataVisualizationColors =

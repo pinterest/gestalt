@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { DocGen } from './docgen';
 import PropTable from './PropTable';
 

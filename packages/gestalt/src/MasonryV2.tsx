@@ -759,11 +759,12 @@ function Masonry<
   );
 }
 
-const MasonryWithForwardRef: AbstractComponent<Props<Record<any, any>>, MasonryRef> & {
-  createMeasurementStore: <T1 extends Record<any, any>, T2>() => MeasurementStore<T1, T2>;
-  // @ts-expect-error - TS2345 - Argument of type '<T extends { readonly [key: string]: unknown; }>({ align, columnWidth, gutterWidth: gutter, items, layout, loadItems, measurementStore: measurementStoreProp, minCols, positionStore: positionStoreProp, renderItem, scrollContainer, virtualBufferFactor, virtualBoundsBottom, virtualBoundsTop, virtualize, _twoColItems, _...' is not assignable to parameter of type 'ForwardRefRenderFunction<MasonryRef, Props<Record<any, any>>>'.
-} = forwardRef<MasonryRef, Props<Record<any, any>>>(Masonry);
+const MasonryWithForwardRef = forwardRef<MasonryRef, Props<Record<any, any>>>(
+  // @ts-expect-error - TS2345
+  Masonry,
+);
 
+// @ts-expect-error - TS3339
 MasonryWithForwardRef.createMeasurementStore = createMeasurementStore;
 
 export default MasonryWithForwardRef;

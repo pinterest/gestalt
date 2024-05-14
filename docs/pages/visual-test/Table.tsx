@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, Checkbox, Label, Table, Text } from 'gestalt';
 
 function BaseRow({

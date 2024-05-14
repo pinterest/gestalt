@@ -31,7 +31,6 @@ function Providers({ children, isMobile }: { children: ReactNode; isMobile: bool
 
 // This default export is required in a new `pages/_app.js` file.
 function GestaltApp(
-  // eslint-disable-line react/prop-types
   // @ts-expect-error - TS7031 - Binding element 'Component' implicitly has an 'any' type. | TS7031 - Binding element 'pageProps' implicitly has an 'any' type. | TS7031 - Binding element 'cookieHeader' implicitly has an 'any' type. | TS7031 - Binding element 'isMobile' implicitly has an 'any' type. | TS7031 - Binding element 'files' implicitly has an 'any' type.
   { Component, pageProps, cookieHeader, isMobile, files },
 ) {

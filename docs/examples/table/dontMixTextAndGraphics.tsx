@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Status, Table, Text } from 'gestalt';
 
 function HeaderRow() {

@@ -1,4 +1,4 @@
-import { ReactNode, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Box, Dropdown, Heading, IconButton, Tooltip } from 'gestalt';
 
 export default function SectionsIconButtonDropdownExample() {

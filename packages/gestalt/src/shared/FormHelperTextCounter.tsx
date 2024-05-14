@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, useEffect, useRef, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import Box from '../Box';
 import Flex from '../Flex';
 import Status from '../Status';

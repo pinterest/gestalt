@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Table, Text, useDefaultLabel } from 'gestalt';
 import {
   FilterIdType,

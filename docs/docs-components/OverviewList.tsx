@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import {
   TOKEN_COLOR_GRAY_ROBOFLOW_100,
   TOKEN_COLOR_GRAY_ROBOFLOW_600,

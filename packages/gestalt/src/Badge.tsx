@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import cx from 'classnames';
 import styles from './Badge.css';
 import Box from './Box';

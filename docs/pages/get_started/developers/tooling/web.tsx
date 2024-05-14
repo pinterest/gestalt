@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, ButtonLink, Flex, Image, Link, List, Table, Text } from 'gestalt';
 import trackButtonClick from '../../../../docs-components/buttons/trackButtonClick';
 import { DOCS_COPY_MAX_WIDTH_PX } from '../../../../docs-components/consts';

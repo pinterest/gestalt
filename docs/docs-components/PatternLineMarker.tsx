@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, Flex, Text, useColorScheme } from 'gestalt';
 import { TOKEN_COLOR_WHITE_MOCHIMALIST_0 } from 'gestalt-design-tokens';
 import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';

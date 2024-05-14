@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, TapArea } from 'gestalt';
 
 export default function Example() {

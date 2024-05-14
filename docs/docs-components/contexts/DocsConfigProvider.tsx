@@ -1,4 +1,4 @@
-import { Context, createContext, ReactElement, ReactNode, useContext, useState } from 'react';
+import { Context, createContext, ReactNode, useContext, useState } from 'react';
 
 type DocsConfigContextType = {
   isMobile: boolean;

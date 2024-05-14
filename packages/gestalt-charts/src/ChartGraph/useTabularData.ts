@@ -73,7 +73,7 @@ const getCompareFn = ({
     return 0;
   };
 
-type UseTabularDataProps = (arg1: {
+type UseTabularDataProps = (arg: {
   data: ReadonlyArray<{
     // @ts-expect-error - TS2411 - Property 'name' of type 'string | number' is not assignable to 'string' index type 'number'.
     name: string | number;

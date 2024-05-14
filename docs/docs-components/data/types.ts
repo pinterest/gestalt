@@ -1,4 +1,3 @@
-import { ReactElement } from 'react';
 import Accessibility from '../../graphics/foundations/accessibility.svg';
 
 // Flow doesn't include types for SVGs (https://github.com/facebook/flow/pull/4551#issuecomment-570667660)

@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, HelpButton } from 'gestalt';
 
 export default function Snapshot() {

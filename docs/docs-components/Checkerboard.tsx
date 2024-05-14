@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, useColorScheme } from 'gestalt';
 import { TOKEN_COLOR_BACKGROUND_DARK } from 'gestalt-design-tokens';
 

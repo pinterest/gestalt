@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, TapAreaLink } from 'gestalt';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { DocGen, DocType } from '../../docs-components/docgen';

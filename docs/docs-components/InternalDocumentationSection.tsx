@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Accordion, Link, List, Text } from 'gestalt';
 import Card from './Card';
 

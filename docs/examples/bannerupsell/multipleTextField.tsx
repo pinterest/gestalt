@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 import { BannerUpsell, Box, Image, TextField } from 'gestalt';
 
 type SubmitHandler = (arg1: {

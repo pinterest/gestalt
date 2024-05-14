@@ -14,7 +14,7 @@ describe('useResponsiveMinWidth', () => {
   test('returns `xs` for extra small screens', () => {
     window.matchMedia = jest
       .fn<
-        _,
+        MediaQueryList,
         // @ts-expect-error - TS2344 - Type '{ addEventListener: any; matches: boolean; media: any; onchange: null; removeEventListener: any; }' does not satisfy the constraint 'any[]'.
         {
           addEventListener: jest.MockedFunction<any>;
@@ -37,7 +37,7 @@ describe('useResponsiveMinWidth', () => {
   test('returns `sm` for small screens', () => {
     window.matchMedia = jest
       .fn<
-        _,
+        MediaQueryList,
         // @ts-expect-error - TS2344 - Type '{ addEventListener: any; matches: boolean; media: any; onchange: null; removeEventListener: any; }' does not satisfy the constraint 'any[]'.
         {
           addEventListener: jest.MockedFunction<any>;
@@ -60,7 +60,7 @@ describe('useResponsiveMinWidth', () => {
   test('returns `md` for medium screens', () => {
     window.matchMedia = jest
       .fn<
-        _,
+        MediaQueryList,
         // @ts-expect-error - TS2344 - Type '{ addEventListener: any; matches: boolean; media: any; onchange: null; removeEventListener: any; }' does not satisfy the constraint 'any[]'.
         {
           addEventListener: jest.MockedFunction<any>;
@@ -83,7 +83,7 @@ describe('useResponsiveMinWidth', () => {
   test('returns `lg` for large screens', () => {
     window.matchMedia = jest
       .fn<
-        _,
+        MediaQueryList,
         // @ts-expect-error - TS2344 - Type '{ addEventListener: any; matches: boolean; media: any; onchange: null; removeEventListener: any; }' does not satisfy the constraint 'any[]'.
         {
           addEventListener: jest.MockedFunction<any>;

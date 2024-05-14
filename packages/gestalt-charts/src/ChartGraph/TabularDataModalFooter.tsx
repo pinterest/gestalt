@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Button, ButtonGroup, Flex, useDefaultLabel } from 'gestalt';
 import { TransformedTabularDataType, useBuildCsvData } from './useTabularData';
 

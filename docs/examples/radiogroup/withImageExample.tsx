@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 import { Box, Image, RadioGroup } from 'gestalt';
 
 export default function RadioButtonExample() {

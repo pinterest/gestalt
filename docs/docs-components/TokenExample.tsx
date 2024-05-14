@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box } from 'gestalt';
 import {
   TOKEN_COLOR_TEXT_DEFAULT,

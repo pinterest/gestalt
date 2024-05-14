@@ -1,4 +1,4 @@
-import { createRef } from 'react';
+import { ComponentProps, createRef } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import AvatarGroup from './AvatarGroup';
 import Box from './Box';
@@ -183,7 +183,7 @@ describe('AvatarGroup', () => {
       // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
-    const ref = createRef<unknown>();
+    const ref = createRef<HTMLDivElement>();
     renderCmp({
       collaborators: [
         {
@@ -215,7 +215,7 @@ describe('AvatarGroup', () => {
       // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
-    const ref = createRef<unknown>();
+    const ref = createRef<HTMLDivElement>();
     renderCmp({
       collaborators: [
         {

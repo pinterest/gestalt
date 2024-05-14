@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { useRouter } from 'next/router';
 import { Accordion, Box, Flex, IconButton, Text } from 'gestalt';
 

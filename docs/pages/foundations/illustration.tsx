@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, Flex, Image, Text } from 'gestalt';
 import MainSection from '../../docs-components/MainSection';
 import Page from '../../docs-components/Page';

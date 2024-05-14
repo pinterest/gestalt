@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import Box from './Box';
 import { Dimension } from './boxTypes';
 import Button from './Button';

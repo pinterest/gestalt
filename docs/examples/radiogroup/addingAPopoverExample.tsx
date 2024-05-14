@@ -1,4 +1,4 @@
-import { ReactNode, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Box, Layer, Link, Popover, RadioGroup, Text } from 'gestalt';
 
 export default function RadioButtonPopoverExample() {

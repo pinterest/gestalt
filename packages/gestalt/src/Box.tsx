@@ -1,6 +1,3 @@
-// @ts-expect-error - TS2307 - Cannot find module 'flow-to-typescript-codemod' or its corresponding type declarations.
-import { Flow } from 'flow-to-typescript-codemod';
-
 /*
 
 # Welcome to Box!
@@ -15,8 +12,7 @@ This guide will help you navigate and understand its design. This file is roughl
 I'll explain each part as we go through. Just remember, if you want to make updates, PLEASE PLEASE PLEASE update the Flow Types  (even though they look scary).
 
 */
-
-import { ReactElement, forwardRef, ReactNode } from 'react';
+import { forwardRef, ReactNode } from 'react';
 import styles from './Box.css';
 import { buildStyles } from './boxTransforms';
 import { As } from './boxTypes';
@@ -573,14 +569,7 @@ const BoxWithForwardRef = forwardRef<HTMLElement, Props>(function Box(
   { as, ...props }: Props,
   ref,
 ): OutputType {
-  const { passthroughProps, propsStyles } = buildStyles<
-    Flow.Diff<
-      Props,
-      {
-        as?: As;
-      }
-    >
-  >({
+  const { passthroughProps, propsStyles } = buildStyles<Omit<Props, 'as'>>({
     baseStyles: styles.box,
     props,
     blocklistProps: disallowedProps,
@@ -589,6 +578,7 @@ const BoxWithForwardRef = forwardRef<HTMLElement, Props>(function Box(
   const BoxElement: As = as ?? 'div';
 
   // And... magic!
+  // @ts-expect-error - TS2322
   return <BoxElement {...passthroughProps} {...propsStyles} ref={ref} />;
 });
 

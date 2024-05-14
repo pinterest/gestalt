@@ -1,4 +1,4 @@
-import { cloneElement, ReactElement, Fragment, ReactNode, useRef, useState } from 'react';
+import { cloneElement, Fragment, ReactNode, useRef, useState } from 'react';
 import Badge, { TypeOptions } from '../Badge';
 import Box from '../Box';
 import Dropdown from '../Dropdown';

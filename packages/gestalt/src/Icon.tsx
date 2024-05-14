@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import classnames from 'classnames';
 import styles from './Icon.css';
 import icons from './icons/index';

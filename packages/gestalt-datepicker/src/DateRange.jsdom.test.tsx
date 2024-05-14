@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ComponentProps, useState } from 'react';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { id } from 'date-fns/locale';
 import DateRange from './DateRange';

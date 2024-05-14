@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, useCallback, useEffect, useState } from 'react';
+import { Fragment, useCallback, useEffect, useState } from 'react';
 import { Box, FixedZIndex, Flex, TapArea, Text } from 'gestalt';
 
 /**

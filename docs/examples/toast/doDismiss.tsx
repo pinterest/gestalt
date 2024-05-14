@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, Flex, Toast } from 'gestalt';
 
 export default function Example() {

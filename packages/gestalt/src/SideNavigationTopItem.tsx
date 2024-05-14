@@ -1,4 +1,4 @@
-import { ReactElement, forwardRef, ReactNode, useEffect, useId, useState } from 'react';
+import { forwardRef, ReactNode, useEffect, useId, useState } from 'react';
 import classnames from 'classnames';
 import { TOKEN_SPACE_400, TOKEN_SPACE_1200 } from 'gestalt-design-tokens';
 import Badge from './Badge';
@@ -87,7 +87,7 @@ export type Props = {
   /**
    * Ref that is forwarded to the underlying `li` element.
    */
-  ref?: HTMLLIElement; // eslint-disable-line react/no-unused-prop-types
+  ref?: HTMLLIElement;
 };
 
 /**

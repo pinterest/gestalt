@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Flex, Label, Switch, Text } from 'gestalt';
 
 export default function SwitchExample() {

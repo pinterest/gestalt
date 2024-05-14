@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 import { Avatar, Box, Link, Table, Text, WashAnimated } from 'gestalt';
 
 function HeaderRow() {
@@ -35,7 +35,7 @@ function BaseRow({
   teamRole: string;
   hours: string;
   active: boolean;
-  setActive: (active: boolean) => void;
+  setActive: (value: boolean) => void;
 }) {
   return (
     <Table.RowExpandable

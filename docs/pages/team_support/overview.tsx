@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Flex } from 'gestalt';
 import { TOKEN_COLOR_TEAL_SPABATTICAL_50 } from 'gestalt-design-tokens';
 import teamSupportTiles from '../../docs-components/data/teamSupport';

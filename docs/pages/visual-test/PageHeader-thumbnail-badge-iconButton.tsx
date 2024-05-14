@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, Image, PageHeader } from 'gestalt';
 
 export default function Snapshot() {

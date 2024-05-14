@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { BannerSlim, Box, Flex, Image } from 'gestalt';
 import {
   TOKEN_COLOR_DATA_VISUALIZATION_01,

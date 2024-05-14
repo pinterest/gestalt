@@ -1,4 +1,4 @@
-import { ReactNode, useId, useRef, useState } from 'react';
+import { useId, useRef, useState } from 'react';
 import { Box, Flex, Label, RadioGroup, Text } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 

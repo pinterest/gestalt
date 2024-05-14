@@ -1,4 +1,3 @@
-import { ReactElement, ReactNode } from 'react';
 import { Box, Flex, Heading, HelpButton, IconButton, Text, useDefaultLabel } from 'gestalt';
 import { useChartContext } from './ChartGraphContext';
 

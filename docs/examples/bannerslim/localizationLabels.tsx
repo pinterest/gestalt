@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { BannerSlim, Box, DefaultLabelProvider } from 'gestalt';
 
 export default function Example() {

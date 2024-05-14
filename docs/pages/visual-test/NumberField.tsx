@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, NumberField } from 'gestalt';
 
 export default function Screenshot() {

@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { BannerSlim, Box, Image } from 'gestalt';
 import Page from '../../../../docs-components/Page';
 import PageHeader from '../../../../docs-components/PageHeader';

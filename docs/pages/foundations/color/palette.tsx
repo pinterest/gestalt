@@ -292,6 +292,7 @@ export default function ColorPage() {
           </Flex>
         </MainSection.Subsection>
         <MainSection.Subsection
+          // eslint-disable-next-line gestalt/only-valid-tokens
           description={`
        The full extended palette of colors (colors, neutrals, and transparent) are the foundational elements of our color system or base color tokens. Base tokens are the lowest level tokens, which map directly to a value. Base tokens would likely be internal only and used to build our [semantic design tokens](/foundations/design_tokens).
 

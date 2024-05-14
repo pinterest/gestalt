@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, useRef, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import {
   Box,
   CompositeZIndex,

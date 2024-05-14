@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ComponentProps } from 'react';
 import Button from '../Button';
 import ButtonLink from '../ButtonLink';
 

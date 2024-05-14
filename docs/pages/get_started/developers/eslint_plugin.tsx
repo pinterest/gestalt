@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import MainSection from '../../../docs-components/MainSection';
 import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';
@@ -16,6 +15,7 @@ export default function EslintPluginPage() {
         name="Gestalt alternatives"
       >
         <MainSection.Subsection
+          // eslint-disable-next-line gestalt/only-valid-tokens
           description={`
         Prevent the consumption of Gestalt tokens via hard-coded strings p.e. "var(--color-border-error)". Instead import constant from 'gestalt-design-tokens' p.e. import { TOKEN_COLOR_BORDER_ERROR } from "gestalt-design-tokens".
       `}

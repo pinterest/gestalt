@@ -1,4 +1,4 @@
-import { ComponentProps, ReactNode } from 'react';
+import { ComponentProps } from 'react';
 import styles from '../BannerOverlay.css';
 import Button from '../Button';
 import ButtonLink from '../ButtonLink';

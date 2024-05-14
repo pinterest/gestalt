@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, CompositeZIndex, FixedZIndex, Sticky, Text } from 'gestalt';
 
 export default function Example() {

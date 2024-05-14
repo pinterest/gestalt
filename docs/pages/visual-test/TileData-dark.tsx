@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, ColorSchemeProvider, TileData } from 'gestalt';
 
 export default function Snapshot() {

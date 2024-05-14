@@ -49,15 +49,15 @@ export function GraphPoint({ color, cx, cy, noReposition = false }: Props) {
   );
 }
 
-const renderGraphPoint: (arg1: {
+const renderGraphPoint: (options: {
   color: DataVisualizationColors;
   active: boolean;
-}) => (arg1: { cx: number; cy: number }) => ReactNode = (props) => {
-  const renderPoint: (arg1: { cx: number; cy: number }) => ReactNode = ({ cx, cy }) => (
-    <GraphPoint key={props.color + cy + cx} color={props.color} cx={cx} cy={cy} />
-  );
+}) => (props: { cx: number; cy: number }) => ReactNode = (options) => {
+  function RenderPoint({ cx, cy }: { cx: number; cy: number }): ReactNode {
+    return <GraphPoint key={options.color + cy + cx} color={options.color} cx={cx} cy={cy} />;
+  }
 
-  return renderPoint;
+  return RenderPoint;
 };
 
 export default renderGraphPoint;

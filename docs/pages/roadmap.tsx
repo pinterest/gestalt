@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, Flex, Link, Text } from 'gestalt';
 import roadmapData from './RoadmapData.json';
 import InternalOnlyIconButton from '../docs-components/InternalOnlyIconButton';

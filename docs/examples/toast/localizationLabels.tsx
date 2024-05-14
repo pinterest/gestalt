@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { DefaultLabelProvider, Flex, Toast } from 'gestalt';
 
 export default function Example() {

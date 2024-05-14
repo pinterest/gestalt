@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode, useId } from 'react';
+import { ReactNode, useId } from 'react';
 import classnames from 'classnames';
 import getChildrenToArray from './getChildrenToArray';
 import ListText from './Message';

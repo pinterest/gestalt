@@ -1,12 +1,4 @@
-import {
-  ReactElement,
-  ComponentProps,
-  forwardRef,
-  ReactNode,
-  Ref,
-  useImperativeHandle,
-  useRef,
-} from 'react';
+import { ComponentProps, forwardRef, ReactNode, Ref, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import getAriaLabel from './accessibility/getAriaLabel';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';

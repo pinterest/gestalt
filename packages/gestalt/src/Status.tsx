@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import Box from './Box';
 import Flex from './Flex';
 import Icon from './Icon';

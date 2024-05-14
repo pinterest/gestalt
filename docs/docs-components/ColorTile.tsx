@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Box, Text, useColorScheme } from 'gestalt';
 import { TOKEN_COLOR_TRANSPARENT } from 'gestalt-design-tokens';
 import tokens from 'gestalt-design-tokens/dist/json/variables.json';
