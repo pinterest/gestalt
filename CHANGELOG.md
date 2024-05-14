@@ -1,3 +1,9 @@
+## 147.5.8 (May 14, 2024)
+
+### Patch
+
+- Popover: Flip direction after shifting ([#3565](https://github.com/pinterest/gestalt/pull/3565)) - [Preview link](https://deploy-preview-3565--gestalt.netlify.app?devexample=true)
+
 ## 147.5.7 (May 14, 2024)
 
 ### Patch
