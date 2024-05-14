@@ -17,6 +17,7 @@ import clipboardCopy from './clipboardCopy';
 import { useDocsExperiments } from './contexts/DocsExperimentProvider';
 import { useLocalFiles } from './contexts/LocalFilesProvider';
 import DevelopmentEditor from './DevelopmentEditor';
+import LiveExample from './LiveExample';
 
 const MIN_EDITOR_HEIGHT = 350;
 const MAX_EDITOR_IPHONE_SE_MOBILE_WIDTH = 375;
@@ -290,6 +291,16 @@ export default function SandpackExample({
       />
     </SandpackProvider>
   ) : (
-    <DevelopmentEditor code={code} />
+    <ErrorBoundary>
+      <LiveExample code={code} name={name} />
+    </ErrorBoundary>
   );
+}
+
+function ErrorBoundary({ children }) {
+  try {
+    return <div className="ererererererer">{children}</div>;
+  } catch (error) {
+    return 'Error';
+  }
 }

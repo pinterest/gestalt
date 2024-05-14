@@ -1,5 +1,6 @@
-import { ReactNode } from 'react';
-import { LiveError, LivePreview, LiveProvider } from 'react-live';
+// @flow strict
+import { type Node as ReactNode } from 'react';
+import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live-runner';
 import { Box, Flex, HelpButton, Link, Text } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import * as gestaltChart from 'gestalt-charts'; // eslint-disable-line import/no-namespace
@@ -8,44 +9,44 @@ import { useAppContext } from './appContext';
 import theme from './atomDark';
 import ExampleCode from './ExampleCode';
 
-const reactImports = [
-  'Children',
-  'Fragment',
-  'PureComponent',
-  'Profiler',
-  'StrictMode',
-  'Suspense',
-  'cloneElement',
-  'createContext',
-  'createElement',
-  'createFactory',
-  'createRef',
-  'forwardRef',
-  'isValidElement',
-  'lazy',
-  'memo',
-  'startTransition',
-  'useCallback',
-  'useContext',
-  'useDebugValue',
-  'useEffect',
-  'useImperativeHandle',
-  'useLayoutEffect',
-  'useMemo',
-  'useReducer',
-  'useRef',
-  'useId',
-  'useState',
-];
+// const reactImports = [
+//   'Children',
+//   'Fragment',
+//   'PureComponent',
+//   'Profiler',
+//   'StrictMode',
+//   'Suspense',
+//   'cloneElement',
+//   'createContext',
+//   'createElement',
+//   'createFactory',
+//   'createRef',
+//   'forwardRef',
+//   'isValidElement',
+//   'lazy',
+//   'memo',
+//   'startTransition',
+//   'useCallback',
+//   'useContext',
+//   'useDebugValue',
+//   'useEffect',
+//   'useImperativeHandle',
+//   'useLayoutEffect',
+//   'useMemo',
+//   'useReducer',
+//   'useRef',
+//   'useId',
+//   'useState',
+// ];
 
-const reactRegex = new RegExp(`(${reactImports.join('|')})`, 'g');
+// const reactRegex = new RegExp(`(${reactImports.join('|')})`, 'g');
 
-const importsToRemove = ['gestalt', 'gestalt-charts', 'gestalt-datepicker', 'react'];
+// const importsToRemove = ['gestalt', 'gestalt-charts', 'gestalt-datepicker', 'react'];
 
-const importsToRemoveRegex = new RegExp(
-  `import (.|\n)*(${importsToRemove.map((item) => `'${item}'`).join('|')});`,
-  'g',
-);
+// const importsToRemoveRegex = new RegExp(
+//   `import (.|\n)*(${importsToRemove.map((item) => `'${item}'`).join('|')});`,
+//   'g',
+// );
 
 export default function DevelopmentEditor({
   code,
@@ -58,22 +59,15 @@ export default function DevelopmentEditor({
     return null;
   }
 
-  const scope = { ...gestalt, ...gestaltChart, ...gestaltDatepicker } as const;
+  const scope = {
+    import: {
+      gestalt,
+      'gestalt-charts': gestaltChart,
+      'gestalt-datepicker': gestaltDatepicker,
+    },
+  };
 
-  const codeFileCleaned = code
-    ?.toString()
-    // Remove imports
-    .replace(importsToRemoveRegex, '')
-    // Remove export statement
-    .replace('export default', 'const App =')
-    // Add React. to React imports
-    .replace(reactRegex, 'React.$&')
-    .replace(
-      'const [showComponent, setShowComponent] = React.useState(true);',
-      'const [showComponent, setShowComponent] = React.useState(false);',
-    );
-
-  const codeWrapped = `function Root() {${codeFileCleaned || ''}; return <App />}`;
+  const codeFileCleaned = code?.toString();
 
   return (
     <Box
@@ -132,8 +126,7 @@ export default function DevelopmentEditor({
           />
         </Flex>
       </Box>
-      {/* @ts-expect-error - TS2322 - Type '{ readonly plain: { readonly backgroundColor: "#2a2734"; readonly color: "#88BBBF"; readonly lineHeight: 1.4; readonly fontSize: 16; readonly fontFamily: "PragmataPro, \"Roboto Mono\", Monaco, Consolas, \"Courier New\", \"Courier, monospace !important"; }; readonly styles: readonly [...]; }' is not assignable to type 'PrismTheme'. */}
-      <LiveProvider code={codeWrapped} scope={scope} theme={theme}>
+      <LiveProvider code={codeFileCleaned} scope={scope} theme={theme}>
         <Box
           alignItems="center"
           borderStyle="sm"
@@ -148,7 +141,7 @@ export default function DevelopmentEditor({
         >
           <LivePreview style={{ display: 'contents' }} />
         </Box>
-        <ExampleCode code={codeWrapped ?? ''} developmentEditor name="DEVELOPMENT MODE" />
+        <ExampleCode code={codeFileCleaned ?? ''} developmentEditor name="DEVELOPMENT MODE" />
 
         <Box paddingX={2}>
           <Text color="error">

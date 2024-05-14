@@ -224,19 +224,6 @@ const components = {
   IllustrationCard,
   // @ts-expect-error - TS7006 - Parameter 'props' implicitly has an 'any' type.
   Card: (props) => <MainSection.Card {...props} description={undefined} />,
-  Code: (props: { marginBottom: 'default' | 'none'; children: string | null }) => {
-    const newProps = { ...props } as const;
-    // @ts-expect-error - TS2540 - Cannot assign to 'children' because it is a read-only property.
-    newProps.children = null;
-    // may not need to this in the future
-    return (
-      <MainSection.Card
-        {...newProps}
-        defaultCode={props.children || ''}
-        marginBottom={props.marginBottom || 'none'}
-      />
-    );
-  },
   Group: ({ children }: { children: ReactNode }) => <Box marginBottom={12}>{children}</Box>,
   Do: (props: { children?: ReactNode; title: string }) => (
     <MainSection.Card marginBottom="none" title={props.title || 'Do'} type="do">

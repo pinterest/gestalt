@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
-import { LiveEditor } from 'react-live';
+// @flow strict
+import { type Node as ReactNode, useEffect, useRef, useState } from 'react';
+import { LiveEditor } from 'react-live-runner';
 import { Box, Flex, Text } from 'gestalt';
 import { useAppContext } from './appContext';
 import CollapseExpandCodeButton from './buttons/CollapseExpandCodeButton';
