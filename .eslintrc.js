@@ -181,12 +181,6 @@ module.exports = {
       },
     },
     {
-      'files': ['**/*.flowtest.js'],
-      'rules': {
-        'no-unused-vars': OFF,
-      },
-    },
-    {
       'files': ['playwright/**/*.mjs', 'scripts/templates/*.spec.mjs'],
       'extends': ['plugin:playwright/playwright-test'],
       'rules': {

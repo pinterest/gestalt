@@ -108,12 +108,6 @@ async function generateComponentFiles(componentName) {
     }),
     generateFile({
       componentName,
-      outputPath: path.join(gestaltPackages, `${componentName}.flowtest.js`),
-      template: 'templates/ComponentName.flowtest.js',
-      log: 'Generated flow test',
-    }),
-    generateFile({
-      componentName,
       outputPath: path.join(gestaltPackages, `${componentName}.css`),
       template: 'templates/ComponentName.css',
       log: 'Generated css',
