@@ -1,42 +1,7 @@
 import { forwardRef, ReactNode, useEffect, useImperativeHandle, useRef } from 'react';
+import { Locale } from 'date-fns/locale';
 import { useGlobalEventsHandler } from 'gestalt';
 import InternalDatePicker from './DatePicker/InternalDatePicker';
-
-// LocaleData type from https://github.com/date-fns/date-fns/blob/81ab18785146405ca2ae28710cdfbb13a294ec50/src/locale/af/index.js.flow
-// NOTE: DO NOT USE PER-LINE FLOW SUPPRESSIONS HERE
-// They will get picked up by the docgen and bork the type displayed on the docs
-// flowlint unclear-type:off
-type LocaleData = {
-  code?: string;
-  formatDistance?: (...args: ReadonlyArray<any>) => any;
-  formatRelative?: (...args: ReadonlyArray<any>) => any;
-  localize?: {
-    ordinalNumber: (...args: ReadonlyArray<any>) => any;
-    era: (...args: ReadonlyArray<any>) => any;
-    quarter: (...args: ReadonlyArray<any>) => any;
-    month: (...args: ReadonlyArray<any>) => any;
-    day: (...args: ReadonlyArray<any>) => any;
-    dayPeriod: (...args: ReadonlyArray<any>) => any;
-  };
-  formatLong?: {
-    date: (...args: ReadonlyArray<any>) => any;
-    time: (...args: ReadonlyArray<any>) => any;
-    dateTime: (...args: ReadonlyArray<any>) => any;
-  };
-  match?: {
-    ordinalNumber: (...args: ReadonlyArray<string>) => any;
-    era: (...args: ReadonlyArray<any>) => any;
-    quarter: (...args: ReadonlyArray<any>) => any;
-    month: (...args: ReadonlyArray<any>) => any;
-    day: (...args: ReadonlyArray<any>) => any;
-    dayPeriod: (...args: ReadonlyArray<any>) => any;
-  };
-  options?: {
-    weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
-    firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
-  };
-};
-// flowlint unclear-type:error
 
 export type Props = {
   /**
@@ -74,7 +39,7 @@ export type Props = {
   /**
    * DatePicker accepts imported locales from the open source date utility library date-fns. See the [locales example](https://gestalt.pinterest.systems/web/datepicker#localeData) to learn more.
    */
-  localeData?: LocaleData;
+  localeData?: Locale;
   /**
    * Disable dates outside a max date. See the [disable future and past example](https://gestalt.pinterest.systems/web/datepicker#Disabled-dates) to learn more.
    */

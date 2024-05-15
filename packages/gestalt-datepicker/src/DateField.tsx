@@ -1,40 +1,7 @@
 import { useEffect } from 'react';
+import { Locale } from 'date-fns/locale';
 import { useGlobalEventsHandler } from 'gestalt';
 import InternalDateField from './DateField/InternalDateField';
-
-// LocaleData type from https://github.com/date-fns/date-fns/blob/81ab18785146405ca2ae28710cdfbb13a294ec50/src/locale/af/index.js.flow
-// NOTE: DO NOT USE PER-LINE FLOW SUPPRESSIONS HERE
-// They will get picked up by the docgen and bork the type displayed on the docs
-type LocaleData = {
-  code?: string;
-  formatDistance?: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-  formatRelative?: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-  localize?: {
-    ordinalNumber: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    era: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    quarter: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    month: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    day: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    dayPeriod: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-  };
-  formatLong?: {
-    date: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    time: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    dateTime: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-  };
-  match?: {
-    ordinalNumber: (...args: ReadonlyArray<string>) => Record<any, any>;
-    era: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    quarter: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    month: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    day: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    dayPeriod: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-  };
-  options?: {
-    weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
-    firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
-  };
-};
 
 export type Props = {
   /**
@@ -72,7 +39,7 @@ export type Props = {
   /**
    * DatePicker accepts imported locales from the open source date utility library date-fns. See the [locales example](https://gestalt.pinterest.systems/web/datefield#localeData) to learn more.
    */
-  localeData?: LocaleData;
+  localeData?: Locale;
   /**
    * Maximal selectable date. Disables any date values after the provided date.
    */

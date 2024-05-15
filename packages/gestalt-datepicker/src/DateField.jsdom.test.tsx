@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { af, hu } from 'date-fns/locale';
+import { af, hu, Locale } from 'date-fns/locale';
 import DateField from './DateField';
 
 const initialDate = new Date(2018, 11, 14);
@@ -14,7 +14,7 @@ function DatePickerWrap({
   errorMessage?: string;
   disabled?: boolean;
   readOnly?: boolean;
-  localeData?: Record<any, any>;
+  localeData?: Locale;
 }) {
   const [date, setDate] = useState<Date | null>(initialDate);
 

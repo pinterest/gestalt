@@ -1,6 +1,6 @@
 import { ComponentProps, useState } from 'react';
 import { act, fireEvent, render, screen } from '@testing-library/react';
-import { id } from 'date-fns/locale';
+import { id, Locale } from 'date-fns/locale';
 import DateRange from './DateRange';
 
 function DateRangeWrap({
@@ -12,7 +12,7 @@ function DateRangeWrap({
 }: {
   initialStartDate?: Date;
   initialEndDate?: Date;
-  localeData?: ComponentProps<typeof DateRange>['localeData'];
+  localeData?: Locale;
   onEndDateChange?: ComponentProps<typeof DateRange>['onEndDateChange'];
   onStartDateChange?: ComponentProps<typeof DateRange>['onStartDateChange'];
 }) {

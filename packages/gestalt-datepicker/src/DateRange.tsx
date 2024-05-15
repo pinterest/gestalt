@@ -1,4 +1,5 @@
 import { Children, useEffect, useId } from 'react';
+import { Locale } from 'date-fns/locale';
 import {
   Box,
   Button,
@@ -17,37 +18,6 @@ import InternalDatePicker from './DateRange/InternalDatePicker';
 const MOBILE_DATEFIELD_WIDTH = 171;
 const DATEFIELD_WIDTH = 280;
 
-type LocaleData = {
-  code?: string;
-  formatDistance?: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-  formatRelative?: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-  localize?: {
-    ordinalNumber: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    era: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    quarter: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    month: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    day: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    dayPeriod: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-  };
-  formatLong?: {
-    date: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    time: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    dateTime: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-  };
-  match?: {
-    ordinalNumber: (...args: ReadonlyArray<string>) => Record<any, any>;
-    era: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    quarter: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    month: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    day: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    dayPeriod: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-  };
-  options?: {
-    weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
-    firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
-  };
-};
-
 type Props = {
   /**
    * Customize your error message for the cases the user enters invalid end dates. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
@@ -60,7 +30,7 @@ type Props = {
   /**
    * DateRange accepts imported locales from the open source date utility library date-fns. See the [locales variant](https://gestalt.pinterest.systems/web/datefield#localeData) to learn more.
    */
-  localeData?: LocaleData;
+  localeData?: Locale;
   /**
    * Maximal selectable date. Disables any date values after the provided date. See the [disable future and past variant](https://gestalt.pinterest.systems/web/datefield#Disable-past-and-future-dates) to learn more.
    */

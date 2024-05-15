@@ -9,6 +9,7 @@ import { DatePicker as MUIDatePicker } from '@mui/x-date-pickers/DatePicker';
 import * as locales from '@mui/x-date-pickers/locales';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import classnames from 'classnames';
+import { Locale } from 'date-fns/locale';
 import { Box, Flex, Pog, Status, TapArea, Text } from 'gestalt';
 import styles from '../DateField.css';
 
@@ -185,38 +186,7 @@ function CustomDateField({ inputRef: externalInputRef, ...textFieldProps }: Cust
   );
 }
 
-type LocaleData = {
-  code?: string;
-  formatDistance?: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-  formatRelative?: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-  localize?: {
-    ordinalNumber: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    era: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    quarter: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    month: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    day: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    dayPeriod: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-  };
-  formatLong?: {
-    date: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    time: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    dateTime: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-  };
-  match?: {
-    ordinalNumber: (...args: ReadonlyArray<string>) => Record<any, any>;
-    era: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    quarter: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    month: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    day: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-    dayPeriod: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
-  };
-  options?: {
-    weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
-    firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
-  };
-};
-
-const getTranslationsFromMUIJS: (arg1?: LocaleData | null | undefined) =>
+const getTranslationsFromMUIJS: (arg1?: Locale | null | undefined) =>
   | {
       fieldYearPlaceholder: (params: { digitAmount: number }) => string;
       fieldMonthPlaceholder: (params: { contentType: string }) => string;
@@ -244,7 +214,7 @@ const getTranslationsFromMUIJS: (arg1?: LocaleData | null | undefined) =>
   return undefined;
 };
 
-const getLocalTranslations: (arg1?: LocaleData | null | undefined) =>
+const getLocalTranslations: (arg1?: Locale | null | undefined) =>
   | {
       fieldYearPlaceholder: (params: { digitAmount: number }) => string;
       fieldMonthPlaceholder: (params: { contentType: string }) => string;
@@ -275,7 +245,7 @@ type InternalDateFieldProps = {
   id: string;
   label?: string;
   labelDisplay?: 'visible' | 'hidden';
-  localeData?: LocaleData | null | undefined;
+  localeData?: Locale | null | undefined;
   maxDate?: Date | null;
   minDate?: Date | null;
   mobileEnterKeyHint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
