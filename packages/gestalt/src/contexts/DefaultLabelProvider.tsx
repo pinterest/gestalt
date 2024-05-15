@@ -7,9 +7,9 @@ import { Context, createContext, ReactNode, useContext } from 'react';
  * - Add fallback labels to fallbackLabels below
  * - Update these files with the new labels:
  *   - Test file for this Provider
- *      packages/gestalt/src/contexts/DefaultLabelProvider.jsdom.test.js
+ *      packages/gestalt/src/contexts/DefaultLabelProvider.jsdom.test.tsx
  *   - Docs example for this Provider
- *      docs/examples/defaultlabelprovider/translations.js
+ *      docs/examples/defaultlabelprovider/translations.tsx
  */
 
 export type DefaultLabelContextType = {
@@ -261,7 +261,7 @@ type Props = {
    *
    * Note that all supported labels for all supported components must be provided if using this Provider. Omit this prop to use default (English) strings for supported labels.
    *
-   * See [the source code](https://github.com/pinterest/gestalt/blob/master/packages/gestalt/src/contexts/DefaultLabelProvider.js) for the specific shape of this object.
+   * See [the source code](https://github.com/pinterest/gestalt/blob/master/packages/gestalt/src/contexts/DefaultLabelProvider.tsx) for the specific shape of this object.
    */
   labels?: null | DefaultLabelContextType;
 };

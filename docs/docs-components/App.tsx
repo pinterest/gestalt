@@ -66,7 +66,7 @@ export default function App({ children, files }: Props) {
     };
   }, [router.events]);
 
-  // See additional Providers added in pages/_app.js (dependent for Playwright visual diff testing)
+  // See additional Providers added in pages/_app.tsx (dependent for Playwright visual diff testing)
   return (
     <AppContextProvider>
       <DocsExperimentProvider>

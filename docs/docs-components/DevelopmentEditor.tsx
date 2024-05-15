@@ -96,8 +96,8 @@ export default function DevelopmentEditor({
                 This development preview and code editor is only visible in deployed Netlify URLs
                 and the development environment
                 <br />
-                <code>http://localhost:8888</code>. It feeds from JS files <br />
-                <code>docs/examples/*/*.js</code>.
+                <code>http://localhost:8888</code>. It feeds from TSX files <br />
+                <code>docs/examples/*/*.tsx</code>.
                 <br />
                 <br />
                 In production, the default view is enabled. If available, only the Sandpack preview

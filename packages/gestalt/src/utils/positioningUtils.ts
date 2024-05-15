@@ -92,7 +92,7 @@ export const getTriggerRect = ({
   });
 
   const boundingAnchorRect = anchor.getBoundingClientRect();
-  // triggerBoundingRect is passed to Contents.js where this data will be used for positioning
+  // triggerBoundingRect is passed to Contents.tsx where this data will be used for positioning
   triggerBoundingRect = {
     bottom: boundingAnchorRect.bottom,
     left: boundingAnchorRect.left,
@@ -114,7 +114,7 @@ export const getTriggerRect = ({
     triggerBoundingRect.top = boundingAnchorRect.top - boundingContainerRect.top;
     triggerBoundingRect.left = boundingAnchorRect.left - boundingContainerRect.left;
   }
-  // relativeOffset is used for correct positioning within Contents.js
+  // relativeOffset is used for correct positioning within Contents.tsx
   relativeOffset = {
     x: positionRelativeToAnchor ? triggerBoundingRect.left - anchor.offsetLeft : 0,
     y: positionRelativeToAnchor ? triggerBoundingRect.top - anchor.offsetTop : 0,

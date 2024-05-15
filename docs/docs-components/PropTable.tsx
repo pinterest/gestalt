@@ -9,7 +9,7 @@ import capitalizeFirstLetter from '../utils/capitalizeFirstLetter';
 
 const unifyQuotes = (input: string): string => input.replace(/'/g, '"');
 
-async function copyFlowType(code: string) {
+async function copyType(code: string) {
   try {
     await clipboardCopy(code);
   } catch (error: any) {
@@ -252,18 +252,19 @@ export default function PropTable({
                             </FormattedCode>
 
                             <IconButton
-                              accessibilityLabel="Copy Flow type"
+                              accessibilityLabel="Copy TypeScript type"
                               icon="copy-to-clipboard"
                               iconColor="darkGray"
                               onClick={() => {
-                                trackButtonClick('Copy Flow type', `${componentName} - ${name}`);
-                                copyFlowType(
-                                  `$ElementType<React$ElementConfig<typeof ${componentName}>, '${name}'>`,
+                                trackButtonClick(
+                                  'Copy TypeScript type',
+                                  `${componentName} - ${name}`,
                                 );
+                                copyType(`ComponentProps<typeof ${componentName}>['${name}']`);
                               }}
                               size="xs"
                               tooltip={{
-                                text: 'Copy Flow type',
+                                text: 'Copy type',
                                 inline: true,
                                 idealDirection: 'up',
                                 accessibilityLabel: '',

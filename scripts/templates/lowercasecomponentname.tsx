@@ -1,16 +1,23 @@
-// @flow strict
-import { type Node as ReactNode } from 'react';
+// @ts-expect-error - the path will be correct once the component is moved to the correct location.
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
+// @ts-expect-error - the path will be correct once the component is moved to the correct location.
 import docGen, { type DocGen } from '../../docs-components/docgen';
+// @ts-expect-error - the path will be correct once the component is moved to the correct location.
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+// @ts-expect-error - the path will be correct once the component is moved to the correct location.
 import MainSection from '../../docs-components/MainSection';
+// @ts-expect-error - the path will be correct once the component is moved to the correct location.
 import Page from '../../docs-components/Page';
+// @ts-expect-error - the path will be correct once the component is moved to the correct location.
 import PageHeader from '../../docs-components/PageHeader';
+// @ts-expect-error - the path will be correct once the component is moved to the correct location.
 import QualityChecklist from '../../docs-components/QualityChecklist';
+// @ts-expect-error - the path will be correct once the component is moved to the correct location.
 import SandpackExample from '../../docs-components/SandpackExample';
+// @ts-expect-error - update to the correct example path
 import main from '../../examples/componentname/main';
 
-export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }): ReactNode {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
@@ -46,7 +53,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 }
 
 export async function getServerSideProps(): Promise<{
-  props: { generatedDocGen: DocGen },
+  props: { generatedDocGen: DocGen };
 }> {
   return {
     props: { generatedDocGen: await docGen('ComponentName') },

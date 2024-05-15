@@ -5,11 +5,11 @@ https://gestalt.pinterest.systems/get_started/developers/contributing/developmen
 
 These are the remaining steps to configure your components:
 
-- Add ComponentName into docs/docs-components/siteIndex.js
+- Add ComponentName into docs/docs-components/siteIndex.ts
 
 - Replace ComponentName.svg file SVG content in docs/graphics/general/ComponentName.svg
 
-- Import ComponentName.svg in docs/docs-components/COMPONENT_DATA.js and paste data for component alphabetically
+- Import ComponentName.svg in docs/docs-components/COMPONENT_DATA.tsx and paste data for component alphabetically
 
 import ComponentName from '../graphics/general/ComponentName.svg';
 

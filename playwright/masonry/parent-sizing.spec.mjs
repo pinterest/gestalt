@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 import getGridItems from './utils/getGridItems.mjs';
 import getServerURL from './utils/getServerURL.mjs';
 
-// Hard-coded in docs/integration-test-helpers/masonry/MasonryContainer.js
+// Hard-coded in docs/integration-test-helpers/masonry/MasonryContainer.tsx
 const EXPECTED_LEFT_MARGIN = 200;
 
 test.describe('Masonry: Parent Sizing', () => {

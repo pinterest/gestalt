@@ -4,7 +4,7 @@
  * scrolling containers.
  *
  * Note that this component requires ScrollBoundaryContainerProvider to store in context a node ref that
- * can be accessed by children components (Layer, Controller, and Contents) via getContainerNode() in * utils/positioningUtils.js
+ * can be accessed by children components (Layer, Controller, and Contents) via getContainerNode() in * utils/positioningUtils.ts
  *
  * By building ScrollBoundaryContainerProviders into ScrollBoundaryContainer, we override parent
  * ScrollBoundaryContainerProviders so that each context only has one ScrollBoundaryContainer.

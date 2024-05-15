@@ -9,7 +9,7 @@ const normalizeValue = (val /*: boolean | number */) => {
   return String(val);
 };
 
-// These are used in docs/pages/integration-test/masonry.js
+// These are used in docs/pages/integration-test/masonry.tsx
 /*::
 type Options = ?{|
   constrained?: boolean,

@@ -353,7 +353,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
         However, certain labels are unlikely to change based on the specific implementation, e.g. the accessibility label for the close button on a modal. For supported labels on certain components, you can specify the label once, at the top level of your app, for use in all instances of that component throughout your app. This allows for certain accessibility label props to now be optional; the default label will be used unless overridden at the callsite.
 
-        If your app supports internationalization, pass translated strings to the Provider. If your app does not support internationalization, you may pass untranslated strings, or you may omit the \`labels\` prop or pass \`null\` to use our default labels. See [the source code](https://github.com/pinterest/gestalt/blob/master/packages/gestalt/src/contexts/DefaultLabelProvider.js) for the default English labels we provide.
+        If your app supports internationalization, pass translated strings to the Provider. If your app does not support internationalization, you may pass untranslated strings, or you may omit the \`labels\` prop or pass \`null\` to use our default labels. See [the source code](https://github.com/pinterest/gestalt/blob/master/packages/gestalt/src/contexts/DefaultLabelProvider.tsx) for the default English labels we provide.
 
         In the examples below, type a character to make the "clear input" icon button appear, then inspect that element and note the accessibility label.
         `}

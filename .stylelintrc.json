@@ -3,6 +3,8 @@
   "ignoreFiles": [
     "packages/*/dist/**/*.css",
     "packages/**/*.js",
+    "packages/**/*.ts",
+    "packages/**/*.tsx",
     "packages/stylelint-plugin-gestalt/src/__fixtures__/**/*.css"
   ],
   "plugins": [

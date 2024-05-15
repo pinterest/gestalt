@@ -48,7 +48,7 @@ function List({
   children,
 }: Props) {
   return (
-    // We need this InternalList to avoid the circular dependency src/List.js -> src/ListItem.js -> src/List.js
+    // We need this InternalList to avoid the circular dependency src/List.tsx -> src/ListItem.tsx -> src/List.tsx
     <InternalList
       label={label}
       labelDisplay={labelDisplay}

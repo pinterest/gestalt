@@ -1,8 +1,7 @@
-// @flow strict
-import { type Node as ReactNode } from 'react';
+// @ts-expect-error - ComponentName is just an example. Replace it with the actual component name.
 import { ColorSchemeProvider, ComponentName } from 'gestalt';
 
-export default function Snapshot(): ReactNode {
+export default function Snapshot() {
   return (
     <ColorSchemeProvider colorScheme="light">
       <ComponentName />

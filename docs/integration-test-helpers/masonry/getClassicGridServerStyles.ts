@@ -1,5 +1,5 @@
 // USE WITH CAUTION
-// This file needs to be migrated from Pinboard: app/packages/gestaltExtensions/Masonry/styles/getClassicGridServerStyles.js
+// This file needs to be migrated from Pinboard: app/packages/gestaltExtensions/Masonry/styles/getClassicGridServerStyles.ts
 // For now, make sure that it stays in sync with the original file
 
 export default function getClassicGridServerStyles({

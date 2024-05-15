@@ -1,5 +1,5 @@
 /*
-pages/[id].js renders a dynamic gestalt docs page with a with a page that isn't defined .
+pages/[id].tsx renders a dynamic gestalt docs page with a with a page that isn't defined .
 
 The getStaticPaths() will look at the files in the ./markdown folder and try to render a page if it exists, or returns a 404.
 

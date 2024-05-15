@@ -215,11 +215,11 @@ export default function Toc({ cards }: Props) {
 
   return (
     <Box
-      // Accounting for the footer height as set in App.js
+      // Accounting for the footer height as set in App.tsx
       dangerouslySetInlineStyle={{
         __style: { marginBottom: FOOTER_HEIGHT_PX },
       }}
-      // These margins counter the padding set on the <Box role="main"> in App.js
+      // These margins counter the padding set on the <Box role="main"> in App.tsx
       lgMarginTop={-8}
       marginTop={-4}
       maxHeight={`calc(100% - ${HEADER_HEIGHT_PX}px - ${FOOTER_HEIGHT_PX}px)`}

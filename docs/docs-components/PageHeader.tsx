@@ -24,7 +24,7 @@ const buildSourceLinkPath = (componentName: string) => {
   if (gestaltDatepickerComponents.includes(componentName)) {
     packageName = 'gestalt-datepicker';
   }
-  return `packages/${packageName}/src/${componentName}.js`;
+  return `packages/${packageName}/src/${componentName}.tsx`;
 };
 
 const buildSourceLinkUrl = (componentName: string) =>
@@ -81,7 +81,7 @@ export default function PageHeader({
   let sourceLink = buildSourceLinkUrl(sourcePathName);
   if (folderName) {
     // Strip the file extension if linking to a folder
-    sourceLink = sourceLink.replace(/\.js$/, '');
+    sourceLink = sourceLink.replace(/\.tsx?$/, '');
   }
 
   const platformComponentData = getByPlatform(componentData, { platform: platform ?? 'web' });

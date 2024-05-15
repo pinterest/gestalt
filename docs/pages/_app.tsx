@@ -20,7 +20,7 @@ function Providers({ children, isMobile }: { children: ReactNode; isMobile: bool
   const [isMobileDevice] = useState(isMobile);
 
   return (
-    // Providers needed for visual diff tests are located here rather within components/App.js
+    // Providers needed for visual diff tests are located here rather within components/App.tsx
     <DocsConfigProvider isMobile={isMobileDevice}>
       <DeviceTypeProvider deviceType={isMobileDevice ? 'mobile' : 'desktop'}>
         <DocsDefaultLabelProvider>{children}</DocsDefaultLabelProvider>
@@ -29,7 +29,7 @@ function Providers({ children, isMobile }: { children: ReactNode; isMobile: bool
   );
 }
 
-// This default export is required in a new `pages/_app.js` file.
+// This default export is required in a new `pages/_app.tsx` file.
 function GestaltApp(
   // @ts-expect-error - TS7031 - Binding element 'Component' implicitly has an 'any' type. | TS7031 - Binding element 'pageProps' implicitly has an 'any' type. | TS7031 - Binding element 'cookieHeader' implicitly has an 'any' type. | TS7031 - Binding element 'isMobile' implicitly has an 'any' type. | TS7031 - Binding element 'files' implicitly has an 'any' type.
   { Component, pageProps, cookieHeader, isMobile, files },
