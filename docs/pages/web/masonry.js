@@ -9,7 +9,7 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
-import justify from '../../examples/masonry/justify';
+import align from '../../examples/masonry/align';
 import main from '../../examples/masonry/main';
 import variantsBasic from '../../examples/masonry/variantsBasic';
 import variantsFlexible from '../../examples/masonry/variantsFlexible';
@@ -96,17 +96,19 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection name="Justify">
+      <MainSection name="Align">
         <MainSection.Subsection
           description={`
-          The justify property controls the horizontal alignment of items within the Masonry grid, determining how items are distributed across the available horizontal space of the container. The justify options allow you to align items to the start, center, or end of the container.
+          The align property controls the horizontal alignment of items within the Masonry grid, determining how items are distributed across the available horizontal space of the container. The align options allow you to align items to the start, center, or end of the container.
+
+          Align only works when layout='basic'.
         `}
-          title="Justify options"
+          title="Align options"
         >
           <MainSection.Card
             sandpackExample={
               <SandpackExample
-                code={justify}
+                code={align}
                 layout="column"
                 name="Variants - Basic example"
                 previewHeight={PREVIEW_HEIGHT}

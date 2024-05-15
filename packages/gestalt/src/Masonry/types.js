@@ -13,7 +13,7 @@ export type NodeData<T> = {
   positions: $ReadOnlyArray<{ item: T, position: Position }>,
 };
 
-export type Justify = 
+export type Align =
   | 'start'
   | 'center'
   | 'end'
