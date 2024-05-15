@@ -31,11 +31,13 @@ const layoutNumberToCssDimension = (n: ?number) => (n !== Infinity ? n : undefin
 
 type Props<T> = {
   /**
-   * Controls the horizontal alignment of items within the Masonry grid. The `justify` property determines how items are aligned along the main-axis (horizontally) across multiple columns.
+   * Controls the horizontal alignment of items within the Masonry grid. The `align` property determines how items are aligned along the main-axis (horizontally) across multiple columns.
    * `start`: Aligns items to the start of the Masonry container. This is the default behavior where items are placed starting from the left side of the container.
    * `center`: Centers items in the Masonry grid. This will adjust the spacing on either side of the grid to ensure that the items are centered within the container.
    * `end`: Aligns items to the end of the Masonry container. Items will be placed starting from the right, moving leftwards, which may leave space on the left side of the container.
-   * Using the `justify` property can help control the visual balance and alignment of the grid, especially in responsive layouts or when dealing with varying item widths.
+   * Using the `align` property can help control the visual balance and alignment of the grid, especially in responsive layouts or when dealing with varying item widths.
+   *
+   * _Note that layout='basic' must be set for align to take effect._
    */
   align?: Align,
   /**
