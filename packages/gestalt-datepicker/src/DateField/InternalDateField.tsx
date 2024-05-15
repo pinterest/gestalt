@@ -2,7 +2,7 @@
 /* eslint-disable react/display-name */
 import { forwardRef, ReactNode, useState } from 'react';
 import { StyledEngineProvider } from '@mui/material/styles';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFnsV3';
 import { unstable_useDateField as useDateField } from '@mui/x-date-pickers/DateField';
 import { DatePicker as MUIDatePicker } from '@mui/x-date-pickers/DatePicker';
 // eslint-disable-next-line import/no-namespace
