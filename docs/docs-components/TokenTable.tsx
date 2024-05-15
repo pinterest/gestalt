@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import { Badge, Box, ColorSchemeProvider, Flex, Table, Text } from 'gestalt';
-// @ts-expect-error - TS7016 - Could not find a declaration file for module 'gestalt-design-tokens/dist/js/tokens_dark'. '/home/jackhsu/code/gestalt/packages/gestalt-design-tokens/dist/js/tokens_dark.js' implicitly has an 'any' type.
+// @ts-expect-error - TS7016 - Could not find a declaration file for module 'gestalt-design-tokens/dist/js/tokens_dark'. '/packages/gestalt-design-tokens/dist/js/tokens_dark.js' implicitly has an 'any' type.
 import tokensDark from 'gestalt-design-tokens/dist/js/tokens_dark';
 import { TokenExample } from './TokenExample';
 

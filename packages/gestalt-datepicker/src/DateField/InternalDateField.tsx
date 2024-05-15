@@ -205,9 +205,9 @@ const getTranslationsFromMUIJS: (arg1?: Locale | null | undefined) =>
     }
     const code = split.join('');
 
-    // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'typeof import("/home/jackhsu/code/gestalt/node_modules/@mui/x-date-pickers/locales/index")'.
+    // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'typeof import("/node_modules/@mui/x-date-pickers/locales/index")'.
     if (locales[code] !== undefined) {
-      // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'typeof import("/home/jackhsu/code/gestalt/node_modules/@mui/x-date-pickers/locales/index")'.
+      // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'typeof import("/node_modules/@mui/x-date-pickers/locales/index")'.
       return locales[code].components.MuiLocalizationProvider.defaultProps.localeText;
     }
   }
