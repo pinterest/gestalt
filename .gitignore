@@ -27,5 +27,10 @@ packages/gestalt-design-tokens/dist
 
 playwright/test-results
 
+.rollup.cache/
+
+# TypeScript build info file https://www.typescriptlang.org/tsconfig#tsBuildInfoFile
+*.tsbuildinfo
+
 # Local Netlify folder
 .netlify

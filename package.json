@@ -147,6 +147,7 @@
         },
         "testPathIgnorePatterns": [
           "/node_modules/",
+          "/.rollup.cache/",
           "<rootDir>/scripts/templates/",
           "jsdom.test.js",
           "<rootDir>/packages/gestalt-codemods/generic-codemods/__tests__/utils.js"
@@ -164,6 +165,7 @@
         },
         "testPathIgnorePatterns": [
           "/node_modules/",
+          "/.rollup.cache/",
           "<rootDir>/scripts/templates/",
           "<rootDir>/packages/gestalt-codemods",
           "<rootDir>/packages/gestalt-core"
