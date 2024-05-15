@@ -389,7 +389,7 @@ export default class MasonryContainer extends Component<Props<{ ... }>, State> {
         dynamicGridProps.scrollContainer = undefined;
       } else {
         const query = document.querySelector('[data-scroll-container]');
-        if (query) {
+        if (query && query instanceof HTMLElement) {
           dynamicGridProps.scrollContainer = () => query;
         }
       }

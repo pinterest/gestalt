@@ -181,9 +181,7 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
 
   positionStore: Cache<T, Position>;
 
-  insertAnimationFrame: AnimationFrameID;
-
-  measureTimeout: TimeoutID;
+  insertAnimationFrame: AnimationFrameID | null = null;
 
   scrollContainer: ?ScrollContainer;
 
