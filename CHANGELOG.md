@@ -1,3 +1,9 @@
+## 147.5.9 (May 15, 2024)
+
+### Patch
+
+- Internal: add temporary files to ignore lists ([#3568](https://github.com/pinterest/gestalt/pull/3568)) - [Preview link](https://deploy-preview-3568--gestalt.netlify.app?devexample=true)
+
 ## 147.5.8 (May 14, 2024)
 
 ### Patch
