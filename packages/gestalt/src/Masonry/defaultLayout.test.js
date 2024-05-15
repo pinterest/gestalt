@@ -86,7 +86,7 @@ test('left-aligns grid within the viewport', () => {
   ]);
 });
 
-test('centers grid within the viewport', () => {
+test('centers grid within the viewport, left align', () => {
   const measurements = { a: 100, b: 120, c: 80, d: 100 };
   const items = ['a', 'b', 'c', 'd'];
   const layout = defaultLayout({
@@ -102,6 +102,25 @@ test('centers grid within the viewport', () => {
     { top: 0, height: 120, left: 257, width: 236 },
     { top: 0, height: 80, left: 507, width: 236 },
     { top: 0, height: 100, left: 757, width: 236 },
+  ]);
+});
+
+test('centers grid within the viewport, center align', () => {
+  const measurements = { a: 100, b: 120, c: 80, d: 100 };
+  const items = ['a', 'b', 'c', 'd'];
+  const layout = defaultLayout({
+    cache: stubCache(measurements),
+    justify: 'center',
+    layout: 'basicCentered',
+    minCols: 2,
+    rawItemCount: items.length,
+    width: 8000,
+  });
+  expect(layout(items)).toEqual([
+    { top: 0, height: 100, left: 3493, width: 236 },
+    { top: 0, height: 120, left: 3743, width: 236 },
+    { top: 0, height: 80, left: 3993, width: 236 },
+    { top: 0, height: 100, left: 4243, width: 236 },
   ]);
 });
 
