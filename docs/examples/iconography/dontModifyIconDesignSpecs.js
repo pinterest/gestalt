@@ -2,14 +2,6 @@
 import { type Node as ReactNode } from 'react';
 import { Box } from 'gestalt';
 
-export default function Example(): ReactNode {
-  return (
-    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
-      <OutlinedPincode />
-    </Box>
-  );
-}
-
 function OutlinedPincode() {
   return (
     <svg fill="none" height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
@@ -52,5 +44,13 @@ function OutlinedPincode() {
         fill="currentColor"
       />
     </svg>
+  );
+}
+
+export default function Example(): ReactNode {
+  return (
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <OutlinedPincode />
+    </Box>
   );
 }

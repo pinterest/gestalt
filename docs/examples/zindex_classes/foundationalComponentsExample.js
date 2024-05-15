@@ -21,6 +21,134 @@ import {
 const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
 const SHEET_ZINDEX = new CompositeZIndex([PAGE_HEADER_ZINDEX]);
 
+function SearchBoardField() {
+  const ref = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    ref.current?.focus();
+  }, []);
+
+  return (
+    <SearchField
+      ref={ref}
+      accessibilityLabel="Search boards field"
+      id="searchField"
+      onChange={() => {}}
+      placeholder="Search boards"
+      size="lg"
+    />
+  );
+}
+
+function List({ title, onSelect }: { title: string, onSelect: (data: string) => void }) {
+  return (
+    <Flex direction="column" gap={{ column: 4, row: 0 }}>
+      <Text color="default" size="100">
+        {title}
+      </Text>
+
+      <Flex direction="column" gap={{ column: 4, row: 0 }}>
+        {[
+          [
+            'https://i.ibb.co/s3PRJ8v/photo-1496747611176-843222e1e57c.webp',
+            'Fashion',
+            'Thumbnail image: a white dress with red flowers',
+          ],
+          [
+            'https://i.ibb.co/swC1qpp/IMG-0494.jpg',
+            'Food',
+            'Thumbnail image: a paella with shrimp, green peas, red peppers and yellow rice',
+          ],
+          [
+            'https://i.ibb.co/PFVF3JH/photo-1583847268964-b28dc8f51f92.webp',
+            'Home',
+            'Thumbnail image: a living room with a white couch, two paints in the wall and wooden furniture',
+          ],
+        ].map((data) => (
+          <TapArea key={data[1]} onTap={() => onSelect(data[1])} rounding={2}>
+            <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
+              <Box height={50} overflow="hidden" rounding={2} width={50}>
+                <Mask rounding={2}>
+                  <Image
+                    alt={data[2]}
+                    color="rgb(231, 186, 176)"
+                    naturalHeight={50}
+                    naturalWidth={50}
+                    src={data[0]}
+                  />
+                </Mask>
+              </Box>
+
+              <Text align="center" color="default" weight="bold">
+                {data[1]}
+              </Text>
+            </Flex>
+          </TapArea>
+        ))}
+      </Flex>
+    </Flex>
+  );
+}
+
+function SelectBoard() {
+  const [openPopover, setOpenPopover] = useState(false);
+  const [selectedBoard, setSelectedBoard] = useState('Fashion');
+  const anchorRef = useRef<HTMLElement | null>(null);
+
+  const handleSelect = (data: string) => {
+    setSelectedBoard(data);
+    setOpenPopover(false);
+  };
+
+  return (
+    <Fragment>
+      <Flex direction="column" gap={{ column: 2, row: 0 }}>
+        <Text size="100">Board</Text>
+
+        <Button
+          ref={anchorRef}
+          accessibilityLabel="Select Board"
+          iconEnd="arrow-down"
+          onClick={() => setOpenPopover(!openPopover)}
+          text={selectedBoard}
+        />
+      </Flex>
+
+      {openPopover && (
+        <Layer>
+          <Popover
+            anchor={anchorRef.current}
+            idealDirection="down"
+            onDismiss={() => setOpenPopover(false)}
+            positionRelativeToAnchor={false}
+            size="xl"
+          >
+            <Box width={360}>
+              <Box flex="grow" marginBottom={8} marginEnd={4} marginStart={4} marginTop={6}>
+                <Flex direction="column" gap={{ column: 6, row: 0 }}>
+                  <Text align="center" color="default" weight="bold">
+                    Save to board
+                  </Text>
+                  <SearchBoardField />
+                </Flex>
+              </Box>
+
+              <Box height={300} overflow="scrollY">
+                <Box marginEnd={4} marginStart={4}>
+                  <Flex direction="column" gap={{ column: 8, row: 0 }}>
+                    <List onSelect={handleSelect} title="Top choices" />
+                    <List onSelect={handleSelect} title="All boards" />
+                  </Flex>
+                </Box>
+              </Box>
+            </Box>
+          </Popover>
+        </Layer>
+      )}
+    </Fragment>
+  );
+}
+
 export default function ScrollBoundaryContainerExample(): ReactNode {
   const [showSheet, setShowSheet] = useState(false);
 
@@ -94,133 +222,5 @@ export default function ScrollBoundaryContainerExample(): ReactNode {
         </Layer>
       )}
     </Box>
-  );
-}
-
-function SelectBoard() {
-  const [openPopover, setOpenPopover] = useState(false);
-  const [selectedBoard, setSelectedBoard] = useState('Fashion');
-  const anchorRef = useRef<HTMLElement | null>(null);
-
-  const handleSelect = (data: string) => {
-    setSelectedBoard(data);
-    setOpenPopover(false);
-  };
-
-  return (
-    <Fragment>
-      <Flex direction="column" gap={{ column: 2, row: 0 }}>
-        <Text size="100">Board</Text>
-
-        <Button
-          ref={anchorRef}
-          accessibilityLabel="Select Board"
-          iconEnd="arrow-down"
-          onClick={() => setOpenPopover(!openPopover)}
-          text={selectedBoard}
-        />
-      </Flex>
-
-      {openPopover && (
-        <Layer>
-          <Popover
-            anchor={anchorRef.current}
-            idealDirection="down"
-            onDismiss={() => setOpenPopover(false)}
-            positionRelativeToAnchor={false}
-            size="xl"
-          >
-            <Box width={360}>
-              <Box flex="grow" marginBottom={8} marginEnd={4} marginStart={4} marginTop={6}>
-                <Flex direction="column" gap={{ column: 6, row: 0 }}>
-                  <Text align="center" color="default" weight="bold">
-                    Save to board
-                  </Text>
-                  <SearchBoardField />
-                </Flex>
-              </Box>
-
-              <Box height={300} overflow="scrollY">
-                <Box marginEnd={4} marginStart={4}>
-                  <Flex direction="column" gap={{ column: 8, row: 0 }}>
-                    <List onSelect={handleSelect} title="Top choices" />
-                    <List onSelect={handleSelect} title="All boards" />
-                  </Flex>
-                </Box>
-              </Box>
-            </Box>
-          </Popover>
-        </Layer>
-      )}
-    </Fragment>
-  );
-}
-
-function List({ title, onSelect }: { title: string, onSelect: (data: string) => void }) {
-  return (
-    <Flex direction="column" gap={{ column: 4, row: 0 }}>
-      <Text color="default" size="100">
-        {title}
-      </Text>
-
-      <Flex direction="column" gap={{ column: 4, row: 0 }}>
-        {[
-          [
-            'https://i.ibb.co/s3PRJ8v/photo-1496747611176-843222e1e57c.webp',
-            'Fashion',
-            'Thumbnail image: a white dress with red flowers',
-          ],
-          [
-            'https://i.ibb.co/swC1qpp/IMG-0494.jpg',
-            'Food',
-            'Thumbnail image: a paella with shrimp, green peas, red peppers and yellow rice',
-          ],
-          [
-            'https://i.ibb.co/PFVF3JH/photo-1583847268964-b28dc8f51f92.webp',
-            'Home',
-            'Thumbnail image: a living room with a white couch, two paints in the wall and wooden furniture',
-          ],
-        ].map((data) => (
-          <TapArea key={data[1]} onTap={() => onSelect(data[1])} rounding={2}>
-            <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
-              <Box height={50} overflow="hidden" rounding={2} width={50}>
-                <Mask rounding={2}>
-                  <Image
-                    alt={data[2]}
-                    color="rgb(231, 186, 176)"
-                    naturalHeight={50}
-                    naturalWidth={50}
-                    src={data[0]}
-                  />
-                </Mask>
-              </Box>
-
-              <Text align="center" color="default" weight="bold">
-                {data[1]}
-              </Text>
-            </Flex>
-          </TapArea>
-        ))}
-      </Flex>
-    </Flex>
-  );
-}
-
-function SearchBoardField() {
-  const ref = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    ref.current?.focus();
-  }, []);
-
-  return (
-    <SearchField
-      ref={ref}
-      accessibilityLabel="Search boards field"
-      id="searchField"
-      onChange={() => {}}
-      placeholder="Search boards"
-      size="lg"
-    />
   );
 }
