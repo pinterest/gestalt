@@ -1,0 +1,45 @@
+{
+  "elevation": {
+    "floating": {
+      "value": {
+        "0": {
+          "offsetX": 0,
+          "offsetY": 0,
+          "blurRadius": 8,
+          "spreadRadius": 0,
+          "color": "#000000",
+          "opacity": 0.1
+        }
+      },
+      "comment": "Used to highlight an item that floats above other content, like a Modal"
+    },
+    "raised": {
+      "top": {
+        "value": {
+          "0": {
+            "offsetX": 0,
+            "offsetY": 2,
+            "blurRadius": 8,
+            "spreadRadius": 0,
+            "color": "#000000",
+            "opacity": 0.12
+          }
+        },
+        "comment": "Used to indicate a sticky UI element where content can scroll underneath, like a header"
+      },
+      "bottom": {
+        "value": {
+          "0": {
+            "offsetX": 0,
+            "offsetY": -2,
+            "blurRadius": 8,
+            "spreadRadius": 0,
+            "color": "#000000",
+            "opacity": 0.12
+          }
+        },
+        "comment": "Used to indicate a sticky UI element that sits on top of content, like a footer or navigation bar"
+      }
+    }
+  }
+}
