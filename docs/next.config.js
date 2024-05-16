@@ -1,4 +1,4 @@
-// @flow strict
+// @noflow
 
 /*::
 type WebpackConfig = {|
@@ -41,6 +41,18 @@ module.exports = {
     DOCS_ROOT: __dirname,
     GESTALT_ROOT: root,
   },
+  eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete even if
+    // your project has type errors.
+    // !! WARN !!
+    ignoreBuildErrors: true,
+  },
   webpack: (
     config /*: WebpackConfig */,
     { dev } /*: {| dev: boolean |} */,
@@ -60,8 +72,8 @@ module.exports = {
       rules: [
         ...config.module.rules,
         {
-          test: /examples\/.*\.js/,
-          use: path.resolve('./removeFlowTypesLoader.js'),
+          test: /examples\/.*\.tsx$/,
+          use: path.resolve('./exampleCleanupLoader.js'),
         },
       ],
     },

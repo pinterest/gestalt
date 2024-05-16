@@ -6,9 +6,16 @@
     "source.fixAll.shellcheck": "explicit"
   },
   "editor.formatOnSave": true,
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.gotoLocation.multipleTypeDefinitions": "goto",
   "eslint.packageManager": "yarn",
   "grunt.autoDetect": "off",
   "javascript.validate.enable": false,
   "npm.packageManager": "yarn",
+  "typescript.disableAutomaticTypeAcquisition": true,
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.suggest.enabled": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.tsserver.experimental.enableProjectDiagnostics": true,
   "typescript.validate.enable": true
 }

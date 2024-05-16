@@ -1,0 +1,80 @@
+import { useState } from 'react';
+import { Accordion, Box, Flex, Text } from 'gestalt';
+
+export default function Example() {
+  const [extExpandedId, setExtExpandedId] = useState<number | string | null>(null);
+  const mapIds = {
+    'first-0': 0,
+    'first-1': 1,
+    'second-0': 0,
+    'second-1': 1,
+  } as const;
+
+  return (
+    <Box display="flex" height="100%" justifyContent="center" padding={8}>
+      <Box column={12} maxWidth={800} padding={2}>
+        <Flex direction="column" gap={{ column: 4, row: 0 }}>
+          <Flex direction="column" gap={{ column: 2, row: 0 }}>
+            <Box marginStart={2}>
+              <Text>Step 1</Text>
+            </Box>
+
+            {/* @ts-expect-error - TS2739 - Type '{ expandedIndex: any; id: string; items: { title: string; summary: string[]; children: Element; }[]; onExpandedChange: (index: number | null) => void; }' is missing the following properties from type 'AccordionExpandableProps': accessibilityCollapseLabel, accessibilityExpandLabel */}
+            <Accordion.Expandable
+              expandedIndex={
+                // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly 'first-0': 0; readonly 'first-1': 1; readonly 'second-0': 0; readonly 'second-1': 1; }'.
+                typeof extExpandedId === 'string' ? mapIds[extExpandedId] : extExpandedId
+              }
+              id="ModuleExampleStep1"
+              items={[
+                {
+                  title: 'Title1',
+                  summary: ['summary1'],
+                  children: <Text size="200">Children1</Text>,
+                },
+                {
+                  title: 'Title2',
+                  summary: ['summary2'],
+                  children: <Text size="200">Children2</Text>,
+                },
+              ]}
+              onExpandedChange={(index) => {
+                if (index) setExtExpandedId(Number.isFinite(index) ? `first-${index}` : index);
+              }}
+            />
+          </Flex>
+
+          <Flex direction="column" gap={{ column: 2, row: 0 }}>
+            <Box marginStart={2}>
+              <Text>Step 2</Text>
+            </Box>
+
+            {/* @ts-expect-error - TS2739 - Type '{ expandedIndex: any; id: string; items: { title: string; summary: string[]; children: Element; }[]; onExpandedChange: (index: number | null) => void; }' is missing the following properties from type 'AccordionExpandableProps': accessibilityCollapseLabel, accessibilityExpandLabel */}
+            <Accordion.Expandable
+              expandedIndex={
+                // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly 'first-0': 0; readonly 'first-1': 1; readonly 'second-0': 0; readonly 'second-1': 1; }'.
+                typeof extExpandedId === 'string' ? mapIds[extExpandedId] : extExpandedId
+              }
+              id="AccordionExampleStep2"
+              items={[
+                {
+                  title: 'Title1',
+                  summary: ['summary1'],
+                  children: <Text size="200">Children1</Text>,
+                },
+                {
+                  title: 'Title2',
+                  summary: ['summary2'],
+                  children: <Text size="200">Children2</Text>,
+                },
+              ]}
+              onExpandedChange={(index) => {
+                if (index) setExtExpandedId(Number.isFinite(index) ? `second-${index}` : index);
+              }}
+            />
+          </Flex>
+        </Flex>
+      </Box>
+    </Box>
+  );
+}

@@ -1433,10 +1433,10 @@ interface MasonryProps<T = any> {
     | 'serverRenderedFlexible'
     | 'uniformRow'
     | undefined;
-  loadItems?: false | ((_arg?: { from: number }) => undefined | boolean | {}) | undefined;
+  loadItems?: false | ((_arg?: { from: number }) => void) | undefined;
   measurementStore?: MeasurementStore<T, any>;
   minCols?: number | undefined;
-  scrollContainer?: (() => HTMLElement) | undefined;
+  scrollContainer?: (() => HTMLElement | Window) | undefined;
   virtualBoundsBottom?: number | undefined;
   virtualBoundsTop?: number | undefined;
   virtualBufferFactor?: number | undefined;

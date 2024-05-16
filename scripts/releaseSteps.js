@@ -153,14 +153,10 @@ async function createGitHubRelease({ newVersion, releaseNotes }) {
 function cleanSource() {
   packages.forEach((packageName) => {
     const src = srcDirectory(packageName);
-    shell.exec(`find ${src} -type f -name "*.test.js" -delete`);
+    shell.exec(`find ${src} -type f -name "*.test.ts" -delete`);
+    shell.exec(`find ${src} -type f -name "*.test.tsx" -delete`);
     shell.exec(`find ${src} -type d -name "__fixtures__" -exec rm -rf {} +`);
     shell.exec(`find ${src} -type d -name "__snapshots__" -exec rm -rf {} +`);
-
-    // Convert .js to .js.flow so to disallow imports under `src/*`
-    shell.exec(
-      `find ${src} -type f -name "*.js" -exec sh -c 'mv "$1" "\${1%.js}.js.flow"' _ {} \\;`,
-    );
   });
 }
 
@@ -204,7 +200,7 @@ function buildPackages() {
   console.log(`\nBuild packages`);
   buildPackages();
 
-  console.log('\nClean src/ directories & Convert .js to .js.flow');
+  console.log('\nClean src/ directories');
   cleanSource();
   commitChanges({ message: `v${newVersion}: Clean source` });
 

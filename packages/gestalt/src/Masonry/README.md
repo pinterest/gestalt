@@ -18,7 +18,7 @@ To see how that determines actual DOM positions, let's dive into each of those h
 
 ### `defaultLayout`
 
-`packages/gestalt/src/Masonry/defaultLayout.js`
+`packages/gestalt/src/Masonry/defaultLayout.ts`
 This layout yields a grid of items with a constant column width. If the width of the grid does not precisely match that of the container, then there will be additional whitespace on one or both sides of the grid (depending on `"basic"` vs `"basicCentered"`).
 
 We determine the number of columns by taking the total width of the available area for the grid (`width` + `gutter`) and dividing by the total width of each column (`columnWidth` + `gutter`). This can be overridden by `minCols` (if specified), if the calculated number of columns is less than `minCols`.

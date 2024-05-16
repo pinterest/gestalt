@@ -1,4 +1,4 @@
-// @flow strict
+// @noflow
 
 const webComponents = [
   'activationcard',

@@ -1,8 +1,9 @@
-// eslint-disable-next-line flowtype/require-valid-file-annotation, import/no-relative-packages
-import plugins from '../gestalt-core/build';
+// @noflow
+// eslint-disable-next-line import/no-relative-packages
+import { acornInjectPlugins, plugins } from '../gestalt-core/build';
 
 const rollupConfig = {
-  input: 'src/index.js',
+  input: 'src/index.ts',
   output: [
     {
       file: 'dist/gestalt.js',
@@ -32,6 +33,7 @@ const rollupConfig = {
     },
   ],
   external: ['react', 'classnames/bind', 'classnames', 'react-dom'],
+  acornInjectPlugins,
   plugins: plugins('gestalt'),
 };
 

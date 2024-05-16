@@ -6,6 +6,8 @@ import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
+import typescript from '@rollup/plugin-typescript';
+import jsx from 'acorn-jsx';
 import cssnano from 'cssnano';
 import postcss from 'postcss';
 import postcssModules from 'postcss-modules';
@@ -130,7 +132,7 @@ const cssModules = (options = {}) => {
   };
 };
 
-const plugins = (name) => [
+export const plugins = (name) => [
   cssModules({
     output: `../${name}/dist/${name}`,
   }),
@@ -145,14 +147,17 @@ const plugins = (name) => [
   json({
     preferConst: true,
   }),
+  typescript({ tsconfig: relative(__dirname, '../../tsconfig.json') }),
   babel({
     babelHelpers: 'bundled',
     babelrc: false,
     exclude: 'node_modules/**',
     rootMode: 'upward',
+    presets: [['@babel/preset-env', { targets: { node: true } }], '@babel/preset-typescript'],
     shouldPrintComment: (comment) => /[#@]__PURE__/.exec(comment),
   }),
   commonjs(),
 ];
 
-export default plugins;
+// see https://www.npmjs.com/package/@rollup/plugin-typescript#preserving-jsx-output
+export const acornInjectPlugins = [jsx()];

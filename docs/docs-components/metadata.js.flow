@@ -43,7 +43,7 @@ declare module 'metadata' {
         },
         required: boolean,
         description: string,
-        flowType: {
+        tsType: {
           raw?: string,
           nullable?: boolean,
           name: string,

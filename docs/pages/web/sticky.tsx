@@ -1,0 +1,48 @@
+import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import docGen, { DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import Page from '../../docs-components/Page';
+import PageHeader from '../../docs-components/PageHeader';
+import QualityChecklist from '../../docs-components/QualityChecklist';
+import SandpackExample from '../../docs-components/SandpackExample';
+import main from '../../examples/sticky/main';
+
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
+  return (
+    <Page title={generatedDocGen?.displayName}>
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
+        <SandpackExample code={main} hideEditor layout="column" name="Sticky top" />
+      </PageHeader>
+
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
+      <AccessibilitySection name={generatedDocGen?.displayName} />
+
+      <QualityChecklist component={generatedDocGen?.displayName} />
+    </Page>
+  );
+}
+
+export async function getServerSideProps(): Promise<{
+  props: {
+    generatedDocGen: DocGen;
+  };
+}> {
+  const generatedDocGen = await docGen('Sticky');
+
+  ['bottom', 'left', 'right', 'top'].forEach((prop) => {
+    generatedDocGen.props[prop] = {
+      defaultValue: null,
+      required: false,
+      tsType: {
+        name: 'number | string',
+        raw: `number | string`,
+      },
+      description: `Use numbers for pixels (\`${prop}={100}\`) and strings for percentages (\`${prop}="100%"\`)`,
+    };
+  });
+
+  return {
+    props: { generatedDocGen },
+  };
+}
