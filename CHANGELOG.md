@@ -1,3 +1,9 @@
+## 147.5.10 (May 16, 2024)
+
+### Patch
+
+- Internal: Fix some issues caught in TypeScript branch ([#3570](https://github.com/pinterest/gestalt/pull/3570)) - [Preview link](https://deploy-preview-3570--gestalt.netlify.app?devexample=true)
+
 ## 147.5.9 (May 15, 2024)
 
 ### Patch
