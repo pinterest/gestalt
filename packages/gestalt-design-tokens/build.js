@@ -4,11 +4,9 @@ const StyleDictionary = require('style-dictionary');
 // HELPERS
 
 // $FlowFixMe[missing-local-annot]
-const getTokenSourcePaths = (theme, modeTheme) => {
+const getTokenSourcePaths = ({ theme, modeTheme, platform }) => {
   const paths = [
     `tokens/color/${theme}/base.json`,
-    `tokens/color/${theme}/data-visualization/base${modeTheme}.json`,
-    `tokens/color/${theme}/data-visualization/sema${modeTheme}.json`,
     `tokens/color/${theme}/sema${modeTheme}.json`,
     `tokens/elevation/${theme}/base${modeTheme}.json`,
     `tokens/elevation/${theme}/sema.json`,
@@ -20,6 +18,15 @@ const getTokenSourcePaths = (theme, modeTheme) => {
     `tokens/opacity/${theme}/sema.json`,
     `tokens/rounding/${theme}/base.json`,
     `tokens/rounding/${theme}/sema.json`,
+    ...(theme === 'classic'
+      ? [
+          `tokens/color/classic/data-visualization/base${modeTheme}.json`,
+          `tokens/color/classic/data-visualization/sema${modeTheme}.json`,
+        ]
+      : []),
+    ...(theme === 'classic' && platform === 'web'
+      ? [`tokens/color/classic/component${modeTheme}.json`]
+      : []),
   ];
   return paths;
 };
@@ -232,6 +239,30 @@ function getMatchedThemeName(filePath) {
 }
 
 StyleDictionary.registerTransform({
+  name: 'name/prefix/level/css',
+  type: 'name',
+  matcher(prop) {
+    return !prop.filePath.includes('classic');
+  },
+  transformer(prop) {
+    const prefix = prop.filePath.split('/').splice(-1)[0].substring(0, 4);
+    return prop.name.replace(/^[^_]*/, (match) => `${prefix}-${match}`);
+  },
+});
+
+StyleDictionary.registerTransform({
+  name: 'name/prefix/level/ts',
+  type: 'name',
+  matcher(prop) {
+    return !prop.filePath.includes('classic');
+  },
+  transformer(prop) {
+    const prefix = prop.filePath.split('/').splice(-1)[0].substring(0, 4);
+    return prop.name.replace(/^[^_]*/, (match) => `${prefix}${match}`);
+  },
+});
+
+StyleDictionary.registerTransform({
   name: 'name/prefix/theme',
   type: 'name',
   matcher(prop) {
@@ -244,6 +275,15 @@ StyleDictionary.registerTransform({
 });
 
 // REGISTER TRANSFORM GROUPS
+StyleDictionary.registerTransformGroup({
+  name: 'webCssTransformGroup',
+  transforms: ['attribute/cti', 'name/cti/kebab', 'name/prefix/level/css', 'color/css'],
+});
+
+StyleDictionary.registerTransformGroup({
+  name: 'webTsTransformGroup',
+  transforms: ['attribute/cti', 'name/cti/pascal', 'name/prefix/level/ts', 'color/hex'],
+});
 
 StyleDictionary.registerTransformGroup({
   name: 'androidTransformGroup',
@@ -259,20 +299,20 @@ StyleDictionary.registerTransformGroup({
 // BUILD CONFIGURATION
 
 // $FlowFixMe[missing-local-annot]
-function getWebConfig({ theme = 'classic', mode = 'light' }) {
+function getWebConfig({ mode = 'light', theme }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
 
-  const sourcePaths = getTokenSourcePaths(theme, modeTheme);
+  const sourcePaths = getTokenSourcePaths({ theme, modeTheme, platform: 'web' });
 
-  // add component tokens for web
-  sourcePaths.push(`tokens/color/${theme}/component${modeTheme}.json`);
+  console.log(sourcePaths);
+
   return {
     'source': sourcePaths,
     'platforms': {
       'css': {
-        'transformGroup': 'css',
-        '_transformGroup_comment':
-          'https://amzn.github.io/style-dictionary/#/transform_groups?id=css',
+        'transformGroup': 'webCssTransformGroup',
+        '_format_comment':
+          'Custom from https://amzn.github.io/style-dictionary/#/transform_groups?id=css',
         'buildPath': 'dist/css/',
         'files':
           mode === 'light'
@@ -307,9 +347,9 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
               ],
       },
       'json': {
-        'transformGroup': 'css',
-        '_transformGroup_comment':
-          'https://amzn.github.io/style-dictionary/#/transform_groups?id=css',
+        'transformGroup': 'webCssTransformGroup',
+        '_format_comment':
+          'Custom from https://amzn.github.io/style-dictionary/#/transform_groups?id=css',
         'buildPath': 'dist/json/',
         'files':
           mode === 'light'
@@ -340,9 +380,9 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
               ],
       },
       'jsonflow': {
-        'transformGroup': 'css',
-        '_transformGroup_comment':
-          'https://amzn.github.io/style-dictionary/#/transform_groups?id=css',
+        'transformGroup': 'webCssTransformGroup',
+        '_format_comment':
+          'Custom from https://amzn.github.io/style-dictionary/#/transform_groups?id=css',
         'buildPath': 'dist/json/',
         'files':
           mode === 'light'
@@ -371,9 +411,9 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
               ],
       },
       'js': {
-        'transformGroup': 'js',
+        'transformGroup': 'webTsTransformGroup',
         '_transformGroup_comment':
-          'https://amzn.github.io/style-dictionary/#/transform_groups?id=js',
+          'Custom from https://amzn.github.io/style-dictionary/#/transform_groups?id=js',
         'buildPath': 'dist/js/',
         'options': {
           'showFileHeader': true,
@@ -449,7 +489,7 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
               ],
       },
       'ts': {
-        'transformGroup': 'js',
+        'transformGroup': 'webTsTransformGroup',
         '_transformGroup_comment':
           'https://amzn.github.io/style-dictionary/#/transform_groups?id=js',
         'buildPath': 'dist/ts/',
@@ -549,7 +589,7 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
 function getAndroidConfiguration({ theme = 'classic', mode = 'light' }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
 
-  const sourcePaths = getTokenSourcePaths(theme, modeTheme);
+  const sourcePaths = getTokenSourcePaths({ theme, modeTheme });
 
   return {
     'source': sourcePaths,
@@ -662,7 +702,7 @@ function getAndroidConfiguration({ theme = 'classic', mode = 'light' }) {
 function getIOSConfiguration({ theme = 'classic', mode = 'light' }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
 
-  const sourcePaths = getTokenSourcePaths(theme, modeTheme);
+  const sourcePaths = getTokenSourcePaths({ theme, modeTheme });
 
   return {
     'source': sourcePaths,
@@ -840,26 +880,27 @@ function getIOSConfiguration({ theme = 'classic', mode = 'light' }) {
 // BUILD EXECUTION
 
 const platformFileMap = {
-  web: ['css', 'json', 'jsonflow', 'js', 'ts'],
-  android: ['android'],
-  ios: ['ios', 'ios-swift', 'ios-swift-separate-enums'],
+  // web: ['css', 'json', 'jsonflow', 'js', 'ts'],
+  web: ['css', 'ts'],
+  // android: ['android'],
+  // ios: ['ios', 'ios-swift', 'ios-swift-separate-enums'],
 };
 
-['classic', 'vr-theme', 'vrweb-theme'].forEach((theme) =>
+['classic', 'vrweb-theme'].forEach((theme) =>
   ['light', 'dark'].forEach((mode) => {
-    if (['classic', 'vr-theme'] === theme) {
-      // iOS platform
-      const StyleDictionaryIOS = StyleDictionary.extend(getIOSConfiguration({ mode, theme }));
-      platformFileMap.ios.forEach((platform) => StyleDictionaryIOS.buildPlatform(platform));
+    // if (['classic', 'vr-theme'] === theme) {
+    //   // iOS platform
+    //   const StyleDictionaryIOS = StyleDictionary.extend(getIOSConfiguration({ mode, theme }));
+    //   platformFileMap.ios.forEach((platform) => StyleDictionaryIOS.buildPlatform(platform));
 
-      // Android platform
-      const StyleDictionaryAndroid = StyleDictionary.extend(
-        getAndroidConfiguration({ mode, theme }),
-      );
-      platformFileMap.android.forEach((platform) => StyleDictionaryAndroid.buildPlatform(platform));
-    }
-
-    if (['classic', 'vrweb-theme'] === theme) {
+    //   // Android platform
+    //   const StyleDictionaryAndroid = StyleDictionary.extend(
+    //     getAndroidConfiguration({ mode, theme }),
+    //   );
+    //   platformFileMap.android.forEach((platform) => StyleDictionaryAndroid.buildPlatform(platform));
+    // }
+    if (['classic', 'vrweb-theme'].includes(theme)) {
+      console.log(theme);
       // // web platform
       const StyleDictionaryWeb = StyleDictionary.extend(getWebConfig({ mode, theme }));
       platformFileMap.web.forEach((platform) => StyleDictionaryWeb.buildPlatform(platform));
