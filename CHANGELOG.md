@@ -1,3 +1,9 @@
+## 148.0.0 (May 16, 2024)
+
+### Major
+
+- Internal: TypeScript Migration ([#3567](https://github.com/pinterest/gestalt/pull/3567)) - [Preview link](https://deploy-preview-3567--gestalt.netlify.app?devexample=true)
+
 ## 147.6.0 (May 16, 2024)
 
 ### Minor
