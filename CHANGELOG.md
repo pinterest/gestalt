@@ -1,3 +1,9 @@
+## 147.5.11 (May 16, 2024)
+
+### Patch
+
+- Internal: change runs-on from macos-12 to ubuntu-latest ([#3571](https://github.com/pinterest/gestalt/pull/3571)) - [Preview link](https://deploy-preview-3571--gestalt.netlify.app?devexample=true)
+
 ## 147.5.10 (May 16, 2024)
 
 ### Patch
