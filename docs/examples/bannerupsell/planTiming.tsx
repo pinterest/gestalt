@@ -1,0 +1,51 @@
+import {ReactNode} from 'react';
+import { BannerUpsell, Box, Flex, Icon, Text } from 'gestalt';
+
+export default function Example() {
+  return (
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+      <Flex direction="column" gap={{ column: 4, row: 0 }}>
+        <Text>First BannerUpsell:</Text>
+        <BannerUpsell
+          dismissButton={{
+            accessibilityLabel: 'Dismiss banner',
+            onDismiss: () => {},
+          }}
+          imageData={{
+            component: <Icon accessibilityLabel="" color="default" icon="ads-stats" size={32} />,
+          }}
+          message="Install the Pinterest tag to track your website traffic, conversions and more."
+          primaryAction={{
+            label: 'Install now',
+            accessibilityLabel: 'Install Pinterest tag now',
+            role: 'button',
+            onClick: () => {},
+          }}
+          secondaryAction={{
+            accessibilityLabel: 'Learn more: Pinterest tag',
+            href: 'https://help.pinterest.com/en/business/article/verified-merchant-program',
+            label: 'Learn more',
+            target: 'blank',
+            role: 'link',
+          }}
+          title="Measure ad performance"
+        />
+
+        <Text>Follow-up BannerUpsell:</Text>
+        <BannerUpsell
+          imageData={{
+            component: <Icon accessibilityLabel="" color="default" icon="send" size={32} />,
+          }}
+          message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
+          primaryAction={{
+            label: 'Claim now',
+            accessibilityLabel: 'Claim ads credit',
+            role: 'button',
+            onClick: () => {},
+          }}
+          title="So close! Finish installing your Pinterest tag, get $10 in ads credit"
+        />
+      </Flex>
+    </Box>
+  );
+}

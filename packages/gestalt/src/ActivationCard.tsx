@@ -1,0 +1,307 @@
+import {Fragment, ReactNode} from 'react';
+import classnames from 'classnames';
+import styles from './ActivationCard.css';
+import Box from './Box';
+import ButtonLink from './ButtonLink';
+import { useColorScheme } from './contexts/ColorSchemeProvider';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import Icon from './Icon';
+import IconButton from './IconButton';
+import Text from './Text';
+
+const STATUS_ICONS = {
+  notStarted: undefined,
+  pending: { symbol: 'clock', color: 'subtle' },
+  needsAttention: { symbol: 'workflow-status-problem', color: 'error' },
+  complete: { symbol: 'check-circle', color: 'success' },
+} as const;
+
+type LinkData = {
+  accessibilityLabel: string,
+  href: string,
+  label: string,
+  onClick?: (
+    arg1: {
+      event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
+      dangerouslyDisableOnNavigation: () => void
+    },
+  ) => void,
+  rel?: "none" | "nofollow",
+  target?: null | "self" | "blank"
+};
+
+type Props = {
+  /**
+     * Callback fired when the dismiss button is clicked (pressed and released) with a mouse or keyboard.
+     * Supply a short, descriptive label for screen-readers to provide sufficient context about the dismiss button action. IconButtons do not render text for screen readers to read requiring an accessibility label.
+     * Accessibility: `accessibilityLabel` populates aria-label.
+     */
+  dismissButton?: {
+    accessibilityLabel?: string,
+    onDismiss: () => void
+  },
+  /**
+     * Link-role button to render inside the activation card as a call-to-action to the user.
+     * - `label`: Text to render inside the button to convey the function and purpose of the button. The button text has a fixed size.
+     * - `accessibilityLabel`: Supply a short, descriptive label for screen-readers to replace button texts that do not provide sufficient context about the button component behavior. Texts like `Click Here,` `Follow,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the button text.
+     * - `onClick`: Callback fired when the button component is clicked (pressed and released) with a mouse or keyboard.
+     *
+     * ActivationCard can be paired with GlobalEventsHandlerProvider. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
+     */
+  link?: LinkData,
+  /**
+     * Text to render inside the activation card to convey detailed information to the user. The message text has a fixed size.
+     */
+  message: string,
+  /**
+     * Select the activation card status:
+     * - `notStarted`: A task that has not be started
+     * - `pending`: A task that is pending action
+     * - `needsAttention`: A task that requires the user's attention
+     * - `complete`: A task that has been completed
+     */
+  status: "notStarted" | "pending" | "needsAttention" | "complete",
+  /**
+     * A message to indicate the current status of the activation card.
+     */
+  statusMessage: string,
+  /**
+     * Heading to render inside the activation card above the message to convey the activation card topic to the user.
+     */
+  title: string
+};
+
+function ActivationCardLink(
+  {
+    data,
+  }: {
+    data: LinkData
+  },
+) {
+  const { accessibilityLabel, href, label, onClick, rel, target } = data;
+
+  return (
+    <Box
+      alignItems="center"
+      marginEnd="auto"
+      marginStart="auto"
+      marginTop={8}
+      paddingX={1}
+      rounding="pill"
+    >
+      <ButtonLink
+        accessibilityLabel={accessibilityLabel}
+        color="gray"
+        fullWidth
+        href={href}
+        onClick={onClick}
+        rel={rel}
+        size="lg"
+        target={target}
+        text={label}
+      />
+    </Box>
+  );
+}
+
+type CardProps = ((Props) & {
+  dismissButton?: {
+    accessibilityLabel: string,
+    onDismiss: () => void
+  }
+});
+function CompletedCard(
+  {
+    dismissButton,
+    message,
+    status,
+    statusMessage,
+    title,
+  }: CardProps,
+) {
+  const icon = STATUS_ICONS[status];
+
+  return (
+    <Fragment>
+      <Box display="flex">
+        {icon && (
+          <Box alignContent="center" display="flex">
+            <Box marginEnd={4}>
+              <Icon
+                accessibilityLabel={statusMessage}
+                color={icon.color}
+                icon={icon.symbol}
+                size={40}
+              />
+            </Box>
+          </Box>
+        )}
+        <Box>
+          <Box>
+            <Text size="400" weight="bold">
+              {title}
+            </Text>
+          </Box>
+          {message && (
+            <Box alignContent="start" direction="column" flex="grow" marginTop={2}>
+              <Text color="subtle" size="200">
+                {message}
+              </Text>
+            </Box>
+          )}
+        </Box>
+      </Box>
+      {dismissButton && (
+        <div className={classnames(styles.rtlPos)}>
+          <IconButton
+            accessibilityLabel={dismissButton.accessibilityLabel}
+            icon="cancel"
+            iconColor="gray"
+            onClick={dismissButton.onDismiss}
+            padding={4}
+            size="sm"
+          />
+        </div>
+      )}
+    </Fragment>
+  );
+}
+
+function UncompletedCard(
+  {
+    dismissButton,
+    message,
+    link,
+    status,
+    statusMessage,
+    title,
+  }: CardProps,
+) {
+  const isStarted = status !== 'notStarted';
+  const icon = STATUS_ICONS[status];
+
+  return (
+    <Fragment>
+      <Box alignContent="center" display="flex" height={24}>
+        {icon && (
+          <Box marginEnd={2}>
+            <Icon
+              accessibilityLabel={statusMessage}
+              color={icon.color}
+              icon={icon.symbol}
+              size={24}
+            />
+          </Box>
+        )}
+        <Box alignSelf="center" marginTop={isStarted ? 0 : 1}>
+          <Text color={isStarted ? 'default' : 'subtle'} size="200" weight="bold">
+            {statusMessage}
+          </Text>
+        </Box>
+      </Box>
+      <Box marginTop={6}>
+        <Text size="400" weight="bold">
+          {title}
+        </Text>
+      </Box>
+      {message && (
+        <Box alignContent="start" direction="column" flex="grow" marginTop={2}>
+          <Text color="subtle" size="200">
+            {message}
+          </Text>
+        </Box>
+      )}
+      {link && (
+        <Box>
+          <ActivationCardLink data={link} />
+        </Box>
+      )}
+      {dismissButton && (
+        <div className={classnames(styles.rtlPos)}>
+          <IconButton
+            accessibilityLabel={dismissButton.accessibilityLabel}
+            icon="cancel"
+            iconColor="gray"
+            onClick={dismissButton.onDismiss}
+            padding={4}
+            size="sm"
+          />
+        </div>
+      )}
+    </Fragment>
+  );
+}
+
+/**
+ * [ActivationCards](https://gestalt.pinterest.systems/web/activationcard) are used in groups to communicate a user’s stage in a series of steps toward an overall action.
+ *
+ * ![ActivationCard light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ActivationCard.spec.mjs-snapshots/ActivationCard-chromium-darwin.png)
+ * ![ActivationCard dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ActivationCard-dark.spec.mjs-snapshots/ActivationCard-dark-chromium-darwin.png)
+ *
+ */
+export default function ActivationCard(
+  {
+    dismissButton,
+    message,
+    link,
+    status,
+    statusMessage,
+    title,
+  }: Props,
+) {
+  const isCompleted = status === 'complete';
+  const { accessibilityDismissButtonLabel } = useDefaultLabelContext('ActivationCard');
+
+  const { colorSchemeName } = useColorScheme();
+  const isDarkMode = colorSchemeName === 'darkMode';
+
+  return (
+    <Box
+      borderStyle="shadow"
+      color={isDarkMode ? 'elevationFloating' : 'default'}
+      direction="column"
+      display="flex"
+      flex="grow"
+      height="100%"
+      justifyContent="center"
+      maxWidth={400}
+      padding={6}
+      position="relative"
+      rounding={4}
+      width="100%"
+    >
+      {isCompleted ? (
+        <CompletedCard
+          dismissButton={
+            dismissButton && {
+              onDismiss: dismissButton.onDismiss,
+              accessibilityLabel:
+                dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabel,
+            }
+          }
+          message={message}
+          status={status}
+          statusMessage={statusMessage}
+          title={title}
+        />
+      ) : (
+        <UncompletedCard
+          dismissButton={
+            dismissButton && {
+              onDismiss: dismissButton.onDismiss,
+              accessibilityLabel:
+                dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabel,
+            }
+          }
+          link={link}
+          message={message}
+          status={status}
+          statusMessage={statusMessage}
+          title={title}
+        />
+      )}
+    </Box>
+  );
+}
+
+ActivationCard.displayName = 'ActivationCard';
