@@ -1,3 +1,9 @@
+## 147.5.12 (May 16, 2024)
+
+### Patch
+
+- Docs: Removed deprecated links from accessibility ([#3572](https://github.com/pinterest/gestalt/pull/3572)) - [Preview link](https://deploy-preview-3572--gestalt.netlify.app?devexample=true)
+
 ## 147.5.11 (May 16, 2024)
 
 ### Patch
