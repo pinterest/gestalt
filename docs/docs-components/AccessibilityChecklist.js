@@ -78,6 +78,8 @@ export default function AccessibilityChecklist({ component }: Props): ReactNode 
 
   return (
     <Accordion.Expandable
+      accessibilityCollapseLabel="Collapse"
+      accessibilityExpandLabel="Expand"
       id="accessibility-accordion"
       items={[
         {
