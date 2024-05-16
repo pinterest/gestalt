@@ -12,7 +12,7 @@ This guide will help you navigate and understand its design. This file is roughl
 I'll explain each part as we go through. Just remember, if you want to make updates, PLEASE PLEASE PLEASE update the Flow Types  (even though they look scary).
 
 */
-import { forwardRef, ReactNode } from 'react';
+import { forwardRef, ReactElement, ReactNode } from 'react';
 import styles from './Box.css';
 import { buildStyles } from './boxTransforms';
 import { As } from './boxTypes';
@@ -462,30 +462,7 @@ type Props = {
   /**
    * Ref that is forwarded to the underlying input element. See the [using as a ref](https://gestalt.pinterest.systems/web/box#Using-as-a-ref) variant for more info.
    */
-  ref?:
-    | HTMLDivElement
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-    | Element<'article'>
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-    | Element<'aside'>
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-    | Element<'details'>
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-    | Element<'figcaption'>
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-    | Element<'figure'>
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-    | Element<'footer'>
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-    | Element<'header'>
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-    | Element<'main'>
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-    | Element<'nav'>
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-    | Element<'section'>
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-    | Element<'summary'>;
+  ref?: HTMLDivElement | ReactElement;
   /**
    * Helper to specify location when using absolute positioning. See the [absolute positioning](https://gestalt.pinterest.systems/web/box#Absolute-positioning) variant for more info.
    * Default: false
@@ -555,9 +532,6 @@ const disallowedProps = [
   'lgMarginRight',
 ];
 
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
-type OutputType = Element<As>;
-
 /**
  * [Box](https://gestalt.pinterest.systems/web/box) is a component primitive that can be used to build the foundation of pretty much any other component. It keeps details like spacing, borders and colors consistent with the rest of Gestalt, while allowing the developer to focus on the content.
  *
@@ -568,7 +542,7 @@ type OutputType = Element<As>;
 const BoxWithForwardRef = forwardRef<HTMLElement, Props>(function Box(
   { as, ...props }: Props,
   ref,
-): OutputType {
+): ReactElement {
   const { passthroughProps, propsStyles } = buildStyles<Omit<Props, 'as'>>({
     baseStyles: styles.box,
     props,

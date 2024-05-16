@@ -385,10 +385,8 @@ export async function getServerSideProps(): Promise<{
     'DropdownSection',
   ]);
 
-  docGen.Dropdown.props.children.tsType.raw =
-    'React.ChildrenArray<React.Element<typeof DropdownItem | typeof DropdownSection>>';
-  docGen.DropdownSection.props.children.tsType.raw =
-    'React.ChildrenArray<React.Element<typeof DropdownItem | typeof DropdownSection>>';
+  docGen.Dropdown.props.children.tsType.raw = 'React.ChildrenArray<React.ReactElement>';
+  docGen.DropdownSection.props.children.tsType.raw = 'React.ChildrenArray<React.ReactElement>';
 
   return {
     props: {

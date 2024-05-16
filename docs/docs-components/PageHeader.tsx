@@ -1,8 +1,7 @@
 import { ReactNode } from 'react';
-import { Badge, BannerSlim, Box, Flex, Heading, Link, Text } from 'gestalt';
+import { Badge, Box, Flex, Heading, Link, Text } from 'gestalt';
 import * as gestaltChart from 'gestalt-charts'; // eslint-disable-line import/no-namespace
 import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
-import { BannerSlimExperiment } from './BannerSlimExperiment';
 import trackButtonClick from './buttons/trackButtonClick';
 import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
 import componentData from './data/components';
@@ -55,10 +54,8 @@ type Props = {
   margin?: 'default' | 'none';
   name: string;
   platform?: 'android' | 'ios' | 'web';
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  bannerSlim?: Element<typeof BannerSlim> | null;
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  bannerSlimExperiment?: Element<typeof BannerSlimExperiment> | null;
+  bannerSlim?: ReactNode;
+  bannerSlimExperiment?: ReactNode;
   type?: 'guidelines' | 'component' | 'utility';
   pdocsLink?: boolean;
 };

@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
+import { ReactElement, ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
 import {
   BarChart,
   CartesianGrid,
@@ -8,7 +8,7 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts';
-import { Box, Flex, HelpButton, TagData, TileData, useColorScheme, useDefaultLabel } from 'gestalt';
+import { Box, Flex, useColorScheme, useDefaultLabel } from 'gestalt';
 import { TOKEN_COLOR_BORDER_CONTAINER, TOKEN_OPACITY_100 } from 'gestalt-design-tokens';
 import { ChartProvider } from './ChartGraph/ChartGraphContext';
 import EmptyBox from './ChartGraph/EmptyBox';
@@ -40,14 +40,7 @@ type Props = {
    *
    * See the [selector variant](https://gestalt.pinterest.systems/web/chartgraph#Selectors) to learn more.
    */
-  children?: // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  | Element<typeof TileData>
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-    | Element<typeof TagData>
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-    | ReadonlyArray<Element<typeof TileData>>
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-    | ReadonlyArray<Element<typeof TagData>>;
+  children?: ReactNode;
   /**
    * The source data, in which each element is an object. Each object must specify a "name" associated to each category (string value) or timestamp (numberic value) in time series charts.
    *
@@ -74,8 +67,7 @@ type Props = {
    * [HelpButton](https://gestalt.pinterest.systems/web/helpbutton) to be placed after the title for to provide supplemental support to the user. See the [header variant](https://gestalt.pinterest.systems/web/chartgraph#Header) to learn more.
    */
 
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  helpButton?: Element<typeof HelpButton>;
+  helpButton?: ReactElement;
   /**
    * Callback fired when the Accessibility IconButton in ChartGraph is clicked. ChartGraph's visual patterns is a controlled feature. `onVisualPatternChange` is used to enable/disable visual patterns in ChartGraph.
    *

@@ -1,11 +1,11 @@
-import { Fragment } from 'react';
+import { Fragment, ReactElement } from 'react';
 import { fireEvent, screen, waitFor } from '@testing-library/react';
 import Dropdown from './Dropdown';
 import { DOWN_ARROW, ENTER, ESCAPE, TAB, UP_ARROW } from './keyCodes';
 import renderWithExperiment from './utils/testing/renderWithExperiment';
 
 // Remove experiment after Dropdown v2 is fully released
-const render = (children: React.ReactElement<React.ComponentProps<React.ElementType>>) =>
+const render = (children: ReactElement) =>
   renderWithExperiment('web_gestalt_popover_v2_dropdown', children);
 
 describe('Dropdown', () => {

@@ -60,8 +60,7 @@ function SideNavigationProvider({
   collapsed,
   onCollapse: onCollapseProp,
   onPreview,
-}: // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-Props): Element<typeof Provider> {
+}: Props) {
   const [selectedItemId, setSelectedItemId] = useState('');
   const [selectedMobileChildren, setSelectedMobileChildren] = useState<ReactNode>(null);
   const [hideActiveChildren, setHideActiveChildren] = useState(false);

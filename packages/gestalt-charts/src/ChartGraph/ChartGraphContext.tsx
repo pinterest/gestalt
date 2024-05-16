@@ -15,8 +15,7 @@ const TableContext: Context<TableContextType> = createContext<TableContextType>(
 
 const { Provider } = TableContext;
 
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
-function ChartProvider({ children, decal }: Props): Element<typeof Provider> {
+function ChartProvider({ children, decal }: Props) {
   return <Provider value={{ decal }}>{children}</Provider>;
 }
 

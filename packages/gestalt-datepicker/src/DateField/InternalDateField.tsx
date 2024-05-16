@@ -256,8 +256,6 @@ type InternalDateFieldProps = {
   onError?: (arg1: { errorMessage: string; value: Date | null }) => void;
   onFocus?: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
   readOnly?: boolean;
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  ref?: Element<'input'>; // eslint-disable-line react/no-unused-prop-types,
   size?: 'md' | 'lg';
   value: Date | null;
 };

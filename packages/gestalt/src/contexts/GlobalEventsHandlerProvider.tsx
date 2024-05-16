@@ -95,8 +95,7 @@ export default function GlobalEventsHandlerProvider({
   sheetMobileHandlers,
   linkHandlers,
   radioGroupHandlers,
-}: // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-Props): Element<typeof Provider> {
+}: Props) {
   return (
     <Provider
       value={{

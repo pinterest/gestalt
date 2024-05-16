@@ -1,4 +1,12 @@
-import { forwardRef, ReactNode, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import {
+  forwardRef,
+  ReactElement,
+  ReactNode,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
 import classnames from 'classnames';
 import styles from './InternalCheckbox.css';
 import Box from '../Box';
@@ -27,8 +35,7 @@ type Props = {
    * Make the checkbox readonly. Interactivity is disabled, but it can be used as a visual indicator. Click handler events are also disabled
    */
   readOnly?: boolean;
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  ref?: Element<'input'>; // eslint-disable-line react/no-unused-prop-types,
+  ref?: ReactElement; // eslint-disable-line react/no-unused-prop-types,
   size?: 'sm' | 'md';
   style?: {
     borderColor?: string;

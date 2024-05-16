@@ -3,7 +3,7 @@ import ExperimentProvider from '../../contexts/ExperimentProvider';
 
 export default function renderWithExperiment(
   experiment: string,
-  children: React.ReactElement<React.ComponentProps<React.ElementType>>,
+  children: React.ReactNode,
 ): ReturnType<typeof render> {
   return render(
     <ExperimentProvider value={{ [experiment]: { 'anyEnabled': true, 'group': 'enabled' } }}>

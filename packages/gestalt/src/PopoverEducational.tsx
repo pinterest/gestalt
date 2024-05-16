@@ -1,4 +1,4 @@
-import { Children, ReactNode } from 'react';
+import { Children, ReactElement, ReactNode } from 'react';
 import Box from './Box';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
@@ -96,8 +96,7 @@ type Props = {
    * Main text content of PopoverEducational. Content should be [localized](https://gestalt.pinterest.systems/web/popovereducational#Localization). See the [message variant](https://gestalt.pinterest.systems/web/popovereducational#Message) to learn more.
    *
    */
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  message?: string | Element<typeof Text>;
+  message?: string | ReactElement;
   /**
    * The underlying ARIA role for PopoverEducational. See the [role section in Accessibility](https://gestalt.pinterest.systems/web/popovereducational#Role) for more info.
    */
@@ -142,8 +141,7 @@ export default function PopoverEducational({
     return null;
   }
 
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2315 - Type 'Element' is not generic.
-  let textElement: Element<'span'> | Element<typeof Text>;
+  let textElement: ReactElement | undefined;
 
   if (typeof message === 'string') {
     textElement = <Text color="light">{message}</Text>;
@@ -153,8 +151,8 @@ export default function PopoverEducational({
   if (
     message &&
     typeof message !== 'string' &&
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-    Children.only<Element<typeof Text>>(message).type.displayName === 'Text'
+    // @ts-expect-error - TS2339
+    Children.only<ReactElement>(message).type.displayName === 'Text'
   ) {
     const textColorOverrideStyles = isDarkMode
       ? styles.textColorOverrideDark

@@ -1,4 +1,4 @@
-import { Children, cloneElement } from 'react';
+import { Children, cloneElement, ReactElement } from 'react';
 import { useColorScheme } from '../contexts/ColorSchemeProvider';
 import styles from '../List.css';
 import Text from '../Text';
@@ -7,8 +7,7 @@ type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
 type Props = {
   size: Size | null | undefined;
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  text: string | Element<typeof Text>;
+  text: string | ReactElement;
 };
 
 export default function ListText({ size, text }: Props) {
@@ -24,11 +23,8 @@ export default function ListText({ size, text }: Props) {
   }
 
   // If `text` is a Text component, we need to override any text colors within to ensure they all match
-  if (
-    typeof text !== 'string' &&
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-    Children.only<Element<typeof Text>>(text)?.type.displayName === 'Text'
-  ) {
+  // @ts-expect-error - TS2339
+  if (typeof text !== 'string' && Children.only<ReactElement>(text)?.type.displayName === 'Text') {
     const isDarkMode = colorSchemeName === 'darkMode';
 
     const textColorOverrideStyles = isDarkMode

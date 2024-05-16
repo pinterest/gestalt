@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode } from 'react';
+import { forwardRef, ReactElement, ReactNode } from 'react';
 import cx from 'classnames';
 import styles from './Text.css';
 import { semanticColors } from './textTypes';
@@ -94,8 +94,7 @@ const TextWithForwardRef = forwardRef<HTMLElement, Props>(function Text(
     weight = 'normal',
   }: Props,
   ref,
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-): Element<As> {
+): ReactElement {
   const colorClass = semanticColors.includes(color) && styles[color];
 
   const getWordBreakStyle = (): string | undefined => {

@@ -1,8 +1,15 @@
-import { cloneElement, forwardRef, ReactNode, useImperativeHandle, useRef, useState } from 'react';
+import {
+  cloneElement,
+  forwardRef,
+  ReactElement,
+  ReactNode,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
 import classnames from 'classnames';
 import { TOKEN_SPACE_100 } from 'gestalt-design-tokens';
 import styles from './InternalTextField.css';
-import InternalTextFieldIconButton from './InternalTextFieldIconButton';
 import Box from '../Box';
 import focusStyles from '../Focus.css';
 import layout from '../Layout.css';
@@ -10,7 +17,6 @@ import formElement from '../shared/FormElement.css';
 import FormErrorMessage from '../shared/FormErrorMessage';
 import FormHelperText from '../shared/FormHelperText';
 import FormLabel from '../shared/FormLabel';
-import Tag from '../Tag';
 import { MaxLength } from '../TextField';
 import typography from '../Typography.css';
 
@@ -90,8 +96,7 @@ type Props = {
   errorMessage?: ReactNode;
   hasError?: boolean;
   helperText?: string;
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  iconButton?: Element<typeof InternalTextFieldIconButton>;
+  iconButton?: ReactElement;
   label?: string;
   labelDisplay?: 'visible' | 'hidden';
   max?: number;
@@ -108,8 +113,7 @@ type Props = {
   readOnly?: boolean;
   size?: SizeType;
   step?: number;
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  tags?: ReadonlyArray<Element<typeof Tag>>;
+  tags?: ReadonlyArray<ReactElement>;
   type?: 'date' | 'email' | 'number' | 'password' | 'tel' | 'text' | 'url';
   value?: string;
 };

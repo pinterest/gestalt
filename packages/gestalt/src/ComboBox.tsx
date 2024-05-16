@@ -2,6 +2,7 @@ import {
   cloneElement,
   forwardRef,
   Fragment,
+  ReactElement,
   ReactNode,
   Ref,
   useCallback,
@@ -17,7 +18,6 @@ import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import { DOWN_ARROW, ENTER, ESCAPE, TAB, UP_ARROW } from './keyCodes';
 import Layer from './Layer';
 import InternalPopover from './Popover/InternalPopover';
-import Tag from './Tag';
 import Text from './Text';
 import InternalTextField from './TextField/InternalTextField';
 import InternalTextFieldIconButton from './TextField/InternalTextFieldIconButton';
@@ -131,8 +131,7 @@ type Props = {
   /**
    * List of tags to display in the component. See [tags](https://gestalt.pinterest.systems/web/combobox#Tags) variant to learn more.
    */
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  tags?: ReadonlyArray<Element<typeof Tag>>;
+  tags?: ReadonlyArray<ReactElement>;
   /**
    * An object representing the zIndex value of the ComboBox list box. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */

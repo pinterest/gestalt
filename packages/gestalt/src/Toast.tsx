@@ -1,13 +1,10 @@
-import { Children, ComponentProps, isValidElement, ReactNode } from 'react';
-import Avatar from './Avatar';
+import { Children, ComponentProps, isValidElement, ReactElement, ReactNode } from 'react';
 import Box from './Box';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Flex from './Flex';
-import Icon from './Icon';
-import Image from './Image';
 import Link from './Link';
 import InternalDismissButton from './shared/InternalDismissButton';
 import {
@@ -17,7 +14,6 @@ import {
   ToastMessage,
   ToastTypeThumbnail,
 } from './Shared/ToastSubcomponents';
-import Text from './Text';
 import styles from './Toast.css';
 import PrimaryAction from './Toast/PrimaryAction';
 import useResponsiveMinWidth from './useResponsiveMinWidth';
@@ -93,24 +89,11 @@ type Props = {
   /**
    * Main content of Toast. Content should be [localized](https://gestalt.pinterest.systems/web/toast#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/toast#Text) to learn more.
    */
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  text: string | Element<typeof Text>;
+  text: string | ReactElement;
   /**
    * An optional thumbnail to display next to the text.
    */
-  thumbnail?:
-    | {
-        // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-        image: Element<typeof Image>;
-      }
-    | {
-        // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-        avatar: Element<typeof Avatar>;
-      }
-    | {
-        // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-        icon: Element<typeof Icon>;
-      };
+  thumbnail?: { image: ReactElement } | { avatar: ReactElement } | { icon: ReactElement };
   /**
    * See the [type variant](https://gestalt.pinterest.systems/web/toast#Type) to learn more.
    */
@@ -140,8 +123,7 @@ export default function Toast({
   const responsiveMinWidth = useResponsiveMinWidth();
   const isMobileWidth = responsiveMinWidth === 'xs';
 
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  let textElement: Element<'span'> | string;
+  let textElement: ReactElement | string | undefined;
 
   if (typeof text === 'string') {
     textElement = text;
@@ -150,8 +132,8 @@ export default function Toast({
   // If `text` is a Text component, we need to override any text colors within to ensure they all match
   const isTextNode =
     typeof text !== 'string' &&
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-    Children.only<Element<typeof Text>>(text).type.displayName === 'Text';
+    // @ts-expect-error - TS2339
+    Children.only<ReactElement>(text).type.displayName === 'Text';
 
   if (isTextNode) {
     let textColorOverrideStyles = isDarkMode
@@ -187,8 +169,8 @@ export default function Toast({
           !_dangerouslySetThumbnail &&
           // @ts-expect-error - TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
           !!thumbnail?.image &&
-          // @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
-          Children.only<Element<typeof Image>>(thumbnail.image).type.displayName === 'Image' ? (
+          // @ts-expect-error - TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
+          Children.only<ReactElement>(thumbnail.image).type.displayName === 'Image' ? (
             <Flex.Item flex="none">
               {/* @ts-expect-error - TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
               <ToastImageThumbnail thumbnail={thumbnail.image} />
@@ -199,8 +181,8 @@ export default function Toast({
           !_dangerouslySetThumbnail &&
           // @ts-expect-error - TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
           !!thumbnail?.icon &&
-          // @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
-          Children.only<Element<typeof Icon>>(thumbnail.icon).type.displayName === 'Icon' ? (
+          // @ts-expect-error - TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
+          Children.only<ReactElement>(thumbnail.icon).type.displayName === 'Icon' ? (
             <Flex.Item flex="none">
               {/* @ts-expect-error - TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
               <ToastIconThumbnail overrideColor="inverse" thumbnail={thumbnail.icon} />
@@ -211,8 +193,8 @@ export default function Toast({
           !_dangerouslySetThumbnail &&
           // @ts-expect-error - TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
           !!thumbnail?.avatar &&
-          // @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
-          Children.only<Element<typeof Avatar>>(thumbnail.avatar).type.displayName === 'Avatar' ? (
+          // @ts-expect-error - TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
+          Children.only<ReactElement>(thumbnail.avatar).type.displayName === 'Avatar' ? (
             <Flex.Item flex="none">
               {/* @ts-expect-error - TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
               <ToastAvatarThumbnail thumbnail={thumbnail.avatar} />

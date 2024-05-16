@@ -4,7 +4,6 @@ import ModuleTitle from './Title';
 import Box from '../Box';
 import Flex from '../Flex';
 import Icon from '../Icon';
-import IconButton from '../IconButton';
 import icons from '../icons/index';
 import TapArea from '../TapArea';
 import Text from '../Text';
@@ -44,7 +43,7 @@ export default function AccordionExpandableItem({
   children?: ReactNode;
   icon?: keyof typeof icons;
   iconAccessibilityLabel?: string;
-  iconButton?: ReactElement<typeof IconButton>;
+  iconButton?: ReactElement;
   id: string;
   isCollapsed: boolean;
   onExpand: (arg1: boolean) => void;

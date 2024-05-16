@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, useState } from 'react';
+import { forwardRef, ReactElement, ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import focusStyles from './Focus.css';
@@ -6,7 +6,6 @@ import formElement from './shared/FormElement.css';
 import FormErrorMessage from './shared/FormErrorMessage';
 import FormHelperText from './shared/FormHelperText';
 import FormLabel from './shared/FormLabel';
-import Tag from './Tag';
 import styles from './TextArea.css';
 
 const ROW_HEIGHT = 24;
@@ -83,8 +82,7 @@ type Props = {
   /**
    * Ref that is forwarded to the underlying input element. See the [ref example](https://gestalt.pinterest.systems/web/textarea#With-a-ref) for more details.
    */
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  ref?: Element<'input'>; // eslint-disable-line react/no-unused-prop-types,
+  ref?: ReactElement; // eslint-disable-line react/no-unused-prop-types,
   /**
    * Number of text rows to display. Note that tags take up more space, and will show fewer rows than specified.
    */
@@ -92,8 +90,7 @@ type Props = {
   /**
    * List of tags to display in the component. See the [tags example](https://gestalt.pinterest.systems/web/textarea#With-tags) for more details.
    */
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  tags?: ReadonlyArray<Element<typeof Tag>>;
+  tags?: ReadonlyArray<ReactElement>;
   /**
    * The current value of the input.
    */

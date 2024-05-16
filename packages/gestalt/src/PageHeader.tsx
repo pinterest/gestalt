@@ -1,13 +1,7 @@
-import { ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import Box from './Box';
 import { Dimension } from './boxTypes';
-import Button from './Button';
-import ButtonLink from './ButtonLink';
-import Dropdown from './Dropdown';
 import Flex from './Flex';
-import IconButton from './IconButton';
-import Image from './Image';
-import Link from './Link';
 import styles from './PageHeader.css';
 import {
   PageHeaderActionBlock,
@@ -18,13 +12,8 @@ import {
   PageHeaderThumbnail,
   PageHeaderTitle,
 } from './PageHeader/components';
-import Text from './Text';
-import Tooltip from './Tooltip';
 
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
-export type ActionType = Element<
-  typeof Button | typeof ButtonLink | typeof IconButton | typeof Link | typeof Text | typeof Tooltip
->;
+export type ActionType = ReactElement;
 
 type Props = {
   /**
@@ -91,8 +80,7 @@ type Props = {
    */
   primaryAction?: {
     component: ActionType;
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2315 - Type 'Element' is not generic.
-    dropdownItems: ReadonlyArray<Element<typeof Dropdown.Item> | Element<typeof Dropdown.Link>>;
+    dropdownItems: ReadonlyArray<ReactElement>;
   };
   /**
    * A secondary action for the page. Can be [Button](https://gestalt.pinterest.systems/web/button), [Link](https://gestalt.pinterest.systems/web/link), [Tooltip](https://gestalt.pinterest.systems/web/tooltip) surrounding IconButton or a combination of IconButton, Tooltip and [Dropdown](https://gestalt.pinterest.systems/web/dropdown).
@@ -101,8 +89,7 @@ type Props = {
    */
   secondaryAction?: {
     component: ActionType;
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2315 - Type 'Element' is not generic.
-    dropdownItems: ReadonlyArray<Element<typeof Dropdown.Item> | Element<typeof Dropdown.Link>>;
+    dropdownItems: ReadonlyArray<ReactElement>;
   };
   /**
    * Used primarily for metadata related to the current page, not designed to describe the title or the current surface. Content should be [localized](https://gestalt.pinterest.systems/web/pageheader#Localization). See the [subtext variant](https://gestalt.pinterest.systems/web/pageheader#Subtext) to learn more.
@@ -115,8 +102,7 @@ type Props = {
   /**
    * An optional thumbnail [Image](https://gestalt.pinterest.systems/web/image) to be displayed next to the title. See the [title variant](https://gestalt.pinterest.systems/web/pageheader#Title) to learn more.
    */
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  thumbnail?: Element<typeof Image>;
+  thumbnail?: ReactElement;
 };
 
 /**

@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, useEffect, useId, useState } from 'react';
+import { forwardRef, ReactElement, ReactNode, useEffect, useId, useState } from 'react';
 import classnames from 'classnames';
 import { TOKEN_SPACE_400, TOKEN_SPACE_1200 } from 'gestalt-design-tokens';
 import Badge from './Badge';
@@ -6,7 +6,6 @@ import Box from './Box';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
 import { useNesting } from './contexts/NestingProvider';
 import { useSideNavigation } from './contexts/SideNavigationProvider';
-import Dropdown from './Dropdown';
 import Flex from './Flex';
 import Icon from './Icon';
 import icons from './icons/index';
@@ -81,8 +80,7 @@ export type Props = {
       text: string;
       zIndex?: Indexable;
     };
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-    dropdownItems?: ReadonlyArray<Element<typeof Dropdown.Item>>;
+    dropdownItems?: ReadonlyArray<ReactElement>;
   };
   /**
    * Ref that is forwarded to the underlying `li` element.

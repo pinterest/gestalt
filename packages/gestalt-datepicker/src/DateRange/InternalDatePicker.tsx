@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import { forwardRef, ReactElement, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { Icon, useDeviceType } from 'gestalt';
 import { Props } from '../DatePicker';
@@ -22,8 +22,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, ModifiedPr
       rangeStartDate,
     }: ModifiedProps,
     ref,
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  ): Element<'div'> {
+  ): ReactElement {
     const innerInputRef = useRef<null | HTMLInputElement>(null);
     const deviceType = useDeviceType();
     const isMobile = deviceType === 'mobile';

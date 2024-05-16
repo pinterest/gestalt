@@ -594,19 +594,13 @@ export async function getServerSideProps(): Promise<{
     'TableRowDrawer',
   ]);
 
-  docGen.Table.props.children.tsType.raw =
-    'React.ChildrenArray<React.Element<typeof Table.Body | typeof Table.Footer | typeof Table.Header>>';
-  docGen.TableHeader.props.children.tsType.raw = 'React.Element<typeof Table.Row>';
-  docGen.TableBody.props.children.tsType.raw =
-    'React.ChildrenArray<React.Element<typeof Table.Row | typeof Table.RowExpandable>>';
-  docGen.TableFooter.props.children.tsType.raw =
-    'React.ChildrenArray<React.Element<typeof Table.Row | typeof Table.RowExpandable>>';
-  docGen.TableRow.props.children.tsType.raw =
-    'React.ChildrenArray<React.Element<typeof Table.Cell | typeof Table.HeaderCell | typeof Table.SortableHeaderCell>>';
-  docGen.TableRowExpandable.props.children.tsType.raw =
-    'React.ChildrenArray<React.Element<typeof Table.Cell>>';
-  docGen.TableRowDrawer.props.children.tsType.raw =
-    'React.ChildrenArray<React.Element<typeof Table.Cell>>';
+  docGen.Table.props.children.tsType.raw = 'React.ChildrenArray<ReactElement>';
+  docGen.TableHeader.props.children.tsType.raw = 'ReactElement';
+  docGen.TableBody.props.children.tsType.raw = 'React.ChildrenArray<ReactElement>';
+  docGen.TableFooter.props.children.tsType.raw = 'React.ChildrenArray<ReactElement>';
+  docGen.TableRow.props.children.tsType.raw = 'React.ChildrenArray<ReactElement>';
+  docGen.TableRowExpandable.props.children.tsType.raw = 'React.ChildrenArray<ReactElement>';
+  docGen.TableRowDrawer.props.children.tsType.raw = 'React.ChildrenArray<ReactElement>';
 
   return {
     props: {

@@ -1,10 +1,9 @@
+import { ReactElement } from 'react';
 import applyModuleDensityStyle from './applyModuleDensity';
 import Badge from '../Badge';
 import Box from '../Box';
 import Flex from '../Flex';
 import Icon from '../Icon';
-import IconButton from '../IconButton';
-import IconButtonLink from '../IconButtonLink';
 import icons from '../icons/index';
 import Text from '../Text';
 
@@ -25,8 +24,7 @@ export default function AccordionTitle(props: {
   badge?: BadgeType;
   icon?: keyof typeof icons;
   iconAccessibilityLabel?: string;
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  iconButton?: Element<typeof IconButton | typeof IconButtonLink>;
+  iconButton?: ReactElement;
   title: string;
   type?: 'error' | 'info';
   size?: 'sm' | 'md' | 'lg';

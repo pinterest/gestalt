@@ -32,8 +32,7 @@ const ListContext: Context<ListContextType> = createContext<ListContextType>({
 
 const { Provider } = ListContext;
 
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
-function ListProvider({ children, type, size, spacing, style }: Props): Element<typeof Provider> {
+function ListProvider({ children, type, size, spacing, style }: Props) {
   const {
     type: inheritedType,
     spacing: inheritedSpacing,

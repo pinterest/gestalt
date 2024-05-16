@@ -15,8 +15,7 @@ const TableContext: Context<TableContextType> = createContext<TableContextType>(
 
 const { Provider } = TableContext;
 
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
-function TableContextProvider({ children, stickyColumns }: Props): Element<typeof Provider> {
+function TableContextProvider({ children, stickyColumns }: Props) {
   return <Provider value={{ stickyColumns }}>{children}</Provider>;
 }
 

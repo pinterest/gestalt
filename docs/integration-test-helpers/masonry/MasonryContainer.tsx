@@ -1,4 +1,4 @@
-import { Component, ComponentProps, createRef } from 'react';
+import { Component, ComponentProps, createRef, ReactElement } from 'react';
 import { Masonry, MasonryV2 } from 'gestalt';
 import ExampleGridItem from './ExampleGridItem';
 import getClassicGridServerStyles from './getClassicGridServerStyles';
@@ -322,8 +322,7 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
     return <ExampleGridItem data={data} expanded={expanded} itemIdx={itemIdx} />;
   };
 
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  render(): Element<'div'> {
+  render(): ReactElement {
     const {
       MasonryComponent,
       collage,

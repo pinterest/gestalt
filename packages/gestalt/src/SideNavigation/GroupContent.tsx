@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import { TOKEN_COLOR_BACKGROUND_SELECTED_BASE } from 'gestalt-design-tokens';
 import PrimaryActionIconButton from './PrimaryActionIconButton';
 import Badge from '../Badge';
 import Box from '../Box';
 import { useDeviceType } from '../contexts/DeviceTypeProvider';
 import { useSideNavigation } from '../contexts/SideNavigationProvider';
-import Dropdown from '../Dropdown';
 import Flex from '../Flex';
 import Icon from '../Icon';
 import icons from '../icons/index';
@@ -56,8 +55,7 @@ type Props = {
       text: string;
       zIndex?: Indexable;
     };
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-    dropdownItems?: ReadonlyArray<Element<typeof Dropdown.Item>>;
+    dropdownItems?: ReadonlyArray<ReactElement>;
   };
   setCompression: (arg1: 'compress' | 'none') => void;
   hasActiveChild?: boolean;

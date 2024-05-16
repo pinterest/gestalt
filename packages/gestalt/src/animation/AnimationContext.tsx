@@ -50,10 +50,7 @@ const initialState = {
 const AnimationContext: Context<AnimationType> = createContext<AnimationType>(initialState);
 
 // PROVIDER
-export default function AnimationProvider({
-  children,
-}: // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-AnimationProviderProps): Element<typeof AnimationContext.Provider> | null {
+export default function AnimationProvider({ children }: AnimationProviderProps) {
   const [animationState, setAnimationState] = useState<AnimationStateType>(
     useReducedMotion() ? null : ANIMATION_STATE.hidden,
   );

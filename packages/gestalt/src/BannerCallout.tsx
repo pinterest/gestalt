@@ -1,4 +1,4 @@
-import { Children, ComponentProps } from 'react';
+import { Children, ComponentProps, ReactElement } from 'react';
 import classnames from 'classnames';
 import styles from './BannerCallout.css';
 import Box from './Box';
@@ -48,8 +48,7 @@ type Props = {
    *
    * See the [message variant](https://gestalt.pinterest.systems/web/bannercallout#Message) to learn more. Refer to the [Best Practices](https://gestalt.pinterest.systems/web/bannercallout#Best-practices) for content guidelines.
    */
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  message: string | Element<typeof Text>;
+  message: string | ReactElement;
   /**
    * Main action for users to take on BannerCallout. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
@@ -258,8 +257,8 @@ export default function BannerCallout({
                 <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>
               ) : null}
               {typeof message !== 'string' &&
-              // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-              Children.only<Element<typeof Text>>(message).type.displayName === 'Text'
+              // @ts-expect-error - TS2339
+              Children.only<ReactElement>(message).type.displayName === 'Text'
                 ? message
                 : null}
             </Box>

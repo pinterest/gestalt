@@ -1,11 +1,10 @@
-import { Children, useEffect, useId } from 'react';
+import { Children, ReactElement, useEffect, useId } from 'react';
 import { Locale } from 'date-fns/locale';
 import {
   Box,
   Button,
   ButtonGroup,
   Flex,
-  RadioGroup,
   Text,
   useDefaultLabel,
   useDeviceType,
@@ -82,8 +81,7 @@ type Props = {
   /**
    * An optional RadioGroup to provide preestablished date range options. See the [with RadioGroup variant](https://gestalt.pinterest.systems/web/daterange#With-RadioGroup) to learn more.
    */
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  radioGroup?: Element<typeof RadioGroup>;
+  radioGroup?: ReactElement;
   /**
    * DateRange is a controlled component. `startDateValue` sets the value of the start date.  See the [controlled component variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
@@ -144,8 +142,8 @@ function DateRange({
     <Box borderStyle="shadow" color="default" display="inlineBlock" minHeight={425} rounding={4}>
       <Flex>
         {radioGroup &&
-        // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-        Children.only<Element<typeof RadioGroup>>(radioGroup).type.displayName === 'RadioGroup' &&
+        // @ts-expect-error - TS2339
+        Children.only<ReactElement>(radioGroup).type.displayName === 'RadioGroup' &&
         !isMobile ? (
           <div className={borderStyles.borderRight}>
             <Box paddingX={6} paddingY={4} width={216}>

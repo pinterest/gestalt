@@ -1,5 +1,5 @@
 import 'highlight.js/styles/a11y-light.css';
-import { useEffect, useRef } from 'react';
+import { ReactElement, useEffect, useRef } from 'react';
 import highlightjs from 'highlight.js';
 
 type Props = {
@@ -7,10 +7,7 @@ type Props = {
   classNames: ReadonlyArray<string>;
 };
 
-export default function Highlighter({
-  children,
-  classNames,
-}: Props): React.ReactElement<React.ComponentProps<'pre'>> {
+export default function Highlighter({ children, classNames }: Props): ReactElement {
   const node = useRef<HTMLPreElement | null | undefined>();
 
   useEffect(() => {

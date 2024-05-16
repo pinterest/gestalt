@@ -1,12 +1,10 @@
-import { ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import applyModuleDensityStyle from './Accordion/applyModuleDensity';
 import AccordionTitle from './Accordion/Title';
 import AccordionExpandable from './AccordionExpandable';
 import Box from './Box';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import Flex from './Flex';
-import IconButton from './IconButton';
-import IconButtonLink from './IconButtonLink';
 import icons from './icons/index';
 
 type BadgeType = {
@@ -46,8 +44,7 @@ type Props = {
   /**
    * IconButton element to be placed after the `title` for a supplemental Call To Action (CTA). Will not be displayed if `title` is not provided. Not to be used with `badge` or `icon`. See the [icon button variant](https://gestalt.pinterest.systems/web/accordion#Static-IconButton) for more details.
    */
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  iconButton?: Element<typeof IconButton | typeof IconButtonLink>;
+  iconButton?: ReactElement;
   /**
    * Unique id to identify this Accordion
    */

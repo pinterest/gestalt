@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import classnames from 'classnames';
 import {
   TOKEN_FONT_SIZE_100,
@@ -13,7 +13,6 @@ import styles from './List.css';
 import getChildrenToArray from './List/getChildrenToArray';
 import List from './List/InternalList'; // eslint-disable import/no-cycle
 import ListText from './List/Message';
-import Text from './Text';
 
 type Props = {
   /**
@@ -23,8 +22,7 @@ type Props = {
   /**
    * The content of the list item. See the [text variant](https://gestalt.pinterest.systems/web/list#Text-and-label) for guidance.
    */
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  text: string | Element<typeof Text>;
+  text: string | ReactElement;
 };
 
 /**
@@ -55,8 +53,7 @@ function ListItem({ text, children }: Props) {
   const isOrdered = inheritedType === 'ordered';
   const isUnordered = inheritedType === 'unordered';
 
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  let listChildren: Element<typeof List> | ReadonlyArray<any> | null = null;
+  let listChildren: ReactElement | ReadonlyArray<any> | null = null;
 
   if (children) {
     listChildren = getChildrenToArray({ children, filterLevel: 'ListItem' });
@@ -64,7 +61,6 @@ function ListItem({ text, children }: Props) {
     if (listChildren.length > 1) {
       listChildren = (
         <List type={inheritedType ?? 'unordered'}>
-          {/* @ts-expect-error - TS7006 - Parameter 'child' implicitly has an 'any' type. */}
           {listChildren.filter((child) => {
             if (child?.type?.displayName === 'List.Item') return true;
             throw new Error(
@@ -75,6 +71,7 @@ function ListItem({ text, children }: Props) {
       );
     }
 
+    // @ts-expect-error - TS7053
     if (listChildren[0]?.type?.displayName === 'List.Item') {
       listChildren = <List type={inheritedType ?? 'unordered'}>{listChildren}</List>;
     }

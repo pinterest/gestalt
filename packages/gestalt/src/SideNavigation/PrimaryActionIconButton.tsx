@@ -1,4 +1,4 @@
-import { cloneElement, useEffect, useId, useRef, useState } from 'react';
+import { cloneElement, ReactElement, useEffect, useId, useRef, useState } from 'react';
 import Dropdown from '../Dropdown';
 import Pog from '../Pog';
 import TapArea from '../TapArea';
@@ -20,8 +20,7 @@ type Props = {
     text: string;
     zIndex?: Indexable;
   };
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  dropdownItems?: ReadonlyArray<Element<typeof Dropdown.Item>>;
+  dropdownItems?: ReadonlyArray<ReactElement>;
 };
 
 function ItemIconButton({

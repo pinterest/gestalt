@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import { forwardRef, ReactElement, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { Box, Icon, Label, Text } from 'gestalt';
 import DatePickerTextField from './TextInput';
@@ -30,8 +30,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
       value: controlledValue,
     }: Props,
     ref,
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  ): Element<'div'> {
+  ): ReactElement {
     const innerInputRef = useRef<null | HTMLInputElement>(null);
     // @ts-expect-error - TS2322 - Type 'HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
     useImperativeHandle(ref, () => innerInputRef.current);

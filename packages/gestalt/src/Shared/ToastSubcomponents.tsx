@@ -2,17 +2,16 @@ import {
   cloneElement,
   ComponentProps,
   Fragment,
+  ReactElement,
   useCallback,
   useEffect,
   useRef,
   useState,
 } from 'react';
-import Avatar from '../Avatar';
 import Box from '../Box';
 import ColorSchemeProvider, { useColorScheme } from '../contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import Icon, { IconColor } from '../Icon';
-import Image from '../Image';
 import Link from '../Link';
 import Mask from '../Mask';
 import Spinner from '../Spinner';
@@ -28,10 +27,8 @@ export function ToastMessage({
   textColor,
   type,
 }: {
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  text: string | null | undefined | Element<'span'>;
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  textElement: string | null | undefined | Element<'span'>;
+  text: string | null | undefined | ReactElement;
+  textElement: string | null | undefined | ReactElement;
   textColor: ComponentProps<typeof Text>['color'];
   helperLink?: {
     text: string;
@@ -124,8 +121,7 @@ export function ToastMessage({
   );
 }
 
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
-export function ToastImageThumbnail({ thumbnail }: { thumbnail: Element<typeof Image> }) {
+export function ToastImageThumbnail({ thumbnail }: { thumbnail: ReactElement }) {
   return (
     <Box aria-hidden>
       <Mask height={SIZE_THUMBNAIL} rounding={2} width={SIZE_THUMBNAIL}>
@@ -139,8 +135,7 @@ export function ToastIconThumbnail({
   thumbnail,
   overrideColor,
 }: {
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  thumbnail: Element<typeof Icon>;
+  thumbnail: ReactElement;
   overrideColor?: IconColor;
 }) {
   return (
@@ -153,8 +148,7 @@ export function ToastIconThumbnail({
   );
 }
 
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
-export function ToastAvatarThumbnail({ thumbnail }: { thumbnail: Element<typeof Avatar> }) {
+export function ToastAvatarThumbnail({ thumbnail }: { thumbnail: ReactElement }) {
   return <Box aria-hidden>{cloneElement(thumbnail, { size: 'sm' })}</Box>;
 }
 

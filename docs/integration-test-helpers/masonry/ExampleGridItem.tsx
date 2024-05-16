@@ -6,8 +6,7 @@ type Props = {
   itemIdx: number;
 };
 
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
-export default function ExampleGridItem({ data = {}, itemIdx, expanded }: Props): Element<'div'> {
+export default function ExampleGridItem({ data = {}, itemIdx, expanded }: Props) {
   const [counter, setCounter] = useState<number>(0);
 
   useEffect(() => {

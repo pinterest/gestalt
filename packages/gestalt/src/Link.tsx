@@ -1,4 +1,12 @@
-import { ComponentProps, forwardRef, ReactNode, Ref, useImperativeHandle, useRef } from 'react';
+import {
+  ComponentProps,
+  forwardRef,
+  ReactElement,
+  ReactNode,
+  Ref,
+  useImperativeHandle,
+  useRef,
+} from 'react';
 import classnames from 'classnames';
 import getAriaLabel from './accessibility/getAriaLabel';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
@@ -157,8 +165,7 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
     target = null,
   }: Props,
   ref,
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-): Element<'a'> {
+): ReactElement {
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
   // @ts-expect-error - TS2322 - Type 'HTMLAnchorElement | null' is not assignable to type 'HTMLAnchorElement'.

@@ -85,8 +85,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     wrappedComponent,
   }: Props,
   ref,
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-): Element<'a'> {
+) {
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
   // @ts-expect-error - TS2322 - Type 'HTMLAnchorElement | null' is not assignable to type 'HTMLAnchorElement'.

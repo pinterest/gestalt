@@ -15,8 +15,7 @@ const DocsConfigContext: Context<DocsConfigContextType> = createContext<DocsConf
 
 const { Provider } = DocsConfigContext;
 
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
-function DocsConfigProvider({ children, isMobile }: Props): Element<typeof Provider> {
+function DocsConfigProvider({ children, isMobile }: Props) {
   const [isMobileDevice] = useState(isMobile);
 
   const docsConfigTypeContext = {

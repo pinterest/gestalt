@@ -1,11 +1,10 @@
-import { cloneElement, Fragment, ReactNode, useRef, useState } from 'react';
+import { cloneElement, Fragment, ReactElement, ReactNode, useRef, useState } from 'react';
 import Badge, { TypeOptions } from '../Badge';
 import Box from '../Box';
 import Dropdown from '../Dropdown';
 import Flex from '../Flex';
 import Heading from '../Heading';
 import IconButton from '../IconButton';
-import Image from '../Image';
 import Link from '../Link';
 import Mask from '../Mask';
 import { ActionType } from '../PageHeader';
@@ -40,8 +39,7 @@ export function PageHeaderTitle({
   );
 }
 
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
-export function PageHeaderThumbnail({ thumbnail }: { thumbnail: Element<typeof Image> }) {
+export function PageHeaderThumbnail({ thumbnail }: { thumbnail: ReactNode }) {
   return (
     <Box aria-hidden display="none" smDisplay="block">
       <Mask height={48} rounding={2} width={48}>
@@ -151,13 +149,11 @@ export function PageHeaderActionBlock({
 }: {
   primaryAction?: {
     component: ActionType;
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2315 - Type 'Element' is not generic.
-    dropdownItems: ReadonlyArray<Element<typeof Dropdown.Item> | Element<typeof Dropdown.Link>>;
+    dropdownItems: ReadonlyArray<ReactElement>;
   };
   secondaryAction?: {
     component: ActionType;
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2315 - Type 'Element' is not generic.
-    dropdownItems: ReadonlyArray<Element<typeof Dropdown.Item> | Element<typeof Dropdown.Link>>;
+    dropdownItems: ReadonlyArray<ReactElement>;
   };
   dropdownAccessibilityLabel?: string;
 }) {

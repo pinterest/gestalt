@@ -1,4 +1,4 @@
-import { ComponentProps, Ref, useId, useRef, useState } from 'react';
+import { ComponentProps, ReactElement, Ref, useId, useRef, useState } from 'react';
 import Box from './Box';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
@@ -70,8 +70,7 @@ type Props = {
   /**
    * Informational content that's displayed when the user clicks on HelpButton.
    */
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  text: string | Element<typeof Text>;
+  text: string | ReactElement;
   /**
    * Specifies the z-index for HelpButton's tooltip and popover to resolve any layering issues with other elements. See the [zIndex variant](https://gestalt.pinterest.systems/web/helpbutton#With-Z-index) for more details.
    */

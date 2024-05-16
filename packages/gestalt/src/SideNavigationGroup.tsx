@@ -1,10 +1,9 @@
-import { ReactNode, useEffect, useId, useState } from 'react';
+import { ReactElement, ReactNode, useEffect, useId, useState } from 'react';
 import classnames from 'classnames';
 import { TOKEN_SPACE_400 } from 'gestalt-design-tokens';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
 import { NestingProvider, useNesting } from './contexts/NestingProvider';
 import { useSideNavigation } from './contexts/SideNavigationProvider';
-import Dropdown from './Dropdown';
 import icons from './icons/index';
 import styles from './SideNavigation.css';
 import SideNavigationGroupContent from './SideNavigation/GroupContent';
@@ -82,8 +81,7 @@ export type Props = {
       text: string;
       zIndex?: Indexable;
     };
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-    dropdownItems?: ReadonlyArray<Element<typeof Dropdown.Item>>;
+    dropdownItems?: ReadonlyArray<ReactElement>;
   };
 };
 

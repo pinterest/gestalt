@@ -1,6 +1,5 @@
-import { forwardRef, ReactNode, useEffect, useState } from 'react';
+import { forwardRef, ReactElement, ReactNode, useEffect, useState } from 'react';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
-import Tag from './Tag';
 import InternalTextField, { autoCompleteType } from './TextField/InternalTextField';
 import InternalTextFieldIconButton from './TextField/InternalTextFieldIconButton';
 
@@ -91,13 +90,11 @@ type Props = {
   /**
    * Ref that is forwarded to the underlying input element.
    */
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  ref?: Element<'input'>; // eslint-disable-line react/no-unused-prop-types,
+  ref?: ReactElement; // eslint-disable-line react/no-unused-prop-types,
   /**
    * List of tags to display in the component.
    */
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  tags?: ReadonlyArray<Element<typeof Tag>>;
+  tags?: ReadonlyArray<ReactElement>;
   /**
    * The type of input. For non-telephone numerical input, please use [NumberField](https://gestalt.pinterest.systems/web/numberfield).
    */

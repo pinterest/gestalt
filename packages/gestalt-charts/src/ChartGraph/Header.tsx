@@ -1,4 +1,5 @@
-import { Box, Flex, Heading, HelpButton, IconButton, Text, useDefaultLabel } from 'gestalt';
+import { ReactNode } from 'react';
+import { Box, Flex, Heading, IconButton, Text, useDefaultLabel } from 'gestalt';
 import { useChartContext } from './ChartGraphContext';
 
 export default function Header({
@@ -15,8 +16,7 @@ export default function Header({
   title?: string;
   description?: string;
   onVisualPatternChange: () => void;
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  helpButton?: Element<typeof HelpButton>;
+  helpButton?: ReactNode;
   titleDisplay?: 'visible' | 'hidden';
   toggleTabularDataModal: () => void;
   showTabularData: boolean;

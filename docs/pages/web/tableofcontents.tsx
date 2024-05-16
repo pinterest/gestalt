@@ -188,8 +188,8 @@ export async function getServerSideProps(): Promise<{
 }> {
   const docGen = await multipleDocGen(['TableOfContents', 'TableOfContentsItem']);
 
-  docGen.TableOfContents.props.children.tsType.raw = '<Element<typeof TableOfContents.Item>>';
-  docGen.TableOfContentsItem.props.children.tsType.raw = '<Element<typeof TableOfContents.Item>>';
+  docGen.TableOfContents.props.children.tsType.raw = '<ReactElement>';
+  docGen.TableOfContentsItem.props.children.tsType.raw = '<ReactElement>';
 
   return {
     props: {

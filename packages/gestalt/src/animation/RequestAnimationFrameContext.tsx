@@ -76,8 +76,7 @@ function cancelRequestAnimationFrame({
 // PROVIDER
 export default function RequestAnimationFrameProvider({
   children,
-}: // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-RequestAnimationFrameProviderProps): Element<typeof RequestAnimationFrameContext.Provider> | null {
+}: RequestAnimationFrameProviderProps) {
   const reducedMotion = useReducedMotion();
   const { animationState, setAnimationState, handleExternalDismiss } = useAnimation();
   const requestAnimationFrameId = useRef<null | number>(null);

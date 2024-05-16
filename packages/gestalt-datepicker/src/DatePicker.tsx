@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, useEffect, useImperativeHandle, useRef } from 'react';
+import { forwardRef, ReactElement, ReactNode, useEffect, useImperativeHandle, useRef } from 'react';
 import { Locale } from 'date-fns/locale';
 import { useGlobalEventsHandler } from 'gestalt';
 import InternalDatePicker from './DatePicker/InternalDatePicker';
@@ -81,8 +81,7 @@ export type Props = {
   /**
    * Required for date range selection. Pass a ref object to DatePicker to autofocus on the unselected date range field. See the [date range picker example](https://gestalt.pinterest.systems/web/datepicker#Date-range) to learn more.
    */
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  ref?: Element<'input'>;
+  ref?: ReactElement;
   /**
    * Show a select list for quick selection of year and/or month. See the [selectLists variant](https://gestalt.pinterest.systems/web/datepicker#Select-list) to learn more.
    */

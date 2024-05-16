@@ -16,8 +16,7 @@ type Props = {
 /**
  * Use [SelectList.Option](https://gestalt.pinterest.systems/selectlist#SelectList.Option) to define the available options within SelectList.
  */
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
-export default function SelectListOption({ disabled, label, value }: Props): Element<'option'> {
+export default function SelectListOption({ disabled, label, value }: Props) {
   return (
     <option disabled={disabled} value={value}>
       {label}

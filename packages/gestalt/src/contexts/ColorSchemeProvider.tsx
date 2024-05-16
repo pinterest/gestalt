@@ -85,8 +85,7 @@ export default function ColorSchemeProvider({
   colorScheme = 'light',
   fullDimensions = false,
   id,
-}: // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-Props): Element<typeof ThemeContext.Provider> {
+}: Props) {
   const [theme, setTheme] = useState(getTheme(colorScheme));
   const className = id ? `__gestaltTheme${id}` : undefined;
   const selector = className ? `.${className}` : ':root';

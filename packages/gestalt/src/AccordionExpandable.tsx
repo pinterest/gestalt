@@ -1,11 +1,10 @@
-import { Fragment, ReactNode, useCallback, useEffect, useState } from 'react';
+import { Fragment, ReactElement, ReactNode, useCallback, useEffect, useState } from 'react';
 import applyModuleDensityStyle from './Accordion/applyModuleDensity';
 import AccordionExpandableItem from './Accordion/ExpandableItem';
 import Box from './Box';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Divider from './Divider';
-import IconButton from './IconButton';
 import icons from './icons/index';
 
 export type BadgeType = {
@@ -55,8 +54,7 @@ type Props = {
     children?: ReactNode;
     icon?: keyof typeof icons;
     iconAccessibilityLabel?: string;
-    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-    iconButton?: Element<typeof IconButton>;
+    iconButton?: ReactElement;
     summary?: ReadonlyArray<string>;
     title: string;
     type?: 'error' | 'info';

@@ -1,4 +1,4 @@
-import { Children, ComponentProps, Fragment } from 'react';
+import { Children, ComponentProps, Fragment, ReactElement } from 'react';
 import Box from './Box';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
@@ -121,8 +121,7 @@ type Props = {
    * Main content of BannerSlim. Content should be [localized](https://gestalt.pinterest.systems/web/bannerslim#Localization). See the [Message variant](https://gestalt.pinterest.systems/web/bannerslim#Message) to learn more.
    *
    */
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  message: string | Element<typeof Text>;
+  message: string | ReactElement;
   /**
    * Main action for users to take on BannerSlim. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
@@ -248,8 +247,8 @@ export default function BannerSlim({
               </Text>
             ) : null}
             {typeof message !== 'string' &&
-            // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-            Children.only<Element<typeof Text>>(message).type.displayName === 'Text'
+            // @ts-expect-error - TS2339
+            Children.only<ReactElement>(message).type.displayName === 'Text'
               ? message
               : null}
           </Box>

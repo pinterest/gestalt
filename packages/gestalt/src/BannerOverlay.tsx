@@ -1,5 +1,4 @@
-import { Children, ComponentProps, Fragment } from 'react';
-import Avatar from './Avatar';
+import { Children, ComponentProps, Fragment, ReactElement } from 'react';
 import styles from './BannerOverlay.css';
 import CallToAction from './BannerOverlay/CalltoAction';
 import Box from './Box';
@@ -10,8 +9,6 @@ import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
 import Flex from './Flex';
-import Icon from './Icon';
-import Image from './Image';
 import InternalDismissButton from './shared/InternalDismissButton';
 import {
   ToastAvatarThumbnail,
@@ -37,8 +34,7 @@ type Props = {
   /**
    * Main content of BannerOverlay. Content should be [localized](https://gestalt.pinterest.systems/web/banneroverlay#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/banneroverlay#Text) to learn more.
    */
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  message: string | Element<typeof Text>;
+  message: string | ReactElement;
   /**
    * Distance (in pixels) from the viewport edge (top will be used, if desktop, bottom will be used, if mobile).
    */
@@ -96,19 +92,7 @@ type Props = {
   /**
    * An optional thumbnail to display next to the text.
    */
-  thumbnail?:
-    | {
-        // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-        image: Element<typeof Image>;
-      }
-    | {
-        // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-        avatar: Element<typeof Avatar>;
-      }
-    | {
-        // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-        icon: Element<typeof Icon>;
-      };
+  thumbnail?: { image: ReactElement } | { avatar: ReactElement } | { icon: ReactElement };
   /**
    *  Heading of BannerOverlay. Content should be [localized](https://gestalt.pinterest.systems/web/banneroverlay#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/banneroverlay#Text) to learn more.
    */
@@ -140,8 +124,7 @@ export default function BannerOverlay({
 
   const isMobileDevice = useDeviceType() === 'mobile';
 
-  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-  let messageTextElement: Element<'span'> | string;
+  let messageTextElement: ReactElement | string | undefined;
 
   if (typeof message === 'string') {
     messageTextElement = message;
@@ -151,8 +134,8 @@ export default function BannerOverlay({
   const checkTextNode = () => {
     const messageIsTextNode =
       typeof message !== 'string' &&
-      // @ts-expect-error - TS2315 - Type 'Element' is not generic.
-      Children.only<Element<typeof Text>>(message).type.displayName === 'Text';
+      // @ts-expect-error - TS2339
+      Children.only<ReactElement>(message).type.displayName === 'Text';
 
     if (messageIsTextNode) {
       const textColorOverrideStyles = isDarkMode
@@ -209,33 +192,32 @@ export default function BannerOverlay({
           zIndex={zIndex}
         >
           <Flex alignItems="center" gap={4}>
-            {/* @ts-expect-error - TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
+            {/* @ts-expect-error - TS2339 - Property 'image' does not exist. */}
             {!!thumbnail?.image &&
-            // @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
-            Children.only<Element<typeof Image>>(thumbnail.image).type.displayName === 'Image' ? (
+            // @ts-expect-error TS2339 - Property 'image' does not exist.
+            Children.only<ReactElement>(thumbnail.image).type.displayName === 'Image' ? (
               <Flex.Item alignSelf="center">
-                {/* @ts-expect-error - TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
+                {/* @ts-expect-error - TS2339 - Property 'image' does not exist. */}
                 <ToastImageThumbnail thumbnail={thumbnail.image} />
               </Flex.Item>
             ) : null}
 
-            {/* @ts-expect-error - TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
+            {/* @ts-expect-error - TS2339 - Property 'icon' does not exist. */}
             {!!thumbnail?.icon &&
-            // @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
-            Children.only<Element<typeof Icon>>(thumbnail.icon).type.displayName === 'Icon' ? (
+            // @ts-expect-error TS2339 - Property 'icon' does not exist.
+            Children.only<ReactElement>(thumbnail.icon).type.displayName === 'Icon' ? (
               <Flex.Item alignSelf="center">
-                {/* @ts-expect-error - TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
+                {/* @ts-expect-error - TS2339 - Property 'icon' does not exist. */}
                 <ToastIconThumbnail thumbnail={thumbnail.icon} />
               </Flex.Item>
             ) : null}
 
-            {/* @ts-expect-error - TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
+            {/* @ts-expect-error - TS2339 - Property 'avatar' does not exist. */}
             {!!thumbnail?.avatar &&
-            // @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
-            Children.only<Element<typeof Avatar>>(thumbnail.avatar).type.displayName ===
-              'Avatar' ? (
+            // @ts-expect-error TS2339 - Property 'avatar' does not exist.
+            Children.only<ReactElement>(thumbnail.avatar).type.displayName === 'Avatar' ? (
               <Flex.Item alignSelf="center">
-                {/* @ts-expect-error - TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
+                {/* @ts-expect-error - TS2339 - Property 'avatar' does not exist. */}
                 <ToastAvatarThumbnail thumbnail={thumbnail.avatar} />
               </Flex.Item>
             ) : null}
@@ -347,33 +329,32 @@ export default function BannerOverlay({
           zIndex={zIndex}
         >
           <Flex alignItems="center" gap={4}>
-            {/* @ts-expect-error - TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
+            {/* @ts-expect-error - TS2339 - Property 'image' does not exist. */}
             {!!thumbnail?.image &&
-            // @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
-            Children.only<Element<typeof Image>>(thumbnail.image).type.displayName === 'Image' ? (
+            // @ts-expect-error - TS2339 - Property 'image' does not exist.
+            Children.only<ReactElement>(thumbnail.image).type.displayName === 'Image' ? (
               <Flex.Item alignSelf="baseline">
-                {/* @ts-expect-error - TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
+                {/* @ts-expect-error - TS2339 - Property 'image' does not exist. */}
                 <ToastImageThumbnail thumbnail={thumbnail.image} />
               </Flex.Item>
             ) : null}
 
-            {/* @ts-expect-error - TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
+            {/* @ts-expect-error - TS2339 - Property 'icon' does not exist. */}
             {!!thumbnail?.icon &&
-            // @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
-            Children.only<Element<typeof Icon>>(thumbnail.icon).type.displayName === 'Icon' ? (
+            // @ts-expect-error - TS2339 - Property 'icon' does not exist.
+            Children.only<ReactElement>(thumbnail.icon).type.displayName === 'Icon' ? (
               <Flex.Item alignSelf="baseline">
-                {/* @ts-expect-error - TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
+                {/* @ts-expect-error - TS2339 - Property 'icon' does not exist. */}
                 <ToastIconThumbnail thumbnail={thumbnail.icon} />
               </Flex.Item>
             ) : null}
 
-            {/* @ts-expect-error - TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
+            {/* @ts-expect-error - TS2339 - Property 'avatar' does not exist. */}
             {!!thumbnail?.avatar &&
-            // @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
-            Children.only<Element<typeof Avatar>>(thumbnail.avatar).type.displayName ===
-              'Avatar' ? (
+            // @ts-expect-error - TS2339 - Property 'avatar' does not exist.
+            Children.only<ReactElement>(thumbnail.avatar).type.displayName === 'Avatar' ? (
               <Flex.Item alignSelf="baseline">
-                {/* @ts-expect-error - TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
+                {/* @ts-expect-error - TS2339 - Property 'avatar' does not exist. */}
                 <ToastAvatarThumbnail thumbnail={thumbnail.avatar} />
               </Flex.Item>
             ) : null}
