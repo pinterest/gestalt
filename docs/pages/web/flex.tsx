@@ -61,7 +61,7 @@ export default function DocsPage({
           title="Flex Layout"
         >
           <CombinationNew
-// @ts-expect-error - TS2322 - Type '{ children: ({ justifyContent, alignItems }: { [key: string]: any; }) => Element; alignItems: string[]; justifyContent: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'.
+            // @ts-expect-error - TS2322 - Type '{ children: ({ justifyContent, alignItems }: { [key: string]: any; }) => Element; alignItems: string[]; justifyContent: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'.
             alignItems={['start', 'end', 'center', 'baseline', 'stretch']}
             justifyContent={['start', 'end', 'center', 'between', 'around']}
           >

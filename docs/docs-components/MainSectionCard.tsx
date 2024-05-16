@@ -116,7 +116,7 @@ function MainSectionCard({
           {type === 'do' && code && (
             <OpenSandboxButton
               onClick={() => {
-// @ts-expect-error - TS2322 - Type 'string | readonly string[]' is not assignable to type 'string'.
+                // @ts-expect-error - TS2322 - Type 'string | readonly string[]' is not assignable to type 'string'.
                 handleCodeSandbox({ code, title: cardTitle || '' });
               }}
             />
@@ -141,21 +141,21 @@ function MainSectionCard({
   }
 
   return (
-// @ts-expect-error - TS2322 - Type 'number' is not assignable to type '"auto" | SignedUpTo12 | undefined'.
+    // @ts-expect-error - TS2322 - Type 'number' is not assignable to type '"auto" | SignedUpTo12 | undefined'.
     <Box marginBottom={marginBotton} minWidth={CARD_SIZE_NAME_TO_PIXEL[cardSize]}>
       {showTitleAndDescriptionAboveExample && (title || description) && TitleAndDescription}
 
       {Boolean(children) && <PreviewCard>{children}</PreviewCard>}
 
       {code && (
-// @ts-expect-error - TS2322 - Type '{ readonly plain: { readonly backgroundColor: "#2a2734"; readonly color: "#88BBBF"; readonly lineHeight: 1.4; readonly fontSize: 16; readonly fontFamily: "PragmataPro, \"Roboto Mono\", Monaco, Consolas, \"Courier New\", \"Courier, monospace !important"; }; readonly styles: readonly [...]; }' is not assignable to type 'PrismTheme'.
+        // @ts-expect-error - TS2322 - Type '{ readonly plain: { readonly backgroundColor: "#2a2734"; readonly color: "#88BBBF"; readonly lineHeight: 1.4; readonly fontSize: 16; readonly fontFamily: "PragmataPro, \"Roboto Mono\", Monaco, Consolas, \"Courier New\", \"Courier, monospace !important"; }; readonly styles: readonly [...]; }' is not assignable to type 'PrismTheme'.
         <LiveProvider code={code} scope={scope} theme={theme}>
           <PreviewCard>
             <LivePreview style={{ display: 'contents' }} />
           </PreviewCard>
           {/* If it uses an iframe, show the original code (below), instead of the iframe code */}
           {shouldShowCode && (
-// @ts-expect-error - TS2322 - Type 'string | readonly string[]' is not assignable to type 'string'.
+            // @ts-expect-error - TS2322 - Type 'string | readonly string[]' is not assignable to type 'string'.
             <ExampleCode code={code} hideCodePreview={hideCodePreview} name={cardTitle || ''} />
           )}
 

@@ -88,21 +88,21 @@ function SegmentedControlItem({
       className={cs}
       onClick={(event) => onChange({ event, activeIndex: index })}
       role="tab"
-// @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'Width<string | number> | undefined'.
+      // @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'Width<string | number> | undefined'.
       style={{ width }}
       type="button"
     >
       {typeof item === 'string' ? (
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'Size | undefined'.
+        // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'Size | undefined'.
         <Text align="center" color="default" size={fontSize} weight="bold">
           {item}
         </Text>
       ) : (
         <Box display="flex" justifyContent="center">
-{ /* @ts-expect-error - TS2339 - Property 'type' does not exist on type 'ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal'. | TS2339 - Property 'type' does not exist on type 'ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal'. */}
+          {/* @ts-expect-error - TS2339 - Property 'type' does not exist on type 'ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal'. | TS2339 - Property 'type' does not exist on type 'ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal'. */}
           {typeof item === 'object' && item && item.type && item.type.displayName === 'Icon'
-// @ts-expect-error - TS2769 - No overload matches this call.
-            ? cloneElement(item, { size: iconSize })
+            ? // @ts-expect-error - TS2769 - No overload matches this call.
+              cloneElement(item, { size: iconSize })
             : item}
         </Box>
       )}

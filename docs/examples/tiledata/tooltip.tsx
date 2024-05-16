@@ -4,12 +4,12 @@ import { Flex, TileData } from 'gestalt';
 export default function Example() {
   return (
     <Flex alignItems="center" gap={2} height="100%" justifyContent="center" width="100%">
-{ /* @ts-expect-error - TS2741 - Property 'children' is missing in type '{ text: string; }' but required in type 'ExtendedTooltipProps'. */}
+      {/* @ts-expect-error - TS2741 - Property 'children' is missing in type '{ text: string; }' but required in type 'ExtendedTooltipProps'. */}
       <TileData title="WAU" tooltip={{ text: 'Weekly Active Users' }} value="1.25M" />{' '}
       <TileData
         selected
         title="MAU"
-// @ts-expect-error - TS2741 - Property 'children' is missing in type '{ text: string[]; }' but required in type 'ExtendedTooltipProps'.
+        // @ts-expect-error - TS2741 - Property 'children' is missing in type '{ text: string[]; }' but required in type 'ExtendedTooltipProps'.
         tooltip={{
           text: [
             'Monthly Active Users',

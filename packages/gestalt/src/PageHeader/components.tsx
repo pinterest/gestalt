@@ -151,12 +151,12 @@ export function PageHeaderActionBlock({
 }: {
   primaryAction?: {
     component: ActionType;
-// @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2315 - Type 'Element' is not generic.
+    // @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2315 - Type 'Element' is not generic.
     dropdownItems: ReadonlyArray<Element<typeof Dropdown.Item> | Element<typeof Dropdown.Link>>;
   };
   secondaryAction?: {
     component: ActionType;
-// @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2315 - Type 'Element' is not generic.
+    // @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2315 - Type 'Element' is not generic.
     dropdownItems: ReadonlyArray<Element<typeof Dropdown.Item> | Element<typeof Dropdown.Link>>;
   };
   dropdownAccessibilityLabel?: string;
@@ -188,7 +188,7 @@ export function PageHeaderActionBlock({
       </Box>
       <Box display="block" mdDisplay="none">
         <IconButton
-// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+          // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
           ref={anchorRef}
           accessibilityControls="pageheader-dropdown"
           accessibilityExpanded={open}

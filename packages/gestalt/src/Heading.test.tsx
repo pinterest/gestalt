@@ -9,14 +9,14 @@ test('Heading large', () => {
 test('Heading small with level 3', () => {
   const tree = create(<Heading accessibilityLevel={3} size="400" />).toJSON();
   expect(tree).toMatchSnapshot();
-// @ts-expect-error - TS2339 - Property 'type' does not exist on type 'ReactTestRendererJSON | ReactTestRendererJSON[]'.
+  // @ts-expect-error - TS2339 - Property 'type' does not exist on type 'ReactTestRendererJSON | ReactTestRendererJSON[]'.
   expect(tree?.type).toEqual('h3');
 });
 
 test('Heading small with level none', () => {
   const tree = create(<Heading accessibilityLevel="none" size="400" />).toJSON();
   expect(tree).toMatchSnapshot();
-// @ts-expect-error - TS2339 - Property 'type' does not exist on type 'ReactTestRendererJSON | ReactTestRendererJSON[]'.
+  // @ts-expect-error - TS2339 - Property 'type' does not exist on type 'ReactTestRendererJSON | ReactTestRendererJSON[]'.
   expect(tree?.type).toEqual('div');
 });
 

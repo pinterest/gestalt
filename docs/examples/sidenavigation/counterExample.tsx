@@ -11,9 +11,9 @@ export default function Example() {
           label="Campaigns"
           onClick={({ event }) => event.preventDefault()}
         />
-{ /* @ts-expect-error - TS2741 - Property 'onExpand' is missing in type '{ children: Element[]; label: string; }' but required in type 'SideNavigationGroupProps'. */}
+        {/* @ts-expect-error - TS2741 - Property 'onExpand' is missing in type '{ children: Element[]; label: string; }' but required in type 'SideNavigationGroupProps'. */}
         <SideNavigation.Group label="Catalogues">
-{ /* @ts-expect-error - TS2741 - Property 'onExpand' is missing in type '{ children: Element[]; label: string; }' but required in type 'SideNavigationNestedGroupProps'. */}
+          {/* @ts-expect-error - TS2741 - Property 'onExpand' is missing in type '{ children: Element[]; label: string; }' but required in type 'SideNavigationNestedGroupProps'. */}
           <SideNavigation.NestedGroup label="Christmas">
             <SideNavigation.NestedItem
               counter={{ number: '20', accessibilityLabel: 'You have 20 data sources' }}
@@ -34,7 +34,7 @@ export default function Example() {
               onClick={({ event }) => event.preventDefault()}
             />
           </SideNavigation.NestedGroup>
-{ /* @ts-expect-error - TS2741 - Property 'onExpand' is missing in type '{ children: Element[]; label: string; }' but required in type 'SideNavigationNestedGroupProps'. */}
+          {/* @ts-expect-error - TS2741 - Property 'onExpand' is missing in type '{ children: Element[]; label: string; }' but required in type 'SideNavigationNestedGroupProps'. */}
           <SideNavigation.NestedGroup label="Thanksgiving">
             <SideNavigation.NestedItem
               counter={{ number: '15', accessibilityLabel: 'You have 15 data sources' }}

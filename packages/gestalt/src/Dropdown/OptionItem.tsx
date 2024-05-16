@@ -56,7 +56,7 @@ type Props = {
 };
 
 const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Props>(
-// @ts-expect-error - TS2345 - Argument of type '({ badge, children, dataTestId, disabled, onSelect, hoveredItemIndex, href, id, index, isExternal, onClick, option, selected, setHoveredItemIndex, textWeight, }: Props, ref: ForwardedRef<HTMLElement | null | undefined>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLElement | null | undefined, Props>'.
+  // @ts-expect-error - TS2345 - Argument of type '({ badge, children, dataTestId, disabled, onSelect, hoveredItemIndex, href, id, index, isExternal, onClick, option, selected, setHoveredItemIndex, textWeight, }: Props, ref: ForwardedRef<HTMLElement | null | undefined>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLElement | null | undefined, Props>'.
   function OptionItem(
     {
       badge,
@@ -172,7 +172,7 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
 
     return (
       <div
-// @ts-expect-error - TS2322 - Type 'ForwardedRef<HTMLElement | null | undefined>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+        // @ts-expect-error - TS2322 - Type 'ForwardedRef<HTMLElement | null | undefined>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
         ref={index === hoveredItemIndex ? ref : null}
         aria-disabled={disabled}
         className={className}
@@ -180,7 +180,7 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
         // These event.stopPropagation are important so interactive anchors don't receive the onFocus/onBlur event
         id={`${id}-item-${index}`}
         onBlur={(event) => event.stopPropagation()}
-// @ts-expect-error - TS2322 - Type '(event: React.ChangeEvent<HTMLInputElement>) => void' is not assignable to type 'MouseEventHandler<HTMLDivElement>'.
+        // @ts-expect-error - TS2322 - Type '(event: React.ChangeEvent<HTMLInputElement>) => void' is not assignable to type 'MouseEventHandler<HTMLDivElement>'.
         onClick={handleOnTap}
         // This event.stopPropagation is important so interactive anchors don't compress with the onMouseDown event
         onFocus={(event) => event.stopPropagation()}

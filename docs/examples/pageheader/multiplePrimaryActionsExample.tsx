@@ -53,11 +53,11 @@ export default function OnePrimaryActionExample() {
           <Flex.Item flex="grow">
             <Table accessibilityLabel="Audiences">
               <colgroup>
-{ /* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'. */}
+                {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'. */}
                 <col span="1" style={{ width: '5%' }} />
-{ /* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'. */}
+                {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'. */}
                 <col span="1" style={{ width: '10%' }} />
-{ /* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'. */}
+                {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'. */}
                 <col span="1" style={{ width: '50%' }} />
               </colgroup>
               <Table.Header>

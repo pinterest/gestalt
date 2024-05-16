@@ -33,7 +33,7 @@ function getReferenceTokenMap() {
     }
   >();
 
-// @ts-expect-error - TS7006 - Parameter 'token' implicitly has an 'any' type.
+  // @ts-expect-error - TS7006 - Parameter 'token' implicitly has an 'any' type.
   tokensDark.forEach((token) => {
     darkTokenMap.set(token.name, {
       value: token.value,
@@ -77,7 +77,7 @@ function MetaData({
         {darkModeSupport && isCustom && (
           <Badge
             text="Custom"
-// @ts-expect-error - TS2322 - Type '{ text: string; tooltip: { text: string; idealDirection: string; }; type: "info"; }' is not assignable to type 'IntrinsicAttributes & BadgeProps'.
+            // @ts-expect-error - TS2322 - Type '{ text: string; tooltip: { text: string; idealDirection: string; }; type: "info"; }' is not assignable to type 'IntrinsicAttributes & BadgeProps'.
             tooltip={{
               text: 'This token value is hard coded and does not map to a lower level token.',
               idealDirection: 'up',
@@ -88,7 +88,7 @@ function MetaData({
         {!darkModeSupport && (
           <Badge
             text="No dark theme"
-// @ts-expect-error - TS2322 - Type '{ text: string; tooltip: { text: string; idealDirection: string; }; type: "info"; }' is not assignable to type 'IntrinsicAttributes & BadgeProps'.
+            // @ts-expect-error - TS2322 - Type '{ text: string; tooltip: { text: string; idealDirection: string; }; type: "info"; }' is not assignable to type 'IntrinsicAttributes & BadgeProps'.
             tooltip={{
               text: 'This token value is the same as the light mode.',
               idealDirection: 'up',
@@ -138,17 +138,17 @@ export default function TokenTable({ name, id, darkValues, category, excludedIte
   return (
     <Table accessibilityLabel={`${name} values`}>
       <colgroup>
-{ /* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'. */}
+        {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'. */}
         <col span="1" style={{ width: '50%' }} />
         {darkValues ? (
           <Fragment>
-{ /* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'. */}
+            {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'. */}
             <col span="1" style={{ width: '25%' }} />
-{ /* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'. */}
+            {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'. */}
             <col span="1" style={{ width: '25%' }} />
           </Fragment>
         ) : (
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
+          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
           <col span="1" style={{ width: '50%' }} />
         )}
       </colgroup>

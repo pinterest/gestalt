@@ -48,7 +48,7 @@ export default function FlexItem({ dataTestId, ...rest }: Props) {
     allowlistProps: allowedProps,
   });
 
-// @ts-expect-error - TS2322 - Type '{ "data-test-id": string | undefined; className: string | null | undefined; style: InlineStyle | null | undefined; alignSelf?: "center" | "start" | "end" | "baseline" | "stretch" | "auto" | undefined; ... 5 more ...; minWidth?: Dimension | undefined; }' is not assignable to type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
+  // @ts-expect-error - TS2322 - Type '{ "data-test-id": string | undefined; className: string | null | undefined; style: InlineStyle | null | undefined; alignSelf?: "center" | "start" | "end" | "baseline" | "stretch" | "auto" | undefined; ... 5 more ...; minWidth?: Dimension | undefined; }' is not assignable to type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
   return <div {...passthroughProps} {...propsStyles} data-test-id={dataTestId} />;
 }
 

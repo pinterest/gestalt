@@ -178,7 +178,7 @@ export default function HeroGraphic({ animate = true }: { animate?: boolean }) {
           <rect fill="white" height="33" transform="translate(77 38.5)" width="36" />
         </clipPath>
         <image
-// @ts-expect-error - TS2322 - Type '{ alt: string; height: string; id: string; width: string; xlinkHref: string; }' is not assignable to type 'SVGProps<SVGImageElement>'.
+          // @ts-expect-error - TS2322 - Type '{ alt: string; height: string; id: string; width: string; xlinkHref: string; }' is not assignable to type 'SVGProps<SVGImageElement>'.
           alt="Popsicle"
           height="2733"
           id="image0_263_5069"
@@ -186,7 +186,7 @@ export default function HeroGraphic({ animate = true }: { animate?: boolean }) {
           xlinkHref="https://i.ibb.co/9h2TGqd/img-popcycle.jpg"
         />
         <image
-// @ts-expect-error - TS2322 - Type '{ alt: string; height: string; id: string; width: string; xlinkHref: string; }' is not assignable to type 'SVGProps<SVGImageElement>'.
+          // @ts-expect-error - TS2322 - Type '{ alt: string; height: string; id: string; width: string; xlinkHref: string; }' is not assignable to type 'SVGProps<SVGImageElement>'.
           alt="Door"
           height="4096"
           id="image1_263_5069"
@@ -194,7 +194,7 @@ export default function HeroGraphic({ animate = true }: { animate?: boolean }) {
           xlinkHref="https://i.ibb.co/cbjgZft/img-door.jpg"
         />
         <image
-// @ts-expect-error - TS2322 - Type '{ alt: string; height: string; id: string; width: string; xlinkHref: string; }' is not assignable to type 'SVGProps<SVGImageElement>'.
+          // @ts-expect-error - TS2322 - Type '{ alt: string; height: string; id: string; width: string; xlinkHref: string; }' is not assignable to type 'SVGProps<SVGImageElement>'.
           alt="Person"
           height="4096"
           id="image2_263_5069"
@@ -202,7 +202,7 @@ export default function HeroGraphic({ animate = true }: { animate?: boolean }) {
           xlinkHref="https://i.ibb.co/SsnchKx/img-dude.jpg"
         />
         <image
-// @ts-expect-error - TS2322 - Type '{ alt: string; height: string; id: string; width: string; xlinkHref: string; }' is not assignable to type 'SVGProps<SVGImageElement>'.
+          // @ts-expect-error - TS2322 - Type '{ alt: string; height: string; id: string; width: string; xlinkHref: string; }' is not assignable to type 'SVGProps<SVGImageElement>'.
           alt="Glasses"
           height="4096"
           id="image3_263_5069"

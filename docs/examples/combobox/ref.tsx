@@ -24,7 +24,7 @@ export default function Example() {
           </Box>
           <Box width={320}>
             <ComboBox
-// @ts-expect-error - TS2322 - Type '{ ref: MutableRefObject<HTMLInputElement | null>; accessibilityClearButtonLabel: string; id: string; label: string; noResultText: string; options: { ...; }[]; placeholder: string; }' is not assignable to type 'IntrinsicAttributes & ComboBoxProps'.
+              // @ts-expect-error - TS2322 - Type '{ ref: MutableRefObject<HTMLInputElement | null>; accessibilityClearButtonLabel: string; id: string; label: string; noResultText: string; options: { ...; }[]; placeholder: string; }' is not assignable to type 'IntrinsicAttributes & ComboBoxProps'.
               ref={ref}
               accessibilityClearButtonLabel="Clear the current values"
               id="favoriteColor"

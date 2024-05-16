@@ -28,7 +28,7 @@ export default function StatusData({ status, text, href }: Props) {
         <Status
           accessibilityLabel={`This component is ${label}`}
           title={href ? '' : label}
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"ok" | "inProgress" | "unstarted" | "canceled" | "queued" | "halted" | "problem" | "warning"'.
+          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"ok" | "inProgress" | "unstarted" | "canceled" | "queued" | "halted" | "problem" | "warning"'.
           type={STATUS_EQUIVALENCY_MAP[status]}
         />
       )}

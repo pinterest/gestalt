@@ -46,7 +46,7 @@ type Props = {
   /**
    * IconButton element to be placed after the `title` for a supplemental Call To Action (CTA). Will not be displayed if `title` is not provided. Not to be used with `badge` or `icon`. See the [icon button variant](https://gestalt.pinterest.systems/web/accordion#Static-IconButton) for more details.
    */
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
   iconButton?: Element<typeof IconButton | typeof IconButtonLink>;
   /**
    * Unique id to identify this Accordion
@@ -94,7 +94,7 @@ export default function Accordion({
     <Box
       borderStyle={borderStyle !== 'none' ? borderStyle : undefined}
       color={isDarkMode ? 'elevationFloating' : 'default'}
-// @ts-expect-error - TS2322 - Type '{ children: Element; borderStyle: "sm" | "shadow" | undefined; color: "default" | "elevationFloating"; id: string; padding: ComponentProps<ForwardRefExoticComponent<Omit<Props, "ref"> & RefAttributes<HTMLElement>>>; rounding: ComponentProps<...>; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
+      // @ts-expect-error - TS2322 - Type '{ children: Element; borderStyle: "sm" | "shadow" | undefined; color: "default" | "elevationFloating"; id: string; padding: ComponentProps<ForwardRefExoticComponent<Omit<Props, "ref"> & RefAttributes<HTMLElement>>>; rounding: ComponentProps<...>; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
       id={id}
       padding={padding}
       rounding={rounding}

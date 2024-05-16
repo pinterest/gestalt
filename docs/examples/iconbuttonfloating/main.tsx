@@ -33,7 +33,7 @@ export default function Example() {
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Box role="contentinfo">
         <IconButtonFloating
-// @ts-expect-error - TS2322 - Type '{ ref: MutableRefObject<HTMLElement | null>; accessibilityControls: string; accessibilityExpanded: boolean; accessibilityLabel: string; accessibilityPopupRole: "menu"; icon: "add"; onClick: () => void; selected: boolean; tooltip: { ...; }; }' is not assignable to type 'IntrinsicAttributes & IconButtonFloatingProps'.
+          // @ts-expect-error - TS2322 - Type '{ ref: MutableRefObject<HTMLElement | null>; accessibilityControls: string; accessibilityExpanded: boolean; accessibilityLabel: string; accessibilityPopupRole: "menu"; icon: "add"; onClick: () => void; selected: boolean; tooltip: { ...; }; }' is not assignable to type 'IntrinsicAttributes & IconButtonFloatingProps'.
           ref={anchorRef}
           accessibilityControls="sections-dropdown-example"
           accessibilityExpanded={open}

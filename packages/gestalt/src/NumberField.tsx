@@ -112,7 +112,7 @@ type Props = {
   /**
    * Ref that is forwarded to the underlying input element.
    */
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
   ref?: Element<'input'>; // eslint-disable-line react/no-unused-prop-types,
   /**
    * Defines the height of NumberField: sm: 32px, md: 40px (default), lg: 48px. See the [size variant](https://gestalt.pinterest.systems/web/NumberField#Size) for more details.

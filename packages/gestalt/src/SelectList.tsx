@@ -166,7 +166,7 @@ function SelectList({
           }}
           onChange={handleOnChange}
           onFocus={() => setFocused(true)}
-// @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'string | number | readonly string[] | undefined'.
+          // @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'string | number | readonly string[] | undefined'.
           value={showPlaceholder ? placeholder : value}
         >
           {showPlaceholder && (

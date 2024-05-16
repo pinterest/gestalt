@@ -10,7 +10,7 @@ export default function TapAreaExample() {
             key={cursor}
             fullWidth={false}
             href="www.pinterest.com"
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"move" | "copy" | "grab" | "grabbing" | "noDrop" | "pointer" | "zoomIn" | "zoomOut" | undefined'.
+            // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"move" | "copy" | "grab" | "grabbing" | "noDrop" | "pointer" | "zoomIn" | "zoomOut" | undefined'.
             mouseCursor={cursor}
             onTap={({ event }) => event.stopPropagation()}
           >

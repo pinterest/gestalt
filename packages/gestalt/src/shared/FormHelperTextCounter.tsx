@@ -55,7 +55,7 @@ export default function FormHelperTextCounter({ currentLength, maxLength }: Prop
               {maxLength?.errorAccessibilityLabel}
             </Box>
             <Box aria-hidden>
-{ /* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'StatusType'. */}
+              {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'StatusType'. */}
               <Status accessibilityLabel="" type={status} />
             </Box>
           </Fragment>
@@ -63,7 +63,7 @@ export default function FormHelperTextCounter({ currentLength, maxLength }: Prop
           <Box width={16} />
         )}
         <Flex justifyContent="end" width={width}>
-{ /* @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"link" | "warning" | "error" | "default" | "subtle" | "success" | "shopping" | "inverse" | "light" | "dark" | undefined'. */}
+          {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"link" | "warning" | "error" | "default" | "subtle" | "success" | "shopping" | "inverse" | "light" | "dark" | undefined'. */}
           <Text align="end" color={maxLengthReached ? textColor : 'subtle'} size="100">
             <Box display="visuallyHidden">,</Box>
             {`${currentLength?.toString() ?? ''}/${maxLengthChars}`}

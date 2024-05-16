@@ -9,7 +9,7 @@ export default function Example() {
         <List.Item text="List item text">
           <List type="unordered">
             <List.Item text="List item text" />
-{ /* @ts-expect-error - TS2746 - This JSX tag's 'children' prop expects a single child of type '((string | ReactElement<FunctionComponent<PropsWithChildren<ListProps>> & ListSubComponents, string | JSXElementConstructor<...>> | ReactElement<...>) & (string | ... 5 more ... | null)) | undefined', but multiple children were provided. */}
+            {/* @ts-expect-error - TS2746 - This JSX tag's 'children' prop expects a single child of type '((string | ReactElement<FunctionComponent<PropsWithChildren<ListProps>> & ListSubComponents, string | JSXElementConstructor<...>> | ReactElement<...>) & (string | ... 5 more ... | null)) | undefined', but multiple children were provided. */}
             <List.Item text="List item text">
               <List.Item text="List item text" />
               <List.Item text="List item text">

@@ -181,7 +181,7 @@ export function getPopoverDir({
 
   if (
     idealDirection &&
-// @ts-expect-error - TS2367 - This condition will always return 'true' since the types '"left" | "right" | "down" | "up"' and '"forceDown"' have no overlap.
+    // @ts-expect-error - TS2367 - This condition will always return 'true' since the types '"left" | "right" | "down" | "up"' and '"forceDown"' have no overlap.
     idealDirection !== 'forceDown' &&
     spaces[DIR_INDEX_MAP[idealDirection]] > 0
   ) {
@@ -194,7 +194,7 @@ export function getPopoverDir({
   // Identify best direction of available spaces
   const max = Math.max(...spaces);
   // If no direction pref, chose the direction in which there is the most space available
-// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'number' can't be used to index type '{ readonly '0': "up"; readonly '1': "right"; readonly '2': "down"; readonly '3': "left"; }'.
+  // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'number' can't be used to index type '{ readonly '0': "up"; readonly '1': "right"; readonly '2': "down"; readonly '3': "left"; }'.
   return noAvailableSpaceCondition ? 'down' : SPACES_INDEX_MAP[spaces.indexOf(max)];
 }
 
@@ -243,7 +243,7 @@ export function getCaretDir({
     // caret should go at bottom for left/right and right for up/down
     caretDir = popoverDir === 'left' || popoverDir === 'right' ? 'down' : 'right';
   }
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'CaretDir'.
+  // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'CaretDir'.
   return caretDir;
 }
 

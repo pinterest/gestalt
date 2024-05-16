@@ -26,7 +26,7 @@ export default function Example() {
               </Text>
             </Box>
             <ButtonLink
-// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>' is not assignable to type 'LegacyRef<HTMLAnchorElement> | undefined'.
+              // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>' is not assignable to type 'LegacyRef<HTMLAnchorElement> | undefined'.
               ref={anchorRef}
               href="https://help.pinterest.com/en/business/article/data-source-ingestion"
               iconEnd="visit"

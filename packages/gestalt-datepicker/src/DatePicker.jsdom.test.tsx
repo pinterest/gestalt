@@ -25,14 +25,14 @@ describe('DatePicker', () => {
         value: Date | null;
       },
     ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     undefined
   >();
 
   global.document.createRange = () => ({
     setStart: () => {},
     setEnd: () => {},
-// @ts-expect-error - TS2740 - Type '{ nodeName: string; ownerDocument: Document; }' is missing the following properties from type 'Node': baseURI, childNodes, firstChild, isConnected, and 44 more.
+    // @ts-expect-error - TS2740 - Type '{ nodeName: string; ownerDocument: Document; }' is missing the following properties from type 'Node': baseURI, childNodes, firstChild, isConnected, and 44 more.
     commonAncestorContainer: {
       nodeName: 'BODY',
       ownerDocument: document,

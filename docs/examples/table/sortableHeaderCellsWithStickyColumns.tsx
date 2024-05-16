@@ -22,7 +22,7 @@ export default function SortableHeaderExample() {
             <Table.Row>
               <Table.SortableHeaderCell
                 onSortChange={() => onSortChange('name')}
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"desc" | "asc"'.
+                // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"desc" | "asc"'.
                 sortOrder={sortOrder}
                 status={sortCol === 'name' ? 'active' : 'inactive'}
               >
@@ -30,7 +30,7 @@ export default function SortableHeaderExample() {
               </Table.SortableHeaderCell>
               <Table.SortableHeaderCell
                 onSortChange={() => onSortChange('id')}
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"desc" | "asc"'.
+                // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"desc" | "asc"'.
                 sortOrder={sortOrder}
                 status={sortCol === 'id' ? 'active' : 'inactive'}
               >
@@ -38,7 +38,7 @@ export default function SortableHeaderExample() {
               </Table.SortableHeaderCell>
               <Table.SortableHeaderCell
                 onSortChange={() => onSortChange('food')}
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"desc" | "asc"'.
+                // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"desc" | "asc"'.
                 sortOrder={sortOrder}
                 status={sortCol === 'food' ? 'active' : 'inactive'}
               >
@@ -46,7 +46,7 @@ export default function SortableHeaderExample() {
               </Table.SortableHeaderCell>
               <Table.SortableHeaderCell
                 onSortChange={() => onSortChange('friend')}
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"desc" | "asc"'.
+                // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"desc" | "asc"'.
                 sortOrder={sortOrder}
                 status={sortCol === 'friend' ? 'active' : 'inactive'}
               >
@@ -54,7 +54,7 @@ export default function SortableHeaderExample() {
               </Table.SortableHeaderCell>
               <Table.SortableHeaderCell
                 onSortChange={() => onSortChange('birth')}
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"desc" | "asc"'.
+                // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"desc" | "asc"'.
                 sortOrder={sortOrder}
                 status={sortCol === 'birth' ? 'active' : 'inactive'}
               >
@@ -62,7 +62,7 @@ export default function SortableHeaderExample() {
               </Table.SortableHeaderCell>
               <Table.SortableHeaderCell
                 onSortChange={() => onSortChange('desc')}
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"desc" | "asc"'.
+                // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"desc" | "asc"'.
                 sortOrder={sortOrder}
                 status={sortCol === 'desc' ? 'active' : 'inactive'}
               >
@@ -70,7 +70,7 @@ export default function SortableHeaderExample() {
               </Table.SortableHeaderCell>
               <Table.SortableHeaderCell
                 onSortChange={() => onSortChange('color')}
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"desc" | "asc"'.
+                // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"desc" | "asc"'.
                 sortOrder={sortOrder}
                 status={sortCol === 'color' ? 'active' : 'inactive'}
               >

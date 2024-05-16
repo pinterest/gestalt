@@ -32,7 +32,7 @@ function Providers({ children, isMobile }: { children: ReactNode; isMobile: bool
 // This default export is required in a new `pages/_app.js` file.
 function GestaltApp(
   // eslint-disable-line react/prop-types
-// @ts-expect-error - TS7031 - Binding element 'Component' implicitly has an 'any' type. | TS7031 - Binding element 'pageProps' implicitly has an 'any' type. | TS7031 - Binding element 'cookieHeader' implicitly has an 'any' type. | TS7031 - Binding element 'isMobile' implicitly has an 'any' type. | TS7031 - Binding element 'files' implicitly has an 'any' type.
+  // @ts-expect-error - TS7031 - Binding element 'Component' implicitly has an 'any' type. | TS7031 - Binding element 'pageProps' implicitly has an 'any' type. | TS7031 - Binding element 'cookieHeader' implicitly has an 'any' type. | TS7031 - Binding element 'isMobile' implicitly has an 'any' type. | TS7031 - Binding element 'files' implicitly has an 'any' type.
   { Component, pageProps, cookieHeader, isMobile, files },
 ) {
   const router = useRouter();
@@ -71,21 +71,21 @@ async function localFiles() {
 }
 
 GestaltApp.getInitialProps = async (appInitialProps: AppInitialProps): Promise<AppInitialProps> => {
-// @ts-expect-error - TS2345 - Argument of type 'AppInitialProps<any>' is not assignable to parameter of type 'AppContext'.
+  // @ts-expect-error - TS2345 - Argument of type 'AppInitialProps<any>' is not assignable to parameter of type 'AppContext'.
   const initialProps = await NextApp.getInitialProps(appInitialProps);
-// @ts-expect-error - TS2339 - Property 'ctx' does not exist on type 'AppInitialProps<any>'.
+  // @ts-expect-error - TS2339 - Property 'ctx' does not exist on type 'AppInitialProps<any>'.
   const cookieHeader = appInitialProps?.ctx?.req?.headers?.cookie;
-// @ts-expect-error - TS2339 - Property 'router' does not exist on type 'AppInitialProps<any>'.
+  // @ts-expect-error - TS2339 - Property 'router' does not exist on type 'AppInitialProps<any>'.
   const files = appInitialProps?.router?.query?.localFiles === 'true' ? await localFiles() : null;
 
-// @ts-expect-error - TS2339 - Property 'ctx' does not exist on type 'AppInitialProps<any>'.
+  // @ts-expect-error - TS2339 - Property 'ctx' does not exist on type 'AppInitialProps<any>'.
   const ua = parser(appInitialProps?.ctx?.req?.headers['user-agent']);
   const isMobile = ua?.device?.type === 'mobile';
 
   return {
     ...initialProps,
     ...(cookieHeader ? { cookieHeader } : {}),
-// @ts-expect-error - TS2322 - Type '{ isMobile: boolean; files: { css: string; js: string; } | null; cookieHeader?: any; pageProps: any; }' is not assignable to type 'AppInitialProps<any>'.
+    // @ts-expect-error - TS2322 - Type '{ isMobile: boolean; files: { css: string; js: string; } | null; cookieHeader?: any; pageProps: any; }' is not assignable to type 'AppInitialProps<any>'.
     isMobile,
     files,
   };

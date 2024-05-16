@@ -66,7 +66,7 @@ export default function NavigationContent({
 
     const mouseEnterHandler = () => {
       if (sideNavigationCollapsed && !transitioning) {
-// @ts-expect-error - TS2769 - No overload matches this call.
+        // @ts-expect-error - TS2769 - No overload matches this call.
         clearTimeout(previewTimeoutRef.current);
         setCollapsedContainerWidth(mainContainer.current?.offsetWidth);
         setOverlayPreview(true);
@@ -75,7 +75,7 @@ export default function NavigationContent({
 
     const mouseLeaveHandler = () => {
       if (sideNavigationCollapsed) {
-// @ts-expect-error - TS2769 - No overload matches this call.
+        // @ts-expect-error - TS2769 - No overload matches this call.
         clearTimeout(previewTimeoutRef.current);
         previewTimeoutRef.current = setTimeout(() => setOverlayPreview(false), 1000);
       }
@@ -132,7 +132,7 @@ export default function NavigationContent({
       >
         {/* 3rd wrapper - when collapsible=true, it has static width and responsible for expand/collpase transition */}
         <div
-// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+          // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
           ref={transitionContainer}
           className={classnames({ [styles.contentWidthTransition]: collapsible })}
           style={{ width: collapsible ? contentWidth : undefined }}

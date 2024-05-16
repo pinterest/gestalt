@@ -10,9 +10,9 @@ describe('Layer in server render', () => {
       return;
     }
 
-// @ts-expect-error - TS2786 - 'Layer' cannot be used as a JSX component.
+    // @ts-expect-error - TS2786 - 'Layer' cannot be used as a JSX component.
     const tree = create(<Layer>content</Layer>).toJSON();
-// @ts-expect-error - TS2339 - Property 'type' does not exist on type 'ReactTestRendererJSON | ReactTestRendererJSON[]'.
+    // @ts-expect-error - TS2339 - Property 'type' does not exist on type 'ReactTestRendererJSON | ReactTestRendererJSON[]'.
     expect(tree?.type).toBe('div');
   });
 });

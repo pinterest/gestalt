@@ -135,7 +135,7 @@ If AvatarGroup is used as a control button to show/hide Popover-component, we re
           description="AvatarGroup is available in 3 fixed height sizes: `xs` (24px), `sm` (32px), and `md` (48px)."
           title="Fixed sizes"
         >
-{ /* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
+          {/* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
           <CombinationNew size={['xs', 'sm', 'md']}>
             {({ size }) => (
               <AvatarGroup
@@ -178,7 +178,7 @@ If AvatarGroup is used as a control button to show/hide Popover-component, we re
           title="Collaborators display"
         >
           <CombinationNew
-// @ts-expect-error - TS2322 - Type '{ children: ({ addCollaborators, collaborators }: { [key: string]: any; }) => Element; addCollaborators: boolean[]; collaborators: any[][]; hideTitle: true; }' is not assignable to type 'IntrinsicAttributes & Props'.
+            // @ts-expect-error - TS2322 - Type '{ children: ({ addCollaborators, collaborators }: { [key: string]: any; }) => Element; addCollaborators: boolean[]; collaborators: any[][]; hideTitle: true; }' is not assignable to type 'IntrinsicAttributes & Props'.
             addCollaborators={[false, true]}
             collaborators={[
               [
@@ -247,11 +247,11 @@ If AvatarGroup is used as a control button to show/hide Popover-component, we re
             {({ addCollaborators, collaborators }) => {
               const accessibilityLabel =
                 collaborators.length <= 3
-// @ts-expect-error - TS7006 - Parameter 'x' implicitly has an 'any' type.
-                  ? `Collaborators: ${collaborators.map((x) => x?.name).join(', and ')}.`
+                  ? // @ts-expect-error - TS7006 - Parameter 'x' implicitly has an 'any' type.
+                    `Collaborators: ${collaborators.map((x) => x?.name).join(', and ')}.`
                   : `Collaborators: ${collaborators
                       .slice(0, 2)
-// @ts-expect-error - TS7006 - Parameter 'x' implicitly has an 'any' type.
+                      // @ts-expect-error - TS7006 - Parameter 'x' implicitly has an 'any' type.
                       .map((x) => x?.name)
                       .join(', ')} ${
                       collaborators.length > 3 ? `and ${collaborators.length - 2} more.` : '.'

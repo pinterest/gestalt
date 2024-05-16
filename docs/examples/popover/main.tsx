@@ -53,7 +53,7 @@ export default function Example() {
                   Save to board
                 </Text>
                 <SearchField
-// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
+                  // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
                   ref={ref}
                   accessibilityLabel="Search boards field"
                   id="searchField"

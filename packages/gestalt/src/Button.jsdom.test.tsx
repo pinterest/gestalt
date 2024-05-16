@@ -10,7 +10,7 @@ describe('Button', () => {
           event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>;
         },
       ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     render(<Button onClick={mockOnClick} text="ButtonText" />);
@@ -20,7 +20,7 @@ describe('Button', () => {
 
   it('renders a submit button and forwards a ref to the innermost <button> element', () => {
     const ref = createRef<HTMLButtonElement | HTMLAnchorElement>();
-// @ts-expect-error - TS2322 - Type 'RefObject<HTMLAnchorElement | HTMLButtonElement>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+    // @ts-expect-error - TS2322 - Type 'RefObject<HTMLAnchorElement | HTMLButtonElement>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
     render(<Button ref={ref} text="test" type="submit" />);
     expect(ref.current instanceof HTMLButtonElement).toEqual(true);
     expect(ref.current?.type).toEqual('submit');
@@ -28,7 +28,7 @@ describe('Button', () => {
 
   it('renders a default button with sequential keyboard navigation and forwards a ref to the innermost <button> element', () => {
     const ref = createRef<HTMLButtonElement | HTMLAnchorElement>();
-// @ts-expect-error - TS2322 - Type 'RefObject<HTMLAnchorElement | HTMLButtonElement>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+    // @ts-expect-error - TS2322 - Type 'RefObject<HTMLAnchorElement | HTMLButtonElement>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
     render(<Button ref={ref} text="test" />);
     expect(ref.current instanceof HTMLButtonElement).toEqual(true);
     expect(ref.current?.type).toEqual('button');
@@ -37,7 +37,7 @@ describe('Button', () => {
 
   it('renders a disabled button', () => {
     const ref = createRef<HTMLButtonElement | HTMLAnchorElement>();
-// @ts-expect-error - TS2322 - Type 'RefObject<HTMLAnchorElement | HTMLButtonElement>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+    // @ts-expect-error - TS2322 - Type 'RefObject<HTMLAnchorElement | HTMLButtonElement>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
     render(<Button ref={ref} disabled text="test" />);
     expect(ref.current instanceof HTMLButtonElement).toEqual(true);
     expect(ref.current instanceof HTMLButtonElement && ref.current?.disabled).toEqual(true);
@@ -45,7 +45,7 @@ describe('Button', () => {
 
   it('renders a button removed from sequential keyboard navigation via tabIndex', () => {
     const ref = createRef<HTMLButtonElement | HTMLAnchorElement>();
-// @ts-expect-error - TS2322 - Type 'RefObject<HTMLAnchorElement | HTMLButtonElement>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+    // @ts-expect-error - TS2322 - Type 'RefObject<HTMLAnchorElement | HTMLButtonElement>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
     render(<Button ref={ref} tabIndex={-1} text="test" />);
     expect(ref.current instanceof HTMLButtonElement).toEqual(true);
     expect(ref.current instanceof HTMLButtonElement && ref.current?.tabIndex).toEqual(-1);

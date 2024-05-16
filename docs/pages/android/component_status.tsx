@@ -54,11 +54,11 @@ export default function ComponentStatus() {
               {['ready', 'partial', 'planned', 'deprecated', 'notAvailable'].map((typeStatus) => (
                 <Table.Row key={typeStatus}>
                   <Table.Cell>
-{ /* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'StatusType | "deprecated"'. */}
+                    {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'StatusType | "deprecated"'. */}
                     <StatusData status={typeStatus} />
                   </Table.Cell>
                   <Table.Cell>
-{ /* @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Readonly<{ ready: { title: string; description: string; }; partial: { title: string; description: string; }; notAvailable: { title: string; description: string; }; planned: { title: string; description: string; }; deprecated: { ...; }; }>'. */}
+                    {/* @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Readonly<{ ready: { title: string; description: string; }; partial: { title: string; description: string; }; notAvailable: { title: string; description: string; }; planned: { title: string; description: string; }; deprecated: { ...; }; }>'. */}
                     <Text>{STATUS_DESCRIPTION[typeStatus].description}</Text>
                   </Table.Cell>
                 </Table.Row>
@@ -80,7 +80,7 @@ export default function ComponentStatus() {
               </Table.HeaderCell>
               {statusFields.map((header) => (
                 <Table.HeaderCell key={header.replace(' ', '_')}>
-{ /* @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Readonly<{ accessible: { shortTitle: string; title: string; }; documentation: { title: string; ready: string; partial: string; notAvailable: string; planned: string; }; figmaStatus: { shortTitle: string; title: string; ready: string; partial: string; notAvailable: string; planned: string; }; mobileAdaptive: { ...; }...'. */}
+                  {/* @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Readonly<{ accessible: { shortTitle: string; title: string; }; documentation: { title: string; ready: string; partial: string; notAvailable: string; planned: string; }; figmaStatus: { shortTitle: string; title: string; ready: string; partial: string; notAvailable: string; planned: string; }; mobileAdaptive: { ...; }...'. */}
                   <Text weight="bold">{COMPONENT_STATUS_MESSAGING[header].title}</Text>
                 </Table.HeaderCell>
               ))}
@@ -117,7 +117,7 @@ export default function ComponentStatus() {
                       </Table.Cell>
                     ) : (
                       <Table.Cell key={item}>
-{ /* @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'ComponentStatus'. */}
+                        {/* @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'ComponentStatus'. */}
                         <StatusData status={statusObj[item] ?? 'notAvailable'} />
                       </Table.Cell>
                     ),

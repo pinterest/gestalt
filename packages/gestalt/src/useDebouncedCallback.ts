@@ -20,7 +20,7 @@ export default function useDebouncedCallback(callback: () => void, wait: number)
   return function debouncedCallback() {
     cleanup();
 
-// @ts-expect-error - TS2322 - Type 'Timeout' is not assignable to type 'number'.
+    // @ts-expect-error - TS2322 - Type 'Timeout' is not assignable to type 'number'.
     timeout.current = setTimeout(() => {
       callback();
     }, wait);

@@ -103,11 +103,11 @@ function Td({
     <td
       colSpan={colspan}
       style={{
-// @ts-expect-error - TS2322 - Type 'string | null' is not assignable to type 'BorderBottom<string | number> | undefined'.
+        // @ts-expect-error - TS2322 - Type 'string | null' is not assignable to type 'BorderBottom<string | number> | undefined'.
         borderBottom: border ? '1px solid #ddd' : null,
         padding: 0,
         verticalAlign: 'top',
-// @ts-expect-error - TS2322 - Type 'string | null' is not assignable to type 'Width<string | number> | undefined'.
+        // @ts-expect-error - TS2322 - Type 'string | null' is not assignable to type 'Width<string | number> | undefined'.
         width: shrink ? '1px' : null,
       }}
     >
@@ -308,7 +308,7 @@ export default function PropTable({
                                 {Array.isArray(description) ? (
                                   Description(description)
                                 ) : (
-// @ts-expect-error - TS2322 - Type 'string | readonly string[]' is not assignable to type 'string'.
+                                  // @ts-expect-error - TS2322 - Type 'string | readonly string[]' is not assignable to type 'string'.
                                   <Markdown text={description} textColor="default" />
                                 )}
                               </Box>

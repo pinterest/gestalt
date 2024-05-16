@@ -13,7 +13,7 @@ export default function Snapshot() {
         <Badge text="DarkWash badge" type="darkWash" />
         <Badge text="Info badge" />
         <Box display="flex" height={80} justifyContent="center" width={350}>
-{ /* @ts-expect-error - TS2322 - Type '{ text: string; tooltip: { text: string; }; }' is not assignable to type 'IntrinsicAttributes & BadgeProps'. */}
+          {/* @ts-expect-error - TS2322 - Type '{ text: string; tooltip: { text: string; }; }' is not assignable to type 'IntrinsicAttributes & BadgeProps'. */}
           <Badge text="Info badge with tooltip" tooltip={{ text: 'Tooltip' }} />
         </Box>
       </Flex>

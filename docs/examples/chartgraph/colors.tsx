@@ -25,7 +25,7 @@ export default function Example() {
       <Flex>
         <ChartGraph
           accessibilityLabel="Example of line chart color 01"
-// @ts-expect-error - TS2322 - Type '{ name: string; Series_01: number; }[]' is not assignable to type 'readonly { [k: string]: number | undefined; [k: number]: number | undefined; }[]'.
+          // @ts-expect-error - TS2322 - Type '{ name: string; Series_01: number; }[]' is not assignable to type 'readonly { [k: string]: number | undefined; [k: number]: number | undefined; }[]'.
           data={data}
           description="Color 01"
           elements={[{ type: 'line', id: 'Series_01' }]}
@@ -37,12 +37,12 @@ export default function Example() {
           renderTooltip="none"
           title="ChartGraph A"
           type="line"
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
+          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
           visualPatternSelected={visualPatternSelected}
         />
         <ChartGraph
           accessibilityLabel="Example of line chart color 02"
-// @ts-expect-error - TS2322 - Type '{ name: string; Series_01: number; }[]' is not assignable to type 'readonly { [k: string]: number | undefined; [k: number]: number | undefined; }[]'.
+          // @ts-expect-error - TS2322 - Type '{ name: string; Series_01: number; }[]' is not assignable to type 'readonly { [k: string]: number | undefined; [k: number]: number | undefined; }[]'.
           data={data}
           description="Color 02"
           elements={[{ type: 'line', id: 'Series_01', color: '02' }]}
@@ -54,14 +54,14 @@ export default function Example() {
           renderTooltip="none"
           title="ChartGraph B"
           type="line"
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
+          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
           visualPatternSelected={visualPatternSelected}
         />
       </Flex>
       <Flex>
         <ChartGraph
           accessibilityLabel="Example of line chart color 03"
-// @ts-expect-error - TS2322 - Type '{ name: string; Series_01: number; }[]' is not assignable to type 'readonly { [k: string]: number | undefined; [k: number]: number | undefined; }[]'.
+          // @ts-expect-error - TS2322 - Type '{ name: string; Series_01: number; }[]' is not assignable to type 'readonly { [k: string]: number | undefined; [k: number]: number | undefined; }[]'.
           data={data}
           description="Color 03"
           elements={[{ type: 'line', id: 'Series_01', color: '03' }]}
@@ -73,12 +73,12 @@ export default function Example() {
           renderTooltip="none"
           title="ChartGraph C"
           type="line"
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
+          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
           visualPatternSelected={visualPatternSelected}
         />
         <ChartGraph
           accessibilityLabel="Example of line chart color 04"
-// @ts-expect-error - TS2322 - Type '{ name: string; Series_01: number; }[]' is not assignable to type 'readonly { [k: string]: number | undefined; [k: number]: number | undefined; }[]'.
+          // @ts-expect-error - TS2322 - Type '{ name: string; Series_01: number; }[]' is not assignable to type 'readonly { [k: string]: number | undefined; [k: number]: number | undefined; }[]'.
           data={data}
           description="Color 04"
           elements={[{ type: 'line', id: 'Series_01', color: '04' }]}
@@ -90,7 +90,7 @@ export default function Example() {
           renderTooltip="none"
           title="ChartGraph D"
           type="line"
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
+          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
           visualPatternSelected={visualPatternSelected}
         />
       </Flex>

@@ -107,17 +107,17 @@ export default function FullPage({
   useEffect(() => {
     let prevOverflowStyle = 'auto';
 
-// @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
+    // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
     if (window && window.body?.style?.overflow) {
-// @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
+      // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
       prevOverflowStyle = window.body.style.overflow;
-// @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
+      // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
       window.body.style.overflow = 'hidden';
     }
     return () => {
-// @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
+      // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
       if (window && window.body?.style?.overflow) {
-// @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
+        // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
         window.body.style.overflow = prevOverflowStyle;
       }
     };

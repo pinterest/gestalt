@@ -53,7 +53,7 @@ type Props = {
   /**
    * Ref that is forwarded to the underlying input element.
    */
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
   ref?: Element<'input'>; // eslint-disable-line react/no-unused-prop-types,
   /**
    * Determines the Checkbox size: sm = 16px, md = 24px. See the [size variant](https://gestalt.pinterest.systems/web/checkbox#Size) to learn more.

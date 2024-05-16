@@ -9,7 +9,7 @@ export default function TextFieldPopoverExample() {
     <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Box color="light" padding={2}>
         <TextField
-// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
+          // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
           ref={anchorRef}
           id="variants-refs"
           label="Focus the TextField to show the Popover"

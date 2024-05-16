@@ -14,7 +14,7 @@ export default function Example() {
             disabled={disabled}
             href="https://www.pinterest.com"
             tabIndex={tabIndex ? -1 : 0}
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"none" | "compress" | undefined'.
+            // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"none" | "compress" | undefined'.
             tapStyle={compressed}
             target="blank"
           >

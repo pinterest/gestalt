@@ -32,7 +32,7 @@ function buildExperimentsObj(experiments: ReadonlyArray<string>) {
 export function useDocsExperiments(): Record<string, Experiment> {
   const { experiments } = useAppContext();
 
-// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly Dropdown: readonly ["web_gestalt_popover_v2_dropdown", "mweb_gestalt_popover_v2_dropdown"]; readonly Popover: readonly ["web_gestalt_popover_v2", "mweb_gestalt_popover_v2"]; readonly Tooltip: readonly [...]; }'.
+  // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly Dropdown: readonly ["web_gestalt_popover_v2_dropdown", "mweb_gestalt_popover_v2_dropdown"]; readonly Popover: readonly ["web_gestalt_popover_v2", "mweb_gestalt_popover_v2"]; readonly Tooltip: readonly [...]; }'.
   return buildExperimentsObj(!experiments ? [] : enabledExperiments[experiments] ?? []);
 }
 
@@ -42,6 +42,6 @@ type Props = {
 
 export default function DocsExperimentProvider({ children }: Props) {
   const experiments = useDocsExperiments();
-// @ts-expect-error - TS2322 - Type '{ children: ReactNode; value: Record<string, Experiment>; }' is not assignable to type 'IntrinsicAttributes & ExperimentProviderProps & { children?: ReactNode; }'.
+  // @ts-expect-error - TS2322 - Type '{ children: ReactNode; value: Record<string, Experiment>; }' is not assignable to type 'IntrinsicAttributes & ExperimentProviderProps & { children?: ReactNode; }'.
   return <ExperimentProvider value={experiments}>{children}</ExperimentProvider>;
 }

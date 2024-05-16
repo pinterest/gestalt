@@ -38,10 +38,10 @@ type Props = {
 function LegendIcon({ payloadData }: Props) {
   const { decal: showVisualPattern } = useChartContext();
   const isAccessible = showVisualPattern === 'visualPattern';
-// @ts-expect-error - TS2339 - Property 'colorSchemeName' does not exist on type '{ name: "lightMode" | "darkMode"; }'.
+  // @ts-expect-error - TS2339 - Property 'colorSchemeName' does not exist on type '{ name: "lightMode" | "darkMode"; }'.
   const { colorSchemeName } = useColorScheme();
 
-// @ts-expect-error - TS2339 - Property 'referenceArea' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'.
+  // @ts-expect-error - TS2339 - Property 'referenceArea' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'.
   if (payloadData.referenceArea === 'default') {
     const dimension = 16;
 
@@ -73,9 +73,9 @@ function LegendIcon({ payloadData }: Props) {
     '12': source['color-data-visualization-12'],
   });
 
-// @ts-expect-error - TS2339 - Property 'legendType' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'. | TS2339 - Property 'strokeWidth' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'.
+  // @ts-expect-error - TS2339 - Property 'legendType' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'. | TS2339 - Property 'strokeWidth' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'.
   const isLine = payloadData.legendType === 'line' || !!payloadData.strokeWidth;
-// @ts-expect-error - TS2339 - Property 'legendType' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'. | TS2339 - Property 'strokeWidth' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'.
+  // @ts-expect-error - TS2339 - Property 'legendType' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'. | TS2339 - Property 'strokeWidth' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'.
   const isBar = payloadData.legendType === 'rect' || !payloadData.strokeWidth;
 
   if (isBar) {
@@ -86,7 +86,7 @@ function LegendIcon({ payloadData }: Props) {
         <rect
           height={dimension}
           rx={2}
-// @ts-expect-error - TS2339 - Property 'color' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'. | TS2339 - Property 'fill' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'.
+          // @ts-expect-error - TS2339 - Property 'color' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'. | TS2339 - Property 'fill' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'.
           style={{ fill: payloadData.color || payloadData.fill }}
           width={dimension}
         />
@@ -94,13 +94,13 @@ function LegendIcon({ payloadData }: Props) {
     );
   }
 
-// @ts-expect-error - TS2339 - Property 'strokeDasharray' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'.
+  // @ts-expect-error - TS2339 - Property 'strokeDasharray' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'.
   const isEstimate = payloadData.strokeDasharray === '8 8';
 
   if (isLine && isAccessible) {
     const colorId = colorMap
       .map(([colorNumber, color]: [any, any]) => {
-// @ts-expect-error - TS2339 - Property 'stroke' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'.
+        // @ts-expect-error - TS2339 - Property 'stroke' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'.
         if (color === payloadData.stroke) return colorNumber;
         return undefined;
       })
@@ -121,7 +121,7 @@ function LegendIcon({ payloadData }: Props) {
 
     return (
       <svg height={16} width={dimension}>
-{ /* @ts-expect-error - TS2339 - Property 'stroke' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'. */}
+        {/* @ts-expect-error - TS2339 - Property 'stroke' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'. */}
         <rect height={3} rx={2} style={{ fill: payloadData.stroke }} width={dimension} y={8} />
       </svg>
     );
@@ -132,13 +132,13 @@ function LegendIcon({ payloadData }: Props) {
 
     return (
       <svg height={16} width={dimension}>
-{ /* @ts-expect-error - TS2339 - Property 'stroke' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'. */}
+        {/* @ts-expect-error - TS2339 - Property 'stroke' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'. */}
         <rect fill={payloadData.stroke} height={3} rx={1} width={3} x={0} y={8} />
         <rect fill="transparent" height={3} width={2} x={3} y={8} />
-{ /* @ts-expect-error - TS2339 - Property 'stroke' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'. */}
+        {/* @ts-expect-error - TS2339 - Property 'stroke' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'. */}
         <rect fill={payloadData.stroke} height={3} rx={1} width={3} x={5} y={8} />
         <rect fill="transparent" height={3} width={2} x={8} y={8} />
-{ /* @ts-expect-error - TS2339 - Property 'stroke' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'. */}
+        {/* @ts-expect-error - TS2339 - Property 'stroke' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'. */}
         <rect fill={payloadData.stroke} height={3} rx={1} width={3} x={10} y={8} />
       </svg>
     );

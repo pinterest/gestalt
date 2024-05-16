@@ -85,7 +85,7 @@ export default function Example() {
             onDismiss={() => {
               dispatch({ type: 'none' });
             }}
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"sm" | "md" | "lg" | undefined'.
+            // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"sm" | "md" | "lg" | undefined'.
             size={state.size}
           >
             <Flex
@@ -110,7 +110,7 @@ export default function Example() {
                   <Button disabled text="Reset bids" />
                 </Flex.Item>
               </Flex>
-{ /* @ts-expect-error - TS2739 - Type '{ expandedIndex: number; id: string; items: { children: Element; summary: string[]; title: string; }[]; }' is missing the following properties from type 'AccordionExpandableProps': accessibilityCollapseLabel, accessibilityExpandLabel */}
+              {/* @ts-expect-error - TS2739 - Type '{ expandedIndex: number; id: string; items: { children: Element; summary: string[]; title: string; }[]; }' is missing the following properties from type 'AccordionExpandableProps': accessibilityCollapseLabel, accessibilityExpandLabel */}
               <Accordion.Expandable
                 expandedIndex={0}
                 id="accordionExample - default"
@@ -162,7 +162,7 @@ export default function Example() {
                   },
                 ]}
               />
-{ /* @ts-expect-error - TS2739 - Type '{ id: string; items: { children: Element; summary: string[]; title: string; }[]; }' is missing the following properties from type 'AccordionExpandableProps': accessibilityCollapseLabel, accessibilityExpandLabel */}
+              {/* @ts-expect-error - TS2739 - Type '{ id: string; items: { children: Element; summary: string[]; title: string; }[]; }' is missing the following properties from type 'AccordionExpandableProps': accessibilityCollapseLabel, accessibilityExpandLabel */}
               <Accordion.Expandable
                 id="ModuleExample - preview"
                 items={[

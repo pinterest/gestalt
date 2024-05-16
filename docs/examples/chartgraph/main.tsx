@@ -27,7 +27,7 @@ export default function Example() {
         { type: 'line', id: 'Conversions', axis: 'right' },
       ]}
       layout="verticalBiaxial"
-// @ts-expect-error - TS2322 - Type '{ accessibilityLabel: string; data: { name: number; Clicks: number; Conversions: number; }[]; elements: ({ type: "bar"; id: string; axis: "left"; } | { type: "line"; id: string; axis: "right"; })[]; layout: "verticalBiaxial"; ... 6 more ...; visualPatternSelected: "disabled"; }' is not assignable to type 'IntrinsicAttributes & ChartGraphProps'.
+      // @ts-expect-error - TS2322 - Type '{ accessibilityLabel: string; data: { name: number; Clicks: number; Conversions: number; }[]; elements: ({ type: "bar"; id: string; axis: "left"; } | { type: "line"; id: string; axis: "right"; })[]; layout: "verticalBiaxial"; ... 6 more ...; visualPatternSelected: "disabled"; }' is not assignable to type 'IntrinsicAttributes & ChartGraphProps'.
       modalZIndex={new FixedZIndex(11)}
       onVisualPatternChange={() => {}}
       range={{

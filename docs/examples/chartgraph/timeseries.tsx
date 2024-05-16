@@ -52,9 +52,9 @@ export default function Example() {
         accessibilityLabel="Example of time series chart"
         data={data}
         elements={[
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"line" | "bar"'.
+          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"line" | "bar"'.
           { type: type === 'combo' ? 'bar' : type, id: 'Series_01' },
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"line" | "bar"'.
+          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"line" | "bar"'.
           { type: type === 'combo' ? 'line' : type, id: 'Series_02' },
         ]}
         modalZIndex={new FixedZIndex(11)}
@@ -72,9 +72,9 @@ export default function Example() {
         }}
         title="ChartGraph"
         titleDisplay="hidden"
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"line" | "bar" | "combo" | undefined'.
+        // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"line" | "bar" | "combo" | undefined'.
         type={type}
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
+        // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
         visualPatternSelected={visualPatternSelected}
       />
     </Flex>

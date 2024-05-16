@@ -30,10 +30,10 @@ export default function clipboardCopy(text: string): Promise<void> {
   // Make a selection object representing the range of text selected by the user
   const selection = window.getSelection();
   const range = window.document.createRange();
-// @ts-expect-error - TS2531 - Object is possibly 'null'.
+  // @ts-expect-error - TS2531 - Object is possibly 'null'.
   selection.removeAllRanges();
   range.selectNode(span);
-// @ts-expect-error - TS2531 - Object is possibly 'null'.
+  // @ts-expect-error - TS2531 - Object is possibly 'null'.
   selection.addRange(range);
 
   // Copy text to the clipboard
@@ -46,7 +46,7 @@ export default function clipboardCopy(text: string): Promise<void> {
   }
 
   // Cleanup
-// @ts-expect-error - TS2531 - Object is possibly 'null'.
+  // @ts-expect-error - TS2531 - Object is possibly 'null'.
   selection.removeAllRanges();
   window.document.body.removeChild(span);
 

@@ -15,12 +15,12 @@ class GestaltDocument extends Document {
     return { ...initialProps };
   }
 
-// @ts-expect-error - TS2416 - Property 'render' in type 'GestaltDocument' is not assignable to the same property in base type 'Document<{}>'.
+  // @ts-expect-error - TS2416 - Property 'render' in type 'GestaltDocument' is not assignable to the same property in base type 'Document<{}>'.
   render(): ReactNode {
     const { props } = this;
-// @ts-expect-error - TS2339 - Property 'cookieHeader' does not exist on type 'Readonly<RenderPageResult & { styles?: Element | ReactElement<any, string | JSXElementConstructor<any>>[] | ReactFragment | undefined; } & HtmlProps>'.
+    // @ts-expect-error - TS2339 - Property 'cookieHeader' does not exist on type 'Readonly<RenderPageResult & { styles?: Element | ReactElement<any, string | JSXElementConstructor<any>>[] | ReactFragment | undefined; } & HtmlProps>'.
     const cookies = new Cookies(props.cookieHeader);
-// @ts-expect-error - TS2341 - Property 'cookies' is private and only accessible within class 'Cookies'.
+    // @ts-expect-error - TS2341 - Property 'cookies' is private and only accessible within class 'Cookies'.
     const dir = cookies.cookies['gestalt-text-direction'];
 
     return (

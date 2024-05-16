@@ -116,7 +116,7 @@ export type Props = {
   /**
    * Required for date range selection. Pass a ref object to DatePicker to autofocus on the unselected date range field. See the [date range picker example](https://gestalt.pinterest.systems/web/datepicker#Date-range) to learn more.
    */
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
   ref?: Element<'input'>; // eslint-disable-line react/no-unused-prop-types,
   /**
    * Show a select list for quick selection of year and/or month. See the [selectLists variant](https://gestalt.pinterest.systems/web/datepicker#Select-list) to learn more.
@@ -162,7 +162,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
   ref,
 ): ReactNode {
   const innerInputRef = useRef<null | HTMLInputElement>(null);
-// @ts-expect-error - TS2322 - Type 'HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
+  // @ts-expect-error - TS2322 - Type 'HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
   useImperativeHandle(ref, () => innerInputRef.current);
   // Consume GlobalEventsHandlerProvider
   const { datePickerHandlers } = useGlobalEventsHandler() ?? {

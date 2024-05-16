@@ -95,7 +95,7 @@ export async function getServerSideProps(): Promise<{
 }> {
   const generatedDocGen = await docGen('IconButtonLink');
   const overriddenDocGen = overrideTypes(generatedDocGen, {
-// @ts-expect-error - TS2339 - Property 'icons' does not exist on type 'FunctionComponent<IconProps>'. | TS7006 - Parameter 'icon' implicitly has an 'any' type.
+    // @ts-expect-error - TS2339 - Property 'icons' does not exist on type 'FunctionComponent<IconProps>'. | TS7006 - Parameter 'icon' implicitly has an 'any' type.
     icon: (Icon?.icons ?? []).map((icon) => `'${icon}'`).join(' | '),
   });
 

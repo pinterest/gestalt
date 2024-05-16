@@ -30,7 +30,7 @@ export default function Example() {
     <Flex direction="column" gap={2} height="100%" width="100%">
       <ChartGraph
         accessibilityLabel="Example of a vertical bar chart"
-// @ts-expect-error - TS2322 - Type '{ name: string; Impressions: number; CPM: number; CPC: number; }[]' is not assignable to type 'readonly { [k: string]: number | undefined; [k: number]: number | undefined; }[]'.
+        // @ts-expect-error - TS2322 - Type '{ name: string; Impressions: number; CPM: number; CPC: number; }[]' is not assignable to type 'readonly { [k: string]: number | undefined; [k: number]: number | undefined; }[]'.
         data={data}
         elements={[
           { type: 'bar', id: 'Impressions' },
@@ -43,7 +43,7 @@ export default function Example() {
         }
         title="Regions in the US"
         type="bar"
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
+        // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
         visualPatternSelected={visualPatternSelected}
       />
     </Flex>

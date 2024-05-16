@@ -81,7 +81,7 @@ export type Props = {
       text: string;
       zIndex?: Indexable;
     };
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
     dropdownItems?: ReadonlyArray<Element<typeof Dropdown.Item>>;
   };
   /**
@@ -94,7 +94,7 @@ export type Props = {
  * Use [SideNavigation.TopItem](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.TopItem) to redirect the user to a different page or section. SideNavigation.TopItem must be used at the top level of SideNavigation. It supports badges, icons, counters, and notifications.
  */
 const SideNavigationTopItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
-// @ts-expect-error - TS2345 - Argument of type '({ active, href, badge, counter, icon, label, primaryAction, notificationAccessibilityLabel, onClick, }: Props, ref: ForwardedRef<HTMLLIElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLLIElement, Props>'.
+  // @ts-expect-error - TS2345 - Argument of type '({ active, href, badge, counter, icon, label, primaryAction, notificationAccessibilityLabel, onClick, }: Props, ref: ForwardedRef<HTMLLIElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLLIElement, Props>'.
   function SideNavigationTopItem(
     {
       active,
@@ -146,10 +146,10 @@ const SideNavigationTopItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
     }
 
     const nestingMargin = isMobile
-// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'number' can't be used to index type '{ readonly '0': "var(--space-400)"; readonly '1': "var(--space-1200)"; readonly '2': "68px"; }'.
-      ? NESTING_MARGIN_START_MAP[isTopLevel ? 0 : nestedLevel - 1]
-// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'number' can't be used to index type '{ readonly '0': "var(--space-400)"; readonly '1': "var(--space-1200)"; readonly '2': "68px"; }'.
-      : NESTING_MARGIN_START_MAP[nestedLevel];
+      ? // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'number' can't be used to index type '{ readonly '0': "var(--space-400)"; readonly '1': "var(--space-1200)"; readonly '2': "68px"; }'.
+        NESTING_MARGIN_START_MAP[isTopLevel ? 0 : nestedLevel - 1]
+      : // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'number' can't be used to index type '{ readonly '0': "var(--space-400)"; readonly '1': "var(--space-1200)"; readonly '2': "68px"; }'.
+        NESTING_MARGIN_START_MAP[nestedLevel];
 
     useEffect(() => {
       if (primaryAction && showIconButton === 'hide' && (hovered || focused)) {
@@ -189,7 +189,7 @@ const SideNavigationTopItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
         >
           <Box
             alignItems="center"
-// @ts-expect-error - TS2322 - Type 'string | undefined' is not assignable to type '"selected" | "default" | "shopping" | "inverse" | "light" | "dark" | "darkWash" | "lightWash" | "transparent" | "transparentDarkGray" | "infoBase" | "infoWeak" | "errorBase" | ... 15 more ... | undefined'.
+            // @ts-expect-error - TS2322 - Type 'string | undefined' is not assignable to type '"selected" | "default" | "shopping" | "inverse" | "light" | "dark" | "darkWash" | "lightWash" | "transparent" | "transparentDarkGray" | "infoBase" | "infoWeak" | "errorBase" | ... 15 more ... | undefined'.
             color={itemColor}
             dangerouslySetInlineStyle={
               collapsed
@@ -234,7 +234,7 @@ const SideNavigationTopItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
                     {typeof icon === 'string' ? (
                       <Icon
                         accessibilityLabel={collapsed ? label : ''}
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'IconColor | undefined'.
+                        // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'IconColor | undefined'.
                         color={textColor}
                         icon={icon}
                         inline
@@ -243,7 +243,7 @@ const SideNavigationTopItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
                     ) : (
                       <Icon
                         accessibilityLabel={collapsed ? label : ''}
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'IconColor | undefined'.
+                        // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'IconColor | undefined'.
                         color={textColor}
                         dangerouslySetSvgPath={icon}
                         inline
@@ -256,7 +256,7 @@ const SideNavigationTopItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
 
               {!collapsed && (
                 <Flex.Item alignSelf="center" flex="grow">
-{ /* @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"link" | "warning" | "error" | "default" | "subtle" | "success" | "shopping" | "inverse" | "light" | "dark" | undefined'. */}
+                  {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"link" | "warning" | "error" | "default" | "subtle" | "success" | "shopping" | "inverse" | "light" | "dark" | undefined'. */}
                   <Text color={textColor} inline>
                     {label}
                     {(badge || notificationAccessibilityLabel) && (

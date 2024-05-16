@@ -66,12 +66,12 @@ export default function Example() {
     <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Box color="light" padding={2}>
         <TextField
-// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
+          // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
           ref={ref}
           autoComplete="off"
           id="variants-tags"
           label="Emails"
-// @ts-expect-error - TS2322 - Type 'ChangeTagHandler' is not assignable to type 'AbstractEventHandler<SyntheticEvent<HTMLInputElement, Event>, { value: string; }>'.
+          // @ts-expect-error - TS2322 - Type 'ChangeTagHandler' is not assignable to type 'AbstractEventHandler<SyntheticEvent<HTMLInputElement, Event>, { value: string; }>'.
           onChange={onChangeTagManagement}
           onKeyDown={onKeyDownTagManagement}
           tags={renderedTags}

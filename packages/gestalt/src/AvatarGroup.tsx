@@ -171,7 +171,7 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
   if (role === 'link' && href) {
     return (
       <TapAreaLink
-// @ts-expect-error - TS2322 - Type 'ForwardedRef<UnionRefs>' is not assignable to type 'LegacyRef<HTMLAnchorElement> | undefined'.
+        // @ts-expect-error - TS2322 - Type 'ForwardedRef<UnionRefs>' is not assignable to type 'LegacyRef<HTMLAnchorElement> | undefined'.
         ref={ref}
         accessibilityLabel={accessibilityLabel}
         fullWidth={false}
@@ -192,7 +192,7 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
   if (role === 'button' && onClick) {
     return (
       <TapArea
-// @ts-expect-error - TS2322 - Type 'ForwardedRef<UnionRefs>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+        // @ts-expect-error - TS2322 - Type 'ForwardedRef<UnionRefs>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
         ref={ref}
         accessibilityControls={accessibilityControls}
         accessibilityExpanded={accessibilityExpanded}
@@ -201,7 +201,7 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
         fullWidth={false}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-// @ts-expect-error - TS2345 - Argument of type '{ event: KeyboardEvent<HTMLDivElement> | MouseEvent<HTMLDivElement, MouseEvent>; }' is not assignable to parameter of type '{ event: MouseEvent<HTMLAnchorElement, MouseEvent> | KeyboardEvent<HTMLAnchorElement> | KeyboardEvent<...> | MouseEvent<...>; dangerouslyDisableOnNavigation: () => void; }'.
+        // @ts-expect-error - TS2345 - Argument of type '{ event: KeyboardEvent<HTMLDivElement> | MouseEvent<HTMLDivElement, MouseEvent>; }' is not assignable to parameter of type '{ event: MouseEvent<HTMLAnchorElement, MouseEvent> | KeyboardEvent<HTMLAnchorElement> | KeyboardEvent<...> | MouseEvent<...>; dangerouslyDisableOnNavigation: () => void; }'.
         onTap={({ event }) => onClick({ event })}
         rounding="pill"
         tapStyle="compress"

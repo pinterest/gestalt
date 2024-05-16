@@ -36,7 +36,7 @@ export default function Example() {
     <Box height="90%" overflow="scrollY" padding={2}>
       <Flex gap={4} justifyContent="center" wrap>
         {allColors.map((color) => (
-// @ts-expect-error - TS2741 - Property 'onRemove' is missing in type '{ key: DataVisualizationColors; color: DataVisualizationColors; id: DataVisualizationColors; onTap: ({ id: selectedId, selected }: { ...; } & { ...; }) => void; selected: boolean; showCheckbox: true; text: string; }' but required in type 'TagDataProps'.
+          // @ts-expect-error - TS2741 - Property 'onRemove' is missing in type '{ key: DataVisualizationColors; color: DataVisualizationColors; id: DataVisualizationColors; onTap: ({ id: selectedId, selected }: { ...; } & { ...; }) => void; selected: boolean; showCheckbox: true; text: string; }' but required in type 'TagDataProps'.
           <TagData
             key={color}
             color={color}

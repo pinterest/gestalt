@@ -132,7 +132,7 @@ See below examples of UI elements using the appropriate text colors over color f
 If colors are needed to express a brand moment on the product, consider adding a colored background to the icon instead of adding alternative colors to the icon component. Ensure it meets the [WCAG 2.1 AA accessibility standard](https://www.w3.org/TR/WCAG21/) with the proper contrast between foreground and background. See the examples below.`}
           title="Color fills and iconography"
         >
-{ /* @ts-expect-error - TS2322 - Type '{ children: Element[]; alignItems: "center"; gap: number; lgDisplay: "flex"; mdDisplay: "flex"; smDisplay: "block"; wrap: true; }' is not assignable to type 'IntrinsicAttributes & Omit<BoxProps, "ref"> & RefAttributes<HTMLDivElement>'. */}
+          {/* @ts-expect-error - TS2322 - Type '{ children: Element[]; alignItems: "center"; gap: number; lgDisplay: "flex"; mdDisplay: "flex"; smDisplay: "block"; wrap: true; }' is not assignable to type 'IntrinsicAttributes & Omit<BoxProps, "ref"> & RefAttributes<HTMLDivElement>'. */}
           <Box alignItems="center" gap={8} lgDisplay="flex" mdDisplay="flex" smDisplay="block" wrap>
             <Box lgColumn={2} mdColumn={6} smColumn={12}>
               <Image

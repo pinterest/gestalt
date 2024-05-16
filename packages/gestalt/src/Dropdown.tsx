@@ -25,7 +25,7 @@ const dropdownItemDisplayNames = ['Dropdown.Item', 'Dropdown.Link'];
 
 // @ts-expect-error - TS7006 - Parameter 'childrenArray' implicitly has an 'any' type.
 function getChildrenOptions(childrenArray) {
-// @ts-expect-error - TS2347 - Untyped function calls may not accept type arguments. | TS7006 - Parameter 'accumulatedChildren' implicitly has an 'any' type. | TS7006 - Parameter 'currentChild' implicitly has an 'any' type.
+  // @ts-expect-error - TS2347 - Untyped function calls may not accept type arguments. | TS7006 - Parameter 'accumulatedChildren' implicitly has an 'any' type. | TS7006 - Parameter 'currentChild' implicitly has an 'any' type.
   return childrenArray.reduce<Array<any>>((accumulatedChildren, currentChild) => {
     const {
       props: { children: currentItemChildren },
@@ -61,7 +61,7 @@ function getChildrenOptions(childrenArray) {
  */
 // @ts-expect-error - TS7006 - Parameter 'dropdownChildren' implicitly has an 'any' type.
 const renderDropdownItemsWithIndex = (dropdownChildren, idxBase: number) =>
-// @ts-expect-error - TS7006 - Parameter 'child' implicitly has an 'any' type. | TS7006 - Parameter 'idx' implicitly has an 'any' type.
+  // @ts-expect-error - TS7006 - Parameter 'child' implicitly has an 'any' type. | TS7006 - Parameter 'idx' implicitly has an 'any' type.
   dropdownChildren.map((child, idx) => {
     if (dropdownItemDisplayNames.includes(child.type.displayName)) {
       const index = idx + idxBase;
@@ -74,7 +74,7 @@ const renderDropdownItemsWithIndex = (dropdownChildren, idxBase: number) =>
 const renderChildrenWithIndex = (childrenArray) => {
   let numItemsRendered = 0;
 
-// @ts-expect-error - TS2347 - Untyped function calls may not accept type arguments. | TS7006 - Parameter 'acc' implicitly has an 'any' type. | TS7006 - Parameter 'child' implicitly has an 'any' type.
+  // @ts-expect-error - TS2347 - Untyped function calls may not accept type arguments. | TS7006 - Parameter 'acc' implicitly has an 'any' type. | TS7006 - Parameter 'child' implicitly has an 'any' type.
   return childrenArray.reduce<Array<any>>((acc, child) => {
     const subSectionChildren = child.props.children;
     const childDisplayName = child.type.displayName;
@@ -83,7 +83,7 @@ const renderChildrenWithIndex = (childrenArray) => {
       (subSectionChildren && childDisplayName === 'Dropdown.Section') ||
       child.type === Fragment
     ) {
-// @ts-expect-error - TS2558 - Expected 0 type arguments, but got 1.
+      // @ts-expect-error - TS2558 - Expected 0 type arguments, but got 1.
       const sectionChildrenArray = Children.toArray<ReactNode>(subSectionChildren).flat();
 
       const childWithIndex = cloneElement(child, {
@@ -181,7 +181,7 @@ export default function Dropdown({
     isMobile ? undefined : 0,
   );
 
-// @ts-expect-error - TS2558 - Expected 0 type arguments, but got 1.
+  // @ts-expect-error - TS2558 - Expected 0 type arguments, but got 1.
   const dropdownChildrenArray = Children.toArray<ReactNode>(children);
   const allowedChildrenOptions = getChildrenOptions(dropdownChildrenArray);
 
@@ -260,7 +260,7 @@ export default function Dropdown({
         <RequestAnimationFrameProvider>
           <PartialPage
             align="start"
-// @ts-expect-error - TS2322 - Type '((arg1: { animationState: "in" | "out"; }) => void) | undefined' is not assignable to type '(arg1: { animationState: "in" | "out"; }) => void | null | undefined'.
+            // @ts-expect-error - TS2322 - Type '((arg1: { animationState: "in" | "out"; }) => void) | undefined' is not assignable to type '(arg1: { animationState: "in" | "out"; }) => void | null | undefined'.
             onAnimationEnd={mobileOnAnimationEnd}
             onDismiss={onDismiss}
             padding="default"
@@ -287,7 +287,7 @@ export default function Dropdown({
   }
 
   const dropdown = (
-// @ts-expect-error - TS2786 - 'Popover' cannot be used as a JSX component.
+    // @ts-expect-error - TS2786 - 'Popover' cannot be used as a JSX component.
     <Popover
       __dangerouslySetMaxHeight={maxHeight}
       __experimentalPopover={isInExperiment}
@@ -324,7 +324,7 @@ export default function Dropdown({
     </Popover>
   );
 
-// @ts-expect-error - TS2786 - 'Layer' cannot be used as a JSX component.
+  // @ts-expect-error - TS2786 - 'Layer' cannot be used as a JSX component.
   return isWithinFixedContainer ? dropdown : <Layer zIndex={zIndex}>{dropdown}</Layer>;
 }
 

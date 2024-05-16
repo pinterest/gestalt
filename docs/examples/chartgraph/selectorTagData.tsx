@@ -32,7 +32,7 @@ export default function Example() {
       '12': '12',
     } as const;
 
-// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly '01': "01"; readonly '02': "02"; readonly '03': "03"; readonly '04': "04"; readonly '05': "05"; readonly '06': "06"; readonly '07': "07"; readonly '08': "08"; readonly '09': "09"; readonly '10': "10"; readonly '11': "11"; readonly '12': "12"; }'.
+    // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly '01': "01"; readonly '02': "02"; readonly '03': "03"; readonly '04': "04"; readonly '05': "05"; readonly '06': "06"; readonly '07': "07"; readonly '08': "08"; readonly '09': "09"; readonly '10': "10"; readonly '11': "11"; readonly '12': "12"; }'.
     return colorMap[value];
   };
 
@@ -68,7 +68,7 @@ export default function Example() {
       .map((idToMap) => elementsArray.filter(({ id }) => id === idToMap))
       .flat();
 
-// @ts-expect-error - TS2345 - Argument of type '{ type: string; id: string; color: "10" | "11" | "12" | "01" | "02" | "03" | "04" | "05" | "06" | "07" | "08" | "09"; }[]' is not assignable to parameter of type 'SetStateAction<readonly { type: "line" | "bar"; axis?: "bottom" | "left" | "right" | "top" | undefined; id: string; color?: "10" | "11" | "12" | "01" | "02" | "03" | "04" | "05" | "06" | "07" | "08" | "09" | undefined; precision?: "exact" | ... 1 more ... | undefined; }[]>'.
+    // @ts-expect-error - TS2345 - Argument of type '{ type: string; id: string; color: "10" | "11" | "12" | "01" | "02" | "03" | "04" | "05" | "06" | "07" | "08" | "09"; }[]' is not assignable to parameter of type 'SetStateAction<readonly { type: "line" | "bar"; axis?: "bottom" | "left" | "right" | "top" | undefined; id: string; color?: "10" | "11" | "12" | "01" | "02" | "03" | "04" | "05" | "06" | "07" | "08" | "09" | undefined; precision?: "exact" | ... 1 more ... | undefined; }[]>'.
     setElements(newElements);
   }, [selectedId]);
 
@@ -77,21 +77,21 @@ export default function Example() {
       accessibilityLabel="Example of Bar chart"
       data={[
         {
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
+          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
           name: 'NorthWest',
           'Campaign Autumn': 100,
           'Campaign Winter': 90,
           'Campaign Spring': 10,
         },
         {
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
+          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
           name: 'Sunbelt',
           'Campaign Autumn': 200,
           'Campaign Winter': 180,
           'Campaign Spring': 50,
         },
         {
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
+          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
           name: 'East Coast',
           'Campaign Autumn': 300,
           'Campaign Winter': 250,
@@ -106,10 +106,10 @@ export default function Example() {
       }
       title="Clickthroughs per region"
       type="bar"
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
+      // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
       visualPatternSelected={visualPatternSelected}
     >
-{ /* @ts-expect-error - TS2741 - Property 'onRemove' is missing in type '{ color: "01"; id: string; onTap: ({ id, selected }: { selected: boolean; id?: string | undefined; } & { readonly event: MouseEvent<HTMLAnchorElement, MouseEvent> | KeyboardEvent<...> | KeyboardEvent<...> | MouseEvent<...>; }) => void; selected: boolean; showCheckbox: true; text: string; }' but required in type 'TagDataProps'. */}
+      {/* @ts-expect-error - TS2741 - Property 'onRemove' is missing in type '{ color: "01"; id: string; onTap: ({ id, selected }: { selected: boolean; id?: string | undefined; } & { readonly event: MouseEvent<HTMLAnchorElement, MouseEvent> | KeyboardEvent<...> | KeyboardEvent<...> | MouseEvent<...>; }) => void; selected: boolean; showCheckbox: true; text: string; }' but required in type 'TagDataProps'. */}
       <TagData
         color="01"
         id="Campaign Autumn"
@@ -118,7 +118,7 @@ export default function Example() {
         showCheckbox
         text="Campaign Autumn"
       />
-{ /* @ts-expect-error - TS2741 - Property 'onRemove' is missing in type '{ color: "02"; id: string; onTap: ({ id, selected }: { selected: boolean; id?: string | undefined; } & { readonly event: MouseEvent<HTMLAnchorElement, MouseEvent> | KeyboardEvent<...> | KeyboardEvent<...> | MouseEvent<...>; }) => void; selected: boolean; showCheckbox: true; text: string; }' but required in type 'TagDataProps'. */}
+      {/* @ts-expect-error - TS2741 - Property 'onRemove' is missing in type '{ color: "02"; id: string; onTap: ({ id, selected }: { selected: boolean; id?: string | undefined; } & { readonly event: MouseEvent<HTMLAnchorElement, MouseEvent> | KeyboardEvent<...> | KeyboardEvent<...> | MouseEvent<...>; }) => void; selected: boolean; showCheckbox: true; text: string; }' but required in type 'TagDataProps'. */}
       <TagData
         color="02"
         id="Campaign Winter"
@@ -127,7 +127,7 @@ export default function Example() {
         showCheckbox
         text="Campaign Winter"
       />
-{ /* @ts-expect-error - TS2741 - Property 'onRemove' is missing in type '{ color: "03"; id: string; onTap: ({ id, selected }: { selected: boolean; id?: string | undefined; } & { readonly event: MouseEvent<HTMLAnchorElement, MouseEvent> | KeyboardEvent<...> | KeyboardEvent<...> | MouseEvent<...>; }) => void; selected: boolean; showCheckbox: true; text: string; }' but required in type 'TagDataProps'. */}
+      {/* @ts-expect-error - TS2741 - Property 'onRemove' is missing in type '{ color: "03"; id: string; onTap: ({ id, selected }: { selected: boolean; id?: string | undefined; } & { readonly event: MouseEvent<HTMLAnchorElement, MouseEvent> | KeyboardEvent<...> | KeyboardEvent<...> | MouseEvent<...>; }) => void; selected: boolean; showCheckbox: true; text: string; }' but required in type 'TagDataProps'. */}
       <TagData
         color="03"
         id="Campaign Spring"

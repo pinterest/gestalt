@@ -19,7 +19,7 @@ type DataVisualizationColors =
   | '12';
 
 export const useHexColor: () => (arg1: DataVisualizationColors) => string = () => {
-// @ts-expect-error - TS2339 - Property 'colorSchemeName' does not exist on type '{ name: "lightMode" | "darkMode"; }'.
+  // @ts-expect-error - TS2339 - Property 'colorSchemeName' does not exist on type '{ name: "lightMode" | "darkMode"; }'.
   const { colorSchemeName } = useColorScheme();
   return (vizColor: DataVisualizationColors) =>
     colorSchemeName === 'lightMode'

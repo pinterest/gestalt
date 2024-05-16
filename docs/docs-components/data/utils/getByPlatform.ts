@@ -11,7 +11,7 @@ export default function getByPlatform(
   },
 ): ReadonlyArray<PlatformData> {
   const { platform } = options;
-// @ts-expect-error - TS2322 - Type '(PlatformData | null | undefined)[]' is not assignable to type 'readonly PlatformData[]'.
+  // @ts-expect-error - TS2322 - Type '(PlatformData | null | undefined)[]' is not assignable to type 'readonly PlatformData[]'.
   return componentList
     .map((component) => (component.platform[platform] ? component.platform[platform] : null))
     .filter(Boolean);

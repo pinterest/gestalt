@@ -58,7 +58,7 @@ export default function RoadmapPage() {
         key={item.task}
         delivery={item.deadline}
         description={item.description}
-// @ts-expect-error - TS2322 - Type 'string[]' is not assignable to type 'readonly Platform[]'.
+        // @ts-expect-error - TS2322 - Type 'string[]' is not assignable to type 'readonly Platform[]'.
         platforms={item.platforms}
         text={item.task}
       />

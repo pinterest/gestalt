@@ -102,7 +102,7 @@ export default function Heading({
     typography[`fontSize${size}`],
     color && semanticColors.includes(color) && colors[color],
     align === 'center' && typography.alignCenter,
-// @ts-expect-error - TS2367 - This condition will always return 'false' since the types '"center" | "start" | "end" | "forceLeft" | "forceRight"' and '"justify"' have no overlap.
+    // @ts-expect-error - TS2367 - This condition will always return 'false' since the types '"center" | "start" | "end" | "forceLeft" | "forceRight"' and '"justify"' have no overlap.
     align === 'justify' && typography.alignJustify,
     align === 'start' && typography.alignStart,
     align === 'end' && typography.alignEnd,
@@ -115,13 +115,13 @@ export default function Heading({
   const headingLevel = accessibilityLevel || defaultHeadingLevels[size];
   let newProps = { className: cs };
   if (id) {
-// @ts-expect-error - TS2322 - Type '{ id: string; className: string; }' is not assignable to type '{ className: string; }'.
+    // @ts-expect-error - TS2322 - Type '{ id: string; className: string; }' is not assignable to type '{ className: string; }'.
     newProps = { ...newProps, id };
   }
   if (isNotNullish(lineClamp) && typeof children === 'string') {
     newProps = {
       ...newProps,
-// @ts-expect-error - TS2322 - Type '{ style: { WebkitLineClamp: number | undefined; }; title: string; className: string; }' is not assignable to type '{ className: string; }'.
+      // @ts-expect-error - TS2322 - Type '{ style: { WebkitLineClamp: number | undefined; }; title: string; className: string; }' is not assignable to type '{ className: string; }'.
       style: { WebkitLineClamp: lineClamp },
       title: children,
     };

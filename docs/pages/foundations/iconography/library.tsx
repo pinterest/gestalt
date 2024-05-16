@@ -111,7 +111,7 @@ function IconTile({
 function findIconByCategory(icon: string | null | undefined, category: string) {
   // This check ensures there is an actual matching icon in our component
   // so we don't accidentally show icons that are only in Figma.
-// @ts-expect-error - TS7006 - Parameter 'name' implicitly has an 'any' type.
+  // @ts-expect-error - TS7006 - Parameter 'name' implicitly has an 'any' type.
   const iconComponentName = icons.find((name) => name === icon);
 
   return iconCategoryData.icons.find(
@@ -132,12 +132,12 @@ export default function IconPage() {
   const [showToastText, setShowToastText] = useState<undefined | string>();
 
   const iconOptions = icons
-// @ts-expect-error - TS7006 - Parameter 'name' implicitly has an 'any' type. | TS7006 - Parameter 'index' implicitly has an 'any' type.
+    // @ts-expect-error - TS7006 - Parameter 'name' implicitly has an 'any' type. | TS7006 - Parameter 'index' implicitly has an 'any' type.
     .map((name, index) => ({
       label: name,
       value: `value${index}`,
     }))
-// @ts-expect-error - TS7031 - Binding element 'aName' implicitly has an 'any' type. | TS7031 - Binding element 'bName' implicitly has an 'any' type.
+    // @ts-expect-error - TS7031 - Binding element 'aName' implicitly has an 'any' type. | TS7031 - Binding element 'bName' implicitly has an 'any' type.
     .sort(({ label: aName }, { label: bName }) => {
       if (aName < bName) return -1;
       if (aName > bName) return 1;
@@ -153,7 +153,7 @@ export default function IconPage() {
     setSuggestedOptions(
       value
         ? iconOptions.filter(
-// @ts-expect-error - TS7031 - Binding element 'label' implicitly has an 'any' type.
+            // @ts-expect-error - TS7031 - Binding element 'label' implicitly has an 'any' type.
             ({ label }) =>
               label.toLowerCase().includes(value.toLowerCase()) || iconHasKeyword(label, value),
           )
@@ -165,7 +165,7 @@ export default function IconPage() {
     try {
       navigator.clipboard.writeText(iconName);
       setShowToastText(`Icon name ("${iconName}") successfully copied!`);
-// @ts-expect-error - TS2554 - Expected 1 arguments, but got 0.
+      // @ts-expect-error - TS2554 - Expected 1 arguments, but got 0.
       setTimeout(() => setShowToastText(), 3000);
     } catch (err: any) {
       // Not handling error
@@ -175,7 +175,7 @@ export default function IconPage() {
   const renderIconTiles = () =>
     sortedAlphabetical ? (
       <Flex gap={3} wrap>
-{ /* @ts-expect-error - TS7031 - Binding element 'iconName' implicitly has an 'any' type. */}
+        {/* @ts-expect-error - TS7031 - Binding element 'iconName' implicitly has an 'any' type. */}
         {(suggestedOptions || iconOptions).map(({ label: iconName }) => {
           const filteredIconData = iconCategoryData.icons.find((icon) => icon.name === iconName);
 
@@ -192,14 +192,14 @@ export default function IconPage() {
     ) : (
       CATEGORIES.map((category) => {
         const iconsToRenderByCategory = (suggestedOptions || iconOptions).map(
-// @ts-expect-error - TS7031 - Binding element 'iconName' implicitly has an 'any' type.
+          // @ts-expect-error - TS7031 - Binding element 'iconName' implicitly has an 'any' type.
           ({ label: iconName }) => {
             const iconData = findIconByCategory(iconName, category);
             return iconData ? (
               <IconTile
                 key={iconName}
                 iconDescription={iconData.description ?? ''}
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'Icons'.
+                // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'Icons'.
                 iconName={iconData.name}
                 onTap={buildHandleIconClick(iconData.name)}
               />
@@ -303,7 +303,7 @@ export default function IconPage() {
             paddingX={1}
             position="fixed"
           >
-{ /* @ts-expect-error - TS2741 - Property 'dismissButton' is missing in type '{ text: string; }' but required in type 'ToastProps'. */}
+            {/* @ts-expect-error - TS2741 - Property 'dismissButton' is missing in type '{ text: string; }' but required in type 'ToastProps'. */}
             <Toast text={showToastText} />
           </Box>
         </Layer>

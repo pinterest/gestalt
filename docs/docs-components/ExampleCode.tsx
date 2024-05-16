@@ -137,7 +137,7 @@ export default function ExampleCode({
                   <LiveEditor
                     // Don't remove this className or all the a11y integration tests will fail
                     className="live-editor-pane"
-// @ts-expect-error - TS2322 - Type '{ className: string; padding: number; style: { minHeight: string | undefined; }; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<EditorProps, any, any>> & Readonly<EditorProps>'.
+                    // @ts-expect-error - TS2322 - Type '{ className: string; padding: number; style: { minHeight: string | undefined; }; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Component<EditorProps, any, any>> & Readonly<EditorProps>'.
                     padding={16}
                     style={{
                       minHeight: codeBoxMinHeight,

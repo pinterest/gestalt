@@ -36,19 +36,19 @@ const themeToStyles = (theme: { colorSchemeName: 'lightMode' | 'darkMode' }) => 
   let styles = '';
   Object.keys(theme).forEach((key) => {
     if (key.startsWith('color')) {
-// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ colorSchemeName: "lightMode" | "darkMode"; }'.
+      // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ colorSchemeName: "lightMode" | "darkMode"; }'.
       styles += `  --g-${key}: ${theme[key]};\n`;
     }
   });
   if (theme.colorSchemeName === 'darkMode') {
     Object.keys(darkColorDesignTokens).forEach((key) => {
-// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ "color-red-pushpin-0": string; "color-red-pushpin-50": string; "color-red-pushpin-100": string; "color-red-pushpin-200": string; "color-red-pushpin-300": string; "color-red-pushpin-400": string; ... 327 more ...; "elevation-datepicker": string; }'.
+      // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ "color-red-pushpin-0": string; "color-red-pushpin-50": string; "color-red-pushpin-100": string; "color-red-pushpin-200": string; "color-red-pushpin-300": string; "color-red-pushpin-400": string; ... 327 more ...; "elevation-datepicker": string; }'.
       styles += `  --${key}: ${darkColorDesignTokens[key]};\n`;
     });
   }
   if (theme.colorSchemeName === 'lightMode') {
     Object.keys(lightColorDesignTokens).forEach((key) => {
-// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ "color-red-pushpin-0": string; "color-red-pushpin-50": string; "color-red-pushpin-100": string; "color-red-pushpin-200": string; "color-red-pushpin-300": string; "color-red-pushpin-400": string; ... 327 more ...; "elevation-datepicker": string; }'.
+      // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ "color-red-pushpin-0": string; "color-red-pushpin-50": string; "color-red-pushpin-100": string; "color-red-pushpin-200": string; "color-red-pushpin-300": string; "color-red-pushpin-400": string; ... 327 more ...; "elevation-datepicker": string; }'.
       styles += `  --${key}: ${lightColorDesignTokens[key]};\n`;
     });
   }
@@ -93,8 +93,8 @@ export default function ColorSchemeProvider({
   colorScheme = 'light',
   fullDimensions = false,
   id,
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
-}: Props): Element<typeof ThemeContext.Provider> {
+}: // @ts-expect-error - TS2315 - Type 'Element' is not generic.
+Props): Element<typeof ThemeContext.Provider> {
   const [theme, setTheme] = useState(getTheme(colorScheme));
   const className = id ? `__gestaltTheme${id}` : undefined;
   const selector = className ? `.${className}` : ':root';
@@ -106,10 +106,10 @@ export default function ColorSchemeProvider({
   useEffect(() => {
     setTheme(getTheme(colorScheme));
     if (colorScheme === 'userPreference' && window.matchMedia) {
-// @ts-expect-error - TS2345 - Argument of type '(event: MediaQueryList) => void' is not assignable to parameter of type '(this: MediaQueryList, ev: MediaQueryListEvent) => any'.
+      // @ts-expect-error - TS2345 - Argument of type '(event: MediaQueryList) => void' is not assignable to parameter of type '(this: MediaQueryList, ev: MediaQueryListEvent) => any'.
       window.matchMedia('(prefers-color-scheme: dark)').addListener(handlePrefChange);
       return () =>
-// @ts-expect-error - TS2345 - Argument of type '(event: MediaQueryList) => void' is not assignable to parameter of type '(this: MediaQueryList, ev: MediaQueryListEvent) => any'.
+        // @ts-expect-error - TS2345 - Argument of type '(event: MediaQueryList) => void' is not assignable to parameter of type '(this: MediaQueryList, ev: MediaQueryListEvent) => any'.
         window.matchMedia('(prefers-color-scheme: dark)').removeListener(handlePrefChange);
     }
     return undefined; // Flow doesn't like that only userPreference returns a clean up func

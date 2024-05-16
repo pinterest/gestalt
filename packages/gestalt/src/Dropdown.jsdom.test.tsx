@@ -14,7 +14,7 @@ describe('Dropdown', () => {
   });
 
   it('renders a menu of 6 items', () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnDismiss = jest.fn<[], undefined>();
     const onSelectMock = jest.fn<
       [
@@ -27,7 +27,7 @@ describe('Dropdown', () => {
           };
         },
       ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     const element = document.createElement('button');
@@ -76,7 +76,7 @@ describe('Dropdown', () => {
   });
 
   it('renders a menu of 3 items conditionally', () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnDismiss = jest.fn<[], undefined>();
     const onSelectMock = jest.fn<
       [
@@ -89,7 +89,7 @@ describe('Dropdown', () => {
           };
         },
       ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     const element = document.createElement('button');
@@ -122,7 +122,7 @@ describe('Dropdown', () => {
   });
 
   it('renders dropdown sections', () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnDismiss = jest.fn<[], undefined>();
     const onSelectMock = jest.fn<
       [
@@ -135,7 +135,7 @@ describe('Dropdown', () => {
           };
         },
       ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     const element = document.createElement('button');
@@ -189,7 +189,7 @@ describe('Dropdown', () => {
   });
 
   it('renders a custom header', () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnDismiss = jest.fn<[], undefined>();
     const onSelectMock = jest.fn<
       [
@@ -202,7 +202,7 @@ describe('Dropdown', () => {
           };
         },
       ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     const element = document.createElement('button');
@@ -260,7 +260,7 @@ describe('Dropdown', () => {
   });
 
   it('closes when esc key is pressed', () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnDismiss = jest.fn<[], undefined>();
     const onSelectMock = jest.fn<
       [
@@ -273,7 +273,7 @@ describe('Dropdown', () => {
           };
         },
       ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     const element = document.createElement('button');
@@ -325,7 +325,7 @@ describe('Dropdown', () => {
   });
 
   it('closes when tab key is pressed', () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnDismiss = jest.fn<[], undefined>();
     const onSelectMock = jest.fn<
       [
@@ -338,7 +338,7 @@ describe('Dropdown', () => {
           };
         },
       ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     const element = document.createElement('button');
@@ -390,7 +390,7 @@ describe('Dropdown', () => {
   });
 
   it('changes active descendant when arrow keys are pressed', async () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnDismiss = jest.fn<[], undefined>();
     const onSelectMock = jest.fn<
       [
@@ -403,7 +403,7 @@ describe('Dropdown', () => {
           };
         },
       ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     const element = document.createElement('button');
@@ -478,7 +478,7 @@ describe('Dropdown', () => {
   });
 
   it('should call item onSelect when enter key is pressed', async () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnDismiss = jest.fn<[], undefined>();
     const onSelectMock = jest.fn<
       [
@@ -491,7 +491,7 @@ describe('Dropdown', () => {
           };
         },
       ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     const element = document.createElement('button');
@@ -557,7 +557,7 @@ describe('Dropdown', () => {
   });
 
   it('should call link onClick when enter key is pressed', async () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnDismiss = jest.fn<[], undefined>();
     const onSelectMock = jest.fn<
       [
@@ -570,7 +570,7 @@ describe('Dropdown', () => {
           };
         },
       ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     const onClickMock = jest.fn<
@@ -581,7 +581,7 @@ describe('Dropdown', () => {
           mobileOnDismissStart: () => void;
         },
       ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     const element = document.createElement('button');

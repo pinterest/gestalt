@@ -29,7 +29,7 @@ type Props = {
 };
 
 const ComboBoxItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Props>(
-// @ts-expect-error - TS2345 - Argument of type '({ isHovered, id, index, isSelected, label, onSelect, setHoveredItemIndex, subtext, value, }: Props, ref: ForwardedRef<HTMLElement | null | undefined>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLElement | null | undefined, Props>'.
+  // @ts-expect-error - TS2345 - Argument of type '({ isHovered, id, index, isSelected, label, onSelect, setHoveredItemIndex, subtext, value, }: Props, ref: ForwardedRef<HTMLElement | null | undefined>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLElement | null | undefined, Props>'.
   function OptionItem(
     {
       isHovered,
@@ -54,7 +54,7 @@ const ComboBoxItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Pr
 
     return (
       <div
-// @ts-expect-error - TS2322 - Type 'ForwardedRef<HTMLElement | null | undefined>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+        // @ts-expect-error - TS2322 - Type 'ForwardedRef<HTMLElement | null | undefined>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
         ref={isHovered ? ref : null}
         aria-selected={isSelected}
         className={classnames(
@@ -63,11 +63,11 @@ const ComboBoxItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Pr
           touchableStyles.pointer,
         )}
         id={`${id}-item-${index}`}
-// @ts-expect-error - TS2322 - Type '(event: React.ChangeEvent<HTMLInputElement>) => void | undefined' is not assignable to type 'MouseEventHandler<HTMLDivElement>'.
+        // @ts-expect-error - TS2322 - Type '(event: React.ChangeEvent<HTMLInputElement>) => void | undefined' is not assignable to type 'MouseEventHandler<HTMLDivElement>'.
         onClick={handleOnTap}
-// @ts-expect-error - TS2322 - Type '(event: React.ChangeEvent<HTMLDivElement>) => void' is not assignable to type 'KeyboardEventHandler<HTMLDivElement>'.
+        // @ts-expect-error - TS2322 - Type '(event: React.ChangeEvent<HTMLDivElement>) => void' is not assignable to type 'KeyboardEventHandler<HTMLDivElement>'.
         onKeyPress={handleEventPreventDefault}
-// @ts-expect-error - TS2322 - Type '(event: React.ChangeEvent<HTMLDivElement>) => void' is not assignable to type 'MouseEventHandler<HTMLDivElement>'.
+        // @ts-expect-error - TS2322 - Type '(event: React.ChangeEvent<HTMLDivElement>) => void' is not assignable to type 'MouseEventHandler<HTMLDivElement>'.
         onMouseDown={handleEventPreventDefault}
         onMouseEnter={handleOnMouseEnter}
         role="option"

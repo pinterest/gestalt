@@ -37,7 +37,7 @@ export default function Example() {
           <IconButton accessibilityLabel="Edit" icon="edit" size="md" />
         </Tooltip>
         <IconButton
-// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+          // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
           ref={anchorRef}
           accessibilityControls="selectlist-dropdown-example3"
           accessibilityExpanded={open}
@@ -60,14 +60,14 @@ export default function Example() {
             <Dropdown.Item
               onSelect={onSelect}
               option={{ value: 'Download image', label: 'Download image' }}
-// @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null | undefined' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
+              // @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null | undefined' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
               selected={selected}
             />
             <Dropdown.Item
               badge={{ text: 'New' }}
               onSelect={onSelect}
               option={{ value: 'Hide Pin', label: 'Hide Pin' }}
-// @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null | undefined' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
+              // @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null | undefined' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
               selected={selected}
             />
             <Dropdown.Link

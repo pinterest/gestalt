@@ -9,7 +9,7 @@ export default function Example() {
         <Status title="Queued" type="queued" />
         <Status title="In progress" type="inProgress" />
         <Status title="Halted" type="halted" />
-{ /* @ts-expect-error - TS2322 - Type '"locked"' is not assignable to type '"ok" | "inProgress" | "unstarted" | "canceled" | "queued" | "halted" | "problem" | "warning"'. */}
+        {/* @ts-expect-error - TS2322 - Type '"locked"' is not assignable to type '"ok" | "inProgress" | "unstarted" | "canceled" | "queued" | "halted" | "problem" | "warning"'. */}
         <Status title="Locked" type="locked" />
         <Status title="OK" type="ok" />
         <Status title="Canceled" type="canceled" />

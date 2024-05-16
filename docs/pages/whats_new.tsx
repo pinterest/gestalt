@@ -90,7 +90,7 @@ export default function Blog() {
   // We don't want to show empty digests, so remove if no posts for the current filter
   const filteredDigests = allDigests
     .map((digest) =>
-// @ts-expect-error - TS7031 - Binding element 'audience' implicitly has an 'any' type.
+      // @ts-expect-error - TS7031 - Binding element 'audience' implicitly has an 'any' type.
       digest.posts.some(({ audience }) => filter === 'All' || audience.includes(filter))
         ? digest
         : null,
@@ -116,7 +116,7 @@ export default function Blog() {
             id={label}
             label={label}
             onChange={() => {
-// @ts-expect-error - TS2345 - Argument of type 'string' is not assignable to parameter of type 'SetStateAction<"Design" | "Engineering" | "All">'.
+              // @ts-expect-error - TS2345 - Argument of type 'string' is not assignable to parameter of type 'SetStateAction<"Design" | "Engineering" | "All">'.
               setFilter(value);
             }}
             size="sm"
@@ -136,7 +136,7 @@ export default function Blog() {
             >
               <Flex direction="column" gap={8}>
                 {posts.map(
-// @ts-expect-error - TS7006 - Parameter 'post' implicitly has an 'any' type.
+                  // @ts-expect-error - TS7006 - Parameter 'post' implicitly has an 'any' type.
                   (post) =>
                     (filter === 'All' || post.audience.includes(filter)) && (
                       <PostLayout key={`post-${post.title}`} {...post} />

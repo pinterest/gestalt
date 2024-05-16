@@ -34,7 +34,7 @@ export default function Example() {
               src="https://i.ibb.co/7bQQYkX/stock2.jpg"
             />
           ),
-// @ts-expect-error - TS2741 - Property 'wash' is missing in type '{ rounding: 4; }' but required in type '{ rounding: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | "circle"; wash: boolean; }'.
+          // @ts-expect-error - TS2741 - Property 'wash' is missing in type '{ rounding: 4; }' but required in type '{ rounding: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | "circle"; wash: boolean; }'.
           mask: { rounding: 4 },
           width: 128,
         }}

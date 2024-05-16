@@ -16,7 +16,7 @@ export default function Example() {
     <Flex alignItems="center" height="100%" justifyContent="between" width="100%">
       <Box>
         <IconButton
-// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+          // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
           ref={anchorRefA}
           accessibilityLabel="This IconButton represents a new feature"
           icon="pin"
@@ -36,7 +36,7 @@ export default function Example() {
       </Box>
       <Box>
         <IconButton
-// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+          // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
           ref={anchorRefB}
           accessibilityLabel="This IconButton represents a new feature"
           icon="pin"

@@ -45,7 +45,7 @@ function ColorSchemeLayout({ children }: ColorCardProps) {
   return (
     <Flex gap={4} wrap>
       {['light', 'dark'].map((scheme) => (
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"light" | "dark" | "userPreference"'.
+        // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"light" | "dark" | "userPreference"'.
         <ColorSchemeProvider key={scheme} colorScheme={scheme} id={scheme}>
           <Box color="default" padding={4}>
             <Flex

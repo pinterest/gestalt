@@ -68,7 +68,7 @@ export default function useDefaultTooltip({
                     strokeWidth?: number;
                   }) => (
                     <Flex key={payloadData.name} alignItems="center" gap={2}>
-{ /* @ts-expect-error - TS2786 - 'LegendIcon' cannot be used as a JSX component. */}
+                      {/* @ts-expect-error - TS2786 - 'LegendIcon' cannot be used as a JSX component. */}
                       <LegendIcon payloadData={payloadData} />
                       <Flex.Item flex="grow">
                         <Text size="100">

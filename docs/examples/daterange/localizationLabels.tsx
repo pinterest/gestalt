@@ -9,7 +9,7 @@ export default function Example() {
   return (
     <DefaultLabelProvider
       labels={{
-// @ts-expect-error - TS2322 - Type '{ DateRange: { cancelText: string; applyText: string; }; }' is not assignable to type '{ Accordion: { accessibilityCollapseLabel: string; accessibilityExpandLabel: string; }; ActivationCard: { accessibilityDismissButtonLabel: string; }; BannerOverlay: { accessibilityDismissButtonLabel: string; }; ... 17 more ...; Toast: { ...; }; }'.
+        // @ts-expect-error - TS2322 - Type '{ DateRange: { cancelText: string; applyText: string; }; }' is not assignable to type '{ Accordion: { accessibilityCollapseLabel: string; accessibilityExpandLabel: string; }; ActivationCard: { accessibilityDismissButtonLabel: string; }; BannerOverlay: { accessibilityDismissButtonLabel: string; }; ... 17 more ...; Toast: { ...; }; }'.
         DateRange: {
           cancelText: 'Abbrechen',
           applyText: 'Anwenden',

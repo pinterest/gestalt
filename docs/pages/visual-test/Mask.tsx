@@ -8,7 +8,7 @@ export default function Snapshot() {
         <Flex maxWidth={300} wrap>
           {[0, 2, 4, 6, 8, 'circle'].map((a) => (
             <Box key={a} maxWidth={100}>
-{ /* @ts-expect-error - TS2322 - Type 'string | number' is not assignable to type '0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | "circle" | undefined'. */}
+              {/* @ts-expect-error - TS2322 - Type 'string | number' is not assignable to type '0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | "circle" | undefined'. */}
               <Mask rounding={a}>
                 <Box height={100} width={100}>
                   <Image

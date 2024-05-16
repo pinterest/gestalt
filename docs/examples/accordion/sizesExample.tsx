@@ -8,7 +8,7 @@ export default function Example() {
   return (
     <Box alignItems="center" display="flex" padding={8} width="100%">
       <Flex direction="column" gap={{ column: 2, row: 0 }} justifyContent="between" width="100%">
-{ /* @ts-expect-error - TS2741 - Property 'size' is missing in type '{ items: string[]; onChange: ({ activeIndex }: { activeIndex: number; } & { readonly event: MouseEvent<HTMLButtonElement, MouseEvent>; }) => void; selectedItemIndex: number; }' but required in type 'SegmentedControlProps'. */}
+        {/* @ts-expect-error - TS2741 - Property 'size' is missing in type '{ items: string[]; onChange: ({ activeIndex }: { activeIndex: number; } & { readonly event: MouseEvent<HTMLButtonElement, MouseEvent>; }) => void; selectedItemIndex: number; }' but required in type 'SegmentedControlProps'. */}
         <SegmentedControl
           items={sizes}
           onChange={({ activeIndex }) => {
@@ -31,7 +31,7 @@ export default function Example() {
             />
           }
           id="AccordionExample - header"
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"sm" | "md" | "lg" | undefined'.
+          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"sm" | "md" | "lg" | undefined'.
           size={size}
           title="Title"
         >
@@ -70,7 +70,7 @@ export default function Example() {
               ),
             },
           ]}
-// @ts-expect-error - TS2322 - Type '{ accessibilityCollapseLabel: string; accessibilityExpandLabel: string; id: string; items: ({ icon: "lock"; children: Element; summary: string[]; title: string; } | { badge: { text: string; }; children: Element; summary: string[]; title: string; } | { ...; })[]; size: string; }' is not assignable to type 'IntrinsicAttributes & AccordionExpandableProps'.
+          // @ts-expect-error - TS2322 - Type '{ accessibilityCollapseLabel: string; accessibilityExpandLabel: string; id: string; items: ({ icon: "lock"; children: Element; summary: string[]; title: string; } | { badge: { text: string; }; children: Element; summary: string[]; title: string; } | { ...; })[]; size: string; }' is not assignable to type 'IntrinsicAttributes & AccordionExpandableProps'.
           size={size}
         />
       </Flex>

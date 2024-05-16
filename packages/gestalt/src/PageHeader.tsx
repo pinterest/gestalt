@@ -91,7 +91,7 @@ type Props = {
    */
   primaryAction?: {
     component: ActionType;
-// @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2315 - Type 'Element' is not generic.
+    // @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2315 - Type 'Element' is not generic.
     dropdownItems: ReadonlyArray<Element<typeof Dropdown.Item> | Element<typeof Dropdown.Link>>;
   };
   /**
@@ -101,7 +101,7 @@ type Props = {
    */
   secondaryAction?: {
     component: ActionType;
-// @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2315 - Type 'Element' is not generic.
+    // @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2315 - Type 'Element' is not generic.
     dropdownItems: ReadonlyArray<Element<typeof Dropdown.Item> | Element<typeof Dropdown.Link>>;
   };
   /**
@@ -115,7 +115,7 @@ type Props = {
   /**
    * An optional thumbnail [Image](https://gestalt.pinterest.systems/web/image) to be displayed next to the title. See the [title variant](https://gestalt.pinterest.systems/web/pageheader#Title) to learn more.
    */
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
   thumbnail?: Element<typeof Image>;
 };
 

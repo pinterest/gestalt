@@ -70,7 +70,7 @@ type Props = {
   /**
    * Informational content that's displayed when the user clicks on HelpButton.
    */
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
   text: string | Element<typeof Text>;
   /**
    * Specifies the z-index for HelpButton's tooltip and popover to resolve any layering issues with other elements. See the [zIndex variant](https://gestalt.pinterest.systems/web/helpbutton#With-Z-index) for more details.
@@ -148,7 +148,7 @@ export default function HelpButton({
     }>
   ) => {
     toggleView();
-// @ts-expect-error - TS2556 - A spread argument must either have a tuple type or be passed to a rest parameter.
+    // @ts-expect-error - TS2556 - A spread argument must either have a tuple type or be passed to a rest parameter.
     onClick?.(...args);
   };
 
@@ -172,7 +172,7 @@ export default function HelpButton({
     );
 
   const popoverElement = (
-// @ts-expect-error - TS2786 - 'InternalPopover' cannot be used as a JSX component.
+    // @ts-expect-error - TS2786 - 'InternalPopover' cannot be used as a JSX component.
     <InternalPopover
       accessibilityLabel={accessibilityPopoverLabel}
       anchor={tapAreaRef.current}
@@ -193,7 +193,7 @@ export default function HelpButton({
          * `id` - used to tracking children by line 130
          * `tabIndex={0}` - It's used to make the text element as a focusable element
          */}
-{ /* @ts-expect-error - TS2322 - Type '{ children: Element; ref: MutableRefObject<HTMLElement | null>; id: string; tabIndex: number; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'. */}
+        {/* @ts-expect-error - TS2322 - Type '{ children: Element; ref: MutableRefObject<HTMLElement | null>; id: string; tabIndex: number; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'. */}
         <Box ref={textRef} id={`helpButtonText-${popoverId}`} tabIndex={0}>
           {textElement}
         </Box>
@@ -201,7 +201,7 @@ export default function HelpButton({
           <Box display="block" marginTop={3} width="100%">
             <Text>
               <Link
-// @ts-expect-error - TS2322 - Type 'Ref<"a"> | undefined' is not assignable to type 'LegacyRef<HTMLAnchorElement> | undefined'.
+                // @ts-expect-error - TS2322 - Type 'Ref<"a"> | undefined' is not assignable to type 'LegacyRef<HTMLAnchorElement> | undefined'.
                 ref={link.ref}
                 accessibilityLabel={link.accessibilityLabel}
                 externalLinkIcon={link.externalLinkIcon}
@@ -231,7 +231,7 @@ export default function HelpButton({
         zIndex={tooltipZIndex}
       >
         <TapArea
-// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLDivElement | HTMLAnchorElement | null>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+          // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLDivElement | HTMLAnchorElement | null>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
           ref={tapAreaRef}
           accessibilityControls={popoverId}
           accessibilityExpanded={open}
@@ -266,7 +266,7 @@ export default function HelpButton({
             {popoverElement}
           </Box>
         ) : (
-// @ts-expect-error - TS2786 - 'Layer' cannot be used as a JSX component.
+          // @ts-expect-error - TS2786 - 'Layer' cannot be used as a JSX component.
           <Layer zIndex={zIndexWrapper}>{popoverElement}</Layer>
         ))}
     </Flex>

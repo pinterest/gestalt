@@ -12,7 +12,7 @@ export default function Example() {
           id="aboutmereadonly"
           label="Current errors"
           onChange={(data) => setValue(data.value)}
-// @ts-expect-error - TS2322 - Type '{ id: string; label: string; onChange: (data: { value: string; } & { readonly event: SyntheticEvent<HTMLTextAreaElement, Event>; }) => void; readOnly: true; value: string; }' is not assignable to type 'IntrinsicAttributes & TextAreaProps & RefAttributes<HTMLTextAreaElement>'.
+          // @ts-expect-error - TS2322 - Type '{ id: string; label: string; onChange: (data: { value: string; } & { readonly event: SyntheticEvent<HTMLTextAreaElement, Event>; }) => void; readOnly: true; value: string; }' is not assignable to type 'IntrinsicAttributes & TextAreaProps & RefAttributes<HTMLTextAreaElement>'.
           readOnly
           value={value}
         />

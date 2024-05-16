@@ -94,7 +94,7 @@ const TextWithForwardRef = forwardRef<HTMLElement, Props>(function Text(
     weight = 'normal',
   }: Props,
   ref,
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
 ): Element<As> {
   const colorClass = semanticColors.includes(color) && styles[color];
 
@@ -116,7 +116,7 @@ const TextWithForwardRef = forwardRef<HTMLElement, Props>(function Text(
     typography[`fontSize${size}`],
     color && colorClass,
     align === 'center' && typography.alignCenter,
-// @ts-expect-error - TS2367 - This condition will always return 'false' since the types '"center" | "start" | "end" | "forceLeft" | "forceRight"' and '"justify"' have no overlap.
+    // @ts-expect-error - TS2367 - This condition will always return 'false' since the types '"center" | "start" | "end" | "forceLeft" | "forceRight"' and '"justify"' have no overlap.
     align === 'justify' && typography.alignJustify,
     align === 'start' && typography.alignStart,
     align === 'end' && typography.alignEnd,
@@ -140,7 +140,7 @@ const TextWithForwardRef = forwardRef<HTMLElement, Props>(function Text(
         title ?? (isNotNullish(lineClamp) && typeof children === 'string' ? children : undefined)
       }
       {...(lineClamp ? { style: { WebkitLineClamp: lineClamp } } : {})}
-// @ts-expect-error - TS2322 - Type 'ForwardedRef<HTMLElement>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+      // @ts-expect-error - TS2322 - Type 'ForwardedRef<HTMLElement>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
       ref={ref}
     >
       {children}

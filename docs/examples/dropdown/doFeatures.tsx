@@ -41,7 +41,7 @@ export default function CustomIconButtonPopoverExample() {
           <Dropdown.Item
             onSelect={onSelect}
             option={{ value: 'item 1', label: 'Item 1' }}
-// @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
+            // @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
             selected={selected}
           />
           <Dropdown.Item
@@ -50,7 +50,7 @@ export default function CustomIconButtonPopoverExample() {
               value: 'item 2',
               label: 'Item 2 with a really long, detailed, complex name',
             }}
-// @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
+            // @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
             selected={selected}
           />
           <Dropdown.Link
@@ -66,7 +66,7 @@ export default function CustomIconButtonPopoverExample() {
             badge={{ text: 'New' }}
             onSelect={onSelect}
             option={{ value: 'item 4', label: 'Item 4' }}
-// @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
+            // @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
             selected={selected}
           />
           <Dropdown.Link

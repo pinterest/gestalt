@@ -83,7 +83,7 @@ type Props = {
   /**
    * Ref that is forwarded to the underlying input element. See the [ref example](https://gestalt.pinterest.systems/web/textarea#With-a-ref) for more details.
    */
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
   ref?: Element<'input'>; // eslint-disable-line react/no-unused-prop-types,
   /**
    * Number of text rows to display. Note that tags take up more space, and will show fewer rows than specified.
@@ -92,7 +92,7 @@ type Props = {
   /**
    * List of tags to display in the component. See the [tags example](https://gestalt.pinterest.systems/web/textarea#With-tags) for more details.
    */
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
   tags?: ReadonlyArray<Element<typeof Tag>>;
   /**
    * The current value of the input.

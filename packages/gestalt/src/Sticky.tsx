@@ -57,22 +57,22 @@ const DEFAULT_ZINDEX = new FixedZIndex(1);
 
 export default function Sticky({
   // eslint-disable-line react/prop-types
-// @ts-expect-error - TS2339 - Property 'bottom' does not exist on type 'Props'.
+  // @ts-expect-error - TS2339 - Property 'bottom' does not exist on type 'Props'.
   bottom,
 
   children,
   height,
 
   // eslint-disable-line react/prop-types
-// @ts-expect-error - TS2339 - Property 'left' does not exist on type 'Props'.
+  // @ts-expect-error - TS2339 - Property 'left' does not exist on type 'Props'.
   left,
 
   // eslint-disable-line react/prop-types
-// @ts-expect-error - TS2339 - Property 'right' does not exist on type 'Props'.
+  // @ts-expect-error - TS2339 - Property 'right' does not exist on type 'Props'.
   right,
 
   // eslint-disable-line react/prop-types
-// @ts-expect-error - TS2339 - Property 'top' does not exist on type 'Props'.
+  // @ts-expect-error - TS2339 - Property 'top' does not exist on type 'Props'.
   top,
 
   zIndex,

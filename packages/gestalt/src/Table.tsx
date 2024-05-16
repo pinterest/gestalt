@@ -85,7 +85,7 @@ export default function Table({
     <Box
       overflow="auto"
       {...(borderStyle === 'sm' ? { borderStyle: 'sm', rounding: 1 } : {})}
-// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null | undefined>' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
+      // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null | undefined>' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
       ref={tableRef}
       maxHeight={maxHeight}
       tabIndex="0"

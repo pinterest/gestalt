@@ -70,7 +70,7 @@ export default function DocsPage({ generatedDocGen }: DocType) {
           description="In ordee to observe TapArea's border radius, focus on each component below navigating with the keyboard. `fullWidth={false}` might be required to wrap to the children component. Make the sure the children components match the rounding as well."
           title="Rounding"
         >
-{ /* @ts-expect-error - TS2322 - Type '{ children: ({ rounding }: { [key: string]: any; }) => Element; cardSize: "xs"; rounding: (string | number)[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
+          {/* @ts-expect-error - TS2322 - Type '{ children: ({ rounding }: { [key: string]: any; }) => Element; cardSize: "xs"; rounding: (string | number)[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
           <CombinationNew cardSize="xs" rounding={[0, 1, 2, 3, 4, 5, 6, 7, 8, 'circle', 'pill']}>
             {({ rounding }) => (
               <TapAreaLink

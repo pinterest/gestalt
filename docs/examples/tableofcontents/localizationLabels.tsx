@@ -7,7 +7,7 @@ export default function Example() {
   return (
     <DefaultLabelProvider
       labels={{
-// @ts-expect-error - TS2322 - Type '{ TableOfContents: { accessibilityLabel: string; }; }' is not assignable to type '{ Accordion: { accessibilityCollapseLabel: string; accessibilityExpandLabel: string; }; ActivationCard: { accessibilityDismissButtonLabel: string; }; BannerOverlay: { accessibilityDismissButtonLabel: string; }; ... 17 more ...; Toast: { ...; }; }'.
+        // @ts-expect-error - TS2322 - Type '{ TableOfContents: { accessibilityLabel: string; }; }' is not assignable to type '{ Accordion: { accessibilityCollapseLabel: string; accessibilityExpandLabel: string; }; ActivationCard: { accessibilityDismissButtonLabel: string; }; BannerOverlay: { accessibilityDismissButtonLabel: string; }; ... 17 more ...; Toast: { ...; }; }'.
         TableOfContents: {
           accessibilityLabel: 'Table of contents',
         },

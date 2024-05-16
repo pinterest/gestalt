@@ -43,8 +43,8 @@ export default function SideNavigationSection({ children, label }: Props) {
     : undefined;
 
   const itemWithNotification = shouldCollapseAsEllipsis
-// @ts-expect-error - TS2339 - Property 'props' does not exist on type 'string | number | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal'.
-    ? navigationChildren.find((child) => !!child.props.notificationAccessibilityLabel)
+    ? // @ts-expect-error - TS2339 - Property 'props' does not exist on type 'string | number | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal'.
+      navigationChildren.find((child) => !!child.props.notificationAccessibilityLabel)
     : null;
 
   return (
@@ -66,7 +66,7 @@ export default function SideNavigationSection({ children, label }: Props) {
           accessibilityLabel={`Collapsed ${label}. Expand for more options`}
           active={ellipsisActiveProp}
           notificationAccessibilityLabel={
-// @ts-expect-error - TS2339 - Property 'props' does not exist on type 'string | number | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode>'.
+            // @ts-expect-error - TS2339 - Property 'props' does not exist on type 'string | number | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode>'.
             itemWithNotification?.props.notificationAccessibilityLabel
           }
         />

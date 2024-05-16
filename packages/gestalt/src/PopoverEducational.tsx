@@ -96,7 +96,7 @@ type Props = {
    * Main text content of PopoverEducational. Content should be [localized](https://gestalt.pinterest.systems/web/popovereducational#Localization). See the [message variant](https://gestalt.pinterest.systems/web/popovereducational#Message) to learn more.
    *
    */
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
   message?: string | Element<typeof Text>;
   /**
    * The underlying ARIA role for PopoverEducational. See the [role section in Accessibility](https://gestalt.pinterest.systems/web/popovereducational#Role) for more info.
@@ -142,7 +142,7 @@ export default function PopoverEducational({
     return null;
   }
 
-// @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2315 - Type 'Element' is not generic.
   let textElement: Element<'span'> | Element<typeof Text>;
 
   if (typeof message === 'string') {
@@ -153,7 +153,7 @@ export default function PopoverEducational({
   if (
     message &&
     typeof message !== 'string' &&
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
     Children.only<Element<typeof Text>>(message).type.displayName === 'Text'
   ) {
     const textColorOverrideStyles = isDarkMode
@@ -165,7 +165,7 @@ export default function PopoverEducational({
 
   return (
     <Box position={zIndex ? 'relative' : undefined} zIndex={zIndex}>
-{ /* @ts-expect-error - TS2786 - 'InternalPopover' cannot be used as a JSX component. */}
+      {/* @ts-expect-error - TS2786 - 'InternalPopover' cannot be used as a JSX component. */}
       <InternalPopover
         accessibilityLabel={accessibilityLabel}
         anchor={anchor}
@@ -183,7 +183,7 @@ export default function PopoverEducational({
       >
         {children ??
           (message ? (
-// @ts-expect-error - TS2322 - Type '{ children: Element; padding: 4; tabIndex: number; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
+            // @ts-expect-error - TS2322 - Type '{ children: Element; padding: 4; tabIndex: number; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
             <Box padding={4} tabIndex={0}>
               <Flex direction="column" gap={3}>
                 {textElement}

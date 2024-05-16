@@ -5,7 +5,7 @@ import ChartGraph from './ChartGraph';
 
 // Mock needed here do to https://stackoverflow.com/questions/73117667/writing-unit-tests-with-react-testing-library-for-recharts
 jest.mock('recharts', () => {
-// @ts-expect-error - TS2558 - Expected 0 type arguments, but got 1.
+  // @ts-expect-error - TS2558 - Expected 0 type arguments, but got 1.
   const OriginalModule = jest.requireActual<any>('recharts');
   return {
     ...OriginalModule,
@@ -189,7 +189,7 @@ describe('ChartGraph', () => {
     // Mock needed here to prevent error "The width(800) and height(800) are both fixed numbers, maybe you don't need to use a ResponsiveContainer.""
     jest.spyOn(console, 'warn').mockImplementation(() => {});
 
-// @ts-expect-error - TS2790 - The operand of a 'delete' operator must be optional.
+    // @ts-expect-error - TS2790 - The operand of a 'delete' operator must be optional.
     delete window.ResizeObserver;
     window.ResizeObserver = jest.fn().mockImplementation(() => ({
       observe: jest.fn(),
@@ -206,7 +206,7 @@ describe('ChartGraph', () => {
   it('renders with x/y axis', () => {
     render(
       <ChartWrap
-// @ts-expect-error - TS2322 - Type '{ name: string; element_01: number; element_02: number; element_03: number; }[]' is not assignable to type 'readonly { [key: string]: number; name: string | number; }[]'.
+        // @ts-expect-error - TS2322 - Type '{ name: string; element_01: number; element_02: number; element_03: number; }[]' is not assignable to type 'readonly { [key: string]: number; name: string | number; }[]'.
         data={data3}
         elements={[
           { type: 'bar', id: 'element_01' },
@@ -234,7 +234,7 @@ describe('ChartGraph', () => {
   it('renders with translations', () => {
     render(
       <ChartWrap
-// @ts-expect-error - TS2322 - Type '{ name: string; element_01: number; element_02: number; }[]' is not assignable to type 'readonly { [key: string]: number; name: string | number; }[]'.
+        // @ts-expect-error - TS2322 - Type '{ name: string; element_01: number; element_02: number; }[]' is not assignable to type 'readonly { [key: string]: number; name: string | number; }[]'.
         data={data2}
         description="Description"
         elements={[
@@ -253,7 +253,7 @@ describe('ChartGraph', () => {
   it('renders with full header: title, description, helpbutton, switches', () => {
     render(
       <ChartWrap
-// @ts-expect-error - TS2322 - Type '{ name: string; element_01: number; element_02: number; }[]' is not assignable to type 'readonly { [key: string]: number; name: string | number; }[]'.
+        // @ts-expect-error - TS2322 - Type '{ name: string; element_01: number; element_02: number; }[]' is not assignable to type 'readonly { [key: string]: number; name: string | number; }[]'.
         data={data2}
         description="Description"
         elements={[
@@ -280,7 +280,7 @@ describe('ChartGraph', () => {
   it('renders with legend', () => {
     render(
       <ChartWrap
-// @ts-expect-error - TS2322 - Type '{ name: string; element_01: number; element_02: number; }[]' is not assignable to type 'readonly { [key: string]: number; name: string | number; }[]'.
+        // @ts-expect-error - TS2322 - Type '{ name: string; element_01: number; element_02: number; }[]' is not assignable to type 'readonly { [key: string]: number; name: string | number; }[]'.
         data={data2}
         elements={[
           { type: 'bar', id: 'element_01' },
@@ -298,7 +298,7 @@ describe('ChartGraph', () => {
   it('renders with no legend', () => {
     render(
       <ChartWrap
-// @ts-expect-error - TS2322 - Type '{ name: string; element_01: number; element_02: number; }[]' is not assignable to type 'readonly { [key: string]: number; name: string | number; }[]'.
+        // @ts-expect-error - TS2322 - Type '{ name: string; element_01: number; element_02: number; }[]' is not assignable to type 'readonly { [key: string]: number; name: string | number; }[]'.
         data={data2}
         elements={[
           { type: 'bar', id: 'element_01' },
@@ -315,11 +315,11 @@ describe('ChartGraph', () => {
   });
 
   it('renders with accessibility button', () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockonVisualPatternChange = jest.fn<[], undefined>();
     render(
       <ChartWrap
-// @ts-expect-error - TS2322 - Type '{ name: string; element_01: number; element_02: number; }[]' is not assignable to type 'readonly { [key: string]: number; name: string | number; }[]'.
+        // @ts-expect-error - TS2322 - Type '{ name: string; element_01: number; element_02: number; }[]' is not assignable to type 'readonly { [key: string]: number; name: string | number; }[]'.
         data={data2}
         elements={[
           { type: 'bar', id: 'element_01' },
@@ -342,12 +342,12 @@ describe('ChartGraph', () => {
   });
 
   it('renders with selectors', () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockonVisualPatternChange = jest.fn<[], undefined>();
 
     render(
       <ChartWrap
-// @ts-expect-error - TS2322 - Type '{ name: string; element_01: number; }[]' is not assignable to type 'readonly { [key: string]: number; name: string | number; }[]'.
+        // @ts-expect-error - TS2322 - Type '{ name: string; element_01: number; }[]' is not assignable to type 'readonly { [key: string]: number; name: string | number; }[]'.
         data={data1}
         elements={[{ type: 'bar', id: 'element_01' }]}
         legend="none"

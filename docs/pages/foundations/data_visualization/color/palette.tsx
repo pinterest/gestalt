@@ -125,7 +125,7 @@ function getColorTiles(
         <ColorTile
           key={`${step.name}`}
           description={`Data Visualization ${step.name}`}
-// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type '`${string}Text`' can't be used to index type '{ darkText: string; lightText: string; token: string; name: string; }'.
+          // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type '`${string}Text`' can't be used to index type '{ darkText: string; lightText: string; token: string; name: string; }'.
           textColor={step[`${mode}Text`]}
           token={step.token}
         />

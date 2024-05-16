@@ -68,17 +68,17 @@ export default function ConfirmationPopover({
     function handleKeyDown(event: React.KeyboardEvent<HTMLDivElement>) {
       if (event.keyCode === ESCAPE) event.stopPropagation();
     }
-// @ts-expect-error - TS2769 - No overload matches this call.
+    // @ts-expect-error - TS2769 - No overload matches this call.
     window.addEventListener('keydown', handleKeyDown);
 
     return function cleanup() {
-// @ts-expect-error - TS2769 - No overload matches this call.
+      // @ts-expect-error - TS2769 - No overload matches this call.
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
 
   return (
-// @ts-expect-error - TS2786 - 'InternalPopover' cannot be used as a JSX component.
+    // @ts-expect-error - TS2786 - 'InternalPopover' cannot be used as a JSX component.
     <InternalPopover
       accessibilityLabel="Popover"
       anchor={anchor}
@@ -113,7 +113,7 @@ export default function ConfirmationPopover({
                 text={secondaryAction?.text ?? secondaryActionTextDefault}
               />
               <Button
-// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+                // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
                 ref={confirmationButtonRef}
                 accessibilityLabel={
                   primaryAction?.accessibilityLabel ?? primaryActionTextLabelDefault

@@ -94,7 +94,7 @@ function SandpackContainer({
               style={{
                 height: codeEditorHeight,
                 width: '100%',
-// @ts-expect-error - TS2322 - Type 'string | null' is not assignable to type 'Flex<string | number> | undefined'.
+                // @ts-expect-error - TS2322 - Type 'string | null' is not assignable to type 'Flex<string | number> | undefined'.
                 flex: ['mobileColumn', 'column'].includes(layout) ? 'none' : null,
               }}
               wrapContent
@@ -243,7 +243,7 @@ export default function SandpackExample({
             }
           : {}),
         '/App.js': {
-// @ts-expect-error - TS2322 - Type 'string | (() => ReactNode) | null | undefined' is not assignable to type 'string'.
+          // @ts-expect-error - TS2322 - Type 'string | (() => ReactNode) | null | undefined' is not assignable to type 'string'.
           code,
         },
         '/index.js': {

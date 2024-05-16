@@ -98,7 +98,7 @@ type Props = {
   errorMessage?: ReactNode;
   hasError?: boolean;
   helperText?: string;
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
   iconButton?: Element<typeof InternalTextFieldIconButton>;
   label?: string;
   labelDisplay?: 'visible' | 'hidden';
@@ -116,7 +116,7 @@ type Props = {
   readOnly?: boolean;
   size?: SizeType;
   step?: number;
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
   tags?: ReadonlyArray<Element<typeof Tag>>;
   type?: 'date' | 'email' | 'number' | 'password' | 'tel' | 'text' | 'url';
   value?: string;
@@ -163,7 +163,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
   // ==== REFS ====
   const innerRef = useRef<null | HTMLInputElement | HTMLDivElement>(null);
   // When using both forwardRef and innerRefs, useimperativehandle() allows to externally set focus via the ref prop: textfieldRef.current.focus()
-// @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
+  // @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
   // ==== STATE ====
@@ -252,7 +252,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
       name={name}
       onBlur={handleBlur}
       onChange={handleChange}
-// @ts-expect-error - TS2322 - Type '(event: React.ChangeEvent<HTMLInputElement>) => void | undefined' is not assignable to type 'MouseEventHandler<HTMLInputElement>'.
+      // @ts-expect-error - TS2322 - Type '(event: React.ChangeEvent<HTMLInputElement>) => void | undefined' is not assignable to type 'MouseEventHandler<HTMLInputElement>'.
       onClick={handleClick}
       onFocus={handleFocus}
       onKeyDown={handleKeyDown}

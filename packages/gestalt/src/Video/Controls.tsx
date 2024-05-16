@@ -111,11 +111,11 @@ function VideoControls({
     setShowFullscreenButton(
       typeof document !== 'undefined' &&
         (!!document.fullscreenEnabled ||
-// @ts-expect-error - TS2339 - Property 'webkitFullscreenEnabled' does not exist on type 'Document'.
+          // @ts-expect-error - TS2339 - Property 'webkitFullscreenEnabled' does not exist on type 'Document'.
           !!document.webkitFullscreenEnabled ||
-// @ts-expect-error - TS2339 - Property 'mozFullScreenEnabled' does not exist on type 'Document'.
+          // @ts-expect-error - TS2339 - Property 'mozFullScreenEnabled' does not exist on type 'Document'.
           !!document.mozFullScreenEnabled ||
-// @ts-expect-error - TS2551 - Property 'msFullscreenEnabled' does not exist on type 'Document'. Did you mean 'fullscreenEnabled'?
+          // @ts-expect-error - TS2551 - Property 'msFullscreenEnabled' does not exist on type 'Document'. Did you mean 'fullscreenEnabled'?
           !!document.msFullscreenEnabled),
     );
   }, []);

@@ -123,7 +123,7 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <ButtonLink ref={inputRef} /> to call inputRef.current.focus()
-// @ts-expect-error - TS2322 - Type 'HTMLAnchorElement | null' is not assignable to type 'HTMLAnchorElement'.
+  // @ts-expect-error - TS2322 - Type 'HTMLAnchorElement | null' is not assignable to type 'HTMLAnchorElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
   const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');

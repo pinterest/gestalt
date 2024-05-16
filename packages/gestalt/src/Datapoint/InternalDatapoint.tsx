@@ -98,7 +98,7 @@ export default function InternalDatapoint({
   return (
     <Flex direction="column" gap={{ column: 1, row: 0 }}>
       <Flex alignItems="center" gap={{ row: 1, column: 0 }} minHeight={24}>
-{ /* @ts-expect-error - TS2786 - 'MaybeMinWidth' cannot be used as a JSX component. */}
+        {/* @ts-expect-error - TS2786 - 'MaybeMinWidth' cannot be used as a JSX component. */}
         <MaybeMinWidth
           maxWidth={maxTitleWidth}
           minWidth={minTitleWidth}

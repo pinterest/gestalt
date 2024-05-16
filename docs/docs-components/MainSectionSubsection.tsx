@@ -24,7 +24,7 @@ function MainSectionSubsection({
   marginBottom = 'default',
 }: Props) {
   const slugifiedId = slugify(title || '');
-// @ts-expect-error - TS2558 - Expected 0 type arguments, but got 1.
+  // @ts-expect-error - TS2558 - Expected 0 type arguments, but got 1.
   const arrayChildren = Children.toArray<ReactNode>(children);
 
   let defaultBottomMargin = title || description ? 8 : 0;
@@ -36,7 +36,7 @@ function MainSectionSubsection({
 
   return (
     <Box marginTop={4}>
-{ /* @ts-expect-error - TS2322 - Type 'number' is not assignable to type '"auto" | SignedUpTo12 | undefined'. */}
+      {/* @ts-expect-error - TS2322 - Type 'number' is not assignable to type '"auto" | SignedUpTo12 | undefined'. */}
       <Box marginBottom={defaultBottomMargin}>
         {title && (
           <Box
@@ -61,7 +61,7 @@ function MainSectionSubsection({
                 <Badge
                   position="middle"
                   text={badge === 'experimental' ? 'Experimental' : 'Alpha'}
-// @ts-expect-error - TS2322 - Type '{ position: "middle"; text: string; tooltip: { text: string; }; }' is not assignable to type 'IntrinsicAttributes & BadgeProps'.
+                  // @ts-expect-error - TS2322 - Type '{ position: "middle"; text: string; tooltip: { text: string; }; }' is not assignable to type 'IntrinsicAttributes & BadgeProps'.
                   tooltip={
                     badge === 'experimental'
                       ? {

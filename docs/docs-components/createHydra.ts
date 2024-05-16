@@ -94,7 +94,7 @@ export default function createHydra<ContextType>(
     return contextValue;
   }
 
-// @ts-expect-error - TS2339 - Property 'displayName' does not exist on type 'Provider<ContextType | undefined>'.
+  // @ts-expect-error - TS2339 - Property 'displayName' does not exist on type 'Provider<ContextType | undefined>'.
   Provider.displayName = `${messageDisplayName}Provider`;
   Consumer.displayName = `${messageDisplayName}Consumer`;
 

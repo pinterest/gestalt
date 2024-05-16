@@ -79,7 +79,7 @@ type Props = {
 };
 
 const GlobalEventsHandlerContext: Context<GlobalEventsHandlerContextType> =
-// @ts-expect-error - TS2554 - Expected 1 arguments, but got 0.
+  // @ts-expect-error - TS2554 - Expected 1 arguments, but got 0.
   createContext<GlobalEventsHandlerContextType>();
 
 const { Provider } = GlobalEventsHandlerContext;
@@ -95,8 +95,8 @@ export default function GlobalEventsHandlerProvider({
   sheetMobileHandlers,
   linkHandlers,
   radioGroupHandlers,
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
-}: Props): Element<typeof Provider> {
+}: // @ts-expect-error - TS2315 - Type 'Element' is not generic.
+Props): Element<typeof Provider> {
   return (
     <Provider
       value={{

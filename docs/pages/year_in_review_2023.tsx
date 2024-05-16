@@ -475,7 +475,7 @@ export default function YearInReview2023() {
                     continue to add to our components, foundations and token libraries in 2023.
                     There was a significant increase in the amount of native mobile components:
                     <Box marginBottom={4} marginTop={4}>
-{ /* @ts-expect-error - TS2322 - Type '{ children: Element[]; size: string; type: "unordered"; }' is not assignable to type 'IntrinsicAttributes & ListProps & { children?: ReactNode; }'. */}
+                      {/* @ts-expect-error - TS2322 - Type '{ children: Element[]; size: string; type: "unordered"; }' is not assignable to type 'IntrinsicAttributes & ListProps & { children?: ReactNode; }'. */}
                       <List size="400" type="unordered">
                         <List.Item text="Fourteen native Android components are readily available in both Figma and code—more soon to follow!" />
                         <List.Item
@@ -569,7 +569,7 @@ export default function YearInReview2023() {
           <Box color="light" marginBottom={12}>
             <Box paddingX={SIDE_GAP}>
               <Flex alignItems="center" direction="column" justifyContent="center">
-{ /* @ts-expect-error - TS2322 - Type '{ children: Element[]; align: string; paddingY: 12; }' is not assignable to type 'IntrinsicAttributes & Omit<BoxProps, "ref"> & RefAttributes<HTMLDivElement>'. */}
+                {/* @ts-expect-error - TS2322 - Type '{ children: Element[]; align: string; paddingY: 12; }' is not assignable to type 'IntrinsicAttributes & Omit<BoxProps, "ref"> & RefAttributes<HTMLDivElement>'. */}
                 <Box align="center" paddingY={12}>
                   <Box
                     column={6}

@@ -171,7 +171,7 @@ function getOneColumnItemPositions<T>({
 } {
   const heights = [...heightsArg];
   const positions = items.reduce<Array<any>>(
-// @ts-expect-error - TS2345 - Argument of type '(positionsSoFar: readonly { item: T; position: Position; }[], item: T) => readonly { item: T; position: Position; }[] | { item: T; position: { top: number; left: number; width: number; height: number | ... 1 more ... | undefined; }; }[]' is not assignable to parameter of type '(previousValue: any[], currentValue: T, currentIndex: number, array: readonly T[]) => any[]'.
+    // @ts-expect-error - TS2345 - Argument of type '(positionsSoFar: readonly { item: T; position: Position; }[], item: T) => readonly { item: T; position: Position; }[] | { item: T; position: { top: number; left: number; width: number; height: number | ... 1 more ... | undefined; }; }[]' is not assignable to parameter of type '(previousValue: any[], currentValue: T, currentIndex: number, array: readonly T[]) => any[]'.
     (
       positionsSoFar: ReadonlyArray<{
         item: T;
@@ -187,7 +187,7 @@ function getOneColumnItemPositions<T>({
       }
 
       if (!isNil(height)) {
-// @ts-expect-error - TS2533 - Object is possibly 'null' or 'undefined'.
+        // @ts-expect-error - TS2533 - Object is possibly 'null' or 'undefined'.
         const heightAndGutter = height + gutter;
         const col = mindex(heights);
         const top = heights[col];
@@ -213,7 +213,7 @@ function getOneColumnItemPositions<T>({
     [],
   );
 
-// @ts-expect-error - TS2322 - Type 'T' is not assignable to type 'readonly { item: T; position: Position; }[]'.
+  // @ts-expect-error - TS2322 - Type 'T' is not assignable to type 'readonly { item: T; position: Position; }[]'.
   return { positions, heights };
 }
 
@@ -254,7 +254,7 @@ function getMultiColItemPosition<T>({
     };
   }
 
-// @ts-expect-error - TS2533 - Object is possibly 'null' or 'undefined'.
+  // @ts-expect-error - TS2533 - Object is possibly 'null' or 'undefined'.
   const heightAndGutter = height + gutter;
 
   // Find height deltas for each column as compared to the next column
@@ -290,7 +290,7 @@ function getMultiColItemPosition<T>({
       top,
       left,
       width: calculateMultiColumnModuleWidth(columnWidth, gutter, columnSpan),
-// @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'number'.
+      // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'number'.
       height,
     },
   };
@@ -324,7 +324,7 @@ function getGraphPositions<T>({
 } {
   // When whitespace threshold is set this variables store the score and node if found
   let bailoutScore;
-// @ts-expect-error - TS7034 - Variable 'bailoutNode' implicitly has type 'any' in some locations where its type cannot be determined.
+  // @ts-expect-error - TS7034 - Variable 'bailoutNode' implicitly has type 'any' in some locations where its type cannot be determined.
   let bailoutNode;
 
   // Initialize the graph
@@ -356,7 +356,7 @@ function getGraphPositions<T>({
     heightsArr: ReadonlyArray<number>;
     itemsSoFar?: ReadonlyArray<T>;
   }) {
-// @ts-expect-error - TS7005 - Variable 'bailoutNode' implicitly has an 'any' type.
+    // @ts-expect-error - TS7005 - Variable 'bailoutNode' implicitly has an 'any' type.
     if (bailoutNode) {
       return;
     }
@@ -483,7 +483,7 @@ function getPositionsWithMultiColumnItem<
   // items already positioned from previous batches
   const emptyColumns = heights.reduce((acc, height) => (height === 0 ? acc + 1 : acc), 0);
 
-// @ts-expect-error - TS2345 - Argument of type 'unknown' is not assignable to parameter of type 'string'.
+  // @ts-expect-error - TS2345 - Argument of type 'unknown' is not assignable to parameter of type 'string'.
   const multiColumnItemColumnSpan = Math.min(parseInt(multiColumnItem.columnSpan, 10), columnCount);
 
   // Skip the graph logic if the two column item can be displayed on the first row,
@@ -604,8 +604,8 @@ const defaultTwoColumnModuleLayout = <
   const columnWidthAndGutter = columnWidth + gutter;
   const columnCount = isNil(width)
     ? minCols
-// @ts-expect-error - TS2533 - Object is possibly 'null' or 'undefined'.
-    : Math.max(Math.floor((width + gutter) / columnWidthAndGutter), minCols);
+    : // @ts-expect-error - TS2533 - Object is possibly 'null' or 'undefined'.
+      Math.max(Math.floor((width + gutter) / columnWidthAndGutter), minCols);
 
   return (items): ReadonlyArray<Position> => {
     if (isNil(width) || !items.every((item) => measurementCache.has(item))) {
@@ -622,13 +622,13 @@ const defaultTwoColumnModuleLayout = <
       align === 'center'
         ? Math.max(
             Math.floor(
-// @ts-expect-error - TS2533 - Object is possibly 'null' or 'undefined'.
+              // @ts-expect-error - TS2533 - Object is possibly 'null' or 'undefined'.
               (width - (Math.min(rawItemCount, columnCount) * columnWidthAndGutter + gutter)) / 2,
             ),
             0,
           )
-// @ts-expect-error - TS2533 - Object is possibly 'null' or 'undefined'.
-        : Math.max(Math.floor((width - columnWidthAndGutter * columnCount + gutter) / 2), 0);
+        : // @ts-expect-error - TS2533 - Object is possibly 'null' or 'undefined'.
+          Math.max(Math.floor((width - columnWidthAndGutter * columnCount + gutter) / 2), 0);
 
     // the total height of each column
     const heights = initializeHeightsArray({

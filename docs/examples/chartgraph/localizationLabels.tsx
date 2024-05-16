@@ -7,7 +7,7 @@ export default function Example() {
 
   return (
     <DefaultLabelProvider
-// @ts-expect-error - TS2740 - Type '{ ChartGraph: { accessibilityLabelPrefixText: string; defaultViewText: string; accessibleViewText: string; tabularData: string; accessibilityLabelDismissModal: string; tableSeriesText: string; tableXAxisText: string; tableYAxisText: string; downloadCsvButtonText: string; cancelButtonText: string; }; }' is missing the following properties from type '{ Accordion: { accessibilityCollapseLabel: string; accessibilityExpandLabel: string; }; ActivationCard: { accessibilityDismissButtonLabel: string; }; BannerOverlay: { accessibilityDismissButtonLabel: string; }; ... 17 more ...; Toast: { ...; }; }': Accordion, ActivationCard, BannerOverlay, BannerCallout, and 16 more.
+      // @ts-expect-error - TS2740 - Type '{ ChartGraph: { accessibilityLabelPrefixText: string; defaultViewText: string; accessibleViewText: string; tabularData: string; accessibilityLabelDismissModal: string; tableSeriesText: string; tableXAxisText: string; tableYAxisText: string; downloadCsvButtonText: string; cancelButtonText: string; }; }' is missing the following properties from type '{ Accordion: { accessibilityCollapseLabel: string; accessibilityExpandLabel: string; }; ActivationCard: { accessibilityDismissButtonLabel: string; }; BannerOverlay: { accessibilityDismissButtonLabel: string; }; ... 17 more ...; Toast: { ...; }; }': Accordion, ActivationCard, BannerOverlay, BannerCallout, and 16 more.
       labels={{
         ChartGraph: {
           accessibilityLabelPrefixText: 'ChartGraph',
@@ -27,13 +27,13 @@ export default function Example() {
         accessibilityLabel="Beispiel für ein Liniendiagramm"
         data={[
           {
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
+            // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
             name: 'Women',
             'Users': 100,
             'Clickthroughs': 200,
           },
           {
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
+            // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
             name: 'Men',
             'Users': 200,
             'Clickthroughs': 300,
@@ -55,7 +55,7 @@ export default function Example() {
         }
         title="Eindrücke"
         type="bar"
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
+        // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
         visualPatternSelected={visualPatternSelected}
       />
     </DefaultLabelProvider>

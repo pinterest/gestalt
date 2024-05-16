@@ -13,7 +13,7 @@ describe('Dropdown.Item', () => {
         };
       },
     ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     undefined
   >();
 

@@ -34,7 +34,7 @@ export default function Example() {
         label: 'Get the app',
         accessibilityLabel: 'Get the app',
       }}
-// @ts-expect-error - TS2322 - Type '{ message: Element; offset: { top: number; bottom: number; }; onDismiss: () => void; primaryAction: { role: "button"; onClick: () => void; label: string; accessibilityLabel: string; }; secondaryAction: { ...; }; thumbnail: { ...; }; title: string; zIndex: FixedZIndex; }' is not assignable to type 'IntrinsicAttributes & BannerOverlayProps'.
+      // @ts-expect-error - TS2322 - Type '{ message: Element; offset: { top: number; bottom: number; }; onDismiss: () => void; primaryAction: { role: "button"; onClick: () => void; label: string; accessibilityLabel: string; }; secondaryAction: { ...; }; thumbnail: { ...; }; title: string; zIndex: FixedZIndex; }' is not assignable to type 'IntrinsicAttributes & BannerOverlayProps'.
       secondaryAction={{
         role: 'button',
         onClick: () => {},

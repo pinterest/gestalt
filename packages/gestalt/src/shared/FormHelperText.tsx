@@ -20,7 +20,7 @@ const applyDensityMargin = (size?: SizeType): 1 | 2 => (size === 'sm' || size ==
 export default function FormHelperText({ id, currentLength, text, maxLength, size }: Props) {
   return (
     // id is required for all helper texts accompanying an individual form element, not for groups of form elements such as RadioGroup.
-// @ts-expect-error - TS2322 - Type '{ children: Element; id: string | undefined; marginTop: 1 | 2; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
+    // @ts-expect-error - TS2322 - Type '{ children: Element; id: string | undefined; marginTop: 1 | 2; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
     <Box id={id} marginTop={applyDensityMargin(size)}>
       <Flex gap={4}>
         <Flex.Item flex="grow">

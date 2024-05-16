@@ -65,7 +65,7 @@ export default function PrimaryActionExample() {
             <Fragment>
               <Tooltip idealDirection="up" text="Board options">
                 <IconButton
-// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+                  // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
                   ref={anchorRef}
                   accessibilityControls="page-header-example"
                   accessibilityExpanded={open}

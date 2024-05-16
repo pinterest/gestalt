@@ -9,7 +9,7 @@ const mockOnChange = jest.fn<
       event: React.ChangeEvent<HTMLInputElement>;
     },
   ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+  // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
   undefined
 >();
 

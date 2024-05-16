@@ -140,7 +140,7 @@ export default function Tag({
   return (
     <Box
       aria-disabled={disabled}
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"selected" | "default" | "shopping" | "inverse" | "light" | "dark" | "darkWash" | "lightWash" | "transparent" | "transparentDarkGray" | "infoBase" | "infoWeak" | "errorBase" | ... 15 more ... | undefined'.
+      // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"selected" | "default" | "shopping" | "inverse" | "light" | "dark" | "darkWash" | "lightWash" | "transparent" | "transparentDarkGray" | "infoBase" | "infoWeak" | "errorBase" | ... 15 more ... | undefined'.
       color={bgColor}
       dangerouslySetInlineStyle={{
         __style:
@@ -149,12 +149,12 @@ export default function Tag({
       display="inlineBlock"
       height={height}
       maxWidth={300}
-// @ts-expect-error - TS2322 - Type 'number' is not assignable to type 'Padding | undefined'.
+      // @ts-expect-error - TS2322 - Type 'number' is not assignable to type 'Padding | undefined'.
       paddingX={paddingX}
-// @ts-expect-error - TS2322 - Type 'number | undefined' is not assignable to type 'Padding | undefined'.
+      // @ts-expect-error - TS2322 - Type 'number | undefined' is not assignable to type 'Padding | undefined'.
       paddingY={paddingY}
       position="relative"
-// @ts-expect-error - TS2322 - Type 'number' is not assignable to type '0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | "circle" | "pill" | undefined'.
+      // @ts-expect-error - TS2322 - Type 'number' is not assignable to type '0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | "circle" | "pill" | undefined'.
       rounding={rounding}
     >
       <Box alignItems="center" display="flex" height="100%" marginEnd={disabled ? 0 : 5}>
@@ -162,23 +162,23 @@ export default function Tag({
           <Box marginEnd={1} marginStart={1}>
             <Icon
               accessibilityLabel={accessibilityLabels[type]}
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'IconColor | undefined'.
+              // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'IconColor | undefined'.
               color={fgColor}
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"replace" | "search" | "link" | "text" | "dash" | "3D" | "3D-move" | "360" | "accessibility" | "ad" | "ad-group" | "add" | "add-circle" | "add-layout" | "add-pin" | "add-section" | ... 318 more ... | undefined'.
+              // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"replace" | "search" | "link" | "text" | "dash" | "3D" | "3D-move" | "360" | "accessibility" | "ad" | "ad-group" | "add" | "add-circle" | "add-layout" | "add-pin" | "add-section" | ... 318 more ... | undefined'.
               icon={iconsByType[type]}
               size={iconSize}
             />
           </Box>
         )}
 
-{ /* @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"link" | "warning" | "error" | "default" | "subtle" | "success" | "shopping" | "inverse" | "light" | "dark" | undefined'. | TS2322 - Type 'string' is not assignable to type 'Size | undefined'. */}
+        {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"link" | "warning" | "error" | "default" | "subtle" | "success" | "shopping" | "inverse" | "light" | "dark" | undefined'. | TS2322 - Type 'string' is not assignable to type 'Size | undefined'. */}
         <Text color={fgColor} inline lineClamp={1} overflow="breakAll" size={fontSize}>
           {text}
         </Text>
 
         <Box>
           {!disabled && (
-// @ts-expect-error - TS2322 - Type '(arg1: { event: MouseEvent<HTMLButtonElement, MouseEvent>; }) => void' is not assignable to type 'MouseEventHandler<HTMLButtonElement>'.
+            // @ts-expect-error - TS2322 - Type '(arg1: { event: MouseEvent<HTMLButtonElement, MouseEvent>; }) => void' is not assignable to type 'MouseEventHandler<HTMLButtonElement>'.
             <button className={removeIconClasses} onClick={onRemove} type="button">
               <Box
                 alignItems="center"
@@ -193,7 +193,7 @@ export default function Tag({
                   accessibilityLabel={
                     accessibilityRemoveIconLabel ?? accessibilityRemoveIconLabelDefault
                   }
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'IconColor | undefined'.
+                  // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'IconColor | undefined'.
                   color={fgColor}
                   icon="cancel"
                   size={removeIconSize}

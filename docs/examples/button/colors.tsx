@@ -16,7 +16,7 @@ export default function Example() {
               rounding={4}
               width={200}
             >
-{ /* @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"gray" | "red" | "white" | "transparent" | "blue" | "semiTransparentWhite" | "transparentWhiteText" | undefined'. */}
+              {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"gray" | "red" | "white" | "transparent" | "blue" | "semiTransparentWhite" | "transparentWhiteText" | undefined'. */}
               <Button color={color} size="lg" text="Save" />
             </Box>
             <Text size="200" weight="bold">

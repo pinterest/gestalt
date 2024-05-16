@@ -93,7 +93,7 @@ export default function Header({
         <Flex justifyContent="center">
           <Box marginBottom={2}>
             <TapArea
-// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLDivElement | HTMLAnchorElement | null>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+              // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLDivElement | HTMLAnchorElement | null>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
               ref={grabberRef}
               accessibilityLabel={accessibilityGrabberLabel}
               fullWidth={false}
@@ -124,7 +124,7 @@ export default function Header({
         {!backIconButton && showDismissButton ? (
           <Flex.Item flex="none">
             <InternalDismissButton
-// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+              // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
               ref={dismissButtonRef}
               accessibilityControls={id}
               accessibilityLabel={accessibilityDismissButtonLabel}

@@ -55,7 +55,7 @@ export default function TrapFocusBehavior({ children }: Props) {
     const focusFirstChild = () => {
       const withinIframe = window !== window.parent;
       if (element && !withinIframe) {
-// @ts-expect-error - TS2345 - Argument of type 'Element' is not assignable to parameter of type 'HTMLElement'.
+        // @ts-expect-error - TS2345 - Argument of type 'Element' is not assignable to parameter of type 'HTMLElement'.
         focusElement(queryFocusableAll(element)[0]);
       }
     };
@@ -76,7 +76,7 @@ export default function TrapFocusBehavior({ children }: Props) {
     };
 
     // If an element has focus currently, keep a reference to that element
-// @ts-expect-error - TS2322 - Type 'Element | null' is not assignable to type 'HTMLElement | null | undefined'.
+    // @ts-expect-error - TS2322 - Type 'Element | null' is not assignable to type 'HTMLElement | null | undefined'.
     previouslyFocusedElRef.current = document.activeElement;
     focusFirstChild();
     document.addEventListener('focus', handleFocus, true);
@@ -92,7 +92,7 @@ export default function TrapFocusBehavior({ children }: Props) {
   }, [elRef, previouslyFocusedElRef]);
 
   return (
-// @ts-expect-error - TS2322 - Type '{ children: ReactNode; ref: (el?: HTMLDivElement | null | undefined) => void; name: string; }' is not assignable to type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
+    // @ts-expect-error - TS2322 - Type '{ children: ReactNode; ref: (el?: HTMLDivElement | null | undefined) => void; name: string; }' is not assignable to type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
     <div ref={setElRef} name="trap-focus">
       {children}
     </div>

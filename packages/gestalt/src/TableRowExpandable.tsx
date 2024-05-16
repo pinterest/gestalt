@@ -70,7 +70,7 @@ export default function TableRowExpandable({
 
   useEffect(() => {
     if (rowRef?.current && stickyColumns) {
-// @ts-expect-error - TS2488 - Type 'HTMLCollection' must have a '[Symbol.iterator]()' method that returns an iterator.
+      // @ts-expect-error - TS2488 - Type 'HTMLCollection' must have a '[Symbol.iterator]()' method that returns an iterator.
       const colWidths = [...rowRef.current.children].map((item) => item.clientWidth);
       setColumnWidths(colWidths);
     }
@@ -92,7 +92,7 @@ export default function TableRowExpandable({
     const previousWidths = columnWidths.slice(0, adjustedIndex);
     const previousTotalWidth =
       previousWidths.length > 0 ? previousWidths.reduce((a, b) => a + b) : 0;
-// @ts-expect-error - TS2769 - No overload matches this call.
+    // @ts-expect-error - TS2769 - No overload matches this call.
     return cloneElement(child, {
       shouldBeSticky,
       previousTotalWidth,
@@ -108,7 +108,7 @@ export default function TableRowExpandable({
 
   return (
     <Fragment>
-{ /* @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLTableRowElement | null | undefined>' is not assignable to type 'LegacyRef<HTMLTableRowElement> | undefined'. */}
+      {/* @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLTableRowElement | null | undefined>' is not assignable to type 'LegacyRef<HTMLTableRowElement> | undefined'. */}
       <tr ref={rowRef} className={rowStyle}>
         <TableCell
           previousTotalWidth={0}

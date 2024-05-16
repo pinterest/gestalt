@@ -131,7 +131,7 @@ function InternalButtonContent({
             accessibilityLabel=""
             color={textColor}
             icon={icon}
-// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly sm: 10; readonly md: 12; readonly lg: 12; }'.
+            // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly sm: 10; readonly md: 12; readonly lg: 12; }'.
             size={SIZE_NAME_TO_PIXEL[size]}
           />
         ) : null}
@@ -174,7 +174,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <Button ref={inputRef} /> to call inputRef.current.focus()
-// @ts-expect-error - TS2322 - Type 'HTMLButtonElement | null' is not assignable to type 'HTMLButtonElement'.
+  // @ts-expect-error - TS2322 - Type 'HTMLButtonElement | null' is not assignable to type 'HTMLButtonElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
   const {
@@ -255,12 +255,12 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
         onMouseUp={handleMouseUp}
         onTouchCancel={handleTouchCancel}
         onTouchEnd={handleTouchEnd}
-// @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
+        // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
         onTouchMove={handleTouchMove}
-// @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
+        // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
         onTouchStart={handleTouchStart}
         style={compressStyle || undefined}
-// @ts-expect-error - TS2322 - Type '0 | -1 | null' is not assignable to type 'number | undefined'.
+        // @ts-expect-error - TS2322 - Type '0 | -1 | null' is not assignable to type 'number | undefined'.
         tabIndex={disabled ? null : tabIndex}
         type="submit"
       >
@@ -286,11 +286,11 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
       onMouseUp={handleMouseUp}
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
-// @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
+      // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
       onTouchMove={handleTouchMove}
-// @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
+      // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
       onTouchStart={handleTouchStart}
-// @ts-expect-error - TS2322 - Type '0 | -1 | null' is not assignable to type 'number | undefined'.
+      // @ts-expect-error - TS2322 - Type '0 | -1 | null' is not assignable to type 'number | undefined'.
       tabIndex={disabled ? null : tabIndex}
       type="button"
     >

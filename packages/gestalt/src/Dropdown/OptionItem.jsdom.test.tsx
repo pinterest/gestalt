@@ -10,7 +10,7 @@ describe('OptionItem', () => {
       label: 'Option item label',
       value: 'Option item value',
     },
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     setHoveredItemIndex: jest.fn<[number], undefined>(),
   } as const;
 

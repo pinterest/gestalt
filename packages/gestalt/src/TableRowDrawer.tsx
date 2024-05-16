@@ -44,7 +44,7 @@ export default function TableRowDrawer({
 
   useEffect(() => {
     if (rowRef?.current && stickyColumns) {
-// @ts-expect-error - TS2488 - Type 'HTMLCollection' must have a '[Symbol.iterator]()' method that returns an iterator.
+      // @ts-expect-error - TS2488 - Type 'HTMLCollection' must have a '[Symbol.iterator]()' method that returns an iterator.
       const colWidths = [...rowRef.current.children].map((item) => item.clientWidth);
       setColumnWidths(colWidths);
     }
@@ -60,7 +60,7 @@ export default function TableRowDrawer({
     const previousWidths = columnWidths.slice(0, adjustedIndex);
     const previousTotalWidth =
       previousWidths.length > 0 ? previousWidths.reduce((a, b) => a + b) : 0;
-// @ts-expect-error - TS2769 - No overload matches this call.
+    // @ts-expect-error - TS2769 - No overload matches this call.
     return cloneElement(child, {
       shouldBeSticky,
       previousTotalWidth,
@@ -76,7 +76,7 @@ export default function TableRowDrawer({
 
   return (
     <Fragment>
-{ /* @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLTableRowElement | null | undefined>' is not assignable to type 'LegacyRef<HTMLTableRowElement> | undefined'. */}
+      {/* @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLTableRowElement | null | undefined>' is not assignable to type 'LegacyRef<HTMLTableRowElement> | undefined'. */}
       <tr ref={rowRef} aria-details={drawerContents ? id : undefined} className={rowStyle}>
         {/* This needs to be fixed for children wrapped in React.Fragment when sticky columns are present */}
         {Number(stickyColumns) > 0 ? Children.map(children, renderCellWithAdjustedIndex) : children}

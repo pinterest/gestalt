@@ -21,7 +21,7 @@ export default function Page({
   hideEditLink = false,
   pageSourceUrl,
 }: Props) {
-// @ts-expect-error - TS2558 - Expected 0 type arguments, but got 1.
+  // @ts-expect-error - TS2558 - Expected 0 type arguments, but got 1.
   const sections = Children.toArray<ReactNode>(children);
 
   const editPageUrl =

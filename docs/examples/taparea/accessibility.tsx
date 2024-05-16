@@ -16,7 +16,7 @@ export default function MenuButtonExample() {
           onTap={() => setSelected(!selected)}
         >
           <Box
-// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+            // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
             ref={anchorRef}
             alignItems="center"
             borderStyle="sm"

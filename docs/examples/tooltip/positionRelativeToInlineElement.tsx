@@ -12,7 +12,7 @@ export default function SectionsIconButtonDropdownExample() {
           Sugar-Free Strawberry-Chocolate Greek Yogurt Bark Three-Step Recipe.
           <Tooltip accessibilityLabel="" idealDirection="right" inline text="More board options">
             <IconButton
-// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+              // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
               ref={anchorRef}
               accessibilityControls="sections-dropdown-example"
               accessibilityExpanded={open}

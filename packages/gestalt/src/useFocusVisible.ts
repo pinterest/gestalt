@@ -70,7 +70,7 @@ function handleWindowBlur() {
 }
 
 function isFocusVisible(): boolean {
-// @ts-expect-error - TS7005 - Variable 'currentModality' implicitly has an 'any' type.
+  // @ts-expect-error - TS7005 - Variable 'currentModality' implicitly has an 'any' type.
   return currentModality !== 'pointer';
 }
 

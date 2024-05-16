@@ -69,7 +69,7 @@ describe('IconButton', () => {
           event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>;
         },
       ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     render(<IconButton accessibilityLabel="test" icon="add" onClick={mockOnClick} />);
@@ -79,7 +79,7 @@ describe('IconButton', () => {
 
   it('renders a button with sequential keyboard navigation and forwards a ref to the innermost <button> element', () => {
     const ref = createRef<HTMLButtonElement | HTMLAnchorElement>();
-// @ts-expect-error - TS2322 - Type 'RefObject<HTMLAnchorElement | HTMLButtonElement>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+    // @ts-expect-error - TS2322 - Type 'RefObject<HTMLAnchorElement | HTMLButtonElement>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
     render(<IconButton ref={ref} accessibilityLabel="test" />);
     expect(ref.current instanceof HTMLButtonElement).toEqual(true);
     expect(ref.current instanceof HTMLButtonElement && ref.current?.tabIndex).toEqual(0);
@@ -87,7 +87,7 @@ describe('IconButton', () => {
 
   it('renders a disabled button', () => {
     const ref = createRef<HTMLButtonElement | HTMLAnchorElement>();
-// @ts-expect-error - TS2322 - Type 'RefObject<HTMLAnchorElement | HTMLButtonElement>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+    // @ts-expect-error - TS2322 - Type 'RefObject<HTMLAnchorElement | HTMLButtonElement>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
     render(<IconButton ref={ref} accessibilityLabel="test" disabled icon="add" />);
     expect(ref.current instanceof HTMLButtonElement).toEqual(true);
     expect(ref.current instanceof HTMLButtonElement && ref.current?.disabled).toEqual(true);
@@ -95,7 +95,7 @@ describe('IconButton', () => {
 
   it('renders an IconButton removed from sequential keyboard navigation via tabIndex', () => {
     const ref = createRef<HTMLButtonElement | HTMLAnchorElement>();
-// @ts-expect-error - TS2322 - Type 'RefObject<HTMLAnchorElement | HTMLButtonElement>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+    // @ts-expect-error - TS2322 - Type 'RefObject<HTMLAnchorElement | HTMLButtonElement>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
     render(<IconButton ref={ref} accessibilityLabel="test" icon="add" tabIndex={-1} />);
     expect(ref.current instanceof HTMLButtonElement).toEqual(true);
     expect(ref.current instanceof HTMLButtonElement && ref.current?.tabIndex).toEqual(-1);

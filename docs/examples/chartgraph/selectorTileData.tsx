@@ -55,14 +55,14 @@ export default function Example() {
       '12': '12',
     } as const;
 
-// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly '01': "01"; readonly '02': "02"; readonly '03': "03"; readonly '04': "04"; readonly '05': "05"; readonly '06': "06"; readonly '07': "07"; readonly '08': "08"; readonly '09': "09"; readonly '10': "10"; readonly '11': "11"; readonly '12': "12"; }'.
+    // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly '01': "01"; readonly '02': "02"; readonly '03': "03"; readonly '04': "04"; readonly '05': "05"; readonly '06': "06"; readonly '07': "07"; readonly '08': "08"; readonly '09': "09"; readonly '10': "10"; readonly '11': "11"; readonly '12': "12"; }'.
     return colorMap[value];
   };
 
   return (
     <ChartGraph
       accessibilityLabel="Example of Bar chart"
-// @ts-expect-error - TS2322 - Type '{ name: string; Impressions: number; }[] | { name: string; Engagement: number; }[]' is not assignable to type 'readonly { [k: string]: number | undefined; [k: number]: number | undefined; }[]'.
+      // @ts-expect-error - TS2322 - Type '{ name: string; Impressions: number; }[] | { name: string; Engagement: number; }[]' is not assignable to type 'readonly { [k: string]: number | undefined; [k: number]: number | undefined; }[]'.
       data={selectedId === '01' ? dataA : dataB}
       description="Description"
       elements={[

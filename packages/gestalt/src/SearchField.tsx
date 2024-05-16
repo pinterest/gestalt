@@ -104,7 +104,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
 
   // Ref to the input
   const inputRef = useRef<null | HTMLInputElement>(null);
-// @ts-expect-error - TS2322 - Type 'HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
+  // @ts-expect-error - TS2322 - Type 'HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
   useImperativeHandle(ref, () => inputRef.current);
 
   const handleChange = (event: React.SyntheticEvent<HTMLInputElement>) => {
@@ -161,7 +161,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
       <Box
         alignItems="center"
         display="flex"
-// @ts-expect-error - TS2322 - Type '{ children: (false | "" | Element | undefined)[]; alignItems: "center"; display: "flex"; onBlur: (event: KeyboardEvent<HTMLInputElement>) => void; onFocus: (event: SyntheticEvent<...>) => void; onMouseEnter: () => void; onMouseLeave: () => void; position: "relative"; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
+        // @ts-expect-error - TS2322 - Type '{ children: (false | "" | Element | undefined)[]; alignItems: "center"; display: "flex"; onBlur: (event: KeyboardEvent<HTMLInputElement>) => void; onFocus: (event: SyntheticEvent<...>) => void; onMouseEnter: () => void; onMouseLeave: () => void; position: "relative"; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
         onBlur={handleBlur}
         onFocus={handleFocus}
         onMouseEnter={handleMouseEnter}
@@ -186,7 +186,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
             <Icon accessibilityLabel="" icon="search" />
           </Box>
         )}
-{ /* @ts-expect-error - TS2322 - Type '{ ref: MutableRefObject<HTMLInputElement | null>; "aria-describedby": string | null; "aria-invalid": "true" | "false"; "aria-label": string; autoComplete: "name" | ... 3 more ... | undefined; ... 7 more ...; value: string | undefined; }' is not assignable to type 'DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>'. */}
+        {/* @ts-expect-error - TS2322 - Type '{ ref: MutableRefObject<HTMLInputElement | null>; "aria-describedby": string | null; "aria-invalid": "true" | "false"; "aria-label": string; autoComplete: "name" | ... 3 more ... | undefined; ... 7 more ...; value: string | undefined; }' is not assignable to type 'DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>'. */}
         <input
           ref={inputRef}
           aria-describedby={errorMessage ? `${id}-error` : null}

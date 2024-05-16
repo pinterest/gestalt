@@ -11,9 +11,9 @@ export default function ExampleGridItem({ data = {}, itemIdx, expanded }: Props)
   const [counter, setCounter] = useState<number>(0);
 
   useEffect(() => {
-// @ts-expect-error - TS2339 - Property 'ITEM_MOUNT_COUNT' does not exist on type 'Window & typeof globalThis'.
+    // @ts-expect-error - TS2339 - Property 'ITEM_MOUNT_COUNT' does not exist on type 'Window & typeof globalThis'.
     const mountCount = window.ITEM_MOUNT_COUNT || 0;
-// @ts-expect-error - TS2339 - Property 'ITEM_MOUNT_COUNT' does not exist on type 'Window & typeof globalThis'.
+    // @ts-expect-error - TS2339 - Property 'ITEM_MOUNT_COUNT' does not exist on type 'Window & typeof globalThis'.
     window.ITEM_MOUNT_COUNT = mountCount + 1;
   }, []);
 

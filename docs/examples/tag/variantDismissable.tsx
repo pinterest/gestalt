@@ -3,10 +3,10 @@ import { Box, Button, Flex, Tag } from 'gestalt';
 
 export default function Example() {
   // eslint-disable-next-line no-use-before-define
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
   const [tags, setTags] = useState<ReadonlyArray<Element<typeof Tag>>>([generateTag()]);
 
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
   function generateTag(): Element<typeof Tag> {
     return (
       <Tag

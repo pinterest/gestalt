@@ -119,16 +119,16 @@ const TabWithForwardRef = forwardRef<HTMLElement, TabProps>(function Tab(
   let color = COLORS[bgColor].base;
   if (!isActive) {
     if (pressed) {
-// @ts-expect-error - TS2322 - Type '"var(--color-background-tabs-default-active)" | "var(--color-background-tabs-transparent-active)"' is not assignable to type '"var(--color-background-tabs-default-base)" | "var(--color-background-tabs-transparent-base)"'.
+      // @ts-expect-error - TS2322 - Type '"var(--color-background-tabs-default-active)" | "var(--color-background-tabs-transparent-active)"' is not assignable to type '"var(--color-background-tabs-default-base)" | "var(--color-background-tabs-transparent-base)"'.
       color = COLORS[bgColor].active;
     } else if (hovered || focused) {
-// @ts-expect-error - TS2322 - Type '"var(--color-background-tabs-default-hover)" | "var(--color-background-tabs-transparent-hover)"' is not assignable to type '"var(--color-background-tabs-default-base)" | "var(--color-background-tabs-transparent-base)"'.
+      // @ts-expect-error - TS2322 - Type '"var(--color-background-tabs-default-hover)" | "var(--color-background-tabs-transparent-hover)"' is not assignable to type '"var(--color-background-tabs-default-base)" | "var(--color-background-tabs-transparent-base)"'.
       color = COLORS[bgColor].hover;
     }
   }
 
   return (
-// @ts-expect-error - TS2322 - Type '{ children: Element; ref: ForwardedRef<HTMLElement>; id: string | undefined; paddingY: 3; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
+    // @ts-expect-error - TS2322 - Type '{ children: Element; ref: ForwardedRef<HTMLElement>; id: string | undefined; paddingY: 3; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
     <Box ref={ref} id={id} paddingY={3}>
       <TapAreaLink
         accessibilityCurrent={isActive ? 'page' : undefined}
@@ -234,7 +234,7 @@ export default function Tabs({ activeTabIndex, bgColor = 'default', onChange, ta
       {tabs.map(({ href, id, indicator, ref, text }, index) => (
         <TabWithForwardRef
           key={id || `${href}_${index}`}
-// @ts-expect-error - TS2322 - Type '{ current: HTMLElement | null | undefined; } | undefined' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
+          // @ts-expect-error - TS2322 - Type '{ current: HTMLElement | null | undefined; } | undefined' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
           ref={ref}
           bgColor={bgColor}
           href={href}

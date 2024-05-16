@@ -121,7 +121,7 @@ type Props = {
    * Main content of BannerSlim. Content should be [localized](https://gestalt.pinterest.systems/web/bannerslim#Localization). See the [Message variant](https://gestalt.pinterest.systems/web/bannerslim#Message) to learn more.
    *
    */
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
   message: string | Element<typeof Text>;
   /**
    * Main action for users to take on BannerSlim. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
@@ -166,7 +166,7 @@ export default function BannerSlim({
 }: Props) {
   const isBare = type.endsWith('Bare');
   const isDefault = type === 'neutral';
-// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Readonly<{ neutral: { backgroundColor: string; }; success: { icon: string; iconColor: string; color: string; backgroundColor: string; }; info: { icon: string; iconColor: string; color: string; backgroundColor: string; }; warning: { ...; }; error: { ...; }; recommendation: { ...; }; }>'.
+  // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Readonly<{ neutral: { backgroundColor: string; }; success: { icon: string; iconColor: string; color: string; backgroundColor: string; }; info: { icon: string; iconColor: string; color: string; backgroundColor: string; }; warning: { ...; }; error: { ...; }; recommendation: { ...; }; }>'.
   const { backgroundColor, iconColor, icon } = MESSAGING_TYPE_ATTRIBUTES[type.replace('Bare', '')];
   const {
     iconAccessibilityLabelError,
@@ -248,7 +248,7 @@ export default function BannerSlim({
               </Text>
             ) : null}
             {typeof message !== 'string' &&
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+            // @ts-expect-error - TS2315 - Type 'Element' is not generic.
             Children.only<Element<typeof Text>>(message).type.displayName === 'Text'
               ? message
               : null}

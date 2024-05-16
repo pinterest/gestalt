@@ -20,7 +20,7 @@ type Props = {
     text: string;
     zIndex?: Indexable;
   };
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
   dropdownItems?: ReadonlyArray<Element<typeof Dropdown.Item>>;
 };
 
@@ -79,7 +79,7 @@ function ItemIconButton({
     : new FixedZIndex(1);
   const dropdownZIndex = new CompositeZIndex([tooltipZIndex]);
   return (
-// @ts-expect-error - TS2786 - 'MaybeTooltip' cannot be used as a JSX component.
+    // @ts-expect-error - TS2786 - 'MaybeTooltip' cannot be used as a JSX component.
     <MaybeTooltip
       disabled={open}
       tooltip={{
@@ -90,7 +90,7 @@ function ItemIconButton({
     >
       {/* Interactive elements require an a11yLabel on them or their children. That's why we set`accessibilityLabel` on `TapArea` instead of `Tooltip` */}
       <TapArea
-// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLDivElement | HTMLAnchorElement | null>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+        // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLDivElement | HTMLAnchorElement | null>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
         ref={innerRef}
         accessibilityControls={id}
         accessibilityExpanded={open}
@@ -138,10 +138,10 @@ function ItemIconButton({
         <Pog
           accessibilityLabel=""
           active={(hovered || focused) && !isItemActive}
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"gray" | "red" | "white" | "transparent" | "transparentDarkGray" | "lightGray" | undefined'.
+          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"gray" | "red" | "white" | "transparent" | "transparentDarkGray" | "lightGray" | undefined'.
           bgColor={bgColor}
           icon={icon}
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"darkGray" | "gray" | "red" | "white" | "brandPrimary" | undefined'.
+          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"darkGray" | "gray" | "red" | "white" | "brandPrimary" | undefined'.
           iconColor={iconColor}
           selected={selected === true && !isItemActive}
           size="xs"

@@ -4,7 +4,7 @@ import { Accordion, Box, DefaultLabelProvider, Text } from 'gestalt';
 export default function Example() {
   return (
     <DefaultLabelProvider
-// @ts-expect-error - TS2740 - Type '{ Accordion: { accessibilityCollapseLabel: string; accessibilityExpandLabel: string; }; }' is missing the following properties from type '{ Accordion: { accessibilityCollapseLabel: string; accessibilityExpandLabel: string; }; ActivationCard: { accessibilityDismissButtonLabel: string; }; BannerOverlay: { accessibilityDismissButtonLabel: string; }; ... 17 more ...; Toast: { ...; }; }': ActivationCard, BannerOverlay, BannerCallout, ChartGraph, and 16 more.
+      // @ts-expect-error - TS2740 - Type '{ Accordion: { accessibilityCollapseLabel: string; accessibilityExpandLabel: string; }; }' is missing the following properties from type '{ Accordion: { accessibilityCollapseLabel: string; accessibilityExpandLabel: string; }; ActivationCard: { accessibilityDismissButtonLabel: string; }; BannerOverlay: { accessibilityDismissButtonLabel: string; }; ... 17 more ...; Toast: { ...; }; }': ActivationCard, BannerOverlay, BannerCallout, ChartGraph, and 16 more.
       labels={{
         Accordion: {
           accessibilityCollapseLabel: 'Abschnitt kollabieren.',
@@ -21,7 +21,7 @@ export default function Example() {
         width="100%"
       >
         <Box column={12} maxWidth={800} padding={2}>
-{ /* @ts-expect-error - TS2739 - Type '{ id: string; items: { children: Element; summary: string[]; title: string; }[]; }' is missing the following properties from type 'AccordionExpandableProps': accessibilityCollapseLabel, accessibilityExpandLabel */}
+          {/* @ts-expect-error - TS2739 - Type '{ id: string; items: { children: Element; summary: string[]; title: string; }[]; }' is missing the following properties from type 'AccordionExpandableProps': accessibilityCollapseLabel, accessibilityExpandLabel */}
           <Accordion.Expandable
             id="Accordion"
             items={[

@@ -16,7 +16,7 @@ export default function Example() {
             setCurrentValue(value);
           }}
           placeholder="Please enter the number of widgets"
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"sm" | "md" | "lg" | undefined'.
+          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"sm" | "md" | "lg" | undefined'.
           size={size}
           value={currentValue}
         />

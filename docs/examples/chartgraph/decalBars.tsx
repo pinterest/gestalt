@@ -19,7 +19,7 @@ export default function Example() {
   return (
     <ChartGraph
       accessibilityLabel="Example of chart with decal pattern in bars"
-// @ts-expect-error - TS2322 - Type '{ name: string; Color_01: number; Color_02: number; Color_03: number; Color_04: number; Color_05: number; Color_06: number; }[]' is not assignable to type 'readonly { [k: string]: number | undefined; [k: number]: number | undefined; }[]'.
+      // @ts-expect-error - TS2322 - Type '{ name: string; Color_01: number; Color_02: number; Color_03: number; Color_04: number; Color_05: number; Color_06: number; }[]' is not assignable to type 'readonly { [k: string]: number | undefined; [k: number]: number | undefined; }[]'.
       data={data}
       elements={[
         { type: 'bar', id: 'Color_01' },
@@ -36,7 +36,7 @@ export default function Example() {
       title="ChartGraph"
       titleDisplay="hidden"
       type="bar"
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
+      // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
       visualPatternSelected={visualPatternSelected}
     />
   );

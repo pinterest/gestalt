@@ -32,7 +32,7 @@ export default class ScrollFetch extends PureComponent<Props, State> {
   static defaultProps: {
     container?: HTMLElement;
   } = {
-// @ts-expect-error - TS2322 - Type '(Window & typeof globalThis) | undefined' is not assignable to type 'HTMLElement | undefined'.
+    // @ts-expect-error - TS2322 - Type '(Window & typeof globalThis) | undefined' is not assignable to type 'HTMLElement | undefined'.
     container: typeof window !== 'undefined' ? window : undefined,
   };
 
@@ -51,7 +51,7 @@ export default class ScrollFetch extends PureComponent<Props, State> {
       return;
     }
     setTimeout(() => {
-// @ts-expect-error - TS2345 - Argument of type '{ scrollHeight?: number | undefined; scrollTop?: number | undefined; containerHeight: number; }' is not assignable to parameter of type 'State | ((prevState: Readonly<State>, props: Readonly<Props>) => State | Pick<State, "scrollHeight" | "scrollTop" | "containerHeight"> | null) | Pick<...> | null'.
+      // @ts-expect-error - TS2345 - Argument of type '{ scrollHeight?: number | undefined; scrollTop?: number | undefined; containerHeight: number; }' is not assignable to parameter of type 'State | ((prevState: Readonly<State>, props: Readonly<Props>) => State | Pick<State, "scrollHeight" | "scrollTop" | "containerHeight"> | null) | Pick<...> | null'.
       this.setState({
         containerHeight: getElementHeight(container),
         ...this.getScrollState(),

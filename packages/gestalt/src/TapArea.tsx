@@ -184,7 +184,7 @@ const TapAreaWithForwardRef = forwardRef<HTMLDivElement, Props>(function TapArea
   const innerRef = useRef<null | HTMLDivElement>(null);
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <TapArea ref={inputRef} /> to call inputRef.current.focus()
-// @ts-expect-error - TS2322 - Type 'HTMLDivElement | null' is not assignable to type 'HTMLDivElement'.
+  // @ts-expect-error - TS2322 - Type 'HTMLDivElement | null' is not assignable to type 'HTMLDivElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
   const { isFocusVisible } = useFocusVisible();
@@ -279,7 +279,7 @@ const TapAreaWithForwardRef = forwardRef<HTMLDivElement, Props>(function TapArea
       onTouchStart={handleTouchStart}
       role={role ?? 'button'}
       {...(tapStyle === 'compress' && compressStyle && !disabled ? { style: compressStyle } : {})}
-// @ts-expect-error - TS2322 - Type '0 | -1 | null' is not assignable to type 'number | undefined'.
+      // @ts-expect-error - TS2322 - Type '0 | -1 | null' is not assignable to type 'number | undefined'.
       tabIndex={disabled ? null : tabIndex}
     >
       {children}

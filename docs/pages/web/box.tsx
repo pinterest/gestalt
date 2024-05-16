@@ -79,7 +79,7 @@ function ColorSchemeLayout({ children }: ColorCardProps) {
       }}
     >
       {['light', 'dark'].map((scheme) => (
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"light" | "dark" | "userPreference"'.
+        // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"light" | "dark" | "userPreference"'.
         <ColorSchemeProvider key={scheme} colorScheme={scheme} id={scheme}>
           <Box alignItems="center" color="default" direction="column" display="flex" padding={4}>
             {children}
@@ -267,7 +267,7 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
           title="Borders"
         >
           <CombinationNew
-// @ts-expect-error - TS2322 - Type '{ children: ({ borderStyle }: { [key: string]: any; }) => Element; borderStyle: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'.
+            // @ts-expect-error - TS2322 - Type '{ children: ({ borderStyle }: { [key: string]: any; }) => Element; borderStyle: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'.
             borderStyle={['sm', 'lg', 'shadow', 'raisedTopShadow', 'raisedBottomShadow']}
           >
             {({ borderStyle }) => (
@@ -290,7 +290,7 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
           title="Colors"
         >
           <CombinationNew
-// @ts-expect-error - TS2322 - Type '{ children: ({ color }: { [key: string]: any; }) => Element; color: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'.
+            // @ts-expect-error - TS2322 - Type '{ children: ({ color }: { [key: string]: any; }) => Element; color: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'.
             color={[
               'default',
               'infoBase',
@@ -332,7 +332,7 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
             }}
           >
             <Text size="400">Color</Text>
-{ /* @ts-expect-error - TS2322 - Type '{ children: ({ color }: { [key: string]: any; }) => Element; color: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
+            {/* @ts-expect-error - TS2322 - Type '{ children: ({ color }: { [key: string]: any; }) => Element; color: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
             <CombinationNew color={['elevationAccent', 'elevationFloating', 'elevationRaised']}>
               {({ color }) => (
                 <ColorSchemeLayout>
@@ -341,7 +341,7 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
               )}
             </CombinationNew>
             <Text size="400">Borders and Shadows</Text>
-{ /* @ts-expect-error - TS2322 - Type '{ children: ({ borderStyle }: { [key: string]: any; }) => Element; borderStyle: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
+            {/* @ts-expect-error - TS2322 - Type '{ children: ({ borderStyle }: { [key: string]: any; }) => Element; borderStyle: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
             <CombinationNew borderStyle={['shadow', 'raisedTopShadow', 'raisedBottomShadow']}>
               {({ borderStyle }) => (
                 <ColorSchemeLayout>
@@ -362,7 +362,7 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
           description={`The \`rounding\` property sets a border radius for the Box. Options are \`circle\` or \`pill\` for fully rounded corners or 0-8 representing the radius in 4px increments.`}
           title="Rounding"
         >
-{ /* @ts-expect-error - TS2322 - Type '{ children: ({ rounding }: { [key: string]: any; }) => Element; rounding: (string | number)[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
+          {/* @ts-expect-error - TS2322 - Type '{ children: ({ rounding }: { [key: string]: any; }) => Element; rounding: (string | number)[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
           <CombinationNew rounding={['pill', 'circle', 0, 1, 2, 3, 4, 5, 6, 7, 8]}>
             {({ rounding }) => (
               <Box
@@ -391,7 +391,7 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
           />
           <CombinationNew
             hasCheckerboard
-// @ts-expect-error - TS2322 - Type '{ children: ({ opacity }: { [key: string]: any; }) => Element; hasCheckerboard: true; opacity: number[]; }' is not assignable to type 'IntrinsicAttributes & Props'.
+            // @ts-expect-error - TS2322 - Type '{ children: ({ opacity }: { [key: string]: any; }) => Element; hasCheckerboard: true; opacity: number[]; }' is not assignable to type 'IntrinsicAttributes & Props'.
             opacity={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}
           >
             {({ opacity }) => <Box color="selected" height={60} opacity={opacity} width={60} />}
@@ -404,7 +404,7 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
   `}
           title="Column layout"
         >
-{ /* @ts-expect-error - TS2322 - Type '{ children: ({ column }: { [key: string]: any; }) => Element; column: number[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
+          {/* @ts-expect-error - TS2322 - Type '{ children: ({ column }: { [key: string]: any; }) => Element; column: number[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
           <CombinationNew column={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}>
             {({ column }) => <Box color="infoBase" column={column} height={100} />}
           </CombinationNew>

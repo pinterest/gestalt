@@ -30,9 +30,9 @@ export function ToastMessage({
   textColor,
   type,
 }: {
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
   text: string | null | undefined | Element<'span'>;
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
   textElement: string | null | undefined | Element<'span'>;
   textColor: ComponentProps<typeof Text>['color'];
   helperLink?: {
@@ -141,7 +141,7 @@ export function ToastIconThumbnail({
   thumbnail,
   overrideColor,
 }: {
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
   thumbnail: Element<typeof Icon>;
   overrideColor?: IconColor;
 }) {

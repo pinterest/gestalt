@@ -92,14 +92,14 @@ export default function usePopover({
   const popoverArrow = caretElement && arrow({ element: caretElement, padding: caretPadding });
   // Flips popover direction based on available space
   const popoverFlip = flip({
-// @ts-expect-error - TS2322 - Type 'HTMLElement | null | undefined' is not assignable to type 'Boundary | undefined'.
+    // @ts-expect-error - TS2322 - Type 'HTMLElement | null | undefined' is not assignable to type 'Boundary | undefined'.
     boundary: scrollBoundary,
     fallbackAxisSideDirection: 'start',
   });
   // Shifts popover to prevent clipping near viewport edges
   const popoverShift = shift({
     padding: 8,
-// @ts-expect-error - TS2322 - Type 'HTMLElement | null | undefined' is not assignable to type 'Boundary | undefined'.
+    // @ts-expect-error - TS2322 - Type 'HTMLElement | null | undefined' is not assignable to type 'Boundary | undefined'.
     boundary: scrollBoundary,
     limiter: limitShift({
       offset: 5,

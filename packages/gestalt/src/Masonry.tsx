@@ -468,9 +468,9 @@ export default class Masonry<
           ...(isRtl ? { right: 0 } : { left: 0 }),
           transform: `translateX(${isRtl ? left * -1 : left}px) translateY(${top}px)`,
           WebkitTransform: `translateX(${isRtl ? left * -1 : left}px) translateY(${top}px)`,
-// @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Width<string | number> | undefined'.
+          // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Width<string | number> | undefined'.
           width: layoutNumberToCssDimension(width),
-// @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Height<string | number> | undefined'.
+          // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Height<string | number> | undefined'.
           height: layoutNumberToCssDimension(height),
         }}
       >
@@ -573,7 +573,7 @@ export default class Masonry<
                 left: 0,
                 transform: 'translateX(0px) translateY(0px)',
                 WebkitTransform: 'translateX(0px) translateY(0px)',
-// @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Width<string | number> | undefined'.
+                // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Width<string | number> | undefined'.
                 width:
                   layout === 'flexible' || layout === 'serverRenderedFlexible'
                     ? undefined // we can't set a width for server rendered flexible items
@@ -650,13 +650,13 @@ export default class Masonry<
                   style={{
                     visibility: 'hidden',
                     position: 'absolute',
-// @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Top<string | number> | undefined'.
+                    // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Top<string | number> | undefined'.
                     top: layoutNumberToCssDimension(position.top),
-// @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Left<string | number> | undefined'.
+                    // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Left<string | number> | undefined'.
                     left: layoutNumberToCssDimension(position.left),
-// @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Width<string | number> | undefined'.
+                    // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Width<string | number> | undefined'.
                     width: layoutNumberToCssDimension(position.width),
-// @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Height<string | number> | undefined'.
+                    // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Height<string | number> | undefined'.
                     height: layoutNumberToCssDimension(position.height),
                   }}
                 >

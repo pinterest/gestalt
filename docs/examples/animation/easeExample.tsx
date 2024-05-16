@@ -92,7 +92,7 @@ export default function Example() {
           <Text size="400" weight="bold">
             Linear
           </Text>
-{ /* @ts-expect-error - TS2322 - Type 'string | null' is not assignable to type 'string | undefined'. */}
+          {/* @ts-expect-error - TS2322 - Type 'string | null' is not assignable to type 'string | undefined'. */}
           <div className={motionEnabled ? 'logoFirst' : null}>
             <GestaltLogo />
           </div>
@@ -102,9 +102,9 @@ export default function Example() {
           <Text size="400" weight="bold">
             Ease
           </Text>
-{ /* @ts-expect-error - TS2322 - Type 'string | null' is not assignable to type 'string | undefined'. */}
+          {/* @ts-expect-error - TS2322 - Type 'string | null' is not assignable to type 'string | undefined'. */}
           <div className={motionEnabled ? 'logoSecond' : null}>
-{ /* @ts-expect-error - TS2322 - Type '{ height: number; width: number; }' is not assignable to type 'IntrinsicAttributes'. */}
+            {/* @ts-expect-error - TS2322 - Type '{ height: number; width: number; }' is not assignable to type 'IntrinsicAttributes'. */}
             <GestaltLogo height={100} width={100} />
           </div>
           <Divider />
@@ -113,9 +113,9 @@ export default function Example() {
           <Text size="400" weight="bold">
             Ease-in
           </Text>
-{ /* @ts-expect-error - TS2322 - Type 'string | null' is not assignable to type 'string | undefined'. */}
+          {/* @ts-expect-error - TS2322 - Type 'string | null' is not assignable to type 'string | undefined'. */}
           <div className={motionEnabled ? 'logoThird' : null}>
-{ /* @ts-expect-error - TS2322 - Type '{ height: number; width: number; }' is not assignable to type 'IntrinsicAttributes'. */}
+            {/* @ts-expect-error - TS2322 - Type '{ height: number; width: number; }' is not assignable to type 'IntrinsicAttributes'. */}
             <GestaltLogo height={100} width={100} />
           </div>
           <Divider />
@@ -124,9 +124,9 @@ export default function Example() {
           <Text size="400" weight="bold">
             Ease-out
           </Text>
-{ /* @ts-expect-error - TS2322 - Type 'string | null' is not assignable to type 'string | undefined'. */}
+          {/* @ts-expect-error - TS2322 - Type 'string | null' is not assignable to type 'string | undefined'. */}
           <div className={motionEnabled ? 'logoFourth' : null}>
-{ /* @ts-expect-error - TS2322 - Type '{ height: number; width: number; }' is not assignable to type 'IntrinsicAttributes'. */}
+            {/* @ts-expect-error - TS2322 - Type '{ height: number; width: number; }' is not assignable to type 'IntrinsicAttributes'. */}
             <GestaltLogo height={100} width={100} />
           </div>
           <Divider />
@@ -136,9 +136,9 @@ export default function Example() {
             Bounce
           </Text>
           <Text italic>cubic-bezier(0.5, 0.5, 0.4, 1.2)</Text>
-{ /* @ts-expect-error - TS2322 - Type 'string | null' is not assignable to type 'string | undefined'. */}
+          {/* @ts-expect-error - TS2322 - Type 'string | null' is not assignable to type 'string | undefined'. */}
           <div className={motionEnabled ? 'logoFifth' : null}>
-{ /* @ts-expect-error - TS2322 - Type '{ height: number; width: number; }' is not assignable to type 'IntrinsicAttributes'. */}
+            {/* @ts-expect-error - TS2322 - Type '{ height: number; width: number; }' is not assignable to type 'IntrinsicAttributes'. */}
             <GestaltLogo height={100} width={100} />
           </div>
           <Divider />

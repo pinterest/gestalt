@@ -8,13 +8,13 @@ export default function Example() {
     <Box width="100%">
       <Table accessibilityLabel="Table.RowDrawer example">
         <colgroup>
-{ /* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'. */}
+          {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'. */}
           <col span="1" style={{ width: '60%' }} />
-{ /* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'. */}
+          {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'. */}
           <col span="1" style={{ width: '15%' }} />
-{ /* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'. */}
+          {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'. */}
           <col span="1" style={{ width: '15%' }} />
-{ /* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'. */}
+          {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'. */}
           <col span="1" style={{ width: '15%' }} />
         </colgroup>
         <Table.Header>

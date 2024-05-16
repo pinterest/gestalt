@@ -40,14 +40,13 @@ type Props = {
    *
    * See the [selector variant](https://gestalt.pinterest.systems/web/chartgraph#Selectors) to learn more.
    */
-  children?:
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
-    | Element<typeof TileData>
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  children?: // @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  | Element<typeof TileData>
+    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
     | Element<typeof TagData>
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
     | ReadonlyArray<Element<typeof TileData>>
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
     | ReadonlyArray<Element<typeof TagData>>;
   /**
    * The source data, in which each element is an object. Each object must specify a "name" associated to each category (string value) or timestamp (numberic value) in time series charts.
@@ -55,7 +54,7 @@ type Props = {
    * The additional key-values represent one or more series of data presented on ChartGraph for each category or timestamp. A sequence of source data objects generate one or more series of data across categories or timestamps.
    */
   data: ReadonlyArray<{
-// @ts-expect-error - TS2411 - Property 'name' of type 'string | number' is not assignable to 'string' index type 'number'.
+    // @ts-expect-error - TS2411 - Property 'name' of type 'string | number' is not assignable to 'string' index type 'number'.
     name: string | number;
     [key: string]: number;
   }>;
@@ -75,7 +74,7 @@ type Props = {
    * [HelpButton](https://gestalt.pinterest.systems/web/helpbutton) to be placed after the title for to provide supplemental support to the user. See the [header variant](https://gestalt.pinterest.systems/web/chartgraph#Header) to learn more.
    */
 
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
   helpButton?: Element<typeof HelpButton>;
   /**
    * Callback fired when the Accessibility IconButton in ChartGraph is clicked. ChartGraph's visual patterns is a controlled feature. `onVisualPatternChange` is used to enable/disable visual patterns in ChartGraph.
@@ -271,7 +270,7 @@ function ChartGraph({
   // HOOKS
   const hexColor = useHexColor();
   const patterns = usePatterns();
-// @ts-expect-error - TS2339 - Property 'colorSchemeName' does not exist on type '{ name: "lightMode" | "darkMode"; }'.
+  // @ts-expect-error - TS2339 - Property 'colorSchemeName' does not exist on type '{ name: "lightMode" | "darkMode"; }'.
   const { colorSchemeName } = useColorScheme();
   const { accessibilityLabelPrefixText } = useDefaultLabel('ChartGraph');
 
@@ -479,7 +478,7 @@ function ChartGraph({
               <ChartType
                 title={`${accessibilityLabelPrefixText}. ${accessibilityLabel}`}
                 {...(isBar || isCombo ? { barCategoryGap: '25%' } : {})}
-// @ts-expect-error - TS4104 - The type 'readonly { [key: string]: number; name: string | number; }[]' is 'readonly' and cannot be assigned to the mutable type 'any[]'.
+                // @ts-expect-error - TS4104 - The type 'readonly { [key: string]: number; name: string | number; }[]' is 'readonly' and cannot be assigned to the mutable type 'any[]'.
                 data={data}
                 layout={isVerticalLayout ? 'vertical' : 'horizontal'}
                 margin={{
@@ -502,13 +501,13 @@ function ChartGraph({
                   <Tooltip content={<EmptyBox />} isAnimationActive={false} />
                 ) : (
                   <Tooltip
-// @ts-expect-error - TS2769 - No overload matches this call.
+                    // @ts-expect-error - TS2769 - No overload matches this call.
                     content={renderTooltip === 'auto' ? defaultTooltip : customTooltip}
                     cursor={{ fill: `rgb(0 0 0 / ${TOKEN_OPACITY_100}` }}
                     isAnimationActive={false}
                   />
                 )}
-{ /* @ts-expect-error - TS2769 - No overload matches this call. */}
+                {/* @ts-expect-error - TS2769 - No overload matches this call. */}
                 <Legend
                   align={legendAlign}
                   content={

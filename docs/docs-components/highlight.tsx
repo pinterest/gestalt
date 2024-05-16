@@ -14,12 +14,12 @@ export default function Highlighter({
   const node = useRef<HTMLPreElement | null | undefined>();
 
   useEffect(() => {
-// @ts-expect-error - TS2345 - Argument of type 'HTMLPreElement | null | undefined' is not assignable to parameter of type 'HTMLElement'.
+    // @ts-expect-error - TS2345 - Argument of type 'HTMLPreElement | null | undefined' is not assignable to parameter of type 'HTMLElement'.
     highlightjs.highlightBlock(node.current);
   }, []);
 
   return (
-// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLPreElement | null | undefined>' is not assignable to type 'LegacyRef<HTMLPreElement> | undefined'. | TS2322 - Type 'readonly string[]' is not assignable to type 'string'.
+    // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLPreElement | null | undefined>' is not assignable to type 'LegacyRef<HTMLPreElement> | undefined'. | TS2322 - Type 'readonly string[]' is not assignable to type 'string'.
     <pre ref={node} className={classNames}>
       <code>{children}</code>
     </pre>

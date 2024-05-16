@@ -146,7 +146,7 @@ export default function TileData({
   });
 
   return (
-// @ts-expect-error - TS2786 - 'MaybeTooltip' cannot be used as a JSX component.
+    // @ts-expect-error - TS2786 - 'MaybeTooltip' cannot be used as a JSX component.
     <MaybeTooltip disabled={disabled} tooltip={tooltip}>
       <Box>
         <TapArea

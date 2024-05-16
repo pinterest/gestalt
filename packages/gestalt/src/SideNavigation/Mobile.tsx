@@ -41,7 +41,7 @@ export default function SideNavigationMobile({
   }, [dismissButtonRef]);
 
   return (
-// @ts-expect-error - TS2322 - Type '{ children: Element; "aria-label": string; as: "nav"; height: string; id: string; width: string; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
+    // @ts-expect-error - TS2322 - Type '{ children: Element; "aria-label": string; as: "nav"; height: string; id: string; width: string; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
     <Box aria-label={accessibilityLabel} as="nav" height="100%" id={id} width="100%">
       <div
         className={showBorder ? classnames(borderStyles.borderRight, styles.fullHeight) : undefined}
@@ -64,7 +64,7 @@ export default function SideNavigationMobile({
                   </Flex.Item>
                   <Flex.Item flex="none">
                     <InternalDismissButton
-// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+                      // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
                       ref={dismissButtonRef}
                       accessibilityControls={id}
                       accessibilityLabel={dismissButton?.accessibilityLabel || ''}

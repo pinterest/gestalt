@@ -82,7 +82,7 @@ export type Props = {
       text: string;
       zIndex?: Indexable;
     };
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
     dropdownItems?: ReadonlyArray<Element<typeof Dropdown.Item>>;
   };
 };
@@ -148,7 +148,7 @@ export default function SideNavigationGroup({
 
   const paddingStyle = !collapsed
     ? {
-// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'number' can't be used to index type '{ readonly '0': "var(--space-400)"; readonly '1': "var(--space-1200)"; readonly '2': "68px"; }'.
+        // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'number' can't be used to index type '{ readonly '0': "var(--space-400)"; readonly '1': "var(--space-1200)"; readonly '2': "68px"; }'.
         paddingInlineStart: NESTING_MARGIN_START_MAP[nestedLevel],
         paddingInlineEnd: TOKEN_SPACE_400,
       }

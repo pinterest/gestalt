@@ -31,7 +31,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
       <AccessibilitySection name={generatedDocGen?.displayName} />
       <MainSection name="Variants">
         <MainSection.Subsection title="Icon colors">
-{ /* @ts-expect-error - TS2322 - Type '{ children: ({ iconColor }: { [key: string]: any; }) => Element; iconColor: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
+          {/* @ts-expect-error - TS2322 - Type '{ children: ({ iconColor }: { [key: string]: any; }) => Element; iconColor: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
           <CombinationNew iconColor={['darkGray', 'gray', 'red', 'white', 'brandPrimary']}>
             {({ iconColor }) => <Pog icon="heart" iconColor={iconColor} />}
           </CombinationNew>
@@ -47,7 +47,7 @@ Follow these guidelines for \`bgColor\`
 `}
           title="Background colors on white backgrounds"
         >
-{ /* @ts-expect-error - TS2322 - Type '{ children: ({ bgColor }: { [key: string]: any; }) => Element; bgColor: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
+          {/* @ts-expect-error - TS2322 - Type '{ children: ({ bgColor }: { [key: string]: any; }) => Element; bgColor: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
           <CombinationNew bgColor={['red', 'lightGray', 'gray']}>
             {({ bgColor }) => <Pog bgColor={bgColor} icon="heart" />}
           </CombinationNew>
@@ -63,7 +63,7 @@ Follow these guidelines for \`bgColor\`
 `}
           title="Background colors on color/image backgrounds"
         >
-{ /* @ts-expect-error - TS2322 - Type '{ children: ({ bgColor }: { [key: string]: any; }) => Element; bgColor: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
+          {/* @ts-expect-error - TS2322 - Type '{ children: ({ bgColor }: { [key: string]: any; }) => Element; bgColor: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
           <CombinationNew bgColor={['transparentDarkGray', 'white', 'transparent']}>
             {({ bgColor }) => <Pog bgColor={bgColor} icon="heart" />}
           </CombinationNew>
@@ -86,7 +86,7 @@ Follow these guidelines for \`bgColor\`
           />
         </MainSection.Subsection>
         <MainSection.Subsection title="Sizes with default padding">
-{ /* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; hasCheckerboard: false; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
+          {/* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; hasCheckerboard: false; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
           <CombinationNew hasCheckerboard={false} size={['xs', 'sm', 'md', 'lg', 'xl']}>
             {({ size }) => <Pog bgColor="lightGray" icon="heart" size={size} />}
           </CombinationNew>
@@ -94,7 +94,7 @@ Follow these guidelines for \`bgColor\`
         <MainSection.Subsection title="Sizes with custom padding">
           <CombinationNew
             hasCheckerboard={false}
-// @ts-expect-error - TS2322 - Type '{ children: ({ size, padding }: { [key: string]: any; }) => Element; hasCheckerboard: false; padding: number[]; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'.
+            // @ts-expect-error - TS2322 - Type '{ children: ({ size, padding }: { [key: string]: any; }) => Element; hasCheckerboard: false; padding: number[]; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'.
             padding={[1, 2, 3, 4, 5]}
             size={['xs', 'sm', 'md', 'lg', 'xl']}
           >

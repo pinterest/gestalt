@@ -165,7 +165,7 @@ If an icon has a visible label that describes what the icon represents, \`access
           title="Colors"
         >
           <CombinationNew
-// @ts-expect-error - TS2322 - Type '{ children: ({ color }: { [key: string]: any; }) => Element; color: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'.
+            // @ts-expect-error - TS2322 - Type '{ children: ({ color }: { [key: string]: any; }) => Element; color: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'.
             color={[
               'default',
               'subtle',
@@ -270,7 +270,7 @@ export async function getServerSideProps(): Promise<{
 }> {
   const generatedDocGen = await docGen('Icon');
   const overriddenDocGen = overrideTypes(generatedDocGen, {
-// @ts-expect-error - TS2339 - Property 'icons' does not exist on type 'FunctionComponent<IconProps>'. | TS7006 - Parameter 'icon' implicitly has an 'any' type.
+    // @ts-expect-error - TS2339 - Property 'icons' does not exist on type 'FunctionComponent<IconProps>'. | TS7006 - Parameter 'icon' implicitly has an 'any' type.
     icon: (Icon?.icons ?? []).map((icon) => `'${icon}'`).join(' | '),
   });
 

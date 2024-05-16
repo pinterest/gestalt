@@ -45,7 +45,7 @@ export default function Example() {
       setErrorMessage('Please, select a valid option');
   };
 
-// @ts-expect-error - TS2554 - Expected 1 arguments, but got 0.
+  // @ts-expect-error - TS2554 - Expected 1 arguments, but got 0.
   const resetErrorMessage = errorMessage ? () => setErrorMessage() : () => {};
 
   return (
@@ -74,7 +74,7 @@ export default function Example() {
           <Box width={320}>
             <ComboBox
               accessibilityClearButtonLabel="Clear category value"
-// @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'string | undefined'.
+              // @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'string | undefined'.
               errorMessage={errorMessage}
               id="displayLabel"
               label="Choose a category to display top search trends"

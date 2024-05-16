@@ -63,7 +63,7 @@ export default function useTapFeedback({
     handleMouseUp: () => setTapping(false),
     handleTouchStart: ({ touches }: React.TouchEvent<TapTargetHTMLElement>) => {
       setTapping(true);
-// @ts-expect-error - TS2488 - Type 'TouchList' must have a '[Symbol.iterator]()' method that returns an iterator.
+      // @ts-expect-error - TS2488 - Type 'TouchList' must have a '[Symbol.iterator]()' method that returns an iterator.
       const [touch] = touches;
       if (touch) {
         setCoordinate({
@@ -73,7 +73,7 @@ export default function useTapFeedback({
       }
     },
     handleTouchMove: ({ touches }: React.TouchEvent<TapTargetHTMLElement>) => {
-// @ts-expect-error - TS2488 - Type 'TouchList' must have a '[Symbol.iterator]()' method that returns an iterator.
+      // @ts-expect-error - TS2488 - Type 'TouchList' must have a '[Symbol.iterator]()' method that returns an iterator.
       const [touch] = touches;
       if (isTapping && touch) {
         const { x: startX, y: startY } = coordinate;

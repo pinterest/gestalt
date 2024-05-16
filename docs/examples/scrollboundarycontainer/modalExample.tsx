@@ -113,7 +113,7 @@ export default function ScrollBoundaryContainerExample() {
                   label: 'Headquarters San Francisco',
                   subtext: '321 Inspiration Street, Suite # 12',
                 }}
-// @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null | undefined' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
+                // @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null | undefined' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
                 selected={selected}
               />
               <Dropdown.Item
@@ -123,7 +123,7 @@ export default function ScrollBoundaryContainerExample() {
                   label: 'Headquarters Seattle',
                   subtext: '123 Creativity Street, Suite # 21',
                 }}
-// @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null | undefined' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
+                // @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null | undefined' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
                 selected={selected}
               />
             </Dropdown>

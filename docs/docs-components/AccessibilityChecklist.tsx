@@ -41,24 +41,24 @@ function AccessibilityTable({ accessibilityData }: { accessibilityData?: Compone
       </Box>
       <Table.Body>
         {['a11yVisual', 'a11yScreenreader', 'a11yNavigation', 'a11yComprehension'].map((item) => {
-// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'ComponentAccessibility'.
+          // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'ComponentAccessibility'.
           const componentStatus = accessibilityData?.[item] ?? 'notAvailable';
 
           return (
             <Table.Row key={item}>
               <Table.Cell>
-{ /* @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Readonly<{ a11yVisual: { title: string; ready: string; partial: string; notAvailable: string; planned: string; }; a11yNavigation: { title: string; ready: string; partial: string; notAvailable: string; planned: string; }; a11yScreenreader: { ...; }; a11yComprehension: { ...; }; }>'. */}
+                {/* @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Readonly<{ a11yVisual: { title: string; ready: string; partial: string; notAvailable: string; planned: string; }; a11yNavigation: { title: string; ready: string; partial: string; notAvailable: string; planned: string; }; a11yScreenreader: { ...; }; a11yComprehension: { ...; }; }>'. */}
                 <Text>{COMPONENT_A11Y_STATUS_MESSAGING[item].title}</Text>
               </Table.Cell>
               <Table.Cell>
                 <StatusData
                   status={componentStatus}
-// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'any' can't be used to index type 'Readonly<{ ready: { title: string; description: string; }; partial: { title: string; description: string; }; notAvailable: { title: string; description: string; }; planned: { title: string; description: string; }; deprecated: { ...; }; }>'.
+                  // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'any' can't be used to index type 'Readonly<{ ready: { title: string; description: string; }; partial: { title: string; description: string; }; notAvailable: { title: string; description: string; }; planned: { title: string; description: string; }; deprecated: { ...; }; }>'.
                   text={STATUS_DESCRIPTION[componentStatus].title}
                 />
               </Table.Cell>
               <Table.Cell>
-{ /* @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Readonly<{ a11yVisual: { title: string; ready: string; partial: string; notAvailable: string; planned: string; }; a11yNavigation: { title: string; ready: string; partial: string; notAvailable: string; planned: string; }; a11yScreenreader: { ...; }; a11yComprehension: { ...; }; }>'. */}
+                {/* @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Readonly<{ a11yVisual: { title: string; ready: string; partial: string; notAvailable: string; planned: string; }; a11yNavigation: { title: string; ready: string; partial: string; notAvailable: string; planned: string; }; a11yScreenreader: { ...; }; a11yComprehension: { ...; }; }>'. */}
                 <Text>{COMPONENT_A11Y_STATUS_MESSAGING[item][componentStatus]}</Text>
               </Table.Cell>
             </Table.Row>
@@ -94,7 +94,7 @@ export default function AccessibilityChecklist({ component }: Props) {
           ) : (
             <AccessibilityTable accessibilityData={data?.status?.accessible} />
           ),
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'Icons | undefined'.
+          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'Icons | undefined'.
           icon: STATUS_ICON_EQUIVALENCY_MAP[a11ySummary ?? 'notAvailable'],
           iconAccessibilityLabel: 'title icon',
           title: a11ySummaryNotAvailable

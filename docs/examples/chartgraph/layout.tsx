@@ -107,25 +107,25 @@ export default function Example() {
 
       <ChartGraph
         accessibilityLabel="Example of chart with decal custom dimension"
-// @ts-expect-error - TS2322 - Type '{ name: string; Series_01: number; Series_02: number; }[]' is not assignable to type 'readonly { [k: string]: number | undefined; [k: number]: number | undefined; }[]'.
+        // @ts-expect-error - TS2322 - Type '{ name: string; Series_01: number; Series_02: number; }[]' is not assignable to type 'readonly { [k: string]: number | undefined; [k: number]: number | undefined; }[]'.
         data={data}
         elements={[
           {
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"line" | "bar"'.
+            // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"line" | "bar"'.
             type: type === 'combo' ? 'bar' : type,
             id: 'Series_01',
-// @ts-expect-error - TS2322 - Type 'string | undefined' is not assignable to type '"bottom" | "left" | "right" | "top" | undefined'.
+            // @ts-expect-error - TS2322 - Type 'string | undefined' is not assignable to type '"bottom" | "left" | "right" | "top" | undefined'.
             axis: axisSeries01,
           },
           {
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"line" | "bar"'.
+            // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"line" | "bar"'.
             type: type === 'combo' ? 'line' : type,
             id: 'Series_02',
-// @ts-expect-error - TS2322 - Type 'string | undefined' is not assignable to type '"bottom" | "left" | "right" | "top" | undefined'.
+            // @ts-expect-error - TS2322 - Type 'string | undefined' is not assignable to type '"bottom" | "left" | "right" | "top" | undefined'.
             axis: axisSeries02,
           },
         ]}
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"horizontal" | "vertical" | "horizontalBiaxial" | "verticalBiaxial" | undefined'.
+        // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"horizontal" | "vertical" | "horizontalBiaxial" | "verticalBiaxial" | undefined'.
         layout={layout}
         legend="none"
         onVisualPatternChange={() =>
@@ -133,9 +133,9 @@ export default function Example() {
         }
         title="ChartGraph"
         titleDisplay="hidden"
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"line" | "bar" | "combo" | undefined'.
+        // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"line" | "bar" | "combo" | undefined'.
         type={type}
-// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
+        // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
         visualPatternSelected={visualPatternSelected}
       />
     </Flex>

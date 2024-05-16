@@ -16,7 +16,7 @@ export default function Header({
   title?: string;
   description?: string;
   onVisualPatternChange: () => void;
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
   helpButton?: Element<typeof HelpButton>;
   titleDisplay?: 'visible' | 'hidden';
   toggleTabularDataModal: () => void;

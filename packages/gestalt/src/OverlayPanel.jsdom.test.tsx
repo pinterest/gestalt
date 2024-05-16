@@ -111,7 +111,7 @@ describe('OverlayPanel', () => {
   // This test was skipped because, despite the logic works fine, the animationState is not being correctly updated in the test in the handleExternalDismiss function. We should try to make it work.
   // eslint-disable-next-line jest/no-disabled-tests
   it.skip('should trigger onAnimationEnd', async () => {
-// @ts-expect-error - TS2344 - Type 'unknown' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'unknown' does not satisfy the constraint 'any[]'.
     const mockOnAnimationEnd = jest.fn<ReadonlyArray<any>, unknown>();
     render(
       <OverlayPanel
@@ -131,7 +131,7 @@ describe('OverlayPanel', () => {
   });
 
   it('should dismiss from the dismiss button', () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnDismiss = jest.fn<[], undefined>();
 
     render(
@@ -153,7 +153,7 @@ describe('OverlayPanel', () => {
   });
 
   it('should dismiss from the ESC key', () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnDismiss = jest.fn<[], undefined>();
 
     render(
@@ -175,7 +175,7 @@ describe('OverlayPanel', () => {
   });
 
   it('should dismiss from clicking outside when closeOnOutsideClick is true', () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnDismiss = jest.fn<[], undefined>();
 
     render(
@@ -199,7 +199,7 @@ describe('OverlayPanel', () => {
   });
 
   it('should dismiss from clicking on the children content', () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnDismiss = jest.fn<[], undefined>();
 
     render(
@@ -227,7 +227,7 @@ describe('OverlayPanel', () => {
   });
 
   it('should dismiss from clicking on the footer content', () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnDismiss = jest.fn<[], undefined>();
 
     render(
@@ -258,7 +258,7 @@ describe('OverlayPanel', () => {
   });
 
   it('should dismiss from clicking on the subHeading content', () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnDismiss = jest.fn<[], undefined>();
 
     render(
@@ -290,7 +290,7 @@ describe('OverlayPanel', () => {
   });
 
   it('should not dismiss from the backdrop click when closeOnOutsideClick is false', () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnDismiss = jest.fn<[], undefined>();
 
     render(
@@ -313,7 +313,7 @@ describe('OverlayPanel', () => {
   });
 
   it('should not dismiss from the backdrop click when closeOnOutsideClick and dismissConfirmation are true', () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnDismiss = jest.fn<[], undefined>();
 
     render(
@@ -337,7 +337,7 @@ describe('OverlayPanel', () => {
   });
 
   it('should not dismiss from the dismiss button key when closeOnOutsideClick and dismissConfirmation are true', () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnDismiss = jest.fn<[], undefined>();
 
     render(
@@ -361,7 +361,7 @@ describe('OverlayPanel', () => {
   });
 
   it('should not dismiss from the ESC keys when closeOnOutsideClick and dismissConfirmation are true', () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnDismiss = jest.fn<[], undefined>();
 
     render(
@@ -388,7 +388,7 @@ describe('OverlayPanel', () => {
   });
 
   it('renders OverlayPanel with confirmation modal', () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnDismiss = jest.fn<[], undefined>();
 
     const { container } = render(
@@ -412,7 +412,7 @@ describe('OverlayPanel', () => {
   });
 
   it('should show confirmation when closeOnOutsideClick and dismissConfirmation are true', () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnDismiss = jest.fn<[], undefined>();
 
     render(
@@ -468,9 +468,9 @@ describe('OverlayPanel', () => {
   });
 
   it('should show custom confirmation when closeOnOutsideClick and dismissConfirmation are true', () => {
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnDismiss = jest.fn<[], undefined>();
-// @ts-expect-error - TS2344 - Type 'unknown' does not satisfy the constraint 'any[]'.
+    // @ts-expect-error - TS2344 - Type 'unknown' does not satisfy the constraint 'any[]'.
     const mockOnAnimationEnd = jest.fn<ReadonlyArray<any>, unknown>();
     useAnimationMock.mockReturnValue({
       animationState: 'unmount',

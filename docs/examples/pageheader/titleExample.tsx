@@ -6,7 +6,7 @@ export default function PageHeaderTitleExample() {
   return (
     <Fragment>
       <PageHeader
-// @ts-expect-error - TS2322 - Type '{ text: string; type: string; tooltipText: string; }' is not assignable to type '{ text: string; tooltipText?: string | undefined; }'.
+        // @ts-expect-error - TS2322 - Type '{ text: string; type: string; tooltipText: string; }' is not assignable to type '{ text: string; tooltipText?: string | undefined; }'.
         badge={{ text: 'New', type: 'info', tooltipText: 'New integration' }}
         helperIconButton={{
           accessibilityControls: '',

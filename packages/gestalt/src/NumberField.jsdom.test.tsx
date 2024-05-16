@@ -35,7 +35,7 @@ describe('NumberField', () => {
       />,
     );
     fireEvent.focus(screen.getByDisplayValue('42'));
-// @ts-expect-error - TS2339 - Property 'toHaveAccessibleDescription' does not exist on type 'JestMatchers<HTMLElement>'.
+    // @ts-expect-error - TS2339 - Property 'toHaveAccessibleDescription' does not exist on type 'JestMatchers<HTMLElement>'.
     expect(screen.getByDisplayValue('42')).toHaveAccessibleDescription('Error message');
   });
 
@@ -63,7 +63,7 @@ describe('NumberField', () => {
           value: number | undefined;
         },
       ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     render(<NumberField id="test" onBlur={mockBlur} onChange={jest.fn()} value={42} />);
@@ -80,7 +80,7 @@ describe('NumberField', () => {
           value: number | undefined;
         },
       ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     const { container } = render(<NumberField id="test" onChange={mockChange} value={42} />);
@@ -105,7 +105,7 @@ describe('NumberField', () => {
           value: number | undefined;
         },
       ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     render(<NumberField id="test" onChange={jest.fn()} onFocus={mockFocus} value={42} />);
@@ -122,7 +122,7 @@ describe('NumberField', () => {
           value: number | undefined;
         },
       ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     const { container } = render(

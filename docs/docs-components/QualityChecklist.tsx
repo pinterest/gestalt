@@ -43,7 +43,7 @@ export default function QualityChecklist({ component }: Props) {
           </Table.Header>
           <Table.Body>
             {['figmaStatus', 'responsive'].map((item) => {
-// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'ComponentStatus'.
+              // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'ComponentStatus'.
               const componentStatus = data?.status?.[item] ?? 'notAvailable';
               return (
                 <Table.Row key={item}>
@@ -54,18 +54,18 @@ export default function QualityChecklist({ component }: Props) {
                   ) : null}
 
                   <Table.Cell>
-{ /* @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Readonly<{ accessible: { shortTitle: string; title: string; }; documentation: { title: string; ready: string; partial: string; notAvailable: string; planned: string; }; figmaStatus: { shortTitle: string; title: string; ready: string; partial: string; notAvailable: string; planned: string; }; mobileAdaptive: { ...; }...'. */}
+                    {/* @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Readonly<{ accessible: { shortTitle: string; title: string; }; documentation: { title: string; ready: string; partial: string; notAvailable: string; planned: string; }; figmaStatus: { shortTitle: string; title: string; ready: string; partial: string; notAvailable: string; planned: string; }; mobileAdaptive: { ...; }...'. */}
                     <Text>{COMPONENT_STATUS_MESSAGING[item].title}</Text>
                   </Table.Cell>
                   <Table.Cell>
                     <StatusData
                       status={componentStatus}
-// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'any' can't be used to index type 'Readonly<{ ready: { title: string; description: string; }; partial: { title: string; description: string; }; notAvailable: { title: string; description: string; }; planned: { title: string; description: string; }; deprecated: { ...; }; }>'.
+                      // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'any' can't be used to index type 'Readonly<{ ready: { title: string; description: string; }; partial: { title: string; description: string; }; notAvailable: { title: string; description: string; }; planned: { title: string; description: string; }; deprecated: { ...; }; }>'.
                       text={STATUS_DESCRIPTION[componentStatus].title}
                     />
                   </Table.Cell>
                   <Table.Cell>
-{ /* @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Readonly<{ accessible: { shortTitle: string; title: string; }; documentation: { title: string; ready: string; partial: string; notAvailable: string; planned: string; }; figmaStatus: { shortTitle: string; title: string; ready: string; partial: string; notAvailable: string; planned: string; }; mobileAdaptive: { ...; }...'. */}
+                    {/* @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Readonly<{ accessible: { shortTitle: string; title: string; }; documentation: { title: string; ready: string; partial: string; notAvailable: string; planned: string; }; figmaStatus: { shortTitle: string; title: string; ready: string; partial: string; notAvailable: string; planned: string; }; mobileAdaptive: { ...; }...'. */}
                     <Text>{COMPONENT_STATUS_MESSAGING[item][componentStatus]}</Text>
                   </Table.Cell>
                 </Table.Row>

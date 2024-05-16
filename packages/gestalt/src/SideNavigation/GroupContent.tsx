@@ -56,7 +56,7 @@ type Props = {
       text: string;
       zIndex?: Indexable;
     };
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
     dropdownItems?: ReadonlyArray<Element<typeof Dropdown.Item>>;
   };
   setCompression: (arg1: 'compress' | 'none') => void;
@@ -247,11 +247,11 @@ export default function SideNavigationGroupContent({
           </Flex.Item>
         ) : null}
 
-{ /* @ts-expect-error - TS2345 - Argument of type 'string | undefined' is not assignable to parameter of type 'string'. */}
+        {/* @ts-expect-error - TS2345 - Argument of type 'string | undefined' is not assignable to parameter of type 'string'. */}
         {(!collapsed && ['expandable', 'expandableExpanded'].includes(display)) || isMobile ? (
           <Flex.Item alignSelf="center" flex="none">
             {/* marginEnd={-2} is a hack to correctly position the counter as Flex + gap + width="100%" doean't expand to full width */}
-{ /* @ts-expect-error - TS2322 - Type '{ children: Element; "aria-hidden": true; marginEnd: -2; marginStart: 2; rounding: "circle"; tabIndex: number; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'. */}
+            {/* @ts-expect-error - TS2322 - Type '{ children: Element; "aria-hidden": true; marginEnd: -2; marginStart: 2; rounding: "circle"; tabIndex: number; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'. */}
             <Box aria-hidden marginEnd={-2} marginStart={2} rounding="circle" tabIndex={-1}>
               <Icon
                 accessibilityLabel=""

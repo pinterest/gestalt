@@ -10,7 +10,7 @@ describe('TapArea', () => {
           event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>;
         },
       ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     render(<TapArea onTap={mockOnTap}>TapArea</TapArea>);
@@ -25,7 +25,7 @@ describe('TapArea', () => {
           event: React.FocusEvent<HTMLDivElement>;
         },
       ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     render(<TapArea onBlur={mockOnBlur}>TapArea</TapArea>);
@@ -41,7 +41,7 @@ describe('TapArea', () => {
           event: React.FocusEvent<HTMLDivElement>;
         },
       ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     render(<TapArea onFocus={mockOnFocus}>TapArea</TapArea>);
@@ -56,7 +56,7 @@ describe('TapArea', () => {
           event: React.MouseEvent<HTMLDivElement>;
         },
       ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     render(<TapArea onMouseEnter={mockOnMouseEnter}>TapArea</TapArea>);
@@ -71,7 +71,7 @@ describe('TapArea', () => {
           event: React.MouseEvent<HTMLDivElement>;
         },
       ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     render(<TapArea onMouseLeave={mockOnMouseLeave}>TapArea</TapArea>);
@@ -86,13 +86,13 @@ describe('TapArea', () => {
           event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>;
         },
       ],
-// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     render(<TapArea onTap={mockOnTap}>TapArea</TapArea>);
     const mockEvent = {
       charCode: 32,
-// @ts-expect-error - TS2344 - Type 'unknown' does not satisfy the constraint 'any[]'.
+      // @ts-expect-error - TS2344 - Type 'unknown' does not satisfy the constraint 'any[]'.
       preventDefault: jest.fn<ReadonlyArray<any>, unknown>(),
     } as const;
     fireEvent.keyPress(screen.getByText('TapArea'), mockEvent);

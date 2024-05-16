@@ -70,7 +70,7 @@ type CustomTextFieldProps = {
 };
 
 const CustomTextField = forwardRef(
-// @ts-expect-error - TS2345 - Argument of type '({ disabled, InputProps: { ref: containerRef }, focused, placeholder, value, readOnly, onClick, onPaste, onChange, onKeyDown, onMouseUp, ownerState, }: CustomTextFieldProps, inputRef: { current: null | HTMLInputElement; } | ((arg1: null | HTMLInputElement) => unknown)) => JSX.Element' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLInputElement, CustomTextFieldProps>'.
+  // @ts-expect-error - TS2345 - Argument of type '({ disabled, InputProps: { ref: containerRef }, focused, placeholder, value, readOnly, onClick, onPaste, onChange, onKeyDown, onMouseUp, ownerState, }: CustomTextFieldProps, inputRef: { current: null | HTMLInputElement; } | ((arg1: null | HTMLInputElement) => unknown)) => JSX.Element' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLInputElement, CustomTextFieldProps>'.
   (
     {
       disabled,
@@ -107,7 +107,7 @@ const CustomTextField = forwardRef(
     );
 
     return (
-// @ts-expect-error - TS2322 - Type '{ current: HTMLElement | null | undefined; }' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+      // @ts-expect-error - TS2322 - Type '{ current: HTMLElement | null | undefined; }' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
       <Box ref={containerRef} display="flex" flex="grow" position="relative" rounding={4}>
         <input
           ref={inputRef}
@@ -174,11 +174,11 @@ type CustomDateFieldProps = {
 
 function CustomDateField({ inputRef: externalInputRef, ...textFieldProps }: CustomDateFieldProps) {
   return (
-// @ts-expect-error - TS2739 - Type '{ onKeyDown: KeyboardEventHandler<Element>; onMouseUp: MouseEventHandler<Element>; onPaste: ClipboardEventHandler<HTMLInputElement>; ... 11 more ...; autoComplete: "off"; }' is missing the following properties from type 'CustomTextFieldProps': disabled, InputProps, focused, ownerState
+    // @ts-expect-error - TS2739 - Type '{ onKeyDown: KeyboardEventHandler<Element>; onMouseUp: MouseEventHandler<Element>; onPaste: ClipboardEventHandler<HTMLInputElement>; ... 11 more ...; autoComplete: "off"; }' is missing the following properties from type 'CustomTextFieldProps': disabled, InputProps, focused, ownerState
     <CustomTextField
       {...useDateField({
         props: textFieldProps,
-// @ts-expect-error - TS2322 - Type '{ ref: { current: HTMLElement | null | undefined; }; }' is not assignable to type 'Ref<HTMLInputElement> | undefined'.
+        // @ts-expect-error - TS2322 - Type '{ ref: { current: HTMLElement | null | undefined; }; }' is not assignable to type 'Ref<HTMLInputElement> | undefined'.
         inputRef: externalInputRef,
       })}
     />
@@ -235,9 +235,9 @@ const getTranslationsFromMUIJS: (arg1?: LocaleData | null | undefined) =>
     }
     const code = split.join('');
 
-// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'typeof import("/home/jackhsu/code/gestalt/node_modules/@mui/x-date-pickers/locales/index")'.
+    // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'typeof import("/home/jackhsu/code/gestalt/node_modules/@mui/x-date-pickers/locales/index")'.
     if (locales[code] !== undefined) {
-// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'typeof import("/home/jackhsu/code/gestalt/node_modules/@mui/x-date-pickers/locales/index")'.
+      // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'typeof import("/home/jackhsu/code/gestalt/node_modules/@mui/x-date-pickers/locales/index")'.
       return locales[code].components.MuiLocalizationProvider.defaultProps.localeText;
     }
   }
@@ -252,7 +252,7 @@ const getLocalTranslations: (arg1?: LocaleData | null | undefined) =>
     }
   | null
   | undefined = (localeData) => {
-// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly af: readonly ["J", "MM", "DD"]; readonly bg: readonly ["Г", "MM", "ДД"]; readonly 'cs-CZ': readonly ["R", "MM", "DD"]; readonly 'da-DK': readonly ["Å", "MM", "DD"]; readonly es: readonly ["A", "MM", "DD"]; readonly 'fi-FI': readonly ["V", "KK", "PP"]; ... 11 more ...; readonly 'uk-UA': readonly [...]; }'.
+  // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly af: readonly ["J", "MM", "DD"]; readonly bg: readonly ["Г", "MM", "ДД"]; readonly 'cs-CZ': readonly ["R", "MM", "DD"]; readonly 'da-DK': readonly ["Å", "MM", "DD"]; readonly es: readonly ["A", "MM", "DD"]; readonly 'fi-FI': readonly ["V", "KK", "PP"]; ... 11 more ...; readonly 'uk-UA': readonly [...]; }'.
   const MAPPED_TRANSLATION = localeData?.code && TRANSLATIONS_MAP[localeData.code];
 
   if (MAPPED_TRANSLATION) {
@@ -286,7 +286,7 @@ type InternalDateFieldProps = {
   onError?: (arg1: { errorMessage: string; value: Date | null }) => void;
   onFocus?: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
   readOnly?: boolean;
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
   ref?: Element<'input'>; // eslint-disable-line react/no-unused-prop-types,
   size?: 'md' | 'lg';
   value: Date | null;
@@ -326,7 +326,7 @@ function InternalDateField({
       <LocalizationProvider
         adapterLocale={localeData}
         dateAdapter={AdapterDateFns}
-// @ts-expect-error - TS2322 - Type '{ fieldYearPlaceholder: (params: { digitAmount: number; }) => string; fieldMonthPlaceholder: (params: { contentType: string; }) => string; fieldDayPlaceholder: () => string; } | null | undefined' is not assignable to type 'Partial<PickersLocaleText<Date>> | undefined'.
+        // @ts-expect-error - TS2322 - Type '{ fieldYearPlaceholder: (params: { digitAmount: number; }) => string; fieldMonthPlaceholder: (params: { contentType: string; }) => string; fieldDayPlaceholder: () => string; } | null | undefined' is not assignable to type 'Partial<PickersLocaleText<Date>> | undefined'.
         localeText={translations}
       >
         <Box>
@@ -352,7 +352,7 @@ function InternalDateField({
               maxDate={maxDate}
               minDate={minDate}
               onChange={(dateValue) => onChange({ value: dateValue })}
-// @ts-expect-error - TS2322 - Type 'string | null' is not assignable to type 'string'.
+              // @ts-expect-error - TS2322 - Type 'string | null' is not assignable to type 'string'.
               onError={(error) => onError?.({ errorMessage: error, value })}
               passthroughProps={{
                 autoComplete,
@@ -366,10 +366,10 @@ function InternalDateField({
                 size,
               }}
               readOnly={readOnly}
-// @ts-expect-error - TS2322 - Type '({ inputRef: externalInputRef, ...textFieldProps }: CustomDateFieldProps) => Element' is not assignable to type 'ComponentType<BaseSingleInputFieldProps<Date | null, Date | null, FieldSection, any>> | undefined'.
+              // @ts-expect-error - TS2322 - Type '({ inputRef: externalInputRef, ...textFieldProps }: CustomDateFieldProps) => Element' is not assignable to type 'ComponentType<BaseSingleInputFieldProps<Date | null, Date | null, FieldSection, any>> | undefined'.
               slots={{ field: CustomDateField }}
               value={value}
-// @ts-expect-error - TS2322 - Type 'null' is not assignable to type 'Partial<PickerViewRendererLookup<Date | null, DateView, DateViewRendererProps<Date | null, DateView>, {}>> | undefined'.
+              // @ts-expect-error - TS2322 - Type 'null' is not assignable to type 'Partial<PickerViewRendererLookup<Date | null, DateView, DateViewRendererProps<Date | null, DateView>, {}>> | undefined'.
               viewRenderers={null}
             />
           </Box>

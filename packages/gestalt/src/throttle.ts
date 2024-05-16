@@ -20,7 +20,7 @@ export default function throttle(
     const now = Date.now();
     if (last !== undefined && now - last < threshhold) {
       clearTimeout(deferTimer);
-// @ts-expect-error - TS2322 - Type 'Timeout' is not assignable to type 'number'.
+      // @ts-expect-error - TS2322 - Type 'Timeout' is not assignable to type 'number'.
       deferTimer = setTimeout(() => {
         last = now;
         fn(...args);

@@ -104,7 +104,7 @@ function Icon({
   size = 16,
 }: Props) {
   const cs = classnames(
-// @ts-expect-error - TS2345 - Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+    // @ts-expect-error - TS2345 - Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
     flipOnRtlIconNames.includes(icon) && styles.rtlSupport,
     styles[color],
     styles.icon,
@@ -120,7 +120,7 @@ function Icon({
   const ariaHidden = accessibilityLabel === '' ? true : null;
 
   return (
-// @ts-expect-error - TS2322 - Type '{ children: Element; "aria-hidden": true | null; "aria-label": string; className: string; height: string | number; role: "img"; viewBox: string; width: string | number; }' is not assignable to type 'SVGProps<SVGSVGElement>'.
+    // @ts-expect-error - TS2322 - Type '{ children: Element; "aria-hidden": true | null; "aria-label": string; className: string; height: string | number; role: "img"; viewBox: string; width: string | number; }' is not assignable to type 'SVGProps<SVGSVGElement>'.
     <svg
       aria-hidden={ariaHidden}
       aria-label={accessibilityLabel}

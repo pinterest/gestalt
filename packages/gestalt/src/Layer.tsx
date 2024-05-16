@@ -79,12 +79,12 @@ export default function Layer({
   if (!mounted || !portalContainer.current) {
     // The initial render will be this temporary div
     // to capture the initial position of the DOM node in the DOM tree
-// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLDivElement | null | undefined>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLDivElement | null | undefined>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
     return <div ref={initialPositionRef} />;
   }
 
   // After useEffect, we render the children into the portal container node outside the DOM hierarchy
-// @ts-expect-error - TS2322 - Type 'ReactPortal' is not assignable to type 'ReactNode'.
+  // @ts-expect-error - TS2322 - Type 'ReactPortal' is not assignable to type 'ReactNode'.
   return createPortal(children, portalContainer.current);
 }
 

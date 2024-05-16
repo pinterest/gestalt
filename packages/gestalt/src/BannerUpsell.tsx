@@ -86,7 +86,7 @@ type Props = {
   /**
    * To create forms within BannerUpsell, pass BannerUpsell.Form as children.
    */
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
   children?: Element<typeof BannerUpsellForm>;
   /**
    * Adds a dismiss button to the BannerUpsell. The \`accessibilityLabel\` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannerupsell#Accessibility).
@@ -99,7 +99,7 @@ type Props = {
    * Either an [Icon](https://gestalt.pinterest.systems/web/icon) or an [Image](https://gestalt.pinterest.systems/web/image) to render at the start of the banner. Width is not used with Icon. Image width defaults to 128px. See the [Icon](https://gestalt.pinterest.systems/web/bannerupsell#Icon) and [Image](https://gestalt.pinterest.systems/web/bannerupsell#Image) variants for more info.
    */
   imageData?: {
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
     component: Element<typeof Image | typeof Icon>;
     mask?: {
       rounding?: 'circle' | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
@@ -110,7 +110,7 @@ type Props = {
   /**
    * Main content of BannerUpsell, explains what is being offered or recommended. Content should be [localized](https://gestalt.pinterest.systems/web/bannerupsell#Localization). See the [Message variant](https://gestalt.pinterest.systems/web/bannerupsell#Message) to learn more.
    */
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic.
   message: string | Element<typeof Text>;
   /**
    * Main action for people to take on BannerUpsell. If \`href\` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.'
@@ -153,7 +153,7 @@ export default function BannerUpsell({
   const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
-// @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2315 - Type 'Element' is not generic.
+  // @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2315 - Type 'Element' is not generic.
   let messageElement: Element<'span'> | Element<typeof Text>;
 
   if (typeof message === 'string') {
@@ -164,7 +164,7 @@ export default function BannerUpsell({
   // If `text` is a Text component, we need to override any text colors within to ensure they all match
   if (
     typeof message !== 'string' &&
-// @ts-expect-error - TS2315 - Type 'Element' is not generic.
+    // @ts-expect-error - TS2315 - Type 'Element' is not generic.
     Children.only<Element<typeof Text>>(message).type.displayName === 'Text'
   ) {
     const textColorOverrideStyles = isDarkMode
