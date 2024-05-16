@@ -1,4 +1,5 @@
 // @flow strict
+import { type Align, type Layout } from 'gestalt/src//Masonry/types';
 import { type Cache } from './Cache';
 import mindex from './mindex';
 import { type Position } from './types';
@@ -10,19 +11,51 @@ const offscreen = (width: number, height: number = Infinity) => ({
   height,
 });
 
+const calculateCenterOffset = ({
+  align,
+  columnCount,
+  columnWidthAndGutter,
+  gutter,
+  layout,
+  rawItemCount,
+  width,
+}: {
+  align: Align,
+  columnCount: number,
+  columnWidthAndGutter: number,
+  gutter: number,
+  layout: Layout,
+  rawItemCount: number,
+  width: number,
+}): number => {
+  if (layout === 'basicCentered') {
+    const contentWidth = Math.min(rawItemCount, columnCount) * columnWidthAndGutter + gutter;
+    return Math.max(Math.floor((width - contentWidth) / 2), 0);
+  }
+  if (align === 'center') {
+    return Math.max(Math.floor((width - columnWidthAndGutter * columnCount + gutter) / 2), 0);
+  }
+  if (align === 'end') {
+    return width - (columnWidthAndGutter * columnCount - gutter);
+  }
+  return 0;
+};
+
 const defaultLayout =
   <T>({
+    align,
     cache,
     columnWidth = 236,
     gutter = 14,
-    justify,
+    layout,
     minCols = 2,
     rawItemCount,
     width,
   }: {
     columnWidth?: number,
     gutter?: number,
-    justify: 'center' | 'start',
+    align: Align,
+    layout: Layout,
     cache: Cache<T, number>,
     minCols?: number,
     rawItemCount: number,
@@ -38,17 +71,15 @@ const defaultLayout =
     // the total height of each column
     const heights = new Array<number>(columnCount).fill(0);
 
-    let centerOffset;
-    if (justify === 'center') {
-      const contentWidth = Math.min(rawItemCount, columnCount) * columnWidthAndGutter + gutter;
-
-      centerOffset = Math.max(Math.floor((width - contentWidth) / 2), 0);
-    } else {
-      centerOffset = Math.max(
-        Math.floor((width - columnWidthAndGutter * columnCount + gutter) / 2),
-        0,
-      );
-    }
+    const centerOffset = calculateCenterOffset({
+      columnCount,
+      columnWidthAndGutter,
+      gutter,
+      align,
+      layout,
+      rawItemCount,
+      width,
+    });
 
     return items.reduce((acc, item) => {
       const positions = acc;

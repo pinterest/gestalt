@@ -21,7 +21,7 @@ import { MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/defaultTwoColumnMo
 import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
 import MeasurementStore from './Masonry/MeasurementStore';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
-import { type Layout, type Position } from './Masonry/types';
+import { type Align, type Layout, type Position } from './Masonry/types';
 import throttle from './throttle';
 import useIsomorphicLayoutEffect from './useIsomorphicLayoutEffect';
 
@@ -30,6 +30,16 @@ const RESIZE_DEBOUNCE = 300;
 const layoutNumberToCssDimension = (n: ?number) => (n !== Infinity ? n : undefined);
 
 type Props<T> = {
+  /**
+   * Controls the horizontal alignment of items within the Masonry grid. The `align` property determines how items are aligned along the main-axis (horizontally) across multiple columns.
+   * `start`: Aligns items to the start of the Masonry container. This is the default behavior where items are placed starting from the left side of the container.
+   * `center`: Centers items in the Masonry grid. This will adjust the spacing on either side of the grid to ensure that the items are centered within the container.
+   * `end`: Aligns items to the end of the Masonry container. Items will be placed starting from the right, moving leftwards, which may leave space on the left side of the container.
+   * Using the `align` property can help control the visual balance and alignment of the grid, especially in responsive layouts or when dealing with varying item widths.
+   *
+   * _Note that layout='basic' must be set for align to take effect._
+   */
+  align?: Align,
   /**
    * The preferred/target item width in pixels. If `layout="flexible"` is set, the item width will
    * grow to fill column space, and shrink to fit if below the minimum number of columns.
@@ -296,6 +306,7 @@ function useFetchOnScroll({
 }
 
 function useLayout<T: { +[string]: mixed }>({
+  align,
   columnWidth,
   gutter,
   items,
@@ -308,6 +319,7 @@ function useLayout<T: { +[string]: mixed }>({
   _logTwoColWhitespace,
   _measureAll,
 }: {
+  align: Align,
   columnWidth: number,
   gutter?: number,
   items: $ReadOnlyArray<T>,
@@ -332,6 +344,7 @@ function useLayout<T: { +[string]: mixed }>({
       .some((item) => typeof item.columnSpan === 'number' && item.columnSpan > 1);
   const itemToMeasureCount = hasMultiColumnItems ? MULTI_COL_ITEMS_MEASURE_BATCH_SIZE + 1 : minCols;
   const layoutFunction = getLayoutAlgorithm({
+    align,
     columnWidth,
     gutter,
     items,
@@ -530,6 +543,7 @@ const MasonryItemMemo = memo(MasonryItem);
 
 function Masonry<T: { +[string]: mixed }>(
   {
+    align = 'center',
     columnWidth = 236,
     gutterWidth: gutter,
     items,
@@ -618,6 +632,7 @@ function Masonry<T: { +[string]: mixed }>(
   }, [width]);
 
   const { hasPendingMeasurements, height, positions, updateMeasurement } = useLayout({
+    align,
     columnWidth,
     gutter,
     items,

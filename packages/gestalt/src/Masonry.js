@@ -12,7 +12,7 @@ import fullWidthLayout from './Masonry/fullWidthLayout';
 import MeasurementStore from './Masonry/MeasurementStore';
 import ScrollContainer from './Masonry/ScrollContainer';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
-import { type Layout, type Position } from './Masonry/types';
+import { type Align, type Layout, type Position } from './Masonry/types';
 import uniformRowLayout from './Masonry/uniformRowLayout';
 import throttle, { type ThrottleReturn } from './throttle';
 
@@ -21,6 +21,16 @@ const RESIZE_DEBOUNCE = 300;
 const layoutNumberToCssDimension = (n: ?number) => (n !== Infinity ? n : undefined);
 
 type Props<T> = {
+  /**
+   * Controls the horizontal alignment of items within the Masonry grid. The `align` property determines how items are aligned along the main-axis (horizontally) across multiple columns.
+   * `start`: Aligns items to the start of the Masonry container. This is the default behavior where items are placed starting from the left side of the container.
+   * `center`: Centers items in the Masonry grid. This will adjust the spacing on either side of the grid to ensure that the items are centered within the container.
+   * `end`: Aligns items to the end of the Masonry container. Items will be placed starting from the right, moving leftwards, which may leave space on the left side of the container.
+   * Using the `align` property can help control the visual balance and alignment of the grid, especially in responsive layouts or when dealing with varying item widths.
+   *
+   * _Note that layout='basic' must be set for align to take effect._
+   */
+  align?: Align,
   /**
    * The preferred/target item width in pixels. If `layout="flexible"` is set, the item width will
    * grow to fill column space, and shrink to fit if below the minimum number of columns.
@@ -131,6 +141,7 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
   }
 
   static defaultProps: {
+    align?: Align,
     columnWidth?: number,
     layout?: Layout,
     loadItems?: (
@@ -143,6 +154,7 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
     virtualize?: boolean,
   } = {
     columnWidth: 236,
+    align: 'center',
     minCols: 3,
     layout: 'basic',
     loadItems: () => {},
@@ -456,10 +468,11 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
 
   render(): ReactNode {
     const {
+      align = 'center',
       columnWidth,
       gutterWidth: gutter,
       items,
-      layout,
+      layout = 'basic',
       minCols,
       renderItem,
       scrollContainer,
@@ -489,11 +502,11 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
       });
     } else if (_twoColItems === true) {
       getPositions = defaultTwoColumnModuleLayout({
+        align: layout === 'basicCentered' ? 'center' : 'start',
         measurementCache: measurementStore,
         positionCache: positionStore,
         columnWidth,
         gutter,
-        justify: layout === 'basicCentered' ? 'center' : 'start',
         logWhitespace: _logTwoColWhitespace,
         minCols,
         rawItemCount: items.length,
@@ -501,10 +514,11 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
       });
     } else {
       getPositions = defaultLayout({
+        align,
         cache: measurementStore,
         columnWidth,
         gutter,
-        justify: layout === 'basicCentered' ? 'center' : 'start',
+        layout,
         minCols,
         rawItemCount: items.length,
         width,

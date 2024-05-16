@@ -3,10 +3,11 @@ import { type Cache } from './Cache';
 import defaultLayout from './defaultLayout';
 import defaultTwoColumnModuleLayout from './defaultTwoColumnModuleLayout';
 import fullWidthLayout from './fullWidthLayout';
-import { type Layout, type Position } from './types';
+import { type Align, type Layout, type Position } from './types';
 import uniformRowLayout from './uniformRowLayout';
 
 export default function getLayoutAlgorithm<T: { +[string]: mixed }>({
+  align,
   columnWidth,
   gutter,
   items,
@@ -18,6 +19,7 @@ export default function getLayoutAlgorithm<T: { +[string]: mixed }>({
   _twoColItems,
   _logTwoColWhitespace,
 }: {
+  align: Align,
   columnWidth: number,
   gutter?: number,
   items: $ReadOnlyArray<T>,
@@ -49,11 +51,11 @@ export default function getLayoutAlgorithm<T: { +[string]: mixed }>({
   }
   if (_twoColItems === true) {
     return defaultTwoColumnModuleLayout({
+      align: layout === 'basicCentered' ? 'center' : 'start',
       measurementCache: measurementStore,
       positionCache: positionStore,
       columnWidth,
       gutter,
-      justify: layout === 'basicCentered' ? 'center' : 'start',
       logWhitespace: _logTwoColWhitespace,
       minCols,
       rawItemCount: items.length,
@@ -61,10 +63,11 @@ export default function getLayoutAlgorithm<T: { +[string]: mixed }>({
     });
   }
   return defaultLayout({
+    align,
     cache: measurementStore,
     columnWidth,
     gutter,
-    justify: layout === 'basicCentered' ? 'center' : 'start',
+    layout,
     minCols,
     rawItemCount: items.length,
     width,

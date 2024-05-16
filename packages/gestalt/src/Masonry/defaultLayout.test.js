@@ -23,8 +23,9 @@ const stubCache = (measurements?: { [item: string]: number, ... } = {}) => {
 test('empty', () => {
   const items: Array<string> = [];
   const layout = defaultLayout({
+    align: 'start',
     cache: stubCache(),
-    justify: 'start',
+    layout: 'basic',
     rawItemCount: items.length,
     width: 486,
   });
@@ -35,8 +36,9 @@ test('one row', () => {
   const measurements = { a: 100, b: 120, c: 80 };
   const items = ['a', 'b', 'c'];
   const layout = defaultLayout({
+    align: 'start',
     cache: stubCache(measurements),
-    justify: 'start',
+    layout: 'basic',
     rawItemCount: items.length,
     width: 736,
   });
@@ -51,8 +53,9 @@ test('wrapping items', () => {
   const measurements = { a: 100, b: 120, c: 80, d: 100 };
   const items = ['a', 'b', 'c', 'd'];
   const layout = defaultLayout({
+    align: 'start',
     cache: stubCache(measurements),
-    justify: 'start',
+    layout: 'basic',
     rawItemCount: items.length,
     width: 486,
   });
@@ -64,12 +67,32 @@ test('wrapping items', () => {
   ]);
 });
 
-test('centers grid within the viewport', () => {
+test('left-aligns grid within the viewport', () => {
   const measurements = { a: 100, b: 120, c: 80, d: 100 };
   const items = ['a', 'b', 'c', 'd'];
   const layout = defaultLayout({
+    align: 'start',
     cache: stubCache(measurements),
-    justify: 'start',
+    layout: 'basic',
+    minCols: 2,
+    rawItemCount: items.length,
+    width: 8000,
+  });
+  expect(layout(items)).toEqual([
+    { top: 0, height: 100, left: 0, width: 236 },
+    { top: 0, height: 120, left: 250, width: 236 },
+    { top: 0, height: 80, left: 500, width: 236 },
+    { top: 0, height: 100, left: 750, width: 236 },
+  ]);
+});
+
+test('centers grid within the viewport, left align', () => {
+  const measurements = { a: 100, b: 120, c: 80, d: 100 };
+  const items = ['a', 'b', 'c', 'd'];
+  const layout = defaultLayout({
+    align: 'center',
+    cache: stubCache(measurements),
+    layout: 'basic',
     minCols: 2,
     rawItemCount: items.length,
     width: 8000,
@@ -82,20 +105,59 @@ test('centers grid within the viewport', () => {
   ]);
 });
 
+test('centers grid within the viewport, center align', () => {
+  const measurements = { a: 100, b: 120, c: 80, d: 100 };
+  const items = ['a', 'b', 'c', 'd'];
+  const layout = defaultLayout({
+    align: 'center',
+    cache: stubCache(measurements),
+    layout: 'basicCentered',
+    minCols: 2,
+    rawItemCount: items.length,
+    width: 8000,
+  });
+  expect(layout(items)).toEqual([
+    { top: 0, height: 100, left: 3493, width: 236 },
+    { top: 0, height: 120, left: 3743, width: 236 },
+    { top: 0, height: 80, left: 3993, width: 236 },
+    { top: 0, height: 100, left: 4243, width: 236 },
+  ]);
+});
+
+test('right-aligns grid within the viewport', () => {
+  const measurements = { a: 100, b: 120, c: 80, d: 100 };
+  const items = ['a', 'b', 'c', 'd'];
+  const layout = defaultLayout({
+    align: 'end',
+    cache: stubCache(measurements),
+    layout: 'basic',
+    minCols: 2,
+    rawItemCount: items.length,
+    width: 8000,
+  });
+  expect(layout(items)).toEqual([
+    { top: 0, height: 100, left: 14, width: 236 },
+    { top: 0, height: 120, left: 264, width: 236 },
+    { top: 0, height: 80, left: 514, width: 236 },
+    { top: 0, height: 100, left: 764, width: 236 },
+  ]);
+});
+
 test('floors values when centering', () => {
   const measurements = { a: 100, b: 120, c: 80, d: 100 };
   const items = ['a', 'b', 'c', 'd'];
   const layout = defaultLayout({
+    align: 'start',
     cache: stubCache(measurements),
-    justify: 'start',
+    layout: 'basic',
     rawItemCount: items.length,
     width: 501,
   });
   expect(layout(items)).toEqual([
-    { top: 0, height: 100, left: 7, width: 236 },
-    { top: 0, height: 120, left: 257, width: 236 },
-    { top: 114, height: 80, left: 7, width: 236 },
-    { top: 134, height: 100, left: 257, width: 236 },
+    { top: 0, height: 100, left: 0, width: 236 },
+    { top: 0, height: 120, left: 250, width: 236 },
+    { top: 114, height: 80, left: 0, width: 236 },
+    { top: 134, height: 100, left: 250, width: 236 },
   ]);
 });
 
@@ -104,7 +166,8 @@ test('only centers when theres extra space', () => {
   const items = ['a', 'b', 'c', 'd'];
   const layout = defaultLayout({
     cache: stubCache(measurements),
-    justify: 'start',
+    align: 'start',
+    layout: 'basic',
     rawItemCount: items.length,
     width: 200,
   });
@@ -120,12 +183,13 @@ test('justify', () => {
   const measurements = { a: 100, b: 120, c: 80, d: 100 };
   const items = ['a', 'b', 'c', 'd'];
 
-  const makeLayout = (justify: 'center' | 'start') =>
+  const makeLayout = (align: 'center' | 'start') =>
     defaultLayout({
+      align,
       cache: stubCache(measurements),
       columnWidth: 100,
       gutter: 0,
-      justify,
+      layout: align === 'center' ? 'basicCentered' : 'basic',
       width: 1000,
       rawItemCount: items.length,
     })(items);

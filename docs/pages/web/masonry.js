@@ -9,6 +9,7 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
+import align from '../../examples/masonry/align';
 import main from '../../examples/masonry/main';
 import variantsBasic from '../../examples/masonry/variantsBasic';
 import variantsFlexible from '../../examples/masonry/variantsFlexible';
@@ -88,6 +89,28 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                 code={variantsUniform}
                 layout="column"
                 name="Variants - Uniform example"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+        </MainSection.Subsection>
+      </MainSection>
+
+      <MainSection name="Align">
+        <MainSection.Subsection
+          description={`
+          The align property controls the horizontal alignment of items within the Masonry grid, determining how items are distributed across the available horizontal space of the container. The align options allow you to align items to the start, center, or end of the container.
+
+          Align only works when layout='basic'.
+        `}
+          title="Align options"
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={align}
+                layout="column"
+                name="Variants - Basic example"
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
