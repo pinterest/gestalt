@@ -17,6 +17,7 @@ export default function Example() {
         errorMessage="Please don't do this!"
         id="refExample"
         onChange={() => {}}
+// @ts-expect-error - TS2322 - Type '{ ref: MutableRefObject<HTMLInputElement | null>; errorMessage: string; id: string; onChange: () => void; readOnly: true; value: string; }' is not assignable to type 'IntrinsicAttributes & TextFieldProps & RefAttributes<HTMLInputElement>'.
         readOnly
         value="Custom color"
       />

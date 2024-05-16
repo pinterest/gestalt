@@ -55,6 +55,7 @@ type Props = {
     children?: ReactNode;
     icon?: keyof typeof icons;
     iconAccessibilityLabel?: string;
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
     iconButton?: Element<typeof IconButton>;
     summary?: ReadonlyArray<string>;
     title: string;

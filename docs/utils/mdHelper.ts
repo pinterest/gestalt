@@ -38,6 +38,7 @@ export async function getAllMarkdownPosts(): Promise<ReadonlyArray<ReadonlyArray
   const docsDirectory = path.join(process.cwd(), 'markdown');
 
   const getAllSitePaths = () => {
+// @ts-expect-error - TS7034 - Variable 'pagePaths' implicitly has type 'any[]' in some locations where its type cannot be determined.
     const pagePaths = [];
 
     const addUrlPaths = (
@@ -62,6 +63,7 @@ export async function getAllMarkdownPosts(): Promise<ReadonlyArray<ReadonlyArray
       addUrlPaths(section.pages, startPath);
     });
 
+// @ts-expect-error - TS7005 - Variable 'pagePaths' implicitly has an 'any[]' type.
     return pagePaths;
   };
 

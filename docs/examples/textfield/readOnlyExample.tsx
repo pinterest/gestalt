@@ -11,6 +11,7 @@ export default function Example() {
         label="Email address"
         onChange={(e) => setValue(e.value)}
         placeholder="Name"
+// @ts-expect-error - TS2322 - Type '{ id: string; label: string; onChange: (e: { value: string; } & { readonly event: SyntheticEvent<HTMLInputElement, Event>; }) => void; placeholder: string; readOnly: true; value: string; }' is not assignable to type 'IntrinsicAttributes & TextFieldProps & RefAttributes<HTMLInputElement>'.
         readOnly
         value={value}
       />

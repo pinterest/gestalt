@@ -53,6 +53,7 @@ type Props = {
   /**
    * Ref that is forwarded to the underlying input element.
    */
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
   ref?: Element<'input'>; // eslint-disable-line react/no-unused-prop-types,
   /**
    * Determines the Checkbox size: sm = 16px, md = 24px. See the [size variant](https://gestalt.pinterest.systems/web/checkbox#Size) to learn more.
@@ -67,6 +68,7 @@ type Props = {
  * ![Checkbox dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Checkbox-dark.spec.mjs-snapshots/Checkbox-dark-chromium-darwin.png)
  *
  */
+// @ts-expect-error - TS2345 - Argument of type '({ checked, disabled, errorMessage, helperText, id, image, indeterminate, label, labelDisplay, name, onChange, onClick, size, }: Props, ref: ForwardedRef<HTMLInputElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLInputElement, Props>'.
 const CheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Checkbox(
   {
     checked = false,

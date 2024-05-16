@@ -48,6 +48,7 @@ type Props = {
    *
    * See the [message variant](https://gestalt.pinterest.systems/web/bannercallout#Message) to learn more. Refer to the [Best Practices](https://gestalt.pinterest.systems/web/bannercallout#Best-practices) for content guidelines.
    */
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
   message: string | Element<typeof Text>;
   /**
    * Main action for users to take on BannerCallout. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
@@ -202,6 +203,7 @@ export default function BannerCallout({
 
   return (
     <Box
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"selected" | "default" | "shopping" | "inverse" | "light" | "dark" | "darkWash" | "lightWash" | "transparent" | "transparentDarkGray" | "infoBase" | "infoWeak" | "errorBase" | ... 15 more ... | undefined'.
       color={MESSAGING_TYPE_ATTRIBUTES[type].backgroundColor}
       direction="column"
       display="flex"
@@ -225,7 +227,9 @@ export default function BannerCallout({
           <Box marginBottom={4} marginTop={0} smMarginBottom="auto" smMarginTop="auto">
             <Icon
               accessibilityLabel={iconAccessibilityLabel ?? getDefaultIconAccessibilityLabel()}
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'IconColor | undefined'.
               color={MESSAGING_TYPE_ATTRIBUTES[type].iconColor}
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"replace" | "search" | "link" | "text" | "dash" | "3D" | "3D-move" | "360" | "accessibility" | "ad" | "ad-group" | "add" | "add-circle" | "add-layout" | "add-pin" | "add-section" | ... 318 more ... | undefined'.
               icon={MESSAGING_TYPE_ATTRIBUTES[type].icon}
               size={32}
             />
@@ -254,6 +258,7 @@ export default function BannerCallout({
                 <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>
               ) : null}
               {typeof message !== 'string' &&
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
               Children.only<Element<typeof Text>>(message).type.displayName === 'Text'
                 ? message
                 : null}

@@ -40,6 +40,7 @@ export default function CustomDisabledDropdown() {
           <Dropdown.Item
             onSelect={onSelect}
             option={{ value: 'Download image', label: 'Download image' }}
+// @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
             selected={selected}
           />
           <Dropdown.Item
@@ -47,6 +48,7 @@ export default function CustomDisabledDropdown() {
             disabled
             onSelect={onSelect}
             option={{ value: 'Hide Pin', label: 'Hide Pin', subtext: `This pin is already hidden` }}
+// @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
             selected={selected}
           />
           <Dropdown.Link
@@ -62,6 +64,7 @@ export default function CustomDisabledDropdown() {
           <Dropdown.Item
             onSelect={onSelect}
             option={{ value: 'Delete Pin', label: 'Delete Pin' }}
+// @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
             selected={selected}
           />
         </Dropdown>

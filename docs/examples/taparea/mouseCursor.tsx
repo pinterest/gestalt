@@ -20,6 +20,7 @@ export default function TapAreaExample() {
   return (
     <Flex gap={2} wrap>
       {Object.keys(descriptions).map((cursor) => (
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"move" | "default" | "copy" | "grab" | "grabbing" | "noDrop" | "pointer" | "zoomIn" | "zoomOut" | undefined'.
         <TapArea key={cursor} fullWidth={false} mouseCursor={cursor}>
           <Box borderStyle="lg" height={250} padding={4} width={250}>
             <Flex direction="column" height="100%" justifyContent="between">
@@ -29,6 +30,7 @@ export default function TapAreaExample() {
                     {`mouseCursor="${cursor}"`}
                   </Text>
                 </Box>
+{ /* @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly copy: "Use the copy cursor to indicate an element is to be copied."; readonly default: "Use the default cursor over non-interactive elements. The default cursor should change to a pointer if the element it hovers over is also clickable or indicates functionally"; ... 6 more ...; readonly zoomOut: "Use the...'. */}
                 <Text size="200">{descriptions[cursor]}</Text>
               </Box>
               <Text size="100">hover here </Text>

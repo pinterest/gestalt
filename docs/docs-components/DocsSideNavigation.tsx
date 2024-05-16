@@ -38,6 +38,7 @@ export default function DocsSideNavigation({ showBorder }: { showBorder?: boolea
   /**
    *  If it's a dynamic route (e.g. markdown page), the dynamic route id will be passed as part of the query obj, don't use pathname prop since it'll just say [...id]
    */
+// @ts-expect-error - TS2339 - Property 'join' does not exist on type 'string | string[]'.
   const dynamicUrlPath = pathId ? `/${pathId.join('/')}` : '';
 
   const isComponentsSection = isMobile

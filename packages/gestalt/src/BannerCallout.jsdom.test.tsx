@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import BannerCallout from './BannerCallout';
 
 test('BannerCallout handles onDismiss callback', () => {
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
   const mockOnDismiss = jest.fn<[], undefined>();
   render(
     <BannerCallout

@@ -53,6 +53,7 @@ const components = {
       {children}
     </Link>
   ),
+// @ts-expect-error - TS7006 - Parameter 'props' implicitly has an 'any' type.
   ul: (props) => {
     const filtered = Object.values(props.children).filter((a) => a !== '\n');
     return (
@@ -60,7 +61,9 @@ const components = {
         <List>
           {filtered.map((a, index) => (
             <List.Item
+// @ts-expect-error - TS2571 - Object is of type 'unknown'.
               key={JSON.stringify(a?.props.child ?? index)}
+// @ts-expect-error - TS2571 - Object is of type 'unknown'.
               text={<Text>{a?.props.children}</Text>}
             />
           ))}
@@ -68,6 +71,7 @@ const components = {
       </Box>
     );
   },
+// @ts-expect-error - TS7006 - Parameter 'props' implicitly has an 'any' type.
   ol: (props) => {
     const filtered = Object.values(props.children).filter((a) => a !== '\n');
     return (
@@ -75,7 +79,9 @@ const components = {
         <List type="ordered">
           {filtered.map((a, index) => (
             <List.Item
+// @ts-expect-error - TS2571 - Object is of type 'unknown'.
               key={JSON.stringify(a?.props.child ?? index)}
+// @ts-expect-error - TS2571 - Object is of type 'unknown'.
               text={<Text>{a?.props.children}</Text>}
             />
           ))}
@@ -83,6 +89,7 @@ const components = {
       </Box>
     );
   },
+// @ts-expect-error - TS7006 - Parameter 'props' implicitly has an 'any' type.
   small: (props) => <Text size="100">{props.children}</Text>,
   pre: (props: {
     children: {
@@ -115,6 +122,7 @@ const components = {
       </Box>
     </Flex>
   ),
+// @ts-expect-error - TS7006 - Parameter 'props' implicitly has an 'any' type.
   h2: (props) => (
     <Box marginBottom={0} marginTop={12}>
       <MainSection name={props.children} />
@@ -125,6 +133,7 @@ const components = {
       <hr />
     </Box>
   ),
+// @ts-expect-error - TS7006 - Parameter 'props' implicitly has an 'any' type.
   p: (props) => <p style={{ maxWidth: DOCS_COPY_MAX_WIDTH_PX }}> {props.children} </p>,
   ActionButton: ({ children, href }: { href: string; children: string | null }) => (
     <ButtonLink
@@ -213,9 +222,11 @@ const components = {
     />
   ),
   IllustrationCard,
+// @ts-expect-error - TS7006 - Parameter 'props' implicitly has an 'any' type.
   Card: (props) => <MainSection.Card {...props} description={undefined} />,
   Code: (props: { marginBottom: 'default' | 'none'; children: string | null }) => {
     const newProps = { ...props } as const;
+// @ts-expect-error - TS2540 - Cannot assign to 'children' because it is a read-only property.
     newProps.children = null;
     // may not need to this in the future
     return (
@@ -251,7 +262,9 @@ const components = {
     height: number;
     alt: string;
   }) => (
+// @ts-expect-error - TS2322 - Type '{ children: Element; style: { aspectRatio: `${number}/${number}`; }; width: string; }' is not assignable to type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
     <div style={{ aspectRatio: `${width}/${height}` }} width="100%">
+{ /* @ts-expect-error - TS2322 - Type '{ alt: string; fill: true; height: number; src: string; width: number; }' is not assignable to type 'IntrinsicAttributes & Omit<DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>, "ref" | ... 4 more ... | "loading"> & { ...; }'. */}
       <Image alt={alt} fill height={height} src={src} width={width} />
     </div>
   ),
@@ -344,6 +357,7 @@ export default function MarkdownPage({ children, meta, pageSourceUrl, platform }
   const maxWidth = meta?.fullwidth ? 'none' : `${DOCS_COPY_MAX_WIDTH_PX}px`;
 
   return (
+// @ts-expect-error - TS2322 - Type '{ readonly a: ({ children, href, }: { href: string; children: string | null; display: "inline" | "block" | "inlineBlock"; }) => Element; readonly ul: (props: any) => Element; readonly ol: (props: any) => Element; ... 21 more ...; readonly ThreeCol: ({ children, spacing, }: { ...; }) => Element; }' is not assignable to type 'MDXComponents'.
     <MDXProvider components={components}>
       <Page pageSourceUrl={pageSourceUrl} title={meta.title}>
         <PageHeader

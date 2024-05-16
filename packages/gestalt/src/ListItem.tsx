@@ -23,6 +23,7 @@ type Props = {
   /**
    * The content of the list item. See the [text variant](https://gestalt.pinterest.systems/web/list#Text-and-label) for guidance.
    */
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
   text: string | Element<typeof Text>;
 };
 
@@ -54,6 +55,7 @@ function ListItem({ text, children }: Props) {
   const isOrdered = inheritedType === 'ordered';
   const isUnordered = inheritedType === 'unordered';
 
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
   let listChildren: Element<typeof List> | ReadonlyArray<any> | null = null;
 
   if (children) {
@@ -62,6 +64,7 @@ function ListItem({ text, children }: Props) {
     if (listChildren.length > 1) {
       listChildren = (
         <List type={inheritedType ?? 'unordered'}>
+{ /* @ts-expect-error - TS7006 - Parameter 'child' implicitly has an 'any' type. */}
           {listChildren.filter((child) => {
             if (child?.type?.displayName === 'List.Item') return true;
             throw new Error(
@@ -89,6 +92,7 @@ function ListItem({ text, children }: Props) {
   });
 
   return (
+// @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'FontSize<string | number> | undefined'.
     <li className={className} style={{ fontSize: inheritedFontSize && sizeMap[inheritedFontSize] }}>
       <ListText size={inheritedFontSize || undefined} text={text} />
       {listChildren}

@@ -22,11 +22,13 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, ModifiedPr
       rangeStartDate,
     }: ModifiedProps,
     ref,
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
   ): Element<'div'> {
     const innerInputRef = useRef<null | HTMLInputElement>(null);
     const deviceType = useDeviceType();
     const isMobile = deviceType === 'mobile';
 
+// @ts-expect-error - TS2322 - Type 'HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
     useImperativeHandle(ref, () => innerInputRef.current);
 
     // We keep month in state to trigger a re-render when month changes since height will vary by where days fall
@@ -57,12 +59,14 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, ModifiedPr
     return (
       <div className="_gestalt">
         <div className={isMobile ? undefined : '_gestalt_daterange'}>
+{ /* @ts-expect-error - TS2769 - No overload matches this call. | TS2786 - 'ReactDatePicker' cannot be used as a JSX component. */}
           <ReactDatePicker
             ref={(refElement) => {
               if (!innerInputRef || !refElement) {
                 return null;
               }
 
+// @ts-expect-error - TS2339 - Property 'input' does not exist on type 'ReactDatePicker<true, undefined>'.
               innerInputRef.current = refElement.input;
 
               return null;
@@ -85,6 +89,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, ModifiedPr
             }
             onChange={(value) => {
               const [startDate, endDate] = value;
+// @ts-expect-error - TS2769 - No overload matches this call.
               onChange({ startDate, endDate });
             }}
             onMonthChange={(newMonth: Date) => setMonth(newMonth.getMonth())}

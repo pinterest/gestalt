@@ -268,6 +268,7 @@ export default function ColorPage() {
             wrap
           >
             {getColors().map(({ id, name, tokenData }) => (
+// @ts-expect-error - TS2786 - 'ColorPalette' cannot be used as a JSX component.
               <ColorPalette key={name} name={name} tokenData={tokenData} tokenId={id} />
             ))}
           </Flex>
@@ -275,12 +276,14 @@ export default function ColorPage() {
         <MainSection.Subsection description="Pinterest name (common name)" title="Neutrals">
           <Flex direction="column">
             {getNeutrals().map(({ id, name, tokenData }) => (
+// @ts-expect-error - TS2786 - 'ColorPalette' cannot be used as a JSX component.
               <ColorPalette key={name} name={name} tokenData={tokenData} tokenId={id} />
             ))}
           </Flex>
         </MainSection.Subsection>
         <MainSection.Subsection description="(common name)" title="Transparent">
           <Flex direction="column">
+{ /* @ts-expect-error - TS2786 - 'ColorPalette' cannot be used as a JSX component. */}
             <ColorPalette
               name="transparent"
               tokenData={[TOKEN_COLOR_TRANSPARENT]}

@@ -124,6 +124,7 @@ export default function GeneratedPropTable({
     .filter(Boolean);
 
   return (
+// @ts-expect-error - TS2322 - Type '({ name: string; type: string; description: string; required: boolean; defaultValue: string | undefined; nullable: boolean; } | null)[]' is not assignable to type 'readonly Prop[]'.
     <PropTable componentName={generatedDocGen.displayName} id={id} name={name} props={props} />
   );
 }

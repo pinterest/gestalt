@@ -13,8 +13,11 @@ export default function Example() {
         width="100%"
       >
         <Flex gap={2} wrap>
+{ /* @ts-expect-error - TS2741 - Property 'onRemove' is missing in type '{ baseColor: "secondary"; text: string; }' but required in type 'TagDataProps'. */}
           <TagData baseColor="secondary" text="Impressions" />
+{ /* @ts-expect-error - TS2741 - Property 'onRemove' is missing in type '{ baseColor: "secondary"; text: string; }' but required in type 'TagDataProps'. */}
           <TagData baseColor="secondary" text="CPM" />
+{ /* @ts-expect-error - TS2741 - Property 'onRemove' is missing in type '{ baseColor: "secondary"; text: string; }' but required in type 'TagDataProps'. */}
           <TagData baseColor="secondary" text="Spend" />
         </Flex>
       </Box>

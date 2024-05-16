@@ -124,6 +124,7 @@ type Props = {
  *
  * ![TapAreaLink](https://raw.githubusercontent.com/pinterest/gestalt/master/docs/graphics/building-blocks/TapArea.svg)
  */
+// @ts-expect-error - TS2345 - Argument of type '({ accessibilityLabel, accessibilityCurrent, children, dataTestId, disabled, fullHeight, fullWidth, href, mouseCursor, onBlur, onKeyDown, onFocus, onMouseDown, onMouseUp, onMouseEnter, onMouseLeave, onTap, tabIndex, rel, rounding, tapStyle, target, }: Props, ref: ForwardedRef<HTMLAnchorElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLAnchorElement, Props>'.
 const TapAreaLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function TapAreaLink(
   {
     accessibilityLabel,
@@ -155,6 +156,7 @@ const TapAreaLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function 
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <TapArea ref={inputRef} /> to call inputRef.current.focus()
+// @ts-expect-error - TS2322 - Type 'HTMLAnchorElement | null' is not assignable to type 'HTMLAnchorElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
   const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
@@ -192,15 +194,19 @@ const TapAreaLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function 
         if (!disabled) onKeyDown?.({ event });
       }}
       onMouseDown={({ event }) => {
+// @ts-expect-error - TS2322 - Type 'MouseEvent<HTMLAnchorElement, MouseEvent> | MouseEvent<HTMLDivElement, MouseEvent>' is not assignable to type 'MouseEvent<HTMLAnchorElement, MouseEvent>'.
         if (!disabled) onMouseDown?.({ event });
       }}
       onMouseEnter={({ event }) => {
+// @ts-expect-error - TS2322 - Type 'MouseEvent<HTMLAnchorElement, MouseEvent> | MouseEvent<HTMLDivElement, MouseEvent>' is not assignable to type 'MouseEvent<HTMLAnchorElement, MouseEvent>'.
         if (!disabled) onMouseEnter?.({ event });
       }}
       onMouseLeave={({ event }) => {
+// @ts-expect-error - TS2322 - Type 'MouseEvent<HTMLAnchorElement, MouseEvent> | MouseEvent<HTMLDivElement, MouseEvent>' is not assignable to type 'MouseEvent<HTMLAnchorElement, MouseEvent>'.
         if (!disabled) onMouseLeave?.({ event });
       }}
       onMouseUp={({ event }) => {
+// @ts-expect-error - TS2322 - Type 'MouseEvent<HTMLAnchorElement, MouseEvent> | MouseEvent<HTMLDivElement, MouseEvent>' is not assignable to type 'MouseEvent<HTMLAnchorElement, MouseEvent>'.
         if (!disabled) onMouseUp?.({ event });
       }}
       rel={rel}

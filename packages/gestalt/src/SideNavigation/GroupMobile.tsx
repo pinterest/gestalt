@@ -70,6 +70,7 @@ export default function SideNavigationGroupMobile({
 
   const itemColor = hovered ? 'secondary' : undefined;
 
+// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'number' can't be used to index type '{ readonly '0': "var(--space-400)"; readonly '1': "var(--space-1200)"; readonly '2': "68px"; }'.
   const nestingMargin = NESTING_MARGIN_START_MAP[isTopLevel ? 0 : nestedLevel - 1];
 
   const paddingStyle = {

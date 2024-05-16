@@ -5,6 +5,7 @@
  */
 
 export function getElementHeight(element: HTMLElement): number {
+// @ts-expect-error - TS2367 - This condition will always return 'false' since the types 'HTMLElement' and 'Window & typeof globalThis' have no overlap. | TS2339 - Property 'innerHeight' does not exist on type 'never'.
   return element === window ? window.innerHeight : element.clientHeight;
 }
 
@@ -21,17 +22,20 @@ export function getWindowScrollPos(): number {
 }
 
 export function getRelativeScrollTop(element: HTMLElement): number {
+// @ts-expect-error - TS2367 - This condition will always return 'false' since the types 'HTMLElement' and 'Window & typeof globalThis' have no overlap.
   return element === window
     ? getWindowScrollPos()
     : element.scrollTop - element.getBoundingClientRect().top;
 }
 
 export function getScrollHeight(element: HTMLElement): number {
+// @ts-expect-error - TS2367 - This condition will always return 'false' since the types 'HTMLElement' and 'Window & typeof globalThis' have no overlap.
   return element === window && document.documentElement
     ? document.documentElement.scrollHeight
     : element.scrollHeight;
 }
 
 export function getScrollPos(element: HTMLElement): number {
+// @ts-expect-error - TS2367 - This condition will always return 'false' since the types 'HTMLElement' and 'Window & typeof globalThis' have no overlap.
   return element === window ? getWindowScrollPos() : element.scrollTop;
 }

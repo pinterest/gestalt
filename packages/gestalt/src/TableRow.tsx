@@ -28,6 +28,7 @@ export default function TableRow({ children, hoverStyle = 'none', selected }: Pr
 
   useEffect(() => {
     if (rowRef?.current && stickyColumns) {
+// @ts-expect-error - TS2488 - Type 'HTMLCollection' must have a '[Symbol.iterator]()' method that returns an iterator.
       const colWidths = [...rowRef.current.children].map((item) => item.clientWidth);
       setColumnWidths(colWidths);
     }
@@ -39,6 +40,7 @@ export default function TableRow({ children, hoverStyle = 'none', selected }: Pr
     const previousWidths = columnWidths.slice(0, index);
     const previousTotalWidth =
       previousWidths.length > 0 ? previousWidths.reduce((a, b) => a + b) : 0;
+// @ts-expect-error - TS2769 - No overload matches this call.
     return cloneElement(child, {
       shouldBeSticky,
       previousTotalWidth,
@@ -53,6 +55,7 @@ export default function TableRow({ children, hoverStyle = 'none', selected }: Pr
   });
 
   return (
+// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLTableRowElement | null | undefined>' is not assignable to type 'LegacyRef<HTMLTableRowElement> | undefined'.
     <tr ref={rowRef} className={rowStyle}>
       {Number(stickyColumns) > 0 ? Children.map(children, renderCellWithIndex) : children}
     </tr>

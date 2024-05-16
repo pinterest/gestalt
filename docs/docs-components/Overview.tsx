@@ -74,9 +74,11 @@ Not sure which component to use? [Reach out to the Gestalt team.](/team_support/
 
         <IllustrationContainer>
           <Box flex="none" minWidth={230} width="40%">
+{ /* @ts-expect-error - TS2741 - Property 'size' is missing in type '{ items: string[]; onChange: ({ activeIndex }: { activeIndex: number; } & { readonly event: MouseEvent<HTMLButtonElement, MouseEvent>; }) => void; selectedItemIndex: number; }' but required in type 'SegmentedControlProps'. */}
             <SegmentedControl
               items={sortOrders.map(capitalizeFirstLetter)}
               onChange={({ activeIndex }) => {
+// @ts-expect-error - TS2345 - Argument of type 'string' is not assignable to parameter of type 'SetStateAction<"alphabetical" | "categorical">'.
                 setOrder(sortOrders[activeIndex]);
               }}
               selectedItemIndex={sortOrders.findIndex((item) => item === order)}

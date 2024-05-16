@@ -29,6 +29,7 @@ export default function Example() {
                   Ads & Campaigns{' '}
                   <Badge
                     text="New"
+// @ts-expect-error - TS2322 - Type '{ text: string; tooltip: { text: string; idealDirection: string; }; type: "info"; }' is not assignable to type 'IntrinsicAttributes & BadgeProps'.
                     tooltip={{
                       text: 'This is a new feature',
                       idealDirection: 'up',

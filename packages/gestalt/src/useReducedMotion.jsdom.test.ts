@@ -4,7 +4,9 @@ import useReducedMotion from './useReducedMotion';
 const mediaqueryDefaults = {
   matches: false,
   onchange: null,
+// @ts-expect-error - TS2344 - Type 'unknown' does not satisfy the constraint 'any[]'.
   addEventListener: jest.fn<ReadonlyArray<any>, unknown>(),
+// @ts-expect-error - TS2344 - Type 'unknown' does not satisfy the constraint 'any[]'.
   removeEventListener: jest.fn<ReadonlyArray<any>, unknown>(),
 } as const;
 
@@ -13,6 +15,7 @@ describe('useReducedMotion', () => {
     window.matchMedia = jest
       .fn<
         _,
+// @ts-expect-error - TS2344 - Type '{ addEventListener: any; matches: boolean; media: any; onchange: null; removeEventListener: any; }' does not satisfy the constraint 'any[]'.
         {
           addEventListener: jest.MockedFunction<any>;
           matches: boolean;
@@ -35,6 +38,7 @@ describe('useReducedMotion', () => {
     window.matchMedia = jest
       .fn<
         _,
+// @ts-expect-error - TS2344 - Type '{ addEventListener: any; matches: boolean; media: any; onchange: null; removeEventListener: any; }' does not satisfy the constraint 'any[]'.
         {
           addEventListener: jest.MockedFunction<any>;
           matches: boolean;
@@ -57,6 +61,7 @@ describe('useReducedMotion', () => {
     window.matchMedia = jest.fn().mockImplementation((query: any) => ({
       ...mediaqueryDefaults,
       matches: false,
+// @ts-expect-error - TS7006 - Parameter 'event' implicitly has an 'any' type. | TS7006 - Parameter 'listener' implicitly has an 'any' type.
       addEventListener(event, listener) {
         this.matches = true;
         change = listener;

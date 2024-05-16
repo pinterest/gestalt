@@ -17,6 +17,7 @@ export default function Example() {
     <Box height="100%" padding={12} width="100%">
       <Flex alignItems="start" direction="column" height="100%" justifyContent="between">
         <Box>
+{ /* @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLDivElement | HTMLAnchorElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'. */}
           <TapArea ref={anchorRefA} fullWidth={false} rounding={3}>
             <Box color="secondary" height={75} padding={3} rounding={3} width={200}>
               <Flex gap={2}>

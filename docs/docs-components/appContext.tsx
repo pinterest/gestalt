@@ -75,6 +75,7 @@ function AppContextProvider({ children }: { children?: ReactNode }) {
   return (
     <Provider
       value={{
+// @ts-expect-error - TS2322 - Type 'string | boolean | undefined' is not assignable to type 'boolean'.
         helixBot,
         propTableVariant,
         setPropTableVariant,

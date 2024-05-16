@@ -21,6 +21,7 @@ export default function debounce(
       clearTimeout(deferTimer);
     }
 
+// @ts-expect-error - TS2322 - Type 'Timeout' is not assignable to type 'number'.
     deferTimer = setTimeout(() => {
       deferTimer = null;
       fn(...args);

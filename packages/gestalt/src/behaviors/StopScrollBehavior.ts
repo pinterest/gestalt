@@ -21,6 +21,7 @@ export default class NoScrollBehavior extends Component<Props> {
 
   componentWillUnmount() {
     if (typeof window !== 'undefined') {
+// @ts-expect-error - TS2322 - Type 'string | null' is not assignable to type 'string'.
       window.document.body.style.overflow = this.prevOverflow;
     }
   }

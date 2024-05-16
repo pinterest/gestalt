@@ -4,6 +4,7 @@ import VideoControls from './Controls';
 test('VideoControls handles play events', () => {
   const mockOnPlay = jest.fn<
     [React.SyntheticEvent<HTMLDivElement> | React.SyntheticEvent<HTMLAnchorElement>],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     undefined
   >();
   render(
@@ -31,6 +32,7 @@ test('VideoControls handles play events', () => {
 test('VideoControls handles pause events', () => {
   const mockOnPause = jest.fn<
     [React.SyntheticEvent<HTMLDivElement> | React.SyntheticEvent<HTMLAnchorElement>],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     undefined
   >();
   render(
@@ -58,6 +60,7 @@ test('VideoControls handles pause events', () => {
 test('VideoControls handles volume events', () => {
   const mockOnVolumeChange = jest.fn<
     [React.SyntheticEvent<HTMLDivElement> | React.SyntheticEvent<HTMLAnchorElement>],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     undefined
   >();
   render(

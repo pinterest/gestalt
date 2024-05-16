@@ -91,6 +91,7 @@ describe('useColorScheme', () => {
       ],
       any
     >();
+// @ts-expect-error - TS2740 - Type '{ addListener: (cb: any) => void; removeListener: Mock<any, any>; }' is missing the following properties from type 'MediaQueryList': matches, media, onchange, addEventListener, and 2 more.
     window.matchMedia = () => ({
       addListener: (cb: any) => {
         listener = cb;
@@ -103,6 +104,7 @@ describe('useColorScheme', () => {
       </ColorSchemeProvider>,
     );
     expect(screen.getByText('lightMode')).toBeTruthy();
+// @ts-expect-error - TS2769 - No overload matches this call.
     act(() => listener({ matches: true }));
     expect(screen.getByText('darkMode')).toBeTruthy();
   });

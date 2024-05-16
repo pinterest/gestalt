@@ -52,6 +52,7 @@ function DatePickerTextField(props: Props) {
     >
       <Box column={12} flex="grow">
         <TextField
+// @ts-expect-error - TS2571 - Object is of type 'unknown'.
           ref={(input) => forwardedRef && forwardedRef(input || null)}
           autoComplete="off"
           disabled={disabled}
@@ -61,6 +62,7 @@ function DatePickerTextField(props: Props) {
           mobileInputMode="none"
           name={name}
           onBlur={(data) => onBlur?.(data.event)}
+// @ts-expect-error - TS2345 - Argument of type 'SyntheticEvent<HTMLInputElement, Event>' is not assignable to parameter of type 'ChangeEvent<HTMLInputElement>'.
           onChange={(data) => onChange?.(data.event)}
           onFocus={(data) => {
             onFocus?.(data.event);
@@ -96,4 +98,5 @@ function textFieldForwardRef(
 
 textFieldForwardRef.displayName = 'DatePickerTextFieldForwardRef';
 
+// @ts-expect-error - TS2345 - Argument of type 'typeof textFieldForwardRef' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLInputElement, Props>'.
 export default forwardRef<HTMLInputElement, Props>(textFieldForwardRef);

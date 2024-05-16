@@ -32,6 +32,7 @@ export default function Example() {
       {dataSources.map(({ id, color, tooltip, name }) => (
         <TagData
           key={id}
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'DataVisualizationColors | undefined'.
           color={color}
           id={id}
           onTap={({ id: selectedId, selected }) => {
@@ -48,6 +49,7 @@ export default function Example() {
           selected={selectedItems.includes(id)}
           showCheckbox
           text={name}
+// @ts-expect-error - TS2741 - Property 'children' is missing in type '{ text: string; }' but required in type 'ExtendedTooltipProps'.
           tooltip={{ text: tooltip }}
         />
       ))}

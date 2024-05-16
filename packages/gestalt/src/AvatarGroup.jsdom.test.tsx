@@ -180,6 +180,7 @@ describe('AvatarGroup', () => {
             | React.KeyboardEvent<HTMLAnchorElement>;
         },
       ],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     const ref = createRef<unknown>();
@@ -211,6 +212,7 @@ describe('AvatarGroup', () => {
             | React.KeyboardEvent<HTMLAnchorElement>;
         },
       ],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     const ref = createRef<unknown>();
@@ -243,6 +245,7 @@ describe('AvatarGroup', () => {
             | React.KeyboardEvent<HTMLAnchorElement>;
         },
       ],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     renderCmp({

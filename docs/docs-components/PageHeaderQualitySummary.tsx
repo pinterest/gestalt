@@ -63,8 +63,10 @@ export default function PageHeaderQualitySummary({ name }: Props) {
       {['figmaStatus', 'responsive', 'mobileAdaptive', 'accessible'].map((item, i, arr) => (
         <Flex key={`summary-${item}`}>
           <QualityItem
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"accessible" | "mobileAdaptive" | "figmaStatus" | "responsive"'.
             category={item}
             status={
+// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'ComponentStatus'.
               item === 'accessible' ? componentStatusData[item]?.summary : componentStatusData[item]
             }
           />

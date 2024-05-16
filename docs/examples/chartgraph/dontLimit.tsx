@@ -117,6 +117,7 @@ export default function Example() {
       }}
       title="Engagement rate"
       type="line"
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
       visualPatternSelected={visualPatternSelected}
     />
   );

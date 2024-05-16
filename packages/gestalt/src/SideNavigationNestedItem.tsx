@@ -38,6 +38,7 @@ type Props = {
  * Use [SideNavigation.NestedItem](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.NestedItem) to redirect the user to a different page or section. SideNavigation.NestedItem must be used in second and third nested levels.
  */
 const SideNavigationNestedItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
+// @ts-expect-error - TS2345 - Argument of type '({ active, counter, href, label, onClick }: Props, ref: ForwardedRef<HTMLLIElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLLIElement, Props>'.
   function SideNavigationNestedItem(
     { active, counter, href, label, onClick }: Props,
     ref,

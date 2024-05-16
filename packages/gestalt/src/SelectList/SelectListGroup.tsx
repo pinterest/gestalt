@@ -18,6 +18,7 @@ type Props = {
 /**
  * Use [SelectList.Group](https://gestalt.pinterest.systems/selectlist#SelectList.Group) to group a subset of the options within SelectList.
  */
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
 export default function SelectListGroup({ children, disabled, label }: Props): Element<'optgroup'> {
   return (
     <optgroup disabled={disabled} label={label}>

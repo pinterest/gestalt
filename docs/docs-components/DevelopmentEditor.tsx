@@ -132,6 +132,7 @@ export default function DevelopmentEditor({
           />
         </Flex>
       </Box>
+{ /* @ts-expect-error - TS2322 - Type '{ readonly plain: { readonly backgroundColor: "#2a2734"; readonly color: "#88BBBF"; readonly lineHeight: 1.4; readonly fontSize: 16; readonly fontFamily: "PragmataPro, \"Roboto Mono\", Monaco, Consolas, \"Courier New\", \"Courier, monospace !important"; }; readonly styles: readonly [...]; }' is not assignable to type 'PrismTheme'. */}
       <LiveProvider code={codeWrapped} scope={scope} theme={theme}>
         <Box
           alignItems="center"

@@ -26,6 +26,7 @@ export default function AccordionTitle(props: {
   badge?: BadgeType;
   icon?: keyof typeof icons;
   iconAccessibilityLabel?: string;
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
   iconButton?: Element<typeof IconButton | typeof IconButtonLink>;
   title: string;
   type?: 'error' | 'info';
@@ -33,6 +34,7 @@ export default function AccordionTitle(props: {
 }) {
   const { iconAccessibilityLabel = '', title, type = 'info', size = 'lg' } = props;
 
+// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ badge?: BadgeType | undefined; icon?: "replace" | "search" | "link" | "text" | "dash" | "3D" | "3D-move" | "360" | "accessibility" | "ad" | "ad-group" | "add" | "add-circle" | ... 321 more ... | undefined; ... 4 more ...; size?: "sm" | ... 2 more ... | undefined; }'.
   const decoration = ['icon', 'badge', 'iconButton'].find((prop) => !!props[prop]);
   const hasError = type === 'error';
   const hasIcon = hasError || decoration === 'icon';

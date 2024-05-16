@@ -63,6 +63,7 @@ export default function Example() {
             )}-${new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(date)}`,
         }}
         title="508 campaigns"
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
         visualPatternSelected={visualPatternSelected}
       />
     </Flex>

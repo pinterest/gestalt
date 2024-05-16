@@ -27,6 +27,7 @@ export default function SizesExample() {
   }
 
   const initialState = { modal: 'none' } as const;
+// @ts-expect-error - TS2769 - No overload matches this call.
   const [state, dispatch] = useReducer(reducer, initialState);
   const HEADER_ZINDEX = new FixedZIndex(10);
   const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
@@ -36,6 +37,7 @@ export default function SizesExample() {
       <Box padding={1}>
         <Button
           onClick={() => {
+// @ts-expect-error - TS2554 - Expected 0 arguments, but got 1.
             dispatch({ type: 'small' });
           }}
           text="Small Modal"
@@ -47,6 +49,7 @@ export default function SizesExample() {
               footer={<Heading size="500">Footer</Heading>}
               heading="Small modal"
               onDismiss={() => {
+// @ts-expect-error - TS2554 - Expected 0 arguments, but got 1.
                 dispatch({ type: 'none' });
               }}
               size="sm"
@@ -59,6 +62,7 @@ export default function SizesExample() {
       <Box padding={1}>
         <Button
           onClick={() => {
+// @ts-expect-error - TS2554 - Expected 0 arguments, but got 1.
             dispatch({ type: 'medium' });
           }}
           text="Medium Modal"
@@ -70,6 +74,7 @@ export default function SizesExample() {
               footer={<Heading size="500">Footer</Heading>}
               heading="Medium modal"
               onDismiss={() => {
+// @ts-expect-error - TS2554 - Expected 0 arguments, but got 1.
                 dispatch({ type: 'none' });
               }}
               size="md"
@@ -84,6 +89,7 @@ export default function SizesExample() {
       <Box padding={1}>
         <Button
           onClick={() => {
+// @ts-expect-error - TS2554 - Expected 0 arguments, but got 1.
             dispatch({ type: 'large' });
           }}
           text="Large Modal"
@@ -95,6 +101,7 @@ export default function SizesExample() {
               footer={<Heading size="500">Footer</Heading>}
               heading="Large modal"
               onDismiss={() => {
+// @ts-expect-error - TS2554 - Expected 0 arguments, but got 1.
                 dispatch({ type: 'none' });
               }}
               size="lg"

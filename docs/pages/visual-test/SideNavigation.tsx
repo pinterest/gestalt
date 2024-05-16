@@ -35,6 +35,7 @@ export default function Snapshot() {
             label="Business Access"
             onClick={({ event }) => event.preventDefault()}
           />
+{ /* @ts-expect-error - TS2741 - Property 'onExpand' is missing in type '{ children: Element; badge: { text: string; type: "info"; }; icon: "ads-stats"; label: string; }' but required in type 'SideNavigationGroupProps'. */}
           <SideNavigation.Group badge={{ text: 'New', type: 'info' }} icon="ads-stats" label="Ads">
             <SideNavigation.NestedItem
               href="#"

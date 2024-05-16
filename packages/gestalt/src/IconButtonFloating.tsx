@@ -69,6 +69,7 @@ type Props = {
  *
  */
 const IconButtonFloatingWithForwardRef = forwardRef<HTMLButtonElement, Props>(
+// @ts-expect-error - TS2345 - Argument of type '({ accessibilityControls, accessibilityExpanded, accessibilityPopupRole, accessibilityLabel, dangerouslySetSvgPath, disabled, icon, onClick, selected, tooltip, }: Props, ref: ForwardedRef<HTMLButtonElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLButtonElement, Props>'.
   function IconButtonFloating(
     {
       accessibilityControls,

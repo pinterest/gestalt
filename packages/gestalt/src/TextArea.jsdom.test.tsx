@@ -108,6 +108,7 @@ describe('TextArea', () => {
           value: string;
         },
       ],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     render(<TextArea id="test" onBlur={mockBlur} onChange={jest.fn()} value="TextArea Text" />);
@@ -124,6 +125,7 @@ describe('TextArea', () => {
           value: string;
         },
       ],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     const { container } = render(
@@ -150,6 +152,7 @@ describe('TextArea', () => {
           value: string;
         },
       ],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     render(<TextArea id="test" onChange={jest.fn()} onFocus={mockFocus} value="TextArea Text" />);
@@ -166,6 +169,7 @@ describe('TextArea', () => {
           value: string;
         },
       ],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     const { container } = render(

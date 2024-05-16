@@ -17,6 +17,7 @@ export default function SkipToContent() {
   }, [mainContent]);
 
   useEffect(() => {
+// @ts-expect-error - TS2345 - Argument of type 'Element | null' is not assignable to parameter of type 'SetStateAction<HTMLElement | null>'.
     if (!mainContent) setMainContent(document.querySelector('[role="main"]'));
 
     return () => {

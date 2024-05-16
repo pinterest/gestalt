@@ -127,7 +127,9 @@ export default class Image extends PureComponent<Props> {
   loadImage() {
     if (typeof window !== 'undefined') {
       const image = new window.Image();
+// @ts-expect-error - TS2322 - Type '(event: SyntheticEvent<HTMLImageElement, Event>) => void' is not assignable to type '(this: GlobalEventHandlers, ev: Event) => any'.
       image.onload = this.handleLoad;
+// @ts-expect-error - TS2322 - Type '(event: SyntheticEvent<HTMLImageElement, Event>) => void' is not assignable to type 'OnErrorEventHandler'.
       image.onerror = this.handleError;
       image.src = this.props.src;
     }
@@ -187,6 +189,7 @@ export default class Image extends PureComponent<Props> {
           crossOrigin={crossOrigin}
           decoding={decoding}
           fetchpriority={fetchPriority}
+// @ts-expect-error - TS2322 - Type '"auto" | "lazy" | "eager" | undefined' is not assignable to type '"lazy" | "eager" | undefined'.
           loading={loading}
           onError={this.handleError}
           onLoad={this.handleLoad}

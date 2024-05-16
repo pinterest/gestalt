@@ -52,6 +52,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         </MainSection.Subsection>
 
         <MainSection.Subsection title="Rounding">
+{ /* @ts-expect-error - TS2322 - Type '{ children: ({ rounding }: { [key: string]: any; }) => Element; hasCheckerboard: true; rounding: (string | number)[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
           <CombinationNew hasCheckerboard rounding={['circle', 0, 1, 2, 3, 4, 5, 6, 7, 8]}>
             {({ rounding }) => (
               <Mask height={70} rounding={rounding} width={70}>

@@ -66,6 +66,7 @@ export default function Example() {
           ref={ref}
           id="cities"
           label="Cities"
+// @ts-expect-error - TS2322 - Type 'ChangeTagHandler' is not assignable to type 'AbstractEventHandler<SyntheticEvent<HTMLTextAreaElement, Event>, { value: string; }>'.
           onChange={onChangeTagManagement}
           onKeyDown={onKeyDownTagManagement}
           placeholder={value.length > 0 || tags.length > 0 ? '' : "Cities you've lived in"}

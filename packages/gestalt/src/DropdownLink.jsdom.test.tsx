@@ -10,6 +10,7 @@ describe('Dropdown.Link', () => {
         mobileOnDismissStart: () => void;
       },
     ],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     undefined
   >();
 

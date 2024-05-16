@@ -472,6 +472,7 @@ export function buildStyles<T extends any>({
       !omitProps.includes(prop) &&
       (!allowlistProps || allowlistProps.includes(prop))
     ) {
+// @ts-expect-error - TS2536 - Type 'Extract<keyof T, string>' cannot be used to index type '{ readonly alignItems: Functor<AlignItems>; readonly display: Functor<Display>; readonly column: Functor<Column>; readonly direction: Functor<...>; ... 69 more ...; readonly zIndex: Functor<...>; }'.
       const fn = propToFn[prop];
       const value = props[prop];
       omitProps.push(prop);

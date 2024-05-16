@@ -4,10 +4,12 @@ import VideoPlayhead from './Playhead';
 test('VideoPlayhead handles on mouse down and up events', () => {
   const mockOnPlayheadDown = jest.fn<
     [React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     undefined
   >();
   const mockOnPlayheadUp = jest.fn<
     [React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     undefined
   >();
   render(
@@ -36,10 +38,12 @@ test('VideoPlayhead handles on mouse down and up events', () => {
 test('VideoPlayhead ends seek when mouse leaves', () => {
   const mockOnPlayheadDown = jest.fn<
     [React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     undefined
   >();
   const mockOnPlayheadUp = jest.fn<
     [React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     undefined
   >();
   render(

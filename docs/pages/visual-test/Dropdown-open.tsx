@@ -10,6 +10,7 @@ export default function Snapshot() {
       <Box color="default" height={250} padding={4} width={300}>
         <Flex justifyContent="center">
           <IconButton
+// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
             ref={anchorRef}
             accessibilityControls="link-dropdown-example"
             accessibilityExpanded={open}

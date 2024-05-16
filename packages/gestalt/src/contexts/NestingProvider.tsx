@@ -20,6 +20,7 @@ function NestingProvider({
   componentName,
   children,
   maxNestedLevels,
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
 }: Props): Element<typeof Provider> {
   const { nestedLevel } = useContext(NestingContext);
 

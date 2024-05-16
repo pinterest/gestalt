@@ -104,10 +104,13 @@ export default function YearInReview2022() {
 
   useEffect(() => {
     const animatedDecor = [
+// @ts-expect-error - TS2488 - Type 'NodeListOf<Element>' must have a '[Symbol.iterator]()' method that returns an iterator.
       ...document.querySelectorAll('.fadeInRight'),
+// @ts-expect-error - TS2488 - Type 'NodeListOf<Element>' must have a '[Symbol.iterator]()' method that returns an iterator.
       ...document.querySelectorAll('.fadeInLeft'),
     ];
 
+// @ts-expect-error - TS2345 - Argument of type '([entry]: [any]) => void' is not assignable to parameter of type 'IntersectionObserverCallback'.
     const observer = new IntersectionObserver(([entry]: [any]) => {
       if (entry && entry.isIntersecting) {
         entry.target?.classList?.add('animate');

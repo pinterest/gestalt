@@ -132,6 +132,7 @@ type Props = {
   /**
    * List of tags to display in the component. See [tags](https://gestalt.pinterest.systems/web/combobox#Tags) variant to learn more.
    */
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
   tags?: ReadonlyArray<Element<typeof Tag>>;
   /**
    * An object representing the zIndex value of the ComboBox list box. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
@@ -148,6 +149,7 @@ type Props = {
  * ![Combobox open dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ComboBox-open-dark.spec.mjs-snapshots/ComboBox-open-dark-chromium-darwin.png)
  *
  */
+// @ts-expect-error - TS2345 - Argument of type '({ accessibilityClearButtonLabel, disabled, errorMessage, helperText, id, inputValue: controlledInputValue, label, labelDisplay, noResultText, onBlur, onChange, onClear, onFocus, onKeyDown, onSelect, options, placeholder, size, selectedOption, tags, zIndex, }: Props, ref: ForwardedRef<HTMLInputElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLInputElement, Props>'.
 const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function ComboBox(
   {
     accessibilityClearButtonLabel,
@@ -185,6 +187,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
   const optionRef = useRef<null | undefined | HTMLElement>(null);
   const dropdownRef = useRef<null | HTMLElement>(null);
   // When using both forwardRef and innerRefs, useimperativehandle() allows to externally set focus via the ref prop: textfieldRef.current.focus()
+// @ts-expect-error - TS2322 - Type 'HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
   // ==== STATE ====
@@ -489,7 +492,9 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
         />
       </Box>
       {showOptionsList && innerRef.current ? (
+// @ts-expect-error - TS2786 - 'Layer' cannot be used as a JSX component.
         <Layer zIndex={zIndex}>
+{ /* @ts-expect-error - TS2786 - 'InternalPopover' cannot be used as a JSX component. */}
           <InternalPopover
             anchor={innerRef.current}
             color="white"
@@ -508,6 +513,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
               direction="column"
               display="flex"
               flex="grow"
+// @ts-expect-error - TS2322 - Type '{ children: Element | Element[]; ref: MutableRefObject<HTMLElement | null>; alignItems: "center"; direction: "column"; display: "flex"; ... 6 more ...; width: number; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
               id={id}
               maxHeight="30vh"
               overflow="auto"

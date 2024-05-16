@@ -29,6 +29,7 @@ export const copyToClipboard = (hash: string): boolean => {
   url.hash = hash;
 
   try {
+// @ts-expect-error - TS2345 - Argument of type 'Location' is not assignable to parameter of type 'string'.
     navigator.clipboard.writeText(url);
   } catch (err: any) {
     return false;

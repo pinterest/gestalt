@@ -7,6 +7,7 @@ export default function Screenshot() {
 
   let size = 'lg';
   if (query.size) {
+// @ts-expect-error - TS2322 - Type 'string | string[]' is not assignable to type 'string'.
     size = query.size;
   }
 
@@ -26,6 +27,7 @@ export default function Screenshot() {
             />
           }
           id="AccordionExample - header"
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"sm" | "md" | "lg" | undefined'.
           size={size}
           title="Accordion Title"
         >
@@ -69,6 +71,7 @@ export default function Screenshot() {
               ),
             },
           ]}
+// @ts-expect-error - TS2322 - Type '{ accessibilityCollapseLabel: string; accessibilityExpandLabel: string; id: string; items: ({ badge: { text: string; }; children: Element; summary: string[]; title: string; iconButton: Element; } | { ...; })[]; size: string; }' is not assignable to type 'IntrinsicAttributes & AccordionExpandableProps'.
           size={size}
         />
       </Flex>

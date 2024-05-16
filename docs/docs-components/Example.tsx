@@ -40,6 +40,7 @@ function Example({
       showHeading={showHeading}
       stacked
     >
+{ /* @ts-expect-error - TS2322 - Type '{ readonly plain: { readonly backgroundColor: "#2a2734"; readonly color: "#88BBBF"; readonly lineHeight: 1.4; readonly fontSize: 16; readonly fontFamily: "PragmataPro, \"Roboto Mono\", Monaco, Consolas, \"Courier New\", \"Courier, monospace !important"; }; readonly styles: readonly [...]; }' is not assignable to type 'PrismTheme'. */}
       <LiveProvider code={code} scope={scope} theme={theme}>
         <Box direction="column" display="flex" marginBottom={6} marginEnd={-2} marginStart={-2}>
           <Box height="100%" padding={2} width="100%">

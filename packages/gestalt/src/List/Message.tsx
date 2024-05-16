@@ -7,6 +7,7 @@ type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
 type Props = {
   size: Size | null | undefined;
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
   text: string | Element<typeof Text>;
 };
 
@@ -25,6 +26,7 @@ export default function ListText({ size, text }: Props) {
   // If `text` is a Text component, we need to override any text colors within to ensure they all match
   if (
     typeof text !== 'string' &&
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
     Children.only<Element<typeof Text>>(text)?.type.displayName === 'Text'
   ) {
     const isDarkMode = colorSchemeName === 'darkMode';

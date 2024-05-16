@@ -13,6 +13,7 @@ export default function Example() {
               id="scheme"
               label="Color scheme"
               name="scheme"
+// @ts-expect-error - TS2345 - Argument of type 'string' is not assignable to parameter of type 'SetStateAction<"light" | "dark" | "userPreference">'.
               onChange={({ value }) => setScheme(value)}
               placeholder="Select color scheme"
               value={scheme}

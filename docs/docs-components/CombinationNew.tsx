@@ -27,9 +27,11 @@ const combinations = (variationsByField: Record<any, any>) => {
     if (!restFieldNames.length) {
       return vs;
     }
+// @ts-expect-error - TS2345 - Argument of type '[any]' is not assignable to parameter of type '[any, any]'.
     return vs.flatMap((newAcc: { [key: string]: string }) => combine(restFieldNames, newAcc));
   };
 
+// @ts-expect-error - TS2345 - Argument of type 'string[]' is not assignable to parameter of type '[any, any]'.
   return combine(fieldNames, {});
 };
 
@@ -91,6 +93,7 @@ export default function CombinationNew({
       <MainSectionCard
         key={JSON.stringify(combination)}
         cardSize={cardSize || 'sm'}
+// @ts-expect-error - TS2322 - Type 'string | undefined' is not assignable to type '"default" | "darkWash" | "lightWash" | "tertiary" | undefined'.
         shadeColor={cardShadeColor}
         title={hideTitle ? undefined : combinationTitles}
       >

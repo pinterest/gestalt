@@ -14,7 +14,9 @@ describe('Dropdown.Item', () => {
     useReducedMotionMock.mockReturnValue(true);
   });
 
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
   const onOpen = jest.fn<[], undefined>();
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
   const onClose = jest.fn<[], undefined>();
 
   function TesterWrap() {

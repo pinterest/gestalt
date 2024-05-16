@@ -70,6 +70,7 @@ export async function getStaticProps(context: {
   const pathName = id.join('/');
   const { meta, content } = await getDocByRoute(pathName);
 
+// @ts-expect-error - TS2345 - Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
   const mdxSource = await serialize(content, {
     mdxOptions: { remarkPlugins: [remarkGfm, remarkBreaks], format: 'mdx' },
   });

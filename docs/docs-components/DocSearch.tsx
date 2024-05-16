@@ -67,6 +67,7 @@ export default function DocSearch({
       const target = event.target || event.srcElement;
       const code = event.keyCode || event.which || event.charCode;
 
+// @ts-expect-error - TS2339 - Property 'tagName' does not exist on type 'EventTarget | null'.
       const { tagName } = target;
 
       const algoliaSearchInput = document.querySelector(`#${INPUT_ID}`);
@@ -75,6 +76,7 @@ export default function DocSearch({
       if (tagName === 'INPUT' && algoliaSearchInput && algoliaSearchInputIsFocused) {
         // Escape key
         if (code === 27) {
+// @ts-expect-error - TS2339 - Property 'blur' does not exist on type 'Element'.
           algoliaSearchInput.blur();
           if (isCompressedUI && isMobileSearchExpandedOpen) {
             toggleSearchBarOpen();
@@ -87,8 +89,10 @@ export default function DocSearch({
       // * <input>, <textarea> and <select>
       // * readOnly === true
       if (
+// @ts-expect-error - TS2531 - Object is possibly 'null'. | TS2339 - Property 'isContentEditable' does not exist on type 'EventTarget'.
         target.isContentEditable ||
         ((tagName === 'INPUT' || tagName === 'TEXTAREA' || tagName === 'SELECT') &&
+// @ts-expect-error - TS2531 - Object is possibly 'null'. | TS2339 - Property 'readOnly' does not exist on type 'EventTarget'.
           !target.readOnly)
       ) {
         return;
@@ -101,6 +105,7 @@ export default function DocSearch({
             toggleSearchBarOpen();
           }
           event.preventDefault();
+// @ts-expect-error - TS2339 - Property 'focus' does not exist on type 'Element'.
           algoliaSearchInput.focus();
         }
       }
@@ -119,14 +124,17 @@ export default function DocSearch({
   useEffect(() => {
     const algoliaSearchInput = document.querySelector(`#${INPUT_ID}`);
     if (algoliaSearchInput && isMobileSearchExpandedOpen) {
+// @ts-expect-error - TS2339 - Property 'focus' does not exist on type 'Element'.
       algoliaSearchInput.focus();
     }
   }, [isMobileSearchExpandedOpen]);
 
   useEffect(() => {
+// @ts-expect-error - TS2339 - Property 'docsearch' does not exist on type 'Window & typeof globalThis'.
     if (typeof window === 'undefined' || !window.docsearch) {
       return;
     }
+// @ts-expect-error - TS2339 - Property 'docsearch' does not exist on type 'Window & typeof globalThis'.
     window.docsearch({
       appId: 'GS3KDMZW6P',
       apiKey: '88c1825a5951ee68c92b4fbf4e85ec7f',
@@ -153,6 +161,7 @@ export default function DocSearch({
 
       <Box display="block" lgDisplay="none" marginStart={2}>
         <IconButton
+// @ts-expect-error - TS2322 - Type 'Ref<ReactForwardRef<HTMLButtonElement, IconButtonProps>>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
           ref={anchorRef}
           accessibilityControls="site-settings-dropdown"
           accessibilityExpanded={isMobileSearchExpandedOpen}

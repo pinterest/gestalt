@@ -19,6 +19,7 @@ type DataVisualizationColors =
   | '12';
 
 export const useHexColor: () => (arg1: DataVisualizationColors) => string = () => {
+// @ts-expect-error - TS2339 - Property 'colorSchemeName' does not exist on type '{ name: "lightMode" | "darkMode"; }'.
   const { colorSchemeName } = useColorScheme();
   return (vizColor: DataVisualizationColors) =>
     colorSchemeName === 'lightMode'
@@ -123,14 +124,20 @@ export default function PatternBarFill() {
                       </defs>
                       <use
                         fill={
+// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly '01': { readonly coordinate: readonly [4, 4]; }; readonly '02': { readonly coordinate: readonly [0, 4]; readonly fill: "empty"; }; readonly '03': { readonly coordinate: readonly [4, 4]; }; readonly '04': { readonly coordinate: readonly [5.5, 5.5]; readonly fill: "empty"; readonly stroke: "bold"; }; ... 7 ...'.
                           decalDotCoordCorrection[color].fill === 'empty'
                             ? TOKEN_COLOR_WHITE_MOCHIMALIST_0
+// @ts-expect-error - TS2345 - Argument of type 'string' is not assignable to parameter of type 'DataVisualizationColors'.
                             : hexColor(color)
                         }
                         href={`#points-${color}-${idx}-${palette.name}`}
+// @ts-expect-error - TS2345 - Argument of type 'string' is not assignable to parameter of type 'DataVisualizationColors'.
                         stroke={hexColor(color)}
+// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly '01': { readonly coordinate: readonly [4, 4]; }; readonly '02': { readonly coordinate: readonly [0, 4]; readonly fill: "empty"; }; readonly '03': { readonly coordinate: readonly [4, 4]; }; readonly '04': { readonly coordinate: readonly [5.5, 5.5]; readonly fill: "empty"; readonly stroke: "bold"; }; ... 7 ...'.
                         strokeWidth={decalDotCoordCorrection[color].stroke === 'bold' ? '6' : '1.5'}
+// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly '01': { readonly coordinate: readonly [4, 4]; }; readonly '02': { readonly coordinate: readonly [0, 4]; readonly fill: "empty"; }; readonly '03': { readonly coordinate: readonly [4, 4]; }; readonly '04': { readonly coordinate: readonly [5.5, 5.5]; readonly fill: "empty"; readonly stroke: "bold"; }; ... 7 ...'.
                         x={0 - decalDotCoordCorrection[color].coordinate[0]}
+// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly '01': { readonly coordinate: readonly [4, 4]; }; readonly '02': { readonly coordinate: readonly [0, 4]; readonly fill: "empty"; }; readonly '03': { readonly coordinate: readonly [4, 4]; }; readonly '04': { readonly coordinate: readonly [5.5, 5.5]; readonly fill: "empty"; readonly stroke: "bold"; }; ... 7 ...'.
                         y={0 - decalDotCoordCorrection[color].coordinate[1]}
                       />
                     </svg>

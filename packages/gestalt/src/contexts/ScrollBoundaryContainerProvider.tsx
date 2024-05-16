@@ -25,6 +25,7 @@ const ScrollBoundaryContainerContext: Context<ScrollBoundaryContainerContextType
 
 const { Provider } = ScrollBoundaryContainerContext;
 
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
 function ScrollBoundaryContainerProvider({ children }: Props): Element<typeof Provider> {
   const [scrollBoundaryContainerRef, setScrollBoundaryContainerRef] = useState<null | HTMLElement>(
     null,

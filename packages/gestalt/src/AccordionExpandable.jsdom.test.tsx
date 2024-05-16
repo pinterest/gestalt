@@ -114,6 +114,7 @@ describe('AccordionExpandable', () => {
     const newProps = {
       ...props,
       expandedIndex: 0,
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       onExpandedChange: jest.fn<[number | null | undefined], undefined>(),
     } as const;
     render(<AccordionExpandable {...newProps} />);

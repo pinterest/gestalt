@@ -18,6 +18,7 @@ import getRandomNumberGenerator from './items-utils/getRandomNumberGenerator';
 
 const TWO_COL_MINDEX = 50;
 
+// @ts-expect-error - TS2749 - 'Masonry' refers to a value, but is being used as a type here. Did you mean 'typeof Masonry'?
 type MasonryProps<T> = Masonry<T>['props'];
 
 type Props<T> = {
@@ -103,14 +104,18 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
 
   // eslint-disable-next-line class-methods-use-this
   countError: () => void = () => {
+// @ts-expect-error - TS2339 - Property 'ERROR_COUNT' does not exist on type 'Window & typeof globalThis'.
     window.ERROR_COUNT += 1;
   };
 
   componentDidMount() {
+// @ts-expect-error - TS2339 - Property 'TEST_FETCH_COUNTS' does not exist on type 'Window & typeof globalThis'.
     window.TEST_FETCH_COUNTS = 0;
+// @ts-expect-error - TS2339 - Property 'ERROR_COUNT' does not exist on type 'Window & typeof globalThis'. | TS2339 - Property 'ERROR_COUNT' does not exist on type 'Window & typeof globalThis'.
     window.ERROR_COUNT = window.ERROR_COUNT || 0;
 
     window.addEventListener('trigger-reflow', this.triggerReflow);
+// @ts-expect-error - TS2769 - No overload matches this call.
     window.addEventListener('set-masonry-items', this.setMasonryItems);
     window.addEventListener('error', this.countError);
 
@@ -122,6 +127,7 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
 
   componentWillUnmount() {
     window.removeEventListener('trigger-reflow', this.triggerReflow);
+// @ts-expect-error - TS2769 - No overload matches this call.
     window.removeEventListener('set-masonry-items', this.setMasonryItems);
     window.removeEventListener('error', this.countError);
   }
@@ -212,6 +218,7 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
   };
 
   toggleMount: () => void = () => {
+// @ts-expect-error - TS2339 - Property 'ITEM_MOUNT_COUNT' does not exist on type 'Window & typeof globalThis'.
     window.ITEM_MOUNT_COUNT = 0;
     this.setState((prevState) => ({
       mountGrid: !prevState.mountGrid,
@@ -229,6 +236,7 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
       return;
     }
 
+// @ts-expect-error - TS2339 - Property 'TEST_FETCH_COUNTS' does not exist on type 'Window & typeof globalThis'.
     window.TEST_FETCH_COUNTS += 1;
 
     let until = from + 20;
@@ -271,6 +279,7 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
       return;
     }
 
+// @ts-expect-error - TS2339 - Property 'TEST_FETCH_COUNTS' does not exist on type 'Window & typeof globalThis'.
     window.TEST_FETCH_COUNTS += 1;
 
     const defaultFrom = props?.from ?? 0;
@@ -313,6 +322,7 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
     return <ExampleGridItem data={data} expanded={expanded} itemIdx={itemIdx} />;
   };
 
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
   render(): Element<'div'> {
     const {
       MasonryComponent,
@@ -412,6 +422,7 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
             items={items}
             layout={flexible ? 'flexible' : undefined}
             measurementStore={externalCache ? measurementStore : undefined}
+// @ts-expect-error - TS2322 - Type '{ minCols?: any; gutterWidth: any; loadItems?: any; virtualBoundsTop?: any; virtualBoundsBottom?: any; scrollContainer?: any; ref: { current: any; }; _logTwoColWhitespace: ((whitespace: number) => void) | undefined; ... 7 more ...; virtualize: boolean | undefined; }' is not assignable to type 'IntrinsicAttributes & MasonryV2Props<any> & RefAttributes<MasonryV2Ref>'.
             positionStore={externalCache ? positionStore : undefined}
             renderItem={this.renderItem}
             virtualize={virtualize}
@@ -424,6 +435,7 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
 
     // Render multiple relative ancestors to verify virtual bound calculation.
     if (offsetTop) {
+// @ts-expect-error - TS2345 - Argument of type 'number' is not assignable to parameter of type 'string'.
       const top = parseInt(offsetTop / 2, 10);
       gridWrapper = (
         <div style={{ top, position: 'relative' }}>
@@ -468,6 +480,7 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
             Toggle scroll container
           </button>
         </div>
+{ /* @ts-expect-error - TS2322 - Type '{ height: number; overflowY: string; } | { height?: undefined; overflowY?: undefined; }' is not assignable to type 'CSSProperties | undefined'. */}
         <div data-scroll-container style={containerStyle}>
           {gridWrapper}
         </div>

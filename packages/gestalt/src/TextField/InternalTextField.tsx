@@ -98,6 +98,7 @@ type Props = {
   errorMessage?: ReactNode;
   hasError?: boolean;
   helperText?: string;
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
   iconButton?: Element<typeof InternalTextFieldIconButton>;
   label?: string;
   labelDisplay?: 'visible' | 'hidden';
@@ -115,6 +116,7 @@ type Props = {
   readOnly?: boolean;
   size?: SizeType;
   step?: number;
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
   tags?: ReadonlyArray<Element<typeof Tag>>;
   type?: 'date' | 'email' | 'number' | 'password' | 'tel' | 'text' | 'url';
   value?: string;
@@ -122,6 +124,7 @@ type Props = {
 
 const applyDensityStyle = (size: SizeType) => styles[`${size}`];
 
+// @ts-expect-error - TS2345 - Argument of type '({ accessibilityControls, accessibilityActiveDescendant, autoComplete, dataTestId, disabled, errorMessage, hasError, helperText, id, iconButton, label, labelDisplay, max, maxLength, mobileEnterKeyHint, mobileInputMode, min, name, onBlur, onChange, onClick, onFocus, onKeyDown, placeholder, readOnly, size, step, tags,...' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLInputElement, Props>'.
 const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function TextField(
   {
     accessibilityControls,
@@ -160,6 +163,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
   // ==== REFS ====
   const innerRef = useRef<null | HTMLInputElement | HTMLDivElement>(null);
   // When using both forwardRef and innerRefs, useimperativehandle() allows to externally set focus via the ref prop: textfieldRef.current.focus()
+// @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
   // ==== STATE ====
@@ -248,6 +252,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
       name={name}
       onBlur={handleBlur}
       onChange={handleChange}
+// @ts-expect-error - TS2322 - Type '(event: React.ChangeEvent<HTMLInputElement>) => void | undefined' is not assignable to type 'MouseEventHandler<HTMLInputElement>'.
       onClick={handleClick}
       onFocus={handleFocus}
       onKeyDown={handleKeyDown}

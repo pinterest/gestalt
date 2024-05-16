@@ -29,6 +29,7 @@ function SearchBoardField() {
 
   return (
     <SearchField
+// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
       ref={ref}
       accessibilityLabel="Search boards field"
       id="searchField"
@@ -105,6 +106,7 @@ function SelectBoard() {
         <Text size="100">Board</Text>
 
         <Button
+// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLAnchorElement | HTMLButtonElement> | undefined'.
           ref={anchorRef}
           accessibilityLabel="Select Board"
           iconEnd="arrow-down"

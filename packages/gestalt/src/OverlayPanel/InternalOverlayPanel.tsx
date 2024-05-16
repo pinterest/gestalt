@@ -155,8 +155,10 @@ export default function InternalOverlayPanel({
     }
 
     // we must use keydown instead of keyup to match Popover events, as Popover gets dismissed in onKeyUp and we need to stopPropagation in the confirmation Popover
+// @ts-expect-error - TS2769 - No overload matches this call.
     window.addEventListener('keydown', handleKeyDown);
     return function cleanup() {
+// @ts-expect-error - TS2769 - No overload matches this call.
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [onExternalDismiss, enabledDismiss]);
@@ -221,6 +223,7 @@ export default function InternalOverlayPanel({
                       </Box>
                       <Box flex="none" paddingX={6} paddingY={7}>
                         <InternalDismissButton
+// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
                           ref={dismissButtonRef}
                           accessibilityControls={id}
                           accessibilityLabel={
@@ -245,6 +248,7 @@ export default function InternalOverlayPanel({
                       zIndex={new FixedZIndex(1)}
                     >
                       <InternalDismissButton
+// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
                         ref={dismissButtonRef}
                         accessibilityControls={id}
                         accessibilityLabel={

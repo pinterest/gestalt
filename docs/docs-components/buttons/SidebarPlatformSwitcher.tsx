@@ -34,15 +34,18 @@ export default function SidebarPlatformSwitcher({ onClick, componentPlatformFilt
     event: React.MouseEvent<HTMLButtonElement>;
   }) => {
     const selectedPlatform = Object.keys(PLATFORM_TO_INDEX_MAP).find(
+// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly web: 0; readonly ios: 1; readonly android: 2; }'.
       (key) => PLATFORM_TO_INDEX_MAP[key] === activeIndex,
     );
     trackButtonClick('Sidebar Platform ', selectedPlatform);
     router.push(`/${selectedPlatform || 'web'}/overview`);
 
+// @ts-expect-error - TS2345 - Argument of type 'string' is not assignable to parameter of type '"android" | "ios" | "web"'.
     onClick(selectedPlatform || 'web');
   };
 
   return (
+// @ts-expect-error - TS2741 - Property 'size' is missing in type '{ items: (string | Element)[]; onChange: ({ activeIndex, }: { activeIndex: number; event: MouseEvent<HTMLButtonElement, MouseEvent>; }) => void; selectedItemIndex: 0 | ... 1 more ... | 2; }' but required in type 'SegmentedControlProps'.
     <SegmentedControl
       items={items}
       onChange={onSelect}

@@ -27,6 +27,7 @@ export default function AvatarGroupCollaboratorsCount({
   return (
     <PositioningWrapper index={2} pileCount={pileCount} size={size}>
       <HoverOverlay hovered={hovered} size={size}>
+{ /* @ts-expect-error - TS2322 - Type 'string | undefined' is not assignable to type '"translateX10" | undefined'. */}
         <AvatarFoundation fontSize="40px" outline textAnchor="middle" translate={translate}>
           {isAbove99Count ? '99+' : count}
         </AvatarFoundation>

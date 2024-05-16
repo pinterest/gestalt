@@ -1,3 +1,4 @@
+// @ts-expect-error - TS2307 - Cannot find module 'flow-to-typescript-codemod' or its corresponding type declarations.
 import { Flow } from 'flow-to-typescript-codemod';
 
 /*
@@ -467,16 +468,27 @@ type Props = {
    */
   ref?:
     | HTMLDivElement
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
     | Element<'article'>
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
     | Element<'aside'>
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
     | Element<'details'>
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
     | Element<'figcaption'>
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
     | Element<'figure'>
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
     | Element<'footer'>
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
     | Element<'header'>
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
     | Element<'main'>
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
     | Element<'nav'>
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
     | Element<'section'>
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
     | Element<'summary'>;
   /**
    * Helper to specify location when using absolute positioning. See the [absolute positioning](https://gestalt.pinterest.systems/web/box#Absolute-positioning) variant for more info.
@@ -547,6 +559,7 @@ const disallowedProps = [
   'lgMarginRight',
 ];
 
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
 type OutputType = Element<As>;
 
 /**

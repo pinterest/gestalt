@@ -49,6 +49,7 @@ export default function ContentContainer({ children, header, footer, padding }: 
       </Box>
 
       <Box
+// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null | undefined>' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
         ref={contentRef}
         flex="grow"
         onScroll={updateShadows}

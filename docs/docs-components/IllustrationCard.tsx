@@ -24,6 +24,7 @@ export default function IllustrationCard({
 }: Props) {
   // we either render the svg string, or use our lookup table to render the right illustration component
   const Illustration =
+// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Readonly<{ 'avatar-group': any; button: any; dropdown: any; icon: any; popover: any; 'segmented-control': any; overlaypanel: any; tooltip: any; }>'. | TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Readonly<{ 'avatar-group': any; button: any; dropdown: any; icon: any; popover: any; 'segmented-control': any; overlaypanel: any; tooltip: any; }>'.
     typeof image === 'string' && illustrations[image] ? illustrations[image] : undefined;
 
   return (

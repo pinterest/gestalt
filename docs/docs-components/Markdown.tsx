@@ -1,6 +1,7 @@
 import 'highlight.js/styles/a11y-light.css';
 import { ReactNode } from 'react';
 import highlightjs from 'highlight.js';
+// @ts-expect-error - TS7016 - Could not find a declaration file for module 'marked'. '/home/jackhsu/code/gestalt/node_modules/marked/lib/marked.cjs' implicitly has an 'any' type.
 import { marked, Renderer } from 'marked';
 import { Text } from 'gestalt';
 
@@ -40,11 +41,13 @@ const stripIndent = (str: string): string => {
 export default function Markdown({ textColor, text }: Props) {
   const renderer = new Renderer();
 
+// @ts-expect-error - TS7006 - Parameter 'href' implicitly has an 'any' type. | TS7006 - Parameter 'title' implicitly has an 'any' type. | TS7006 - Parameter 'linktext' implicitly has an 'any' type.
   renderer.link = (href, title, linktext) => `
               <a class="anchor" ${
                 href.startsWith('https://') || href.startsWith('http://') ? "target='blank'" : ''
               }} href="${href}">${`${linktext}`}</a>`;
 
+// @ts-expect-error - TS7006 - Parameter 'input' implicitly has an 'any' type. | TS7006 - Parameter 'level' implicitly has an 'any' type.
   renderer.heading = (input, level) => {
     const escapedText = input
       .toLowerCase()
@@ -67,6 +70,7 @@ export default function Markdown({ textColor, text }: Props) {
 
   const html = marked(stripIndent(text), {
     renderer,
+// @ts-expect-error - TS7006 - Parameter 'code' implicitly has an 'any' type. | TS7006 - Parameter 'language' implicitly has an 'any' type.
     highlight(code, language) {
       const validLanguage = highlightjs.getLanguage(language) ? language : 'plaintext';
       return highlightjs.highlight(validLanguage, code).value;

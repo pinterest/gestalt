@@ -58,6 +58,7 @@ export default function useDefaultLegend({
           };
         }) => (
           <Flex key={payloadData.dataKey} gap={{ row: 2, column: 0 }}>
+{ /* @ts-expect-error - TS2786 - 'LegendIcon' cannot be used as a JSX component. */}
             <LegendIcon payloadData={{ ...payloadData, isLegend: true }} />
             <Text size="200">{labelMap?.[payloadData.dataKey] || payloadData.dataKey}</Text>
           </Flex>
@@ -67,6 +68,7 @@ export default function useDefaultLegend({
       const referenceAreas =
         referenceAreaSummary?.map(({ label }: ReferenceAreaSummaryItem) => (
           <Flex key={label} gap={{ row: 2, column: 0 }}>
+{ /* @ts-expect-error - TS2786 - 'LegendIcon' cannot be used as a JSX component. */}
             <LegendIcon payloadData={{ referenceArea: 'default', isLegend: true }} />
             <Text size="200">{label}</Text>
           </Flex>

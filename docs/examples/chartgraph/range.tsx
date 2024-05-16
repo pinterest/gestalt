@@ -57,14 +57,17 @@ export default function Example() {
       </RadioGroup>
       <ChartGraph
         accessibilityLabel="Example of range in charts"
+// @ts-expect-error - TS2322 - Type '{ name: string; Percentage: number; Absolute: number; }[]' is not assignable to type 'readonly { [k: string]: number | undefined; [k: number]: number | undefined; }[]'.
         data={data}
         elements={[
           {
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"line" | "bar"'.
             type: type === 'combo' ? 'bar' : type,
             id: 'Percentage',
             axis: 'left',
           },
           {
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"line" | "bar"'.
             type: type === 'combo' ? 'line' : type,
             id: 'Absolute',
             axis: 'right',
@@ -77,7 +80,9 @@ export default function Example() {
         range={{ yAxisLeft: [0, 100] }}
         title="ChartGraph"
         titleDisplay="hidden"
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"line" | "bar" | "combo" | undefined'.
         type={type}
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
         visualPatternSelected={visualPatternSelected}
       />
     </Flex>

@@ -20,6 +20,7 @@ export default function CustomIconButtonPopoverExample() {
       <Flex height="100%" justifyContent="center" width="100%">
         <Box margin={2}>
           <IconButton
+// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
             ref={anchorRef}
             accessibilityControls="selectlist-dropdown-example3"
             accessibilityExpanded={open}
@@ -44,12 +45,14 @@ export default function CustomIconButtonPopoverExample() {
           <Dropdown.Item
             onSelect={onSelect}
             option={{ value: 'Download image', label: 'Download image' }}
+// @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
             selected={selected}
           />
           <Dropdown.Item
             badge={{ text: 'New' }}
             onSelect={onSelect}
             option={{ value: 'Hide Pin', label: 'Hide Pin' }}
+// @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
             selected={selected}
           />
           <Dropdown.Link
@@ -61,6 +64,7 @@ export default function CustomIconButtonPopoverExample() {
           <Dropdown.Item
             onSelect={onSelect}
             option={{ value: 'Delete Pin', label: 'Delete Pin' }}
+// @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
             selected={selected}
           />
         </Dropdown>

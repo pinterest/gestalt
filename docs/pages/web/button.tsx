@@ -242,6 +242,7 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
     Small should be used sparingly and only in places where the UI is very dense.`}
           title="Size"
         >
+{ /* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
           <CombinationNew size={['sm', 'md', 'lg']}>
             {({ size }) => (
               <Button
@@ -261,6 +262,7 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
     Full-width Buttons can be used in narrower content areas when the text in the Button is close to full width in the content area. This is especially common to see in components such as BannerCallout and BannerUpsell at their smaller breakpoints.`}
           title="Width"
         >
+{ /* @ts-expect-error - TS2322 - Type '{ children: ({ fullwidth }: { [key: string]: any; }) => Element; fullwidth: boolean[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
           <CombinationNew fullwidth={[false, true]}>
             {({ fullwidth }) => (
               <Button

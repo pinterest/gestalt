@@ -215,6 +215,7 @@ export default function Modal({
                 {/* _dangerouslyDisableScrollBoundaryContainer must be kept temporarily until specific surfaces migrate from Modal to OverlayPanel */}
                 {_dangerouslyDisableScrollBoundaryContainer ? (
                   <Box
+// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null | undefined>' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
                     ref={contentRef}
                     flex="grow"
                     onScroll={updateShadows}
@@ -226,6 +227,7 @@ export default function Modal({
                 ) : (
                   <ScrollBoundaryContainerProvider>
                     <InternalScrollBoundaryContainer
+// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null | undefined>' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
                       ref={contentRef}
                       onScroll={updateShadows}
                       padding={padding === 'none' ? 0 : 6}

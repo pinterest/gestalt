@@ -78,7 +78,9 @@ export default function Contents({
   }, [isPositioned, refs.floating, shouldFocus]);
 
   useEffect(() => {
+// @ts-expect-error - TS2769 - No overload matches this call.
     window.addEventListener('keydown', onKeyDown);
+// @ts-expect-error - TS2769 - No overload matches this call.
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [onKeyDown]);
 
@@ -110,6 +112,7 @@ export default function Contents({
       >
         {caret && (
           <div
+// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
             ref={caretRef}
             className={classnames(styles.caret, layoutStyles.flex, layoutStyles.absolute, {
               [styles.caretPrimary]: bgColor === 'white',
@@ -123,6 +126,7 @@ export default function Contents({
             }}
           >
             <Caret
+// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'Placement' can't be used to index type 'Record<Side, MainDirections>'.
               direction={SIDES_MAP[placement]}
               height={isCaretVertical ? CARET_HEIGHT : CARET_WIDTH}
               width={isCaretVertical ? CARET_WIDTH : CARET_HEIGHT}
@@ -141,8 +145,11 @@ export default function Contents({
             [borderStyles.rounding2]: rounding === 2,
             [borderStyles.rounding4]: rounding === 4,
           })}
+// @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'string | undefined'.
           id={id}
+// @ts-expect-error - TS2322 - Type 'Role | null | undefined' is not assignable to type 'AriaRole | undefined'.
           role={role}
+// @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'MaxWidth<string | number> | undefined'.
           style={{ maxWidth: width, overflow }}
         >
           {children}

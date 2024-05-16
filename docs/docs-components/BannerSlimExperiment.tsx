@@ -53,6 +53,7 @@ export function BannerSlimExperiment({
       }}
       iconAccessibilityLabel="Component under experiment"
       message={`${componentName} is under an experiment to ${description}.`}
+// @ts-expect-error - TS2322 - Type '{ href?: string | undefined; role?: "link" | undefined; accessibilityLabel: string; label: string; onClick: () => void; }' is not assignable to type '{ accessibilityLabel: string; disabled?: boolean | undefined; href: string | undefined; label: string; onClick?: AbstractEventHandler<MouseEvent<HTMLAnchorElement, MouseEvent> | KeyboardEvent<...>, {}> | undefined; rel?: RelType | undefined; role: "link"; target?: TargetType | undefined; } | { ...; } | undefined'.
       primaryAction={{
         accessibilityLabel:
           experiments === componentName

@@ -152,6 +152,7 @@ type Props = {
  *
  * ![TapArea](https://raw.githubusercontent.com/pinterest/gestalt/master/docs/graphics/building-blocks/TapArea.svg)
  */
+// @ts-expect-error - TS2345 - Argument of type '({ accessibilityLabel, accessibilityControls, accessibilityExpanded, accessibilityHaspopup, accessibilityChecked, children, dataTestId, disabled, fullHeight, fullWidth, mouseCursor, onBlur, onKeyDown, onFocus, onMouseDown, onMouseUp, onMouseEnter, onMouseLeave, onTap, tabIndex, role, rounding, tapStyle, }: Props, re...' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLDivElement, Props>'.
 const TapAreaWithForwardRef = forwardRef<HTMLDivElement, Props>(function TapArea(
   {
     accessibilityLabel,
@@ -183,6 +184,7 @@ const TapAreaWithForwardRef = forwardRef<HTMLDivElement, Props>(function TapArea
   const innerRef = useRef<null | HTMLDivElement>(null);
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <TapArea ref={inputRef} /> to call inputRef.current.focus()
+// @ts-expect-error - TS2322 - Type 'HTMLDivElement | null' is not assignable to type 'HTMLDivElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
   const { isFocusVisible } = useFocusVisible();
@@ -277,6 +279,7 @@ const TapAreaWithForwardRef = forwardRef<HTMLDivElement, Props>(function TapArea
       onTouchStart={handleTouchStart}
       role={role ?? 'button'}
       {...(tapStyle === 'compress' && compressStyle && !disabled ? { style: compressStyle } : {})}
+// @ts-expect-error - TS2322 - Type '0 | -1 | null' is not assignable to type 'number | undefined'.
       tabIndex={disabled ? null : tabIndex}
     >
       {children}

@@ -33,6 +33,7 @@ export default function Example() {
     <Box padding={4}>
       <Flex justifyContent="center" width="100%">
         <IconButton
+// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
           ref={anchorRef}
           accessibilityControls="accessibility-example"
           accessibilityExpanded={open}

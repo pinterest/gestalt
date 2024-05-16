@@ -111,6 +111,7 @@ type Props = {
  * ![IconButton dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/IconButton-dark.spec.mjs-snapshots/IconButton-dark-chromium-darwin.png)
  *
  */
+// @ts-expect-error - TS2345 - Argument of type '({ accessibilityLabel, accessibilityControls, accessibilityExpanded, accessibilityHaspopup, accessibilityPopupRole, name, selected, type, bgColor, dangerouslySetSvgPath, dataTestId, disabled, icon, iconColor, onClick, padding, tabIndex, tooltip, size, }: Props, ref: ForwardedRef<HTMLButtonElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLButtonElement, Props>'.
 const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function IconButton(
   {
     accessibilityLabel,
@@ -138,6 +139,7 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
   const innerRef = useRef<null | HTMLButtonElement>(null);
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()
+// @ts-expect-error - TS2322 - Type 'HTMLButtonElement | null' is not assignable to type 'HTMLButtonElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
   const {
@@ -193,8 +195,11 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
       }}
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
+// @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
       onTouchMove={handleTouchMove}
+// @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
       onTouchStart={handleTouchStart}
+// @ts-expect-error - TS2322 - Type '0 | -1 | null' is not assignable to type 'number | undefined'.
       tabIndex={disabled ? null : tabIndex}
       // react/button-has-type is very particular about this verbose syntax
       type={type === 'submit' ? 'submit' : 'button'}

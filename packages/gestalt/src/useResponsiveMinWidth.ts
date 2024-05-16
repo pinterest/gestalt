@@ -62,5 +62,6 @@ export default function useResponsiveMinWidth(): MinWidthType | null | undefined
     };
   }, [getMinWidth, mediaQuery, supportsMatchMedia]);
 
+// @ts-expect-error - TS2322 - Type 'string | undefined' is not assignable to type 'MinWidthType | null | undefined'.
   return minWidth;
 }

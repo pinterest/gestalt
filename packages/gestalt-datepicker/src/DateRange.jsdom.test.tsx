@@ -111,6 +111,7 @@ describe('DateRange', () => {
           value: Date | null;
         },
       ],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     const onStartDateChangeMock = jest.fn<
@@ -119,6 +120,7 @@ describe('DateRange', () => {
           value: Date | null;
         },
       ],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
 

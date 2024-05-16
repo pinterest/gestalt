@@ -33,6 +33,7 @@ export default function Example() {
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Box role="contentinfo">
         <IconButtonFloating
+// @ts-expect-error - TS2322 - Type '{ ref: MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>; accessibilityControls: string; accessibilityExpanded: boolean; ... 5 more ...; tooltip: { ...; }; }' is not assignable to type 'IntrinsicAttributes & IconButtonFloatingProps'.
           ref={anchorRef}
           accessibilityControls="sections-dropdown-example"
           accessibilityExpanded={open}

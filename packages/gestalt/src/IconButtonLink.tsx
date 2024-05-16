@@ -93,6 +93,7 @@ type Props = {
  * ![IconButton dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/IconButton-dark.spec.mjs-snapshots/IconButton-dark-chromium-darwin.png)
  *
  */
+// @ts-expect-error - TS2345 - Argument of type '({ href, rel, target, accessibilityLabel, bgColor, dangerouslySetSvgPath, dataTestId, disabled, icon, iconColor, onClick, padding, tabIndex, tooltip, size, }: Props, ref: ForwardedRef<HTMLAnchorElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLAnchorElement, Props>'.
 const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function IconButtonLink(
   {
     href,
@@ -117,6 +118,7 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()
+// @ts-expect-error - TS2322 - Type 'HTMLAnchorElement | null' is not assignable to type 'HTMLAnchorElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
   const {

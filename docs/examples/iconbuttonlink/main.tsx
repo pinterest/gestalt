@@ -10,6 +10,7 @@ export default function Example() {
         icon="visit"
         onClick={({ event, dangerouslyDisableOnNavigation }) => {
           event.preventDefault();
+// @ts-expect-error - TS2722 - Cannot invoke an object which is possibly 'undefined'.
           dangerouslyDisableOnNavigation();
         }}
         target="blank"

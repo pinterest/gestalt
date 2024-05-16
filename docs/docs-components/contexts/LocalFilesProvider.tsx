@@ -20,6 +20,7 @@ const LocalFilesContext: Context<LocalFilesContextType> = createContext<LocalFil
 
 const { Provider } = LocalFilesContext;
 
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
 function LocalFilesProvider({ children, files }: Props): Element<typeof Provider> {
   const context = {
     files,

@@ -194,11 +194,17 @@ type State = {
 const requestFullscreen = (element: HTMLElement) => {
   if (element.requestFullscreen) {
     element.requestFullscreen();
+// @ts-expect-error - TS2339 - Property 'webkitRequestFullscreen' does not exist on type 'HTMLElement'.
   } else if (element.webkitRequestFullscreen) {
+// @ts-expect-error - TS2339 - Property 'webkitRequestFullscreen' does not exist on type 'HTMLElement'.
     element.webkitRequestFullscreen();
+// @ts-expect-error - TS2339 - Property 'mozRequestFullScreen' does not exist on type 'HTMLElement'.
   } else if (element.mozRequestFullScreen) {
+// @ts-expect-error - TS2339 - Property 'mozRequestFullScreen' does not exist on type 'HTMLElement'.
     element.mozRequestFullScreen();
+// @ts-expect-error - TS2551 - Property 'msRequestFullscreen' does not exist on type 'HTMLElement'. Did you mean 'requestFullscreen'?
   } else if (element.msRequestFullscreen) {
+// @ts-expect-error - TS2551 - Property 'msRequestFullscreen' does not exist on type 'HTMLElement'. Did you mean 'requestFullscreen'?
     element.msRequestFullscreen();
   }
 };
@@ -206,11 +212,17 @@ const requestFullscreen = (element: HTMLElement) => {
 const exitFullscreen = () => {
   if (document.exitFullscreen) {
     document.exitFullscreen();
+// @ts-expect-error - TS2339 - Property 'webkitExitFullscreen' does not exist on type 'Document'.
   } else if (document.webkitExitFullscreen) {
+// @ts-expect-error - TS2339 - Property 'webkitExitFullscreen' does not exist on type 'Document'.
     document.webkitExitFullscreen();
+// @ts-expect-error - TS2339 - Property 'mozCancelFullScreen' does not exist on type 'Document'.
   } else if (document.mozCancelFullScreen) {
+// @ts-expect-error - TS2339 - Property 'mozCancelFullScreen' does not exist on type 'Document'.
     document.mozCancelFullScreen();
+// @ts-expect-error - TS2551 - Property 'msExitFullscreen' does not exist on type 'Document'. Did you mean 'exitFullscreen'?
   } else if (document.msExitFullscreen) {
+// @ts-expect-error - TS2551 - Property 'msExitFullscreen' does not exist on type 'Document'. Did you mean 'exitFullscreen'?
     document.msExitFullscreen();
   }
 };
@@ -219,8 +231,11 @@ const exitFullscreen = () => {
 // have a vendor specific version so we must instead use the actual element
 const isFullscreen = () =>
   document.fullscreenElement ||
+// @ts-expect-error - TS2339 - Property 'webkitFullscreenElement' does not exist on type 'Document'.
   document.webkitFullscreenElement ||
+// @ts-expect-error - TS2339 - Property 'mozFullScreenElement' does not exist on type 'Document'.
   document.mozFullScreenElement ||
+// @ts-expect-error - TS2551 - Property 'msFullscreenElement' does not exist on type 'Document'. Did you mean 'fullscreenElement'?
   document.msFullscreenElement;
 
 const addFullscreenEventListener = (listener: EventListener) => {
@@ -443,6 +458,7 @@ export default class Video extends PureComponent<Props, State> {
 
   // Toggle captions on/off
   toggleCaptions: () => void = () => {
+// @ts-expect-error - TS2488 - Type 'never[] | TextTrackList' must have a '[Symbol.iterator]()' method that returns an iterator.
     const [videoTrack] = this.video?.textTracks || [];
     if (videoTrack) {
       const isShowing = videoTrack.mode === 'showing';

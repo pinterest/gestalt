@@ -13,12 +13,15 @@ import MasonryContainer from '../../integration-test-helpers/masonry/MasonryCont
 // This can get bumped up another order of magnitude or so if needed…perf drops off pretty rapidly after that
 const REALISTIC_PINS_DATASET_SIZE = 1000;
 
+// @ts-expect-error - TS2749 - 'Masonry' refers to a value, but is being used as a type here. Did you mean 'typeof Masonry'?
 type MasonryProps = Masonry<Record<any, any>>['props'];
 
 type MeasurementStore = MasonryProps['measurementStore'];
 type PositionStore = MasonryProps['positionStore'];
 
+// @ts-expect-error - TS2339 - Property 'createMeasurementStore' does not exist on type 'FunctionComponent<MasonryProps<any>>'.
 const measurementStore: MeasurementStore = Masonry.createMeasurementStore();
+// @ts-expect-error - TS2339 - Property 'createMeasurementStore' does not exist on type 'FunctionComponent<MasonryProps<any>>'.
 const positionStore: PositionStore = Masonry.createMeasurementStore();
 
 // This is the counterpart to `normalizeValue` in `playwright/masonry/utils/getServerURL.mjs`
@@ -35,6 +38,7 @@ function booleanize(value: string): boolean {
 // LazyHydrate doesn't like to be used without any props, so we have to add it conditionally
 function MaybeLazyHydrate({ children, ssrOnly }: { children: ReactNode; ssrOnly: boolean }) {
   if (ssrOnly) {
+// @ts-expect-error - TS2322 - Type 'ReactNode' is not assignable to type 'ReactNode & ReactElement<any, string | JSXElementConstructor<any>>'.
     return <LazyHydrate ssrOnly>{children}</LazyHydrate>;
   }
   return children;
@@ -92,6 +96,7 @@ export default function TestPage({
   );
 
   // For some tests, we want to defer hydration and trigger it manually
+// @ts-expect-error - TS2345 - Argument of type 'string | string[] | undefined' is not assignable to parameter of type 'string'.
   const [ssrOnly, setSSROnly] = useState(booleanize(deferMount));
   useEffect(() => {
     const handleTriggerMount = () => {
@@ -105,11 +110,17 @@ export default function TestPage({
 
   return (
     <ColorSchemeProvider colorScheme="light">
+{ /* @ts-expect-error - TS2786 - 'MaybeLazyHydrate' cannot be used as a JSX component. */}
       <MaybeLazyHydrate ssrOnly={ssrOnly}>
+{ /* @ts-expect-error - TS2769 - No overload matches this call. */}
         <MasonryContainer
+// @ts-expect-error - TS2345 - Argument of type 'string | string[] | undefined' is not assignable to parameter of type 'string'.
           constrained={booleanize(constrained)}
+// @ts-expect-error - TS2345 - Argument of type 'string | string[] | undefined' is not assignable to parameter of type 'string'.
           externalCache={booleanize(externalCache)}
+// @ts-expect-error - TS2345 - Argument of type 'string | string[] | undefined' is not assignable to parameter of type 'string'.
           finiteLength={booleanize(finiteLength)}
+// @ts-expect-error - TS2345 - Argument of type 'string | string[] | undefined' is not assignable to parameter of type 'string'.
           flexible={booleanize(flexible)}
           initialItems={
             realisticPinHeights
@@ -119,18 +130,24 @@ export default function TestPage({
                 })
               : generateExampleItems({ name: 'InitialPin' })
           }
+// @ts-expect-error - TS2345 - Argument of type 'string | string[] | undefined' is not assignable to parameter of type 'string'.
           logWhitespace={booleanize(logWhitespace)}
+// @ts-expect-error - TS2345 - Argument of type 'string | string[] | undefined' is not assignable to parameter of type 'string'.
           manualFetch={booleanize(manualFetch)}
           MasonryComponent={experimental ? MasonryV2 : Masonry}
           measurementStore={measurementStore}
+// @ts-expect-error - TS2345 - Argument of type 'string | string[] | undefined' is not assignable to parameter of type 'string'.
           noScroll={booleanize(noScroll)}
           offsetTop={offsetTop}
           pinHeightsSample={realisticPinHeights ? pinHeightsSample : undefined}
           positionStore={positionStore}
+// @ts-expect-error - TS2345 - Argument of type 'string | string[] | undefined' is not assignable to parameter of type 'string'.
           scrollContainer={booleanize(scrollContainer)}
+// @ts-expect-error - TS2345 - Argument of type 'string | string[] | undefined' is not assignable to parameter of type 'string'.
           twoColItems={booleanize(twoColItems)}
           virtualBoundsBottom={virtualBoundsBottom}
           virtualBoundsTop={virtualBoundsTop}
+// @ts-expect-error - TS2345 - Argument of type 'string | string[] | undefined' is not assignable to parameter of type 'string'.
           virtualize={booleanize(virtualize)}
         />
       </MaybeLazyHydrate>

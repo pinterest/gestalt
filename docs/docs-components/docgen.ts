@@ -1,3 +1,4 @@
+// @ts-expect-error - TS7016 - Could not find a declaration file for module './metadata'. '/home/jackhsu/code/gestalt/docs/docs-components/metadata.js' implicitly has an 'any' type.
 import metadata from './metadata';
 
 export type DocGen = {

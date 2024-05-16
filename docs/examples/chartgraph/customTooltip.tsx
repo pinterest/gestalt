@@ -24,6 +24,7 @@ export default function Example() {
     <Flex direction="column" height="100%" width="100%">
       <ChartGraph
         accessibilityLabel="Example of chart with tooltip"
+// @ts-expect-error - TS2322 - Type '{ name: string; '20-30': number; '40-50': number; '50-60': number; }[]' is not assignable to type 'readonly { [k: string]: number | undefined; [k: number]: number | undefined; }[]'.
         data={data}
         elements={[
           {
@@ -61,6 +62,7 @@ export default function Example() {
                     strokeWidth?: number;
                   }) => (
                     <Flex key={payloadData.name} alignItems="center" gap={2}>
+{ /* @ts-expect-error - TS2339 - Property 'LegendIcon' does not exist on type 'FunctionComponent<ChartGraphProps>'. */}
                       <ChartGraph.LegendIcon payloadData={payloadData} />
                       <Flex.Item flex="grow">
                         <Text size="100">{payloadData.name}</Text>
@@ -81,6 +83,7 @@ export default function Example() {
         tickFormatter={{ yAxisLeft: (value) => `${value}m` }}
         title="MAU per regions"
         type="bar"
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
         visualPatternSelected={visualPatternSelected}
       />
     </Flex>

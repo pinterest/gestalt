@@ -30,6 +30,7 @@ type Props = {
 };
 
 const InternalDismissIconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(
+// @ts-expect-error - TS2345 - Argument of type '({ accessibilityLabel, accessibilityControls, iconColor, onClick, size, }: Props, ref: ForwardedRef<HTMLButtonElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLButtonElement, Props>'.
   function IconButton(
     {
       accessibilityLabel,
@@ -44,6 +45,7 @@ const InternalDismissIconButtonWithForwardRef = forwardRef<HTMLButtonElement, Pr
 
     // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
     // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()
+// @ts-expect-error - TS2322 - Type 'HTMLButtonElement | null' is not assignable to type 'HTMLButtonElement'.
     useImperativeHandle(ref, () => innerRef.current);
 
     const {
@@ -96,7 +98,9 @@ const InternalDismissIconButtonWithForwardRef = forwardRef<HTMLButtonElement, Pr
         onMouseUp={() => handleMouseUp()}
         onTouchCancel={handleTouchCancel}
         onTouchEnd={handleTouchEnd}
+// @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
         onTouchMove={handleTouchMove}
+// @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
         onTouchStart={handleTouchStart}
         type="button"
       >

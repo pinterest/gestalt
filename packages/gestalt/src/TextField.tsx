@@ -91,10 +91,12 @@ type Props = {
   /**
    * Ref that is forwarded to the underlying input element.
    */
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
   ref?: Element<'input'>; // eslint-disable-line react/no-unused-prop-types,
   /**
    * List of tags to display in the component.
    */
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
   tags?: ReadonlyArray<Element<typeof Tag>>;
   /**
    * The type of input. For non-telephone numerical input, please use [NumberField](https://gestalt.pinterest.systems/web/numberfield).
@@ -117,6 +119,7 @@ type Props = {
  * ![TextField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextField-dark.spec.mjs-snapshots/TextField-dark-chromium-darwin.png)
  *
  */
+// @ts-expect-error - TS2345 - Argument of type '({ autoComplete, dataTestId, disabled, errorMessage, hasError, helperText, id, label, labelDisplay, maxLength, mobileEnterKeyHint, mobileInputMode, name, onBlur, onChange, onFocus, onKeyDown, placeholder, readOnly, size, tags, type: typeProp, value, }: Props, ref: ForwardedRef<HTMLInputElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLInputElement, Props>'.
 const TextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function TextField(
   {
     autoComplete,

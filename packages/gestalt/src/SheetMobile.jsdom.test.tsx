@@ -131,6 +131,7 @@ describe('SheetMobile', () => {
   });
 
   it('calls onDismiss on full inanimated sheet', async () => {
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnClick = jest.fn<[], undefined>();
     const mockOnClickPrimaryAction = jest.fn<
       [
@@ -143,6 +144,7 @@ describe('SheetMobile', () => {
           onDismissStart: () => void;
         },
       ],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
 
@@ -178,6 +180,7 @@ describe('SheetMobile', () => {
   // This test was skipped because, despite the logic works fine, the animationState is not being correctly updated in the test in the handleExternalDismiss function. We should try to make it work.
   // eslint-disable-next-line jest/no-disabled-tests
   it.skip('calls onDismiss on animated partial sheet', async () => {
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     const mockOnClick = jest.fn<[], undefined>();
     const mockOnClickPrimaryAction = jest.fn<
       [
@@ -190,6 +193,7 @@ describe('SheetMobile', () => {
           onDismissStart: () => void;
         },
       ],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     useReducedMotionMock.mockReturnValue(false);

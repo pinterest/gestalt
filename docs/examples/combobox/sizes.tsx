@@ -29,6 +29,7 @@ export default function Example() {
             noResultText="No results for your selection"
             options={options}
             placeholder="Select a value"
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"sm" | "md" | "lg" | undefined'.
             size={size}
           />
           <Box paddingY={5}>

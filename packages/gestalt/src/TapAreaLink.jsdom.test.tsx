@@ -11,6 +11,7 @@ describe('TapAreaLink', () => {
           event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
         },
       ],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
 
@@ -31,6 +32,7 @@ describe('TapAreaLink', () => {
           event: React.FocusEvent<HTMLAnchorElement>;
         },
       ],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
 
@@ -53,6 +55,7 @@ describe('TapAreaLink', () => {
           event: React.FocusEvent<HTMLAnchorElement>;
         },
       ],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
 
@@ -73,6 +76,7 @@ describe('TapAreaLink', () => {
           event: React.MouseEvent<HTMLAnchorElement>;
         },
       ],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
 
@@ -93,6 +97,7 @@ describe('TapAreaLink', () => {
           event: React.MouseEvent<HTMLAnchorElement>;
         },
       ],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     render(
@@ -113,6 +118,7 @@ describe('TapAreaLink', () => {
           event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
         },
       ],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     render(
@@ -122,6 +128,7 @@ describe('TapAreaLink', () => {
     );
     const mockEvent = {
       charCode: 32,
+// @ts-expect-error - TS2344 - Type 'unknown' does not satisfy the constraint 'any[]'.
       preventDefault: jest.fn<ReadonlyArray<any>, unknown>(),
     } as const;
     fireEvent.keyPress(screen.getByText('TapAreaLink'), mockEvent);

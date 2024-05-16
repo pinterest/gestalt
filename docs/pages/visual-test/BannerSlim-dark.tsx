@@ -36,6 +36,7 @@ export default function Snapshot() {
               }}
               iconAccessibilityLabel="test"
               message={`This is a/an ${type} message.`}
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"warning" | "info" | "error" | "success" | "recommendation" | "neutral" | "warningBare" | "errorBare" | "infoBare" | "successBare" | "recommendationBare" | undefined'.
               type={type}
             />
           ))}

@@ -12,6 +12,7 @@ type Props = {
 export default function InternalDocumentationSection({ items }: Props) {
   return (
     <Card name="Internal documentation" showHeading>
+{ /* @ts-expect-error - TS2739 - Type '{ id: string; items: { title: string; icon: "lock"; iconAccessibilityLabel: string; children: Element; }[]; }' is missing the following properties from type 'AccordionExpandableProps': accessibilityCollapseLabel, accessibilityExpandLabel */}
       <Accordion.Expandable
         id="internal-documentation-accordion"
         items={[

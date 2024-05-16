@@ -155,6 +155,7 @@ function createMeasurementStore<T1 extends Record<any, any>, T2>(): MeasurementS
 
 // helper hook to force update a component
 function useForceUpdate() {
+// @ts-expect-error - TS2554 - Expected 3 arguments, but got 2. | TS7006 - Parameter 'x' implicitly has an 'any' type.
   const [, forceUpdate] = useReducer<number, undefined>((x) => x + 1, 0);
   return forceUpdate;
 }
@@ -543,6 +544,7 @@ function MasonryItem<
       data-column-span={item.columnSpan ?? 1}
       data-grid-item
       role="listitem"
+// @ts-expect-error - TS2322 - Type '{ visibility: string; position: string; top: number | null | undefined; left: number | null | undefined; width: number | null | undefined; height: number | null | undefined; } | { transform: string; ... 7 more ...; left?: undefined; } | { ...; }' is not assignable to type 'CSSProperties | undefined'.
       style={style}
     >
       {renderItem({ data: item, itemIdx: idx, isMeasuring: isMeasurement })}
@@ -656,8 +658,10 @@ function Masonry<
     gutter,
     items,
     layout,
+// @ts-expect-error - TS2322 - Type 'Cache<T, number> | MeasurementStore<Record<any, any>, unknown>' is not assignable to type 'Cache<Record<any, any>, number>'.
     measurementStore,
     minCols,
+// @ts-expect-error - TS2322 - Type 'Cache<T, Position> | MeasurementStore<Record<any, any>, unknown>' is not assignable to type 'Cache<Record<any, any>, Position>'.
     positionStore,
     width,
     _twoColItems,
@@ -734,6 +738,7 @@ function Masonry<
               item={item}
               layout={layout}
               left={position.left}
+// @ts-expect-error - TS2322 - Type '(arg1: { readonly data: T; readonly itemIdx: number; readonly isMeasuring: boolean; }) => ReactNode' is not assignable to type '(arg1: { readonly data: { readonly [key: string]: unknown; }; readonly itemIdx: number; readonly isMeasuring: boolean; }) => ReactNode'.
               renderItem={renderItem}
               startTransition={startTransition}
               top={position.top}
@@ -746,6 +751,7 @@ function Masonry<
 
   return (
     <div ref={gridWrapperRef} style={{ width: '100%' }}>
+{ /* @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Width<string | number> | undefined'. */}
       <div className={styles.Masonry} role="list" style={{ height, width }}>
         {gridBody}
       </div>
@@ -755,6 +761,7 @@ function Masonry<
 
 const MasonryWithForwardRef: AbstractComponent<Props<Record<any, any>>, MasonryRef> & {
   createMeasurementStore: <T1 extends Record<any, any>, T2>() => MeasurementStore<T1, T2>;
+// @ts-expect-error - TS2345 - Argument of type '<T extends { readonly [key: string]: unknown; }>({ align, columnWidth, gutterWidth: gutter, items, layout, loadItems, measurementStore: measurementStoreProp, minCols, positionStore: positionStoreProp, renderItem, scrollContainer, virtualBufferFactor, virtualBoundsBottom, virtualBoundsTop, virtualize, _twoColItems, _...' is not assignable to parameter of type 'ForwardRefRenderFunction<MasonryRef, Props<Record<any, any>>>'.
 } = forwardRef<MasonryRef, Props<Record<any, any>>>(Masonry);
 
 MasonryWithForwardRef.createMeasurementStore = createMeasurementStore;

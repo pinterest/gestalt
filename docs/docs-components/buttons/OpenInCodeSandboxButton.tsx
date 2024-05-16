@@ -56,6 +56,7 @@ export default function OpenInCodeSandboxButton() {
   // https://github.com/codesandbox/sandpack/blob/53811bb4fdfb66ea95b9881ff18c93307f12ce0d/sandpack-react/src/common/OpenInCodeSandboxButton/UnstyledOpenInCodeSandboxButton.tsx#L84
 
   const { sandpack } = useSandpack();
+// @ts-expect-error - TS2345 - Argument of type 'SandpackBundlerFiles' is not assignable to parameter of type '{ [key: string]: { code: string; hidden: boolean; }; }'.
   const parameters = getFileParameters(sandpack.files, sandpack.environment);
 
   return (

@@ -104,6 +104,7 @@ class LegacyContents extends Component<Props, State> {
 
     focusPopoverRef();
     window.addEventListener('resize', onResize);
+// @ts-expect-error - TS2769 - No overload matches this call.
     window.addEventListener('keydown', onKeyDown);
   }
 
@@ -111,6 +112,7 @@ class LegacyContents extends Component<Props, State> {
     const { onResize, onKeyDown } = this.props;
 
     window.removeEventListener('resize', onResize);
+// @ts-expect-error - TS2769 - No overload matches this call.
     window.removeEventListener('keydown', onKeyDown);
   }
 
@@ -267,6 +269,7 @@ class LegacyContents extends Component<Props, State> {
     // Needed to prevent UI thrashing
     const visibility = popoverDir === null ? 'hidden' : 'visible';
 
+// @ts-expect-error - TS2345 - Argument of type 'string | null | undefined' is not assignable to parameter of type 'string'.
     const isCaretVertical = ['down', 'up'].includes(popoverDir);
 
     const { top, height } = this.calcTopHeight();
@@ -287,6 +290,7 @@ class LegacyContents extends Component<Props, State> {
           },
         )}
         // popoverOffset positions the Popover component
+// @ts-expect-error - TS2322 - Type '{ top: number; left: number | null | undefined; zIndex: number | undefined; visibility: "hidden" | "visible"; } | { top: number | null | undefined; left: number | null | undefined; zIndex: number | undefined; visibility: "hidden" | "visible"; }' is not assignable to type 'CSSProperties | undefined'.
         style={{
           zIndex: zIndex ? zIndex?.index() : undefined,
           visibility,
@@ -307,6 +311,7 @@ class LegacyContents extends Component<Props, State> {
               styles.caret,
             )}
             // caretOffset positions the Caret on the Popover
+// @ts-expect-error - TS2322 - Type '{ left: number | null; top: number | null; bottom: number | null; right: number | null; }' is not assignable to type 'Properties<string | number, string & {}>'.
             style={{ ...caretOffset }}
           >
             <Caret
@@ -327,8 +332,11 @@ class LegacyContents extends Component<Props, State> {
             [borderStyles.rounding2]: rounding === 2,
             [borderStyles.rounding4]: rounding === 4,
           })}
+// @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'string | undefined'.
           id={id}
+// @ts-expect-error - TS2322 - Type 'Role | null | undefined' is not assignable to type 'AriaRole | undefined'.
           role={role}
+// @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'MaxWidth<string | number> | undefined'. | TS2322 - Type 'number | null | undefined' is not assignable to type 'MaxHeight<string | number> | undefined'.
           style={{ maxWidth: width, maxHeight: height, overflow }}
         >
           {children}

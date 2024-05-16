@@ -112,6 +112,7 @@ type Props = {
   /**
    * Ref that is forwarded to the underlying input element.
    */
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
   ref?: Element<'input'>; // eslint-disable-line react/no-unused-prop-types,
   /**
    * Defines the height of NumberField: sm: 32px, md: 40px (default), lg: 48px. See the [size variant](https://gestalt.pinterest.systems/web/NumberField#Size) for more details.
@@ -134,6 +135,7 @@ type Props = {
  * ![NumberField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/NumberField-dark.spec.mjs-snapshots/NumberField-dark-chromium-darwin.png)
  *
  */
+// @ts-expect-error - TS2345 - Argument of type '({ autoComplete, dataTestId, disabled, mobileEnterKeyHint, errorMessage, helperText, id, label, labelDisplay, max, min, name, onBlur, onChange, onFocus, onKeyDown, placeholder, size, step, value, }: Props, ref: ForwardedRef<HTMLInputElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLInputElement, Props>'.
 const NumberFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function NumberField(
   {
     autoComplete,

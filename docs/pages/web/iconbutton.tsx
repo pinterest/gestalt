@@ -176,6 +176,7 @@ If IconButton is disabled, it's also unreachable from keyboard navigation.`}
 Use padding sparingly. The padding options are 1-5, which represents the padding in increments of 4 pixels (2 = 8px padding). Combine the \`padding\` with \`size\` options for custom icon/button size ratios. If omitted, padding is derived from the default padding for each \`size\` prop.`}
           title="Size"
         >
+{ /* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
           <CombinationNew size={['xl', 'lg', 'md', 'sm', 'xs']}>
             {({ size }) => (
               <IconButton
@@ -202,6 +203,7 @@ Follow these guidelines for \`iconColor\`
 `}
           title="Icon color"
         >
+{ /* @ts-expect-error - TS2322 - Type '{ children: ({ iconColor }: { [key: string]: any; }) => Element; iconColor: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
           <CombinationNew iconColor={['red', 'darkGray', 'gray', 'white', 'brandPrimary']}>
             {({ iconColor }) => (
               <IconButton
@@ -228,6 +230,7 @@ Follow these guidelines for \`bgColor\`
           title="Background color"
         >
           <CombinationNew
+// @ts-expect-error - TS2322 - Type '{ children: ({ bgColor }: { [key: string]: any; }) => Element; bgColor: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'.
             bgColor={['red', 'lightGray', 'transparentDarkGray', 'gray', 'white', 'transparent']}
           >
             {({ bgColor }) => (

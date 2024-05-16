@@ -17,6 +17,7 @@ describe('Video loading', () => {
 
     const { container, rerender } = render(<Video {...props} />);
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+// @ts-expect-error - TS2769 - No overload matches this call.
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(<Video {...props} volume={0} />);
@@ -39,6 +40,7 @@ describe('Video loading', () => {
 
     const { container, rerender } = render(<Video {...props} />);
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+// @ts-expect-error - TS2769 - No overload matches this call.
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(<Video {...props} volume={0} />);
@@ -56,6 +58,7 @@ describe('Video loading', () => {
 
     const { container, rerender } = render(<Video {...props} />);
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+// @ts-expect-error - TS2769 - No overload matches this call.
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(<Video {...props} src="https://media.w3.org/2010/05/bunny/movie.mp4" />);
@@ -73,6 +76,7 @@ describe('Video loading', () => {
 
     const { container, rerender } = render(<Video {...props} />);
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+// @ts-expect-error - TS2769 - No overload matches this call.
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(
@@ -105,6 +109,7 @@ describe('Video loading', () => {
 
     const { container, rerender } = render(<Video {...props} />);
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+// @ts-expect-error - TS2769 - No overload matches this call.
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(<Video {...props} src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />);
@@ -127,6 +132,7 @@ describe('Video loading', () => {
 
     const { container, rerender } = render(<Video {...props} />);
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+// @ts-expect-error - TS2769 - No overload matches this call.
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(
@@ -159,6 +165,7 @@ describe('Video loading', () => {
 
     const { container, rerender } = render(<Video {...props} />);
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
+// @ts-expect-error - TS2769 - No overload matches this call.
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
     rerender(
@@ -196,6 +203,7 @@ describe('Video loading', () => {
 
     const { container } = render(<Video {...props} />);
 
+// @ts-expect-error - TS2339 - Property 'disableremoteplayback' does not exist on type 'NamedNodeMap'.
     expect(container.querySelector('video')?.attributes.disableremoteplayback).toBeDefined(); // eslint-disable-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
   });
 
@@ -215,6 +223,7 @@ describe('Video loading', () => {
     } as const;
 
     const { container } = render(<Video {...props} />);
+// @ts-expect-error - TS2339 - Property 'disableremoteplayback' does not exist on type 'NamedNodeMap'.
     expect(container.querySelector('video')?.attributes.disableremoteplayback).toBeUndefined(); // eslint-disable-line testing-library/no-container, testing-library/no-node-access -- Please fix the next time this file is touched!
   });
 

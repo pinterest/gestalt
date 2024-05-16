@@ -52,6 +52,7 @@ export default function Example() {
         }}
         title="Performance over last 30 days"
         type="line"
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
         visualPatternSelected={visualPatternSelected}
       />
     </Flex>

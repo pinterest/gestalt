@@ -11,6 +11,7 @@ export default function Example() {
               key={type}
               iconAccessibilityLabel={type}
               message="This is a compact BannerSlim."
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"warning" | "info" | "error" | "success" | "recommendation" | "neutral" | "warningBare" | "errorBare" | "infoBare" | "successBare" | "recommendationBare" | undefined'.
               type={type}
             />
           ),

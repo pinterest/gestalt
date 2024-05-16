@@ -155,6 +155,7 @@ describe('HelpButton', () => {
     });
 
     const element = screen.getByRole('link');
+// @ts-expect-error - TS2339 - Property 'text' does not exist on type 'HTMLElement'.
     expect(element.text).toEqual('New link text; Opens a new tab');
   });
 
@@ -166,6 +167,7 @@ describe('HelpButton', () => {
           event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
         },
       ],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     render(

@@ -165,9 +165,11 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
     target = null,
   }: Props,
   ref,
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
 ): Element<'a'> {
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
+// @ts-expect-error - TS2322 - Type 'HTMLAnchorElement | null' is not assignable to type 'HTMLAnchorElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
   const {
@@ -275,13 +277,16 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
       onMouseUp={handleMouseUp}
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
+// @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLAnchorElement>'.
       onTouchMove={handleTouchMove}
+// @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLAnchorElement>'.
       onTouchStart={handleTouchStart}
       rel={[
         ...(target === 'blank' ? ['noopener', 'noreferrer'] : []),
         ...(rel === 'nofollow' ? ['nofollow'] : []),
       ].join(' ')}
       {...(compressStyle && tapStyle === 'compress' ? { style: compressStyle } : {})}
+// @ts-expect-error - TS2322 - Type '"_self" | "_blank" | null' is not assignable to type 'HTMLAttributeAnchorTarget | undefined'.
       target={target ? `_${target}` : null}
     >
       {children}

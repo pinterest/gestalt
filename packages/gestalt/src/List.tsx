@@ -14,6 +14,7 @@ type Props = {
   /**
    * The label for the list. Be sure to localize the text. See the [label variant](https://gestalt.pinterest.systems/web/list#Text-and-label) for guidance.
    */
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
   label?: string | Element<typeof Text>;
   /**
    * Whether the label should be visible or not. If `hidden`, the label is still available for screen reader users, but does not appear visually. See the [accessibility section](https://gestalt.pinterest.systems/web/list#Accessibility) and the [label variant](https://gestalt.pinterest.systems/web/list#Text-and-label) for guidance.

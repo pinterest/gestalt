@@ -11,6 +11,7 @@ export default function Example() {
         <Accordion
           iconButton={
             <IconButton
+// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
               ref={anchorRef}
               accessibilityLabel="Get help"
               bgColor="lightGray"

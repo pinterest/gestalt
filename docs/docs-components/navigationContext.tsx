@@ -64,6 +64,7 @@ function NavigationContextProvider({ children }: { children?: ReactNode }) {
   // If that doesn't include a platform, use the cookie
   // If there's no cookie set, use 'web'
   const [componentPlatformFilteredBy, setComponentPlatformFilteredBy] = useState(
+// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'any' can't be used to index type '{ readonly web: "web"; readonly ios: "ios"; readonly android: "android"; }'.
     PLATFORM_MAP[currentPlatform || cookies[localStorageOrganizedByKey] || 'web'],
   );
 

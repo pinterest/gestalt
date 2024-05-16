@@ -9,6 +9,7 @@ describe('AccordionExpandableItem', () => {
     title: 'test title',
     summary: ['summary1', 'summary2', 'summary3'],
     isCollapsed: true,
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     onExpand: jest.fn<[boolean], undefined>(),
     type: 'info',
   } as const;

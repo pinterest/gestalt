@@ -55,7 +55,9 @@ type Props = {
   margin?: 'default' | 'none';
   name: string;
   platform?: 'android' | 'ios' | 'web';
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
   bannerSlim?: Element<typeof BannerSlim> | null;
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
   bannerSlimExperiment?: Element<typeof BannerSlimExperiment> | null;
   type?: 'guidelines' | 'component' | 'utility';
   pdocsLink?: boolean;
@@ -149,7 +151,9 @@ export default function PageHeader({
                   <Badge
                     position="top"
                     text={badgeMap[badge].text}
+// @ts-expect-error - TS2322 - Type '{ position: "top"; text: "Pilot" | "Experimental" | "Deprecated" | "Comparison" | "Comparison + Trends" | "Connection" | "Parts-to-whole" | "Trends"; tooltip: { text: `This is the initial version of ${string}, and additional (non-breaking) functionality is planned for the future. Any feedback is greatly appreciated!...' is not assignable to type 'IntrinsicAttributes & BadgeProps'.
                     tooltip={{ text: badgeMap[badge].tooltipText }}
+// @ts-expect-error - TS2339 - Property 'type' does not exist on type '{ readonly text: "Pilot"; readonly tooltipText: `This is the initial version of ${string}, and additional (non-breaking) functionality is planned for the future. Any feedback is greatly appreciated!`; } | { readonly text: "Experimental"; readonly tooltipText: `This is an experimental version of ${string}. This compo...'.
                     type={badgeMap[badge].type || 'info'}
                   />
                 ) : null}

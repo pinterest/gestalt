@@ -10,11 +10,14 @@ export function flattenChildrenWithKeys(
   keys: ReadonlyArray<string | number> = [],
 ): ReactChildArray {
   return Children.toArray(children).reduce<Array<any>>((acc, node, nodeIndex) => {
+// @ts-expect-error - TS2339 - Property 'type' does not exist on type 'string | number | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal'.
     if (node.type === Fragment) {
       acc.push(
         ...flattenChildrenWithKeys(
+// @ts-expect-error - TS2339 - Property 'props' does not exist on type 'string | number | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal'.
           node.props.children,
           depth + 1,
+// @ts-expect-error - TS2339 - Property 'key' does not exist on type 'string | number | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal'.
           keys.concat(node.key || nodeIndex),
         ),
       );
@@ -39,8 +42,10 @@ export function flattenChildrenWithKeys(
  * */
 export default function flattenChildren(children: ReactNode): ReactChildArray {
   return Children.toArray(children).reduce<Array<any>>((acc, child) => {
+// @ts-expect-error - TS2339 - Property 'type' does not exist on type 'string | number | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal'.
     if (child.type !== Fragment) return acc.concat(child);
 
+// @ts-expect-error - TS2339 - Property 'props' does not exist on type 'string | number | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal'.
     return acc.concat(flattenChildren(child.props.children));
   }, []);
 }

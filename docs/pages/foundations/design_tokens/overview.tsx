@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
+// @ts-expect-error - TS7016 - Could not find a declaration file for module 'gestalt-design-tokens/dist/js/data-viz-tokens'. '/home/jackhsu/code/gestalt/packages/gestalt-design-tokens/dist/js/data-viz-tokens.js' implicitly has an 'any' type.
 import dataVizTokens from 'gestalt-design-tokens/dist/js/data-viz-tokens';
+// @ts-expect-error - TS7016 - Could not find a declaration file for module 'gestalt-design-tokens/dist/js/tokens'. '/home/jackhsu/code/gestalt/packages/gestalt-design-tokens/dist/js/tokens.js' implicitly has an 'any' type.
 import tokens from 'gestalt-design-tokens/dist/js/tokens';
 import MainSection from '../../../docs-components/MainSection';
 import Page from '../../../docs-components/Page';
@@ -142,6 +144,7 @@ export type Token = {
   category: string;
 };
 
+// @ts-expect-error - TS7006 - Parameter 'a' implicitly has an 'any' type. | TS7006 - Parameter 'b' implicitly has an 'any' type.
 const dataVizColorTokens: ReadonlyArray<Token> = dataVizTokens.sort((a, b) =>
   a.name.localeCompare(b.name, undefined, {
     numeric: true,

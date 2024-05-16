@@ -58,6 +58,7 @@ type Props = {
 /**
  * **NOTE** The standalone RadioButton is soon to be deprecated, use [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup) and RadioGroup.RadioButton instead.**NOTE**
  */
+// @ts-expect-error - TS2345 - Argument of type '({ checked, disabled, id, image, label, name, onChange, subtext, value, size, }: Props, ref: ForwardedRef<HTMLInputElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLInputElement, Props>'.
 const RadioButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(function RadioButton(
   {
     checked = false,

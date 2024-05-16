@@ -107,6 +107,7 @@ describe('TextField', () => {
     );
 
     fireEvent.focus(screen.getByDisplayValue('TextField Text'));
+// @ts-expect-error - TS2339 - Property 'toHaveAccessibleDescription' does not exist on type 'JestMatchers<HTMLElement>'.
     expect(screen.getByDisplayValue('TextField Text')).toHaveAccessibleDescription('Error message');
   });
 
@@ -134,6 +135,7 @@ describe('TextField', () => {
           value: string;
         },
       ],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     render(<TextField id="test" onBlur={mockBlur} onChange={jest.fn()} value="TextField Text" />);
@@ -150,6 +152,7 @@ describe('TextField', () => {
           value: string;
         },
       ],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     const { container } = render(
@@ -176,6 +179,7 @@ describe('TextField', () => {
           value: string;
         },
       ],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     render(<TextField id="test" onChange={jest.fn()} onFocus={mockFocus} value="TextField Text" />);
@@ -192,6 +196,7 @@ describe('TextField', () => {
           value: string;
         },
       ],
+// @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
     const { container } = render(

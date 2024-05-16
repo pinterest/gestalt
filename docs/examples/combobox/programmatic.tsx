@@ -30,6 +30,7 @@ export default function Example() {
 
   const [currentCategory, setCurrentCategory] = useState('BEAUTY');
 
+// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly BEAUTY: { label: string; value: string; }[]; readonly DIY: { label: string; value: string; }[]; }'.
   const [suggestedOptions, setSuggestedOptions] = useState(CATEGORIES[currentCategory]);
 
   const [inputValue, setInputValue] = useState('');
@@ -44,6 +45,7 @@ export default function Example() {
   >();
 
   const resetOptions = () => {
+// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly BEAUTY: { label: string; value: string; }[]; readonly DIY: { label: string; value: string; }[]; }'.
     setSuggestedOptions(CATEGORIES[currentCategory]);
   };
 
@@ -53,9 +55,11 @@ export default function Example() {
     event: React.ChangeEvent<HTMLInputElement>;
     value: string;
   }) => {
+// @ts-expect-error - TS2554 - Expected 1 arguments, but got 0.
     setSelectedOption();
     if (value) {
       setInputValue(value);
+// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly BEAUTY: { label: string; value: string; }[]; readonly DIY: { label: string; value: string; }[]; }'. | TS7006 - Parameter 'item' implicitly has an 'any' type.
       const filteredOptions = CATEGORIES[currentCategory].filter((item) =>
         item.label.toLowerCase().includes(value.toLowerCase()),
       );
@@ -88,6 +92,7 @@ export default function Example() {
 
   const handleOnClear = () => {
     setInputValue('');
+// @ts-expect-error - TS2554 - Expected 1 arguments, but got 0.
     setSelectedOption();
     resetOptions();
   };
@@ -113,8 +118,10 @@ export default function Example() {
               label="Pin category"
               noResultText="No results for your selection"
               onBlur={handleOnBlur}
+// @ts-expect-error - TS2322 - Type '({ value, }: { event: React.ChangeEvent<HTMLInputElement>; value: string; }) => void' is not assignable to type 'AbstractEventHandler<SyntheticEvent<HTMLInputElement, Event>, { value: string; }>'.
               onChange={handleOnChange}
               onClear={handleOnClear}
+// @ts-expect-error - TS2322 - Type '({ item, }: { event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>; item: {    label: string;    subtext?: string;    value: string;}; }) => void' is not assignable to type 'AbstractEventHandler<SyntheticEvent<HTMLInputElement, Event> | KeyboardEvent<HTMLInputElement>, { item: ComboBoxItemType; }>'.
               onSelect={handleSelect}
               options={suggestedOptions}
               placeholder="Select a category"

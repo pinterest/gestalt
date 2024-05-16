@@ -41,6 +41,7 @@ export default function ExampleTooltip() {
             value="left"
           />
         </Flex>
+{ /* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'FourDirections | undefined'. */}
         <Tooltip accessibilityLabel="" idealDirection={idealDirection} inline text="Share">
           <IconButton
             accessibilityLabel="Share this Pin"

@@ -93,18 +93,22 @@ type Props = {
   /**
    * Main content of Toast. Content should be [localized](https://gestalt.pinterest.systems/web/toast#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/toast#Text) to learn more.
    */
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
   text: string | Element<typeof Text>;
   /**
    * An optional thumbnail to display next to the text.
    */
   thumbnail?:
     | {
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
         image: Element<typeof Image>;
       }
     | {
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
         avatar: Element<typeof Avatar>;
       }
     | {
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
         icon: Element<typeof Icon>;
       };
   /**
@@ -136,6 +140,7 @@ export default function Toast({
   const responsiveMinWidth = useResponsiveMinWidth();
   const isMobileWidth = responsiveMinWidth === 'xs';
 
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
   let textElement: Element<'span'> | string;
 
   if (typeof text === 'string') {
@@ -145,6 +150,7 @@ export default function Toast({
   // If `text` is a Text component, we need to override any text colors within to ensure they all match
   const isTextNode =
     typeof text !== 'string' &&
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
     Children.only<Element<typeof Text>>(text).type.displayName === 'Text';
 
   if (isTextNode) {
@@ -170,6 +176,7 @@ export default function Toast({
 
   return (
     <div className={styles.toast} role="status">
+{ /* @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"selected" | "default" | "shopping" | "inverse" | "light" | "dark" | "darkWash" | "lightWash" | "transparent" | "transparentDarkGray" | "infoBase" | "infoWeak" | "errorBase" | ... 15 more ... | undefined'. */}
       <Box color={containerColor} paddingX={4} paddingY={3} rounding={4} width="100%">
         <Flex alignItems="center" gap={4}>
           {isDefaultToast && _dangerouslySetThumbnail ? (
@@ -178,27 +185,36 @@ export default function Toast({
 
           {isDefaultToast &&
           !_dangerouslySetThumbnail &&
+// @ts-expect-error - TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
           !!thumbnail?.image &&
+// @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
           Children.only<Element<typeof Image>>(thumbnail.image).type.displayName === 'Image' ? (
             <Flex.Item flex="none">
+{ /* @ts-expect-error - TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
               <ToastImageThumbnail thumbnail={thumbnail.image} />
             </Flex.Item>
           ) : null}
 
           {isDefaultToast &&
           !_dangerouslySetThumbnail &&
+// @ts-expect-error - TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
           !!thumbnail?.icon &&
+// @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
           Children.only<Element<typeof Icon>>(thumbnail.icon).type.displayName === 'Icon' ? (
             <Flex.Item flex="none">
+{ /* @ts-expect-error - TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
               <ToastIconThumbnail overrideColor="inverse" thumbnail={thumbnail.icon} />
             </Flex.Item>
           ) : null}
 
           {isDefaultToast &&
           !_dangerouslySetThumbnail &&
+// @ts-expect-error - TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
           !!thumbnail?.avatar &&
+// @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
           Children.only<Element<typeof Avatar>>(thumbnail.avatar).type.displayName === 'Avatar' ? (
             <Flex.Item flex="none">
+{ /* @ts-expect-error - TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
               <ToastAvatarThumbnail thumbnail={thumbnail.avatar} />
             </Flex.Item>
           ) : null}
@@ -213,6 +229,7 @@ export default function Toast({
             <ToastMessage
               helperLink={helperLink}
               text={isTextNode ? undefined : textElement}
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"link" | "warning" | "error" | "default" | "subtle" | "success" | "shopping" | "inverse" | "light" | "dark" | undefined'.
               textColor={textColor}
               textElement={isTextNode ? textElement : undefined}
               type={type}
@@ -257,6 +274,7 @@ export default function Toast({
                 accessibilityLabel={
                   dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabelDefault
                 }
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"darkGray" | "gray" | "red" | "white" | "brandPrimary" | undefined'.
                 iconColor={iconColor}
                 onClick={dismissButton.onDismiss}
                 size="xs"

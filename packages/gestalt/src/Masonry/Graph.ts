@@ -77,12 +77,14 @@ export default class Graph<T> implements GraphInterface<T> {
     lowestScore: number | null;
     lowestScoreNode: NodeData<T>;
   } {
+// @ts-expect-error - TS7034 - Variable 'lowestScore' implicitly has type 'any' in some locations where its type cannot be determined.
     let lowestScore = null;
     let lowestScoreNode = startNode;
 
     const findLowestScoreRecursive = (node: GraphNodeInterface<T>) => {
       node.getEdges().forEach((edge) => {
         const { score, node: edgeNode } = edge;
+// @ts-expect-error - TS7005 - Variable 'lowestScore' implicitly has an 'any' type. | TS7005 - Variable 'lowestScore' implicitly has an 'any' type.
         if (lowestScore === null || score < lowestScore) {
           lowestScore = score;
           lowestScoreNode = edgeNode.data;

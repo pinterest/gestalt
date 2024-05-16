@@ -10,6 +10,7 @@ export default function RadioButtonPopoverExample() {
   return (
     <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <RadioGroup id="popoverExample" legend="Tell us about yourself">
+{ /* @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'. */}
         <Box ref={anchorCatRef} display="inlineBlock">
           <RadioGroup.RadioButton
             checked={option === 'cat'}
@@ -22,6 +23,7 @@ export default function RadioButtonPopoverExample() {
             value="cat"
           />
         </Box>
+{ /* @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'. */}
         <Box ref={anchorDogRef} display="inlineBlock">
           <RadioGroup.RadioButton
             checked={option === 'dog'}

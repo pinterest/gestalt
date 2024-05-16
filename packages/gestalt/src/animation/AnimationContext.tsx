@@ -53,6 +53,7 @@ const AnimationContext: Context<AnimationType> = createContext<AnimationType>(in
 // PROVIDER
 export default function AnimationProvider({
   children,
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
 }: AnimationProviderProps): Element<typeof AnimationContext.Provider> | null {
   const [animationState, setAnimationState] = useState<AnimationStateType>(
     useReducedMotion() ? null : ANIMATION_STATE.hidden,
@@ -98,6 +99,7 @@ export function useAnimation(): UseAnimationType {
   const handleAnimationEnd = useCallback(() => {
     if (
       !reducedMotion &&
+// @ts-expect-error - TS2345 - Argument of type 'AnimationStateType' is not assignable to parameter of type '"animatedOpening" | "animatedClosing"'.
       [ANIMATION_STATE.animatedOpening, ANIMATION_STATE.animatedClosing].includes(animationState)
     )
       flushSync(() =>

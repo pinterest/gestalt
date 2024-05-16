@@ -19,6 +19,7 @@ const useGetSideNavItems = ({ sectionInfo }: { sectionInfo: siteIndexType }) => 
   ) => {
     // in nextjs, if it's a dynamic route, the dynamic route id will be passed as part of the query obj
     const { id: pathId } = query;
+// @ts-expect-error - TS2339 - Property 'join' does not exist on type 'string | string[]'.
     const urlPath = pathId ? pathId.join('/') : '';
 
     const isActiveTab = (href: string) =>
@@ -49,6 +50,7 @@ const useGetSideNavItems = ({ sectionInfo }: { sectionInfo: siteIndexType }) => 
     }
     if (nestingLevel === 1) {
       return (
+// @ts-expect-error - TS2741 - Property 'onExpand' is missing in type '{ children: Element[]; key: string; label: string; }' but required in type 'SideNavigationGroupProps'.
         <SideNavigation.Group key={`${navItem.sectionName}`} label={navItem.sectionName}>
           {navItem.pages.map((nestedPage) => {
             if (typeof nestedPage === 'string') {
@@ -72,6 +74,7 @@ const useGetSideNavItems = ({ sectionInfo }: { sectionInfo: siteIndexType }) => 
       );
     }
     return (
+// @ts-expect-error - TS2741 - Property 'onExpand' is missing in type '{ children: (Element | null)[]; key: string; label: string; }' but required in type 'SideNavigationNestedGroupProps'.
       <SideNavigation.NestedGroup key={`${navItem.sectionName}`} label={navItem.sectionName}>
         {navItem.pages.map((nestedPage) => {
           if (typeof nestedPage === 'string') {

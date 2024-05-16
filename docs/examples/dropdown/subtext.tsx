@@ -19,6 +19,7 @@ export default function CustomIconButtonPopoverExample() {
       <Flex height="100%" justifyContent="center" width="100%">
         <Box margin={2}>
           <IconButton
+// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
             ref={anchorRef}
             accessibilityControls="subtext-dropdown-example"
             accessibilityExpanded={open}
@@ -47,6 +48,7 @@ export default function CustomIconButtonPopoverExample() {
                 label: 'Pepper the Pupper',
                 subtext: 'pepper@thepupper.com',
               }}
+// @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
               selected={selected}
             />
             <Dropdown.Item
@@ -56,6 +58,7 @@ export default function CustomIconButtonPopoverExample() {
                 label: 'Mizu the Kitty',
                 subtext: 'mizu@thekitty.com',
               }}
+// @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
               selected={selected}
             />
           </Dropdown.Section>
@@ -66,6 +69,7 @@ export default function CustomIconButtonPopoverExample() {
                 value: 'Tune your home feed',
                 label: 'Tune your home feed',
               }}
+// @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
               selected={selected}
             />
             <Dropdown.Link

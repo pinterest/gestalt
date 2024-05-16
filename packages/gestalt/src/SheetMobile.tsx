@@ -183,6 +183,7 @@ function SheetMobile({
             footer={footer}
             forwardIconButton={forwardIconButton}
             heading={heading}
+// @ts-expect-error - TS2322 - Type '((arg1: { animationState: "in" | "out"; }) => void) | undefined' is not assignable to type '(arg1: { animationState: "in" | "out"; }) => void | null | undefined'.
             onAnimationEnd={onAnimationEnd}
             onDismiss={onDismiss}
             onOutsideClick={onOutsideClick}

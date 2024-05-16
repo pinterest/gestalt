@@ -30,6 +30,7 @@ export default function Example() {
     <Flex direction="column" gap={2} height="100%" width="100%">
       <ChartGraph
         accessibilityLabel="Example of chart with tooltip"
+// @ts-expect-error - TS2322 - Type '{ name: string; '18-30': number; '30-50': number; '50+': number; }[]' is not assignable to type 'readonly { [k: string]: number | undefined; [k: number]: number | undefined; }[]'.
         data={data}
         elements={[
           { type: 'bar', id: '18-30' },
@@ -49,6 +50,7 @@ export default function Example() {
         }}
         title="Views by demographics and device"
         type="bar"
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
         visualPatternSelected={visualPatternSelected}
       />
     </Flex>

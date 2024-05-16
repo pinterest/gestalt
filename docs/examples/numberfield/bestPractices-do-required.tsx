@@ -27,6 +27,7 @@ export default function Example() {
         onChange={({ value }) => {
           setValues((prevValues) => ({ ...prevValues, first: value }));
         }}
+// @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'number | undefined'.
         value={values.first}
       />
       <NumberField
@@ -35,6 +36,7 @@ export default function Example() {
         onChange={({ value }) => {
           setValues((prevValues) => ({ ...prevValues, second: value }));
         }}
+// @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'number | undefined'.
         value={values.second}
       />
       <NumberField
@@ -43,6 +45,7 @@ export default function Example() {
         onChange={({ value }) => {
           setValues((prevValues) => ({ ...prevValues, third: value }));
         }}
+// @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'number | undefined'.
         value={values.third}
       />
     </Flex>

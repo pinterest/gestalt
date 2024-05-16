@@ -6,11 +6,14 @@ type Props = {
   itemIdx: number;
 };
 
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
 export default function ExampleGridItem({ data = {}, itemIdx, expanded }: Props): Element<'div'> {
   const [counter, setCounter] = useState<number>(0);
 
   useEffect(() => {
+// @ts-expect-error - TS2339 - Property 'ITEM_MOUNT_COUNT' does not exist on type 'Window & typeof globalThis'.
     const mountCount = window.ITEM_MOUNT_COUNT || 0;
+// @ts-expect-error - TS2339 - Property 'ITEM_MOUNT_COUNT' does not exist on type 'Window & typeof globalThis'.
     window.ITEM_MOUNT_COUNT = mountCount + 1;
   }, []);
 

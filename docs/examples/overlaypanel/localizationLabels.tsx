@@ -18,6 +18,7 @@ export default function Example() {
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
   return (
     <DefaultLabelProvider
+// @ts-expect-error - TS2740 - Type '{ OverlayPanel: { accessibilityDismissButtonLabel: string; dismissConfirmationMessage: string; dismissConfirmationSubtext: string; dismissConfirmationPrimaryActionText: string; dismissConfirmationPrimaryActionTextLabel: string; dismissConfirmationSecondaryActionText: string; dismissConfirmationSecondaryActionTextLab...' is missing the following properties from type '{ Accordion: { accessibilityCollapseLabel: string; accessibilityExpandLabel: string; }; ActivationCard: { accessibilityDismissButtonLabel: string; }; BannerOverlay: { accessibilityDismissButtonLabel: string; }; ... 17 more ...; Toast: { ...; }; }': Accordion, ActivationCard, BannerOverlay, BannerCallout, and 16 more.
       labels={{
         OverlayPanel: {
           accessibilityDismissButtonLabel: 'Overlay-Panel auflösen.',

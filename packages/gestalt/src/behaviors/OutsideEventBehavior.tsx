@@ -30,5 +30,6 @@ export default function OutsideEventBehavior({ children, onClick }: Props) {
     };
   }, [onClick]);
 
+// @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLDivElement | null | undefined>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
   return <div ref={element}>{children}</div>;
 }

@@ -20,6 +20,7 @@ export default function Example() {
   return (
     <ChartGraph
       accessibilityLabel="Example of Bar chart"
+// @ts-expect-error - TS2322 - Type '{ name: string; Series_01: number; }[]' is not assignable to type 'readonly { [k: string]: number | undefined; [k: number]: number | undefined; }[]'.
       data={data}
       elements={[{ type: 'bar', id: 'Series_01' }]}
       legend="none"

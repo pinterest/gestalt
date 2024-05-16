@@ -107,6 +107,7 @@ function OverlayPanel({
           dismissConfirmation={dismissConfirmation}
           footer={footer}
           heading={heading}
+// @ts-expect-error - TS2322 - Type '((arg1: { animationState: "in" | "out"; }) => void) | undefined' is not assignable to type '(arg1: { animationState: "in" | "out"; }) => void | null | undefined'.
           onAnimationEnd={onAnimationEnd}
           onDismiss={onDismiss}
           size={size}

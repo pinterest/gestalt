@@ -23,6 +23,7 @@ describe('ScrollBoundaryContainer', () => {
     function TestBox() {
       const { scrollBoundaryContainerRef } = useScrollBoundaryContainer();
 
+// @ts-expect-error - TS2540 - Cannot assign to 'current' because it is a read-only property.
       scrollBoundaryContainer.current = scrollBoundaryContainerRef;
 
       return <Box />;
@@ -49,6 +50,7 @@ describe('ScrollBoundaryContainer', () => {
     function TestBox() {
       const { scrollBoundaryContainerRef } = useScrollBoundaryContainer();
 
+// @ts-expect-error - TS2540 - Cannot assign to 'current' because it is a read-only property.
       scrollBoundaryContainer.current = scrollBoundaryContainerRef;
 
       return <Box />;

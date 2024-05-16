@@ -4,6 +4,7 @@ import { ActivationCard, Box, DefaultLabelProvider } from 'gestalt';
 export default function Example() {
   return (
     <DefaultLabelProvider
+// @ts-expect-error - TS2740 - Type '{ ActivationCard: { accessibilityDismissButtonLabel: string; }; }' is missing the following properties from type '{ Accordion: { accessibilityCollapseLabel: string; accessibilityExpandLabel: string; }; ActivationCard: { accessibilityDismissButtonLabel: string; }; BannerOverlay: { accessibilityDismissButtonLabel: string; }; ... 17 more ...; Toast: { ...; }; }': Accordion, BannerOverlay, BannerCallout, ChartGraph, and 16 more.
       labels={{
         ActivationCard: {
           accessibilityDismissButtonLabel: 'Entlassen.',

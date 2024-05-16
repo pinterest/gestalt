@@ -5,6 +5,7 @@ export default function Snapshot() {
   return (
     <ColorSchemeProvider colorScheme="dark">
       <Box color="default">
+{ /* @ts-expect-error - TS2741 - Property 'dismissButton' is missing in type '{ primaryAction: { accessibilityLabel: string; label: string; size: "lg"; role: "button"; onClick: () => void; }; text: string; thumbnail: { image: Element; }; }' but required in type 'ToastProps'. */}
         <Toast
           primaryAction={{
             accessibilityLabel: 'Test',

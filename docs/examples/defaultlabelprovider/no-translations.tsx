@@ -25,6 +25,7 @@ export default function Example() {
     if (value !== '' && !pronouns.includes(value)) setErrorMessage('Please, select a valid option');
   };
 
+// @ts-expect-error - TS2554 - Expected 1 arguments, but got 0.
   const resetErrorMessage = errorMessage ? () => setErrorMessage() : () => {};
 
   return (
@@ -42,6 +43,7 @@ export default function Example() {
 
           <Box width={320}>
             <ComboBox
+// @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'string | undefined'.
               errorMessage={errorMessage}
               helperText="Choose your pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
               id="no-translations-combobox"

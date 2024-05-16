@@ -98,6 +98,7 @@ export default function AccordionExpandableItem({
 
             {/* Adding a max height because the line height is 24, and we don't want the icon container to expand */}
             {Boolean(children) && (
+// @ts-expect-error - TS2322 - Type '{ children: Element; alignItems: "center"; display: "flex"; id: string; maxHeight: number; padding: 1; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
               <Box alignItems="center" display="flex" id={id} maxHeight={24} padding={1}>
                 <Icon
                   accessibilityLabel={

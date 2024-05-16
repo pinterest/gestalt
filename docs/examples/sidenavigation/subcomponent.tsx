@@ -35,12 +35,14 @@ export default function Example() {
       </SideNavigation.Section>
 
       <SideNavigation.Section label="Audiences">
+{ /* @ts-expect-error - TS2741 - Property 'onExpand' is missing in type '{ children: Element[]; icon: "people"; label: string; }' but required in type 'SideNavigationGroupProps'. */}
         <SideNavigation.Group icon="people" label="Christmas">
           <SideNavigation.NestedItem
             href="#"
             label="Luxury Christmas"
             onClick={({ event }) => event.preventDefault()}
           />
+{ /* @ts-expect-error - TS2741 - Property 'onExpand' is missing in type '{ children: Element[]; label: string; }' but required in type 'SideNavigationNestedGroupProps'. */}
           <SideNavigation.NestedGroup label="Classic Christmas">
             <SideNavigation.NestedItem
               href="#"
@@ -54,6 +56,7 @@ export default function Example() {
             />
           </SideNavigation.NestedGroup>
 
+{ /* @ts-expect-error - TS2741 - Property 'onExpand' is missing in type '{ children: Element[][]; label: string; }' but required in type 'SideNavigationNestedGroupProps'. */}
           <SideNavigation.NestedGroup label="Alternative Christmas">
             {['West Coast', 'East Coast'].map((x) => (
               <SideNavigation.NestedItem
@@ -73,6 +76,7 @@ export default function Example() {
             ))}
           </SideNavigation.NestedGroup>
         </SideNavigation.Group>
+{ /* @ts-expect-error - TS2741 - Property 'onExpand' is missing in type '{ children: Element[]; icon: "people"; label: string; }' but required in type 'SideNavigationGroupProps'. */}
         <SideNavigation.Group icon="people" label="Halloween">
           {['West Coast', 'East Coast'].map((x) => (
             <SideNavigation.NestedItem

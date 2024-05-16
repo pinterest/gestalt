@@ -18,10 +18,12 @@ export default function Example() {
 
   const [errorMessage, setErrorMessage] = useState<string | null | undefined>();
 
+// @ts-expect-error - TS2554 - Expected 1 arguments, but got 0.
   const resetErrorMessage = errorMessage ? () => setErrorMessage() : () => {};
 
   return (
     <DefaultLabelProvider
+// @ts-expect-error - TS2740 - Type '{ ComboBox: { noResultText: string; accessibilityClearButtonLabel: string; }; }' is missing the following properties from type '{ Accordion: { accessibilityCollapseLabel: string; accessibilityExpandLabel: string; }; ActivationCard: { accessibilityDismissButtonLabel: string; }; BannerOverlay: { accessibilityDismissButtonLabel: string; }; ... 17 more ...; Toast: { ...; }; }': Accordion, ActivationCard, BannerOverlay, BannerCallout, and 16 more.
       labels={{
         ComboBox: {
           noResultText: 'Keine Ergebnisse',
@@ -33,6 +35,7 @@ export default function Example() {
         <Box paddingX={8} paddingY={8}>
           <ComboBox
             accessibilityClearButtonLabel="Löscht den aktuellen Wert"
+// @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'string | undefined'.
             errorMessage={errorMessage}
             helperText="Wählen Sie die Pronomen, die in Ihrem Profil erscheinen sollen, damit andere wissen, wie sie Sie ansprechen sollen. Sie können diese jederzeit bearbeiten oder entfernen."
             id="header"

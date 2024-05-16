@@ -11,6 +11,7 @@ export default function ResponsiveExample() {
             onDismiss: () => {},
           }}
           iconAccessibilityLabel="Info"
+// @ts-expect-error - TS2322 - Type 'Element' is not assignable to type 'string'.
           message={
             <Text inline>
               You have invited{' '}

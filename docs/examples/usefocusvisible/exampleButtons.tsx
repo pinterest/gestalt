@@ -17,6 +17,7 @@ export default function Example() {
             onFocus={() => setFocusedButton1(true)}
             style={{
               outline: 'none',
+// @ts-expect-error - TS2322 - Type '"0 0 0 4px var(--color-border-focus)" | null' is not assignable to type 'BoxShadow | undefined'.
               boxShadow:
                 isFocusVisible && focusedButton1 ? `0 0 0 4px ${TOKEN_COLOR_BORDER_FOCUS}` : null,
             }}
@@ -33,6 +34,7 @@ export default function Example() {
             onFocus={() => setFocusedButton2(true)}
             style={{
               outline: 'none',
+// @ts-expect-error - TS2322 - Type '"0 0 0 4px var(--color-border-focus)" | null' is not assignable to type 'BoxShadow | undefined'.
               boxShadow: focusedButton2 ? `0 0 0 4px ${TOKEN_COLOR_BORDER_FOCUS}` : null,
             }}
             type="button"

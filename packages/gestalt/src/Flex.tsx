@@ -136,6 +136,7 @@ export default function Flex({
   ...rest
 }: Props) {
   const children = gap
+// @ts-expect-error - TS2533 - Object is possibly 'null' or 'undefined'.
     ? Children.map(childrenProp, (child, index) => {
         if (child === null || child === undefined) {
           return null;
@@ -144,6 +145,7 @@ export default function Flex({
           element: child,
           Component: FlexItem,
           props: {
+// @ts-expect-error - TS2322 - Type '{ key: number; }' is not assignable to type 'Props'.
             key: index,
           },
         });
@@ -165,6 +167,7 @@ export default function Flex({
     allowlistProps: allowedProps,
   });
 
+// @ts-expect-error - TS2322 - Type '{ "data-test-id": string | undefined; className: string | null | undefined; style: InlineStyle | null | undefined; alignContent?: "center" | "start" | "end" | "stretch" | "between" | "around" | "evenly" | undefined; ... 18 more ...; wrap?: boolean | undefined; }' is not assignable to type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
   return <div {...passthroughProps} {...propsStyles} data-test-id={dataTestId} />;
 }
 

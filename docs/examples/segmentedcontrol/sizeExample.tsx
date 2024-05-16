@@ -9,6 +9,7 @@ export default function SegmentedControlExample() {
   const textItems = ['All', 'Published', 'Drafts'];
 
   const iconItems = ['music-on', 'video-camera'].map((p) => (
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'Icons | undefined'.
     <Icon key="icon" accessibilityLabel={p} color="default" icon={p} />
   ));
   const items = showIcons ? iconItems : textItems;

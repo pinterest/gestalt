@@ -47,6 +47,7 @@ export default function BannerUpsellForm({
   const isXsWidth = responsiveMinWidth === 'xs';
 
   return (
+// @ts-expect-error - TS2322 - Type 'FormEvent<HTMLFormElement>' is not assignable to type 'MouseEvent<HTMLButtonElement, MouseEvent> | KeyboardEvent<HTMLButtonElement> | MouseEvent<HTMLAnchorElement, MouseEvent> | KeyboardEvent<...>'.
     <form onSubmit={(event) => onSubmit({ event })} style={{ width: '100%' }}>
       <Flex
         direction={isXsWidth ? 'column' : 'row'}

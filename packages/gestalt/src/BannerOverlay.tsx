@@ -37,6 +37,7 @@ type Props = {
   /**
    * Main content of BannerOverlay. Content should be [localized](https://gestalt.pinterest.systems/web/banneroverlay#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/banneroverlay#Text) to learn more.
    */
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
   message: string | Element<typeof Text>;
   /**
    * Distance (in pixels) from the viewport edge (top will be used, if desktop, bottom will be used, if mobile).
@@ -97,12 +98,15 @@ type Props = {
    */
   thumbnail?:
     | {
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
         image: Element<typeof Image>;
       }
     | {
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
         avatar: Element<typeof Avatar>;
       }
     | {
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
         icon: Element<typeof Icon>;
       };
   /**
@@ -136,6 +140,7 @@ export default function BannerOverlay({
 
   const isMobileDevice = useDeviceType() === 'mobile';
 
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
   let messageTextElement: Element<'span'> | string;
 
   if (typeof message === 'string') {
@@ -146,6 +151,7 @@ export default function BannerOverlay({
   const checkTextNode = () => {
     const messageIsTextNode =
       typeof message !== 'string' &&
+// @ts-expect-error - TS2315 - Type 'Element' is not generic.
       Children.only<Element<typeof Text>>(message).type.displayName === 'Text';
 
     if (messageIsTextNode) {
@@ -203,24 +209,33 @@ export default function BannerOverlay({
           zIndex={zIndex}
         >
           <Flex alignItems="center" gap={4}>
+{ /* @ts-expect-error - TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
             {!!thumbnail?.image &&
+// @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
             Children.only<Element<typeof Image>>(thumbnail.image).type.displayName === 'Image' ? (
               <Flex.Item alignSelf="center">
+{ /* @ts-expect-error - TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
                 <ToastImageThumbnail thumbnail={thumbnail.image} />
               </Flex.Item>
             ) : null}
 
+{ /* @ts-expect-error - TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
             {!!thumbnail?.icon &&
+// @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
             Children.only<Element<typeof Icon>>(thumbnail.icon).type.displayName === 'Icon' ? (
               <Flex.Item alignSelf="center">
+{ /* @ts-expect-error - TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
                 <ToastIconThumbnail thumbnail={thumbnail.icon} />
               </Flex.Item>
             ) : null}
 
+{ /* @ts-expect-error - TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
             {!!thumbnail?.avatar &&
+// @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
             Children.only<Element<typeof Avatar>>(thumbnail.avatar).type.displayName ===
               'Avatar' ? (
               <Flex.Item alignSelf="center">
+{ /* @ts-expect-error - TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
                 <ToastAvatarThumbnail thumbnail={thumbnail.avatar} />
               </Flex.Item>
             ) : null}
@@ -332,24 +347,33 @@ export default function BannerOverlay({
           zIndex={zIndex}
         >
           <Flex alignItems="center" gap={4}>
+{ /* @ts-expect-error - TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
             {!!thumbnail?.image &&
+// @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
             Children.only<Element<typeof Image>>(thumbnail.image).type.displayName === 'Image' ? (
               <Flex.Item alignSelf="baseline">
+{ /* @ts-expect-error - TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
                 <ToastImageThumbnail thumbnail={thumbnail.image} />
               </Flex.Item>
             ) : null}
 
+{ /* @ts-expect-error - TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
             {!!thumbnail?.icon &&
+// @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
             Children.only<Element<typeof Icon>>(thumbnail.icon).type.displayName === 'Icon' ? (
               <Flex.Item alignSelf="baseline">
+{ /* @ts-expect-error - TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
                 <ToastIconThumbnail thumbnail={thumbnail.icon} />
               </Flex.Item>
             ) : null}
 
+{ /* @ts-expect-error - TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
             {!!thumbnail?.avatar &&
+// @ts-expect-error - TS2315 - Type 'Element' is not generic. | TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
             Children.only<Element<typeof Avatar>>(thumbnail.avatar).type.displayName ===
               'Avatar' ? (
               <Flex.Item alignSelf="baseline">
+{ /* @ts-expect-error - TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
                 <ToastAvatarThumbnail thumbnail={thumbnail.avatar} />
               </Flex.Item>
             ) : null}

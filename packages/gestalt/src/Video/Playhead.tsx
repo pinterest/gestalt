@@ -65,8 +65,11 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
         },
       });
       // skip this for mouse events, keep supportsPassive as false
+// @ts-expect-error - TS2339 - Property 'clientX' does not exist on type 'MouseEvent<HTMLDivElement, MouseEvent> | TouchEvent<HTMLDivElement>'.
       if (!event?.clientX) {
+// @ts-expect-error - TS2769 - No overload matches this call.
         window.addEventListener('testPassive', null, opts);
+// @ts-expect-error - TS2769 - No overload matches this call.
         window.removeEventListener('testPassive', null, opts);
       }
     } catch (e: any) {
@@ -83,10 +86,14 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     onPlayheadDown(event);
     this.setState({ seeking: true });
 
+// @ts-expect-error - TS2339 - Property 'clientX' does not exist on type 'MouseEvent<HTMLDivElement, MouseEvent> | TouchEvent<HTMLDivElement>'. | TS2339 - Property 'clientX' does not exist on type 'MouseEvent<HTMLDivElement, MouseEvent> | TouchEvent<HTMLDivElement>'.
     if (!!event?.clientX && typeof event?.clientX === 'number') {
+// @ts-expect-error - TS2339 - Property 'clientX' does not exist on type 'MouseEvent<HTMLDivElement, MouseEvent> | TouchEvent<HTMLDivElement>'.
       this.seek(event.clientX);
     }
+// @ts-expect-error - TS2339 - Property 'touches' does not exist on type 'MouseEvent<HTMLDivElement, MouseEvent> | TouchEvent<HTMLDivElement>'.
     if (event?.touches) {
+// @ts-expect-error - TS2339 - Property 'touches' does not exist on type 'MouseEvent<HTMLDivElement, MouseEvent> | TouchEvent<HTMLDivElement>'.
       this.seek(event.touches[0].clientX);
     }
   };
@@ -115,8 +122,11 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
         },
       });
       // skip this for mouse events, keep supportsPassive as false
+// @ts-expect-error - TS2339 - Property 'clientX' does not exist on type 'MouseEvent<HTMLDivElement, MouseEvent> | TouchEvent<HTMLDivElement>'.
       if (!event?.clientX) {
+// @ts-expect-error - TS2769 - No overload matches this call.
         window.addEventListener('testPassive', null, opts);
+// @ts-expect-error - TS2769 - No overload matches this call.
         window.removeEventListener('testPassive', null, opts);
       }
     } catch (e: any) {
@@ -130,10 +140,14 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     }
 
     const { seeking } = this.state;
+// @ts-expect-error - TS2339 - Property 'clientX' does not exist on type 'MouseEvent<HTMLDivElement, MouseEvent> | TouchEvent<HTMLDivElement>'. | TS2339 - Property 'clientX' does not exist on type 'MouseEvent<HTMLDivElement, MouseEvent> | TouchEvent<HTMLDivElement>'.
     if (seeking && !!event?.clientX && typeof event?.clientX === 'number') {
+// @ts-expect-error - TS2339 - Property 'clientX' does not exist on type 'MouseEvent<HTMLDivElement, MouseEvent> | TouchEvent<HTMLDivElement>'.
       this.seek(event.clientX);
     }
+// @ts-expect-error - TS2339 - Property 'touches' does not exist on type 'MouseEvent<HTMLDivElement, MouseEvent> | TouchEvent<HTMLDivElement>'.
     if (seeking && event?.touches) {
+// @ts-expect-error - TS2339 - Property 'touches' does not exist on type 'MouseEvent<HTMLDivElement, MouseEvent> | TouchEvent<HTMLDivElement>'.
       this.seek(event.touches[0].clientX);
     }
   };
@@ -171,6 +185,7 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
           onTouchMove={this.handleMouseMove}
           onTouchStart={this.handleMouseDown}
           role="progressbar"
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
           tabIndex="-1"
         >
           <Box

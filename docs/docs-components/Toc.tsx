@@ -5,9 +5,13 @@ const HEADER_HEIGHT_PX = 60;
 const FOOTER_HEIGHT_PX = 112;
 
 function throttle(func: null | (() => void), wait: number) {
+// @ts-expect-error - TS7034 - Variable 'context' implicitly has type 'any' in some locations where its type cannot be determined.
   let context;
+// @ts-expect-error - TS7034 - Variable 'args' implicitly has type 'any' in some locations where its type cannot be determined.
   let args;
+// @ts-expect-error - TS7034 - Variable 'result' implicitly has type 'any' in some locations where its type cannot be determined.
   let result;
+// @ts-expect-error - TS7034 - Variable 'timeout' implicitly has type 'any' in some locations where its type cannot be determined.
   let timeout = null;
   let previous = 0;
   function later() {
@@ -16,9 +20,12 @@ function throttle(func: null | (() => void), wait: number) {
     }
     previous = Date.now();
     timeout = null;
+// @ts-expect-error - TS7005 - Variable 'args' implicitly has an 'any' type.
     if (args) {
+// @ts-expect-error - TS7005 - Variable 'context' implicitly has an 'any' type. | TS7005 - Variable 'args' implicitly has an 'any' type.
       result = func.apply(context, args);
     } else {
+// @ts-expect-error - TS7005 - Variable 'context' implicitly has an 'any' type.
       result = func.apply(context);
     }
     if (!timeout) {
@@ -26,6 +33,7 @@ function throttle(func: null | (() => void), wait: number) {
       args = null;
     }
   }
+// @ts-expect-error - TS2552 - Cannot find name '$ArrayLike'. Did you mean 'ArrayLike'?
   return function throttled(this: null, ...params: $ArrayLike<unknown>) {
     if (!func) {
       return null;
@@ -36,7 +44,9 @@ function throttle(func: null | (() => void), wait: number) {
     context = this;
     args = params;
     if (remaining <= 0 || remaining > wait) {
+// @ts-expect-error - TS7005 - Variable 'timeout' implicitly has an 'any' type.
       if (timeout) {
+// @ts-expect-error - TS7005 - Variable 'timeout' implicitly has an 'any' type.
         clearTimeout(timeout);
         timeout = null;
       }
@@ -46,13 +56,16 @@ function throttle(func: null | (() => void), wait: number) {
       } else {
         result = func.apply(context);
       }
+// @ts-expect-error - TS7005 - Variable 'timeout' implicitly has an 'any' type.
       if (!timeout) {
         context = null;
         args = null;
       }
+// @ts-expect-error - TS7005 - Variable 'timeout' implicitly has an 'any' type.
     } else if (!timeout) {
       timeout = setTimeout(later, remaining);
     }
+// @ts-expect-error - TS7005 - Variable 'result' implicitly has an 'any' type.
     return result;
   };
 }
@@ -131,6 +144,7 @@ export default function Toc({ cards }: Props) {
   }, [anchors, activeState]);
 
   useEffect(() => {
+// @ts-expect-error - TS2488 - Type 'NodeListOf<Element>' must have a '[Symbol.iterator]()' method that returns an iterator.
     setAnchors([...document.querySelectorAll('[data-anchor]')]);
   }, [cards]);
 
@@ -141,6 +155,7 @@ export default function Toc({ cards }: Props) {
     // Ignore click for new tab/new window behavior
     if (
       event.defaultPrevented ||
+// @ts-expect-error - TS2339 - Property 'button' does not exist on type 'MouseEvent<HTMLAnchorElement, MouseEvent> | KeyboardEvent<HTMLAnchorElement> | KeyboardEvent<HTMLDivElement> | MouseEvent<...>'.
       event.button !== 0 || // ignore everything but left-click
       event.metaKey ||
       event.ctrlKey ||
@@ -152,6 +167,7 @@ export default function Toc({ cards }: Props) {
 
     // Used to disable findActiveIndex if the page scrolls due to a click
     clickedRef.current = true;
+// @ts-expect-error - TS2322 - Type 'Timeout' is not assignable to type 'number'.
     unsetClickedRef.current = setTimeout(() => {
       clickedRef.current = false;
     }, 1000);
@@ -163,6 +179,7 @@ export default function Toc({ cards }: Props) {
 
   useEffect(
     () => () => {
+// @ts-expect-error - TS2769 - No overload matches this call.
       clearTimeout(unsetClickedRef.current);
     },
     [],
@@ -173,6 +190,7 @@ export default function Toc({ cards }: Props) {
 
     anchors.reduce((accumulated, anchor, i) => {
       const isParentItem = i === 0 || anchor.getElementsByTagName('h2').length > 0;
+// @ts-expect-error - TS2339 - Property 'at' does not exist on type 'ToCItem[]'.
       const lastParentItem = accumulated.at(-1);
 
       if (isParentItem) {

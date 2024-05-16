@@ -485,6 +485,7 @@ If different graphs need to be compared simultaneously, see example below, color
         `}
           title="Colors"
         >
+{ /* @ts-expect-error - TS2322 - Type '{ children: ({ color }: { [key: string]: any; }) => Element; cardSize: "xs"; color: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
           <CombinationNew cardSize="xs" color={['01', '02', '03', '04', '05', '06']}>
             {({ color }) => {
               function getToken(value: string): string {
@@ -519,6 +520,7 @@ If different graphs need to be compared simultaneously, see example below, color
               );
             }}
           </CombinationNew>
+{ /* @ts-expect-error - TS2322 - Type '{ children: ({ color }: { [key: string]: any; }) => Element; cardSize: "xs"; color: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
           <CombinationNew cardSize="xs" color={['07', '08', '09', '10', '11', '12']}>
             {({ color }) => {
               function getToken(value: string): string {

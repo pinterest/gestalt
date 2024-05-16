@@ -9,6 +9,7 @@ type HandlerEvent = PointerEvent | MouseEvent | KeyboardEvent | FocusEvent;
 type Handler = (modality: Modality, e: HandlerEvent) => void;
 
 let hasSetupGlobalListeners = false;
+// @ts-expect-error - TS7034 - Variable 'currentModality' implicitly has type 'any' in some locations where its type cannot be determined.
 let currentModality = null;
 const changeHandlers = new Set<Handler>();
 let hasEventBeforeFocus = false;
@@ -69,6 +70,7 @@ function handleWindowBlur() {
 }
 
 function isFocusVisible(): boolean {
+// @ts-expect-error - TS7005 - Variable 'currentModality' implicitly has an 'any' type.
   return currentModality !== 'pointer';
 }
 

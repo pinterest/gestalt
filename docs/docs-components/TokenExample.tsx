@@ -93,6 +93,7 @@ export function TextColorBox({ token }: BaseProps) {
   return (
     <Box
       alignItems="center"
+// @ts-expect-error - TS2322 - Type 'string | undefined' is not assignable to type '"selected" | "default" | "shopping" | "inverse" | "light" | "dark" | "darkWash" | "lightWash" | "transparent" | "transparentDarkGray" | "infoBase" | "infoWeak" | "errorBase" | ... 15 more ... | undefined'.
       color={backgroundColor}
       dangerouslySetInlineStyle={{
         __style: { color: `var(--${token.name})`, fontSize: TOKEN_FONT_SIZE_500 },
