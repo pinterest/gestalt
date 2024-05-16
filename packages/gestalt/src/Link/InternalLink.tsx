@@ -1,4 +1,4 @@
-import {ReactElement, forwardRef, ReactNode, useImperativeHandle, useRef} from 'react';
+import { ReactElement, forwardRef, ReactNode, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import { AriaCurrent } from '../ariaTypes';
 import buttonStyles from '../Button.css';
@@ -14,66 +14,44 @@ import useFocusVisible from '../useFocusVisible';
 import useTapFeedback, { keyPressShouldTriggerTap } from '../useTapFeedback';
 
 type Props = {
-  accessibilityCurrent?: AriaCurrent,
-  accessibilityLabel?: string,
-  children?: ReactNode,
-  colorClass?: string,
-  dataTestId?: string,
-  disabled?: boolean,
-  fullHeight?: boolean,
-  fullWidth?: boolean,
-  href: string,
-  id?: string,
-  mouseCursor?: "copy" | "grab" | "grabbing" | "move" | "noDrop" | "pointer" | "zoomIn" | "zoomOut",
-  onClick?: (
-    arg1: {
-      event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-      dangerouslyDisableOnNavigation: () => void
-    },
-  ) => void,
-  onBlur?: (
-    arg1: {
-      event: React.FocusEvent<HTMLAnchorElement>
-    },
-  ) => void,
-  onFocus?: (
-    arg1: {
-      event: React.FocusEvent<HTMLAnchorElement>
-    },
-  ) => void,
-  onKeyDown?: (
-    arg1: {
-      event: React.KeyboardEvent<HTMLAnchorElement>
-    },
-  ) => void,
-  onMouseDown?: (
-    arg1: {
-      event: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLDivElement>
-    },
-  ) => void,
-  onMouseUp?: (
-    arg1: {
-      event: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLDivElement>
-    },
-  ) => void,
-  onMouseEnter?: (
-    arg1: {
-      event: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLDivElement>
-    },
-  ) => void,
-  onMouseLeave?: (
-    arg1: {
-      event: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLDivElement>
-    },
-  ) => void,
-  rel?: "none" | "nofollow",
-  tabIndex: -1 | 0,
-  rounding?: Rounding,
-  selected?: boolean,
-  size?: "sm" | "md" | "lg",
-  tapStyle?: "none" | "compress",
-  target?: null | "self" | "blank",
-  wrappedComponent: "button" | "iconButton" | "tapArea"
+  accessibilityCurrent?: AriaCurrent;
+  accessibilityLabel?: string;
+  children?: ReactNode;
+  colorClass?: string;
+  dataTestId?: string;
+  disabled?: boolean;
+  fullHeight?: boolean;
+  fullWidth?: boolean;
+  href: string;
+  id?: string;
+  mouseCursor?: 'copy' | 'grab' | 'grabbing' | 'move' | 'noDrop' | 'pointer' | 'zoomIn' | 'zoomOut';
+  onClick?: (arg1: {
+    event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+    dangerouslyDisableOnNavigation: () => void;
+  }) => void;
+  onBlur?: (arg1: { event: React.FocusEvent<HTMLAnchorElement> }) => void;
+  onFocus?: (arg1: { event: React.FocusEvent<HTMLAnchorElement> }) => void;
+  onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLAnchorElement> }) => void;
+  onMouseDown?: (arg1: {
+    event: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLDivElement>;
+  }) => void;
+  onMouseUp?: (arg1: {
+    event: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLDivElement>;
+  }) => void;
+  onMouseEnter?: (arg1: {
+    event: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLDivElement>;
+  }) => void;
+  onMouseLeave?: (arg1: {
+    event: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLDivElement>;
+  }) => void;
+  rel?: 'none' | 'nofollow';
+  tabIndex: -1 | 0;
+  rounding?: Rounding;
+  selected?: boolean;
+  size?: 'sm' | 'md' | 'lg';
+  tapStyle?: 'none' | 'compress';
+  target?: null | 'self' | 'blank';
+  wrappedComponent: 'button' | 'iconButton' | 'tapArea';
 };
 
 const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
@@ -107,7 +85,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     wrappedComponent,
   }: Props,
   ref,
-): Element<"a"> {
+): Element<'a'> {
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
   useImperativeHandle(ref, () => innerRef.current);

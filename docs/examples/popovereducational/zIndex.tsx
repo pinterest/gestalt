@@ -1,4 +1,4 @@
-import {ReactNode, useEffect, useRef, useState} from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import {
   Box,
   FixedZIndex,

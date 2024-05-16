@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Pog } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
@@ -13,13 +13,7 @@ import main from '../../examples/pog/main';
 import states from '../../examples/pog/states';
 import statesOnBackground from '../../examples/pog/statesOnBackground';
 
-export default function DocsPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: DocGen
-  },
-) {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
     <Page title="Pog">
       <PageHeader description={generatedDocGen?.description} name="Pog">
@@ -112,8 +106,8 @@ Follow these guidelines for \`bgColor\`
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   const generatedDocGen = await docGen('Pog');
 

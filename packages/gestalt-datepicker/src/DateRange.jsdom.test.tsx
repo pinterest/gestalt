@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { id } from 'date-fns/locale';
 import DateRange from './DateRange';
@@ -10,37 +10,33 @@ function DateRangeWrap({
   onEndDateChange,
   onStartDateChange,
 }: {
-  initialStartDate?: Date,
-  initialEndDate?: Date,
-  localeData?: ComponentProps<typeof DateRange>["localeData"],
-  onEndDateChange?: ComponentProps<typeof DateRange>["onEndDateChange"],
-  onStartDateChange?: ComponentProps<typeof DateRange>["onStartDateChange"]
+  initialStartDate?: Date;
+  initialEndDate?: Date;
+  localeData?: ComponentProps<typeof DateRange>['localeData'];
+  onEndDateChange?: ComponentProps<typeof DateRange>['onEndDateChange'];
+  onStartDateChange?: ComponentProps<typeof DateRange>['onStartDateChange'];
 }) {
   const [startDate, setStartDate] = useState<Date | null>(initialStartDate ?? null);
   const [endDate, setEndDate] = useState<Date | null>(initialEndDate ?? null);
 
   return (
-    (<DateRange
+    <DateRange
       endDateValue={endDate}
       localeData={localeData}
       onCancel={() => {}}
-      onEndDateChange={({
-        value,
-      }: any) => {
+      onEndDateChange={({ value }: any) => {
         onEndDateChange?.({ value });
         setEndDate(value);
       }}
       onEndDateError={() => {}}
-      onStartDateChange={({
-        value,
-      }: any) => {
+      onStartDateChange={({ value }: any) => {
         onStartDateChange?.({ value });
         setStartDate(value);
       }}
       onStartDateError={() => {}}
       onSubmit={() => {}}
       startDateValue={startDate}
-    />)
+    />
   );
 }
 
@@ -109,12 +105,22 @@ describe('DateRange', () => {
   });
 
   it('handles events correctly', async () => {
-    const onEndDateChangeMock = jest.fn<[{
-      value: Date | null
-    }], undefined>();
-    const onStartDateChangeMock = jest.fn<[{
-      value: Date | null
-    }], undefined>();
+    const onEndDateChangeMock = jest.fn<
+      [
+        {
+          value: Date | null;
+        },
+      ],
+      undefined
+    >();
+    const onStartDateChangeMock = jest.fn<
+      [
+        {
+          value: Date | null;
+        },
+      ],
+      undefined
+    >();
 
     const initialStartDate = new Date('December 16, 1995 03:24:00');
     const initialEndDate = new Date('December 17, 1995 03:24:00');

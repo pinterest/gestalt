@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Bar as RechartsBar, Line as RechartsLine, Rectangle } from 'recharts';
 import renderGraphPoint from './renderGraphPoint';
 import { DataVisualizationColors } from './types';
@@ -19,32 +19,30 @@ const colorMap = {
 } as const;
 
 type Props = {
-  stacked: boolean | null | undefined,
+  stacked: boolean | null | undefined;
   elements: ReadonlyArray<{
-    type: "line" | "bar",
-    axis?: "left" | "right" | "bottom" | "top",
-    id: string,
-    color?: "01" | "02" | "03" | "04" | "05" | "06" | "07" | "08" | "09" | "10" | "11" | "12",
-    precision?: "exact" | "estimate"
-  }>,
-  layout: "horizontal" | "vertical" | "horizontalBiaxial" | "verticalBiaxial",
-  hexColor: (arg1: DataVisualizationColors) => string,
-  visualPatternSelected: "visualPattern" | "default" | "disabled",
-  isHorizontalLayout: boolean,
-  isBarRounded: boolean
+    type: 'line' | 'bar';
+    axis?: 'left' | 'right' | 'bottom' | 'top';
+    id: string;
+    color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10' | '11' | '12';
+    precision?: 'exact' | 'estimate';
+  }>;
+  layout: 'horizontal' | 'vertical' | 'horizontalBiaxial' | 'verticalBiaxial';
+  hexColor: (arg1: DataVisualizationColors) => string;
+  visualPatternSelected: 'visualPattern' | 'default' | 'disabled';
+  isHorizontalLayout: boolean;
+  isBarRounded: boolean;
 };
 
-export default function renderElements(
-  {
-    elements = [],
-    layout,
-    stacked,
-    hexColor,
-    visualPatternSelected,
-    isHorizontalLayout,
-    isBarRounded,
-  }: Props,
-): ReadonlyArray<ReactNode> {
+export default function renderElements({
+  elements = [],
+  layout,
+  stacked,
+  hexColor,
+  visualPatternSelected,
+  isHorizontalLayout,
+  isBarRounded,
+}: Props): ReadonlyArray<ReactNode> {
   const { length } = elements;
   const lastElementPos = length > 1 ? length - 1 : 1;
   const squaredRadius = [0, 0, 0, 0];

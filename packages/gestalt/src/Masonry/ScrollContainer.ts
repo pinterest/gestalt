@@ -12,15 +12,17 @@
  * or the API at all, so it could easily be adapted to other event types.
  */
 
-import {Children, Component, ReactNode} from 'react';
+import { Children, Component, ReactNode } from 'react';
 
 type Props = {
-  children?: ReactNode,
-  onScroll: (event: Event) => void,
-  scrollContainer: HTMLElement | null | undefined | (() => HTMLElement | null | undefined)
+  children?: ReactNode;
+  onScroll: (event: Event) => void;
+  scrollContainer: HTMLElement | null | undefined | (() => HTMLElement | null | undefined);
 };
 
-function getScrollContainer(scrollContainer?: HTMLElement | (() => HTMLElement | null | undefined) | null) {
+function getScrollContainer(
+  scrollContainer?: HTMLElement | (() => HTMLElement | null | undefined) | null,
+) {
   return typeof scrollContainer === 'function' ? scrollContainer() : scrollContainer;
 }
 

@@ -1,10 +1,15 @@
-import {fireEvent, render, screen} from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import TableSortableHeaderCell from './TableSortableHeaderCell';
 
 test('mouse click calls onSortChange', () => {
-  const mockOnSortChange = jest.fn<[{
-    event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>
-  }], undefined>();
+  const mockOnSortChange = jest.fn<
+    [
+      {
+        event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>;
+      },
+    ],
+    undefined
+  >();
   render(
     <table>
       <thead>
@@ -25,9 +30,14 @@ test('mouse click calls onSortChange', () => {
 });
 
 test('keypress calls onSortChange', () => {
-  const mockOnSortChange = jest.fn<[{
-    event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>
-  }], undefined>();
+  const mockOnSortChange = jest.fn<
+    [
+      {
+        event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>;
+      },
+    ],
+    undefined
+  >();
   render(
     <table>
       <thead>

@@ -1,22 +1,12 @@
-import {Children, cloneElement, Fragment, ReactNode} from 'react';
+import { Children, cloneElement, Fragment, ReactNode } from 'react';
 
 const ALLOWED_CHILDREN = ['TableOfContents.Item'];
 
-const getChildrenToArray = (
-  {
-    children,
-  }: {
-    children: ReactNode
-  },
-): ReadonlyArray<any> => {
+const getChildrenToArray = ({ children }: { children: ReactNode }): ReadonlyArray<any> => {
   const childrenArray = [];
   let recursionLevel = 0;
 
-  const getChildren: (
-    arg1: {
-      nodeChildren: ReactNode
-    },
-  ) => void = ({ nodeChildren }) =>
+  const getChildren: (arg1: { nodeChildren: ReactNode }) => void = ({ nodeChildren }) =>
     Children.toArray(nodeChildren).forEach((child) => {
       // We need to check for Fragment first, so we can check for display namevalid
       if (child?.type === Fragment) {

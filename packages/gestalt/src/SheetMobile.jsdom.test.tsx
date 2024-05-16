@@ -1,4 +1,4 @@
-import {create} from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import DeviceTypeProvider from './contexts/DeviceTypeProvider';
 import SheetMobile from './SheetMobile';
@@ -132,10 +132,19 @@ describe('SheetMobile', () => {
 
   it('calls onDismiss on full inanimated sheet', async () => {
     const mockOnClick = jest.fn<[], undefined>();
-    const mockOnClickPrimaryAction = jest.fn<[{
-      event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement> | React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-      onDismissStart: () => void
-    }], undefined>();
+    const mockOnClickPrimaryAction = jest.fn<
+      [
+        {
+          event:
+            | React.MouseEvent<HTMLButtonElement>
+            | React.KeyboardEvent<HTMLButtonElement>
+            | React.MouseEvent<HTMLAnchorElement>
+            | React.KeyboardEvent<HTMLAnchorElement>;
+          onDismissStart: () => void;
+        },
+      ],
+      undefined
+    >();
 
     render(
       <DeviceTypeProvider deviceType="mobile">
@@ -170,10 +179,19 @@ describe('SheetMobile', () => {
   // eslint-disable-next-line jest/no-disabled-tests
   it.skip('calls onDismiss on animated partial sheet', async () => {
     const mockOnClick = jest.fn<[], undefined>();
-    const mockOnClickPrimaryAction = jest.fn<[{
-      event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement> | React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-      onDismissStart: () => void
-    }], undefined>();
+    const mockOnClickPrimaryAction = jest.fn<
+      [
+        {
+          event:
+            | React.MouseEvent<HTMLButtonElement>
+            | React.KeyboardEvent<HTMLButtonElement>
+            | React.MouseEvent<HTMLAnchorElement>
+            | React.KeyboardEvent<HTMLAnchorElement>;
+          onDismissStart: () => void;
+        },
+      ],
+      undefined
+    >();
     useReducedMotionMock.mockReturnValue(false);
 
     render(

@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import Box from './Box';
 import Flex from './Flex';
 import Icon from './Icon';
@@ -43,25 +43,34 @@ const ICON_COLOR_MAP = {
   },
 } as const;
 
-type StatusType = "unstarted" | "queued" | "inProgress" | "halted" | "locked" | "ok" | "problem" | "canceled" | "warning";
+type StatusType =
+  | 'unstarted'
+  | 'queued'
+  | 'inProgress'
+  | 'halted'
+  | 'locked'
+  | 'ok'
+  | 'problem'
+  | 'canceled'
+  | 'warning';
 
 type Props = {
   /**
-     * If not using `title`, provide an accessibility label to give the user context about the icon. Be sure to [localize](https://gestalt.pinterest.systems/web/status#Localization) the label.
-     */
-  accessibilityLabel?: string,
+   * If not using `title`, provide an accessibility label to give the user context about the icon. Be sure to [localize](https://gestalt.pinterest.systems/web/status#Localization) the label.
+   */
+  accessibilityLabel?: string;
   /**
-     * Additional contextual information around the status. Only for use with `title`. See [localization](https://gestalt.pinterest.systems/web/status#Localization) to learn more.
-     */
-  subtext?: string,
+   * Additional contextual information around the status. Only for use with `title`. See [localization](https://gestalt.pinterest.systems/web/status#Localization) to learn more.
+   */
+  subtext?: string;
   /**
-     * A label to reinforce the meaning of the status icon. See [localization](https://gestalt.pinterest.systems/web/status#Localization) to learn more.
-     */
-  title?: string,
+   * A label to reinforce the meaning of the status icon. See [localization](https://gestalt.pinterest.systems/web/status#Localization) to learn more.
+   */
+  title?: string;
   /**
-     * The type of status to display.
-     */
-  type: StatusType
+   * The type of status to display.
+   */
+  type: StatusType;
 };
 
 /**
@@ -71,14 +80,7 @@ type Props = {
  * ![Status dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Status-dark.spec.mjs-snapshots/Status-dark-chromium-darwin.png)
  *
  */
-export default function Status(
-  {
-    accessibilityLabel,
-    subtext,
-    title,
-    type,
-  }: Props,
-) {
+export default function Status({ accessibilityLabel, subtext, title, type }: Props) {
   const { icon, color } = ICON_COLOR_MAP[type];
 
   return (

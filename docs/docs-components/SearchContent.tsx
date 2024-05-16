@@ -1,14 +1,10 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 
 type Props = {
-  children?: ReactNode
+  children?: ReactNode;
 };
 
-function SearchContent(
-  {
-    children,
-  }: Props,
-) {
+function SearchContent({ children }: Props) {
   return <div className="docSearch-content">{children}</div>;
 }
 

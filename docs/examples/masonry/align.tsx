@@ -1,12 +1,12 @@
-import {ReactNode, useEffect, useId, useRef, useState} from 'react';
+import { ReactNode, useEffect, useId, useRef, useState } from 'react';
 import { Box, Flex, Image, Label, Masonry, RadioGroup, Text } from 'gestalt';
 
 type Pin = {
-  color: string,
-  height: number,
-  name: string,
-  src: string,
-  width: number
+  color: string;
+  height: number;
+  name: string;
+  src: string;
+  width: number;
 };
 
 function getPins(): Promise<ReadonlyArray<Pin>> {
@@ -52,11 +52,7 @@ function getPins(): Promise<ReadonlyArray<Pin>> {
   return Promise.resolve(pinList);
 }
 
-function GridComponent({
-  data,
-}: {
-  data: Pin
-}) {
+function GridComponent({ data }: { data: Pin }) {
   return (
     <Flex direction="column">
       <Image
@@ -72,8 +68,8 @@ function GridComponent({
 }
 
 export default function Example() {
-  const [layout, setLayout] = useState<"basic" | "basicCentered">('basic');
-  const [align, setAlign] = useState<"start" | "center" | "end">('center');
+  const [layout, setLayout] = useState<'basic' | 'basicCentered'>('basic');
+  const [align, setAlign] = useState<'start' | 'center' | 'end'>('center');
   const [pins, setPins] = useState<ReadonlyArray<Pin>>([]);
   const [width, setWidth] = useState<number>(700);
   const scrollContainerRef = useRef<HTMLDivElement | null | undefined>();
@@ -93,16 +89,12 @@ export default function Example() {
     }
   }, [width]);
 
-  const updateWidth = ({
-    target,
-  }: {
-    target: HTMLInputElement
-  }) => {
+  const updateWidth = ({ target }: { target: HTMLInputElement }) => {
     setWidth(Number(target.value));
   };
 
   return (
-    (<Box padding={2}>
+    <Box padding={2}>
       <Flex direction="column" gap={4}>
         <Flex alignItems="center" direction="column">
           <Flex.Item>
@@ -199,6 +191,6 @@ export default function Example() {
           />
         </RadioGroup>
       </Flex>
-    </Box>)
+    </Box>
   );
 }

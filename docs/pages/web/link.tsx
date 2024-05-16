@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -35,13 +35,7 @@ import variantRel from '../../examples/link/variantRel';
 import variantStandaloneLink from '../../examples/link/variantStandaloneLink';
 import variantTarget from '../../examples/link/variantTarget';
 
-export default function DocsPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: DocGen
-  },
-) {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
@@ -532,8 +526,8 @@ These components support link functionality themselves by setting \`role="link"\
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   return {
     props: { generatedDocGen: await docGen('Link') },

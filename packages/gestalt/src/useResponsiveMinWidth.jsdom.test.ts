@@ -1,4 +1,4 @@
-import {act, renderHook} from '@testing-library/react-hooks';
+import { act, renderHook } from '@testing-library/react-hooks';
 import useResponsiveMinWidth from './useResponsiveMinWidth';
 
 const mediaqueryDefaults = {
@@ -11,13 +11,16 @@ const mediaqueryDefaults = {
 describe('useResponsiveMinWidth', () => {
   test('returns `xs` for extra small screens', () => {
     window.matchMedia = jest
-      .fn<_, {
-      addEventListener: jest.MockedFunction<any>,
-      matches: boolean,
-      media: any,
-      onchange: null,
-      removeEventListener: jest.MockedFunction<any>
-    }>()
+      .fn<
+        _,
+        {
+          addEventListener: jest.MockedFunction<any>;
+          matches: boolean;
+          media: any;
+          onchange: null;
+          removeEventListener: jest.MockedFunction<any>;
+        }
+      >()
       .mockImplementation((query: any) => ({
         ...mediaqueryDefaults,
         matches: query === '(min-width: 240px)',
@@ -30,13 +33,16 @@ describe('useResponsiveMinWidth', () => {
 
   test('returns `sm` for small screens', () => {
     window.matchMedia = jest
-      .fn<_, {
-      addEventListener: jest.MockedFunction<any>,
-      matches: boolean,
-      media: any,
-      onchange: null,
-      removeEventListener: jest.MockedFunction<any>
-    }>()
+      .fn<
+        _,
+        {
+          addEventListener: jest.MockedFunction<any>;
+          matches: boolean;
+          media: any;
+          onchange: null;
+          removeEventListener: jest.MockedFunction<any>;
+        }
+      >()
       .mockImplementation((query: any) => ({
         ...mediaqueryDefaults,
         matches: query === '(min-width: 576px)',
@@ -49,13 +55,16 @@ describe('useResponsiveMinWidth', () => {
 
   test('returns `md` for medium screens', () => {
     window.matchMedia = jest
-      .fn<_, {
-      addEventListener: jest.MockedFunction<any>,
-      matches: boolean,
-      media: any,
-      onchange: null,
-      removeEventListener: jest.MockedFunction<any>
-    }>()
+      .fn<
+        _,
+        {
+          addEventListener: jest.MockedFunction<any>;
+          matches: boolean;
+          media: any;
+          onchange: null;
+          removeEventListener: jest.MockedFunction<any>;
+        }
+      >()
       .mockImplementation((query: any) => ({
         ...mediaqueryDefaults,
         matches: query === '(min-width: 768px)',
@@ -68,13 +77,16 @@ describe('useResponsiveMinWidth', () => {
 
   test('returns `lg` for large screens', () => {
     window.matchMedia = jest
-      .fn<_, {
-      addEventListener: jest.MockedFunction<any>,
-      matches: boolean,
-      media: any,
-      onchange: null,
-      removeEventListener: jest.MockedFunction<any>
-    }>()
+      .fn<
+        _,
+        {
+          addEventListener: jest.MockedFunction<any>;
+          matches: boolean;
+          media: any;
+          onchange: null;
+          removeEventListener: jest.MockedFunction<any>;
+        }
+      >()
       .mockImplementation((query: any) => ({
         ...mediaqueryDefaults,
         matches: query === '(min-width: 1312px)',

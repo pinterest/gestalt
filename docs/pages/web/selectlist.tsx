@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import { DocGen, multipleDocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -23,15 +23,13 @@ import mediumSizeExample from '../../examples/selectlist/mediumSizeExample';
 import orderItemsByAlphabetOrUsage from '../../examples/selectlist/orderItemsByAlphabetOrUsage';
 import useForSimpleItemList from '../../examples/selectlist/useForSimpleItemList';
 
-export default function DocsPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: {
-      [key: string]: DocGen
-    }
-  },
-) {
+export default function DocsPage({
+  generatedDocGen,
+}: {
+  generatedDocGen: {
+    [key: string]: DocGen;
+  };
+}) {
   return (
     <Page title={generatedDocGen?.SelectList?.displayName}>
       <PageHeader
@@ -328,9 +326,9 @@ If users need the ability to choose between a yes/no option, use Checkbox.
 export async function getServerSideProps(): Promise<{
   props: {
     generatedDocGen: {
-      [key: string]: DocGen
-    }
-  }
+      [key: string]: DocGen;
+    };
+  };
 }> {
   return {
     props: {

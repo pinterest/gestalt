@@ -1,4 +1,4 @@
-import {ReactElement, ReactNode} from 'react';
+import { ReactElement, ReactNode } from 'react';
 import applyModuleDensityStyle from './applyModuleDensity';
 import ModuleTitle from './Title';
 import Box from '../Box';
@@ -10,46 +10,52 @@ import TapArea from '../TapArea';
 import Text from '../Text';
 
 export type BadgeType = {
-  text: string,
-  type?: "info" | "error" | "warning" | "success" | "neutral" | "recommendation" | "darkWash" | "lightWash"
+  text: string;
+  type?:
+    | 'info'
+    | 'error'
+    | 'warning'
+    | 'success'
+    | 'neutral'
+    | 'recommendation'
+    | 'darkWash'
+    | 'lightWash';
 };
 
-export default function AccordionExpandableItem(
-  {
-    accessibilityCollapseLabel,
-    accessibilityExpandLabel,
-    badge,
-    children,
-    icon,
-    iconAccessibilityLabel,
-    iconButton,
-    id,
-    isCollapsed,
-    onExpand,
-    summary,
-    title,
-    size = 'lg',
-    type = 'info',
-  }: {
-    accessibilityCollapseLabel: string,
-    accessibilityExpandLabel: string,
-    badge?: BadgeType,
-    children?: ReactNode,
-    icon?: keyof typeof icons,
-    iconAccessibilityLabel?: string,
-    iconButton?: ReactElement<typeof IconButton>,
-    id: string,
-    isCollapsed: boolean,
-    onExpand: (arg1: boolean) => void,
-    summary?: ReadonlyArray<string>,
-    size?: "sm" | "md" | "lg",
-    title: string,
-    type?: "error" | "info"
-  },
-) {
+export default function AccordionExpandableItem({
+  accessibilityCollapseLabel,
+  accessibilityExpandLabel,
+  badge,
+  children,
+  icon,
+  iconAccessibilityLabel,
+  iconButton,
+  id,
+  isCollapsed,
+  onExpand,
+  summary,
+  title,
+  size = 'lg',
+  type = 'info',
+}: {
+  accessibilityCollapseLabel: string;
+  accessibilityExpandLabel: string;
+  badge?: BadgeType;
+  children?: ReactNode;
+  icon?: keyof typeof icons;
+  iconAccessibilityLabel?: string;
+  iconButton?: ReactElement<typeof IconButton>;
+  id: string;
+  isCollapsed: boolean;
+  onExpand: (arg1: boolean) => void;
+  summary?: ReadonlyArray<string>;
+  size?: 'sm' | 'md' | 'lg';
+  title: string;
+  type?: 'error' | 'info';
+}) {
   const { padding, gap, summaryListGap } = applyModuleDensityStyle(size);
   return (
-    (<Box padding={padding}>
+    <Box padding={padding}>
       <Flex direction="column" gap={{ column: gap, row: 0 }}>
         <TapArea
           accessibilityControls={id}
@@ -81,9 +87,9 @@ export default function AccordionExpandableItem(
                   <Flex direction="column" gap={{ column: summaryListGap, row: 0 }}>
                     {summary.map((item, i) => (
                       // eslint-disable-next-line react/no-array-index-key
-                      (<Text key={i} lineClamp={1} size="200">
+                      <Text key={i} lineClamp={1} size="200">
                         {item}
-                      </Text>)
+                      </Text>
                     ))}
                   </Flex>
                 </Box>
@@ -109,6 +115,6 @@ export default function AccordionExpandableItem(
         {/* Flex.Item necessary to prevent gap from being applied to each child */}
         {!isCollapsed && <Flex.Item>{children}</Flex.Item>}
       </Flex>
-    </Box>)
+    </Box>
   );
 }

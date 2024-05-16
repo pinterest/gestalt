@@ -1,21 +1,16 @@
-import {Children, cloneElement, ReactElement, ReactNode} from 'react';
+import { Children, cloneElement, ReactElement, ReactNode } from 'react';
 import { useColorScheme } from '../contexts/ColorSchemeProvider';
 import styles from '../List.css';
 import Text from '../Text';
 
-type Size = "100" | "200" | "300" | "400" | "500" | "600";
+type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
 type Props = {
-  size: Size | null | undefined,
-  text: string | Element<typeof Text>
+  size: Size | null | undefined;
+  text: string | Element<typeof Text>;
 };
 
-export default function ListText(
-  {
-    size,
-    text,
-  }: Props,
-) {
+export default function ListText({ size, text }: Props) {
   const { colorSchemeName } = useColorScheme();
 
   // Flow shuold catch if text is missing. In case Flow is not enabled and text is missing, the errors are not that helpful. This surfaces the problem more explicitly.

@@ -1,4 +1,4 @@
-import {ReactNode, ReactPortal, useEffect, useRef, useState} from 'react';
+import { ReactNode, ReactPortal, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider';
 import styles from './Layer.css';
@@ -7,13 +7,13 @@ import { Indexable } from './zIndex';
 
 type Props = {
   /**
-     *
-     */
-  children: ReactNode,
+   *
+   */
+  children: ReactNode;
   /**
-     * An object representing the z-index value of the Layer. See the [z-index example](https://gestalt.pinterest.systems/web/layer#zIndex) for more details.
-     */
-  zIndex?: Indexable
+   * An object representing the z-index value of the Layer. See the [z-index example](https://gestalt.pinterest.systems/web/layer#zIndex) for more details.
+   */
+  zIndex?: Indexable;
 };
 
 /**
@@ -21,12 +21,10 @@ type Props = {
  *
  * ![Layer](https://raw.githubusercontent.com/pinterest/gestalt/master/docs/graphics/building-blocks/Layer.svg)
  */
-export default function Layer(
-  {
-    children,
-    zIndex: zIndexIndexable,
-  }: Props,
-): ReactPortal | ReactNode {
+export default function Layer({
+  children,
+  zIndex: zIndexIndexable,
+}: Props): ReactPortal | ReactNode {
   const [mounted, setMounted] = useState(false);
   const portalContainer = useRef<HTMLDivElement | null | undefined>(null);
   const zIndex = zIndexIndexable?.index();

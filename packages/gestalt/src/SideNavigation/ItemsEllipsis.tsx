@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import Box from '../Box';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import { useSideNavigation } from '../contexts/SideNavigationProvider';
@@ -6,17 +6,15 @@ import Icon from '../Icon';
 import { Props as TopItemProps } from '../SideNavigationTopItem';
 import TapArea from '../TapArea';
 
-export type Props = ((Pick<TopItemProps, "active" | "notificationAccessibilityLabel">) & {
-  accessibilityLabel?: string
-});
+export type Props = Pick<TopItemProps, 'active' | 'notificationAccessibilityLabel'> & {
+  accessibilityLabel?: string;
+};
 
-export default function ItemsEllipsis(
-  {
-    active,
-    accessibilityLabel,
-    notificationAccessibilityLabel,
-  }: Props,
-) {
+export default function ItemsEllipsis({
+  active,
+  accessibilityLabel,
+  notificationAccessibilityLabel,
+}: Props) {
   const { setOverlayPreview } = useSideNavigation();
   const { accessibilityEllipsisLabel: deafultAccessibilityEllipsisLabel } =
     useDefaultLabelContext('SideNavigation');

@@ -1,9 +1,9 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, DefaultLabelProvider, Flex, Image, Mask, TapAreaLink, Text } from 'gestalt';
 
 export default function Example() {
   return (
-    (<DefaultLabelProvider
+    <DefaultLabelProvider
       labels={{
         Link: {
           accessibilityNewTabLabel: 'Öffnet eine neue Browser-Registerkarte.',
@@ -30,6 +30,6 @@ export default function Example() {
           </Box>
         </TapAreaLink>
       </Flex>
-    </DefaultLabelProvider>)
+    </DefaultLabelProvider>
   );
 }

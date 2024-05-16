@@ -1,4 +1,4 @@
-import {Fragment, ReactNode, useState} from 'react';
+import { Fragment, ReactNode, useState } from 'react';
 import { Box, Flex, SegmentedControl } from 'gestalt';
 import componentData from './data/components';
 import { ComponentCategory, Platform, PlatformData } from './data/types';
@@ -40,23 +40,22 @@ const headerCopyByPlatform = {
 } as const;
 
 type Props = {
-  platform: Exclude<Platform, "figma">
+  platform: Exclude<Platform, 'figma'>;
 };
 
-export default function Overview(
-  {
-    platform,
-  }: Props,
-) {
-  const [order, setOrder] = useState<"alphabetical" | "categorical">('alphabetical');
+export default function Overview({ platform }: Props) {
+  const [order, setOrder] = useState<'alphabetical' | 'categorical'>('alphabetical');
 
   const platformComponentData = getByPlatform(componentData, { platform });
   const componentsByCategory = categoryOrder.reduce<{
-    [key: string]: ReadonlyArray<PlatformData>
-  }>((acc, cur) => ({
-    ...acc,
-    [`${cur}`]: getByCategory(componentData, { platform, category: cur }),
-  }), {});
+    [key: string]: ReadonlyArray<PlatformData>;
+  }>(
+    (acc, cur) => ({
+      ...acc,
+      [`${cur}`]: getByCategory(componentData, { platform, category: cur }),
+    }),
+    {},
+  );
 
   const prettyPlatform = prettyPrintPlatform(platform);
 

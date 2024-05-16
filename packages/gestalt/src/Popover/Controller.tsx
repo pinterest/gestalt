@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { FloatingPortal } from '@floating-ui/react';
 import Contents, { Role } from './Contents';
 import OutsideEventBehavior from '../behaviors/OutsideEventBehavior';
@@ -14,56 +14,50 @@ const SIZE_WIDTH_MAP = {
 } as const;
 
 type Props = {
-  accessibilityLabel?: string,
-  anchor: HTMLElement,
-  bgColor: "blue" | "darkGray" | "white",
-  border?: boolean,
-  caret?: boolean,
-  children?: ReactNode,
-  onKeyDown?: (
-    arg1: {
-      event: React.KeyboardEvent<HTMLElement>
-    },
-  ) => void,
-  id?: string | null | undefined,
-  idealDirection?: "up" | "right" | "down" | "left" | "forceDown",
-  onDismiss: () => void,
-  role?: Role | null | undefined,
-  rounding?: 2 | 4,
-  shouldFocus?: boolean,
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | number | null,
-  disablePortal?: boolean,
-  scrollBoundary?: HTMLElement,
-  hideWhenReferenceHidden?: boolean,
-  onPositioned?: () => void,
-  shouldTrapFocus?: boolean,
-  overflow?: Extract<Overflow, "auto" | "hidden" | "visible">
+  accessibilityLabel?: string;
+  anchor: HTMLElement;
+  bgColor: 'blue' | 'darkGray' | 'white';
+  border?: boolean;
+  caret?: boolean;
+  children?: ReactNode;
+  onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLElement> }) => void;
+  id?: string | null | undefined;
+  idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown';
+  onDismiss: () => void;
+  role?: Role | null | undefined;
+  rounding?: 2 | 4;
+  shouldFocus?: boolean;
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null;
+  disablePortal?: boolean;
+  scrollBoundary?: HTMLElement;
+  hideWhenReferenceHidden?: boolean;
+  onPositioned?: () => void;
+  shouldTrapFocus?: boolean;
+  overflow?: Extract<Overflow, 'auto' | 'hidden' | 'visible'>;
 };
 
-export default function Controller(
-  {
-    accessibilityLabel,
-    anchor,
-    bgColor,
-    border,
-    caret,
-    children,
-    id,
-    idealDirection,
-    role,
-    rounding,
-    shouldFocus,
-    size = 'sm',
-    onDismiss,
-    onKeyDown,
-    disablePortal,
-    scrollBoundary,
-    hideWhenReferenceHidden,
-    onPositioned,
-    shouldTrapFocus,
-    overflow,
-  }: Props,
-) {
+export default function Controller({
+  accessibilityLabel,
+  anchor,
+  bgColor,
+  border,
+  caret,
+  children,
+  id,
+  idealDirection,
+  role,
+  rounding,
+  shouldFocus,
+  size = 'sm',
+  onDismiss,
+  onKeyDown,
+  disablePortal,
+  scrollBoundary,
+  hideWhenReferenceHidden,
+  onPositioned,
+  shouldTrapFocus,
+  overflow,
+}: Props) {
   const width = typeof size === 'string' ? SIZE_WIDTH_MAP[size] : size;
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {

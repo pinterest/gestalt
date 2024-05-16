@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { Flex, TagData } from 'gestalt';
 
 export default function Example() {

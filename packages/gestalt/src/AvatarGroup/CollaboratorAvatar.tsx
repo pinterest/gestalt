@@ -1,25 +1,23 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { BaseStackType } from './constants';
 import HoverOverlay from './HoverOverlay';
 import PositioningWrapper from './PositioningWrapper';
 import Avatar from '../Avatar';
 
-type Props = ((BaseStackType) & {
-  index: number,
-  name: string,
-  src: string
-});
+type Props = BaseStackType & {
+  index: number;
+  name: string;
+  src: string;
+};
 
-export default function AvatarGroupCollaboratorAvatar(
-  {
-    hovered,
-    index,
-    name,
-    pileCount,
-    size,
-    src,
-  }: Props,
-) {
+export default function AvatarGroupCollaboratorAvatar({
+  hovered,
+  index,
+  name,
+  pileCount,
+  size,
+  src,
+}: Props) {
   return (
     <PositioningWrapper index={index} pileCount={pileCount} size={size}>
       <HoverOverlay hovered={hovered} size={size}>

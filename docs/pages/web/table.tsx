@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import { DocGen, multipleDocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -33,15 +33,13 @@ import stickyHeaderFooterExample from '../../examples/table/stickyHeaderFooterEx
 import topCaptionExample from '../../examples/table/topCaptionExample';
 import uncontrolledExpandable from '../../examples/table/uncontrolledExpandable';
 
-export default function DocsPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: {
-      [key: string]: DocGen
-    }
-  },
-) {
+export default function DocsPage({
+  generatedDocGen,
+}: {
+  generatedDocGen: {
+    [key: string]: DocGen;
+  };
+}) {
   return (
     <Page title={generatedDocGen.Table?.displayName}>
       <PageHeader
@@ -580,9 +578,9 @@ Checkboxes are often used in tables to allow for selecting and editing of multip
 export async function getServerSideProps(): Promise<{
   props: {
     generatedDocGen: {
-      [key: string]: DocGen
-    }
-  }
+      [key: string]: DocGen;
+    };
+  };
 }> {
   const docGen = await multipleDocGen([
     'Table',

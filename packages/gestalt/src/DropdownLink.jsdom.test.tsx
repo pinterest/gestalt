@@ -1,12 +1,17 @@
-import {render, screen} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Dropdown from './Dropdown';
 
 describe('Dropdown.Link', () => {
-  const onClickMock = jest.fn<[{
-    dangerouslyDisableOnNavigation: () => void,
-    event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-    mobileOnDismissStart: () => void
-  }], undefined>();
+  const onClickMock = jest.fn<
+    [
+      {
+        dangerouslyDisableOnNavigation: () => void;
+        event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+        mobileOnDismissStart: () => void;
+      },
+    ],
+    undefined
+  >();
 
   test('calls onClick when Item clicked', () => {
     render(

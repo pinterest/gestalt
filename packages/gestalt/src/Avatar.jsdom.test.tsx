@@ -1,4 +1,4 @@
-import {fireEvent, render, screen} from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Avatar from './Avatar';
 
 test('Avatar handles Image error by rendering the default avatar', () => {

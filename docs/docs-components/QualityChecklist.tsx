@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { BannerSlim, Flex, Link, Status, Table, Text } from 'gestalt';
 import componentData from './data/components';
 import { COMPONENT_STATUS_MESSAGING, STATUS_DESCRIPTION } from './data/componentStatusMessaging';
@@ -10,14 +10,10 @@ import StatusData from './StatusData';
 const webComponentData = getByPlatform(componentData, { platform: 'web' });
 
 type Props = {
-  component: string
+  component: string;
 };
 
-export default function QualityChecklist(
-  {
-    component,
-  }: Props,
-) {
+export default function QualityChecklist({ component }: Props) {
   const data = webComponentData.find((cmpName) => cmpName.name === component);
 
   return (

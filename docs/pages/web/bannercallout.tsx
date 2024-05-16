@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -24,13 +24,7 @@ import variantRecommendation from '../../examples/bannercallout/variantRecommend
 import variantSuccess from '../../examples/bannercallout/variantSuccess';
 import variantWarning from '../../examples/bannercallout/variantWarning';
 
-export default function DocsPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: DocGen
-  },
-) {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
@@ -344,8 +338,8 @@ The \`message\` prop accepts either a string or [Text](/web/text). Use a string 
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   return {
     props: { generatedDocGen: await docGen('BannerCallout') },

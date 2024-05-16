@@ -1,12 +1,12 @@
-import {Context, createContext, ReactElement, ReactNode, useContext} from 'react';
+import { Context, createContext, ReactElement, ReactNode, useContext } from 'react';
 
 type TableContextType = {
-  decal: "visualPattern" | null | undefined | "default" | "disabled"
+  decal: 'visualPattern' | null | undefined | 'default' | 'disabled';
 };
 
 type Props = {
-  children: ReactNode,
-  decal: "visualPattern" | null | undefined | "default" | "disabled"
+  children: ReactNode;
+  decal: 'visualPattern' | null | undefined | 'default' | 'disabled';
 };
 
 const TableContext: Context<TableContextType> = createContext<TableContextType>({
@@ -15,12 +15,7 @@ const TableContext: Context<TableContextType> = createContext<TableContextType>(
 
 const { Provider } = TableContext;
 
-function ChartProvider(
-  {
-    children,
-    decal,
-  }: Props,
-): Element<typeof Provider> {
+function ChartProvider({ children, decal }: Props): Element<typeof Provider> {
   return <Provider value={{ decal }}>{children}</Provider>;
 }
 

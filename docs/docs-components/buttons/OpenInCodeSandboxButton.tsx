@@ -1,24 +1,20 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { useSandpack } from '@codesandbox/sandpack-react';
 import LZString from 'lz-string';
 import OpenSandboxButton from './OpenSandboxButton';
 
-const getParameters = (
-  parameters: {
-    files: Record<any, any>,
-    template?: string
-  },
-): string => LZString.compressToBase64(JSON.stringify(parameters))
-  .replace(/\+/g, '-') // Convert '+' to '-'
-  .replace(/\//g, '_') // Convert '/' to '_'
-  .replace(/=+$/, ''); /* Remove ending '=' */
+const getParameters = (parameters: { files: Record<any, any>; template?: string }): string =>
+  LZString.compressToBase64(JSON.stringify(parameters))
+    .replace(/\+/g, '-') // Convert '+' to '-'
+    .replace(/\//g, '_') // Convert '/' to '_'
+    .replace(/=+$/, ''); /* Remove ending '=' */
 
 const getFileParameters = (
   files: {
     [key: string]: {
-      code: string,
-      hidden: boolean
-    }
+      code: string;
+      hidden: boolean;
+    };
   },
   environment?: string,
 ): string => {

@@ -1,12 +1,4 @@
-import {
-  ReactNode,
-  useCallback,
-  useEffect,
-  useId,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react';
+import { ReactNode, useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
 import ConfirmationPopover from './ConfirmationPopover';
 import animation from '../animation/animation.css';
@@ -29,49 +21,45 @@ import { FixedZIndex } from '../zIndex';
 
 export const PADDING_BOINTS = 6;
 
-type NodeOrRenderProp = ReactNode | ((
-  arg1: {
-    onDismissStart: () => void
-  },
-) => ReactNode);
+type NodeOrRenderProp = ReactNode | ((arg1: { onDismissStart: () => void }) => ReactNode);
 
 type InternalSheetProps = {
-  accessibilityDismissButtonLabel?: string,
-  accessibilityLabel: string,
-  children: NodeOrRenderProp,
-  closeOnOutsideClick: boolean,
-  footer: NodeOrRenderProp,
-  heading?: string,
-  onAnimationEnd: (
-    arg1: {
-      animationState: "in" | "out"
-    },
-  ) => void | null | undefined,
-  onDismiss: () => void,
+  accessibilityDismissButtonLabel?: string;
+  accessibilityLabel: string;
+  children: NodeOrRenderProp;
+  closeOnOutsideClick: boolean;
+  footer: NodeOrRenderProp;
+  heading?: string;
+  onAnimationEnd: (arg1: { animationState: 'in' | 'out' }) => void | null | undefined;
+  onDismiss: () => void;
   dismissConfirmation?: {
-    message?: string,
-    subtext?: string,
+    message?: string;
+    subtext?: string;
     primaryAction?: {
-      accessibilityLabel?: string,
-      text?: string,
-      onClick?: (
-        arg1: {
-          event: React.MouseEvent<HTMLButtonElement> | React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLButtonElement>
-        },
-      ) => void
-    },
+      accessibilityLabel?: string;
+      text?: string;
+      onClick?: (arg1: {
+        event:
+          | React.MouseEvent<HTMLButtonElement>
+          | React.MouseEvent<HTMLAnchorElement>
+          | React.KeyboardEvent<HTMLAnchorElement>
+          | React.KeyboardEvent<HTMLButtonElement>;
+      }) => void;
+    };
     secondaryAction?: {
-      accessibilityLabel?: string,
-      text?: string,
-      onClick?: (
-        arg1: {
-          event: React.MouseEvent<HTMLButtonElement> | React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLButtonElement>
-        },
-      ) => void
-    }
-  },
-  size: "sm" | "md" | "lg",
-  subHeading: NodeOrRenderProp
+      accessibilityLabel?: string;
+      text?: string;
+      onClick?: (arg1: {
+        event:
+          | React.MouseEvent<HTMLButtonElement>
+          | React.MouseEvent<HTMLAnchorElement>
+          | React.KeyboardEvent<HTMLAnchorElement>
+          | React.KeyboardEvent<HTMLButtonElement>;
+      }) => void;
+    };
+  };
+  size: 'sm' | 'md' | 'lg';
+  subHeading: NodeOrRenderProp;
 };
 
 const SIZE_WIDTH_MAP = {
@@ -80,21 +68,19 @@ const SIZE_WIDTH_MAP = {
   lg: 900,
 } as const;
 
-export default function InternalOverlayPanel(
-  {
-    accessibilityDismissButtonLabel,
-    accessibilityLabel,
-    children,
-    closeOnOutsideClick,
-    dismissConfirmation,
-    footer,
-    heading,
-    onAnimationEnd,
-    onDismiss,
-    size,
-    subHeading,
-  }: InternalSheetProps,
-) {
+export default function InternalOverlayPanel({
+  accessibilityDismissButtonLabel,
+  accessibilityLabel,
+  children,
+  closeOnOutsideClick,
+  dismissConfirmation,
+  footer,
+  heading,
+  onAnimationEnd,
+  onDismiss,
+  size,
+  subHeading,
+}: InternalSheetProps) {
   const [showTopShadow, setShowTopShadow] = useState<boolean>(false);
   const [showBottomShadow, setShowBottomShadow] = useState<boolean>(false);
   const [showPopover, setShowPopover] = useState<boolean>(false);
@@ -115,11 +101,7 @@ export default function InternalOverlayPanel(
   const { message, subtext, primaryAction, secondaryAction } = dismissConfirmation ?? {};
 
   function buildDismissableSubcomponent(
-    component: ReactNode | ((
-      arg1: {
-        onDismissStart: () => void
-      },
-    ) => ReactNode),
+    component: ReactNode | ((arg1: { onDismissStart: () => void }) => ReactNode),
   ) {
     return typeof component === 'function'
       ? component({ onDismissStart: onExternalDismiss })

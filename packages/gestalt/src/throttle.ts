@@ -6,11 +6,14 @@
 
 type Arguments = ReadonlyArray<Event | string | number | boolean | null>;
 export type ThrottleReturn = {
-  (...args: Arguments): void,
-  clearTimeout: () => void
+  (...args: Arguments): void;
+  clearTimeout: () => void;
 };
 
-export default function throttle(fn: (...args: Arguments) => void, threshhold: number = 100): ThrottleReturn {
+export default function throttle(
+  fn: (...args: Arguments) => void,
+  threshhold: number = 100,
+): ThrottleReturn {
   let last: number | undefined;
   let deferTimer: number | undefined;
   const throttled = (...args: Arguments) => {

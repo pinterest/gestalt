@@ -1,20 +1,20 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
 import MainSection from '../../docs-components/MainSection';
 import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 
 type ColorCardProps = {
-  description: string,
-  colorScheme: "light" | "dark",
-  id: string,
-  borderStyle?: ComponentProps<typeof Box>["borderStyle"],
-  color?: "default" | "elevationAccent" | "elevationFloating" | "elevationRaised",
+  description: string;
+  colorScheme: 'light' | 'dark';
+  id: string;
+  borderStyle?: ComponentProps<typeof Box>['borderStyle'];
+  color?: 'default' | 'elevationAccent' | 'elevationFloating' | 'elevationRaised';
   dangerouslySetInlineStyle?: {
     __style: {
-      [key: string]: string | number | undefined
-    }
-  }
+      [key: string]: string | number | undefined;
+    };
+  };
 };
 function ColorCard({
   description,

@@ -1,12 +1,12 @@
-import {ReactNode, useEffect, useId, useRef, useState} from 'react';
+import { ReactNode, useEffect, useId, useRef, useState } from 'react';
 import { Box, Flex, Image, Label, Masonry, Text } from 'gestalt';
 
 type Pin = {
-  color: string,
-  height: number,
-  name: string,
-  src: string,
-  width: number
+  color: string;
+  height: number;
+  name: string;
+  src: string;
+  width: number;
 };
 
 function getPins(): Promise<ReadonlyArray<Pin>> {
@@ -52,11 +52,7 @@ function getPins(): Promise<ReadonlyArray<Pin>> {
   return Promise.resolve(pinList);
 }
 
-function GridComponent({
-  data,
-}: {
-  data: Pin
-}) {
+function GridComponent({ data }: { data: Pin }) {
   return (
     <Flex direction="column">
       <Image
@@ -89,16 +85,12 @@ export default function Example() {
     gridRef.current?.handleResize();
   }, [width]);
 
-  const updateWidth = ({
-    target,
-  }: {
-    target: HTMLInputElement
-  }) => {
+  const updateWidth = ({ target }: { target: HTMLInputElement }) => {
     setWidth(Number(target.value));
   };
 
   return (
-    (<Box padding={2}>
+    <Box padding={2}>
       <Flex direction="column" gap={4}>
         <Flex alignItems="center" direction="column">
           <Flex.Item>
@@ -148,6 +140,6 @@ export default function Example() {
           )}
         </div>
       </Flex>
-    </Box>)
+    </Box>
   );
 }

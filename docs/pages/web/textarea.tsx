@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -28,13 +28,7 @@ import useLabelToClearlyDenoteWhat from '../../examples/textarea/useLabelToClear
 import withRowsExample from '../../examples/textarea/withRowsExample';
 import withTagsExample from '../../examples/textarea/withTagsExample';
 
-export default function DocsPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: DocGen
-  },
-) {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
@@ -376,8 +370,8 @@ The first example shows an empty TextArea with \`maxLength\` set to 200 characte
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   return {
     props: { generatedDocGen: await docGen('TextArea') },

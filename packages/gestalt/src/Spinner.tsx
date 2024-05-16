@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
@@ -12,25 +12,25 @@ const SIZE_NAME_TO_PIXEL = {
 
 type Props = {
   /**
-     * String that clients such as VoiceOver will read to describe the element. Always localize the label.
-     */
-  accessibilityLabel?: string,
+   * String that clients such as VoiceOver will read to describe the element. Always localize the label.
+   */
+  accessibilityLabel?: string;
   /**
-     * Color of the Spinner.
-     */
-  color?: "default" | "subtle",
+   * Color of the Spinner.
+   */
+  color?: 'default' | 'subtle';
   /**
-     * Whether or not to render with a 300ms delay. The delay is for perceived performance, so you should rarely need to remove it. See the [delay variant](https://gestalt.pinterest.systems/web/spinner#Delay) for more details.
-     */
-  delay?: boolean,
+   * Whether or not to render with a 300ms delay. The delay is for perceived performance, so you should rarely need to remove it. See the [delay variant](https://gestalt.pinterest.systems/web/spinner#Delay) for more details.
+   */
+  delay?: boolean;
   /**
-     * Indicates if Spinner should be visible.
-     */
-  show: boolean,
+   * Indicates if Spinner should be visible.
+   */
+  show: boolean;
   /**
-     * sm: 32px, md: 40px
-     */
-  size?: "sm" | "md"
+   * sm: 32px, md: 40px
+   */
+  size?: 'sm' | 'md';
 };
 
 /**
@@ -39,15 +39,13 @@ type Props = {
  * ![Spinner](https://raw.githubusercontent.com/pinterest/gestalt/master/docs/graphics/general/Spinner.svg)
  *
  */
-export default function Spinner(
-  {
-    accessibilityLabel,
-    color = 'subtle',
-    delay = true,
-    show,
-    size = 'md',
-  }: Props,
-) {
+export default function Spinner({
+  accessibilityLabel,
+  color = 'subtle',
+  delay = true,
+  show,
+  size = 'md',
+}: Props) {
   const { accessibilityLabel: accessibilityLabelDefault } = useDefaultLabelContext('Spinner');
   return show ? (
     <Box display="flex" justifyContent="around" overflow="hidden">

@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { AvatarGroup } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
@@ -20,13 +20,7 @@ import roleButton from '../../examples/avatarGroup/roleButton';
 import roleLink from '../../examples/avatarGroup/roleLink';
 import sizing from '../../examples/avatarGroup/sizing';
 
-export default function AvatarGroupPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: DocGen
-  },
-) {
+export default function AvatarGroupPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
@@ -324,8 +318,8 @@ If AvatarGroup is used as a control button to show/hide Popover-component, we re
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   return {
     props: { generatedDocGen: await docGen('AvatarGroup') },

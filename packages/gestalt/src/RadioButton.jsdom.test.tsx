@@ -1,11 +1,16 @@
-import {createRef} from 'react';
+import { createRef } from 'react';
 import { render } from '@testing-library/react';
 import RadioButton from './RadioButton';
 
-const mockOnChange = jest.fn<[{
-  checked: boolean,
-  event: React.ChangeEvent<HTMLInputElement>
-}], undefined>();
+const mockOnChange = jest.fn<
+  [
+    {
+      checked: boolean;
+      event: React.ChangeEvent<HTMLInputElement>;
+    },
+  ],
+  undefined
+>();
 
 describe('RadioButton', () => {
   it('forwards a ref to <Box ref={ref}><input/></Box>', () => {

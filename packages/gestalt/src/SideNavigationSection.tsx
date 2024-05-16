@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import { useSideNavigation } from './contexts/SideNavigationProvider';
@@ -15,24 +15,19 @@ import { flattenChildrenWithKeys } from './utils/flattenChildren';
 
 type Props = {
   /**
-     * Any [SideNavigation.TopItem](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.TopItem) to be rendered
-     */
-  children: ReactNode,
+   * Any [SideNavigation.TopItem](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.TopItem) to be rendered
+   */
+  children: ReactNode;
   /**
-     * Label for the section. See the [Sections](https://gestalt.pinterest.systems/web/sidenavigation#Sections) variant for more info.
-     */
-  label: string
+   * Label for the section. See the [Sections](https://gestalt.pinterest.systems/web/sidenavigation#Sections) variant for more info.
+   */
+  label: string;
 };
 
 /**
  * Use [SideNavigation.Section](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.Section) to categorize navigation menu items into groups and also avoid redundant language in labels.
  */
-export default function SideNavigationSection(
-  {
-    children,
-    label,
-  }: Props,
-) {
+export default function SideNavigationSection({ children, label }: Props) {
   const { collapsed: sideNavigationCollapsed, overlayPreview } = useSideNavigation();
   const navigationChildren = flattenChildrenWithKeys(children);
 

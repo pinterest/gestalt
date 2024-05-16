@@ -32,15 +32,13 @@ const DIR_INDEX_MAP = {
   left: 3,
 } as const;
 
-export const getContainerNode = (
-  {
-    scrollBoundaryContainerRef,
-    initialPositionRef,
-  }: {
-    scrollBoundaryContainerRef: HTMLElement | null | undefined,
-    initialPositionRef: HTMLElement | null | undefined
-  },
-): HTMLElement | null | undefined => {
+export const getContainerNode = ({
+  scrollBoundaryContainerRef,
+  initialPositionRef,
+}: {
+  scrollBoundaryContainerRef: HTMLElement | null | undefined;
+  initialPositionRef: HTMLElement | null | undefined;
+}): HTMLElement | null | undefined => {
   // containerNode references the ScrollBoundaryContainer node to which
   // append the portal
   let containerNode = null;
@@ -69,19 +67,17 @@ export const getContainerNode = (
 /**
  * Controller
  */
-export const getTriggerRect = (
-  {
-    anchor,
-    positionRelativeToAnchor,
-    scrollBoundaryContainerRef,
-  }: {
-    anchor: HTMLElement,
-    positionRelativeToAnchor: boolean,
-    scrollBoundaryContainerRef: HTMLElement | null | undefined
-  },
-): {
-  relativeOffset: Coordinates | null | undefined,
-  triggerBoundingRect: ClientRect | null | undefined
+export const getTriggerRect = ({
+  anchor,
+  positionRelativeToAnchor,
+  scrollBoundaryContainerRef,
+}: {
+  anchor: HTMLElement;
+  positionRelativeToAnchor: boolean;
+  scrollBoundaryContainerRef: HTMLElement | null | undefined;
+}): {
+  relativeOffset: Coordinates | null | undefined;
+  triggerBoundingRect: ClientRect | null | undefined;
 } => {
   let triggerBoundingRect;
   let relativeOffset;
@@ -130,21 +126,19 @@ export const getTriggerRect = (
 /**
  * Determines the main direction the popover opens
  */
-export function getPopoverDir(
-  {
-    popoverSize,
-    idealDirection,
-    triggerRect,
-    windowSize,
-    isScrollBoundaryContainer,
-  }: {
-    popoverSize: Dimensions,
-    idealDirection: PopoverDir,
-    triggerRect: ClientRect | null | undefined,
-    windowSize: Window,
-    isScrollBoundaryContainer?: boolean
-  },
-): MainDirections {
+export function getPopoverDir({
+  popoverSize,
+  idealDirection,
+  triggerRect,
+  windowSize,
+  isScrollBoundaryContainer,
+}: {
+  popoverSize: Dimensions;
+  idealDirection: PopoverDir;
+  triggerRect: ClientRect | null | undefined;
+  windowSize: Window;
+  isScrollBoundaryContainer?: boolean;
+}): MainDirections {
   // Calculates the available space if we were to place the popover in the 4 main directions
   // to determine which 'quadrant' to position the popover inside of
   let up = (triggerRect?.top ?? 0) - popoverSize.height - CARET_HEIGHT;
@@ -205,19 +199,17 @@ export function getPopoverDir(
 /**
  * Determines the sub direction of how the popover is positioned within the main dir
  */
-export function getCaretDir(
-  {
-    popoverSize,
-    popoverDir,
-    triggerRect,
-    windowSize,
-  }: {
-    popoverSize: Dimensions,
-    popoverDir: PopoverDir,
-    triggerRect: ClientRect | null | undefined,
-    windowSize: Window
-  },
-): CaretDir {
+export function getCaretDir({
+  popoverSize,
+  popoverDir,
+  triggerRect,
+  windowSize,
+}: {
+  popoverSize: Dimensions;
+  popoverDir: PopoverDir;
+  triggerRect: ClientRect | null | undefined;
+  windowSize: Window;
+}): CaretDir {
   // Now that we have the main direction, chose from 3 caret placements for that direction
   let offset;
   let triggerMid;
@@ -255,19 +247,17 @@ export function getCaretDir(
 /**
  * Calculates the amount the popover & caret need to shift over to align with designs
  */
-export function calcEdgeShifts(
-  {
-    triggerRect,
-    windowSize,
-    isScrollBoundaryContainer,
-  }: {
-    triggerRect: ClientRect | null | undefined,
-    windowSize: Window,
-    isScrollBoundaryContainer: boolean
-  },
-): {
-  caret: Coordinates,
-  popover: Coordinates
+export function calcEdgeShifts({
+  triggerRect,
+  windowSize,
+  isScrollBoundaryContainer,
+}: {
+  triggerRect: ClientRect | null | undefined;
+  windowSize: Window;
+  isScrollBoundaryContainer: boolean;
+}): {
+  caret: Coordinates;
+  popover: Coordinates;
 } {
   // Target values for popover and caret shifts
   let popoverVerticalShift =
@@ -317,30 +307,28 @@ export function calcEdgeShifts(
 /**
  * Calculates popover and caret offsets for styling
  */
-export function adjustOffsets(
-  {
-    base,
-    edgeShift,
-    popoverSize,
-    popoverDir,
-    caretDir,
-    triggerRect,
-    isScrollBoundaryContainer,
-  }: {
-    base: {
-      top: number,
-      left: number
-    },
-    edgeShift: EdgeShift,
-    popoverSize: Dimensions,
-    popoverDir: PopoverDir,
-    caretDir: CaretDir,
-    triggerRect: ClientRect | null | undefined,
-    isScrollBoundaryContainer: boolean
-  },
-): {
-  caretOffset: CaretOffset,
-  popoverOffset: Offset
+export function adjustOffsets({
+  base,
+  edgeShift,
+  popoverSize,
+  popoverDir,
+  caretDir,
+  triggerRect,
+  isScrollBoundaryContainer,
+}: {
+  base: {
+    top: number;
+    left: number;
+  };
+  edgeShift: EdgeShift;
+  popoverSize: Dimensions;
+  popoverDir: PopoverDir;
+  caretDir: CaretDir;
+  triggerRect: ClientRect | null | undefined;
+  isScrollBoundaryContainer: boolean;
+}): {
+  caretOffset: CaretOffset;
+  popoverOffset: Offset;
 } {
   let popoverLeft = base.left;
   let popoverTop = base.top;
@@ -394,23 +382,21 @@ export function adjustOffsets(
 }
 
 /* Calculates baseline top and left offset for popover */
-export function baseOffsets(
-  {
-    hasCaret,
-    relativeOffset,
-    popoverSize,
-    popoverDir,
-    triggerRect,
-    windowSize,
-  }: {
-    hasCaret: boolean,
-    relativeOffset: Coordinates | null | undefined,
-    popoverSize: Dimensions,
-    popoverDir: PopoverDir,
-    triggerRect: ClientRect | null | undefined,
-    windowSize: Window
-  },
-): Offset {
+export function baseOffsets({
+  hasCaret,
+  relativeOffset,
+  popoverSize,
+  popoverDir,
+  triggerRect,
+  windowSize,
+}: {
+  hasCaret: boolean;
+  relativeOffset: Coordinates | null | undefined;
+  popoverSize: Dimensions;
+  popoverDir: PopoverDir;
+  triggerRect: ClientRect | null | undefined;
+  windowSize: Window;
+}): Offset {
   const SPACING_OUTSIDE = hasCaret ? CARET_HEIGHT : 8;
   // TOP OFFSET
   let top;

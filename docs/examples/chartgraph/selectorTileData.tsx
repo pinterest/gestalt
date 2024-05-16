@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { TileData } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
@@ -35,7 +35,11 @@ export default function Example() {
   const [selectedId, setSelectedId] = useState<string | null | undefined>('01');
   const isSelected = (id?: string) => selectedId === id;
 
-  const getColor: (arg1: string) => "01" | "02" | "03" | "04" | "05" | "06" | "07" | "08" | "09" | "10" | "11" | "12" = (value) => {
+  const getColor: (
+    arg1: string,
+  ) => '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10' | '11' | '12' = (
+    value,
+  ) => {
     const colorMap = {
       '01': '01',
       '02': '02',

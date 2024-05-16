@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { Box, Button, ComboBox, Flex } from 'gestalt';
 
 export default function Example() {
@@ -34,11 +34,14 @@ export default function Example() {
 
   const [inputValue, setInputValue] = useState('');
 
-  const [selectedOption, setSelectedOption] = useState<undefined | {
-    label: string,
-    subtext?: string,
-    value: string
-  }>();
+  const [selectedOption, setSelectedOption] = useState<
+    | undefined
+    | {
+        label: string;
+        subtext?: string;
+        value: string;
+      }
+  >();
 
   const resetOptions = () => {
     setSuggestedOptions(CATEGORIES[currentCategory]);
@@ -47,8 +50,8 @@ export default function Example() {
   const handleOnChange = ({
     value,
   }: {
-    event: React.ChangeEvent<HTMLInputElement>,
-    value: string
+    event: React.ChangeEvent<HTMLInputElement>;
+    value: string;
   }) => {
     setSelectedOption();
     if (value) {
@@ -66,12 +69,12 @@ export default function Example() {
   const handleSelect = ({
     item,
   }: {
-    event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>,
+    event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>;
     item: {
-      label: string,
-      subtext?: string,
-      value: string
-    }
+      label: string;
+      subtext?: string;
+      value: string;
+    };
   }) => {
     setInputValue(item.label);
     setSelectedOption(item);

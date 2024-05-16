@@ -1,33 +1,27 @@
-import {Children, cloneElement, ReactNode, useEffect, useRef, useState} from 'react';
+import { Children, cloneElement, ReactNode, useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
 import { useTableContext } from './contexts/TableContext';
 import styles from './Table.css';
 
 type Props = {
   /**
-     * Must be instances of Table.Cell, Table.HeaderCell, or Table.SortableHeaderCell components. See the [Subcomponent section](https://gestalt.pinterest.systems/web/table#Subcomponents) to learn more.
-     */
-  children: ReactNode,
+   * Must be instances of Table.Cell, Table.HeaderCell, or Table.SortableHeaderCell components. See the [Subcomponent section](https://gestalt.pinterest.systems/web/table#Subcomponents) to learn more.
+   */
+  children: ReactNode;
   /**
-     * Sets the background color on hover over the row. See the [selected and hovered state variant](https://gestalt.pinterest.systems/web/table#Selected-and-hovered-state) to learn more.
-     */
-  hoverStyle?: "gray" | "none",
+   * Sets the background color on hover over the row. See the [selected and hovered state variant](https://gestalt.pinterest.systems/web/table#Selected-and-hovered-state) to learn more.
+   */
+  hoverStyle?: 'gray' | 'none';
   /**
-     * Indicates if Table.Row is currently selected or unselected. See the [selected and hovered state variant](https://gestalt.pinterest.systems/web/table#Selected-and-hovered-state) to learn more.
-     */
-  selected?: "selected" | "unselected"
+   * Indicates if Table.Row is currently selected or unselected. See the [selected and hovered state variant](https://gestalt.pinterest.systems/web/table#Selected-and-hovered-state) to learn more.
+   */
+  selected?: 'selected' | 'unselected';
 };
 
 /**
  * Use [Table.Row](https://gestalt.pinterest.systems/web/table#Table.Row) to define a row in Table.
  */
-export default function TableRow(
-  {
-    children,
-    hoverStyle = 'none',
-    selected,
-  }: Props,
-) {
+export default function TableRow({ children, hoverStyle = 'none', selected }: Props) {
   const { stickyColumns } = useTableContext();
   const rowRef = useRef<HTMLTableRowElement | null | undefined>();
   const [columnWidths, setColumnWidths] = useState<ReadonlyArray<number>>([]);

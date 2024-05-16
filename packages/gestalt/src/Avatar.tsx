@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import {
   TOKEN_COLOR_BACKGROUND_AVATAR_PLACEHOLDER,
   TOKEN_COLOR_BORDER_AVATAR,
@@ -19,29 +19,29 @@ const sizes = {
 
 type Props = {
   /**
-     * String that clients such as VoiceOver will read to describe the element. Will default to `name` prop if not provided.
-     */
-  accessibilityLabel?: string,
+   * String that clients such as VoiceOver will read to describe the element. Will default to `name` prop if not provided.
+   */
+  accessibilityLabel?: string;
   /**
-     * The name of the user. This is used for the placeholder treatment if an image is not available.
-     */
-  name: string,
+   * The name of the user. This is used for the placeholder treatment if an image is not available.
+   */
+  name: string;
   /**
-     * Adds a white border around Avatar so it's visible when displayed on other images.
-     */
-  outline?: boolean,
+   * Adds a white border around Avatar so it's visible when displayed on other images.
+   */
+  outline?: boolean;
   /**
-     * xs: 24px, sm: 32px, md: 48px, lg: 64px, xl: 120px. If size is `fit`, Avatar will fill 100% of the parent container width.
-     */
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | "fit",
+   * xs: 24px, sm: 32px, md: 48px, lg: 64px, xl: 120px. If size is `fit`, Avatar will fill 100% of the parent container width.
+   */
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fit';
   /**
-     * The URL of the user's image.
-     */
-  src?: string,
+   * The URL of the user's image.
+   */
+  src?: string;
   /**
-     * Used to indicate if the user is verified.
-     */
-  verified?: boolean
+   * Used to indicate if the user is verified.
+   */
+  verified?: boolean;
 };
 
 /**

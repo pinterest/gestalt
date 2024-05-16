@@ -1,19 +1,15 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Accordion, Link, List, Text } from 'gestalt';
 import Card from './Card';
 
 type Props = {
   items: ReadonlyArray<{
-    href: string,
-    text: string
-  }>
+    href: string;
+    text: string;
+  }>;
 };
 
-export default function InternalDocumentationSection(
-  {
-    items,
-  }: Props,
-) {
+export default function InternalDocumentationSection({ items }: Props) {
   return (
     <Card name="Internal documentation" showHeading>
       <Accordion.Expandable

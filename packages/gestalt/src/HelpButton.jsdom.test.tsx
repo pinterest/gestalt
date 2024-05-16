@@ -1,4 +1,4 @@
-import {act, render, screen} from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import HelpButton from './HelpButton';
 
 describe('HelpButton', () => {
@@ -159,10 +159,15 @@ describe('HelpButton', () => {
   });
 
   it('renders a link spying the link trigger', () => {
-    const spy = jest.fn<[{
-      dangerouslyDisableOnNavigation: () => void,
-      event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>
-    }], undefined>();
+    const spy = jest.fn<
+      [
+        {
+          dangerouslyDisableOnNavigation: () => void;
+          event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+        },
+      ],
+      undefined
+    >();
     render(
       <HelpButton
         accessibilityLabel="Click to learn more about Pinterest"

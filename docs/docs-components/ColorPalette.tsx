@@ -1,20 +1,14 @@
-import {Fragment, ReactNode} from 'react';
+import { Fragment, ReactNode } from 'react';
 import { Box, Text } from 'gestalt';
 import ColorTile from './ColorTile';
 
 type Props = {
-  name: string,
-  tokenId: string,
-  tokenData: ReadonlyArray<string>
+  name: string;
+  tokenId: string;
+  tokenData: ReadonlyArray<string>;
 };
 
-function ColorPalette(
-  {
-    name,
-    tokenId,
-    tokenData,
-  }: Props,
-) {
+function ColorPalette({ name, tokenId, tokenData }: Props) {
   if (tokenData) {
     const tiles = tokenData.map((token) => {
       const regex = /\d+(?=\D*$)/;

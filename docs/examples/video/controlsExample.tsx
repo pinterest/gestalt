@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { Box, Flex, IconButton, Label, Switch, Text, Video } from 'gestalt';
 
 export default function Example() {

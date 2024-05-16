@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { BannerSlim, Box, Flex } from 'gestalt';
 
 export default function Example() {

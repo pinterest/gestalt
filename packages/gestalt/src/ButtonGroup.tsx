@@ -1,11 +1,11 @@
-import {Children, ReactNode} from 'react';
+import { Children, ReactNode } from 'react';
 import Box from './Box';
 
 type Props = {
   /**
-     * One or more Buttons and/or IconButtons.
-     */
-  children?: ReactNode
+   * One or more Buttons and/or IconButtons.
+   */
+  children?: ReactNode;
 };
 
 /**
@@ -15,21 +15,17 @@ type Props = {
  * ![ButtonGroup dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ButtonGroup-dark.spec.mjs-snapshots/ButtonGroup-dark-chromium-darwin.png)
  *
  */
-function ButtonGroup(
-  {
-    children,
-  }: Props,
-) {
+function ButtonGroup({ children }: Props) {
   if (Children.count(children) === 0) {
     return null;
   }
 
   return (
-    (<Box display="flex" margin={-1} wrap>
+    <Box display="flex" margin={-1} wrap>
       {Children.map(children, (child) =>
         child !== null && child !== undefined ? <Box padding={1}>{child}</Box> : null,
       )}
-    </Box>)
+    </Box>
   );
 }
 

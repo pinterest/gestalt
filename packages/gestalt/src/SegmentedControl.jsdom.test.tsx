@@ -1,12 +1,17 @@
-import {render, screen} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import SegmentedControl from './SegmentedControl';
 
 describe('<SegmentedControl />', () => {
   it('handles a click', () => {
-    const mockOnChange = jest.fn<[{
-      activeIndex: number,
-      event: React.MouseEvent<HTMLButtonElement>
-    }], undefined>();
+    const mockOnChange = jest.fn<
+      [
+        {
+          activeIndex: number;
+          event: React.MouseEvent<HTMLButtonElement>;
+        },
+      ],
+      undefined
+    >();
     render(
       <SegmentedControl items={['Item1', 'Item2']} onChange={mockOnChange} selectedItemIndex={0} />,
     );

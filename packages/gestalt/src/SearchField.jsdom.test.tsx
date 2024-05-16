@@ -1,4 +1,4 @@
-import {create} from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 import { fireEvent, render, screen } from '@testing-library/react';
 import SearchField from './SearchField';
 
@@ -68,10 +68,7 @@ describe('<SearchField />', () => {
           accessibilityLabel="Demo Search Field"
           id="searchField"
           onChange={() => {}}
-          onKeyDown={({
-            event,
-            value,
-          }: any) => {
+          onKeyDown={({ event, value }: any) => {
             expect(value).toEqual('Search');
             expect(event.key).toEqual('a');
             resolve();

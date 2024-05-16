@@ -1,11 +1,11 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { Flex, NumberField } from 'gestalt';
 
 export default function Example() {
   const [values, setValues] = useState<{
-    first: number | null | undefined,
-    second: number | null | undefined,
-    third: number | null | undefined
+    first: number | null | undefined;
+    second: number | null | undefined;
+    third: number | null | undefined;
   }>({
     first: undefined,
     second: undefined,
@@ -13,7 +13,7 @@ export default function Example() {
   });
 
   return (
-    (<Flex
+    <Flex
       alignItems="center"
       direction="column"
       gap={3}
@@ -45,6 +45,6 @@ export default function Example() {
         }}
         value={values.third}
       />
-    </Flex>)
+    </Flex>
   );
 }

@@ -1,4 +1,4 @@
-import {forwardRef, ReactNode, useEffect, useImperativeHandle, useRef, useState} from 'react';
+import { forwardRef, ReactNode, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import classnames from 'classnames';
 import styles from './InternalCheckbox.css';
 import Box from '../Box';
@@ -11,38 +11,28 @@ import Text from '../Text';
 import useFocusVisible from '../useFocusVisible';
 
 type Props = {
-  checked?: boolean,
-  disabled?: boolean,
-  errorMessage?: string,
-  helperText?: string,
-  id: string,
-  image?: ReactNode,
-  indeterminate?: boolean,
-  label?: string,
-  labelDisplay?: "visible" | "hidden",
-  name?: string,
-  onChange?: (
-    arg1: {
-      event: React.ChangeEvent<HTMLInputElement>,
-      checked: boolean
-    },
-  ) => void,
-  onClick?: (
-    arg1: {
-      event: React.ChangeEvent<HTMLInputElement>,
-      checked: boolean
-    },
-  ) => void,
+  checked?: boolean;
+  disabled?: boolean;
+  errorMessage?: string;
+  helperText?: string;
+  id: string;
+  image?: ReactNode;
+  indeterminate?: boolean;
+  label?: string;
+  labelDisplay?: 'visible' | 'hidden';
+  name?: string;
+  onChange?: (arg1: { event: React.ChangeEvent<HTMLInputElement>; checked: boolean }) => void;
+  onClick?: (arg1: { event: React.ChangeEvent<HTMLInputElement>; checked: boolean }) => void;
   /**
-     * Make the checkbox readonly. Interactivity is disabled, but it can be used as a visual indicator. Click handler events are also disabled
-     */
-  readOnly?: boolean,
-  ref?: Element<"input"> // eslint-disable-line react/no-unused-prop-types,
-  size?: "sm" | "md",
+   * Make the checkbox readonly. Interactivity is disabled, but it can be used as a visual indicator. Click handler events are also disabled
+   */
+  readOnly?: boolean;
+  ref?: Element<'input'>; // eslint-disable-line react/no-unused-prop-types,
+  size?: 'sm' | 'md';
   style?: {
-    borderColor?: string,
-    backgroundColor?: string
-  }
+    borderColor?: string;
+    backgroundColor?: string;
+  };
 };
 
 const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Checkbox(

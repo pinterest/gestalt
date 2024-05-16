@@ -1,17 +1,12 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, Flex, Heading, Text } from 'gestalt';
 
 type Props = {
-  heading: string,
-  text: string | ReactNode
+  heading: string;
+  text: string | ReactNode;
 };
 
-export default function PrincipleItem(
-  {
-    heading,
-    text,
-  }: Props,
-) {
+export default function PrincipleItem({ heading, text }: Props) {
   return (
     <Flex
       direction="column"

@@ -1,24 +1,26 @@
-import {ReactNode, useRef, useState} from 'react';
+import { ReactNode, useRef, useState } from 'react';
 import { Box, Dropdown, Flex, IconButtonFloating } from 'gestalt';
 
 export default function Example() {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState<ReadonlyArray<{
-    label: string,
-    subtext?: string,
-    value: string
-  }>>([]);
+  const [selected, setSelected] = useState<
+    ReadonlyArray<{
+      label: string;
+      subtext?: string;
+      value: string;
+    }>
+  >([]);
   const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   const onSelect = ({
     item,
   }: {
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>;
     item: {
-      label: string,
-      subtext?: string,
-      value: string
-    }
+      label: string;
+      subtext?: string;
+      value: string;
+    };
   }) => {
     if (selected.some(({ value }) => value === item.value)) {
       setSelected((selectedValue) => selectedValue.filter(({ value }) => value !== item.value));

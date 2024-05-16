@@ -1,15 +1,13 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { Box, Flex, Link, NumberField, Text } from 'gestalt';
 
-function TextExample(
-  {
-    linkDisplay,
-    maxWidth,
-  }: {
-    linkDisplay: "inline" | "inlineBlock",
-    maxWidth: number
-  },
-) {
+function TextExample({
+  linkDisplay,
+  maxWidth,
+}: {
+  linkDisplay: 'inline' | 'inlineBlock';
+  maxWidth: number;
+}) {
   return (
     <Box borderStyle="sm" maxWidth={maxWidth} padding={2} rounding={2}>
       <Text>

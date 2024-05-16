@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { Box, Flex, Tag, TextField } from 'gestalt';
 
 export default function Example() {
@@ -8,8 +8,8 @@ export default function Example() {
   const handleChange = ({
     value,
   }: {
-    event: React.ChangeEvent<HTMLInputElement>,
-    value: string
+    event: React.ChangeEvent<HTMLInputElement>;
+    value: string;
   }) => {
     setCurrentValue(value);
   };

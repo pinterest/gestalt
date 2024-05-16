@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import classNames from 'classnames';
 import boxWhitespace from './boxWhitespace.css';
 import ListStyles from './List.css';
@@ -6,31 +6,29 @@ import TableOfContentsAnchor from './TableOfContents/TableOfContentsAnchor';
 import TableOfContentsItemList from './TableOfContents/TableOfContentsItemList';
 
 type Props = {
- /**
-    * Label for the item.
-    */
- label: string,
- /**
-    * Directs users to the url when item is selected.
-    */
- href: string,
- /**
-    * When set to `true`, it displays the item in "active" state.
-    */
- active: boolean,
- /**
-    * Callback when the user selects an item using the mouse or keyboard.
-    */
- onClick?: (
-  arg1: {
-   event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-   dangerouslyDisableOnNavigation: () => void
-  },
- ) => void,
- /**
-    * Must be instances TableofContents.Item
-    */
- children?: ReactNode
+  /**
+   * Label for the item.
+   */
+  label: string;
+  /**
+   * Directs users to the url when item is selected.
+   */
+  href: string;
+  /**
+   * When set to `true`, it displays the item in "active" state.
+   */
+  active: boolean;
+  /**
+   * Callback when the user selects an item using the mouse or keyboard.
+   */
+  onClick?: (arg1: {
+    event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+    dangerouslyDisableOnNavigation: () => void;
+  }) => void;
+  /**
+   * Must be instances TableofContents.Item
+   */
+  children?: ReactNode;
 };
 
 /**

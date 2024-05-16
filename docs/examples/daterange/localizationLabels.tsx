@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { DefaultLabelProvider, Flex } from 'gestalt';
 import { DateRange } from 'gestalt-datepicker';
 
@@ -7,7 +7,7 @@ export default function Example() {
   const [endDate, setEndDate] = useState<Date | null>(null);
 
   return (
-    (<DefaultLabelProvider
+    <DefaultLabelProvider
       labels={{
         DateRange: {
           cancelText: 'Abbrechen',
@@ -27,6 +27,6 @@ export default function Example() {
           startDateValue={startDate}
         />
       </Flex>
-    </DefaultLabelProvider>)
+    </DefaultLabelProvider>
   );
 }

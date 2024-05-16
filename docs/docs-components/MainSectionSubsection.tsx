@@ -1,4 +1,4 @@
-import {Children, ReactNode} from 'react';
+import { Children, ReactNode } from 'react';
 import slugify from 'slugify';
 import { Badge, Box, Flex, Heading } from 'gestalt';
 import CopyLinkButton from './buttons/CopyLinkButton';
@@ -7,24 +7,22 @@ import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
 import Markdown from './Markdown';
 
 type Props = {
-  badge?: "alpha" | "experimental",
-  children?: ReactNode,
-  columns?: 1 | 2,
-  description?: string,
-  title?: string,
-  marginBottom?: "default" | "compact"
+  badge?: 'alpha' | 'experimental';
+  children?: ReactNode;
+  columns?: 1 | 2;
+  description?: string;
+  title?: string;
+  marginBottom?: 'default' | 'compact';
 };
 
-function MainSectionSubsection(
-  {
-    badge,
-    children,
-    columns = 1,
-    description,
-    title,
-    marginBottom = 'default',
-  }: Props,
-) {
+function MainSectionSubsection({
+  badge,
+  children,
+  columns = 1,
+  description,
+  title,
+  marginBottom = 'default',
+}: Props) {
   const slugifiedId = slugify(title || '');
   const arrayChildren = Children.toArray<ReactNode>(children);
 
@@ -36,7 +34,7 @@ function MainSectionSubsection(
   }
 
   return (
-    (<Box marginTop={4}>
+    <Box marginTop={4}>
       <Box marginBottom={defaultBottomMargin}>
         {title && (
           <Box
@@ -97,9 +95,9 @@ function MainSectionSubsection(
           >
             {arrayChildren.map((child, index) => (
               // eslint-disable-next-line react/no-array-index-key
-              (<Flex.Item key={index} flex="grow">
+              <Flex.Item key={index} flex="grow">
                 {child}
-              </Flex.Item>)
+              </Flex.Item>
             ))}
           </Flex>
         ) : (
@@ -115,7 +113,7 @@ function MainSectionSubsection(
             {arrayChildren}
           </Box>
         ))}
-    </Box>)
+    </Box>
   );
 }
 

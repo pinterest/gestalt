@@ -1,4 +1,4 @@
-import {render} from '@testing-library/react';
+import { render } from '@testing-library/react';
 import DeviceTypeProvider from './contexts/DeviceTypeProvider';
 import ModalAlert from './ModalAlert';
 

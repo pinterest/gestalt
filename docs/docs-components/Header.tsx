@@ -1,4 +1,4 @@
-import {ReactNode, useEffect, useMemo, useRef, useState} from 'react';
+import { ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import {
   Badge,
@@ -24,7 +24,7 @@ const PAGE_HEADER_ZINDEX: FixedZIndex = new FixedZIndex(10);
 
 const PAGE_HEADER_POPOVER_ZINDEX: CompositeZIndex = new CompositeZIndex([PAGE_HEADER_ZINDEX]);
 
-function getTabs(componentPlatform: "web" | "android" | "ios") {
+function getTabs(componentPlatform: 'web' | 'android' | 'ios') {
   return [
     { href: '/get_started/about_us', text: 'Get started' },
     { href: '/foundations/overview', text: 'Foundations' },

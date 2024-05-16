@@ -1,4 +1,4 @@
-import {create} from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 import Checkbox from './Checkbox';
 import Fieldset from './Fieldset';
 

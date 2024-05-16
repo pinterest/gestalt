@@ -1,4 +1,4 @@
-import {ReactNode, useEffect, useRef, useState} from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import { Box, Button, DefaultLabelProvider, Flex, Layer, Popover, Text } from 'gestalt';
 
 export default function Example() {
@@ -10,7 +10,7 @@ export default function Example() {
   }, []);
 
   return (
-    (<DefaultLabelProvider
+    <DefaultLabelProvider
       labels={{
         Popover: {
           accessibilityDismissButtonLabel: 'Popover verwerfen.',
@@ -51,6 +51,6 @@ export default function Example() {
           </Layer>
         )}
       </Flex>
-    </DefaultLabelProvider>)
+    </DefaultLabelProvider>
   );
 }

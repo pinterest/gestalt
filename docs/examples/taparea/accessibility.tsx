@@ -1,4 +1,4 @@
-import {Fragment, ReactNode, useRef, useState} from 'react';
+import { Fragment, ReactNode, useRef, useState } from 'react';
 import { Box, Flex, Image, Layer, Mask, Popover, TapArea, Text } from 'gestalt';
 
 export default function MenuButtonExample() {

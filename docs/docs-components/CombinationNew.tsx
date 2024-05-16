@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, Flex } from 'gestalt';
 import { useAppContext } from './appContext';
 import Checkerboard from './Checkerboard';
@@ -9,7 +9,10 @@ const combinations = (variationsByField: Record<any, any>) => {
 
   if (!fieldNames.length) return [{}];
 
-  const combine = ([fieldName, ...restFieldNames]: [any, any], acc: Record<any, any>): ReadonlyArray<Record<any, any>> => {
+  const combine = (
+    [fieldName, ...restFieldNames]: [any, any],
+    acc: Record<any, any>,
+  ): ReadonlyArray<Record<any, any>> => {
     const variationsForField = variationsByField[fieldName];
 
     if (!Array.isArray(variationsForField) || !variationsForField.length) {
@@ -24,9 +27,7 @@ const combinations = (variationsByField: Record<any, any>) => {
     if (!restFieldNames.length) {
       return vs;
     }
-    return vs.flatMap((newAcc: {
-      [key: string]: string
-    }) => combine(restFieldNames, newAcc));
+    return vs.flatMap((newAcc: { [key: string]: string }) => combine(restFieldNames, newAcc));
   };
 
   return combine(fieldNames, {});
@@ -46,24 +47,22 @@ const toReactAttribute = (key: string, value: any) => {
 type Props = {
   children: (
     props: {
-      [key: string]: any
+      [key: string]: any;
     },
     index?: number,
-  ) => ReactNode,
-  hideTitle?: boolean,
-  hasCheckerboard?: boolean,
-  cardSize?: "xs"
+  ) => ReactNode;
+  hideTitle?: boolean;
+  hasCheckerboard?: boolean;
+  cardSize?: 'xs';
 };
 
-export default function CombinationNew(
-  {
-    children,
-    hideTitle,
-    hasCheckerboard,
-    cardSize,
-    ...props
-  }: Props,
-) {
+export default function CombinationNew({
+  children,
+  hideTitle,
+  hasCheckerboard,
+  cardSize,
+  ...props
+}: Props) {
   const { helixBot } = useAppContext();
 
   const CardArray = combinations(props).map((combination, i) => {

@@ -1,6 +1,6 @@
 export type siteIndexType = {
-  sectionName: string,
-  pages: ReadonlyArray<string | siteIndexType>
+  sectionName: string;
+  pages: ReadonlyArray<string | siteIndexType>;
 };
 
 // siteIndex is the source of truth for the side navigation menu.

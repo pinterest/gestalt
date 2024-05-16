@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Badge, Box, Column, Flex, Link, Table, Text } from 'gestalt';
 import componentData from '../../docs-components/data/components';
 import {
@@ -25,7 +25,7 @@ const statusFields = ['figmaStatus', 'documentation', 'status'];
 
 export default function ComponentStatus() {
   return (
-    (<Page hideEditLink hideSideNav title="iOS component status">
+    <Page hideEditLink hideSideNav title="iOS component status">
       <PageHeader
         description="A detailed synopsis of our iOS components and their implementation status."
         name="iOS component status"
@@ -88,7 +88,7 @@ export default function ComponentStatus() {
               const { badge, status } = statusObj;
 
               return (
-                (<Table.Row key={name}>
+                <Table.Row key={name}>
                   <Table.Cell>
                     <Text inline size="200">
                       <Link
@@ -117,12 +117,12 @@ export default function ComponentStatus() {
                       </Table.Cell>
                     ),
                   )}
-                </Table.Row>)
+                </Table.Row>
               );
             })}
           </Table.Body>
         </Table>
       </Flex>
-    </Page>)
+    </Page>
   );
 }

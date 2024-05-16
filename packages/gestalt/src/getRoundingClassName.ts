@@ -2,7 +2,7 @@ import borders from './Borders.css';
 import { fromClassName, identity, Style, toProps } from './style';
 import { bind, range } from './transforms';
 
-export type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | "circle" | "pill";
+export type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
 
 export const getRoundingStyle = (rounding: Rounding): Style => {
   if (typeof rounding === 'number') {
@@ -20,6 +20,7 @@ export const getRoundingStyle = (rounding: Rounding): Style => {
   return identity();
 };
 
-const getRoundingClassName = (rounding: Rounding): string | null | undefined => toProps(getRoundingStyle(rounding)).className;
+const getRoundingClassName = (rounding: Rounding): string | null | undefined =>
+  toProps(getRoundingStyle(rounding)).className;
 
 export default getRoundingClassName;

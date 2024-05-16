@@ -1,4 +1,4 @@
-import {Children, ReactElement, ReactNode} from 'react';
+import { Children, ReactElement, ReactNode } from 'react';
 import Box from './Box';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
@@ -9,32 +9,30 @@ import styles from './PopoverEducational.css';
 import Text from './Text';
 import { Indexable } from './zIndex';
 
-type Size = "sm" | "flexible";
-type IdealDirection = "up" | "right" | "down" | "left";
-type Role = "dialog" | "tooltip";
-type PrimaryActionType = {
-  accessibilityLabel?: string,
-  href: string,
-  onClick?: (
-    arg1: {
-      event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-      dangerouslyDisableOnNavigation: () => void
-    },
-  ) => void,
-  rel?: "none" | "nofollow",
-  role: "link",
-  target?: null | "self" | "blank",
-  text: string
-} | {
-  accessibilityLabel?: string,
-  onClick?: (
-    arg1: {
-      event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>
-    },
-  ) => void,
-  role?: "button",
-  text: string
-};
+type Size = 'sm' | 'flexible';
+type IdealDirection = 'up' | 'right' | 'down' | 'left';
+type Role = 'dialog' | 'tooltip';
+type PrimaryActionType =
+  | {
+      accessibilityLabel?: string;
+      href: string;
+      onClick?: (arg1: {
+        event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+        dangerouslyDisableOnNavigation: () => void;
+      }) => void;
+      rel?: 'none' | 'nofollow';
+      role: 'link';
+      target?: null | 'self' | 'blank';
+      text: string;
+    }
+  | {
+      accessibilityLabel?: string;
+      onClick?: (arg1: {
+        event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>;
+      }) => void;
+      role?: 'button';
+      text: string;
+    };
 
 function PrimaryAction(props: PrimaryActionType) {
   if (props.role === 'link') {
@@ -64,57 +62,57 @@ function PrimaryAction(props: PrimaryActionType) {
 
 type Props = {
   /**
-     * Unique label to describe each PopoverEducational. See the [accessibility section](https://gestalt.pinterest.systems/web/popovereducational#ARIA-attributes) for more guidance.
-     */
-  accessibilityLabel?: string,
+   * Unique label to describe each PopoverEducational. See the [accessibility section](https://gestalt.pinterest.systems/web/popovereducational#ARIA-attributes) for more guidance.
+   */
+  accessibilityLabel?: string;
   /**
-     * The reference element that PopoverEducational uses to set its position.
-     */
-  anchor: HTMLElement | null | undefined,
+   * The reference element that PopoverEducational uses to set its position.
+   */
+  anchor: HTMLElement | null | undefined;
   /**
-     * The optional content shown in PopoverEducational. See the [custom content section](https://gestalt.pinterest.systems/web/popovereducational#Custom-content) for more guidance.
-     */
-  children?: ReactNode,
+   * The optional content shown in PopoverEducational. See the [custom content section](https://gestalt.pinterest.systems/web/popovereducational#Custom-content) for more guidance.
+   */
+  children?: ReactNode;
   /**
-     * Unique id to identify each PopoverEducational. Used for [accessibility](https://gestalt.pinterest.systems/web/popovereducational#ARIA-attributes) purposes.
-     */
-  id?: string,
+   * Unique id to identify each PopoverEducational. Used for [accessibility](https://gestalt.pinterest.systems/web/popovereducational#ARIA-attributes) purposes.
+   */
+  id?: string;
   /**
-     * Specifies the preferred position of PopoverEducational relative to its anchor element.
-     */
-  idealDirection?: IdealDirection,
+   * Specifies the preferred position of PopoverEducational relative to its anchor element.
+   */
+  idealDirection?: IdealDirection;
   /**
-     * Callback fired when PopoverEducational is closed. Must be used to control Popover’s on/off display state. See the [visibility on page load variant](https://gestalt.pinterest.systems/web/popovereducational#Visibility-on-page-load) to learn more.
-     */
-  onDismiss: () => void,
+   * Callback fired when PopoverEducational is closed. Must be used to control Popover’s on/off display state. See the [visibility on page load variant](https://gestalt.pinterest.systems/web/popovereducational#Visibility-on-page-load) to learn more.
+   */
+  onDismiss: () => void;
   /**
-     * Main action for users to take on PopoverEducational. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
-     * If no `href` is supplied, the action will be a button.
-     * The `accessibilityLabel` should follow the [accessibility guidelines for Button](https://gestalt.pinterest.systems/web/button#ARIA-attributes).
-     * See the [primary action variant](https://gestalt.pinterest.systems/web/popovereducational#Primary-action) to learn more.
-     */
-  primaryAction?: PrimaryActionType,
+   * Main action for users to take on PopoverEducational. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
+   * If no `href` is supplied, the action will be a button.
+   * The `accessibilityLabel` should follow the [accessibility guidelines for Button](https://gestalt.pinterest.systems/web/button#ARIA-attributes).
+   * See the [primary action variant](https://gestalt.pinterest.systems/web/popovereducational#Primary-action) to learn more.
+   */
+  primaryAction?: PrimaryActionType;
   /**
-     * Main text content of PopoverEducational. Content should be [localized](https://gestalt.pinterest.systems/web/popovereducational#Localization). See the [message variant](https://gestalt.pinterest.systems/web/popovereducational#Message) to learn more.
-     *
-     */
-  message?: string | Element<typeof Text>,
+   * Main text content of PopoverEducational. Content should be [localized](https://gestalt.pinterest.systems/web/popovereducational#Localization). See the [message variant](https://gestalt.pinterest.systems/web/popovereducational#Message) to learn more.
+   *
+   */
+  message?: string | Element<typeof Text>;
   /**
-     * The underlying ARIA role for PopoverEducational. See the [role section in Accessibility](https://gestalt.pinterest.systems/web/popovereducational#Role) for more info.
-     */
-  role?: Role,
+   * The underlying ARIA role for PopoverEducational. See the [role section in Accessibility](https://gestalt.pinterest.systems/web/popovereducational#Role) for more info.
+   */
+  role?: Role;
   /**
-     * Puts the focus on PopoverEducational when it’s triggered. See the [keyboard navigation section in Accessibility](https://gestalt.pinterest.systems/web/popovereducational#Keyboard-navigation) to learn more.
-     */
-  shouldFocus?: boolean,
+   * Puts the focus on PopoverEducational when it’s triggered. See the [keyboard navigation section in Accessibility](https://gestalt.pinterest.systems/web/popovereducational#Keyboard-navigation) to learn more.
+   */
+  shouldFocus?: boolean;
   /**
-     * The maximum width of PopoverEducational. See the [size variant](https://gestalt.pinterest.systems/web/popovereducational#Size) to learn more.
-     */
-  size?: Size,
+   * The maximum width of PopoverEducational. See the [size variant](https://gestalt.pinterest.systems/web/popovereducational#Size) to learn more.
+   */
+  size?: Size;
   /**
-     * An object representing the zIndex value of PopoverEducational. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
-     */
-  zIndex?: Indexable
+   * An object representing the zIndex value of PopoverEducational. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
+   */
+  zIndex?: Indexable;
 };
 
 /**
@@ -122,22 +120,20 @@ type Props = {
  * ![PopoverEducational light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/PopoverEducational.spec.mjs-snapshots/PopoverEducational-chromium-darwin.png)
  * ![PopoverEducational dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/PopoverEducational-dark.spec.mjs-snapshots/PopoverEducational-dark-chromium-darwin.png)
  */
-export default function PopoverEducational(
-  {
-    accessibilityLabel = 'Popover',
-    anchor,
-    children,
-    id,
-    idealDirection,
-    message,
-    onDismiss,
-    primaryAction,
-    role = 'tooltip',
-    shouldFocus = false,
-    size = 'sm',
-    zIndex,
-  }: Props,
-) {
+export default function PopoverEducational({
+  accessibilityLabel = 'Popover',
+  anchor,
+  children,
+  id,
+  idealDirection,
+  message,
+  onDismiss,
+  primaryAction,
+  role = 'tooltip',
+  shouldFocus = false,
+  size = 'sm',
+  zIndex,
+}: Props) {
   const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
@@ -145,7 +141,7 @@ export default function PopoverEducational(
     return null;
   }
 
-  let textElement: Element<"span"> | Element<typeof Text>;
+  let textElement: Element<'span'> | Element<typeof Text>;
 
   if (typeof message === 'string') {
     textElement = <Text color="light">{message}</Text>;

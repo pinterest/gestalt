@@ -1,33 +1,32 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import DatePicker from './DatePicker';
 
 const initialDate = new Date(2018, 11, 14);
 
-function DatePickerWrap({
-  showMonthYearDropdown,
-}: {
-  showMonthYearDropdown?: boolean
-}) {
+function DatePickerWrap({ showMonthYearDropdown }: { showMonthYearDropdown?: boolean }) {
   const [date, setDate] = useState<Date | null>(initialDate);
 
   return (
-    (<DatePicker
+    <DatePicker
       id="fake_id"
-      onChange={({
-        value,
-      }: any) => setDate(value)}
+      onChange={({ value }: any) => setDate(value)}
       selectLists={showMonthYearDropdown ? ['year', 'month'] : undefined}
       value={date}
-    />)
+    />
   );
 }
 
 describe('DatePicker', () => {
-  const mockOnChange = jest.fn<[{
-    event: React.ChangeEvent<HTMLInputElement>,
-    value: Date | null
-  }], undefined>();
+  const mockOnChange = jest.fn<
+    [
+      {
+        event: React.ChangeEvent<HTMLInputElement>;
+        value: Date | null;
+      },
+    ],
+    undefined
+  >();
 
   global.document.createRange = () => ({
     setStart: () => {},

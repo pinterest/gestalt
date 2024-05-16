@@ -1,4 +1,4 @@
-import {concat, fromClassName, fromInlineStyle, identity, mapClassName, toProps} from './style';
+import { concat, fromClassName, fromInlineStyle, identity, mapClassName, toProps } from './style';
 
 test('identity', () => {
   expect(identity()).toEqual({ className: new Set(), inlineStyle: {} });

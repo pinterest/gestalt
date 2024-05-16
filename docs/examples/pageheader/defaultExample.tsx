@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Button, Datapoint, Dropdown, PageHeader } from 'gestalt';
 
 export default function PageHeaderExample() {

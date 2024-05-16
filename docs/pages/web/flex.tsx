@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
@@ -19,15 +19,13 @@ import overflowing from '../../examples/flex/overflowing';
 
 const ignoredProps = ['smAlignItems', 'mdAlignItems', 'lgAlignItems'];
 
-export default function DocsPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: {
-      [key: string]: DocGen
-    }
-  },
-) {
+export default function DocsPage({
+  generatedDocGen,
+}: {
+  generatedDocGen: {
+    [key: string]: DocGen;
+  };
+}) {
   return (
     <Page title={generatedDocGen?.Flex?.displayName}>
       <PageHeader
@@ -178,9 +176,9 @@ export default function DocsPage(
 export async function getServerSideProps(): Promise<{
   props: {
     generatedDocGen: {
-      [key: string]: DocGen
-    }
-  }
+      [key: string]: DocGen;
+    };
+  };
 }> {
   return {
     props: { generatedDocGen: await multipleDocGen(['Flex', 'FlexItem']) },

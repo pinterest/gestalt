@@ -1,4 +1,4 @@
-import {Platform} from '../types';
+import { Platform } from '../types';
 
 const prettyPlatforms = {
   android: 'Android',

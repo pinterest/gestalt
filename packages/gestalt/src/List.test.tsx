@@ -1,4 +1,4 @@
-import {create} from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 import List from './List';
 import Text from './Text';
 

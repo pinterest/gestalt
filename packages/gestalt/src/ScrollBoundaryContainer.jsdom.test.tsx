@@ -1,4 +1,4 @@
-import {createRef} from 'react';
+import { createRef } from 'react';
 import { render, screen } from '@testing-library/react';
 import Box from './Box';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider';

@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import {
   af,
   arSA,
@@ -99,13 +99,7 @@ const localeMap = {
   'zh-TW': { localeData: zhTW, lang: 'Chinese (Traditional)' },
 } as const;
 
-export default function DatePickerPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: DocGen
-  },
-) {
+export default function DatePickerPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   const [locale, setLocale] = useState<string | null>(null);
 
   return (
@@ -409,8 +403,8 @@ DatePicker is used when the user has to select a date.  Compared to DateField, D
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   return {
     props: { generatedDocGen: await docGen('DateRange') },

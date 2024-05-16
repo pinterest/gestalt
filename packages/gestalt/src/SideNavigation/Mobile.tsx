@@ -1,4 +1,4 @@
-import {Fragment, ReactNode, useEffect, useRef} from 'react';
+import { Fragment, ReactNode, useEffect, useRef } from 'react';
 import classnames from 'classnames';
 import getChildrenToArray from './getChildrenToArray';
 import borderStyles from '../Borders.css';
@@ -11,22 +11,20 @@ import InternalDismissButton from '../shared/InternalDismissButton';
 import { Props as SideNavigationProps } from '../SideNavigation';
 import styles from '../SideNavigation.css';
 
-type Props = ((SideNavigationProps) & {
-  id: string
-});
+type Props = SideNavigationProps & {
+  id: string;
+};
 
-export default function SideNavigationMobile(
-  {
-    accessibilityLabel,
-    children,
-    footer,
-    header,
-    id,
-    mobileTitle,
-    dismissButton,
-    showBorder,
-  }: Props,
-) {
+export default function SideNavigationMobile({
+  accessibilityLabel,
+  children,
+  footer,
+  header,
+  id,
+  mobileTitle,
+  dismissButton,
+  showBorder,
+}: Props) {
   const dismissButtonRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   const navigationChildren = getChildrenToArray({

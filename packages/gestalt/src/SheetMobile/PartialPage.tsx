@@ -1,4 +1,4 @@
-import {ComponentProps, ReactNode, useCallback, useEffect, useId, useLayoutEffect} from 'react';
+import { ComponentProps, ReactNode, useCallback, useEffect, useId, useLayoutEffect } from 'react';
 import classnames from 'classnames';
 import ContentContainer from './ContentContainer';
 import Header from './Header';
@@ -17,78 +17,70 @@ import Link from '../Link';
 import sheetMobileStyles from '../SheetMobile.css';
 import { Indexable } from '../zIndex';
 
-type OnClickType = (
-  arg1: {
-    event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement> | React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-    onDismissStart: () => void
-  },
-) => void;
+type OnClickType = (arg1: {
+  event:
+    | React.MouseEvent<HTMLButtonElement>
+    | React.KeyboardEvent<HTMLButtonElement>
+    | React.MouseEvent<HTMLAnchorElement>
+    | React.KeyboardEvent<HTMLAnchorElement>;
+  onDismissStart: () => void;
+}) => void;
 
 type Props = {
-  accessibilityLabel?: string,
-  align: "start" | "center",
+  accessibilityLabel?: string;
+  align: 'start' | 'center';
   backIconButton?: {
-    accessibilityLabel: string,
-    onClick: OnClickType
-  },
-  children?: ReactNode,
-  closeOnOutsideClick?: boolean,
-  footer?: ReactNode,
+    accessibilityLabel: string;
+    onClick: OnClickType;
+  };
+  children?: ReactNode;
+  closeOnOutsideClick?: boolean;
+  footer?: ReactNode;
   forwardIconButton?: {
-    accessibilityLabel: string,
-    onClick: OnClickType
-  },
-  heading?: ReactNode,
-  onAnimationEnd: (
-    arg1: {
-      animationState: "in" | "out"
-    },
-  ) => void | null | undefined,
-  onDismiss: () => void,
-  onOutsideClick?: (
-    arg1: {
-      event: React.MouseEvent<HTMLDivElement>
-    },
-  ) => void,
-  padding?: "default" | "none",
+    accessibilityLabel: string;
+    onClick: OnClickType;
+  };
+  heading?: ReactNode;
+  onAnimationEnd: (arg1: { animationState: 'in' | 'out' }) => void | null | undefined;
+  onDismiss: () => void;
+  onOutsideClick?: (arg1: { event: React.MouseEvent<HTMLDivElement> }) => void;
+  padding?: 'default' | 'none';
   primaryAction?: {
-    accessibilityLabel: string,
-    href?: string,
-    label: string,
-    onClick: OnClickType,
-    rel?: ComponentProps<typeof Link>["rel"],
-    size?: ComponentProps<typeof Button>["size"],
-    target?: ComponentProps<typeof Link>["target"]
-  },
-  role?: "alertdialog" | "dialog",
-  showDismissButton?: boolean,
-  size: "default" | "full" | "auto",
-  subHeading?: string,
-  zIndex?: Indexable
+    accessibilityLabel: string;
+    href?: string;
+    label: string;
+    onClick: OnClickType;
+    rel?: ComponentProps<typeof Link>['rel'];
+    size?: ComponentProps<typeof Button>['size'];
+    target?: ComponentProps<typeof Link>['target'];
+  };
+  role?: 'alertdialog' | 'dialog';
+  showDismissButton?: boolean;
+  size: 'default' | 'full' | 'auto';
+  subHeading?: string;
+  zIndex?: Indexable;
 };
 
-export default function PartialPage(
-  {
-    accessibilityLabel,
-    align,
-    backIconButton,
-    children,
-    closeOnOutsideClick = true,
-    onAnimationEnd,
-    onDismiss,
-    onOutsideClick,
-    footer,
-    forwardIconButton,
-    padding,
-    primaryAction,
-    heading,
-    role,
-    showDismissButton,
-    size,
-    subHeading,
-    zIndex,
-  }: Props,
-) {
+export default function PartialPage({
+  accessibilityLabel,
+  align,
+  backIconButton,
+  children,
+  closeOnOutsideClick = true,
+  onAnimationEnd,
+  onDismiss,
+  onOutsideClick,
+  footer,
+  forwardIconButton,
+  padding,
+  primaryAction,
+  heading,
+  role,
+  showDismissButton,
+  size,
+  subHeading,
+  zIndex,
+}: Props) {
   const id = useId();
 
   // Consumes DefaultLabelProvider

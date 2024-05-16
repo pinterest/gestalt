@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
 import {
   TOKEN_COLOR_BLACK_COSMICORE_900,
@@ -26,11 +26,11 @@ import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';
 
 type DataType = ReadonlyArray<{
-  name: string,
-  id: string,
-  tokenData: ReadonlyArray<string>,
-  brandToken?: string,
-  textColor: "light" | "dark"
+  name: string;
+  id: string;
+  tokenData: ReadonlyArray<string>;
+  brandToken?: string;
+  textColor: 'light' | 'dark';
 }>;
 
 const filterToken = (color: string) =>
@@ -119,16 +119,11 @@ const getNeutrals: () => DataType = () => [
 ];
 
 type ColorCardProps = {
-  children: ReactNode,
-  colorScheme: "light" | "dark"
+  children: ReactNode;
+  colorScheme: 'light' | 'dark';
 };
 
-function ColorSchemeCard(
-  {
-    children,
-    colorScheme,
-  }: ColorCardProps,
-) {
+function ColorSchemeCard({ children, colorScheme }: ColorCardProps) {
   return (
     <Flex
       gap={{

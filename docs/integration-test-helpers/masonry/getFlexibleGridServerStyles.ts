@@ -2,19 +2,17 @@
 // This file needs to be migrated from Pinboard: app/packages/gestaltExtensions/Masonry/styles/getFlexibleGridServerStyles.js
 // For now, make sure that it stays in sync with the original file
 
-export default function getFlexibleGridServerStyles(
-  {
-    isRTL = false,
-    maxItemWidth = 300,
-    maxColumns = 16,
-    minColumns = 2,
-  }: {
-    isRTL?: boolean,
-    maxItemWidth: number,
-    maxColumns: number,
-    minColumns: number
-  },
-): string {
+export default function getFlexibleGridServerStyles({
+  isRTL = false,
+  maxItemWidth = 300,
+  maxColumns = 16,
+  minColumns = 2,
+}: {
+  isRTL?: boolean;
+  maxItemWidth: number;
+  maxColumns: number;
+  minColumns: number;
+}): string {
   let styles = `
 .gridCentered {
   margin-left: auto;

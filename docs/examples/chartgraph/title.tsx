@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Flex, HelpButton } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 

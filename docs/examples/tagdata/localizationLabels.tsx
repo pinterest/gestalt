@@ -1,11 +1,11 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { DefaultLabelProvider, Flex, TagData } from 'gestalt';
 
 export default function Example() {
   const [isSelected, setSelected] = useState(false);
 
   return (
-    (<DefaultLabelProvider
+    <DefaultLabelProvider
       labels={{
         TagData: {
           accessibilityRemoveIconLabel: 'Tag entfernen',
@@ -23,6 +23,6 @@ export default function Example() {
           text="Eindrücke"
         />
       </Flex>
-    </DefaultLabelProvider>)
+    </DefaultLabelProvider>
   );
 }

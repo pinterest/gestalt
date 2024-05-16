@@ -1,11 +1,11 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import { ENTER, SPACE } from './keyCodes';
 
 const SCROLL_DISTANCE = 10;
 
 type Coordinate = {
-  readonly x: number,
-  readonly y: number
+  readonly x: number;
+  readonly y: number;
 };
 
 type TapTargetHTMLElement = HTMLDivElement;
@@ -14,26 +14,27 @@ export const keyPressShouldTriggerTap = (
   event: React.KeyboardEvent<HTMLDivElement> | React.KeyboardEvent<HTMLAnchorElement>,
 ): boolean => [ENTER, SPACE].includes(event.charCode);
 
-export default function useTapFeedback(
-  {
-    height,
-    width,
-  }: {
-    height: number | null | undefined,
-    width: number | null | undefined
-  },
-): {
-  compressStyle: {
-    transform: string
-  } | null | undefined,
-  handleBlur: () => void,
-  handleMouseDown: () => void,
-  handleMouseUp: () => void,
-  handleTouchCancel: () => void,
-  handleTouchEnd: () => void,
-  handleTouchMove: (arg1: React.TouchEvent<TapTargetHTMLElement>) => void,
-  handleTouchStart: (arg1: React.TouchEvent<TapTargetHTMLElement>) => void,
-  isTapping: boolean
+export default function useTapFeedback({
+  height,
+  width,
+}: {
+  height: number | null | undefined;
+  width: number | null | undefined;
+}): {
+  compressStyle:
+    | {
+        transform: string;
+      }
+    | null
+    | undefined;
+  handleBlur: () => void;
+  handleMouseDown: () => void;
+  handleMouseUp: () => void;
+  handleTouchCancel: () => void;
+  handleTouchEnd: () => void;
+  handleTouchMove: (arg1: React.TouchEvent<TapTargetHTMLElement>) => void;
+  handleTouchStart: (arg1: React.TouchEvent<TapTargetHTMLElement>) => void;
+  isTapping: boolean;
 } {
   const [isTapping, setTapping] = useState<boolean>(false);
   const [coordinate, setCoordinate] = useState<Coordinate>({
@@ -42,7 +43,7 @@ export default function useTapFeedback(
   });
 
   const [compressStyle, setCompressStyle] = useState<null | {
-    transform: string
+    transform: string;
   }>(null);
 
   useEffect(() => {
@@ -60,9 +61,7 @@ export default function useTapFeedback(
     handleBlur: () => setTapping(false),
     handleMouseDown: () => setTapping(true),
     handleMouseUp: () => setTapping(false),
-    handleTouchStart: ({
-      touches,
-    }: React.TouchEvent<TapTargetHTMLElement>) => {
+    handleTouchStart: ({ touches }: React.TouchEvent<TapTargetHTMLElement>) => {
       setTapping(true);
       const [touch] = touches;
       if (touch) {
@@ -72,9 +71,7 @@ export default function useTapFeedback(
         });
       }
     },
-    handleTouchMove: ({
-      touches,
-    }: React.TouchEvent<TapTargetHTMLElement>) => {
+    handleTouchMove: ({ touches }: React.TouchEvent<TapTargetHTMLElement>) => {
       const [touch] = touches;
       if (isTapping && touch) {
         const { x: startX, y: startY } = coordinate;

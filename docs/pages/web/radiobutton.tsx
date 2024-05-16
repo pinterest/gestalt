@@ -1,17 +1,11 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { BannerSlim } from 'gestalt';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 
-export default function DocsPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: DocGen
-  },
-) {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
     <Page title="RadioButton">
       <PageHeader
@@ -39,8 +33,8 @@ export default function DocsPage(
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   return {
     props: { generatedDocGen: await docGen('RadioButton') },

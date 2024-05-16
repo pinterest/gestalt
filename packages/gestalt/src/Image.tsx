@@ -1,91 +1,83 @@
-import {ReactNode, PureComponent} from 'react';
+import { ReactNode, PureComponent } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import styles from './Image.css';
 
-type Fit = "cover" | "contain" | "none";
+type Fit = 'cover' | 'contain' | 'none';
 
 const shouldScaleImage = (fit?: Fit | null) => fit === 'cover' || fit === 'contain';
 
 type Props = {
   /**
-     * Alt text read by screen readers. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/alt) for more details.
-     */
-  alt: string,
+   * Alt text read by screen readers. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/alt) for more details.
+   */
+  alt: string;
   /**
-     * Children content will be overlaid on the image.  See the [Overlay example](https://gestalt.pinterest.systems/web/image#Overlay) for more details.
-     */
-  children?: ReactNode,
+   * Children content will be overlaid on the image.  See the [Overlay example](https://gestalt.pinterest.systems/web/image#Overlay) for more details.
+   */
+  children?: ReactNode;
   /**
-     * Used as a visual placeholder while the image is loading.  See the [Placeholders example](https://gestalt.pinterest.systems/web/image#placeholders) for more details.
-     */
-  color: string,
+   * Used as a visual placeholder while the image is loading.  See the [Placeholders example](https://gestalt.pinterest.systems/web/image#placeholders) for more details.
+   */
+  color: string;
   /**
-     * Specifies the CORS setting to use when retrieving the image. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/crossOrigin) for more details.
-     */
-  crossOrigin?: "anonymous" | "use-credentials",
+   * Specifies the CORS setting to use when retrieving the image. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/crossOrigin) for more details.
+   */
+  crossOrigin?: 'anonymous' | 'use-credentials';
   /**
-     * Sends a hint to the browser specifying whether or not it is allowed to try to parallelize loading your image. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/decoding) for more details.
-     */
-  decoding?: "sync" | "async" | "auto",
+   * Sends a hint to the browser specifying whether or not it is allowed to try to parallelize loading your image. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/decoding) for more details.
+   */
+  decoding?: 'sync' | 'async' | 'auto';
   /**
-     * HTML attribute for performance profiling (see https://developer.mozilla.org/en-US/docs/Web/API/Element_timing_API). Note that it only works if the \`fit\` prop is not set to \`"cover"\` or \`"contain"\`.
-     */
-  elementTiming?: string,
+   * HTML attribute for performance profiling (see https://developer.mozilla.org/en-US/docs/Web/API/Element_timing_API). Note that it only works if the \`fit\` prop is not set to \`"cover"\` or \`"contain"\`.
+   */
+  elementTiming?: string;
   /**
-     * Priority hints provide developers a way to indicate a resource's relative importance to the browser, allowing more control over the order resources are loaded (only available via Chrome Origin Trial). \`"high"\`: the developer considers the resource to be high priority. \`"low"\`: the developer considers the resource to be low priority. \`auto\` the developer does not indicate a preference.
-     * Note that this feature is currently experimental; please see the [attribute spec](https://wicg.github.io/priority-hints/) for more details.
-     */
-  fetchPriority?: "high" | "low" | "auto",
+   * Priority hints provide developers a way to indicate a resource's relative importance to the browser, allowing more control over the order resources are loaded (only available via Chrome Origin Trial). \`"high"\`: the developer considers the resource to be high priority. \`"low"\`: the developer considers the resource to be low priority. \`auto\` the developer does not indicate a preference.
+   * Note that this feature is currently experimental; please see the [attribute spec](https://wicg.github.io/priority-hints/) for more details.
+   */
+  fetchPriority?: 'high' | 'low' | 'auto';
   /**
-     * Sets how the image is resized to fit its container. See the [Fit example](https://gestalt.pinterest.systems/web/image#fit) for more details.
-     * Note: this doesn't work with srcSet or sizes.
-     */
-  fit?: Fit,
+   * Sets how the image is resized to fit its container. See the [Fit example](https://gestalt.pinterest.systems/web/image#fit) for more details.
+   * Note: this doesn't work with srcSet or sizes.
+   */
+  fit?: Fit;
   /**
-     * Controls if loading the image should be deferred when it's off-screen. \`"lazy"\` defers the load until the image or iframe reaches a distance threshold from the viewport. \`"eager"\` loads the resource immediately. \`"auto"\` uses the default behavior, which is to eagerly load the resource. See the [Lazy example](https://gestalt.pinterest.systems/web/image#Lazy) for more details.
-     */
-  loading?: "eager" | "lazy" | "auto",
+   * Controls if loading the image should be deferred when it's off-screen. \`"lazy"\` defers the load until the image or iframe reaches a distance threshold from the viewport. \`"eager"\` loads the resource immediately. \`"auto"\` uses the default behavior, which is to eagerly load the resource. See the [Lazy example](https://gestalt.pinterest.systems/web/image#Lazy) for more details.
+   */
+  loading?: 'eager' | 'lazy' | 'auto';
   /**
-     * Exact height of source image. See the [Dimensions example](https://gestalt.pinterest.systems/web/image#Dimensions) for more details.
-     */
-  naturalHeight: number,
+   * Exact height of source image. See the [Dimensions example](https://gestalt.pinterest.systems/web/image#Dimensions) for more details.
+   */
+  naturalHeight: number;
   /**
-     * Exact width of source image. See the [Dimensions example](https://gestalt.pinterest.systems/web/image#Dimensions) for more details.
-     */
-  naturalWidth: number,
+   * Exact width of source image. See the [Dimensions example](https://gestalt.pinterest.systems/web/image#Dimensions) for more details.
+   */
+  naturalWidth: number;
   /**
-     * Callback fired when the image loading has an error.
-     */
-  onError?: (
-    arg1: {
-      event: React.SyntheticEvent<HTMLImageElement>
-    },
-  ) => void,
+   * Callback fired when the image loading has an error.
+   */
+  onError?: (arg1: { event: React.SyntheticEvent<HTMLImageElement> }) => void;
   /**
-     * Callback fired when the image successfully loads.
-     */
-  onLoad?: (
-    arg1: {
-      event: React.SyntheticEvent<HTMLImageElement>
-    },
-  ) => void,
+   * Callback fired when the image successfully loads.
+   */
+  onLoad?: (arg1: { event: React.SyntheticEvent<HTMLImageElement> }) => void;
   /**
-     * When Image is used purely as a presentational or decorative addition, the \`role\` should be set to "presentation" for better accessibility. See the [Presentational Images with Role example](https://gestalt.pinterest.systems/web/image#Presentational-Images-with-Role) for more details.
-     */
-  role?: "img" | "presentation",
+   * When Image is used purely as a presentational or decorative addition, the \`role\` should be set to "presentation" for better accessibility. See the [Presentational Images with Role example](https://gestalt.pinterest.systems/web/image#Presentational-Images-with-Role) for more details.
+   */
+  role?: 'img' | 'presentation';
   /**
-     * A comma-separated list of one or more strings indicating a set of source sizes.
-     */
-  sizes?: string,
+   * A comma-separated list of one or more strings indicating a set of source sizes.
+   */
+  sizes?: string;
   /**
-     * The URL for the image.
-     */
-  src: string,
+   * The URL for the image.
+   */
+  src: string;
   /**
-     * A comma-separated list of one or more strings indicating a set of possible image sources for the user agent to use.
-     */
-  srcSet?: string
+   * A comma-separated list of one or more strings indicating a set of possible image sources for the user agent to use.
+   */
+  srcSet?: string;
 };
 
 /**
@@ -97,10 +89,10 @@ type Props = {
  */
 export default class Image extends PureComponent<Props> {
   static defaultProps: {
-    color: string,
-    fetchPriority?: "high" | "low" | "auto",
-    fit?: "contain" | "cover" | "none",
-    loading?: "eager" | "lazy" | "auto"
+    color: string;
+    fetchPriority?: 'high' | 'low' | 'auto';
+    fit?: 'contain' | 'cover' | 'none';
+    loading?: 'eager' | 'lazy' | 'auto';
   } = {
     // eslint-disable-next-line react/default-props-match-prop-types
     color: 'transparent',
@@ -170,10 +162,8 @@ export default class Image extends PureComponent<Props> {
     const fitStyles = fit === 'cover' || fit === 'contain' ? styles.scaledImg : undefined;
     const imageStyles = classnames(styles.img, fitStyles);
     const elementTimingValue: {
-      elementtiming?: string
-    } = elementTiming
-      ? { elementtiming: elementTiming }
-      : {};
+      elementtiming?: string;
+    } = elementTiming ? { elementtiming: elementTiming } : {};
     const styleValue = isScaledImage ? { style: { objectFit: fit } } : {};
     const conditionalProps = {
       ...elementTimingValue,

@@ -6,33 +6,31 @@ import {
 } from 'gestalt-design-tokens';
 
 export type InteractionStates = {
-  disabled: boolean,
-  hovered: boolean,
-  selected: boolean
+  disabled: boolean;
+  hovered: boolean;
+  selected: boolean;
 };
 
 /**
  *
  * Given an interactions state for a checkbox, returns the relevant bg and border color
  * */
-export default function getCheckboxColor(
-  {
-    state,
-    colorStyles,
-    opts,
-  }: {
-    state: InteractionStates,
-    colorStyles: {
-      borderColor?: string,
-      backgroundColor?: string
-    },
-    opts?: {
-      showByDefault?: boolean
-    }
-  },
-): {
-  borderColor?: string,
-  backgroundColor?: string
+export default function getCheckboxColor({
+  state,
+  colorStyles,
+  opts,
+}: {
+  state: InteractionStates;
+  colorStyles: {
+    borderColor?: string;
+    backgroundColor?: string;
+  };
+  opts?: {
+    showByDefault?: boolean;
+  };
+}): {
+  borderColor?: string;
+  backgroundColor?: string;
 } {
   const defaultBackgroundColor = TOKEN_COLOR_TRANSPARENT;
   const defaultBorderColor = TOKEN_COLOR_TRANSPARENT;

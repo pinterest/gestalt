@@ -6,46 +6,42 @@ import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line 
 const compress = (object: {
   files: {
     ['example.js']: {
-      content: string
-    },
+      content: string;
+    };
     ['index.html']: {
-      content: string
-    },
+      content: string;
+    };
     ['index.js']: {
-      content: string
-    },
+      content: string;
+    };
     ['package.json']: {
       content: {
         dependencies: {
-          gestalt: string,
-          ['gestalt-charts']: string,
-          ['gestalt-datepicker']: string,
-          react: string,
-          ['react-dom']: string
-        },
+          gestalt: string;
+          ['gestalt-charts']: string;
+          ['gestalt-datepicker']: string;
+          react: string;
+          ['react-dom']: string;
+        };
         devDependencies: {
-          ['react-scripts']: string
-        },
-        main: string,
+          ['react-scripts']: string;
+        };
+        main: string;
         scripts: {
-          start: string
-        },
-        title: string
-      }
-    }
-  },
-  module: string
+          start: string;
+        };
+        title: string;
+      };
+    };
+  };
+  module: string;
 }) =>
   LZString.compressToBase64(JSON.stringify(object))
     .replace(/\+/g, '-') // Convert '+' to '-'
     .replace(/\//g, '_') // Convert '/' to '_'
     .replace(/=+$/, ''); // Remove ending '='
 
-const exportDefaultMaybe = ({
-  code,
-}: {
-  code: string
-}) =>
+const exportDefaultMaybe = ({ code }: { code: string }) =>
   code.trimStart().startsWith('function') || code.startsWith('class')
     ? `export default ${code}`
     : `const Demo = () => (
@@ -55,13 +51,7 @@ export default Demo;`;
 
 const dedupeArray = <T>(arr: ReadonlyArray<T>): ReadonlyArray<T> => [...new Set(arr)];
 
-const handleCodeSandbox = async ({
-  code,
-  title,
-}: {
-  code: string,
-  title: string
-}) => {
+const handleCodeSandbox = async ({ code, title }: { code: string; title: string }) => {
   const gestaltComponents = Object.keys(gestalt);
   const gestaltChartComponents = Object.keys(gestaltChart);
   const gestaltDatepickerComponents = Object.keys(gestaltDatepicker);

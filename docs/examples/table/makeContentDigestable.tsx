@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Table, Text } from 'gestalt';
 
 function HeaderRow() {
@@ -23,10 +23,10 @@ function BaseRow({
   total,
   lineClamp,
 }: {
-  name: string,
-  subtext: string,
-  total: string,
-  lineClamp?: number
+  name: string;
+  subtext: string;
+  total: string;
+  lineClamp?: number;
 }) {
   return (
     <Table.Row>

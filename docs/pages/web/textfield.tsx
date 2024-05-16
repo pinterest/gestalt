@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -37,13 +37,7 @@ import tagsExample from '../../examples/textfield/tagsExample';
 import textFieldRefAnchorPopover from '../../examples/textfield/textFieldRefAnchorPopover';
 import useHelperTextImportantInformation from '../../examples/textfield/useHelperTextImportantInformation';
 
-export default function DocsPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: DocGen
-  },
-) {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
@@ -505,8 +499,8 @@ The first example shows an empty Textfield with \`maxLength\` set to 20 characte
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   const generatedDocGen = await docGen('TextField');
 

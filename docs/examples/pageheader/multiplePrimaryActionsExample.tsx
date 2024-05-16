@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import {
   Box,
   Button,
@@ -16,7 +16,7 @@ export default function OnePrimaryActionExample() {
   const tableID = 'Audience table';
 
   return (
-    (<Box color="secondary" height="100%" width="100%">
+    <Box color="secondary" height="100%" width="100%">
       <PageHeader
         borderStyle="sm"
         dropdownAccessibilityLabel="More options"
@@ -115,6 +115,6 @@ export default function OnePrimaryActionExample() {
           />
         </Flex>
       </Box>
-    </Box>)
+    </Box>
   );
 }

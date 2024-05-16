@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import Flex from '../Flex';
 import Icon from '../Icon';
 import Text from '../Text';
@@ -9,15 +9,9 @@ const TREND_COLOR_MAP = {
   neutral: 'default',
 } as const;
 
-type Sentiment = "good" | "bad" | "neutral" | "auto";
+type Sentiment = 'good' | 'bad' | 'neutral' | 'auto';
 
-function getValueColor({
-  sentiment,
-  value,
-}: {
-  sentiment: Sentiment,
-  value: number
-}) {
+function getValueColor({ sentiment, value }: { sentiment: Sentiment; value: number }) {
   if (sentiment === 'auto') {
     if (value === 0) {
       return 'default';
@@ -28,20 +22,18 @@ function getValueColor({
 }
 
 type Props = {
-  disabled?: boolean,
-  iconAccessibilityLabel: string,
-  sentiment?: Sentiment,
-  value: number
+  disabled?: boolean;
+  iconAccessibilityLabel: string;
+  sentiment?: Sentiment;
+  value: number;
 };
 
-export default function Trend(
-  {
-    disabled = false,
-    iconAccessibilityLabel,
-    sentiment = 'auto',
-    value,
-  }: Props,
-) {
+export default function Trend({
+  disabled = false,
+  iconAccessibilityLabel,
+  sentiment = 'auto',
+  value,
+}: Props) {
   const color = disabled ? 'subtle' : getValueColor({ sentiment, value });
 
   return (

@@ -1,15 +1,15 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import InternalLabel from './Label/InternalLabel';
 
 type Props = {
- /**
-    * The content of the label, typically [Text](https://gestalt.pinterest.systems/web/text) or similar.
-    */
- children?: ReactNode,
- /**
-    * Unique id of the element this label is describing.
-    */
- htmlFor: string
+  /**
+   * The content of the label, typically [Text](https://gestalt.pinterest.systems/web/text) or similar.
+   */
+  children?: ReactNode;
+  /**
+   * Unique id of the element this label is describing.
+   */
+  htmlFor: string;
 };
 
 /**
@@ -19,12 +19,7 @@ type Props = {
  * ![Label dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Label-dark.spec.mjs-snapshots/Label-dark-chromium-darwin.png)
  *
  */
-export default function Label(
- {
-  children,
-  htmlFor,
- }: Props,
-) {
+export default function Label({ children, htmlFor }: Props) {
   return <InternalLabel htmlFor={htmlFor}>{children}</InternalLabel>;
 }
 

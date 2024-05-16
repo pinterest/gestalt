@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { ExperimentProvider } from 'gestalt';
 import { useAppContext } from '../appContext';
 
@@ -15,15 +15,18 @@ const enabledExperiments = {
 } as const;
 
 type Experiment = {
-  anyEnabled: boolean,
-  group: string
+  anyEnabled: boolean;
+  group: string;
 };
 
 function buildExperimentsObj(experiments: ReadonlyArray<string>) {
-  return experiments.reduce<Record<string, any>>((acc: Record<string, Experiment>, cur: string) => ({
-    ...acc,
-    [cur]: { anyEnabled: true, group: 'enabled' },
-  }), {});
+  return experiments.reduce<Record<string, any>>(
+    (acc: Record<string, Experiment>, cur: string) => ({
+      ...acc,
+      [cur]: { anyEnabled: true, group: 'enabled' },
+    }),
+    {},
+  );
 }
 
 export function useDocsExperiments(): Record<string, Experiment> {
@@ -33,14 +36,10 @@ export function useDocsExperiments(): Record<string, Experiment> {
 }
 
 type Props = {
-  children: ReactNode
+  children: ReactNode;
 };
 
-export default function DocsExperimentProvider(
-  {
-    children,
-  }: Props,
-) {
+export default function DocsExperimentProvider({ children }: Props) {
   const experiments = useDocsExperiments();
   return <ExperimentProvider value={experiments}>{children}</ExperimentProvider>;
 }

@@ -1,12 +1,12 @@
-import {Context, createContext, ReactElement, ReactNode, useContext} from 'react';
+import { Context, createContext, ReactElement, ReactNode, useContext } from 'react';
 
 type TableContextType = {
-  stickyColumns: number | null | undefined
+  stickyColumns: number | null | undefined;
 };
 
 type Props = {
-  children: ReactNode,
-  stickyColumns: number | null | undefined
+  children: ReactNode;
+  stickyColumns: number | null | undefined;
 };
 
 const TableContext: Context<TableContextType> = createContext<TableContextType>({
@@ -15,12 +15,7 @@ const TableContext: Context<TableContextType> = createContext<TableContextType>(
 
 const { Provider } = TableContext;
 
-function TableContextProvider(
-  {
-    children,
-    stickyColumns,
-  }: Props,
-): Element<typeof Provider> {
+function TableContextProvider({ children, stickyColumns }: Props): Element<typeof Provider> {
   return <Provider value={{ stickyColumns }}>{children}</Provider>;
 }
 

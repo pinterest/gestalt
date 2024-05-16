@@ -1,4 +1,4 @@
-import {createRef} from 'react';
+import { createRef } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import TextField from './TextField';
@@ -15,11 +15,11 @@ const renderTextField = ({
   onBlur = jest.fn(),
   maxLength,
 }: {
-  id?: ComponentProps<typeof TextField>["id"],
-  onChange?: ComponentProps<typeof TextField>["onChange"],
-  onFocus?: ComponentProps<typeof TextField>["onFocus"],
-  onBlur?: ComponentProps<typeof TextField>["onBlur"],
-  maxLength?: ComponentProps<typeof TextField>["maxLength"]
+  id?: ComponentProps<typeof TextField>['id'];
+  onChange?: ComponentProps<typeof TextField>['onChange'];
+  onFocus?: ComponentProps<typeof TextField>['onFocus'];
+  onBlur?: ComponentProps<typeof TextField>['onBlur'];
+  maxLength?: ComponentProps<typeof TextField>['maxLength'];
 }) =>
   render(
     <TextField
@@ -127,10 +127,15 @@ describe('TextField', () => {
   });
 
   it('handles blur events', () => {
-    const mockBlur = jest.fn<[{
-      event: React.FocusEvent<HTMLInputElement>,
-      value: string
-    }], undefined>();
+    const mockBlur = jest.fn<
+      [
+        {
+          event: React.FocusEvent<HTMLInputElement>;
+          value: string;
+        },
+      ],
+      undefined
+    >();
     render(<TextField id="test" onBlur={mockBlur} onChange={jest.fn()} value="TextField Text" />);
 
     fireEvent.blur(screen.getByDisplayValue('TextField Text'));
@@ -138,10 +143,15 @@ describe('TextField', () => {
   });
 
   it('handles change events', () => {
-    const mockChange = jest.fn<[{
-      event: React.ChangeEvent<HTMLInputElement>,
-      value: string
-    }], undefined>();
+    const mockChange = jest.fn<
+      [
+        {
+          event: React.ChangeEvent<HTMLInputElement>;
+          value: string;
+        },
+      ],
+      undefined
+    >();
     const { container } = render(
       <TextField id="test" onChange={mockChange} value="TextField Text" />,
     );
@@ -159,10 +169,15 @@ describe('TextField', () => {
   });
 
   it('handles focus events', () => {
-    const mockFocus = jest.fn<[{
-      event: React.FocusEvent<HTMLInputElement>,
-      value: string
-    }], undefined>();
+    const mockFocus = jest.fn<
+      [
+        {
+          event: React.FocusEvent<HTMLInputElement>;
+          value: string;
+        },
+      ],
+      undefined
+    >();
     render(<TextField id="test" onChange={jest.fn()} onFocus={mockFocus} value="TextField Text" />);
 
     fireEvent.focus(screen.getByDisplayValue('TextField Text'));
@@ -170,10 +185,15 @@ describe('TextField', () => {
   });
 
   it('handles key down events', () => {
-    const mockKeyDown = jest.fn<[{
-      event: React.KeyboardEvent<HTMLInputElement>,
-      value: string
-    }], undefined>();
+    const mockKeyDown = jest.fn<
+      [
+        {
+          event: React.KeyboardEvent<HTMLInputElement>;
+          value: string;
+        },
+      ],
+      undefined
+    >();
     const { container } = render(
       <TextField id="test" onChange={() => {}} onKeyDown={mockKeyDown} value="TextField Text" />,
     );

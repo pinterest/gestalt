@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import React, { ReactNode } from 'react';
 import { BannerSlim, Box } from 'gestalt';
 
 export default function ResponsiveExample() {

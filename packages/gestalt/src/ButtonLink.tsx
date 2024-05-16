@@ -1,4 +1,4 @@
-import {forwardRef, ReactNode, useImperativeHandle, useRef} from 'react';
+import { forwardRef, ReactNode, useImperativeHandle, useRef } from 'react';
 import getAriaLabel from './accessibility/getAriaLabel';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
@@ -27,66 +27,71 @@ const SIZE_NAME_TO_PIXEL = {
 
 type ButtonProps = {
   /**
-     * Label to provide more context around ButtonLink’s function or purpose. See the [Accessibility guidelines](/foundations/accessibility) to learn more.,
-     */
-  accessibilityLabel?: string,
+   * Label to provide more context around ButtonLink’s function or purpose. See the [Accessibility guidelines](/foundations/accessibility) to learn more.,
+   */
+  accessibilityLabel?: string;
   /**
-     * The background color of ButtonLink.
-     */
-  color?: "gray" | "red" | "blue" | "transparent" | "semiTransparentWhite" | "transparentWhiteText" | "white",
+   * The background color of ButtonLink.
+   */
+  color?:
+    | 'gray'
+    | 'red'
+    | 'blue'
+    | 'transparent'
+    | 'semiTransparentWhite'
+    | 'transparentWhiteText'
+    | 'white';
   /**
-     * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
-     */
-  dataTestId?: string,
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
   /**
-     * Indicates if ButtonLink is disabled. Disabled Buttons are inactive and cannot be interacted with.
-     */
-  disabled?: boolean,
+   * Indicates if ButtonLink is disabled. Disabled Buttons are inactive and cannot be interacted with.
+   */
+  disabled?: boolean;
   /**
-     * An icon displayed after the text to help clarify the usage of ButtonLink. See the [icon variant](#Icons) to learn more.
-     */
-  iconEnd?: keyof typeof icons,
+   * An icon displayed after the text to help clarify the usage of ButtonLink. See the [icon variant](#Icons) to learn more.
+   */
+  iconEnd?: keyof typeof icons;
   /**
-     * Default Buttons are sized by the text within the ButtonLink whereas full-width Buttons expand to the full width of their container.
-     */
-  fullWidth?: boolean,
+   * Default Buttons are sized by the text within the ButtonLink whereas full-width Buttons expand to the full width of their container.
+   */
+  fullWidth?: boolean;
   /**
-     * Use "-1" to remove ButtonLink from keyboard navigation. See the [Accessibility guidelines](/foundations/accessibility) to learn more.
-     */
-  tabIndex?: -1 | 0,
+   * Use "-1" to remove ButtonLink from keyboard navigation. See the [Accessibility guidelines](/foundations/accessibility) to learn more.
+   */
+  tabIndex?: -1 | 0;
   /**
      * Callback invoked when the user clicks (press and release) on ButtonLink with the mouse or keyboard.
        See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
      */
-  onClick?: (
-    arg1: {
-      event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-      dangerouslyDisableOnNavigation: () => void
-    },
-  ) => void,
+  onClick?: (arg1: {
+    event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+    dangerouslyDisableOnNavigation: () => void;
+  }) => void;
   /**
-     * sm: 32px, md: 40px, lg: 48px
-     */
-  size?: "sm" | "md" | "lg",
+   * sm: 32px, md: 40px, lg: 48px
+   */
+  size?: 'sm' | 'md' | 'lg';
   /**
-     * Text to render inside the ButtonLink to convey the function and purpose of the ButtonLink.
-     */
-  text: string,
+   * Text to render inside the ButtonLink to convey the function and purpose of the ButtonLink.
+   */
+  text: string;
   /**
-     * Specifies a link URL.
-     */
-  href: string,
+   * Specifies a link URL.
+   */
+  href: string;
   /**
-     * Provides hints for SEO. See the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#rel) to learn more.
-     */
-  rel?: "none" | "nofollow",
+   * Provides hints for SEO. See the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#rel) to learn more.
+   */
+  rel?: 'none' | 'nofollow';
   /**
      * Indicates the browsing context where an href will be opened:
   - 'null' opens the anchor in the same window.
   - 'blank' opens the anchor in a new window.
   - 'self' opens an anchor in the same frame.
      */
-  target?: null | "self" | "blank"
+  target?: null | 'self' | 'blank';
 };
 
 /**
@@ -141,8 +146,8 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
     event,
     dangerouslyDisableOnNavigation,
   }: {
-    dangerouslyDisableOnNavigation: () => void,
-    event: React.KeyboardEvent<HTMLAnchorElement> | React.MouseEvent<HTMLAnchorElement>
+    dangerouslyDisableOnNavigation: () => void;
+    event: React.KeyboardEvent<HTMLAnchorElement> | React.MouseEvent<HTMLAnchorElement>;
   }) =>
     onClick
       ? onClick({

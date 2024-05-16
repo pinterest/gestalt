@@ -1,4 +1,4 @@
-import {create} from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 import Collection from './Collection';
 
 test('Collection with default viewport', () => {
@@ -8,9 +8,7 @@ test('Collection with default viewport', () => {
         { top: 0, left: 0, width: 100, height: 100 },
         { top: 100, left: 100, width: 100, height: 100 },
       ]}
-      renderItem={({
-        idx,
-      }: any) => <div>{idx}</div>}
+      renderItem={({ idx }: any) => <div>{idx}</div>}
     />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
@@ -23,9 +21,7 @@ test('Collection with limited viewport', () => {
         { top: 0, left: 0, width: 100, height: 100 },
         { top: 100, left: 100, width: 100, height: 100 },
       ]}
-      renderItem={({
-        idx,
-      }: any) => <div>{idx}</div>}
+      renderItem={({ idx }: any) => <div>{idx}</div>}
       viewportHeight={50}
       viewportLeft={100}
       viewportTop={100}
@@ -44,9 +40,7 @@ test('Collection with limited viewport and a few items', () => {
         { top: 100, left: 0, width: 100, height: 100 },
         { top: 100, left: 100, width: 100, height: 100 },
       ]}
-      renderItem={({
-        idx,
-      }: any) => <div>{idx}</div>}
+      renderItem={({ idx }: any) => <div>{idx}</div>}
       viewportHeight={100}
       viewportLeft={50}
       viewportTop={50}

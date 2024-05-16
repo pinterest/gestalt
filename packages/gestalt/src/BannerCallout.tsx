@@ -1,4 +1,4 @@
-import {Children, ReactElement, ReactNode} from 'react';
+import { Children, ReactElement, ReactNode } from 'react';
 import classnames from 'classnames';
 import styles from './BannerCallout.css';
 import Box from './Box';
@@ -11,105 +11,109 @@ import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES';
 import Text from './Text';
 import useResponsiveMinWidth from './useResponsiveMinWidth';
 
-export type ActionDataType = {
-  accessibilityLabel: string,
-  disabled?: boolean,
-  href: string,
-  label: string,
-  onClick?: ComponentProps<typeof ButtonLink>["onClick"],
-  rel?: "none" | "nofollow",
-  role: "link",
-  target?: null | "self" | "blank"
-} | {
-  accessibilityLabel: string,
-  disabled?: boolean,
-  label: string,
-  onClick?: ComponentProps<typeof Button>["onClick"],
-  role?: "button"
-};
+export type ActionDataType =
+  | {
+      accessibilityLabel: string;
+      disabled?: boolean;
+      href: string;
+      label: string;
+      onClick?: ComponentProps<typeof ButtonLink>['onClick'];
+      rel?: 'none' | 'nofollow';
+      role: 'link';
+      target?: null | 'self' | 'blank';
+    }
+  | {
+      accessibilityLabel: string;
+      disabled?: boolean;
+      label: string;
+      onClick?: ComponentProps<typeof Button>['onClick'];
+      role?: 'button';
+    };
 
 type Props = {
   /**
-     * Adds a dismiss button to BannerCallout. See the [Dismissible variant](https://gestalt.pinterest.systems/web/bannercallout#Dismissible) for more info.
-     * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannercallout#Accessibility).
-     */
+   * Adds a dismiss button to BannerCallout. See the [Dismissible variant](https://gestalt.pinterest.systems/web/bannercallout#Dismissible) for more info.
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannercallout#Accessibility).
+   */
   dismissButton?: {
-    accessibilityLabel?: string,
-    onDismiss: () => void
-  },
+    accessibilityLabel?: string;
+    onDismiss: () => void;
+  };
   /**
-     * Label to describe the icon’s purpose. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannercallout#Accessibility) for details on proper usage.
-     */
-  iconAccessibilityLabel?: string,
+   * Label to describe the icon’s purpose. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannercallout#Accessibility) for details on proper usage.
+   */
+  iconAccessibilityLabel?: string;
   /**
-     * Main content of BannerCallout. Content should be [localized](https://gestalt.pinterest.systems/web/bannercallout#Localization).
-     *
-     * See the [message variant](https://gestalt.pinterest.systems/web/bannercallout#Message) to learn more. Refer to the [Best Practices](https://gestalt.pinterest.systems/web/bannercallout#Best-practices) for content guidelines.
-     */
-  message: string | Element<typeof Text>,
+   * Main content of BannerCallout. Content should be [localized](https://gestalt.pinterest.systems/web/bannercallout#Localization).
+   *
+   * See the [message variant](https://gestalt.pinterest.systems/web/bannercallout#Message) to learn more. Refer to the [Best Practices](https://gestalt.pinterest.systems/web/bannercallout#Best-practices) for content guidelines.
+   */
+  message: string | Element<typeof Text>;
   /**
-     * Main action for users to take on BannerCallout. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
-     * If no `href` is supplied, the action will be a button.
-     * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannercallout#Accessibility).
-     */
-  primaryAction?: {
-    role: "link",
-    accessibilityLabel: string,
-    disabled?: boolean,
-    href: string,
-    label: string,
-    onClick?: ComponentProps<typeof ButtonLink>["onClick"],
-    rel?: "none" | "nofollow",
-    target?: null | "self" | "blank"
-  } | {
-    role?: "button",
-    accessibilityLabel: string,
-    disabled?: boolean,
-    label: string,
-    onClick?: ComponentProps<typeof Button>["onClick"]
-  },
+   * Main action for users to take on BannerCallout. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
+   * If no `href` is supplied, the action will be a button.
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannercallout#Accessibility).
+   */
+  primaryAction?:
+    | {
+        role: 'link';
+        accessibilityLabel: string;
+        disabled?: boolean;
+        href: string;
+        label: string;
+        onClick?: ComponentProps<typeof ButtonLink>['onClick'];
+        rel?: 'none' | 'nofollow';
+        target?: null | 'self' | 'blank';
+      }
+    | {
+        role?: 'button';
+        accessibilityLabel: string;
+        disabled?: boolean;
+        label: string;
+        onClick?: ComponentProps<typeof Button>['onClick'];
+      };
   /**
-     * Secondary action for users to take on BannerCallout. If role='link', the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
-     * If role='button' (or undefined), the action will be a button.
-     * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannercallout#Accessibility).
-     */
-  secondaryAction?: {
-    role: "link",
-    accessibilityLabel: string,
-    disabled?: boolean,
-    href: string,
-    label: string,
-    onClick?: ComponentProps<typeof ButtonLink>["onClick"],
-    rel?: "none" | "nofollow",
-    target?: null | "self" | "blank"
-  } | {
-    role?: "button",
-    accessibilityLabel: string,
-    disabled?: boolean,
-    label: string,
-    onClick?: ComponentProps<typeof Button>["onClick"]
-  },
+   * Secondary action for users to take on BannerCallout. If role='link', the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
+   * If role='button' (or undefined), the action will be a button.
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannercallout#Accessibility).
+   */
+  secondaryAction?:
+    | {
+        role: 'link';
+        accessibilityLabel: string;
+        disabled?: boolean;
+        href: string;
+        label: string;
+        onClick?: ComponentProps<typeof ButtonLink>['onClick'];
+        rel?: 'none' | 'nofollow';
+        target?: null | 'self' | 'blank';
+      }
+    | {
+        role?: 'button';
+        accessibilityLabel: string;
+        disabled?: boolean;
+        label: string;
+        onClick?: ComponentProps<typeof Button>['onClick'];
+      };
   /**
-     * The category of BannerCallout. See [Variants](https://gestalt.pinterest.systems/web/bannercallout#Variants) to learn more.
-     */
-  type: "error" | "info" | "recommendation" | "success" | "warning",
+   * The category of BannerCallout. See [Variants](https://gestalt.pinterest.systems/web/bannercallout#Variants) to learn more.
+   */
+  type: 'error' | 'info' | 'recommendation' | 'success' | 'warning';
   /**
-     * Brief title summarizing BannerCallout. Content should be [localized](https://gestalt.pinterest.systems/web/bannercallout#Localization).
-     */
-  title?: string
+   * Brief title summarizing BannerCallout. Content should be [localized](https://gestalt.pinterest.systems/web/bannercallout#Localization).
+   */
+  title?: string;
 };
 
-function BannerCalloutAction(
-  {
-    data,
-    stacked,
-    type,
-  }: {
-    data: ActionDataType,
-    stacked?: boolean,
-    type: string
-  },
-) {
+function BannerCalloutAction({
+  data,
+  stacked,
+  type,
+}: {
+  data: ActionDataType;
+  stacked?: boolean;
+  type: string;
+}) {
   const color = type === 'primary' ? 'white' : 'transparent';
 
   const { accessibilityLabel, disabled, label } = data;
@@ -160,17 +164,15 @@ function BannerCalloutAction(
  * ![BannerCallout dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/BannerCallout-dark.spec.mjs-snapshots/BannerCallout-dark-chromium-darwin.png)
  *
  */
-export default function BannerCallout(
-  {
-    dismissButton,
-    iconAccessibilityLabel,
-    message,
-    primaryAction,
-    secondaryAction,
-    type,
-    title,
-  }: Props,
-) {
+export default function BannerCallout({
+  dismissButton,
+  iconAccessibilityLabel,
+  message,
+  primaryAction,
+  secondaryAction,
+  type,
+  title,
+}: Props) {
   const responsiveMinWidth = useResponsiveMinWidth();
   const {
     accessibilityDismissButtonLabel,
@@ -199,7 +201,7 @@ export default function BannerCallout(
   };
 
   return (
-    (<Box
+    <Box
       color={MESSAGING_TYPE_ATTRIBUTES[type].backgroundColor}
       direction="column"
       display="flex"
@@ -286,7 +288,7 @@ export default function BannerCallout(
           />
         </div>
       )}
-    </Box>)
+    </Box>
   );
 }
 

@@ -1,4 +1,4 @@
-import {ReactElement, ReactNode} from 'react';
+import { ReactElement, ReactNode } from 'react';
 import classnames from 'classnames';
 import {
   TOKEN_FONT_SIZE_100,
@@ -17,13 +17,13 @@ import Text from './Text';
 
 type Props = {
   /**
-     * Use List.Item to build nested lists. Use List to combine different types nested lists. See [subcomponents](https://gestalt.pinterest.systems/web/list#Subcomponents).
-     */
-  children?: ReactNode,
+   * Use List.Item to build nested lists. Use List to combine different types nested lists. See [subcomponents](https://gestalt.pinterest.systems/web/list#Subcomponents).
+   */
+  children?: ReactNode;
   /**
-     * The content of the list item. See the [text variant](https://gestalt.pinterest.systems/web/list#Text-and-label) for guidance.
-     */
-  text: string | Element<typeof Text>
+   * The content of the list item. See the [text variant](https://gestalt.pinterest.systems/web/list#Text-and-label) for guidance.
+   */
+  text: string | Element<typeof Text>;
 };
 
 /**
@@ -32,12 +32,7 @@ type Props = {
  * Lists that don't require a alternating between "ordered", "unordered" or "base" can just nest List.Item into each other to build nested lists. If type alternation is required, use [List](https://gestalt.pinterest.systems/web/list#List)
  *
  */
-function ListItem(
-  {
-    text,
-    children,
-  }: Props,
-) {
+function ListItem({ text, children }: Props) {
   const {
     type: inheritedType,
     spacing: inheritedSpacing,
@@ -46,7 +41,7 @@ function ListItem(
   } = useList();
 
   const sizeMap: {
-    [key: string]: string
+    [key: string]: string;
   } = {
     '100': TOKEN_FONT_SIZE_100,
     '200': TOKEN_FONT_SIZE_200,

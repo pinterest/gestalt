@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { BannerSlim, Icon } from 'gestalt';
 import docGen, { DocGen, DocType, overrideTypes } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -12,11 +12,7 @@ import SandpackExample from '../../docs-components/SandpackExample';
 import localizationLabels from '../../examples/iconbuttonlink/localizationLabels';
 import main from '../../examples/iconbuttonlink/main';
 
-export default function DocsPage(
-  {
-    generatedDocGen,
-  }: DocType,
-) {
+export default function DocsPage({ generatedDocGen }: DocType) {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -94,8 +90,8 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Lin
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   const generatedDocGen = await docGen('IconButtonLink');
   const overriddenDocGen = overrideTypes(generatedDocGen, {

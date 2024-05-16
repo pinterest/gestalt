@@ -1,4 +1,4 @@
-import {Children, ReactElement, ComponentProps, isValidElement, ReactNode} from 'react';
+import { Children, ReactElement, ComponentProps, isValidElement, ReactNode } from 'react';
 import Avatar from './Avatar';
 import Box from './Box';
 import Button from './Button';
@@ -41,73 +41,76 @@ const COLORS_BY_TYPE = Object.freeze({
 
 type Props = {
   /**
-     * Allows to insert a custom button for user interaction. Do not use except for allowed cases where primaryAction doesn't support functionality required in it.
-     */
-  _dangerouslySetPrimaryAction?: ReactNode,
+   * Allows to insert a custom button for user interaction. Do not use except for allowed cases where primaryAction doesn't support functionality required in it.
+   */
+  _dangerouslySetPrimaryAction?: ReactNode;
   /**
-     * Allows to insert a custom thumbnail. Do not use except for allowed cases where thumbnail doesn't support functionality required in it or legacy code.
-     */
-  _dangerouslySetThumbnail?: ReactNode,
+   * Allows to insert a custom thumbnail. Do not use except for allowed cases where thumbnail doesn't support functionality required in it or legacy code.
+   */
+  _dangerouslySetThumbnail?: ReactNode;
   /**
-     * Adds a dismiss button to Toast. See the [Dismissible variant](https://gestalt.pinterest.systems/web/toast#Dismissible) for more info.
-     * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/toast#Accessibility).
-     *
-     */
+   * Adds a dismiss button to Toast. See the [Dismissible variant](https://gestalt.pinterest.systems/web/toast#Dismissible) for more info.
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/toast#Accessibility).
+   *
+   */
   dismissButton?: {
-    accessibilityLabel?: string,
-    onDismiss: () => void
-  },
+    accessibilityLabel?: string;
+    onDismiss: () => void;
+  };
   /**
-     * Helper [Link](https://gestalt.pinterest.systems/web/link) to be placed after the subtext. See the [helper link variant](https://gestalt.pinterest.systems/web/toast#helperLink) to learn more.
-     */
+   * Helper [Link](https://gestalt.pinterest.systems/web/link) to be placed after the subtext. See the [helper link variant](https://gestalt.pinterest.systems/web/toast#helperLink) to learn more.
+   */
   helperLink?: {
-    text: string,
-    accessibilityLabel: string,
-    href: string,
-    onClick?: (
-      arg1: {
-        event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-        dangerouslyDisableOnNavigation: () => void
-      },
-    ) => void
-  },
+    text: string;
+    accessibilityLabel: string;
+    href: string;
+    onClick?: (arg1: {
+      event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+      dangerouslyDisableOnNavigation: () => void;
+    }) => void;
+  };
   /**
-     * Adds an optional button for user interaction. Generally not recommended given the ephemeral nature of Toasts.
-     */
-  primaryAction?: {
-    accessibilityLabel: string,
-    href: string,
-    label: string,
-    onClick?: ComponentProps<typeof ButtonLink>["onClick"],
-    rel?: ComponentProps<typeof Link>["rel"],
-    role: "link",
-    size?: ComponentProps<typeof Button>["size"],
-    target?: ComponentProps<typeof Link>["target"]
-  } | {
-    accessibilityLabel: string,
-    label: string,
-    onClick: ComponentProps<typeof Button>["onClick"],
-    role?: "button",
-    size?: ComponentProps<typeof Button>["size"]
-  },
+   * Adds an optional button for user interaction. Generally not recommended given the ephemeral nature of Toasts.
+   */
+  primaryAction?:
+    | {
+        accessibilityLabel: string;
+        href: string;
+        label: string;
+        onClick?: ComponentProps<typeof ButtonLink>['onClick'];
+        rel?: ComponentProps<typeof Link>['rel'];
+        role: 'link';
+        size?: ComponentProps<typeof Button>['size'];
+        target?: ComponentProps<typeof Link>['target'];
+      }
+    | {
+        accessibilityLabel: string;
+        label: string;
+        onClick: ComponentProps<typeof Button>['onClick'];
+        role?: 'button';
+        size?: ComponentProps<typeof Button>['size'];
+      };
   /**
-     * Main content of Toast. Content should be [localized](https://gestalt.pinterest.systems/web/toast#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/toast#Text) to learn more.
-     */
-  text: string | Element<typeof Text>,
+   * Main content of Toast. Content should be [localized](https://gestalt.pinterest.systems/web/toast#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/toast#Text) to learn more.
+   */
+  text: string | Element<typeof Text>;
   /**
-     * An optional thumbnail to display next to the text.
-     */
-  thumbnail?: {
-    image: Element<typeof Image>
-  } | {
-    avatar: Element<typeof Avatar>
-  } | {
-    icon: Element<typeof Icon>
-  },
+   * An optional thumbnail to display next to the text.
+   */
+  thumbnail?:
+    | {
+        image: Element<typeof Image>;
+      }
+    | {
+        avatar: Element<typeof Avatar>;
+      }
+    | {
+        icon: Element<typeof Icon>;
+      };
   /**
-     * See the [type variant](https://gestalt.pinterest.systems/web/toast#Type) to learn more.
-     */
-  type?: "default" | "success" | "error" | "progress"
+   * See the [type variant](https://gestalt.pinterest.systems/web/toast#Type) to learn more.
+   */
+  type?: 'default' | 'success' | 'error' | 'progress';
 };
 
 /**
@@ -117,25 +120,23 @@ type Props = {
  *
  * ![Toast light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Toast.spec.mjs-snapshots/Toast-chromium-darwin.png)
  */
-export default function Toast(
-  {
-    _dangerouslySetPrimaryAction,
-    _dangerouslySetThumbnail,
-    dismissButton,
-    helperLink,
-    primaryAction,
-    text,
-    thumbnail,
-    type = 'default',
-  }: Props,
-) {
+export default function Toast({
+  _dangerouslySetPrimaryAction,
+  _dangerouslySetThumbnail,
+  dismissButton,
+  helperLink,
+  primaryAction,
+  text,
+  thumbnail,
+  type = 'default',
+}: Props) {
   const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
   const responsiveMinWidth = useResponsiveMinWidth();
   const isMobileWidth = responsiveMinWidth === 'xs';
 
-  let textElement: Element<"span"> | string;
+  let textElement: Element<'span'> | string;
 
   if (typeof text === 'string') {
     textElement = text;
@@ -168,7 +169,7 @@ export default function Toast(
   const isNotDefaultToast = ['success', 'error', 'progress'].includes(type);
 
   return (
-    (<div className={styles.toast} role="status">
+    <div className={styles.toast} role="status">
       <Box color={containerColor} paddingX={4} paddingY={3} rounding={4} width="100%">
         <Flex alignItems="center" gap={4}>
           {isDefaultToast && _dangerouslySetThumbnail ? (
@@ -220,7 +221,7 @@ export default function Toast(
 
           {primaryAction || _dangerouslySetPrimaryAction ? (
             // Allow button text to wrap on mobile
-            (<Flex.Item flex={isMobileWidth ? 'shrink' : 'none'}>
+            <Flex.Item flex={isMobileWidth ? 'shrink' : 'none'}>
               {isValidElement(_dangerouslySetPrimaryAction) ? _dangerouslySetPrimaryAction : null}
               {!_dangerouslySetPrimaryAction &&
               primaryAction?.accessibilityLabel &&
@@ -247,7 +248,7 @@ export default function Toast(
                     />
                   ))
                 : null}
-            </Flex.Item>)
+            </Flex.Item>
           ) : null}
 
           {dismissButton ? (
@@ -264,7 +265,7 @@ export default function Toast(
           ) : null}
         </Flex>
       </Box>
-    </div>)
+    </div>
   );
 }
 

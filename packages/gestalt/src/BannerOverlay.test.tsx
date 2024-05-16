@@ -1,4 +1,4 @@
-import {create} from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 import BannerOverlay from './BannerOverlay';
 import Image from './Image';
 import Link from './Link';

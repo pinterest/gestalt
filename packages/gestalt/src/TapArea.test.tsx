@@ -1,4 +1,4 @@
-import {create} from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 import TapArea from './TapArea';
 
 test('TapArea renders', () => {
@@ -58,9 +58,8 @@ test('accessibilityControls', () => {
     </TapArea>,
   ).root;
   expect(
-    instance.find((element: any) => element.type === 'div' && element.props.role === 'button').props[
-      'aria-controls'
-    ],
+    instance.find((element: any) => element.type === 'div' && element.props.role === 'button')
+      .props['aria-controls'],
   ).toContain('another-element');
 });
 
@@ -71,9 +70,8 @@ test('accessibilityExpanded', () => {
     </TapArea>,
   ).root;
   expect(
-    instance.find((element: any) => element.type === 'div' && element.props.role === 'button').props[
-      'aria-expanded'
-    ],
+    instance.find((element: any) => element.type === 'div' && element.props.role === 'button')
+      .props['aria-expanded'],
   ).toBe(true);
 });
 
@@ -84,9 +82,8 @@ test('accessibilityHaspopup', () => {
     </TapArea>,
   ).root;
   expect(
-    instance.find((element: any) => element.type === 'div' && element.props.role === 'button').props[
-      'aria-haspopup'
-    ],
+    instance.find((element: any) => element.type === 'div' && element.props.role === 'button')
+      .props['aria-haspopup'],
   ).toBe(true);
 });
 
@@ -97,8 +94,7 @@ test('accessibilityLabel', () => {
     </TapArea>,
   ).root;
   expect(
-    instance.find((element: any) => element.type === 'div' && element.props.role === 'button').props[
-      'aria-label'
-    ],
+    instance.find((element: any) => element.type === 'div' && element.props.role === 'button')
+      .props['aria-label'],
   ).toContain('hello');
 });

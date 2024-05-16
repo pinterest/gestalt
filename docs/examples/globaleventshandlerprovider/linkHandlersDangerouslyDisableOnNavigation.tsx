@@ -1,4 +1,4 @@
-import {ReactNode, useCallback, useMemo, useRef, useState} from 'react';
+import { ReactNode, useCallback, useMemo, useRef, useState } from 'react';
 import { Button, Dropdown, Flex, GlobalEventsHandlerProvider, Link, Text } from 'gestalt';
 
 export default function Example() {
@@ -15,14 +15,10 @@ export default function Example() {
     ({
       href,
     }: {
-      href: ComponentProps<typeof Link>["href"],
-      target?: ComponentProps<typeof Link>["target"]
+      href: ComponentProps<typeof Link>['href'];
+      target?: ComponentProps<typeof Link>['target'];
     }) => {
-      const onNavigationClick = ({
-        event,
-      }: {
-        readonly event: React.SyntheticEvent
-      }) => {
+      const onNavigationClick = ({ event }: { readonly event: React.SyntheticEvent }) => {
         event.preventDefault();
         // eslint-disable-next-line no-alert
         alert(`Disabled link: ${href}. Opening help.pinterest.com instead.`);

@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import React, { ReactNode } from 'react';
 import { Box, Flex, Heading, SideNavigation } from 'gestalt';
 
 export default function Example() {

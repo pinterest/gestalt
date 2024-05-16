@@ -1,4 +1,4 @@
-import {Fragment, ReactNode, useEffect, useState} from 'react';
+import { Fragment, ReactNode, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Box, DeviceTypeProvider, Divider, FixedZIndex, Flex } from 'gestalt';
 import {
@@ -24,16 +24,11 @@ const fullBleedNoNavigationPages = [
 ];
 
 type Props = {
-  children?: ReactNode,
-  colorScheme?: "light" | "dark"
+  children?: ReactNode;
+  colorScheme?: 'light' | 'dark';
 };
 
-export default function AppLayout(
-  {
-    children,
-    colorScheme,
-  }: Props,
-) {
+export default function AppLayout({ children, colorScheme }: Props) {
   const { isMobile } = useDocsConfig();
   const { isSidebarOpen, setIsSidebarOpen } = useNavigationContext();
   const router = useRouter();

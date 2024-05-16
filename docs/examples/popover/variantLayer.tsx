@@ -1,4 +1,4 @@
-import {Fragment, ReactNode, useEffect, useRef, useState} from 'react';
+import { Fragment, ReactNode, useEffect, useRef, useState } from 'react';
 import {
   Box,
   Button,
@@ -56,8 +56,8 @@ function List({
   handleImageTap,
   title,
 }: {
-  handleImageTap: (imageTitle: string) => void,
-  title: string
+  handleImageTap: (imageTitle: string) => void;
+  title: string;
 }) {
   return (
     <Flex direction="column" gap={{ column: 4, row: 0 }}>

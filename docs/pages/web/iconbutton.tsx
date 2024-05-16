@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { IconButton } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
@@ -25,13 +25,7 @@ import selectedState from '../../examples/iconbutton/selectedState';
 import tooltip from '../../examples/iconbutton/tooltip';
 import tooltipVariant from '../../examples/iconbutton/tooltipVariant';
 
-export default function DocsPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: DocGen
-  },
-) {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -338,8 +332,8 @@ It's most common to anchor Dropdown to [Button](/web/button) or IconButton.
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   return {
     props: { generatedDocGen: await docGen('IconButton') },

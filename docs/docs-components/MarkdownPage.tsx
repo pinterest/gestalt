@@ -17,19 +17,19 @@ import Page from './Page';
 import PageHeader from './PageHeader';
 
 type Props = {
-  children: ReactNode,
+  children: ReactNode;
   meta: {
-    title: string,
-    badge: "pilot" | "deprecated",
-    fullwidth?: boolean,
-    description: string,
-    component: boolean
-  },
-  pageSourceUrl?: string,
-  platform: "android" | "ios" | "web"
+    title: string;
+    badge: 'pilot' | 'deprecated';
+    fullwidth?: boolean;
+    description: string;
+    component: boolean;
+  };
+  pageSourceUrl?: string;
+  platform: 'android' | 'ios' | 'web';
 };
 
-const isExternal: (arg1: string) => "blank" | undefined = (href) => {
+const isExternal: (arg1: string) => 'blank' | undefined = (href) => {
   if (href.startsWith('https://')) return 'blank';
   if (href.startsWith('http://pinch')) return 'blank';
   return undefined;
@@ -40,9 +40,9 @@ const components = {
     children,
     href,
   }: {
-    href: string,
-    children: string | null,
-    display: "inline" | "inlineBlock" | "block"
+    href: string;
+    children: string | null;
+    display: 'inline' | 'inlineBlock' | 'block';
   }) => (
     <Link
       display="inline"
@@ -87,22 +87,16 @@ const components = {
   pre: (props: {
     children: {
       props: {
-        className: ReadonlyArray<string>,
-        children: string | null
-      }
-    }
+        className: ReadonlyArray<string>;
+        children: string | null;
+      };
+    };
   }) => (
     <Highlighter classNames={props.children.props.className}>
       {props.children.props.children}
     </Highlighter>
   ),
-  figure: ({
-    src,
-    caption,
-  }: {
-    src: string,
-    caption?: string
-  }) => (
+  figure: ({ src, caption }: { src: string; caption?: string }) => (
     <Flex justifyContent="center" wrap>
       <Box as="figure" width={400}>
         <Image
@@ -132,13 +126,7 @@ const components = {
     </Box>
   ),
   p: (props) => <p style={{ maxWidth: DOCS_COPY_MAX_WIDTH_PX }}> {props.children} </p>,
-  ActionButton: ({
-    children,
-    href,
-  }: {
-    href: string,
-    children: string | null
-  }) => (
+  ActionButton: ({ children, href }: { href: string; children: string | null }) => (
     <ButtonLink
       accessibilityLabel=""
       color="gray"
@@ -155,12 +143,12 @@ const components = {
     trendSentiment,
     trendAccessibilityLabel,
   }: {
-    size?: "lg" | "md",
-    title: string,
-    value: string,
-    trendValue: number,
-    trendSentiment?: "bad" | "good" | "neutral",
-    trendAccessibilityLabel: string
+    size?: 'lg' | 'md';
+    title: string;
+    value: string;
+    trendValue: number;
+    trendSentiment?: 'bad' | 'good' | 'neutral';
+    trendAccessibilityLabel: string;
   }) => (
     <Datapoint
       size={size}
@@ -175,9 +163,9 @@ const components = {
     href,
     display,
   }: {
-    href: string,
-    children: string | null,
-    display: "inline" | "inlineBlock" | "block"
+    href: string;
+    children: string | null;
+    display: 'inline' | 'inlineBlock' | 'block';
   }) => (
     <Text inline>
       <Link display={display || 'block'} href={href} target="blank">
@@ -188,11 +176,7 @@ const components = {
       </Link>
     </Text>
   ),
-  Hint: ({
-    children,
-  }: {
-    children: string | null
-  }) => (
+  Hint: ({ children }: { children: string | null }) => (
     <div
       className="md-hint"
       style={{
@@ -213,18 +197,12 @@ const components = {
       </Flex>
     </div>
   ),
-  h3: ({
-    children,
-  }: {
-    children: string
-  }) => (
+  h3: ({ children }: { children: string }) => (
     <Box>
       <MainSection.Subsection marginBottom="compact" title={children} />
     </Box>
   ),
-  img: (props: {
-    src: string
-  }) => (
+  img: (props: { src: string }) => (
     <Image
       alt="image"
       height="100%"
@@ -236,10 +214,7 @@ const components = {
   ),
   IllustrationCard,
   Card: (props) => <MainSection.Card {...props} description={undefined} />,
-  Code: (props: {
-    marginBottom: "default" | "none",
-    children: string | null
-  }) => {
+  Code: (props: { marginBottom: 'default' | 'none'; children: string | null }) => {
     const newProps = { ...props } as const;
     newProps.children = null;
     // may not need to this in the future
@@ -251,32 +226,18 @@ const components = {
       />
     );
   },
-  Group: ({
-    children,
-  }: {
-    children: ReactNode
-  }) => <Box marginBottom={12}>{children}</Box>,
-  Do: (props: {
-    children?: ReactNode,
-    title: string
-  }) => (
+  Group: ({ children }: { children: ReactNode }) => <Box marginBottom={12}>{children}</Box>,
+  Do: (props: { children?: ReactNode; title: string }) => (
     <MainSection.Card marginBottom="none" title={props.title || 'Do'} type="do">
       {props.children}
     </MainSection.Card>
   ),
-  Dont: (props: {
-    children?: ReactNode,
-    title: string
-  }) => (
+  Dont: (props: { children?: ReactNode; title: string }) => (
     <MainSection.Card marginBottom="none" title={props.title || "Don't"} type="don't">
       {props.children}
     </MainSection.Card>
   ),
-  TwoCol: ({
-    children,
-  }: {
-    children: ReactNode
-  }) => (
+  TwoCol: ({ children }: { children: ReactNode }) => (
     <MainSection.Subsection columns={2}>{children}</MainSection.Subsection>
   ),
   ImgHero: ({
@@ -285,10 +246,10 @@ const components = {
     width,
     height,
   }: {
-    src: string,
-    width: number,
-    height: number,
-    alt: string
+    src: string;
+    width: number;
+    height: number;
+    alt: string;
   }) => (
     <div style={{ aspectRatio: `${width}/${height}` }} width="100%">
       <Image alt={alt} fill height={height} src={src} width={width} />
@@ -303,13 +264,13 @@ const components = {
     padding,
     shaded,
   }: {
-    src: string,
-    caption?: string,
-    alt?: string,
-    width?: number,
-    height?: number,
-    padding?: "standard" | "none",
-    shaded?: boolean
+    src: string;
+    caption?: string;
+    alt?: string;
+    width?: number;
+    height?: number;
+    padding?: 'standard' | 'none';
+    shaded?: boolean;
   }) => {
     const layout = width || height ? 'fixed' : 'fill';
 
@@ -364,8 +325,8 @@ const components = {
     children,
     spacing = 'default',
   }: {
-    children: ReactNode,
-    spacing?: "default" | "expanded"
+    children: ReactNode;
+    spacing?: 'default' | 'expanded';
   }) => (
     <div
       style={{
@@ -379,14 +340,7 @@ const components = {
   ),
 } as const;
 
-export default function MarkdownPage(
-  {
-    children,
-    meta,
-    pageSourceUrl,
-    platform,
-  }: Props,
-) {
+export default function MarkdownPage({ children, meta, pageSourceUrl, platform }: Props) {
   const maxWidth = meta?.fullwidth ? 'none' : `${DOCS_COPY_MAX_WIDTH_PX}px`;
 
   return (

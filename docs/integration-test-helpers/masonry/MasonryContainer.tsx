@@ -1,4 +1,4 @@
-import {Component, createRef, ReactElement} from 'react';
+import { Component, createRef, ReactElement } from 'react';
 import { Masonry, MasonryV2 } from 'gestalt';
 import ExampleGridItem from './ExampleGridItem';
 import getClassicGridServerStyles from './getClassicGridServerStyles';
@@ -18,55 +18,55 @@ import getRandomNumberGenerator from './items-utils/getRandomNumberGenerator';
 
 const TWO_COL_MINDEX = 50;
 
-type MasonryProps<T> = Masonry<T>["props"];
+type MasonryProps<T> = Masonry<T>['props'];
 
 type Props<T> = {
   // The actual Masonry component to be used (if using an experimental version of Masonry).
-  MasonryComponent: typeof Masonry | typeof MasonryV2,
+  MasonryComponent: typeof Masonry | typeof MasonryV2;
   // Sets up props to display a collage layout.
-  collage?: boolean,
+  collage?: boolean;
   // Constrains the width of the grid rendering.
-  constrained?: boolean,
+  constrained?: boolean;
   // Whether or not to use an external cache
-  externalCache?: boolean,
+  externalCache?: boolean;
   // Does not allow infinite scroll.
-  finiteLength?: boolean,
+  finiteLength?: boolean;
   // Grid items should have flexible width.
-  flexible?: boolean,
+  flexible?: boolean;
   // The initial data from the server side render.
-  initialItems?: MasonryProps<T>["items"],
+  initialItems?: MasonryProps<T>['items'];
   // Whether or not to log whitespace.
-  logWhitespace?: boolean,
+  logWhitespace?: boolean;
   // Whether or not to require tests to trigger fetch completion manually.
-  manualFetch?: boolean,
+  manualFetch?: boolean;
   // External measurement store.
-  measurementStore: MasonryProps<T>["measurementStore"],
+  measurementStore: MasonryProps<T>['measurementStore'];
   // Prevent scrolling on Masonry
-  noScroll?: boolean,
+  noScroll?: boolean;
   // Positions the element inside of a relative container, offset from the top.
-  offsetTop?: number,
+  offsetTop?: number;
   // An array of realistic pin heights as sampled from actual Pin data.
-  pinHeightsSample?: ReadonlyArray<number>,
+  pinHeightsSample?: ReadonlyArray<number>;
   // External position store
-  positionStore: MasonryProps<T>["positionStore"],
+  positionStore: MasonryProps<T>['positionStore'];
   // If we should position the grid within a scrollContainer besides the window.
-  scrollContainer?: boolean,
+  scrollContainer?: boolean;
   // Insert two-column items into the feed
-  twoColItems?: boolean,
+  twoColItems?: boolean;
   // If we should virtualize the grid
-  virtualize?: boolean,
+  virtualize?: boolean;
   // The relative amount in pixel to extend the virtualized viewport top value.
-  virtualBoundsTop?: number,
+  virtualBoundsTop?: number;
   // The relative amount in pixel to extend the virtualized viewport bottom value.
-  virtualBoundsBottom?: number
+  virtualBoundsBottom?: number;
 };
 
 type State = {
-  expanded: boolean,
-  hasScrollContainer: boolean,
-  items: ReadonlyArray<any>,
-  mountGrid: boolean,
-  mounted: boolean
+  expanded: boolean;
+  hasScrollContainer: boolean;
+  items: ReadonlyArray<any>;
+  mountGrid: boolean;
+  mounted: boolean;
 };
 
 export default class MasonryContainer extends Component<Props<Record<any, any>>, State> {
@@ -79,7 +79,7 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
   };
 
   gridRef: {
-    current: any | null
+    current: any | null;
   } = createRef();
 
   randomNumberSeed: number = 0;
@@ -91,13 +91,11 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
     }
   };
 
-  setMasonryItems: (
-    e: {
-      detail: {
-        items: ReadonlyArray<any>
-      }
-    },
-  ) => void = (e) => {
+  setMasonryItems: (e: {
+    detail: {
+      items: ReadonlyArray<any>;
+    };
+  }) => void = (e) => {
     this.setState({
       items: e.detail.items,
     });
@@ -220,13 +218,7 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
     }));
   };
 
-  customLoadItems: (
-    arg1: {
-      force: boolean,
-      from?: number,
-      name?: string
-    },
-  ) => void = ({
+  customLoadItems: (arg1: { force: boolean; from?: number; name?: string }) => void = ({
     name,
     from = 0,
     force = false,
@@ -272,7 +264,7 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
     }));
   };
 
-  loadItems: ComponentProps<typeof Masonry>["loadItems"] = (props) => {
+  loadItems: ComponentProps<typeof Masonry>['loadItems'] = (props) => {
     const { collage, manualFetch, pinHeightsSample, twoColItems } = this.props;
 
     if (manualFetch) {
@@ -316,15 +308,12 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
     }));
   };
 
-  renderItem: ComponentProps<typeof Masonry>["renderItem"] = ({
-    data,
-    itemIdx,
-  }) => {
+  renderItem: ComponentProps<typeof Masonry>['renderItem'] = ({ data, itemIdx }) => {
     const { expanded } = this.state;
     return <ExampleGridItem data={data} expanded={expanded} itemIdx={itemIdx} />;
   };
 
-  render(): Element<"div"> {
+  render(): Element<'div'> {
     const {
       MasonryComponent,
       collage,
@@ -346,17 +335,17 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
     const { hasScrollContainer, mountGrid, items } = this.state;
 
     const dynamicGridProps: {
-      minCols?: ComponentProps<typeof Masonry>["minCols"],
-      gutterWidth?: ComponentProps<typeof Masonry>["gutterWidth"],
-      loadItems?: ComponentProps<typeof Masonry>["loadItems"],
-      virtualBoundsTop?: ComponentProps<typeof Masonry>["virtualBoundsBottom"],
-      virtualBoundsBottom?: ComponentProps<typeof Masonry>["virtualBoundsBottom"],
-      scrollContainer?: ComponentProps<typeof Masonry>["scrollContainer"]
+      minCols?: ComponentProps<typeof Masonry>['minCols'];
+      gutterWidth?: ComponentProps<typeof Masonry>['gutterWidth'];
+      loadItems?: ComponentProps<typeof Masonry>['loadItems'];
+      virtualBoundsTop?: ComponentProps<typeof Masonry>['virtualBoundsBottom'];
+      virtualBoundsBottom?: ComponentProps<typeof Masonry>['virtualBoundsBottom'];
+      scrollContainer?: ComponentProps<typeof Masonry>['scrollContainer'];
     } = {};
 
     const gridStyle: {
-      margin?: string,
-      width?: string | number
+      margin?: string;
+      width?: string | number;
     } = {};
 
     if (constrained) {

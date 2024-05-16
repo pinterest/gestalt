@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import Box from './Box';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Heading from './Heading';
@@ -8,17 +8,17 @@ import TableOfContentsItem from './TableOfContentsItem';
 
 type Props = {
   /**
-     * String that clients such as VoiceOver will read to describe the element. See [accessibility](https://gestalt.pinterest.systems/web/tableofcontents#Accessibility) section to learn more.
-     */
-  accessibilityLabel?: string,
+   * String that clients such as VoiceOver will read to describe the element. See [accessibility](https://gestalt.pinterest.systems/web/tableofcontents#Accessibility) section to learn more.
+   */
+  accessibilityLabel?: string;
   /**
-     * Title for the TableOfContents. See the [title variant](https://gestalt.pinterest.systems/web/tableofcontents#With-title) to learn more.
-     */
-  title?: string,
+   * Title for the TableOfContents. See the [title variant](https://gestalt.pinterest.systems/web/tableofcontents#With-title) to learn more.
+   */
+  title?: string;
   /**
-     * Must be instances TableofContents.Item
-     */
-  children: ReactNode
+   * Must be instances TableofContents.Item
+   */
+  children: ReactNode;
 };
 
 /**
@@ -27,13 +27,7 @@ type Props = {
  * ![TableOfContents light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TableOfContents.spec.mjs-snapshots/TableOfContents-chromium-darwin.png)
  * ![TableOfContents dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TableOfContents-dark.spec.mjs-snapshots/TableOfContents-dark-chromium-darwin.png)
  */
-export default function TableOfContents(
-  {
-    accessibilityLabel,
-    title,
-    children,
-  }: Props,
-) {
+export default function TableOfContents({ accessibilityLabel, title, children }: Props) {
   const { accessibilityLabel: accessibilityLabelDefault } =
     useDefaultLabelContext('TableOfContents');
 

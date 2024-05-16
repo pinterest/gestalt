@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, Checkbox, Label, Table, Text } from 'gestalt';
 
 function BaseRow({
@@ -8,11 +8,11 @@ function BaseRow({
   text,
   spend,
 }: {
-  id: string,
-  checked?: boolean,
-  disabled?: boolean,
-  text: string,
-  spend: string
+  id: string;
+  checked?: boolean;
+  disabled?: boolean;
+  text: string;
+  spend: string;
 }) {
   const newId = `${id.replace(/ /g, '_').replace(/'/g, '')}_${text
     .replace(/ /g, '_')

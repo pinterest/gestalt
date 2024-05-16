@@ -1,4 +1,4 @@
-import {Component, ReactNode} from 'react';
+import { Component, ReactNode } from 'react';
 import OutsideEventBehavior from './behaviors/OutsideEventBehavior';
 import { Overflow } from './boxTypes';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider';
@@ -16,44 +16,40 @@ const SIZE_WIDTH_MAP = {
   xl: 360,
 } as const;
 type OwnProps = {
-  accessibilityLabel?: string,
-  anchor: HTMLElement,
-  bgColor: "blue" | "darkGray" | "white",
-  border?: boolean,
-  caret?: boolean,
-  children?: ReactNode,
-  onKeyDown?: (
-    arg1: {
-      event: React.KeyboardEvent<HTMLElement>
-    },
-  ) => void,
-  id?: string | null | undefined,
-  idealDirection?: "up" | "right" | "down" | "left" | "forceDown",
-  onDismiss: () => void,
-  positionRelativeToAnchor: boolean,
-  role?: Role | null | undefined,
-  rounding?: 2 | 4,
-  shouldFocus?: boolean,
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | number | null,
-  __dangerouslyIgnoreScrollBoundaryContainerSize?: boolean,
-  zIndex?: Indexable,
-  overflow?: Extract<Overflow, "auto" | "hidden" | "visible">
+  accessibilityLabel?: string;
+  anchor: HTMLElement;
+  bgColor: 'blue' | 'darkGray' | 'white';
+  border?: boolean;
+  caret?: boolean;
+  children?: ReactNode;
+  onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLElement> }) => void;
+  id?: string | null | undefined;
+  idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown';
+  onDismiss: () => void;
+  positionRelativeToAnchor: boolean;
+  role?: Role | null | undefined;
+  rounding?: 2 | 4;
+  shouldFocus?: boolean;
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null;
+  __dangerouslyIgnoreScrollBoundaryContainerSize?: boolean;
+  zIndex?: Indexable;
+  overflow?: Extract<Overflow, 'auto' | 'hidden' | 'visible'>;
 };
 
 type HookProps = {
-  scrollBoundaryContainerRef: HTMLElement | null | undefined
+  scrollBoundaryContainerRef: HTMLElement | null | undefined;
 };
 
-type Props = ((OwnProps) & (HookProps));
+type Props = OwnProps & HookProps;
 
 type State = {
-  relativeOffset: Coordinates | null | undefined,
-  triggerBoundingRect: ClientRect | null | undefined
+  relativeOffset: Coordinates | null | undefined;
+  triggerBoundingRect: ClientRect | null | undefined;
 };
 
 class LegacyController extends Component<Props, State> {
   static defaultProps: {
-    size: "xs" | "sm" | "md" | "lg" | "xl" | number | null
+    size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null;
   } = {
     // Default size only applies when size is omitted,
     // if passed as null it will remain null
@@ -75,15 +71,13 @@ class LegacyController extends Component<Props, State> {
     },
   };
 
-  static getDerivedStateFromProps(
-    {
-      anchor,
-      positionRelativeToAnchor,
-      scrollBoundaryContainerRef,
-    }: Props,
-  ): {
-    relativeOffset: Coordinates | null | undefined,
-    triggerBoundingRect: ClientRect | null | undefined
+  static getDerivedStateFromProps({
+    anchor,
+    positionRelativeToAnchor,
+    scrollBoundaryContainerRef,
+  }: Props): {
+    relativeOffset: Coordinates | null | undefined;
+    triggerBoundingRect: ClientRect | null | undefined;
   } {
     return getTriggerRect({
       anchor,

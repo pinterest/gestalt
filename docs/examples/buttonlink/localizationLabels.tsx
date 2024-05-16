@@ -1,9 +1,9 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { ButtonLink, DefaultLabelProvider, Flex } from 'gestalt';
 
 export default function Example() {
   return (
-    (<DefaultLabelProvider
+    <DefaultLabelProvider
       labels={{
         Link: {
           accessibilityNewTabLabel: 'Öffnet eine neue Browser-Registerkarte.',
@@ -19,6 +19,6 @@ export default function Example() {
           text="Besuchen Sie Pinterest"
         />
       </Flex>
-    </DefaultLabelProvider>)
+    </DefaultLabelProvider>
   );
 }

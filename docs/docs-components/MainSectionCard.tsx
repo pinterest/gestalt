@@ -1,4 +1,4 @@
-import {ReactNode, useCallback} from 'react';
+import { ReactNode, useCallback } from 'react';
 import { LiveError, LivePreview, LiveProvider } from 'react-live';
 import { Box, Text } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
@@ -18,22 +18,22 @@ import Markdown from './Markdown';
 import capitalizeFirstLetter from '../utils/capitalizeFirstLetter';
 
 type Props = {
-  cardSize?: "xs" | "sm" | "md" | "lg",
-  children?: ReactNode,
-  defaultCode?: string,
-  description?: string,
-  hideCodePreview?: boolean,
-  sandpackExample?: ReactNode,
-  shadeColor?: "tertiary" | "darkWash" | "lightWash" | "default",
-  shaded?: boolean,
-  showCode?: boolean,
-  title?: string | ReadonlyArray<string>,
-  type?: "do" | "don't" | "info",
-  marginBottom?: "default" | "none"
+  cardSize?: 'xs' | 'sm' | 'md' | 'lg';
+  children?: ReactNode;
+  defaultCode?: string;
+  description?: string;
+  hideCodePreview?: boolean;
+  sandpackExample?: ReactNode;
+  shadeColor?: 'tertiary' | 'darkWash' | 'lightWash' | 'default';
+  shaded?: boolean;
+  showCode?: boolean;
+  title?: string | ReadonlyArray<string>;
+  type?: 'do' | "don't" | 'info';
+  marginBottom?: 'default' | 'none';
 };
 
 type PreviewCardProps = {
-  children?: ReactNode
+  children?: ReactNode;
 };
 
 const CARD_SIZE_NAME_TO_PIXEL = {
@@ -55,22 +55,20 @@ const TYPE_TO_COLOR_TEXT = {
   info: 'default',
 } as const;
 
-function MainSectionCard(
-  {
-    cardSize = 'md',
-    children,
-    defaultCode,
-    description,
-    hideCodePreview = false,
-    sandpackExample,
-    shaded = false,
-    shadeColor,
-    showCode = true,
-    title,
-    marginBottom = 'default',
-    type = 'info',
-  }: Props,
-) {
+function MainSectionCard({
+  cardSize = 'md',
+  children,
+  defaultCode,
+  description,
+  hideCodePreview = false,
+  sandpackExample,
+  shaded = false,
+  shadeColor,
+  showCode = true,
+  title,
+  marginBottom = 'default',
+  type = 'info',
+}: Props) {
   const code = defaultCode?.trim();
   const scope = { ...gestalt, ...gestaltChart, ...gestaltDatepicker } as const;
 
@@ -84,9 +82,7 @@ function MainSectionCard(
   const cardShadeColor = shaded && !shadeColor ? 'secondary' : shadeColor;
 
   const PreviewCard = useCallback(
-    ({
-      children: cardChildren,
-    }: PreviewCardProps) => (
+    ({ children: cardChildren }: PreviewCardProps) => (
       <Box
         alignItems="center"
         borderStyle={cardSize === 'xs' ? 'none' : 'sm'}

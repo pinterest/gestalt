@@ -1,15 +1,7 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { AvatarGroup, Box, Divider, Flex, Icon, Mask, Text } from 'gestalt';
 
-function Block({
-  title,
-  url,
-  locked,
-}: {
-  title: string,
-  url: string,
-  locked?: boolean
-}) {
+function Block({ title, url, locked }: { title: string; url: string; locked?: boolean }) {
   return (
     <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
       <Box maxWidth={60}>

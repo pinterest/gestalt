@@ -1,4 +1,4 @@
-import {ReactNode, useEffect, useRef, useState} from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
 import Collapser from './Collapser';
 import {
@@ -20,15 +20,13 @@ import { FixedZIndex } from '../zIndex';
 
 type Timeout = ReturnType<typeof setTimeout>;
 
-export default function NavigationContent(
-  {
-    accessibilityLabel,
-    children,
-    footer,
-    header,
-    showBorder,
-  }: SideNavigationProps,
-) {
+export default function NavigationContent({
+  accessibilityLabel,
+  children,
+  footer,
+  header,
+  showBorder,
+}: SideNavigationProps) {
   const navigationChildren = flattenChildrenWithKeys(children);
 
   validateChildren({ children: navigationChildren, filterLevel: 'main' });
@@ -53,9 +51,7 @@ export default function NavigationContent(
   useEffect(() => {
     const element = transitionContainer.current;
 
-    const transitionEndHandler = ({
-      target,
-    }: Event) => {
+    const transitionEndHandler = ({ target }: Event) => {
       if (target === element) setTransitioning(false);
     };
 
@@ -111,7 +107,7 @@ export default function NavigationContent(
 
   return (
     // 1st wrapper - always has dynamic width, but in overlay-preview state its width is static
-    (<Box
+    <Box
       ref={mainContainer}
       aria-label={accessibilityLabel}
       as="nav"
@@ -170,6 +166,6 @@ export default function NavigationContent(
           </Box>
         </div>
       </div>
-    </Box>)
+    </Box>
   );
 }

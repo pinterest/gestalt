@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Flex, Heading, Text } from 'gestalt';
 import {
   TOKEN_COLOR_DATA_VISUALIZATION_01,
@@ -61,13 +61,7 @@ const EXTENDED_STEPS = [
   { name: '12', token: TOKEN_COLOR_DATA_VISUALIZATION_12, lightText: 'light', darkText: 'dark' },
 ];
 
-function SemanticThemeExample(
-  {
-    colorScheme,
-  }: {
-    colorScheme: "light" | "dark"
-  },
-) {
+function SemanticThemeExample({ colorScheme }: { colorScheme: 'light' | 'dark' }) {
   return (
     <ColorSchemeProvider colorScheme={colorScheme} id={colorScheme}>
       <Box color="default" padding={4}>
@@ -112,10 +106,10 @@ function SemanticThemeExample(
 
 function getColorTiles(
   colors: ReadonlyArray<{
-    darkText: string,
-    lightText: string,
-    token: string,
-    name: string
+    darkText: string;
+    lightText: string;
+    token: string;
+    name: string;
   }>,
   mode: string = 'light',
 ) {

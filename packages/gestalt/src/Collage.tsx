@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import Collection from './Collage/Collection';
 
 type Column = 2 | 3 | 4;
@@ -52,10 +52,10 @@ const columnLayout = (numOfColumns: 1 | Column) => {
 const paddingAll = (
   gutter: number,
   positions: ReadonlyArray<{
-    height: number,
-    left: number,
-    top: number,
-    width: number
+    height: number;
+    left: number;
+    top: number;
+    width: number;
   }>,
 ) =>
   positions.map(({ top, left, width, height }) => ({
@@ -78,12 +78,12 @@ function getCollageLayout({
   width: w,
   layoutKey,
 }: {
-  gutter: number,
-  cover: boolean,
-  columns: Column,
-  height: number,
-  width: number,
-  layoutKey: number
+  gutter: number;
+  cover: boolean;
+  columns: Column;
+  height: number;
+  width: number;
+  layoutKey: number;
 }) {
   let positions = [];
   const width = w + gutter;
@@ -148,39 +148,33 @@ function getCollageLayout({
 
 type Props = {
   /**
-     * Number of columns (2 - 4). Note that Collage assumes at least 2 * `columns` images will be provided. If fewer images are provided, care will be needed to avoid TypeErrors. See [Columns example](https://gestalt.pinterest.systems#columns) for more details.
-     */
-  columns: Column,
+   * Number of columns (2 - 4). Note that Collage assumes at least 2 * `columns` images will be provided. If fewer images are provided, care will be needed to avoid TypeErrors. See [Columns example](https://gestalt.pinterest.systems#columns) for more details.
+   */
+  columns: Column;
   /**
-     * Whether or not the first image is a cover image. See [Cover Image example](https://gestalt.pinterest.systems#coverImage) for more details.
-     */
-  cover?: boolean,
+   * Whether or not the first image is a cover image. See [Cover Image example](https://gestalt.pinterest.systems#coverImage) for more details.
+   */
+  cover?: boolean;
   /**
-     * The amount of vertical and horizontal space between images. See [Gutter example](https://gestalt.pinterest.systems#gutter) for more details.
-     */
-  gutter?: number,
+   * The amount of vertical and horizontal space between images. See [Gutter example](https://gestalt.pinterest.systems#gutter) for more details.
+   */
+  gutter?: number;
   /**
-     * Height of the collage.
-     */
-  height: number,
+   * Height of the collage.
+   */
+  height: number;
   /**
-     * Depending on the number of columns of the collage, there may be multiple layouts available. If there are N layouts available, (layoutKey % N) will determine which layout is used. See [Layout Key example](https://gestalt.pinterest.systems#layoutKey) for more details.
-     */
-  layoutKey?: number,
+   * Depending on the number of columns of the collage, there may be multiple layouts available. If there are N layouts available, (layoutKey % N) will determine which layout is used. See [Layout Key example](https://gestalt.pinterest.systems#layoutKey) for more details.
+   */
+  layoutKey?: number;
   /**
-     * Callback to render the collage images.
-     */
-  renderImage: (
-    arg1: {
-      width: number,
-      height: number,
-      index: number
-    },
-  ) => ReactNode,
+   * Callback to render the collage images.
+   */
+  renderImage: (arg1: { width: number; height: number; index: number }) => ReactNode;
   /**
-     * Width of the collage.
-     */
-  width: number
+   * Width of the collage.
+   */
+  width: number;
 };
 
 /**

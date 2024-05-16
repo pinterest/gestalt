@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { Box, ComboBox, DefaultLabelProvider, Flex } from 'gestalt';
 
 export default function Example() {
@@ -21,7 +21,7 @@ export default function Example() {
   const resetErrorMessage = errorMessage ? () => setErrorMessage() : () => {};
 
   return (
-    (<DefaultLabelProvider
+    <DefaultLabelProvider
       labels={{
         ComboBox: {
           noResultText: 'Keine Ergebnisse',
@@ -48,6 +48,6 @@ export default function Example() {
           />
         </Box>
       </Flex>
-    </DefaultLabelProvider>)
+    </DefaultLabelProvider>
   );
 }

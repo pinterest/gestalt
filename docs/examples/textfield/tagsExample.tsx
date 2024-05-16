@@ -1,19 +1,15 @@
-import {ReactNode, useRef, useState} from 'react';
+import { ReactNode, useRef, useState } from 'react';
 import { Box, Tag, TextField } from 'gestalt';
 
-type ChangeTagHandler = (
-  arg1: {
-    event: React.ChangeEvent<HTMLInputElement>,
-    value: string
-  },
-) => void;
+type ChangeTagHandler = (arg1: {
+  event: React.ChangeEvent<HTMLInputElement>;
+  value: string;
+}) => void;
 
-type KeyDownHandler = (
-  arg1: {
-    event: React.KeyboardEvent<HTMLInputElement>,
-    value: string
-  },
-) => void;
+type KeyDownHandler = (arg1: {
+  event: React.KeyboardEvent<HTMLInputElement>;
+  value: string;
+}) => void;
 
 export default function Example() {
   const [value, setValue] = useState('');

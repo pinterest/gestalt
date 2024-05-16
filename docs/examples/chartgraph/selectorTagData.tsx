@@ -1,16 +1,22 @@
-import {ComponentProps, ReactNode, useEffect, useState} from 'react';
+import { ComponentProps, ReactNode, useEffect, useState } from 'react';
 import { TagData } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Example() {
   const [visualPatternSelected, setVisualPatternSelected] = useState('default');
 
-  const [elements, setElements] = useState<ComponentProps<typeof ChartGraph>["elements"]>([]);
+  const [elements, setElements] = useState<ComponentProps<typeof ChartGraph>['elements']>([]);
 
-  const [selectedId, setSelectedId] = useState<ReadonlyArray<string | null | undefined>>(['Campaign Autumn']);
+  const [selectedId, setSelectedId] = useState<ReadonlyArray<string | null | undefined>>([
+    'Campaign Autumn',
+  ]);
   const isSelected = (id?: string) => selectedId.includes(id);
 
-  const getColor: (arg1: string) => "01" | "02" | "03" | "04" | "05" | "06" | "07" | "08" | "09" | "10" | "11" | "12" = (value) => {
+  const getColor: (
+    arg1: string,
+  ) => '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10' | '11' | '12' = (
+    value,
+  ) => {
     const colorMap = {
       '01': '01',
       '02': '02',
@@ -29,13 +35,7 @@ export default function Example() {
     return colorMap[value];
   };
 
-  const handleSelectors = ({
-    id,
-    selected,
-  }: {
-    id?: string,
-    selected: boolean
-  }) => {
+  const handleSelectors = ({ id, selected }: { id?: string; selected: boolean }) => {
     if (!selected) {
       setSelectedId((values) => values.filter((idValue) => idValue !== id));
     }

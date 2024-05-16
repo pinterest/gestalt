@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import AccessibilitySection from '../../../docs-components/AccessibilitySection';
 import docGen, { DocGen } from '../../../docs-components/docgen';
 import GeneratedPropTable from '../../../docs-components/GeneratedPropTable';
@@ -10,13 +10,7 @@ import QualityChecklist from '../../../docs-components/QualityChecklist';
 import SandpackExample from '../../../docs-components/SandpackExample';
 import variantsColorScheme from '../../../examples/colorschemeprovider/variantsColorScheme';
 
-export default function DocsPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: DocGen
-  },
-) {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -58,8 +52,8 @@ export default function DocsPage(
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   return {
     props: {

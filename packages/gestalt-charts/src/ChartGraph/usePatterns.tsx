@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { useColorScheme } from 'gestalt';
 import {
   TOKEN_COLOR_BORDER_CONTAINER,

@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import {
   Accordion,
   Box,
@@ -241,15 +241,7 @@ function HeaderRow() {
   );
 }
 
-function RowExpandable(
-  {
-    campaign,
-    status,
-    empty,
-    budget,
-    scope,
-  }: any,
-) {
+function RowExpandable({ campaign, status, empty, budget, scope }: any) {
   return (
     <Table.RowExpandable
       accessibilityCollapseLabel="Collapse"

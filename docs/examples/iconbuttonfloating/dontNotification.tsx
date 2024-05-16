@@ -1,4 +1,4 @@
-import {ReactNode, useRef} from 'react';
+import { ReactNode, useRef } from 'react';
 import { Box, Flex, IconButtonFloating } from 'gestalt';
 
 export default function Example() {

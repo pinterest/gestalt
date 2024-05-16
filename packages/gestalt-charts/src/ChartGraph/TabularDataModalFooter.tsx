@@ -1,22 +1,20 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Button, ButtonGroup, Flex, useDefaultLabel } from 'gestalt';
 import { TransformedTabularDataType, useBuildCsvData } from './useTabularData';
 
 type Props = {
-  title: string,
-  toggleTabularDataModal: () => void,
-  isHorizontalLayout: boolean,
-  transformedTabularData: TransformedTabularDataType
+  title: string;
+  toggleTabularDataModal: () => void;
+  isHorizontalLayout: boolean;
+  transformedTabularData: TransformedTabularDataType;
 };
 
-export default function TabularDataModalFooter(
-  {
-    title,
-    toggleTabularDataModal,
-    isHorizontalLayout,
-    transformedTabularData,
-  }: Props,
-) {
+export default function TabularDataModalFooter({
+  title,
+  toggleTabularDataModal,
+  isHorizontalLayout,
+  transformedTabularData,
+}: Props) {
   const { downloadCsvButtonText, cancelButtonText } = useDefaultLabel('ChartGraph');
 
   const csvData = useBuildCsvData({

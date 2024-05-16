@@ -1,13 +1,9 @@
-import {Fragment, ReactNode, Ref, useCallback, useEffect, useState} from 'react';
+import { Fragment, ReactNode, Ref, useCallback, useEffect, useState } from 'react';
 import { Box, FixedZIndex, Icon, IconButton, Tooltip } from 'gestalt';
 
 const INPUT_ID = 'algolia-doc-search';
 
-function SearchBox({
-  popoverZIndex,
-}: {
-  popoverZIndex?: FixedZIndex
-}) {
+function SearchBox({ popoverZIndex }: { popoverZIndex?: FixedZIndex }) {
   // Icon placement is copied directly from  SearchField
   // Try to maintain consistency w/ SearchField whenever possible
   return (
@@ -43,17 +39,15 @@ function SearchBox({
   );
 }
 
-export default function DocSearch(
-  {
-    anchorRef,
-    isMobileSearchExpandedOpen,
-    toggleSearchBarOpen,
-  }: {
-    anchorRef: Ref<typeof IconButton>,
-    isMobileSearchExpandedOpen: boolean,
-    toggleSearchBarOpen: () => void
-  },
-) {
+export default function DocSearch({
+  anchorRef,
+  isMobileSearchExpandedOpen,
+  toggleSearchBarOpen,
+}: {
+  anchorRef: Ref<typeof IconButton>;
+  isMobileSearchExpandedOpen: boolean;
+  toggleSearchBarOpen: () => void;
+}) {
   const [isCompressedUI, setIsCompressedUI] = useState(
     typeof window !== 'undefined' && window.innerWidth < 1312,
   );
@@ -93,7 +87,9 @@ export default function DocSearch(
       // * <input>, <textarea> and <select>
       // * readOnly === true
       if (
-        target.isContentEditable || ((tagName === 'INPUT' || tagName === 'TEXTAREA' || tagName === 'SELECT') && !target.readOnly)
+        target.isContentEditable ||
+        ((tagName === 'INPUT' || tagName === 'TEXTAREA' || tagName === 'SELECT') &&
+          !target.readOnly)
       ) {
         return;
       }

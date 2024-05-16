@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import styles from './WashAnimated.css';
@@ -9,33 +9,25 @@ function isNil(val?: boolean | null) {
 
 type Props = {
   /**
-     * Used to force the "active" hover state visually.
-     */
-  active?: boolean | null | undefined,
+   * Used to force the "active" hover state visually.
+   */
+  active?: boolean | null | undefined;
   /**
-     *
-     */
-  children?: ReactNode,
+   *
+   */
+  children?: ReactNode;
   /**
-     * An optional [Image](https://gestalt.pinterest.systems/web/image) to be displayed at the top of the layout.
-     */
-  image?: ReactNode,
+   * An optional [Image](https://gestalt.pinterest.systems/web/image) to be displayed at the top of the layout.
+   */
+  image?: ReactNode;
   /**
-     * Optional callback fired when the user hovers over from WashAnimated.
-     */
-  onMouseEnter?: (
-    arg1: {
-      event: React.MouseEvent<HTMLDivElement>
-    },
-  ) => void,
+   * Optional callback fired when the user hovers over from WashAnimated.
+   */
+  onMouseEnter?: (arg1: { event: React.MouseEvent<HTMLDivElement> }) => void;
   /**
-     * Optional callback fired when the user hovers off WashAnimated.
-     */
-  onMouseLeave?: (
-    arg1: {
-      event: React.MouseEvent<HTMLDivElement>
-    },
-  ) => void
+   * Optional callback fired when the user hovers off WashAnimated.
+   */
+  onMouseLeave?: (arg1: { event: React.MouseEvent<HTMLDivElement> }) => void;
 };
 
 /**
@@ -43,15 +35,13 @@ type Props = {
  * ![WashAnimated light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/WashAnimated.spec.mjs-snapshots/WashAnimated-chromium-darwin.png)
  * ![WashAnimated dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/WashAnimated-dark.spec.mjs-snapshots/Button-dark-chromium-darwin.png)
  */
-export default function WashAnimated(
-  {
-    active,
-    children,
-    image,
-    onMouseEnter,
-    onMouseLeave,
-  }: Props,
-) {
+export default function WashAnimated({
+  active,
+  children,
+  image,
+  onMouseEnter,
+  onMouseLeave,
+}: Props) {
   const [hovered, setHovered] = useState(false);
 
   const handleMouseEnter = (event: React.MouseEvent<HTMLDivElement>) => {

@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import {
   Box,
   Button,
@@ -17,7 +17,7 @@ export default function Example() {
   const ABOVE_PAGE_HEADER_ZINDEX: CompositeZIndex = new CompositeZIndex([PAGE_HEADER_ZINDEX]);
 
   return (
-    (<DefaultLabelProvider
+    <DefaultLabelProvider
       labels={{
         SheetMobile: {
           accessibilityDismissButtonLabel: 'Das untere Blatt ist zu verwerfen',
@@ -49,6 +49,6 @@ export default function Example() {
           />
         </Box>
       </DeviceTypeProvider>
-    </DefaultLabelProvider>)
+    </DefaultLabelProvider>
   );
 }

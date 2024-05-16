@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { Checkbox, Fieldset, Flex } from 'gestalt';
 
 export default function Example() {

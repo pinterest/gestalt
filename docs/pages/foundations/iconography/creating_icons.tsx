@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Link, List, Text } from 'gestalt';
 import InternalOnlyIconButton from '../../../docs-components/InternalOnlyIconButton';
 import MainSection from '../../../docs-components/MainSection';

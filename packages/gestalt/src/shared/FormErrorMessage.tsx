@@ -1,16 +1,16 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import styles from './FormErrorMessage.css';
 import Box from '../Box';
 import Flex from '../Flex';
 import Icon from '../Icon';
 import Text from '../Text';
 
-type SizeType = "sm" | "md" | "lg";
+type SizeType = 'sm' | 'md' | 'lg';
 
 type Props = {
-  id: string,
-  text?: ReactNode,
-  size?: SizeType
+  id: string;
+  text?: ReactNode;
+  size?: SizeType;
 };
 
 const applyDensityMargin = (size?: SizeType): 1 | 2 => (size === 'sm' || size === 'md' ? 1 : 2);
@@ -20,13 +20,7 @@ const applyDensityGap = (size?: SizeType): 1 | 2 => (size === 'sm' ? 1 : 2);
 const icon = 'workflow-status-problem';
 const color = 'error';
 
-export default function FormErrorMessage(
-  {
-    id,
-    size,
-    text = '',
-  }: Props,
-) {
+export default function FormErrorMessage({ id, size, text = '' }: Props) {
   return (
     <Box marginTop={applyDensityMargin(size)}>
       <Text color="error" size="100">

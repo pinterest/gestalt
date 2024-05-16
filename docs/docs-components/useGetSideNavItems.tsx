@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { useRouter } from 'next/router';
 import { SideNavigation } from 'gestalt';
 import { useNavigationContext } from './navigationContext';
@@ -8,13 +8,7 @@ function convertNamesForURL(name: string) {
   return name.replace(/ - /g, '/').replace(/ /g, '_').replace(/'/g, '').toLowerCase();
 }
 
-const useGetSideNavItems = (
-  {
-    sectionInfo,
-  }: {
-    sectionInfo: siteIndexType
-  },
-) => {
+const useGetSideNavItems = ({ sectionInfo }: { sectionInfo: siteIndexType }) => {
   const { pathname, query } = useRouter();
   const { setIsSidebarOpen } = useNavigationContext();
 
@@ -101,7 +95,7 @@ const useGetSideNavItems = (
     );
   };
 
-  return getNavItems((sectionInfo as siteIndexType), '');
+  return getNavItems(sectionInfo as siteIndexType, '');
 };
 
 export default useGetSideNavItems;

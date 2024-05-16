@@ -1,13 +1,18 @@
-import {createRef} from 'react';
+import { createRef } from 'react';
 import { render, screen } from '@testing-library/react';
 import ButtonLink from './ButtonLink';
 
 describe('ButtonLink', () => {
   it('handles click', () => {
-    const mockOnClick = jest.fn<[{
-      dangerouslyDisableOnNavigation: () => void,
-      event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>
-    }], undefined>();
+    const mockOnClick = jest.fn<
+      [
+        {
+          dangerouslyDisableOnNavigation: () => void;
+          event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+        },
+      ],
+      undefined
+    >();
 
     render(<ButtonLink href="#" onClick={mockOnClick} text="ButtonText" />);
 

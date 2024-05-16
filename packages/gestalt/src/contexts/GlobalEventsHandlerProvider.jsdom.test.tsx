@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import { act, render, screen } from '@testing-library/react';
 import DeviceTypeProvider from './DeviceTypeProvider';
 import GlobalEventsHandlerProvider from './GlobalEventsHandlerProvider';

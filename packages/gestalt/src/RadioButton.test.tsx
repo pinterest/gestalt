@@ -1,4 +1,4 @@
-import {create} from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 import Box from './Box';
 import Image from './Image';
 import RadioButton from './RadioButton';

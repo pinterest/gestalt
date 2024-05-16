@@ -1,23 +1,25 @@
-import {Fragment, ReactNode, useRef, useState} from 'react';
+import { Fragment, ReactNode, useRef, useState } from 'react';
 import { Button, Dropdown, IconButton, PageHeader, Tooltip } from 'gestalt';
 
 export default function SecondaryActionsExample() {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState<ReadonlyArray<{
-    label: string,
-    subtext?: string,
-    value: string
-  }>>([]);
+  const [selected, setSelected] = useState<
+    ReadonlyArray<{
+      label: string;
+      subtext?: string;
+      value: string;
+    }>
+  >([]);
   const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
   const handleSelect = ({
     item,
   }: {
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>;
     item: {
-      label: string,
-      subtext?: string,
-      value: string
-    }
+      label: string;
+      subtext?: string;
+      value: string;
+    };
   }) => {
     if (selected.some((selectedItem) => selectedItem.value === item.value)) {
       setSelected((selectedLocal) =>

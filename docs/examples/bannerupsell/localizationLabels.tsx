@@ -1,9 +1,9 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { BannerUpsell, Box, DefaultLabelProvider, Icon } from 'gestalt';
 
 export default function Example() {
   return (
-    (<DefaultLabelProvider
+    <DefaultLabelProvider
       labels={{
         BannerUpsell: {
           accessibilityDismissButtonLabel: 'Dismiss banner',
@@ -26,6 +26,6 @@ export default function Example() {
           title="Fast fertig! Beenden Sie die Installation Ihres Pinterest-Tags und erhalten Sie ein Guthaben von 10 Euro"
         />
       </Box>
-    </DefaultLabelProvider>)
+    </DefaultLabelProvider>
   );
 }

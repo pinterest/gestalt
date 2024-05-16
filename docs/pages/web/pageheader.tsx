@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -26,13 +26,7 @@ import secondaryActionsExample from '../../examples/pageheader/secondaryActionEx
 import subtextExample from '../../examples/pageheader/subtextExample';
 import titleExample from '../../examples/pageheader/titleExample';
 
-export default function PageHeaderPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: DocGen
-  },
-) {
+export default function PageHeaderPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
     <Page title={generatedDocGen?.displayName}>
       <DocsPageHeader
@@ -424,8 +418,8 @@ PageHeader doesn't depend on DeviceTypeProvider to display a mobile view; instea
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   return {
     props: { generatedDocGen: await docGen('PageHeader') },

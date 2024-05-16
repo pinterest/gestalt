@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { ButtonLink } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
@@ -28,11 +28,7 @@ import washColors from '../../examples/buttonlink/washColors';
 
 const PREVIEW_HEIGHT = 300;
 
-export default function DocsPage(
-  {
-    generatedDocGen,
-  }: DocType,
-) {
+export default function DocsPage({ generatedDocGen }: DocType) {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -389,8 +385,8 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Lin
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   return {
     props: { generatedDocGen: await docGen('ButtonLink') },

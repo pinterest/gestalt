@@ -23,31 +23,27 @@ import Text from '../Text';
 const SIZE_THUMBNAIL = 32;
 const SIZE_ICON = 24;
 
-export function ToastMessage(
-  {
-    text,
-    textElement,
-    helperLink,
-    textColor,
-    type,
-  }: {
-    text: string | null | undefined | Element<"span">,
-    textElement: string | null | undefined | Element<"span">,
-    textColor: ComponentProps<typeof Text>["color"],
-    helperLink?: {
-      text: string,
-      accessibilityLabel: string,
-      href: string,
-      onClick?: (
-        arg1: {
-          event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-          dangerouslyDisableOnNavigation: () => void
-        },
-      ) => void
-    },
-    type?: "default" | "success" | "error" | "progress"
-  },
-) {
+export function ToastMessage({
+  text,
+  textElement,
+  helperLink,
+  textColor,
+  type,
+}: {
+  text: string | null | undefined | Element<'span'>;
+  textElement: string | null | undefined | Element<'span'>;
+  textColor: ComponentProps<typeof Text>['color'];
+  helperLink?: {
+    text: string;
+    accessibilityLabel: string;
+    href: string;
+    onClick?: (arg1: {
+      event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+      dangerouslyDisableOnNavigation: () => void;
+    }) => void;
+  };
+  type?: 'default' | 'success' | 'error' | 'progress';
+}) {
   const isError = type === 'error';
   const textRef = useRef<null | HTMLElement>(null);
   const [ellipsisActive, setEllipsisActive] = useState(false);
@@ -128,13 +124,7 @@ export function ToastMessage(
   );
 }
 
-export function ToastImageThumbnail(
-  {
-    thumbnail,
-  }: {
-    thumbnail: Element<typeof Image>
-  },
-) {
+export function ToastImageThumbnail({ thumbnail }: { thumbnail: Element<typeof Image> }) {
   return (
     <Box aria-hidden>
       <Mask height={SIZE_THUMBNAIL} rounding={2} width={SIZE_THUMBNAIL}>
@@ -144,15 +134,13 @@ export function ToastImageThumbnail(
   );
 }
 
-export function ToastIconThumbnail(
-  {
-    thumbnail,
-    overrideColor,
-  }: {
-    thumbnail: Element<typeof Icon>,
-    overrideColor?: IconColor
-  },
-) {
+export function ToastIconThumbnail({
+  thumbnail,
+  overrideColor,
+}: {
+  thumbnail: Element<typeof Icon>;
+  overrideColor?: IconColor;
+}) {
   return (
     <Box aria-hidden>
       {cloneElement(thumbnail, {
@@ -163,23 +151,15 @@ export function ToastIconThumbnail(
   );
 }
 
-export function ToastAvatarThumbnail(
-  {
-    thumbnail,
-  }: {
-    thumbnail: Element<typeof Avatar>
-  },
-) {
+export function ToastAvatarThumbnail({ thumbnail }: { thumbnail: Element<typeof Avatar> }) {
   return <Box aria-hidden>{cloneElement(thumbnail, { size: 'sm' })}</Box>;
 }
 
-export function ToastTypeThumbnail(
-  {
-    type,
-  }: {
-    type: "default" | "success" | "error" | "progress"
-  },
-) {
+export function ToastTypeThumbnail({
+  type,
+}: {
+  type: 'default' | 'success' | 'error' | 'progress';
+}) {
   const { colorSchemeName } = useColorScheme();
   const {
     accessibilityIconSuccessLabel,

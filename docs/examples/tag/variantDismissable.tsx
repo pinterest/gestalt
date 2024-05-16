@@ -1,4 +1,4 @@
-import {ReactElement, Fragment, ReactNode, useState} from 'react';
+import { ReactElement, Fragment, ReactNode, useState } from 'react';
 import { Box, Button, Flex, Tag } from 'gestalt';
 
 export default function Example() {
@@ -17,7 +17,7 @@ export default function Example() {
   }
 
   return (
-    (<Box padding={2}>
+    <Box padding={2}>
       <Flex direction="column" gap={3}>
         <Button
           onClick={() => {
@@ -29,10 +29,10 @@ export default function Example() {
         <Flex alignItems="center" gap={2} height="100%" justifyContent="center" width="100%" wrap>
           {tags.map((item, index) => (
             // eslint-disable-next-line react/no-array-index-key
-            (<Fragment key={index}>{item}</Fragment>)
+            <Fragment key={index}>{item}</Fragment>
           ))}
         </Flex>
       </Flex>
-    </Box>)
+    </Box>
   );
 }

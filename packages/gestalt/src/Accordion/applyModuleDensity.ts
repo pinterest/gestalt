@@ -2,12 +2,14 @@ import Box from '../Box';
 
 type Gap = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-const applyModuleDensityStyle = (size: "sm" | "md" | "lg"): {
-  gap: Gap,
-  padding: ComponentProps<typeof Box>["padding"],
-  rounding: ComponentProps<typeof Box>["rounding"],
-  titleGap: Gap,
-  summaryListGap: Gap
+const applyModuleDensityStyle = (
+  size: 'sm' | 'md' | 'lg',
+): {
+  gap: Gap;
+  padding: ComponentProps<typeof Box>['padding'];
+  rounding: ComponentProps<typeof Box>['rounding'];
+  titleGap: Gap;
+  summaryListGap: Gap;
 } => {
   switch (size) {
     case 'sm':

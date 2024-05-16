@@ -1,20 +1,14 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { IconButton } from 'gestalt';
 import trackButtonClick from './trackButtonClick';
 
 type Props = {
-  expanded: boolean,
-  name: string,
-  onClick: () => void
+  expanded: boolean;
+  name: string;
+  onClick: () => void;
 };
 
-export default function ShowHideEditorButton(
-  {
-    expanded,
-    name,
-    onClick,
-  }: Props,
-) {
+export default function ShowHideEditorButton({ expanded, name, onClick }: Props) {
   const label = `${expanded ? 'Hide' : 'Show'} code`;
 
   return (

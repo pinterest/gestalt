@@ -1,4 +1,4 @@
-import {Fragment, ReactNode, useEffect, useRef, useState} from 'react';
+import { Fragment, ReactNode, useEffect, useRef, useState } from 'react';
 import Box from '../Box';
 import Flex from '../Flex';
 import Status from '../Status';
@@ -6,16 +6,11 @@ import Text from '../Text';
 import { MaxLength } from '../TextField';
 
 type Props = {
-  maxLength: MaxLength,
-  currentLength?: number
+  maxLength: MaxLength;
+  currentLength?: number;
 };
 
-export default function FormHelperTextCounter(
-  {
-    currentLength,
-    maxLength,
-  }: Props,
-) {
+export default function FormHelperTextCounter({ currentLength, maxLength }: Props) {
   const ref = useRef<null | HTMLElement>(null);
   const [width, setWidth] = useState<undefined | number>(undefined);
 

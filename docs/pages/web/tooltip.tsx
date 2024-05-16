@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { BannerSlim } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import { BannerSlimExperiment } from '../../docs-components/BannerSlimExperiment';
@@ -25,13 +25,7 @@ import useToAddSupplementaryInfo from '../../examples/tooltip/useToAddSupplement
 import useToDescribeInteractiveElement from '../../examples/tooltip/useToDescribeInteractiveElement';
 import useToDistinguishRelatedActions from '../../examples/tooltip/useToDistinguishRelatedActions';
 
-export default function DocsPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: DocGen
-  },
-) {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
     <Page title="Tooltip">
       <PageHeader
@@ -345,8 +339,8 @@ Toast provides feedback on an interaction. One example of Toast is the confirmat
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   return {
     props: { generatedDocGen: await docGen('Tooltip') },

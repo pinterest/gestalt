@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
 import {
   TOKEN_COLOR_BACKGROUND_BRAND,
@@ -39,13 +39,9 @@ import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';
 
 type ColorCardProps = {
-  children: ReactNode
+  children: ReactNode;
 };
-function ColorSchemeLayout(
-  {
-    children,
-  }: ColorCardProps,
-) {
+function ColorSchemeLayout({ children }: ColorCardProps) {
   return (
     <Flex gap={4} wrap>
       {['light', 'dark'].map((scheme) => (

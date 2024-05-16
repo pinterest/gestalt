@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import classnames from 'classnames';
 import { TOKEN_COLOR_BORDER_AVATAR, TOKEN_COLOR_TEXT_DEFAULT } from 'gestalt-design-tokens';
 import avatarStyles from '../AvatarGroup.css';
@@ -10,16 +10,11 @@ import typography from '../Typography.css';
 const ICON_SIZE_RATIO = (20 / 48) * 100; // For pixel perfect icon button, we use the icon (20px) to parent container (48px) size ratio
 
 type ResponsiveFitSizeBoxProps = {
-  children: ReactNode,
-  outline: boolean
+  children: ReactNode;
+  outline: boolean;
 };
 
-function ResponsiveFitSizeBox(
-  {
-    children,
-    outline,
-  }: ResponsiveFitSizeBoxProps,
-) {
+function ResponsiveFitSizeBox({ children, outline }: ResponsiveFitSizeBoxProps) {
   return (
     <Box
       color="secondary"
@@ -50,26 +45,24 @@ function ResponsiveFitSizeBox(
 }
 
 type Props = {
-  children?: string | number,
-  fontSize?: string,
-  outline?: boolean,
-  textAnchor?: "start" | "middle" | "end",
-  title?: string,
-  translate?: "translateX10",
-  content?: "text" | "icon"
+  children?: string | number;
+  fontSize?: string;
+  outline?: boolean;
+  textAnchor?: 'start' | 'middle' | 'end';
+  title?: string;
+  translate?: 'translateX10';
+  content?: 'text' | 'icon';
 };
 
-export default function AvatarFoundation(
-  {
-    children,
-    fontSize,
-    outline = false,
-    textAnchor = 'middle',
-    title,
-    translate,
-    content = 'text',
-  }: Props,
-) {
+export default function AvatarFoundation({
+  children,
+  fontSize,
+  outline = false,
+  textAnchor = 'middle',
+  title,
+  translate,
+  content = 'text',
+}: Props) {
   const cs = classnames(styles.icon, avatarStyles.text);
 
   return (

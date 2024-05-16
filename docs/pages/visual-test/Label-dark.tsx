@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Flex, Label, Switch, Text } from 'gestalt';
 
 export default function Snapshot() {

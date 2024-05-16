@@ -1,11 +1,16 @@
-import {render, screen} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import InternalLink from './InternalLink';
 
 test('InternalLink handles onClick callback', () => {
-  const mockOnClick = jest.fn<[{
-    dangerouslyDisableOnNavigation: () => void,
-    event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>
-  }], undefined>();
+  const mockOnClick = jest.fn<
+    [
+      {
+        dangerouslyDisableOnNavigation: () => void;
+        event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+      },
+    ],
+    undefined
+  >();
   render(
     <InternalLink
       href="https://example.com"

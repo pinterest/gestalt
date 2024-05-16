@@ -10,27 +10,25 @@
  * fetch calls.
  */
 
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 
 type Props = {
-  containerHeight: number,
-  fetchMore?: () => void,
-  isAtEnd?: boolean,
-  isFetching: boolean,
-  scrollHeight: number,
-  scrollTop: number
+  containerHeight: number;
+  fetchMore?: () => void;
+  isAtEnd?: boolean;
+  isFetching: boolean;
+  scrollHeight: number;
+  scrollTop: number;
 };
 
-export default function FetchItems(
-  {
-    containerHeight,
-    fetchMore,
-    isAtEnd,
-    isFetching,
-    scrollHeight,
-    scrollTop,
-  }: Props,
-): null {
+export default function FetchItems({
+  containerHeight,
+  fetchMore,
+  isAtEnd,
+  isFetching,
+  scrollHeight,
+  scrollTop,
+}: Props): null {
   const check: () => void = () => {
     if (isAtEnd || isFetching || !fetchMore) {
       return;

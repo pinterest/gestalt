@@ -1,12 +1,17 @@
-import {createRef} from 'react';
+import { createRef } from 'react';
 import { render, screen } from '@testing-library/react';
 import Button from './Button';
 
 describe('Button', () => {
   it('handles click', () => {
-    const mockOnClick = jest.fn<[{
-      event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>
-    }], undefined>();
+    const mockOnClick = jest.fn<
+      [
+        {
+          event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>;
+        },
+      ],
+      undefined
+    >();
     render(<Button onClick={mockOnClick} text="ButtonText" />);
     screen.getByText('ButtonText').click();
     expect(mockOnClick).toHaveBeenCalled();

@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { LiveError, LivePreview, LiveProvider } from 'react-live';
 import { Box, Flex, HelpButton, Link, Text } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
@@ -47,13 +47,11 @@ const importsToRemoveRegex = new RegExp(
   'g',
 );
 
-export default function DevelopmentEditor(
-  {
-    code,
-  }: {
-    code: string | null | undefined | (() => ReactNode)
-  },
-) {
+export default function DevelopmentEditor({
+  code,
+}: {
+  code: string | null | undefined | (() => ReactNode);
+}) {
   const { devExampleMode } = useAppContext();
 
   if (devExampleMode === 'default') {

@@ -1,4 +1,4 @@
-import {cloneElement, ReactNode} from 'react';
+import { cloneElement, ReactNode } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import focusStyles from './Focus.css';
@@ -7,36 +7,31 @@ import styles from './SegmentedControl.css';
 import Text from './Text';
 import useFocusVisible from './useFocusVisible';
 
-type SizeType = "sm" | "md" | "lg";
+type SizeType = 'sm' | 'md' | 'lg';
 
-type OnChange = (
-  arg1: {
-    event: React.MouseEvent<HTMLButtonElement>,
-    activeIndex: number
-  },
-) => void;
+type OnChange = (arg1: { event: React.MouseEvent<HTMLButtonElement>; activeIndex: number }) => void;
 
 type Props = {
   /**
-     * Items for selection. Though typically strings, React.Node is accepted to allow for Icons or other custom UI.
-     */
-  items: ReadonlyArray<ReactNode>,
+   * Items for selection. Though typically strings, React.Node is accepted to allow for Icons or other custom UI.
+   */
+  items: ReadonlyArray<ReactNode>;
   /**
-     * Callback triggered when the user selects an item.
-     */
-  onChange: OnChange,
+   * Callback triggered when the user selects an item.
+   */
+  onChange: OnChange;
   /**
-     * By default, items have equal widths. If this prop is true, the width of an item is based on its content. See the [responsive example](https://gestalt.pinterest.systems/web/segmentedcontrol#Example:-Responsive) for more details.
-     */
-  responsive?: boolean,
+   * By default, items have equal widths. If this prop is true, the width of an item is based on its content. See the [responsive example](https://gestalt.pinterest.systems/web/segmentedcontrol#Example:-Responsive) for more details.
+   */
+  responsive?: boolean;
   /**
-     * Index of element in `items` that is currently selected.
-     */
-  selectedItemIndex: number,
+   * Index of element in `items` that is currently selected.
+   */
+  selectedItemIndex: number;
   /**
-     * Size of the Segmented Control.
-     */
-  size?: SizeType
+   * Size of the Segmented Control.
+   */
+  size?: SizeType;
 };
 
 const getDensityStyles = (s: SizeType) => {
@@ -66,12 +61,12 @@ function SegmentedControlItem({
   size = 'md',
   width,
 }: {
-  index: number,
-  item: ReactNode,
-  isSelected: boolean,
-  onChange: OnChange,
-  width: string | null | undefined,
-  size: SizeType
+  index: number;
+  item: ReactNode;
+  isSelected: boolean;
+  onChange: OnChange;
+  width: string | null | undefined;
+  size: SizeType;
 }) {
   const { isFocusVisible } = useFocusVisible();
   const cs = classnames(
@@ -88,7 +83,7 @@ function SegmentedControlItem({
   const { fontSize, iconSize } = getDensityStyles(size);
 
   return (
-    (<button
+    <button
       aria-selected={isSelected}
       className={cs}
       onClick={(event) => onChange({ event, activeIndex: index })}
@@ -107,7 +102,7 @@ function SegmentedControlItem({
             : item}
         </Box>
       )}
-    </button>)
+    </button>
   );
 }
 
@@ -120,15 +115,13 @@ function SegmentedControlItem({
  * ![SegmentedControl dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SegmentedControl-dark.spec.mjs-snapshots/SegmentedControl-dark-chromium-darwin.png)
  *
  */
-export default function SegmentedControl(
-  {
-    items,
-    onChange,
-    responsive,
-    selectedItemIndex,
-    size = 'md',
-  }: Props,
-) {
+export default function SegmentedControl({
+  items,
+  onChange,
+  responsive,
+  selectedItemIndex,
+  size = 'md',
+}: Props) {
   const buttonWidth = responsive ? undefined : `${Math.floor(100 / Math.max(1, items.length))}%`;
   return (
     <div

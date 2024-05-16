@@ -1,1 +1,9 @@
-export type AriaCurrent = "page" | "step" | "location" | "date" | "time" | "true" | "false" | "section";
+export type AriaCurrent =
+  | 'page'
+  | 'step'
+  | 'location'
+  | 'date'
+  | 'time'
+  | 'true'
+  | 'false'
+  | 'section';

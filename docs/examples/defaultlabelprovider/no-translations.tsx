@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { Box, ComboBox, DefaultLabelProvider, Flex, Heading } from 'gestalt';
 
 const pronouns = [
@@ -19,8 +19,8 @@ export default function Example() {
   const handleOnBlur = ({
     value,
   }: {
-    event: React.FocusEvent<HTMLInputElement> | React.SyntheticEvent<HTMLInputElement>,
-    value: string
+    event: React.FocusEvent<HTMLInputElement> | React.SyntheticEvent<HTMLInputElement>;
+    value: string;
   }) => {
     if (value !== '' && !pronouns.includes(value)) setErrorMessage('Please, select a valid option');
   };

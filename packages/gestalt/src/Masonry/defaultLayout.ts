@@ -1,4 +1,4 @@
-import {Align, Layout} from 'gestalt/src//Masonry/types';
+import { Align, Layout } from 'gestalt/src//Masonry/types';
 import { Cache } from './Cache';
 import mindex from './mindex';
 import { Position } from './types';
@@ -10,25 +10,23 @@ const offscreen = (width: number, height: number = Infinity) => ({
   height,
 });
 
-const calculateCenterOffset = (
-  {
-    align,
-    columnCount,
-    columnWidthAndGutter,
-    gutter,
-    layout,
-    rawItemCount,
-    width,
-  }: {
-    align: Align,
-    columnCount: number,
-    columnWidthAndGutter: number,
-    gutter: number,
-    layout: Layout,
-    rawItemCount: number,
-    width: number
-  },
-): number => {
+const calculateCenterOffset = ({
+  align,
+  columnCount,
+  columnWidthAndGutter,
+  gutter,
+  layout,
+  rawItemCount,
+  width,
+}: {
+  align: Align;
+  columnCount: number;
+  columnWidthAndGutter: number;
+  gutter: number;
+  layout: Layout;
+  rawItemCount: number;
+  width: number;
+}): number => {
   if (layout === 'basicCentered') {
     const contentWidth = Math.min(rawItemCount, columnCount) * columnWidthAndGutter + gutter;
     return Math.max(Math.floor((width - contentWidth) / 2), 0);
@@ -43,27 +41,26 @@ const calculateCenterOffset = (
 };
 
 const defaultLayout =
-  <T>(
-    {
-      align,
-      cache,
-      columnWidth = 236,
-      gutter = 14,
-      layout,
-      minCols = 2,
-      rawItemCount,
-      width,
-    }: {
-      columnWidth?: number,
-      gutter?: number,
-      align: Align,
-      layout: Layout,
-      cache: Cache<T, number>,
-      minCols?: number,
-      rawItemCount: number,
-      width?: number | null | undefined
-    },
-  ): (items: ReadonlyArray<T>) => ReadonlyArray<Position> => (items): ReadonlyArray<Position> => {
+  <T>({
+    align,
+    cache,
+    columnWidth = 236,
+    gutter = 14,
+    layout,
+    minCols = 2,
+    rawItemCount,
+    width,
+  }: {
+    columnWidth?: number;
+    gutter?: number;
+    align: Align;
+    layout: Layout;
+    cache: Cache<T, number>;
+    minCols?: number;
+    rawItemCount: number;
+    width?: number | null | undefined;
+  }): ((items: ReadonlyArray<T>) => ReadonlyArray<Position>) =>
+  (items): ReadonlyArray<Position> => {
     if (width == null) {
       return items.map(() => offscreen(columnWidth));
     }

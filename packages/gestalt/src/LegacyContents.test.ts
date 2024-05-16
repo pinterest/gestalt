@@ -26,10 +26,12 @@ const fixedOffset = {
   y: 0,
 } as const;
 
-const centerTriggerRect = (props: {
-  bottom?: number,
-  top?: number
-} = Object.freeze({})) => ({
+const centerTriggerRect = (
+  props: {
+    bottom?: number;
+    top?: number;
+  } = Object.freeze({}),
+) => ({
   bottom: props.bottom ?? 470,
   height: 40,
   left: 700,
@@ -38,10 +40,12 @@ const centerTriggerRect = (props: {
   width: 40,
 });
 
-const upperMiddleTriggerRect = (props: {
-  left?: number,
-  right?: number
-} = Object.freeze({})) => ({
+const upperMiddleTriggerRect = (
+  props: {
+    left?: number;
+    right?: number;
+  } = Object.freeze({}),
+) => ({
   bottom: 40,
   height: 40,
   left: props.left ?? 700,
@@ -53,12 +57,12 @@ const upperMiddleTriggerRect = (props: {
 // between BORDER_RADIUS & CARET_HEIGHT away from the edge of the screen
 const upperLeftTriggerRect = (
   props: {
-    bottom?: number,
-    height?: number,
-    left?: number,
-    right?: number,
-    top?: number,
-    width?: number
+    bottom?: number;
+    height?: number;
+    left?: number;
+    right?: number;
+    top?: number;
+    width?: number;
   } = Object.freeze({}),
 ) => ({
   bottom: props.bottom ?? 50,

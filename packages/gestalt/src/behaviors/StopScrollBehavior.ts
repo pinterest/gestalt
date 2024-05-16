@@ -1,7 +1,7 @@
-import {Component, ReactNode} from 'react';
+import { Component, ReactNode } from 'react';
 
 type Props = {
-  children: ReactNode
+  children: ReactNode;
 };
 
 export default class NoScrollBehavior extends Component<Props> {

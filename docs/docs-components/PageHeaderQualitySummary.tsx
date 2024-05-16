@@ -1,4 +1,4 @@
-import {Fragment, ReactNode} from 'react';
+import { Fragment, ReactNode } from 'react';
 import { BannerSlim, Box, Divider, Flex, Text } from 'gestalt';
 import componentData from './data/components';
 import { COMPONENT_STATUS_MESSAGING, STATUS_DESCRIPTION } from './data/componentStatusMessaging';
@@ -12,8 +12,8 @@ function QualityItem({
   category,
   status,
 }: {
-  category: "figmaStatus" | "responsive" | "mobileAdaptive" | "accessible",
-  status: StatusType | "deprecated" | null | undefined
+  category: 'figmaStatus' | 'responsive' | 'mobileAdaptive' | 'accessible';
+  status: StatusType | 'deprecated' | null | undefined;
 }) {
   const isAccessibility = category === 'accessible';
 
@@ -36,14 +36,10 @@ function QualityItem({
 }
 
 type Props = {
-  name: string
+  name: string;
 };
 
-export default function PageHeaderQualitySummary(
-  {
-    name,
-  }: Props,
-) {
+export default function PageHeaderQualitySummary({ name }: Props) {
   const componentStatusData = webComponentData.find((component) => component.name === name)?.status;
 
   if (!componentStatusData) {

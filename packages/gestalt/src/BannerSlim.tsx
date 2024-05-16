@@ -1,4 +1,4 @@
-import {Children, ReactElement, Fragment, ReactNode} from 'react';
+import { Children, ReactElement, Fragment, ReactNode } from 'react';
 import Box from './Box';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
@@ -11,14 +11,11 @@ import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES';
 import Text from './Text';
 
 type DismissButtonType = {
-  accessibilityLabel?: string,
-  onDismiss: () => void
+  accessibilityLabel?: string;
+  onDismiss: () => void;
 };
 
-function DismissButton({
-  accessibilityLabel,
-  onDismiss,
-}: DismissButtonType) {
+function DismissButton({ accessibilityLabel, onDismiss }: DismissButtonType) {
   const { accessibilityDismissButtonLabel } = useDefaultLabelContext('BannerSlim');
   return (
     <IconButton
@@ -32,25 +29,17 @@ function DismissButton({
 }
 
 type HelperLinkType = {
-  accessibilityLabel: string,
-  href: string,
-  onClick?: (
-    arg1: {
-      event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-      dangerouslyDisableOnNavigation: () => void
-    },
-  ) => void,
-  target?: null | "self" | "blank",
-  text: string
+  accessibilityLabel: string;
+  href: string;
+  onClick?: (arg1: {
+    event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+    dangerouslyDisableOnNavigation: () => void;
+  }) => void;
+  target?: null | 'self' | 'blank';
+  text: string;
 };
 
-function HelperLink({
-  accessibilityLabel,
-  href,
-  onClick,
-  target,
-  text,
-}: HelperLinkType) {
+function HelperLink({ accessibilityLabel, href, onClick, target, text }: HelperLinkType) {
   return (
     <Text inline>
       <Link
@@ -66,29 +55,26 @@ function HelperLink({
   );
 }
 
-type PrimaryActionType = {
-  accessibilityLabel: string,
-  disabled?: boolean,
-  href: string,
-  label: string,
-  onClick?: ComponentProps<typeof ButtonLink>["onClick"],
-  rel?: "none" | "nofollow",
-  role: "link",
-  target?: null | "self" | "blank"
-} | {
-  accessibilityLabel: string,
-  disabled?: boolean,
-  label: string,
-  onClick: ComponentProps<typeof Button>["onClick"],
-  role?: "button"
-};
+type PrimaryActionType =
+  | {
+      accessibilityLabel: string;
+      disabled?: boolean;
+      href: string;
+      label: string;
+      onClick?: ComponentProps<typeof ButtonLink>['onClick'];
+      rel?: 'none' | 'nofollow';
+      role: 'link';
+      target?: null | 'self' | 'blank';
+    }
+  | {
+      accessibilityLabel: string;
+      disabled?: boolean;
+      label: string;
+      onClick: ComponentProps<typeof Button>['onClick'];
+      role?: 'button';
+    };
 
-function PrimaryAction({
-  accessibilityLabel,
-  disabled,
-  label,
-  ...props
-}: PrimaryActionType) {
+function PrimaryAction({ accessibilityLabel, disabled, label, ...props }: PrimaryActionType) {
   return props.role === 'link' ? (
     <ButtonLink
       accessibilityLabel={accessibilityLabel}
@@ -117,38 +103,49 @@ function PrimaryAction({
 
 type Props = {
   /**
-     * Adds a dismiss button to BannerSlim. See the [Dismissible variant](https://gestalt.pinterest.systems/web/bannerslim#Dismissible) for more info.
-     * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannerslim#Accessibility).
-     *
-     * Note that compact ("___Bare" type) BannerSlims are not dismissable.
-     */
-  dismissButton?: DismissButtonType,
+   * Adds a dismiss button to BannerSlim. See the [Dismissible variant](https://gestalt.pinterest.systems/web/bannerslim#Dismissible) for more info.
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannerslim#Accessibility).
+   *
+   * Note that compact ("___Bare" type) BannerSlims are not dismissable.
+   */
+  dismissButton?: DismissButtonType;
   /**
-     * Helper [Link](https://gestalt.pinterest.systems/web/link) to be placed after the message. See the [Message variant](https://gestalt.pinterest.systems/web/bannerslim#Message) to learn more.
-     */
-  helperLink?: HelperLinkType,
+   * Helper [Link](https://gestalt.pinterest.systems/web/link) to be placed after the message. See the [Message variant](https://gestalt.pinterest.systems/web/bannerslim#Message) to learn more.
+   */
+  helperLink?: HelperLinkType;
   /**
-     * Label to describe the status icon’s purpose. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannerslim#Accessibility) for details on proper usage.
-     */
-  iconAccessibilityLabel?: string,
+   * Label to describe the status icon’s purpose. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannerslim#Accessibility) for details on proper usage.
+   */
+  iconAccessibilityLabel?: string;
   /**
-     * Main content of BannerSlim. Content should be [localized](https://gestalt.pinterest.systems/web/bannerslim#Localization). See the [Message variant](https://gestalt.pinterest.systems/web/bannerslim#Message) to learn more.
-     *
-     */
-  message: string | Element<typeof Text>,
+   * Main content of BannerSlim. Content should be [localized](https://gestalt.pinterest.systems/web/bannerslim#Localization). See the [Message variant](https://gestalt.pinterest.systems/web/bannerslim#Message) to learn more.
+   *
+   */
+  message: string | Element<typeof Text>;
   /**
-     * Main action for users to take on BannerSlim. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
-     * If no `href` is supplied, the action will be a button.
-     * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannerslim#Accessibility).
-     * See the [Primary action](https://gestalt.pinterest.systems/web/bannerslim#Primary-action) variant to learn more.
-     *
-     * Note that actions are not available on compact ("___Bare" type) BannerSlims.
-     */
-  primaryAction?: PrimaryActionType,
+   * Main action for users to take on BannerSlim. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
+   * If no `href` is supplied, the action will be a button.
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannerslim#Accessibility).
+   * See the [Primary action](https://gestalt.pinterest.systems/web/bannerslim#Primary-action) variant to learn more.
+   *
+   * Note that actions are not available on compact ("___Bare" type) BannerSlims.
+   */
+  primaryAction?: PrimaryActionType;
   /**
-     * The type of BannerSlim. See the [variants](https://gestalt.pinterest.systems/web/bannerslim#Variants) to learn more.
-     */
-  type?: "neutral" | "error" | "info" | "warning" | "success" | "recommendation" | "errorBare" | "infoBare" | "warningBare" | "successBare" | "recommendationBare"
+   * The type of BannerSlim. See the [variants](https://gestalt.pinterest.systems/web/bannerslim#Variants) to learn more.
+   */
+  type?:
+    | 'neutral'
+    | 'error'
+    | 'info'
+    | 'warning'
+    | 'success'
+    | 'recommendation'
+    | 'errorBare'
+    | 'infoBare'
+    | 'warningBare'
+    | 'successBare'
+    | 'recommendationBare';
 };
 
 /**
@@ -158,16 +155,14 @@ type Props = {
  * ![BannerSlim dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/BannerSlim-dark.spec.mjs-snapshots/BannerSlim-dark-chromium-darwin.png)
  *
  */
-export default function BannerSlim(
-  {
-    dismissButton,
-    helperLink,
-    iconAccessibilityLabel,
-    message,
-    primaryAction,
-    type = 'neutral',
-  }: Props,
-) {
+export default function BannerSlim({
+  dismissButton,
+  helperLink,
+  iconAccessibilityLabel,
+  message,
+  primaryAction,
+  type = 'neutral',
+}: Props) {
   const isBare = type.endsWith('Bare');
   const isDefault = type === 'neutral';
   const { backgroundColor, iconColor, icon } = MESSAGING_TYPE_ATTRIBUTES[type.replace('Bare', '')];
@@ -204,7 +199,7 @@ export default function BannerSlim(
   const shouldShowButtons = !isBare && (primaryAction || dismissButton);
 
   return (
-    (<Box
+    <Box
       alignItems="center"
       color={isBare ? 'transparent' : backgroundColor}
       direction="column"
@@ -276,7 +271,7 @@ export default function BannerSlim(
           <PrimaryAction {...primaryAction} />
         </Box>
       )}
-    </Box>)
+    </Box>
   );
 }
 

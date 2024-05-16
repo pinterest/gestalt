@@ -1,17 +1,12 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Flex, Heading, IconButton, Text, useDefaultLabel, useDeviceType } from 'gestalt';
 
 type Props = {
-  title: string,
-  toggleTabularDataModal: () => void
+  title: string;
+  toggleTabularDataModal: () => void;
 };
 
-export default function TabularDataModalHeading(
-  {
-    title,
-    toggleTabularDataModal,
-  }: Props,
-) {
+export default function TabularDataModalHeading({ title, toggleTabularDataModal }: Props) {
   const { accessibilityLabelDismissModal, tabularData } = useDefaultLabel('ChartGraph');
 
   const deviceType = useDeviceType();

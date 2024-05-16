@@ -1,20 +1,15 @@
-import {ReactElement, forwardRef, useEffect, useImperativeHandle, useRef, useState} from 'react';
+import { ReactElement, forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { Icon, useDeviceType } from 'gestalt';
 import { Props } from '../DatePicker';
 import styles from '../DatePicker.css';
 
-type ModifiedProps = ((Props) & {
-  onChange: (
-    arg1: {
-      startDate: Date,
-      endDate: Date
-    },
-  ) => void
-});
+type ModifiedProps = Props & {
+  onChange: (arg1: { startDate: Date; endDate: Date }) => void;
+};
 
-const InternalDatePickerWithForwardRef =
-  forwardRef<HTMLInputElement, ModifiedProps>(function InternalDatePicker(
+const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, ModifiedProps>(
+  function InternalDatePicker(
     {
       excludeDates,
       id,
@@ -27,7 +22,7 @@ const InternalDatePickerWithForwardRef =
       rangeStartDate,
     }: ModifiedProps,
     ref,
-  ): Element<"div"> {
+  ): Element<'div'> {
     const innerInputRef = useRef<null | HTMLInputElement>(null);
     const deviceType = useDeviceType();
     const isMobile = deviceType === 'mobile';
@@ -60,7 +55,7 @@ const InternalDatePickerWithForwardRef =
     }, [localeData]);
 
     return (
-      (<div className="_gestalt">
+      <div className="_gestalt">
         <div className={isMobile ? undefined : '_gestalt_daterange'}>
           <ReactDatePicker
             ref={(refElement) => {
@@ -101,9 +96,10 @@ const InternalDatePickerWithForwardRef =
             startDate={rangeStartDate ?? undefined}
           />
         </div>
-      </div>)
+      </div>
     );
-  });
+  },
+);
 
 InternalDatePickerWithForwardRef.displayName = 'InternalDatePicker';
 

@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import { DocGen, multipleDocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -40,15 +40,13 @@ import primaryAction from '../../examples/sidenavigation/primaryAction';
 import sectionsExample from '../../examples/sidenavigation/sectionsExample';
 import subcomponent from '../../examples/sidenavigation/subcomponent';
 
-export default function SideNavigationPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: {
-      [key: string]: DocGen
-    }
-  },
-) {
+export default function SideNavigationPage({
+  generatedDocGen,
+}: {
+  generatedDocGen: {
+    [key: string]: DocGen;
+  };
+}) {
   return (
     <Page title={generatedDocGen.SideNavigation?.displayName ?? ''}>
       <PageHeader
@@ -592,9 +590,9 @@ For pages with a main top nav bar, every SideNav should have a PageHeader to ann
 export async function getServerSideProps(): Promise<{
   props: {
     generatedDocGen: {
-      [key: string]: DocGen
-    }
-  }
+      [key: string]: DocGen;
+    };
+  };
 }> {
   return {
     props: {

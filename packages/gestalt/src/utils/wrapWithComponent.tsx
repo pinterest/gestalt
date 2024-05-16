@@ -1,4 +1,4 @@
-import {ComponentType, isValidElement, ReactNode} from 'react';
+import { ComponentType, isValidElement, ReactNode } from 'react';
 
 type UnknownComponent = ComponentType<any>;
 
@@ -10,7 +10,10 @@ const isComponent = (AComponent: UnknownComponent, AnotherComponent: UnknownComp
 
 // Checks whether `element` is a React element of type `Component` (or one of
 // the passed components, if `Component` is an array of React components).
-function isElementOfType<P>(element: ReactNode | null | undefined, Component: ComponentType<P>): boolean {
+function isElementOfType<P>(
+  element: ReactNode | null | undefined,
+  Component: ComponentType<P>,
+): boolean {
   if (
     element === null ||
     element === undefined ||
@@ -32,17 +35,15 @@ function isElementOfType<P>(element: ReactNode | null | undefined, Component: Co
 // Conditionally wraps `element` in `Component` if it is not already an instance of
 // `Component`. If `props` is passed, those will be added as props on the
 // wrapped component. If `element` is nullish, null is returned.
-export default function wrapWithComponent<P>(
-  {
-    element,
-    Component,
-    props,
-  }: {
-    element: ReactNode | null | undefined,
-    Component: ComponentType<P>,
-    props: P
-  },
-) {
+export default function wrapWithComponent<P>({
+  element,
+  Component,
+  props,
+}: {
+  element: ReactNode | null | undefined;
+  Component: ComponentType<P>;
+  props: P;
+}) {
   if (element === null || element === undefined) {
     return null;
   }

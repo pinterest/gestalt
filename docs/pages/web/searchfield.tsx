@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -21,13 +21,7 @@ import placeAboveContent from '../../examples/searchfield/placeAboveContent';
 import sizesExample from '../../examples/searchfield/sizesExample';
 import variantsExample from '../../examples/searchfield/variantsExample';
 
-export default function SearchFieldPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: DocGen
-  },
-) {
+export default function SearchFieldPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
     <Page title="SearchField">
       <PageHeader description={generatedDocGen?.description} name="SearchField">
@@ -244,8 +238,8 @@ TextArea allows for multiline text input, suitable for longer length text. Unles
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   return {
     props: { generatedDocGen: await docGen('SearchField') },

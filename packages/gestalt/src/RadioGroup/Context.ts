@@ -1,7 +1,7 @@
-import {Context, createContext, useContext} from 'react';
+import { Context, createContext, useContext } from 'react';
 
 type RadioGroupContextType = {
-  parentName: string
+  parentName: string;
 };
 
 const initialContextState = {

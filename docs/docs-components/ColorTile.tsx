@@ -1,24 +1,17 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, Text, useColorScheme } from 'gestalt';
 import { TOKEN_COLOR_TRANSPARENT } from 'gestalt-design-tokens';
 import tokens from 'gestalt-design-tokens/dist/json/variables.json';
 import darkModeTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
 
 type Props = {
-  token: string | null | undefined,
-  description: string,
-  number?: number,
-  textColor?: "dark" | "light" | "default" | "inverse"
+  token: string | null | undefined;
+  description: string;
+  number?: number;
+  textColor?: 'dark' | 'light' | 'default' | 'inverse';
 };
 
-function ColorTile(
-  {
-    description,
-    token,
-    number = 400,
-    textColor,
-  }: Props,
-) {
+function ColorTile({ description, token, number = 400, textColor }: Props) {
   const isTransparent = token === TOKEN_COLOR_TRANSPARENT;
   const newTextColor = textColor || (number > 400 ? 'light' : 'dark');
   const borderNeeded =

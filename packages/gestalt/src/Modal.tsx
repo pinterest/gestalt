@@ -1,4 +1,4 @@
-import {ReactNode, useCallback, useEffect, useRef, useState} from 'react';
+import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
 import Backdrop from './Backdrop';
 import StopScrollBehavior from './behaviors/StopScrollBehavior';
@@ -17,55 +17,55 @@ import { FixedZIndex } from './zIndex';
 
 type Props = {
   /**
-     * Temporary undocumented prop to disable ScrollBoundaryContainer.
-     */
-  _dangerouslyDisableScrollBoundaryContainer?: boolean,
+   * Temporary undocumented prop to disable ScrollBoundaryContainer.
+   */
+  _dangerouslyDisableScrollBoundaryContainer?: boolean;
   /**
-     * String that clients such as VoiceOver will read to describe the modal. Always localize the label. See [Accessibility section](https://gestalt.pinterest.systems/web/modal#Accessibility) for more info.
-     */
-  accessibilityModalLabel: string,
+   * String that clients such as VoiceOver will read to describe the modal. Always localize the label. See [Accessibility section](https://gestalt.pinterest.systems/web/modal#Accessibility) for more info.
+   */
+  accessibilityModalLabel: string;
   /**
-     * Specify the alignment of `heading` & `subHeading` strings. See the [Heading variant](https://gestalt.pinterest.systems/web/modal#Heading) for more info.
-     */
-  align?: "start" | "center",
+   * Specify the alignment of `heading` & `subHeading` strings. See the [Heading variant](https://gestalt.pinterest.systems/web/modal#Heading) for more info.
+   */
+  align?: 'start' | 'center';
   /**
-     * Supply the element(s) that will be used as Modal's main content. See the [Best Practices](https://gestalt.pinterest.systems/web/modal#Best-practices) for more info.
-     */
-  children?: ReactNode,
+   * Supply the element(s) that will be used as Modal's main content. See the [Best Practices](https://gestalt.pinterest.systems/web/modal#Best-practices) for more info.
+   */
+  children?: ReactNode;
   /**
-     * Close the modal when you click outside of it. See the [outside click variant](https://gestalt.pinterest.systems/web/modal#Preventing-close-on-outside-click) for more info.
-     */
-  closeOnOutsideClick?: boolean,
+   * Close the modal when you click outside of it. See the [outside click variant](https://gestalt.pinterest.systems/web/modal#Preventing-close-on-outside-click) for more info.
+   */
+  closeOnOutsideClick?: boolean;
   /**
-     * Supply the element(s) that will be used as Modal's custom footer. See the [Best Practices](https://gestalt.pinterest.systems/web/modal#Best-practices) for more info.
-     */
-  footer?: ReactNode,
+   * Supply the element(s) that will be used as Modal's custom footer. See the [Best Practices](https://gestalt.pinterest.systems/web/modal#Best-practices) for more info.
+   */
+  footer?: ReactNode;
   /**
-     * The text used for Modal's heading. See the [Heading variant](https://gestalt.pinterest.systems/web/modal#Heading) for more info.
-     */
-  heading?: ReactNode,
+   * The text used for Modal's heading. See the [Heading variant](https://gestalt.pinterest.systems/web/modal#Heading) for more info.
+   */
+  heading?: ReactNode;
   /**
-     * Callback fired when Modal is dismissed by clicking on the backdrop outside of the Modal (if `closeOnOutsideClick` is true).
-     */
-  onDismiss: () => void,
+   * Callback fired when Modal is dismissed by clicking on the backdrop outside of the Modal (if `closeOnOutsideClick` is true).
+   */
+  onDismiss: () => void;
   /**
-     * The main Modal content has a "default" padding. For those cases where full bleed is needed, set `padding` to "none".
-     */
-  padding?: "default" | "none",
+   * The main Modal content has a "default" padding. For those cases where full bleed is needed, set `padding` to "none".
+   */
+  padding?: 'default' | 'none';
   /**
-     * The underlying ARIA role for the Modal. See the [Accessibility Role section](https://gestalt.pinterest.systems/web/modal#Role) for more info.
-     */
-  role?: "alertdialog" | "dialog",
+   * The underlying ARIA role for the Modal. See the [Accessibility Role section](https://gestalt.pinterest.systems/web/modal#Role) for more info.
+   */
+  role?: 'alertdialog' | 'dialog';
   /**
-     * Determines the width of the Modal. See the [size variant](https://gestalt.pinterest.systems/web/modal#Sizes) for more info.
-     *
-     * sm: `540px` | md: `720px` | lg: `900px`
-     */
-  size?: "sm" | "md" | "lg" | number,
+   * Determines the width of the Modal. See the [size variant](https://gestalt.pinterest.systems/web/modal#Sizes) for more info.
+   *
+   * sm: `540px` | md: `720px` | lg: `900px`
+   */
+  size?: 'sm' | 'md' | 'lg' | number;
   /**
-     * Subtext for Modal, only renders with `heading` strings. See the [sub-heading variant](https://gestalt.pinterest.systems/web/modal#Sub-heading) for more info.
-     */
-  subHeading?: string
+   * Subtext for Modal, only renders with `heading` strings. See the [sub-heading variant](https://gestalt.pinterest.systems/web/modal#Sub-heading) for more info.
+   */
+  subHeading?: string;
 };
 
 const SIZE_WIDTH_MAP = {
@@ -79,9 +79,9 @@ function Header({
   heading,
   subHeading,
 }: {
-  align: "start" | "center",
-  heading: string,
-  subHeading?: string
+  align: 'start' | 'center';
+  heading: string;
+  subHeading?: string;
 }) {
   return (
     <Box justifyContent={align} padding={6}>
@@ -105,22 +105,20 @@ function Header({
  * ![Modal dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Modal-dark.spec.mjs-snapshots/Modal-dark-chromium-darwin.png)
  *
  */
-export default function Modal(
-  {
-    _dangerouslyDisableScrollBoundaryContainer = false,
-    accessibilityModalLabel,
-    align = 'center',
-    children,
-    closeOnOutsideClick = true,
-    onDismiss,
-    footer,
-    padding = 'default',
-    heading,
-    role = 'dialog',
-    size = 'sm',
-    subHeading,
-  }: Props,
-) {
+export default function Modal({
+  _dangerouslyDisableScrollBoundaryContainer = false,
+  accessibilityModalLabel,
+  align = 'center',
+  children,
+  closeOnOutsideClick = true,
+  onDismiss,
+  footer,
+  padding = 'default',
+  heading,
+  role = 'dialog',
+  size = 'sm',
+  subHeading,
+}: Props) {
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
 
@@ -129,9 +127,7 @@ export default function Modal(
   const contentRef = useRef<HTMLElement | null | undefined>(null);
 
   useEffect(() => {
-    function handleKeyUp(event: {
-      keyCode: number
-    }) {
+    function handleKeyUp(event: { keyCode: number }) {
       if (event.keyCode === ESCAPE) {
         onDismiss();
       }

@@ -1,11 +1,11 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { Box, Button, ButtonGroup, ColorSchemeProvider, Flex, SelectList, Text } from 'gestalt';
 
 export default function Example() {
-  const [scheme, setScheme] = useState<"light" | "dark" | "userPreference">('light');
+  const [scheme, setScheme] = useState<'light' | 'dark' | 'userPreference'>('light');
 
   return (
-    (<Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
+    <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
       <ColorSchemeProvider colorScheme={scheme} id="docsExample">
         <Box color="default" padding={2}>
           <Flex direction="column" gap={8}>
@@ -36,6 +36,6 @@ export default function Example() {
           </Flex>
         </Box>
       </ColorSchemeProvider>
-    </Flex>)
+    </Flex>
   );
 }

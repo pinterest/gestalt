@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Badge, Flex, Text } from 'gestalt';
 
 export default function Example() {

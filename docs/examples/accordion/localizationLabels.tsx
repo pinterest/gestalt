@@ -1,9 +1,9 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Accordion, Box, DefaultLabelProvider, Text } from 'gestalt';
 
 export default function Example() {
   return (
-    (<DefaultLabelProvider
+    <DefaultLabelProvider
       labels={{
         Accordion: {
           accessibilityCollapseLabel: 'Abschnitt kollabieren.',
@@ -32,6 +32,6 @@ export default function Example() {
           />
         </Box>
       </Box>
-    </DefaultLabelProvider>)
+    </DefaultLabelProvider>
   );
 }

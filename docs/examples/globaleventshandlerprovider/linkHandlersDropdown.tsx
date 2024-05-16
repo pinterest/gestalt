@@ -1,4 +1,4 @@
-import {ReactNode, useCallback, useMemo, useRef, useState} from 'react';
+import { ReactNode, useCallback, useMemo, useRef, useState } from 'react';
 import {
   Button,
   Divider,
@@ -10,7 +10,7 @@ import {
 } from 'gestalt';
 
 export default function Example() {
-  const [onNavigationMode, setOnNavigationMode] = useState<"default" | "custom">('default');
+  const [onNavigationMode, setOnNavigationMode] = useState<'default' | 'custom'>('default');
   const [open, setOpen] = useState(false);
   const anchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
 
@@ -18,14 +18,10 @@ export default function Example() {
     ({
       href,
     }: {
-      href: ComponentProps<typeof Link>["href"],
-      target?: ComponentProps<typeof Link>["target"]
+      href: ComponentProps<typeof Link>['href'];
+      target?: ComponentProps<typeof Link>['target'];
     }) => {
-      const onNavigationClick = ({
-        event,
-      }: {
-        readonly event: React.SyntheticEvent
-      }) => {
+      const onNavigationClick = ({ event }: { readonly event: React.SyntheticEvent }) => {
         event.preventDefault();
         // eslint-disable-next-line no-alert
         alert(`Disabled link: ${href}. Opening help.pinterest.com instead.`);

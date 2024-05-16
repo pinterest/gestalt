@@ -1,13 +1,7 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, Divider, Flex, Heading, Link, Text } from 'gestalt';
 
-function Block({
-  title,
-  text,
-}: {
-  title: string,
-  text: ReadonlyArray<string>
-}) {
+function Block({ title, text }: { title: string; text: ReadonlyArray<string> }) {
   return (
     <Flex direction="column" gap={{ column: 2, row: 0 }}>
       <Heading accessibilityLevel="none" size="400">

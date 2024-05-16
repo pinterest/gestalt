@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { af, hu } from 'date-fns/locale';
 import DateField from './DateField';
@@ -11,15 +11,15 @@ function DatePickerWrap({
   readOnly,
   disabled,
 }: {
-  errorMessage?: string,
-  disabled?: boolean,
-  readOnly?: boolean,
-  localeData?: Record<any, any>
+  errorMessage?: string;
+  disabled?: boolean;
+  readOnly?: boolean;
+  localeData?: Record<any, any>;
 }) {
   const [date, setDate] = useState<Date | null>(initialDate);
 
   return (
-    (<DateField
+    <DateField
       disabled={disabled}
       errorMessage={errorMessage}
       helperText="Enter your date of birth"
@@ -27,14 +27,12 @@ function DatePickerWrap({
       label="Date of birth"
       localeData={localeData}
       name="test"
-      onChange={({
-        value,
-      }: any) => setDate(value)}
+      onChange={({ value }: any) => setDate(value)}
       onClearInput={() => setDate(null)}
       onError={() => {}}
       readOnly={readOnly}
       value={date}
-    />)
+    />
   );
 }
 

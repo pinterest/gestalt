@@ -1,4 +1,4 @@
-import {act, fireEvent, render, screen} from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import * as AnimationControllerModule from './animation/AnimationContext';
 import { ESCAPE } from './keyCodes';
 import OverlayPanel from './OverlayPanel';
@@ -45,19 +45,13 @@ describe('OverlayPanel', () => {
         accessibilityDismissButtonLabel="Dismiss"
         accessibilityLabel="OverlayPanel"
         closeOnOutsideClick
-        footer={({
-          onDismissStart,
-        }: any) => <button onClick={onDismissStart} type="submit" />}
+        footer={({ onDismissStart }: any) => <button onClick={onDismissStart} type="submit" />}
         heading="OverlayPanel title"
         onDismiss={jest.fn()}
         size="sm"
-        subHeading={({
-          onDismissStart,
-        }: any) => <button onClick={onDismissStart} type="submit" />}
+        subHeading={({ onDismissStart }: any) => <button onClick={onDismissStart} type="submit" />}
       >
-        {({
-          onDismissStart,
-        }: any) => <button onClick={onDismissStart} type="submit" />}
+        {({ onDismissStart }: any) => <button onClick={onDismissStart} type="submit" />}
       </OverlayPanel>,
     );
 
@@ -211,9 +205,7 @@ describe('OverlayPanel', () => {
         onDismiss={mockOnDismiss}
       >
         <OverlayPanel.DismissingElement>
-          {({
-            onDismissStart,
-          }: any) => (
+          {({ onDismissStart }: any) => (
             <button onClick={onDismissStart} type="submit">
               Submit
             </button>
@@ -239,9 +231,7 @@ describe('OverlayPanel', () => {
         closeOnOutsideClick
         footer={
           <OverlayPanel.DismissingElement>
-            {({
-              onDismissStart,
-            }: any) => (
+            {({ onDismissStart }: any) => (
               <button onClick={onDismissStart} type="submit">
                 Submit
               </button>
@@ -273,9 +263,7 @@ describe('OverlayPanel', () => {
         onDismiss={mockOnDismiss}
         subHeading={
           <OverlayPanel.DismissingElement>
-            {({
-              onDismissStart,
-            }: any) => (
+            {({ onDismissStart }: any) => (
               <button onClick={onDismissStart} type="submit">
                 Submit
               </button>

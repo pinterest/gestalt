@@ -1,4 +1,4 @@
-import {ReactNode, useEffect, useState} from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import VideoPlayhead from './Playhead';
 import Box from '../Box';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
@@ -8,20 +8,24 @@ import Text from '../Text';
 import styles from '../Video.css';
 
 type Props = {
-  captionsButton: "enabled" | "disabled" | null,
-  currentTime: number,
-  duration: number,
-  fullscreen: boolean,
-  onCaptionsChange: (event: React.SyntheticEvent<HTMLDivElement>) => void,
-  onFullscreenChange: () => void,
-  onPause: (event: React.SyntheticEvent<HTMLDivElement>) => void,
-  onPlay: (event: React.SyntheticEvent<HTMLDivElement>) => void,
-  onPlayheadDown: (event: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => void,
-  onPlayheadUp: (event: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => void,
-  onVolumeChange: (event: React.SyntheticEvent<HTMLDivElement>) => void,
-  playing: boolean,
-  seek: (time: number) => void,
-  volume: number
+  captionsButton: 'enabled' | 'disabled' | null;
+  currentTime: number;
+  duration: number;
+  fullscreen: boolean;
+  onCaptionsChange: (event: React.SyntheticEvent<HTMLDivElement>) => void;
+  onFullscreenChange: () => void;
+  onPause: (event: React.SyntheticEvent<HTMLDivElement>) => void;
+  onPlay: (event: React.SyntheticEvent<HTMLDivElement>) => void;
+  onPlayheadDown: (
+    event: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>,
+  ) => void;
+  onPlayheadUp: (
+    event: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>,
+  ) => void;
+  onVolumeChange: (event: React.SyntheticEvent<HTMLDivElement>) => void;
+  playing: boolean;
+  seek: (time: number) => void;
+  volume: number;
 };
 
 const timeToString = (time?: number) => {
@@ -33,28 +37,26 @@ const timeToString = (time?: number) => {
   return `${minutesStr}:${secondsStr}`;
 };
 
-function VideoControls(
-  {
-    captionsButton,
-    currentTime,
-    duration,
-    fullscreen,
-    onCaptionsChange,
-    onFullscreenChange,
-    onPause,
-    onPlay,
-    onPlayheadDown,
-    onPlayheadUp,
-    onVolumeChange,
-    playing,
-    seek,
-    volume,
-  }: Props,
-) {
+function VideoControls({
+  captionsButton,
+  currentTime,
+  duration,
+  fullscreen,
+  onCaptionsChange,
+  onFullscreenChange,
+  onPause,
+  onPlay,
+  onPlayheadDown,
+  onPlayheadUp,
+  onVolumeChange,
+  playing,
+  seek,
+  volume,
+}: Props) {
   const handleFullscreenChange = ({
     event,
   }: {
-    event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>
+    event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>;
   }) => {
     event.stopPropagation();
     onFullscreenChange();
@@ -63,7 +65,7 @@ function VideoControls(
   const handlePlayingChange = ({
     event,
   }: {
-    event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>
+    event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>;
   }) => {
     if (playing) {
       onPause(event);
@@ -75,7 +77,7 @@ function VideoControls(
   const handleCaptionsChange = ({
     event,
   }: {
-    event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>
+    event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>;
   }) => {
     event.stopPropagation();
     onCaptionsChange(event);
@@ -84,7 +86,7 @@ function VideoControls(
   const handleVolumeChange = ({
     event,
   }: {
-    event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>
+    event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>;
   }) => {
     onVolumeChange(event);
   };

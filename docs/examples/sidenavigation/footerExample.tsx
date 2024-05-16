@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import React, { ReactNode } from 'react';
 import { Fieldset, Flex, SideNavigation, Text } from 'gestalt';
 import { DatePicker } from 'gestalt-datepicker';
 

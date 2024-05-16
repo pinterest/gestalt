@@ -1,41 +1,41 @@
-import {Context, createContext, ReactElement, ReactNode, useContext, useState} from 'react';
+import { Context, createContext, ReactElement, ReactNode, useContext, useState } from 'react';
 
 export interface Indexable {
-  index(): number
+  index(): number;
 }
 
 type SideNavigationContextType = {
-  selectedItemId: string,
-  setSelectedItemId: (arg1: string) => void,
-  selectedMobileChildren: ReactNode | null,
-  setSelectedMobileChildren: (arg1: ReactNode | null) => void,
-  hideActiveChildren: boolean,
-  setHideActiveChildren: (arg1: boolean) => void,
-  overlayPreview: boolean,
-  setOverlayPreview: (arg1: boolean) => void,
-  collapsible?: boolean,
-  collapsed?: boolean,
-  onCollapse?: (arg1: boolean) => void,
-  transitioning?: boolean,
-  setTransitioning: (arg1: boolean) => void,
+  selectedItemId: string;
+  setSelectedItemId: (arg1: string) => void;
+  selectedMobileChildren: ReactNode | null;
+  setSelectedMobileChildren: (arg1: ReactNode | null) => void;
+  hideActiveChildren: boolean;
+  setHideActiveChildren: (arg1: boolean) => void;
+  overlayPreview: boolean;
+  setOverlayPreview: (arg1: boolean) => void;
+  collapsible?: boolean;
+  collapsed?: boolean;
+  onCollapse?: (arg1: boolean) => void;
+  transitioning?: boolean;
+  setTransitioning: (arg1: boolean) => void;
   dismissButton?: {
-    accessibilityLabel?: string,
-    onDismiss: () => void,
-    id: string
-  }
+    accessibilityLabel?: string;
+    onDismiss: () => void;
+    id: string;
+  };
 };
 
 type Props = {
-  children: ReactNode,
+  children: ReactNode;
   dismissButton?: {
-    accessibilityLabel?: string,
-    onDismiss: () => void,
-    id: string
-  },
-  collapsible?: boolean,
-  collapsed?: boolean,
-  onCollapse?: (arg1: boolean) => void,
-  onPreview?: (arg1: boolean) => void
+    accessibilityLabel?: string;
+    onDismiss: () => void;
+    id: string;
+  };
+  collapsible?: boolean;
+  collapsed?: boolean;
+  onCollapse?: (arg1: boolean) => void;
+  onPreview?: (arg1: boolean) => void;
 };
 
 const SideNavigationContext: Context<SideNavigationContextType> =
@@ -53,16 +53,14 @@ const SideNavigationContext: Context<SideNavigationContextType> =
 
 const { Provider, Consumer: SideNavigationConsumer } = SideNavigationContext;
 
-function SideNavigationProvider(
-  {
-    children,
-    dismissButton,
-    collapsible,
-    collapsed,
-    onCollapse: onCollapseProp,
-    onPreview,
-  }: Props,
-): Element<typeof Provider> {
+function SideNavigationProvider({
+  children,
+  dismissButton,
+  collapsible,
+  collapsed,
+  onCollapse: onCollapseProp,
+  onPreview,
+}: Props): Element<typeof Provider> {
   const [selectedItemId, setSelectedItemId] = useState('');
   const [selectedMobileChildren, setSelectedMobileChildren] = useState<ReactNode>(null);
   const [hideActiveChildren, setHideActiveChildren] = useState(false);

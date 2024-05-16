@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -18,13 +18,7 @@ import preventCloseExample from '../../examples/modal/preventCloseExample';
 import roleAlertDialogExample from '../../examples/modal/roleAlertDialogExample';
 import sizesExample from '../../examples/modal/sizesExample';
 
-export default function ModalPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: DocGen
-  },
-) {
+export default function ModalPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   const PREVIEW_HEIGHT = 450;
 
   return (
@@ -305,8 +299,8 @@ Toast provides temporary feedback on an interaction. Toasts appear at the bottom
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   return {
     props: {

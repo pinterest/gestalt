@@ -1,11 +1,11 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import Box from './Box';
 
 type Props = {
   /**
-     *
-     */
-  children?: ReactNode
+   *
+   */
+  children?: ReactNode;
 };
 
 /**
@@ -14,11 +14,7 @@ type Props = {
  * ![Container light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Container.spec.mjs-snapshots/Container-chromium-darwin.png)
  *
  */
-export default function Container(
-  {
-    children,
-  }: Props,
-) {
+export default function Container({ children }: Props) {
   return (
     <Box display="flex" justifyContent="center">
       <Box maxWidth={800} width="100%">

@@ -1,4 +1,4 @@
-import {CompositeZIndex, FixedZIndex} from './zIndex';
+import { CompositeZIndex, FixedZIndex } from './zIndex';
 
 describe('FixedZIndex', () => {
   test('index', () => {

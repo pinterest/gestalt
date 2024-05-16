@@ -1,4 +1,4 @@
-import {ReactNode, useEffect, useState} from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { Flex } from 'gestalt';
 import { DateRange } from 'gestalt-datepicker';
 
@@ -11,8 +11,12 @@ export default function Example() {
 
   const [startDate, setStartDate] = useState<Date | null>(new Date(year, 5, 1));
   const [endDate, setEndDate] = useState<Date | null>(null);
-  const [currentEndErrorMessage, setCurrentEndErrorMessage] = useState<[string | null, Date | null] | null>(null);
-  const [currentStartErrorMessage, setCurrentStartErrorMessage] = useState<[string | null, Date | null] | null>(null);
+  const [currentEndErrorMessage, setCurrentEndErrorMessage] = useState<
+    [string | null, Date | null] | null
+  >(null);
+  const [currentStartErrorMessage, setCurrentStartErrorMessage] = useState<
+    [string | null, Date | null] | null
+  >(null);
   const [endErrorMessage, setEndErrorMessage] = useState<string | null>(null);
   const [startErrorMessage, setStartErrorMessage] = useState<string | null>(null);
 

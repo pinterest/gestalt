@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
@@ -14,14 +14,10 @@ import withLink from '../../examples/helpbutton/withLink';
 import withText from '../../examples/helpbutton/withText';
 
 type DocsType = {
-  generatedDocGen: DocGen
+  generatedDocGen: DocGen;
 };
 
-export default function DocsPage(
-  {
-    generatedDocGen,
-  }: DocsType,
-) {
+export default function DocsPage({ generatedDocGen }: DocsType) {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
@@ -128,7 +124,7 @@ HelpButton is a more specific component than IconButton. IconButton is preferabl
 }
 
 export async function getServerSideProps(): Promise<{
-  props: DocsType
+  props: DocsType;
 }> {
   return {
     props: { generatedDocGen: await docGen('HelpButton') },

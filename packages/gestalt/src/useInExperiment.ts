@@ -1,15 +1,13 @@
-import {useDeviceType} from './contexts/DeviceTypeProvider';
+import { useDeviceType } from './contexts/DeviceTypeProvider';
 import { useExperimentContext } from './contexts/ExperimentProvider';
 
-export default function useInExperiment(
-  {
-    webExperimentName,
-    mwebExperimentName,
-  }: {
-    webExperimentName: string,
-    mwebExperimentName: string
-  },
-): boolean {
+export default function useInExperiment({
+  webExperimentName,
+  mwebExperimentName,
+}: {
+  webExperimentName: string;
+  mwebExperimentName: string;
+}): boolean {
   const deviceType = useDeviceType();
 
   const { anyEnabled: inWebExp } = useExperimentContext(webExperimentName);

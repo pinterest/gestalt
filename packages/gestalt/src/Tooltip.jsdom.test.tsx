@@ -1,4 +1,4 @@
-import {create} from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 import { fireEvent, screen } from '@testing-library/react';
 import Link from './Link';
 import Text from './Text';

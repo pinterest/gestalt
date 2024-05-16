@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Table, Text, useDefaultLabel } from 'gestalt';
 import {
   FilterIdType,
@@ -8,24 +8,22 @@ import {
 } from './useTabularData';
 
 type Props = {
-  title: string,
-  isHorizontalLayout: boolean,
-  transformedTabularData: TransformedTabularDataType,
-  onSortChange: (arg1: SortChangeType) => void,
-  sortOrder: FilterOrderType,
-  sortCol: FilterIdType
+  title: string;
+  isHorizontalLayout: boolean;
+  transformedTabularData: TransformedTabularDataType;
+  onSortChange: (arg1: SortChangeType) => void;
+  sortOrder: FilterOrderType;
+  sortCol: FilterIdType;
 };
 
-export default function TabularDataModal(
-  {
-    title,
-    isHorizontalLayout,
-    transformedTabularData,
-    onSortChange,
-    sortOrder,
-    sortCol,
-  }: Props,
-) {
+export default function TabularDataModal({
+  title,
+  isHorizontalLayout,
+  transformedTabularData,
+  onSortChange,
+  sortOrder,
+  sortCol,
+}: Props) {
   const { tableSeriesText, tableXAxisText, tableYAxisText } = useDefaultLabel('ChartGraph');
 
   return (

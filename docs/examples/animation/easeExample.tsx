@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { Box, Button, Divider, Flex, Text } from 'gestalt';
 
 function GestaltLogo() {

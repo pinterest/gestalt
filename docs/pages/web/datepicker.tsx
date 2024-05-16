@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import {
   af,
   arSA,
@@ -102,13 +102,7 @@ const localeMap = {
 
 const PREVIEW_HEIGHT = 480;
 
-export default function DocsPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: DocGen
-  },
-) {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   const [locale, setLocale] = useState<string | null>('en-US');
   const [date, setDate] = useState<Date | null>(new Date());
 
@@ -387,8 +381,8 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onR
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   return {
     props: {

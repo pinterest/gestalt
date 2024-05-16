@@ -1,4 +1,4 @@
-import {createRef} from 'react';
+import { createRef } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import TextArea from './TextArea';
@@ -15,12 +15,12 @@ const renderTextArea = ({
   onBlur = jest.fn(),
   maxLength,
 }: {
-  id?: ComponentProps<typeof TextArea>["id"],
-  onChange?: ComponentProps<typeof TextArea>["onChange"],
-  onFocus?: ComponentProps<typeof TextArea>["onFocus"],
-  onBlur?: ComponentProps<typeof TextArea>["onBlur"],
-  id?: ComponentProps<typeof TextArea>["id"],
-  maxLength?: ComponentProps<typeof TextArea>["maxLength"]
+  id?: ComponentProps<typeof TextArea>['id'];
+  onChange?: ComponentProps<typeof TextArea>['onChange'];
+  onFocus?: ComponentProps<typeof TextArea>['onFocus'];
+  onBlur?: ComponentProps<typeof TextArea>['onBlur'];
+  id?: ComponentProps<typeof TextArea>['id'];
+  maxLength?: ComponentProps<typeof TextArea>['maxLength'];
 }) =>
   render(
     <TextArea
@@ -101,10 +101,15 @@ describe('TextArea', () => {
   });
 
   it('handles blur events', () => {
-    const mockBlur = jest.fn<[{
-      event: React.FocusEvent<HTMLTextAreaElement>,
-      value: string
-    }], undefined>();
+    const mockBlur = jest.fn<
+      [
+        {
+          event: React.FocusEvent<HTMLTextAreaElement>;
+          value: string;
+        },
+      ],
+      undefined
+    >();
     render(<TextArea id="test" onBlur={mockBlur} onChange={jest.fn()} value="TextArea Text" />);
 
     fireEvent.blur(screen.getByDisplayValue('TextArea Text'));
@@ -112,10 +117,15 @@ describe('TextArea', () => {
   });
 
   it('handles change events', () => {
-    const mockChange = jest.fn<[{
-      event: React.ChangeEvent<HTMLTextAreaElement>,
-      value: string
-    }], undefined>();
+    const mockChange = jest.fn<
+      [
+        {
+          event: React.ChangeEvent<HTMLTextAreaElement>;
+          value: string;
+        },
+      ],
+      undefined
+    >();
     const { container } = render(
       <TextArea id="test" onChange={mockChange} value="TextArea Text" />,
     );
@@ -133,10 +143,15 @@ describe('TextArea', () => {
   });
 
   it('handles focus events', () => {
-    const mockFocus = jest.fn<[{
-      event: React.FocusEvent<HTMLTextAreaElement>,
-      value: string
-    }], undefined>();
+    const mockFocus = jest.fn<
+      [
+        {
+          event: React.FocusEvent<HTMLTextAreaElement>;
+          value: string;
+        },
+      ],
+      undefined
+    >();
     render(<TextArea id="test" onChange={jest.fn()} onFocus={mockFocus} value="TextArea Text" />);
 
     fireEvent.focus(screen.getByDisplayValue('TextArea Text'));
@@ -144,10 +159,15 @@ describe('TextArea', () => {
   });
 
   it('handles key down events', () => {
-    const mockKeyDown = jest.fn<[{
-      event: React.KeyboardEvent<HTMLTextAreaElement>,
-      value: string
-    }], undefined>();
+    const mockKeyDown = jest.fn<
+      [
+        {
+          event: React.KeyboardEvent<HTMLTextAreaElement>;
+          value: string;
+        },
+      ],
+      undefined
+    >();
     const { container } = render(
       <TextArea id="test" onChange={() => {}} onKeyDown={mockKeyDown} value="TextArea Text" />,
     );

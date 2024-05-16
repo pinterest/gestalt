@@ -1,17 +1,12 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import AvatarFoundation from './Foundation';
 
 type Props = {
-  accessibilityLabel?: string,
-  name: string
+  accessibilityLabel?: string;
+  name: string;
 };
 
-export default function DefaultAvatar(
-  {
-    accessibilityLabel,
-    name,
-  }: Props,
-) {
+export default function DefaultAvatar({ accessibilityLabel, name }: Props) {
   const firstInitial = name ? Array.from(name)[0].toUpperCase() : '';
   const title = accessibilityLabel ?? name;
 

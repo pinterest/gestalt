@@ -1,4 +1,4 @@
-import {forwardRef, ReactNode, useImperativeHandle, useRef, useState} from 'react';
+import { forwardRef, ReactNode, useImperativeHandle, useRef, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import Icon from './Icon';
@@ -13,81 +13,64 @@ type UnionRefs = HTMLDivElement | HTMLAnchorElement;
 
 type Props = {
   /**
-     * String that clients such as VoiceOver will read to describe the element. Always localize the label. See the [Accessibility section](https://gestalt.pinterest.systems/web/searchfield#Accessibility) for more info.
-     */
-  accessibilityLabel: string,
+   * String that clients such as VoiceOver will read to describe the element. Always localize the label. See the [Accessibility section](https://gestalt.pinterest.systems/web/searchfield#Accessibility) for more info.
+   */
+  accessibilityLabel: string;
   /**
-     * String that clients such as VoiceOver will read to describe the clear button element. Always localize the label. See the [Accessibility section](https://gestalt.pinterest.systems/web/searchfield#Accessibility) for more info.
-     */
-  accessibilityClearButtonLabel?: string,
+   * String that clients such as VoiceOver will read to describe the clear button element. Always localize the label. See the [Accessibility section](https://gestalt.pinterest.systems/web/searchfield#Accessibility) for more info.
+   */
+  accessibilityClearButtonLabel?: string;
   /**
-     * The type of autocomplete used, if any. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for more info.
-     */
-  autoComplete?: "on" | "off" | "username" | "name",
+   * The type of autocomplete used, if any. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for more info.
+   */
+  autoComplete?: 'on' | 'off' | 'username' | 'name';
   /**
-     * Error text displayed below the input field.
-     */
-  errorMessage?: string,
+   * Error text displayed below the input field.
+   */
+  errorMessage?: string;
   /**
-     * Must be unique!
-     */
-  id: string,
+   * Must be unique!
+   */
+  id: string;
   /**
-     * Text used to label the input. Be sure to localize the text. See the [Visible label variant](https://gestalt.pinterest.systems/web/searchfield#Visible-label) for more info.
-     */
-  label?: string,
+   * Text used to label the input. Be sure to localize the text. See the [Visible label variant](https://gestalt.pinterest.systems/web/searchfield#Visible-label) for more info.
+   */
+  label?: string;
   /**
-     *
-     */
-  onBlur?: (
-    arg1: {
-      event: React.KeyboardEvent<HTMLInputElement>,
-      value: string
-    },
-  ) => void,
+   *
+   */
+  onBlur?: (arg1: { event: React.KeyboardEvent<HTMLInputElement>; value: string }) => void;
   /**
-     * Primary callback to handle keyboard input.
-     */
-  onChange: (
-    arg1: {
-      value: string,
-      event: React.SyntheticEvent<HTMLInputElement | HTMLButtonElement>
-    },
-  ) => void,
+   * Primary callback to handle keyboard input.
+   */
+  onChange: (arg1: {
+    value: string;
+    event: React.SyntheticEvent<HTMLInputElement | HTMLButtonElement>;
+  }) => void;
   /**
-     *
-     */
-  onFocus?: (
-    arg1: {
-      value: string,
-      event: React.SyntheticEvent<HTMLInputElement>
-    },
-  ) => void,
+   *
+   */
+  onFocus?: (arg1: { value: string; event: React.SyntheticEvent<HTMLInputElement> }) => void;
   /**
-     * Secondary callback for keyboard events. Possible uses include validation, form submission, etc.
-     */
-  onKeyDown?: (
-    arg1: {
-      event: React.KeyboardEvent<HTMLInputElement>,
-      value: string
-    },
-  ) => void,
+   * Secondary callback for keyboard events. Possible uses include validation, form submission, etc.
+   */
+  onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLInputElement>; value: string }) => void;
   /**
-     * Text displayed before the user has entered anything.
-     */
-  placeholder?: string,
+   * Text displayed before the user has entered anything.
+   */
+  placeholder?: string;
   /**
-     * Ref that is forwarded to the underlying input element.
-     */
-  ref?: UnionRefs // eslint-disable-line react/no-unused-prop-types,
+   * Ref that is forwarded to the underlying input element.
+   */
+  ref?: UnionRefs; // eslint-disable-line react/no-unused-prop-types,
   /**
-     * md: 40px, lg: 48px
-     */
-  size?: "md" | "lg",
+   * md: 40px, lg: 48px
+   */
+  size?: 'md' | 'lg';
   /**
-     * The current value of the input.
-     */
-  value?: string
+   * The current value of the input.
+   */
+  value?: string;
 };
 
 /**

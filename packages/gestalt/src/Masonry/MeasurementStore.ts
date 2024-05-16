@@ -1,6 +1,8 @@
-import {Cache} from './Cache';
+import { Cache } from './Cache';
 
-export default class MeasurementStore<T extends Record<any, any> | ReadonlyArray<unknown>, V> implements Cache<T, V> {
+export default class MeasurementStore<T extends Record<any, any> | ReadonlyArray<unknown>, V>
+  implements Cache<T, V>
+{
   map: WeakMap<T, V> = new WeakMap();
 
   get(key: T): V | null | undefined {

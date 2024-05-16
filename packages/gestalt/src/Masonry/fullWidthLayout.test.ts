@@ -1,8 +1,10 @@
 import fullWidthLayout from './fullWidthLayout';
 
-const stubCache = (measurements: {
-  [item: string]: number
-} = {}) => {
+const stubCache = (
+  measurements: {
+    [item: string]: number;
+  } = {},
+) => {
   let cache = measurements;
 
   return {

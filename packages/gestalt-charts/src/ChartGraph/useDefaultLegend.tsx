@@ -1,47 +1,46 @@
-import {ReactNode, useCallback} from 'react';
+import { ReactNode, useCallback } from 'react';
 import { Box, Flex, Text } from 'gestalt';
 import LegendIcon from './LegendIcon';
 
 type ReferenceAreaSummaryItem = {
-  label: string,
-  style?: "default"
+  label: string;
+  style?: 'default';
 };
 
-export default function useDefaultLegend(
-  {
-    isHorizontalBiaxialLayout,
-    isVerticalBiaxialLayout,
-    isRtl,
-    height,
-    labelMap,
-    setLegendHeight,
-    referenceAreaSummary,
-  }: {
-    isHorizontalBiaxialLayout: boolean,
-    isVerticalBiaxialLayout: boolean,
-    isRtl: boolean,
-    height: number,
-    labelMap: {
-      [key: string]: string
-    } | null | undefined,
-    setLegendHeight: (arg1: number) => void,
-    referenceAreaSummary: null | ReadonlyArray<ReferenceAreaSummaryItem>
-  },
-): (
-  arg1: {
-    payload: ReadonlyArray<{
-      payload: {
-        color: string | null | undefined,
-        dataKey: string,
-        fill: string | null | undefined,
-        name: string,
-        stroke: string | null | undefined,
-        strokeDasharray: string | number | null | undefined,
-        value: number
+export default function useDefaultLegend({
+  isHorizontalBiaxialLayout,
+  isVerticalBiaxialLayout,
+  isRtl,
+  height,
+  labelMap,
+  setLegendHeight,
+  referenceAreaSummary,
+}: {
+  isHorizontalBiaxialLayout: boolean;
+  isVerticalBiaxialLayout: boolean;
+  isRtl: boolean;
+  height: number;
+  labelMap:
+    | {
+        [key: string]: string;
       }
-    }>
-  },
-) => ReactNode {
+    | null
+    | undefined;
+  setLegendHeight: (arg1: number) => void;
+  referenceAreaSummary: null | ReadonlyArray<ReferenceAreaSummaryItem>;
+}): (arg1: {
+  payload: ReadonlyArray<{
+    payload: {
+      color: string | null | undefined;
+      dataKey: string;
+      fill: string | null | undefined;
+      name: string;
+      stroke: string | null | undefined;
+      strokeDasharray: string | number | null | undefined;
+      value: number;
+    };
+  }>;
+}) => ReactNode {
   return useCallback(
     ({ payload }) => {
       const series = payload.map(
@@ -49,14 +48,14 @@ export default function useDefaultLegend(
           payload: payloadData,
         }: {
           payload: {
-            color: string | null | undefined,
-            dataKey: string,
-            fill: string | null | undefined,
-            name: string,
-            stroke: string | null | undefined,
-            strokeDasharray: string | number | null | undefined,
-            value: number
-          }
+            color: string | null | undefined;
+            dataKey: string;
+            fill: string | null | undefined;
+            name: string;
+            stroke: string | null | undefined;
+            strokeDasharray: string | number | null | undefined;
+            value: number;
+          };
         }) => (
           <Flex key={payloadData.dataKey} gap={{ row: 2, column: 0 }}>
             <LegendIcon payloadData={{ ...payloadData, isLegend: true }} />
@@ -66,9 +65,7 @@ export default function useDefaultLegend(
       );
 
       const referenceAreas =
-        referenceAreaSummary?.map(({
-          label,
-        }: ReferenceAreaSummaryItem) => (
+        referenceAreaSummary?.map(({ label }: ReferenceAreaSummaryItem) => (
           <Flex key={label} gap={{ row: 2, column: 0 }}>
             <LegendIcon payloadData={{ referenceArea: 'default', isLegend: true }} />
             <Text size="200">{label}</Text>

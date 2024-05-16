@@ -18,22 +18,27 @@ export const ANIMATION_STATE = {
   hidden: 'hidden',
 } as const;
 
-export type AnimationStateType = null | "animatedOpening" | "animatedClosing" | "unmount" | "hidden";
+export type AnimationStateType =
+  | null
+  | 'animatedOpening'
+  | 'animatedClosing'
+  | 'unmount'
+  | 'hidden';
 
 type AnimationType = {
-  animationState: AnimationStateType,
-  setAnimationState: (arg1: AnimationStateType) => void
+  animationState: AnimationStateType;
+  setAnimationState: (arg1: AnimationStateType) => void;
 };
 
 type UseAnimationType = {
-  animationState: AnimationStateType,
-  setAnimationState: (arg1: AnimationStateType) => void,
-  handleAnimationEnd: () => void,
-  handleExternalDismiss: () => void
+  animationState: AnimationStateType;
+  setAnimationState: (arg1: AnimationStateType) => void;
+  handleAnimationEnd: () => void;
+  handleExternalDismiss: () => void;
 };
 
 type AnimationProviderProps = {
-  children: ReactNode
+  children: ReactNode;
 };
 
 // CONTEXT
@@ -46,12 +51,12 @@ const initialState = {
 const AnimationContext: Context<AnimationType> = createContext<AnimationType>(initialState);
 
 // PROVIDER
-export default function AnimationProvider(
-  {
-    children,
-  }: AnimationProviderProps,
-): Element<typeof AnimationContext.Provider> | null {
-  const [animationState, setAnimationState] = useState<AnimationStateType>(useReducedMotion() ? null : ANIMATION_STATE.hidden);
+export default function AnimationProvider({
+  children,
+}: AnimationProviderProps): Element<typeof AnimationContext.Provider> | null {
+  const [animationState, setAnimationState] = useState<AnimationStateType>(
+    useReducedMotion() ? null : ANIMATION_STATE.hidden,
+  );
 
   return (
     <AnimationContext.Provider

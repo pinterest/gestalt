@@ -1,16 +1,16 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import Box from './Box';
 import styles from './Pulsar.css';
 
 type Props = {
   /**
-     * Used to hide the element. See the [paused variant](https://gestalt.pinterest.systems/web/pulsar#Paused) for more details.
-     */
-  paused?: boolean,
+   * Used to hide the element. See the [paused variant](https://gestalt.pinterest.systems/web/pulsar#Paused) for more details.
+   */
+  paused?: boolean;
   /**
-     * The size of the element in pixels. See the [size variant](https://gestalt.pinterest.systems/web/pulsar#Size) for more details.
-     */
-  size?: number
+   * The size of the element in pixels. See the [size variant](https://gestalt.pinterest.systems/web/pulsar#Size) for more details.
+   */
+  size?: number;
 };
 
 /**
@@ -19,12 +19,7 @@ type Props = {
  * ![Pulsar light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Pulsar.spec.mjs-snapshots/Pulsar-chromium-darwin.png)
  * ![Pulsar dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Pulsar-dark.spec.mjs-snapshots/Pulsar-dark-chromium-darwin.png)
  */
-export default function Pulsar(
-  {
-    paused,
-    size = 136,
-  }: Props,
-) {
+export default function Pulsar({ paused, size = 136 }: Props) {
   return (
     <Box
       dangerouslySetInlineStyle={{

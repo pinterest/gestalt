@@ -28,20 +28,19 @@ Related articles:
 https://americanexpress.io/hydra/
 https://kentcdodds.com/blog/how-to-use-react-context-effectively */
 
-import {Context, createContext, ReactNode, useContext} from 'react';
+import { Context, createContext, ReactNode, useContext } from 'react';
 
 export type Hydra<ContextType> = {
-  Provider: Context<ContextType | undefined>["Provider"],
-  Consumer: (
-    arg1: {
-      children: (arg1: ContextType) => ReactNode
-    },
-  ) => ReactNode,
-  useHook: () => ContextType
+  Provider: Context<ContextType | undefined>['Provider'];
+  Consumer: (arg1: { children: (arg1: ContextType) => ReactNode }) => ReactNode;
+  useHook: () => ContextType;
 };
 
-function formatDisplayName(displayName: string, subjectDisplayName?: string): {
-  [key: string]: string
+function formatDisplayName(
+  displayName: string,
+  subjectDisplayName?: string,
+): {
+  [key: string]: string;
 } {
   let slicedDisplayName = displayName.slice(1);
   slicedDisplayName = slicedDisplayName.endsWith('Context')
@@ -59,7 +58,10 @@ function formatDisplayName(displayName: string, subjectDisplayName?: string): {
   return { propsDisplayName, messageDisplayName };
 }
 
-export default function createHydra<ContextType>(displayName: string, defaultValue?: ContextType): Hydra<ContextType> {
+export default function createHydra<ContextType>(
+  displayName: string,
+  defaultValue?: ContextType,
+): Hydra<ContextType> {
   const context = createContext<ContextType | undefined>(defaultValue);
   const { messageDisplayName } = formatDisplayName(displayName);
   context.displayName = messageDisplayName;
@@ -68,11 +70,7 @@ export default function createHydra<ContextType>(displayName: string, defaultVal
   const { Provider } = context;
 
   // Consumer: Render Prop
-  const Consumer = ({
-    children,
-  }: {
-    children: (arg1: ContextType) => ReactNode
-  }) => {
+  const Consumer = ({ children }: { children: (arg1: ContextType) => ReactNode }) => {
     const contextValue = useContext(context);
 
     if (contextValue === undefined) {

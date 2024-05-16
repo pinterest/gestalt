@@ -1,15 +1,9 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { useRouter } from 'next/router';
 import { BannerSlim } from 'gestalt';
 import { useAppContext } from './appContext';
 
-export function BareBannerSlimExperiment(
-  {
-    componentName,
-  }: {
-    componentName: string
-  },
-) {
+export function BareBannerSlimExperiment({ componentName }: { componentName: string }) {
   const { experiments } = useAppContext();
 
   return (
@@ -34,24 +28,22 @@ export function BareBannerSlimExperiment(
   );
 }
 
-export function BannerSlimExperiment(
-  {
-    componentName,
-    description,
-    pullRequest,
-    section,
-  }: {
-    componentName: string,
-    description: string,
-    pullRequest: number,
-    section?: string
-  },
-) {
+export function BannerSlimExperiment({
+  componentName,
+  description,
+  pullRequest,
+  section,
+}: {
+  componentName: string;
+  description: string;
+  pullRequest: number;
+  section?: string;
+}) {
   const router = useRouter();
   const { experiments, setExperiments } = useAppContext();
 
   return (
-    (<BannerSlim
+    <BannerSlim
       helperLink={{
         text: 'Visit the Pull Request to learn more.',
         accessibilityLabel: '',
@@ -69,8 +61,7 @@ export function BannerSlimExperiment(
         label: experiments === componentName ? 'Deactivate experiments' : 'Activate experiments',
         onClick: () => {
           setExperiments(experiments === componentName ? '' : componentName);
-          if (!section)
-            router.reload();
+          if (!section) router.reload();
         },
         ...(!!section && {
           href: section,
@@ -78,6 +69,6 @@ export function BannerSlimExperiment(
         }),
       }}
       type="warning"
-    />)
+    />
   );
 }

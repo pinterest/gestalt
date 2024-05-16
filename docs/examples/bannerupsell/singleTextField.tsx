@@ -1,11 +1,13 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { BannerUpsell, Box, Icon, TextField } from 'gestalt';
 
-type SubmitHandler = (
-  arg1: {
-    event: React.MouseEvent<HTMLButtonElement> | React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLButtonElement>
-  },
-) => void;
+type SubmitHandler = (arg1: {
+  event:
+    | React.MouseEvent<HTMLButtonElement>
+    | React.MouseEvent<HTMLAnchorElement>
+    | React.KeyboardEvent<HTMLAnchorElement>
+    | React.KeyboardEvent<HTMLButtonElement>;
+}) => void;
 
 export default function FormExample() {
   const [value, setValue] = useState('');

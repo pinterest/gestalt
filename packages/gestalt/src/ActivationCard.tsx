@@ -1,4 +1,4 @@
-import {Fragment, ReactNode} from 'react';
+import { Fragment, ReactNode } from 'react';
 import classnames from 'classnames';
 import styles from './ActivationCard.css';
 import Box from './Box';
@@ -17,67 +17,59 @@ const STATUS_ICONS = {
 } as const;
 
 type LinkData = {
-  accessibilityLabel: string,
-  href: string,
-  label: string,
-  onClick?: (
-    arg1: {
-      event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-      dangerouslyDisableOnNavigation: () => void
-    },
-  ) => void,
-  rel?: "none" | "nofollow",
-  target?: null | "self" | "blank"
+  accessibilityLabel: string;
+  href: string;
+  label: string;
+  onClick?: (arg1: {
+    event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+    dangerouslyDisableOnNavigation: () => void;
+  }) => void;
+  rel?: 'none' | 'nofollow';
+  target?: null | 'self' | 'blank';
 };
 
 type Props = {
   /**
-     * Callback fired when the dismiss button is clicked (pressed and released) with a mouse or keyboard.
-     * Supply a short, descriptive label for screen-readers to provide sufficient context about the dismiss button action. IconButtons do not render text for screen readers to read requiring an accessibility label.
-     * Accessibility: `accessibilityLabel` populates aria-label.
-     */
+   * Callback fired when the dismiss button is clicked (pressed and released) with a mouse or keyboard.
+   * Supply a short, descriptive label for screen-readers to provide sufficient context about the dismiss button action. IconButtons do not render text for screen readers to read requiring an accessibility label.
+   * Accessibility: `accessibilityLabel` populates aria-label.
+   */
   dismissButton?: {
-    accessibilityLabel?: string,
-    onDismiss: () => void
-  },
+    accessibilityLabel?: string;
+    onDismiss: () => void;
+  };
   /**
-     * Link-role button to render inside the activation card as a call-to-action to the user.
-     * - `label`: Text to render inside the button to convey the function and purpose of the button. The button text has a fixed size.
-     * - `accessibilityLabel`: Supply a short, descriptive label for screen-readers to replace button texts that do not provide sufficient context about the button component behavior. Texts like `Click Here,` `Follow,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the button text.
-     * - `onClick`: Callback fired when the button component is clicked (pressed and released) with a mouse or keyboard.
-     *
-     * ActivationCard can be paired with GlobalEventsHandlerProvider. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
-     */
-  link?: LinkData,
+   * Link-role button to render inside the activation card as a call-to-action to the user.
+   * - `label`: Text to render inside the button to convey the function and purpose of the button. The button text has a fixed size.
+   * - `accessibilityLabel`: Supply a short, descriptive label for screen-readers to replace button texts that do not provide sufficient context about the button component behavior. Texts like `Click Here,` `Follow,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the button text.
+   * - `onClick`: Callback fired when the button component is clicked (pressed and released) with a mouse or keyboard.
+   *
+   * ActivationCard can be paired with GlobalEventsHandlerProvider. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
+   */
+  link?: LinkData;
   /**
-     * Text to render inside the activation card to convey detailed information to the user. The message text has a fixed size.
-     */
-  message: string,
+   * Text to render inside the activation card to convey detailed information to the user. The message text has a fixed size.
+   */
+  message: string;
   /**
-     * Select the activation card status:
-     * - `notStarted`: A task that has not be started
-     * - `pending`: A task that is pending action
-     * - `needsAttention`: A task that requires the user's attention
-     * - `complete`: A task that has been completed
-     */
-  status: "notStarted" | "pending" | "needsAttention" | "complete",
+   * Select the activation card status:
+   * - `notStarted`: A task that has not be started
+   * - `pending`: A task that is pending action
+   * - `needsAttention`: A task that requires the user's attention
+   * - `complete`: A task that has been completed
+   */
+  status: 'notStarted' | 'pending' | 'needsAttention' | 'complete';
   /**
-     * A message to indicate the current status of the activation card.
-     */
-  statusMessage: string,
+   * A message to indicate the current status of the activation card.
+   */
+  statusMessage: string;
   /**
-     * Heading to render inside the activation card above the message to convey the activation card topic to the user.
-     */
-  title: string
+   * Heading to render inside the activation card above the message to convey the activation card topic to the user.
+   */
+  title: string;
 };
 
-function ActivationCardLink(
-  {
-    data,
-  }: {
-    data: LinkData
-  },
-) {
+function ActivationCardLink({ data }: { data: LinkData }) {
   const { accessibilityLabel, href, label, onClick, rel, target } = data;
 
   return (
@@ -104,21 +96,13 @@ function ActivationCardLink(
   );
 }
 
-type CardProps = ((Props) & {
+type CardProps = Props & {
   dismissButton?: {
-    accessibilityLabel: string,
-    onDismiss: () => void
-  }
-});
-function CompletedCard(
-  {
-    dismissButton,
-    message,
-    status,
-    statusMessage,
-    title,
-  }: CardProps,
-) {
+    accessibilityLabel: string;
+    onDismiss: () => void;
+  };
+};
+function CompletedCard({ dismissButton, message, status, statusMessage, title }: CardProps) {
   const icon = STATUS_ICONS[status];
 
   return (
@@ -167,16 +151,14 @@ function CompletedCard(
   );
 }
 
-function UncompletedCard(
-  {
-    dismissButton,
-    message,
-    link,
-    status,
-    statusMessage,
-    title,
-  }: CardProps,
-) {
+function UncompletedCard({
+  dismissButton,
+  message,
+  link,
+  status,
+  statusMessage,
+  title,
+}: CardProps) {
   const isStarted = status !== 'notStarted';
   const icon = STATUS_ICONS[status];
 
@@ -239,16 +221,14 @@ function UncompletedCard(
  * ![ActivationCard dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ActivationCard-dark.spec.mjs-snapshots/ActivationCard-dark-chromium-darwin.png)
  *
  */
-export default function ActivationCard(
-  {
-    dismissButton,
-    message,
-    link,
-    status,
-    statusMessage,
-    title,
-  }: Props,
-) {
+export default function ActivationCard({
+  dismissButton,
+  message,
+  link,
+  status,
+  statusMessage,
+  title,
+}: Props) {
   const isCompleted = status === 'complete';
   const { accessibilityDismissButtonLabel } = useDefaultLabelContext('ActivationCard');
 

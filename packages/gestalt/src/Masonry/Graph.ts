@@ -1,14 +1,21 @@
-import GraphNode, {GraphNodeInterface} from './GraphNode';
+import GraphNode, { GraphNodeInterface } from './GraphNode';
 import { NodeData } from './types';
 
 type NodesList<T> = Map<NodeData<T>, GraphNode<T>>;
 
 interface GraphInterface<T> {
-  nodes: NodesList<T>
-  addEdge(source: NodeData<T>, destination: NodeData<T>, edgeScore: number): ReadonlyArray<GraphNodeInterface<T>>
-  addNode(data: NodeData<T>): GraphNodeInterface<T>
-  removeNode(data: NodeData<T>): boolean | undefined
-  removeEdge(source: NodeData<T>, destination: NodeData<T>): ReadonlyArray<GraphNodeInterface<T> | null | undefined>
+  nodes: NodesList<T>;
+  addEdge(
+    source: NodeData<T>,
+    destination: NodeData<T>,
+    edgeScore: number,
+  ): ReadonlyArray<GraphNodeInterface<T>>;
+  addNode(data: NodeData<T>): GraphNodeInterface<T>;
+  removeNode(data: NodeData<T>): boolean | undefined;
+  removeEdge(
+    source: NodeData<T>,
+    destination: NodeData<T>,
+  ): ReadonlyArray<GraphNodeInterface<T> | null | undefined>;
 }
 
 export default class Graph<T> implements GraphInterface<T> {
@@ -18,7 +25,11 @@ export default class Graph<T> implements GraphInterface<T> {
 
   nodes: NodesList<T>;
 
-  addEdge(source: NodeData<T>, destination: NodeData<T>, edgeScore: number): ReadonlyArray<GraphNodeInterface<T>> {
+  addEdge(
+    source: NodeData<T>,
+    destination: NodeData<T>,
+    edgeScore: number,
+  ): ReadonlyArray<GraphNodeInterface<T>> {
     const sourceNode = this.addNode(source);
     const destinationNode = this.addNode(destination);
 
@@ -48,7 +59,10 @@ export default class Graph<T> implements GraphInterface<T> {
     return this.nodes.delete(data);
   }
 
-  removeEdge(source: NodeData<T>, destination: NodeData<T>): ReadonlyArray<GraphNodeInterface<T> | null | undefined> {
+  removeEdge(
+    source: NodeData<T>,
+    destination: NodeData<T>,
+  ): ReadonlyArray<GraphNodeInterface<T> | null | undefined> {
     const sourceNode = this.nodes.get(source);
     const destinationNode = this.nodes.get(destination);
 
@@ -60,8 +74,8 @@ export default class Graph<T> implements GraphInterface<T> {
   }
 
   findLowestScore(startNode: NodeData<T>): {
-    lowestScore: number | null,
-    lowestScoreNode: NodeData<T>
+    lowestScore: number | null;
+    lowestScoreNode: NodeData<T>;
   } {
     let lowestScore = null;
     let lowestScoreNode = startNode;

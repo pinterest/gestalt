@@ -1,4 +1,4 @@
-import {fireEvent, render, screen} from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import DeviceTypeProvider from './contexts/DeviceTypeProvider';
 import Dropdown from './Dropdown';
@@ -9,20 +9,18 @@ describe('SideNavigation desktop', () => {
     display,
     expanded,
   }: {
-    display?: "static" | "expandable",
-    expanded?: boolean
+    display?: 'static' | 'expandable';
+    expanded?: boolean;
   }) {
     return (
-      (<SideNavigation accessibilityLabel="example1" dismissButton={{ onDismiss: () => {} }}>
+      <SideNavigation accessibilityLabel="example1" dismissButton={{ onDismiss: () => {} }}>
         <SideNavigation.Group
           counter={{ number: '123', accessibilityLabel: '123 counter' }}
           display={display}
           expanded={expanded}
           label="Group item"
           primaryAction={{
-            onClick: ({
-              event,
-            }: any) => {
+            onClick: ({ event }: any) => {
               event.preventDefault();
             },
             tooltip: { text: 'More options', accessibilityLabel: 'More options label' },
@@ -43,22 +41,16 @@ describe('SideNavigation desktop', () => {
           <SideNavigation.NestedItem
             href="#"
             label="test"
-            onClick={({
-              event,
-            }: any) => event.preventDefault()}
+            onClick={({ event }: any) => event.preventDefault()}
           />
         </SideNavigation.Group>
         <SideNavigation.TopItem
           counter={{ number: '321', accessibilityLabel: '321 counter' }}
           href="#"
           label="Top item"
-          onClick={({
-            event,
-          }: any) => event.preventDefault()}
+          onClick={({ event }: any) => event.preventDefault()}
           primaryAction={{
-            onClick: ({
-              event,
-            }: any) => {
+            onClick: ({ event }: any) => {
               event.preventDefault();
             },
             tooltip: {
@@ -79,7 +71,7 @@ describe('SideNavigation desktop', () => {
             ],
           }}
         />
-      </SideNavigation>)
+      </SideNavigation>
     );
   }
 
@@ -303,15 +295,13 @@ describe('SideNavigation desktop', () => {
 describe('SideNavigation mobile', () => {
   function Component() {
     return (
-      (<DeviceTypeProvider deviceType="mobile">
+      <DeviceTypeProvider deviceType="mobile">
         <SideNavigation accessibilityLabel="example2" dismissButton={{ onDismiss: () => {} }}>
           <SideNavigation.Group
             counter={{ number: '123', accessibilityLabel: '123 counter' }}
             label="Group item"
             primaryAction={{
-              onClick: ({
-                event,
-              }: any) => {
+              onClick: ({ event }: any) => {
                 event.preventDefault();
               },
               tooltip: { text: 'More options', accessibilityLabel: 'More options label' },
@@ -332,22 +322,16 @@ describe('SideNavigation mobile', () => {
             <SideNavigation.NestedItem
               href="#"
               label="test"
-              onClick={({
-                event,
-              }: any) => event.preventDefault()}
+              onClick={({ event }: any) => event.preventDefault()}
             />
           </SideNavigation.Group>
           <SideNavigation.TopItem
             counter={{ number: '321', accessibilityLabel: '321 counter' }}
             href="#"
             label="Top item"
-            onClick={({
-              event,
-            }: any) => event.preventDefault()}
+            onClick={({ event }: any) => event.preventDefault()}
             primaryAction={{
-              onClick: ({
-                event,
-              }: any) => {
+              onClick: ({ event }: any) => {
                 event.preventDefault();
               },
               tooltip: {
@@ -369,7 +353,7 @@ describe('SideNavigation mobile', () => {
             }}
           />
         </SideNavigation>
-      </DeviceTypeProvider>)
+      </DeviceTypeProvider>
     );
   }
 

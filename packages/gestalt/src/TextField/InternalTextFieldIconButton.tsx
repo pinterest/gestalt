@@ -1,4 +1,4 @@
-import {ComponentProps, ReactNode, useState} from 'react';
+import { ComponentProps, ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import styles from './InternalTextField.css';
 import Box from '../Box';
@@ -11,8 +11,8 @@ function MaybeTooltip({
   children,
   tooltipText,
 }: {
-  children: ReactNode,
-  tooltipText: string | null | undefined
+  children: ReactNode;
+  tooltipText: string | null | undefined;
 }) {
   return tooltipText ? (
     <Tooltip inline text={tooltipText}>
@@ -24,37 +24,35 @@ function MaybeTooltip({
 }
 
 type Props = {
-  accessibilityChecked?: boolean,
-  accessibilityHidden?: boolean,
-  accessibilityLabel?: string,
-  hoverStyle?: "default" | "none",
-  icon: "arrow-down" | "cancel" | "eye" | "eye-hide",
-  onClick: () => void,
-  pogPadding?: 1 | 2,
-  role?: "switch",
-  tapStyle?: ComponentProps<typeof TapArea>["tapStyle"],
-  tooltipText?: string
+  accessibilityChecked?: boolean;
+  accessibilityHidden?: boolean;
+  accessibilityLabel?: string;
+  hoverStyle?: 'default' | 'none';
+  icon: 'arrow-down' | 'cancel' | 'eye' | 'eye-hide';
+  onClick: () => void;
+  pogPadding?: 1 | 2;
+  role?: 'switch';
+  tapStyle?: ComponentProps<typeof TapArea>['tapStyle'];
+  tooltipText?: string;
 };
 
-export default function InternalTextFieldIconButton(
-  {
-    accessibilityChecked,
-    accessibilityHidden,
-    accessibilityLabel,
-    hoverStyle = 'default',
-    icon,
-    onClick,
-    pogPadding = 1,
-    role,
-    tapStyle,
-    tooltipText,
-  }: Props,
-) {
+export default function InternalTextFieldIconButton({
+  accessibilityChecked,
+  accessibilityHidden,
+  accessibilityLabel,
+  hoverStyle = 'default',
+  icon,
+  onClick,
+  pogPadding = 1,
+  role,
+  tapStyle,
+  tooltipText,
+}: Props) {
   const [focused, setFocused] = useState(false);
 
   return (
     // styles.actionButtonContainer is required for RTL positioning
-    (<div className={classnames(styles.actionButtonContainer)}>
+    <div className={classnames(styles.actionButtonContainer)}>
       <Box
         alignItems="center"
         aria-hidden={accessibilityHidden}
@@ -92,6 +90,6 @@ export default function InternalTextFieldIconButton(
           </TapArea>
         </MaybeTooltip>
       </Box>
-    </div>)
+    </div>
   );
 }

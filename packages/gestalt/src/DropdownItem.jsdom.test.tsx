@@ -1,15 +1,20 @@
-import {render, screen} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Dropdown from './Dropdown';
 
 describe('Dropdown.Item', () => {
-  const onSelectMock = jest.fn<[{
-    event: React.ChangeEvent<HTMLInputElement>,
-    item: {
-      label: string,
-      subtext?: string,
-      value: string
-    }
-  }], undefined>();
+  const onSelectMock = jest.fn<
+    [
+      {
+        event: React.ChangeEvent<HTMLInputElement>;
+        item: {
+          label: string;
+          subtext?: string;
+          value: string;
+        };
+      },
+    ],
+    undefined
+  >();
 
   test('calls onSelect when Item clicked', () => {
     render(

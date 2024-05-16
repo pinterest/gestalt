@@ -1,7 +1,7 @@
-import {useCallback, useEffect, useMemo, useState} from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { addListener, removeListener } from './utils/matchMedia';
 
-type MinWidthType = "lg" | "md" | "sm" | "xs";
+type MinWidthType = 'lg' | 'md' | 'sm' | 'xs';
 
 const breakpoints = {
   sm: '(min-width: 576px)',

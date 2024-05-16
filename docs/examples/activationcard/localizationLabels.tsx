@@ -1,9 +1,9 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { ActivationCard, Box, DefaultLabelProvider } from 'gestalt';
 
 export default function Example() {
   return (
-    (<DefaultLabelProvider
+    <DefaultLabelProvider
       labels={{
         ActivationCard: {
           accessibilityDismissButtonLabel: 'Entlassen.',
@@ -27,6 +27,6 @@ export default function Example() {
           title="Beanspruchen Sie Ihre Website"
         />
       </Box>
-    </DefaultLabelProvider>)
+    </DefaultLabelProvider>
   );
 }

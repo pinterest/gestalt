@@ -1,29 +1,27 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Badge, Box, Flex, Heading, TapAreaLink, Text, WashAnimated } from 'gestalt';
 import { MIN_SVG_ILLUSTRATION_WIDTH } from './IllustrationSection';
 import illustrations, { Illustrations } from '../graphics/index';
 
 export type Props = {
-  backgroundColor: string,
-  description?: string,
-  headingLevel: 2 | 3,
-  href: string,
-  image: ReactNode | Illustrations,
-  isNew?: boolean,
-  title: string
+  backgroundColor: string;
+  description?: string;
+  headingLevel: 2 | 3;
+  href: string;
+  image: ReactNode | Illustrations;
+  isNew?: boolean;
+  title: string;
 };
 
-export default function IllustrationCard(
-  {
-    backgroundColor,
-    description,
-    headingLevel,
-    href,
-    image,
-    isNew,
-    title,
-  }: Props,
-) {
+export default function IllustrationCard({
+  backgroundColor,
+  description,
+  headingLevel,
+  href,
+  image,
+  isNew,
+  title,
+}: Props) {
   // we either render the svg string, or use our lookup table to render the right illustration component
   const Illustration =
     typeof image === 'string' && illustrations[image] ? illustrations[image] : undefined;

@@ -1,22 +1,20 @@
-import {useMemo} from 'react';
+import { useMemo } from 'react';
 import { useDefaultLabel } from 'gestalt';
 
-export type SortChangeType = "series" | "x" | "y";
+export type SortChangeType = 'series' | 'x' | 'y';
 export type FilterIdType = null | SortChangeType;
-export type FilterOrderType = "desc" | "asc";
+export type FilterOrderType = 'desc' | 'asc';
 
 export type TransformedTabularDataType = ReadonlyArray<{
-  series: string,
-  xAxis: number | string,
-  yAxis: number
+  series: string;
+  xAxis: number | string;
+  yAxis: number;
 }>;
 
-type UseBuildCsvDataProps = (
-  arg1: {
-    transformedTabularData: TransformedTabularDataType,
-    isHorizontalLayout: boolean
-  },
-) => string;
+type UseBuildCsvDataProps = (arg1: {
+  transformedTabularData: TransformedTabularDataType;
+  isHorizontalLayout: boolean;
+}) => string;
 
 export const useBuildCsvData: UseBuildCsvDataProps = ({
   transformedTabularData,
@@ -39,19 +37,19 @@ export const useBuildCsvData: UseBuildCsvDataProps = ({
 };
 
 type ElementType = {
-  series: string,
-  xAxis: string,
-  yAxis: string
+  series: string;
+  xAxis: string;
+  yAxis: string;
 };
 
 const getCompareFn = ({
   filterId,
   filterOrder,
 }: {
-  filterId: FilterIdType,
-  filterOrder: FilterOrderType
+  filterId: FilterIdType;
+  filterOrder: FilterOrderType;
 }) =>
-  (function compareXDesc(a: ElementType, b: ElementType) {
+  function compareXDesc(a: ElementType, b: ElementType) {
     let aValue = a.xAxis;
     let bValue = b.xAxis;
 
@@ -73,29 +71,27 @@ const getCompareFn = ({
     }
     // a must be equal to b
     return 0;
-  });
+  };
 
-type UseTabularDataProps = (
-  arg1: {
-    data: ReadonlyArray<{
-      name: string | number,
-      [key: string]: number
-    }>,
-    filterId: FilterIdType,
-    filterOrder: FilterOrderType,
-    tickFormatter?: {
-      timeseries?: (arg1: number) => string | number,
-      xAxisTop?: (arg1: number, arg2: number) => string | number,
-      xAxisBottom?: (arg1: number, arg2: number) => string | number,
-      yAxisRight?: (arg1: number, arg2: number) => string | number,
-      yAxisLeft?: (arg1: number, arg2: number) => string | number
-    },
-    labelMap?: {
-      [key: string]: string
-    },
-    isHorizontalLayout: boolean
-  },
-) => TransformedTabularDataType;
+type UseTabularDataProps = (arg1: {
+  data: ReadonlyArray<{
+    name: string | number;
+    [key: string]: number;
+  }>;
+  filterId: FilterIdType;
+  filterOrder: FilterOrderType;
+  tickFormatter?: {
+    timeseries?: (arg1: number) => string | number;
+    xAxisTop?: (arg1: number, arg2: number) => string | number;
+    xAxisBottom?: (arg1: number, arg2: number) => string | number;
+    yAxisRight?: (arg1: number, arg2: number) => string | number;
+    yAxisLeft?: (arg1: number, arg2: number) => string | number;
+  };
+  labelMap?: {
+    [key: string]: string;
+  };
+  isHorizontalLayout: boolean;
+}) => TransformedTabularDataType;
 
 const useTabularData: UseTabularDataProps = ({
   data,
@@ -108,30 +104,33 @@ const useTabularData: UseTabularDataProps = ({
   const transformedTabularData = useMemo(
     () =>
       data
-        .reduce<Array<any>>((
-        accumulator: ReadonlyArray<TransformedTabularDataType>,
-        currentValue: {
-          name: string | number,
-          [key: string]: number
-        },
-      ) => {
-        const { name } = currentValue;
+        .reduce<Array<any>>(
+          (
+            accumulator: ReadonlyArray<TransformedTabularDataType>,
+            currentValue: {
+              name: string | number;
+              [key: string]: number;
+            },
+          ) => {
+            const { name } = currentValue;
 
-        const newValues = Object.entries(currentValue)
-          .map((x) => {
-            if (x[0] === 'name') {
-              return {};
-            }
-            return {
-              series: labelMap ? labelMap[x[0]] : x[0],
-              xAxis: labelMap && typeof name === 'string' ? labelMap[name] : name,
-              yAxis: x[1],
-            };
-          })
-          .filter((x) => !!x.series);
+            const newValues = Object.entries(currentValue)
+              .map((x) => {
+                if (x[0] === 'name') {
+                  return {};
+                }
+                return {
+                  series: labelMap ? labelMap[x[0]] : x[0],
+                  xAxis: labelMap && typeof name === 'string' ? labelMap[name] : name,
+                  yAxis: x[1],
+                };
+              })
+              .filter((x) => !!x.series);
 
-        return [...accumulator, newValues];
-      }, [])
+            return [...accumulator, newValues];
+          },
+          [],
+        )
         .flat(),
     [data, labelMap],
   );

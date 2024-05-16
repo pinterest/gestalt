@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import { DocGen, multipleDocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -28,15 +28,13 @@ import typeExample1 from '../../examples/list/typeExample1';
 import typeExample2 from '../../examples/list/typeExample2';
 import useWhenDisplayingMoreThanTwo from '../../examples/list/useWhenDisplayingMoreThanTwo';
 
-export default function ListPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: {
-      [key: string]: DocGen
-    }
-  },
-) {
+export default function ListPage({
+  generatedDocGen,
+}: {
+  generatedDocGen: {
+    [key: string]: DocGen;
+  };
+}) {
   return (
     <Page title={generatedDocGen?.List.displayName}>
       <PageHeader
@@ -376,9 +374,9 @@ Fieldset creates a fieldset and legend for a group of related form items, like [
 export async function getServerSideProps(): Promise<{
   props: {
     generatedDocGen: {
-      [key: string]: DocGen
-    }
-  }
+      [key: string]: DocGen;
+    };
+  };
 }> {
   const docGen = await multipleDocGen(['List', 'ListItem']);
 

@@ -1,4 +1,4 @@
-import {render, screen} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import BannerUpsell from './BannerUpsell';
 
 test('BannerUpsell handles onDismiss callback', () => {

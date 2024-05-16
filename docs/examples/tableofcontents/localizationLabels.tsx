@@ -1,11 +1,11 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, DefaultLabelProvider, TableOfContents } from 'gestalt';
 
 export default function Example() {
   const { hash } = window.location;
 
   return (
-    (<DefaultLabelProvider
+    <DefaultLabelProvider
       labels={{
         TableOfContents: {
           accessibilityLabel: 'Table of contents',
@@ -31,6 +31,6 @@ export default function Example() {
           />
         </TableOfContents>
       </Box>
-    </DefaultLabelProvider>)
+    </DefaultLabelProvider>
   );
 }

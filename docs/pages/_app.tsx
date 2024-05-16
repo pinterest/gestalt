@@ -16,37 +16,23 @@ import App from '../docs-components/App';
 import { DocsConfigProvider } from '../docs-components/contexts/DocsConfigProvider';
 import DocsDefaultLabelProvider from '../docs-components/contexts/DocsDefaultLabelProvider';
 
-function Providers(
-  {
-    children,
-    isMobile,
-  }: {
-    children: ReactNode,
-    isMobile: boolean
-  },
-) {
+function Providers({ children, isMobile }: { children: ReactNode; isMobile: boolean }) {
   const [isMobileDevice] = useState(isMobile);
 
   return (
     // Providers needed for visual diff tests are located here rather within components/App.js
-    (<DocsConfigProvider isMobile={isMobileDevice}>
+    <DocsConfigProvider isMobile={isMobileDevice}>
       <DeviceTypeProvider deviceType={isMobileDevice ? 'mobile' : 'desktop'}>
         <DocsDefaultLabelProvider>{children}</DocsDefaultLabelProvider>
       </DeviceTypeProvider>
-    </DocsConfigProvider>)
+    </DocsConfigProvider>
   );
 }
 
 // This default export is required in a new `pages/_app.js` file.
 function GestaltApp(
   // eslint-disable-line react/prop-types
-  {
-    Component,
-    pageProps,
-    cookieHeader,
-    isMobile,
-    files,
-  },
+  { Component, pageProps, cookieHeader, isMobile, files },
 ) {
   const router = useRouter();
 

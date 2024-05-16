@@ -1,4 +1,4 @@
-import {Fragment, ReactNode, useState} from 'react';
+import { Fragment, ReactNode, useState } from 'react';
 import {
   Box,
   Button,
@@ -18,7 +18,7 @@ export default function Example() {
   const modalZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   return (
-    (<DefaultLabelProvider
+    <DefaultLabelProvider
       labels={{
         Modal: {
           accessibilityDismissButtonLabel: 'Modal entlassen',
@@ -64,6 +64,6 @@ export default function Example() {
           </Layer>
         )}
       </Box>
-    </DefaultLabelProvider>)
+    </DefaultLabelProvider>
   );
 }

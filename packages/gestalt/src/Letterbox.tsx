@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import Mask from './Mask';
 
 /*
@@ -14,21 +14,21 @@ const aspectRatio = (width: number, height: number) => width / height;
 
 type Props = {
   /**
-     * The media to be displayed.
-     */
-  children?: ReactNode,
+   * The media to be displayed.
+   */
+  children?: ReactNode;
   /**
-     * Proportional relationship between width and height of element.
-     */
-  contentAspectRatio: number,
+   * Proportional relationship between width and height of element.
+   */
+  contentAspectRatio: number;
   /**
-     * Desired final height of element in pixels.
-     */
-  height: number,
+   * Desired final height of element in pixels.
+   */
+  height: number;
   /**
-     * Desired final width of element in pixels.
-     */
-  width: number
+   * Desired final width of element in pixels.
+   */
+  width: number;
 };
 
 /**
@@ -39,14 +39,7 @@ type Props = {
  * ![Letterbox light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Letterbox.spec.mjs-snapshots/Letterbox-chromium-darwin.png)
 
  */
-export default function Letterbox(
-  {
-    children,
-    contentAspectRatio,
-    height,
-    width,
-  }: Props,
-) {
+export default function Letterbox({ children, contentAspectRatio, height, width }: Props) {
   const viewportAspectRatio = aspectRatio(width, height);
 
   let contentHeight;

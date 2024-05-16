@@ -10,21 +10,21 @@
  * ScrollBoundaryContainerProviders so that each context only has one ScrollBoundaryContainer.
  */
 
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainerProvider';
 import ScrollBoundaryContainerWithForwardRef from './ScrollBoundaryContainer/InternalScrollBoundaryContainerWithForwardRef';
 
-type ScrollBoundaryContainerOverflow = "scroll" | "scrollX" | "scrollY" | "auto" | "visible";
+type ScrollBoundaryContainerOverflow = 'scroll' | 'scrollX' | 'scrollY' | 'auto' | 'visible';
 
 type Props = {
-  children: ReactNode,
+  children: ReactNode;
   /**
-     * Use numbers for pixels: height={100} and strings for percentages: height="100%".
-     *
-     * Overflow property only works for elements with a specified height. It is not required if the parent component sets the height. See the [height variant](https://gestalt.pinterest.systems/web/utilities/scrollboundarycontainer#Height) for more details.
-     */
-  height?: number | string,
-  overflow?: ScrollBoundaryContainerOverflow
+   * Use numbers for pixels: height={100} and strings for percentages: height="100%".
+   *
+   * Overflow property only works for elements with a specified height. It is not required if the parent component sets the height. See the [height variant](https://gestalt.pinterest.systems/web/utilities/scrollboundarycontainer#Height) for more details.
+   */
+  height?: number | string;
+  overflow?: ScrollBoundaryContainerOverflow;
 };
 
 /**
@@ -32,13 +32,11 @@ type Props = {
  *
  * ![ScrollBoundaryContainer](https://raw.githubusercontent.com/pinterest/gestalt/master/docs/graphics/building-blocks/ScrollBoundaryContainer.svg)
  */
-export default function ScrollBoundaryContainerWithProvider(
-  {
-    children,
-    height = '100%',
-    overflow = 'auto',
-  }: Props,
-) {
+export default function ScrollBoundaryContainerWithProvider({
+  children,
+  height = '100%',
+  overflow = 'auto',
+}: Props) {
   return (
     <ScrollBoundaryContainerProvider>
       <ScrollBoundaryContainerWithForwardRef height={height} overflow={overflow}>

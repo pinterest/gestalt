@@ -1,9 +1,9 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { DefaultLabelProvider, Flex, HelpButton } from 'gestalt';
 
 export default function Example() {
   return (
-    (<DefaultLabelProvider
+    <DefaultLabelProvider
       labels={{
         HelpButton: {
           tooltipMessage: 'Klicken Sie hier, um mehr zu erfahren',
@@ -17,6 +17,6 @@ export default function Example() {
           text="Informativer Kontext, der bei einem Klick angezeigt wird"
         />
       </Flex>
-    </DefaultLabelProvider>)
+    </DefaultLabelProvider>
   );
 }

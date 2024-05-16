@@ -1,11 +1,11 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { Box, DefaultLabelProvider, TextField } from 'gestalt';
 
 export default function Example() {
   const [password, setPassword] = useState<string>('');
 
   return (
-    (<DefaultLabelProvider
+    <DefaultLabelProvider
       labels={{
         TextField: {
           accessibilityHidePasswordLabel: 'Passwort verstecken',
@@ -23,6 +23,6 @@ export default function Example() {
           value={password}
         />
       </Box>
-    </DefaultLabelProvider>)
+    </DefaultLabelProvider>
   );
 }

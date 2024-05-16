@@ -1,4 +1,4 @@
-import {render, screen} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import DefaultLabelProvider, { useDefaultLabelContext } from './DefaultLabelProvider';
 
 // DefaultLabelProvider is basically a passthrough to the React Context.Provider, so no tests required

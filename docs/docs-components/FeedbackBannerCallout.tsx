@@ -1,18 +1,14 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { BannerCallout, Box } from 'gestalt';
 
 const BASE_LINK =
   'https://docs.google.com/forms/d/e/1FAIpQLSe7h8kVcD7QqvPvjkE8s8WvnuFfhYvAEQ6L7tZwPgHjJPAbSw/viewform?usp=pp_url&entry.847151274=';
 
 type Props = {
-  componentName: string
+  componentName: string;
 };
 
-export default function FeedbackBannerCallout(
-  {
-    componentName,
-  }: Props,
-) {
+export default function FeedbackBannerCallout({ componentName }: Props) {
   const [showCallout, setShowCallout] = useState(true);
   const link = `${BASE_LINK}${componentName}`;
 

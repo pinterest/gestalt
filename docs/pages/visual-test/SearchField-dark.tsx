@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, ColorSchemeProvider, SearchField } from 'gestalt';
 
 export default function Screenshot() {

@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Example() {

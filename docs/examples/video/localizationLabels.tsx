@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { Box, DefaultLabelProvider, Video } from 'gestalt';
 
 export default function Example() {
@@ -6,7 +6,7 @@ export default function Example() {
   const [volume, setVolume] = useState(1);
 
   return (
-    (<DefaultLabelProvider
+    <DefaultLabelProvider
       labels={{
         Video: {
           accessibilityMaximizeLabel: 'Maximieren',
@@ -38,6 +38,6 @@ export default function Example() {
           />
         </Box>
       </Box>
-    </DefaultLabelProvider>)
+    </DefaultLabelProvider>
   );
 }

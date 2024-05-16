@@ -20,19 +20,17 @@ import useFocusVisible from '../useFocusVisible';
 import useTapFeedback from '../useTapFeedback';
 
 type Props = {
-  accessibilityLabel: string,
-  accessibilityControls?: string,
-  iconColor?: ComponentProps<typeof Pog>["iconColor"],
-  onClick?: (
-    arg1: {
-      event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>
-    },
-  ) => void,
-  size?: ComponentProps<typeof Pog>["size"]
+  accessibilityLabel: string;
+  accessibilityControls?: string;
+  iconColor?: ComponentProps<typeof Pog>['iconColor'];
+  onClick?: (arg1: {
+    event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>;
+  }) => void;
+  size?: ComponentProps<typeof Pog>['size'];
 };
 
-const InternalDismissIconButtonWithForwardRef =
-  forwardRef<HTMLButtonElement, Props>(function IconButton(
+const InternalDismissIconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(
+  function IconButton(
     {
       accessibilityLabel,
       accessibilityControls,
@@ -118,7 +116,8 @@ const InternalDismissIconButtonWithForwardRef =
         </div>
       </button>
     );
-  });
+  },
+);
 
 InternalDismissIconButtonWithForwardRef.displayName = 'InternalDismissIconButton';
 

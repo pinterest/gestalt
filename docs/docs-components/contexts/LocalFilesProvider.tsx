@@ -1,15 +1,18 @@
-import {Context, createContext, ReactElement, ReactNode, useContext} from 'react';
+import { Context, createContext, ReactElement, ReactNode, useContext } from 'react';
 
 type LocalFilesContextType = {
-  files: {
-    css: string,
-    js: string
-  } | null | undefined
+  files:
+    | {
+        css: string;
+        js: string;
+      }
+    | null
+    | undefined;
 };
 
-type Props = ((LocalFilesContextType) & {
-  children: ReactNode
-});
+type Props = LocalFilesContextType & {
+  children: ReactNode;
+};
 
 const LocalFilesContext: Context<LocalFilesContextType> = createContext<LocalFilesContextType>({
   files: null,
@@ -17,12 +20,7 @@ const LocalFilesContext: Context<LocalFilesContextType> = createContext<LocalFil
 
 const { Provider } = LocalFilesContext;
 
-function LocalFilesProvider(
-  {
-    children,
-    files,
-  }: Props,
-): Element<typeof Provider> {
+function LocalFilesProvider({ children, files }: Props): Element<typeof Provider> {
   const context = {
     files,
   } as const;

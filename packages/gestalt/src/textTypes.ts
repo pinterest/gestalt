@@ -2,7 +2,7 @@
   Shared types among text components (Text, Heading)
 */
 
-export type Align = "start" | "end" | "center" | "justify" | "forceLeft" | "forceRight";
+export type Align = 'start' | 'end' | 'center' | 'justify' | 'forceLeft' | 'forceRight';
 
 export const semanticColors = [
   'default',
@@ -17,4 +17,4 @@ export const semanticColors = [
   'dark',
 ] as const;
 
-export type FontWeight = "bold" | "normal";
+export type FontWeight = 'bold' | 'normal';

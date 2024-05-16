@@ -1,4 +1,4 @@
-import {Fragment, ReactNode, useRef, useState} from 'react';
+import { Fragment, ReactNode, useRef, useState } from 'react';
 import {
   Box,
   Button,
@@ -28,9 +28,9 @@ export default function SubheadingExample() {
     activeTabIndex: activeTabIndexLocal,
     event,
   }: {
-    readonly activeTabIndex: number,
-    dangerouslyDisableOnNavigation: () => void,
-    event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>
+    readonly activeTabIndex: number;
+    dangerouslyDisableOnNavigation: () => void;
+    event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
   }) => {
     event.preventDefault();
     setActiveTabIndex(activeTabIndexLocal);

@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import classNames from 'classnames';
 import styles from './TableOfContentsAnchor.css';
 import Box from '../Box';
@@ -9,20 +9,13 @@ import Text from '../Text';
 import useInteractiveStates from '../utils/useInteractiveStates';
 
 type Props = {
-  label: string,
-  href: string,
-  active: boolean,
-  onClick?: ComponentProps<typeof TapAreaLink>["onTap"]
+  label: string;
+  href: string;
+  active: boolean;
+  onClick?: ComponentProps<typeof TapAreaLink>['onTap'];
 };
 
-export default function TableOfContentsAnchor(
-  {
-    label,
-    active,
-    href,
-    onClick,
-  }: Props,
-) {
+export default function TableOfContentsAnchor({ label, active, href, onClick }: Props) {
   const { nestedLevel } = useNesting();
   const { handleOnFocus, handleOnBlur, handleOnMouseEnter, handleOnMouseLeave, isHovered } =
     useInteractiveStates();

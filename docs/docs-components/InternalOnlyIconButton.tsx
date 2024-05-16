@@ -1,15 +1,11 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { IconButton } from 'gestalt';
 
 type Props = {
-  size?: "xs" | "sm"
+  size?: 'xs' | 'sm';
 };
 
-export default function InternalOnlyIconButton(
-  {
-    size = 'xs',
-  }: Props,
-) {
+export default function InternalOnlyIconButton({ size = 'xs' }: Props) {
   return (
     <IconButton
       accessibilityLabel="Internal only"

@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, Flex, Link, Text } from 'gestalt';
 import roadmapData from './RoadmapData.json';
 import InternalOnlyIconButton from '../docs-components/InternalOnlyIconButton';
@@ -6,8 +6,8 @@ import MainSection from '../docs-components/MainSection';
 import Page from '../docs-components/Page';
 import PageHeader from '../docs-components/PageHeader';
 
-export type Platform = "Android" | "iOS" | "Mobile web" | "Web";
-export type Status = "inProgress" | "problem" | "ok" | "unstarted";
+export type Platform = 'Android' | 'iOS' | 'Mobile web' | 'Web';
+export type Status = 'inProgress' | 'problem' | 'ok' | 'unstarted';
 
 const inProgress = roadmapData.tasks.filter((x) => x.status === 'inProgress');
 
@@ -23,10 +23,10 @@ function Task({
   delivery,
   platforms,
 }: {
-  text: string,
-  description: string,
-  delivery: string,
-  platforms: ReadonlyArray<Platform>
+  text: string;
+  description: string;
+  delivery: string;
+  platforms: ReadonlyArray<Platform>;
 }) {
   return (
     <MainSection.Subsection

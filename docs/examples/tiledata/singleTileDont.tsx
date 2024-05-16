@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Flex, TileData } from 'gestalt';
 
 export default function Example() {

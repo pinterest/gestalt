@@ -1,4 +1,4 @@
-import {ReactNode, useRef, useState} from 'react';
+import { ReactNode, useRef, useState } from 'react';
 import { Box, Flex, IconButton, Layer, Popover, Status } from 'gestalt';
 import { DateRange } from 'gestalt-datepicker';
 

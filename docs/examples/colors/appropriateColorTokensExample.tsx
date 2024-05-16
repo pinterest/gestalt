@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Button, Flex, IconButton, SearchField, Text } from 'gestalt';
 
 export default function AppropriateColorTokensExample() {

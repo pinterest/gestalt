@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import DatapointTrend from './Trend';
 import AccessibilityPause from '../accessibility/AccessibilityPause';
 import Badge from '../Badge';
@@ -11,44 +11,52 @@ import Tooltip from '../Tooltip';
 import { Indexable } from '../zIndex';
 
 type BadgeObject = {
-  text: string,
-  type?: "info" | "error" | "warning" | "success" | "neutral" | "recommendation" | "darkWash" | "lightWash"
+  text: string;
+  type?:
+    | 'info'
+    | 'error'
+    | 'warning'
+    | 'success'
+    | 'neutral'
+    | 'recommendation'
+    | 'darkWash'
+    | 'lightWash';
 };
 
 type TrendObject = {
-  accessibilityLabel: string,
-  value: number
+  accessibilityLabel: string;
+  value: number;
 };
 
 type Props = {
-  badge?: BadgeObject,
+  badge?: BadgeObject;
   /**
-     * Changes the color of the text and internal items to be disabled
-     */
-  disabled?: boolean,
+   * Changes the color of the text and internal items to be disabled
+   */
+  disabled?: boolean;
   /**
-     * Number of lines to truncate the title value
-     */
-  lineClamp?: number,
+   * Number of lines to truncate the title value
+   */
+  lineClamp?: number;
   /**
-     * Min width length for the title
-     */
-  minTitleWidth?: number,
+   * Min width length for the title
+   */
+  minTitleWidth?: number;
   /**
-     * Max width for the title
-     */
-  maxTitleWidth?: number,
+   * Max width for the title
+   */
+  maxTitleWidth?: number;
   /**
-     * number of lines to have the row height for the title
-     */
-  numTitleRows?: number,
-  size?: "md" | "lg",
-  title: string,
-  tooltipText?: string,
-  trend?: TrendObject,
-  trendSentiment?: "good" | "bad" | "neutral" | "auto",
-  tooltipZIndex?: Indexable,
-  value: string
+   * number of lines to have the row height for the title
+   */
+  numTitleRows?: number;
+  size?: 'md' | 'lg';
+  title: string;
+  tooltipText?: string;
+  trend?: TrendObject;
+  trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto';
+  tooltipZIndex?: Indexable;
+  value: string;
 };
 
 function MaybeMinWidth({
@@ -57,10 +65,10 @@ function MaybeMinWidth({
   numTitleRows,
   children,
 }: {
-  minWidth?: number,
-  maxWidth?: number,
-  numTitleRows?: number,
-  children: ReactNode
+  minWidth?: number;
+  maxWidth?: number;
+  numTitleRows?: number;
+  children: ReactNode;
 }) {
   return minWidth ? (
     <Box maxWidth={maxWidth} minHeight={`${numTitleRows || 1}em`} minWidth={minWidth}>
@@ -71,23 +79,21 @@ function MaybeMinWidth({
   );
 }
 
-export default function InternalDatapoint(
-  {
-    badge,
-    disabled = false,
-    lineClamp,
-    minTitleWidth,
-    maxTitleWidth,
-    numTitleRows,
-    size = 'md',
-    title,
-    tooltipText,
-    tooltipZIndex,
-    trend,
-    trendSentiment = 'auto',
-    value,
-  }: Props,
-) {
+export default function InternalDatapoint({
+  badge,
+  disabled = false,
+  lineClamp,
+  minTitleWidth,
+  maxTitleWidth,
+  numTitleRows,
+  size = 'md',
+  title,
+  tooltipText,
+  tooltipZIndex,
+  trend,
+  trendSentiment = 'auto',
+  value,
+}: Props) {
   const textColor = disabled ? 'subtle' : 'default';
   return (
     <Flex direction="column" gap={{ column: 1, row: 0 }}>

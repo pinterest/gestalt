@@ -1,4 +1,4 @@
-import {Fragment, ReactNode, useEffect, useReducer, useRef} from 'react';
+import { Fragment, ReactNode, useEffect, useReducer, useRef } from 'react';
 import Box from '../Box';
 import Layer from '../Layer';
 import LegacyController from '../LegacyController';
@@ -15,13 +15,13 @@ const initialState = { hoveredIcon: false, hoveredText: false, isOpen: false } a
 
 const reducer = (
   state: {
-    hoveredIcon: boolean,
-    hoveredText: boolean,
-    isOpen: boolean
+    hoveredIcon: boolean;
+    hoveredText: boolean;
+    isOpen: boolean;
   },
   action: {
-    type: "hoverInIcon" | "hoverInText" | "hoverOutIcon" | "hoverOutText",
-    disabled?: boolean
+    type: 'hoverInIcon' | 'hoverInText' | 'hoverOutIcon' | 'hoverOutText';
+    disabled?: boolean;
   },
 ) => {
   if (action.disabled) return { ...state, isOpen: false, hoveredIcon: false, hoveredText: false };
@@ -56,31 +56,29 @@ const reducer = (
 };
 
 type Props = {
-  accessibilityLabel?: string,
-  children?: ReactNode,
+  accessibilityLabel?: string;
+  children?: ReactNode;
   /**
-     * Whether to show the tooltip or not
-     */
-  disabled?: boolean,
-  idealDirection?: "up" | "right" | "down" | "left",
-  inline?: boolean,
-  link?: ReactNode,
-  text: string | ReadonlyArray<string>,
-  zIndex?: Indexable
+   * Whether to show the tooltip or not
+   */
+  disabled?: boolean;
+  idealDirection?: 'up' | 'right' | 'down' | 'left';
+  inline?: boolean;
+  link?: ReactNode;
+  text: string | ReadonlyArray<string>;
+  zIndex?: Indexable;
 };
 
-export default function InternalTooltip(
-  {
-    accessibilityLabel,
-    children,
-    disabled,
-    link,
-    idealDirection,
-    inline,
-    text,
-    zIndex,
-  }: Props,
-) {
+export default function InternalTooltip({
+  accessibilityLabel,
+  children,
+  disabled,
+  link,
+  idealDirection,
+  inline,
+  text,
+  zIndex,
+}: Props) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { isOpen } = state;
 

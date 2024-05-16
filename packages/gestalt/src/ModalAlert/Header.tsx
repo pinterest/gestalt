@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import Box from '../Box';
 import Flex from '../Flex';
 import Heading from '../Heading';
@@ -17,20 +17,18 @@ const ICON_COLOR_MAP = {
 } as const;
 
 type Props = {
-  accessibilityDismissButtonLabel: string,
-  type: "default" | "warning" | "error",
-  heading: string,
-  onDismiss: () => void
+  accessibilityDismissButtonLabel: string;
+  type: 'default' | 'warning' | 'error';
+  heading: string;
+  onDismiss: () => void;
 };
 
-export default function ModalAlertHeader(
-  {
-    accessibilityDismissButtonLabel,
-    type,
-    heading,
-    onDismiss,
-  }: Props,
-) {
+export default function ModalAlertHeader({
+  accessibilityDismissButtonLabel,
+  type,
+  heading,
+  onDismiss,
+}: Props) {
   return (
     <Flex alignItems="center" flex="grow" gap={4}>
       {type !== 'default' && (

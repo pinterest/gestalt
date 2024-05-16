@@ -1,4 +1,4 @@
-import {ReactElement, ReactNode, useEffect, useState} from 'react';
+import { ReactElement, ReactNode, useEffect, useState } from 'react';
 import { TOKEN_COLOR_BACKGROUND_SELECTED_BASE } from 'gestalt-design-tokens';
 import PrimaryActionIconButton from './PrimaryActionIconButton';
 import Badge from '../Badge';
@@ -12,74 +12,74 @@ import icons from '../icons/index';
 import Text from '../Text';
 import { Indexable } from '../zIndex';
 
-type IconType = keyof typeof icons | {
-  __path: string
-};
-type Display = "expandable" | "static";
+type IconType =
+  | keyof typeof icons
+  | {
+      __path: string;
+    };
+type Display = 'expandable' | 'static';
 type BadgeType = {
-  text: string,
-  type?: "info" | "error" | "warning" | "success" | "neutral"
+  text: string;
+  type?: 'info' | 'error' | 'warning' | 'success' | 'neutral';
 };
 type Counter = {
-  number: string,
-  accessibilityLabel: string
+  number: string;
+  accessibilityLabel: string;
 };
 
 type Props = {
-  hovered: boolean,
-  focused: boolean,
-  itemColor: "secondary" | null | undefined,
-  expanded: boolean,
-  selectedItemId: string,
-  itemId: string,
-  paddingStyle: {
-    paddingInlineStart: string | number | undefined,
-    paddingInlineEnd: string | number | undefined
-  } | Record<any, any>,
-  icon?: IconType,
-  label: string,
-  badge?: BadgeType,
-  notificationAccessibilityLabel?: string,
-  counter?: Counter,
-  display?: Display,
+  hovered: boolean;
+  focused: boolean;
+  itemColor: 'secondary' | null | undefined;
+  expanded: boolean;
+  selectedItemId: string;
+  itemId: string;
+  paddingStyle:
+    | {
+        paddingInlineStart: string | number | undefined;
+        paddingInlineEnd: string | number | undefined;
+      }
+    | Record<any, any>;
+  icon?: IconType;
+  label: string;
+  badge?: BadgeType;
+  notificationAccessibilityLabel?: string;
+  counter?: Counter;
+  display?: Display;
   primaryAction?: {
-    icon?: "ellipsis" | "edit" | "trash-can",
-    onClick?: (
-      arg1: {
-        event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>
-      },
-    ) => void,
+    icon?: 'ellipsis' | 'edit' | 'trash-can';
+    onClick?: (arg1: {
+      event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>;
+    }) => void;
     tooltip: {
-      accessibilityLabel?: string,
-      text: string,
-      zIndex?: Indexable
-    },
-    dropdownItems?: ReadonlyArray<Element<typeof Dropdown.Item>>
-  },
-  setCompression: (arg1: "compress" | "none") => void,
-  hasActiveChild?: boolean
+      accessibilityLabel?: string;
+      text: string;
+      zIndex?: Indexable;
+    };
+    dropdownItems?: ReadonlyArray<Element<typeof Dropdown.Item>>;
+  };
+  setCompression: (arg1: 'compress' | 'none') => void;
+  hasActiveChild?: boolean;
 };
 
-export default function SideNavigationGroupContent(
-  {
-    itemColor,
-    expanded,
-    selectedItemId,
-    itemId,
-    paddingStyle,
-    icon,
-    label,
-    badge,
-    notificationAccessibilityLabel,
-    counter,
-    display,
-    primaryAction,
-    setCompression,
-    hovered,
-    focused,
-    hasActiveChild,
-  }: Props,
-) {
+export default function SideNavigationGroupContent({
+  itemColor,
+  expanded,
+  selectedItemId,
+  itemId,
+  paddingStyle,
+  icon,
+  label,
+  badge,
+  notificationAccessibilityLabel,
+  counter,
+  display,
+  primaryAction,
+  setCompression,
+  hovered,
+  focused,
+  hasActiveChild,
+}: Props) {
   // Manages adaptiveness
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
@@ -87,8 +87,8 @@ export default function SideNavigationGroupContent(
   const { collapsed: sideNavigationCollapsed, overlayPreview } = useSideNavigation();
 
   // Manages PrimaryAction
-  const [forceIconButton, setForceIconButton] = useState<"force" | "default">('default');
-  const [showIconButton, setShowIconButton] = useState<"hide" | "show">('hide');
+  const [forceIconButton, setForceIconButton] = useState<'force' | 'default'>('default');
+  const [showIconButton, setShowIconButton] = useState<'hide' | 'show'>('hide');
 
   useEffect(() => {
     if (!isMobile && primaryAction && showIconButton === 'hide' && (hovered || focused)) {

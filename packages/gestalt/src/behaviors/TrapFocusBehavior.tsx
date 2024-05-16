@@ -1,7 +1,7 @@
-import {ReactNode, useEffect, useRef} from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 
 type Props = {
-  children?: ReactNode
+  children?: ReactNode;
 };
 
 function queryFocusableAll(el: HTMLDivElement) {
@@ -36,15 +36,13 @@ const focusElement = (el: HTMLElement) => {
 /**
  * TrapFocusBehavior is used by components like Modal and OverlayPanel to ensure that only elements within children components can be focused.
  */
-export default function TrapFocusBehavior(
-  {
-    children,
-  }: Props,
-) {
+export default function TrapFocusBehavior({ children }: Props) {
   const elRef = useRef<HTMLDivElement | null | undefined>(null);
   const previouslyFocusedElRef = useRef<HTMLElement | null | undefined>(null);
 
-  const setElRef: (el?: HTMLDivElement | null | undefined) => void = (el?: HTMLDivElement | null) => {
+  const setElRef: (el?: HTMLDivElement | null | undefined) => void = (
+    el?: HTMLDivElement | null,
+  ) => {
     if (el) {
       elRef.current = el;
     }

@@ -1,4 +1,4 @@
-import {create} from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 import StopScrollBehavior from './StopScrollBehavior';
 
 test('StopScrollBehavior renders', () => {

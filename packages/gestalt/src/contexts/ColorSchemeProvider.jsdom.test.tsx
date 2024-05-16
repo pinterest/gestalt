@@ -1,4 +1,4 @@
-import {act, render, screen} from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import ColorSchemeProvider, { useColorScheme } from './ColorSchemeProvider';
 
 function ThemeAwareComponent() {
@@ -83,9 +83,14 @@ describe('useColorScheme', () => {
   });
 
   it('uses theme based on matchMedia when userPreference', () => {
-    let listener = jest.fn<[{
-      matches: boolean
-    }], any>();
+    let listener = jest.fn<
+      [
+        {
+          matches: boolean;
+        },
+      ],
+      any
+    >();
     window.matchMedia = () => ({
       addListener: (cb: any) => {
         listener = cb;

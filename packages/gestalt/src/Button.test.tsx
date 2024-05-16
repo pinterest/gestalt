@@ -1,4 +1,4 @@
-import {create} from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 import Button from './Button';
 import Icon from './Icon';
 
@@ -39,25 +39,29 @@ describe('<Button />', () => {
     const instance = create(
       <Button accessibilityControls="another-element" text="Hello World" />,
     ).root;
-    expect(instance.find((element: any) => element.type === 'button').props['aria-controls']).toContain(
-      'another-element',
-    );
+    expect(
+      instance.find((element: any) => element.type === 'button').props['aria-controls'],
+    ).toContain('another-element');
   });
 
   test('accessibilityExpanded', () => {
     const instance = create(<Button accessibilityExpanded text="Hello World" />).root;
-    expect(instance.find((element: any) => element.type === 'button').props['aria-expanded']).toBe(true);
+    expect(instance.find((element: any) => element.type === 'button').props['aria-expanded']).toBe(
+      true,
+    );
   });
 
   test('accessibilityHaspopup', () => {
     const instance = create(<Button accessibilityHaspopup text="Hello World" />).root;
-    expect(instance.find((element: any) => element.type === 'button').props['aria-haspopup']).toBe(true);
+    expect(instance.find((element: any) => element.type === 'button').props['aria-haspopup']).toBe(
+      true,
+    );
   });
 
   test('accessibilityLabel', () => {
     const instance = create(<Button accessibilityLabel="hello" text="Hello World" />).root;
-    expect(instance.find((element: any) => element.type === 'button').props['aria-label']).toContain(
-      'hello',
-    );
+    expect(
+      instance.find((element: any) => element.type === 'button').props['aria-label'],
+    ).toContain('hello');
   });
 });

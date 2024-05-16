@@ -1,15 +1,9 @@
-import {Fragment, ReactNode} from 'react';
+import { Fragment, ReactNode } from 'react';
 import { Badge, Box, ColorSchemeProvider, Flex, Table, Text } from 'gestalt';
 import tokensDark from 'gestalt-design-tokens/dist/js/tokens_dark';
 import { TokenExample } from './TokenExample';
 
-function TableHeaders(
-  {
-    hasDarkValues,
-  }: {
-    hasDarkValues: boolean
-  },
-) {
+function TableHeaders({ hasDarkValues }: { hasDarkValues: boolean }) {
   const rows = ['CSS token name', 'Light mode', 'Dark mode'].map((header) => {
     if (header === 'Dark mode' && !hasDarkValues) {
       return null;
@@ -29,11 +23,14 @@ function TableHeaders(
 }
 
 function getReferenceTokenMap() {
-  const darkTokenMap = new Map<string, {
-    value: string,
-    originalValue: string,
-    darkModeSupport: boolean
-  }>();
+  const darkTokenMap = new Map<
+    string,
+    {
+      value: string;
+      originalValue: string;
+      darkModeSupport: boolean;
+    }
+  >();
 
   tokensDark.forEach((token) => {
     darkTokenMap.set(token.name, {
@@ -47,17 +44,15 @@ function getReferenceTokenMap() {
   return darkTokenMap;
 }
 
-function MetaData(
-  {
-    value,
-    original,
-    darkModeSupport = true,
-  }: {
-    value?: string,
-    original?: string,
-    darkModeSupport?: boolean
-  },
-) {
+function MetaData({
+  value,
+  original,
+  darkModeSupport = true,
+}: {
+  value?: string;
+  original?: string;
+  darkModeSupport?: boolean;
+}) {
   const isCustom = original?.startsWith('#') || original?.startsWith('rgb');
 
   const isAlias = ['background', 'border', 'text', 'icon', 'data-visualization'].some((property) =>
@@ -103,34 +98,25 @@ function MetaData(
 }
 
 type Token = {
-  name: string,
-  value: string,
-  darkValue?: string,
-  originalValue: string,
-  originalDarkValue?: string,
-  comment?: string,
-  category: string
+  name: string;
+  value: string;
+  darkValue?: string;
+  originalValue: string;
+  originalDarkValue?: string;
+  comment?: string;
+  category: string;
 };
 
 type Props = {
-  name: string,
-  id: string,
-  darkValues: boolean,
-  category: string,
-  excludedItems?: ReadonlyArray<string>,
-  data: ReadonlyArray<Token>
+  name: string;
+  id: string;
+  darkValues: boolean;
+  category: string;
+  excludedItems?: ReadonlyArray<string>;
+  data: ReadonlyArray<Token>;
 };
 
-export default function TokenTable(
-  {
-    name,
-    id,
-    darkValues,
-    category,
-    excludedItems,
-    data,
-  }: Props,
-) {
+export default function TokenTable({ name, id, darkValues, category, excludedItems, data }: Props) {
   const tokenData = excludedItems
     ? data.filter(
         ({ name: tokenName }) =>

@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, Flex, Heading } from 'gestalt';
 import { DOCS_COPY_MAX_WIDTH_PX } from '../../../docs-components/consts';
 import MainSection from '../../../docs-components/MainSection';
@@ -14,17 +14,11 @@ import transitionExample from '../../../examples/animation/transitionExample';
 import useExample from '../../../examples/animation/useExample';
 
 type Props = {
-  children: ReactNode,
-  heading: string,
-  text: string
+  children: ReactNode;
+  heading: string;
+  text: string;
 };
-function ThemeLayout(
-  {
-    heading,
-    children,
-    text,
-  }: Props,
-) {
+function ThemeLayout({ heading, children, text }: Props) {
   return (
     <Flex direction="column" gap={2} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
       <Heading size="300">{heading}</Heading>

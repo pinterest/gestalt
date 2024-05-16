@@ -1,4 +1,4 @@
-import {ElementRef, forwardRef} from 'react';
+import { ElementRef, forwardRef } from 'react';
 import { Box, Icon, TextField } from 'gestalt';
 import styles from '../DatePicker.css';
 
@@ -6,24 +6,24 @@ import styles from '../DatePicker.css';
 // Datepicker takes this props and then funnels them to DatePickerTextField.
 // See https://github.com/Hacker0x01/react-datepicker/blob/769d960d35d18f06bdee1b62a53d739ef4f0c39a/src/index.jsx#L844
 type InjectedProps = {
-  disabled?: boolean,
-  id: string,
-  name?: string,
-  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void,
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void,
-  onClick?: () => void,
-  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void,
-  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void,
-  placeholder?: string,
-  value?: string,
-  errorMessage?: string,
-  helperText?: string
+  disabled?: boolean;
+  id: string;
+  name?: string;
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onClick?: () => void;
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  placeholder?: string;
+  value?: string;
+  errorMessage?: string;
+  helperText?: string;
 };
 
-type Props = ({
-  id: string,
-  forwardedRef?: ElementRef<any>
-} & (InjectedProps));
+type Props = {
+  id: string;
+  forwardedRef?: ElementRef<any>;
+} & InjectedProps;
 
 function DatePickerTextField(props: Props) {
   const {
@@ -85,9 +85,11 @@ function DatePickerTextField(props: Props) {
 
 function textFieldForwardRef(
   props: Props,
-  ref: ((arg1: null | HTMLInputElement) => unknown) | {
-    current: null | HTMLInputElement
-  },
+  ref:
+    | ((arg1: null | HTMLInputElement) => unknown)
+    | {
+        current: null | HTMLInputElement;
+      },
 ) {
   return <DatePickerTextField {...props} forwardedRef={ref} />;
 }

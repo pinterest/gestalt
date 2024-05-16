@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import { BannerSlimExperiment } from '../../docs-components/BannerSlimExperiment';
 import docGen, { DocGen } from '../../docs-components/docgen';
@@ -18,13 +18,7 @@ import variantLayer from '../../examples/popover/variantLayer';
 import variantScrollingContainers from '../../examples/popover/variantScrollingContainers';
 import variantVisibility from '../../examples/popover/variantVisibility';
 
-export default function DocsPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: DocGen
-  },
-) {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -296,8 +290,8 @@ ScrollBoundaryContainer is needed for proper positioning when Popover is anchore
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   const generatedDocGen = await docGen('Popover');
   generatedDocGen.props.color.tsType.raw = '"white" | "darkGray"';

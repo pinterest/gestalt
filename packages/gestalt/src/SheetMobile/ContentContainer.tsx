@@ -1,21 +1,14 @@
-import {ReactNode, useCallback, useEffect, useRef, useState} from 'react';
+import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import Box from '../Box';
 
 type Props = {
-  children?: ReactNode,
-  footer?: ReactNode,
-  padding?: "default" | "none",
-  header: ReactNode
+  children?: ReactNode;
+  footer?: ReactNode;
+  padding?: 'default' | 'none';
+  header: ReactNode;
 };
 
-export default function ContentContainer(
-  {
-    children,
-    header,
-    footer,
-    padding,
-  }: Props,
-) {
+export default function ContentContainer({ children, header, footer, padding }: Props) {
   const [showTopShadow, setShowTopShadow] = useState(false);
 
   const [showBottomShadow, setShowBottomShadow] = useState(false);

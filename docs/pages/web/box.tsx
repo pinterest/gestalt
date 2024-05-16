@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import React, { ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
@@ -68,13 +68,9 @@ const ignoredProps = [
 ];
 
 type ColorCardProps = {
-  children: ReactNode
+  children: ReactNode;
 };
-function ColorSchemeLayout(
-  {
-    children,
-  }: ColorCardProps,
-) {
+function ColorSchemeLayout({ children }: ColorCardProps) {
   return (
     <Flex
       gap={{
@@ -94,13 +90,7 @@ function ColorSchemeLayout(
   );
 }
 
-export default function BoxPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: DocGen
-  },
-) {
+export default function BoxPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -558,8 +548,8 @@ For a correct implementation, make sure the  ‘visually-hidden’ element is co
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   return {
     props: { generatedDocGen: await docGen('Box') },

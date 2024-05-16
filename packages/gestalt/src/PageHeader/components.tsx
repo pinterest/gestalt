@@ -1,4 +1,4 @@
-import {cloneElement, ReactElement, Fragment, ReactNode, useRef, useState} from 'react';
+import { cloneElement, ReactElement, Fragment, ReactNode, useRef, useState } from 'react';
 import Badge, { TypeOptions } from '../Badge';
 import Box from '../Box';
 import Dropdown from '../Dropdown';
@@ -11,15 +11,13 @@ import Mask from '../Mask';
 import { ActionType } from '../PageHeader';
 import Text from '../Text';
 
-export function PageHeaderTitle(
-  {
-    marginTop,
-    title,
-  }: {
-    marginTop: number | null | undefined,
-    title: string
-  },
-) {
+export function PageHeaderTitle({
+  marginTop,
+  title,
+}: {
+  marginTop: number | null | undefined;
+  title: string;
+}) {
   return (
     <Fragment>
       <Box display="block" smDisplay="none">
@@ -42,13 +40,7 @@ export function PageHeaderTitle(
   );
 }
 
-export function PageHeaderThumbnail(
-  {
-    thumbnail,
-  }: {
-    thumbnail: Element<typeof Image>
-  },
-) {
+export function PageHeaderThumbnail({ thumbnail }: { thumbnail: Element<typeof Image> }) {
   return (
     <Box aria-hidden display="none" smDisplay="block">
       <Mask height={48} rounding={2} width={48}>
@@ -58,17 +50,15 @@ export function PageHeaderThumbnail(
   );
 }
 
-export function PageHeaderBadge(
-  {
-    badgeText,
-    badgeTooltipText,
-    type = 'info',
-  }: {
-    badgeText: string,
-    badgeTooltipText?: string,
-    type?: TypeOptions
-  },
-) {
+export function PageHeaderBadge({
+  badgeText,
+  badgeTooltipText,
+  type = 'info',
+}: {
+  badgeText: string;
+  badgeTooltipText?: string;
+  type?: TypeOptions;
+}) {
   return badgeTooltipText ? (
     <Badge
       position="middle"
@@ -85,23 +75,19 @@ export function PageHeaderBadge(
   );
 }
 
-export function PageHeaderHelperIconButton(
-  {
-    accessibilityLabel,
-    accessibilityControls,
-    accessibilityExpanded,
-    onClick,
-  }: {
-    accessibilityLabel: string,
-    accessibilityControls: string,
-    accessibilityExpanded: boolean,
-    onClick: (
-      arg1: {
-        event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>
-      },
-    ) => void
-  },
-) {
+export function PageHeaderHelperIconButton({
+  accessibilityLabel,
+  accessibilityControls,
+  accessibilityExpanded,
+  onClick,
+}: {
+  accessibilityLabel: string;
+  accessibilityControls: string;
+  accessibilityExpanded: boolean;
+  onClick: (arg1: {
+    event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>;
+  }) => void;
+}) {
   return (
     <IconButton
       accessibilityControls={accessibilityControls}
@@ -117,25 +103,21 @@ export function PageHeaderHelperIconButton(
   );
 }
 
-export function PageHeaderSubtext(
-  {
-    subtext,
-    helperLink,
-  }: {
-    subtext: string,
-    helperLink?: {
-      text: string,
-      accessibilityLabel: string,
-      href: string,
-      onClick?: (
-        arg1: {
-          event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-          dangerouslyDisableOnNavigation: () => void
-        },
-      ) => void
-    }
-  },
-) {
+export function PageHeaderSubtext({
+  subtext,
+  helperLink,
+}: {
+  subtext: string;
+  helperLink?: {
+    text: string;
+    accessibilityLabel: string;
+    href: string;
+    onClick?: (arg1: {
+      event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+      dangerouslyDisableOnNavigation: () => void;
+    }) => void;
+  };
+}) {
   return (
     <Box display="none" smDisplay="block">
       <Text inline>
@@ -161,23 +143,21 @@ export function PageHeaderSubtext(
   );
 }
 
-export function PageHeaderActionBlock(
-  {
-    primaryAction,
-    secondaryAction,
-    dropdownAccessibilityLabel = '',
-  }: {
-    primaryAction?: {
-      component: ActionType,
-      dropdownItems: ReadonlyArray<Element<typeof Dropdown.Item> | Element<typeof Dropdown.Link>>
-    },
-    secondaryAction?: {
-      component: ActionType,
-      dropdownItems: ReadonlyArray<Element<typeof Dropdown.Item> | Element<typeof Dropdown.Link>>
-    },
-    dropdownAccessibilityLabel?: string
-  },
-) {
+export function PageHeaderActionBlock({
+  primaryAction,
+  secondaryAction,
+  dropdownAccessibilityLabel = '',
+}: {
+  primaryAction?: {
+    component: ActionType;
+    dropdownItems: ReadonlyArray<Element<typeof Dropdown.Item> | Element<typeof Dropdown.Link>>;
+  };
+  secondaryAction?: {
+    component: ActionType;
+    dropdownItems: ReadonlyArray<Element<typeof Dropdown.Item> | Element<typeof Dropdown.Link>>;
+  };
+  dropdownAccessibilityLabel?: string;
+}) {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
@@ -232,21 +212,15 @@ export function PageHeaderActionBlock(
   );
 }
 
-export function PageHeaderItemsBlock(
-  {
-    items,
-  }: {
-    items: ReadonlyArray<ReactNode>
-  },
-) {
+export function PageHeaderItemsBlock({ items }: { items: ReadonlyArray<ReactNode> }) {
   return (
-    (<Box display="none" mdDisplay="block" overflow="hidden">
+    <Box display="none" mdDisplay="block" overflow="hidden">
       <Flex gap={{ column: 0, row: 6 }}>
         {items.slice(0, 2).map((item, i) => (
           // eslint-disable-next-line react/no-array-index-key
-          (<Flex.Item key={i}>{item}</Flex.Item>)
+          <Flex.Item key={i}>{item}</Flex.Item>
         ))}
       </Flex>
-    </Box>)
+    </Box>
   );
 }

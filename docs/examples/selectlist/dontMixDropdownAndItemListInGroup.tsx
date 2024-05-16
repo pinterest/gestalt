@@ -1,24 +1,24 @@
-import {ReactNode, useRef, useState} from 'react';
+import { ReactNode, useRef, useState } from 'react';
 import { Box, Button, Dropdown, Flex, SelectList } from 'gestalt';
 
 export default function SubtextIconButtonFlyoutExample() {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<{
-    label: string,
-    subtext?: string,
-    value: string
+    label: string;
+    subtext?: string;
+    value: string;
   } | null>(null);
   const anchorRef = useRef<HTMLElement | null>(null);
 
   const handleSelect = ({
     item,
   }: {
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>;
     item: {
-      label: string,
-      subtext?: string,
-      value: string
-    }
+      label: string;
+      subtext?: string;
+      value: string;
+    };
   }) => {
     setSelected(item);
   };

@@ -1,11 +1,13 @@
-import defaultTwoColumnModuleLayout, {initializeHeightsArray} from './defaultTwoColumnModuleLayout';
+import defaultTwoColumnModuleLayout, {
+  initializeHeightsArray,
+} from './defaultTwoColumnModuleLayout';
 import MeasurementStore from './MeasurementStore';
 import { Position } from './types';
 
 type Item = {
-  name: string,
-  height: number,
-  color?: string
+  name: string;
+  height: number;
+  color?: string;
 };
 
 // Tests copied from defaultLayout to ensure we don't break default cases
@@ -178,7 +180,7 @@ describe('defaultLayout test cases', () => {
       measurementStore.set(item, item.height);
     });
 
-    const makeLayout = (align: "center" | "start") =>
+    const makeLayout = (align: 'center' | 'start') =>
       defaultTwoColumnModuleLayout({
         align,
         measurementCache: measurementStore,

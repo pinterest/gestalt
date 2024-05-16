@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box } from 'gestalt';
 import {
   TOKEN_COLOR_TEXT_DEFAULT,
@@ -10,25 +10,21 @@ import {
 import { Token } from '../pages/foundations/design_tokens/overview';
 
 type BaseProps = {
-  token: Token
+  token: Token;
 };
 
-type FontBoxProps = ((BaseProps) & {
-  type?: string
-});
+type FontBoxProps = BaseProps & {
+  type?: string;
+};
 
-type ExampleProps = ((BaseProps) & {
-  category: string
-});
+type ExampleProps = BaseProps & {
+  category: string;
+};
 
 const HEIGHT = 50;
 const WIDTH = 250;
 
-export function ColorBox(
-  {
-    token,
-  }: BaseProps,
-) {
+export function ColorBox({ token }: BaseProps) {
   return (
     <Box
       alignItems="center"
@@ -45,11 +41,7 @@ export function ColorBox(
   );
 }
 
-export function RoundingBox(
-  {
-    token,
-  }: BaseProps,
-) {
+export function RoundingBox({ token }: BaseProps) {
   return (
     <Box
       borderStyle="lg"
@@ -62,11 +54,7 @@ export function RoundingBox(
   );
 }
 
-export function SpacingBox(
-  {
-    token,
-  }: BaseProps,
-) {
+export function SpacingBox({ token }: BaseProps) {
   if (token.value.includes('-')) {
     const absoluteDimension = token.value.replace(/^-/, '');
     const marginLeftDimension = `calc(64px + ${token.value})`;
@@ -92,11 +80,7 @@ export function SpacingBox(
   );
 }
 
-export function TextColorBox(
-  {
-    token,
-  }: BaseProps,
-) {
+export function TextColorBox({ token }: BaseProps) {
   let backgroundColor;
   if (token.name.includes('inverse')) {
     backgroundColor = 'selected';
@@ -124,11 +108,7 @@ export function TextColorBox(
   );
 }
 
-export function BorderBox(
-  {
-    token,
-  }: BaseProps,
-) {
+export function BorderBox({ token }: BaseProps) {
   return (
     <Box
       alignItems="center"
@@ -144,11 +124,7 @@ export function BorderBox(
   );
 }
 
-export function OpacityBox(
-  {
-    token,
-  }: BaseProps,
-) {
+export function OpacityBox({ token }: BaseProps) {
   return (
     <Box
       alignItems="center"
@@ -170,11 +146,7 @@ export function OpacityBox(
   );
 }
 
-export function ElevationBox(
-  {
-    token,
-  }: BaseProps,
-) {
+export function ElevationBox({ token }: BaseProps) {
   return (
     <Box
       alignItems="center"
@@ -195,12 +167,7 @@ export function ElevationBox(
   );
 }
 
-export function FontBox(
-  {
-    token,
-    type,
-  }: FontBoxProps,
-) {
+export function FontBox({ token, type }: FontBoxProps) {
   const fontWeightStyle = type === 'weight' ? `var(--${token.name})` : undefined;
   const fontFamilyStyle = type === 'family' ? `var(--${token.name})` : undefined;
   const fontSizeStyle = type === 'size' ? `var(--${token.name})` : TOKEN_FONT_SIZE_600;
@@ -227,12 +194,7 @@ export function FontBox(
   );
 }
 
-export function TokenExample(
-  {
-    token,
-    category,
-  }: ExampleProps,
-) {
+export function TokenExample({ token, category }: ExampleProps) {
   let example;
 
   switch (category) {

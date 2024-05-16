@@ -1,19 +1,14 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { useRouter } from 'next/router';
 import { Box, Link, Text } from 'gestalt';
 import { useNavigationContext } from './navigationContext';
 
 type Props = {
-  href: string,
-  children: ReactNode
+  href: string;
+  children: ReactNode;
 };
 
-export default function NavLink(
-  {
-    children,
-    href,
-  }: Props,
-) {
+export default function NavLink({ children, href }: Props) {
   const { setIsSidebarOpen } = useNavigationContext();
   const router = useRouter();
 

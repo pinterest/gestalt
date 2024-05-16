@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, Flex, Image, Mask, TapAreaLink, Text } from 'gestalt';
 
 export default function Example() {

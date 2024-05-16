@@ -1,13 +1,18 @@
-import {createRef} from 'react';
+import { createRef } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import TapAreaLink from './TapAreaLink';
 
 describe('TapAreaLink', () => {
   it('TapAreaLink handles onTap', () => {
-    const mockOnTap = jest.fn<[{
-      dangerouslyDisableOnNavigation: () => void,
-      event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>
-    }], undefined>();
+    const mockOnTap = jest.fn<
+      [
+        {
+          dangerouslyDisableOnNavigation: () => void;
+          event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+        },
+      ],
+      undefined
+    >();
 
     render(
       <TapAreaLink href="#" onTap={mockOnTap}>
@@ -20,9 +25,14 @@ describe('TapAreaLink', () => {
   });
 
   it('TapAreaLink handles onBlur callback', () => {
-    const mockOnBlur = jest.fn<[{
-      event: React.FocusEvent<HTMLAnchorElement>
-    }], undefined>();
+    const mockOnBlur = jest.fn<
+      [
+        {
+          event: React.FocusEvent<HTMLAnchorElement>;
+        },
+      ],
+      undefined
+    >();
 
     render(
       <TapAreaLink href="#" onBlur={mockOnBlur}>
@@ -37,9 +47,14 @@ describe('TapAreaLink', () => {
   });
 
   it('TapAreaLink handles onFocus callback', () => {
-    const mockOnFocus = jest.fn<[{
-      event: React.FocusEvent<HTMLAnchorElement>
-    }], undefined>();
+    const mockOnFocus = jest.fn<
+      [
+        {
+          event: React.FocusEvent<HTMLAnchorElement>;
+        },
+      ],
+      undefined
+    >();
 
     render(
       <TapAreaLink href="#" onFocus={mockOnFocus}>
@@ -52,9 +67,14 @@ describe('TapAreaLink', () => {
   });
 
   it('TapAreaLink handles onMouseEnter callback', () => {
-    const mockOnMouseEnter = jest.fn<[{
-      event: React.MouseEvent<HTMLAnchorElement>
-    }], undefined>();
+    const mockOnMouseEnter = jest.fn<
+      [
+        {
+          event: React.MouseEvent<HTMLAnchorElement>;
+        },
+      ],
+      undefined
+    >();
 
     render(
       <TapAreaLink href="#" onMouseEnter={mockOnMouseEnter}>
@@ -67,9 +87,14 @@ describe('TapAreaLink', () => {
   });
 
   it('TapAreaLink handles onMouseLeave callback', () => {
-    const mockOnMouseLeave = jest.fn<[{
-      event: React.MouseEvent<HTMLAnchorElement>
-    }], undefined>();
+    const mockOnMouseLeave = jest.fn<
+      [
+        {
+          event: React.MouseEvent<HTMLAnchorElement>;
+        },
+      ],
+      undefined
+    >();
     render(
       <TapAreaLink href="#" onMouseLeave={mockOnMouseLeave}>
         TapAreaLink
@@ -81,10 +106,15 @@ describe('TapAreaLink', () => {
   });
 
   it('TapAreaLink handles key press event', () => {
-    const mockOnTap = jest.fn<[{
-      dangerouslyDisableOnNavigation: () => void,
-      event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>
-    }], undefined>();
+    const mockOnTap = jest.fn<
+      [
+        {
+          dangerouslyDisableOnNavigation: () => void;
+          event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+        },
+      ],
+      undefined
+    >();
     render(
       <TapAreaLink href="#" onTap={mockOnTap}>
         TapAreaLink

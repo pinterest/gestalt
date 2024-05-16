@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import {
   Box,
   Button,
@@ -17,7 +17,7 @@ export default function Example() {
   const HEADER_ZINDEX = new FixedZIndex(10);
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
   return (
-    (<DefaultLabelProvider
+    <DefaultLabelProvider
       labels={{
         OverlayPanel: {
           accessibilityDismissButtonLabel: 'Overlay-Panel auflösen.',
@@ -68,6 +68,6 @@ export default function Example() {
           </OverlayPanel>
         </Layer>
       )}
-    </DefaultLabelProvider>)
+    </DefaultLabelProvider>
   );
 }

@@ -1,4 +1,4 @@
-import {forwardRef, Fragment, ReactNode, useImperativeHandle, useRef} from 'react';
+import { forwardRef, Fragment, ReactNode, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
 import styles from './Button.css';
@@ -28,97 +28,100 @@ const SIZE_NAME_TO_PIXEL = {
   lg: 12,
 } as const;
 
-type Target = null | "self" | "blank";
+type Target = null | 'self' | 'blank';
 
 type Props = {
   /**
-     * Specifies the `id` of an associated element (or elements) whose contents or visibility are controlled by Button so that screen reader users can identify the relationship between elements. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/button#ARIA-attributes) for details on proper usage.
-     */
-  accessibilityControls?: string,
+   * Specifies the `id` of an associated element (or elements) whose contents or visibility are controlled by Button so that screen reader users can identify the relationship between elements. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/button#ARIA-attributes) for details on proper usage.
+   */
+  accessibilityControls?: string;
   /**
-     * Indicates that Button hides or exposes collapsible components and expose whether they are currently expanded or collapsed. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/button#ARIA-attributes) for details on proper usage.
-     */
-  accessibilityExpanded?: boolean,
+   * Indicates that Button hides or exposes collapsible components and expose whether they are currently expanded or collapsed. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/button#ARIA-attributes) for details on proper usage.
+   */
+  accessibilityExpanded?: boolean;
   /**
-     * Indicates that a component controls the appearance of interactive popup elements, such as menu or dialog. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/button#ARIA-attributes) for details on proper usage.
-     */
-  accessibilityHaspopup?: boolean,
+   * Indicates that a component controls the appearance of interactive popup elements, such as menu or dialog. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/button#ARIA-attributes) for details on proper usage.
+   */
+  accessibilityHaspopup?: boolean;
   /**
-     * Label for screen readers to announce Button. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/button#ARIA-attributes) for details on proper usage.
-     */
-  accessibilityLabel?: string,
+   * Label for screen readers to announce Button. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/button#ARIA-attributes) for details on proper usage.
+   */
+  accessibilityLabel?: string;
   /**
-     * The background color of Button.
-     * See the [color on white backgrounds variant](https://gestalt.pinterest.systems/web/button#Color-on-white-backgrounds) and the [color on color/image backgrounds variant](https://gestalt.pinterest.systems/web/button#Color-on-colorimage-backgrounds)
-     */
-  color?: "gray" | "red" | "blue" | "transparent" | "semiTransparentWhite" | "transparentWhiteText" | "white",
+   * The background color of Button.
+   * See the [color on white backgrounds variant](https://gestalt.pinterest.systems/web/button#Color-on-white-backgrounds) and the [color on color/image backgrounds variant](https://gestalt.pinterest.systems/web/button#Color-on-colorimage-backgrounds)
+   */
+  color?:
+    | 'gray'
+    | 'red'
+    | 'blue'
+    | 'transparent'
+    | 'semiTransparentWhite'
+    | 'transparentWhiteText'
+    | 'white';
   /**
-     * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
-     */
-  dataTestId?: string,
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
   /**
-     * Indicates if Button is disabled. Disabled Buttons are inactive and cannot be interacted with. See the [state variant](https://gestalt.pinterest.systems/web/button#State) for details on proper usage.
-     */
-  disabled?: boolean,
+   * Indicates if Button is disabled. Disabled Buttons are inactive and cannot be interacted with. See the [state variant](https://gestalt.pinterest.systems/web/button#State) for details on proper usage.
+   */
+  disabled?: boolean;
   /**
-     * Default Buttons are sized by the text within the Button whereas full-width Buttons expand to the full width of their container. See the [width variant](https://gestalt.pinterest.systems/web/button#Size) variant to learn more.
-     */
-  fullWidth?: boolean,
+   * Default Buttons are sized by the text within the Button whereas full-width Buttons expand to the full width of their container. See the [width variant](https://gestalt.pinterest.systems/web/button#Size) variant to learn more.
+   */
+  fullWidth?: boolean;
   /**
-     * An icon displayed after the text to help clarify the usage of Button. See the [icon variant](https://gestalt.pinterest.systems/web/button#Icons) to learn more.
-     */
-  iconEnd?: keyof typeof icons,
+   * An icon displayed after the text to help clarify the usage of Button. See the [icon variant](https://gestalt.pinterest.systems/web/button#Icons) to learn more.
+   */
+  iconEnd?: keyof typeof icons;
   /**
-     * The name attribute specifies the name of the button element. The name attribute is used to reference form-data after the form has been submitted and for [testing](https://testing-library.com/docs/queries/about/#priority).
-     */
-  name?: string,
+   * The name attribute specifies the name of the button element. The name attribute is used to reference form-data after the form has been submitted and for [testing](https://testing-library.com/docs/queries/about/#priority).
+   */
+  name?: string;
   /**
-     * Callback invoked when the user clicks (press and release) on Button with the mouse or keyboard.
-     */
-  onClick?: (
-    arg1: {
-      event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>
-    },
-  ) => void,
+   * Callback invoked when the user clicks (press and release) on Button with the mouse or keyboard.
+   */
+  onClick?: (arg1: {
+    event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>;
+  }) => void;
   /**
-     * Toggles between binary states: on/off, selected/unselected, open/closed. See the [selected](#Selected-state) variant to learn more. See the [state variant](https://gestalt.pinterest.systems/web/button#State) for details on proper usage.
-     */
-  selected?: boolean,
+   * Toggles between binary states: on/off, selected/unselected, open/closed. See the [selected](#Selected-state) variant to learn more. See the [state variant](https://gestalt.pinterest.systems/web/button#State) for details on proper usage.
+   */
+  selected?: boolean;
   /**
-     * sm: 32px, md: 40px, lg: 48px
-     *
-     * See the [size variant](https://gestalt.pinterest.systems/web/button#Size) variant to learn more.
-     */
-  size?: "sm" | "md" | "lg",
+   * sm: 32px, md: 40px, lg: 48px
+   *
+   * See the [size variant](https://gestalt.pinterest.systems/web/button#Size) variant to learn more.
+   */
+  size?: 'sm' | 'md' | 'lg';
   /**
-     * Use "-1" to remove Button from keyboard navigation. See the [Accessibility guidelines](https://gestalt.pinterest.systems/foundations/accessibility) to learn more.
-     */
-  tabIndex?: -1 | 0,
+   * Use "-1" to remove Button from keyboard navigation. See the [Accessibility guidelines](https://gestalt.pinterest.systems/foundations/accessibility) to learn more.
+   */
+  tabIndex?: -1 | 0;
   /**
-     * Text to render inside the Button to convey the function and purpose of the Button.
-     */
-  text: string,
+   * Text to render inside the Button to convey the function and purpose of the Button.
+   */
+  text: string;
   /**
-     * Use "submit" if Button is used within or associated with a form.
-     */
-  type?: "button" | "submit"
+   * Use "submit" if Button is used within or associated with a form.
+   */
+  type?: 'button' | 'submit';
 };
 
-function InternalButtonContent(
-  {
-    target,
-    text,
-    textColor,
-    icon,
-    size,
-  }: {
-    target?: Target,
-    text: ReactNode,
-    textColor: IconColor,
-    icon?: keyof typeof icons,
-    size: string
-  },
-) {
+function InternalButtonContent({
+  target,
+  text,
+  textColor,
+  icon,
+  size,
+}: {
+  target?: Target;
+  text: ReactNode;
+  textColor: IconColor;
+  icon?: keyof typeof icons;
+  size: string;
+}) {
   return (
     <Fragment>
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">

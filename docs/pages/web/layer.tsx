@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -10,13 +10,7 @@ import SandpackExample from '../../docs-components/SandpackExample';
 import childContentRenderedOutsideExample from '../../examples/layer/childContentRenderedOutsideExample';
 import stackingUsingZIndexExample from '../../examples/layer/stackingUsingZIndexExample';
 
-export default function DocsPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: DocGen
-  },
-) {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
     <Page title="Layer">
       <PageHeader description={generatedDocGen?.description} name="Layer" />
@@ -74,8 +68,8 @@ The example below shows using a \`FixedZIndex\` for the header zIndex and a \`Co
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   return {
     props: { generatedDocGen: await docGen('Layer') },

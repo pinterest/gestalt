@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { BannerSlim } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import { BannerSlimExperiment } from '../../docs-components/BannerSlimExperiment';
@@ -29,15 +29,13 @@ import sections from '../../examples/dropdown/sections';
 import subtext from '../../examples/dropdown/subtext';
 import truncation from '../../examples/dropdown/truncation';
 
-export default function ComponentPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: {
-      [key: string]: DocGen
-    }
-  },
-) {
+export default function ComponentPage({
+  generatedDocGen,
+}: {
+  generatedDocGen: {
+    [key: string]: DocGen;
+  };
+}) {
   return (
     <Page title={generatedDocGen.Dropdown?.displayName}>
       <PageHeader
@@ -377,9 +375,9 @@ If users need the ability to choose an option by typing in an input and filterin
 export async function getServerSideProps(): Promise<{
   props: {
     generatedDocGen: {
-      [key: string]: DocGen
-    }
-  }
+      [key: string]: DocGen;
+    };
+  };
 }> {
   const docGen = await multipleDocGen([
     'Dropdown',

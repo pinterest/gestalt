@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { BannerSlim, Box, Flex, Image } from 'gestalt';
 import {
   TOKEN_COLOR_DATA_VISUALIZATION_01,
@@ -75,14 +75,10 @@ const MAP = {
 } as const;
 
 type ColorCardProps = {
-  count: number
+  count: number;
 };
 
-function PaletteGenerator(
-  {
-    count,
-  }: ColorCardProps,
-) {
+function PaletteGenerator({ count }: ColorCardProps) {
   return [...Array(count)].map((step, idx) => {
     const tokenStep = idx + 1;
 
@@ -99,16 +95,11 @@ function PaletteGenerator(
 }
 
 type PairSetProps = {
-  color1: number,
-  color2: number
+  color1: number;
+  color2: number;
 };
 
-function DoNotPairSet(
-  {
-    color1,
-    color2,
-  }: PairSetProps,
-) {
+function DoNotPairSet({ color1, color2 }: PairSetProps) {
   const firstColor = color1 < 10 ? `0${color1}` : `${color1}`;
   const secondColor = color2 < 10 ? `0${color2}` : `${color2}`;
   return (

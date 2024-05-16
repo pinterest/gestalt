@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import {
   TOKEN_COLOR_GRAY_ROBOFLOW_100,
   TOKEN_COLOR_GRAY_ROBOFLOW_600,
@@ -29,22 +29,15 @@ const getIllustrationCardColor = (category: ComponentCategory, hasDarkBackground
 };
 
 type Props = {
-  components: ReadonlyArray<PlatformData>,
-  headingLevel: 2 | 3,
-  platform: Platform,
-  title?: string
+  components: ReadonlyArray<PlatformData>;
+  headingLevel: 2 | 3;
+  platform: Platform;
+  title?: string;
 };
 
-export default function OverviewList(
-  {
-    components,
-    headingLevel,
-    platform,
-    title = '',
-  }: Props,
-) {
+export default function OverviewList({ components, headingLevel, platform, title = '' }: Props) {
   return (
-    (<IllustrationSection grid="auto-fill" min={312} title={title}>
+    <IllustrationSection grid="auto-fill" min={312} title={title}>
       {[...components]
         .sort((a, b) => {
           if (a.name < b.name) {
@@ -68,6 +61,6 @@ export default function OverviewList(
             title={name}
           />
         ))}
-    </IllustrationSection>)
+    </IllustrationSection>
   );
 }

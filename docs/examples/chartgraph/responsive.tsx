@@ -1,4 +1,4 @@
-import {ReactNode, useId, useRef, useState} from 'react';
+import { ReactNode, useId, useRef, useState } from 'react';
 import { Box, Flex, Label, RadioGroup, Text } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
@@ -6,11 +6,7 @@ export default function Example() {
   const labelId = useId();
   const [width, setWidth] = useState<number>(700);
   const scrollContainerRef = useRef<HTMLDivElement | null | undefined>();
-  const updateWidth = ({
-    target,
-  }: {
-    target: HTMLInputElement
-  }) => {
+  const updateWidth = ({ target }: { target: HTMLInputElement }) => {
     setWidth(Number(target.value));
   };
 

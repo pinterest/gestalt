@@ -1,13 +1,18 @@
-import {createRef} from 'react';
+import { createRef } from 'react';
 import { render, screen } from '@testing-library/react';
 import IconButtonLink from './IconButtonLink';
 
 describe('IconButtonLink', () => {
   it('handles click', () => {
-    const mockOnClick = jest.fn<[{
-      dangerouslyDisableOnNavigation: () => void,
-      event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>
-    }], undefined>();
+    const mockOnClick = jest.fn<
+      [
+        {
+          dangerouslyDisableOnNavigation: () => void;
+          event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+        },
+      ],
+      undefined
+    >();
     render(<IconButtonLink accessibilityLabel="test" href="#" icon="add" onClick={mockOnClick} />);
 
     screen.getByRole('link').click();

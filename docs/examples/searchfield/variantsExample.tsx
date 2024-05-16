@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { Box, Flex, SearchField } from 'gestalt';
 
 export default function SearchFieldExample() {

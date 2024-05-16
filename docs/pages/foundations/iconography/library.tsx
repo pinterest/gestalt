@@ -1,4 +1,4 @@
-import {ComponentProps, ReactNode, useState} from 'react';
+import { ComponentProps, ReactNode, useState } from 'react';
 import {
   Box,
   Flex,
@@ -40,9 +40,9 @@ function IconTile({
   iconDescription = 'Description coming soon',
   onTap,
 }: {
-  iconName: NonNullable<ComponentProps<typeof Icon>["icon"]>,
-  iconDescription: string,
-  onTap: () => void
+  iconName: NonNullable<ComponentProps<typeof Icon>['icon']>;
+  iconDescription: string;
+  onTap: () => void;
 }) {
   const [hovered, setHovered] = useState<boolean | null | undefined>();
 
@@ -144,9 +144,7 @@ export default function IconPage() {
   const [inputValue, setInputValue] = useState<undefined | string>();
   const [sortedAlphabetical, setSortedAlphabetical] = useState(true);
 
-  const handleOnChange: ComponentProps<typeof SearchField>["onChange"] = ({
-    value,
-  }) => {
+  const handleOnChange: ComponentProps<typeof SearchField>['onChange'] = ({ value }) => {
     setInputValue(value);
     setSuggestedOptions(
       value

@@ -5,8 +5,17 @@ import { marked, Renderer } from 'marked';
 import { Text } from 'gestalt';
 
 type Props = {
-  textColor?: "default" | "subtle" | "success" | "error" | "warning" | "shopping" | "inverse" | "light" | "dark",
-  text: string
+  textColor?:
+    | 'default'
+    | 'subtle'
+    | 'success'
+    | 'error'
+    | 'warning'
+    | 'shopping'
+    | 'inverse'
+    | 'light'
+    | 'dark';
+  text: string;
 };
 
 // Source: https://github.com/Thinkmill/react-markings/blob/master/index.js
@@ -28,12 +37,7 @@ const stripIndent = (str: string): string => {
   return str.replace(re, '');
 };
 
-export default function Markdown(
-  {
-    textColor,
-    text,
-  }: Props,
-) {
+export default function Markdown({ textColor, text }: Props) {
   const renderer = new Renderer();
 
   renderer.link = (href, title, linktext) => `

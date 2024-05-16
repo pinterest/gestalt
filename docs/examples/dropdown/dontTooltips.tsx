@@ -1,4 +1,4 @@
-import {Fragment, ReactNode, useRef, useState} from 'react';
+import { Fragment, ReactNode, useRef, useState } from 'react';
 import { Box, Button, CompositeZIndex, Dropdown, FixedZIndex, Flex, Text, Tooltip } from 'gestalt';
 
 export default function CustomIconButtonPopoverExample() {
@@ -6,15 +6,14 @@ export default function CustomIconButtonPopoverExample() {
 
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<null | {
-    label: string,
-    subtext?: string,
-    value: string
+    label: string;
+    subtext?: string;
+    value: string;
   }>(null);
   const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
-  const onSelect: ComponentProps<typeof Dropdown.Item>["onSelect"] = ({
-    item,
-  }) => setSelected(item);
+  const onSelect: ComponentProps<typeof Dropdown.Item>['onSelect'] = ({ item }) =>
+    setSelected(item);
 
   return (
     <Fragment>

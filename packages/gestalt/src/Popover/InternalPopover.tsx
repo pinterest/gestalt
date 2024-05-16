@@ -1,4 +1,4 @@
-import {ReactNode, useRef} from 'react';
+import { ReactNode, useRef } from 'react';
 import Controller from './Controller';
 import Box from '../Box';
 import { Overflow } from '../boxTypes';
@@ -6,61 +6,55 @@ import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import Flex from '../Flex';
 import InternalDismissButton from '../shared/InternalDismissButton';
 
-type Color = "blue" | "white" | "darkGray";
-type Size = "xs" | "sm" | "md" | "lg" | "xl" | "flexible" | number;
-type Role = "dialog" | "listbox" | "menu" | "tooltip";
+type Color = 'blue' | 'white' | 'darkGray';
+type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
+type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 
 type Props = {
-  accessibilityLabel?: string,
-  accessibilityDismissButtonLabel?: string,
-  anchor: HTMLElement | null | undefined,
-  children?: ReactNode,
-  color?: Color,
-  onKeyDown?: (
-    arg1: {
-      event: React.KeyboardEvent<HTMLElement>
-    },
-  ) => void,
-  id?: string,
-  idealDirection?: "up" | "right" | "down" | "left" | "forceDown",
-  onDismiss: () => void,
-  role?: Role,
-  shouldFocus?: boolean,
-  showCaret?: boolean,
-  showDismissButton?: boolean,
-  size?: Size,
-  disablePortal?: boolean,
-  scrollBoundary?: HTMLElement,
-  hideWhenReferenceHidden?: boolean,
-  onPositioned?: () => void,
-  disableFocusTrap?: boolean,
-  overflow?: Extract<Overflow, "auto" | "hidden" | "visible">
+  accessibilityLabel?: string;
+  accessibilityDismissButtonLabel?: string;
+  anchor: HTMLElement | null | undefined;
+  children?: ReactNode;
+  color?: Color;
+  onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLElement> }) => void;
+  id?: string;
+  idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown';
+  onDismiss: () => void;
+  role?: Role;
+  shouldFocus?: boolean;
+  showCaret?: boolean;
+  showDismissButton?: boolean;
+  size?: Size;
+  disablePortal?: boolean;
+  scrollBoundary?: HTMLElement;
+  hideWhenReferenceHidden?: boolean;
+  onPositioned?: () => void;
+  disableFocusTrap?: boolean;
+  overflow?: Extract<Overflow, 'auto' | 'hidden' | 'visible'>;
 };
 
-export default function InternalPopover(
-  {
-    accessibilityLabel,
-    accessibilityDismissButtonLabel,
-    anchor,
-    children,
-    showDismissButton,
-    onKeyDown,
-    id,
-    idealDirection,
-    onDismiss,
-    color = 'white',
-    role,
-    shouldFocus,
-    showCaret,
-    size = 'sm',
-    disablePortal,
-    scrollBoundary,
-    hideWhenReferenceHidden,
-    onPositioned,
-    disableFocusTrap = false,
-    overflow,
-  }: Props,
-): null | ReactNode {
+export default function InternalPopover({
+  accessibilityLabel,
+  accessibilityDismissButtonLabel,
+  anchor,
+  children,
+  showDismissButton,
+  onKeyDown,
+  id,
+  idealDirection,
+  onDismiss,
+  color = 'white',
+  role,
+  shouldFocus,
+  showCaret,
+  size = 'sm',
+  disablePortal,
+  scrollBoundary,
+  hideWhenReferenceHidden,
+  onPositioned,
+  disableFocusTrap = false,
+  overflow,
+}: Props): null | ReactNode {
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Popover');
 

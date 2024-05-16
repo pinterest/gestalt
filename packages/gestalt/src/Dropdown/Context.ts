@@ -1,10 +1,10 @@
-import {Context, createContext} from 'react';
+import { Context, createContext } from 'react';
 
 type DropdownContextType = {
-  id: string,
-  hoveredItemIndex: number | null | undefined,
-  setHoveredItemIndex: (n: number) => void,
-  setOptionRef: (arg1?: HTMLElement | null | undefined) => void
+  id: string;
+  hoveredItemIndex: number | null | undefined;
+  setHoveredItemIndex: (n: number) => void;
+  setOptionRef: (arg1?: HTMLElement | null | undefined) => void;
 };
 
 const initialContextState = {

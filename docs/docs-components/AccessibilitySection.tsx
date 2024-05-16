@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box } from 'gestalt';
 import AccessibilityChecklist from './AccessibilityChecklist';
 import Card from './Card';
@@ -6,20 +6,18 @@ import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
 import Markdown from './Markdown';
 
 type Props = {
-  children?: ReactNode,
-  description?: string,
-  hideChecklist?: boolean,
-  name: string
+  children?: ReactNode;
+  description?: string;
+  hideChecklist?: boolean;
+  name: string;
 };
 
-export default function AccessibilitySection(
-  {
-    children,
-    description,
-    hideChecklist = false,
-    name,
-  }: Props,
-) {
+export default function AccessibilitySection({
+  children,
+  description,
+  hideChecklist = false,
+  name,
+}: Props) {
   return (
     <Card name="Accessibility" showHeading>
       {hideChecklist ? null : <AccessibilityChecklist component={name} />}

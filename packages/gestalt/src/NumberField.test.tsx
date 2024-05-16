@@ -1,4 +1,4 @@
-import {create} from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 import NumberField from './NumberField';
 
 describe('NumberField', () => {

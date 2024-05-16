@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import { DocGen, multipleDocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -22,15 +22,13 @@ import staticWithErrorType from '../../examples/accordion/staticWithErrorType';
 import staticWithIcon from '../../examples/accordion/staticWithIcon';
 import staticWithIconButton from '../../examples/accordion/staticWithIconButton';
 
-export default function DocsPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: {
-      [key: string]: DocGen
-    }
-  },
-) {
+export default function DocsPage({
+  generatedDocGen,
+}: {
+  generatedDocGen: {
+    [key: string]: DocGen;
+  };
+}) {
   return (
     <Page title={generatedDocGen.Accordion?.description}>
       <PageHeader
@@ -233,9 +231,9 @@ export default function DocsPage(
 export async function getServerSideProps(): Promise<{
   props: {
     generatedDocGen: {
-      [key: string]: DocGen
-    }
-  }
+      [key: string]: DocGen;
+    };
+  };
 }> {
   const docGen = await multipleDocGen(['Accordion', 'AccordionExpandable']);
 

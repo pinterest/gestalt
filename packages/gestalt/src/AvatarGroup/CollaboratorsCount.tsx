@@ -1,23 +1,21 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { BaseStackType } from './constants';
 import HoverOverlay from './HoverOverlay';
 import PositioningWrapper from './PositioningWrapper';
 import AvatarFoundation from '../Avatar/Foundation';
 
-type Props = ((BaseStackType) & {
-  showAddCollaboratorsButton: boolean,
-  count: number
-});
+type Props = BaseStackType & {
+  showAddCollaboratorsButton: boolean;
+  count: number;
+};
 
-export default function AvatarGroupCollaboratorsCount(
-  {
-    showAddCollaboratorsButton,
-    pileCount,
-    hovered,
-    count,
-    size,
-  }: Props,
-) {
+export default function AvatarGroupCollaboratorsCount({
+  showAddCollaboratorsButton,
+  pileCount,
+  hovered,
+  count,
+  size,
+}: Props) {
   const isOverNineCount = count > 9;
   const isAbove99Count = count > 99;
 

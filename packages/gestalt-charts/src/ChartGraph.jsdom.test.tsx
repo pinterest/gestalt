@@ -1,4 +1,4 @@
-import {ComponentProps, ReactNode, useState} from 'react';
+import { ComponentProps, ReactNode, useState } from 'react';
 import { act, render, screen } from '@testing-library/react';
 import { Flex, HelpButton, TileData } from 'gestalt';
 import ChartGraph from './ChartGraph';
@@ -8,11 +8,7 @@ jest.mock('recharts', () => {
   const OriginalModule = jest.requireActual<any>('recharts');
   return {
     ...OriginalModule,
-    ResponsiveContainer: ({
-      children,
-    }: {
-      children: ReactNode
-    }) => (
+    ResponsiveContainer: ({ children }: { children: ReactNode }) => (
       <OriginalModule.ResponsiveContainer height={800} width={800}>
         {children}
       </OriginalModule.ResponsiveContainer>
@@ -136,18 +132,18 @@ const data3 = [
 
 const { ResizeObserver } = window;
 
-type Props = ((ComponentProps<typeof ChartGraph>) & {
-  accessibilityLabel?: string // eslint-disable-line react/no-unused-prop-types,
-  visualPatternSelected?: "visualPattern" | null | undefined | "default" | "disabled",
-  onVisualPatternChange?: () => void
-});
+type Props = ComponentProps<typeof ChartGraph> & {
+  accessibilityLabel?: string; // eslint-disable-line react/no-unused-prop-types,
+  visualPatternSelected?: 'visualPattern' | null | undefined | 'default' | 'disabled';
+  onVisualPatternChange?: () => void;
+};
 
 function ChartWrap(props: Props) {
   const [visualPatternSelected, setVisualPatternSelected] = useState('default');
   const [isSelect, setIsSelect] = useState(false);
 
   return (
-    (<Flex direction="column" height="100%" width="100%">
+    <Flex direction="column" height="100%" width="100%">
       <ChartGraph
         accessibilityLabel="test chart"
         data={props.data}
@@ -159,9 +155,10 @@ function ChartWrap(props: Props) {
         legend={props.legend}
         onVisualPatternChange={
           props.onVisualPatternChange ||
-          (() => (setVisualPatternSelected((value: any) =>
-            value === 'visualPattern' ? 'default' : 'visualPattern',
-          )))
+          (() =>
+            setVisualPatternSelected((value: any) =>
+              value === 'visualPattern' ? 'default' : 'visualPattern',
+            ))
         }
         range={props.range}
         referenceAreas={props.referenceAreas}
@@ -182,7 +179,7 @@ function ChartWrap(props: Props) {
           />
         ) : undefined}
       </ChartGraph>
-    </Flex>)
+    </Flex>
   );
 }
 

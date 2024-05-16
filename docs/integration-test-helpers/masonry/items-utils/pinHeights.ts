@@ -2,11 +2,11 @@
 
 export type PinHeight = {
   // height of pin image in pixels
-  height: number,
+  height: number;
   // number of impressions for this image height
-  impressionsCount: number,
+  impressionsCount: number;
   //  number of pins with this image height
-  pinsCount: number
+  pinsCount: number;
 };
 
 const pinHeights: ReadonlyArray<PinHeight> = [

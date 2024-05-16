@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import LocalizationSection from '../../docs-components/LocalizationSection';
@@ -19,13 +19,7 @@ import useFromEdgeToEdge from '../../examples/divider/useFromEdgeToEdge';
 import useToSeparateCollections from '../../examples/divider/useToSeparateCollections';
 import useWhitespaceToSeparateGroups from '../../examples/divider/useWhitespaceToSeparateGroups';
 
-export default function DividerPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: DocGen
-  },
-) {
+export default function DividerPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
@@ -220,8 +214,8 @@ export default function DividerPage(
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   return {
     props: { generatedDocGen: await docGen('Divider') },

@@ -1,36 +1,36 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import InternalTooltip from './Tooltip/InternalTooltip';
 import { Indexable } from './zIndex';
 
 type Props = {
- /**
-    * Label to provide more context around the Tooltip’s function or purpose. By default `text` is used but this prop allows you to override it. Learn more about when to override it in the [Accessibility](https://gestalt.pinterest.systems/web/tooltip#Labels) section.
-    */
- accessibilityLabel?: string,
- /**
-    * The anchor element, usually [Icon Button](https://gestalt.pinterest.systems/web/iconbutton), that triggers Tooltip on hover or focus.
-    */
- children: ReactNode,
- /**
-    * Specifies the preferred position of Tooltip relative to its anchor element. See the [ideal direction](https://gestalt.pinterest.systems/web/tooltip#Ideal-direction) variant to learn more.
-    */
- idealDirection?: "up" | "right" | "down" | "left",
- /**
-    * Properly positions Tooltip relative to an inline element, such as [Icon Button](https://gestalt.pinterest.systems/web/iconbutton) using the inline property. See the [inline](https://gestalt.pinterest.systems/web/tooltip#Inline) variant to learn more.
-    */
- inline?: boolean,
- /**
-    * Displays a link at the bottom of Tooltip. See the [link](https://gestalt.pinterest.systems/web/tooltip#Link) variant to learn more.
-    */
- link?: ReactNode,
- /**
-    * The text shown in Tooltip to describe its anchor element. See [localization ](https://gestalt.pinterest.systems/web/tooltip#Localization) to learn more.
-    */
- text: string,
- /**
-    * Specifies the stacking order of Tooltip along the z-axis in the current stacking context. See the [z-index](https://gestalt.pinterest.systems/web/tooltip#Z-index) variant to learn more.
-    */
- zIndex?: Indexable
+  /**
+   * Label to provide more context around the Tooltip’s function or purpose. By default `text` is used but this prop allows you to override it. Learn more about when to override it in the [Accessibility](https://gestalt.pinterest.systems/web/tooltip#Labels) section.
+   */
+  accessibilityLabel?: string;
+  /**
+   * The anchor element, usually [Icon Button](https://gestalt.pinterest.systems/web/iconbutton), that triggers Tooltip on hover or focus.
+   */
+  children: ReactNode;
+  /**
+   * Specifies the preferred position of Tooltip relative to its anchor element. See the [ideal direction](https://gestalt.pinterest.systems/web/tooltip#Ideal-direction) variant to learn more.
+   */
+  idealDirection?: 'up' | 'right' | 'down' | 'left';
+  /**
+   * Properly positions Tooltip relative to an inline element, such as [Icon Button](https://gestalt.pinterest.systems/web/iconbutton) using the inline property. See the [inline](https://gestalt.pinterest.systems/web/tooltip#Inline) variant to learn more.
+   */
+  inline?: boolean;
+  /**
+   * Displays a link at the bottom of Tooltip. See the [link](https://gestalt.pinterest.systems/web/tooltip#Link) variant to learn more.
+   */
+  link?: ReactNode;
+  /**
+   * The text shown in Tooltip to describe its anchor element. See [localization ](https://gestalt.pinterest.systems/web/tooltip#Localization) to learn more.
+   */
+  text: string;
+  /**
+   * Specifies the stacking order of Tooltip along the z-axis in the current stacking context. See the [z-index](https://gestalt.pinterest.systems/web/tooltip#Z-index) variant to learn more.
+   */
+  zIndex?: Indexable;
 };
 
 /**
@@ -41,8 +41,7 @@ type Props = {
  * ![Tooltip light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Tooltip.spec.mjs-snapshots/Tooltip-chromium-darwin.png)
  * ![Tooltip dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Tooltip-dark.spec.mjs-snapshots/Tooltip-dark-chromium-darwin.png)
  */
-export default function Tooltip(
- {
+export default function Tooltip({
   accessibilityLabel,
   children,
   link,
@@ -50,8 +49,7 @@ export default function Tooltip(
   inline,
   text,
   zIndex,
- }: Props,
-) {
+}: Props) {
   return (
     <InternalTooltip
       accessibilityLabel={accessibilityLabel}

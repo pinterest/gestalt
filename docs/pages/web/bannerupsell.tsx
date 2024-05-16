@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import { DocGen, multipleDocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -25,15 +25,13 @@ import singleTextField from '../../examples/bannerupsell/singleTextField';
 import textVariant from '../../examples/bannerupsell/textVariant';
 import useForMarketing from '../../examples/bannerupsell/useForMarketing';
 
-export default function DocsPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: {
-      [key: string]: DocGen
-    }
-  },
-) {
+export default function DocsPage({
+  generatedDocGen,
+}: {
+  generatedDocGen: {
+    [key: string]: DocGen;
+  };
+}) {
   return (
     <Page title={generatedDocGen?.BannerUpsell?.displayName}>
       <PageHeader
@@ -376,9 +374,9 @@ If the \`message\` text requires more complex style, such as bold text or inline
 export async function getServerSideProps(): Promise<{
   props: {
     generatedDocGen: {
-      [key: string]: DocGen
-    }
-  }
+      [key: string]: DocGen;
+    };
+  };
 }> {
   return {
     props: { generatedDocGen: await multipleDocGen(['BannerUpsell', 'BannerUpsellForm']) },

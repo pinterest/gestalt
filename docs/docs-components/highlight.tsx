@@ -3,16 +3,14 @@ import { useEffect, useRef } from 'react';
 import highlightjs from 'highlight.js';
 
 type Props = {
-  children: string | null,
-  classNames: ReadonlyArray<string>
+  children: string | null;
+  classNames: ReadonlyArray<string>;
 };
 
-export default function Highlighter(
-  {
-    children,
-    classNames,
-  }: Props,
-): React.ReactElement<React.ComponentProps<"pre">> {
+export default function Highlighter({
+  children,
+  classNames,
+}: Props): React.ReactElement<React.ComponentProps<'pre'>> {
   const node = useRef<HTMLPreElement | null | undefined>();
 
   useEffect(() => {

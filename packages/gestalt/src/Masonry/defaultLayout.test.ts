@@ -1,8 +1,10 @@
 import defaultLayout from './defaultLayout';
 
-const stubCache = (measurements: {
-  [item: string]: number
-} = {}) => {
+const stubCache = (
+  measurements: {
+    [item: string]: number;
+  } = {},
+) => {
   let cache = measurements;
 
   return {
@@ -184,7 +186,7 @@ test('justify', () => {
   const measurements = { a: 100, b: 120, c: 80, d: 100 } as const;
   const items = ['a', 'b', 'c', 'd'];
 
-  const makeLayout = (align: "center" | "start") =>
+  const makeLayout = (align: 'center' | 'start') =>
     defaultLayout({
       align,
       cache: stubCache(measurements),

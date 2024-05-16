@@ -1,21 +1,15 @@
-import {Fragment, ReactNode} from 'react';
+import { Fragment, ReactNode } from 'react';
 import classnames from 'classnames';
 import { ANIMATION_STATE, useAnimation } from './animation/AnimationContext';
 import styles from './Backdrop.css';
 
 type Props = {
-  children?: ReactNode,
-  closeOnOutsideClick: boolean,
-  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
+  children?: ReactNode;
+  closeOnOutsideClick: boolean;
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
 };
 
-function Backdrop(
-  {
-    children,
-    closeOnOutsideClick,
-    onClick,
-  }: Props,
-) {
+function Backdrop({ children, closeOnOutsideClick, onClick }: Props) {
   const { animationState } = useAnimation();
 
   return (

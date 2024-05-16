@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import classnames from 'classnames';
 import ItemsEllipsis, { Props as EllipsisProps } from './ItemsEllipsis';
 import styles from '../SideNavigation.css';
@@ -13,8 +13,8 @@ export function validateChildren({
   children,
   filterLevel,
 }: {
-  children: ReactChildArray,
-  filterLevel: "main" | "nested"
+  children: ReactChildArray;
+  filterLevel: 'main' | 'nested';
 }) {
   children.forEach((child) => {
     const isTopLevel = filterLevel === 'main';
@@ -39,7 +39,7 @@ export function countItemsWithIcon(children: ReactChildArray): number {
   );
 }
 
-export function getChildrenActiveProp(children: ReactChildArray): EllipsisProps["active"] {
+export function getChildrenActiveProp(children: ReactChildArray): EllipsisProps['active'] {
   if (children.length === 0) return undefined;
 
   const activeChild = children.find((child) => !!child.props?.active);
@@ -58,15 +58,17 @@ export function getChildrenActiveProp(children: ReactChildArray): EllipsisProps[
   return getChildrenActiveProp(grandChildren);
 }
 
-function renderEllipses(items: ReadonlyArray<React.ReactElement<React.ComponentProps<never>> | EllipsisProps>) {
+function renderEllipses(
+  items: ReadonlyArray<React.ReactElement<React.ComponentProps<never>> | EllipsisProps>,
+) {
   return items.map((item, i) => {
     if (item.props) return item;
 
     return (
       // eslint-disable-next-line react/no-array-index-key
-      (<li key={i} className={classnames(styles.liItem)}>
+      <li key={i} className={classnames(styles.liItem)}>
         <ItemsEllipsis {...item} />
-      </li>)
+      </li>
     );
   });
 }
@@ -79,7 +81,9 @@ function renderEllipses(items: ReadonlyArray<React.ReactElement<React.ComponentP
  * Ellipses are added as props object, not a component, during the process,
  * so it is easier to update.
  */
-export function reduceIconlessChildrenIntoEllipsis(children: ReactChildArray): ReadonlyArray<ReactNode> {
+export function reduceIconlessChildrenIntoEllipsis(
+  children: ReactChildArray,
+): ReadonlyArray<ReactNode> {
   let lastEllipsisIndex;
   let lastSectionIndex;
 

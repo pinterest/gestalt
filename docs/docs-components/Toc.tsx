@@ -1,4 +1,4 @@
-import {ReactNode, useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import { ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Box, TableOfContents } from 'gestalt';
 
 const HEADER_HEIGHT_PX = 60;
@@ -69,28 +69,28 @@ function useThrottledOnScroll(callback: null | (() => void), delay: number) {
 }
 
 type ToCItem = {
-  id: string,
-  label: string,
+  id: string;
+  label: string;
   children: ReadonlyArray<{
-    id: string,
-    label: string
-  }>
+    id: string;
+    label: string;
+  }>;
 };
 
 type HandleClickParameters = {
-  hash: string,
-  event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement> | React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>
+  hash: string;
+  event:
+    | React.MouseEvent<HTMLDivElement>
+    | React.KeyboardEvent<HTMLDivElement>
+    | React.MouseEvent<HTMLAnchorElement>
+    | React.KeyboardEvent<HTMLAnchorElement>;
 };
 
 type Props = {
-  cards: ReadonlyArray<ReactNode>
+  cards: ReadonlyArray<ReactNode>;
 };
 
-export default function Toc(
-  {
-    cards,
-  }: Props,
-) {
+export default function Toc({ cards }: Props) {
   const [anchors, setAnchors] = useState<ReadonlyArray<HTMLElement>>([]);
   const [activeState, setActiveState] = useState<null | string>(null);
   const clickedRef = useRef<boolean>(false);
@@ -137,10 +137,7 @@ export default function Toc(
   // Corresponds to 10 frames at 60 Hz
   useThrottledOnScroll(anchors.length > 0 ? findActiveIndex : null, 166);
 
-  const handleClick = ({
-    hash,
-    event,
-  }: HandleClickParameters) => {
+  const handleClick = ({ hash, event }: HandleClickParameters) => {
     // Ignore click for new tab/new window behavior
     if (
       event.defaultPrevented ||

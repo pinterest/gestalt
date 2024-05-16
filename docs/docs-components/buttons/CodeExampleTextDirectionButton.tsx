@@ -1,18 +1,13 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { IconButton } from 'gestalt';
 import trackButtonClick from './trackButtonClick';
 
 type Props = {
-  currentTextDirection: "ltr" | "rtl",
-  onClick: () => void
+  currentTextDirection: 'ltr' | 'rtl';
+  onClick: () => void;
 };
 
-export default function CodeExampleTextDirectionButton(
-  {
-    currentTextDirection,
-    onClick,
-  }: Props,
-) {
+export default function CodeExampleTextDirectionButton({ currentTextDirection, onClick }: Props) {
   const label = 'Toggle text direction for code example';
 
   return (

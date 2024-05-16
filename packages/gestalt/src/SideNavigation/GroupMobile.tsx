@@ -1,4 +1,4 @@
-import {Fragment, ReactNode, useCallback, useEffect, useId, useMemo, useState} from 'react';
+import { Fragment, ReactNode, useCallback, useEffect, useId, useMemo, useState } from 'react';
 import classnames from 'classnames';
 import { TOKEN_SPACE_400 } from 'gestalt-design-tokens';
 import getChildrenToArray from './getChildrenToArray';
@@ -15,25 +15,23 @@ import { Props } from '../SideNavigationGroup';
 import { NESTING_MARGIN_START_MAP } from '../SideNavigationTopItem';
 import TapArea from '../TapArea';
 
-type SideNavigationGroupMobileProps = ((Props) & {
-  hasActiveChild: boolean
-});
+type SideNavigationGroupMobileProps = Props & {
+  hasActiveChild: boolean;
+};
 
-export default function SideNavigationGroupMobile(
-  {
-    children,
-    badge,
-    counter,
-    display = 'expandable',
-    hasActiveChild = false,
-    icon,
-    label,
-    primaryAction,
-    notificationAccessibilityLabel,
-  }: SideNavigationGroupMobileProps,
-) {
+export default function SideNavigationGroupMobile({
+  children,
+  badge,
+  counter,
+  display = 'expandable',
+  hasActiveChild = false,
+  icon,
+  label,
+  primaryAction,
+  notificationAccessibilityLabel,
+}: SideNavigationGroupMobileProps) {
   // Manages PrimaryAction
-  const [compression, setCompression] = useState<"compress" | "none">('compress');
+  const [compression, setCompression] = useState<'compress' | 'none'>('compress');
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
 

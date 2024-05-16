@@ -1,4 +1,4 @@
-import {useEffect, useLayoutEffect} from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 
 // workaround to prevent useLayoutEffect from throwing on the server
 // can be removed whenever the next React release happens: https://github.com/facebook/react/pull/26395

@@ -1,4 +1,4 @@
-import {render} from '@testing-library/react';
+import { render } from '@testing-library/react';
 import PopoverEducational from './PopoverEducational';
 
 test('PopoverEducational renders', () => {

@@ -1,4 +1,4 @@
-import {render, screen} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import SelectList from './SelectList';
 
 describe('<SelectList />', () => {
@@ -6,10 +6,7 @@ describe('<SelectList />', () => {
     { label: 'option1', value: 'value1' },
     { label: 'option2', value: 'value2' },
     { label: 'option3', value: 'value3' },
-  ].map(({
-    label,
-    value,
-  }: any) => <SelectList.Option key={label} label={label} value={value} />);
+  ].map(({ label, value }: any) => <SelectList.Option key={label} label={label} value={value} />);
 
   it('renders an error message', () => {
     render(
@@ -32,10 +29,15 @@ describe('<SelectList />', () => {
   });
 
   it('handles errorMessage prop change', () => {
-    const handleChange = jest.fn<[{
-      event: React.ChangeEvent<HTMLSelectElement>,
-      value: string
-    }], undefined>();
+    const handleChange = jest.fn<
+      [
+        {
+          event: React.ChangeEvent<HTMLSelectElement>;
+          value: string;
+        },
+      ],
+      undefined
+    >();
     const { rerender } = render(
       <SelectList id="test" onChange={handleChange}>
         {options}

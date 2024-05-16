@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -20,13 +20,7 @@ import textAdditionsExample2 from '../../examples/status/textAdditionsExample2';
 import useTitleWhenItRepresents from '../../examples/status/useTitleWhenItRepresents';
 import useToCommunicateAStepIn from '../../examples/status/useToCommunicateAStepIn';
 
-export default function StatusPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: DocGen
-  },
-) {
+export default function StatusPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
     <Page title="Status">
       <PageHeader description={generatedDocGen?.description} name="Status">
@@ -239,8 +233,8 @@ Use BannerCallout to communicate page-level status, such as an error, and to pro
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   return {
     props: { generatedDocGen: await docGen('Status') },

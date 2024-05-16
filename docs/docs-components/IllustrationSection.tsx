@@ -1,24 +1,22 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, Flex, Heading } from 'gestalt';
 import IllustrationContainer from './IllustrationContainer';
 
 export const MIN_SVG_ILLUSTRATION_WIDTH = 245;
 
 type Props = {
-  children?: ReactNode,
-  grid?: "auto-fill" | "auto-fit",
-  min?: number,
-  title?: string
+  children?: ReactNode;
+  grid?: 'auto-fill' | 'auto-fit';
+  min?: number;
+  title?: string;
 };
 
-export default function IllustrationSection(
-  {
-    children,
-    grid = 'auto-fit',
-    min = MIN_SVG_ILLUSTRATION_WIDTH,
-    title,
-  }: Props,
-) {
+export default function IllustrationSection({
+  children,
+  grid = 'auto-fit',
+  min = MIN_SVG_ILLUSTRATION_WIDTH,
+  title,
+}: Props) {
   return (
     <IllustrationContainer justifyContent="center">
       <Flex direction="column" gap={6} maxWidth={1200} width="100%">

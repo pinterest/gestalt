@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import classNames from 'classnames';
 import getChildrenToArray from './getChildrenToArray';
 import { NestingProvider } from '../contexts/NestingProvider';
@@ -6,14 +6,10 @@ import Layout from '../Layout.css';
 import Whitespace from '../Whitespace.css';
 
 type Props = {
-  children: ReactNode
+  children: ReactNode;
 };
 
-export default function TableOfContentsItemList(
-  {
-    children,
-  }: Props,
-) {
+export default function TableOfContentsItemList({ children }: Props) {
   const childrenArray = getChildrenToArray({ children });
 
   return (

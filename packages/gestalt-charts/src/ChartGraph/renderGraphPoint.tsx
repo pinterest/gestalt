@@ -1,23 +1,16 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { TOKEN_COLOR_WHITE_MOCHIMALIST_0 } from 'gestalt-design-tokens';
 import { DataVisualizationColors } from './types';
 import { useHexColor } from './usePatterns';
 
 type Props = {
-  noReposition?: boolean,
-  color: DataVisualizationColors,
-  cx: number,
-  cy: number
+  noReposition?: boolean;
+  color: DataVisualizationColors;
+  cx: number;
+  cy: number;
 };
 
-export function GraphPoint(
-  {
-    color,
-    cx,
-    cy,
-    noReposition = false,
-  }: Props,
-) {
+export function GraphPoint({ color, cx, cy, noReposition = false }: Props) {
   const hexColor = useHexColor();
 
   const decalDotCoordCorrection = {
@@ -54,23 +47,11 @@ export function GraphPoint(
   );
 }
 
-const renderGraphPoint: (
-  arg1: {
-    color: DataVisualizationColors,
-    active: boolean
-  },
-) => (
-  arg1: {
-    cx: number,
-    cy: number
-  },
-) => ReactNode = (props) => {
-  const renderPoint: (
-    arg1: {
-      cx: number,
-      cy: number
-    },
-  ) => ReactNode = ({ cx, cy }) => (
+const renderGraphPoint: (arg1: {
+  color: DataVisualizationColors;
+  active: boolean;
+}) => (arg1: { cx: number; cy: number }) => ReactNode = (props) => {
+  const renderPoint: (arg1: { cx: number; cy: number }) => ReactNode = ({ cx, cy }) => (
     <GraphPoint key={props.color + cy + cx} color={props.color} cx={cx} cy={cy} />
   );
 

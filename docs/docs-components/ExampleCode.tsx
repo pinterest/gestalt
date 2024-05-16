@@ -1,4 +1,4 @@
-import {ReactNode, useEffect, useRef, useState} from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import { LiveEditor } from 'react-live';
 import { Box, Flex, Text } from 'gestalt';
 import { useAppContext } from './appContext';
@@ -10,11 +10,7 @@ import handleCodeSandbox from './handleCodeSandbox';
 
 const CODE_EXAMPLE_HEIGHT = 162;
 
-async function copyCode({
-  code,
-}: {
-  code: string
-}) {
+async function copyCode({ code }: { code: string }) {
   try {
     await clipboardCopy(code);
   } catch (error: any) {
@@ -24,22 +20,20 @@ async function copyCode({
 }
 
 type Props = {
-  code: string,
-  name: string,
-  readOnly?: boolean,
-  hideCodePreview?: boolean,
-  developmentEditor?: boolean
+  code: string;
+  name: string;
+  readOnly?: boolean;
+  hideCodePreview?: boolean;
+  developmentEditor?: boolean;
 };
 
-export default function ExampleCode(
-  {
-    code,
-    hideCodePreview = false,
-    readOnly,
-    name,
-    developmentEditor,
-  }: Props,
-) {
+export default function ExampleCode({
+  code,
+  hideCodePreview = false,
+  readOnly,
+  name,
+  developmentEditor,
+}: Props) {
   const { devExampleMode } = useAppContext();
 
   const [expanded, setExpanded] = useState(developmentEditor);

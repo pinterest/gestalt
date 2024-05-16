@@ -1,13 +1,13 @@
-import {Context, createContext, ReactElement, ReactNode, useContext} from 'react';
+import { Context, createContext, ReactElement, ReactNode, useContext } from 'react';
 
 type NestingContextType = {
-  nestedLevel: number
+  nestedLevel: number;
 };
 
 type Props = {
-  componentName: "SideNavigation" | "List" | "TableOfContents",
-  maxNestedLevels: number,
-  children: ReactNode
+  componentName: 'SideNavigation' | 'List' | 'TableOfContents';
+  maxNestedLevels: number;
+  children: ReactNode;
 };
 
 const NestingContext: Context<NestingContextType> = createContext<NestingContextType>({
@@ -16,13 +16,11 @@ const NestingContext: Context<NestingContextType> = createContext<NestingContext
 
 const { Provider } = NestingContext;
 
-function NestingProvider(
-  {
-    componentName,
-    children,
-    maxNestedLevels,
-  }: Props,
-): Element<typeof Provider> {
+function NestingProvider({
+  componentName,
+  children,
+  maxNestedLevels,
+}: Props): Element<typeof Provider> {
   const { nestedLevel } = useContext(NestingContext);
 
   const nextNestedLevel = (nestedLevel ?? 0) + 1;

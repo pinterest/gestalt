@@ -1,9 +1,9 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { DefaultLabelProvider, Flex, Toast } from 'gestalt';
 
 export default function Example() {
   return (
-    (<DefaultLabelProvider
+    <DefaultLabelProvider
       labels={{
         Toast: {
           accessibilityDismissButtonLabel: 'Den Toast verwerfen',
@@ -20,6 +20,6 @@ export default function Example() {
           type="success"
         />
       </Flex>
-    </DefaultLabelProvider>)
+    </DefaultLabelProvider>
   );
 }

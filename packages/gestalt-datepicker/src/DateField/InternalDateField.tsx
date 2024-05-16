@@ -1,6 +1,6 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable react/display-name */
-import {forwardRef, ReactNode, useState} from 'react';
+import { forwardRef, ReactNode, useState } from 'react';
 import { StyledEngineProvider } from '@mui/material/styles';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { unstable_useDateField as useDateField } from '@mui/x-date-pickers/DateField';
@@ -39,44 +39,34 @@ const TRANSLATIONS_MAP = {
 } as const;
 
 type CustomTextFieldProps = {
-  disabled: boolean,
+  disabled: boolean;
   InputProps: {
     ref: {
-      current: HTMLElement | null | undefined
-    }
-  },
-  focused: boolean,
-  placeholder: string,
-  value: string,
-  readOnly: boolean,
-  onClick: () => void,
-  onPaste: () => void,
-  onChange: () => void,
-  onKeyDown: () => void,
-  onMouseUp: () => void,
+      current: HTMLElement | null | undefined;
+    };
+  };
+  focused: boolean;
+  placeholder: string;
+  value: string;
+  readOnly: boolean;
+  onClick: () => void;
+  onPaste: () => void;
+  onChange: () => void;
+  onKeyDown: () => void;
+  onMouseUp: () => void;
   ownerState: {
     passthroughProps: {
-      autoComplete: "bday" | "off",
-      id: string,
-      errorMessage: boolean,
-      enterKeyHint: "enter" | "done" | "go" | "next" | "previous" | "search" | "send",
-      name: string,
-      onBlur: (
-        arg1: {
-          event: React.FocusEvent<HTMLInputElement>,
-          value: string
-        },
-      ) => void,
-      onClearInput: () => void,
-      onFocus: (
-        arg1: {
-          event: React.FocusEvent<HTMLInputElement>,
-          value: string
-        },
-      ) => void,
-      size: "md" | "lg"
-    }
-  }
+      autoComplete: 'bday' | 'off';
+      id: string;
+      errorMessage: boolean;
+      enterKeyHint: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+      name: string;
+      onBlur: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
+      onClearInput: () => void;
+      onFocus: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
+      size: 'md' | 'lg';
+    };
+  };
 };
 
 const CustomTextField = forwardRef(
@@ -95,9 +85,11 @@ const CustomTextField = forwardRef(
       onMouseUp,
       ownerState,
     }: CustomTextFieldProps,
-    inputRef: ((arg1: null | HTMLInputElement) => unknown) | {
-      current: null | HTMLInputElement
-    },
+    inputRef:
+      | ((arg1: null | HTMLInputElement) => unknown)
+      | {
+          current: null | HTMLInputElement;
+        },
   ) => {
     const [iconFocused, setIconFocused] = useState(false);
 
@@ -171,19 +163,14 @@ const CustomTextField = forwardRef(
 type CustomDateFieldProps = {
   inputRef: {
     ref: {
-      current: HTMLElement | null | undefined
-    }
-  },
-  slots: string,
-  slotProps: string
+      current: HTMLElement | null | undefined;
+    };
+  };
+  slots: string;
+  slotProps: string;
 };
 
-function CustomDateField(
-  {
-    inputRef: externalInputRef,
-    ...textFieldProps
-  }: CustomDateFieldProps,
-) {
+function CustomDateField({ inputRef: externalInputRef, ...textFieldProps }: CustomDateFieldProps) {
   return (
     <CustomTextField
       {...useDateField({
@@ -195,49 +182,44 @@ function CustomDateField(
 }
 
 type LocaleData = {
-  code?: string,
-  formatDistance?: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>,
-  formatRelative?: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>,
+  code?: string;
+  formatDistance?: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
+  formatRelative?: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
   localize?: {
-    ordinalNumber: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>,
-    era: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>,
-    quarter: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>,
-    month: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>,
-    day: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>,
-    dayPeriod: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>
-  },
+    ordinalNumber: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
+    era: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
+    quarter: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
+    month: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
+    day: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
+    dayPeriod: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
+  };
   formatLong?: {
-    date: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>,
-    time: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>,
-    dateTime: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>
-  },
+    date: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
+    time: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
+    dateTime: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
+  };
   match?: {
-    ordinalNumber: (...args: ReadonlyArray<string>) => Record<any, any>,
-    era: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>,
-    quarter: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>,
-    month: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>,
-    day: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>,
-    dayPeriod: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>
-  },
+    ordinalNumber: (...args: ReadonlyArray<string>) => Record<any, any>;
+    era: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
+    quarter: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
+    month: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
+    day: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
+    dayPeriod: (...args: ReadonlyArray<Record<any, any>>) => Record<any, any>;
+  };
   options?: {
-    weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6,
-    firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7
-  }
+    weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
+    firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
+  };
 };
 
-const getTranslationsFromMUIJS: (arg1?: LocaleData | null | undefined) => {
-  fieldYearPlaceholder: (
-    params: {
-      digitAmount: number
-    },
-  ) => string,
-  fieldMonthPlaceholder: (
-    params: {
-      contentType: string
-    },
-  ) => string,
-  fieldDayPlaceholder: () => string
-} | null | undefined = (localeData) => {
+const getTranslationsFromMUIJS: (arg1?: LocaleData | null | undefined) =>
+  | {
+      fieldYearPlaceholder: (params: { digitAmount: number }) => string;
+      fieldMonthPlaceholder: (params: { contentType: string }) => string;
+      fieldDayPlaceholder: () => string;
+    }
+  | null
+  | undefined = (localeData) => {
   // converts date-fns localeData.code (e.g. es-EN) from to the format expected by the MUI Locale (esEN)
   // https://mui.com/x/react-date-pickers/localization/
   if (localeData && localeData.code) {
@@ -256,19 +238,14 @@ const getTranslationsFromMUIJS: (arg1?: LocaleData | null | undefined) => {
   return undefined;
 };
 
-const getLocalTranslations: (arg1?: LocaleData | null | undefined) => {
-  fieldYearPlaceholder: (
-    params: {
-      digitAmount: number
-    },
-  ) => string,
-  fieldMonthPlaceholder: (
-    params: {
-      contentType: string
-    },
-  ) => string,
-  fieldDayPlaceholder: () => string
-} | null | undefined = (localeData) => {
+const getLocalTranslations: (arg1?: LocaleData | null | undefined) =>
+  | {
+      fieldYearPlaceholder: (params: { digitAmount: number }) => string;
+      fieldMonthPlaceholder: (params: { contentType: string }) => string;
+      fieldDayPlaceholder: () => string;
+    }
+  | null
+  | undefined = (localeData) => {
   const MAPPED_TRANSLATION = localeData?.code && TRANSLATIONS_MAP[localeData.code];
 
   if (MAPPED_TRANSLATION) {
@@ -283,74 +260,53 @@ const getLocalTranslations: (arg1?: LocaleData | null | undefined) => {
 };
 
 type InternalDateFieldProps = {
-  autoComplete?: "bday" | "off",
-  disabled?: boolean,
-  disableRange?: "disableFuture" | "disablePast",
-  errorMessage?: ReactNode,
-  helperText?: string,
-  id: string,
-  label?: string,
-  labelDisplay?: "visible" | "hidden",
-  localeData?: LocaleData | null | undefined,
-  maxDate?: Date | null,
-  minDate?: Date | null,
-  mobileEnterKeyHint?: "enter" | "done" | "go" | "next" | "previous" | "search" | "send",
-  name?: string,
-  onBlur?: (
-    arg1: {
-      event: React.FocusEvent<HTMLInputElement>,
-      value: string
-    },
-  ) => void,
-  onChange: (
-    arg1: {
-      value: Date | null
-    },
-  ) => void,
-  onClearInput?: () => void,
-  onError?: (
-    arg1: {
-      errorMessage: string,
-      value: Date | null
-    },
-  ) => void,
-  onFocus?: (
-    arg1: {
-      event: React.FocusEvent<HTMLInputElement>,
-      value: string
-    },
-  ) => void,
-  readOnly?: boolean,
-  ref?: Element<"input"> // eslint-disable-line react/no-unused-prop-types,
-  size?: "md" | "lg",
-  value: Date | null
+  autoComplete?: 'bday' | 'off';
+  disabled?: boolean;
+  disableRange?: 'disableFuture' | 'disablePast';
+  errorMessage?: ReactNode;
+  helperText?: string;
+  id: string;
+  label?: string;
+  labelDisplay?: 'visible' | 'hidden';
+  localeData?: LocaleData | null | undefined;
+  maxDate?: Date | null;
+  minDate?: Date | null;
+  mobileEnterKeyHint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+  name?: string;
+  onBlur?: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
+  onChange: (arg1: { value: Date | null }) => void;
+  onClearInput?: () => void;
+  onError?: (arg1: { errorMessage: string; value: Date | null }) => void;
+  onFocus?: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
+  readOnly?: boolean;
+  ref?: Element<'input'>; // eslint-disable-line react/no-unused-prop-types,
+  size?: 'md' | 'lg';
+  value: Date | null;
 };
 
-function InternalDateField(
-  {
-    autoComplete,
-    disabled = false,
-    disableRange,
-    errorMessage,
-    helperText,
-    id,
-    label,
-    labelDisplay = 'visible',
-    localeData,
-    maxDate,
-    minDate,
-    mobileEnterKeyHint,
-    name,
-    onBlur,
-    onChange,
-    onClearInput,
-    onError,
-    onFocus,
-    readOnly = false,
-    size,
-    value,
-  }: InternalDateFieldProps,
-) {
+function InternalDateField({
+  autoComplete,
+  disabled = false,
+  disableRange,
+  errorMessage,
+  helperText,
+  id,
+  label,
+  labelDisplay = 'visible',
+  localeData,
+  maxDate,
+  minDate,
+  mobileEnterKeyHint,
+  name,
+  onBlur,
+  onChange,
+  onClearInput,
+  onError,
+  onFocus,
+  readOnly = false,
+  size,
+  value,
+}: InternalDateFieldProps) {
   let translations = getTranslationsFromMUIJS(localeData);
 
   if (!translations) {

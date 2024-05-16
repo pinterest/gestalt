@@ -216,7 +216,8 @@ const left: Functor<boolean> = toggle(layout.left0);
 type MarginFunctorType = Functor<Margin>;
 
 const transformNumberOrPassthrough =
-  (selector: string): MarginFunctorType => (m) => {
+  (selector: string): MarginFunctorType =>
+  (m) => {
     if (typeof m === 'number') {
       return bind(rangeWithZero(selector), whitespace)(m);
     }
@@ -430,21 +431,19 @@ valid props. Any props not on this list will be ignored.
 
 */
 
-export function buildStyles<T extends any>(
-  {
-    baseStyles,
-    props,
-    blocklistProps,
-    allowlistProps,
-  }: {
-    baseStyles: string,
-    props: T,
-    blocklistProps?: ReadonlyArray<string>,
-    allowlistProps?: ReadonlyArray<string>
-  },
-): {
-  passthroughProps: T,
-  propsStyles: ToPropsOutput
+export function buildStyles<T extends any>({
+  baseStyles,
+  props,
+  blocklistProps,
+  allowlistProps,
+}: {
+  baseStyles: string;
+  props: T;
+  blocklistProps?: ReadonlyArray<string>;
+  allowlistProps?: ReadonlyArray<string>;
+}): {
+  passthroughProps: T;
+  propsStyles: ToPropsOutput;
 } {
   // Flow can't reason about the constant nature of Object.keys so we can't use
   // a functional (reduce) style here.
@@ -470,7 +469,8 @@ export function buildStyles<T extends any>(
   for (const prop in props) {
     if (
       Object.prototype.hasOwnProperty.call(propToFn, prop) &&
-      !omitProps.includes(prop) && (!allowlistProps || allowlistProps.includes(prop))
+      !omitProps.includes(prop) &&
+      (!allowlistProps || allowlistProps.includes(prop))
     ) {
       const fn = propToFn[prop];
       const value = props[prop];

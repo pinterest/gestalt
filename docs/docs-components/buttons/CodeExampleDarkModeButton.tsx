@@ -1,18 +1,13 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { IconButton } from 'gestalt';
 import trackButtonClick from './trackButtonClick';
 
 type Props = {
-  currentMode: "light" | "dark",
-  onClick: () => void
+  currentMode: 'light' | 'dark';
+  onClick: () => void;
 };
 
-export default function CodeExampleDarkModeButton(
-  {
-    currentMode,
-    onClick,
-  }: Props,
-) {
+export default function CodeExampleDarkModeButton({ currentMode, onClick }: Props) {
   const label = `Toggle ${currentMode === 'dark' ? 'light' : 'dark'} mode for code example`;
 
   return (

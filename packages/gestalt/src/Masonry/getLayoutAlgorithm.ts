@@ -1,39 +1,39 @@
-import {Cache} from './Cache';
+import { Cache } from './Cache';
 import defaultLayout from './defaultLayout';
 import defaultTwoColumnModuleLayout from './defaultTwoColumnModuleLayout';
 import fullWidthLayout from './fullWidthLayout';
 import { Align, Layout, Position } from './types';
 import uniformRowLayout from './uniformRowLayout';
 
-export default function getLayoutAlgorithm<T extends {
-  readonly [key: string]: unknown
-}>(
-  {
-    align,
-    columnWidth,
-    gutter,
-    items,
-    layout,
-    measurementStore,
-    minCols,
-    positionStore,
-    width,
-    _twoColItems,
-    _logTwoColWhitespace,
-  }: {
-    align: Align,
-    columnWidth: number,
-    gutter?: number,
-    items: ReadonlyArray<T>,
-    layout: Layout,
-    measurementStore: Cache<T, number>,
-    minCols: number,
-    positionStore: Cache<T, Position>,
-    width: number | null | undefined,
-    _twoColItems?: boolean,
-    _logTwoColWhitespace?: (arg1: number) => void
+export default function getLayoutAlgorithm<
+  T extends {
+    readonly [key: string]: unknown;
   },
-): (items: ReadonlyArray<T>) => ReadonlyArray<Position> {
+>({
+  align,
+  columnWidth,
+  gutter,
+  items,
+  layout,
+  measurementStore,
+  minCols,
+  positionStore,
+  width,
+  _twoColItems,
+  _logTwoColWhitespace,
+}: {
+  align: Align;
+  columnWidth: number;
+  gutter?: number;
+  items: ReadonlyArray<T>;
+  layout: Layout;
+  measurementStore: Cache<T, number>;
+  minCols: number;
+  positionStore: Cache<T, Position>;
+  width: number | null | undefined;
+  _twoColItems?: boolean;
+  _logTwoColWhitespace?: (arg1: number) => void;
+}): (items: ReadonlyArray<T>) => ReadonlyArray<Position> {
   if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
     return fullWidthLayout({
       gutter,

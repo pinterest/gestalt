@@ -1,41 +1,39 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import Button from '../Button';
 import ButtonLink from '../ButtonLink';
 
 type LinkDataType = {
-  accessibilityLabel: string,
-  dataTestId?: string,
-  disabled?: boolean,
-  href: string,
-  label: string,
-  onClick?: ComponentProps<typeof ButtonLink>["onClick"],
-  rel?: "none" | "nofollow",
-  role: "link",
-  target?: null | "self" | "blank",
-  type: string
+  accessibilityLabel: string;
+  dataTestId?: string;
+  disabled?: boolean;
+  href: string;
+  label: string;
+  onClick?: ComponentProps<typeof ButtonLink>['onClick'];
+  rel?: 'none' | 'nofollow';
+  role: 'link';
+  target?: null | 'self' | 'blank';
+  type: string;
 };
 type ButtonDataType = {
-  accessibilityLabel: string,
-  dataTestId?: string,
-  disabled?: boolean,
-  label: string,
-  onClick?: ComponentProps<typeof Button>["onClick"],
-  role?: "button",
-  type: string
+  accessibilityLabel: string;
+  dataTestId?: string;
+  disabled?: boolean;
+  label: string;
+  onClick?: ComponentProps<typeof Button>['onClick'];
+  role?: 'button';
+  type: string;
 };
 
 type Props = LinkDataType | ButtonDataType;
 
-export default function ModalAlertAction(
-  {
-    dataTestId,
-    type,
-    accessibilityLabel,
-    disabled,
-    label,
-    ...props
-  }: Props,
-) {
+export default function ModalAlertAction({
+  dataTestId,
+  type,
+  accessibilityLabel,
+  disabled,
+  label,
+  ...props
+}: Props) {
   const color = type === 'primary' ? 'red' : 'gray';
 
   return props.role === 'link' ? (

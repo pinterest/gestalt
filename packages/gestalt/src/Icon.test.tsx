@@ -1,4 +1,4 @@
-import {create} from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 import Icon from './Icon';
 
 test('Icon renders', () => {

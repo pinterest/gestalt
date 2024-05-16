@@ -1,4 +1,4 @@
-import {Component, ReactNode} from 'react';
+import { Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import borderStyles from './Borders.css';
 import { Overflow } from './boxTypes';
@@ -26,51 +26,51 @@ import {
 } from './utils/positioningUtils';
 import { Indexable } from './zIndex';
 
-export type Role = "dialog" | "listbox" | "menu" | "tooltip";
+export type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 
 type OwnProps = {
-  accessibilityLabel?: string,
-  anchor: HTMLElement,
-  bgColor: "blue" | "darkGray" | "white",
-  border?: boolean,
-  caret?: boolean,
-  children?: ReactNode,
-  id: string | null | undefined,
-  idealDirection?: MainDirections,
-  onKeyDown: (event: React.KeyboardEvent<HTMLElement>) => void,
-  onResize: () => void,
-  positionRelativeToAnchor?: boolean,
-  relativeOffset: Coordinates | null | undefined,
-  role: Role | null | undefined,
-  rounding?: 2 | 4,
-  shouldFocus?: boolean,
-  triggerRect: ClientRect | null | undefined,
-  width: number | null | undefined,
-  __dangerouslyIgnoreScrollBoundaryContainerSize?: boolean,
-  zIndex?: Indexable,
-  overflow?: Extract<Overflow, "auto" | "hidden" | "visible">
+  accessibilityLabel?: string;
+  anchor: HTMLElement;
+  bgColor: 'blue' | 'darkGray' | 'white';
+  border?: boolean;
+  caret?: boolean;
+  children?: ReactNode;
+  id: string | null | undefined;
+  idealDirection?: MainDirections;
+  onKeyDown: (event: React.KeyboardEvent<HTMLElement>) => void;
+  onResize: () => void;
+  positionRelativeToAnchor?: boolean;
+  relativeOffset: Coordinates | null | undefined;
+  role: Role | null | undefined;
+  rounding?: 2 | 4;
+  shouldFocus?: boolean;
+  triggerRect: ClientRect | null | undefined;
+  width: number | null | undefined;
+  __dangerouslyIgnoreScrollBoundaryContainerSize?: boolean;
+  zIndex?: Indexable;
+  overflow?: Extract<Overflow, 'auto' | 'hidden' | 'visible'>;
 };
 
 type HookProps = {
-  scrollBoundaryContainerRef: HTMLElement | null | undefined
+  scrollBoundaryContainerRef: HTMLElement | null | undefined;
 };
 
-type Props = ((OwnProps) & (HookProps));
+type Props = OwnProps & HookProps;
 
 type State = {
   popoverOffset: {
-    top: number | null | undefined,
-    left: number | null | undefined
-  },
-  caretOffset: CaretOffset,
-  popoverDir: PopoverDir | null | undefined,
-  popoverRef: HTMLElement | null | undefined
+    top: number | null | undefined;
+    left: number | null | undefined;
+  };
+  caretOffset: CaretOffset;
+  popoverDir: PopoverDir | null | undefined;
+  popoverRef: HTMLElement | null | undefined;
 };
 
 class LegacyContents extends Component<Props, State> {
   static defaultProps: {
-    border: boolean,
-    caret: boolean
+    border: boolean;
+    caret: boolean;
   } = {
     border: true,
     caret: true,
@@ -129,9 +129,7 @@ class LegacyContents extends Component<Props, State> {
       triggerRect,
       width,
     }: Props,
-    {
-      popoverRef,
-    }: State,
+    { popoverRef }: State,
   ): DerivedState {
     // Scroll not needed for relative elements
     // We can't use window.scrollX / window.scrollY since it's not supported by IE11
@@ -210,15 +208,17 @@ class LegacyContents extends Component<Props, State> {
   // derive the popover location from it in getDerivedStateFromProps, and because
   // this method is static, it doesn't have access to the component instance.
   // Instead, we rely on React passing the state values into that method.
-  setPopoverRef: (popoverRef?: HTMLElement | null | undefined) => void = (popoverRef?: HTMLElement | null) => {
+  setPopoverRef: (popoverRef?: HTMLElement | null | undefined) => void = (
+    popoverRef?: HTMLElement | null,
+  ) => {
     if (!this.state.popoverRef) {
       this.setState({ popoverRef });
     }
   };
 
   calcTopHeight(): {
-    height: number | null | undefined,
-    top: number | null | undefined
+    height: number | null | undefined;
+    top: number | null | undefined;
   } {
     if (!window || !document) {
       return { top: null, height: null };

@@ -3,7 +3,7 @@
 export default function logGAEvent(
   event: string,
   value?: {
-    [key: string]: string
+    [key: string]: string;
   },
 ) {
   if (!window.gtag) {

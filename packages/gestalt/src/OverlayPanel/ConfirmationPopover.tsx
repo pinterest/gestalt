@@ -1,4 +1,4 @@
-import {ReactNode, useEffect, useRef} from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext';
 import TrapFocusBehavior from '../behaviors/TrapFocusBehavior';
 import Box from '../Box';
@@ -10,40 +10,42 @@ import InternalPopover from '../Popover/InternalPopover';
 import Text from '../Text';
 
 type Props = {
-  anchor: HTMLElement | null | undefined,
-  message?: string,
-  onDismiss: () => void,
+  anchor: HTMLElement | null | undefined;
+  message?: string;
+  onDismiss: () => void;
   primaryAction?: {
-    accessibilityLabel?: string,
-    text?: string,
-    onClick?: (
-      arg1: {
-        event: React.MouseEvent<HTMLButtonElement> | React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLButtonElement>
-      },
-    ) => void
-  },
+    accessibilityLabel?: string;
+    text?: string;
+    onClick?: (arg1: {
+      event:
+        | React.MouseEvent<HTMLButtonElement>
+        | React.MouseEvent<HTMLAnchorElement>
+        | React.KeyboardEvent<HTMLAnchorElement>
+        | React.KeyboardEvent<HTMLButtonElement>;
+    }) => void;
+  };
   secondaryAction?: {
-    accessibilityLabel?: string,
-    text?: string,
-    onClick?: (
-      arg1: {
-        event: React.MouseEvent<HTMLButtonElement> | React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLButtonElement>
-      },
-    ) => void
-  },
-  subtext?: string
+    accessibilityLabel?: string;
+    text?: string;
+    onClick?: (arg1: {
+      event:
+        | React.MouseEvent<HTMLButtonElement>
+        | React.MouseEvent<HTMLAnchorElement>
+        | React.KeyboardEvent<HTMLAnchorElement>
+        | React.KeyboardEvent<HTMLButtonElement>;
+    }) => void;
+  };
+  subtext?: string;
 };
 
-export default function ConfirmationPopover(
-  {
-    anchor,
-    message,
-    subtext,
-    primaryAction,
-    secondaryAction,
-    onDismiss,
-  }: Props,
-) {
+export default function ConfirmationPopover({
+  anchor,
+  message,
+  subtext,
+  primaryAction,
+  secondaryAction,
+  onDismiss,
+}: Props) {
   const confirmationButtonRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   const { onExternalDismiss } = useRequestAnimationFrame();

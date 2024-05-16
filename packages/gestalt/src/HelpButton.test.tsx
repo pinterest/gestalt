@@ -1,4 +1,4 @@
-import {create} from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 import HelpButton from './HelpButton';
 
 describe('HelpButton', () => {
@@ -93,9 +93,9 @@ describe('HelpButton', () => {
         text="Good test"
       />,
     ).root;
-    expect(instance.findAll((element: any) => element.type === 'div')[3].props['aria-expanded']).toBe(
-      false,
-    );
+    expect(
+      instance.findAll((element: any) => element.type === 'div')[3].props['aria-expanded'],
+    ).toBe(false);
   });
 
   test('accessibilityLabel="Click to learn more about Pinterest" accessibilityPopoverLabel', () => {
@@ -106,8 +106,8 @@ describe('HelpButton', () => {
         text="Good test"
       />,
     ).root;
-    expect(instance.findAll((element: any) => element.type === 'div')[3].props['aria-label']).toContain(
-      'Click to learn more',
-    );
+    expect(
+      instance.findAll((element: any) => element.type === 'div')[3].props['aria-label'],
+    ).toContain('Click to learn more');
   });
 });

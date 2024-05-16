@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { Box, SideNavigation } from 'gestalt';
 
 export default function Example() {
@@ -9,11 +9,7 @@ export default function Example() {
 
   const handleOnExpand =
     (name: string) =>
-    ({
-      expanded,
-    }: {
-      expanded: boolean
-    }) => {
+    ({ expanded }: { expanded: boolean }) => {
       if (expanded) {
         setExpandedElements([...expandedElements, name]);
       } else {

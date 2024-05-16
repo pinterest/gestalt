@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Status, Table, Text } from 'gestalt';
 
 function HeaderRow() {
@@ -25,12 +25,12 @@ function BaseRow({
   rate,
   category,
 }: {
-  disabled?: boolean,
-  type: ComponentProps<typeof Status>["type"],
-  title: string,
-  subtext: string,
-  rate: number | string,
-  category: string
+  disabled?: boolean;
+  type: ComponentProps<typeof Status>['type'];
+  title: string;
+  subtext: string;
+  rate: number | string;
+  category: string;
 }) {
   return (
     <Table.Row>

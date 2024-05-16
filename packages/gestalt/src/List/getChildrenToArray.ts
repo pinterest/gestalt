@@ -1,27 +1,21 @@
-import {Children, cloneElement, Fragment, ReactNode} from 'react';
+import { Children, cloneElement, Fragment, ReactNode } from 'react';
 
 const ALLOWED_CHILDREN_BY_PARENT = {
   List: ['List.Item'],
   ListItem: ['List', 'InternalList', 'List.Item'],
 } as const;
 
-const getChildrenToArray = (
-  {
-    children,
-    filterLevel,
-  }: {
-    children: ReactNode,
-    filterLevel: "List" | "ListItem"
-  },
-): ReadonlyArray<any> => {
+const getChildrenToArray = ({
+  children,
+  filterLevel,
+}: {
+  children: ReactNode;
+  filterLevel: 'List' | 'ListItem';
+}): ReadonlyArray<any> => {
   const navigationChildren = [];
   let recursionLevel = 0;
 
-  const getChildren: (
-    arg1: {
-      nodeChildren: ReactNode
-    },
-  ) => void = ({ nodeChildren }) =>
+  const getChildren: (arg1: { nodeChildren: ReactNode }) => void = ({ nodeChildren }) =>
     Children.toArray(nodeChildren).forEach((child) => {
       // We need to check for Fragment first, so we can check for display namevalid
       if (child?.type === Fragment) {

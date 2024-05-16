@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import dataVizTokens from 'gestalt-design-tokens/dist/js/data-viz-tokens';
 import tokens from 'gestalt-design-tokens/dist/js/tokens';
 import MainSection from '../../../docs-components/MainSection';
@@ -30,15 +30,15 @@ const EXCLUSION_LIST = [
 ];
 
 const tokenCategories: ReadonlyArray<{
-  name: string,
-  category: string,
-  id: string,
+  name: string;
+  category: string;
+  id: string;
   infoPage: {
-    name: string,
-    path: string
-  },
-  darkValues: boolean,
-  excludedItems?: ReadonlyArray<string>
+    name: string;
+    path: string;
+  };
+  darkValues: boolean;
+  excludedItems?: ReadonlyArray<string>;
 }> = [
   {
     name: 'Background color',
@@ -133,13 +133,13 @@ const tokenCategories: ReadonlyArray<{
 ];
 
 export type Token = {
-  name: string,
-  value: string,
-  darkValue?: string,
-  originalValue: string,
-  originalDarkValue?: string,
-  comment?: string,
-  category: string
+  name: string;
+  value: string;
+  darkValue?: string;
+  originalValue: string;
+  originalDarkValue?: string;
+  comment?: string;
+  category: string;
 };
 
 const dataVizColorTokens: ReadonlyArray<Token> = dataVizTokens.sort((a, b) =>

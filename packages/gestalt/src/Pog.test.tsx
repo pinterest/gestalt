@@ -1,4 +1,4 @@
-import {create} from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 import Pog from './Pog';
 
 test('Pog renders with icon', () => {

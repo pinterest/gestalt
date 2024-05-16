@@ -1,4 +1,4 @@
-import {createRef} from 'react';
+import { createRef } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import AvatarGroup from './AvatarGroup';
 import Box from './Box';
@@ -17,13 +17,13 @@ describe('AvatarGroup', () => {
     size = 'md',
     avatarRef,
   }: {
-    addCollaborators?: ComponentProps<typeof AvatarGroup>["addCollaborators"],
-    collaborators: ComponentProps<typeof AvatarGroup>["collaborators"],
-    href?: ComponentProps<typeof AvatarGroup>["href"],
-    onClick?: ComponentProps<typeof AvatarGroup>["onClick"],
-    role?: ComponentProps<typeof AvatarGroup>["role"],
-    size?: ComponentProps<typeof AvatarGroup>["size"],
-    avatarRef?: ComponentProps<typeof AvatarGroup>["ref"]
+    addCollaborators?: ComponentProps<typeof AvatarGroup>['addCollaborators'];
+    collaborators: ComponentProps<typeof AvatarGroup>['collaborators'];
+    href?: ComponentProps<typeof AvatarGroup>['href'];
+    onClick?: ComponentProps<typeof AvatarGroup>['onClick'];
+    role?: ComponentProps<typeof AvatarGroup>['role'];
+    size?: ComponentProps<typeof AvatarGroup>['size'];
+    avatarRef?: ComponentProps<typeof AvatarGroup>['ref'];
   }) =>
     render(
       size === 'fit' ? (
@@ -169,10 +169,19 @@ describe('AvatarGroup', () => {
   });
 
   it('should render clickable TapArea with button role and ref', () => {
-    const onClickMock = jest.fn<[{
-      dangerouslyDisableOnNavigation: () => void,
-      event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement> | React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>
-    }], undefined>();
+    const onClickMock = jest.fn<
+      [
+        {
+          dangerouslyDisableOnNavigation: () => void;
+          event:
+            | React.MouseEvent<HTMLDivElement>
+            | React.KeyboardEvent<HTMLDivElement>
+            | React.MouseEvent<HTMLAnchorElement>
+            | React.KeyboardEvent<HTMLAnchorElement>;
+        },
+      ],
+      undefined
+    >();
     const ref = createRef<unknown>();
     renderCmp({
       collaborators: [
@@ -191,10 +200,19 @@ describe('AvatarGroup', () => {
   });
 
   it('should render clickable TapArea with link role and ref', () => {
-    const onClickMock = jest.fn<[{
-      dangerouslyDisableOnNavigation: () => void,
-      event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement> | React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>
-    }], undefined>();
+    const onClickMock = jest.fn<
+      [
+        {
+          dangerouslyDisableOnNavigation: () => void;
+          event:
+            | React.MouseEvent<HTMLDivElement>
+            | React.KeyboardEvent<HTMLDivElement>
+            | React.MouseEvent<HTMLAnchorElement>
+            | React.KeyboardEvent<HTMLAnchorElement>;
+        },
+      ],
+      undefined
+    >();
     const ref = createRef<unknown>();
     renderCmp({
       collaborators: [
@@ -214,10 +232,19 @@ describe('AvatarGroup', () => {
   });
 
   it('should not call onClick when clicked on display-only role', () => {
-    const onClickMock = jest.fn<[{
-      dangerouslyDisableOnNavigation: () => void,
-      event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement> | React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>
-    }], undefined>();
+    const onClickMock = jest.fn<
+      [
+        {
+          dangerouslyDisableOnNavigation: () => void;
+          event:
+            | React.MouseEvent<HTMLDivElement>
+            | React.KeyboardEvent<HTMLDivElement>
+            | React.MouseEvent<HTMLAnchorElement>
+            | React.KeyboardEvent<HTMLAnchorElement>;
+        },
+      ],
+      undefined
+    >();
     renderCmp({
       collaborators: [
         {

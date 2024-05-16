@@ -1,16 +1,11 @@
-import {ReactNode, useEffect, useRef} from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 
 type Props = {
-  children: ReactNode,
-  onClick?: (event: MouseEvent) => void
+  children: ReactNode;
+  onClick?: (event: MouseEvent) => void;
 };
 
-export default function OutsideEventBehavior(
-  {
-    children,
-    onClick,
-  }: Props,
-) {
+export default function OutsideEventBehavior({ children, onClick }: Props) {
   const element = useRef<HTMLDivElement | null | undefined>(null);
 
   useEffect(() => {

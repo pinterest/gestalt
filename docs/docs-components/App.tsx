@@ -1,4 +1,4 @@
-import {ReactNode, useEffect} from 'react';
+import { ReactNode, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { ColorSchemeProvider, GlobalEventsHandlerProvider } from 'gestalt';
 import { AppContextConsumer, AppContextProvider } from './appContext';
@@ -8,19 +8,14 @@ import { LocalFilesProvider } from './contexts/LocalFilesProvider';
 import { NavigationContextProvider } from './navigationContext';
 
 type Props = {
-  children?: ReactNode,
+  children?: ReactNode;
   files?: {
-    css: string,
-    js: string
-  }
+    css: string;
+    js: string;
+  };
 };
 
-export default function App(
-  {
-    children,
-    files,
-  }: Props,
-) {
+export default function App({ children, files }: Props) {
   const router = useRouter();
 
   const isLeftClickEvent = (event: React.SyntheticEvent<EventTarget, Event>) => event.button === 0; // ignore everything but left clicks
@@ -31,14 +26,10 @@ export default function App(
     href,
     target,
   }: {
-    href: string,
-    target?: null | "self" | "blank"
+    href: string;
+    target?: null | 'self' | 'blank';
   }) => {
-    const onNavigationClick = ({
-      event,
-    }: {
-      readonly event: React.SyntheticEvent
-    }) => {
+    const onNavigationClick = ({ event }: { readonly event: React.SyntheticEvent }) => {
       if (event.defaultPrevented) return; // onClick prevented default
       if (isModifiedEvent(event) || !isLeftClickEvent(event)) return;
       if (target === 'blank') return; // let browser handle "target=_blank"

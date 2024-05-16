@@ -1,4 +1,4 @@
-import {render, screen} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import ActivationCard from './ActivationCard';
 
 test('ActivationCard handles onDismiss callback', () => {

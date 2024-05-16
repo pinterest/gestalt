@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { LiveError, LivePreview, LiveProvider } from 'react-live';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import * as gestaltChart from 'gestalt-charts'; // eslint-disable-line import/no-namespace
@@ -8,28 +8,26 @@ import Card from './Card';
 import ExampleCode from './ExampleCode';
 
 type Props = {
-  defaultCode: string,
-  description?: string,
-  id?: string,
-  name: string,
-  showHeading?: boolean,
-  showCode?: boolean,
-  headingSize?: "sm" | "md"
+  defaultCode: string;
+  description?: string;
+  id?: string;
+  name: string;
+  showHeading?: boolean;
+  showCode?: boolean;
+  headingSize?: 'sm' | 'md';
 };
 
 const { Box, Text } = gestalt;
 
-function Example(
-  {
-    defaultCode,
-    description,
-    id,
-    name,
-    headingSize,
-    showHeading,
-    showCode = true,
-  }: Props,
-) {
+function Example({
+  defaultCode,
+  description,
+  id,
+  name,
+  headingSize,
+  showHeading,
+  showCode = true,
+}: Props) {
   const code = defaultCode.trim();
   const scope = { ...gestalt, ...gestaltChart, ...gestaltDatepicker } as const;
 

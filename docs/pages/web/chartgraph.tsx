@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { BannerSlim, Box } from 'gestalt';
 import {
   TOKEN_COLOR_DATA_VISUALIZATION_01,
@@ -58,22 +58,20 @@ import timeseries from '../../examples/chartgraph/timeseries';
 import title from '../../examples/chartgraph/title';
 import tooltip from '../../examples/chartgraph/tooltip';
 
-export default function ComponentPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: {
-      [key: string]: DocGen
-    }
-  },
-) {
+export default function ComponentPage({
+  generatedDocGen,
+}: {
+  generatedDocGen: {
+    [key: string]: DocGen;
+  };
+}) {
   const MEDIUM_HEIGHT = 300;
   const SMALL_HEIGHT = 250;
   const LARGE_HEIGHT = 400;
   const EXTRA_LARGE_HEIGHT = 500;
 
   return (
-    (<Page title={generatedDocGen.ChartGraph?.displayName}>
+    <Page title={generatedDocGen.ChartGraph?.displayName}>
       <PageHeader
         bannerSlim={
           <BannerSlim
@@ -718,16 +716,16 @@ TileData enables users to select multiple categories to compare with each other 
 Tables show data that's more complex and granular.      `}
         />
       </MainSection>
-    </Page>)
+    </Page>
   );
 }
 
 export async function getServerSideProps(): Promise<{
   props: {
     generatedDocGen: {
-      [key: string]: DocGen
-    }
-  }
+      [key: string]: DocGen;
+    };
+  };
 }> {
   return {
     props: {

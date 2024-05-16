@@ -1,11 +1,7 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, Flex, Heading, Spinner } from 'gestalt';
 
-function Card({
-  text,
-}: {
-  text: string
-}) {
+function Card({ text }: { text: string }) {
   return (
     <Box borderStyle="shadow" height={250} padding={6} rounding={4} width={250}>
       <Flex alignItems="start" direction="column" height="100%" justifyContent="start">

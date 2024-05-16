@@ -1,4 +1,4 @@
-import {Fragment} from 'react';
+import { Fragment } from 'react';
 import { fireEvent, screen, waitFor } from '@testing-library/react';
 import Dropdown from './Dropdown';
 import { DOWN_ARROW, ENTER, ESCAPE, TAB, UP_ARROW } from './keyCodes';
@@ -15,14 +15,19 @@ describe('Dropdown', () => {
 
   it('renders a menu of 6 items', () => {
     const mockOnDismiss = jest.fn<[], undefined>();
-    const onSelectMock = jest.fn<[{
-      event: React.ChangeEvent<HTMLInputElement>,
-      item: {
-        label: string,
-        subtext?: string,
-        value: string
-      }
-    }], undefined>();
+    const onSelectMock = jest.fn<
+      [
+        {
+          event: React.ChangeEvent<HTMLInputElement>;
+          item: {
+            label: string;
+            subtext?: string;
+            value: string;
+          };
+        },
+      ],
+      undefined
+    >();
     const element = document.createElement('button');
 
     const { baseElement } = render(
@@ -70,14 +75,19 @@ describe('Dropdown', () => {
 
   it('renders a menu of 3 items conditionally', () => {
     const mockOnDismiss = jest.fn<[], undefined>();
-    const onSelectMock = jest.fn<[{
-      event: React.ChangeEvent<HTMLInputElement>,
-      item: {
-        label: string,
-        subtext?: string,
-        value: string
-      }
-    }], undefined>();
+    const onSelectMock = jest.fn<
+      [
+        {
+          event: React.ChangeEvent<HTMLInputElement>;
+          item: {
+            label: string;
+            subtext?: string;
+            value: string;
+          };
+        },
+      ],
+      undefined
+    >();
     const element = document.createElement('button');
     const renderOptions = true;
 
@@ -109,14 +119,19 @@ describe('Dropdown', () => {
 
   it('renders dropdown sections', () => {
     const mockOnDismiss = jest.fn<[], undefined>();
-    const onSelectMock = jest.fn<[{
-      event: React.ChangeEvent<HTMLInputElement>,
-      item: {
-        label: string,
-        subtext?: string,
-        value: string
-      }
-    }], undefined>();
+    const onSelectMock = jest.fn<
+      [
+        {
+          event: React.ChangeEvent<HTMLInputElement>;
+          item: {
+            label: string;
+            subtext?: string;
+            value: string;
+          };
+        },
+      ],
+      undefined
+    >();
     const element = document.createElement('button');
 
     render(
@@ -169,14 +184,19 @@ describe('Dropdown', () => {
 
   it('renders a custom header', () => {
     const mockOnDismiss = jest.fn<[], undefined>();
-    const onSelectMock = jest.fn<[{
-      event: React.ChangeEvent<HTMLInputElement>,
-      item: {
-        label: string,
-        subtext?: string,
-        value: string
-      }
-    }], undefined>();
+    const onSelectMock = jest.fn<
+      [
+        {
+          event: React.ChangeEvent<HTMLInputElement>;
+          item: {
+            label: string;
+            subtext?: string;
+            value: string;
+          };
+        },
+      ],
+      undefined
+    >();
     const element = document.createElement('button');
 
     render(
@@ -233,14 +253,19 @@ describe('Dropdown', () => {
 
   it('closes when esc key is pressed', () => {
     const mockOnDismiss = jest.fn<[], undefined>();
-    const onSelectMock = jest.fn<[{
-      event: React.ChangeEvent<HTMLInputElement>,
-      item: {
-        label: string,
-        subtext?: string,
-        value: string
-      }
-    }], undefined>();
+    const onSelectMock = jest.fn<
+      [
+        {
+          event: React.ChangeEvent<HTMLInputElement>;
+          item: {
+            label: string;
+            subtext?: string;
+            value: string;
+          };
+        },
+      ],
+      undefined
+    >();
     const element = document.createElement('button');
 
     render(
@@ -291,14 +316,19 @@ describe('Dropdown', () => {
 
   it('closes when tab key is pressed', () => {
     const mockOnDismiss = jest.fn<[], undefined>();
-    const onSelectMock = jest.fn<[{
-      event: React.ChangeEvent<HTMLInputElement>,
-      item: {
-        label: string,
-        subtext?: string,
-        value: string
-      }
-    }], undefined>();
+    const onSelectMock = jest.fn<
+      [
+        {
+          event: React.ChangeEvent<HTMLInputElement>;
+          item: {
+            label: string;
+            subtext?: string;
+            value: string;
+          };
+        },
+      ],
+      undefined
+    >();
     const element = document.createElement('button');
 
     render(
@@ -349,14 +379,19 @@ describe('Dropdown', () => {
 
   it('changes active descendant when arrow keys are pressed', async () => {
     const mockOnDismiss = jest.fn<[], undefined>();
-    const onSelectMock = jest.fn<[{
-      event: React.ChangeEvent<HTMLInputElement>,
-      item: {
-        label: string,
-        subtext?: string,
-        value: string
-      }
-    }], undefined>();
+    const onSelectMock = jest.fn<
+      [
+        {
+          event: React.ChangeEvent<HTMLInputElement>;
+          item: {
+            label: string;
+            subtext?: string;
+            value: string;
+          };
+        },
+      ],
+      undefined
+    >();
     const element = document.createElement('button');
 
     render(
@@ -430,14 +465,19 @@ describe('Dropdown', () => {
 
   it('should call item onSelect when enter key is pressed', async () => {
     const mockOnDismiss = jest.fn<[], undefined>();
-    const onSelectMock = jest.fn<[{
-      event: React.ChangeEvent<HTMLInputElement>,
-      item: {
-        label: string,
-        subtext?: string,
-        value: string
-      }
-    }], undefined>();
+    const onSelectMock = jest.fn<
+      [
+        {
+          event: React.ChangeEvent<HTMLInputElement>;
+          item: {
+            label: string;
+            subtext?: string;
+            value: string;
+          };
+        },
+      ],
+      undefined
+    >();
     const element = document.createElement('button');
 
     render(
@@ -502,19 +542,29 @@ describe('Dropdown', () => {
 
   it('should call link onClick when enter key is pressed', async () => {
     const mockOnDismiss = jest.fn<[], undefined>();
-    const onSelectMock = jest.fn<[{
-      event: React.ChangeEvent<HTMLInputElement>,
-      item: {
-        label: string,
-        subtext?: string,
-        value: string
-      }
-    }], undefined>();
-    const onClickMock = jest.fn<[{
-      dangerouslyDisableOnNavigation: () => void,
-      event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-      mobileOnDismissStart: () => void
-    }], undefined>();
+    const onSelectMock = jest.fn<
+      [
+        {
+          event: React.ChangeEvent<HTMLInputElement>;
+          item: {
+            label: string;
+            subtext?: string;
+            value: string;
+          };
+        },
+      ],
+      undefined
+    >();
+    const onClickMock = jest.fn<
+      [
+        {
+          dangerouslyDisableOnNavigation: () => void;
+          event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+          mobileOnDismissStart: () => void;
+        },
+      ],
+      undefined
+    >();
     const element = document.createElement('button');
 
     render(

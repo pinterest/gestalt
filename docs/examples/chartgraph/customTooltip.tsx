@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { Flex, Text } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
@@ -21,7 +21,7 @@ export default function Example() {
   ];
 
   return (
-    (<Flex direction="column" height="100%" width="100%">
+    <Flex direction="column" height="100%" width="100%">
       <ChartGraph
         accessibilityLabel="Example of chart with tooltip"
         data={data}
@@ -49,16 +49,16 @@ export default function Example() {
               <Flex.Item>
                 {payload.map(
                   (payloadData: {
-                    dataKey: string,
-                    color?: string | null | undefined,
-                    fill?: string | null | undefined,
-                    isLegend?: boolean,
-                    legendType?: "line" | "rect",
-                    name: string,
-                    stroke?: string | null | undefined,
-                    strokeDasharray?: string | number | null | undefined,
-                    value: number,
-                    strokeWidth?: number
+                    dataKey: string;
+                    color?: string | null | undefined;
+                    fill?: string | null | undefined;
+                    isLegend?: boolean;
+                    legendType?: 'line' | 'rect';
+                    name: string;
+                    stroke?: string | null | undefined;
+                    strokeDasharray?: string | number | null | undefined;
+                    value: number;
+                    strokeWidth?: number;
                   }) => (
                     <Flex key={payloadData.name} alignItems="center" gap={2}>
                       <ChartGraph.LegendIcon payloadData={payloadData} />
@@ -83,6 +83,6 @@ export default function Example() {
         type="bar"
         visualPatternSelected={visualPatternSelected}
       />
-    </Flex>)
+    </Flex>
   );
 }

@@ -1,4 +1,4 @@
-import {cloneElement, ReactElement, ReactNode, useEffect, useId, useRef, useState} from 'react';
+import { cloneElement, ReactElement, ReactNode, useEffect, useId, useRef, useState } from 'react';
 import Dropdown from '../Dropdown';
 import Pog from '../Pog';
 import TapArea from '../TapArea';
@@ -6,38 +6,34 @@ import MaybeTooltip from '../utils/MaybeTooltip';
 import { CompositeZIndex, FixedZIndex, Indexable } from '../zIndex';
 
 type Props = {
-  icon?: "ellipsis" | "edit" | "trash-can",
-  onClick?: (
-    arg1: {
-      event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>
-    },
-  ) => void,
-  setCompression: (arg1: "compress" | "none") => void,
-  forceIconButton: "force" | "default",
-  setForceIconButton: (arg1: "force" | "default") => void,
-  setShowIconButton: (arg1: "show" | "hide") => void,
-  isItemActive: boolean,
+  icon?: 'ellipsis' | 'edit' | 'trash-can';
+  onClick?: (arg1: {
+    event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>;
+  }) => void;
+  setCompression: (arg1: 'compress' | 'none') => void;
+  forceIconButton: 'force' | 'default';
+  setForceIconButton: (arg1: 'force' | 'default') => void;
+  setShowIconButton: (arg1: 'show' | 'hide') => void;
+  isItemActive: boolean;
   tooltip: {
-    accessibilityLabel?: string,
-    text: string,
-    zIndex?: Indexable
-  },
-  dropdownItems?: ReadonlyArray<Element<typeof Dropdown.Item>>
+    accessibilityLabel?: string;
+    text: string;
+    zIndex?: Indexable;
+  };
+  dropdownItems?: ReadonlyArray<Element<typeof Dropdown.Item>>;
 };
 
-function ItemIconButton(
-  {
-    icon = 'ellipsis',
-    onClick,
-    tooltip,
-    dropdownItems,
-    isItemActive,
-    setShowIconButton,
-    forceIconButton,
-    setForceIconButton,
-    setCompression,
-  }: Props,
-) {
+function ItemIconButton({
+  icon = 'ellipsis',
+  onClick,
+  tooltip,
+  dropdownItems,
+  isItemActive,
+  setShowIconButton,
+  forceIconButton,
+  setForceIconButton,
+  setCompression,
+}: Props) {
   const id = useId();
 
   const innerRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);

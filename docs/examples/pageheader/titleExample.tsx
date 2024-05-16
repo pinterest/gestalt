@@ -1,4 +1,4 @@
-import {Fragment, ReactNode, useState} from 'react';
+import { Fragment, ReactNode, useState } from 'react';
 import { Image, OverlayPanel, PageHeader, Text } from 'gestalt';
 
 export default function PageHeaderTitleExample() {

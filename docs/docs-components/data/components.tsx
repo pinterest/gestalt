@@ -1,4 +1,4 @@
-import {ComponentData} from './types';
+import { ComponentData } from './types';
 import Box from '../../graphics/building-blocks/Box.svg';
 import Column from '../../graphics/building-blocks/Column.svg';
 import Container from '../../graphics/building-blocks/Container.svg';

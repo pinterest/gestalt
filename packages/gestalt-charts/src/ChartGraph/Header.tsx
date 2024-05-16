@@ -1,28 +1,26 @@
-import {ReactElement, ReactNode} from 'react';
+import { ReactElement, ReactNode } from 'react';
 import { Box, Flex, Heading, HelpButton, IconButton, Text, useDefaultLabel } from 'gestalt';
 import { useChartContext } from './ChartGraphContext';
 
-export default function Header(
-  {
-    title,
-    readyToRender,
-    description,
-    onVisualPatternChange,
-    helpButton,
-    titleDisplay,
-    toggleTabularDataModal,
-    showTabularData,
-  }: {
-    readyToRender: boolean,
-    title?: string,
-    description?: string,
-    onVisualPatternChange: () => void,
-    helpButton?: Element<typeof HelpButton>,
-    titleDisplay?: "visible" | "hidden",
-    toggleTabularDataModal: () => void,
-    showTabularData: boolean
-  },
-) {
+export default function Header({
+  title,
+  readyToRender,
+  description,
+  onVisualPatternChange,
+  helpButton,
+  titleDisplay,
+  toggleTabularDataModal,
+  showTabularData,
+}: {
+  readyToRender: boolean;
+  title?: string;
+  description?: string;
+  onVisualPatternChange: () => void;
+  helpButton?: Element<typeof HelpButton>;
+  titleDisplay?: 'visible' | 'hidden';
+  toggleTabularDataModal: () => void;
+  showTabularData: boolean;
+}) {
   const { accessibleViewText, defaultViewText, tabularData } = useDefaultLabel('ChartGraph');
   const { decal: showVisualPattern } = useChartContext();
 

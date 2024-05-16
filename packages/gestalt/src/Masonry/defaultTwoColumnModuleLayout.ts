@@ -1,4 +1,4 @@
-import {Cache} from './Cache';
+import { Cache } from './Cache';
 import Graph from './Graph';
 import mindex from './mindex';
 import { Align, NodeData, Position } from './types';
@@ -18,22 +18,27 @@ const offscreen = (width: number, height: number = Infinity) => ({
   height,
 });
 
-function getItemColumnSpan<T extends {
-  readonly [key: string]: unknown
-}>(item: T): number {
+function getItemColumnSpan<
+  T extends {
+    readonly [key: string]: unknown;
+  },
+>(item: T): number {
   return typeof item.columnSpan === 'number' ? item.columnSpan : 1;
 }
 
 function getPositionsOnly<T>(
   positions: ReadonlyArray<{
-    item: T,
-    position: Position
+    item: T;
+    position: Position;
   }>,
 ): ReadonlyArray<Position> {
   return positions.map(({ position }) => position);
 }
 
-function getAdjacentColumnHeightDeltas(heights: ReadonlyArray<number>, columnSpan: number): ReadonlyArray<number> {
+function getAdjacentColumnHeightDeltas(
+  heights: ReadonlyArray<number>,
+  columnSpan: number,
+): ReadonlyArray<number> {
   const adjacentHeightDeltas = [];
   for (let i = 0; i < heights.length - 1; i += 1) {
     adjacentHeightDeltas.push(Math.abs(heights[i] - heights[i + 1]));
@@ -55,25 +60,27 @@ function getAdjacentColumnHeightDeltas(heights: ReadonlyArray<number>, columnSpa
   return adjacentDeltaAvgs;
 }
 
-function calculateMultiColumnModuleWidth(columnWidth: number, gutter: number, columnSpan: number): number {
+function calculateMultiColumnModuleWidth(
+  columnWidth: number,
+  gutter: number,
+  columnSpan: number,
+): number {
   return columnWidth * columnSpan + gutter * (columnSpan - 1);
 }
 
-function calculateSplitIndex(
-  {
-    oneColumnItemsLength,
-    multiColumnIndex,
-    emptyColumns,
-    fitsFirstRow,
-    replaceWithOneColItems,
-  }: {
-    oneColumnItemsLength: number,
-    multiColumnIndex: number,
-    emptyColumns: number,
-    fitsFirstRow: boolean,
-    replaceWithOneColItems: boolean
-  },
-): number {
+function calculateSplitIndex({
+  oneColumnItemsLength,
+  multiColumnIndex,
+  emptyColumns,
+  fitsFirstRow,
+  replaceWithOneColItems,
+}: {
+  oneColumnItemsLength: number;
+  multiColumnIndex: number;
+  emptyColumns: number;
+  fitsFirstRow: boolean;
+  replaceWithOneColItems: boolean;
+}): number {
   // multi column item is on its original position
   if (fitsFirstRow) {
     return multiColumnIndex;
@@ -97,25 +104,25 @@ function calculateSplitIndex(
   return multiColumnIndex;
 }
 
-export function initializeHeightsArray<T extends {
-  readonly [key: string]: unknown
-}>(
-  {
-    centerOffset,
-    columnCount,
-    columnWidthAndGutter,
-    gutter,
-    items,
-    positionCache,
-  }: {
-    centerOffset: number,
-    columnCount: number,
-    columnWidthAndGutter: number,
-    gutter: number,
-    items: ReadonlyArray<T>,
-    positionCache: Cache<T, Position> | null | undefined
+export function initializeHeightsArray<
+  T extends {
+    readonly [key: string]: unknown;
   },
-): ReadonlyArray<number> {
+>({
+  centerOffset,
+  columnCount,
+  columnWidthAndGutter,
+  gutter,
+  items,
+  positionCache,
+}: {
+  centerOffset: number;
+  columnCount: number;
+  columnWidthAndGutter: number;
+  gutter: number;
+  items: ReadonlyArray<T>;
+  positionCache: Cache<T, Position> | null | undefined;
+}): ReadonlyArray<number> {
   const heights = new Array<number>(columnCount).fill(0);
   items.forEach((item) => {
     const position = positionCache?.get(item);
@@ -137,99 +144,101 @@ export function initializeHeightsArray<T extends {
   return heights;
 }
 
-function getOneColumnItemPositions<T>(
-  {
-    centerOffset,
-    columnWidth,
-    columnWidthAndGutter,
-    gutter,
-    heights: heightsArg,
-    items,
-    measurementCache,
-    positionCache,
-  }: {
-    centerOffset: number,
-    columnWidth: number,
-    columnWidthAndGutter: number,
-    gutter: number,
-    heights: ReadonlyArray<number>,
-    items: ReadonlyArray<T>,
-    measurementCache: Cache<T, number>,
-    positionCache?: Cache<T, Position>
-  },
-): {
+function getOneColumnItemPositions<T>({
+  centerOffset,
+  columnWidth,
+  columnWidthAndGutter,
+  gutter,
+  heights: heightsArg,
+  items,
+  measurementCache,
+  positionCache,
+}: {
+  centerOffset: number;
+  columnWidth: number;
+  columnWidthAndGutter: number;
+  gutter: number;
+  heights: ReadonlyArray<number>;
+  items: ReadonlyArray<T>;
+  measurementCache: Cache<T, number>;
+  positionCache?: Cache<T, Position>;
+}): {
   positions: ReadonlyArray<{
-    item: T,
-    position: Position
-  }>,
-  heights: ReadonlyArray<number>
+    item: T;
+    position: Position;
+  }>;
+  heights: ReadonlyArray<number>;
 } {
   const heights = [...heightsArg];
-  const positions = items.reduce<Array<any>>((positionsSoFar: ReadonlyArray<{
-    item: T,
-    position: Position
-  }>, item) => {
-    const height = measurementCache.get(item);
+  const positions = items.reduce<Array<any>>(
+    (
+      positionsSoFar: ReadonlyArray<{
+        item: T;
+        position: Position;
+      }>,
+      item,
+    ) => {
+      const height = measurementCache.get(item);
 
-    const cachedPosition = positionCache?.get(item);
-    if (cachedPosition) {
-      return [...positionsSoFar, { item, position: cachedPosition }];
-    }
+      const cachedPosition = positionCache?.get(item);
+      if (cachedPosition) {
+        return [...positionsSoFar, { item, position: cachedPosition }];
+      }
 
-    if (!isNil(height)) {
-      const heightAndGutter = height + gutter;
-      const col = mindex(heights);
-      const top = heights[col];
-      const left = col * columnWidthAndGutter + centerOffset;
-      heights[col] += heightAndGutter;
+      if (!isNil(height)) {
+        const heightAndGutter = height + gutter;
+        const col = mindex(heights);
+        const top = heights[col];
+        const left = col * columnWidthAndGutter + centerOffset;
+        heights[col] += heightAndGutter;
 
-      return [
-        ...positionsSoFar,
-        {
-          item,
-          position: {
-            top,
-            left,
-            width: columnWidth,
-            height,
+        return [
+          ...positionsSoFar,
+          {
+            item,
+            position: {
+              top,
+              left,
+              width: columnWidth,
+              height,
+            },
           },
-        },
-      ];
-    }
+        ];
+      }
 
-    return positionsSoFar;
-  }, []);
+      return positionsSoFar;
+    },
+    [],
+  );
 
   return { positions, heights };
 }
 
-function getMultiColItemPosition<T>(
-  {
-    centerOffset,
-    columnWidth,
-    columnWidthAndGutter,
-    gutter,
-    heights: heightsArg,
-    item,
-    columnSpan,
-    measurementCache,
-    fitsFirstRow,
-  }: {
-    centerOffset: number,
-    columnWidth: number,
-    columnWidthAndGutter: number,
-    gutter: number,
-    heights: ReadonlyArray<number>,
-    item: T,
-    columnSpan: number,
-    measurementCache: Cache<T, number>,
-    positionCache?: Cache<T, Position>,
-    fitsFirstRow: boolean
-  },
-): {
-  additionalWhitespace: number | null,
-  heights: ReadonlyArray<number>,
-  position: Position
+function getMultiColItemPosition<T>({
+  centerOffset,
+  columnWidth,
+  columnWidthAndGutter,
+  gutter,
+  heights: heightsArg,
+  item,
+  columnSpan,
+  measurementCache,
+  fitsFirstRow,
+}: {
+  centerOffset: number;
+  columnWidth: number;
+  columnWidthAndGutter: number;
+  gutter: number;
+  heights: ReadonlyArray<number>;
+  item: T;
+  columnSpan: number;
+  measurementCache: Cache<T, number>;
+  positionCache?: Cache<T, Position>;
+  fitsFirstRow: boolean;
+}): {
+  additionalWhitespace: number | null;
+  heights: ReadonlyArray<number>;
+  position: Position;
 } {
   const heights = [...heightsArg];
   const height = measurementCache.get(item);
@@ -282,33 +291,31 @@ function getMultiColItemPosition<T>(
   };
 }
 
-function getGraphPositions<T>(
-  {
-    items,
-    positions,
-    heights,
-    whitespaceThreshold,
-    columnSpan,
-    ...commonGetPositionArgs
-  }: {
-    items: ReadonlyArray<T>,
-    heights: ReadonlyArray<number>,
-    positions: ReadonlyArray<{
-      item: T,
-      position: Position
-    }>,
-    whitespaceThreshold?: number,
-    columnSpan: number,
-    centerOffset: number,
-    columnWidth: number,
-    columnWidthAndGutter: number,
-    gutter: number,
-    measurementCache: Cache<T, number>,
-    positionCache?: Cache<T, Position>
-  },
-): {
-  winningNode: NodeData<T>,
-  additionalWhitespace: number
+function getGraphPositions<T>({
+  items,
+  positions,
+  heights,
+  whitespaceThreshold,
+  columnSpan,
+  ...commonGetPositionArgs
+}: {
+  items: ReadonlyArray<T>;
+  heights: ReadonlyArray<number>;
+  positions: ReadonlyArray<{
+    item: T;
+    position: Position;
+  }>;
+  whitespaceThreshold?: number;
+  columnSpan: number;
+  centerOffset: number;
+  columnWidth: number;
+  columnWidthAndGutter: number;
+  gutter: number;
+  measurementCache: Cache<T, number>;
+  positionCache?: Cache<T, Position>;
+}): {
+  winningNode: NodeData<T>;
+  additionalWhitespace: number;
 } {
   // When whitespace threshold is set this variables store the score and node if found
   let bailoutScore;
@@ -336,12 +343,12 @@ function getGraphPositions<T>(
     heightsArr,
     itemsSoFar = [],
   }: {
-    item: T,
-    i: number,
-    arr: ReadonlyArray<T>,
-    prevNode: NodeData<T>,
-    heightsArr: ReadonlyArray<number>,
-    itemsSoFar?: ReadonlyArray<T>
+    item: T;
+    i: number;
+    arr: ReadonlyArray<T>;
+    prevNode: NodeData<T>;
+    heightsArr: ReadonlyArray<number>;
+    itemsSoFar?: ReadonlyArray<T>;
   }) {
     if (bailoutNode) {
       return;
@@ -420,42 +427,42 @@ function getGraphPositions<T>(
     : { winningNode: startNodeData, additionalWhitespace: startingLowestAdjacentColumnHeightDelta };
 }
 
-function getPositionsWithMultiColumnItem<T extends {
-  readonly [key: string]: unknown
-}>(
-  {
-    multiColumnItem,
-    itemsToPosition,
-    heights,
-    prevPositions,
-    whitespaceThreshold,
-    columnCount,
-    logWhitespace,
-    ...commonGetPositionArgs
-  }: {
-    multiColumnItem: T,
-    itemsToPosition: ReadonlyArray<T>,
-    heights: ReadonlyArray<number>,
-    prevPositions: ReadonlyArray<{
-      item: T,
-      position: Position
-    }>,
-    whitespaceThreshold?: number,
-    logWhitespace?: (arg1: number) => void,
-    columnCount: number,
-    centerOffset: number,
-    columnWidth: number,
-    columnWidthAndGutter: number,
-    gutter: number,
-    measurementCache: Cache<T, number>,
-    positionCache: Cache<T, Position>
+function getPositionsWithMultiColumnItem<
+  T extends {
+    readonly [key: string]: unknown;
   },
-): {
+>({
+  multiColumnItem,
+  itemsToPosition,
+  heights,
+  prevPositions,
+  whitespaceThreshold,
+  columnCount,
+  logWhitespace,
+  ...commonGetPositionArgs
+}: {
+  multiColumnItem: T;
+  itemsToPosition: ReadonlyArray<T>;
+  heights: ReadonlyArray<number>;
+  prevPositions: ReadonlyArray<{
+    item: T;
+    position: Position;
+  }>;
+  whitespaceThreshold?: number;
+  logWhitespace?: (arg1: number) => void;
+  columnCount: number;
+  centerOffset: number;
+  columnWidth: number;
+  columnWidthAndGutter: number;
+  gutter: number;
+  measurementCache: Cache<T, number>;
+  positionCache: Cache<T, Position>;
+}): {
   positions: ReadonlyArray<{
-    item: T,
-    position: Position
-  }>,
-  heights: ReadonlyArray<number>
+    item: T;
+    position: Position;
+  }>;
+  heights: ReadonlyArray<number>;
 } {
   const { positionCache } = commonGetPositionArgs;
 
@@ -537,11 +544,13 @@ function getPositionsWithMultiColumnItem<T extends {
   // depending on where the multi column item is positioned, there may be items that are still not positioned
   // calculate the remaining items and add them to the list of final positions
   const remainingItems = itemsToPosition.filter((item) => !positionedItems.has(item));
-  const { heights: finalHeights, positions: remainingItemPositions } = getOneColumnItemPositions<T>({
-    items: remainingItems,
-    heights: updatedHeights,
-    ...commonGetPositionArgs,
-  });
+  const { heights: finalHeights, positions: remainingItemPositions } = getOneColumnItemPositions<T>(
+    {
+      items: remainingItems,
+      heights: updatedHeights,
+      ...commonGetPositionArgs,
+    },
+  );
   const finalPositions = winningPositions.concat(remainingItemPositions);
 
   // Log additional whitespace shown above the multi column module
@@ -557,33 +566,33 @@ function getPositionsWithMultiColumnItem<T extends {
   return { positions: prevPositions.concat(finalPositions), heights: finalHeights };
 }
 
-const defaultTwoColumnModuleLayout = <T extends {
-  readonly [key: string]: unknown
-}>(
-  {
-    align,
-    columnWidth = 236,
-    gutter = 14,
-    logWhitespace,
-    measurementCache,
-    minCols = 2,
-    positionCache,
-    rawItemCount,
-    width,
-    whitespaceThreshold,
-  }: {
-    align: Align,
-    columnWidth?: number,
-    gutter?: number,
-    logWhitespace?: (arg1: number) => void,
-    measurementCache: Cache<T, number>,
-    minCols?: number,
-    positionCache: Cache<T, Position>,
-    rawItemCount: number,
-    width?: number | null | undefined,
-    whitespaceThreshold?: number
+const defaultTwoColumnModuleLayout = <
+  T extends {
+    readonly [key: string]: unknown;
   },
-): (items: ReadonlyArray<T>) => ReadonlyArray<Position> => {
+>({
+  align,
+  columnWidth = 236,
+  gutter = 14,
+  logWhitespace,
+  measurementCache,
+  minCols = 2,
+  positionCache,
+  rawItemCount,
+  width,
+  whitespaceThreshold,
+}: {
+  align: Align;
+  columnWidth?: number;
+  gutter?: number;
+  logWhitespace?: (arg1: number) => void;
+  measurementCache: Cache<T, number>;
+  minCols?: number;
+  positionCache: Cache<T, Position>;
+  rawItemCount: number;
+  width?: number | null | undefined;
+  whitespaceThreshold?: number;
+}): ((items: ReadonlyArray<T>) => ReadonlyArray<Position>) => {
   const columnWidthAndGutter = columnWidth + gutter;
   const columnCount = isNil(width)
     ? minCols
@@ -658,11 +667,11 @@ const defaultTwoColumnModuleLayout = <T extends {
       const {
         positions: currentPositions,
       }: {
-        heights: ReadonlyArray<number>,
+        heights: ReadonlyArray<number>;
         positions: ReadonlyArray<{
-          item: T,
-          position: Position
-        }>
+          item: T;
+          position: Position;
+        }>;
       } = batches.reduce(
         (acc, itemsToPosition, i) =>
           getPositionsWithMultiColumnItem({

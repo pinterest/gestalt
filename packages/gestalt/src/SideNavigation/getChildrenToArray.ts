@@ -1,25 +1,19 @@
-import {Children, Fragment, ReactNode} from 'react';
+import { Children, Fragment, ReactNode } from 'react';
 import { ALLOWED_CHILDREN_MAP } from './navigationChildrenUtils';
 import { ReactChildArray } from '../utils/flattenChildren';
 
 /** @deprecated */
-const getChildrenToArray = (
-  {
-    children,
-    filterLevel,
-  }: {
-    children: ReactNode,
-    filterLevel: "main" | "nested"
-  },
-): ReactChildArray => {
+const getChildrenToArray = ({
+  children,
+  filterLevel,
+}: {
+  children: ReactNode;
+  filterLevel: 'main' | 'nested';
+}): ReactChildArray => {
   const navigationChildren = [];
 
   let recursionLevel = 0;
-  const getChildren: (
-    arg1: {
-      nodeChildren: ReactNode
-    },
-  ) => void = ({ nodeChildren }) =>
+  const getChildren: (arg1: { nodeChildren: ReactNode }) => void = ({ nodeChildren }) =>
     Children.toArray(nodeChildren).forEach((child) => {
       // Detect incorrect subcomponent usage at the main level
       if (filterLevel === 'main' && ALLOWED_CHILDREN_MAP.nested.includes(child.type.displayName)) {

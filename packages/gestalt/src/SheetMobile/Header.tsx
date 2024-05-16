@@ -1,4 +1,4 @@
-import {ComponentProps, Fragment, ReactNode, useEffect, useRef} from 'react';
+import { ComponentProps, Fragment, ReactNode, useEffect, useRef } from 'react';
 import PrimaryAction from './PrimaryAction';
 import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext';
 import Box from '../Box';
@@ -12,55 +12,64 @@ import InternalDismissButton from '../shared/InternalDismissButton';
 import TapArea from '../TapArea';
 import Text from '../Text';
 
-type OnClickType = (
-  arg1: {
-    event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement> | React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-    onDismissStart: () => void
-  },
-) => void;
+type OnClickType = (arg1: {
+  event:
+    | React.MouseEvent<HTMLButtonElement>
+    | React.KeyboardEvent<HTMLButtonElement>
+    | React.MouseEvent<HTMLAnchorElement>
+    | React.KeyboardEvent<HTMLAnchorElement>;
+  onDismissStart: () => void;
+}) => void;
 
 type Props = {
-  accessibilityLabel?: string,
-  align: "start" | "center",
-  backIconButton: {
-    accessibilityLabel: string,
-    onClick: OnClickType
-  } | null | undefined,
-  forwardIconButton: {
-    accessibilityLabel: string,
-    onClick: OnClickType
-  } | null | undefined,
-  heading: ReactNode,
-  id: string,
-  onDismiss?: () => void,
-  primaryAction: {
-    accessibilityLabel: string,
-    href?: string,
-    label: string,
-    onClick: OnClickType,
-    rel?: ComponentProps<typeof Link>["rel"],
-    size?: ComponentProps<typeof Button>["size"],
-    target?: ComponentProps<typeof Link>["target"]
-  } | null | undefined,
-  showDismissButton: boolean | null | undefined,
-  showGrabber?: boolean,
-  subHeading: string | null | undefined
+  accessibilityLabel?: string;
+  align: 'start' | 'center';
+  backIconButton:
+    | {
+        accessibilityLabel: string;
+        onClick: OnClickType;
+      }
+    | null
+    | undefined;
+  forwardIconButton:
+    | {
+        accessibilityLabel: string;
+        onClick: OnClickType;
+      }
+    | null
+    | undefined;
+  heading: ReactNode;
+  id: string;
+  onDismiss?: () => void;
+  primaryAction:
+    | {
+        accessibilityLabel: string;
+        href?: string;
+        label: string;
+        onClick: OnClickType;
+        rel?: ComponentProps<typeof Link>['rel'];
+        size?: ComponentProps<typeof Button>['size'];
+        target?: ComponentProps<typeof Link>['target'];
+      }
+    | null
+    | undefined;
+  showDismissButton: boolean | null | undefined;
+  showGrabber?: boolean;
+  subHeading: string | null | undefined;
 };
 
-export default function Header(
-  {
-    backIconButton,
-    id,
-    showDismissButton,
-    heading,
-    subHeading,
-    forwardIconButton,
-    onDismiss,
-    primaryAction,
-    showGrabber,
-    align,
-  }: Props,
-) {
+export default function Header({
+  backIconButton,
+  id,
+  showDismissButton,
+  heading,
+  subHeading,
+  forwardIconButton,
+  onDismiss,
+  primaryAction,
+  showGrabber,
+  align,
+}: Props) {
   const { accessibilityDismissButtonLabel, accessibilityGrabberLabel } =
     useDefaultLabelContext('SheetMobile');
   const { onExternalDismiss } = useRequestAnimationFrame();
@@ -79,7 +88,7 @@ export default function Header(
   }, [dismissButtonRef, showGrabber]);
 
   return (
-    (<Fragment>
+    <Fragment>
       {showGrabber ? (
         <Flex justifyContent="center">
           <Box marginBottom={2}>
@@ -159,7 +168,7 @@ export default function Header(
         ) : null}
         {primaryAction ? (
           // Allow button text to wrap on mobile
-          (<Flex.Item flex="shrink">
+          <Flex.Item flex="shrink">
             {primaryAction.href ? (
               <PrimaryAction
                 accessibilityLabel={primaryAction.accessibilityLabel}
@@ -188,9 +197,9 @@ export default function Header(
                 role="button"
               />
             )}
-          </Flex.Item>)
+          </Flex.Item>
         ) : null}
       </Flex>
-    </Fragment>)
+    </Fragment>
   );
 }

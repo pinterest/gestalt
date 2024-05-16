@@ -1,4 +1,4 @@
-import {forwardRef, ReactNode, useState} from 'react';
+import { forwardRef, ReactNode, useState } from 'react';
 import {
   TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_ACTIVE,
   TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_BASE,
@@ -12,13 +12,11 @@ import Flex from './Flex';
 import TapAreaLink from './TapAreaLink';
 import Text from './Text';
 
-type OnChangeHandler = (
-  arg1: {
-    event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-    readonly activeTabIndex: number,
-    dangerouslyDisableOnNavigation: () => void
-  },
-) => void;
+type OnChangeHandler = (arg1: {
+  event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+  readonly activeTabIndex: number;
+  dangerouslyDisableOnNavigation: () => void;
+}) => void;
 
 function Dot() {
   return (
@@ -51,11 +49,7 @@ function Underline() {
 
 const COUNT_HEIGHT_PX = 16;
 
-function Count({
-  count,
-}: {
-  count: number
-}) {
+function Count({ count }: { count: number }) {
   const displayCount = count < 100 ? `${count}` : '99+';
 
   return (
@@ -84,19 +78,19 @@ function Count({
 }
 
 type TabType = {
-  href: string,
-  id?: string,
-  indicator?: "dot" | number,
-  text: ReactNode
+  href: string;
+  id?: string;
+  indicator?: 'dot' | number;
+  text: ReactNode;
 };
-type BgColor = "default" | "transparent";
+type BgColor = 'default' | 'transparent';
 
-type TabProps = ((TabType) & {
-  bgColor: BgColor,
-  index: number,
-  isActive: boolean,
-  onChange: OnChangeHandler
-});
+type TabProps = TabType & {
+  bgColor: BgColor;
+  index: number;
+  isActive: boolean;
+  onChange: OnChangeHandler;
+};
 
 const TAB_ROUNDING = 2;
 const TAB_INNER_PADDING = 2;
@@ -114,16 +108,10 @@ const COLORS = {
   },
 } as const;
 
-const TabWithForwardRef = forwardRef<HTMLElement, TabProps>(function Tab({
-  bgColor,
-  href,
-  indicator,
-  id,
-  index,
-  isActive,
-  onChange,
-  text,
-}: TabProps, ref) {
+const TabWithForwardRef = forwardRef<HTMLElement, TabProps>(function Tab(
+  { bgColor, href, indicator, id, index, isActive, onChange, text }: TabProps,
+  ref,
+) {
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const [pressed, setPressed] = useState(false);
@@ -201,33 +189,33 @@ TabWithForwardRef.displayName = 'Tab';
 
 type Props = {
   /**
-     * The index of the active tab.
-     */
-  activeTabIndex: number,
+   * The index of the active tab.
+   */
+  activeTabIndex: number;
   /**
-     * If Tabs is displayed in a container with a colored background, use this prop to remove the white tab background. See the [background color example](https://gestalt.pinterest.systems/web/tabs#Background-color) to learn more.
-     */
-  bgColor?: BgColor,
+   * If Tabs is displayed in a container with a colored background, use this prop to remove the white tab background. See the [background color example](https://gestalt.pinterest.systems/web/tabs#Background-color) to learn more.
+   */
+  bgColor?: BgColor;
   /**
-     * If your app requires client navigation, be sure to use [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) and/or `onChange` to navigate instead of getting a full page refresh just using `href`.
-     */
-  onChange: OnChangeHandler,
+   * If your app requires client navigation, be sure to use [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) and/or `onChange` to navigate instead of getting a full page refresh just using `href`.
+   */
+  onChange: OnChangeHandler;
   /**
-     * The array of tabs to be displayed. The active tab (as indicated by `activeTabIndex`) will be underlined. Use the optional `indicator` field to show a notification of new items on the tab — see the [indicator variant](https://gestalt.pinterest.systems/web/tabs#Indicator) to learn more. Though `text` currently accepts a React.Node, this is deprecated and will be replaced by a simple `string` type soon.
-     */
+   * The array of tabs to be displayed. The active tab (as indicated by `activeTabIndex`) will be underlined. Use the optional `indicator` field to show a notification of new items on the tab — see the [indicator variant](https://gestalt.pinterest.systems/web/tabs#Indicator) to learn more. Though `text` currently accepts a React.Node, this is deprecated and will be replaced by a simple `string` type soon.
+   */
   tabs: ReadonlyArray<{
-    href: string,
-    id?: string,
-    indicator?: "dot" | number,
+    href: string;
+    id?: string;
+    indicator?: 'dot' | number;
     ref?: {
-      current: HTMLElement | null | undefined
-    },
-    text: ReactNode
-  }>,
+      current: HTMLElement | null | undefined;
+    };
+    text: ReactNode;
+  }>;
   /**
-     * By default, tabs will all try to fit onto one line. Use this prop to allow the items to wrap onto multiple lines, from top to bottom.
-     */
-  wrap?: boolean
+   * By default, tabs will all try to fit onto one line. Use this prop to allow the items to wrap onto multiple lines, from top to bottom.
+   */
+  wrap?: boolean;
 };
 
 /**
@@ -237,15 +225,7 @@ type Props = {
  * ![Tabs dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Tabs-dark.spec.mjs-snapshots/Tabs-dark-chromium-darwin.png)
  *
  */
-export default function Tabs(
-  {
-    activeTabIndex,
-    bgColor = 'default',
-    onChange,
-    tabs,
-    wrap,
-  }: Props,
-) {
+export default function Tabs({ activeTabIndex, bgColor = 'default', onChange, tabs, wrap }: Props) {
   return (
     <Flex alignItems="center" gap={{ row: 4, column: 0 }} justifyContent="start" wrap={wrap}>
       {tabs.map(({ href, id, indicator, ref, text }, index) => (

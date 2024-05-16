@@ -1,4 +1,4 @@
-import {ReactNode, useEffect, useRef} from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 import { FloatingFocusManager } from '@floating-ui/react';
 import classnames from 'classnames';
 import usePopover, { DIRECTIONS_MAP, SIDES_MAP } from './usePopover';
@@ -10,51 +10,49 @@ import layoutStyles from '../Layout.css';
 import { MainDirections } from '../utils/positioningTypes';
 import { CARET_HEIGHT, CARET_WIDTH } from '../utils/positioningUtils';
 
-export type Role = "dialog" | "listbox" | "menu" | "tooltip";
+export type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 
 type Props = {
-  accessibilityLabel?: string,
-  anchor: HTMLElement,
-  bgColor: "blue" | "darkGray" | "white",
-  border?: boolean,
-  caret?: boolean,
-  children?: ReactNode,
-  id: string | null | undefined,
-  idealDirection?: MainDirections,
-  onKeyDown: (event: React.KeyboardEvent<HTMLElement>) => void,
-  role: Role | null | undefined,
-  rounding?: 2 | 4,
-  shouldFocus?: boolean,
-  width: number | null | undefined,
-  scrollBoundary?: HTMLElement,
-  hideWhenReferenceHidden?: boolean,
-  onPositioned?: () => void,
-  shouldTrapFocus?: boolean,
-  overflow?: Extract<Overflow, "auto" | "hidden" | "visible">
+  accessibilityLabel?: string;
+  anchor: HTMLElement;
+  bgColor: 'blue' | 'darkGray' | 'white';
+  border?: boolean;
+  caret?: boolean;
+  children?: ReactNode;
+  id: string | null | undefined;
+  idealDirection?: MainDirections;
+  onKeyDown: (event: React.KeyboardEvent<HTMLElement>) => void;
+  role: Role | null | undefined;
+  rounding?: 2 | 4;
+  shouldFocus?: boolean;
+  width: number | null | undefined;
+  scrollBoundary?: HTMLElement;
+  hideWhenReferenceHidden?: boolean;
+  onPositioned?: () => void;
+  shouldTrapFocus?: boolean;
+  overflow?: Extract<Overflow, 'auto' | 'hidden' | 'visible'>;
 };
 
-export default function Contents(
-  {
-    accessibilityLabel,
-    anchor,
-    bgColor,
-    border = true,
-    caret = true,
-    children,
-    id,
-    idealDirection,
-    role,
-    rounding,
-    width,
-    shouldFocus = true,
-    onKeyDown,
-    scrollBoundary,
-    hideWhenReferenceHidden,
-    onPositioned,
-    shouldTrapFocus,
-    overflow = 'auto',
-  }: Props,
-) {
+export default function Contents({
+  accessibilityLabel,
+  anchor,
+  bgColor,
+  border = true,
+  caret = true,
+  children,
+  id,
+  idealDirection,
+  role,
+  rounding,
+  width,
+  shouldFocus = true,
+  onKeyDown,
+  scrollBoundary,
+  hideWhenReferenceHidden,
+  onPositioned,
+  shouldTrapFocus,
+  overflow = 'auto',
+}: Props) {
   const caretRef = useRef<HTMLElement | null>(null);
   const idealPlacement = idealDirection ? DIRECTIONS_MAP[idealDirection] : 'top';
 

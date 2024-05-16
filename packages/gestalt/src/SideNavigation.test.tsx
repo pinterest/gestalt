@@ -1,4 +1,4 @@
-import {create} from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 import Box from './Box';
 import SideNavigation from './SideNavigation';
 
@@ -67,65 +67,49 @@ describe('SideNavigation', () => {
           href="#"
           icon="ads-stats"
           label="Reporting"
-          onClick={({
-            event,
-          }: any) => event.preventDefault()}
+          onClick={({ event }: any) => event.preventDefault()}
         />
         <SideNavigation.TopItem
           href="#"
           icon="replace"
           label="Conversions"
-          onClick={({
-            event,
-          }: any) => event.preventDefault()}
+          onClick={({ event }: any) => event.preventDefault()}
         />
         <SideNavigation.Section label="Audiences">
           <SideNavigation.TopItem
             href="#"
             icon="people"
             label="Thanksgiving"
-            onClick={({
-              event,
-            }: any) => event.preventDefault()}
+            onClick={({ event }: any) => event.preventDefault()}
           />
           <SideNavigation.Group icon="people" label="Christmas">
             <SideNavigation.NestedItem
               href="#"
               label="Luxury Christmas"
-              onClick={({
-                event,
-              }: any) => event.preventDefault()}
+              onClick={({ event }: any) => event.preventDefault()}
             />
             <SideNavigation.NestedGroup label="Classic Christmas">
               <SideNavigation.NestedItem
                 href="#"
                 label="West Coast"
-                onClick={({
-                  event,
-                }: any) => event.preventDefault()}
+                onClick={({ event }: any) => event.preventDefault()}
               />
               <SideNavigation.NestedItem
                 href="#"
                 label="East Coast"
-                onClick={({
-                  event,
-                }: any) => event.preventDefault()}
+                onClick={({ event }: any) => event.preventDefault()}
               />
             </SideNavigation.NestedGroup>
             <SideNavigation.NestedGroup label="Alternative Christmas">
               <SideNavigation.NestedItem
                 href="#"
                 label="West Coast"
-                onClick={({
-                  event,
-                }: any) => event.preventDefault()}
+                onClick={({ event }: any) => event.preventDefault()}
               />
               <SideNavigation.NestedItem
                 href="#"
                 label="East Coast"
-                onClick={({
-                  event,
-                }: any) => event.preventDefault()}
+                onClick={({ event }: any) => event.preventDefault()}
               />
             </SideNavigation.NestedGroup>
           </SideNavigation.Group>
@@ -133,16 +117,12 @@ describe('SideNavigation', () => {
             <SideNavigation.NestedItem
               href="#"
               label="East Coast"
-              onClick={({
-                event,
-              }: any) => event.preventDefault()}
+              onClick={({ event }: any) => event.preventDefault()}
             />
             <SideNavigation.NestedItem
               href="#"
               label="West Coast"
-              onClick={({
-                event,
-              }: any) => event.preventDefault()}
+              onClick={({ event }: any) => event.preventDefault()}
             />
           </SideNavigation.Group>
         </SideNavigation.Section>
@@ -158,24 +138,18 @@ describe('SideNavigation', () => {
           <SideNavigation.NestedItem
             href="#"
             label="Luxury Christmas"
-            onClick={({
-              event,
-            }: any) => event.preventDefault()}
+            onClick={({ event }: any) => event.preventDefault()}
           />
           <SideNavigation.NestedGroup display="static" label="Classic Christmas">
             <SideNavigation.NestedItem
               href="#"
               label="West Coast"
-              onClick={({
-                event,
-              }: any) => event.preventDefault()}
+              onClick={({ event }: any) => event.preventDefault()}
             />
             <SideNavigation.NestedItem
               href="#"
               label="East Coast"
-              onClick={({
-                event,
-              }: any) => event.preventDefault()}
+              onClick={({ event }: any) => event.preventDefault()}
             />
           </SideNavigation.NestedGroup>
         </SideNavigation.Group>
@@ -191,24 +165,18 @@ describe('SideNavigation', () => {
           <SideNavigation.NestedItem
             href="#"
             label="Luxury Christmas"
-            onClick={({
-              event,
-            }: any) => event.preventDefault()}
+            onClick={({ event }: any) => event.preventDefault()}
           />
           <SideNavigation.NestedGroup display="expandable" expanded label="Classic Christmas">
             <SideNavigation.NestedItem
               href="#"
               label="West Coast"
-              onClick={({
-                event,
-              }: any) => event.preventDefault()}
+              onClick={({ event }: any) => event.preventDefault()}
             />
             <SideNavigation.NestedItem
               href="#"
               label="East Coast"
-              onClick={({
-                event,
-              }: any) => event.preventDefault()}
+              onClick={({ event }: any) => event.preventDefault()}
             />
           </SideNavigation.NestedGroup>
         </SideNavigation.Group>

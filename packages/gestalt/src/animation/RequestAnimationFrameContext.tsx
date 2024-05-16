@@ -13,12 +13,12 @@ import { ANIMATION_STATE, useAnimation } from './AnimationContext';
 import useReducedMotion from '../useReducedMotion';
 
 type RequestAnimationFrameProviderProps = {
-  children: ReactNode
+  children: ReactNode;
 };
 
 type RequestAnimationFrameType = {
-  handleRequestAnimationFrame: () => void,
-  onExternalDismiss: () => void
+  handleRequestAnimationFrame: () => void;
+  onExternalDismiss: () => void;
 };
 
 // CONTEXT
@@ -56,13 +56,11 @@ function getRequestAnimationFrame(callback: () => void): number {
   return requestId;
 }
 // cancelAnimationFrame
-function cancelRequestAnimationFrame(
-  {
-    requestAnimationFrameId,
-  }: {
-    requestAnimationFrameId: number | null
-  },
-): number | null {
+function cancelRequestAnimationFrame({
+  requestAnimationFrameId,
+}: {
+  requestAnimationFrameId: number | null;
+}): number | null {
   if (
     typeof window !== 'undefined' &&
     Object.prototype.hasOwnProperty.call(window, 'cancelAnimationFrame') &&
@@ -77,11 +75,11 @@ function cancelRequestAnimationFrame(
 }
 
 // PROVIDER
-export default function RequestAnimationFrameProvider(
-  {
-    children,
-  }: RequestAnimationFrameProviderProps,
-): Element<typeof RequestAnimationFrameContext.Provider> | null {
+export default function RequestAnimationFrameProvider({
+  children,
+}: RequestAnimationFrameProviderProps): Element<
+  typeof RequestAnimationFrameContext.Provider
+> | null {
   const reducedMotion = useReducedMotion();
   const { animationState, setAnimationState, handleExternalDismiss } = useAnimation();
   const requestAnimationFrameId = useRef<null | number>(null);

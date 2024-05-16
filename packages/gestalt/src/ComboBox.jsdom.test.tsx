@@ -1,4 +1,4 @@
-import {render, screen} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ComboBox from './ComboBox';
 import Tag from './Tag';
@@ -66,25 +66,27 @@ describe('ComboBox', () => {
     size,
     tags,
   }: {
-    accessibilityClearButtonLabel?: ComponentProps<typeof ComboBox>["accessibilityClearButtonLabel"],
-    disabled?: ComponentProps<typeof ComboBox>["disabled"],
-    errorMessage?: ComponentProps<typeof ComboBox>["errorMessage"],
-    helperText?: ComponentProps<typeof ComboBox>["helperText"],
-    id?: ComponentProps<typeof ComboBox>["id"],
-    inputValue?: ComponentProps<typeof ComboBox>["inputValue"],
-    label?: ComponentProps<typeof ComboBox>["label"],
-    noResultText?: ComponentProps<typeof ComboBox>["noResultText"],
-    onBlur?: ComponentProps<typeof ComboBox>["onBlur"],
-    onChange?: ComponentProps<typeof ComboBox>["onChange"],
-    onClear?: ComponentProps<typeof ComboBox>["onClear"],
-    onFocus?: ComponentProps<typeof ComboBox>["onFocus"],
-    onKeyDown?: ComponentProps<typeof ComboBox>["onKeyDown"],
-    onSelect?: ComponentProps<typeof ComboBox>["onSelect"],
-    options?: ComponentProps<typeof ComboBox>["options"],
-    placeholder?: ComponentProps<typeof ComboBox>["placeholder"],
-    selectedOption?: ComponentProps<typeof ComboBox>["selectedOption"],
-    size?: ComponentProps<typeof ComboBox>["size"],
-    tags?: ComponentProps<typeof ComboBox>["tags"]
+    accessibilityClearButtonLabel?: ComponentProps<
+      typeof ComboBox
+    >['accessibilityClearButtonLabel'];
+    disabled?: ComponentProps<typeof ComboBox>['disabled'];
+    errorMessage?: ComponentProps<typeof ComboBox>['errorMessage'];
+    helperText?: ComponentProps<typeof ComboBox>['helperText'];
+    id?: ComponentProps<typeof ComboBox>['id'];
+    inputValue?: ComponentProps<typeof ComboBox>['inputValue'];
+    label?: ComponentProps<typeof ComboBox>['label'];
+    noResultText?: ComponentProps<typeof ComboBox>['noResultText'];
+    onBlur?: ComponentProps<typeof ComboBox>['onBlur'];
+    onChange?: ComponentProps<typeof ComboBox>['onChange'];
+    onClear?: ComponentProps<typeof ComboBox>['onClear'];
+    onFocus?: ComponentProps<typeof ComboBox>['onFocus'];
+    onKeyDown?: ComponentProps<typeof ComboBox>['onKeyDown'];
+    onSelect?: ComponentProps<typeof ComboBox>['onSelect'];
+    options?: ComponentProps<typeof ComboBox>['options'];
+    placeholder?: ComponentProps<typeof ComboBox>['placeholder'];
+    selectedOption?: ComponentProps<typeof ComboBox>['selectedOption'];
+    size?: ComponentProps<typeof ComboBox>['size'];
+    tags?: ComponentProps<typeof ComboBox>['tags'];
   }) =>
     render(
       <ComboBox

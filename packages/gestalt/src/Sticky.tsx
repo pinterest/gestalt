@@ -1,44 +1,51 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import layout from './Layout.css';
 import { FixedZIndex, Indexable } from './zIndex';
 
 type PositionType = number | string;
 
-type Threshold = {
-  top: PositionType
-} | {
-  bottom: PositionType
-} | {
-  left: PositionType
-} | {
-  right: PositionType
-} | {
-  top: PositionType,
-  bottom: PositionType
-} | {
-  left: PositionType,
-  right: PositionType
-} | {
-  top: PositionType,
-  left: PositionType,
-  right: PositionType,
-  bottom: PositionType
-};
+type Threshold =
+  | {
+      top: PositionType;
+    }
+  | {
+      bottom: PositionType;
+    }
+  | {
+      left: PositionType;
+    }
+  | {
+      right: PositionType;
+    }
+  | {
+      top: PositionType;
+      bottom: PositionType;
+    }
+  | {
+      left: PositionType;
+      right: PositionType;
+    }
+  | {
+      top: PositionType;
+      left: PositionType;
+      right: PositionType;
+      bottom: PositionType;
+    };
 
-type Props = ((Threshold) & {
+type Props = Threshold & {
   /**
-     * The content to display.
-     */
-  children: ReactNode,
+   * The content to display.
+   */
+  children: ReactNode;
   /**
-     * The height of the sticky container in pixels. This is useful when the sticky container and its content need to have different heights.
-     */
-  height?: number,
+   * The height of the sticky container in pixels. This is useful when the sticky container and its content need to have different heights.
+   */
+  height?: number;
   /**
-     * An object representing the z-index of the sticky container. See the [zIndex Classes](https://gestalt.pinterest.systems/web/zindex_classes) page for more information.
-     */
-  zIndex?: Indexable
-});
+   * An object representing the z-index of the sticky container. See the [zIndex Classes](https://gestalt.pinterest.systems/web/zindex_classes) page for more information.
+   */
+  zIndex?: Indexable;
+};
 
 const DEFAULT_ZINDEX = new FixedZIndex(1);
 
@@ -48,26 +55,24 @@ const DEFAULT_ZINDEX = new FixedZIndex(1);
  * ![Sticky](https://raw.githubusercontent.com/pinterest/gestalt/master/docs/graphics/building-blocks/Sticky.svg)
  */
 
-export default function Sticky(
-  {
-    // eslint-disable-line react/prop-types
-    bottom,
+export default function Sticky({
+  // eslint-disable-line react/prop-types
+  bottom,
 
-    children,
-    height,
+  children,
+  height,
 
-    // eslint-disable-line react/prop-types
-    left,
+  // eslint-disable-line react/prop-types
+  left,
 
-    // eslint-disable-line react/prop-types
-    right,
+  // eslint-disable-line react/prop-types
+  right,
 
-    // eslint-disable-line react/prop-types
-    top,
+  // eslint-disable-line react/prop-types
+  top,
 
-    zIndex,
-  }: Props,
-) {
+  zIndex,
+}: Props) {
   const style = {
     ...(height !== undefined ? { height } : {}),
     top: top != null ? top : undefined,

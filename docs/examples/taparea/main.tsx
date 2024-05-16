@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Avatar, Box, TapArea, Text } from 'gestalt';
 
 export default function TapAreaExample() {

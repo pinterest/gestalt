@@ -1,4 +1,4 @@
-import {Children, ReactElement, ReactNode} from 'react';
+import { Children, ReactElement, ReactNode } from 'react';
 import classnames from 'classnames';
 import styles from './BannerUpsell.css';
 import BannerUpsellForm from './BannerUpsellForm';
@@ -14,36 +14,32 @@ import Mask from './Mask';
 import Text from './Text';
 import useResponsiveMinWidth from './useResponsiveMinWidth';
 
-export type ActionDataType = {
-  accessibilityLabel: string,
-  disabled?: boolean,
-  href: string,
-  label: string,
-  onClick?: ComponentProps<typeof ButtonLink>["onClick"],
-  rel?: "none" | "nofollow",
-  role: "link",
-  target?: null | "self" | "blank"
-} | {
-  accessibilityLabel: string,
-  disabled?: boolean,
-  label: string,
-  onClick: ComponentProps<typeof Button>["onClick"],
-  role?: "button"
-};
+export type ActionDataType =
+  | {
+      accessibilityLabel: string;
+      disabled?: boolean;
+      href: string;
+      label: string;
+      onClick?: ComponentProps<typeof ButtonLink>['onClick'];
+      rel?: 'none' | 'nofollow';
+      role: 'link';
+      target?: null | 'self' | 'blank';
+    }
+  | {
+      accessibilityLabel: string;
+      disabled?: boolean;
+      label: string;
+      onClick: ComponentProps<typeof Button>['onClick'];
+      role?: 'button';
+    };
 
 type UpsellActionProps = {
-  data: ActionDataType,
-  stacked?: boolean,
-  type: string
+  data: ActionDataType;
+  stacked?: boolean;
+  type: string;
 };
 
-function UpsellAction(
-  {
-    data,
-    stacked,
-    type,
-  }: UpsellActionProps,
-) {
+function UpsellAction({ data, stacked, type }: UpsellActionProps) {
   const color = type === 'primary' ? 'red' : 'gray';
   const { accessibilityLabel, disabled, label } = data;
 
@@ -88,47 +84,47 @@ function UpsellAction(
 
 type Props = {
   /**
-     * To create forms within BannerUpsell, pass BannerUpsell.Form as children.
-     */
-  children?: Element<typeof BannerUpsellForm>,
+   * To create forms within BannerUpsell, pass BannerUpsell.Form as children.
+   */
+  children?: Element<typeof BannerUpsellForm>;
   /**
-     * Adds a dismiss button to the BannerUpsell. The \`accessibilityLabel\` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannerupsell#Accessibility).
-     */
+   * Adds a dismiss button to the BannerUpsell. The \`accessibilityLabel\` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannerupsell#Accessibility).
+   */
   dismissButton?: {
-    accessibilityLabel?: string,
-    onDismiss: () => void
-  },
+    accessibilityLabel?: string;
+    onDismiss: () => void;
+  };
   /**
-     * Either an [Icon](https://gestalt.pinterest.systems/web/icon) or an [Image](https://gestalt.pinterest.systems/web/image) to render at the start of the banner. Width is not used with Icon. Image width defaults to 128px. See the [Icon](https://gestalt.pinterest.systems/web/bannerupsell#Icon) and [Image](https://gestalt.pinterest.systems/web/bannerupsell#Image) variants for more info.
-     */
+   * Either an [Icon](https://gestalt.pinterest.systems/web/icon) or an [Image](https://gestalt.pinterest.systems/web/image) to render at the start of the banner. Width is not used with Icon. Image width defaults to 128px. See the [Icon](https://gestalt.pinterest.systems/web/bannerupsell#Icon) and [Image](https://gestalt.pinterest.systems/web/bannerupsell#Image) variants for more info.
+   */
   imageData?: {
-    component: Element<typeof Image | typeof Icon>,
+    component: Element<typeof Image | typeof Icon>;
     mask?: {
-      rounding?: "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8,
-      wash?: boolean
-    },
-    width?: number
-  },
+      rounding?: 'circle' | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
+      wash?: boolean;
+    };
+    width?: number;
+  };
   /**
-     * Main content of BannerUpsell, explains what is being offered or recommended. Content should be [localized](https://gestalt.pinterest.systems/web/bannerupsell#Localization). See the [Message variant](https://gestalt.pinterest.systems/web/bannerupsell#Message) to learn more.
-     */
-  message: string | Element<typeof Text>,
+   * Main content of BannerUpsell, explains what is being offered or recommended. Content should be [localized](https://gestalt.pinterest.systems/web/bannerupsell#Localization). See the [Message variant](https://gestalt.pinterest.systems/web/bannerupsell#Message) to learn more.
+   */
+  message: string | Element<typeof Text>;
   /**
-     * Main action for people to take on BannerUpsell. If \`href\` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.'
-     * If no \`href\` is supplied, the action will be a button.
-     * The \`accessibilityLabel\` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannerupsell#Accessibility).
-     */
-  primaryAction?: ActionDataType,
+   * Main action for people to take on BannerUpsell. If \`href\` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.'
+   * If no \`href\` is supplied, the action will be a button.
+   * The \`accessibilityLabel\` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannerupsell#Accessibility).
+   */
+  primaryAction?: ActionDataType;
   /**
-     * Secondary action for people to take on BannerUpsell. If \`href\` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.'
-     * If no \`href\` is supplied, the action will be a button.
-     * The \`accessibilityLabel\` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannerupsell#Accessibility).
-     */
-  secondaryAction?: ActionDataType,
+   * Secondary action for people to take on BannerUpsell. If \`href\` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.'
+   * If no \`href\` is supplied, the action will be a button.
+   * The \`accessibilityLabel\` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannerupsell#Accessibility).
+   */
+  secondaryAction?: ActionDataType;
   /**
-     * Brief title summarizing the BannerUpsell. Content should be [localized](https://gestalt.pinterest.systems/web/bannerupsell#Localization).
-     */
-  title?: string
+   * Brief title summarizing the BannerUpsell. Content should be [localized](https://gestalt.pinterest.systems/web/bannerupsell#Localization).
+   */
+  title?: string;
 };
 
 /**
@@ -138,17 +134,15 @@ type Props = {
  * ![BannerUpsell light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/BannerUpsell.spec.mjs-snapshots/BannerUpsell-chromium-darwin.png)
  * ![BannerUpsell dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/BannerUpsell-dark.spec.mjs-snapshots/BannerUpsell-dark-chromium-darwin.png)
  */
-export default function BannerUpsell(
-  {
-    children,
-    dismissButton,
-    imageData,
-    message,
-    primaryAction,
-    secondaryAction,
-    title,
-  }: Props,
-) {
+export default function BannerUpsell({
+  children,
+  dismissButton,
+  imageData,
+  message,
+  primaryAction,
+  secondaryAction,
+  title,
+}: Props) {
   const isImage = imageData?.component && imageData.component.type === Image;
   const responsiveMinWidth = useResponsiveMinWidth();
   const { accessibilityDismissButtonLabel } = useDefaultLabelContext('BannerUpsell');
@@ -156,7 +150,7 @@ export default function BannerUpsell(
   const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
-  let messageElement: Element<"span"> | Element<typeof Text>;
+  let messageElement: Element<'span'> | Element<typeof Text>;
 
   if (typeof message === 'string') {
     messageElement = (

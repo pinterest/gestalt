@@ -1,23 +1,16 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Size, SIZE_MAP } from './constants';
 import Box from '../Box';
 
 type Props = {
-  children: ReactNode,
-  pileCount: number,
-  index: number,
-  size: Size
+  children: ReactNode;
+  pileCount: number;
+  index: number;
+  size: Size;
 };
 
 // PositioningWrapper provides a width and height for each avatar and positions them correctly in the superposed stack.
-export default function PositioningWrapper(
-  {
-    size,
-    pileCount,
-    index,
-    children,
-  }: Props,
-) {
+export default function PositioningWrapper({ size, pileCount, index, children }: Props) {
   const FIT_SIZING_DENOMINATOR = 2 * pileCount + 1;
 
   const isFitSize = size === 'fit';

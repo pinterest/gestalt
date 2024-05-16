@@ -1,14 +1,10 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { DefaultLabelProvider } from 'gestalt';
 
 type Props = {
-  children: ReactNode
+  children: ReactNode;
 };
 
-export default function DocsDefaultLabelProvider(
-  {
-    children,
-  }: Props,
-) {
+export default function DocsDefaultLabelProvider({ children }: Props) {
   return <DefaultLabelProvider labels={null}>{children}</DefaultLabelProvider>;
 }

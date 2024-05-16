@@ -1,4 +1,4 @@
-import {ReactNode, useCallback, useState} from 'react';
+import { ReactNode, useCallback, useState } from 'react';
 import { Layer, Modal, useDefaultLabel } from 'gestalt';
 import TabularDataModalFooter from './TabularDataModalFooter';
 import TabularDataModalHeading from './TabularDataModalHeading';
@@ -11,41 +11,39 @@ import useTabularData, {
 } from './useTabularData';
 
 interface Indexable {
-  index(): number
+  index(): number;
 }
 
 type Props = {
-  title: string,
-  toggleTabularDataModal: () => void,
+  title: string;
+  toggleTabularDataModal: () => void;
   data: ReadonlyArray<{
-    name: string | number,
-    [key: string]: number
-  }>,
+    name: string | number;
+    [key: string]: number;
+  }>;
   tickFormatter?: {
-    timeseries?: (arg1: number) => string | number,
-    xAxisTop?: (arg1: number, arg2: number) => string | number,
-    xAxisBottom?: (arg1: number, arg2: number) => string | number,
-    yAxisRight?: (arg1: number, arg2: number) => string | number,
-    yAxisLeft?: (arg1: number, arg2: number) => string | number
-  },
+    timeseries?: (arg1: number) => string | number;
+    xAxisTop?: (arg1: number, arg2: number) => string | number;
+    xAxisBottom?: (arg1: number, arg2: number) => string | number;
+    yAxisRight?: (arg1: number, arg2: number) => string | number;
+    yAxisLeft?: (arg1: number, arg2: number) => string | number;
+  };
   labelMap?: {
-    [key: string]: string
-  },
-  modalZIndex?: Indexable,
-  isHorizontalLayout: boolean
+    [key: string]: string;
+  };
+  modalZIndex?: Indexable;
+  isHorizontalLayout: boolean;
 };
 
-export default function TabularDataModal(
-  {
-    title,
-    toggleTabularDataModal,
-    data,
-    tickFormatter,
-    labelMap,
-    modalZIndex,
-    isHorizontalLayout,
-  }: Props,
-) {
+export default function TabularDataModal({
+  title,
+  toggleTabularDataModal,
+  data,
+  tickFormatter,
+  labelMap,
+  modalZIndex,
+  isHorizontalLayout,
+}: Props) {
   const { tabularData } = useDefaultLabel('ChartGraph');
 
   const [sortOrder, setSortOrder] = useState<FilterOrderType>('desc');

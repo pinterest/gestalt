@@ -29,116 +29,117 @@ const layoutNumberToCssDimension = (n?: number | null) => (n !== Infinity ? n : 
 
 type Props<T> = {
   /**
-     * Controls the horizontal alignment of items within the Masonry grid. The `align` property determines how items are aligned along the main-axis (horizontally) across multiple columns.
-     * `start`: Aligns items to the start of the Masonry container. This is the default behavior where items are placed starting from the left side of the container.
-     * `center`: Centers items in the Masonry grid. This will adjust the spacing on either side of the grid to ensure that the items are centered within the container.
-     * `end`: Aligns items to the end of the Masonry container. Items will be placed starting from the right, moving leftwards, which may leave space on the left side of the container.
-     * Using the `align` property can help control the visual balance and alignment of the grid, especially in responsive layouts or when dealing with varying item widths.
-     *
-     * _Note that layout='basic' must be set for align to take effect._
-     */
-  align?: Align,
+   * Controls the horizontal alignment of items within the Masonry grid. The `align` property determines how items are aligned along the main-axis (horizontally) across multiple columns.
+   * `start`: Aligns items to the start of the Masonry container. This is the default behavior where items are placed starting from the left side of the container.
+   * `center`: Centers items in the Masonry grid. This will adjust the spacing on either side of the grid to ensure that the items are centered within the container.
+   * `end`: Aligns items to the end of the Masonry container. Items will be placed starting from the right, moving leftwards, which may leave space on the left side of the container.
+   * Using the `align` property can help control the visual balance and alignment of the grid, especially in responsive layouts or when dealing with varying item widths.
+   *
+   * _Note that layout='basic' must be set for align to take effect._
+   */
+  align?: Align;
   /**
-     * The preferred/target item width in pixels. If `layout="flexible"` is set, the item width will
-     * grow to fill column space, and shrink to fit if below the minimum number of columns.
-     */
-  columnWidth?: number,
+   * The preferred/target item width in pixels. If `layout="flexible"` is set, the item width will
+   * grow to fill column space, and shrink to fit if below the minimum number of columns.
+   */
+  columnWidth?: number;
   /**
-     * The amount of vertical and horizontal space between each item, specified in pixels.
-     */
-  gutterWidth?: number,
+   * The amount of vertical and horizontal space between each item, specified in pixels.
+   */
+  gutterWidth?: number;
   /**
-     * An array of items to display that contains the data to be rendered by `renderItem`.
-     */
-  items: ReadonlyArray<T>,
+   * An array of items to display that contains the data to be rendered by `renderItem`.
+   */
+  items: ReadonlyArray<T>;
   /**
-     * `basic`: Left-aligned, fixed-column-width masonry layout.
-     * `basicCentered`: Center-aligned, fixed-column-width masonry layout.
-     * `flexible`: Item width grows to fill column space and shrinks to fit if below the minimum number of columns.
-     * `serverRenderedFlexible`: Item width grows to fill column space and shrinks to fit if below the minimum number of columns. Main differerence with `flexible` is that we do not store the initial measurement. More context in [#2084](https://github.com/pinterest/gestalt/pull/2084)
-     * `uniformRow`: Items are laid out in a single row, with all items having the same height. Note that Masonry does _not_ crop or alter items in any way — rows will take the height of the tallest item in the row, with additional whitespace shown below any shorter items.
-     */
-  layout?: Layout,
+   * `basic`: Left-aligned, fixed-column-width masonry layout.
+   * `basicCentered`: Center-aligned, fixed-column-width masonry layout.
+   * `flexible`: Item width grows to fill column space and shrinks to fit if below the minimum number of columns.
+   * `serverRenderedFlexible`: Item width grows to fill column space and shrinks to fit if below the minimum number of columns. Main differerence with `flexible` is that we do not store the initial measurement. More context in [#2084](https://github.com/pinterest/gestalt/pull/2084)
+   * `uniformRow`: Items are laid out in a single row, with all items having the same height. Note that Masonry does _not_ crop or alter items in any way — rows will take the height of the tallest item in the row, with additional whitespace shown below any shorter items.
+   */
+  layout?: Layout;
   /**
-     * A callback fired when the user scrolls past a given threshold, based on the height of the container. The callback should update the state of the items, which must be reflected in the `items` prop.
-     *
-     * _Note that `scrollContainer` must be specified._
-     */
+   * A callback fired when the user scrolls past a given threshold, based on the height of the container. The callback should update the state of the items, which must be reflected in the `items` prop.
+   *
+   * _Note that `scrollContainer` must be specified._
+   */
   loadItems?: (
-    arg1?: {
-      from: number
-    } | null | undefined,
-  ) => void,
+    arg1?:
+      | {
+          from: number;
+        }
+      | null
+      | undefined,
+  ) => void;
   /**
-     * Masonry internally caches item heights using a measurement store. If `measurementStore` is provided, Masonry will use it as its cache and will keep it updated with future measurements. This is often used to prevent re-measurement when users navigate away from and back to a grid. Create a new measurement store with `Masonry.createMeasurementStore()`.
-     */
-  measurementStore?: Cache<T, number>,
+   * Masonry internally caches item heights using a measurement store. If `measurementStore` is provided, Masonry will use it as its cache and will keep it updated with future measurements. This is often used to prevent re-measurement when users navigate away from and back to a grid. Create a new measurement store with `Masonry.createMeasurementStore()`.
+   */
+  measurementStore?: Cache<T, number>;
   /**
-     * Minimum number of columns to display, regardless of the container width.
-     */
-  minCols?: number,
+   * Minimum number of columns to display, regardless of the container width.
+   */
+  minCols?: number;
   /**
-     * Masonry internally caches positions using a position store. If `positionStore` is provided, Masonry will use it as its cache and will keep it updated with future positions.
-     */
-  positionStore?: Cache<T, Position>,
+   * Masonry internally caches positions using a position store. If `positionStore` is provided, Masonry will use it as its cache and will keep it updated with future positions.
+   */
+  positionStore?: Cache<T, Position>;
   /**
-     * A function that renders the item you would like displayed in the grid. This function is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item.
-     *
-     * If present, `heightAdjustment` indicates the number of pixels this item needs to grow/shrink to accommodate a 2-column item in the grid. Items must respond to this prop by adjusting their height or layout issues will occur.
-     */
-  renderItem: (
-    arg1: {
-      readonly data: T,
-      readonly itemIdx: number,
-      readonly isMeasuring: boolean
-    },
-  ) => ReactNode,
+   * A function that renders the item you would like displayed in the grid. This function is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item.
+   *
+   * If present, `heightAdjustment` indicates the number of pixels this item needs to grow/shrink to accommodate a 2-column item in the grid. Items must respond to this prop by adjusting their height or layout issues will occur.
+   */
+  renderItem: (arg1: {
+    readonly data: T;
+    readonly itemIdx: number;
+    readonly isMeasuring: boolean;
+  }) => ReactNode;
   /**
-     * A function that returns a DOM node that Masonry uses for scroll event subscription. This DOM node is intended to be the most immediate ancestor of Masonry in the DOM that will have a scroll bar; in most cases this will be the `window` itself, although sometimes Masonry is used inside containers that have `overflow: auto`. `scrollContainer` is optional, although it is required for features such as `virtualize` and `loadItems`.
-     *
-     * This is required if the grid is expected to be scrollable.
-     */
-  scrollContainer?: () => HTMLElement,
+   * A function that returns a DOM node that Masonry uses for scroll event subscription. This DOM node is intended to be the most immediate ancestor of Masonry in the DOM that will have a scroll bar; in most cases this will be the `window` itself, although sometimes Masonry is used inside containers that have `overflow: auto`. `scrollContainer` is optional, although it is required for features such as `virtualize` and `loadItems`.
+   *
+   * This is required if the grid is expected to be scrollable.
+   */
+  scrollContainer?: () => HTMLElement;
   /**
-     * If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBoundsBottom` allows customization of the buffer size below the viewport, specified in pixels.
-     */
-  virtualBoundsBottom?: number,
+   * If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBoundsBottom` allows customization of the buffer size below the viewport, specified in pixels.
+   */
+  virtualBoundsBottom?: number;
   /**
-     * If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBoundsTop` allows customization of the buffer size above the viewport, specified in pixels.
-     */
-  virtualBoundsTop?: number,
+   * If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBoundsTop` allows customization of the buffer size above the viewport, specified in pixels.
+   */
+  virtualBoundsTop?: number;
   /**
-     * If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBufferFactor` allows customization of the buffer size, specified as a multiplier of the container height. It specifies the amount of extra buffer space for populating visible items. For example, if `virtualBufferFactor` is 2, then Masonry will render items that fit in the viewport, plus 2x the viewport height.
-     */
-  virtualBufferFactor?: number,
+   * If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBufferFactor` allows customization of the buffer size, specified as a multiplier of the container height. It specifies the amount of extra buffer space for populating visible items. For example, if `virtualBufferFactor` is 2, then Masonry will render items that fit in the viewport, plus 2x the viewport height.
+   */
+  virtualBufferFactor?: number;
   /**
-     * Specifies whether or not Masonry dynamically adds/removes content from the grid based on the user's viewport and scroll position. Note that `scrollContainer` must be specified when virtualization is used.
-     */
-  virtualize?: boolean,
+   * Specifies whether or not Masonry dynamically adds/removes content from the grid based on the user's viewport and scroll position. Note that `scrollContainer` must be specified when virtualization is used.
+   */
+  virtualize?: boolean;
   /**
-     * Experimental prop to turn on support for items spanning two columns. Two-column items should include the optional `columnSpan` prop.
-     *
-     * This is an experimental prop and may be removed in the future.
-     */
-  _twoColItems?: boolean,
+   * Experimental prop to turn on support for items spanning two columns. Two-column items should include the optional `columnSpan` prop.
+   *
+   * This is an experimental prop and may be removed in the future.
+   */
+  _twoColItems?: boolean;
   /**
-     * Experimental prop to log the additional whitespace shown above two-column items.
-     *
-     * This is an experimental prop and may be removed in the future.
-     */
-  _logTwoColWhitespace?: (arg1: number) => void,
+   * Experimental prop to log the additional whitespace shown above two-column items.
+   *
+   * This is an experimental prop and may be removed in the future.
+   */
+  _logTwoColWhitespace?: (arg1: number) => void;
   /**
-     * Experimental prop to measure all items in one batch
-     */
-  _measureAll?: boolean
+   * Experimental prop to measure all items in one batch
+   */
+  _measureAll?: boolean;
 };
 
 type MasonryRef = {
-  readonly handleResize: () => void,
-  readonly reflow: () => void,
+  readonly handleResize: () => void;
+  readonly reflow: () => void;
   readonly state: {
-    width: number | null | undefined
-  }
+    width: number | null | undefined;
+  };
 };
 
 /**
@@ -204,8 +205,8 @@ function useScrollContainer({
   gridWrapper,
   scrollContainer,
 }: {
-  gridWrapper: HTMLElement | null | undefined,
-  scrollContainer: HTMLElement | null | undefined
+  gridWrapper: HTMLElement | null | undefined;
+  scrollContainer: HTMLElement | null | undefined;
 }) {
   const [containerHeight, setContainerHeight] = useState(0);
   const [containerOffset, setContainerOffset] = useState(0);
@@ -264,19 +265,22 @@ function useFetchOnScroll({
   scrollContainerElement,
   width,
 }: {
-  containerHeight: number,
-  containerOffset: number,
-  hasPendingMeasurements: boolean,
-  height: number,
-  items: ReadonlyArray<unknown>,
+  containerHeight: number;
+  containerOffset: number;
+  hasPendingMeasurements: boolean;
+  height: number;
+  items: ReadonlyArray<unknown>;
   loadItems: (
-    arg1?: {
-      from: number
-    } | null | undefined,
-  ) => void,
-  scrollTop: number,
-  scrollContainerElement: HTMLElement | null | undefined,
-  width: number | null | undefined
+    arg1?:
+      | {
+          from: number;
+        }
+      | null
+      | undefined,
+  ) => void;
+  scrollTop: number;
+  scrollContainerElement: HTMLElement | null | undefined;
+  width: number | null | undefined;
 }) {
   const isFetching = useRef<boolean>(false);
   const itemLength = items.length;
@@ -305,41 +309,41 @@ function useFetchOnScroll({
   });
 }
 
-function useLayout<T extends {
-  readonly [key: string]: unknown
-}>(
-  {
-    align,
-    columnWidth,
-    gutter,
-    items,
-    layout,
-    measurementStore,
-    minCols,
-    positionStore,
-    width,
-    _twoColItems,
-    _logTwoColWhitespace,
-    _measureAll,
-  }: {
-    align: Align,
-    columnWidth: number,
-    gutter?: number,
-    items: ReadonlyArray<T>,
-    layout: Layout,
-    measurementStore: Cache<T, number>,
-    minCols: number,
-    positionStore: Cache<T, Position>,
-    width: number | null | undefined,
-    _twoColItems?: boolean,
-    _logTwoColWhitespace?: (arg1: number) => void,
-    _measureAll?: boolean
+function useLayout<
+  T extends {
+    readonly [key: string]: unknown;
   },
-): {
-  height: number,
-  hasPendingMeasurements: boolean,
-  positions: ReadonlyArray<Position | null | undefined>,
-  updateMeasurement: (arg1: T, arg2: number) => void
+>({
+  align,
+  columnWidth,
+  gutter,
+  items,
+  layout,
+  measurementStore,
+  minCols,
+  positionStore,
+  width,
+  _twoColItems,
+  _logTwoColWhitespace,
+  _measureAll,
+}: {
+  align: Align;
+  columnWidth: number;
+  gutter?: number;
+  items: ReadonlyArray<T>;
+  layout: Layout;
+  measurementStore: Cache<T, number>;
+  minCols: number;
+  positionStore: Cache<T, Position>;
+  width: number | null | undefined;
+  _twoColItems?: boolean;
+  _logTwoColWhitespace?: (arg1: number) => void;
+  _measureAll?: boolean;
+}): {
+  height: number;
+  hasPendingMeasurements: boolean;
+  positions: ReadonlyArray<Position | null | undefined>;
+  updateMeasurement: (arg1: T, arg2: number) => void;
 } {
   const hasMultiColumnItems =
     _twoColItems &&
@@ -432,14 +436,14 @@ function useViewport({
   virtualBoundsBottom,
   virtualize,
 }: {
-  containerHeight: number,
-  containerOffset: number,
-  scrollContainer: HTMLElement | null | undefined,
-  scrollTop: number,
-  virtualBufferFactor: number,
-  virtualBoundsTop: number | null | undefined,
-  virtualBoundsBottom: number | null | undefined,
-  virtualize: boolean
+  containerHeight: number;
+  containerOffset: number;
+  scrollContainer: HTMLElement | null | undefined;
+  scrollTop: number;
+  virtualBufferFactor: number;
+  virtualBoundsTop: number | null | undefined;
+  virtualBoundsBottom: number | null | undefined;
+  virtualize: boolean;
 }) {
   if (virtualize && scrollContainer && Boolean(virtualBufferFactor)) {
     const virtualBuffer = containerHeight * virtualBufferFactor;
@@ -462,37 +466,37 @@ function useViewport({
   };
 }
 
-function MasonryItem<T extends {
-  readonly [key: string]: unknown
-}>(
-  {
-    height,
-    idx,
-    isMeasurement,
-    isServerRenderOrHydration,
-    item,
-    layout,
-    left,
-    renderItem,
-    startTransition,
-    top,
-    updateMeasurement,
-    width,
-  }: {
-    height: number | null | undefined,
-    idx: number,
-    isMeasurement: boolean,
-    isServerRenderOrHydration: boolean,
-    item: T,
-    left: number,
-    layout: Layout,
-    renderItem: Props<T>["renderItem"],
-    startTransition: (arg1: () => void) => void,
-    top: number,
-    updateMeasurement: (arg1: T, arg2: number) => void,
-    width: number | null | undefined
+function MasonryItem<
+  T extends {
+    readonly [key: string]: unknown;
   },
-) {
+>({
+  height,
+  idx,
+  isMeasurement,
+  isServerRenderOrHydration,
+  item,
+  layout,
+  left,
+  renderItem,
+  startTransition,
+  top,
+  updateMeasurement,
+  width,
+}: {
+  height: number | null | undefined;
+  idx: number;
+  isMeasurement: boolean;
+  isServerRenderOrHydration: boolean;
+  item: T;
+  left: number;
+  layout: Layout;
+  renderItem: Props<T>['renderItem'];
+  startTransition: (arg1: () => void) => void;
+  top: number;
+  updateMeasurement: (arg1: T, arg2: number) => void;
+  width: number | null | undefined;
+}) {
   // This isn't great since it currently returns false during server render/hydration and potentially true after
   // This should be revisited
   const isRtl =
@@ -548,9 +552,11 @@ function MasonryItem<T extends {
 
 const MasonryItemMemo = memo(MasonryItem);
 
-function Masonry<T extends {
-  readonly [key: string]: unknown
-}>(
+function Masonry<
+  T extends {
+    readonly [key: string]: unknown;
+  },
+>(
   {
     align = 'center',
     columnWidth = 236,
@@ -571,9 +577,11 @@ function Masonry<T extends {
     _logTwoColWhitespace,
     _measureAll,
   }: Props<T>,
-  ref: {
-    current: null | MasonryRef
-  } | ((arg1: null | MasonryRef) => unknown),
+  ref:
+    | {
+        current: null | MasonryRef;
+      }
+    | ((arg1: null | MasonryRef) => unknown),
 ) {
   const hasSetInitialWidth = useRef(false);
   const [gridWrapperEl, setGridWrapperEl] = useState<HTMLDivElement | null | undefined>(null);
@@ -746,7 +754,7 @@ function Masonry<T extends {
 }
 
 const MasonryWithForwardRef: AbstractComponent<Props<Record<any, any>>, MasonryRef> & {
-  createMeasurementStore: <T1 extends Record<any, any>, T2>() => MeasurementStore<T1, T2>
+  createMeasurementStore: <T1 extends Record<any, any>, T2>() => MeasurementStore<T1, T2>;
 } = forwardRef<MasonryRef, Props<Record<any, any>>>(Masonry);
 
 MasonryWithForwardRef.createMeasurementStore = createMeasurementStore;

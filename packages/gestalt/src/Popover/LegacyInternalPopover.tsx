@@ -1,4 +1,4 @@
-import {ReactNode, useEffect, useRef} from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 import Box from '../Box';
 import { Overflow } from '../boxTypes';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
@@ -7,57 +7,51 @@ import LegacyController from '../LegacyController';
 import InternalDismissButton from '../shared/InternalDismissButton';
 import { Indexable } from '../zIndex';
 
-type Color = "blue" | "white" | "darkGray";
-type Size = "xs" | "sm" | "md" | "lg" | "xl" | "flexible" | number;
-type Role = "dialog" | "listbox" | "menu" | "tooltip";
+type Color = 'blue' | 'white' | 'darkGray';
+type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
+type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
 
 type Props = {
-  accessibilityLabel?: string,
-  accessibilityDismissButtonLabel?: string,
-  anchor: HTMLElement | null | undefined,
-  children?: ReactNode,
-  color?: Color,
-  onKeyDown?: (
-    arg1: {
-      event: React.KeyboardEvent<HTMLElement>
-    },
-  ) => void,
-  id?: string,
-  idealDirection?: "up" | "right" | "down" | "left" | "forceDown",
-  onDismiss: () => void,
-  positionRelativeToAnchor?: boolean,
-  role?: Role,
-  shouldFocus?: boolean,
-  showCaret?: boolean,
-  showDismissButton?: boolean,
-  size?: Size,
-  __dangerouslySetMaxHeight?: "30vh",
-  zIndex?: Indexable,
-  overflow?: Extract<Overflow, "auto" | "hidden" | "visible">
+  accessibilityLabel?: string;
+  accessibilityDismissButtonLabel?: string;
+  anchor: HTMLElement | null | undefined;
+  children?: ReactNode;
+  color?: Color;
+  onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLElement> }) => void;
+  id?: string;
+  idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown';
+  onDismiss: () => void;
+  positionRelativeToAnchor?: boolean;
+  role?: Role;
+  shouldFocus?: boolean;
+  showCaret?: boolean;
+  showDismissButton?: boolean;
+  size?: Size;
+  __dangerouslySetMaxHeight?: '30vh';
+  zIndex?: Indexable;
+  overflow?: Extract<Overflow, 'auto' | 'hidden' | 'visible'>;
 };
 
-export default function InternalPopover(
-  {
-    accessibilityLabel,
-    accessibilityDismissButtonLabel,
-    anchor,
-    children,
-    showDismissButton,
-    onKeyDown,
-    id,
-    idealDirection,
-    onDismiss,
-    positionRelativeToAnchor = false,
-    color = 'white',
-    role,
-    shouldFocus,
-    showCaret,
-    size = 'sm',
-    __dangerouslySetMaxHeight,
-    zIndex,
-    overflow,
-  }: Props,
-): null | ReactNode {
+export default function InternalPopover({
+  accessibilityLabel,
+  accessibilityDismissButtonLabel,
+  anchor,
+  children,
+  showDismissButton,
+  onKeyDown,
+  id,
+  idealDirection,
+  onDismiss,
+  positionRelativeToAnchor = false,
+  color = 'white',
+  role,
+  shouldFocus,
+  showCaret,
+  size = 'sm',
+  __dangerouslySetMaxHeight,
+  zIndex,
+  overflow,
+}: Props): null | ReactNode {
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Popover');
 

@@ -1,4 +1,4 @@
-import {create} from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 import Layer from './Layer';
 
 describe('Layer in server render', () => {

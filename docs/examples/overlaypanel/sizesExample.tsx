@@ -1,4 +1,4 @@
-import {Fragment, ReactNode, useReducer} from 'react';
+import { Fragment, ReactNode, useReducer } from 'react';
 import {
   Accordion,
   Box,
@@ -15,12 +15,14 @@ import {
 
 export default function Example() {
   function reducer(
-    state: {
-      heading: string,
-      size: "sm" | "md" | "lg"
-    } | Record<any, any>,
+    state:
+      | {
+          heading: string;
+          size: 'sm' | 'md' | 'lg';
+        }
+      | Record<any, any>,
     action: {
-      type: "small" | "medium" | "large" | "none"
+      type: 'small' | 'medium' | 'large' | 'none';
     },
   ) {
     switch (action.type) {

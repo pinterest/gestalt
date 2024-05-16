@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Accordion, Box, Table, Text } from 'gestalt';
 import componentData from './data/components';
 import {
@@ -17,14 +17,10 @@ export const STATUS_ICON_EQUIVALENCY_MAP = Object.freeze({
 });
 
 type Props = {
-  component: string
+  component: string;
 };
 
-function AccessibilityTable({
-  accessibilityData,
-}: {
-  accessibilityData?: ComponentAccessibility
-}) {
+function AccessibilityTable({ accessibilityData }: { accessibilityData?: ComponentAccessibility }) {
   return (
     <Table accessibilityLabel="Component Accessibility Checklist">
       <colgroup>
@@ -73,11 +69,7 @@ const webBuildingBlockComponents = getByPlatform(componentData, {
   platform: 'web',
 });
 
-export default function AccessibilityChecklist(
-  {
-    component,
-  }: Props,
-) {
+export default function AccessibilityChecklist({ component }: Props) {
   const data = webBuildingBlockComponents.find((cmpName) => cmpName.name === component);
 
   const a11ySummary = data?.status?.accessible?.summary;

@@ -1,4 +1,4 @@
-import {fireEvent, getNodeText, render, screen} from '@testing-library/react';
+import { fireEvent, getNodeText, render, screen } from '@testing-library/react';
 import AnimationProvider, { ANIMATION_STATE, useAnimation } from './AnimationContext';
 import * as useReducedMotionHook from '../useReducedMotion';
 

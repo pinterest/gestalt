@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import {
   Box,
   Button,
@@ -19,7 +19,7 @@ export default function Example() {
   const PAGE_HEADER_ZINDEX: FixedZIndex = new FixedZIndex(10);
   const ABOVE_PAGE_HEADER_ZINDEX: CompositeZIndex = new CompositeZIndex([PAGE_HEADER_ZINDEX]);
 
-  const resetShowNextData = (animationState: "in" | "out") => {
+  const resetShowNextData = (animationState: 'in' | 'out') => {
     if (animationState === 'in') {
       setShowNextData(null);
     }

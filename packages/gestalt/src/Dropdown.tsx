@@ -1,4 +1,4 @@
-import {Children, cloneElement, Fragment, ReactNode, useState} from 'react';
+import { Children, cloneElement, Fragment, ReactNode, useState } from 'react';
 import AnimationProvider from './animation/AnimationContext';
 import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext';
 import Box from './Box';
@@ -96,53 +96,49 @@ const renderChildrenWithIndex = (childrenArray) => {
 
 type Props = {
   /**
-     * Ref for the element that the Dropdown will attach to, will most likely be a [Button](https://gestalt.pinterest.systems/web/button). See the [Accessibility](https://gestalt.pinterest.systems/web/dropdown#Accessibility) guidelines to learn more.
-     */
-  anchor?: HTMLElement | null | undefined,
+   * Ref for the element that the Dropdown will attach to, will most likely be a [Button](https://gestalt.pinterest.systems/web/button). See the [Accessibility](https://gestalt.pinterest.systems/web/dropdown#Accessibility) guidelines to learn more.
+   */
+  anchor?: HTMLElement | null | undefined;
   /**
-     * Must be instances of [Dropdown.Item](https://gestalt.pinterest.systems/web/dropdown#Types-of-items), [Dropdown.Link](https://gestalt.pinterest.systems/web/dropdown#Types-of-items) or [Dropdown.Section](https://gestalt.pinterest.systems/web/dropdown#Sections) components. See the [Types of items](https://gestalt.pinterest.systems/web/dropdown#Types-of-items) variant to learn more.
-     */
-  children: ReactNode,
+   * Must be instances of [Dropdown.Item](https://gestalt.pinterest.systems/web/dropdown#Types-of-items), [Dropdown.Link](https://gestalt.pinterest.systems/web/dropdown#Types-of-items) or [Dropdown.Section](https://gestalt.pinterest.systems/web/dropdown#Sections) components. See the [Types of items](https://gestalt.pinterest.systems/web/dropdown#Types-of-items) variant to learn more.
+   */
+  children: ReactNode;
   /**
-     * Enables correct behavior when Dropdown is used within a fixed container. To achieve this it removes the Layer component around Popover and enables positioning relative to its anchor element. Should only be used in cases where Layer breaks the Dropdown positionings such as when the anchor element is within a sticky component.
-     */
-  isWithinFixedContainer?: boolean,
+   * Enables correct behavior when Dropdown is used within a fixed container. To achieve this it removes the Layer component around Popover and enables positioning relative to its anchor element. Should only be used in cases where Layer breaks the Dropdown positionings such as when the anchor element is within a sticky component.
+   */
+  isWithinFixedContainer?: boolean;
   /**
-     * Content to display at the top of the Dropdown before any items or sections. See the [Custom header](https://gestalt.pinterest.systems/web/dropdown#Custom-header) variant to learn more.
-     */
-  headerContent?: ReactNode,
+   * Content to display at the top of the Dropdown before any items or sections. See the [Custom header](https://gestalt.pinterest.systems/web/dropdown#Custom-header) variant to learn more.
+   */
+  headerContent?: ReactNode;
   /**
-     * Unique id to identify each Dropdown. Used for [Accessibility](https://gestalt.pinterest.systems/web/dropdown#Accessibility) purposes.
-     */
-  id: string,
+   * Unique id to identify each Dropdown. Used for [Accessibility](https://gestalt.pinterest.systems/web/dropdown#Accessibility) purposes.
+   */
+  id: string;
   /**
-     * Preferred direction for the Dropdown to open.
-     */
-  idealDirection?: "up" | "right" | "down" | "left",
+   * Preferred direction for the Dropdown to open.
+   */
+  idealDirection?: 'up' | 'right' | 'down' | 'left';
   /**
-     *  Define a controlled size to dropdown's Popover.
-     */
-  maxHeight?: "30vh",
+   *  Define a controlled size to dropdown's Popover.
+   */
+  maxHeight?: '30vh';
   /**
-     * Mobile-only prop. Callback fired when Dropdown's in & out animations end. See the [mobile variant](https://gestalt.pinterest.systems/web/dropdown#mobile) to learn more.
-     */
-  mobileOnAnimationEnd?: (
-    arg1: {
-      animationState: "in" | "out"
-    },
-  ) => void,
+   * Mobile-only prop. Callback fired when Dropdown's in & out animations end. See the [mobile variant](https://gestalt.pinterest.systems/web/dropdown#mobile) to learn more.
+   */
+  mobileOnAnimationEnd?: (arg1: { animationState: 'in' | 'out' }) => void;
   /**
-     * Callback fired when the menu is closed.
-     */
-  onDismiss: () => void,
+   * Callback fired when the menu is closed.
+   */
+  onDismiss: () => void;
   /**
-     * Dropdown can adapt to mobile devices to [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile). Mobile adaptation is disabled by default. Set to 'false' to enable SheetMobile in mobile devices. See the [mobile variant](https://gestalt.pinterest.systems/web/dropdown#mobile) to learn more.
-     */
-  disableMobileUI?: boolean,
+   * Dropdown can adapt to mobile devices to [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile). Mobile adaptation is disabled by default. Set to 'false' to enable SheetMobile in mobile devices. See the [mobile variant](https://gestalt.pinterest.systems/web/dropdown#mobile) to learn more.
+   */
+  disableMobileUI?: boolean;
   /**
-     * An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
-     */
-  zIndex?: Indexable
+   * An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
+   */
+  zIndex?: Indexable;
 };
 
 /**
@@ -152,21 +148,19 @@ type Props = {
  * ![Dropdown open dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Dropdown-open-dark.spec.mjs-snapshots/Dropdown-open-dark-chromium-darwin.png)
  *
  */
-export default function Dropdown(
-  {
-    anchor,
-    children,
-    isWithinFixedContainer = false,
-    headerContent,
-    id,
-    idealDirection = 'down',
-    onDismiss,
-    zIndex,
-    maxHeight,
-    mobileOnAnimationEnd,
-    disableMobileUI = false,
-  }: Props,
-) {
+export default function Dropdown({
+  anchor,
+  children,
+  isWithinFixedContainer = false,
+  headerContent,
+  id,
+  idealDirection = 'down',
+  onDismiss,
+  zIndex,
+  maxHeight,
+  mobileOnAnimationEnd,
+  disableMobileUI = false,
+}: Props) {
   const isInExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_popover_v2_dropdown',
     mwebExperimentName: 'mweb_gestalt_popover_v2_dropdown',
@@ -176,7 +170,9 @@ export default function Dropdown(
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
 
-  const [hoveredItemIndex, setHoveredItemIndex] = useState<number | null | undefined>(isMobile ? undefined : 0);
+  const [hoveredItemIndex, setHoveredItemIndex] = useState<number | null | undefined>(
+    isMobile ? undefined : 0,
+  );
 
   const dropdownChildrenArray = Children.toArray<ReactNode>(children);
   const allowedChildrenOptions = getChildrenOptions(dropdownChildrenArray);
@@ -231,11 +227,7 @@ export default function Dropdown(
     }
   };
 
-  const onKeyDown = ({
-    event,
-  }: {
-    event: React.KeyboardEvent<HTMLElement>
-  }) => {
+  const onKeyDown = ({ event }: { event: React.KeyboardEvent<HTMLElement> }) => {
     const { keyCode } = event;
     if (keyCode === UP_ARROW) {
       handleKeyNavigation(event, KEYS.UP, hoveredItemIndex);

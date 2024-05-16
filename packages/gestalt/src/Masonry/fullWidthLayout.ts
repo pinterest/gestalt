@@ -1,22 +1,20 @@
-import {Cache} from './Cache';
+import { Cache } from './Cache';
 import mindex from './mindex';
 import { Position } from './types';
 
-const fullWidthLayout = <T>(
-  {
-    gutter = 0,
-    cache,
-    minCols = 2,
-    idealColumnWidth = 240,
-    width,
-  }: {
-    gutter?: number,
-    cache: Cache<T, number>,
-    minCols?: number,
-    idealColumnWidth?: number,
-    width?: number | null | undefined
-  },
-): (items: ReadonlyArray<T>) => ReadonlyArray<Position> => {
+const fullWidthLayout = <T>({
+  gutter = 0,
+  cache,
+  minCols = 2,
+  idealColumnWidth = 240,
+  width,
+}: {
+  gutter?: number;
+  cache: Cache<T, number>;
+  minCols?: number;
+  idealColumnWidth?: number;
+  width?: number | null | undefined;
+}): ((items: ReadonlyArray<T>) => ReadonlyArray<Position>) => {
   if (width == null) {
     return (items) =>
       items.map(() => ({

@@ -1,4 +1,4 @@
-import {Fragment, ReactNode} from 'react';
+import { Fragment, ReactNode } from 'react';
 import { Box, Text } from 'gestalt';
 
 export default function Snapshot() {

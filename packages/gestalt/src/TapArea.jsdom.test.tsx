@@ -1,21 +1,31 @@
-import {createRef} from 'react';
+import { createRef } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import TapArea from './TapArea';
 
 describe('TapArea', () => {
   it('TapArea handles onTap callback', () => {
-    const mockOnTap = jest.fn<[{
-      event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>
-    }], undefined>();
+    const mockOnTap = jest.fn<
+      [
+        {
+          event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>;
+        },
+      ],
+      undefined
+    >();
     render(<TapArea onTap={mockOnTap}>TapArea</TapArea>);
     screen.getByText('TapArea').click();
     expect(mockOnTap).toHaveBeenCalled();
   });
 
   it('TapArea handles onBlur callback', () => {
-    const mockOnBlur = jest.fn<[{
-      event: React.FocusEvent<HTMLDivElement>
-    }], undefined>();
+    const mockOnBlur = jest.fn<
+      [
+        {
+          event: React.FocusEvent<HTMLDivElement>;
+        },
+      ],
+      undefined
+    >();
     render(<TapArea onBlur={mockOnBlur}>TapArea</TapArea>);
     fireEvent.focus(screen.getByText('TapArea'));
     fireEvent.blur(screen.getByText('TapArea'));
@@ -23,36 +33,56 @@ describe('TapArea', () => {
   });
 
   it('TapArea handles onFocus callback', () => {
-    const mockOnFocus = jest.fn<[{
-      event: React.FocusEvent<HTMLDivElement>
-    }], undefined>();
+    const mockOnFocus = jest.fn<
+      [
+        {
+          event: React.FocusEvent<HTMLDivElement>;
+        },
+      ],
+      undefined
+    >();
     render(<TapArea onFocus={mockOnFocus}>TapArea</TapArea>);
     fireEvent.focus(screen.getByText('TapArea'));
     expect(mockOnFocus).toHaveBeenCalled();
   });
 
   it('TapArea handles onMouseEnter callback', () => {
-    const mockOnMouseEnter = jest.fn<[{
-      event: React.MouseEvent<HTMLDivElement>
-    }], undefined>();
+    const mockOnMouseEnter = jest.fn<
+      [
+        {
+          event: React.MouseEvent<HTMLDivElement>;
+        },
+      ],
+      undefined
+    >();
     render(<TapArea onMouseEnter={mockOnMouseEnter}>TapArea</TapArea>);
     fireEvent.mouseEnter(screen.getByText('TapArea'));
     expect(mockOnMouseEnter).toHaveBeenCalled();
   });
 
   it('TapArea handles onMouseLeave callback', () => {
-    const mockOnMouseLeave = jest.fn<[{
-      event: React.MouseEvent<HTMLDivElement>
-    }], undefined>();
+    const mockOnMouseLeave = jest.fn<
+      [
+        {
+          event: React.MouseEvent<HTMLDivElement>;
+        },
+      ],
+      undefined
+    >();
     render(<TapArea onMouseLeave={mockOnMouseLeave}>TapArea</TapArea>);
     fireEvent.mouseLeave(screen.getByText('TapArea'));
     expect(mockOnMouseLeave).toHaveBeenCalled();
   });
 
   it('TapArea handles key press event', () => {
-    const mockOnTap = jest.fn<[{
-      event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>
-    }], undefined>();
+    const mockOnTap = jest.fn<
+      [
+        {
+          event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>;
+        },
+      ],
+      undefined
+    >();
     render(<TapArea onTap={mockOnTap}>TapArea</TapArea>);
     const mockEvent = {
       charCode: 32,

@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, ButtonLink, Flex, Heading, Text } from 'gestalt';
 import {
   TOKEN_COLOR_BLUE_SKYCICLE_450,

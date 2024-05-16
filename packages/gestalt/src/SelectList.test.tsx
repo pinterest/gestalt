@@ -1,14 +1,11 @@
-import {create} from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 import SelectList from './SelectList';
 
 const options = [
   { label: 'option1', value: 'value1' },
   { label: 'option2', value: 'value2' },
   { label: 'option3', value: 'value3' },
-].map(({
-  label,
-  value,
-}: any) => <SelectList.Option key={label} label={label} value={value} />);
+].map(({ label, value }: any) => <SelectList.Option key={label} label={label} value={value} />);
 
 describe('SelectList', () => {
   it('renders an error message', () => {

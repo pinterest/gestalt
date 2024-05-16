@@ -1,4 +1,4 @@
-import {ReactNode, useRef, useState} from 'react';
+import { ReactNode, useRef, useState } from 'react';
 import { Box, Dropdown, Flex, IconButtonFloating, Image, Text } from 'gestalt';
 
 const cards = [

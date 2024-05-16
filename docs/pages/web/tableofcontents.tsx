@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import { DocGen, multipleDocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -15,15 +15,13 @@ import nestedItemsExample from '../../examples/tableofcontents/nestedItemsExampl
 import topAlignWithContetnTitle from '../../examples/tableofcontents/topAlignWithContentTitle';
 import withHeaderExample from '../../examples/tableofcontents/withHeaderExample';
 
-export default function TableOfContentsPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: {
-      [key: string]: DocGen
-    }
-  },
-) {
+export default function TableOfContentsPage({
+  generatedDocGen,
+}: {
+  generatedDocGen: {
+    [key: string]: DocGen;
+  };
+}) {
   return (
     <Page title={generatedDocGen?.TableOfContents.displayName}>
       <PageHeader
@@ -185,9 +183,9 @@ Tabs may be used navigate between multiple URLs. Tabs are intended as page-level
 export async function getServerSideProps(): Promise<{
   props: {
     generatedDocGen: {
-      [key: string]: DocGen
-    }
-  }
+      [key: string]: DocGen;
+    };
+  };
 }> {
   const docGen = await multipleDocGen(['TableOfContents', 'TableOfContentsItem']);
 

@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, TapAreaLink } from 'gestalt';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { DocGen, DocType } from '../../docs-components/docgen';
@@ -17,11 +17,7 @@ import localizationLabels from '../../examples/taparealink/localizationLabels';
 import main from '../../examples/taparealink/main';
 import mouseCursor from '../../examples/taparealink/mouseCursor';
 
-export default function DocsPage(
-  {
-    generatedDocGen,
-  }: DocType,
-) {
+export default function DocsPage({ generatedDocGen }: DocType) {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -138,8 +134,8 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Lin
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   return {
     props: { generatedDocGen: await docGen('TapAreaLink') },

@@ -1,12 +1,12 @@
-import {ReactNode, useEffect, useRef, useState} from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import { Box, Flex, Image, Masonry, Text } from 'gestalt';
 
 type Pin = {
-  color: string,
-  height: number,
-  name: string,
-  src: string,
-  width: number
+  color: string;
+  height: number;
+  name: string;
+  src: string;
+  width: number;
 };
 
 function getPins(): Promise<ReadonlyArray<Pin>> {
@@ -52,11 +52,7 @@ function getPins(): Promise<ReadonlyArray<Pin>> {
   return Promise.resolve(pinList);
 }
 
-function GridComponent({
-  data,
-}: {
-  data: Pin
-}) {
+function GridComponent({ data }: { data: Pin }) {
   return (
     <Flex direction="column">
       <Image
@@ -83,7 +79,7 @@ export default function Example() {
   }, []);
 
   return (
-    (<Box
+    <Box
       ref={(el) => {
         scrollContainerRef.current = el;
       }}
@@ -106,6 +102,6 @@ export default function Example() {
           scrollContainer={() => scrollContainerRef.current}
         />
       )}
-    </Box>)
+    </Box>
   );
 }

@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, TapArea } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
@@ -20,11 +20,7 @@ import main from '../../examples/taparea/main';
 import mouseCursor from '../../examples/taparea/mouseCursor';
 import withLinkButton from '../../examples/taparea/withLinkButton';
 
-export default function DocsPage(
-  {
-    generatedDocGen,
-  }: DocType,
-) {
+export default function DocsPage({ generatedDocGen }: DocType) {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -154,8 +150,8 @@ Use TapAreaLink when a link is needed instead of an action.
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   return {
     props: { generatedDocGen: await docGen('TapArea') },

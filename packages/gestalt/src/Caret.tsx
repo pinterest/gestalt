@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { MainDirections } from './utils/positioningTypes';
 
 const PATHS = {
@@ -10,9 +10,9 @@ const PATHS = {
 } as const;
 
 type Props = {
-  direction: MainDirections,
-  height: 4 | 12,
-  width: 4 | 12
+  direction: MainDirections;
+  height: 4 | 12;
+  width: 4 | 12;
 };
 
 export default function Caret(props: Props) {

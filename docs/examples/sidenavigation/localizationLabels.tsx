@@ -1,9 +1,9 @@
-import React, {ReactNode} from 'react';
+import React, { ReactNode } from 'react';
 import { DefaultLabelProvider, SideNavigation } from 'gestalt';
 
 export default function Example() {
   return (
-    (<DefaultLabelProvider
+    <DefaultLabelProvider
       labels={{
         SideNavigation: {
           accessibilityDismissButtonLabel: 'Seitennavigation verwerfen',
@@ -47,6 +47,6 @@ export default function Example() {
           onClick={({ event }) => event.preventDefault()}
         />
       </SideNavigation>
-    </DefaultLabelProvider>)
+    </DefaultLabelProvider>
   );
 }

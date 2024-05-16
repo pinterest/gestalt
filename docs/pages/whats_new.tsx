@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { Badge, Box, Divider, Flex, Heading, Image, Mask, RadioGroup } from 'gestalt';
 import { TOKEN_COLOR_WHITE_MOCHIMALIST_0 } from 'gestalt-design-tokens';
 import blogPosts from './BlogPosts.json';
@@ -16,24 +16,15 @@ const badges = {
 } as const;
 
 export type Post = {
-  readonly title: string,
-  readonly audience: ReadonlyArray<"Design" | "Engineering">,
-  readonly imageSrc: string,
-  readonly imageAltText: string,
-  readonly content: string,
-  imageColor?: string
+  readonly title: string;
+  readonly audience: ReadonlyArray<'Design' | 'Engineering'>;
+  readonly imageSrc: string;
+  readonly imageAltText: string;
+  readonly content: string;
+  imageColor?: string;
 };
 
-function PostLayout(
-  {
-    audience,
-    content,
-    imageAltText,
-    imageSrc,
-    title,
-    imageColor,
-  }: Post,
-) {
+function PostLayout({ audience, content, imageAltText, imageSrc, title, imageColor }: Post) {
   return (
     <Flex direction="column" gap={2} maxWidth={POST_WIDTH_PX}>
       <Flex direction="column" gap={1}>
@@ -91,7 +82,7 @@ const radioButtons = [
 ];
 
 export default function Blog() {
-  const [filter, setFilter] = useState<"All" | "Design" | "Engineering">('All');
+  const [filter, setFilter] = useState<'All' | 'Design' | 'Engineering'>('All');
 
   // Get all digests across years
   const allDigests = blogPosts.reduce<Array<any>>((acc, { digests }) => [...acc, ...digests], []);

@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 import {
   arrow,
   autoUpdate,
@@ -15,7 +15,7 @@ import {
 } from '@floating-ui/react';
 import { MainDirections } from '../utils/positioningTypes';
 
-export const DIRECTIONS_MAP: Record<MainDirections, Side | "forceDown"> = {
+export const DIRECTIONS_MAP: Record<MainDirections, Side | 'forceDown'> = {
   down: 'bottom',
   forceDown: 'forceDown',
   left: 'left',
@@ -34,53 +34,51 @@ const POPOVER_OFFSET_VALUE = 8; // pixels
 
 interface Props {
   /**
-     * Reference element
-     */
-  anchor?: HTMLElement | null
+   * Reference element
+   */
+  anchor?: HTMLElement | null;
   /**
-     * Caret (Popover arrow) element
-     */
-  caretElement?: HTMLElement | null
+   * Caret (Popover arrow) element
+   */
+  caretElement?: HTMLElement | null;
   /**
-     * Padding between caret and the *edges* of Popover. This will prevent caret from overflowing the corners
-     */
-  caretPadding?: number
+   * Padding between caret and the *edges* of Popover. This will prevent caret from overflowing the corners
+   */
+  caretPadding?: number;
   /**
-     * Container element in which Popover flips directions or shifts itself upon reaching its viewport boundaries.
-     * Default is window viewport.
-     */
-  scrollBoundary?: HTMLElement | null
+   * Container element in which Popover flips directions or shifts itself upon reaching its viewport boundaries.
+   * Default is window viewport.
+   */
+  scrollBoundary?: HTMLElement | null;
   /**
-     * Specifies the preferred position of Popover relative to its anchor element.
-     */
-  direction?: Placement | "forceDown"
+   * Specifies the preferred position of Popover relative to its anchor element.
+   */
+  direction?: Placement | 'forceDown';
   /**
-     * Type of CSS position property to use.
-     * Deafult is `absolute`
-     */
-  strategy?: Strategy
+   * Type of CSS position property to use.
+   * Deafult is `absolute`
+   */
+  strategy?: Strategy;
   /**
-     * Whether to hide Popover when reference element gets out of viewport.
-     */
-  hideWhenReferenceHidden?: boolean
+   * Whether to hide Popover when reference element gets out of viewport.
+   */
+  hideWhenReferenceHidden?: boolean;
   /**
-     * Callback fired when Popover is correctly positioned after it's mounted.
-     */
-  onPositioned?: () => void
+   * Callback fired when Popover is correctly positioned after it's mounted.
+   */
+  onPositioned?: () => void;
 }
 
-export default function usePopover(
-  {
-    anchor,
-    caretElement,
-    caretPadding,
-    direction,
-    strategy,
-    scrollBoundary,
-    hideWhenReferenceHidden,
-    onPositioned,
-  }: Props,
-): UseFloatingReturn {
+export default function usePopover({
+  anchor,
+  caretElement,
+  caretPadding,
+  direction,
+  strategy,
+  scrollBoundary,
+  hideWhenReferenceHidden,
+  onPositioned,
+}: Props): UseFloatingReturn {
   const isForceDown = direction === 'forceDown';
   const placement = isForceDown ? 'bottom' : direction;
 

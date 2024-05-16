@@ -1,14 +1,17 @@
-import {ReactNode, useReducer} from 'react';
+import { ReactNode, useReducer } from 'react';
 import { Box, Button, CompositeZIndex, FixedZIndex, Heading, Layer, Modal } from 'gestalt';
 
-type Size = "small" | "medium" | "large" | "none";
+type Size = 'small' | 'medium' | 'large' | 'none';
 
 export default function SizesExample() {
-  function reducer(state: {
-    modal: Size
-  }, action: {
-    type: Size
-  }) {
+  function reducer(
+    state: {
+      modal: Size;
+    },
+    action: {
+      type: Size;
+    },
+  ) {
     switch (action.type) {
       case 'small':
         return { modal: 'small' };

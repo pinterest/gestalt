@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Image, Toast } from 'gestalt';
 
 export default function Snapshot() {

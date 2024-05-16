@@ -1,4 +1,4 @@
-import {Children, ReactElement, ComponentProps, Fragment, ReactNode} from 'react';
+import { Children, ReactElement, ComponentProps, Fragment, ReactNode } from 'react';
 import Avatar from './Avatar';
 import styles from './BannerOverlay.css';
 import CallToAction from './BannerOverlay/CalltoAction';
@@ -31,81 +31,88 @@ const DEFAULT_COLORS = {
 
 type Props = {
   /**
-     * Adds a dismiss button to BannerOverlay. See the [Dismissible variant](https://gestalt.pinterest.systems/web/banneroverlay#Dismissible) for more info.
-     */
-  onDismiss?: () => void,
+   * Adds a dismiss button to BannerOverlay. See the [Dismissible variant](https://gestalt.pinterest.systems/web/banneroverlay#Dismissible) for more info.
+   */
+  onDismiss?: () => void;
   /**
-     * Main content of BannerOverlay. Content should be [localized](https://gestalt.pinterest.systems/web/banneroverlay#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/banneroverlay#Text) to learn more.
-     */
-  message: string | Element<typeof Text>,
+   * Main content of BannerOverlay. Content should be [localized](https://gestalt.pinterest.systems/web/banneroverlay#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/banneroverlay#Text) to learn more.
+   */
+  message: string | Element<typeof Text>;
   /**
-     * Distance (in pixels) from the viewport edge (top will be used, if desktop, bottom will be used, if mobile).
-     */
+   * Distance (in pixels) from the viewport edge (top will be used, if desktop, bottom will be used, if mobile).
+   */
   offset?: {
-    bottom: number,
-    top: number
-  },
+    bottom: number;
+    top: number;
+  };
   /**
-     * Adds an optional primary button for user interaction.
-     * Main action for users to take on BannerOverlay. If href is supplied, the action will serve as a link.
-     * If no href is supplied, the action will be a button.
-     * The accessibilityLabel should follow the Accessibility guidelines.
-     * See the Primary action variant to learn more.
-     */
-  primaryAction?: {
-    accessibilityLabel: string,
-    href: string,
-    label: string,
-    onClick?: ComponentProps<typeof ButtonLink>["onClick"],
-    rel?: ComponentProps<typeof ButtonLink>["rel"],
-    role: "link",
-    size?: ComponentProps<typeof ButtonLink>["size"],
-    target?: ComponentProps<typeof ButtonLink>["target"]
-  } | {
-    accessibilityLabel: string,
-    label: string,
-    onClick: ComponentProps<typeof Button>["onClick"],
-    role?: "button",
-    size?: ComponentProps<typeof Button>["size"]
-  },
+   * Adds an optional primary button for user interaction.
+   * Main action for users to take on BannerOverlay. If href is supplied, the action will serve as a link.
+   * If no href is supplied, the action will be a button.
+   * The accessibilityLabel should follow the Accessibility guidelines.
+   * See the Primary action variant to learn more.
+   */
+  primaryAction?:
+    | {
+        accessibilityLabel: string;
+        href: string;
+        label: string;
+        onClick?: ComponentProps<typeof ButtonLink>['onClick'];
+        rel?: ComponentProps<typeof ButtonLink>['rel'];
+        role: 'link';
+        size?: ComponentProps<typeof ButtonLink>['size'];
+        target?: ComponentProps<typeof ButtonLink>['target'];
+      }
+    | {
+        accessibilityLabel: string;
+        label: string;
+        onClick: ComponentProps<typeof Button>['onClick'];
+        role?: 'button';
+        size?: ComponentProps<typeof Button>['size'];
+      };
   /**
-     * Adds an optional button for user interaction.
-     * In this case, we use our ButtonGroup component.
-     */
-  secondaryAction?: {
-    accessibilityLabel: string,
-    href: string,
-    label: string,
-    onClick?: ComponentProps<typeof ButtonLink>["onClick"],
-    rel?: ComponentProps<typeof ButtonLink>["rel"],
-    role: "link",
-    size?: ComponentProps<typeof ButtonLink>["size"],
-    target?: ComponentProps<typeof ButtonLink>["target"]
-  } | {
-    accessibilityLabel: string,
-    label: string,
-    onClick: ComponentProps<typeof Button>["onClick"],
-    role?: "button",
-    size?: ComponentProps<typeof Button>["size"]
-  },
+   * Adds an optional button for user interaction.
+   * In this case, we use our ButtonGroup component.
+   */
+  secondaryAction?:
+    | {
+        accessibilityLabel: string;
+        href: string;
+        label: string;
+        onClick?: ComponentProps<typeof ButtonLink>['onClick'];
+        rel?: ComponentProps<typeof ButtonLink>['rel'];
+        role: 'link';
+        size?: ComponentProps<typeof ButtonLink>['size'];
+        target?: ComponentProps<typeof ButtonLink>['target'];
+      }
+    | {
+        accessibilityLabel: string;
+        label: string;
+        onClick: ComponentProps<typeof Button>['onClick'];
+        role?: 'button';
+        size?: ComponentProps<typeof Button>['size'];
+      };
   /**
-     * An optional thumbnail to display next to the text.
-     */
-  thumbnail?: {
-    image: Element<typeof Image>
-  } | {
-    avatar: Element<typeof Avatar>
-  } | {
-    icon: Element<typeof Icon>
-  },
+   * An optional thumbnail to display next to the text.
+   */
+  thumbnail?:
+    | {
+        image: Element<typeof Image>;
+      }
+    | {
+        avatar: Element<typeof Avatar>;
+      }
+    | {
+        icon: Element<typeof Icon>;
+      };
   /**
-     *  Heading of BannerOverlay. Content should be [localized](https://gestalt.pinterest.systems/web/banneroverlay#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/banneroverlay#Text) to learn more.
-     */
-  title?: string,
+   *  Heading of BannerOverlay. Content should be [localized](https://gestalt.pinterest.systems/web/banneroverlay#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/banneroverlay#Text) to learn more.
+   */
+  title?: string;
   /**
-     *  zIndex of BannerOverlay. See the [zIndex guidelines](https://gestalt.pinterest.systems/web/banneroverlay#zIndex) to learn more.
-     */
-  zIndex?: Indexable
+   *  zIndex of BannerOverlay. See the [zIndex guidelines](https://gestalt.pinterest.systems/web/banneroverlay#zIndex) to learn more.
+   */
+  zIndex?: Indexable;
 };
 
 /**
@@ -114,24 +121,22 @@ type Props = {
  * BannerOverlay is a sticky component triggered by scroll, on tap or long-press, placed at the bottom of the screen.
  * ![BannerOverlay light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/BannerOverlay.spec.mjs-snapshots/BannerOverlay-chromium-darwin.png)
  */
-export default function BannerOverlay(
-  {
-    message,
-    title,
-    onDismiss,
-    primaryAction,
-    secondaryAction,
-    offset = { top: 0, bottom: 0 },
-    thumbnail,
-    zIndex,
-  }: Props,
-) {
+export default function BannerOverlay({
+  message,
+  title,
+  onDismiss,
+  primaryAction,
+  secondaryAction,
+  offset = { top: 0, bottom: 0 },
+  thumbnail,
+  zIndex,
+}: Props) {
   const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
   const isMobileDevice = useDeviceType() === 'mobile';
 
-  let messageTextElement: Element<"span"> | string;
+  let messageTextElement: Element<'span'> | string;
 
   if (typeof message === 'string') {
     messageTextElement = message;
@@ -169,7 +174,7 @@ export default function BannerOverlay(
 
   const isMessageTextNode = checkTextNode();
   return (
-    (<Fragment>
+    <Fragment>
       <Box display="none" smDisplay="flex">
         <Box
           alignContent="center"
@@ -436,7 +441,7 @@ export default function BannerOverlay(
           </Flex>
         </Box>
       </Box>
-    </Fragment>)
+    </Fragment>
   );
 }
 

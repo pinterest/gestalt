@@ -1,31 +1,29 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { BannerSlim } from 'gestalt';
 import MainSection from './MainSection';
 import SandpackExample from './SandpackExample';
 
 type Props = {
-  notes?: string,
-  name: string,
-  code?: () => ReactNode,
-  layout?: "row" | "column",
-  previewHeight?: number,
-  children?: ReactNode,
-  noDefaultLabelProvider?: boolean,
-  noBaseText?: boolean
+  notes?: string;
+  name: string;
+  code?: () => ReactNode;
+  layout?: 'row' | 'column';
+  previewHeight?: number;
+  children?: ReactNode;
+  noDefaultLabelProvider?: boolean;
+  noBaseText?: boolean;
 };
 
-export default function LocalizationSection(
-  {
-    code,
-    name,
-    notes,
-    layout = 'row',
-    previewHeight,
-    children,
-    noDefaultLabelProvider,
-    noBaseText = false,
-  }: Props,
-) {
+export default function LocalizationSection({
+  code,
+  name,
+  notes,
+  layout = 'row',
+  previewHeight,
+  children,
+  noDefaultLabelProvider,
+  noBaseText = false,
+}: Props) {
   const baseText =
     'Be sure to localize all text strings. Note that localization can lengthen text by 20 to 30 percent.';
 

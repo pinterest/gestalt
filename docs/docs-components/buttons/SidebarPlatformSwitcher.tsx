@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import React, { ReactNode } from 'react';
 import { useRouter } from 'next/router';
 import { SegmentedControl } from 'gestalt';
 import trackButtonClick from './trackButtonClick';
@@ -7,16 +7,11 @@ import AppleLogo from '../../graphics/home-page/apple-logo.svg';
 import { ComponentPlatformFilteredBy } from '../navigationContext';
 
 type Props = {
-  onClick: (platform: "web" | "android" | "ios") => void,
-  componentPlatformFilteredBy: ComponentPlatformFilteredBy
+  onClick: (platform: 'web' | 'android' | 'ios') => void;
+  componentPlatformFilteredBy: ComponentPlatformFilteredBy;
 };
 
-export default function SidebarPlatformSwitcher(
-  {
-    onClick,
-    componentPlatformFilteredBy,
-  }: Props,
-) {
+export default function SidebarPlatformSwitcher({ onClick, componentPlatformFilteredBy }: Props) {
   const PLATFORM_TO_INDEX_MAP = {
     web: 0,
     ios: 1,
@@ -35,8 +30,8 @@ export default function SidebarPlatformSwitcher(
   const onSelect = ({
     activeIndex,
   }: {
-    activeIndex: number,
-    event: React.MouseEvent<HTMLButtonElement>
+    activeIndex: number;
+    event: React.MouseEvent<HTMLButtonElement>;
   }) => {
     const selectedPlatform = Object.keys(PLATFORM_TO_INDEX_MAP).find(
       (key) => PLATFORM_TO_INDEX_MAP[key] === activeIndex,

@@ -1,4 +1,4 @@
-import {ReactElement, ReactNode} from 'react';
+import { ReactElement, ReactNode } from 'react';
 import { Badge, BannerSlim, Box, Flex, Heading, Link, Text } from 'gestalt';
 import * as gestaltChart from 'gestalt-charts'; // eslint-disable-line import/no-namespace
 import * as gestaltDatepicker from 'gestalt-datepicker'; // eslint-disable-line import/no-namespace
@@ -33,42 +33,48 @@ const buildSourceLinkUrl = (componentName: string) =>
   );
 
 type Props = {
-  badge?: "pilot" | "deprecated" | "experimental" | "comparison" | "comparisontrends" | "connection" | "partstowhole" | "trends",
-  children?: ReactNode,
-  description?: string,
+  badge?:
+    | 'pilot'
+    | 'deprecated'
+    | 'experimental'
+    | 'comparison'
+    | 'comparisontrends'
+    | 'connection'
+    | 'partstowhole'
+    | 'trends';
+  children?: ReactNode;
+  description?: string;
   /**
-     * Only use if name !== file name
-     */
-  fileName?: string,
+   * Only use if name !== file name
+   */
+  fileName?: string;
   /**
-     * Only use if name !== file name and the link should point to a directory
-     */
-  folderName?: string,
-  margin?: "default" | "none",
-  name: string,
-  platform?: "android" | "ios" | "web",
-  bannerSlim?: Element<typeof BannerSlim> | null,
-  bannerSlimExperiment?: Element<typeof BannerSlimExperiment> | null,
-  type?: "guidelines" | "component" | "utility",
-  pdocsLink?: boolean
+   * Only use if name !== file name and the link should point to a directory
+   */
+  folderName?: string;
+  margin?: 'default' | 'none';
+  name: string;
+  platform?: 'android' | 'ios' | 'web';
+  bannerSlim?: Element<typeof BannerSlim> | null;
+  bannerSlimExperiment?: Element<typeof BannerSlimExperiment> | null;
+  type?: 'guidelines' | 'component' | 'utility';
+  pdocsLink?: boolean;
 };
 
-export default function PageHeader(
-  {
-    badge,
-    children,
-    description = '',
-    fileName,
-    folderName,
-    pdocsLink = false,
-    margin = 'default',
-    name,
-    platform,
-    bannerSlim,
-    bannerSlimExperiment,
-    type = 'component',
-  }: Props,
-) {
+export default function PageHeader({
+  badge,
+  children,
+  description = '',
+  fileName,
+  folderName,
+  pdocsLink = false,
+  margin = 'default',
+  name,
+  platform,
+  bannerSlim,
+  bannerSlimExperiment,
+  type = 'component',
+}: Props) {
   const sourcePathName = folderName ?? fileName ?? name;
   let sourceLink = buildSourceLinkUrl(sourcePathName);
   if (folderName) {
@@ -119,7 +125,7 @@ export default function PageHeader(
   const addGap = Boolean(children);
 
   return (
-    (<Box
+    <Box
       dangerouslySetInlineStyle={{
         __style: {
           paddingBottom: '1px',
@@ -203,9 +209,9 @@ export default function PageHeader(
               {description && <Markdown text={description} />}
               {alias && alias.length > 0 && (
                 // using h2 to indicate to Algolia search that this is important, but don't want native browser styling
-                (<h2 className="reset">
+                <h2 className="reset">
                   <Text italic>also known as {alias.join(', ')}</Text>
-                </h2>)
+                </h2>
               )}
             </Flex>
 
@@ -220,6 +226,6 @@ export default function PageHeader(
           </Flex>
         </Flex>
       </Flex>
-    </Box>)
+    </Box>
   );
 }

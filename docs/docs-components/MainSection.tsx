@@ -1,28 +1,20 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import Card from './Card';
 import MainSectionCard from './MainSectionCard';
 import MainSectionSubsection from './MainSectionSubsection';
 
 type Props = {
   badge?: {
-    text: string,
-    tooltipText: string
-  },
-  children?: ReactNode,
-  description?: string,
-  name: string,
-  showHeading?: boolean
+    text: string;
+    tooltipText: string;
+  };
+  children?: ReactNode;
+  description?: string;
+  name: string;
+  showHeading?: boolean;
 };
 
-function MainSection(
-  {
-    badge,
-    children,
-    description,
-    name,
-    showHeading = true,
-  }: Props,
-) {
+function MainSection({ badge, children, description, name, showHeading = true }: Props) {
   return (
     <Card badge={badge} description={description} name={name} showHeading={showHeading}>
       {children}

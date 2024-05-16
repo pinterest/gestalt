@@ -1,4 +1,4 @@
-import {createRef} from 'react';
+import { createRef } from 'react';
 import { render, screen } from '@testing-library/react';
 import IconButton from './IconButton';
 
@@ -63,9 +63,14 @@ describe('IconButton', () => {
   });
 
   it('handles click', () => {
-    const mockOnClick = jest.fn<[{
-      event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>
-    }], undefined>();
+    const mockOnClick = jest.fn<
+      [
+        {
+          event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>;
+        },
+      ],
+      undefined
+    >();
     render(<IconButton accessibilityLabel="test" icon="add" onClick={mockOnClick} />);
     screen.getByRole('button').click();
     expect(mockOnClick).toHaveBeenCalled();

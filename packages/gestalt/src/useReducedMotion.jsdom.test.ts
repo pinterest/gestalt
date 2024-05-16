@@ -1,4 +1,4 @@
-import {act, renderHook} from '@testing-library/react-hooks';
+import { act, renderHook } from '@testing-library/react-hooks';
 import useReducedMotion from './useReducedMotion';
 
 const mediaqueryDefaults = {
@@ -11,13 +11,16 @@ const mediaqueryDefaults = {
 describe('useReducedMotion', () => {
   test('returns true if "Reduced Motion" is enabled', () => {
     window.matchMedia = jest
-      .fn<_, {
-      addEventListener: jest.MockedFunction<any>,
-      matches: boolean,
-      media: any,
-      onchange: null,
-      removeEventListener: jest.MockedFunction<any>
-    }>()
+      .fn<
+        _,
+        {
+          addEventListener: jest.MockedFunction<any>;
+          matches: boolean;
+          media: any;
+          onchange: null;
+          removeEventListener: jest.MockedFunction<any>;
+        }
+      >()
       .mockImplementation((query: any) => ({
         ...mediaqueryDefaults,
         matches: true,
@@ -30,13 +33,16 @@ describe('useReducedMotion', () => {
 
   test('returns false if "Reduced Motion" is disabled', () => {
     window.matchMedia = jest
-      .fn<_, {
-      addEventListener: jest.MockedFunction<any>,
-      matches: boolean,
-      media: any,
-      onchange: null,
-      removeEventListener: jest.MockedFunction<any>
-    }>()
+      .fn<
+        _,
+        {
+          addEventListener: jest.MockedFunction<any>;
+          matches: boolean;
+          media: any;
+          onchange: null;
+          removeEventListener: jest.MockedFunction<any>;
+        }
+      >()
       .mockImplementation((query: any) => ({
         ...mediaqueryDefaults,
         media: query,

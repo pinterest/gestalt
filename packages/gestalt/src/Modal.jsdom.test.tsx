@@ -1,4 +1,4 @@
-import {render, screen} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Button from './Button';
 import DeviceTypeProvider from './contexts/DeviceTypeProvider';
 import Flex from './Flex';

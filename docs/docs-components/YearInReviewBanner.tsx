@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import Lottie from 'lottie-react';
 import { Box, ButtonLink, Flex, Heading, TapAreaLink, Text, useReducedMotion } from 'gestalt';
 import { TOKEN_COLOR_BORDER_DEFAULT } from 'gestalt-design-tokens';

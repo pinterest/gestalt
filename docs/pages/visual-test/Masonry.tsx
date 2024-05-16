@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Masonry, Text } from 'gestalt';
 
 const dataObject = [
@@ -14,16 +14,14 @@ const dataObject = [
   { height: 60, name: 'Pin 10' },
 ];
 
-function GridComponent(
-  {
-    data,
-  }: {
-    data: {
-      height: number,
-      name: string
-    }
-  },
-) {
+function GridComponent({
+  data,
+}: {
+  data: {
+    height: number;
+    name: string;
+  };
+}) {
   return (
     <Box color="successBase" height={data.height} width={50}>
       <Text>{data.name}</Text>

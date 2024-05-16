@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import AccessibilitySection from '../../../docs-components/AccessibilitySection';
 import docGen, { DocGen } from '../../../docs-components/docgen';
 import GeneratedPropTable from '../../../docs-components/GeneratedPropTable';
@@ -12,13 +12,11 @@ import modalExample from '../../../examples/scrollboundarycontainer/modalExample
 import popoverExample from '../../../examples/scrollboundarycontainer/popoverExample';
 import visibleOverflowExample from '../../../examples/scrollboundarycontainer/visibleOverflowExample';
 
-export default function ScrollBoundaryContainerPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: DocGen
-  },
-) {
+export default function ScrollBoundaryContainerPage({
+  generatedDocGen,
+}: {
+  generatedDocGen: DocGen;
+}) {
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName} />
@@ -115,8 +113,8 @@ The following example shows the internal ScrollBoundaryContainer in action. The 
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   return {
     props: { generatedDocGen: await docGen('ScrollBoundaryContainer') },

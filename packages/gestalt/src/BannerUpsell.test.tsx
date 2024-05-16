@@ -1,4 +1,4 @@
-import {create} from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 import BannerUpsell from './BannerUpsell';
 import Icon from './Icon';
 import TextField from './TextField';

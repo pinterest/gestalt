@@ -1,13 +1,18 @@
-import {render, screen} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Tabs from './Tabs';
 
 describe('<Tabs />', () => {
   it('handles click', () => {
-    const mockOnChange = jest.fn<[{
-      readonly activeTabIndex: number,
-      dangerouslyDisableOnNavigation: () => void,
-      event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>
-    }], undefined>();
+    const mockOnChange = jest.fn<
+      [
+        {
+          readonly activeTabIndex: number;
+          dangerouslyDisableOnNavigation: () => void;
+          event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+        },
+      ],
+      undefined
+    >();
     render(
       <Tabs
         activeTabIndex={0}

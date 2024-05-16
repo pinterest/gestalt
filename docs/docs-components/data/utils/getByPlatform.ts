@@ -1,4 +1,4 @@
-import {ComponentData, Platform, PlatformData} from '../types';
+import { ComponentData, Platform, PlatformData } from '../types';
 
 /**
  * Gets all components for a given platform, returning an array of just the data for that platform.
@@ -7,7 +7,7 @@ import {ComponentData, Platform, PlatformData} from '../types';
 export default function getByPlatform(
   componentList: ReadonlyArray<ComponentData>,
   options: {
-    platform: Platform
+    platform: Platform;
   },
 ): ReadonlyArray<PlatformData> {
   const { platform } = options;

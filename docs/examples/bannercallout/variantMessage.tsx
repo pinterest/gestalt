@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import React, { ReactNode } from 'react';
 import { BannerCallout, Box, Flex, Text } from 'gestalt';
 
 export default function ResponsiveExample() {

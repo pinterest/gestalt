@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { DefaultLabelProvider } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
@@ -6,7 +6,7 @@ export default function Example() {
   const [visualPatternSelected, setVisualPatternSelected] = useState('default');
 
   return (
-    (<DefaultLabelProvider
+    <DefaultLabelProvider
       labels={{
         ChartGraph: {
           accessibilityLabelPrefixText: 'ChartGraph',
@@ -54,6 +54,6 @@ export default function Example() {
         type="bar"
         visualPatternSelected={visualPatternSelected}
       />
-    </DefaultLabelProvider>)
+    </DefaultLabelProvider>
   );
 }

@@ -1,23 +1,23 @@
-import {forwardRef, ReactNode, useEffect, useImperativeHandle, useRef} from 'react';
+import { forwardRef, ReactNode, useEffect, useImperativeHandle, useRef } from 'react';
 import Box from '../Box';
 import { Dimension, Padding } from '../boxTypes';
 import { useScrollBoundaryContainer } from '../contexts/ScrollBoundaryContainerProvider';
 
-type ScrollBoundaryContainerOverflow = "scroll" | "scrollX" | "scrollY" | "auto" | "visible";
+type ScrollBoundaryContainerOverflow = 'scroll' | 'scrollX' | 'scrollY' | 'auto' | 'visible';
 
 type InternalProps = {
-  children?: ReactNode,
-  includesFooter?: boolean,
-  height?: Dimension,
-  onScroll?: () => void,
-  overflow?: ScrollBoundaryContainerOverflow,
-  padding?: Padding
+  children?: ReactNode;
+  includesFooter?: boolean;
+  height?: Dimension;
+  onScroll?: () => void;
+  overflow?: ScrollBoundaryContainerOverflow;
+  padding?: Padding;
 };
 
 // ScrollBoundaryContainerWithForwardRef is the ScrollBoundaryContainer to be used internally, within components (e. Modal, OverlayPanel).
 // It has an extended API with private props (onScroll, padding, and ref) to maintain border shadows in the component main content container.
-const ScrollBoundaryContainerWithForwardRef =
-  forwardRef<HTMLElement, InternalProps>(function ScrollBoundaryContainer(
+const ScrollBoundaryContainerWithForwardRef = forwardRef<HTMLElement, InternalProps>(
+  function ScrollBoundaryContainer(
     {
       children,
       onScroll,
@@ -55,7 +55,8 @@ const ScrollBoundaryContainerWithForwardRef =
         {children}
       </Box>
     );
-  });
+  },
+);
 
 ScrollBoundaryContainerWithForwardRef.displayName = 'InternalScrollBoundaryContainer';
 

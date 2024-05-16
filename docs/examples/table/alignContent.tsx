@@ -1,11 +1,7 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, Checkbox, Label, Table, Text } from 'gestalt';
 
-function HeaderRow({
-  id,
-}: {
-  id: string
-}) {
+function HeaderRow({ id }: { id: string }) {
   return (
     <Table.Header>
       <Table.Row>
@@ -34,14 +30,14 @@ function BaseRow({
   text,
   spend,
 }: {
-  id: string,
-  checked?: boolean,
-  disabled?: boolean,
-  text: string,
-  spend: string
+  id: string;
+  checked?: boolean;
+  disabled?: boolean;
+  text: string;
+  spend: string;
 }) {
   return (
-    (<Table.Row>
+    <Table.Row>
       <Table.Cell>
         <Checkbox
           checked={checked}
@@ -65,7 +61,7 @@ function BaseRow({
       <Table.Cell>
         <Text align="end">{spend}</Text>
       </Table.Cell>
-    </Table.Row>)
+    </Table.Row>
   );
 }
 

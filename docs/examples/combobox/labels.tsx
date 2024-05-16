@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { Box, ComboBox, Flex, Heading, Link, Text } from 'gestalt';
 
 export default function Example() {
@@ -38,8 +38,8 @@ export default function Example() {
   const handleOnBlur = ({
     value,
   }: {
-    event: React.FocusEvent<HTMLInputElement> | React.SyntheticEvent<HTMLInputElement>,
-    value: string
+    event: React.FocusEvent<HTMLInputElement> | React.SyntheticEvent<HTMLInputElement>;
+    value: string;
   }) => {
     if (value !== '' && !CATEGORIES.includes(value))
       setErrorMessage('Please, select a valid option');

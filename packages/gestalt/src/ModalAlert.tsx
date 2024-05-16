@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
@@ -8,62 +8,64 @@ import Modal from './Modal';
 import ModalAlertAction from './ModalAlert/Action';
 import ModalAlertHeader from './ModalAlert/Header';
 
-export type ActionDataType = {
-  accessibilityLabel: string,
-  dataTestId?: string,
-  disabled?: boolean,
-  href: string,
-  label: string,
-  onClick?: ComponentProps<typeof ButtonLink>["onClick"],
-  rel?: "none" | "nofollow",
-  role: "link",
-  target?: null | "self" | "blank"
-} | {
-  accessibilityLabel: string,
-  dataTestId?: string,
-  disabled?: boolean,
-  label: string,
-  onClick?: ComponentProps<typeof Button>["onClick"],
-  role?: "button"
-};
+export type ActionDataType =
+  | {
+      accessibilityLabel: string;
+      dataTestId?: string;
+      disabled?: boolean;
+      href: string;
+      label: string;
+      onClick?: ComponentProps<typeof ButtonLink>['onClick'];
+      rel?: 'none' | 'nofollow';
+      role: 'link';
+      target?: null | 'self' | 'blank';
+    }
+  | {
+      accessibilityLabel: string;
+      dataTestId?: string;
+      disabled?: boolean;
+      label: string;
+      onClick?: ComponentProps<typeof Button>['onClick'];
+      role?: 'button';
+    };
 
 type Props = {
   /**
-     * Label to describe the dismiss button's purpose.
-     */
-  accessibilityDismissButtonLabel?: string,
+   * Label to describe the dismiss button's purpose.
+   */
+  accessibilityDismissButtonLabel?: string;
   /**
-     * String that clients such as VoiceOver will read to describe the modal. Always localize the label. See [Accessibility section](https://gestalt.pinterest.systems/web/modalalert#Accessibility) for more info.
-     */
-  accessibilityModalLabel: string,
+   * String that clients such as VoiceOver will read to describe the modal. Always localize the label. See [Accessibility section](https://gestalt.pinterest.systems/web/modalalert#Accessibility) for more info.
+   */
+  accessibilityModalLabel: string;
   /**
-     * Supply the element(s) that will be used as ModalAlert's main content. See the [Best Practices](https://gestalt.pinterest.systems/web/modalalert#Best-practices) for more info.
-     */
-  children: ReactNode,
+   * Supply the element(s) that will be used as ModalAlert's main content. See the [Best Practices](https://gestalt.pinterest.systems/web/modalalert#Best-practices) for more info.
+   */
+  children: ReactNode;
   /**
-     * The text used for ModalAlert's heading.
-     */
-  heading: string,
+   * The text used for ModalAlert's heading.
+   */
+  heading: string;
   /**
-     * Callback fired when ModalAlert is dismissed by clicking on the backdrop outside of the ModalAlert or when the dismiss icon button is clicked (for default ModalAlerts).
-     */
-  onDismiss: () => void,
+   * Callback fired when ModalAlert is dismissed by clicking on the backdrop outside of the ModalAlert or when the dismiss icon button is clicked (for default ModalAlerts).
+   */
+  onDismiss: () => void;
   /**
-     * Determines the icon and dismiss pattern of the ModalAlert. See the [warning](https://gestalt.pinterest.systems/web/modalalert#Warning-type) and [error](https://gestalt.pinterest.systems/web/modalalert#Error-type)  variants for more info.
-     */
-  type?: "default" | "warning" | "error",
+   * Determines the icon and dismiss pattern of the ModalAlert. See the [warning](https://gestalt.pinterest.systems/web/modalalert#Warning-type) and [error](https://gestalt.pinterest.systems/web/modalalert#Error-type)  variants for more info.
+   */
+  type?: 'default' | 'warning' | 'error';
   /**
-     * Main action for users to take on ModalAlert. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
-     * If no `href` is supplied, the action will be a button.
-     * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/modalalert#Accessibility).
-     */
-  primaryAction: ActionDataType,
+   * Main action for users to take on ModalAlert. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
+   * If no `href` is supplied, the action will be a button.
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/modalalert#Accessibility).
+   */
+  primaryAction: ActionDataType;
   /**
-     * Secondary action for users to take on ModalAlert. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
-     * If no `href` is supplied, the action will be a button.
-     * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/modalalert#Accessibility).
-     */
-  secondaryAction?: ActionDataType
+   * Secondary action for users to take on ModalAlert. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
+   * If no `href` is supplied, the action will be a button.
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/modalalert#Accessibility).
+   */
+  secondaryAction?: ActionDataType;
 };
 
 /**
@@ -74,18 +76,16 @@ type Props = {
  * ![ModalAlert dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ModalAlert-dark.spec.mjs-snapshots/ModalAlert-dark-chromium-darwin.png)
  *
  */
-export default function ModalAlert(
-  {
-    accessibilityDismissButtonLabel,
-    accessibilityModalLabel,
-    type = 'default',
-    children,
-    onDismiss,
-    heading,
-    primaryAction,
-    secondaryAction,
-  }: Props,
-) {
+export default function ModalAlert({
+  accessibilityDismissButtonLabel,
+  accessibilityModalLabel,
+  type = 'default',
+  children,
+  onDismiss,
+  heading,
+  primaryAction,
+  secondaryAction,
+}: Props) {
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Modal');
 
@@ -103,7 +103,7 @@ export default function ModalAlert(
 
   return (
     // ModalAlert is not adaptive to mobile
-    (<DeviceTypeProvider deviceType="desktop">
+    <DeviceTypeProvider deviceType="desktop">
       <Modal
         accessibilityModalLabel={accessibilityModalLabel}
         align="start"
@@ -130,7 +130,7 @@ export default function ModalAlert(
       >
         {children}
       </Modal>
-    </DeviceTypeProvider>)
+    </DeviceTypeProvider>
   );
 }
 

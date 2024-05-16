@@ -1,4 +1,4 @@
-import {ReactNode, useRef, useState} from 'react';
+import { ReactNode, useRef, useState } from 'react';
 import { Box, Dropdown, Flex, IconButtonFloating, Image, Mask } from 'gestalt';
 
 const pins = [
@@ -48,22 +48,24 @@ const pins = [
 
 export default function Example() {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState<ReadonlyArray<{
-    label: string,
-    subtext?: string,
-    value: string
-  }>>([]);
+  const [selected, setSelected] = useState<
+    ReadonlyArray<{
+      label: string;
+      subtext?: string;
+      value: string;
+    }>
+  >([]);
   const anchorRef = useRef<null | HTMLElement>(null);
 
   const onSelect = ({
     item,
   }: {
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>;
     item: {
-      label: string,
-      subtext?: string,
-      value: string
-    }
+      label: string;
+      subtext?: string;
+      value: string;
+    };
   }) => {
     if (selected.some(({ value }) => value === item.value)) {
       setSelected((selectedValue) => selectedValue.filter(({ value }) => value !== item.value));
@@ -73,7 +75,7 @@ export default function Example() {
   };
 
   return (
-    (<Box margin={3}>
+    <Box margin={3}>
       <Box role="main">
         <Flex alignItems="center" gap={5} height="100%" justifyContent="center" width="100%" wrap>
           {[...new Array<undefined | ReadonlyArray<ReactNode>>(3)].map(() =>
@@ -143,6 +145,6 @@ export default function Example() {
           </Dropdown.Section>
         </Dropdown>
       )}
-    </Box>)
+    </Box>
   );
 }

@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -18,13 +18,7 @@ import multipleSourcesExample from '../../examples/video/multipleSourcesExample'
 import updatesExample from '../../examples/video/updatesExample';
 import withChildrenExample from '../../examples/video/withChildrenExample';
 
-export default function DocsPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: DocGen
-  },
-) {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
     <Page title="Video">
       <PageHeader description={generatedDocGen?.description} name="Video" pdocsLink>
@@ -172,8 +166,8 @@ For more information about autoplay, check the [MDN Web Docs: video](https://dev
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: DocGen
-  }
+    generatedDocGen: DocGen;
+  };
 }> {
   const generatedDocGen = await docGen('Video');
 

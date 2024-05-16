@@ -1,4 +1,4 @@
-import {forwardRef, ReactNode, useImperativeHandle, useRef} from 'react';
+import { forwardRef, ReactNode, useImperativeHandle, useRef } from 'react';
 import getAriaLabel from './accessibility/getAriaLabel';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
@@ -12,80 +12,78 @@ import { Indexable } from './zIndex';
 
 type Props = {
   /**
-     * Label for screen readers to announce IconButtonLink.
-     */
-  accessibilityLabel: string,
+   * Label for screen readers to announce IconButtonLink.
+   */
+  accessibilityLabel: string;
   /**
-     * Primary colors to apply to the IconButtonLink background.
-     */
-  bgColor?: "transparent" | "transparentDarkGray" | "gray" | "lightGray" | "white" | "red",
+   * Primary colors to apply to the IconButtonLink background.
+   */
+  bgColor?: 'transparent' | 'transparentDarkGray' | 'gray' | 'lightGray' | 'white' | 'red';
   /**
-     * Defines a new icon different from the built-in Gestalt icons.
-     */
+   * Defines a new icon different from the built-in Gestalt icons.
+   */
   dangerouslySetSvgPath?: {
-    __path: string
-  },
+    __path: string;
+  };
   /**
-     * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
-     */
-  dataTestId?: string,
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
   /**
-     * When disabled, IconButtonLink looks inactive and cannot be interacted with.
-     */
-  disabled?: boolean,
+   * When disabled, IconButtonLink looks inactive and cannot be interacted with.
+   */
+  disabled?: boolean;
   /**
-     * Specifies a link URL.
-     */
-  href: string,
+   * Specifies a link URL.
+   */
+  href: string;
   /**
-     * SVG icon from the Gestalt icon library to use within Icon.
-     *
-     * See the [icon library](https://gestalt.pinterest.systems/foundations/iconography/library) to explore available options.
-     */
-  icon?: keyof typeof icons,
+   * SVG icon from the Gestalt icon library to use within Icon.
+   *
+   * See the [icon library](https://gestalt.pinterest.systems/foundations/iconography/library) to explore available options.
+   */
+  icon?: keyof typeof icons;
   /**
-     * Primary color to apply to the [Icon](/web/icon).
-     */
-  iconColor?: "gray" | "darkGray" | "red" | "white" | "brandPrimary",
+   * Primary color to apply to the [Icon](/web/icon).
+   */
+  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary';
   /**
-     * Callback fired when the component is clicked, pressed or tapped. See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
-     */
-  onClick?: (
-    arg1: {
-      event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
-      dangerouslyDisableOnNavigation: () => void
-    },
-  ) => void,
+   * Callback fired when the component is clicked, pressed or tapped. See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
+   */
+  onClick?: (arg1: {
+    event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+    dangerouslyDisableOnNavigation: () => void;
+  }) => void;
   /**
-     * Sets a padding for the IconButtonLink.
-     */
-  padding?: 1 | 2 | 3 | 4 | 5,
+   * Sets a padding for the IconButtonLink.
+   */
+  padding?: 1 | 2 | 3 | 4 | 5;
   /**
-     * Specifies the relationship between the current document and the linked document.
-     */
-  rel?: "none" | "nofollow",
+   * Specifies the relationship between the current document and the linked document.
+   */
+  rel?: 'none' | 'nofollow';
   /**
-     * The maximum height and width of IconButtonLink.
-     */
-  size?: "xs" | "sm" | "md" | "lg" | "xl",
+   * The maximum height and width of IconButtonLink.
+   */
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   /**
-     * Removes IconButtonLink from sequential keyboard navigation to improve accessibility.
-     */
-  tabIndex?: -1 | 0,
+   * Removes IconButtonLink from sequential keyboard navigation to improve accessibility.
+   */
+  tabIndex?: -1 | 0;
   /**
-     * Define the frame or window to open the anchor defined on \`href\`.
-     */
-  target?: null | "self" | "blank",
+   * Define the frame or window to open the anchor defined on \`href\`.
+   */
+  target?: null | 'self' | 'blank';
   /**
-     * Adds a [Tooltip](/web/tooltip) on hover/focus of the IconButtonLink.
-     */
+   * Adds a [Tooltip](/web/tooltip) on hover/focus of the IconButtonLink.
+   */
   tooltip?: {
-    accessibilityLabel?: string,
-    inline?: boolean,
-    idealDirection?: "up" | "right" | "down" | "left",
-    text: string,
-    zIndex?: Indexable
-  }
+    accessibilityLabel?: string;
+    inline?: boolean;
+    idealDirection?: 'up' | 'right' | 'down' | 'left';
+    text: string;
+    zIndex?: Indexable;
+  };
 };
 
 /**

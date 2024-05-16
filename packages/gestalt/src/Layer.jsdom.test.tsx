@@ -1,4 +1,4 @@
-import {render, screen} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Layer from './Layer';
 import { FixedZIndex } from './zIndex';
 

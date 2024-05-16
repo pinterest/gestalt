@@ -1,29 +1,32 @@
 import metadata from './metadata';
 
 export type DocGen = {
-  description: string,
-  displayName: string,
-  methods: ReadonlyArray<string>,
+  description: string;
+  displayName: string;
+  methods: ReadonlyArray<string>;
   props: {
     [key: string]: {
-      defaultValue: {
-        value: string,
-        computed: boolean
-      } | null | undefined,
-      required: boolean,
-      description: string,
+      defaultValue:
+        | {
+            value: string;
+            computed: boolean;
+          }
+        | null
+        | undefined;
+      required: boolean;
+      description: string;
       tsType: {
-        raw?: string,
-        nullable?: boolean,
-        name: string,
-        value?: string
-      }
-    }
-  }
+        raw?: string;
+        nullable?: boolean;
+        name: string;
+        value?: string;
+      };
+    };
+  };
 };
 
 export type DocType = {
-  generatedDocGen: DocGen
+  generatedDocGen: DocGen;
 };
 
 export default function docGen(componentName: string): DocGen {
@@ -31,20 +34,26 @@ export default function docGen(componentName: string): DocGen {
 }
 
 export function multipleDocGen(componentNames: ReadonlyArray<string>): {
-  [key: string]: DocGen
+  [key: string]: DocGen;
 } {
-  return componentNames.reduce<Record<string, any>>((prevValue: {
-    [key: string]: DocGen
-  }, currentComponentName: string) => ({
-    ...prevValue,
-    [currentComponentName]: docGen(currentComponentName),
-  }), {});
+  return componentNames.reduce<Record<string, any>>(
+    (
+      prevValue: {
+        [key: string]: DocGen;
+      },
+      currentComponentName: string,
+    ) => ({
+      ...prevValue,
+      [currentComponentName]: docGen(currentComponentName),
+    }),
+    {},
+  );
 }
 
 export function overrideTypes(
   docGenArg: DocGen,
   typeOverrides: {
-    [key: string]: string
+    [key: string]: string;
   },
 ): DocGen {
   Object.keys(typeOverrides).forEach((key) => {

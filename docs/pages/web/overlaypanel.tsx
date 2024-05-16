@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { BannerSlim, Link, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import { DocGen, multipleDocGen } from '../../docs-components/docgen';
@@ -19,15 +19,13 @@ import quickEditsExample from '../../examples/overlaypanel/quickEditsExample';
 import sizesExample from '../../examples/overlaypanel/sizesExample';
 import subheadingExample from '../../examples/overlaypanel/subHeadingExample';
 
-export default function SheetPage(
-  {
-    generatedDocGen,
-  }: {
-    generatedDocGen: {
-      [key: string]: DocGen
-    }
-  },
-) {
+export default function SheetPage({
+  generatedDocGen,
+}: {
+  generatedDocGen: {
+    [key: string]: DocGen;
+  };
+}) {
   const PREVIEW_HEIGHT = 800;
 
   return (
@@ -359,9 +357,9 @@ Toast provides feedback on an interaction. Toasts appear at the bottom of a desk
 export async function getServerSideProps(): Promise<{
   props: {
     generatedDocGen: {
-      [key: string]: DocGen
-    }
-  }
+      [key: string]: DocGen;
+    };
+  };
 }> {
   return {
     props: {

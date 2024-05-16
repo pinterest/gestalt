@@ -1,16 +1,11 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 
 type Props = {
-  height?: number,
-  width?: number
+  height?: number;
+  width?: number;
 };
 
-export default function GestaltLogo(
-  {
-    height,
-    width,
-  }: Props,
-) {
+export default function GestaltLogo({ height, width }: Props) {
   return (
     <svg
       aria-label="Home"

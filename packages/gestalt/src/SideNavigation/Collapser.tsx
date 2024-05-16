@@ -1,17 +1,11 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import Box from '../Box';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import { useSideNavigation } from '../contexts/SideNavigationProvider';
 import IconButton from '../IconButton';
 import Sticky from '../Sticky';
 
-export default function Collapser(
-  {
-    raised,
-  }: {
-    raised: boolean
-  },
-) {
+export default function Collapser({ raised }: { raised: boolean }) {
   const { collapsed, overlayPreview, onCollapse, setOverlayPreview } = useSideNavigation();
   const { accessibilityCollapseButtonLabel, accessibilityExpandButtonLabel } =
     useDefaultLabelContext('SideNavigation');

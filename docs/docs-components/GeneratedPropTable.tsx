@@ -1,11 +1,11 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { DocGen } from './docgen';
 import PropTable from './PropTable';
 
 // Note if the prop has responsive versions (e.g. margin, smMargin, mdMargin, lgMargin)
 function getResponsive(description?: string): {
-  description?: string,
-  responsive?: boolean
+  description?: string;
+  responsive?: boolean;
 } {
   const input = description ?? '';
   const match = input.match(/(?<main>Responsive: (?<responsive>.*))/);
@@ -19,8 +19,8 @@ function getResponsive(description?: string): {
 
 // Provide a different type to display when needed
 function getTypeOverrideValue(description?: string): {
-  description?: string,
-  typeOverride?: string
+  description?: string;
+  typeOverride?: string;
 } {
   const input = description ?? '';
   const match = input.match(/(?<main>Type: (?<typeOverride>.*))/);
@@ -34,8 +34,8 @@ function getTypeOverrideValue(description?: string): {
 
 // Provide a default value where the actual one can't be parsed, e.g. Box
 function getDefaultValue(description?: string): {
-  description?: string,
-  defaultValue?: string
+  description?: string;
+  defaultValue?: string;
 } {
   const input = description ?? '';
   const match = input.match(/(?<main>Default: (?<defaultValue>.*))/);
@@ -54,20 +54,18 @@ function removeDomain(description: string) {
 }
 
 type Props = {
-  excludeProps?: ReadonlyArray<string>,
-  generatedDocGen: DocGen,
-  id?: string,
-  name?: string
+  excludeProps?: ReadonlyArray<string>;
+  generatedDocGen: DocGen;
+  id?: string;
+  name?: string;
 };
 
-export default function GeneratedPropTable(
-  {
-    excludeProps = [],
-    generatedDocGen,
-    id,
-    name,
-  }: Props,
-) {
+export default function GeneratedPropTable({
+  excludeProps = [],
+  generatedDocGen,
+  id,
+  name,
+}: Props) {
   // Using Object.keys because of https://github.com/facebook/flow/issues/2174
   const props = Object.keys(generatedDocGen.props)
     .map((key: string) => {

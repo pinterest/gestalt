@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, Button, Datapoint, Dropdown, PageHeader } from 'gestalt';
 
 export default function Snapshot() {

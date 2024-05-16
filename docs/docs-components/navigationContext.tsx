@@ -1,19 +1,19 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { useRouter } from 'next/router';
 import createHydra, { Hydra } from './createHydra';
 
 const localStorageOrganizedByKey = 'gestalt-sidebar-organized-by-platform';
 
-export type ComponentPlatformFilteredBy = "web" | "ios" | "android";
+export type ComponentPlatformFilteredBy = 'web' | 'ios' | 'android';
 
 export type NavigationContextType = {
-  isSidebarOpen: boolean,
-  setIsSidebarOpen: (arg1: boolean | ((arg1: boolean) => boolean)) => void,
-  componentPlatformFilteredBy: ComponentPlatformFilteredBy,
-  setComponentPlatformFilteredByCookie: (val: ComponentPlatformFilteredBy) => void,
-  selectedTab: string,
-  setSelectedTab: (arg1: string | ((arg1: string) => string)) => void
+  isSidebarOpen: boolean;
+  setIsSidebarOpen: (arg1: boolean | ((arg1: boolean) => boolean)) => void;
+  componentPlatformFilteredBy: ComponentPlatformFilteredBy;
+  setComponentPlatformFilteredByCookie: (val: ComponentPlatformFilteredBy) => void;
+  selectedTab: string;
+  setSelectedTab: (arg1: string | ((arg1: string) => string)) => void;
 };
 
 const PLATFORM_MAP = {
@@ -28,13 +28,7 @@ const {
   useHook: useNavigationContext,
 }: Hydra<NavigationContextType> = createHydra<NavigationContextType>('NavigationContext');
 
-function NavigationContextProvider(
-  {
-    children,
-  }: {
-    children?: ReactNode
-  },
-) {
+function NavigationContextProvider({ children }: { children?: ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const [cookies, setCookies] = useCookies([localStorageOrganizedByKey]);

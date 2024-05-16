@@ -9,12 +9,12 @@ import {
 } from 'react';
 
 type ScrollBoundaryContainerContextType = {
-  scrollBoundaryContainerRef: HTMLElement | null | undefined,
-  addRef: (ref: HTMLElement) => void
+  scrollBoundaryContainerRef: HTMLElement | null | undefined;
+  addRef: (ref: HTMLElement) => void;
 };
 
 type Props = {
-  children: ReactNode
+  children: ReactNode;
 };
 
 const ScrollBoundaryContainerContext: Context<ScrollBoundaryContainerContextType> =
@@ -25,12 +25,10 @@ const ScrollBoundaryContainerContext: Context<ScrollBoundaryContainerContextType
 
 const { Provider } = ScrollBoundaryContainerContext;
 
-function ScrollBoundaryContainerProvider(
-  {
-    children,
-  }: Props,
-): Element<typeof Provider> {
-  const [scrollBoundaryContainerRef, setScrollBoundaryContainerRef] = useState<null | HTMLElement>(null);
+function ScrollBoundaryContainerProvider({ children }: Props): Element<typeof Provider> {
+  const [scrollBoundaryContainerRef, setScrollBoundaryContainerRef] = useState<null | HTMLElement>(
+    null,
+  );
 
   const scrollBoundaryContainerContext = {
     scrollBoundaryContainerRef,

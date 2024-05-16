@@ -1,4 +1,4 @@
-import {Fragment, ReactNode, useEffect, useState} from 'react';
+import { Fragment, ReactNode, useEffect, useState } from 'react';
 import {
   SandpackCodeEditor,
   SandpackLayout,
@@ -22,11 +22,7 @@ const MIN_EDITOR_HEIGHT = 350;
 const MAX_EDITOR_IPHONE_SE_MOBILE_WIDTH = 375;
 const MAX_EDITOR_IPHONE_SE_MOBILE_HEIGHT = 667;
 
-async function copyCode({
-  code,
-}: {
-  code: string | null | undefined
-}) {
+async function copyCode({ code }: { code: string | null | undefined }) {
   try {
     await clipboardCopy(code ?? '');
   } catch (error: any) {
@@ -46,15 +42,15 @@ function SandpackContainer({
   toggleExampleColorScheme,
   toggleExampleTextDirection,
 }: {
-  exampleColorScheme: "light" | "dark",
-  exampleTextDirection: "ltr" | "rtl",
-  hideControls?: boolean,
-  hideEditor?: boolean,
-  layout: "row" | "column" | "mobileRow" | "mobileColumn",
-  name: string,
-  previewHeight?: number,
-  toggleExampleColorScheme: () => void,
-  toggleExampleTextDirection: () => void
+  exampleColorScheme: 'light' | 'dark';
+  exampleTextDirection: 'ltr' | 'rtl';
+  hideControls?: boolean;
+  hideEditor?: boolean;
+  layout: 'row' | 'column' | 'mobileRow' | 'mobileColumn';
+  name: string;
+  previewHeight?: number;
+  toggleExampleColorScheme: () => void;
+  toggleExampleTextDirection: () => void;
 }) {
   const [editorShown, setEditorShown] = useState(!hideEditor);
   const { sandpack } = useSandpack();
@@ -144,27 +140,25 @@ function SandpackContainer({
   );
 }
 
-export default function SandpackExample(
-  {
-    code,
-    layout = 'row',
-    name,
-    previewHeight,
-    hideControls,
-    hideEditor,
-  }: {
-    code: string | null | undefined | (() => ReactNode),
-    layout?: "row" | "column" | "mobileRow" | "mobileColumn",
-    name: string,
-    previewHeight?: number,
-    hideControls?: boolean,
-    hideEditor?: boolean
-  },
-) {
+export default function SandpackExample({
+  code,
+  layout = 'row',
+  name,
+  previewHeight,
+  hideControls,
+  hideEditor,
+}: {
+  code: string | null | undefined | (() => ReactNode);
+  layout?: 'row' | 'column' | 'mobileRow' | 'mobileColumn';
+  name: string;
+  previewHeight?: number;
+  hideControls?: boolean;
+  hideEditor?: boolean;
+}) {
   const { files } = useLocalFiles();
   const { colorScheme, devExampleMode, helixBot, textDirection } = useAppContext();
-  const [exampleColorScheme, setExampleColorScheme] = useState<"light" | "dark">(colorScheme);
-  const [exampleTextDirection, setExampleTextDirection] = useState<"ltr" | "rtl">(textDirection);
+  const [exampleColorScheme, setExampleColorScheme] = useState<'light' | 'dark'>(colorScheme);
+  const [exampleTextDirection, setExampleTextDirection] = useState<'ltr' | 'rtl'>(textDirection);
   const experimentsObj = useDocsExperiments();
   // If the user changes the color scheme or text direction, update examples
   useEffect(() => {

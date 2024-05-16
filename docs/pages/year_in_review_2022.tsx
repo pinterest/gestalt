@@ -1,4 +1,4 @@
-import {Fragment, ReactNode, useEffect, useState} from 'react';
+import { Fragment, ReactNode, useEffect, useState } from 'react';
 import Lottie from 'lottie-react';
 import Link from 'next/link';
 import {
@@ -48,16 +48,11 @@ const SIDE_GAP = 8;
 const MAX_CONTENT_WIDTH = 660;
 
 type StatsProps = {
-  description: string,
-  number: string
+  description: string;
+  number: string;
 };
 
-function StatsColumn(
-  {
-    number,
-    description,
-  }: StatsProps,
-) {
+function StatsColumn({ number, description }: StatsProps) {
   return (
     <Flex alignItems="start" direction="column" gap={2}>
       <p className="statsNumber">{number} </p>
@@ -69,16 +64,11 @@ function StatsColumn(
 }
 
 type GridProps = {
-  description: string,
-  number: string
+  description: string;
+  number: string;
 };
 
-function StatsGrid(
-  {
-    number,
-    description,
-  }: GridProps,
-) {
+function StatsGrid({ number, description }: GridProps) {
   return (
     <Fragment>
       <p className="statsNumber">{number}</p>
@@ -88,14 +78,10 @@ function StatsGrid(
 }
 
 type AnimationProps = {
-  shouldReduceMotion: boolean
+  shouldReduceMotion: boolean;
 };
 
-function DiscoAnimation(
-  {
-    shouldReduceMotion,
-  }: AnimationProps,
-) {
+function DiscoAnimation({ shouldReduceMotion }: AnimationProps) {
   const [animationData, setAnimationData] = useState<null | Record<any, any>>(null);
   useEffect(() => {
     import(`../graphics/year-in-review/lottie/discoStars.json`).then((res) =>

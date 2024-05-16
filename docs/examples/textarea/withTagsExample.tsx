@@ -1,19 +1,15 @@
-import {ReactNode, useRef, useState} from 'react';
+import { ReactNode, useRef, useState } from 'react';
 import { Box, Tag, TextArea } from 'gestalt';
 
-type ChangeTagHandler = (
-  arg1: {
-    event: React.ChangeEvent<HTMLTextAreaElement>,
-    value: string
-  },
-) => void;
+type ChangeTagHandler = (arg1: {
+  event: React.ChangeEvent<HTMLTextAreaElement>;
+  value: string;
+}) => void;
 
-type KeyDownHandler = (
-  arg1: {
-    event: React.KeyboardEvent<HTMLTextAreaElement>,
-    value: string
-  },
-) => void;
+type KeyDownHandler = (arg1: {
+  event: React.KeyboardEvent<HTMLTextAreaElement>;
+  value: string;
+}) => void;
 
 const CITIES = ['San Francisco', 'New York'];
 

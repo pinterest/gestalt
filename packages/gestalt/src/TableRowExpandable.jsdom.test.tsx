@@ -1,4 +1,4 @@
-import {fireEvent, render, screen} from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Box from './Box';
 import Table from './Table';
 import TableBody from './TableBody';
@@ -6,10 +6,15 @@ import TableCell from './TableCell';
 import TableRowExpandable from './TableRowExpandable';
 import Text from './Text';
 
-const mockOnExpand = jest.fn<[{
-  event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>,
-  expanded: boolean
-}], undefined>();
+const mockOnExpand = jest.fn<
+  [
+    {
+      event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>;
+      expanded: boolean;
+    },
+  ],
+  undefined
+>();
 
 test('TableRowExpandable handles expand contents call', () => {
   render(

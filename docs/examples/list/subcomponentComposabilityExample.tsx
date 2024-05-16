@@ -1,4 +1,4 @@
-import {Fragment, ReactNode} from 'react';
+import { Fragment, ReactNode } from 'react';
 import { Box, List } from 'gestalt';
 
 export default function Example() {

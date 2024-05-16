@@ -1,18 +1,13 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { IconButton } from 'gestalt';
 import trackButtonClick from './trackButtonClick';
 
 type Props = {
-  name: string,
-  onClick: () => void
+  name: string;
+  onClick: () => void;
 };
 
-export default function CopyLinkButton(
-  {
-    name,
-    onClick,
-  }: Props,
-) {
+export default function CopyLinkButton({ name, onClick }: Props) {
   const label = 'Copy link';
 
   return (

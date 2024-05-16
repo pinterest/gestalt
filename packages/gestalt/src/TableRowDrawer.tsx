@@ -1,4 +1,4 @@
-import {Children, cloneElement, Fragment, ReactNode, useEffect, useRef, useState} from 'react';
+import { Children, cloneElement, Fragment, ReactNode, useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import { useTableContext } from './contexts/TableContext';
@@ -7,39 +7,37 @@ import getChildrenCount from './Table/getChildrenCount';
 
 type Props = {
   /**
-     * Must be instances of Table.Cell. See the [Subcomponent section](https://gestalt.pinterest.systems/web/table#Subcomponents) to learn more.
-     */
-  children: ReactNode,
+   * Must be instances of Table.Cell. See the [Subcomponent section](https://gestalt.pinterest.systems/web/table#Subcomponents) to learn more.
+   */
+  children: ReactNode;
   /**
-     * The contents within the drawer. See the [Table.RowDrawer implementation](https://gestalt.pinterest.systems/web/table#Table.RowDrawer-implementation) to learn more.
-     */
-  drawerContents: ReactNode,
+   * The contents within the drawer. See the [Table.RowDrawer implementation](https://gestalt.pinterest.systems/web/table#Table.RowDrawer-implementation) to learn more.
+   */
+  drawerContents: ReactNode;
   /**
-     * Sets the background color on hover over the row. See the [selected and hovered state variant](https://gestalt.pinterest.systems/web/table#Selected-and-hovered-state) to learn more.
-     */
-  hoverStyle?: "gray" | "none",
+   * Sets the background color on hover over the row. See the [selected and hovered state variant](https://gestalt.pinterest.systems/web/table#Selected-and-hovered-state) to learn more.
+   */
+  hoverStyle?: 'gray' | 'none';
   /**
-     * Unique id for Table.RowDrawer.
-     */
-  id: string,
+   * Unique id for Table.RowDrawer.
+   */
+  id: string;
   /**
-     * Indicates if Table.RowDrawer is currently selected or unselected. See the [selected and hovered state variant](https://gestalt.pinterest.systems/web/table#Selected-and-hovered-state) to learn more.
-     */
-  selected?: "selected" | "unselected"
+   * Indicates if Table.RowDrawer is currently selected or unselected. See the [selected and hovered state variant](https://gestalt.pinterest.systems/web/table#Selected-and-hovered-state) to learn more.
+   */
+  selected?: 'selected' | 'unselected';
 };
 
 /**
  * Use [Table.RowDrawer](https://gestalt.pinterest.systems/web/table#Table.RowDrawer) to define a row drawer to display additional content.
  */
-export default function TableRowDrawer(
-  {
-    children,
-    drawerContents,
-    hoverStyle = 'none',
-    id,
-    selected,
-  }: Props,
-) {
+export default function TableRowDrawer({
+  children,
+  drawerContents,
+  hoverStyle = 'none',
+  id,
+  selected,
+}: Props) {
   const { stickyColumns } = useTableContext();
   const rowRef = useRef<HTMLTableRowElement | null | undefined>();
   const [columnWidths, setColumnWidths] = useState<ReadonlyArray<number>>([]);

@@ -1,18 +1,14 @@
-import {create} from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 import Collage from './Collage';
 
 type CollageImageProps = {
-  width: number,
-  height: number,
-  index: number
+  width: number;
+  height: number;
+  index: number;
 };
 
 describe('<Collage />', () => {
-  function CollageImage({
-    width,
-    height,
-    index,
-  }: CollageImageProps) {
+  function CollageImage({ width, height, index }: CollageImageProps) {
     return <div style={{ width, height }}>{index}</div>;
   }
 

@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import {
   Box,
   Button,
@@ -12,13 +12,7 @@ import {
   TextField,
 } from 'gestalt';
 
-function ModalWithHeading(
-  {
-    onDismiss,
-  }: {
-    onDismiss: () => void
-  },
-) {
+function ModalWithHeading({ onDismiss }: { onDismiss: () => void }) {
   return (
     <Modal
       accessibilityModalLabel="Edit board"

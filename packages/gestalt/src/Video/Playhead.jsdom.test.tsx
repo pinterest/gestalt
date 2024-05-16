@@ -1,9 +1,15 @@
-import {fireEvent, render, screen} from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import VideoPlayhead from './Playhead';
 
 test('VideoPlayhead handles on mouse down and up events', () => {
-  const mockOnPlayheadDown = jest.fn<[React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>], undefined>();
-  const mockOnPlayheadUp = jest.fn<[React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>], undefined>();
+  const mockOnPlayheadDown = jest.fn<
+    [React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>],
+    undefined
+  >();
+  const mockOnPlayheadUp = jest.fn<
+    [React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>],
+    undefined
+  >();
   render(
     <VideoPlayhead
       accessibilityProgressBarLabel="Progress bar"
@@ -28,8 +34,14 @@ test('VideoPlayhead handles on mouse down and up events', () => {
 });
 
 test('VideoPlayhead ends seek when mouse leaves', () => {
-  const mockOnPlayheadDown = jest.fn<[React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>], undefined>();
-  const mockOnPlayheadUp = jest.fn<[React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>], undefined>();
+  const mockOnPlayheadDown = jest.fn<
+    [React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>],
+    undefined
+  >();
+  const mockOnPlayheadUp = jest.fn<
+    [React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>],
+    undefined
+  >();
   render(
     <VideoPlayhead
       accessibilityProgressBarLabel="Progress bar"

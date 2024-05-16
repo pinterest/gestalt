@@ -1,12 +1,12 @@
-import {Context, createContext, ReactElement, ReactNode, useContext, useState} from 'react';
+import { Context, createContext, ReactElement, ReactNode, useContext, useState } from 'react';
 
 type DocsConfigContextType = {
-  isMobile: boolean
+  isMobile: boolean;
 };
 
 type Props = {
-  children: ReactNode,
-  isMobile: boolean
+  children: ReactNode;
+  isMobile: boolean;
 };
 
 const DocsConfigContext: Context<DocsConfigContextType> = createContext<DocsConfigContextType>({
@@ -15,12 +15,7 @@ const DocsConfigContext: Context<DocsConfigContextType> = createContext<DocsConf
 
 const { Provider } = DocsConfigContext;
 
-function DocsConfigProvider(
-  {
-    children,
-    isMobile,
-  }: Props,
-): Element<typeof Provider> {
+function DocsConfigProvider({ children, isMobile }: Props): Element<typeof Provider> {
   const [isMobileDevice] = useState(isMobile);
 
   const docsConfigTypeContext = {

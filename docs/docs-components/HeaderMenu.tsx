@@ -1,16 +1,14 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, CompositeZIndex, Link as GestaltLink, Text, Tooltip } from 'gestalt';
 import trackButtonClick from './buttons/trackButtonClick';
 
-export default function HeaderMenu(
-  {
-    isHeader,
-    popoverZIndex,
-  }: {
-    isHeader?: boolean,
-    popoverZIndex?: CompositeZIndex
-  },
-) {
+export default function HeaderMenu({
+  isHeader,
+  popoverZIndex,
+}: {
+  isHeader?: boolean;
+  popoverZIndex?: CompositeZIndex;
+}) {
   return (
     <Box
       alignItems="center"

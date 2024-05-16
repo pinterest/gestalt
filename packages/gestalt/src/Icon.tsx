@@ -1,47 +1,59 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import classnames from 'classnames';
 import styles from './Icon.css';
 import icons from './icons/index';
 
-export type IconColor = "default" | "subtle" | "success" | "error" | "warning" | "info" | "recommendation" | "inverse" | "shopping" | "brandPrimary" | "light" | "dark";
+export type IconColor =
+  | 'default'
+  | 'subtle'
+  | 'success'
+  | 'error'
+  | 'warning'
+  | 'info'
+  | 'recommendation'
+  | 'inverse'
+  | 'shopping'
+  | 'brandPrimary'
+  | 'light'
+  | 'dark';
 
 type Props = {
   /**
-     * Label for screen readers to announce Icon. This populates the `aria-label` attribute. If the label is hidden, use an empty string for the label (`accessibilityLabel=""`) to set `aria-hidden`.
-     *
-     * See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/icon#Accessibility) for details on proper usage.
-     */
-  accessibilityLabel: string,
+   * Label for screen readers to announce Icon. This populates the `aria-label` attribute. If the label is hidden, use an empty string for the label (`accessibilityLabel=""`) to set `aria-hidden`.
+   *
+   * See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/icon#Accessibility) for details on proper usage.
+   */
+  accessibilityLabel: string;
   /**
-     * The colors available to apply to Icon.
-     *
-     * See the [color variant](https://gestalt.pinterest.systems/web/icon#Colors) to learn more.
-     */
-  color?: IconColor,
+   * The colors available to apply to Icon.
+   *
+   * See the [color variant](https://gestalt.pinterest.systems/web/icon#Colors) to learn more.
+   */
+  color?: IconColor;
   /**
-     * SVG icon from the Gestalt icon library to use within Icon.
-     *
-     * See the [icon library](https://gestalt.pinterest.systems/foundations/iconography/library) to explore available options.
-     */
-  icon?: keyof typeof icons,
+   * SVG icon from the Gestalt icon library to use within Icon.
+   *
+   * See the [icon library](https://gestalt.pinterest.systems/foundations/iconography/library) to explore available options.
+   */
+  icon?: keyof typeof icons;
   /**
-     * Defines a new icon different from the built-in Gestalt icons.
-     *
-     * See the [custom icon](https://gestalt.pinterest.systems/web/icon#Custom-icon) variant to learn more.
-     */
+   * Defines a new icon different from the built-in Gestalt icons.
+   *
+   * See the [custom icon](https://gestalt.pinterest.systems/web/icon#Custom-icon) variant to learn more.
+   */
   dangerouslySetSvgPath?: {
-    __path: string
-  },
+    __path: string;
+  };
   /**
-     * Properly positions Icon relative to an inline element, such as Text using the inline property.
-     */
-  inline?: boolean,
+   * Properly positions Icon relative to an inline element, such as Text using the inline property.
+   */
+  inline?: boolean;
   /**
-     * Use a number for pixel sizes or a string for percentage based sizes.
-     *
-     * See the [size](https://gestalt.pinterest.systems/web/icon#Size) variant to learn more.
-     */
-  size?: number | string
+   * Use a number for pixel sizes or a string for percentage based sizes.
+   *
+   * See the [size](https://gestalt.pinterest.systems/web/icon#Size) variant to learn more.
+   */
+  size?: number | string;
 };
 
 const IconNames: ReadonlyArray<keyof typeof icons> = Object.keys(icons);
@@ -82,16 +94,14 @@ const flipOnRtlIconNames = [
  *
  */
 
-function Icon(
-  {
-    accessibilityLabel,
-    color = 'subtle',
-    dangerouslySetSvgPath,
-    icon,
-    inline = false,
-    size = 16,
-  }: Props,
-) {
+function Icon({
+  accessibilityLabel,
+  color = 'subtle',
+  dangerouslySetSvgPath,
+  icon,
+  inline = false,
+  size = 16,
+}: Props) {
   const cs = classnames(
     flipOnRtlIconNames.includes(icon) && styles.rtlSupport,
     styles[color],

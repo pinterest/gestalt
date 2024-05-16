@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import classnames from 'classnames';
 import { TOKEN_COLOR_BORDER_TAG_DISABLED } from 'gestalt-design-tokens';
 import Box from './Box';
@@ -29,36 +29,32 @@ const iconsByType = Object.freeze({
 
 type Props = {
   /**
-     * If your app uses DefaultLabelProvider, a default value for this label will be used. Using this prop will override the default label value with a more specific label if desired. This populates the `aria-label` on the remove icon.
-     */
-  accessibilityRemoveIconLabel?: string,
+   * If your app uses DefaultLabelProvider, a default value for this label will be used. Using this prop will override the default label value with a more specific label if desired. This populates the `aria-label` on the remove icon.
+   */
+  accessibilityRemoveIconLabel?: string;
   /**
-     * Disabled tags appear inactive and cannot be interacted with.
-     */
-  disabled?: boolean,
+   * Disabled tags appear inactive and cannot be interacted with.
+   */
+  disabled?: boolean;
   /**
-     * Callback fired when the user dismisses the tag. This handler should take care of state updates to no longer render the Tag.
-     */
-  onRemove: (
-    arg1: {
-      event: React.MouseEvent<HTMLButtonElement>
-    },
-  ) => void,
+   * Callback fired when the user dismisses the tag. This handler should take care of state updates to no longer render the Tag.
+   */
+  onRemove: (arg1: { event: React.MouseEvent<HTMLButtonElement> }) => void;
   /**
-     * Size of the Tag. Default is `md`. See [size variant](https://gestalt.pinterest.systems/web/tag#Size) for more details.
-     */
-  size?: "sm" | "md" | "lg",
+   * Size of the Tag. Default is `md`. See [size variant](https://gestalt.pinterest.systems/web/tag#Size) for more details.
+   */
+  size?: 'sm' | 'md' | 'lg';
   /**
-     * Short text to render inside the Tag.
-     */
-  text: string,
+   * Short text to render inside the Tag.
+   */
+  text: string;
   /**
-     * Communicate a "warning" or "error" state to the user, with an accompanying icon and specific background color.
-     */
-  type?: "default" | "error" | "warning"
+   * Communicate a "warning" or "error" state to the user, with an accompanying icon and specific background color.
+   */
+  type?: 'default' | 'error' | 'warning';
 };
 
-const applyDensityTheme = (size: "sm" | "md" | "lg") => {
+const applyDensityTheme = (size: 'sm' | 'md' | 'lg') => {
   switch (size) {
     case 'sm':
       return {
@@ -102,16 +98,14 @@ const applyDensityTheme = (size: "sm" | "md" | "lg") => {
  * ![Tag light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Tag.spec.mjs-snapshots/Tag-chromium-darwin.png)
  * ![Tag dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Tag-dark.spec.mjs-snapshots/Tag-dark-chromium-darwin.png)
  */
-export default function Tag(
-  {
-    accessibilityRemoveIconLabel,
-    disabled = false,
-    onRemove,
-    size = 'md',
-    text,
-    type = 'default',
-  }: Props,
-) {
+export default function Tag({
+  accessibilityRemoveIconLabel,
+  disabled = false,
+  onRemove,
+  size = 'md',
+  text,
+  type = 'default',
+}: Props) {
   const hasIcon = ['error', 'warning'].includes(type);
 
   const bgColor = backgroundColorByType[type];

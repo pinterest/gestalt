@@ -1,4 +1,4 @@
-import {ReactNode, useRef, useState} from 'react';
+import { ReactNode, useRef, useState } from 'react';
 import { Box, ComboBox, Flex, Tag } from 'gestalt';
 
 export default function Example() {
@@ -30,12 +30,12 @@ export default function Example() {
   const handleOnSelect = ({
     item: { label },
   }: {
-    event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>,
+    event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>;
     item: {
-      label: string,
-      subtext?: string,
-      value: string
-    }
+      label: string;
+      subtext?: string;
+      value: string;
+    };
   }) => {
     if (!selected.includes(label) && selected.length < 2) {
       const newSelected = [...selected, label];
@@ -48,8 +48,8 @@ export default function Example() {
   const handleOnChange = ({
     value,
   }: {
-    event: React.ChangeEvent<HTMLInputElement>,
-    value: string
+    event: React.ChangeEvent<HTMLInputElement>;
+    value: string;
   }) => {
     setSearchTerm(value);
 
@@ -70,8 +70,8 @@ export default function Example() {
   const handleOnKeyDown = ({
     event: { keyCode, currentTarget },
   }: {
-    event: React.KeyboardEvent<HTMLInputElement>,
-    value: string
+    event: React.KeyboardEvent<HTMLInputElement>;
+    value: string;
   }) => {
     // Remove tag on backspace if the cursor is at the beginning of the field
 

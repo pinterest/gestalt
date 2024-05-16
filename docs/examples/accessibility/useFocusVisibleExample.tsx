@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { Box, Flex, Text, useFocusVisible } from 'gestalt';
 import { TOKEN_COLOR_BORDER_FOCUS } from 'gestalt-design-tokens';
 

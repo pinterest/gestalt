@@ -1,9 +1,9 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { BannerCallout, Box, DefaultLabelProvider, Flex } from 'gestalt';
 
 export default function Example() {
   return (
-    (<DefaultLabelProvider
+    <DefaultLabelProvider
       labels={{
         BannerCallout: {
           accessibilityDismissButtonLabel: 'Banner entlassen.',
@@ -42,6 +42,6 @@ export default function Example() {
           />
         </Box>
       </Flex>
-    </DefaultLabelProvider>)
+    </DefaultLabelProvider>
   );
 }

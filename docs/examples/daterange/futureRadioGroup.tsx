@@ -1,11 +1,11 @@
-import {ReactNode, useMemo, useState} from 'react';
+import { ReactNode, useMemo, useState } from 'react';
 import { Flex, RadioGroup } from 'gestalt';
 import { DateRange } from 'gestalt-datepicker';
 
 export default function Example() {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
-  const [period, setPeriod] = useState<"1" | "2" | "4" | "custom" | null>(null);
+  const [period, setPeriod] = useState<'1' | '2' | '4' | 'custom' | null>(null);
 
   const radioGroup = useMemo(
     () => (

@@ -1,4 +1,4 @@
-import {ReactElement, forwardRef, ReactNode, useState} from 'react';
+import { ReactElement, forwardRef, ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import focusStyles from './Focus.css';
@@ -14,108 +14,88 @@ const INPUT_PADDING_WITH_TAGS = 20;
 
 type Props = {
   /**
-     * Indicate if the input is currently disabled. See the [disabled example](https://gestalt.pinterest.systems/web/textarea#Disabled) for more details.
-     */
-  disabled?: boolean,
+   * Indicate if the input is currently disabled. See the [disabled example](https://gestalt.pinterest.systems/web/textarea#Disabled) for more details.
+   */
+  disabled?: boolean;
   /**
-     * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
-     */
-  dataTestId?: string,
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
   /**
-     * For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in Link or TapArea. See the [error message example](https://gestalt.pinterest.systems/web/textarea#Error-message) for more details.
-     */
-  errorMessage?: ReactNode,
+   * For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in Link or TapArea. See the [error message example](https://gestalt.pinterest.systems/web/textarea#Error-message) for more details.
+   */
+  errorMessage?: ReactNode;
   /**
-     * This field is deprecated and will be removed soon. Please do not use.
-     */
-  hasError?: boolean,
+   * This field is deprecated and will be removed soon. Please do not use.
+   */
+  hasError?: boolean;
   /**
-     * More information about how to complete the form field. See the [helper text example](https://gestalt.pinterest.systems/web/textarea#Helper-text) for more details.
-     */
-  helperText?: string,
+   * More information about how to complete the form field. See the [helper text example](https://gestalt.pinterest.systems/web/textarea#Helper-text) for more details.
+   */
+  helperText?: string;
   /**
-     * A unique identifier for the input.
-     */
-  id: string,
+   * A unique identifier for the input.
+   */
+  id: string;
   /**
-     * The label for the input. Be sure to localize the text.
-     */
-  label?: string,
+   * The label for the input. Be sure to localize the text.
+   */
+  label?: string;
   /**
-     * Whether the label should be visible or not. If `hidden`, the label is still available for screen reader users, but does not appear visually. See the [label visibility variant](https://gestalt.pinterest.systems/web/textarea#Label-visibility) for more info.
-     */
-  labelDisplay?: "visible" | "hidden",
+   * Whether the label should be visible or not. If `hidden`, the label is still available for screen reader users, but does not appear visually. See the [label visibility variant](https://gestalt.pinterest.systems/web/textarea#Label-visibility) for more info.
+   */
+  labelDisplay?: 'visible' | 'hidden';
   /**
-     * The maximum number of characters allowed in TextArea. `maxLength` must be an integer value 0 or higher. See the [maximum length variant](https://gestalt.pinterest.systems/web/textarea#Maximum-length) for more details.
-     */
+   * The maximum number of characters allowed in TextArea. `maxLength` must be an integer value 0 or higher. See the [maximum length variant](https://gestalt.pinterest.systems/web/textarea#Maximum-length) for more details.
+   */
   maxLength?: {
-    characterCount: number,
-    errorAccessibilityLabel: string
-  },
+    characterCount: number;
+    errorAccessibilityLabel: string;
+  };
   /**
-     * A unique name for the input.
-     */
-  name?: string,
+   * A unique name for the input.
+   */
+  name?: string;
   /**
-     * Callback triggered when the user blurs the input.!
-     */
-  onBlur?: (
-    arg1: {
-      event: React.FocusEvent<HTMLTextAreaElement>,
-      value: string
-    },
-  ) => void,
+   * Callback triggered when the user blurs the input.!
+   */
+  onBlur?: (arg1: { event: React.FocusEvent<HTMLTextAreaElement>; value: string }) => void;
   /**
-     * Callback triggered when the value of the input changes.
-     */
-  onChange: (
-    arg1: {
-      event: React.ChangeEvent<HTMLTextAreaElement>,
-      value: string
-    },
-  ) => void,
+   * Callback triggered when the value of the input changes.
+   */
+  onChange: (arg1: { event: React.ChangeEvent<HTMLTextAreaElement>; value: string }) => void;
   /**
-     * Callback triggered when the user focuses the input.
-     */
-  onFocus?: (
-    arg1: {
-      event: React.FocusEvent<HTMLTextAreaElement>,
-      value: string
-    },
-  ) => void,
+   * Callback triggered when the user focuses the input.
+   */
+  onFocus?: (arg1: { event: React.FocusEvent<HTMLTextAreaElement>; value: string }) => void;
   /**
-     * Callback triggered when the user presses any key while the input is focused.
-     */
-  onKeyDown?: (
-    arg1: {
-      event: React.KeyboardEvent<HTMLTextAreaElement>,
-      value: string
-    },
-  ) => void,
+   * Callback triggered when the user presses any key while the input is focused.
+   */
+  onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLTextAreaElement>; value: string }) => void;
   /**
-     * Placeholder text shown the the user has not yet input a value.
-     */
-  placeholder?: string,
+   * Placeholder text shown the the user has not yet input a value.
+   */
+  placeholder?: string;
   /**
-     * Indicate if the input is currently readOnly. See the [readOnly example](https://gestalt.pinterest.systems/web/textarea#Read-only) for more details.
-     */
-  readOnly?: boolean,
+   * Indicate if the input is currently readOnly. See the [readOnly example](https://gestalt.pinterest.systems/web/textarea#Read-only) for more details.
+   */
+  readOnly?: boolean;
   /**
-     * Ref that is forwarded to the underlying input element. See the [ref example](https://gestalt.pinterest.systems/web/textarea#With-a-ref) for more details.
-     */
-  ref?: Element<"input"> // eslint-disable-line react/no-unused-prop-types,
+   * Ref that is forwarded to the underlying input element. See the [ref example](https://gestalt.pinterest.systems/web/textarea#With-a-ref) for more details.
+   */
+  ref?: Element<'input'>; // eslint-disable-line react/no-unused-prop-types,
   /**
-     * Number of text rows to display. Note that tags take up more space, and will show fewer rows than specified.
-     */
-  rows?: number,
+   * Number of text rows to display. Note that tags take up more space, and will show fewer rows than specified.
+   */
+  rows?: number;
   /**
-     * List of tags to display in the component. See the [tags example](https://gestalt.pinterest.systems/web/textarea#With-tags) for more details.
-     */
-  tags?: ReadonlyArray<Element<typeof Tag>>,
+   * List of tags to display in the component. See the [tags example](https://gestalt.pinterest.systems/web/textarea#With-tags) for more details.
+   */
+  tags?: ReadonlyArray<Element<typeof Tag>>;
   /**
-     * The current value of the input.
-     */
-  value?: string
+   * The current value of the input.
+   */
+  value?: string;
 };
 
 /**
@@ -235,15 +215,15 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
   } as const;
 
   return (
-    (<span>
+    <span>
       {label && <FormLabel id={id} label={label} labelDisplay={labelDisplay} />}
       {tags ? (
         <div className={classes} style={tagsWrapperStyle}>
           {tags.map((tag, tagIndex) => (
             // eslint-disable-next-line react/no-array-index-key
-            (<Box key={tagIndex} marginBottom={1} marginEnd={1}>
+            <Box key={tagIndex} marginBottom={1} marginEnd={1}>
               {tag}
-            </Box>)
+            </Box>
           ))}
           <Box flex="grow" maxWidth="100%" overflow="hidden" position="relative">
             {/* This is an invisible spacer div which mirrors the input's
@@ -269,7 +249,7 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
         />
       ) : null}
       {hasErrorMessage && <FormErrorMessage id={`${id}-error`} text={errorMessage} />}
-    </span>)
+    </span>
   );
 });
 

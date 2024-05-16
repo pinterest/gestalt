@@ -1,4 +1,4 @@
-import {ReactNode, useEffect, useState} from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Flex, SelectList, SideNavigation } from 'gestalt';
 import SidebarPlatformSwitcher from './buttons/SidebarPlatformSwitcher';
@@ -17,13 +17,7 @@ export function isComponentsActiveSection(pathname: string): boolean {
   return pathname.includes('/web/') || pathname.includes('/ios/') || pathname.includes('/android/');
 }
 
-export default function DocsSideNavigation(
-  {
-    showBorder,
-  }: {
-    showBorder?: boolean
-  },
-) {
+export default function DocsSideNavigation({ showBorder }: { showBorder?: boolean }) {
   const [activeSection, setActiveSection] = useState(newSidebarIndex[0]);
 
   const { isMobile } = useDocsConfig();

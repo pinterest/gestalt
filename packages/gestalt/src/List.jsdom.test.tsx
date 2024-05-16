@@ -1,20 +1,18 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { render, screen } from '@testing-library/react';
 import List from './List';
 import Text from './Text';
 
 describe('List', () => {
-  function Component(
-    {
-      labelDisplay,
-      type,
-      text,
-    }: {
-      labelDisplay?: "hidden" | "visible",
-      type?: "unordered" | "bare" | "ordered",
-      text?: boolean
-    },
-  ) {
+  function Component({
+    labelDisplay,
+    type,
+    text,
+  }: {
+    labelDisplay?: 'hidden' | 'visible';
+    type?: 'unordered' | 'bare' | 'ordered';
+    text?: boolean;
+  }) {
     return (
       <List label={text ? <Text>Numbers</Text> : 'Numbers'} labelDisplay={labelDisplay} type={type}>
         <List.Item text={text ? <Text>1</Text> : '1'}>

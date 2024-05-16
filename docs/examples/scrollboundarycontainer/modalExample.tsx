@@ -1,4 +1,4 @@
-import {ReactNode, useRef, useState} from 'react';
+import { ReactNode, useRef, useState } from 'react';
 import {
   Box,
   Button,
@@ -18,24 +18,27 @@ import {
 export default function ScrollBoundaryContainerExample() {
   const [showComponent, setShowComponent] = useState(false);
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] =
-    useState<{
-      label: string,
-      subtext?: string,
-      value: string
-    } | null | undefined>(null);
+  const [selected, setSelected] = useState<
+    | {
+        label: string;
+        subtext?: string;
+        value: string;
+      }
+    | null
+    | undefined
+  >(null);
   const [parentComponent, setParentComponent] = useState('modal');
   const anchorDropdownRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   const handleSelect = ({
     item,
   }: {
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>;
     item: {
-      label: string,
-      subtext?: string,
-      value: string
-    }
+      label: string;
+      subtext?: string;
+      value: string;
+    };
   }) => setSelected(item);
 
   const MODAL_Z_INDEX = new FixedZIndex(11);

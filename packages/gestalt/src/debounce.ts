@@ -6,11 +6,14 @@
 
 type Arguments = ReadonlyArray<Event | string | number | boolean | null>;
 export type DebounceReturn = {
-  (...args: Arguments): void,
-  clearTimeout: () => void
+  (...args: Arguments): void;
+  clearTimeout: () => void;
 };
 
-export default function debounce(fn: (...args: Arguments) => void, threshhold: number = 100): DebounceReturn {
+export default function debounce(
+  fn: (...args: Arguments) => void,
+  threshhold: number = 100,
+): DebounceReturn {
   let deferTimer: number | null | undefined = null;
 
   const debounced = (...args: Arguments) => {

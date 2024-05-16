@@ -2,31 +2,29 @@ import getRandomColor from './getRandomColor';
 import getRandomNumberGenerator from './getRandomNumberGenerator';
 
 type Args = {
-  baseHeight?: number,
-  name?: string,
-  numberOfItems?: number,
-  previousItemCount?: number,
-  randomNumberSeed?: number,
-  twoColItems?: boolean
+  baseHeight?: number;
+  name?: string;
+  numberOfItems?: number;
+  previousItemCount?: number;
+  randomNumberSeed?: number;
+  twoColItems?: boolean;
 };
 
 type ExampleItem = {
-  color: string,
-  columnSpan?: number,
-  height: number,
-  name: string
+  color: string;
+  columnSpan?: number;
+  height: number;
+  name: string;
 };
 
-export default function generateExampleItems(
-  {
-    baseHeight = 200,
-    name = 'Pin',
-    numberOfItems = 20,
-    previousItemCount = 0,
-    randomNumberSeed = 0,
-    twoColItems,
-  }: Args,
-): ReadonlyArray<ExampleItem> {
+export default function generateExampleItems({
+  baseHeight = 200,
+  name = 'Pin',
+  numberOfItems = 20,
+  previousItemCount = 0,
+  randomNumberSeed = 0,
+  twoColItems,
+}: Args): ReadonlyArray<ExampleItem> {
   const getRandomNumber = getRandomNumberGenerator(randomNumberSeed);
   const twoColItemIndex = twoColItems ? Math.floor(getRandomNumber() * numberOfItems) : undefined;
 

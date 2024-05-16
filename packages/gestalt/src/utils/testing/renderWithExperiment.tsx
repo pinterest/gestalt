@@ -1,4 +1,4 @@
-import {render} from '@testing-library/react';
+import { render } from '@testing-library/react';
 import ExperimentProvider from '../../contexts/ExperimentProvider';
 
 export default function renderWithExperiment(

@@ -1,4 +1,4 @@
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import { Box, ComboBox, Flex, Text } from 'gestalt';
 
 const US_STATES = [
@@ -67,17 +67,20 @@ export default function Example() {
 
   const [suggestedOptions, setSuggestedOptions] = useState(usStatesOptions);
   const [inputValue, setInputValue] = useState(usStatesOptions[5].label);
-  const [selected, setSelected] = useState<undefined | {
-    label: string,
-    subtext?: string,
-    value: string
-  }>(usStatesOptions[5]);
+  const [selected, setSelected] = useState<
+    | undefined
+    | {
+        label: string;
+        subtext?: string;
+        value: string;
+      }
+  >(usStatesOptions[5]);
 
   const handleOnChange = ({
     value,
   }: {
-    event: React.ChangeEvent<HTMLInputElement>,
-    value: string
+    event: React.ChangeEvent<HTMLInputElement>;
+    value: string;
   }) => {
     setSelected();
     if (value) {
@@ -95,12 +98,12 @@ export default function Example() {
   const handleSelect = ({
     item,
   }: {
-    event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>,
+    event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>;
     item: {
-      label: string,
-      subtext?: string,
-      value: string
-    }
+      label: string;
+      subtext?: string;
+      value: string;
+    };
   }) => {
     setInputValue(item.label);
     setSuggestedOptions(usStatesOptions);

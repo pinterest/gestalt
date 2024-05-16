@@ -1,4 +1,4 @@
-import {Cache} from './Cache';
+import { Cache } from './Cache';
 import { Position } from './types';
 
 const offscreen = (width: number, height: number = Infinity) => ({
@@ -9,21 +9,20 @@ const offscreen = (width: number, height: number = Infinity) => ({
 });
 
 const uniformRowLayout =
-  <T>(
-    {
-      cache,
-      columnWidth = 236,
-      gutter = 14,
-      width,
-      minCols = 3,
-    }: {
-      cache: Cache<T, number>,
-      columnWidth?: number,
-      gutter?: number,
-      width?: number | null | undefined,
-      minCols?: number
-    },
-  ): (items: ReadonlyArray<T>) => ReadonlyArray<Position> => (items: ReadonlyArray<T>): ReadonlyArray<Position> => {
+  <T>({
+    cache,
+    columnWidth = 236,
+    gutter = 14,
+    width,
+    minCols = 3,
+  }: {
+    cache: Cache<T, number>;
+    columnWidth?: number;
+    gutter?: number;
+    width?: number | null | undefined;
+    minCols?: number;
+  }): ((items: ReadonlyArray<T>) => ReadonlyArray<Position>) =>
+  (items: ReadonlyArray<T>): ReadonlyArray<Position> => {
     if (width == null) {
       return items.map(() => offscreen(columnWidth));
     }

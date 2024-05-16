@@ -1,17 +1,12 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box } from 'gestalt';
 
 type Props = {
-  children?: ReactNode,
-  justifyContent?: "center" | "start"
+  children?: ReactNode;
+  justifyContent?: 'center' | 'start';
 };
 
-function IllustrationContainer(
-  {
-    children,
-    justifyContent = 'center',
-  }: Props,
-) {
+function IllustrationContainer({ children, justifyContent = 'center' }: Props) {
   return (
     <Box
       display="flex"

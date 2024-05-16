@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { ColorSchemeProvider } from 'gestalt';
 import SegmentedControlSnapshot from './SegmentedControl';
 

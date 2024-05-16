@@ -15,14 +15,14 @@ order in which you do so doesn't really matter.
 */
 
 type InlineStyle = {
-  [key: string]: string | number | undefined
+  [key: string]: string | number | undefined;
 };
 
 // TODO: This type should be opaque, however the Babel parser doesn't support
 //       the opaque syntax yet.
 export type Style = {
-  className: Set<string>,
-  inlineStyle: InlineStyle
+  className: Set<string>;
+  inlineStyle: InlineStyle;
 };
 
 export const identity = (): Style => ({
@@ -40,39 +40,31 @@ export const fromInlineStyle = (inlineStyle: InlineStyle): Style => ({
   inlineStyle,
 });
 
-export const concat = (styles: ReadonlyArray<Style>): Style => styles.reduce(
-  (
-    { className: classNameA, inlineStyle: inlineStyleA },
-    { className: classNameB, inlineStyle: inlineStyleB },
-  ) => ({
-    className: new Set([...classNameA, ...classNameB]),
-    inlineStyle: { ...inlineStyleA, ...inlineStyleB },
-  }),
-  identity(),
-);
+export const concat = (styles: ReadonlyArray<Style>): Style =>
+  styles.reduce(
+    (
+      { className: classNameA, inlineStyle: inlineStyleA },
+      { className: classNameB, inlineStyle: inlineStyleB },
+    ) => ({
+      className: new Set([...classNameA, ...classNameB]),
+      inlineStyle: { ...inlineStyleA, ...inlineStyleB },
+    }),
+    identity(),
+  );
 
 export const mapClassName =
-  (fn: (x: string) => string): (arg1: Style) => Style => (
-    {
-      className,
-      inlineStyle,
-    }: Style,
-  ): Style => ({
+  (fn: (x: string) => string): ((arg1: Style) => Style) =>
+  ({ className, inlineStyle }: Style): Style => ({
     className: new Set(Array.from(className).map(fn)),
     inlineStyle,
   });
 
 export type ToPropsOutput = {
-  className: string | null | undefined,
-  style: InlineStyle | null | undefined
+  className: string | null | undefined;
+  style: InlineStyle | null | undefined;
 };
 
-export const toProps = (
-  {
-    className,
-    inlineStyle,
-  }: Style,
-): ToPropsOutput => {
+export const toProps = ({ className, inlineStyle }: Style): ToPropsOutput => {
   let sortedClassNames;
   if (className.size > 0) {
     // Sorting here ensures that classNames are always stable, reducing diff

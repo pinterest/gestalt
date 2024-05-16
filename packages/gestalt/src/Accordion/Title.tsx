@@ -1,4 +1,4 @@
-import {ReactElement, ReactNode} from 'react';
+import { ReactElement, ReactNode } from 'react';
 import applyModuleDensityStyle from './applyModuleDensity';
 import Badge from '../Badge';
 import Box from '../Box';
@@ -10,21 +10,27 @@ import icons from '../icons/index';
 import Text from '../Text';
 
 export type BadgeType = {
-  text: string,
-  type?: "info" | "error" | "warning" | "success" | "neutral" | "recommendation" | "darkWash" | "lightWash"
+  text: string;
+  type?:
+    | 'info'
+    | 'error'
+    | 'warning'
+    | 'success'
+    | 'neutral'
+    | 'recommendation'
+    | 'darkWash'
+    | 'lightWash';
 };
 
-export default function AccordionTitle(
-  props: {
-    badge?: BadgeType,
-    icon?: keyof typeof icons,
-    iconAccessibilityLabel?: string,
-    iconButton?: Element<typeof IconButton | typeof IconButtonLink>,
-    title: string,
-    type?: "error" | "info",
-    size?: "sm" | "md" | "lg"
-  },
-) {
+export default function AccordionTitle(props: {
+  badge?: BadgeType;
+  icon?: keyof typeof icons;
+  iconAccessibilityLabel?: string;
+  iconButton?: Element<typeof IconButton | typeof IconButtonLink>;
+  title: string;
+  type?: 'error' | 'info';
+  size?: 'sm' | 'md' | 'lg';
+}) {
   const { iconAccessibilityLabel = '', title, type = 'info', size = 'lg' } = props;
 
   const decoration = ['icon', 'badge', 'iconButton'].find((prop) => !!props[prop]);

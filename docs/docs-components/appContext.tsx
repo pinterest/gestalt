@@ -1,4 +1,4 @@
-import {ReactNode, useEffect, useState} from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { useRouter } from 'next/router';
 import createHydra, { Hydra } from './createHydra';
@@ -9,24 +9,24 @@ const textDirectionKey = 'gestalt-text-direction';
 const experimentsKey = 'gestalt-experiments';
 const devExampleModeKey = 'gestalt-devExampleMode';
 
-type PropTableVariant = "collapsed" | "expanded";
-type ColorScheme = "light" | "dark";
-type DirectionScheme = "ltr" | "rtl";
+type PropTableVariant = 'collapsed' | 'expanded';
+type ColorScheme = 'light' | 'dark';
+type DirectionScheme = 'ltr' | 'rtl';
 type Experiments = string;
-type DevExampleMode = "development" | "default";
+type DevExampleMode = 'development' | 'default';
 
 export type AppContextType = {
-  helixBot: boolean,
-  propTableVariant: PropTableVariant,
-  setPropTableVariant: (val: PropTableVariant) => void,
-  colorScheme: ColorScheme,
-  setColorScheme: (val: ColorScheme) => void,
-  textDirection: DirectionScheme,
-  setTextDirection: (val: DirectionScheme) => void,
-  experiments: Experiments,
-  setExperiments: (val: Experiments) => void,
-  devExampleMode: DevExampleMode,
-  setDevExampleMode: (val: DevExampleMode) => void
+  helixBot: boolean;
+  propTableVariant: PropTableVariant;
+  setPropTableVariant: (val: PropTableVariant) => void;
+  colorScheme: ColorScheme;
+  setColorScheme: (val: ColorScheme) => void;
+  textDirection: DirectionScheme;
+  setTextDirection: (val: DirectionScheme) => void;
+  experiments: Experiments;
+  setExperiments: (val: Experiments) => void;
+  devExampleMode: DevExampleMode;
+  setDevExampleMode: (val: DevExampleMode) => void;
 };
 
 const {
@@ -35,13 +35,7 @@ const {
   useHook: useAppContext,
 }: Hydra<AppContextType> = createHydra<AppContextType>('AppContext');
 
-function AppContextProvider(
-  {
-    children,
-  }: {
-    children?: ReactNode
-  },
-) {
+function AppContextProvider({ children }: { children?: ReactNode }) {
   const [cookies, setCookies] = useCookies([
     colorSchemeKey,
     propTableVariantKey,

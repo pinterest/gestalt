@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, Flex, Heading, Link, Text } from 'gestalt';
 import InternalOnlyIconButton from './InternalOnlyIconButton';
 
@@ -55,20 +55,14 @@ const engResources = [
 
 type LinkListProps = {
   items: ReadonlyArray<{
-    title: string,
-    url: string,
-    a11yLabel?: string
-  }>,
-  heading: string,
-  isInternal?: boolean
+    title: string;
+    url: string;
+    a11yLabel?: string;
+  }>;
+  heading: string;
+  isInternal?: boolean;
 };
-function LinkList(
-  {
-    items,
-    heading,
-    isInternal = true,
-  }: LinkListProps,
-) {
+function LinkList({ items, heading, isInternal = true }: LinkListProps) {
   return (
     <Box
       alignItems="start"

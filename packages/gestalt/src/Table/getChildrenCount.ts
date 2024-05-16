@@ -1,4 +1,4 @@
-import {Children, Fragment, ReactNode} from 'react';
+import { Children, Fragment, ReactNode } from 'react';
 
 function getChildrenCount(children: ReactNode): number {
   const topChildren = Children.toArray(children);

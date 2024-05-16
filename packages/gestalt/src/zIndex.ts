@@ -1,6 +1,6 @@
 // eslint-disable-next-line max-classes-per-file
 export interface Indexable {
-  index(): number
+  index(): number;
 }
 
 /**

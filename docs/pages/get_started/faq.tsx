@@ -1,17 +1,11 @@
-import {Fragment, ReactNode} from 'react';
+import { Fragment, ReactNode } from 'react';
 import { Box, Flex, Heading, Link, List, Text } from 'gestalt';
 import Card from '../../docs-components/Card';
 import Markdown from '../../docs-components/Markdown';
 import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 
-function InlineLink({
-  children,
-  href,
-}: {
-  children: string,
-  href: string
-}) {
+function InlineLink({ children, href }: { children: string; href: string }) {
   return (
     <Fragment>
       {' '}

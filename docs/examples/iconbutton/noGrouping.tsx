@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import { Box, Button, Flex, IconButton, Tooltip } from 'gestalt';
 
 export default function Example() {

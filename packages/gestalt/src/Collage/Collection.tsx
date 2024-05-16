@@ -38,30 +38,22 @@
   4. The viewport can be any size. Most windowing/recycling solutions implement some sort of overscanning, however Collection leaves this up the the parent.
 
 */
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import layoutStyles from '../Layout.css';
 
 type Props = {
-  Item?: (
-    arg1: {
-      idx: number
-    },
-  ) => ReactNode,
+  Item?: (arg1: { idx: number }) => ReactNode;
   layout: ReadonlyArray<{
-    top: number,
-    left: number,
-    width: number,
-    height: number
-  }>,
-  renderItem?: (
-    arg1: {
-      idx: number
-    },
-  ) => ReactNode,
-  viewportTop?: number,
-  viewportLeft?: number,
-  viewportWidth?: number,
-  viewportHeight?: number
+    top: number;
+    left: number;
+    width: number;
+    height: number;
+  }>;
+  renderItem?: (arg1: { idx: number }) => ReactNode;
+  viewportTop?: number;
+  viewportLeft?: number;
+  viewportWidth?: number;
+  viewportHeight?: number;
 };
 
 export default function Collection(props: Props) {
@@ -76,28 +68,31 @@ export default function Collection(props: Props) {
 
   // Calculates which items from the item layer to render in the viewport
   // layer.
-  const items = layout.reduce<Array<any>>((
-    acc: ReadonlyArray<{
-      height: number,
-      idx: number,
-      left: number,
-      top: number,
-      width: number
-    }>,
-    position,
-    idx,
-  ) => {
-    const newAcc = [...acc];
-    if (
-      position.top + position.height > viewportTop &&
-      position.top < viewportHeight + viewportTop &&
-      position.left < viewportWidth + viewportLeft &&
-      position.left + position.width > viewportLeft
-    ) {
-      newAcc.push({ idx, ...position });
-    }
-    return newAcc;
-  }, []);
+  const items = layout.reduce<Array<any>>(
+    (
+      acc: ReadonlyArray<{
+        height: number;
+        idx: number;
+        left: number;
+        top: number;
+        width: number;
+      }>,
+      position,
+      idx,
+    ) => {
+      const newAcc = [...acc];
+      if (
+        position.top + position.height > viewportTop &&
+        position.top < viewportHeight + viewportTop &&
+        position.left < viewportWidth + viewportLeft &&
+        position.left + position.width > viewportLeft
+      ) {
+        newAcc.push({ idx, ...position });
+      }
+      return newAcc;
+    },
+    [],
+  );
 
   return (
     <div className={layoutStyles.relative} style={{ width, height }}>

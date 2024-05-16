@@ -1,8 +1,11 @@
-import {fireEvent, render, screen} from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import VideoControls from './Controls';
 
 test('VideoControls handles play events', () => {
-  const mockOnPlay = jest.fn<[React.SyntheticEvent<HTMLDivElement> | React.SyntheticEvent<HTMLAnchorElement>], undefined>();
+  const mockOnPlay = jest.fn<
+    [React.SyntheticEvent<HTMLDivElement> | React.SyntheticEvent<HTMLAnchorElement>],
+    undefined
+  >();
   render(
     <VideoControls
       captionsButton={null}
@@ -26,7 +29,10 @@ test('VideoControls handles play events', () => {
 });
 
 test('VideoControls handles pause events', () => {
-  const mockOnPause = jest.fn<[React.SyntheticEvent<HTMLDivElement> | React.SyntheticEvent<HTMLAnchorElement>], undefined>();
+  const mockOnPause = jest.fn<
+    [React.SyntheticEvent<HTMLDivElement> | React.SyntheticEvent<HTMLAnchorElement>],
+    undefined
+  >();
   render(
     <VideoControls
       captionsButton={null}
@@ -50,7 +56,10 @@ test('VideoControls handles pause events', () => {
 });
 
 test('VideoControls handles volume events', () => {
-  const mockOnVolumeChange = jest.fn<[React.SyntheticEvent<HTMLDivElement> | React.SyntheticEvent<HTMLAnchorElement>], undefined>();
+  const mockOnVolumeChange = jest.fn<
+    [React.SyntheticEvent<HTMLDivElement> | React.SyntheticEvent<HTMLAnchorElement>],
+    undefined
+  >();
   render(
     <VideoControls
       captionsButton={null}

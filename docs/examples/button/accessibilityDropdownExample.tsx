@@ -1,24 +1,24 @@
-import {ReactNode, useRef, useState} from 'react';
+import { ReactNode, useRef, useState } from 'react';
 import { Box, Button, Dropdown } from 'gestalt';
 
 export default function ActionDropdownExample() {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<null | {
-    label: string,
-    subtext?: string,
-    value: string
+    label: string;
+    subtext?: string;
+    value: string;
   }>(null);
   const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
 
   const onSelect = ({
     item,
   }: {
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>;
     item: {
-      label: string,
-      subtext?: string,
-      value: string
-    }
+      label: string;
+      subtext?: string;
+      value: string;
+    };
   }) => setSelected(item);
 
   return (

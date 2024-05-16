@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import cx from 'classnames';
 import styles from './Badge.css';
 import Box from './Box';
@@ -7,34 +7,42 @@ import Icon from './Icon';
 import Tooltip from './Tooltip';
 import { Indexable } from './zIndex';
 
-type Position = "middle" | "top";
+type Position = 'middle' | 'top';
 
 type TooltipProps = {
-  accessibilityLabel?: string,
-  idealDirection?: "up" | "right" | "down" | "left",
-  text: string,
-  zIndex?: Indexable
+  accessibilityLabel?: string;
+  idealDirection?: 'up' | 'right' | 'down' | 'left';
+  text: string;
+  zIndex?: Indexable;
 };
 
-export type TypeOptions = "info" | "error" | "warning" | "success" | "neutral" | "recommendation" | "darkWash" | "lightWash";
+export type TypeOptions =
+  | 'info'
+  | 'error'
+  | 'warning'
+  | 'success'
+  | 'neutral'
+  | 'recommendation'
+  | 'darkWash'
+  | 'lightWash';
 
 type Props = {
   /**
-     * Badge position relative to its parent element. See the [positioning](https://gestalt.pinterest.systems/web/badge#Positioning) variant to learn more.
-     */
-  position?: Position,
+   * Badge position relative to its parent element. See the [positioning](https://gestalt.pinterest.systems/web/badge#Positioning) variant to learn more.
+   */
+  position?: Position;
   /**
-     * Text displayed inside of the Badge. Sentence case is preferred.
-     */
-  text: string,
+   * Text displayed inside of the Badge. Sentence case is preferred.
+   */
+  text: string;
   /**
-     *  Experimental prop, do not use. Adds a [Tooltip](/web/tooltip) on hover/focus of the Badge. To convey the interaction, it also displays an information Icon. See the [type](https://gestalt.pinterest.systems/web/badge#Type) variant to learn more.
-     */
-  tooltip?: TooltipProps,
+   *  Experimental prop, do not use. Adds a [Tooltip](/web/tooltip) on hover/focus of the Badge. To convey the interaction, it also displays an information Icon. See the [type](https://gestalt.pinterest.systems/web/badge#Type) variant to learn more.
+   */
+  tooltip?: TooltipProps;
   /**
-     * Determines the style of the badge. See the [type](https://gestalt.pinterest.systems/web/badge#Type) variant to learn more.
-     */
-  type?: TypeOptions
+   * Determines the style of the badge. See the [type](https://gestalt.pinterest.systems/web/badge#Type) variant to learn more.
+   */
+  type?: TypeOptions;
 };
 
 /**
@@ -45,19 +53,12 @@ type Props = {
  *
  */
 
-export default function Badge(
-  {
-    position = 'middle',
-    text,
-    type = 'info',
-    tooltip,
-  }: Props,
-) {
+export default function Badge({ position = 'middle', text, type = 'info', tooltip }: Props) {
   const isInfoType = type === 'info';
 
   const shouldUseTooltip = isInfoType && tooltip?.text;
 
-  let styleType: TypeOptions | "interactiveInfo" = type;
+  let styleType: TypeOptions | 'interactiveInfo' = type;
 
   if (shouldUseTooltip) {
     styleType = 'interactiveInfo';

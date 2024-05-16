@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import slugify from 'slugify';
 import { Badge, Box, Flex, Heading, Tooltip } from 'gestalt';
 import CopyLinkButton from './buttons/CopyLinkButton';
@@ -6,18 +6,18 @@ import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
 import Markdown from './Markdown';
 
 type Props = {
-  children?: ReactNode,
+  children?: ReactNode;
   badge?: {
-    text: string,
-    tooltipText: string
-  },
-  description?: string,
-  headingSize?: "400" | "500",
-  id?: string,
-  name: string,
-  toggle?: ReactNode,
-  stacked?: boolean,
-  showHeading?: boolean
+    text: string;
+    tooltipText: string;
+  };
+  description?: string;
+  headingSize?: '400' | '500';
+  id?: string;
+  name: string;
+  toggle?: ReactNode;
+  stacked?: boolean;
+  showHeading?: boolean;
 };
 
 export const copyToClipboard = (hash: string): boolean => {
@@ -36,19 +36,17 @@ export const copyToClipboard = (hash: string): boolean => {
   return true;
 };
 
-export default function Card(
-  {
-    children,
-    badge,
-    description,
-    headingSize = '500',
-    id,
-    name,
-    toggle,
-    stacked = false,
-    showHeading = true,
-  }: Props,
-) {
+export default function Card({
+  children,
+  badge,
+  description,
+  headingSize = '500',
+  id,
+  name,
+  toggle,
+  stacked = false,
+  showHeading = true,
+}: Props) {
   const slugifiedId = id ?? slugify(name);
 
   return (

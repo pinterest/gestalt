@@ -1,4 +1,4 @@
-import {Fragment, ReactNode, useEffect, useState} from 'react';
+import { Fragment, ReactNode, useEffect, useState } from 'react';
 import Lottie from 'lottie-react';
 import {
   Box,
@@ -42,16 +42,11 @@ const SIDE_GAP = 8;
 const MAX_CONTENT_WIDTH = 660;
 
 type GridProps = {
-  description: string,
-  number: string
+  description: string;
+  number: string;
 };
 
-function StatsGrid(
-  {
-    number,
-    description,
-  }: GridProps,
-) {
+function StatsGrid({ number, description }: GridProps) {
   return (
     <Fragment>
       <p className="statsNumber">{number}</p>
@@ -60,14 +55,10 @@ function StatsGrid(
   );
 }
 type AnimationProps = {
-  shouldReduceMotion: boolean
+  shouldReduceMotion: boolean;
 };
 
-function HeroAnimation(
-  {
-    shouldReduceMotion,
-  }: AnimationProps,
-) {
+function HeroAnimation({ shouldReduceMotion }: AnimationProps) {
   const [animationData, setAnimationData] = useState<null | Record<any, any>>(null);
   useEffect(() => {
     import(`../graphics/year-in-review-2023/lottie/yir-2023-intro-hero.json`).then((res) =>

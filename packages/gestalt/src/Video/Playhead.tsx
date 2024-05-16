@@ -1,18 +1,22 @@
-import {ReactNode, PureComponent} from 'react';
+import { ReactNode, PureComponent } from 'react';
 import Box from '../Box';
 import styles from '../Video.css';
 
 type Props = {
-  accessibilityProgressBarLabel: string,
-  currentTime: number,
-  duration: number,
-  onPlayheadDown: (event: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => void,
-  onPlayheadUp: (event: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => void,
-  seek: (time: number) => void
+  accessibilityProgressBarLabel: string;
+  currentTime: number;
+  duration: number;
+  onPlayheadDown: (
+    event: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>,
+  ) => void;
+  onPlayheadUp: (
+    event: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>,
+  ) => void;
+  seek: (time: number) => void;
 };
 
 type State = {
-  seeking: boolean
+  seeking: boolean;
 };
 
 export default class VideoPlayhead extends PureComponent<Props, State> {
@@ -44,9 +48,12 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
   };
 
   // eslint-disable-next-line class-methods-use-this
-  stopClick: (event: React.SyntheticEvent<HTMLDivElement>) => void = (event) => event.stopPropagation();
+  stopClick: (event: React.SyntheticEvent<HTMLDivElement>) => void = (event) =>
+    event.stopPropagation();
 
-  handleMouseDown: (event: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => void = (event) => {
+  handleMouseDown: (
+    event: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>,
+  ) => void = (event) => {
     // https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md#feature-detection
     // Test via a getter in the options object to see if the passive property is accessed
     let supportsPassive = false;
@@ -94,7 +101,9 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     }
   };
 
-  handleMouseMove: (event: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => void = (event) => {
+  handleMouseMove: (
+    event: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>,
+  ) => void = (event) => {
     // https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md#feature-detection
     // Test via a getter in the options object to see if the passive property is accessed
     let supportsPassive = false;
@@ -129,7 +138,9 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     }
   };
 
-  handleMouseUp: (event: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => void = (event) => {
+  handleMouseUp: (
+    event: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>,
+  ) => void = (event) => {
     const { onPlayheadUp } = this.props;
     this.setState({ seeking: false });
     onPlayheadUp(event);
