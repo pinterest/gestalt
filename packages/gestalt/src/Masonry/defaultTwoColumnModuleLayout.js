@@ -2,7 +2,7 @@
 import { type Cache } from './Cache';
 import Graph from './Graph';
 import mindex from './mindex';
-import { type Justify, type NodeData, type Position } from './types';
+import { type Align, type NodeData, type Position } from './types';
 
 // When there's a multi column item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to minimize whitespace above the 2-col item
 // This may need to be tweaked to balance the tradeoff of delayed rendering vs having enough possible layouts
@@ -535,9 +535,9 @@ function getPositionsWithMultiColumnItem<T: { +[string]: mixed }>({
 }
 
 const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
+  align,
   columnWidth = 236,
   gutter = 14,
-  justify,
   logWhitespace,
   measurementCache,
   minCols = 2,
@@ -546,9 +546,9 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
   width,
   whitespaceThreshold,
 }: {
+  align: Align,
   columnWidth?: number,
   gutter?: number,
-  justify: Justify,
   logWhitespace?: (number) => void,
   measurementCache: Cache<T, number>,
   minCols?: number,
@@ -574,7 +574,7 @@ const defaultTwoColumnModuleLayout = <T: { +[string]: mixed }>({
     }
 
     const centerOffset =
-      justify === 'center'
+      align === 'center'
         ? Math.max(
             Math.floor(
               (width - (Math.min(rawItemCount, columnCount) * columnWidthAndGutter + gutter)) / 2,

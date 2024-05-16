@@ -51,11 +51,11 @@ export default function getLayoutAlgorithm<T: { +[string]: mixed }>({
   }
   if (_twoColItems === true) {
     return defaultTwoColumnModuleLayout({
+      align: layout === 'basicCentered' ? 'center' : 'start',
       measurementCache: measurementStore,
       positionCache: positionStore,
       columnWidth,
       gutter,
-      justify: layout === 'basicCentered' ? 'center' : 'start',
       logWhitespace: _logTwoColWhitespace,
       minCols,
       rawItemCount: items.length,
@@ -63,10 +63,10 @@ export default function getLayoutAlgorithm<T: { +[string]: mixed }>({
     });
   }
   return defaultLayout({
+    align,
     cache: measurementStore,
     columnWidth,
     gutter,
-    justify: align,
     layout,
     minCols,
     rawItemCount: items.length,

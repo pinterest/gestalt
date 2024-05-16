@@ -12,18 +12,18 @@ const offscreen = (width: number, height: number = Infinity) => ({
 });
 
 const calculateCenterOffset = ({
+  align,
   columnCount,
   columnWidthAndGutter,
   gutter,
-  justify,
   layout,
   rawItemCount,
   width,
 }: {
+  align: Align,
   columnCount: number,
   columnWidthAndGutter: number,
   gutter: number,
-  justify: Align,
   layout: Layout,
   rawItemCount: number,
   width: number,
@@ -32,10 +32,10 @@ const calculateCenterOffset = ({
     const contentWidth = Math.min(rawItemCount, columnCount) * columnWidthAndGutter + gutter;
     return Math.max(Math.floor((width - contentWidth) / 2), 0);
   }
-  if (justify === 'center') {
+  if (align === 'center') {
     return Math.max(Math.floor((width - columnWidthAndGutter * columnCount + gutter) / 2), 0);
   }
-  if (justify === 'end') {
+  if (align === 'end') {
     return width - (columnWidthAndGutter * columnCount - gutter);
   }
   return 0;
@@ -43,7 +43,7 @@ const calculateCenterOffset = ({
 
 const defaultLayout =
   <T>({
-    justify,
+    align,
     cache,
     columnWidth = 236,
     gutter = 14,
@@ -54,7 +54,7 @@ const defaultLayout =
   }: {
     columnWidth?: number,
     gutter?: number,
-    justify: Align,
+    align: Align,
     layout: Layout,
     cache: Cache<T, number>,
     minCols?: number,
@@ -75,7 +75,7 @@ const defaultLayout =
       columnCount,
       columnWidthAndGutter,
       gutter,
-      justify,
+      align,
       layout,
       rawItemCount,
       width,

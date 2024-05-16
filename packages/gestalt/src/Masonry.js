@@ -504,11 +504,11 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
       });
     } else if (_twoColItems === true) {
       getPositions = defaultTwoColumnModuleLayout({
+        align: layout === 'basicCentered' ? 'center' : 'start',
         measurementCache: measurementStore,
         positionCache: positionStore,
         columnWidth,
         gutter,
-        justify: layout === 'basicCentered' ? 'center' : 'start',
         logWhitespace: _logTwoColWhitespace,
         minCols,
         rawItemCount: items.length,
@@ -516,10 +516,10 @@ export default class Masonry<T: { +[string]: mixed }> extends ReactComponent<Pro
       });
     } else {
       getPositions = defaultLayout({
+        align,
         cache: measurementStore,
         columnWidth,
         gutter,
-        justify: align,
         layout,
         minCols,
         rawItemCount: items.length,

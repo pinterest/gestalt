@@ -23,8 +23,8 @@ const stubCache = (measurements?: { [item: string]: number, ... } = {}) => {
 test('empty', () => {
   const items: Array<string> = [];
   const layout = defaultLayout({
+    align: 'start',
     cache: stubCache(),
-    justify: 'start',
     layout: 'basic',
     rawItemCount: items.length,
     width: 486,
@@ -36,8 +36,8 @@ test('one row', () => {
   const measurements = { a: 100, b: 120, c: 80 };
   const items = ['a', 'b', 'c'];
   const layout = defaultLayout({
+    align: 'start',
     cache: stubCache(measurements),
-    justify: 'start',
     layout: 'basic',
     rawItemCount: items.length,
     width: 736,
@@ -53,8 +53,8 @@ test('wrapping items', () => {
   const measurements = { a: 100, b: 120, c: 80, d: 100 };
   const items = ['a', 'b', 'c', 'd'];
   const layout = defaultLayout({
+    align: 'start',
     cache: stubCache(measurements),
-    justify: 'start',
     layout: 'basic',
     rawItemCount: items.length,
     width: 486,
@@ -71,8 +71,8 @@ test('left-aligns grid within the viewport', () => {
   const measurements = { a: 100, b: 120, c: 80, d: 100 };
   const items = ['a', 'b', 'c', 'd'];
   const layout = defaultLayout({
+    align: 'start',
     cache: stubCache(measurements),
-    justify: 'start',
     layout: 'basic',
     minCols: 2,
     rawItemCount: items.length,
@@ -90,8 +90,8 @@ test('centers grid within the viewport, left align', () => {
   const measurements = { a: 100, b: 120, c: 80, d: 100 };
   const items = ['a', 'b', 'c', 'd'];
   const layout = defaultLayout({
+    align: 'center',
     cache: stubCache(measurements),
-    justify: 'center',
     layout: 'basic',
     minCols: 2,
     rawItemCount: items.length,
@@ -109,8 +109,8 @@ test('centers grid within the viewport, center align', () => {
   const measurements = { a: 100, b: 120, c: 80, d: 100 };
   const items = ['a', 'b', 'c', 'd'];
   const layout = defaultLayout({
+    align: 'center',
     cache: stubCache(measurements),
-    justify: 'center',
     layout: 'basicCentered',
     minCols: 2,
     rawItemCount: items.length,
@@ -128,8 +128,8 @@ test('right-aligns grid within the viewport', () => {
   const measurements = { a: 100, b: 120, c: 80, d: 100 };
   const items = ['a', 'b', 'c', 'd'];
   const layout = defaultLayout({
+    align: 'end',
     cache: stubCache(measurements),
-    justify: 'end',
     layout: 'basic',
     minCols: 2,
     rawItemCount: items.length,
@@ -147,8 +147,8 @@ test('floors values when centering', () => {
   const measurements = { a: 100, b: 120, c: 80, d: 100 };
   const items = ['a', 'b', 'c', 'd'];
   const layout = defaultLayout({
+    align: 'start',
     cache: stubCache(measurements),
-    justify: 'start',
     layout: 'basic',
     rawItemCount: items.length,
     width: 501,
@@ -166,7 +166,7 @@ test('only centers when theres extra space', () => {
   const items = ['a', 'b', 'c', 'd'];
   const layout = defaultLayout({
     cache: stubCache(measurements),
-    justify: 'start',
+    align: 'start',
     layout: 'basic',
     rawItemCount: items.length,
     width: 200,
@@ -183,13 +183,13 @@ test('justify', () => {
   const measurements = { a: 100, b: 120, c: 80, d: 100 };
   const items = ['a', 'b', 'c', 'd'];
 
-  const makeLayout = (justify: 'center' | 'start') =>
+  const makeLayout = (align: 'center' | 'start') =>
     defaultLayout({
+      align,
       cache: stubCache(measurements),
       columnWidth: 100,
       gutter: 0,
-      justify,
-      layout: justify === 'center' ? 'basicCentered' : 'basic',
+      layout: align === 'center' ? 'basicCentered' : 'basic',
       width: 1000,
       rawItemCount: items.length,
     })(items);

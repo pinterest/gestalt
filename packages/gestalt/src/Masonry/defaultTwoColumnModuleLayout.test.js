@@ -19,9 +19,9 @@ describe('defaultLayout test cases', () => {
     const items: $ReadOnlyArray<Item> = [];
 
     const layout = defaultTwoColumnModuleLayout({
+      align: 'start',
       measurementCache: measurementStore,
       positionCache,
-      justify: 'start',
       rawItemCount: items.length,
       width: 486,
     });
@@ -41,9 +41,9 @@ describe('defaultLayout test cases', () => {
     });
 
     const layout = defaultTwoColumnModuleLayout({
+      align: 'start',
       measurementCache: measurementStore,
       positionCache,
-      justify: 'start',
       rawItemCount: items.length,
       width: 736,
     });
@@ -68,9 +68,9 @@ describe('defaultLayout test cases', () => {
     });
 
     const layout = defaultTwoColumnModuleLayout({
+      align: 'start',
       measurementCache: measurementStore,
       positionCache,
-      justify: 'start',
       rawItemCount: items.length,
       width: 486,
     });
@@ -96,9 +96,9 @@ describe('defaultLayout test cases', () => {
     });
 
     const layout = defaultTwoColumnModuleLayout({
+      align: 'start',
       measurementCache: measurementStore,
       positionCache,
-      justify: 'start',
       minCols: 2,
       rawItemCount: items.length,
       width: 8000,
@@ -125,9 +125,9 @@ describe('defaultLayout test cases', () => {
       measurementStore.set(item, item.height);
     });
     const layout = defaultTwoColumnModuleLayout({
+      align: 'start',
       measurementCache: measurementStore,
       positionCache,
-      justify: 'start',
       rawItemCount: items.length,
       width: 501,
     });
@@ -153,9 +153,9 @@ describe('defaultLayout test cases', () => {
       measurementStore.set(item, item.height);
     });
     const layout = defaultTwoColumnModuleLayout({
+      align: 'start',
       measurementCache: measurementStore,
       positionCache,
-      justify: 'start',
       rawItemCount: items.length,
       width: 200,
     });
@@ -181,13 +181,13 @@ describe('defaultLayout test cases', () => {
       measurementStore.set(item, item.height);
     });
 
-    const makeLayout = (justify: 'center' | 'start') =>
+    const makeLayout = (align: 'center' | 'start') =>
       defaultTwoColumnModuleLayout({
+        align,
         measurementCache: measurementStore,
         positionCache,
         columnWidth: 100,
         gutter: 0,
-        justify,
         width: 1000,
         rawItemCount: items.length,
       })(items);
@@ -233,9 +233,9 @@ describe('multi column layout test cases', () => {
     });
 
     const layout = defaultTwoColumnModuleLayout({
+      align: 'start',
       columnWidth: 240,
       measurementCache: measurementStore,
-      justify: 'start',
       minCols: 3,
       positionCache,
       rawItemCount: items.length,
@@ -329,9 +329,9 @@ describe('multi column layout test cases', () => {
     });
 
     const layout = defaultTwoColumnModuleLayout({
+      align: 'start',
       columnWidth: 240,
       measurementCache: measurementStore,
-      justify: 'start',
       minCols: 3,
       positionCache,
       rawItemCount: items.length,
@@ -427,9 +427,9 @@ describe('multi column layout test cases', () => {
     });
 
     const layout = defaultTwoColumnModuleLayout({
+      align: 'start',
       columnWidth: 240,
       measurementCache: measurementStore,
-      justify: 'start',
       minCols: 3,
       positionCache,
       rawItemCount: items.length,
@@ -467,9 +467,9 @@ describe('multi column layout test cases', () => {
     });
 
     const layout = defaultTwoColumnModuleLayout({
+      align: 'start',
       columnWidth: 240,
       measurementCache: measurementStore,
-      justify: 'start',
       minCols: 3,
       positionCache,
       rawItemCount: items.length,
@@ -537,9 +537,9 @@ describe('multi column layout test cases', () => {
     });
 
     const layout = defaultTwoColumnModuleLayout({
+      align: 'start',
       columnWidth: 240,
       measurementCache: measurementStore,
-      justify: 'start',
       minCols: 5,
       positionCache,
       rawItemCount: items.length,
@@ -608,9 +608,9 @@ describe('multi column layout test cases', () => {
     ];
 
     const layout = defaultTwoColumnModuleLayout({
+      align: 'start',
       columnWidth: 240,
       measurementCache: measurementStore,
-      justify: 'start',
       minCols: 3,
       positionCache,
       rawItemCount: items.length,
@@ -641,9 +641,9 @@ describe('multi column layout test cases', () => {
     });
 
     const layout = defaultTwoColumnModuleLayout({
+      align: 'start',
       columnWidth: 240,
       measurementCache: measurementStore,
-      justify: 'start',
       minCols: 3,
       positionCache,
       rawItemCount: items.length,
@@ -709,9 +709,9 @@ describe('multi column layout test cases', () => {
     });
 
     const layout = defaultTwoColumnModuleLayout({
+      align: 'start',
       columnWidth: 240,
       measurementCache: measurementStore,
-      justify: 'start',
       minCols: 5,
       positionCache,
       rawItemCount: items.length,
@@ -771,10 +771,10 @@ describe('multi column layout test cases', () => {
       const screenWidth = 1500;
 
       const layout = defaultTwoColumnModuleLayout({
+        align: 'start',
         columnWidth,
         gutter: 0,
         measurementCache: measurementStore,
-        justify: 'start',
         minCols: 3,
         positionCache,
         rawItemCount: items.length,
@@ -826,10 +826,10 @@ describe('multi column layout test cases', () => {
       const screenWidth = 720;
 
       const layout = defaultTwoColumnModuleLayout({
+        align: 'start',
         columnWidth,
         gutter: 0,
         measurementCache: measurementStore,
-        justify: 'start',
         minCols: 3,
         positionCache,
         rawItemCount: items.length,
@@ -890,7 +890,7 @@ describe('initializeHeightsArray', () => {
       columnWidth,
       gutter,
       measurementCache: measurementStore,
-      justify: 'start',
+      align: 'start',
       minCols: 3,
       positionCache,
       rawItemCount: items.length,
@@ -970,10 +970,10 @@ describe('initializeHeightsArray', () => {
       measurementStore.set(item, item.height);
     });
     const layout = defaultTwoColumnModuleLayout({
+      align: 'start',
       columnWidth,
       gutter,
       measurementCache: measurementStore,
-      justify: 'start',
       minCols: 3,
       positionCache,
       rawItemCount: items.length,
