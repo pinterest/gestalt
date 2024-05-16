@@ -1,3 +1,9 @@
+## 147.6.0 (May 16, 2024)
+
+### Minor
+
+- Masonry: Bug fix, "basic" layout not left aligning ([#3558](https://github.com/pinterest/gestalt/pull/3558)) - [Preview link](https://deploy-preview-3558--gestalt.netlify.app?devexample=true)
+
 ## 147.5.12 (May 16, 2024)
 
 ### Patch
