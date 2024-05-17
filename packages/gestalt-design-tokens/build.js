@@ -675,166 +675,97 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
         '_transformGroup_comment':
           'https://amzn.github.io/style-dictionary/#/transform_groups?id=ios',
         'buildPath': 'dist/ios/',
-        'files':
-          mode === 'light'
-            ? [
-                {
-                  'destination': 'GestaltDesignTokensColor.h',
-                  'format': 'ios/colors.h',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsh',
-                  'className': 'GestaltDesignTokensColor',
-                  'type': 'GestaltDesignTokensColorName',
-                  'filter': {
-                    'attributes': {
-                      'category': 'color',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom.',
-                    'showFileHeader': true,
-                  },
-                },
-                {
-                  'destination': 'GestaltDesignTokensColor.m',
-                  'format': 'ios/colors.m',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsm',
-                  'className': 'GestaltDesignTokensColor',
-                  'type': 'GestaltDesignTokensColorName',
-                  'filter': {
-                    'attributes': {
-                      'category': 'color',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom.',
-                    'showFileHeader': true,
-                  },
-                },
-              ]
-            : [
-                {
-                  'destination': 'GestaltDesignTokensColorDarkTheme.h',
-                  'format': 'ios/colors.h',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsh',
-                  'className': 'GestaltDesignTokensColor',
-                  'type': 'GestaltDesignTokensColorName',
-                  'filter': {
-                    'attributes': {
-                      'category': 'color',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom.',
-                    'showFileHeader': true,
-                  },
-                },
-                {
-                  'destination': 'GestaltDesignTokensColorDarkTheme.m',
-                  'format': 'ios/colors.m',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsm',
-                  'className': 'GestaltDesignTokensColor',
-                  'type': 'GestaltDesignTokensColorName',
-                  'filter': {
-                    'attributes': {
-                      'category': 'color',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom.',
-                    'showFileHeader': true,
-                  },
-                },
-              ],
+        'files': [
+          {
+            'destination':
+              mode === 'light'
+                ? 'GestaltDesignTokensColor.h'
+                : 'GestaltDesignTokensColorDarkTheme.h',
+            'format': 'ios/colors.h',
+            '_format_comment': 'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsh',
+            'className': 'GestaltDesignTokensColor',
+            'type': 'GestaltDesignTokensColorName',
+            'filter': {
+              'attributes': {
+                'category': 'color',
+              },
+            },
+            'options': {
+              'fileHeader': 'fileHeader',
+              '_fileHeader_comment': 'Custom.',
+              'showFileHeader': true,
+            },
+          },
+          {
+            'destination':
+              mode === 'light'
+                ? 'GestaltDesignTokensColor.m'
+                : 'GestaltDesignTokensColorDarkTheme.m',
+            'format': 'ios/colors.m',
+            '_format_comment': 'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsm',
+            'className': 'GestaltDesignTokensColor',
+            'type': 'GestaltDesignTokensColorName',
+            'filter': {
+              'attributes': {
+                'category': 'color',
+              },
+            },
+            'options': {
+              'fileHeader': 'fileHeader',
+              '_fileHeader_comment': 'Custom.',
+              'showFileHeader': true,
+            },
+          },
+        ],
       },
       'ios-swift': {
         'transformGroup': 'ios-swift',
         '_transformGroup_comment':
           'https://amzn.github.io/style-dictionary/#/transform_groups?id=ios-swift',
         'buildPath': 'dist/ios-swift/',
-        'files':
-          mode === 'light'
-            ? [
-                {
-                  'destination': 'GestaltDesignTokens.swift',
-                  'format': 'ios-swift/class.swift',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftclassswift',
-                  'className': 'GestaltDesignTokens',
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom.',
-                    'showFileHeader': true,
-                  },
-                },
-              ]
-            : [
-                {
-                  'destination': 'GestaltDesignTokensDarkTheme.swift',
-                  'format': 'ios-swift/class.swift',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftclassswift',
-                  'className': 'GestaltDesignTokens',
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom.',
-                    'showFileHeader': true,
-                  },
-                },
-              ],
+        'files': [
+          {
+            'destination':
+              mode === 'light' ? 'GestaltDesignTokens.swift' : 'GestaltDesignTokensDarkTheme.swift',
+            'format': 'ios-swift/class.swift',
+            '_format_comment':
+              'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftclassswift',
+            'className': 'GestaltDesignTokens',
+            'options': {
+              'fileHeader': 'fileHeader',
+              '_fileHeader_comment': 'Custom.',
+              'showFileHeader': true,
+            },
+          },
+        ],
       },
       'ios-swift-separate-enums': {
         'transformGroup': 'ios-swift-separate',
         '_transformGroup_comment':
           'https://amzn.github.io/style-dictionary/#/transform_groups?id=ios-swift-separate',
         'buildPath': 'dist/ios-swift/',
-        'files':
-          mode === 'light'
-            ? [
-                {
-                  'destination': 'GestaltDesignTokensColor.swift',
-                  'format': 'ios-swift/enum.swift',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftenumswift',
-                  'className': 'GestaltDesignTokensColor',
-                  'filter': {
-                    'attributes': {
-                      'category': 'color',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom.',
-                    'showFileHeader': true,
-                  },
-                },
-              ]
-            : [
-                {
-                  'destination': 'GestaltDesignTokensColorDarkTheme.swift',
-                  'format': 'ios-swift/enum.swift',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftenumswift',
-                  'className': 'GestaltDesignTokensColor',
-                  'filter': {
-                    'attributes': {
-                      'category': 'color',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom.',
-                    'showFileHeader': true,
-                  },
-                },
-              ],
+        'files': [
+          {
+            'destination':
+              mode === 'light'
+                ? 'GestaltDesignTokensColor.swift'
+                : 'GestaltDesignTokensColorDarkTheme.swift',
+            'format': 'ios-swift/enum.swift',
+            '_format_comment':
+              'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftenumswift',
+            'className': 'GestaltDesignTokensColor',
+            'filter': {
+              'attributes': {
+                'category': 'color',
+              },
+            },
+            'options': {
+              'fileHeader': 'fileHeader',
+              '_fileHeader_comment': 'Custom.',
+              'showFileHeader': true,
+            },
+          },
+        ],
       },
     },
   };
