@@ -561,6 +561,9 @@ interface DefaultLabelProviderProps {
         };
         SideNavigation: {
           accessibilityDismissButtonLabel: string;
+          accessibilityCollapseButtonLabel: string;
+          accessibilityExpandButtonLabel: string;
+          accessibilityEllipsisLabel: string;
         };
         BannerSlim: {
           accessibilityDismissButtonLabel: string;
