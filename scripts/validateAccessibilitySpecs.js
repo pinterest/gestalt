@@ -46,8 +46,8 @@ async function validate() {
       .toLowerCase()
       // remove the playwright/accessibility/ prefix
       .replace(/^playwright\/accessibility\//, '')
-      // remove the .spec.mjs suffix
-      .replace(/\.spec\.mjs$/, ''),
+      // remove the .spec.ts suffix
+      .replace(/\.spec\.ts$/, ''),
   );
 
   const pagesWithoutA11ySpecFiles = routes.filter((page) => !a11ySpecFiles.includes(page));
