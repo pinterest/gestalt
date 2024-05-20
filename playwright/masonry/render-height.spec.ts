@@ -21,7 +21,7 @@ test.describe('Masonry: Render height', () => {
 
     const afterGrid = await page.locator(selectors.afterGrid);
     const afterGridRect = await afterGrid.boundingBox();
-// @ts-expect-error - TS2531 - Object is possibly 'null'.
+    // @ts-expect-error - TS2531 - Object is possibly 'null'.
     expect(afterGridRect.y).toBeGreaterThanOrEqual(bottomItem);
   });
 });

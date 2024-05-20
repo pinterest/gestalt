@@ -30,7 +30,7 @@ test.describe('Masonry: Item prop changes', () => {
     // Wait for the grid to be updated with the new items.
     await page.waitForFunction(
       ({ selector }) => {
-// @ts-expect-error - TS2488 - Type 'NodeListOf<Element>' must have a '[Symbol.iterator]()' method that returns an iterator.
+        // @ts-expect-error - TS2488 - Type 'NodeListOf<Element>' must have a '[Symbol.iterator]()' method that returns an iterator.
         const items = [...document.querySelectorAll(selector)];
         return Boolean(
           // This isn't a conditional?

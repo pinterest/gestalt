@@ -32,7 +32,7 @@ test.describe('Masonry: Item prop change', () => {
     // Wait for the replaced item to be rendered as part of the layout.
     await page.waitForFunction(
       ({ selector }) => {
-// @ts-expect-error - TS2488 - Type 'NodeListOf<Element>' must have a '[Symbol.iterator]()' method that returns an iterator.
+        // @ts-expect-error - TS2488 - Type 'NodeListOf<Element>' must have a '[Symbol.iterator]()' method that returns an iterator.
         const items = [...document.querySelectorAll(selector)];
         return (
           // eslint-disable-next-line playwright/no-conditional-in-test

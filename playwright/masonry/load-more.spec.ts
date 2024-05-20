@@ -24,7 +24,7 @@ test.describe('Masonry: scrolls', () => {
     // the virtual bounds.
 
     await page.evaluate(
-// @ts-expect-error - TS2339 - Property 'click' does not exist on type 'Element'.
+      // @ts-expect-error - TS2339 - Property 'click' does not exist on type 'Element'.
       (selector) => document.querySelector(selector)?.click(),
       selectors.addItems,
     );
@@ -37,7 +37,7 @@ test.describe('Masonry: scrolls', () => {
     // because they fall below the virtual bounds.
 
     await page.evaluate(
-// @ts-expect-error - TS2339 - Property 'click' does not exist on type 'Element'.
+      // @ts-expect-error - TS2339 - Property 'click' does not exist on type 'Element'.
       (selector) => document.querySelector(selector)?.click(),
       selectors.addItems,
     );
@@ -47,7 +47,7 @@ test.describe('Masonry: scrolls', () => {
     expect(gridItems2.length).toBe(35);
 
     // Verify that we've actually called to add more items.
-// @ts-expect-error - TS2339 - Property 'TEST_FETCH_COUNTS' does not exist on type 'Window & typeof globalThis'.
+    // @ts-expect-error - TS2339 - Property 'TEST_FETCH_COUNTS' does not exist on type 'Window & typeof globalThis'.
     const initialFetchCount = await page.evaluate(() => window.TEST_FETCH_COUNTS);
     expect(initialFetchCount).toBe(2);
 
@@ -62,7 +62,7 @@ test.describe('Masonry: scrolls', () => {
 
     // Scroll a few times to triggle multiple scrolls.
     await page.evaluate((docEl) => {
-// @ts-expect-error - TS2571 - Object is of type 'unknown'. | TS2571 - Object is of type 'unknown'.
+      // @ts-expect-error - TS2571 - Object is of type 'unknown'. | TS2571 - Object is of type 'unknown'.
       window.scrollTo(0, docEl.scrollHeight - docEl.clientHeight);
     }, documentElement);
     await waitForRenderedItems(page, { targetItems: 30 });
@@ -73,7 +73,7 @@ test.describe('Masonry: scrolls', () => {
     await waitForRenderedItems(page, { targetItems: 35 });
 
     await page.evaluate((docEl) => {
-// @ts-expect-error - TS2571 - Object is of type 'unknown'. | TS2571 - Object is of type 'unknown'.
+      // @ts-expect-error - TS2571 - Object is of type 'unknown'. | TS2571 - Object is of type 'unknown'.
       window.scrollTo(0, docEl.scrollHeight - docEl.clientHeight);
     }, documentElement);
     await waitForRenderedItems(page, { targetItems: 30 });
@@ -81,7 +81,7 @@ test.describe('Masonry: scrolls', () => {
     // Now that we're at the bottom of the page, add more items and expect to see them.
 
     await page.evaluate(
-// @ts-expect-error - TS2339 - Property 'click' does not exist on type 'Element'.
+      // @ts-expect-error - TS2339 - Property 'click' does not exist on type 'Element'.
       (selector) => document.querySelector(selector)?.click(),
       selectors.addItems,
     );
@@ -90,7 +90,7 @@ test.describe('Masonry: scrolls', () => {
     const gridItems3 = await getGridItems(page);
     expect(gridItems3.length).toBe(45);
 
-// @ts-expect-error - TS2339 - Property 'TEST_FETCH_COUNTS' does not exist on type 'Window & typeof globalThis'.
+    // @ts-expect-error - TS2339 - Property 'TEST_FETCH_COUNTS' does not exist on type 'Window & typeof globalThis'.
     const newFetchCount = await page.evaluate(() => window.TEST_FETCH_COUNTS);
     expect(newFetchCount).toBe(3);
   });

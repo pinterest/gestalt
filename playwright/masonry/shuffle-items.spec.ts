@@ -5,7 +5,7 @@ import selectors from './utils/selectors';
 import waitForRenderedItems from './utils/waitForRenderedItems';
 
 const getItemColumnMap = async (
-// @ts-expect-error - TS7006 - Parameter 'page' implicitly has an 'any' type.
+  // @ts-expect-error - TS7006 - Parameter 'page' implicitly has an 'any' type.
   page /*: { locator: (string) => { all: () => Promise<$ReadOnlyArray<{|
   innerText: () => void,
   textContent: () => void,

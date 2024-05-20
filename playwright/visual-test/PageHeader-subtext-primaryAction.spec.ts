@@ -7,7 +7,7 @@ Object.keys(BREAKPOINTS).forEach((size) => {
     page,
   }) => {
     await page.setViewportSize({
-// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly xs: 360; readonly sm: 576; readonly md: 768; readonly lg: 1313; }'.
+      // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly xs: 360; readonly sm: 576; readonly md: 768; readonly lg: 1313; }'.
       width: BREAKPOINTS[size],
       height: 1080,
     });
