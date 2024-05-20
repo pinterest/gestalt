@@ -114,8 +114,8 @@ async function generateComponentFiles(componentName) {
     }),
     generateFile({
       componentName,
-      outputPath: path.join(accessibilityIntegrationTests, `${componentName}.spec.mjs`),
-      template: 'templates/accessibility_ComponentName.spec.mjs',
+      outputPath: path.join(accessibilityIntegrationTests, `${componentName}.spec.ts`),
+      template: 'templates/accessibility_ComponentName.spec.ts',
       log: 'Generated accessibility integration test',
     }),
     generateFile({
@@ -126,14 +126,14 @@ async function generateComponentFiles(componentName) {
     }),
     generateFile({
       componentName,
-      outputPath: path.join(visualIntegrationTests, `${componentName}.spec.mjs`),
-      template: 'templates/ComponentName-light.spec.mjs',
+      outputPath: path.join(visualIntegrationTests, `${componentName}.spec.ts`),
+      template: 'templates/ComponentName-light.spec.ts',
       log: 'Generated light mode visual testing integration test',
     }),
     generateFile({
       componentName,
-      outputPath: path.join(visualIntegrationTests, `${componentName}-dark.spec.mjs`),
-      template: 'templates/ComponentName-dark.spec.mjs',
+      outputPath: path.join(visualIntegrationTests, `${componentName}-dark.spec.ts`),
+      template: 'templates/ComponentName-dark.spec.ts',
       log: 'Generated dark mode visual testing integration test',
     }),
     generateFile({

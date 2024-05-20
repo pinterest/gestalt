@@ -216,7 +216,7 @@ module.exports = {
       },
     },
     {
-      'files': ['playwright/**/*.{js,ts,tsx}', 'scripts/templates/*.spec.{js,ts,tsx}'],
+      'files': ['playwright/**/*.ts', 'scripts/templates/*.spec.ts'],
       'extends': ['plugin:playwright/playwright-test'],
       'rules': {
         'playwright/missing-playwright-await': ERROR,
