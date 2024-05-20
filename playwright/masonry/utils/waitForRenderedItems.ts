@@ -20,20 +20,29 @@ type waitForRenderedItemsArgs = {|
 */
 
 export default async function waitForRenderedItems(
+// @ts-expect-error - TS7006 - Parameter 'page' implicitly has an 'any' type.
   page /*: Object */,
+// @ts-expect-error - TS7006 - Parameter 'args' implicitly has an 'any' type.
   args /*: waitForRenderedItemsArgs */,
   timeout /*: number */ = 5000,
 ) /*: Promise<any> */ {
   return page
     .waitForFunction(
       ({
+// @ts-expect-error - TS7031 - Binding element 'selector' implicitly has an 'any' type.
         selector,
         args: {
+// @ts-expect-error - TS7031 - Binding element 'targetItems' implicitly has an 'any' type.
           targetItems,
+// @ts-expect-error - TS7031 - Binding element 'targetItemsLT' implicitly has an 'any' type.
           targetItemsLT,
+// @ts-expect-error - TS7031 - Binding element 'targetItemsLTE' implicitly has an 'any' type.
           targetItemsLTE,
+// @ts-expect-error - TS7031 - Binding element 'targetItemsGT' implicitly has an 'any' type.
           targetItemsGT,
+// @ts-expect-error - TS7031 - Binding element 'targetItemsGTE' implicitly has an 'any' type.
           targetItemsGTE,
+// @ts-expect-error - TS7031 - Binding element 'scrollHeight' implicitly has an 'any' type.
           scrollHeight,
         },
       }) => {
@@ -71,6 +80,7 @@ export default async function waitForRenderedItems(
       { selector: selectors.gridItem, args },
       { polling: 'raf', timeout },
     )
+// @ts-expect-error - TS7006 - Parameter 'err' implicitly has an 'any' type.
     .catch(async (err) => {
       const {
         targetItems,
@@ -85,6 +95,7 @@ export default async function waitForRenderedItems(
 
       // Count the number of loading items.
       const loadingItems = await page.evaluate(
+// @ts-expect-error - TS7006 - Parameter 'selector' implicitly has an 'any' type.
         (selector) =>
           Array.from(document.querySelectorAll(selector)).filter(
             (item) => item.style.visibility === 'hidden',
@@ -99,6 +110,7 @@ export default async function waitForRenderedItems(
 
       // Count the number of rendered items.
       const renderedItems = await page.evaluate(
+// @ts-expect-error - TS7006 - Parameter 'selector' implicitly has an 'any' type.
         (selector) =>
           Array.from(document.querySelectorAll(selector)).filter(
             (item) => item.style.visibility !== 'hidden',

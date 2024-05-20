@@ -1,5 +1,6 @@
 const BASE_PATH = '/integration-test/masonry';
 
+// @ts-expect-error - TS7006 - Parameter 'val' implicitly has an 'any' type.
 const normalizeValue = (val /*: boolean | number */) => {
   if (typeof val === 'boolean') {
     return val ? '1' : '0';
@@ -28,6 +29,7 @@ type Options = ?{|
 |};
 */
 
+// @ts-expect-error - TS7006 - Parameter 'options' implicitly has an 'any' type.
 const getServerURL = (options /*: Options */) /*: string */ => {
   let serializedOptions = '';
 

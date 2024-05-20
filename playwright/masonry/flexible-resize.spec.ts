@@ -5,6 +5,7 @@ import resizeWidth from './utils/resizeWidth';
 import selectors from './utils/selectors';
 import waitForRenderedItems from './utils/waitForRenderedItems';
 
+// @ts-expect-error - TS7006 - Parameter 'gridItems' implicitly has an 'any' type.
 async function getItemColumnMap(gridItems /*: any */) {
   const itemLeftMap: Record<string, any> = {};
   for (let i = 0; i < gridItems.length; i += 1) {
@@ -33,6 +34,7 @@ test.describe('Masonry: flexible resize', () => {
     expect(gridItemsBefore.length).toBe(40);
 
     const itemRectsBefore = await Promise.all(
+// @ts-expect-error - TS7006 - Parameter 'gridItemBefore' implicitly has an 'any' type.
       gridItemsBefore.map((gridItemBefore) => gridItemBefore.boundingBox()),
     );
     // expect(itemRectsBefore[0].width).toBe(266);
@@ -73,6 +75,7 @@ test.describe('Masonry: flexible resize', () => {
     expect(gridItemsAfter.length).toBe(40);
 
     const itemRectsAfter = await Promise.all(
+// @ts-expect-error - TS7006 - Parameter 'gridItemAfter' implicitly has an 'any' type.
       gridItemsAfter.map((gridItemAfter) => gridItemAfter.boundingBox()),
     );
     expect(itemRectsAfter[0].width).toBe(273);
@@ -85,6 +88,7 @@ test.describe('Masonry: flexible resize', () => {
     for (let i = 0; i < originalColumns.length; i += 1) {
       const originalCol = originalItemMap[originalColumns[i]];
       const newCol = newItemMap[newColumns[i]];
+// @ts-expect-error - TS7006 - Parameter 'item' implicitly has an 'any' type. | TS7006 - Parameter 'row' implicitly has an 'any' type.
       originalCol.forEach((item, row /*: number */) => {
         const newItem = newCol[row];
         expect(newItem).not.toBeUndefined();

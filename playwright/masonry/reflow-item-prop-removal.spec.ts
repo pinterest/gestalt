@@ -19,6 +19,7 @@ test.describe('Masonry: Item prop removal', () => {
 
     // Relay the fake items data to the host page.
     await page.evaluate((proxiedItemData) => {
+// @ts-expect-error - TS2339 - Property 'TEST_MASONRY_ITEMS' does not exist on type 'Window & typeof globalThis'.
       window.TEST_MASONRY_ITEMS = proxiedItemData;
     }, masonryItemData);
 
@@ -27,6 +28,7 @@ test.describe('Masonry: Item prop removal', () => {
       window.dispatchEvent(
         new CustomEvent('set-masonry-items', {
           detail: {
+// @ts-expect-error - TS2339 - Property 'TEST_MASONRY_ITEMS' does not exist on type 'Window & typeof globalThis'.
             items: window.TEST_MASONRY_ITEMS,
           },
         }),
@@ -36,6 +38,7 @@ test.describe('Masonry: Item prop removal', () => {
     // Wait for the grid to be updated with the new items.
     await page.waitForFunction(
       ({ selector }) => {
+// @ts-expect-error - TS2488 - Type 'NodeListOf<Element>' must have a '[Symbol.iterator]()' method that returns an iterator.
         const items = [...document.querySelectorAll(selector)];
         return Boolean(
           // This isn't a conditional?
@@ -56,6 +59,7 @@ test.describe('Masonry: Item prop removal', () => {
       window.dispatchEvent(
         new CustomEvent('set-masonry-items', {
           detail: {
+// @ts-expect-error - TS2339 - Property 'TEST_MASONRY_ITEMS' does not exist on type 'Window & typeof globalThis'.
             items: window.TEST_MASONRY_ITEMS.slice(0, 2),
           },
         }),
@@ -65,6 +69,7 @@ test.describe('Masonry: Item prop removal', () => {
     // Wait for the grid to be updated with the new items.
     await page.waitForFunction(
       ({ selector }) => {
+// @ts-expect-error - TS2488 - Type 'NodeListOf<Element>' must have a '[Symbol.iterator]()' method that returns an iterator.
         const items = [...document.querySelectorAll(selector)];
         return Boolean(
           // This isn't a conditional?

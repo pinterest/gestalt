@@ -10,6 +10,7 @@ type GridItems = $ReadOnlyArray<{|
 type Page = { locator: (string) => { all: () => Promise<GridItems> } };
 */
 
+// @ts-expect-error - TS7006 - Parameter 'page' implicitly has an 'any' type.
 export default function getGridItems(page /*: Page */) /*: Promise<GridItems> */ {
   return page.locator(selectors.gridItem).all();
 }

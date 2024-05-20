@@ -48,6 +48,7 @@ test.describe('Masonry: No scroll', () => {
       );
     });
 
+// @ts-expect-error - TS2339 - Property 'TEST_FETCH_COUNTS' does not exist on type 'Window & typeof globalThis'.
     const newFetchCount = await page.evaluate(() => window.TEST_FETCH_COUNTS);
     expect(newFetchCount).toBe(0);
   });
