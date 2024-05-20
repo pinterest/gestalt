@@ -128,6 +128,7 @@ const siteIndex: ReadonlyArray<siteIndexType> = [
       'Button',
       'ButtonLink',
       'ButtonGroup',
+      'ButtonToggle',
       'ChartGraph',
       'Checkbox',
       'Collage',

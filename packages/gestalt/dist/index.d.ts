@@ -2669,6 +2669,11 @@ export const ButtonLink: ReactForwardRef<HTMLAnchorElement, ButtonLinkProps>;
 export const ButtonGroup: React.FunctionComponent<ButtonGroupProps>;
 
 /**
+ * https://gestalt.pinterest.systems/web/button
+ */
+export const ButtonToggle: ReactForwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>;
+
+/**
  * https://gestalt.pinterest.systems/web/bannercallout
  */
 export const BannerCallout: React.FunctionComponent<BannerCalloutProps>;

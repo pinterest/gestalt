@@ -12,6 +12,7 @@ import Box from './Box';
 import Button from './Button';
 import ButtonGroup from './ButtonGroup';
 import ButtonLink from './ButtonLink';
+import ButtonToggle from './ButtonToggle';
 import Checkbox from './Checkbox';
 import Collage from './Collage';
 import Column from './Column';
@@ -99,6 +100,7 @@ export {
   Button,
   ButtonGroup,
   ButtonLink,
+  ButtonToggle,
   Checkbox,
   Collage,
   ColorSchemeProvider,
