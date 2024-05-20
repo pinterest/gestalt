@@ -33,7 +33,7 @@ const baseRules = {
   'gestalt/only-valid-tokens': ERROR,
   'import/extensions': [
     ERROR,
-    { css: 'always', js: 'never', ts: 'never', tsx: 'never', json: 'always', mjs: 'always' },
+    { css: 'always', js: 'never', ts: 'never', tsx: 'never', json: 'always', mjs: 'never' },
   ],
   'import/first': ERROR,
   'import/newline-after-import': ERROR,
@@ -216,7 +216,7 @@ module.exports = {
       },
     },
     {
-      'files': ['playwright/**/*.mjs', 'scripts/templates/*.spec.mjs'],
+      'files': ['playwright/**/*.{js,ts,tsx}', 'scripts/templates/*.spec.{js,ts,tsx}'],
       'extends': ['plugin:playwright/playwright-test'],
       'rules': {
         'playwright/missing-playwright-await': ERROR,

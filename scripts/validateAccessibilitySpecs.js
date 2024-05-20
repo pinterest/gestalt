@@ -3,7 +3,7 @@ require('@babel/register');
 const globby = require('globby');
 const siteIndex = require('../docs/docs-components/siteIndex');
 
-const specFileGlob = 'playwright/accessibility/*.spec.mjs';
+const specFileGlob = 'playwright/accessibility/*.spec.ts';
 
 // Note How this works: https://github.com/pinterest/gestalt/pull/2316#issuecomment-1223356379
 
