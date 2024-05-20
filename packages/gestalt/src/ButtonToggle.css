@@ -11,6 +11,10 @@
   background-color: var(--color-transparent);
 }
 
+.noBorder {
+  composes: noBorder from "./Borders.css";
+}
+
 .childrenDiv {
   composes: flex from "./Layout.css";
   composes: xsItemsCenter from "./Layout.css";

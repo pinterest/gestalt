@@ -12,11 +12,11 @@ import SandpackExample from '../../docs-components/SandpackExample';
 import colors from '../../examples/buttontoggle/colors';
 import defaultStateExample from '../../examples/buttontoggle/defaultStateExample';
 import disabledStateExample from '../../examples/buttontoggle/disabledStateExample';
+import doChangeLabels from '../../examples/buttontoggle/doChangeLabels';
 import iconEndExample from '../../examples/buttontoggle/iconEndExample';
 import iconTooltipToExplainDo from '../../examples/buttontoggle/iconTooltipToExplainDo';
 import keepSimpleTextDo from '../../examples/buttontoggle/keepSimpleTextDo';
 import main from '../../examples/buttontoggle/main';
-import placePrimaryButtonDo from '../../examples/buttontoggle/placePrimaryButtonDo';
 import selectedStateExample from '../../examples/buttontoggle/selectedStateExample';
 import showFullTextDo from '../../examples/buttontoggle/showFullTextDo';
 
@@ -63,7 +63,7 @@ export default function DocsPage({ generatedDocGen }: DocType) {
             description={`To make it clearer, you may want to change the label text to indicate that the ButtonToggle has been selected. For instance, changing "follow" to "Following."`}
             sandpackExample={
               <SandpackExample
-                code={placePrimaryButtonDo}
+                code={doChangeLabels}
                 hideEditor
                 name={`To make it clearer, you may want to change the label text to indicate that the ButtonToggle has been selected. For instance, changing "follow" to "Following."`}
                 previewHeight={PREVIEW_HEIGHT}

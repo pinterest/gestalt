@@ -154,7 +154,6 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
   // We need to make a few exceptions for accessibility reasons in darkMode for red buttons
   const isDarkMode = colorSchemeName === 'darkMode';
   const isDarkModeRed = isDarkMode && color === 'red';
-
   const { isFocusVisible } = useFocusVisible();
 
   const sharedTypeClasses = classnames(styles.button, focusStyles.hideOutline, {
@@ -165,7 +164,8 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
     [styles.sm]: size === 'sm',
     [styles.md]: size === 'md',
     [styles.lg]: size === 'lg',
-    [styles.transparent]: !disabled && !selected,
+    [styles[color]]: !disabled && !selected,
+    [styles.noBorder]: disabled || (color === 'red' && !selected),
     [styles.selected]: !disabled && selected,
     [styles.disabled]: disabled,
     [styles.enabled]: !disabled,
@@ -179,6 +179,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
   const textColor =
     (disabled && 'subtle') ||
     (isDarkModeRed && 'default') ||
+    (selected && 'default') ||
     DEFAULT_TEXT_COLORS[color];
 
   const buttonText = (

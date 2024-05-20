@@ -11,8 +11,8 @@ export default function Example() {
       justifyContent="center"
       width="100%"
     >
-      <ButtonToggle color="red" fullWidth size="lg" text="Create account" />
-      <ButtonToggle color="gray" fullWidth size="lg" text="View settings" />
+      <ButtonToggle color="red" size="lg" text="Create account" />
+      <ButtonToggle size="lg" text="View settings" />
     </Flex>
   );
 }

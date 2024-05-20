@@ -908,29 +908,18 @@ interface BoxProps extends BoxPassthroughProps {
 
 interface ButtonProps {
   accessibilityControls?: string | undefined;
-  accessibilityExpanded?: boolean | undefined;
-  accessibilityHaspopup?: boolean | undefined;
   accessibilityLabel?: string | undefined;
   color?:
-    | 'gray'
     | 'red'
-    | 'blue'
     | 'transparent'
-    | 'semiTransparentWhite'
-    | 'transparentWhiteText'
-    | 'white'
     | undefined;
   dataTestId?: string;
   disabled?: boolean | undefined;
-  fullWidth?: boolean | undefined;
-  iconEnd?: Icons | undefined;
-  name?: string | undefined;
+  iconStart?: Icons | undefined;
   onClick?: ButtonEventHandlerType | undefined;
   selected?: boolean | undefined;
   size?: 'sm' | 'md' | 'lg' | undefined;
-  tabIndex?: -1 | 0 | undefined;
   text: string;
-  type?: 'button' | 'submit' | undefined;
 }
 
 interface ButtonLinkProps {

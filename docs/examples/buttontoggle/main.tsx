@@ -6,7 +6,7 @@ export default function Example() {
 
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-      <ButtonToggle onClick={()=> setSelected(!selected)} selected={selected} size="lg" text="Save"/>
+      <ButtonToggle onClick={()=> setSelected(!selected)} selected={selected} size="lg" text={selected? "Saved" : "Save"}/>
     </Flex>
   );
 }
