@@ -164,6 +164,7 @@
         "testPathIgnorePatterns": [
           "/node_modules/",
           "/.rollup.cache/",
+          "<rootDir>/playwright/",
           "<rootDir>/scripts/templates/",
           ".jsdom.test.ts",
           ".jsdom.test.tsx",
@@ -183,6 +184,7 @@
         "testPathIgnorePatterns": [
           "/node_modules/",
           "/.rollup.cache/",
+          "<rootDir>/playwright/",
           "<rootDir>/scripts/templates/",
           "<rootDir>/packages/gestalt-codemods",
           "<rootDir>/packages/gestalt-core"
