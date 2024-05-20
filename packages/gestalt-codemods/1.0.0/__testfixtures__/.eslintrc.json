@@ -1,7 +1,0 @@
-{
-  "rules": {
-    "eslint-comments/no-unused-disable": "off",
-    "prettier/prettier": "off",
-    "no-undef": "off"
-  }
-}
