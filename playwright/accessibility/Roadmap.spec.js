@@ -1,6 +1,6 @@
 // @flow strict
 import { test } from '@playwright/test';
-import expectAccessiblePage from './expectAccessiblePage.mjs';
+import expectAccessiblePage from './expectAccessiblePage';
 
 test('Roadmap check', async ({ page }) => {
   await page.goto('/roadmap');

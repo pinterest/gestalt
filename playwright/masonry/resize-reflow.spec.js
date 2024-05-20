@@ -1,9 +1,9 @@
 // @flow strict
 import { expect, test } from '@playwright/test';
-import countColumns from './utils/countColumns.mjs';
-import getServerURL from './utils/getServerURL.mjs';
-import resizeWidth from './utils/resizeWidth.mjs';
-import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
+import countColumns from './utils/countColumns';
+import getServerURL from './utils/getServerURL';
+import resizeWidth from './utils/resizeWidth';
+import waitForRenderedItems from './utils/waitForRenderedItems';
 
 const PIN_SIZE = 240;
 const GRID_WIDTH = 1000;
@@ -33,9 +33,7 @@ test.describe('Masonry: Resize', () => {
     expect(newActualColumns).toEqual(newExpectedColumns);
   });
 
-  test('Rerenders Masonry after a resize with scroll container', async ({
-    page,
-  }) => {
+  test('Rerenders Masonry after a resize with scroll container', async ({ page }) => {
     await page.setViewportSize({ width: GRID_WIDTH, height: 800 });
 
     // Use manual fetching so we don't end up counting columns while we're
@@ -45,7 +43,7 @@ test.describe('Masonry: Resize', () => {
         virtualize: true,
         manualFetch: true,
         scrollContainer: true,
-      })
+      }),
     );
 
     await waitForRenderedItems(page, { targetItems: 16 });

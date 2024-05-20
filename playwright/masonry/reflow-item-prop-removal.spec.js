@@ -1,9 +1,9 @@
 // @flow strict
 import { expect, test } from '@playwright/test';
-import getGridItems from './utils/getGridItems.mjs';
-import getServerURL from './utils/getServerURL.mjs';
-import selectors from './utils/selectors.mjs';
-import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
+import getGridItems from './utils/getGridItems';
+import getServerURL from './utils/getServerURL';
+import selectors from './utils/selectors';
+import waitForRenderedItems from './utils/waitForRenderedItems';
 
 const masonryItemData = [
   { name: 'fake1', height: 100, color: '#f00' },
@@ -30,7 +30,7 @@ test.describe('Masonry: Item prop removal', () => {
           detail: {
             items: window.TEST_MASONRY_ITEMS,
           },
-        })
+        }),
       );
     });
 
@@ -41,11 +41,11 @@ test.describe('Masonry: Item prop removal', () => {
         return Boolean(
           // This isn't a conditional?
           // eslint-disable-next-line playwright/no-conditional-in-test
-          items.length === 3 && items[0].innerText?.startsWith('fake1')
+          items.length === 3 && items[0].innerText?.startsWith('fake1'),
         );
       },
       { selector: selectors.gridItem },
-      { polling: 'raf' }
+      { polling: 'raf' },
     );
     await waitForRenderedItems(page, { targetItems: 3 });
 
@@ -59,7 +59,7 @@ test.describe('Masonry: Item prop removal', () => {
           detail: {
             items: window.TEST_MASONRY_ITEMS.slice(0, 2),
           },
-        })
+        }),
       );
     });
 
@@ -70,11 +70,11 @@ test.describe('Masonry: Item prop removal', () => {
         return Boolean(
           // This isn't a conditional?
           // eslint-disable-next-line playwright/no-conditional-in-test
-          items.length === 2 && items[0].innerText?.startsWith('fake1')
+          items.length === 2 && items[0].innerText?.startsWith('fake1'),
         );
       },
       { selector: selectors.gridItem },
-      { polling: 'raf' }
+      { polling: 'raf' },
     );
     await waitForRenderedItems(page, { targetItems: 2 });
 

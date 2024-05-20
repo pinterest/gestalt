@@ -1,5 +1,5 @@
 // @flow strict
-import selectors from './selectors.mjs';
+import selectors from './selectors';
 
 /*::
 type GridItems = $ReadOnlyArray<{|
@@ -11,8 +11,6 @@ type GridItems = $ReadOnlyArray<{|
 type Page = { locator: (string) => { all: () => Promise<GridItems> } };
 */
 
-export default function getGridItems(
-  page /*: Page */
-) /*: Promise<GridItems> */ {
+export default function getGridItems(page /*: Page */) /*: Promise<GridItems> */ {
   return page.locator(selectors.gridItem).all();
 }

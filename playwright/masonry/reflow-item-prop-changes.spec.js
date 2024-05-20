@@ -1,9 +1,9 @@
 // @flow strict
 import { expect, test } from '@playwright/test';
-import getGridItems from './utils/getGridItems.mjs';
-import getServerURL from './utils/getServerURL.mjs';
-import selectors from './utils/selectors.mjs';
-import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
+import getGridItems from './utils/getGridItems';
+import getServerURL from './utils/getServerURL';
+import selectors from './utils/selectors';
+import waitForRenderedItems from './utils/waitForRenderedItems';
 
 const masonryItemData = [
   { name: 'fake1', height: 100, color: '#f00' },
@@ -24,7 +24,7 @@ test.describe('Masonry: Item prop changes', () => {
           detail: {
             items: proxiedItemData,
           },
-        })
+        }),
       );
     }, masonryItemData);
 
@@ -35,11 +35,11 @@ test.describe('Masonry: Item prop changes', () => {
         return Boolean(
           // This isn't a conditional?
           // eslint-disable-next-line playwright/no-conditional-in-test
-          items.length === 3 && items[0].innerText?.startsWith('fake1')
+          items.length === 3 && items[0].innerText?.startsWith('fake1'),
         );
       },
       { selector: selectors.gridItem },
-      { polling: 'raf' }
+      { polling: 'raf' },
     );
     await waitForRenderedItems(page, { targetItems: 3 });
 
@@ -48,8 +48,7 @@ test.describe('Masonry: Item prop changes', () => {
 
     for (let i = 0; i < newItems.length; i += 1) {
       const { height: renderedheight } = await newItems[i].boundingBox();
-      const expectedHeight =
-        masonryItemData[i].height + 16; /* border size + padding */
+      const expectedHeight = masonryItemData[i].height + 16; /* border size + padding */
       // `item ${i} has a height of ${expectedHeight}`
       expect(renderedheight).toEqual(expectedHeight);
     }
@@ -62,7 +61,7 @@ test.describe('Masonry: Item prop changes', () => {
           detail: {
             items: [],
           },
-        })
+        }),
       );
     });
 

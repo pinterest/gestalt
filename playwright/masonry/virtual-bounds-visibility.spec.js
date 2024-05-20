@@ -1,21 +1,17 @@
 // @flow strict
 import { expect, test } from '@playwright/test';
-import getGridItems from './utils/getGridItems.mjs';
-import getServerURL from './utils/getServerURL.mjs';
-import selectors from './utils/selectors.mjs';
-import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
+import getGridItems from './utils/getGridItems';
+import getServerURL from './utils/getServerURL';
+import selectors from './utils/selectors';
+import waitForRenderedItems from './utils/waitForRenderedItems';
 
 const VIRTUALIZED_TOP = 1600;
 
 test.describe('Masonry: virtual bounds visibility', () => {
-  test('calculates correct virtual bounds when Masonry is offset in window', async ({
-    page,
-  }) => {
+  test('calculates correct virtual bounds when Masonry is offset in window', async ({ page }) => {
     // First load the page with javascript disabled to get the item position
     await page.setViewportSize({ width: 800, height: 800 });
-    await page.goto(
-      getServerURL({ virtualize: true, offsetTop: VIRTUALIZED_TOP })
-    );
+    await page.goto(getServerURL({ virtualize: true, offsetTop: VIRTUALIZED_TOP }));
     await waitForRenderedItems(page, { targetItems: 0 });
 
     const items = await getGridItems(page);
@@ -40,7 +36,7 @@ test.describe('Masonry: virtual bounds visibility', () => {
         virtualize: true,
         scrollContainer: true,
         offsetTop: VIRTUALIZED_TOP,
-      })
+      }),
     );
 
     // Server rendered items are always display: block initially to reduce startup thrashing
@@ -56,7 +52,7 @@ test.describe('Masonry: virtual bounds visibility', () => {
           container.scrollTop = scrollToY;
         }
       },
-      { scrollToY: VIRTUALIZED_TOP, selector: selectors.scrollContainer }
+      { scrollToY: VIRTUALIZED_TOP, selector: selectors.scrollContainer },
     );
     await waitForRenderedItems(page, { targetItems: 12 });
     const nextItems = await getGridItems(page);

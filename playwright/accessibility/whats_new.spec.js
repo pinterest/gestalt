@@ -1,6 +1,6 @@
 // @flow strict
 import { test } from '@playwright/test';
-import expectAccessiblePage from './expectAccessiblePage.mjs';
+import expectAccessiblePage from './expectAccessiblePage';
 
 // Skip since the tests times out
 // eslint-disable-next-line jest/no-disabled-tests

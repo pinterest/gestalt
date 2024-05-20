@@ -1,16 +1,16 @@
 // @flow strict
 import { expect, test } from '@playwright/test';
-import getGridItems from './utils/getGridItems.mjs';
-import getServerURL from './utils/getServerURL.mjs';
-import selectors from './utils/selectors.mjs';
-import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
+import getGridItems from './utils/getGridItems';
+import getServerURL from './utils/getServerURL';
+import selectors from './utils/selectors';
+import waitForRenderedItems from './utils/waitForRenderedItems';
 
 const getItemColumnMap = async (
   page /*: { locator: (string) => { all: () => Promise<$ReadOnlyArray<{|
   innerText: () => void,
   textContent: () => void,
   boundingBox: () => Promise<{| [string]: number |}>,
-|}>> } } */
+|}>> } } */,
 ) => {
   const gridItems = await getGridItems(page);
   // $FlowFixMe[unclear-type]

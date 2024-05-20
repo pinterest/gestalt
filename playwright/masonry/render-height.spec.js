@@ -1,8 +1,8 @@
 // @flow strict
 import { expect, test } from '@playwright/test';
-import getGridItems from './utils/getGridItems.mjs';
-import getServerURL from './utils/getServerURL.mjs';
-import selectors from './utils/selectors.mjs';
+import getGridItems from './utils/getGridItems';
+import getServerURL from './utils/getServerURL';
+import selectors from './utils/selectors';
 
 test.describe('Masonry: Render height', () => {
   test('allows items to be positioned under the grid', async ({ page }) => {

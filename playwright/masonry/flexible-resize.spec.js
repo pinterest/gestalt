@@ -1,10 +1,10 @@
 // @flow strict
 import { expect, test } from '@playwright/test';
-import getGridItems from './utils/getGridItems.mjs';
-import getServerURL from './utils/getServerURL.mjs';
-import resizeWidth from './utils/resizeWidth.mjs';
-import selectors from './utils/selectors.mjs';
-import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
+import getGridItems from './utils/getGridItems';
+import getServerURL from './utils/getServerURL';
+import resizeWidth from './utils/resizeWidth';
+import selectors from './utils/selectors';
+import waitForRenderedItems from './utils/waitForRenderedItems';
 
 // $FlowFixMe[unclear-type]
 async function getItemColumnMap(gridItems /*: any */) {
@@ -25,9 +25,7 @@ async function getItemColumnMap(gridItems /*: any */) {
 }
 
 test.describe('Masonry: flexible resize', () => {
-  test('should resize item width and height on window resize', async ({
-    page,
-  }) => {
+  test('should resize item width and height on window resize', async ({ page }) => {
     await page.setViewportSize({ width: 800, height: 800 });
     await page.goto(getServerURL({ flexible: true }));
     await waitForRenderedItems(page, { targetItems: 40 });
@@ -37,7 +35,7 @@ test.describe('Masonry: flexible resize', () => {
     expect(gridItemsBefore.length).toBe(40);
 
     const itemRectsBefore = await Promise.all(
-      gridItemsBefore.map((gridItemBefore) => gridItemBefore.boundingBox())
+      gridItemsBefore.map((gridItemBefore) => gridItemBefore.boundingBox()),
     );
     // expect(itemRectsBefore[0].width).toBe(266);
     expect(itemRectsBefore[0].height).toBe(216);
@@ -66,7 +64,7 @@ test.describe('Masonry: flexible resize', () => {
         selector: selectors.gridItem,
         previousItemWidth: itemRectsBefore[0].width,
       },
-      { polling: 'raf' }
+      { polling: 'raf' },
     );
 
     // After resize, Masonry will remeasure/layout.
@@ -77,7 +75,7 @@ test.describe('Masonry: flexible resize', () => {
     expect(gridItemsAfter.length).toBe(40);
 
     const itemRectsAfter = await Promise.all(
-      gridItemsAfter.map((gridItemAfter) => gridItemAfter.boundingBox())
+      gridItemsAfter.map((gridItemAfter) => gridItemAfter.boundingBox()),
     );
     expect(itemRectsAfter[0].width).toBe(273);
     expect(itemRectsAfter[0].height).toBe(216);

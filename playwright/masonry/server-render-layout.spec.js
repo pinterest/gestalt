@@ -1,14 +1,12 @@
 // @flow strict
 import { expect, test } from '@playwright/test';
-import getGridItems from './utils/getGridItems.mjs';
-import getServerURL from './utils/getServerURL.mjs';
-import getStaticGridItems from './utils/getStaticGridItems.mjs';
-import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
+import getGridItems from './utils/getGridItems';
+import getServerURL from './utils/getServerURL';
+import getStaticGridItems from './utils/getStaticGridItems';
+import waitForRenderedItems from './utils/waitForRenderedItems';
 
 test.describe('Masonry: Server Render Layout', () => {
-  test('renders items in the same position on the server and after mounting', async ({
-    page,
-  }) => {
+  test('renders items in the same position on the server and after mounting', async ({ page }) => {
     // First load the page with javascript disabled to get the item position
     await page.setViewportSize({ width: 1000, height: 1000 });
     await page.goto(getServerURL({ virtualize: true, deferMount: true }));
@@ -24,9 +22,7 @@ test.describe('Masonry: Server Render Layout', () => {
     const serverItem2Text = await serverItems[1].textContent();
 
     expect(serverItem1Rect.x).toBeGreaterThanOrEqual(0);
-    expect(serverItem2Rect.x).toBeGreaterThanOrEqual(
-      serverItem1Rect.x + serverItem1Rect.width
-    );
+    expect(serverItem2Rect.x).toBeGreaterThanOrEqual(serverItem1Rect.x + serverItem1Rect.width);
 
     await page.evaluate(() => {
       window.dispatchEvent(new CustomEvent('trigger-mount'));
@@ -48,9 +44,7 @@ test.describe('Masonry: Server Render Layout', () => {
     expect(gridItem2Rect.x).toBeGreaterThan(0);
   });
 
-  test('[flexible] items rendered on the server start with columnWidth', async ({
-    page,
-  }) => {
+  test('[flexible] items rendered on the server start with columnWidth', async ({ page }) => {
     // First load the page with javascript disabled to get the item position
     await page.setViewportSize({ width: 1200, height: 1000 });
     await page.goto(getServerURL({ flexible: true, deferMount: true }));
@@ -60,9 +54,7 @@ test.describe('Masonry: Server Render Layout', () => {
     const serverItem2Rect = await serverItems[1].boundingBox();
 
     expect(serverItem1Rect.x).toBeGreaterThanOrEqual(0);
-    expect(serverItem2Rect.x).toBeGreaterThanOrEqual(
-      serverItem1Rect.x + serverItem1Rect.width
-    );
+    expect(serverItem2Rect.x).toBeGreaterThanOrEqual(serverItem1Rect.x + serverItem1Rect.width);
 
     await page.evaluate(() => {
       window.dispatchEvent(new CustomEvent('trigger-mount'));

@@ -1,5 +1,5 @@
 // @flow strict
-import selectors from './selectors.mjs';
+import selectors from './selectors';
 
 // When Masonry is given a list of items, it uses dynamic rendering to measure
 // them offscreen in batches. Sometimes this takes many renders and happens
@@ -24,7 +24,7 @@ export default async function waitForRenderedItems(
   // $FlowExpectedError[unclear-type] flow-typed def for playwright is…lacking
   page /*: Object */,
   args /*: waitForRenderedItemsArgs */,
-  timeout /*: number */ = 5000
+  timeout /*: number */ = 5000,
   // $FlowExpectedError[unclear-type] flow-typed def for playwright is…lacking
 ) /*: Promise<any> */ {
   return page
@@ -41,60 +41,38 @@ export default async function waitForRenderedItems(
         },
       }) => {
         const items = Array.from(document.querySelectorAll(selector));
-        const loadedItems = items.filter(
-          (item) => item.style.visibility !== 'hidden'
-        );
-        const loadingItems = items.filter(
-          (item) => item.style.visibility === 'hidden'
-        );
+        const loadedItems = items.filter((item) => item.style.visibility !== 'hidden');
+        const loadingItems = items.filter((item) => item.style.visibility === 'hidden');
 
         if (loadingItems.length > 0) {
           return false;
         }
 
-        if (
-          typeof targetItems !== 'undefined' &&
-          loadedItems.length !== targetItems
-        ) {
+        if (typeof targetItems !== 'undefined' && loadedItems.length !== targetItems) {
           return false;
         }
-        if (
-          typeof targetItemsLT !== 'undefined' &&
-          loadedItems.length >= targetItemsLT
-        ) {
+        if (typeof targetItemsLT !== 'undefined' && loadedItems.length >= targetItemsLT) {
           return false;
         }
-        if (
-          typeof targetItemsLTE !== 'undefined' &&
-          loadedItems.length > targetItemsLTE
-        ) {
+        if (typeof targetItemsLTE !== 'undefined' && loadedItems.length > targetItemsLTE) {
           return false;
         }
-        if (
-          typeof targetItemsGT !== 'undefined' &&
-          loadedItems.length <= targetItemsGT
-        ) {
+        if (typeof targetItemsGT !== 'undefined' && loadedItems.length <= targetItemsGT) {
           return false;
         }
-        if (
-          typeof targetItemsGTE !== 'undefined' &&
-          loadedItems.length < targetItemsGTE
-        ) {
+        if (typeof targetItemsGTE !== 'undefined' && loadedItems.length < targetItemsGTE) {
           return false;
         }
 
         const { documentElement } = document;
-        if (
-          typeof scrollHeight !== 'undefined' &&
-          documentElement?.scrollHeight > scrollHeight
-        ) {
+        if (typeof scrollHeight !== 'undefined' && documentElement?.scrollHeight > scrollHeight) {
           return false;
         }
 
         return true;
       },
       { selector: selectors.gridItem, args },
-      { polling: 'raf', timeout }
+      { polling: 'raf', timeout },
     )
     .catch(async (err) => {
       const {
@@ -112,9 +90,9 @@ export default async function waitForRenderedItems(
       const loadingItems = await page.evaluate(
         (selector) =>
           Array.from(document.querySelectorAll(selector)).filter(
-            (item) => item.style.visibility === 'hidden'
+            (item) => item.style.visibility === 'hidden',
           ).length,
-        selectors.gridItem
+        selectors.gridItem,
       );
 
       if (loadingItems > 0) {
@@ -126,40 +104,28 @@ export default async function waitForRenderedItems(
       const renderedItems = await page.evaluate(
         (selector) =>
           Array.from(document.querySelectorAll(selector)).filter(
-            (item) => item.style.visibility !== 'hidden'
+            (item) => item.style.visibility !== 'hidden',
           ).length,
-        selectors.gridItem
+        selectors.gridItem,
       );
 
       if (typeof targetItems !== 'undefined' && renderedItems !== targetItems) {
         error = `${renderedItems} items rendered -- expected ${targetItems}.`;
         return false;
       }
-      if (
-        typeof targetItemsLT !== 'undefined' &&
-        renderedItems >= targetItemsLT
-      ) {
+      if (typeof targetItemsLT !== 'undefined' && renderedItems >= targetItemsLT) {
         error = `${renderedItems} items rendered -- expected < ${targetItemsLT}.`;
         return false;
       }
-      if (
-        typeof targetItemsLTE !== 'undefined' &&
-        renderedItems > targetItemsLTE
-      ) {
+      if (typeof targetItemsLTE !== 'undefined' && renderedItems > targetItemsLTE) {
         error = `${renderedItems} items rendered -- expected <= ${targetItemsLTE}.`;
         return false;
       }
-      if (
-        typeof targetItemsGT !== 'undefined' &&
-        renderedItems <= targetItemsGT
-      ) {
+      if (typeof targetItemsGT !== 'undefined' && renderedItems <= targetItemsGT) {
         error = `${renderedItems} items rendered -- expected > ${targetItemsGT}.`;
         return false;
       }
-      if (
-        typeof targetItemsGTE !== 'undefined' &&
-        renderedItems < targetItemsGTE
-      ) {
+      if (typeof targetItemsGTE !== 'undefined' && renderedItems < targetItemsGTE) {
         error = `${renderedItems} items rendered -- expected >= ${targetItemsGTE}.`;
         return false;
       }

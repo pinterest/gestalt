@@ -1,14 +1,12 @@
 // @flow strict
 import { expect, test } from '@playwright/test';
-import getGridItems from './utils/getGridItems.mjs';
-import getServerURL from './utils/getServerURL.mjs';
-import selectors from './utils/selectors.mjs';
-import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
+import getGridItems from './utils/getGridItems';
+import getServerURL from './utils/getServerURL';
+import selectors from './utils/selectors';
+import waitForRenderedItems from './utils/waitForRenderedItems';
 
 test.describe('Masonry: handle offset update', () => {
-  test('should correctly account for relative position changes', async ({
-    page,
-  }) => {
+  test('should correctly account for relative position changes', async ({ page }) => {
     let gridItems;
     let firstItemText;
 

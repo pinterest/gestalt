@@ -1,20 +1,16 @@
 // @flow strict
 import { expect, test } from '@playwright/test';
-import getGridItems from './utils/getGridItems.mjs';
-import getServerURL from './utils/getServerURL.mjs';
-import getStaticGridItems from './utils/getStaticGridItems.mjs';
-import selectors from './utils/selectors.mjs';
-import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
+import getGridItems from './utils/getGridItems';
+import getServerURL from './utils/getServerURL';
+import getStaticGridItems from './utils/getStaticGridItems';
+import selectors from './utils/selectors';
+import waitForRenderedItems from './utils/waitForRenderedItems';
 
 test.describe('Masonry: scrolls', () => {
-  test('loads more when it gets to the bottom of the viewport', async ({
-    page,
-  }) => {
+  test('loads more when it gets to the bottom of the viewport', async ({ page }) => {
     // First load the page with javascript disabled to get the item position
     await page.setViewportSize({ width: 1200, height: 900 });
-    await page.goto(
-      getServerURL({ virtualize: true, deferMount: true, manualFetch: true })
-    );
+    await page.goto(getServerURL({ virtualize: true, deferMount: true, manualFetch: true }));
 
     // Wait for server-rendered items to load.
     const serverItems = await getStaticGridItems(page);
@@ -30,7 +26,7 @@ test.describe('Masonry: scrolls', () => {
 
     await page.evaluate(
       (selector) => document.querySelector(selector)?.click(),
-      selectors.addItems
+      selectors.addItems,
     );
     await waitForRenderedItems(page, { targetItems: 35 });
 
@@ -42,7 +38,7 @@ test.describe('Masonry: scrolls', () => {
 
     await page.evaluate(
       (selector) => document.querySelector(selector)?.click(),
-      selectors.addItems
+      selectors.addItems,
     );
     await waitForRenderedItems(page, { targetItems: 35 });
 
@@ -50,9 +46,7 @@ test.describe('Masonry: scrolls', () => {
     expect(gridItems2.length).toBe(35);
 
     // Verify that we've actually called to add more items.
-    const initialFetchCount = await page.evaluate(
-      () => window.TEST_FETCH_COUNTS
-    );
+    const initialFetchCount = await page.evaluate(() => window.TEST_FETCH_COUNTS);
     expect(initialFetchCount).toBe(2);
 
     // It's unfortunate that we need a wait here, but there's not a great way
@@ -62,9 +56,7 @@ test.describe('Masonry: scrolls', () => {
     // eslint-disable-next-line playwright/no-wait-for-timeout
     await page.waitForTimeout(1000);
 
-    const documentElement = await page.evaluateHandle(
-      'document.documentElement'
-    );
+    const documentElement = await page.evaluateHandle('document.documentElement');
 
     // Scroll a few times to triggle multiple scrolls.
     await page.evaluate((docEl) => {
@@ -86,7 +78,7 @@ test.describe('Masonry: scrolls', () => {
 
     await page.evaluate(
       (selector) => document.querySelector(selector)?.click(),
-      selectors.addItems
+      selectors.addItems,
     );
     await waitForRenderedItems(page, { targetItems: 45 });
 

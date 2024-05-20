@@ -1,8 +1,8 @@
 // @flow strict
 import { expect, test } from '@playwright/test';
-import getServerURL from './utils/getServerURL.mjs';
-import selectors from './utils/selectors.mjs';
-import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
+import getServerURL from './utils/getServerURL';
+import selectors from './utils/selectors';
+import waitForRenderedItems from './utils/waitForRenderedItems';
 
 test.describe('Masonry: Item prop change', () => {
   test('generates new keys when item object refs change', async ({ page }) => {
@@ -14,15 +14,11 @@ test.describe('Masonry: Item prop change', () => {
 
     expect(await firstCounterValueStart.textContent()).toEqual('0');
 
-    const firstCounterUpdateButton = await page.locator(
-      selectors.incrementItemCounter(1)
-    );
+    const firstCounterUpdateButton = await page.locator(selectors.incrementItemCounter(1));
 
     await firstCounterUpdateButton.click();
 
-    const firstCounterValueMiddle = await page.locator(
-      selectors.itemCounter(1)
-    );
+    const firstCounterValueMiddle = await page.locator(selectors.itemCounter(1));
     expect(await firstCounterValueMiddle.textContent()).toEqual('1');
     await page.evaluate(() => {
       window.dispatchEvent(
@@ -30,7 +26,7 @@ test.describe('Masonry: Item prop change', () => {
           detail: {
             items: [{ name: 'replaced item', height: 100, color: '#f00' }],
           },
-        })
+        }),
       );
     });
 
@@ -44,7 +40,7 @@ test.describe('Masonry: Item prop change', () => {
         );
       },
       { selector: selectors.gridItem },
-      { polling: 'raf' }
+      { polling: 'raf' },
     );
 
     await waitForRenderedItems(page, { targetItemsGTE: 18 });

@@ -1,8 +1,8 @@
 // @flow strict
 import { expect, test } from '@playwright/test';
-import getGridItems from './utils/getGridItems.mjs';
-import getServerURL from './utils/getServerURL.mjs';
-import getStaticGridItems from './utils/getStaticGridItems.mjs';
+import getGridItems from './utils/getGridItems';
+import getServerURL from './utils/getServerURL';
+import getStaticGridItems from './utils/getStaticGridItems';
 
 test.describe('Masonry: slot index', () => {
   test('should start slot index at 0', async ({ page }) => {

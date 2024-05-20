@@ -1,7 +1,7 @@
 // @flow strict
 import { expect, test } from '@playwright/test';
-import getServerURL from './utils/getServerURL.mjs';
-import selectors from './utils/selectors.mjs';
+import getServerURL from './utils/getServerURL';
+import selectors from './utils/selectors';
 
 test.describe('Masonry: two columns module', () => {
   test('render the two column module', async ({ page }) => {
@@ -10,7 +10,7 @@ test.describe('Masonry: two columns module', () => {
       getServerURL({
         manualFetch: true,
         twoColItems: true,
-      })
+      }),
     );
 
     // The two modules items appear after the 50th pin, we add at least 60 items
@@ -22,15 +22,13 @@ test.describe('Masonry: two columns module', () => {
     await expect(page.getByText('columnSpan: 2')).toBeVisible();
   });
 
-  test('render the two column module on second batch with hydration', async ({
-    page,
-  }) => {
+  test('render the two column module on second batch with hydration', async ({ page }) => {
     await page.setViewportSize({ width: 1200, height: 900 });
     await page.goto(
       getServerURL({
         manualFetch: true,
         twoColItems: true,
-      })
+      }),
     );
 
     const testItems = [
@@ -61,7 +59,7 @@ test.describe('Masonry: two columns module', () => {
           detail: {
             items: proxiedItemData,
           },
-        })
+        }),
       );
     }, testItems);
 

@@ -1,11 +1,11 @@
 // @flow strict
-import selectors from './selectors.mjs';
+import selectors from './selectors';
 
 // Count the number of columns of items in the grid by iterating over all items
 // and counting the number of unique x-offsets.
 export default async function countColumns(
   // $FlowFixMe[unclear-type] flow-typed def for playwright is…lacking
-  page /*: Object */
+  page /*: Object */,
   // $FlowFixMe[unclear-type] flow-typed def for playwright is…lacking
 ) /*: Promise<any> */ {
   return await page.evaluate((gridItemsSelector) => {

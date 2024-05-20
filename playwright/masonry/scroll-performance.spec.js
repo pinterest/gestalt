@@ -1,8 +1,8 @@
 // @flow strict
 import fs from 'fs';
 import { expect, test } from '@playwright/test';
-import getServerURL from './utils/getServerURL.mjs';
-import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
+import getServerURL from './utils/getServerURL';
+import waitForRenderedItems from './utils/waitForRenderedItems';
 
 const DEFAULT_SCROLL_COUNT = 5;
 const PINS_COUNT = 20;
@@ -39,9 +39,7 @@ function parseFrameData(events /*: $ReadOnlyArray<Event> */) {
       if (event.name === 'BeginFrame') {
         if (currentFrameStartTime != null) {
           // ts is stored in microseconds. See: https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/edit
-          const delta = microsecondsToMilliseconds(
-            event.ts - currentFrameStartTime
-          );
+          const delta = microsecondsToMilliseconds(event.ts - currentFrameStartTime);
           acc.push(delta);
         }
       }
@@ -50,7 +48,7 @@ function parseFrameData(events /*: $ReadOnlyArray<Event> */) {
       }
       return acc;
     },
-    ([] /*: Array<number> */)
+    ([] /*: Array<number> */),
   );
 
   return {
@@ -62,9 +60,7 @@ function parseFrameData(events /*: $ReadOnlyArray<Event> */) {
 
 function filterAndSortEvents(events /*: Array<Event> */) {
   const sortedEvents = events.sort((a, b) => a.ts - b.ts);
-  const firstScrollEvent = sortedEvents.find(
-    (e) => e.name === 'scrollTimingStart'
-  );
+  const firstScrollEvent = sortedEvents.find((e) => e.name === 'scrollTimingStart');
   // return all events that occur after the initial scroll
   return sortedEvents.filter((e) => e.ts > (firstScrollEvent?.ts ?? 0));
 }
@@ -119,7 +115,7 @@ test.describe('Masonry: scrolls', () => {
             behavior: 'smooth',
           });
         },
-        { pageHeight: PAGE_HEIGHT, index: i }
+        { pageHeight: PAGE_HEIGHT, index: i },
       );
       await waitForRenderedItems(page, {
         targetItemsGTE: PINS_COUNT * (i + 1),
@@ -133,19 +129,17 @@ test.describe('Masonry: scrolls', () => {
 
     const sortedEvents = filterAndSortEvents(events);
     const totalTime = microsecondsToMilliseconds(
-      sortedEvents[sortedEvents.length - 1].ts - sortedEvents[0].ts
+      sortedEvents[sortedEvents.length - 1].ts - sortedEvents[0].ts,
     );
 
-    const { droppedFrames, completeFrames, frameDurations } =
-      parseFrameData(sortedEvents);
+    const { droppedFrames, completeFrames, frameDurations } = parseFrameData(sortedEvents);
 
     const results = {
       totalTime,
       droppedFrames,
       completeFrames,
       frameDurations,
-      meanFrameDuration:
-        frameDurations.reduce((a, b) => a + b, 0) / frameDurations.length,
+      meanFrameDuration: frameDurations.reduce((a, b) => a + b, 0) / frameDurations.length,
       maxFrameDuration: Math.max(...frameDurations),
       // define FPS as the number of complete frames / total time (in seconds)
       fps: completeFrames / (totalTime / 1000),
@@ -157,7 +151,7 @@ test.describe('Masonry: scrolls', () => {
     // This is temp until we understand the numbers on ci environment
     fs.writeFileSync(
       'playwright/test-results/scroll-performance-results.json',
-      JSON.stringify(results, null, 2)
+      JSON.stringify(results, null, 2),
     );
 
     // just setting some initial assertion until we gather more data

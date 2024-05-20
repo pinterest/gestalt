@@ -1,21 +1,17 @@
 // @flow strict
 import { expect, test } from '@playwright/test';
-import getServerURL from './utils/getServerURL.mjs';
-import selectors from './utils/selectors.mjs';
-import waitForRenderedItems from './utils/waitForRenderedItems.mjs';
+import getServerURL from './utils/getServerURL';
+import selectors from './utils/selectors';
+import waitForRenderedItems from './utils/waitForRenderedItems';
 
 test.describe('Masonry: fetch more', () => {
-  test('trigger a call to "fetchMore" when container resizes', async ({
-    page,
-  }) => {
+  test('trigger a call to "fetchMore" when container resizes', async ({ page }) => {
     // Start with a small screen.
     await page.setViewportSize({ width: 400, height: 400 });
     await page.goto(getServerURL());
     await waitForRenderedItems(page, { targetItemsGTE: 20 });
 
-    const initialFetchCount = await page.evaluate(
-      () => window.TEST_FETCH_COUNTS
-    );
+    const initialFetchCount = await page.evaluate(() => window.TEST_FETCH_COUNTS);
     // TODO[@rjames]: re-enable this eventually (possibly needs better SSR support?)
     // expect(initialFetchCount).toBe(0);
 
@@ -27,14 +23,10 @@ test.describe('Masonry: fetch more', () => {
     expect(newFetchCount).toBeGreaterThan(initialFetchCount);
   });
 
-  test('trigger a call to "fetchMore" when scrolling far enough', async ({
-    page,
-  }) => {
+  test('trigger a call to "fetchMore" when scrolling far enough', async ({ page }) => {
     // Start with a small screen.
     await page.setViewportSize({ width: 800, height: 800 });
-    await page.goto(
-      getServerURL({ virtualize: true, scrollContainer: true, offsetTop: 800 })
-    );
+    await page.goto(getServerURL({ virtualize: true, scrollContainer: true, offsetTop: 800 }));
     await waitForRenderedItems(page, { targetItems: 0 });
 
     let fetchCount = 0;
@@ -43,7 +35,7 @@ test.describe('Masonry: fetch more', () => {
     // fetch bounds.
     const scrollContainer = await page.evaluateHandle(
       (selector) => document.querySelector(selector),
-      selectors.scrollContainer
+      selectors.scrollContainer,
     );
 
     await scrollContainer.evaluate((node) => node.scrollBy(0, 400));

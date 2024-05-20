@@ -1,9 +1,9 @@
 // @flow strict
-import selectors from './selectors.mjs';
+import selectors from './selectors';
 
 export default function getStaticGridItems(
   // $FlowExpectedError[unclear-type] flow-typed def for playwright is…lacking
-  page /*: Object */
+  page /*: Object */,
   // $FlowExpectedError[unclear-type] flow-typed def for playwright is…lacking
 ) /*: Promise<any> */ {
   return page.locator(selectors.staticItem).all();

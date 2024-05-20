@@ -1,7 +1,7 @@
 // @flow strict
 import { expect, test } from '@playwright/test';
-import getGridItems from './utils/getGridItems.mjs';
-import getServerURL from './utils/getServerURL.mjs';
+import getGridItems from './utils/getGridItems';
+import getServerURL from './utils/getServerURL';
 
 test.describe('Masonry: No scroll', () => {
   test('should do nothing on scroll', async ({ page }) => {
@@ -22,7 +22,7 @@ test.describe('Masonry: No scroll', () => {
         // eslint-disable-next-line playwright/no-conditional-in-test
         (documentElement ? documentElement.scrollHeight : 0) -
           // eslint-disable-next-line playwright/no-conditional-in-test
-          (documentElement ? documentElement.clientHeight : 0)
+          (documentElement ? documentElement.clientHeight : 0),
       );
     });
 
@@ -34,7 +34,7 @@ test.describe('Masonry: No scroll', () => {
         (documentElement ? documentElement.scrollHeight : 0) -
           // eslint-disable-next-line playwright/no-conditional-in-test
           (documentElement ? documentElement.clientHeight : 0) -
-          50
+          50,
       );
     });
 
@@ -45,7 +45,7 @@ test.describe('Masonry: No scroll', () => {
         // eslint-disable-next-line playwright/no-conditional-in-test
         (documentElement ? documentElement.scrollHeight : 0) -
           // eslint-disable-next-line playwright/no-conditional-in-test
-          (documentElement ? documentElement.clientHeight : 0)
+          (documentElement ? documentElement.clientHeight : 0),
       );
     });
 
