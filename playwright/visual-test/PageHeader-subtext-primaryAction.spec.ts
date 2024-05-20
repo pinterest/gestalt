@@ -1,4 +1,4 @@
-import {expect, test} from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 const BREAKPOINTS = { xs: 360, sm: 576, md: 768, lg: 1313 } as const;
 
@@ -19,8 +19,6 @@ Object.keys(BREAKPOINTS).forEach((size) => {
     }
 
     const locator = page.locator('[data-test-id="visual-test"]');
-    await expect(locator).toHaveScreenshot(
-      `PageHeader-subtext-primaryAction-${size}.png`
-    );
+    await expect(locator).toHaveScreenshot(`PageHeader-subtext-primaryAction-${size}.png`);
   });
 });

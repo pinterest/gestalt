@@ -1,4 +1,4 @@
-import {expect, test} from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test('Dropdown visual regression check - dark', async ({ page }) => {
   await page.goto('/visual-test/Dropdown-open-dark');

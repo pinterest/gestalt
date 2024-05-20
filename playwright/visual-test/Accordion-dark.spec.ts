@@ -1,4 +1,4 @@
-import {expect, test} from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test('Accordion dark mode visual regression check', async ({ page }) => {
   await page.goto('/visual-test/Accordion?size=lg');

@@ -1,4 +1,4 @@
-import {test} from '@playwright/test';
+import { test } from '@playwright/test';
 import expectAccessiblePage from './expectAccessiblePage';
 
 test('iOS Text Accessibility check', async ({ page }) => {

@@ -1,4 +1,4 @@
-import {test} from '@playwright/test';
+import { test } from '@playwright/test';
 import expectAccessiblePage from './expectAccessiblePage';
 
 test('Android TextField Accessibility check', async ({ page }) => {

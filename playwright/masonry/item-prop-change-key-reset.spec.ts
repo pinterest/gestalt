@@ -1,4 +1,4 @@
-import {expect, test} from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import getServerURL from './utils/getServerURL';
 import selectors from './utils/selectors';
 import waitForRenderedItems from './utils/waitForRenderedItems';
@@ -35,7 +35,7 @@ test.describe('Masonry: Item prop change', () => {
         const items = [...document.querySelectorAll(selector)];
         return (
           // eslint-disable-next-line playwright/no-conditional-in-test
-          (items.length > 0 && items[0].innerText?.startsWith('replaced item'))
+          items.length > 0 && items[0].innerText?.startsWith('replaced item')
         );
       },
       { selector: selectors.gridItem },

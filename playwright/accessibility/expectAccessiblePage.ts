@@ -4,10 +4,7 @@ import { expect } from '@playwright/test';
 const AxeBuilder = axe.default;
 
 export default async function expectAccessiblePage(
-  {
-    page,
-    rules,
-  } /*: {| page: any, rules?: any |} */
+  { page, rules } /*: {| page: any, rules?: any |} */,
 ) {
   const { violations } = await new AxeBuilder({ page })
     .options({ rules })
@@ -42,11 +39,11 @@ export default async function expectAccessiblePage(
   ${html}
 
   target:
-  ${target.join('\n')}`
+  ${target.join('\n')}`,
   )}
-    `
+    `,
         )
-        .join('\n')
+        .join('\n'),
     );
   }
 

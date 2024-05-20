@@ -34,9 +34,7 @@ const getServerURL = (options /*: Options */) /*: string */ => {
   if (options) {
     serializedOptions = Object.keys(options ?? {})
       .map((key) =>
-        typeof options[key] !== 'undefined'
-          ? `${key}=${normalizeValue(options[key])}`
-          : ''
+        typeof options[key] !== 'undefined' ? `${key}=${normalizeValue(options[key])}` : '',
       )
       .filter((item) => !!item)
       .join('&');

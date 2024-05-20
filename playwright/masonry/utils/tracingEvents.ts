@@ -8,16 +8,10 @@ type Event = {
 type Metric = { avg: number, max: number, min: number };
 */
 
-export const eventsToCsv = (
-  events /*: $ReadOnlyArray<Event> */
-) /*: string */ =>
-  events
-    .map((e) => (e.name.includes('clock_sync') ? e.name : e.fps))
-    .join('\n');
+export const eventsToCsv = (events /*: $ReadOnlyArray<Event> */) /*: string */ =>
+  events.map((e) => (e.name.includes('clock_sync') ? e.name : e.fps)).join('\n');
 
-export const metricsToCsv = (
-  metrics /*: $ReadOnlyArray<Metric> */
-) /*: string */ => {
+export const metricsToCsv = (metrics /*: $ReadOnlyArray<Metric> */) /*: string */ => {
   let result;
 
   const keys = Object.keys(metrics[0]);
@@ -31,7 +25,7 @@ export const metricsToCsv = (
 };
 
 export const getFpsFromEvents = (
-  events /*: $ReadOnlyArray<Event> | [] */
+  events /*: $ReadOnlyArray<Event> | [] */,
 ) /*: $ReadOnlyArray<Event> */ => {
   const fpsTimings = [];
 
@@ -53,7 +47,7 @@ export const getFpsFromEvents = (
 };
 
 export const getFpsMetricsPerScroll = (
-  events /*: $ReadOnlyArray<Event> */
+  events /*: $ReadOnlyArray<Event> */,
 ) /*: $ReadOnlyArray<Metric> */ => {
   const fpsMetricsPerScroll = [];
   let fpsPerScroll = [];

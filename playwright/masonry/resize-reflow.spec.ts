@@ -1,4 +1,4 @@
-import {expect, test} from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import countColumns from './utils/countColumns';
 import getServerURL from './utils/getServerURL';
 import resizeWidth from './utils/resizeWidth';

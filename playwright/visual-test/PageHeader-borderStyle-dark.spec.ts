@@ -1,8 +1,6 @@
-import {expect, test} from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
-test(`PageHeader visual regression check - borderStyle / dark`, async ({
-  page,
-}) => {
+test(`PageHeader visual regression check - borderStyle / dark`, async ({ page }) => {
   await page.setViewportSize({
     width: 768,
     height: 1080,

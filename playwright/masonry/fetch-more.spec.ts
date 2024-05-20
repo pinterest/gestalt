@@ -1,4 +1,4 @@
-import {expect, test} from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import getServerURL from './utils/getServerURL';
 import selectors from './utils/selectors';
 import waitForRenderedItems from './utils/waitForRenderedItems';

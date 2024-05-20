@@ -1,4 +1,4 @@
-import {expect, test} from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test('ComboBox visual regression check', async ({ page }) => {
   await page.goto('/visual-test/ComboBox-closed');

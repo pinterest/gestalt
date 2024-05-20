@@ -1,4 +1,4 @@
-import {expect, test} from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test(`PageHeader visual regression check - borderStyle`, async ({ page }) => {
   await page.setViewportSize({

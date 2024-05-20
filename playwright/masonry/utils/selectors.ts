@@ -3,8 +3,7 @@ const selectors = {
   afterGrid: '.afterGrid',
   expandGridItems: '#expand-grid-items',
   gridItem: '[data-grid-item]',
-  incrementItemCounter: (id /*: number */) /*: string */ =>
-    `#increment-counter-${id}`,
+  incrementItemCounter: (id /*: number */) /*: string */ => `#increment-counter-${id}`,
   insertItem: '#insert-item',
   insertNullItems: '#insert-null-items',
   itemCounter: (id /*: number */) /*: string */ => `#item-counter-${id}`,

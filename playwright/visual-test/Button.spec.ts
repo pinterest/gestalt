@@ -1,4 +1,4 @@
-import {expect, test} from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test('Button visual regression check', async ({ page }) => {
   await page.goto('/visual-test/Button');

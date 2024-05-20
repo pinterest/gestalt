@@ -1,4 +1,4 @@
-import {expect, test} from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test('SearchField dark mode visual regression check', async ({ page }) => {
   await page.goto('/visual-test/SearchField-dark');

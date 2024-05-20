@@ -1,4 +1,4 @@
-import {expect, test} from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import clickButton from './utils/clickButton';
 import getServerURL from './utils/getServerURL';
 import selectors from './utils/selectors';

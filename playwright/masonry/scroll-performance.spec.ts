@@ -33,19 +33,22 @@ function parseFrameData(events /*: $ReadOnlyArray<Event> */) {
   let currentFrameStartTime;
   const droppedFrames = events.filter((e) => e.name === 'DroppedFrame').length;
   const completeFrames = events.filter((e) => e.name === 'DrawFrame').length;
-  const frameDuration = events.reduce<Array<any>>((acc, event) => {
-    if (event.name === 'BeginFrame') {
-      if (currentFrameStartTime != null) {
-        // ts is stored in microseconds. See: https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/edit
-        const delta = microsecondsToMilliseconds(event.ts - currentFrameStartTime);
-        acc.push(delta);
+  const frameDuration = events.reduce<Array<any>>(
+    (acc, event) => {
+      if (event.name === 'BeginFrame') {
+        if (currentFrameStartTime != null) {
+          // ts is stored in microseconds. See: https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/edit
+          const delta = microsecondsToMilliseconds(event.ts - currentFrameStartTime);
+          acc.push(delta);
+        }
       }
-    }
-    if (event.name === 'DrawFrame' || event.name === 'DroppedFrame') {
-      currentFrameStartTime = event.ts;
-    }
-    return acc;
-  }, ([]) /*: Array<number> */);
+      if (event.name === 'DrawFrame' || event.name === 'DroppedFrame') {
+        currentFrameStartTime = event.ts;
+      }
+      return acc;
+    },
+    [] /*: Array<number> */,
+  );
 
   return {
     droppedFrames,
