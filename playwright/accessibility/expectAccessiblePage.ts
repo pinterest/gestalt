@@ -1,8 +1,5 @@
-import axe from '@axe-core/playwright';
+import AxeBuilder from '@axe-core/playwright';
 import { expect } from '@playwright/test';
-
-// @ts-expect-error - TS2339 - Property 'default' does not exist on type 'typeof AxeBuilder'.
-const AxeBuilder = axe.default;
 
 export default async function expectAccessiblePage(
   // @ts-expect-error - TS7031 - Binding element 'page' implicitly has an 'any' type. | TS7031 - Binding element 'rules' implicitly has an 'any' type.
@@ -21,7 +18,6 @@ export default async function expectAccessiblePage(
     console.log(
       violations
         .map(
-          // @ts-expect-error - TS7031 - Binding element 'id' implicitly has an 'any' type. | TS7031 - Binding element 'impact' implicitly has an 'any' type. | TS7031 - Binding element 'description' implicitly has an 'any' type. | TS7031 - Binding element 'help' implicitly has an 'any' type. | TS7031 - Binding element 'helpUrl' implicitly has an 'any' type. | TS7031 - Binding element 'nodes' implicitly has an 'any' type. | TS7006 - Parameter 'index' implicitly has an 'any' type.
           ({ id, impact, description, help, helpUrl, nodes }, index) =>
             `
 
@@ -32,7 +28,6 @@ export default async function expectAccessiblePage(
   help: ${help}
   helpUrl: ${helpUrl}
   nodes: ${nodes.map(
-    // @ts-expect-error - TS7031 - Binding element 'failureSummary' implicitly has an 'any' type. | TS7031 - Binding element 'html' implicitly has an 'any' type. | TS7031 - Binding element 'target' implicitly has an 'any' type. | TS7006 - Parameter 'nodeIndex' implicitly has an 'any' type.
     ({ failureSummary, html, target }, nodeIndex) => `
 
   #${index}.${nodeIndex}
