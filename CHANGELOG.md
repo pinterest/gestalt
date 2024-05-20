@@ -1,3 +1,9 @@
+## 148.0.1 (May 20, 2024)
+
+### Patch
+
+- Internal: Remove codemod for gestalt version upgrade ([#3579](https://github.com/pinterest/gestalt/pull/3579)) - [Preview link](https://deploy-preview-3579--gestalt.netlify.app?devexample=true)
+
 ## 148.0.0 (May 16, 2024)
 
 ### Major
