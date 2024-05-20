@@ -56,7 +56,15 @@
 /* STATES */
 
 .disabled {
-  background-color: var(--color-background-button-disabled-default);
+  composes: border from "./Borders.css";
+  composes: borderColorLightGrayDisabled from "./Borders.css";
+  background-color: var(--color-background-button-tertiary-default);
+  cursor: default;
+  pointer-events: none;
+}
+
+.selectedRed {
+  background-color: var(--color-background-button-tertiary-default);
   cursor: default;
   pointer-events: none;
 }
