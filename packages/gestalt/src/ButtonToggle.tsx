@@ -167,8 +167,8 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
     [styles[color]]: !disabled && !selected,
     [styles.noBorder]: color === 'red' && (!selected && !disabled),
     [styles.selected]: !disabled && selected,
-    [styles.disabled]: disabled,
-    [styles.selectedRed]: color==='red' && selected,
+    [styles.disabled]: disabled && (color!== 'red' || selected),
+    [styles.disabledRed]: disabled && (color === 'red' && !selected),
     [styles.enabled]: !disabled,
     [touchableStyles.tapCompress]: !disabled && isTapping,
   });

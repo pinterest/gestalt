@@ -63,8 +63,10 @@
   pointer-events: none;
 }
 
-.selectedRed {
-  background-color: var(--color-background-button-tertiary-default);
+.disabledRed {
+  composes: border from "./Borders.css";
+  composes: borderColorLightGrayDisabled from "./Borders.css";
+  background-color: var(--color-background-button-disabled-default);
   cursor: default;
   pointer-events: none;
 }
