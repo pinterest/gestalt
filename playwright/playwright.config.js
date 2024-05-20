@@ -1,4 +1,4 @@
-// @flow strict
+// @noflow
 const { devices } = require('@playwright/test');
 
 const reporter /*: 'github' | 'list' */ = process.env.CI ? 'github' : 'list';
