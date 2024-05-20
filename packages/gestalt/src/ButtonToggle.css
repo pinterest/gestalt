@@ -1,12 +1,13 @@
 .button {
   composes: borderBox minWidth60 from "./Layout.css";
-  composes: noBorder from "./Borders.css";
+  composes: border from "./Borders.css";
   border-radius: var(--rounding-600);
 }
 
 .parentButton {
   composes: paddingX0 from "./boxWhitespace.css";
   composes: paddingY0 from "./boxWhitespace.css";
+  composes: noBorder from "./Borders.css";
   background-color: var(--color-transparent);
 }
 
@@ -57,7 +58,8 @@
 }
 
 .selected {
-  background-color: var(--color-background-button-selected-default);
+  composes: borderColorSelected from "./Borders.css";
+  background-color: var(--color-background-button-tertiary-default);
 }
 
 /* COLORS */

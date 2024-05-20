@@ -13,13 +13,8 @@ import useFocusVisible from './useFocusVisible';
 import useTapFeedback from './useTapFeedback';
 
 const DEFAULT_TEXT_COLORS = {
-  blue: 'inverse',
-  gray: 'default',
   red: 'inverse',
   transparent: 'default',
-  semiTransparentWhite: 'default',
-  transparentWhiteText: 'inverse',
-  white: 'default',
 } as const;
 
 const SIZE_NAME_TO_PIXEL = {
@@ -46,7 +41,7 @@ type Props = {
     | 'red'
     | 'transparent'
   /**
-   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/afut/#priority) before using this prop.
    */
   dataTestId?: string;
   /**
@@ -183,7 +178,6 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
 
   const textColor =
     (disabled && 'subtle') ||
-    (selected && 'inverse') ||
     (isDarkModeRed && 'default') ||
     DEFAULT_TEXT_COLORS[color];
 

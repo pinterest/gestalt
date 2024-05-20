@@ -28,7 +28,6 @@ export default function DocsPage({ generatedDocGen }: DocType) {
       <PageHeader
         description={generatedDocGen?.description}
         name={generatedDocGen?.displayName}
-        pdocsLink
       >
         <SandpackExample code={main} hideEditor name="Main ButtonToggle example" previewHeight={150} />
       </PageHeader>
