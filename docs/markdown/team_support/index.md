@@ -21,9 +21,9 @@ To add a new page, follow these 4 steps:
 2. Add the page name to `docs/docs-components/siteIndex.ts`
     1. Find the appropriate section within the JSON object
 3. Create an accessibility test for the new page in `playwright/accessibility`
-    1. Create a file named `[NEW PAGE TITLE].spec.mjs` 
+    1. Create a file named `[NEW PAGE TITLE].spec.ts` 
         1. The file name should match the page name
-        2. If the page is a duplicate (like Avatar on Web and Avatar on iOS), add a suffix with the platform, like `Avatar_iOS.spec.mjs`
+        2. If the page is a duplicate (like Avatar on Web and Avatar on iOS), add a suffix with the platform, like `Avatar_iOS.spec.ts`
 4. Update `docs/docs-components/COMPONENT_DATA.ts`
     1. If this is a net new component, you’ll need to add data under the correct array
         1. The options are Building Blocks, General Components, Utilities, Figma-only, and Foundation guidelines. 
@@ -42,7 +42,7 @@ When moving or deleting a page, there are multiple updates needed:
     1. If you’re moving or deleting a page, update any references to that URL
 3. Information in `docs/docs-components/COMPONENT_DATA.ts`
     1. Ensure any updates are reflected in the JSON data
-4. The associated `spec.mjs` accessibility test
+4. The associated `spec.ts` accessibility test
     1. Update the URL or remove the file if deleting a page
 5. List of redirects in `docs/redirects.js`
     1. A redirect *must* be added anytime a file is moved to help folks find the new location

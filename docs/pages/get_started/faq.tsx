@@ -150,7 +150,7 @@ yarn playwright:test
           <Markdown
             text="
 ~~~bash
-yarn playwright:test visual-test/Video.spec.mjs --update-snapshots
+yarn playwright:test visual-test/Video.spec.ts --update-snapshots
 ~~~"
           />
 
