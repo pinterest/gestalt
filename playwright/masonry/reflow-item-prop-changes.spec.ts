@@ -47,10 +47,10 @@ test.describe('Masonry: Item prop changes', () => {
     expect(newItems.length).toBeGreaterThan(0);
 
     for (let i = 0; i < newItems.length; i += 1) {
-      const { height: renderedheight } = await newItems[i].boundingBox();
+      const renderedBoundingBox = await newItems[i].boundingBox();
       const expectedHeight = masonryItemData[i].height + 16; /* border size + padding */
       // `item ${i} has a height of ${expectedHeight}`
-      expect(renderedheight).toEqual(expectedHeight);
+      expect(renderedBoundingBox?.height).toEqual(expectedHeight);
     }
   });
 

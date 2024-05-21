@@ -1,11 +1,8 @@
-export default async function clickButton(
-  // @ts-expect-error - TS7006 - Parameter 'page' implicitly has an 'any' type.
-  page /*: Object */,
-  // @ts-expect-error - TS7006 - Parameter 'selector' implicitly has an 'any' type.
-  selector /*: string */,
-) /*: Promise<any> */ {
-  // @ts-expect-error - TS7006 - Parameter 'elementSelector' implicitly has an 'any' type.
+import { Page } from '@playwright/test';
+
+export default async function clickButton(page: Page, selector: string): Promise<any> {
   await page.evaluate((elementSelector) => {
+    // @ts-expect-error - TS2339
     document.querySelector(elementSelector)?.click();
   }, selector);
 }

@@ -20,8 +20,11 @@ test.describe('Masonry: Server Render Layout', () => {
     const serverItem1Text = await serverItems[0].textContent();
     const serverItem2Text = await serverItems[1].textContent();
 
-    expect(serverItem1Rect.x).toBeGreaterThanOrEqual(0);
-    expect(serverItem2Rect.x).toBeGreaterThanOrEqual(serverItem1Rect.x + serverItem1Rect.width);
+    expect(serverItem1Rect?.x).toBeGreaterThanOrEqual(0);
+    expect(serverItem2Rect?.x).toBeGreaterThanOrEqual(
+      // eslint-disable-next-line playwright/no-conditional-in-test
+      serverItem1Rect ? serverItem1Rect.x + serverItem1Rect.width : Infinity,
+    );
 
     await page.evaluate(() => {
       window.dispatchEvent(new CustomEvent('trigger-mount'));
@@ -35,12 +38,12 @@ test.describe('Masonry: Server Render Layout', () => {
     const gridItem1Text = await gridItems[0].textContent();
     const gridItem2Text = await gridItems[1].textContent();
 
-    expect(gridItem1Rect.x).toEqual(serverItem1Rect.x);
+    expect(gridItem1Rect?.x).toEqual(serverItem1Rect?.x);
     // key shouldn't change.  slotIdx shouldn't change
     expect(gridItem1Text).toEqual(serverItem1Text);
     expect(gridItem2Text).toEqual(serverItem2Text);
     // Simple placement assertion for now because we position masonry with transforms.
-    expect(gridItem2Rect.x).toBeGreaterThan(0);
+    expect(gridItem2Rect?.x).toBeGreaterThan(0);
   });
 
   test('[flexible] items rendered on the server start with columnWidth', async ({ page }) => {
@@ -52,8 +55,11 @@ test.describe('Masonry: Server Render Layout', () => {
     const serverItem1Rect = await serverItems[0].boundingBox();
     const serverItem2Rect = await serverItems[1].boundingBox();
 
-    expect(serverItem1Rect.x).toBeGreaterThanOrEqual(0);
-    expect(serverItem2Rect.x).toBeGreaterThanOrEqual(serverItem1Rect.x + serverItem1Rect.width);
+    expect(serverItem1Rect?.x).toBeGreaterThanOrEqual(0);
+    expect(serverItem2Rect?.x).toBeGreaterThanOrEqual(
+      // eslint-disable-next-line playwright/no-conditional-in-test
+      serverItem1Rect ? serverItem1Rect.x + serverItem1Rect.width : Infinity,
+    );
 
     await page.evaluate(() => {
       window.dispatchEvent(new CustomEvent('trigger-mount'));
@@ -64,8 +70,8 @@ test.describe('Masonry: Server Render Layout', () => {
 
     const gridItem1Rect = await gridItems[0].boundingBox();
     const gridItem2Rect = await gridItems[1].boundingBox();
-    expect(gridItem1Rect.x).toEqual(serverItem1Rect.x);
-    expect(gridItem1Rect.width).toEqual(serverItem1Rect.width);
-    expect(gridItem2Rect.width).toEqual(serverItem2Rect.width);
+    expect(gridItem1Rect?.x).toEqual(serverItem1Rect?.x);
+    expect(gridItem1Rect?.width).toEqual(serverItem1Rect?.width);
+    expect(gridItem2Rect?.width).toEqual(serverItem2Rect?.width);
   });
 });
