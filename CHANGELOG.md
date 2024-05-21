@@ -1,3 +1,9 @@
+## 149.0.2 (May 21, 2024)
+
+### Patch
+
+- Internal: remove Flow ([#3584](https://github.com/pinterest/gestalt/pull/3584)) - [Preview link](https://deploy-preview-3584--gestalt.netlify.app?devexample=true)
+
 ## 149.0.1 (May 21, 2024)
 
 ### Patch
