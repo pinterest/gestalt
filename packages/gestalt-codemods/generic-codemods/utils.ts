@@ -258,7 +258,6 @@ const buildReplaceWithModifiedAttributes = ({
   const replaceWithModifiedAttributes = (nodepath: Collection) => {
     // In the absence of nextProp & nextValue, we REMOVE prop and values
     if (!nextProp && isNullOrUndefined(nextValue)) return null;
-    // $FlowFixMe[underconstrained-implicit-instantiation]
     let { node } = nodepath.get();
 
     // In the absence of just nextValue, we rename the prop if both prop and value match.
