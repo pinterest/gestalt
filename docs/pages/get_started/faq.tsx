@@ -81,23 +81,26 @@ import { Button, Text } from 'gestalt';
             />
           </Text>
 
-          <Heading size="400">How do I import Flow types from Gestalt?</Heading>
+          <Heading size="400">How do I import Typescript types from Gestalt?</Heading>
           <Text>
-            You don&apos;t! We do not explicitly export our Flow types — any types that are
-            available externally are considered internal and subject to breaking changes without
-            warning. We also recommend against manually copying type values into your codebase, as
-            those are also subject to change and you will need to manually update your copied types.
+            You don&apos;t! We do not explicitly export our Typescript types. We also recommend
+            against manually copying type values into your codebase, as those are also subject to
+            change and you will need to manually update your copied types.
           </Text>
           <Text>
             The recommended way of accessing Gestalt types (e.g. for a wrapper component) is to use
-            Flow&apos;s
-            <InlineLink href="https://flow.org/en/docs/types/utilities/">utility types</InlineLink>
+            React&apos;s type helper
+            <InlineLink href="https://pdocs.pinadmin.com/docs/webapp/docs/typescript#component-prop-type">
+              ComponentProps
+            </InlineLink>
             to use the component&apos;s types directly:
           </Text>
           <Markdown
             text="
 ~~~jsx
-$ElementType<React$ElementConfig<typeof ComponentName>, 'propName'>
+import { ComponentProps } from 'react';
+
+ComponentProps<typeof ComponentName>['propName']
 ~~~"
           />
 
