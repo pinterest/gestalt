@@ -34,8 +34,8 @@ Easing allows movement to mimic motion *in the real world* - objects accelerate 
           <ReducedMotionImage
             alt="Comparison of transitions with and without easing"
             height={630}
-            src="/motion-gifs/with-and-without-easing.gif"
-            staticImgSrc="/motion-gifs/with-and-without-easing.png"
+            src="https://i.pinimg.com/originals/1a/db/32/1adb3201fa6b7f03e1b2e820d672eebb.gif"
+            staticImgSrc="https://i.pinimg.com/originals/06/2b/db/062bdb7677dd9f975fd6356811753a67.png"
             width={500}
           />
         </Box>
@@ -48,8 +48,8 @@ Easing allows movement to mimic motion *in the real world* - objects accelerate 
               <ReducedMotionImage
                 alt="Expressive easing animation"
                 height={250}
-                src="/motion-gifs/expressive.gif"
-                staticImgSrc="/motion-gifs/expressive.png"
+                src="https://i.pinimg.com/originals/7d/76/4d/7d764d6b2a0eb47eec607ea5457fbbd5.gif"
+                staticImgSrc="https://i.pinimg.com/originals/a0/ba/4c/a0ba4c7f323b026ec5a62c51e38ef2ef.png"
                 width={250}
               />
             </Flex.Item>
@@ -74,15 +74,15 @@ The most commonly used easing, and a reliable default choice when unsure. A curv
             <ReducedMotionImage
               alt="Search screen transition example"
               height={542}
-              src="/motion-gifs/search-page.gif"
-              staticImgSrc="/motion-gifs/search-page.png"
+              src="https://i.pinimg.com/originals/6b/22/c8/6b22c89c7c6d92784130f816ff20a602.gif"
+              staticImgSrc="https://i.pinimg.com/originals/86/e5/29/86e529087ed73540715a86b1e2ff8166.png"
               width={250}
             />
             <ReducedMotionImage
               alt="Pin closeup transition example"
               height={542}
-              src="/motion-gifs/pin-closeup.gif"
-              staticImgSrc="/motion-gifs/pin-closeup.png"
+              src="https://i.pinimg.com/originals/ef/5d/45/ef5d45d10c4d0b971a00e21460a50fac.gif"
+              staticImgSrc="https://i.pinimg.com/originals/a9/ba/a6/a9baa60ba82b9828b68b058d78891f76.png"
               width={250}
             />
           </Flex>
@@ -94,8 +94,8 @@ The most commonly used easing, and a reliable default choice when unsure. A curv
               <ReducedMotionImage
                 alt="Enter easing animation"
                 height={250}
-                src="/motion-gifs/enter.gif"
-                staticImgSrc="/motion-gifs/enter.png"
+                src="https://i.pinimg.com/originals/23/4f/32/234f32053b56bd1f7736596937c21d30.gif"
+                staticImgSrc="https://i.pinimg.com/originals/da/75/d6/da75d6fcb6439f903c26286a240d7409.png"
                 width={250}
               />
             </Flex.Item>
@@ -119,8 +119,8 @@ Curve is commonly used for elements that initially exist out of view and smoothl
             <ReducedMotionImage
               alt="Settings open transition example"
               height={542}
-              src="/motion-gifs/settings-enter.gif"
-              staticImgSrc="/motion-gifs/settings-enter.png"
+              src="https://i.pinimg.com/originals/59/0e/b5/590eb54c70961af6187addf797e67d21.gif"
+              staticImgSrc="https://i.pinimg.com/originals/2a/16/bf/2a16bf228d7c8e1e5f45346ad2416712.png"
               width={250}
             />
           </Flex>
@@ -132,8 +132,8 @@ Curve is commonly used for elements that initially exist out of view and smoothl
               <ReducedMotionImage
                 alt="Exit easing animation"
                 height={250}
-                src="/motion-gifs/expressive.gif"
-                staticImgSrc="/motion-gifs/expressive.png"
+                src="https://i.pinimg.com/originals/c7/c7/e2/c7c7e28ecfe8a40effd613db069409c2.gif"
+                staticImgSrc="https://i.pinimg.com/originals/9e/87/80/9e8780a462656c78300e95ee282076ed.png"
                 width={250}
               />
             </Flex.Item>
@@ -157,8 +157,8 @@ Curve is commonly used for elements that begin within the user's field of view a
             <ReducedMotionImage
               alt="Settings close transition example"
               height={542}
-              src="/motion-gifs/settings-exit.gif"
-              staticImgSrc="/motion-gifs/settings-exit.png"
+              src="https://i.pinimg.com/originals/97/ab/9f/97ab9fe5064b697d8a54f073b8f4edd2.gif"
+              staticImgSrc="https://i.pinimg.com/originals/7a/76/5b/7a765b0041a62a841726cca8cce78ba2.png"
               width={250}
             />
           </Flex>
@@ -170,8 +170,8 @@ Curve is commonly used for elements that begin within the user's field of view a
               <ReducedMotionImage
                 alt="Lateral easing animation"
                 height={250}
-                src="/motion-gifs/lateral.gif"
-                staticImgSrc="/motion-gifs/lateral.png"
+                src="https://i.pinimg.com/originals/eb/82/ce/eb82ceb91f0f28d34e3a53115533a44c.png"
+                staticImgSrc="https://i.pinimg.com/originals/eb/82/ce/eb82ceb91f0f28d34e3a53115533a44c.png"
                 width={250}
               />
             </Flex.Item>
@@ -193,15 +193,15 @@ Curve is commonly used for elements that begin within the user's field of view a
             <ReducedMotionImage
               alt="Homefeed screen change animation"
               height={542}
-              src="/motion-gifs/homefeed-lateral.gif"
-              staticImgSrc="/motion-gifs/homefeed-lateral.png"
+              src="https://i.pinimg.com/originals/f9/63/a0/f963a0d79164ac3e2c9c90a2905082ef.gif"
+              staticImgSrc="https://i.pinimg.com/originals/4f/87/85/4f878578ee6b60505b1db3af5a16f0cb.png"
               width={250}
             />
             <ReducedMotionImage
               alt="Image carousel example"
               height={542}
-              src="/motion-gifs/sp-carousel.gif"
-              staticImgSrc="/motion-gifs/sp-carousel.png"
+              src="https://i.pinimg.com/originals/18/11/3e/18113e94de7cda6516a8b01b984fda87.gif"
+              staticImgSrc="https://i.pinimg.com/originals/37/5e/ce/375ece169fa14dcddee147bdb5bc57f9.png"
               width={250}
             />
           </Flex>
@@ -213,8 +213,8 @@ Curve is commonly used for elements that begin within the user's field of view a
               <ReducedMotionImage
                 alt="Bounce easing animation"
                 height={250}
-                src="/motion-gifs/bounce.gif"
-                staticImgSrc="/motion-gifs/bounce.png"
+                src="https://i.pinimg.com/originals/12/0f/6c/120f6cb335a2e7d9823459b5cc2911af.gif"
+                staticImgSrc="https://i.pinimg.com/originals/41/80/a7/4180a70733628339a84d2d72304ca302.png"
                 width={250}
               />
             </Flex.Item>
@@ -236,8 +236,8 @@ Curve is commonly used for elements that begin within the user's field of view a
             <ReducedMotionImage
               alt="Toolbar appear transition example"
               height={250}
-              src="/motion-gifs/bounce-toolbar.gif"
-              staticImgSrc="/motion-gifs/bounce-toolbar.png"
+              src="https://i.pinimg.com/originals/7a/79/3f/7a793fc62c7ddfe2dd56d06ffe136feb.gif"
+              staticImgSrc="https://i.pinimg.com/originals/43/0c/71/430c71a792113f4c61f03db451b7efd6.png"
               width={250}
             />
           </Flex>
@@ -249,8 +249,8 @@ Curve is commonly used for elements that begin within the user's field of view a
               <ReducedMotionImage
                 alt="Linear easing animation"
                 height={250}
-                src="/motion-gifs/linear.gif"
-                staticImgSrc="/motion-gifs/linear.png"
+                src="https://i.pinimg.com/originals/86/e5/ff/86e5ff5bf987f552dcd84ef48638856c.gif"
+                staticImgSrc="https://i.pinimg.com/originals/f6/ac/3a/f6ac3ae51be0f2e10d96156c51be3514.png"
                 width={250}
               />
             </Flex.Item>
@@ -272,15 +272,15 @@ Curve is commonly used for elements that begin within the user's field of view a
             <ReducedMotionImage
               alt="Radio button toggle example"
               height={542}
-              src="/motion-gifs/radio-button.gif"
-              staticImgSrc="/motion-gifs/radio-button.png"
+              src="https://i.pinimg.com/originals/20/92/29/20922961537e594b43c3f2f456b5817a.gif"
+              staticImgSrc="https://i.pinimg.com/originals/70/00/eb/7000ebb29642dcb5c156e23e99d50fc1.png"
               width={250}
             />
             <ReducedMotionImage
               alt="Follow button toggle example"
               height={542}
-              src="/motion-gifs/follow-button.gif"
-              staticImgSrc="/motion-gifs/follow-button.png"
+              src="https://i.pinimg.com/originals/a4/b6/88/a4b688b568a01ad81103fa52370492d6.gif"
+              staticImgSrc="https://i.pinimg.com/originals/59/0e/94/590e947054957dd33b0b8d614bef0ff6.png"
               width={250}
             />
           </Flex>
