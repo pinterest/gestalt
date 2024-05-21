@@ -5,8 +5,7 @@ const fs = require('fs');
 async function generate(page) {
   return await fs.promises.writeFile(
     `./playwright/accessibility/${page}.spec`,
-    `// @flow strict
-import { test } from '@playwright/test';
+    `import { test } from '@playwright/test';
 import expectAccessiblePage from './expectAccessiblePage';
 
 test('${page} Accessibility check', async ({ page }) => {

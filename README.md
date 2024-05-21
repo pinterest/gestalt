@@ -59,10 +59,10 @@ When a release will cause breaking changes — in usage or in typing — we prov
 
 ### Codemod Usage
 
-Clone the Gestalt repo locally if you haven't already. Run the relevant codemod(s) in the relevant directory of your repo (not the Gestalt repo): anywhere the component to be updated is used. Example usage for a codebase using Flow:
+Clone the Gestalt repo locally if you haven't already. Run the relevant codemod(s) in the relevant directory of your repo (not the Gestalt repo): anywhere the component to be updated is used. Example usage for a codebase using TypeScript:
 
 ```bash
-yarn codemod --parser=flow -t={relative/path/to/codemod} relative/path/to/your/code
+yarn codemod --parser=tsx -t={relative/path/to/codemod} relative/path/to/your/code.tsx
 ```
 
 For a dry run to see what the changes will be, add the `-d` (dry run) and `-p` (print output) flags (pipe stdout to a file for easier inspection if you like).

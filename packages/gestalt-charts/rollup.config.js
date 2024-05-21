@@ -1,4 +1,3 @@
-// @noflow
 // eslint-disable-next-line import/no-relative-packages
 import { acornInjectPlugins, plugins } from '../gestalt-core/build';
 

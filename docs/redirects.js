@@ -1,5 +1,3 @@
-// @noflow
-
 const webComponents = [
   'activationcard',
   'avatar',
@@ -284,15 +282,7 @@ const misc = [
   },
 ];
 
-/*::
-type Redirects = $ReadOnlyArray<{|
-    source: string,
-    destination: string,
-    permanent: boolean,
-  |}>
-*/
-
-const redirects /*: Redirects */ = [
+const redirects = [
   ...color,
   ...foundations,
   ...getStarted,

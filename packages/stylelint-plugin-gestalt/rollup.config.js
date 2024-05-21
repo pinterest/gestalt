@@ -1,4 +1,3 @@
-// eslint-disable-next-line flowtype/require-valid-file-annotation
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
@@ -34,7 +33,7 @@ const rollupConfig = {
     babel({
       babelrc: false,
       babelHelpers: 'bundled',
-      presets: [['@babel/preset-env', { targets: { node: true } }], '@babel/flow'],
+      presets: [['@babel/preset-env', { targets: { node: true } }]],
       plugins: ['@babel/proposal-class-properties', '@babel/plugin-proposal-private-methods'],
       exclude: 'node_modules/**',
     }),

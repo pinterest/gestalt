@@ -3,12 +3,6 @@ import buildCustomApplyTransform, {
   buildManualAttentionErrorMessage,
 } from './utils';
 
-jest.mock('../detectManualReplacement', () =>
-  Object.assign(jest.requireActual('../detectManualReplacement'), {
-    parser: 'flow',
-  }),
-);
-
 describe('detectManualReplacement: component', () => {
   ['detectManualReplacement/component', 'detectManualReplacement/componentAlias'].forEach(
     (test) => {
