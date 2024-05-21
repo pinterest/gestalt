@@ -1,10 +1,8 @@
-// @flow strict
-const { devices } = require('@playwright/test');
+import { defineConfig, devices } from '@playwright/test';
 
-const reporter /*: 'github' | 'list' */ = process.env.CI ? 'github' : 'list';
+const reporter: 'github' | 'list' = process.env.CI ? 'github' : 'list';
 
-const config = {
-  deviceScaleFactor: 2,
+export default defineConfig({
   expect: {
     timeout: 10000,
     toHaveScreenshot: {
@@ -33,8 +31,7 @@ const config = {
     reuseExistingServer: !process.env.CI,
   },
   use: {
+    deviceScaleFactor: 2,
     trace: 'on-first-retry',
   },
-};
-
-module.exports = config;
+});
