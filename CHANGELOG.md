@@ -1,3 +1,9 @@
+## 148.0.4 (May 21, 2024)
+
+### Patch
+
+- Docs: updates re Flow and codemods ([#3583](https://github.com/pinterest/gestalt/pull/3583)) - [Preview link](https://deploy-preview-3583--gestalt.netlify.app?devexample=true)
+
 ## 148.0.3 (May 21, 2024)
 
 ### Patch
