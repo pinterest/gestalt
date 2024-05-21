@@ -1,28 +1,23 @@
-import { expect, test } from '@playwright/test';
+import { expect, Page, test } from '@playwright/test';
 import getGridItems from './utils/getGridItems';
 import getServerURL from './utils/getServerURL';
 import selectors from './utils/selectors';
 import waitForRenderedItems from './utils/waitForRenderedItems';
 
-const getItemColumnMap = async (
-  // @ts-expect-error - TS7006 - Parameter 'page' implicitly has an 'any' type.
-  page /*: { locator: (string) => { all: () => Promise<$ReadOnlyArray<{|
-  innerText: () => void,
-  textContent: () => void,
-  boundingBox: () => Promise<{| [string]: number |}>,
-|}>> } } */,
-) => {
+const getItemColumnMap = async (page: Page) => {
   const gridItems = await getGridItems(page);
-  const itemLeftMap: Record<string, any> /*: any */ = {};
+  const itemLeftMap: Record<string, any> = {};
 
   for (let i = 0; i < gridItems.length; i += 1) {
     const boundingBox = await gridItems[i].boundingBox();
-    itemLeftMap[boundingBox.x] = itemLeftMap[boundingBox.x] || [];
-    itemLeftMap[boundingBox.x].push({
-      ...boundingBox,
-      itemIndex: i,
-      text: await gridItems[i].textContent(),
-    });
+    if (boundingBox) {
+      itemLeftMap[boundingBox.x] = itemLeftMap[boundingBox.x] || [];
+      itemLeftMap[boundingBox.x].push({
+        ...boundingBox,
+        itemIndex: i,
+        text: await gridItems[i].textContent(),
+      });
+    }
   }
 
   return itemLeftMap;

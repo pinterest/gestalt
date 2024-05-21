@@ -8,24 +8,14 @@ import selectors from './selectors';
 // GTE = greater than or equal to
 // LT = less than
 // LTE = less than or equal to
-/*::
-type waitForRenderedItemsArgs = {|
-  scrollHeight?: number,
-  targetItems?: number,
-  targetItemsGT?: number,
-  targetItemsGTE?: number,
-  targetItemsLT?: number,
-  targetItemsLTE?: number,
-|};
-*/
 
 export default async function waitForRenderedItems(
   // @ts-expect-error - TS7006 - Parameter 'page' implicitly has an 'any' type.
-  page /*: Object */,
+  page,
   // @ts-expect-error - TS7006 - Parameter 'args' implicitly has an 'any' type.
-  args /*: waitForRenderedItemsArgs */,
-  timeout /*: number */ = 5000,
-) /*: Promise<any> */ {
+  args,
+  timeout = 5000,
+) {
   return (
     page
       .waitForFunction(

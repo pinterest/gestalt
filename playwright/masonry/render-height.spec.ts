@@ -14,7 +14,7 @@ test.describe('Masonry: Render height', () => {
     for (let i = 0; i < gridItems.length; i += 1) {
       const itemRect = await gridItems[i].boundingBox();
       // eslint-disable-next-line playwright/no-conditional-in-test
-      if (itemRect.y > bottomItem) {
+      if (itemRect && itemRect.y > bottomItem) {
         bottomItem = itemRect.y + itemRect.height;
       }
     }

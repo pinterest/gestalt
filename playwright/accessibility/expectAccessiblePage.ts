@@ -3,7 +3,7 @@ import { expect } from '@playwright/test';
 
 export default async function expectAccessiblePage(
   // @ts-expect-error - TS7031 - Binding element 'page' implicitly has an 'any' type. | TS7031 - Binding element 'rules' implicitly has an 'any' type.
-  { page, rules } /*: {| page: any, rules?: any |} */,
+  { page, rules },
 ) {
   const { violations } = await new AxeBuilder({ page })
     .options({ rules })

@@ -1,7 +1,6 @@
 const BASE_PATH = '/integration-test/masonry';
 
-// @ts-expect-error - TS7006 - Parameter 'val' implicitly has an 'any' type.
-const normalizeValue = (val /*: boolean | number */) => {
+const normalizeValue = (val: boolean | number) => {
   if (typeof val === 'boolean') {
     return val ? '1' : '0';
   }
@@ -9,34 +8,31 @@ const normalizeValue = (val /*: boolean | number */) => {
 };
 
 // These are used in docs/pages/integration-test/masonry.tsx
-/*::
-type Options = ?{|
-  constrained?: boolean,
-  deferMount?: boolean,
-  externalCache?: boolean,
-  finiteLength?: boolean,
-  flexible?: boolean,
-  logWhitespace?: boolean,
-  manualFetch?: boolean,
-  noScroll?: boolean,
-  offsetTop?: number,
-  realisticPinHeights?: boolean,
-  scrollContainer?: boolean,
-  twoColItems?: boolean,
-  virtualize?: boolean,
-  virtualBoundsTop?: number,
-  virtualBoundsBottom?: number,
-|};
-*/
+type Options = {
+  constrained?: boolean;
+  deferMount?: boolean;
+  externalCache?: boolean;
+  finiteLength?: boolean;
+  flexible?: boolean;
+  logWhitespace?: boolean;
+  manualFetch?: boolean;
+  noScroll?: boolean;
+  offsetTop?: number;
+  realisticPinHeights?: boolean;
+  scrollContainer?: boolean;
+  twoColItems?: boolean;
+  virtualize?: boolean;
+  virtualBoundsTop?: number;
+  virtualBoundsBottom?: number;
+};
 
-// @ts-expect-error - TS7006 - Parameter 'options' implicitly has an 'any' type.
-const getServerURL = (options /*: Options */) /*: string */ => {
+const getServerURL = (options?: Options | null): string => {
   let serializedOptions = '';
 
   if (options) {
-    serializedOptions = Object.keys(options ?? {})
-      .map((key) =>
-        typeof options[key] !== 'undefined' ? `${key}=${normalizeValue(options[key])}` : '',
+    serializedOptions = Object.entries(options)
+      .map(([key, value]) =>
+        typeof value !== 'undefined' ? `${key}=${normalizeValue(value)}` : '',
       )
       .filter((item) => !!item)
       .join('&');

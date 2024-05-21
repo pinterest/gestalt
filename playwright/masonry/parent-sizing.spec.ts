@@ -14,7 +14,7 @@ test.describe('Masonry: Parent Sizing', () => {
 
     for (let i = 0; i < gridItems.length; i += 1) {
       const itemRect = await gridItems[i].boundingBox();
-      expect(itemRect.x).toBeGreaterThanOrEqual(EXPECTED_LEFT_MARGIN);
+      expect(itemRect?.x).toBeGreaterThanOrEqual(EXPECTED_LEFT_MARGIN);
     }
   });
 });

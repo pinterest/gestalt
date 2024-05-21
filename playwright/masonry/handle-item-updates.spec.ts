@@ -24,7 +24,8 @@ test.describe('Masonry: handle item updates', () => {
     const itemRect2 = await gridItems2[0].boundingBox();
 
     // verify that the first element has grown in height
-    expect(itemRect2.height).toBeGreaterThan(itemRect1.height);
+    // eslint-disable-next-line playwright/no-conditional-in-test
+    expect(itemRect2?.height).toBeGreaterThan(itemRect1?.height ?? Infinity);
 
     // trigger item collapse
     await pushTrigger.click();
@@ -34,6 +35,6 @@ test.describe('Masonry: handle item updates', () => {
     const itemRect3 = await gridItems3[0].boundingBox();
 
     // item height should have reverted to original
-    expect(itemRect3.height).toEqual(itemRect1.height);
+    expect(itemRect3?.height).toEqual(itemRect1?.height);
   });
 });

@@ -1,6 +1,6 @@
+import { Locator, Page } from '@playwright/test';
 import selectors from './selectors';
 
-// @ts-expect-error - TS7006 - Parameter 'page' implicitly has an 'any' type.
-export default function getStaticGridItems(page /*: Object */) /*: Promise<any> */ {
+export default function getStaticGridItems(page: Page): Promise<Array<Locator>> {
   return page.locator(selectors.staticItem).all();
 }

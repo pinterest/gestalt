@@ -7,7 +7,6 @@ test.describe('Masonry: fetch more', () => {
   test('trigger a call to "fetchMore" when container resizes', async ({ page }) => {
     // Start with a small screen.
     await page.setViewportSize({ width: 400, height: 400 });
-    // @ts-expect-error - TS2554 - Expected 1 arguments, but got 0.
     await page.goto(getServerURL());
     await waitForRenderedItems(page, { targetItemsGTE: 20 });
 
