@@ -1,3 +1,9 @@
+## 149.0.1 (May 21, 2024)
+
+### Patch
+
+- Internal: TypeScript migration for gestalt-codemods ([#3586](https://github.com/pinterest/gestalt/pull/3586)) - [Preview link](https://deploy-preview-3586--gestalt.netlify.app?devexample=true)
+
 ## 149.0.0 (May 21, 2024)
 
 ### Major
