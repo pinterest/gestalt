@@ -1,14 +1,12 @@
 // eslint-disable-next-line flowtype/require-valid-file-annotation
-import { relative } from 'path';
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
-import typescript from '@rollup/plugin-typescript';
 
 const rollupConfig = {
-  input: 'src/index.ts',
+  input: 'src/index.js',
   output: [
     {
       file: 'dist/stylelint-plugin-gestalt.js',
@@ -33,11 +31,10 @@ const rollupConfig = {
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
       },
     }),
-    typescript({ tsconfig: relative(__dirname, '../../tsconfig.json') }),
     babel({
       babelrc: false,
       babelHelpers: 'bundled',
-      presets: [['@babel/preset-env', { targets: { node: true } }], '@babel/preset-typescript'],
+      presets: [['@babel/preset-env', { targets: { node: true } }], '@babel/flow'],
       plugins: ['@babel/proposal-class-properties', '@babel/plugin-proposal-private-methods'],
       exclude: 'node_modules/**',
     }),

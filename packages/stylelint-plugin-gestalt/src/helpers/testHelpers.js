@@ -1,6 +1,7 @@
+// @flow strict
 import path from 'path';
 
-type Formatter = (arg1: string) => string;
+type Formatter = (string) => string;
 export const getPathFormatterByRuleName =
   (ruleName: string): Formatter =>
   (testPath) =>
