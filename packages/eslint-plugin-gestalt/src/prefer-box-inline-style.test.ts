@@ -32,7 +32,7 @@ ruleTester.run('prefer-box', rule, {
     [invalidBackgroundColor, '`color="default"`'],
     [invalidBorderRadius, '`rounding="circle"`'],
     [invalidBorder, '`borderStyle="lg"`'],
-// @ts-expect-error - TS2345 - Argument of type '([code, errorMessage]: [any, any]) => { code: any; errors: { message: string; }[]; }' is not assignable to parameter of type '(value: string[], index: number, array: string[][]) => { code: any; errors: { message: string; }[]; }'.
+    // @ts-expect-error - TS2345 - Argument of type '([code, errorMessage]: [any, any]) => { code: any; errors: { message: string; }[]; }' is not assignable to parameter of type '(value: string[], index: number, array: string[][]) => { code: any; errors: { message: string; }[]; }'.
   ].map(([code, errorMessage]: [any, any]) => ({
     code,
     errors: [{ message: getErrorMessage(errorMessage) }],

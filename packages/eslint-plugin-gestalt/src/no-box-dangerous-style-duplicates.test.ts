@@ -170,7 +170,7 @@ ruleTester.run('no-box-dangerous-style-duplicates', rule, {
       invalidZIndexOutput,
       generateDefaultMessage(`zIndex={new FixedZIndex(1000)}`),
     ],
-// @ts-expect-error - TS2345 - Argument of type '([input, output, errors, options]: [any, any, any, any]) => { code: any; options: any; output: any; errors: { message: string; }[]; }' is not assignable to parameter of type '(value: (string | { onlyKeys: string[]; }[] | null | undefined)[], index: number, array: (string | { onlyKeys: string[]; }[] | null | undefined)[][]) => { code: any; options: any; output: any; errors: { message: string; }[]; }'.
+    // @ts-expect-error - TS2345 - Argument of type '([input, output, errors, options]: [any, any, any, any]) => { code: any; options: any; output: any; errors: { message: string; }[]; }' is not assignable to parameter of type '(value: (string | { onlyKeys: string[]; }[] | null | undefined)[], index: number, array: (string | { onlyKeys: string[]; }[] | null | undefined)[][]) => { code: any; options: any; output: any; errors: { message: string; }[]; }'.
   ].map(([input, output, errors, options]: [any, any, any, any]) => ({
     code: input,
     options: options ?? [],

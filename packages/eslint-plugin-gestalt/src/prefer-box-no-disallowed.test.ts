@@ -140,7 +140,7 @@ ruleTester.run('prefer-box-no-disallowed', rule, {
       noDisallowedGestaltImportWithoutBoxOutput,
       errorMessageNoDisallowed,
     ],
-// @ts-expect-error - TS2345 - Argument of type '([input, output, errorMessage]: [any, any, any]) => { code: any; output: any; errors: { message: any; }[]; }' is not assignable to parameter of type '(value: string[], index: number, array: string[][]) => { code: any; output: any; errors: { message: any; }[]; }'.
+    // @ts-expect-error - TS2345 - Argument of type '([input, output, errorMessage]: [any, any, any]) => { code: any; output: any; errors: { message: any; }[]; }' is not assignable to parameter of type '(value: string[], index: number, array: string[][]) => { code: any; output: any; errors: { message: any; }[]; }'.
   ].map(([input, output, errorMessage]: [any, any, any]) => ({
     code: input,
     output,

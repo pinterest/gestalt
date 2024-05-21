@@ -22,7 +22,7 @@ const rule: ESLintRule = {
 
   create(context) {
     return {
-// @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
+      // @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
       JSXOpeningElement(node) {
         if (node.name.name === 'ul' || node.name.name === 'ol') {
           context.report({

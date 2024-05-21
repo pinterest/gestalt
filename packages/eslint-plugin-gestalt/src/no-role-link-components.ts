@@ -26,22 +26,22 @@ const rule: ESLintRule = {
 
   create(context) {
     let importedComponent = false;
-// @ts-expect-error - TS7034 - Variable 'importedName' implicitly has type 'any' in some locations where its type cannot be determined.
+    // @ts-expect-error - TS7034 - Variable 'importedName' implicitly has type 'any' in some locations where its type cannot be determined.
     let importedName;
 
     return {
-// @ts-expect-error - TS7006 - Parameter 'decl' implicitly has an 'any' type.
+      // @ts-expect-error - TS7006 - Parameter 'decl' implicitly has an 'any' type.
       ImportDeclaration(decl) {
         if (decl.source.value !== 'gestalt') {
           return;
         }
-// @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
+        // @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
         importedComponent = decl.specifiers.some((node) => {
           importedName = node.imported.name;
           return ['Button', 'TapArea', 'IconButton'].includes(node.imported.name);
         });
       },
-// @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
+      // @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
       JSXOpeningElement(node) {
         if (!importedComponent) {
           return;
@@ -59,7 +59,7 @@ const rule: ESLintRule = {
         if (isRoleLink) {
           context.report(
             node,
-// @ts-expect-error - TS7005 - Variable 'importedName' implicitly has an 'any' type. | TS7005 - Variable 'importedName' implicitly has an 'any' type.
+            // @ts-expect-error - TS7005 - Variable 'importedName' implicitly has an 'any' type. | TS7005 - Variable 'importedName' implicitly has an 'any' type.
             `${importedName} Components with role-link are disallowed in Pinboard. Please use app/common/react/ui/${importedName}Link.js instead.`,
           );
         }

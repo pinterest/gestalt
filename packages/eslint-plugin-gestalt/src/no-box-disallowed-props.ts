@@ -153,15 +153,15 @@ const rule: ESLintRule = {
     let localBoxName: string | null | undefined = null;
 
     return {
-// @ts-expect-error - TS7006 - Parameter 'decl' implicitly has an 'any' type.
+      // @ts-expect-error - TS7006 - Parameter 'decl' implicitly has an 'any' type.
       ImportDeclaration(decl) {
         if (decl.source.value !== 'gestalt') {
           return;
         }
-// @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
+        // @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
         localBoxName = decl.specifiers.find((node) => node.imported.name === 'Box')?.local?.name;
       },
-// @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
+      // @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
       JSXOpeningElement(node) {
         if (!localBoxName || node?.name?.name !== localBoxName) {
           return;
@@ -172,7 +172,7 @@ const rule: ESLintRule = {
           .filter(
             (propName: string) =>
               propName &&
-// @ts-expect-error - TS2345 - Argument of type 'string' is not assignable to parameter of type '"ref" | "column" | "alignItems" | "key" | "color" | "overflow" | "display" | "id" | "onBlur" | "onClick" | "onFocus" | "rounding" | "tabIndex" | "role" | "onKeyDown" | "onKeyPress" | ... 98 more ... | "onTransitionStart"'.
+              // @ts-expect-error - TS2345 - Argument of type 'string' is not assignable to parameter of type '"ref" | "column" | "alignItems" | "key" | "color" | "overflow" | "display" | "id" | "onBlur" | "onClick" | "onFocus" | "rounding" | "tabIndex" | "role" | "onKeyDown" | "onKeyPress" | ... 98 more ... | "onTransitionStart"'.
               !allowedBaseProps.includes(propName) &&
               !allowedPrefixProps.some((allowedPrefixProp) =>
                 propName.startsWith(allowedPrefixProp),

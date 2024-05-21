@@ -43,7 +43,7 @@ ruleTester.run('only-valid-tokens', rule, {
     [inlineInput, inlineOutput, messageColorBorderError],
     [unsafeCssInput, unsafeCssOutput, messageColorBackgroundDefault],
     [variableInput, variableOutput, messageColorWhiteMochimalist],
-// @ts-expect-error - TS2345 - Argument of type '([input, output, message]: [any, any, any]) => { code: any; output: any; errors: { message: any; }[]; }' is not assignable to parameter of type '(value: string[], index: number, array: string[][]) => { code: any; output: any; errors: { message: any; }[]; }'.
+    // @ts-expect-error - TS2345 - Argument of type '([input, output, message]: [any, any, any]) => { code: any; output: any; errors: { message: any; }[]; }' is not assignable to parameter of type '(value: string[], index: number, array: string[][]) => { code: any; output: any; errors: { message: any; }[]; }'.
   ].map(([input, output, message]: [any, any, any]) => ({
     code: input,
     output,

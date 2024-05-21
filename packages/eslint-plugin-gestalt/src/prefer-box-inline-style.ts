@@ -71,26 +71,26 @@ const rule: ESLintRule = {
   },
 
   create(context) {
-// @ts-expect-error - TS7006 - Parameter 'matchedErrors' implicitly has an 'any' type. | TS7006 - Parameter 'key' implicitly has an 'any' type.
+    // @ts-expect-error - TS7006 - Parameter 'matchedErrors' implicitly has an 'any' type. | TS7006 - Parameter 'key' implicitly has an 'any' type.
     function matchKeyErrors(matchedErrors, key) {
       let alternateProp = '';
       switch (key.name) {
         case 'backgroundColor':
-// @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'string'.
+          // @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'string'.
           alternateProp = validateBackgroundColor(key.value);
           if (alternateProp) {
             matchedErrors.push(generateDefaultMessage(alternateProp));
           }
           break;
         case 'borderRadius':
-// @ts-expect-error - TS2322 - Type 'string | number | null | undefined' is not assignable to type 'string'.
+          // @ts-expect-error - TS2322 - Type 'string | number | null | undefined' is not assignable to type 'string'.
           alternateProp = validateBorderRadius(key.value);
           if (alternateProp) {
             matchedErrors.push(generateDefaultMessage(alternateProp));
           }
           break;
         case 'border':
-// @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'string'.
+          // @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'string'.
           alternateProp = validateBorder(key.value);
           if (alternateProp) {
             matchedErrors.push(generateDefaultMessage(alternateProp));
@@ -99,12 +99,12 @@ const rule: ESLintRule = {
         default:
           break;
       }
-// @ts-expect-error - TS7006 - Parameter 'x' implicitly has an 'any' type.
+      // @ts-expect-error - TS7006 - Parameter 'x' implicitly has an 'any' type.
       return matchedErrors.filter((x) => x);
     }
 
     return {
-// @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
+      // @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
       JSXOpeningElement(node) {
         if (node.name.name !== 'div') {
           return;
@@ -122,7 +122,7 @@ const rule: ESLintRule = {
               const scope = context.getScope(node);
               // Look in local scope for variable reference
               const ref = scope.references.find(
-// @ts-expect-error - TS7006 - Parameter 'reference' implicitly has an 'any' type.
+                // @ts-expect-error - TS7006 - Parameter 'reference' implicitly has an 'any' type.
                 (reference) => reference.identifier.name === attr.value.expression.name,
               );
               if (ref) {

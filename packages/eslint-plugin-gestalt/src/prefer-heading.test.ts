@@ -67,7 +67,7 @@ ruleTester.run('prefer-heading', rule, {
       invalidNoGestaltImportNoA11yLevelSuggestionMultipleOutput1,
       invalidNoGestaltImportNoA11yLevelSuggestionMultipleOutput2,
     ],
-// @ts-expect-error - TS2345 - Argument of type '([input, output, firstSuggestion, secondSuggestion]: [any, any, any, any]) => { code: any; output: any; errors: { messageId: string; suggestions: { output: any; messageId: string; }[]; }[]; }' is not assignable to parameter of type '(value: string[], index: number, array: string[][]) => { code: any; output: any; errors: { messageId: string; suggestions: { output: any; messageId: string; }[]; }[]; }'.
+    // @ts-expect-error - TS2345 - Argument of type '([input, output, firstSuggestion, secondSuggestion]: [any, any, any, any]) => { code: any; output: any; errors: { messageId: string; suggestions: { output: any; messageId: string; }[]; }[]; }' is not assignable to parameter of type '(value: string[], index: number, array: string[][]) => { code: any; output: any; errors: { messageId: string; suggestions: { output: any; messageId: string; }[]; }[]; }'.
   ].map(([input, output, firstSuggestion, secondSuggestion]: [any, any, any, any]) => ({
     code: input,
     output,
