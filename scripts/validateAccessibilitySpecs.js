@@ -3,7 +3,7 @@ require('@babel/register');
 const globby = require('globby');
 const siteIndex = require('../docs/docs-components/siteIndex');
 
-const specFileGlob = 'playwright/accessibility/*.spec.mjs';
+const specFileGlob = 'playwright/accessibility/*.spec.ts';
 
 // Note How this works: https://github.com/pinterest/gestalt/pull/2316#issuecomment-1223356379
 
@@ -46,8 +46,8 @@ async function validate() {
       .toLowerCase()
       // remove the playwright/accessibility/ prefix
       .replace(/^playwright\/accessibility\//, '')
-      // remove the .spec.mjs suffix
-      .replace(/\.spec\.mjs$/, ''),
+      // remove the .spec.ts suffix
+      .replace(/\.spec\.ts$/, ''),
   );
 
   const pagesWithoutA11ySpecFiles = routes.filter((page) => !a11ySpecFiles.includes(page));

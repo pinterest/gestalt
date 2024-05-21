@@ -139,11 +139,11 @@
     "lint:css": "stylelint --max-warnings 0 \"**/*.css\"",
     "lint:js": "eslint --max-warnings 0 .",
     "lint:sh": "shellcheck $(find . -type f -iname '*.sh' ! -path '*/node_modules/*' ! -path '*/.git/*')",
-    "playwright:test": "npx playwright test playwright/accessibility/ playwright/masonry/ --config=playwright/playwright.config.js",
-    "playwright:visual-test": "npx playwright test playwright/visual-test --config=playwright/playwright.config.js",
-    "playwright:test-masonry": "npx playwright test playwright/masonry --config=playwright/playwright.config.js",
-    "playwright:test-masonry-debug": "PWDEBUG=1 npx playwright test --config=playwright/playwright.config.js --retries 0",
-    "playwright:update-visual-test": "npx playwright test --config=playwright/playwright.config.js",
+    "playwright:test": "npx playwright test playwright/accessibility/ playwright/masonry/ --config=playwright/playwright.config.ts",
+    "playwright:visual-test": "npx playwright test playwright/visual-test --config=playwright/playwright.config.ts",
+    "playwright:test-masonry": "npx playwright test playwright/masonry --config=playwright/playwright.config.ts",
+    "playwright:test-masonry-debug": "PWDEBUG=1 npx playwright test --config=playwright/playwright.config.ts --retries 0",
+    "playwright:update-visual-test": "npx playwright test --config=playwright/playwright.config.ts",
     "precommit": "lint-staged",
     "prettier": "prettier",
     "slack-generate:post": "./scripts/generateSlackBlockKitPost.js",
@@ -164,6 +164,7 @@
         "testPathIgnorePatterns": [
           "/node_modules/",
           "/.rollup.cache/",
+          "<rootDir>/playwright/",
           "<rootDir>/scripts/templates/",
           ".jsdom.test.ts",
           ".jsdom.test.tsx",
@@ -183,6 +184,7 @@
         "testPathIgnorePatterns": [
           "/node_modules/",
           "/.rollup.cache/",
+          "<rootDir>/playwright/",
           "<rootDir>/scripts/templates/",
           "<rootDir>/packages/gestalt-codemods",
           "<rootDir>/packages/gestalt-core"

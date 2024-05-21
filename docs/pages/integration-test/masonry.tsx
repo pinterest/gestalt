@@ -24,7 +24,7 @@ const measurementStore: MeasurementStore = Masonry.createMeasurementStore();
 // @ts-expect-error - TS2339 - Property 'createMeasurementStore' does not exist on type 'FunctionComponent<MasonryProps<any>>'.
 const positionStore: PositionStore = Masonry.createMeasurementStore();
 
-// This is the counterpart to `normalizeValue` in `playwright/masonry/utils/getServerURL.mjs`
+// This is the counterpart to `normalizeValue` in `playwright/masonry/utils/getServerURL.ts`
 function booleanize(value: string): boolean {
   if (['false', '0'].includes(value)) {
     return false;
@@ -70,7 +70,7 @@ export default function TestPage({
   randomNumberSeeds: ReadonlyArray<number>;
 }) {
   const router = useRouter();
-  // These should match playwright/masonry/utils/getServerURL.mjs
+  // These should match playwright/masonry/utils/getServerURL.ts
   const {
     constrained,
     deferMount,
