@@ -1,16 +1,13 @@
-// @noflow
 const prettier = require('prettier');
 const { transform } = require('sucrase');
 
 /**
  * This Webpack loader is used to clean up the docs code examples for display in the Sandpack code editor. It removes Flow types and eslint disable comments.
  */
-// $FlowFixMe[missing-this-annot]
-module.exports = function exampleCleanupLoader(tsSource /*: string */) {
+module.exports = function exampleCleanupLoader(tsSource) {
   const callback = this.async();
   this.cacheable();
 
-  // return detype.transform(tsSource, this.resourcePath).then((jsSource) => {
   const jsSource = transform(tsSource, {
     transforms: ['typescript', 'jsx'],
     jsxRuntime: 'preserve',
@@ -24,11 +21,9 @@ module.exports = function exampleCleanupLoader(tsSource /*: string */) {
     .replace(/\/\/\s*eslint-disable-line.*\n/gm, '')
     .replace(/\/\/\s*eslint-disable-next-line.*\n/gm, '');
 
-  // $FlowFixMe[prop-missing]
   prettier.resolveConfig(process.cwd()).then((prettierOptions) => {
     // Pretty things up
     const formatted = prettier
-      // $FlowFixMe[prop-missing]
       .format(removed, {
         ...prettierOptions,
         parser: 'babel',
@@ -42,5 +37,4 @@ module.exports = function exampleCleanupLoader(tsSource /*: string */) {
       .replace(/\u2029/g, '\\u2029');
     callback(null, `export default ${json};`);
   });
-  // });
 };

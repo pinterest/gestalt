@@ -360,9 +360,9 @@ See codemod code: [detectManualReplacement](https://github.com/pinterest/gestalt
 
 Custom codemods can be found in this [directory](https://github.com/pinterest/gestalt/tree/master/packages/gestalt-codemods) under the corresponding upgrade version. The name of the folder should reflect the resulting version number of your PR.
 
-Example usage for a codebase using Flow:
+Example usage for a codebase using TypeScript:
 ~~~bash
-yarn codemod --parser=flow -t={relative/path/to/codemod} relative/path/to/your/code
+yarn codemod --parser=tsx -t={relative/path/to/codemod} relative/path/to/your/code.tsx
 ~~~
 
       `}

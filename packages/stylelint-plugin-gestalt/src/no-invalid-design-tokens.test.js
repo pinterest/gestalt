@@ -1,4 +1,3 @@
-// @flow strict
 import stylelint from 'stylelint';
 import { getPathFormatterByRuleName, getTestByPath } from './helpers/testHelpers';
 import rule from './no-invalid-design-tokens';

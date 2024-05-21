@@ -1,4 +1,3 @@
-// eslint-disable-next-line flowtype/require-valid-file-annotation
 import { relative } from 'path';
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';

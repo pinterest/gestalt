@@ -140,12 +140,6 @@ yarn generate ComponentName
   yarn playwright:update-visual-test playwright/visual-test/<filename>  --update-snapshots
   ```
 
-  - Update CSS flow types
-
-  ```bash
-  yarn run flow-generate:css
-  ```
-
   - If you are introducing breaking changes, create a **[codemod](/get_started/developers/tooling/web#Release-codemods)** to help users migrate between versions.
 
 - Commit the changes to your branch. Follow naming conventions for the PR

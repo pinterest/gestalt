@@ -1,5 +1,3 @@
-// @flow strict
-
 /* eslint-disable import/no-import-module-exports */
 import noInvalidDesignTokens from './no-invalid-design-tokens';
 

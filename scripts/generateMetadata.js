@@ -6,7 +6,6 @@ const enhancedResolve = require('enhanced-resolve');
 
 const reactDocsImport = import('react-docgen'); // v6 forces to use `import`
 
-// $FlowFixMe[signature-verification-failure]
 const resolveSync = enhancedResolve.create.sync({
   extensions: ['.tsx', '.ts', '.js'],
   fullySpecified: false,
