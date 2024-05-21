@@ -46,10 +46,13 @@ const rule: ESLintRule = {
   },
 
   create(context) {
+// @ts-expect-error - TS7034 - Variable 'programNode' implicitly has type 'any' in some locations where its type cannot be determined.
     let programNode;
+// @ts-expect-error - TS7034 - Variable 'gestaltImportNode' implicitly has type 'any' in some locations where its type cannot be determined.
     let gestaltImportNode;
     let importFixerRun = false;
 
+// @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
     const importDeclarationFnc = (node) => {
       if (!node) return;
 
@@ -63,6 +66,7 @@ const rule: ESLintRule = {
       gestaltImportNode = node;
     };
 
+// @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
     const jSXElementFnc = (node) => {
       const boxDisallowedAttributes = ['className', 'style'];
       const supportedAriaAttributes = ['aria-label', 'aria-selected'];
@@ -156,11 +160,13 @@ const rule: ESLintRule = {
       return context.report({
         node,
         messageId: 'fixMessageLink',
+// @ts-expect-error - TS7006 - Parameter 'fixer' implicitly has an 'any' type.
         fix: (fixer) => {
           const tagFixers = renameTagWithPropsFixer({
             context,
             elementNode: node,
             fixer,
+// @ts-expect-error - TS7005 - Variable 'gestaltImportNode' implicitly has an 'any' type.
             gestaltImportNode,
             newComponentName: 'Link',
             modifiedPropsString: buildProps({
@@ -179,9 +185,11 @@ const rule: ESLintRule = {
           });
 
           const importFixers = updateGestaltImportFixer({
+// @ts-expect-error - TS7005 - Variable 'gestaltImportNode' implicitly has an 'any' type.
             gestaltImportNode,
             fixer,
             newComponentName: 'Link',
+// @ts-expect-error - TS7005 - Variable 'programNode' implicitly has an 'any' type.
             programNode,
           });
 
@@ -192,11 +200,13 @@ const rule: ESLintRule = {
         suggest: [
           {
             messageId: 'suggestionMessageTapArea',
+// @ts-expect-error - TS7006 - Parameter 'fixer' implicitly has an 'any' type.
             fix: (fixer) => {
               const tagFixers = renameTagWithPropsFixer({
                 context,
                 elementNode: node,
                 fixer,
+// @ts-expect-error - TS7005 - Variable 'gestaltImportNode' implicitly has an 'any' type.
                 gestaltImportNode,
                 newComponentName: 'TapArea',
                 modifiedPropsString: buildProps({
@@ -217,9 +227,11 @@ const rule: ESLintRule = {
               });
 
               const importFixers = updateGestaltImportFixer({
+// @ts-expect-error - TS7005 - Variable 'gestaltImportNode' implicitly has an 'any' type.
                 gestaltImportNode,
                 fixer,
                 newComponentName: 'TapArea',
+// @ts-expect-error - TS7005 - Variable 'programNode' implicitly has an 'any' type.
                 programNode,
               });
 
@@ -232,6 +244,7 @@ const rule: ESLintRule = {
     };
 
     return {
+// @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
       Program: (node) => {
         programNode = node;
       },

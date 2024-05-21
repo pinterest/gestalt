@@ -72,5 +72,6 @@ ruleTester.run('prefer-box-as-tag', rule, {
       gestaltImportHTMLMultipleTagWithPropsOutput,
       multipleErrorMessage,
     ],
+// @ts-expect-error - TS2345 - Argument of type '([input, output, errors]: [any, any, any]) => { code: any; output: any; errors: any; }' is not assignable to parameter of type '(value: (string | any[])[], index: number, array: (string | any[])[][]) => { code: any; output: any; errors: any; }'.
   ].map(([input, output, errors]: [any, any, any]) => ({ code: input, output, errors })),
 });

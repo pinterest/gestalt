@@ -23,6 +23,7 @@ const flexPropNames = [
 ];
 const dangerousFlexGridDisplays = ['inline-flex', 'grid', 'inline-grid'];
 
+// @ts-expect-error - TS7006 - Parameter 'attributeName' implicitly has an 'any' type.
 function getAttributeName(attributeName): string | null | undefined {
   return attributeName?.name;
 }
@@ -39,6 +40,7 @@ function getExpressionValues(valueExpression: {
   return [valueExpression.consequent, valueExpression.alternate].map((option) => option.value);
 }
 
+// @ts-expect-error - TS7006 - Parameter 'attributeValue' implicitly has an 'any' type.
 function getAttributeValue(attributeValue): string | ReadonlyArray<string> | null | undefined {
   const staticValue = attributeValue?.value;
   const isBooleanShorthand = attributeValue === null;
@@ -144,22 +146,27 @@ const rule: ESLintRule = {
     let localBoxName = false;
 
     return {
+// @ts-expect-error - TS7006 - Parameter 'decl' implicitly has an 'any' type.
       ImportDeclaration(decl) {
         if (decl.source.value !== 'gestalt') {
           return;
         }
+// @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
         localBoxName = decl.specifiers.find((node) => node.imported.name === 'Box')?.local?.name;
       },
 
+// @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
       JSXOpeningElement(node) {
         if (!localBoxName || node?.name?.name !== localBoxName) {
           return;
         }
 
+// @ts-expect-error - TS7031 - Binding element 'name' implicitly has an 'any' type. | TS7031 - Binding element 'value' implicitly has an 'any' type.
         const props = node.attributes.map(({ name, value }) => ({
           name,
           value,
         }));
+// @ts-expect-error - TS7031 - Binding element 'name' implicitly has an 'any' type.
         const propNames = props.map(({ name }) => getAttributeName(name));
 
         // FIT - MAX WIDTH
@@ -171,15 +178,19 @@ const rule: ESLintRule = {
         }
 
         // FLEX PROPS
+// @ts-expect-error - TS7031 - Binding element 'name' implicitly has an 'any' type.
         const displayProps = props.filter(({ name }) =>
+// @ts-expect-error - TS2345 - Argument of type 'string | null | undefined' is not assignable to parameter of type 'string'.
           displayPropNames.includes(getAttributeName(name)),
         );
+// @ts-expect-error - TS7031 - Binding element 'value' implicitly has an 'any' type.
         const isFlexDisplay = displayProps.some(({ value }) => {
           const propValue = getAttributeValue(value);
           return Array.isArray(propValue) ? propValue.includes('flex') : propValue === 'flex';
         });
 
         const dangerouslySetInlineStyleProp = props.find(
+// @ts-expect-error - TS7031 - Binding element 'name' implicitly has an 'any' type.
           ({ name }) => getAttributeName(name) === 'dangerouslySetInlineStyle',
         );
         const isDangerousFlexDisplay = dangerouslySetInlineStyleProp

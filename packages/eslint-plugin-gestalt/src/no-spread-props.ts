@@ -30,8 +30,10 @@ const rule: ESLintRule = {
   },
 
   create(context) {
+// @ts-expect-error - TS7034 - Variable 'gestaltImportNode' implicitly has type 'any' in some locations where its type cannot be determined.
     let gestaltImportNode;
 
+// @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
     const importDeclarationFnc = (node) => {
       if (!node) return;
 
@@ -42,11 +44,14 @@ const rule: ESLintRule = {
       gestaltImportNode = node;
     };
 
+// @ts-expect-error - TS7006 - Parameter 'nodeAttribute' implicitly has an 'any' type.
     const jSXSpreadAttributeFnc = (nodeAttribute) => {
+// @ts-expect-error - TS7005 - Variable 'gestaltImportNode' implicitly has an 'any' type.
       if (!gestaltImportNode) {
         return null;
       }
 
+// @ts-expect-error - TS7005 - Variable 'gestaltImportNode' implicitly has an 'any' type.
       const importedComponents = getNamedImportsComponents({ importNode: gestaltImportNode });
 
       // access the component with spread props
@@ -76,6 +81,7 @@ const rule: ESLintRule = {
           autofix: isFixable ? 'Autofix available' : '',
         },
         fix: isFixable
+// @ts-expect-error - TS7006 - Parameter 'fixer' implicitly has an 'any' type.
           ? (fixer) => {
               const componentPropsString = buildPropsFromKeyValuesVariable({
                 context,

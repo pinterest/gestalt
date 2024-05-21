@@ -67,5 +67,6 @@ ruleTester.run('no-box-disallowedProps', rule, {
       disallowedPropsInvalid,
       'backgroundColor, invalidProp are not allowed on Box. Please see https://gestalt.pinterest.systems/Box for all allowed props.',
     ],
+// @ts-expect-error - TS2345 - Argument of type '([code, errorMessage]: [any, any]) => { code: any; errors: { message: any; }[]; }' is not assignable to parameter of type '(value: string[], index: number, array: string[][]) => { code: any; errors: { message: any; }[]; }'.
   ].map(([code, errorMessage]: [any, any]) => ({ code, errors: [{ message: errorMessage }] })),
 });

@@ -49,5 +49,6 @@ ruleTester.run('no-workflow-status-icon', rule, {
     [invalidDefaultSize, defaultOutputMessage],
     [invalidMatchProperties, defaultOutputMessage],
     [invalidRenamedIcon, defaultOutputMessage],
+// @ts-expect-error - TS2345 - Argument of type '([code, errorMessage]: [any, any]) => { code: any; errors: { message: any; }[]; }' is not assignable to parameter of type '(value: string[], index: number, array: string[][]) => { code: any; errors: { message: any; }[]; }'.
   ].map(([code, errorMessage]: [any, any]) => ({ code, errors: [{ message: errorMessage }] })),
 });

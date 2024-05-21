@@ -93,6 +93,7 @@ export default function AccessibilityChecklist({ component }: Props) {
           ) : (
             <AccessibilityTable accessibilityData={data?.status?.accessible} />
           ),
+// @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'Icons | undefined'.
           icon: STATUS_ICON_EQUIVALENCY_MAP[a11ySummary ?? 'notAvailable'],
           iconAccessibilityLabel: 'title icon',
           title: a11ySummaryNotAvailable

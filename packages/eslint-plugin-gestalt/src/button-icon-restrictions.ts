@@ -31,9 +31,11 @@ const rule: ESLintRule = {
 
   create(context) {
     let importedComponent = false;
+// @ts-expect-error - TS7034 - Variable 'localIdentifierName' implicitly has type 'any' in some locations where its type cannot be determined.
     let localIdentifierName;
     const componentName = 'Button';
 
+// @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
     function getAttribute(node, attributeName: string) {
       return Object.entries(node.attributes).find(
         ([_key, value]: [any, any]) => value && value.name && value.name.name === attributeName,
@@ -41,14 +43,17 @@ const rule: ESLintRule = {
     }
 
     function getValue(attribute?: [string, unknown]) {
+// @ts-expect-error - TS2571 - Object is of type 'unknown'.
       return attribute ? attribute[1].value.value : null;
     }
 
     return {
+// @ts-expect-error - TS7006 - Parameter 'decl' implicitly has an 'any' type.
       ImportDeclaration(decl) {
         if (decl.source.value !== 'gestalt') {
           return;
         }
+// @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
         importedComponent = decl.specifiers.some((node) => {
           const isValidComponent = node.imported.name === componentName;
           if (isValidComponent) {
@@ -57,7 +62,9 @@ const rule: ESLintRule = {
           return isValidComponent;
         });
       },
+// @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
       JSXOpeningElement(node) {
+// @ts-expect-error - TS7005 - Variable 'localIdentifierName' implicitly has an 'any' type.
         if (!importedComponent || localIdentifierName !== node.name.name) {
           return;
         }

@@ -68,6 +68,7 @@ type GetNodeFromPropNameType = (arg1: {
 /** This function returns the attribute node within a component node (elementNode) if names (propName) match.
  */
 const getNodeFromPropName: GetNodeFromPropNameType = ({ elementNode, propName }) =>
+// @ts-expect-error - TS7006 - Parameter 'prop' implicitly has an 'any' type.
   getOpeningElement({ elementNode })?.attributes?.find((prop) => prop?.name?.name === propName);
 
 type GetTextNodeFromSourceCodeType = (arg1: {
@@ -104,6 +105,7 @@ const retrieveKeyValuesFromVariable: RetrieveKeyValuesFromVariableType = ({
 }) => {
   const properties = getPropertiesFromVariable({ variableNode });
   return properties
+// @ts-expect-error - TS7006 - Parameter 'prop' implicitly has an 'any' type.
     ? properties.map((prop) => {
         const isLiteral = prop.value.type === 'Literal';
         return {
@@ -152,9 +154,11 @@ const buildProps: RetrieveKeyValuesFromPropsType = ({
   }
 
   const filteredProps = propsToRemove
+// @ts-expect-error - TS7006 - Parameter 'prop' implicitly has an 'any' type.
     ? openingElement.attributes.filter((prop) => !(propsToRemove ?? []).includes(prop.name.name))
     : openingElement.attributes;
 
+// @ts-expect-error - TS7006 - Parameter 'prop' implicitly has an 'any' type.
   const previousProps = filteredProps.map((prop) =>
     prop.value
       ? `${prop.name.name}=${getTextNodeFromSourceCode({
@@ -251,6 +255,7 @@ const getVariableNodeInScopeFromName: GetVariableNodeInScopeFromNameType = ({
 }) => {
   const scope = context.getScope(nodeElement);
   // Look in local scope for variable reference
+// @ts-expect-error - TS7006 - Parameter 'reference' implicitly has an 'any' type.
   const variableNode = scope.references.find((reference) => reference.identifier.name === name);
   return variableNode;
 };
@@ -281,6 +286,7 @@ type GetNamedImportsComponentsType = (arg1: {
 /** This function returns an array of arrays containing the named imports ([imported name, local or aliased name]) from a node (importNode).
  */
 const getNamedImportsComponents: GetNamedImportsComponentsType = ({ importNode }) => {
+// @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
   const namedImports = importNode?.specifiers?.map((node) => [
     node.imported.name,
     node?.local?.name,
@@ -318,6 +324,7 @@ Example 1:
 \<div {...props} \/\> >> returns true
 */
 const hasSpreadAttributes: HasSpreadAttributesType = ({ elementNode }) =>
+// @ts-expect-error - TS7006 - Parameter 'attributeNode' implicitly has an 'any' type.
   elementNode.attributes.some((attributeNode) => attributeNode.type === 'JSXSpreadAttribute');
 
 type HasLonelyAttributeType = (arg1: {
@@ -349,6 +356,7 @@ Example 1:
 */
 const hasAttributes: HasAttributesType = ({ elementNode, tagName, attributes }) =>
   isTag({ elementNode, tagName }) &&
+// @ts-expect-error - TS7006 - Parameter 'nodeAttribute' implicitly has an 'any' type.
   elementNode?.attributes.some((nodeAttribute) => attributes.includes(nodeAttribute?.name?.name));
 
 type HasAriaAttributesType = (arg1: {
@@ -363,6 +371,7 @@ Example 1:
 */
 const hasAriaAttributes: HasAriaAttributesType = ({ elementNode, ignoreAttributes, tagName }) =>
   isTag({ elementNode, tagName }) &&
+// @ts-expect-error - TS7006 - Parameter 'nodeAttribute' implicitly has an 'any' type.
   elementNode?.attributes.some((nodeAttribute) => {
     const attributeName = nodeAttribute?.name?.name;
     return !ignoreAttributes?.includes(attributeName) && attributeName.startsWith('aria-');
@@ -385,6 +394,7 @@ const hasUnsupportedAttributes: HasSupportedAttributesType = ({
 }) =>
   isTag({ elementNode, tagName }) &&
   elementNode?.attributes.some(
+// @ts-expect-error - TS7006 - Parameter 'nodeAttribute' implicitly has an 'any' type.
     (nodeAttribute) => !supportedAttributes.includes(nodeAttribute?.name?.name),
   );
 
@@ -399,6 +409,7 @@ Example 1:
 */
 const hasDataAttributes: HasDataAttributesType = ({ elementNode, tagName }) =>
   isTag({ elementNode, tagName }) &&
+// @ts-expect-error - TS7006 - Parameter 'nodeAttribute' implicitly has an 'any' type.
   elementNode?.attributes.some((nodeAttribute) => nodeAttribute?.name?.name.startsWith('data-'));
 
 type GetLocalComponentImportNameType = (arg1: {
@@ -455,6 +466,7 @@ type BuildKeyValueTypeArrayType = (arg1: {
  */
 const buildKeyValueTypeArray: BuildKeyValueTypeArrayType = ({ elementNode, nodeType }) => {
   if (nodeType === 'styleProperties') {
+// @ts-expect-error - TS7006 - Parameter 'stylePropertyNode' implicitly has an 'any' type.
     return elementNode.map((stylePropertyNode) => {
       const { key, type, value } = stylePropertyNode;
       return !key || value.value === undefined
@@ -463,6 +475,7 @@ const buildKeyValueTypeArray: BuildKeyValueTypeArrayType = ({ elementNode, nodeT
     });
   }
   if (nodeType === 'openingElementNode') {
+// @ts-expect-error - TS7006 - Parameter 'propertyNode' implicitly has an 'any' type.
     return elementNode.attributes.map((propertyNode) => {
       const { name, value } = propertyNode;
       return { name: name.name, value: value.value, node: propertyNode };
@@ -483,6 +496,7 @@ const buildValidatorResponsesFromProperties: BuildValidatorResponseFromPropertie
   context,
   keyValueTypeArray,
   reducerCallbackFn,
+// @ts-expect-error - TS2740 - Type '{ name: string | null | undefined; value?: string | number | null | undefined; node: any; }' is missing the following properties from type 'readonly { node: any; prop?: string | number | null | undefined; message?: string | number | null | undefined; }[]': length, concat, join, slice, and 18 more. | TS2345 - Argument of type 'ReducerType' is not assignable to parameter of type '(previousValue: any[], currentValue: { name: string | null | undefined; value?: string | number | null | undefined; node: any; }, currentIndex: number, array: readonly { name: string | null | undefined; value?: string | ... 2 more ... | undefined; node: any; }[]) => any[]'.
 }) => keyValueTypeArray.reduce<Array<any>>(reducerCallbackFn({ context }), []);
 
 // This export acts as an index of all helper functions for quick reference of helpers available

@@ -39,6 +39,7 @@ ruleTester.run('prefer-link', rule, {
       invalidImportMultipleOutput,
       invalidImportMultipleTapAreaSuggestion,
     ],
+// @ts-expect-error - TS2345 - Argument of type '([input, output, suggestion]: [any, any, any]) => { code: any; output: any; errors: { messageId: string; suggestions: { output: any; messageId: string; }[]; }[]; }' is not assignable to parameter of type '(value: string[], index: number, array: string[][]) => { code: any; output: any; errors: { messageId: string; suggestions: { output: any; messageId: string; }[]; }[]; }'.
   ].map(([input, output, suggestion]: [any, any, any]) => ({
     code: input,
     output,

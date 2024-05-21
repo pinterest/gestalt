@@ -100,9 +100,11 @@ export const overflowLookup: GenBointLookupType = {
 export const paddingLookup: GenBointLookupType = genBointLookup('padding', 0);
 
 export const validateBackgroundColor = (value: string): string | null | undefined =>
+// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly white: "color=\"default\""; readonly '#fff': "color=\"default\""; readonly '#ffffff': "color=\"default\""; readonly '#0074e8': "color=\"infoBase|shopping|education\""; readonly '#d7edff': "color=\"infoWeak\""; ... 13 more ...; readonly '#dadada': "color=\"darkWash\""; }'.
   colorMap[value];
 
 export const validateFlex = (value: string): string | null | undefined =>
+// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly '1 1 auto': "grow"; readonly '0 1 auto': "shrink"; readonly '0 0 auto': "none"; }'. | TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly '1 1 auto': "grow"; readonly '0 1 auto': "shrink"; readonly '0 0 auto': "none"; }'.
   flexMap[value] ? `flex="${flexMap[value]}"` : undefined;
 
 export const validateBorder = (value: string): string | null | undefined => {
@@ -111,12 +113,14 @@ export const validateBorder = (value: string): string | null | undefined => {
   // 2) sort the values since some found uses have the wrong order
   const cleanValue = value?.toLowerCase?.().split(' ').sort().join(' ') ?? value;
 
+// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly '#efefef 1px solid': "borderStyle=\"sm\""; readonly '#eee 1px solid': "borderStyle=\"sm\""; readonly '1px lightgray solid': "borderStyle=\"sm\""; readonly '#efefef 2px solid': "borderStyle=\"lg\""; readonly '#eee 2px solid': "borderStyle=\"lg\""; readonly '2px lightgray solid': "borderStyle=\"lg\""; }'.
   return borderMap[cleanValue];
 };
 
 const roundingLookup = genBointLookup('rounding', 0, 8);
 
 export const validateBorderRadius = (value: string): number | null | undefined | string =>
+// @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly '50%': "rounding=\"circle\""; readonly '999px': "rounding=\"circle\""; }'. | TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly '50%': "rounding=\"circle\""; readonly '999px': "rounding=\"circle\""; }'.
   borderRadiusMap[value] ? borderRadiusMap[value] : roundingLookup[value];
 
 export const validateBoxShadow = (value: string): string | null | undefined => {

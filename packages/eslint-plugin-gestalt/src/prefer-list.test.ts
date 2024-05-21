@@ -28,5 +28,6 @@ ruleTester.run('prefer-list', rule, {
   invalid: [
     [noGestaltListOl, messageList],
     [noGestaltListUl, messageList],
+// @ts-expect-error - TS2345 - Argument of type '([input]: [any]) => { code: any; errors: { messageId: string; }[]; }' is not assignable to parameter of type '(value: string[], index: number, array: string[][]) => { code: any; errors: { messageId: string; }[]; }'.
   ].map(([input]: [any]) => ({ code: input, errors: [{ messageId: 'messageList' }] })),
 });

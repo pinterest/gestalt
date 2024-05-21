@@ -37,11 +37,14 @@ const rule: ESLintRule = {
   },
 
   create(context) {
+// @ts-expect-error - TS7034 - Variable 'gestaltImportNode' implicitly has type 'any' in some locations where its type cannot be determined.
     let gestaltImportNode;
     let componentName = 'Icon';
 
     const matchValues = (node: any) => {
+// @ts-expect-error - TS2347 - Untyped function calls may not accept type arguments.
       const reducedPropValues = node.attributes.reduce<Record<string, any>>(
+// @ts-expect-error - TS7006 - Parameter 'acc' implicitly has an 'any' type. | TS7031 - Binding element 'name' implicitly has an 'any' type. | TS7031 - Binding element 'value' implicitly has an 'any' type.
         (acc, { name, value }) => {
           const newAcc = { ...acc } as const;
           newAcc[name?.name] = value?.value || value?.expression?.value;
@@ -70,16 +73,19 @@ const rule: ESLintRule = {
       if (!isGestaltImportNode) return;
 
       componentName =
+// @ts-expect-error - TS7006 - Parameter 'item' implicitly has an 'any' type.
         node?.specifiers?.find((item) => item?.imported?.name === 'Icon')?.local?.name || 'Icon';
       gestaltImportNode = node;
     };
 
     const jSXOpeningElementFnc = (node: any) => {
       // exit if Gestalt is not imported
+// @ts-expect-error - TS7005 - Variable 'gestaltImportNode' implicitly has an 'any' type.
       if (!gestaltImportNode) return null;
 
       const isIcon = isGestaltComponent({
         elementNode: node,
+// @ts-expect-error - TS7005 - Variable 'gestaltImportNode' implicitly has an 'any' type.
         gestaltImportNode,
         componentName: 'Icon',
       });

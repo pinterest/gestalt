@@ -40,6 +40,7 @@ ruleTester.run('no-spread-props', rule, {
   invalid: [
     [invalidFixableInput, invalidFixableOutput],
     [invalidNotFixableInput, invalidNotFixableOutput],
+// @ts-expect-error - TS2345 - Argument of type '([input, output]: [any, any], index: any) => { code: any; output: any; errors: { message: string; }[]; }' is not assignable to parameter of type '(value: string[], index: number, array: string[][]) => { code: any; output: any; errors: { message: string; }[]; }'.
   ].map(([input, output]: [any, any], index: any) => ({
     code: input,
     output,

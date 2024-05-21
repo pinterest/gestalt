@@ -40,10 +40,13 @@ const rule: ESLintRule = {
   },
 
   create(context) {
+// @ts-expect-error - TS7034 - Variable 'programNode' implicitly has type 'any' in some locations where its type cannot be determined.
     let programNode;
+// @ts-expect-error - TS7034 - Variable 'gestaltImportNode' implicitly has type 'any' in some locations where its type cannot be determined.
     let gestaltImportNode;
     let isImportFixerExecuted = false;
 
+// @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
     const importDeclarationFnc = (node) => {
       if (!node) return;
 
@@ -54,20 +57,24 @@ const rule: ESLintRule = {
       gestaltImportNode = node;
     };
 
+// @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
     const jSXElementFnc = (node) => {
       const tagName = getHtmlTag({ elementNode: node });
 
+// @ts-expect-error - TS2345 - Argument of type 'string' is not assignable to parameter of type '"summary" | "article" | "aside" | "caption" | "details" | "figcaption" | "figure" | "footer" | "header" | "main" | "nav" | "section"'.
       if (!SUPPORTED_HTML_TAGS.includes(tagName)) return null;
 
       return context.report({
         node,
         messageId: 'disallowed',
         data: { tagName },
+// @ts-expect-error - TS7006 - Parameter 'fixer' implicitly has an 'any' type.
         fix: (fixer) => {
           const tagFixers = renameTagWithPropsFixer({
             context,
             elementNode: node,
             fixer,
+// @ts-expect-error - TS7005 - Variable 'gestaltImportNode' implicitly has an 'any' type.
             gestaltImportNode,
             newComponentName: 'Box',
             modifiedPropsString: buildProps({
@@ -80,8 +87,10 @@ const rule: ESLintRule = {
 
           const importFixers = updateGestaltImportFixer({
             fixer,
+// @ts-expect-error - TS7005 - Variable 'gestaltImportNode' implicitly has an 'any' type.
             gestaltImportNode,
             newComponentName: 'Box',
+// @ts-expect-error - TS7005 - Variable 'programNode' implicitly has an 'any' type.
             programNode,
           });
 
@@ -93,6 +102,7 @@ const rule: ESLintRule = {
     };
 
     return {
+// @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
       Program: (node) => {
         programNode = node;
       },

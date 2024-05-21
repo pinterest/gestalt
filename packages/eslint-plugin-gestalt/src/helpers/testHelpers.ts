@@ -1,3 +1,4 @@
+// @ts-expect-error - TS2307 - Cannot find module 'flow-to-typescript-codemod' or its corresponding type declarations.
 import { Flow } from 'flow-to-typescript-codemod';
 import { readFileSync } from 'fs';
 import path from 'path';

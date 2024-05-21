@@ -25,14 +25,17 @@ const rule: ESLintRule = {
 
   create(context) {
     let importedComponent = false;
+// @ts-expect-error - TS7034 - Variable 'localIdentifierName' implicitly has type 'any' in some locations where its type cannot be determined.
     let localIdentifierName;
     const componentNames = ['SearchField', 'SelectList', 'TextField', 'ComboBox'];
 
     return {
+// @ts-expect-error - TS7006 - Parameter 'decl' implicitly has an 'any' type.
       ImportDeclaration(decl) {
         if (decl.source.value !== 'gestalt') {
           return;
         }
+// @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
         importedComponent = decl.specifiers.some((node) => {
           const isValidComponent = componentNames.includes(node.imported.name);
           if (isValidComponent) {
@@ -41,7 +44,9 @@ const rule: ESLintRule = {
           return isValidComponent;
         });
       },
+// @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
       JSXOpeningElement(node) {
+// @ts-expect-error - TS7005 - Variable 'localIdentifierName' implicitly has an 'any' type.
         if (!importedComponent || localIdentifierName !== node.name.name) {
           return;
         }
@@ -51,6 +56,7 @@ const rule: ESLintRule = {
         );
 
         // No size defined or size is not "lg"
+// @ts-expect-error - TS2571 - Object is of type 'unknown'.
         if (!sizeAttribute || sizeAttribute[1].value.value === 'md') {
           context.report(node, 'Gestalt form fields should always have size="lg" set on them');
         }

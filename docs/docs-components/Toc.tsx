@@ -46,6 +46,7 @@ function throttle(func: null | (() => void), wait: number) {
     if (remaining <= 0 || remaining > wait) {
       // @ts-expect-error - TS7005 - Variable 'timeout' implicitly has an 'any' type.
       if (timeout) {
+// @ts-expect-error - TS7005 - Variable 'timeout' implicitly has an 'any' type.
         clearTimeout(timeout);
         timeout = null;
       }
@@ -189,6 +190,7 @@ export default function Toc({ cards }: Props) {
 
     anchors.reduce((accumulated, anchor, i) => {
       const isParentItem = i === 0 || anchor.getElementsByTagName('h2').length > 0;
+// @ts-expect-error - TS2339 - Property 'at' does not exist on type 'ToCItem[]'.
       const lastParentItem = accumulated.at(-1);
 
       if (isParentItem) {

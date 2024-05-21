@@ -1,6 +1,7 @@
 /**
  * @fileoverview Only valid tokens: prevent the consumption of Gestalt tokens via hard-coded strings p.e. var(--color-border-error). Instead import constant from 'gestalt-design-tokens' p.e. import { TOKEN_COLOR_BORDER_ERROR } from 'gestalt-design-tokens'.
  */
+// @ts-expect-error - TS7016 - Could not find a declaration file for module 'gestalt-design-tokens/dist/js/constants'. '/home/jackhsu/code/gestalt/packages/gestalt-design-tokens/dist/js/constants.js' implicitly has an 'any' type.
 import tokens from 'gestalt-design-tokens/dist/js/constants';
 import { getTextNodeFromSourceCode } from './helpers/eslintASTHelpers';
 import { ESLintRule } from './helpers/eslintFlowTypes';
@@ -25,12 +26,16 @@ const rule: ESLintRule = {
   },
 
   create(context) {
+// @ts-expect-error - TS7034 - Variable 'data' implicitly has type 'any' in some locations where its type cannot be determined.
     let data;
     return {
+// @ts-expect-error - TS7006 - Parameter 'programNode' implicitly has an 'any' type.
       Program(programNode) {
+// @ts-expect-error - TS7006 - Parameter 'nodeToken' implicitly has an 'any' type.
         programNode.tokens.forEach((nodeToken) => {
           if (
             (nodeToken.type === 'String' || nodeToken.type === 'Template') &&
+// @ts-expect-error - TS2345 - Argument of type '([key, value]: [any, any]) => any' is not assignable to parameter of type '(value: readonly unknown[], index: number, array: readonly (readonly unknown[])[]) => unknown'.
             tokensValues.some(([key, value]: [any, any]) => {
               const match = typeof value === 'string' ? value.match(/var\(([^)]+)\)/) : null;
 
@@ -50,13 +55,17 @@ const rule: ESLintRule = {
               node: nodeToken,
               messageId: 'invalidTokenString',
               data: {
+// @ts-expect-error - TS7005 - Variable 'data' implicitly has an 'any' type.
                 token: data?.[1],
+// @ts-expect-error - TS7005 - Variable 'data' implicitly has an 'any' type.
                 replacement: data?.[0],
               },
+// @ts-expect-error - TS7006 - Parameter 'fixer' implicitly has an 'any' type.
               fix: (fixer) => {
                 const importFixers = fixer.insertTextBefore(
                   programNode,
                   `import { ${
+// @ts-expect-error - TS7005 - Variable 'data' implicitly has an 'any' type. | TS7005 - Variable 'data' implicitly has an 'any' type.
                     typeof data?.[0] === 'string' ? data?.[0] : ''
                   } } from 'gestalt-design-tokens';\n`,
                 );
@@ -65,6 +74,7 @@ const rule: ESLintRule = {
                   nodeToken,
                   getTextNodeFromSourceCode({ context, elementNode: nodeToken }).replace(
                     /^/,
+// @ts-expect-error - TS7005 - Variable 'data' implicitly has an 'any' type. | TS7005 - Variable 'data' implicitly has an 'any' type.
                     `\`\${${typeof data?.[0] === 'string' ? data?.[0] : ''}}\` + `,
                   ),
                 );

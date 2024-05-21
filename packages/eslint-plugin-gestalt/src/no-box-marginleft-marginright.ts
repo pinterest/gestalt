@@ -43,12 +43,15 @@ const rule: ESLintRule = {
     let importedComponent = false;
 
     return {
+// @ts-expect-error - TS7006 - Parameter 'decl' implicitly has an 'any' type.
       ImportDeclaration(decl) {
         if (decl.source.value !== 'gestalt') {
           return;
         }
+// @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
         importedComponent = decl.specifiers.some((node) => node.imported.name === 'Box');
       },
+// @ts-expect-error - TS7006 - Parameter 'node' implicitly has an 'any' type.
       JSXOpeningElement(node) {
         if (!importedComponent) {
           return;
