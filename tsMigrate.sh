@@ -3,7 +3,7 @@
 function flow_to_ts_codemod {
   echo "[Flow-to-TS Codemod] starting..."
   cd ~/code/flow-to-typescript-codemod/ || exit
-  yarn typescriptify convert --skipNoFlow --write --delete --path ~/code/gestalt/docs/ ~/code/gestalt/packages/gestalt/src/ ~/code/gestalt/packages/gestalt-charts/src/ ~/code/gestalt/packages/gestalt-datepicker/src/ --format csv --output /tmp/ts-migration-report.csv
+  yarn typescriptify convert --skipNoFlow --write --delete --path ~/code/gestalt/packages/eslint-plugin-gestalt/src/ --format csv --output /tmp/ts-migration-report.csv
   cd - || exit
   echo "Codemod complete"
   echo "Committing changes..."
@@ -15,7 +15,7 @@ function flow_to_ts_codemod {
 
 function prettier {
   echo "[Prettier] starting..."
-  yarn prettier --loglevel error --write ~/code/gestalt/docs/ ~/code/gestalt/packages/gestalt/src/ ~/code/gestalt/packages/gestalt-charts/src/ ~/code/gestalt/packages/gestalt-datepicker/src/ || exit 1
+  yarn prettier --loglevel error --write ~/code/gestalt/packages/eslint-plugin-gestalt/src/ || exit 1
   echo "Committing changes..."
   git add . && git commit -m '[TSMigrate Autocommit] Prettier'
   echo "Changes committed"
@@ -25,7 +25,7 @@ function prettier {
 function suppress_ts_errors {
   echo "[Supress TS Errors] starting..."
   cd ~/code/flow-to-typescript-codemod/ || exit
-  NODE_OPTIONS=--max-old-space-size=16384 yarn typescriptify fix --autoSuppressErrors --config ~/code/gestalt/tsconfig.json --generateReport --output /tmp/ts-error-report.csv -p ~/code/gestalt/docs/ ~/code/gestalt/packages/gestalt/src/ ~/code/gestalt/packages/gestalt-charts/src/ ~/code/gestalt/packages/gestalt-datepicker/src/
+  NODE_OPTIONS=--max-old-space-size=16384 yarn typescriptify fix --autoSuppressErrors --config ~/code/gestalt/tsconfig.json --generateReport --output /tmp/ts-error-report.csv -p ~/code/gestalt/packages/eslint-plugin-gestalt/src/
   cd - || exit
   echo "Committing changes..."
   git add . && git commit -m '[TSMigrate Autocommit] Suppress TypeScript errors'
