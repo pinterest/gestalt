@@ -1,3 +1,9 @@
+## 148.0.3 (May 21, 2024)
+
+### Patch
+
+- Internal: playwright TypeScript fixup ([#3582](https://github.com/pinterest/gestalt/pull/3582)) - [Preview link](https://deploy-preview-3582--gestalt.netlify.app?devexample=true)
+
 ## 148.0.2 (May 21, 2024)
 
 ### Patch
