@@ -106,6 +106,14 @@ $ElementType<React$ElementConfig<typeof ComponentName>, 'propName'>
             Yes. Gestalt officially supports and maintains TypeScript declaration files for our
             gestalt, gestalt-charts, and gestalt-datepicker packages.
           </Text>
+          <Heading size="400">Does Gestalt have Flow support?</Heading>
+          <Text inline>
+            No. Gestalt officially stopped supporting and maintaining Flow files for our gestalt,
+            gestalt-charts, and gestalt-datepicker packages after{' '}
+            <Link display="inline" href="https://github.com/pinterest/gestalt/pull/3558">
+              v147.6.0.
+            </Link>
+          </Text>
         </Flex>
       </Card>
 
