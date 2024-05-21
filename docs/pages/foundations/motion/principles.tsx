@@ -7,10 +7,10 @@ import PrincipleItem from '../../../docs-components/PrincipleItem';
 
 export default function AnimationPrinciples() {
   return (
-    <Page title="Animation principles">
+    <Page title="Motion principles">
       <PageHeader
         description="Animations can be utilized to provide feedback, add delight, and educate users. When considering adding animations to a product, consider these guiding principles."
-        name="Animation principles"
+        name="Motion principles"
         type="guidelines"
       />
 

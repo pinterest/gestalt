@@ -8,10 +8,10 @@ import ReducedMotionImage from '../../../docs-components/ReducedMotionImage';
 
 export default function GuidelinesPage() {
   return (
-    <Page title="Animation guidelines">
+    <Page title="Motion guidelines">
       <PageHeader
         description="Animation should help the user to accomplish various tasks, for example, to provide feedback, add delight and educate users. To successfully fulfill our mission, keep these guiding principles in mind when considering adding animation to a product."
-        name="Animation guidelines"
+        name="Motion guidelines"
         type="guidelines"
       />
 
