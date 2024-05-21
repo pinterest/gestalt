@@ -1,3 +1,9 @@
+## 149.0.0 (May 21, 2024)
+
+### Major
+
+- Icon: updated redo/undo icons + deprecated live icon. ([#3585](https://github.com/pinterest/gestalt/pull/3585)) - [Preview link](https://deploy-preview-3585--gestalt.netlify.app?devexample=true)
+
 ## 148.0.5 (May 21, 2024)
 
 ### Patch
