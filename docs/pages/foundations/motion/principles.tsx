@@ -63,8 +63,8 @@ export default function AnimationPrinciples() {
                   heading="Accessible"
                   text={
                     <Text>
-                      Animations must be implemented in a way that maintains accessibility, ensuring
-                      they do not cause the user any harm.
+                      Animations must be designed and implemented to consider people with
+                      disabilities, ensuring they do not cause the user any harm.
                       <br />
                       <br />
                       Most of the time this means respecting a user’s device motion settings and
