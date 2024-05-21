@@ -487,7 +487,7 @@ const buildKeyValueTypeArray: BuildKeyValueTypeArrayType = ({ elementNode, nodeT
 type BuildValidatorResponseFromPropertiesType = (arg1: {
   context: GenericNode;
   keyValueTypeArray: KeyValueTypeArrayType;
-  reducerCallbackFn: (arg1: { context: GenericNode }) => ReducerType;
+  reducerCallbackFn: (callbackArg: { context: GenericNode }) => ReducerType;
 }) => ReducerAccType;
 
 /** This function returns props fixes and the associated messages

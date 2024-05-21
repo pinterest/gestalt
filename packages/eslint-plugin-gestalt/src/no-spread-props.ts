@@ -51,7 +51,6 @@ const rule: ESLintRule = {
         return null;
       }
 
-      // @ts-expect-error - TS7005 - Variable 'gestaltImportNode' implicitly has an 'any' type.
       const importedComponents = getNamedImportsComponents({ importNode: gestaltImportNode });
 
       // access the component with spread props

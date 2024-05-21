@@ -1,5 +1,3 @@
-// @ts-expect-error - TS2307 - Cannot find module 'flow-to-typescript-codemod' or its corresponding type declarations.
-import { Flow } from 'flow-to-typescript-codemod';
 import { readFileSync } from 'fs';
 import path from 'path';
 import { RuleTester } from 'eslint';
@@ -12,7 +10,7 @@ export const parserOptions = {
   },
 } as const;
 
-export const getRuleTester = (): Flow.Class<any> => new RuleTester({ parserOptions });
+export const getRuleTester = (): RuleTester => new RuleTester({ parserOptions });
 
 type Prepender = (arg1: string) => string;
 export const getTestTypePrepender =

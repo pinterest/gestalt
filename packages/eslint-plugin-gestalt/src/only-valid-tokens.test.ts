@@ -28,12 +28,16 @@ const unsafeCssOutput = buildInvalidTest('unsafeCss-output');
 const variableInput = buildInvalidTest('variable-input');
 const variableOutput = buildInvalidTest('variable-output');
 
+// eslint-disable-next-line gestalt/only-valid-tokens
 const messageColorBorderError = `This string contains Gestalt hard-coded strings tokens: 'var(--color-border-error)'. Replace with equivalent constant: import { TOKEN_COLOR_BORDER_ERROR } from 'gestalt-design-tokens'.`;
 
+// eslint-disable-next-line gestalt/only-valid-tokens
 const messageColorBorderContainer = `This string contains Gestalt hard-coded strings tokens: 'var(--color-border-container)'. Replace with equivalent constant: import { TOKEN_COLOR_BORDER_CONTAINER } from 'gestalt-design-tokens'.`;
 
+// eslint-disable-next-line gestalt/only-valid-tokens
 const messageColorWhiteMochimalist = `This string contains Gestalt hard-coded strings tokens: 'var(--color-white-mochimalist-0)'. Replace with equivalent constant: import { TOKEN_COLOR_WHITE_MOCHIMALIST_0 } from 'gestalt-design-tokens'.`;
 
+// eslint-disable-next-line gestalt/only-valid-tokens
 const messageColorBackgroundDefault = `This string contains Gestalt hard-coded strings tokens: 'var(--color-background-default)'. Replace with equivalent constant: import { TOKEN_COLOR_BACKGROUND_DEFAULT } from 'gestalt-design-tokens'.`;
 
 ruleTester.run('only-valid-tokens', rule, {

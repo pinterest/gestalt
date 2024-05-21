@@ -1,12 +1,12 @@
 /**
  * @fileoverview Only valid tokens: prevent the consumption of Gestalt tokens via hard-coded strings p.e. var(--color-border-error). Instead import constant from 'gestalt-design-tokens' p.e. import { TOKEN_COLOR_BORDER_ERROR } from 'gestalt-design-tokens'.
  */
-// @ts-expect-error - TS7016 - Could not find a declaration file for module 'gestalt-design-tokens/dist/js/constants'. '/home/jackhsu/code/gestalt/packages/gestalt-design-tokens/dist/js/constants.js' implicitly has an 'any' type.
+// @ts-expect-error - TS7016
 import tokens from 'gestalt-design-tokens/dist/js/constants';
 import { getTextNodeFromSourceCode } from './helpers/eslintASTHelpers';
 import { ESLintRule } from './helpers/eslintFlowTypes';
 
-const tokensValues: ReadonlyArray<ReadonlyArray<unknown>> = Object.entries(tokens);
+const tokensValues = Object.entries(tokens);
 
 const rule: ESLintRule = {
   meta: {
@@ -35,8 +35,7 @@ const rule: ESLintRule = {
         programNode.tokens.forEach((nodeToken) => {
           if (
             (nodeToken.type === 'String' || nodeToken.type === 'Template') &&
-            // @ts-expect-error - TS2345 - Argument of type '([key, value]: [any, any]) => any' is not assignable to parameter of type '(value: readonly unknown[], index: number, array: readonly (readonly unknown[])[]) => unknown'.
-            tokensValues.some(([key, value]: [any, any]) => {
+            tokensValues.some(([key, value]) => {
               const match = typeof value === 'string' ? value.match(/var\(([^)]+)\)/) : null;
 
               const hasToken =

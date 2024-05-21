@@ -78,7 +78,6 @@ const rule: ESLintRule = {
 
       const isBox = isGestaltComponent({
         elementNode: node,
-        // @ts-expect-error - TS7005 - Variable 'gestaltImportNode' implicitly has an 'any' type.
         gestaltImportNode,
         componentName: 'Box',
       });
