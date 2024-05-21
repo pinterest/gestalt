@@ -1,4 +1,4 @@
-import {readFileSync} from 'fs';
+import { readFileSync } from 'fs';
 import path from 'path';
 import { RuleTester } from 'eslint';
 import { parserOptions } from './helpers/testHelpers';
@@ -32,5 +32,8 @@ ruleTester.run('no-role-link-components', rule, {
     [invalidButton, 'Button'],
     [invalidIconButton, 'IconButton'],
     [invalidTapArea, 'TapArea'],
-  ].map(([code, errorMessage]: [any, any]) => ({ code, errors: [{ message: getErrorMessage(errorMessage) }] })),
+  ].map(([code, errorMessage]: [any, any]) => ({
+    code,
+    errors: [{ message: getErrorMessage(errorMessage) }],
+  })),
 });

@@ -1,4 +1,4 @@
-import {generateDefaultMessage} from './helpers/noBoxDangerousStyleDuplicatesReducer';
+import { generateDefaultMessage } from './helpers/noBoxDangerousStyleDuplicatesReducer';
 import {
   getPathFormatterByRuleName,
   getRuleTester,

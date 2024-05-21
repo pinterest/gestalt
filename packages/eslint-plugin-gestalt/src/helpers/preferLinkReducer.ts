@@ -1,4 +1,4 @@
-import {getTextNodeFromSourceCode} from './eslintASTHelpers';
+import { getTextNodeFromSourceCode } from './eslintASTHelpers';
 import { BuildReducerType, ReducerType } from './reducerTypes';
 
 const buildPreferLinkReducer: BuildReducerType = ({ context }) => {
@@ -7,11 +7,7 @@ const buildPreferLinkReducer: BuildReducerType = ({ context }) => {
     const accumulatorAlternativesBuilder = [...accumulatorAlternatives];
     // This function manages all suggested alternatives, if existing
 
-    const handleAlternative = ({
-      alternative,
-    }: {
-      alternative: string
-    }) => {
+    const handleAlternative = ({ alternative }: { alternative: string }) => {
       if (alternative) {
         accumulatorAlternativesBuilder.push({
           node,

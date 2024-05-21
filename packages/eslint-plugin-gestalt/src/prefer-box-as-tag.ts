@@ -2,7 +2,7 @@
  * @fileoverview Prefer Box: prevent HTML tags supported in Box through the `as` prop
  */
 
-import {renameTagWithPropsFixer, updateGestaltImportFixer} from './helpers/eslintASTFixers';
+import { renameTagWithPropsFixer, updateGestaltImportFixer } from './helpers/eslintASTFixers';
 import { buildProps, getHtmlTag, hasImport } from './helpers/eslintASTHelpers';
 import { ESLintRule } from './helpers/eslintFlowTypes';
 
@@ -33,7 +33,7 @@ const rule: ESLintRule = {
       url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltprefer-box-as-tag',
     },
     fixable: 'code',
-    schema: ([] as ReadonlyArray<never>),
+    schema: [] as ReadonlyArray<never>,
     messages: {
       disallowed: `Use <Box as="{{ tagName }}"></Box>.`,
     },

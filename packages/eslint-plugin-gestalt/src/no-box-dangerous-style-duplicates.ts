@@ -6,7 +6,7 @@
  * available props as dangerous styles and suggests the alternative
  */
 
-import {renameTagWithPropsFixer, updateGestaltImportFixer} from './helpers/eslintASTFixers';
+import { renameTagWithPropsFixer, updateGestaltImportFixer } from './helpers/eslintASTFixers';
 import {
   buildKeyValueTypeArray,
   buildProps,

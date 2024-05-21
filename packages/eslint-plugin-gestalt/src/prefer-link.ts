@@ -2,7 +2,7 @@
  * @fileoverview Prefer Link: Prevent anchor tags that only contain attributes matching supported props in Gestalt Link
  */
 
-import {renameTagWithPropsFixer, updateGestaltImportFixer} from './helpers/eslintASTFixers';
+import { renameTagWithPropsFixer, updateGestaltImportFixer } from './helpers/eslintASTFixers';
 import {
   buildKeyValueTypeArray,
   buildProps,
@@ -113,11 +113,7 @@ const rule: ESLintRule = {
         reducerCallbackFn: preferLinkReducer,
       });
 
-      const newPropsToAddToLink = ({
-        alternativeComponent,
-      }: {
-        alternativeComponent: string
-      }) => {
+      const newPropsToAddToLink = ({ alternativeComponent }: { alternativeComponent: string }) => {
         const newResponse =
           alternativeComponent === 'Link'
             ? [...validatorResponse]

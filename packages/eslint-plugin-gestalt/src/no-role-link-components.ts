@@ -5,7 +5,7 @@
  * Pinboard alternative with additional functionalityp must be used instead.
  */
 
-import {ESLintRule} from './helpers/eslintFlowTypes';
+import { ESLintRule } from './helpers/eslintFlowTypes';
 
 const rule: ESLintRule = {
   meta: {

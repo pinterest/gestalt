@@ -17,7 +17,7 @@ const rule: ESLintRule = {
       recommended: true,
       url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltprefer-list',
     },
-    schema: ([] as ReadonlyArray<never>),
+    schema: [] as ReadonlyArray<never>,
     fixable: 'code',
     messages: {
       invalidTokenString: `This string contains Gestalt hard-coded strings tokens: '{{ token }}'. Replace with equivalent constant: import { {{ replacement }} } from 'gestalt-design-tokens'.`,

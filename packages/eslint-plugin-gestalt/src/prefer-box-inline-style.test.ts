@@ -1,4 +1,4 @@
-import {readFileSync} from 'fs';
+import { readFileSync } from 'fs';
 import path from 'path';
 import { RuleTester } from 'eslint';
 import { parserOptions } from './helpers/testHelpers';
@@ -32,5 +32,8 @@ ruleTester.run('prefer-box', rule, {
     [invalidBackgroundColor, '`color="default"`'],
     [invalidBorderRadius, '`rounding="circle"`'],
     [invalidBorder, '`borderStyle="lg"`'],
-  ].map(([code, errorMessage]: [any, any]) => ({ code, errors: [{ message: getErrorMessage(errorMessage) }] })),
+  ].map(([code, errorMessage]: [any, any]) => ({
+    code,
+    errors: [{ message: getErrorMessage(errorMessage) }],
+  })),
 });

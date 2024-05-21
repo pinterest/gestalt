@@ -7,22 +7,20 @@ import {
 } from './eslintASTHelpers';
 
 type GenericNode = {
-  [key: string]: any
+  [key: string]: any;
 };
 
 /** =================  FIXERS =================
 Fixers are the functions executed in the fix method inside context.report
 */
 
-type updateGestaltImportFixerType = (
-  arg1: {
-    fixer: GenericNode,
-    gestaltImportNode: GenericNode,
-    importsToRemove?: ReadonlyArray<string>,
-    newComponentName: string,
-    programNode: GenericNode
-  },
-) => GenericNode;
+type updateGestaltImportFixerType = (arg1: {
+  fixer: GenericNode;
+  gestaltImportNode: GenericNode;
+  importsToRemove?: ReadonlyArray<string>;
+  newComponentName: string;
+  programNode: GenericNode;
+}) => GenericNode;
 
 /** This function updates the imports to include the new Gestalt component if needed. If there's no previous Gestalt import, it's preprended at the top of the file. It mantains aliased imports.
  */
@@ -65,16 +63,14 @@ export const updateGestaltImportFixer: updateGestaltImportFixerType = ({
   return fixer.replaceText(gestaltImportNode, `import { ${sortedImports} } from 'gestalt';`);
 };
 
-type RenameTagFixerType = (
-  arg1: {
-    context: GenericNode,
-    elementNode: GenericNode,
-    fixer: GenericNode,
-    gestaltImportNode: GenericNode,
-    newComponentName: string,
-    tagName: string
-  },
-) => ReadonlyArray<GenericNode>;
+type RenameTagFixerType = (arg1: {
+  context: GenericNode;
+  elementNode: GenericNode;
+  fixer: GenericNode;
+  gestaltImportNode: GenericNode;
+  newComponentName: string;
+  tagName: string;
+}) => ReadonlyArray<GenericNode>;
 
 /** This function renames a given tag name inside a node: `tagName` is replaced with `newComponentName`
 Examples 1:
@@ -111,18 +107,16 @@ export const renameTagFixer: RenameTagFixerType = ({
     })
     .filter(Boolean);
 
-type RenameTagWithPropsFixerType = (
-  arg1: {
-    context: GenericNode,
-    elementNode: GenericNode,
-    fixer: GenericNode,
-    gestaltImportNode: GenericNode,
-    modifiedPropsString: string,
-    newComponentName: string,
-    tagName: string,
-    propsToRemove?: ReadonlyArray<string>
-  },
-) => ReadonlyArray<GenericNode>;
+type RenameTagWithPropsFixerType = (arg1: {
+  context: GenericNode;
+  elementNode: GenericNode;
+  fixer: GenericNode;
+  gestaltImportNode: GenericNode;
+  modifiedPropsString: string;
+  newComponentName: string;
+  tagName: string;
+  propsToRemove?: ReadonlyArray<string>;
+}) => ReadonlyArray<GenericNode>;
 
 /** This function is a more complex version of renameTagFixer. It has the same tag replacement functionality, but it also rebuild the props in the opening tag to include a new prop. The new prop must be formatted as a string, p.e. `as="article"`
 Examples 1:

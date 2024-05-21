@@ -6,7 +6,7 @@
  * given the used props.
  */
 
-import {renameTagWithPropsFixer, updateGestaltImportFixer} from './helpers/eslintASTFixers';
+import { renameTagWithPropsFixer, updateGestaltImportFixer } from './helpers/eslintASTFixers';
 import { buildProps } from './helpers/eslintASTHelpers';
 import { ESLintRule } from './helpers/eslintFlowTypes';
 

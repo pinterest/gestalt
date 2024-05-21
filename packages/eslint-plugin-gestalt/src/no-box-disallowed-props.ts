@@ -2,7 +2,7 @@
  * @fileoverview Error on disallowed props on `Box`
  */
 
-import {ESLintRule} from './helpers/eslintFlowTypes';
+import { ESLintRule } from './helpers/eslintFlowTypes';
 
 export const allowedBaseProps = [
   // React / DOM
@@ -127,9 +127,10 @@ export const allowedBaseProps = [
 
 const allowedPrefixProps = ['data-', 'aria-'];
 
-const errorMessage = (props: ReadonlyArray<string>, localBoxName: string): string => `${props.length === 1 ? `${props[0]} is` : `${props.join(', ')} are`} not allowed on Box${
-  localBoxName !== 'Box' ? ` (imported as ${localBoxName})` : ''
-}. Please see https://gestalt.pinterest.systems/Box for all allowed props.`;
+const errorMessage = (props: ReadonlyArray<string>, localBoxName: string): string =>
+  `${props.length === 1 ? `${props[0]} is` : `${props.join(', ')} are`} not allowed on Box${
+    localBoxName !== 'Box' ? ` (imported as ${localBoxName})` : ''
+  }. Please see https://gestalt.pinterest.systems/Box for all allowed props.`;
 
 const rule: ESLintRule = {
   meta: {

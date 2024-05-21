@@ -1,4 +1,4 @@
-import {readFileSync} from 'fs';
+import { readFileSync } from 'fs';
 import path from 'path';
 import { RuleTester } from 'eslint';
 import rule, { errorMessage, errorMessage2 } from './button-icon-restrictions';

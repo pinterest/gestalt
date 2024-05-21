@@ -2,7 +2,7 @@
  * @fileoverview Error on useless props on `Box`
  */
 
-import {ESLintRule} from './helpers/eslintFlowTypes';
+import { ESLintRule } from './helpers/eslintFlowTypes';
 
 export const errorMessages = {
   fit: '`fit` sets `maxWidth`, so `maxWidth` should not be specified when `fit` is used',
@@ -27,17 +27,15 @@ function getAttributeName(attributeName): string | null | undefined {
   return attributeName?.name;
 }
 
-function getExpressionValues(
-  valueExpression: {
-    value: string,
-    consequent: {
-      value: string
-    },
-    alternate: {
-      value: string
-    }
-  },
-): ReadonlyArray<string> {
+function getExpressionValues(valueExpression: {
+  value: string;
+  consequent: {
+    value: string;
+  };
+  alternate: {
+    value: string;
+  };
+}): ReadonlyArray<string> {
   return [valueExpression.consequent, valueExpression.alternate].map((option) => option.value);
 }
 
@@ -67,27 +65,25 @@ function getAttributeValue(attributeValue): string | ReadonlyArray<string> | nul
   return undefined;
 }
 
-function getDangerouslySetStyles(
-  attributeValue: {
-    expression: {
-      properties: ReadonlyArray<{
-        key: {
-          name: string
-        },
-        value: {
-          properties: ReadonlyArray<{
-            key: {
-              name: string
-            },
-            value: {
-              properties: ReadonlyArray<Record<any, any>>
-            }
-          }>
-        }
-      }>
-    }
-  },
-): any {
+function getDangerouslySetStyles(attributeValue: {
+  expression: {
+    properties: ReadonlyArray<{
+      key: {
+        name: string;
+      };
+      value: {
+        properties: ReadonlyArray<{
+          key: {
+            name: string;
+          };
+          value: {
+            properties: ReadonlyArray<Record<any, any>>;
+          };
+        }>;
+      };
+    }>;
+  };
+}): any {
   const valueExpression = attributeValue.expression;
   const styleObject = valueExpression?.properties?.find(({ key }) => key.name === '__style');
   if (!styleObject) {
@@ -105,14 +101,14 @@ function getDangerouslySetStyles(
 function hasDangerouslySetFlexDisplay(
   stylesObject: null | {
     display: {
-      value: string,
+      value: string;
       consequent: {
-        value: string
-      },
+        value: string;
+      };
       alternate: {
-        value: string
-      }
-    }
+        value: string;
+      };
+    };
   },
 ): boolean {
   if (!stylesObject || !stylesObject.display) {

@@ -2,7 +2,11 @@
  * @fileoverview Prefer Heading: Prevent heading tags (h1 ... h6), use Gestalt Heading, instead
  */
 
-import {renameTagFixer, renameTagWithPropsFixer, updateGestaltImportFixer} from './helpers/eslintASTFixers';
+import {
+  renameTagFixer,
+  renameTagWithPropsFixer,
+  updateGestaltImportFixer,
+} from './helpers/eslintASTFixers';
 import {
   getHtmlTag,
   hasAttributes,

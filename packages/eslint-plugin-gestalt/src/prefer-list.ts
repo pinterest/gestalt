@@ -2,7 +2,7 @@
  * @fileoverview Prefer List: Prevent ul or ol list tags for basic use cases.
  */
 
-import {ESLintRule} from './helpers/eslintFlowTypes';
+import { ESLintRule } from './helpers/eslintFlowTypes';
 
 const rule: ESLintRule = {
   meta: {

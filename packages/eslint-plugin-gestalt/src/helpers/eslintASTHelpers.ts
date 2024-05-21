@@ -1,13 +1,9 @@
-import {GenericNode, GenericType, ReducerAccType, ReducerType} from './reducerTypes';
+import { GenericNode, GenericType, ReducerAccType, ReducerType } from './reducerTypes';
 
 /** =================  HELPERS =================
  */
 
-type GetPropertiesFromVariableType = (
-  arg1: {
-    variableNode: GenericNode
-  },
-) => GenericType;
+type GetPropertiesFromVariableType = (arg1: { variableNode: GenericNode }) => GenericType;
 
 /** This function returns the properties from a variable in scope
 Example 1:
@@ -17,11 +13,9 @@ const a = { color: "red"}
 const getPropertiesFromVariable: GetPropertiesFromVariableType = ({ variableNode }) =>
   variableNode?.resolved?.defs?.[0]?.node?.init?.properties;
 
-type GetInlineDefinedStylesType = (
-  arg1: {
-    attributeNode: GenericNode
-  },
-) => GenericNode | null | undefined;
+type GetInlineDefinedStylesType = (arg1: {
+  attributeNode: GenericNode;
+}) => GenericNode | null | undefined;
 
 /** This function returns the inline style defined in Box within dangerouslySetInlineStyle
 Example 1: Return the property color from variable a
@@ -32,11 +26,7 @@ const getInlineDefinedStyles: GetInlineDefinedStylesType = ({ attributeNode }) =
   return propertyNode?.key?.name === '__style' ? propertyNode?.value.properties : null;
 };
 
-type GetOpeningElementType = (
-  arg1: {
-    elementNode: GenericNode
-  },
-) => GenericNode;
+type GetOpeningElementType = (arg1: { elementNode: GenericNode }) => GenericNode;
 
 /** This function returns the opening element independently of the node passed
 
@@ -45,11 +35,7 @@ type GetOpeningElementType = (
 const getOpeningElement: GetOpeningElementType = ({ elementNode }) =>
   elementNode.type === 'JSXOpeningElement' ? elementNode : elementNode?.openingElement;
 
-type GetClosingElementType = (
-  arg1: {
-    elementNode: GenericNode
-  },
-) => GenericNode;
+type GetClosingElementType = (arg1: { elementNode: GenericNode }) => GenericNode;
 
 /** This function returns the closing element independently of the node passed
 
@@ -60,11 +46,9 @@ const getClosingElement: GetClosingElementType = ({ elementNode }) =>
     ? elementNode.closingElement
     : elementNode?.parent?.closingElement;
 
-type GetVariableDefinedStylesType = (
-  arg1: {
-    variableNode: GenericNode
-  },
-) => GenericNode | null | undefined;
+type GetVariableDefinedStylesType = (arg1: {
+  variableNode: GenericNode;
+}) => GenericNode | null | undefined;
 
 /** This function returns the style defined a varianle and passed to Box's dangerouslySetInlineStyle
 Example 1: Return the property color from variable a
@@ -76,24 +60,20 @@ const getVariableDefinedStyles: GetVariableDefinedStylesType = ({ variableNode }
   return propertyNode?.key?.name === '__style' ? propertyNode?.value?.properties : null;
 };
 
-type GetNodeFromPropNameType = (
-  arg1: {
-    elementNode: GenericNode,
-    propName: string
-  },
-) => GenericNode;
+type GetNodeFromPropNameType = (arg1: {
+  elementNode: GenericNode;
+  propName: string;
+}) => GenericNode;
 
 /** This function returns the attribute node within a component node (elementNode) if names (propName) match.
  */
 const getNodeFromPropName: GetNodeFromPropNameType = ({ elementNode, propName }) =>
   getOpeningElement({ elementNode })?.attributes?.find((prop) => prop?.name?.name === propName);
 
-type GetTextNodeFromSourceCodeType = (
-  arg1: {
-    context: GenericNode,
-    elementNode: GenericNode
-  },
-) => string;
+type GetTextNodeFromSourceCodeType = (arg1: {
+  context: GenericNode;
+  elementNode: GenericNode;
+}) => string;
 
 /** This function returns the text from a node as it's shown in the code source.
  */
@@ -101,16 +81,14 @@ const getTextNodeFromSourceCode: GetTextNodeFromSourceCodeType = ({ context, ele
   context.getSourceCode().getText(elementNode);
 
 type KeyValuesType = {
-  key: string,
-  value: string | number,
-  isValueTypeLiteral: boolean
+  key: string;
+  value: string | number;
+  isValueTypeLiteral: boolean;
 };
-type RetrieveKeyValuesFromVariableType = (
-  arg1: {
-    context: GenericNode,
-    variableNode: GenericNode
-  },
-) => ReadonlyArray<KeyValuesType> | null;
+type RetrieveKeyValuesFromVariableType = (arg1: {
+  context: GenericNode;
+  variableNode: GenericNode;
+}) => ReadonlyArray<KeyValuesType> | null;
 
 /** This function returns an array of objects containing the data for each key/value in the variable object.
 Example 1:
@@ -137,11 +115,7 @@ const retrieveKeyValuesFromVariable: RetrieveKeyValuesFromVariableType = ({
     : null;
 };
 
-type BuildLiteralValueStringType = (
-  arg1: {
-    value: string | number
-  },
-) => string;
+type BuildLiteralValueStringType = (arg1: { value: string | number }) => string;
 
 /** This function returns a string of literal value formatted as a prop value.
 Example 1:
@@ -152,15 +126,13 @@ Example 2:
 const buildLiteralValueString: BuildLiteralValueStringType = ({ value }) =>
   typeof value === 'number' ? `{${value}}` : `"${value}"`;
 
-type RetrieveKeyValuesFromPropsType = (
-  arg1: {
-    context: GenericNode,
-    elementNode: GenericNode,
-    propSorting?: boolean,
-    propsToAdd?: string,
-    propsToRemove?: ReadonlyArray<string>
-  },
-) => string;
+type RetrieveKeyValuesFromPropsType = (arg1: {
+  context: GenericNode;
+  elementNode: GenericNode;
+  propSorting?: boolean;
+  propsToAdd?: string;
+  propsToRemove?: ReadonlyArray<string>;
+}) => string;
 
 /** This function returns a string of component props
 Example:
@@ -201,11 +173,7 @@ const buildProps: RetrieveKeyValuesFromPropsType = ({
   return propSorting ? propsArray.sort().join(' ') : propsArray.join(' ');
 };
 
-type BuildPropsFromKeyValuesType = (
-  arg1: {
-    keyValues: ReadonlyArray<KeyValuesType>
-  },
-) => string;
+type BuildPropsFromKeyValuesType = (arg1: { keyValues: ReadonlyArray<KeyValuesType> }) => string;
 /** This function returns key/values formatted as component props.
 Example 1:
 { key: "color", value: "red", isValueTypeLiteral: true } >> color="red"
@@ -239,12 +207,10 @@ const buildPropsFromKeyValues: BuildPropsFromKeyValuesType = ({ keyValues }) => 
   return stringProps;
 };
 
-type BuildPropsFromKeyValuesVariableType = (
-  arg1: {
-    context: GenericNode,
-    variableNode: GenericNode
-  },
-) => string;
+type BuildPropsFromKeyValuesVariableType = (arg1: {
+  context: GenericNode;
+  variableNode: GenericNode;
+}) => string;
 /** This function returns key/values formatted as component props.
 Example:
 [{ key: "color", value: "red", isValueTypeLiteral: true }, { key: "width", value: 20, isValueTypeLiteral: true }] >> 'color="red" width={20}'
@@ -260,11 +226,7 @@ const buildPropsFromKeyValuesVariable: BuildPropsFromKeyValuesVariableType = ({
   return keyValues ? buildPropsFromKeyValues({ keyValues }) : '';
 };
 
-type GetComponentFromAttributeType = (
-  arg1: {
-    nodeAttribute: GenericNode
-  },
-) => GenericNode;
+type GetComponentFromAttributeType = (arg1: { nodeAttribute: GenericNode }) => GenericNode;
 /** This function returns the component containing the attribute's node (nodeAttribute).
 Example:
 \<div {...props} \/\> returns div node for the spread props attribute
@@ -272,13 +234,11 @@ Example:
 const getComponentFromAttribute: GetComponentFromAttributeType = ({ nodeAttribute }) =>
   nodeAttribute.parent;
 
-type GetVariableNodeInScopeFromNameType = (
-  arg1: {
-    context: GenericNode,
-    nodeElement: GenericNode,
-    name: string
-  },
-) => GenericNode;
+type GetVariableNodeInScopeFromNameType = (arg1: {
+  context: GenericNode;
+  nodeElement: GenericNode;
+  name: string;
+}) => GenericNode;
 /** This function returns the component's name containing the attribute's node (nodeAttribute).
 Example:
 \<div {...props} \/\> returns div for the spread props attribute
@@ -295,11 +255,7 @@ const getVariableNodeInScopeFromName: GetVariableNodeInScopeFromNameType = ({
   return variableNode;
 };
 
-type GetComponentNameFromAttributeType = (
-  arg1: {
-    nodeAttribute: GenericNode
-  },
-) => string;
+type GetComponentNameFromAttributeType = (arg1: { nodeAttribute: GenericNode }) => string;
 /** This function returns the component's name containing the attribute's node (nodeAttribute).
 Example:
 \<div {...props} \/\> returns div for the spread props attribute
@@ -307,12 +263,7 @@ Example:
 const getComponentNameFromAttribute: GetComponentNameFromAttributeType = ({ nodeAttribute }) =>
   nodeAttribute?.parent?.name?.name;
 
-type HasImportType = (
-  arg1: {
-    importNode: GenericNode,
-    path: string
-  },
-) => boolean;
+type HasImportType = (arg1: { importNode: GenericNode; path: string }) => boolean;
 /** This function checks if a given node (importNode) contains a given import path (path), and returns true if so.
 Example 1:
 import { Box } from 'gestalt'; path="gestalt"
@@ -324,11 +275,9 @@ const hasImport: HasImportType = ({ importNode, path }) => {
   return importName === path;
 };
 
-type GetNamedImportsComponentsType = (
-  arg1: {
-    importNode: GenericNode
-  },
-) => ReadonlyArray<ReadonlyArray<string>> | null | undefined;
+type GetNamedImportsComponentsType = (arg1: {
+  importNode: GenericNode;
+}) => ReadonlyArray<ReadonlyArray<string>> | null | undefined;
 /** This function returns an array of arrays containing the named imports ([imported name, local or aliased name]) from a node (importNode).
  */
 const getNamedImportsComponents: GetNamedImportsComponentsType = ({ importNode }) => {
@@ -339,11 +288,7 @@ const getNamedImportsComponents: GetNamedImportsComponentsType = ({ importNode }
   return namedImports;
 };
 
-type GetHtmlTagType = (
-  arg1: {
-    elementNode: GenericNode
-  },
-) => string;
+type GetHtmlTagType = (arg1: { elementNode: GenericNode }) => string;
 
 /** This function returns the tag of a given node (elementNode).
 Examples:
@@ -352,12 +297,10 @@ Examples:
 */
 const getHtmlTag: GetHtmlTagType = ({ elementNode }) => elementNode?.openingElement?.name?.name;
 
-type IsTagType = (
-  arg1: {
-    elementNode: GenericNode,
-    tagName: string | ReadonlyArray<string>
-  },
-) => boolean;
+type IsTagType = (arg1: {
+  elementNode: GenericNode;
+  tagName: string | ReadonlyArray<string>;
+}) => boolean;
 /** This function checks if a given node (elementNode) contains a given tag (tagName), and returns true if so.
 Example 1:
 \<div \/\> >> tagName="div" returns true
@@ -369,11 +312,7 @@ const isTag: IsTagType = ({ elementNode, tagName }) =>
     ? tagName.includes(elementNode?.name?.name)
     : elementNode?.name?.name === tagName;
 
-type HasSpreadAttributesType = (
-  arg1: {
-    elementNode: GenericNode
-  },
-) => boolean;
+type HasSpreadAttributesType = (arg1: { elementNode: GenericNode }) => boolean;
 /** This function checks if a given node (elementNode) contains spread attributes
 Example 1:
 \<div {...props} \/\> >> returns true
@@ -381,13 +320,11 @@ Example 1:
 const hasSpreadAttributes: HasSpreadAttributesType = ({ elementNode }) =>
   elementNode.attributes.some((attributeNode) => attributeNode.type === 'JSXSpreadAttribute');
 
-type HasLonelyAttributeType = (
-  arg1: {
-    elementNode: GenericNode,
-    tagName: string,
-    attribute: string
-  },
-) => boolean;
+type HasLonelyAttributeType = (arg1: {
+  elementNode: GenericNode;
+  tagName: string;
+  attribute: string;
+}) => boolean;
 
 /** This function checks if a given tag (tagName) in a node (elementNode) contains only a single attribute (attribute), and returns true if so.
 Example 1:
@@ -400,13 +337,11 @@ const hasLonelyAttribute: HasLonelyAttributeType = ({ elementNode, tagName, attr
   elementNode?.attributes?.length === 1 &&
   elementNode.attributes[0]?.name?.name === attribute;
 
-type HasAttributesType = (
-  arg1: {
-    elementNode: GenericNode,
-    tagName: string | ReadonlyArray<string>,
-    attributes: ReadonlyArray<string>
-  },
-) => boolean;
+type HasAttributesType = (arg1: {
+  elementNode: GenericNode;
+  tagName: string | ReadonlyArray<string>;
+  attributes: ReadonlyArray<string>;
+}) => boolean;
 
 /** This function checks if a given tag (tagName) in a node (elementNode) contains a given attribute (attribute), and returns true if so.
 Example 1:
@@ -416,13 +351,11 @@ const hasAttributes: HasAttributesType = ({ elementNode, tagName, attributes }) 
   isTag({ elementNode, tagName }) &&
   elementNode?.attributes.some((nodeAttribute) => attributes.includes(nodeAttribute?.name?.name));
 
-type HasAriaAttributesType = (
-  arg1: {
-    elementNode: GenericNode,
-    ignoreAttributes?: ReadonlyArray<string>,
-    tagName: string | ReadonlyArray<string>
-  },
-) => boolean;
+type HasAriaAttributesType = (arg1: {
+  elementNode: GenericNode;
+  ignoreAttributes?: ReadonlyArray<string>;
+  tagName: string | ReadonlyArray<string>;
+}) => boolean;
 
 /** This function checks if a given tag (tagName) in a node (elementNode) contains an ARIA attribute, and returns true if so. Pass ignoreAttributes if not all aria attributes should be considered.
 Example 1:
@@ -435,13 +368,11 @@ const hasAriaAttributes: HasAriaAttributesType = ({ elementNode, ignoreAttribute
     return !ignoreAttributes?.includes(attributeName) && attributeName.startsWith('aria-');
   });
 
-type HasSupportedAttributesType = (
-  arg1: {
-    elementNode: GenericNode,
-    tagName: string | ReadonlyArray<string>,
-    supportedAttributes: ReadonlyArray<string>
-  },
-) => boolean;
+type HasSupportedAttributesType = (arg1: {
+  elementNode: GenericNode;
+  tagName: string | ReadonlyArray<string>;
+  supportedAttributes: ReadonlyArray<string>;
+}) => boolean;
 
 /** This function checks if a given tag (tagName) in a node (elementNode) contains attribute that are not supported by the Gestalt alternative (supportedAttributes), and returns true if so.
 Example 1:
@@ -457,12 +388,10 @@ const hasUnsupportedAttributes: HasSupportedAttributesType = ({
     (nodeAttribute) => !supportedAttributes.includes(nodeAttribute?.name?.name),
   );
 
-type HasDataAttributesType = (
-  arg1: {
-    elementNode: GenericNode,
-    tagName: string | ReadonlyArray<string>
-  },
-) => boolean;
+type HasDataAttributesType = (arg1: {
+  elementNode: GenericNode;
+  tagName: string | ReadonlyArray<string>;
+}) => boolean;
 
 /** This function checks if a given tag (tagName) in a node (elementNode) contains an data-* attribute (attribute), and returns true if so.
 Example 1:
@@ -472,12 +401,10 @@ const hasDataAttributes: HasDataAttributesType = ({ elementNode, tagName }) =>
   isTag({ elementNode, tagName }) &&
   elementNode?.attributes.some((nodeAttribute) => nodeAttribute?.name?.name.startsWith('data-'));
 
-type GetLocalComponentImportNameType = (
-  arg1: {
-    importNode: GenericNode,
-    componentName: string
-  },
-) => string;
+type GetLocalComponentImportNameType = (arg1: {
+  importNode: GenericNode;
+  componentName: string;
+}) => string;
 
 /** This function returns the local component name, returning the alias.
 Example 1:
@@ -494,13 +421,11 @@ const getLocalComponentImportName: GetLocalComponentImportNameType = ({
   return (componentNameMatch && componentNameMatch[1]) ?? componentName;
 };
 
-type IsGestaltComponentType = (
-  arg1: {
-    elementNode: GenericNode,
-    gestaltImportNode: GenericNode,
-    componentName: string
-  },
-) => boolean;
+type IsGestaltComponentType = (arg1: {
+  elementNode: GenericNode;
+  gestaltImportNode: GenericNode;
+  componentName: string;
+}) => boolean;
 
 /** This function checks if component is a Gestalt import and return true if so */
 const isGestaltComponent: IsGestaltComponentType = ({
@@ -516,17 +441,15 @@ const isGestaltComponent: IsGestaltComponentType = ({
 };
 
 type KeyValueTypeArrayType = ReadonlyArray<{
-  name: string | null | undefined,
-  value?: string | null | undefined | number,
-  node: GenericNode
+  name: string | null | undefined;
+  value?: string | null | undefined | number;
+  node: GenericNode;
 }>;
 
-type BuildKeyValueTypeArrayType = (
-  arg1: {
-    elementNode: GenericNode,
-    nodeType: "openingElementNode" | "styleProperties"
-  },
-) => KeyValueTypeArrayType;
+type BuildKeyValueTypeArrayType = (arg1: {
+  elementNode: GenericNode;
+  nodeType: 'openingElementNode' | 'styleProperties';
+}) => KeyValueTypeArrayType;
 
 /** This function stores attributes/properties into an array store
  */
@@ -548,17 +471,11 @@ const buildKeyValueTypeArray: BuildKeyValueTypeArrayType = ({ elementNode, nodeT
   return [{ name: undefined, value: undefined, node: undefined }];
 };
 
-type BuildValidatorResponseFromPropertiesType = (
-  arg1: {
-    context: GenericNode,
-    keyValueTypeArray: KeyValueTypeArrayType,
-    reducerCallbackFn: (
-      arg1: {
-        context: GenericNode
-      },
-    ) => ReducerType
-  },
-) => ReducerAccType;
+type BuildValidatorResponseFromPropertiesType = (arg1: {
+  context: GenericNode;
+  keyValueTypeArray: KeyValueTypeArrayType;
+  reducerCallbackFn: (arg1: { context: GenericNode }) => ReducerType;
+}) => ReducerAccType;
 
 /** This function returns props fixes and the associated messages
  */

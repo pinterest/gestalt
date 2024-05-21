@@ -6,7 +6,7 @@
  * - icon "arrow-down"
  */
 
-import {ESLintRule} from './helpers/eslintFlowTypes';
+import { ESLintRule } from './helpers/eslintFlowTypes';
 
 export const errorMessage = 'Buttons with="link" using iconEnd must use the "visit" icon';
 

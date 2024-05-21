@@ -42,18 +42,18 @@ const flexMap = {
   '0 0 auto': 'none',
 } as const;
 
-type KebabToCamelCaseType = (
-  arg1: {
-    attribute: string
-  },
-) => string;
+type KebabToCamelCaseType = (arg1: { attribute: string }) => string;
 
 export const kebabToCamelCase: KebabToCamelCaseType = ({ attribute }) =>
   attribute.replace(/-([a-z])/gi, (s, group1) => group1.toUpperCase());
 
 type GenBointLookupType = LookupMapProp;
 
-export function genBointLookup(propName: string, start: number, end: number = 12): GenBointLookupType {
+export function genBointLookup(
+  propName: string,
+  start: number,
+  end: number = 12,
+): GenBointLookupType {
   const lookupMap: LookupMapProp = {};
 
   for (let i = start; i <= end; i += 1) {
@@ -99,9 +99,11 @@ export const overflowLookup: GenBointLookupType = {
 };
 export const paddingLookup: GenBointLookupType = genBointLookup('padding', 0);
 
-export const validateBackgroundColor = (value: string): string | null | undefined => colorMap[value];
+export const validateBackgroundColor = (value: string): string | null | undefined =>
+  colorMap[value];
 
-export const validateFlex = (value: string): string | null | undefined => flexMap[value] ? `flex="${flexMap[value]}"` : undefined;
+export const validateFlex = (value: string): string | null | undefined =>
+  flexMap[value] ? `flex="${flexMap[value]}"` : undefined;
 
 export const validateBorder = (value: string): string | null | undefined => {
   // If the value is a string:
@@ -114,7 +116,8 @@ export const validateBorder = (value: string): string | null | undefined => {
 
 const roundingLookup = genBointLookup('rounding', 0, 8);
 
-export const validateBorderRadius = (value: string): number | null | undefined | string => borderRadiusMap[value] ? borderRadiusMap[value] : roundingLookup[value];
+export const validateBorderRadius = (value: string): number | null | undefined | string =>
+  borderRadiusMap[value] ? borderRadiusMap[value] : roundingLookup[value];
 
 export const validateBoxShadow = (value: string): string | null | undefined => {
   // If the value is a string:
@@ -140,12 +143,10 @@ export const validateBoxShadow = (value: string): string | null | undefined => {
   return rgbaMatch && pixelsMatch ? 'borderStyle="shadow"' : undefined;
 };
 
-type DimensionFormattingType = (
-  arg1: {
-    keyName: string,
-    value: string
-  },
-) => string | null | undefined;
+type DimensionFormattingType = (arg1: {
+  keyName: string;
+  value: string;
+}) => string | null | undefined;
 
 export const dimensionFormatting: DimensionFormattingType = ({ keyName, value }) => {
   if (typeof value === 'number') return `${keyName ?? ''}={${value}}`;

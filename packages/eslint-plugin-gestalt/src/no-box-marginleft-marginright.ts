@@ -5,7 +5,7 @@
  * we update all of them to marginStart/marginEnd
  */
 
-import {ESLintRule} from './helpers/eslintFlowTypes';
+import { ESLintRule } from './helpers/eslintFlowTypes';
 
 const disallowedProps = [
   'marginLeft',
@@ -54,8 +54,9 @@ const rule: ESLintRule = {
           return;
         }
 
-        const isMarginLeftRightAttribute = Object.entries(node.attributes).find(([_key, value]: [any, any]) =>
-          disallowedProps.includes(value && value.name && value.name.name),
+        const isMarginLeftRightAttribute = Object.entries(node.attributes).find(
+          ([_key, value]: [any, any]) =>
+            disallowedProps.includes(value && value.name && value.name.name),
         );
 
         // No marginLeft or marginRight attributes on Box

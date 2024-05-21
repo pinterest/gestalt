@@ -1,5 +1,5 @@
-import {Flow} from "flow-to-typescript-codemod";
-import {readFileSync} from 'fs';
+import { Flow } from 'flow-to-typescript-codemod';
+import { readFileSync } from 'fs';
 import path from 'path';
 import { RuleTester } from 'eslint';
 
@@ -15,12 +15,14 @@ export const getRuleTester = (): Flow.Class<any> => new RuleTester({ parserOptio
 
 type Prepender = (arg1: string) => string;
 export const getTestTypePrepender =
-  (testType: string): Prepender => (fileName) =>
+  (testType: string): Prepender =>
+  (fileName) =>
     `${testType}/${fileName}.js`;
 
 type Formatter = (arg1: string) => string;
 export const getPathFormatterByRuleName =
-  (ruleName: string): Formatter => (testPath) =>
+  (ruleName: string): Formatter =>
+  (testPath) =>
     `./__fixtures__/${ruleName}/${testPath}`;
 
 export function readTestByPath(codePath: string): string {

@@ -2,7 +2,11 @@
  * @fileoverview Prefer Box: prevent <div> tags that don't contain disallowed attributes: className, onClick, or disallowed props on `Box` (no-box-disallowed-props ESLint rule)
  */
 
-import {renameTagFixer, renameTagWithPropsFixer, updateGestaltImportFixer} from './helpers/eslintASTFixers';
+import {
+  renameTagFixer,
+  renameTagWithPropsFixer,
+  updateGestaltImportFixer,
+} from './helpers/eslintASTFixers';
 import {
   buildProps,
   getNodeFromPropName,

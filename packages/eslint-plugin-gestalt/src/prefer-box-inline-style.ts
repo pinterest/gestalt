@@ -6,7 +6,7 @@
  * that is available as Box props.
  */
 
-import {ESLintRule} from './helpers/eslintFlowTypes';
+import { ESLintRule } from './helpers/eslintFlowTypes';
 import { generateDefaultMessage } from './helpers/noBoxDangerousStyleDuplicatesReducer';
 import {
   validateBackgroundColor,
@@ -25,18 +25,18 @@ function getVariableDefinedStyles(ref: {
         init: {
           properties: ReadonlyArray<{
             key: {
-              value: string,
-              name: string
-            },
-            type: string,
+              value: string;
+              name: string;
+            };
+            type: string;
             value: {
-              value: string
-            }
-          }>
-        }
-      }
-    }>
-  }
+              value: string;
+            };
+          }>;
+        };
+      };
+    }>;
+  };
 }) {
   return (
     ref.resolved &&

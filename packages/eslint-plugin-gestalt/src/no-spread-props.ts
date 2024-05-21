@@ -23,7 +23,7 @@ const rule: ESLintRule = {
       url: 'https://gestalt.pinterest.systems/eslint%20plugin#gestaltno-spread-props',
     },
     fixable: 'code',
-    schema: ([] as ReadonlyArray<never>),
+    schema: [] as ReadonlyArray<never>,
     messages: {
       disallowed: `Prop spreading in Gestalt component {{ name }} is forbidden, write your props out instead. {{ autofix }}`,
     },

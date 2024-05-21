@@ -1,4 +1,9 @@
-import {BuildReducerType, GenerateDefaultMessageType, GenericType, ReducerType} from './reducerTypes';
+import {
+  BuildReducerType,
+  GenerateDefaultMessageType,
+  GenericType,
+  ReducerType,
+} from './reducerTypes';
 import {
   dimensionFormatting,
   kebabToCamelCase,
@@ -33,17 +38,22 @@ const buildNoBoxDangerousStyleDuplicatesReducer: BuildReducerType = ({ context }
     // This function manages all suggested alternatives, if existing
     const handleAlternative = ({
       alternative,
-    }: {
-      alternative: string
-    } | {
-      alternative: string | null | undefined
-    } | {
-      alternative: string | undefined
-    } | {
-      alternative: number | string | null | undefined
-    } | {
-      alternative: string | null | undefined
-    }) => {
+    }:
+      | {
+          alternative: string;
+        }
+      | {
+          alternative: string | null | undefined;
+        }
+      | {
+          alternative: string | undefined;
+        }
+      | {
+          alternative: number | string | null | undefined;
+        }
+      | {
+          alternative: string | null | undefined;
+        }) => {
       if (alternative) {
         accumulatorAlternativesBuilder.push({
           node,

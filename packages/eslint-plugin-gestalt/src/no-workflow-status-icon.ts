@@ -3,7 +3,7 @@
  * <Status /> component rather than <Icon />
  */
 
-import {hasAttributes, hasImport, isGestaltComponent} from './helpers/eslintASTHelpers';
+import { hasAttributes, hasImport, isGestaltComponent } from './helpers/eslintASTHelpers';
 import { ESLintRule } from './helpers/eslintFlowTypes';
 
 const disallowedMatch = [
@@ -41,11 +41,14 @@ const rule: ESLintRule = {
     let componentName = 'Icon';
 
     const matchValues = (node: any) => {
-      const reducedPropValues = node.attributes.reduce<Record<string, any>>((acc, { name, value }) => {
-        const newAcc = { ...acc } as const;
-        newAcc[name?.name] = value?.value || value?.expression?.value;
-        return newAcc;
-      }, {});
+      const reducedPropValues = node.attributes.reduce<Record<string, any>>(
+        (acc, { name, value }) => {
+          const newAcc = { ...acc } as const;
+          newAcc[name?.name] = value?.value || value?.expression?.value;
+          return newAcc;
+        },
+        {},
+      );
 
       const isDisallowedMatch = disallowedMatch.some(
         ({ icon, color }) =>
