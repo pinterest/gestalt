@@ -1,3 +1,9 @@
+## 148.0.5 (May 21, 2024)
+
+### Patch
+
+- Internal: Migrate `eslint-plugin-gestalt` to TypeScript ([#3581](https://github.com/pinterest/gestalt/pull/3581)) - [Preview link](https://deploy-preview-3581--gestalt.netlify.app?devexample=true)
+
 ## 148.0.4 (May 21, 2024)
 
 ### Patch
