@@ -1,3 +1,9 @@
+## 148.0.2 (May 21, 2024)
+
+### Patch
+
+- Internal: migrate playwright tests to TypeScript ([#3580](https://github.com/pinterest/gestalt/pull/3580)) - [Preview link](https://deploy-preview-3580--gestalt.netlify.app?devexample=true)
+
 ## 148.0.1 (May 20, 2024)
 
 ### Patch
