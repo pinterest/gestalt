@@ -307,7 +307,6 @@ import timer3 from './timer-3.svg';
 import timer10 from './timer-10.svg';
 import trashCan from './trash-can.svg';
 import trending from './trending.svg';
-import twitter from './twitter.svg';
 import undo from './undo.svg';
 import uploadFeed from './upload-feed.svg';
 import videoAdvance10Seconds from './video-advance-10-seconds.svg';
@@ -578,7 +577,6 @@ const icons = Object.freeze({
   'trash-can': trashCan,
   target,
   trending,
-  twitter,
   'upload-feed': uploadFeed,
   'video-advance-10-seconds': videoAdvance10Seconds,
   'video-camera': videoCamera,
