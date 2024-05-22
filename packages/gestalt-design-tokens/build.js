@@ -3,11 +3,6 @@ const tinycolor = require('tinycolor2');
 
 // HELPER FUNCTIONS
 
-function nameOutputFile({ name, theme }) {
-  if (theme) return name;
-  return name;
-}
-
 function buildShadowValue(values) {
   // destructure shadow values from original token value
   // x, y, blur, spread, color, alpha;
@@ -358,7 +353,7 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
           mode === 'light'
             ? [
                 {
-                  'destination': nameOutputFile({ name: 'variables.css', theme }),
+                  'destination': 'variables.css',
                   'format': 'css/variables',
                   '_format_comment':
                     'https://amzn.github.io/style-dictionary/#/formats?id=cssvariables',
@@ -372,7 +367,7 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
               ]
             : [
                 {
-                  'destination': nameOutputFile({ name: 'variables-dark.css', theme }),
+                  'destination': 'variables-dark.css',
                   'format': 'css/variables',
                   '_format_comment': 'Custom',
                   'filter': 'darkThemeFilter',
@@ -395,13 +390,13 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
           mode === 'light'
             ? [
                 {
-                  'destination': nameOutputFile({ name: 'variables.json', theme }),
+                  'destination': 'variables.json',
                   'format': 'json/flat',
                   '_format_comment':
                     'https://amzn.github.io/style-dictionary/#/formats?id=jsonflat',
                 },
                 {
-                  'destination': nameOutputFile({ name: 'variables-light.json', theme }),
+                  'destination': 'variables-light.json',
                   'format': 'json/flat',
                   '_format_comment':
                     'https://amzn.github.io/style-dictionary/#/formats?id=jsonflat',
@@ -411,7 +406,7 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
               ]
             : [
                 {
-                  'destination': nameOutputFile({ name: 'variables-dark.json', theme }),
+                  'destination': 'variables-dark.json',
                   'format': 'json/flat',
                   '_format_comment': 'Custom',
                   'filter': 'darkThemeFilter',
@@ -453,12 +448,12 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
                   '_format_comment': 'Custom',
                 },
                 {
-                  'destination': nameOutputFile({ name: 'tokens.js', theme }),
+                  'destination': 'tokens.js',
                   'format': `commonJS/${theme}`,
                   '_format_comment': 'Custom',
                 },
                 {
-                  'destination': nameOutputFile({ name: 'data-viz-tokens.js', theme }),
+                  'destination': 'data-viz-tokens.js',
                   'format': `commonJS/${theme}`,
                   '_format_comment': 'Custom',
                   'filter': 'dataVisualizationFilter',
@@ -467,12 +462,12 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
               ]
             : [
                 {
-                  'destination': nameOutputFile({ name: 'tokens_dark.js', theme }),
+                  'destination': 'tokens_dark.js',
                   'format': `darkTheme-commonJS/${theme}`,
                   '_format_comment': 'Custom',
                 },
                 {
-                  'destination': nameOutputFile({ name: 'data-viz-tokens_dark.js', theme }),
+                  'destination': 'data-viz-tokens_dark.js',
                   'format': `darkTheme-commonJS/${theme}`,
                   '_format_comment': 'Custom',
                   'filter': 'dataVisualizationFilter',
@@ -543,7 +538,7 @@ function getAndroidConfiguration({ theme = 'main-theme', mode = 'light' }) {
           mode === 'light'
             ? [
                 {
-                  'destination': nameOutputFile({ name: 'colors-light.xml', theme }),
+                  'destination': 'colors-light.xml',
                   'format': 'android/resources',
                   '_format_comment':
                     'https://amzn.github.io/style-dictionary/#/formats?id=androidresources',
@@ -637,7 +632,7 @@ function getAndroidConfiguration({ theme = 'main-theme', mode = 'light' }) {
               ]
             : [
                 {
-                  'destination': nameOutputFile({ name: 'color-dark.xml', theme }),
+                  'destination': 'color-dark.xml',
                   'format': 'android/resources',
                   '_format_comment':
                     'https://amzn.github.io/style-dictionary/#/formats?id=androidresources',
@@ -733,12 +728,12 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
           mode === 'light'
             ? [
                 {
-                  'destination': 'GestaltDesignTokensColor.h',
+                  'destination': `GestaltDesignTokensColor${theme === 'vr-theme' ? 'VR' : ''}.h`,
                   'format': 'ios/colors.h',
                   '_format_comment':
                     'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsh',
-                  'className': 'GestaltDesignTokensColor',
-                  'type': 'GestaltDesignTokensColorName',
+                  'className': `GestaltDesignTokensColor${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'type': `GestaltDesignTokensColorName${theme === 'vr-theme' ? 'VR' : ''}`,
                   'filter': {
                     'attributes': {
                       'category': 'color',
@@ -751,12 +746,12 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
                   },
                 },
                 {
-                  'destination': 'GestaltDesignTokensColor.m',
+                  'destination': `GestaltDesignTokensColor${theme === 'vr-theme' ? 'VR' : ''}.m`,
                   'format': 'ios/colors.m',
                   '_format_comment':
                     'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsm',
-                  'className': 'GestaltDesignTokensColor',
-                  'type': 'GestaltDesignTokensColorName',
+                  'className': `GestaltDesignTokensColor${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'type': `GestaltDesignTokensColorName${theme === 'vr-theme' ? 'VR' : ''}`,
                   'filter': {
                     'attributes': {
                       'category': 'color',
@@ -771,12 +766,14 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
               ]
             : [
                 {
-                  'destination': 'GestaltDesignTokensColorDarkTheme.h',
+                  'destination': `GestaltDesignTokensColorDarkTheme${
+                    theme === 'vr-theme' ? 'VR' : ''
+                  }.h`,
                   'format': 'ios/colors.h',
                   '_format_comment':
                     'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsh',
-                  'className': 'GestaltDesignTokensColor',
-                  'type': 'GestaltDesignTokensColorName',
+                  'className': `GestaltDesignTokensColor${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'type': `GestaltDesignTokensColorName${theme === 'vr-theme' ? 'VR' : ''}`,
                   'filter': {
                     'attributes': {
                       'category': 'color',
@@ -789,12 +786,14 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
                   },
                 },
                 {
-                  'destination': 'GestaltDesignTokensColorDarkTheme.m',
+                  'destination': `GestaltDesignTokensColorDarkTheme${
+                    theme === 'vr-theme' ? 'VR' : ''
+                  }.m`,
                   'format': 'ios/colors.m',
                   '_format_comment':
                     'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsm',
-                  'className': 'GestaltDesignTokensColor',
-                  'type': 'GestaltDesignTokensColorName',
+                  'className': `GestaltDesignTokensColor${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'type': `GestaltDesignTokensColorName${theme === 'vr-theme' ? 'VR' : ''}`,
                   'filter': {
                     'attributes': {
                       'category': 'color',
