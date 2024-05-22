@@ -562,22 +562,6 @@ function getAndroidConfiguration({ theme = 'main-theme', mode = 'light' }) {
                   },
                 },
                 {
-                  'destination': 'font-family.xml',
-                  'format': 'android/resources',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=androidresources',
-                  'resourceType': 'dimen',
-                  'filter': {
-                    'attributes': {
-                      'category': 'font',
-                      'type': 'family',
-                    },
-                  },
-                  'options': {
-                    'outputReferences': true,
-                  },
-                },
-                {
                   'destination': 'opacity.xml',
                   'format': 'android/resources',
                   '_format_comment':

@@ -19,7 +19,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "style-dictionary": "^3.8.0",
+    "style-dictionary": "^3.9.2",
     "tinycolor2": "1.6.0"
   },
   "peerDependencies": {

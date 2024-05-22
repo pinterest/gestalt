@@ -1,6 +1,8 @@
 /**
  * @fileoverview Only valid tokens: prevent the consumption of Gestalt tokens via hard-coded strings p.e. var(--color-border-error). Instead import constant from 'gestalt-design-tokens' p.e. import { TOKEN_COLOR_BORDER_ERROR } from 'gestalt-design-tokens'.
  */
+
+// @ts-expect-error - TS7016
 import tokens from 'gestalt-design-tokens/dist/js/classic/constants';
 import { getTextNodeFromSourceCode } from './helpers/eslintASTHelpers';
 import { ESLintRule } from './helpers/eslintFlowTypes';
