@@ -1,5 +1,3 @@
-// @flow strict
-// $FlowFixMe[untyped-import]
 const tokens = require('gestalt-design-tokens/dist/js/classic/constants');
 const stylelint = require('stylelint');
 
