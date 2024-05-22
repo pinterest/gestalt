@@ -262,6 +262,7 @@ StyleDictionary.registerTransform({
   name: 'value/elevation/css',
   type: 'value',
   matcher(prop) {
+    console.log(prop);
     return prop.attributes.category === 'elevation';
   },
   transformer(prop) {
@@ -302,9 +303,9 @@ StyleDictionary.registerTransformGroup({
   name: 'webCssTransformGroup',
   transforms: [
     'attribute/cti',
-    'value/elevation/css',
     'name/cti/kebab',
     'name/prefix/level/kebab',
+    'value/elevation/css',
     'color/css',
   ],
 });
@@ -313,9 +314,9 @@ StyleDictionary.registerTransformGroup({
   name: 'webJsTransformGroup',
   transforms: [
     'attribute/cti',
-    'value/elevation/css',
     'name/cti/pascal',
     'name/prefix/level/pascal',
+    'value/elevation/css',
     'color/hex',
   ],
 });
