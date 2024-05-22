@@ -1,7 +1,7 @@
 // @ts-expect-error - TS7016 - Could not find a declaration file for module 'gestalt-design-tokens/dist/js/data-viz-tokens'. '/packages/gestalt-design-tokens/dist/js/data-viz-tokens.js' implicitly has an 'any' type.
-import dataVizTokens from 'gestalt-design-tokens/dist/js/data-viz-tokens';
+import dataVizTokens from 'gestalt-design-tokens/dist/js/classic/data-viz-tokens';
 // @ts-expect-error - TS7016 - Could not find a declaration file for module 'gestalt-design-tokens/dist/js/tokens'. '/packages/gestalt-design-tokens/dist/js/tokens.js' implicitly has an 'any' type.
-import tokens from 'gestalt-design-tokens/dist/js/tokens';
+import tokens from 'gestalt-design-tokens/dist/js/classic/tokens';
 import MainSection from '../../../docs-components/MainSection';
 import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';
