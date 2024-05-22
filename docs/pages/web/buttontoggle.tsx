@@ -9,27 +9,29 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
+import changeLabelsDo from '../../examples/buttontoggle/changeLabelsDo';
 import colors from '../../examples/buttontoggle/colors';
+import confirmationDo from '../../examples/buttontoggle/confirmationDo';
+import consistencyDo from '../../examples/buttontoggle/consistencyDo';
 import defaultStateExample from '../../examples/buttontoggle/defaultStateExample';
 import disabledStateExample from '../../examples/buttontoggle/disabledStateExample';
-import doChangeLabels from '../../examples/buttontoggle/doChangeLabels';
 import iconEndExample from '../../examples/buttontoggle/iconEndExample';
-import iconTooltipToExplainDo from '../../examples/buttontoggle/iconTooltipToExplainDo';
-import keepSimpleTextDo from '../../examples/buttontoggle/keepSimpleTextDo';
+import locationDo from '../../examples/buttontoggle/locationDo';
 import main from '../../examples/buttontoggle/main';
 import selectedStateExample from '../../examples/buttontoggle/selectedStateExample';
-import showFullTextDo from '../../examples/buttontoggle/showFullTextDo';
 
 const PREVIEW_HEIGHT = 300;
 
 export default function DocsPage({ generatedDocGen }: DocType) {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        description={generatedDocGen?.description}
-        name={generatedDocGen?.displayName}
-      >
-        <SandpackExample code={main} hideEditor name="Main ButtonToggle example" previewHeight={150} />
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
+        <SandpackExample
+          code={main}
+          hideEditor
+          name="Main ButtonToggle example"
+          previewHeight={150}
+        />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -63,7 +65,7 @@ export default function DocsPage({ generatedDocGen }: DocType) {
             description={`To make it clearer, you may want to change the label text to indicate that the ButtonToggle has been selected. For instance, changing "follow" to "Following."`}
             sandpackExample={
               <SandpackExample
-                code={doChangeLabels}
+                code={changeLabelsDo}
                 hideEditor
                 name={`To make it clearer, you may want to change the label text to indicate that the ButtonToggle has been selected. For instance, changing "follow" to "Following."`}
                 previewHeight={PREVIEW_HEIGHT}
@@ -79,7 +81,7 @@ export default function DocsPage({ generatedDocGen }: DocType) {
             description="Make sure that the ButtonToggle(s) in your application are consistently styled and placed. This should also apply to their sizing, maintaining uniformity throughout the experience."
             sandpackExample={
               <SandpackExample
-                code={showFullTextDo}
+                code={consistencyDo}
                 hideEditor
                 name="Make sure that the ButtonToggle(s) in your application are consistently styled and placed. This should also apply to their sizing, maintaining uniformity throughout the experience."
                 previewHeight={PREVIEW_HEIGHT}
@@ -95,7 +97,7 @@ export default function DocsPage({ generatedDocGen }: DocType) {
             description="Place the ButtonToggle(s) in a location where users would naturally expect to find them, taking into consideration the context. For instance, position it next to a related feature."
             sandpackExample={
               <SandpackExample
-                code={keepSimpleTextDo}
+                code={locationDo}
                 hideEditor
                 name="Place the ButtonToggle(s) in a location where users would naturally expect to find them, taking into consideration the context. For instance, position it next to a related feature."
                 previewHeight={PREVIEW_HEIGHT}
@@ -111,7 +113,7 @@ export default function DocsPage({ generatedDocGen }: DocType) {
             description="If the ButtonToggle(s) trigger a significant action or irreversible change, it is recommended to include a confirmation, such as a toast message."
             sandpackExample={
               <SandpackExample
-                code={iconTooltipToExplainDo}
+                code={confirmationDo}
                 hideEditor
                 name="If the ButtonToggle(s) trigger a significant action or irreversible change, it is recommended to include a confirmation, such as a toast message."
                 previewHeight={PREVIEW_HEIGHT}
@@ -124,7 +126,7 @@ export default function DocsPage({ generatedDocGen }: DocType) {
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           description={`
-When ButtonToggle text does not provide sufficient context about the Button’s behavior, supply a short, descriptive label for screen-readers using \`accessibilityLabel\`.
+When ButtonToggle text does not provide sufficient context about the ButtonToggle’s behavior, supply a short, descriptive label for screen-readers using \`accessibilityLabel\`.
 Texts like “Best“, “Views“, or “Save“ can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text with deeper context to replace the ButtonToggle text, like “Follow Ryan” or “Shop Wedding Invitations”.
 
 If ButtonToggle is used as a control button to show/hide a Popover-based component, we recommend passing the following ARIA attributes to assist screen readers:
@@ -136,11 +138,11 @@ If ButtonToggle is used as a control button to show/hide a Popover-based compone
 
         <MainSection.Subsection
           description={`
-Disabled Buttons do not need to pass color contrast guidelines.
+Disabled ButtonToggles do not need to pass color contrast guidelines.
 
 [From w3.org, 1.4.3 Contrast (Minimum)](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html): Text or images of text that are part of an inactive user interface component, that are pure decoration, that are not visible to anyone, or that are part of a picture that contains significant other visual content, have no contrast requirement.
 
-Our current disabled ButtonToggle implementation does fail to pass color contrast on accessibility integration tests. To exclude disabled buttons from the integration tests we recomment conditionally setting a \`data-test-id={ isDisabled ? "disabled-button-<name>" : undefined }\` and excluding them from the integration test.
+Our current disabled ButtonToggle implementation does fail to pass color contrast on accessibility integration tests. To exclude disabled buttontoggles from the integration tests we recomment conditionally setting a \`data-test-id={ isDisabled ? "disabled-button-<name>" : undefined }\` and excluding them from the integration test.
 
 On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved with <code>cy.a11yCheck({ exclude: [['[data-test-id="disabled-button-submit"]']] })<code>`}
           title="Color contrast in disabled state"
@@ -201,9 +203,9 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-              // TODO: Fix this example to use iconStart instead of iconEnd
+                // TODO: Fix this example to use iconStart instead of iconEnd
                 code={iconEndExample}
-                name="Icon start of button example."
+                name="Icon start of buttontoggle example."
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
@@ -216,7 +218,7 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
 1. Default
     The initial state of a ButtonToggle that represents it is in a non-selected state.
 2. Disabled
-Used to block user interaction such as hover, focus and click. Disabled Buttons are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled Buttons.
+Used to block user interaction such as hover, focus and click. Disabled ButtonToggles are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled ButtonToggles.
 3. Selected
   When ButtonToggle is currently active or selected.
 `}
@@ -227,7 +229,7 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
             sandpackExample={
               <SandpackExample
                 code={defaultStateExample}
-                name="Default state button example."
+                name="Default state buttontoggle example."
                 previewHeight={150}
               />
             }
@@ -237,7 +239,7 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
             sandpackExample={
               <SandpackExample
                 code={disabledStateExample}
-                name="Disabled state button example."
+                name="Disabled state buttontoggle example."
                 previewHeight={150}
               />
             }
@@ -247,7 +249,7 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
             sandpackExample={
               <SandpackExample
                 code={selectedStateExample}
-                name="Selected state button example."
+                name="Selected state buttontoggle example."
                 previewHeight={150}
               />
             }
@@ -276,7 +278,6 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
         </MainSection.Subsection>
       </MainSection>
       <QualityChecklist component={generatedDocGen?.displayName} />
-
 
       <MainSection name="Related">
         <MainSection.Subsection
