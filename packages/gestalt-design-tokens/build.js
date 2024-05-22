@@ -29,18 +29,20 @@ const regex1A = /(\{(?!\w)|\}(?!\w))/gi;
 
 const commonJSFormatter = ({ token, darkTheme, isVR }) => {
   const prefix = token.filePath.split('/').splice(-1)[0].substring(0, 4);
-
   return JSON.stringify({
     name: (isVR ? [prefix, ...token.path] : token.path).join('-'),
     value: token.value,
     // For lightened values with appended 1A, let's keep {value}1A if not remove the parenthesis
-    originalValue:
-      // eslint-disable-next-line no-nested-ternary
+
+    // eslint-disable-next-line no-nested-ternary
+    originalValue: isVR
+      ? 'NA'
+      : // eslint-disable-next-line no-nested-ternary
       typeof token.original.value === 'string'
-        ? token.original.value.endsWith('}1A')
-          ? token.original.value?.replace(regex1A, '')
-          : token.original.value.replace(regex, '')
-        : token.value,
+      ? token.original.value.endsWith('}1A')
+        ? token.original.value?.replace(regex1A, '')
+        : token.original.value.replace(regex, '')
+      : token.value,
     // eslint-disable-next-line no-underscore-dangle
     ...(darkTheme ? { _darkModeSupport: !token._darkMode } : {}), // For dark mode we are adding this metadada to track unsupported tokens
     comment: token.comment,
@@ -262,7 +264,6 @@ StyleDictionary.registerTransform({
   name: 'value/elevation/css',
   type: 'value',
   matcher(prop) {
-    console.log(prop);
     return prop.attributes.category === 'elevation';
   },
   transformer(prop) {
