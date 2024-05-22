@@ -423,13 +423,13 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
                   'format': `constantLibrary-commonJS/${theme}`,
                   '_format_comment': 'Custom',
                 },
+                {
+                  'destination': nameOutputFile({ name: 'tokens.js', theme }),
+                  'format': 'commonJS',
+                  '_format_comment': 'Custom',
+                },
                 ...(theme === 'classic'
                   ? [
-                      {
-                        'destination': nameOutputFile({ name: 'tokens.js', theme }),
-                        'format': 'commonJS',
-                        '_format_comment': 'Custom',
-                      },
                       {
                         'destination': nameOutputFile({ name: 'data-viz-tokens.js', theme }),
                         'format': 'commonJS',
@@ -441,15 +441,11 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
                   : []),
               ]
             : [
-                ...(theme === 'classic'
-                  ? [
-                      {
-                        'destination': nameOutputFile({ name: 'tokens_dark.js', theme }),
-                        'format': 'darkTheme-commonJS',
-                        '_format_comment': 'Custom',
-                      },
-                    ]
-                  : []),
+                {
+                  'destination': nameOutputFile({ name: 'tokens_dark.js', theme }),
+                  'format': 'darkTheme-commonJS',
+                  '_format_comment': 'Custom',
+                },
               ],
       },
     },
