@@ -27,9 +27,11 @@ function buildShadowValue(values) {
 const regex = /(\{|\})/gi;
 const regex1A = /(\{(?!\w)|\}(?!\w))/gi;
 
-const commonJSFormatter = ({ token, darkTheme }) =>
-  JSON.stringify({
-    name: token.path.join('-'),
+const commonJSFormatter = ({ token, darkTheme, isVR }) => {
+  const prefix = token.filePath.split('/').splice(-1)[0].substring(0, 4);
+
+  return JSON.stringify({
+    name: (isVR ? [prefix, ...token.path] : token.path).join('-'),
     value: token.value,
     // For lightened values with appended 1A, let's keep {value}1A if not remove the parenthesis
     originalValue:
@@ -44,6 +46,7 @@ const commonJSFormatter = ({ token, darkTheme }) =>
     comment: token.comment,
     category: token.attributes.category,
   });
+};
 
 const moduleExportFileHeader = ({ file, tokenArray, fileHeader }) =>
   `${fileHeader({ file, commentStyle: 'short' })} module.exports = [${tokenArray}]`;
@@ -101,7 +104,7 @@ StyleDictionary.registerFileHeader({
 // REGISTER FORMATS
 
 StyleDictionary.registerFormat({
-  name: 'commonJS',
+  name: 'commonJS/classic',
   formatter: ({ dictionary, file }) => {
     const tokenArray = dictionary.allTokens.map((token) => commonJSFormatter({ token }));
     return moduleExportFileHeader({ fileHeader, file, tokenArray });
@@ -109,10 +112,31 @@ StyleDictionary.registerFormat({
 });
 
 StyleDictionary.registerFormat({
-  name: 'darkTheme-commonJS',
+  name: 'commonJS/vr-theme',
+  formatter: ({ dictionary, file }) => {
+    const tokenArray = dictionary.allTokens.map((token) =>
+      commonJSFormatter({ token, isVR: true }),
+    );
+    return moduleExportFileHeader({ fileHeader, file, tokenArray });
+  },
+});
+
+StyleDictionary.registerFormat({
+  name: 'darkTheme-commonJS/classic',
   formatter: ({ dictionary, file }) => {
     const tokenArray = dictionary.allTokens.map((token) =>
       commonJSFormatter({ token, darkTheme: true }),
+    );
+
+    return moduleExportFileHeader({ fileHeader, file, tokenArray });
+  },
+});
+
+StyleDictionary.registerFormat({
+  name: 'darkTheme-commonJS/vr-theme',
+  formatter: ({ dictionary, file }) => {
+    const tokenArray = dictionary.allTokens.map((token) =>
+      commonJSFormatter({ token, darkTheme: true, isVR: true }),
     );
 
     return moduleExportFileHeader({ fileHeader, file, tokenArray });
@@ -310,7 +334,10 @@ StyleDictionary.registerFilter({
 StyleDictionary.registerFilter({
   name: 'dataVisualizationFilter',
   matcher(token) {
-    return token.attributes.category === 'color' && token.attributes.type === 'data-visualization';
+    return (
+      token.attributes.category === 'color' &&
+      ['data-visualization', 'dataVisualization', 'data-viz'].includes(token.attributes.type)
+    );
   },
 });
 
@@ -425,26 +452,29 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
                 },
                 {
                   'destination': nameOutputFile({ name: 'tokens.js', theme }),
-                  'format': 'commonJS',
+                  'format': `commonJS/${theme}`,
                   '_format_comment': 'Custom',
                 },
-                ...(theme === 'classic'
-                  ? [
-                      {
-                        'destination': nameOutputFile({ name: 'data-viz-tokens.js', theme }),
-                        'format': 'commonJS',
-                        '_format_comment': 'Custom',
-                        'filter': 'dataVisualizationFilter',
-                        '_filter_comment': 'Custom',
-                      },
-                    ]
-                  : []),
+                {
+                  'destination': nameOutputFile({ name: 'data-viz-tokens.js', theme }),
+                  'format': `commonJS/${theme}`,
+                  '_format_comment': 'Custom',
+                  'filter': 'dataVisualizationFilter',
+                  '_filter_comment': 'Custom',
+                },
               ]
             : [
                 {
                   'destination': nameOutputFile({ name: 'tokens_dark.js', theme }),
-                  'format': 'darkTheme-commonJS',
+                  'format': `darkTheme-commonJS/${theme}`,
                   '_format_comment': 'Custom',
+                },
+                {
+                  'destination': nameOutputFile({ name: 'data-viz-tokens_dark.js', theme }),
+                  'format': `darkTheme-commonJS/${theme}`,
+                  '_format_comment': 'Custom',
+                  'filter': 'dataVisualizationFilter',
+                  '_filter_comment': 'Custom',
                 },
               ],
       },
