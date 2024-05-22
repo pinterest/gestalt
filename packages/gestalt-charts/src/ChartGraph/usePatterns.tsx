@@ -5,7 +5,7 @@ import {
 } from 'gestalt-design-tokens';
 import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/classic/variables-dark.json';
 import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/classic/variables-light.json';
-import { type DataVisualizationColors } from './types';
+import { DataVisualizationColors } from './types';
 
 export const useHexColor: () => (arg1: DataVisualizationColors) => string = () => {
   // @ts-expect-error - TS2339 - Property 'colorSchemeName' does not exist on type '{ name: "lightMode" | "darkMode"; }'.
