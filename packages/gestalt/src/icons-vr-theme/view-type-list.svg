@@ -1,8 +1,1 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M4 1C2.34315 1 1 2.34315 1 4C1 5.65685 2.34315 7 4 7C5.65685 7 7 5.65685 7 4C7 2.34315 5.65685 1 4 1ZM3 4C3 3.44772 3.44772 3 4 3C4.55228 3 5 3.44772 5 4C5 4.55228 4.55228 5 4 5C3.44772 5 3 4.55228 3 4Z" fill="black"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M4 9C2.34315 9 1 10.3431 1 12C1 13.6569 2.34315 15 4 15C5.65685 15 7 13.6569 7 12C7 10.3431 5.65685 9 4 9ZM3 12C3 11.4477 3.44772 11 4 11C4.55228 11 5 11.4477 5 12C5 12.5523 4.55228 13 4 13C3.44772 13 3 12.5523 3 12Z" fill="black"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M1 20C1 18.3431 2.34315 17 4 17C5.65685 17 7 18.3431 7 20C7 21.6569 5.65685 23 4 23C2.34315 23 1 21.6569 1 20ZM4 19C3.44772 19 3 19.4477 3 20C3 20.5523 3.44772 21 4 21C4.55228 21 5 20.5523 5 20C5 19.4477 4.55228 19 4 19Z" fill="black"/>
-<path d="M9 5H23V3H9V5Z" fill="black"/>
-<path d="M23 13H9V11H23V13Z" fill="black"/>
-<path d="M9 21H23V19H9V21Z" fill="black"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M4 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M3 4a1 1 0 1 1 2 0 1 1 0 0 1-2 0m1 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6m-1 3a1 1 0 1 1 2 0 1 1 0 0 1-2 0m1 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6m1-3a1 1 0 1 1-2 0 1 1 0 0 1 2 0M9 5h14V3H9zm14 6H9v2h14zM9 21h14v-2H9z"/></svg>
