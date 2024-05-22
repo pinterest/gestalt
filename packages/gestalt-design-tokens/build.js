@@ -692,8 +692,6 @@ function getAndroidConfiguration({ theme = 'main-theme', mode = 'light' }) {
   };
 }
 
-<<<<<<< HEAD
-=======
 StyleDictionary.registerTransformGroup({
   name: 'iOSTransformGroup',
   transforms: [
@@ -736,11 +734,6 @@ StyleDictionary.registerTransformGroup({
   ],
 });
 
-<<<<<<< HEAD
-// $FlowFixMe[missing-local-annot]
->>>>>>> a5a3c78f1 (more)
-=======
->>>>>>> d70ce37b1 (more)
 function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
 
