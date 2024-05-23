@@ -92,7 +92,6 @@ const defaultLayout =
       columnCount,
       centerOffset,
       gutter,
-      width,
       measurementCache,
       ...otherProps,
     });
