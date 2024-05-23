@@ -16,7 +16,7 @@ type Prepender = (arg1: string) => string;
 export const getTestTypePrepender =
   (testType: string): Prepender =>
   (fileName) =>
-    `${testType}/${fileName}.js`;
+    `${testType}/${fileName}.tsx`;
 
 type Formatter = (arg1: string) => string;
 export const getPathFormatterByRuleName =

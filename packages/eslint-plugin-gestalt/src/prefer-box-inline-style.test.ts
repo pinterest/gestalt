@@ -7,19 +7,19 @@ import rule from './prefer-box-inline-style';
 const ruleTester = new RuleTester({ parserOptions });
 
 const validCode = readFileSync(
-  path.resolve(__dirname, './__fixtures__/prefer-box-inline-style/valid.js'),
+  path.resolve(__dirname, './__fixtures__/prefer-box-inline-style/valid.tsx'),
   'utf-8',
 );
 const invalidBackgroundColor = readFileSync(
-  path.resolve(__dirname, './__fixtures__/prefer-box-inline-style/invalid/backgroundColor.js'),
+  path.resolve(__dirname, './__fixtures__/prefer-box-inline-style/invalid/backgroundColor.tsx'),
   'utf-8',
 );
 const invalidBorderRadius = readFileSync(
-  path.resolve(__dirname, './__fixtures__/prefer-box-inline-style/invalid/borderRadius.js'),
+  path.resolve(__dirname, './__fixtures__/prefer-box-inline-style/invalid/borderRadius.tsx'),
   'utf-8',
 );
 const invalidBorder = readFileSync(
-  path.resolve(__dirname, './__fixtures__/prefer-box-inline-style/invalid/border.js'),
+  path.resolve(__dirname, './__fixtures__/prefer-box-inline-style/invalid/border.tsx'),
   'utf-8',
 );
 
