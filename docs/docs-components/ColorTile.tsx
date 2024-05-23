@@ -1,7 +1,7 @@
 import { Box, Text, useColorScheme } from 'gestalt';
 import { TOKEN_COLOR_TRANSPARENT } from 'gestalt-design-tokens';
-import tokens from 'gestalt-design-tokens/dist/json/variables.json';
-import darkModeTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
+import tokens from 'gestalt-design-tokens/dist/json/classic/variables.json';
+import darkModeTokens from 'gestalt-design-tokens/dist/json/classic/variables-dark.json';
 
 type Props = {
   token: string | null | undefined;
