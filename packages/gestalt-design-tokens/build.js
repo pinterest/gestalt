@@ -741,20 +741,6 @@ StyleDictionary.registerTransformGroup({
 });
 
 StyleDictionary.registerTransformGroup({
-  name: 'iOSSwiftTransformGroup',
-  transforms: [
-    'attribute/cti',
-    'name/cti/camel',
-    'name/prefix/level/camel',
-    'color/UIColorSwift',
-    'content/swift/literal',
-    'asset/swift/literal',
-    'size/swift/remToCGFloat',
-    'font/swift/literal',
-  ],
-});
-
-StyleDictionary.registerTransformGroup({
   name: 'iOSSwiftEnumTransformGroup',
   transforms: [
     'attribute/cti',
