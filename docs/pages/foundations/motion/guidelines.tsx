@@ -350,8 +350,8 @@ Durations are chosen based on these criteria:
           Any non-essential animations should automatically be disabled when a user enables the reduced motion setting on their device. For Web, we have provided a [useReducedMotion hook](https://gestalt.pinterest.systems/web/utilities/usereducedmotion) to make this easy to implement.
 
           Further reading for Web: [MDN prefers-reduced-motion guidelines](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)
-          Further reading for iOS: [Appt iOS guidelines](https://appt.org/en/docs/ios/samples/reduced-animations)
-          Further reading for Android: [Appt Android guidelines](https://appt.org/en/docs/android/samples/reduced-animations)
+          Further reading for iOS: [Appt prefers-reduced-motion iOS guidelines](https://appt.org/en/docs/ios/samples/reduced-animations)
+          Further reading for Android: [Appt prefers-reduced-motion Android guidelines](https://appt.org/en/docs/android/samples/reduced-animations)
           `}
           title="Reduced motion user setting"
         />
