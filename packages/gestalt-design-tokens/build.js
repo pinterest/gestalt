@@ -182,7 +182,9 @@ const regex1A = /(\{(?!\w)|\}(?!\w))/gi;
 const commonJSFormatter = ({ token, darkTheme, isVR }) => {
   const prefix = token.filePath.split('/').splice(-1)[0].substring(0, 4);
   return JSON.stringify({
-    name: (isVR ? [prefix, ...token.path] : token.path).join('-'),
+    name: isVR
+      ? [prefix, token.path.join('-').replace('base', '')].join('-')
+      : token.path.join('-'),
     value: token.value,
     // For lightened values with appended 1A, let's keep {value}1A if not remove the parenthesis
 
@@ -335,11 +337,16 @@ StyleDictionary.registerFormat({
           });
         }
 
-        const formattedTokenName = token.path.join('_').toUpperCase().replace('-', '_');
+        const formattedTokenNameKey = token.path
+          .join('_')
+          .toUpperCase()
+          .replace('-', '_')
+          .replace('base', '')
+          .replace('BASE', '');
 
-        return `export const TOKEN_${prefix.toUpperCase()}_${formattedTokenName} = 'var(--${prefix}-${token.path.join(
-          '-',
-        )})';`;
+        const formattedTokenNameValue = token.path.join('-').replace('base', '');
+
+        return `export const TOKEN_${prefix.toUpperCase()}_${formattedTokenNameKey} = 'var(--${prefix}-${formattedTokenNameValue})';`;
       })
       .join(`\n`);
 
