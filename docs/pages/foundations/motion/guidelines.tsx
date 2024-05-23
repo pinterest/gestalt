@@ -36,6 +36,7 @@ Easing allows movement to mimic motion *in the real world* - objects accelerate 
             height={630}
             src="https://i.pinimg.com/originals/1a/db/32/1adb3201fa6b7f03e1b2e820d672eebb.gif"
             staticImgSrc="https://i.pinimg.com/originals/06/2b/db/062bdb7677dd9f975fd6356811753a67.png"
+            style={{ maxWidth: '100%', height: 'auto' }}
             width={500}
           />
         </Box>
@@ -70,7 +71,7 @@ The most commonly used easing, and a reliable default choice when unsure. A curv
           </Flex>
 
           <Heading size="300">Examples in product</Heading>
-          <Flex gap={8} justifyContent="center" maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
+          <Flex gap={8} justifyContent="center" maxWidth={DOCS_COPY_MAX_WIDTH_PX} wrap>
             <ReducedMotionImage
               alt="Search screen transition example"
               height={542}
@@ -115,7 +116,7 @@ Curve is commonly used for elements that initially exist out of view and smoothl
           </Flex>
 
           <Heading size="300">Examples in product</Heading>
-          <Flex gap={8} justifyContent="center" maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
+          <Flex gap={8} justifyContent="center" maxWidth={DOCS_COPY_MAX_WIDTH_PX} wrap>
             <ReducedMotionImage
               alt="Settings open transition example"
               height={542}
@@ -153,7 +154,7 @@ Curve is commonly used for elements that begin within the user's field of view a
           </Flex>
 
           <Heading size="300">Examples in product</Heading>
-          <Flex gap={8} justifyContent="center" maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
+          <Flex gap={8} justifyContent="center" maxWidth={DOCS_COPY_MAX_WIDTH_PX} wrap>
             <ReducedMotionImage
               alt="Settings close transition example"
               height={542}
@@ -189,7 +190,7 @@ Curve is commonly used for elements that begin within the user's field of view a
           </Flex>
 
           <Heading size="300">Examples in product</Heading>
-          <Flex gap={8} justifyContent="center" maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
+          <Flex gap={8} justifyContent="center" maxWidth={DOCS_COPY_MAX_WIDTH_PX} wrap>
             <ReducedMotionImage
               alt="Homefeed screen change animation"
               height={542}
@@ -232,7 +233,7 @@ Curve is commonly used for elements that begin within the user's field of view a
           </Flex>
 
           <Heading size="300">Examples in product</Heading>
-          <Flex gap={8} justifyContent="center" maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
+          <Flex gap={8} justifyContent="center" maxWidth={DOCS_COPY_MAX_WIDTH_PX} wrap>
             <ReducedMotionImage
               alt="Toolbar appear transition example"
               height={250}
@@ -268,7 +269,7 @@ Curve is commonly used for elements that begin within the user's field of view a
           </Flex>
 
           <Heading size="300">Examples in product</Heading>
-          <Flex gap={8} justifyContent="center" maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
+          <Flex gap={8} justifyContent="center" maxWidth={DOCS_COPY_MAX_WIDTH_PX} wrap>
             <ReducedMotionImage
               alt="Radio button toggle example"
               height={542}
