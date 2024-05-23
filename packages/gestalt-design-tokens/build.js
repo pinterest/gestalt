@@ -56,6 +56,14 @@ const filterSpace = {
   },
 };
 
+const filterElevation = {
+  'filter': {
+    'attributes': {
+      'category': 'elevation',
+    },
+  },
+};
+
 const filterFontWeight = {
   'filter': {
     'attributes': {
@@ -160,7 +168,7 @@ function getTheme(theme) {
   return theme === 'vr-theme' ? 'VR' : '';
 }
 
-function buildShadowValue(values) {
+function buildShadowValue(values, platform) {
   // destructure shadow values from original token value
   // x, y, blur, spread, color, alpha;
   // convert hex code to rgba string
@@ -171,7 +179,9 @@ function buildShadowValue(values) {
       shadowColor.setAlpha(value.opacity);
       shadowColor.toRgbString();
 
-      return `${value.offsetX}px ${value.offsetY}px ${value.blurRadius}px ${value.spreadRadius}px ${shadowColor}`;
+      return platform === 'css'
+        ? `${value.offsetX}px ${value.offsetY}px ${value.blurRadius}px ${value.spreadRadius}px ${shadowColor}`
+        : `${value.offsetX}px ${value.offsetY}px ${value.blurRadius}px ${value.spreadRadius}px ${value.color} ${value.opacity}`;
     })
     .join(', ');
 }
@@ -218,10 +228,9 @@ function getSources({ theme, modeTheme, platform }) {
       `tokens/${theme}/sema-color${modeTheme}.json`,
       `tokens/${theme}/base-color-data-visualization${modeTheme}.json`,
       `tokens/${theme}/sema-color-data-visualization${modeTheme}.json`,
-
+      `tokens/${theme}/base-elevation${modeTheme}.json`,
       ...(platform === 'web'
         ? [
-            `tokens/${theme}/base-elevation${modeTheme}.json`,
             `tokens/${theme}/comp-web-color${modeTheme}.json`,
             `tokens/${theme}/comp-web-elevation${modeTheme}.json`,
             `tokens/${theme}/comp-web-rounding.json`,
@@ -428,7 +437,7 @@ StyleDictionary.registerTransform({
   transformer(prop) {
     if (typeof prop.value === 'string' && prop.value === 'none') return 'none';
 
-    return buildShadowValue(prop.value);
+    return buildShadowValue(prop.value, 'css');
   },
 });
 
@@ -735,6 +744,20 @@ function getAndroidConfiguration({ theme = 'main-theme', mode = 'light' }) {
 // IOS PLATFORM
 
 // REGISTER TRANSFORM
+
+StyleDictionary.registerTransform({
+  name: 'value/elevation/ios',
+  type: 'value',
+  matcher(prop) {
+    return prop.attributes.category === 'elevation';
+  },
+  transformer(prop) {
+    if (typeof prop.value === 'string' && prop.value === 'none') return 'none';
+
+    return buildShadowValue(prop.value, 'ios');
+  },
+});
+
 StyleDictionary.registerTransform({
   name: 'name/prefix/level/camel',
   type: 'name',
@@ -758,6 +781,7 @@ StyleDictionary.registerTransformGroup({
     'name/cti/pascal',
     'name/conflictFixing',
     'name/prefix/level/pascal',
+    'value/elevation/ios',
     'color/UIColor',
     'content/objC/literal',
     'asset/objC/literal',
@@ -773,6 +797,7 @@ StyleDictionary.registerTransformGroup({
     'name/ti/camel',
     'name/conflictFixing',
     'name/prefix/level/camel',
+    'value/elevation/ios',
     'color/UIColorSwift',
     'content/swift/literal',
     'asset/swift/literal',
@@ -892,6 +917,20 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
                   'type': `GestaltTokensFontFamilyName${getTheme(theme)}`,
                   ...filterFontFamily,
                 },
+                {
+                  'destination': `GestaltTokensElevation${getTheme(theme)}.h`,
+                  ...iosStaticH,
+                  'className': `GestaltTokensElevation${getTheme(theme)}`,
+                  'type': `GestaltTokensElevation${getTheme(theme)}`,
+                  ...filterElevation,
+                },
+                {
+                  'destination': `GestaltTokensElevation${getTheme(theme)}.m`,
+                  ...iosStaticM,
+                  'className': `GestaltTokensElevation${getTheme(theme)}`,
+                  'type': `GestaltTokensElevation${getTheme(theme)}`,
+                  ...filterElevation,
+                },
               ]
             : [
                 {
@@ -907,6 +946,20 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
                   'className': `GestaltTokensColor${getTheme(theme)}`,
                   'type': `GestaltTokensColorName${getTheme(theme)}`,
                   ...filterColor,
+                },
+                {
+                  'destination': `GestaltTokensElevationDark${getTheme(theme)}.h`,
+                  ...iosStaticH,
+                  'className': `GestaltTokensElevationDark${getTheme(theme)}`,
+                  'type': `GestaltTokensElevationDark${getTheme(theme)}`,
+                  ...filterElevation,
+                },
+                {
+                  'destination': `GestaltTokensElevationDark${getTheme(theme)}.m`,
+                  ...iosStaticM,
+                  'className': `GestaltTokensElevationDark${getTheme(theme)}`,
+                  'type': `GestaltTokensElevationDark${getTheme(theme)}`,
+                  ...filterElevation,
                 },
               ],
       },
@@ -942,6 +995,12 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
                   ...filterOpacity,
                 },
                 {
+                  'destination': `GestaltTokensElevation${getTheme(theme)}.swift`,
+                  ...iosSwiftEnumSwift,
+                  'className': `GestaltTokensElevation${getTheme(theme)}`,
+                  ...filterElevation,
+                },
+                {
                   'destination': `GestaltTokensFontWeight${getTheme(theme)}.swift`,
                   ...iosSwiftEnumSwift,
                   'className': `GestaltTokensFontWeight${getTheme(theme)}`,
@@ -966,6 +1025,12 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
                   ...iosSwiftEnumSwift,
                   'className': `GestaltTokensColor${getTheme(theme)}`,
                   ...filterColor,
+                },
+                {
+                  'destination': `GestaltTokensElevationDark${getTheme(theme)}.swift`,
+                  ...iosSwiftEnumSwift,
+                  'className': `GestaltTokensElevationDark${getTheme(theme)}`,
+                  ...filterElevation,
                 },
               ],
       },
