@@ -1,3 +1,9 @@
+## 149.0.4 (May 23, 2024)
+
+### Patch
+
+- Docs: New Motion Guidelines page ([#3578](https://github.com/pinterest/gestalt/pull/3578)) - [Preview link](https://deploy-preview-3578--gestalt.netlify.app?devexample=true)
+
 ## 149.0.3 (May 23, 2024)
 
 ### Patch
