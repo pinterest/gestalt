@@ -32,7 +32,7 @@
       "value": "{rounding.4.value}"
     },
     "circle": {
-      "value": "{rounding.circle-base.value}"
+      "value": "{rounding.circlebase.value}"
     }
   }
 }
