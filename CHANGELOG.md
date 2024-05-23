@@ -1,3 +1,9 @@
+## 149.0.3 (May 23, 2024)
+
+### Patch
+
+- Internal: TypeScript migration for eslint-plugin-gestalt test fixtures ([#3589](https://github.com/pinterest/gestalt/pull/3589)) - [Preview link](https://deploy-preview-3589--gestalt.netlify.app?devexample=true)
+
 ## 149.0.2 (May 21, 2024)
 
 ### Patch
