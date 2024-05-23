@@ -15,7 +15,7 @@ import {
   ToastIconThumbnail,
   ToastImageThumbnail,
   ToastMessage,
-} from './Shared/ToastSubcomponents';
+} from './shared/ToastSubcomponents';
 import Text from './Text';
 import { Indexable } from './zIndex';
 

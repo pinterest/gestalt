@@ -13,7 +13,7 @@ import {
   ToastImageThumbnail,
   ToastMessage,
   ToastTypeThumbnail,
-} from './Shared/ToastSubcomponents';
+} from './shared/ToastSubcomponents';
 import styles from './Toast.css';
 import PrimaryAction from './Toast/PrimaryAction';
 import useResponsiveMinWidth from './useResponsiveMinWidth';
