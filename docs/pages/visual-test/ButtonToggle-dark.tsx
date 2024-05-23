@@ -4,7 +4,7 @@ export default function Snapshot() {
   return (
     <ColorSchemeProvider colorScheme="dark">
       <Box color="default" display="inlineBlock" padding={1}>
-        <ButtonToggle color="gray" text="Save a Pin" />
+        <ButtonToggle color="transparent" iconStart="sparkle" text="Save" />
       </Box>
     </ColorSchemeProvider>
   );
