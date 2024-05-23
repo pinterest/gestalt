@@ -996,7 +996,7 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
               ]
             : [
                 {
-                  'destination': `GestaltDesignTokensColorDarkTheme${
+                  'destination': `GestaltDesignTokensColorDark${
                     theme === 'vr-theme' ? 'VR' : ''
                   }.h`,
                   'format': 'ios/colors.h',
@@ -1016,7 +1016,7 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
                   },
                 },
                 {
-                  'destination': `GestaltDesignTokensColorDarkTheme${
+                  'destination': `GestaltDesignTokensColorDark${
                     theme === 'vr-theme' ? 'VR' : ''
                   }.m`,
                   'format': 'ios/colors.m',
@@ -1038,19 +1038,143 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
               ],
       },
       'ios-swift': {
-        'transformGroup': 'iOSSwiftTransformGroup',
+        'transformGroup': 'iOSSwiftEnumTransformGroup',
         '_transformGroup_comment':
-          'Custom from https://amzn.github.io/style-dictionary/#/transform_groups?id=ios-swift',
+          'Custom from https://amzn.github.io/style-dictionary/#/transform_groups?id=ios-swift-separate',
         'buildPath': `dist/ios-swift/${theme}/`,
         'files':
           mode === 'light'
             ? [
                 {
-                  'destination': 'GestaltDesignTokens.swift',
-                  'format': 'ios-swift/class.swift',
+                  'destination': `GestaltDesignTokensColor${
+                    theme === 'vr-theme' ? 'VR' : ''
+                  }.swift`,
+                  'format': 'ios-swift/enum.swift',
                   '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftclassswift',
-                  'className': 'GestaltDesignTokens',
+                    'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftenumswift',
+                  'className': `GestaltDesignTokensColor${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'filter': {
+                    'attributes': {
+                      'category': 'color',
+                    },
+                  },
+                  'options': {
+                    'fileHeader': 'fileHeader',
+                    '_fileHeader_comment': 'Custom',
+                    'showFileHeader': true,
+                  },
+                },
+                {
+                  'destination': `GestaltDesignTokensRounding${
+                    theme === 'vr-theme' ? 'VR' : ''
+                  }.swift`,
+                  'format': 'ios-swift/enum.swift',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftenumswift',
+                  'className': `GestaltDesignTokensRounding${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'filter': {
+                    'attributes': {
+                      'category': 'rounding',
+                    },
+                  },
+                  'options': {
+                    'fileHeader': 'fileHeader',
+                    '_fileHeader_comment': 'Custom',
+                    'showFileHeader': true,
+                  },
+                },
+                {
+                  'destination': `GestaltDesignTokensSpace${
+                    theme === 'vr-theme' ? 'VR' : ''
+                  }.swift`,
+                  'format': 'ios-swift/enum.swift',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftenumswift',
+                  'className': `GestaltDesignTokensSpace${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'filter': {
+                    'attributes': {
+                      'category': 'space',
+                    },
+                  },
+                  'options': {
+                    'fileHeader': 'fileHeader',
+                    '_fileHeader_comment': 'Custom',
+                    'showFileHeader': true,
+                  },
+                },
+                {
+                  'destination': `GestaltDesignTokensOpacity${
+                    theme === 'vr-theme' ? 'VR' : ''
+                  }.swift`,
+                  'format': 'ios-swift/enum.swift',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftenumswift',
+                  'className': `GestaltDesignTokensOpacity${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'filter': {
+                    'attributes': {
+                      'category': 'opacity',
+                    },
+                  },
+                  'options': {
+                    'fileHeader': 'fileHeader',
+                    '_fileHeader_comment': 'Custom',
+                    'showFileHeader': true,
+                  },
+                },
+                {
+                  'destination': `GestaltDesignTokensFontWeight${
+                    theme === 'vr-theme' ? 'VR' : ''
+                  }.swift`,
+                  'format': 'ios-swift/enum.swift',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftenumswift',
+                  'className': `GestaltDesignTokensFontWeight${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'filter': {
+                    'attributes': {
+                      'category': 'font',
+                      'type': 'weight',
+                    },
+                  },
+                  'options': {
+                    'fileHeader': 'fileHeader',
+                    '_fileHeader_comment': 'Custom',
+                    'showFileHeader': true,
+                  },
+                },
+                {
+                  'destination': `GestaltDesignTokensFontSize${
+                    theme === 'vr-theme' ? 'VR' : ''
+                  }.swift`,
+                  'format': 'ios-swift/enum.swift',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftenumswift',
+                  'className': `GestaltDesignTokensFontSize${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'filter': {
+                    'attributes': {
+                      'category': 'font',
+                      'type': 'size',
+                    },
+                  },
+                  'options': {
+                    'fileHeader': 'fileHeader',
+                    '_fileHeader_comment': 'Custom',
+                    'showFileHeader': true,
+                  },
+                },
+                {
+                  'destination': `GestaltDesignTokensFontFamily${
+                    theme === 'vr-theme' ? 'VR' : ''
+                  }.swift`,
+                  'format': 'ios-swift/enum.swift',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftenumswift',
+                  'className': `GestaltDesignTokensFontFamily${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'filter': {
+                    'attributes': {
+                      'category': 'font',
+                      'type': 'family',
+                    },
+                  },
                   'options': {
                     'fileHeader': 'fileHeader',
                     '_fileHeader_comment': 'Custom',
@@ -1060,11 +1184,18 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
               ]
             : [
                 {
-                  'destination': 'GestaltDesignTokensDarkTheme.swift',
+                  'destination': `GestaltDesignTokensColorDark${
+                    theme === 'vr-theme' ? 'VR' : ''
+                  }.swift`,
                   'format': 'ios-swift/class.swift',
                   '_format_comment':
                     'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftclassswift',
-                  'className': 'GestaltDesignTokens',
+                  'className': `GestaltDesignTokensColor${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'filter': {
+                    'attributes': {
+                      'category': 'color',
+                    },
+                  },
                   'options': {
                     'fileHeader': 'fileHeader',
                     '_fileHeader_comment': 'Custom',
@@ -1072,34 +1203,6 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
                   },
                 },
               ],
-      },
-      'ios-swift-separate-enums': {
-        'transformGroup': 'iOSSwiftEnumTransformGroup',
-        '_transformGroup_comment':
-          'Custom from https://amzn.github.io/style-dictionary/#/transform_groups?id=ios-swift-separate',
-        'buildPath': `dist/ios-swift/${theme}/`,
-        'files': [
-          {
-            'destination':
-              mode === 'light'
-                ? 'GestaltDesignTokensColor.swift'
-                : 'GestaltDesignTokensColorDarkTheme.swift',
-            'format': 'ios-swift/enum.swift',
-            '_format_comment':
-              'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftenumswift',
-            'className': 'GestaltDesignTokensColor',
-            'filter': {
-              'attributes': {
-                'category': 'color',
-              },
-            },
-            'options': {
-              'fileHeader': 'fileHeader',
-              '_fileHeader_comment': 'Custom',
-              'showFileHeader': true,
-            },
-          },
-        ],
       },
     },
   };
@@ -1110,7 +1213,7 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
 const platformFileMap = {
   web: ['css', 'json', 'js'],
   android: ['android'],
-  ios: ['ios', 'ios-swift', 'ios-swift-separate-enums'],
+  ios: ['ios', 'ios-swift'],
 };
 
 ['classic', 'vr-theme'].forEach((theme) =>
