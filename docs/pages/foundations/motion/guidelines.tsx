@@ -4,7 +4,7 @@ import MainSection from '../../../docs-components/MainSection';
 import Markdown from '../../../docs-components/Markdown';
 import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';
-import ReducedMotionImage from '../../../docs-components/ReducedMotionImage';
+import ReducedMotionGIF from '../../../docs-components/ReducedMotionGIF';
 
 export default function GuidelinesPage() {
   return (
@@ -31,7 +31,7 @@ Easing allows movement to mimic motion *in the real world* - objects accelerate 
           marginTop={-10}
           maxWidth={DOCS_COPY_MAX_WIDTH_PX}
         >
-          <ReducedMotionImage
+          <ReducedMotionGIF
             alt="Comparison of transitions with and without easing"
             height={630}
             src="https://i.pinimg.com/originals/1a/db/32/1adb3201fa6b7f03e1b2e820d672eebb.gif"
@@ -46,7 +46,7 @@ Easing allows movement to mimic motion *in the real world* - objects accelerate 
         <MainSection.Subsection title="Expressive ease">
           <Flex gap={8} maxWidth={DOCS_COPY_MAX_WIDTH_PX} wrap>
             <Flex.Item flexBasis={200}>
-              <ReducedMotionImage
+              <ReducedMotionGIF
                 alt="Expressive easing animation"
                 height={250}
                 src="https://i.pinimg.com/originals/7d/76/4d/7d764d6b2a0eb47eec607ea5457fbbd5.gif"
@@ -72,14 +72,14 @@ The most commonly used easing, and a reliable default choice when unsure. A curv
 
           <Heading size="300">Examples in product</Heading>
           <Flex gap={8} justifyContent="center" maxWidth={DOCS_COPY_MAX_WIDTH_PX} wrap>
-            <ReducedMotionImage
+            <ReducedMotionGIF
               alt="Search screen transition example"
               height={542}
               src="https://i.pinimg.com/originals/6b/22/c8/6b22c89c7c6d92784130f816ff20a602.gif"
               staticImgSrc="https://i.pinimg.com/originals/86/e5/29/86e529087ed73540715a86b1e2ff8166.png"
               width={250}
             />
-            <ReducedMotionImage
+            <ReducedMotionGIF
               alt="Pin closeup transition example"
               height={542}
               src="https://i.pinimg.com/originals/ef/5d/45/ef5d45d10c4d0b971a00e21460a50fac.gif"
@@ -92,7 +92,7 @@ The most commonly used easing, and a reliable default choice when unsure. A curv
         <MainSection.Subsection title="Enter ease">
           <Flex gap={8} maxWidth={DOCS_COPY_MAX_WIDTH_PX} wrap>
             <Flex.Item flexBasis={200}>
-              <ReducedMotionImage
+              <ReducedMotionGIF
                 alt="Enter easing animation"
                 height={250}
                 src="https://i.pinimg.com/originals/23/4f/32/234f32053b56bd1f7736596937c21d30.gif"
@@ -117,7 +117,7 @@ Curve is commonly used for elements that initially exist out of view and smoothl
 
           <Heading size="300">Examples in product</Heading>
           <Flex gap={8} justifyContent="center" maxWidth={DOCS_COPY_MAX_WIDTH_PX} wrap>
-            <ReducedMotionImage
+            <ReducedMotionGIF
               alt="Settings open transition example"
               height={542}
               src="https://i.pinimg.com/originals/59/0e/b5/590eb54c70961af6187addf797e67d21.gif"
@@ -130,7 +130,7 @@ Curve is commonly used for elements that initially exist out of view and smoothl
         <MainSection.Subsection title="Exit ease">
           <Flex gap={8} maxWidth={DOCS_COPY_MAX_WIDTH_PX} wrap>
             <Flex.Item flexBasis={200}>
-              <ReducedMotionImage
+              <ReducedMotionGIF
                 alt="Exit easing animation"
                 height={250}
                 src="https://i.pinimg.com/originals/c7/c7/e2/c7c7e28ecfe8a40effd613db069409c2.gif"
@@ -155,7 +155,7 @@ Curve is commonly used for elements that begin within the user's field of view a
 
           <Heading size="300">Examples in product</Heading>
           <Flex gap={8} justifyContent="center" maxWidth={DOCS_COPY_MAX_WIDTH_PX} wrap>
-            <ReducedMotionImage
+            <ReducedMotionGIF
               alt="Settings close transition example"
               height={542}
               src="https://i.pinimg.com/originals/97/ab/9f/97ab9fe5064b697d8a54f073b8f4edd2.gif"
@@ -168,7 +168,7 @@ Curve is commonly used for elements that begin within the user's field of view a
         <MainSection.Subsection title="Lateral ease">
           <Flex gap={8} maxWidth={DOCS_COPY_MAX_WIDTH_PX} wrap>
             <Flex.Item flexBasis={200}>
-              <ReducedMotionImage
+              <ReducedMotionGIF
                 alt="Lateral easing animation"
                 height={250}
                 src="https://i.pinimg.com/originals/eb/82/ce/eb82ceb91f0f28d34e3a53115533a44c.png"
@@ -191,14 +191,14 @@ Curve is commonly used for elements that begin within the user's field of view a
 
           <Heading size="300">Examples in product</Heading>
           <Flex gap={8} justifyContent="center" maxWidth={DOCS_COPY_MAX_WIDTH_PX} wrap>
-            <ReducedMotionImage
+            <ReducedMotionGIF
               alt="Homefeed screen change animation"
               height={542}
               src="https://i.pinimg.com/originals/f9/63/a0/f963a0d79164ac3e2c9c90a2905082ef.gif"
               staticImgSrc="https://i.pinimg.com/originals/4f/87/85/4f878578ee6b60505b1db3af5a16f0cb.png"
               width={250}
             />
-            <ReducedMotionImage
+            <ReducedMotionGIF
               alt="Image carousel example"
               height={542}
               src="https://i.pinimg.com/originals/18/11/3e/18113e94de7cda6516a8b01b984fda87.gif"
@@ -211,7 +211,7 @@ Curve is commonly used for elements that begin within the user's field of view a
         <MainSection.Subsection title="Bounce ease">
           <Flex gap={8} maxWidth={DOCS_COPY_MAX_WIDTH_PX} wrap>
             <Flex.Item flexBasis={200}>
-              <ReducedMotionImage
+              <ReducedMotionGIF
                 alt="Bounce easing animation"
                 height={250}
                 src="https://i.pinimg.com/originals/12/0f/6c/120f6cb335a2e7d9823459b5cc2911af.gif"
@@ -234,7 +234,7 @@ Curve is commonly used for elements that begin within the user's field of view a
 
           <Heading size="300">Examples in product</Heading>
           <Flex gap={8} justifyContent="center" maxWidth={DOCS_COPY_MAX_WIDTH_PX} wrap>
-            <ReducedMotionImage
+            <ReducedMotionGIF
               alt="Toolbar appear transition example"
               height={250}
               src="https://i.pinimg.com/originals/7a/79/3f/7a793fc62c7ddfe2dd56d06ffe136feb.gif"
@@ -247,7 +247,7 @@ Curve is commonly used for elements that begin within the user's field of view a
         <MainSection.Subsection title="Linear ease">
           <Flex gap={8} maxWidth={DOCS_COPY_MAX_WIDTH_PX} wrap>
             <Flex.Item flexBasis={200}>
-              <ReducedMotionImage
+              <ReducedMotionGIF
                 alt="Linear easing animation"
                 height={250}
                 src="https://i.pinimg.com/originals/86/e5/ff/86e5ff5bf987f552dcd84ef48638856c.gif"
@@ -270,14 +270,14 @@ Curve is commonly used for elements that begin within the user's field of view a
 
           <Heading size="300">Examples in product</Heading>
           <Flex gap={8} justifyContent="center" maxWidth={DOCS_COPY_MAX_WIDTH_PX} wrap>
-            <ReducedMotionImage
+            <ReducedMotionGIF
               alt="Radio button toggle example"
               height={542}
               src="https://i.pinimg.com/originals/20/92/29/20922961537e594b43c3f2f456b5817a.gif"
               staticImgSrc="https://i.pinimg.com/originals/70/00/eb/7000ebb29642dcb5c156e23e99d50fc1.png"
               width={250}
             />
-            <ReducedMotionImage
+            <ReducedMotionGIF
               alt="Follow button toggle example"
               height={542}
               src="https://i.pinimg.com/originals/a4/b6/88/a4b688b568a01ad81103fa52370492d6.gif"

@@ -81,7 +81,13 @@ export default function AnimationPrinciples() {
           <MainSection.Subsection marginBottom="compact" title="Visual principles">
             <Flex alignContent="between" gap={8} wrap>
               <Flex.Item flex="grow" flexBasis={240}>
-                <Box borderStyle="sm" height="100%" padding={4} rounding={2}>
+                <Box
+                  borderStyle="sm"
+                  color="recommendationWeak"
+                  height="100%"
+                  padding={4}
+                  rounding={2}
+                >
                   <PrincipleItem
                     heading="Soft"
                     text={
@@ -94,7 +100,13 @@ export default function AnimationPrinciples() {
                 </Box>
               </Flex.Item>
               <Flex.Item flex="grow" flexBasis={240}>
-                <Box borderStyle="sm" height="100%" padding={4} rounding={2}>
+                <Box
+                  borderStyle="sm"
+                  color="recommendationWeak"
+                  height="100%"
+                  padding={4}
+                  rounding={2}
+                >
                   <PrincipleItem
                     heading="Bouncy"
                     text={
@@ -112,7 +124,13 @@ export default function AnimationPrinciples() {
                 </Box>
               </Flex.Item>
               <Flex.Item flex="grow" flexBasis={240}>
-                <Box borderStyle="sm" height="100%" padding={4} rounding={2}>
+                <Box
+                  borderStyle="sm"
+                  color="recommendationWeak"
+                  height="100%"
+                  padding={4}
+                  rounding={2}
+                >
                   <PrincipleItem
                     heading="Physical"
                     text={
