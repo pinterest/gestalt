@@ -1,3 +1,9 @@
+## 150.0.0 (May 23, 2024)
+
+### Major
+
+- Tokens: VR tokens (final vr-theme files) for Android and iOS consumption (web mapping layer not included) ([#3576](https://github.com/pinterest/gestalt/pull/3576)) - [Preview link](https://deploy-preview-3576--gestalt.netlify.app?devexample=true)
+
 ## 149.0.5 (May 23, 2024)
 
 ### Patch
