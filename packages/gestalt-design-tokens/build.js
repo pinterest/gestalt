@@ -1,7 +1,164 @@
 const StyleDictionary = require('style-dictionary');
 const tinycolor = require('tinycolor2');
 
+// CONFIG
+
+const optionsFileHeader = {
+  'options': {
+    'fileHeader': 'fileHeader',
+    '_fileHeader_comment': 'Custom',
+    'showFileHeader': true,
+  },
+};
+
+const optionsFileHeaderOutputReferences = {
+  'options': {
+    'fileHeader': 'fileHeader',
+    '_fileHeader_comment': 'Custom',
+    'showFileHeader': true,
+    'outputReferences': true,
+  },
+};
+
+const dimenResource = { 'resourceType': 'dimen' };
+
+const colorResource = { 'resourceType': 'color' };
+
+const filterColor = {
+  'filter': {
+    'attributes': {
+      'category': 'color',
+    },
+  },
+};
+
+const filterRounding = {
+  'filter': {
+    'attributes': {
+      'category': 'rounding',
+    },
+  },
+};
+
+const filterOpacity = {
+  'filter': {
+    'attributes': {
+      'category': 'opacity',
+    },
+  },
+};
+
+const filterSpace = {
+  'filter': {
+    'attributes': {
+      'category': 'space',
+    },
+  },
+};
+
+const filterFontWeight = {
+  'filter': {
+    'attributes': {
+      'category': 'font',
+      'type': 'weight',
+    },
+  },
+};
+
+const filterFontSize = {
+  'filter': {
+    'attributes': {
+      'category': 'font',
+      'type': 'size',
+    },
+  },
+};
+
+const filterFontFamily = {
+  'filter': {
+    'attributes': {
+      'category': 'font',
+      'type': 'family',
+    },
+  },
+};
+
+const androidResources = {
+  'format': 'android/resources',
+  '_format_comment': 'https://amzn.github.io/style-dictionary/#/formats?id=androidresources',
+};
+
+const iosColorsH = {
+  'format': 'ios/colors.h',
+  '_format_comment': 'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsh',
+};
+
+const iosColorsM = {
+  'format': 'ios/colors.m',
+  '_format_comment': 'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsm',
+};
+
+const iosStaticH = {
+  'format': 'ios/static.h',
+  '_format_comment': 'https://amzn.github.io/style-dictionary/#/formats?id=iosstringsh',
+};
+
+const iosStaticM = {
+  'format': 'ios/static.m',
+  '_format_comment': 'https://amzn.github.io/style-dictionary/#/formats?id=iosstringsm',
+};
+
+const iosSwiftEnumSwift = {
+  'format': 'ios-swift/enum.swift',
+  '_format_comment': 'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftenumswift',
+};
+
+const jsonFlat = {
+  'format': 'json/flat',
+  '_format_comment': 'https://amzn.github.io/style-dictionary/#/formats?id=jsonflat',
+};
+
+const cssVariables = {
+  'format': 'css/variables',
+  '_format_comment': 'https://amzn.github.io/style-dictionary/#/formats?id=cssvariables',
+};
+
+const colorElevationFilter = {
+  'filter': 'colorElevationFilter',
+  '_filter_comment': 'Custom',
+};
+
+const dataVisualizationFilter = {
+  'filter': 'dataVisualizationFilter',
+  '_filter_comment': 'Custom',
+};
+
+const webCssTransformGroup = {
+  'transformGroup': 'webCssTransformGroup',
+  '_transformGroup_comment':
+    'Custom from https://amzn.github.io/style-dictionary/#/transform_groups?id=css',
+};
+const androidTransformGroup = {
+  'transformGroup': 'androidTransformGroup',
+  '_format_comment': 'Custom',
+};
+
+const iOSTransformGroup = {
+  'transformGroup': 'iOSTransformGroup',
+  '_transformGroup_comment':
+    'Custom from https://amzn.github.io/style-dictionary/#/transform_groups?id=ios',
+};
+const iOSSwiftEnumTransformGroup = {
+  'transformGroup': 'iOSSwiftEnumTransformGroup',
+  '_transformGroup_comment':
+    'Custom from https://amzn.github.io/style-dictionary/#/transform_groups?id=ios-swift-separate',
+};
+
 // HELPER FUNCTIONS
+
+function getTheme(theme) {
+  return theme === 'vr-theme' ? 'VR' : '';
+}
 
 function buildShadowValue(values) {
   // destructure shadow values from original token value
@@ -321,7 +478,7 @@ StyleDictionary.registerTransformGroup({
 
 // Filters only tokens with dark theme values
 StyleDictionary.registerFilter({
-  name: 'darkThemeFilter',
+  name: 'colorElevationFilter',
   matcher(token) {
     return token.attributes.category === 'color' || token.attributes.category === 'elevation';
   },
@@ -345,72 +502,46 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
     'source': getSources({ theme, modeTheme, platform: 'web' }),
     'platforms': {
       'css': {
-        'transformGroup': 'webCssTransformGroup',
-        '_transformGroup_comment':
-          'https://amzn.github.io/style-dictionary/#/transform_groups?id=css',
+        ...webCssTransformGroup,
         'buildPath': `dist/css/${theme}/`,
+        ...optionsFileHeaderOutputReferences,
         'files':
           mode === 'light'
             ? [
                 {
                   'destination': 'variables.css',
-                  'format': 'css/variables',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=cssvariables',
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                    'outputReferences': true,
-                  },
+                  ...cssVariables,
                 },
               ]
             : [
                 {
                   'destination': 'variables-dark.css',
-                  'format': 'css/variables',
-                  '_format_comment': 'Custom',
-                  'filter': 'darkThemeFilter',
-                  '_filter_comment': 'Custom',
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                    'outputReferences': true,
-                  },
+                  ...cssVariables,
+                  ...colorElevationFilter,
                 },
               ],
       },
       'json': {
-        'transformGroup': 'webCssTransformGroup',
-        '_transformGroup_comment':
-          'https://amzn.github.io/style-dictionary/#/transform_groups?id=css',
+        ...webCssTransformGroup,
         'buildPath': `dist/json/${theme}/`,
         'files':
           mode === 'light'
             ? [
                 {
                   'destination': 'variables.json',
-                  'format': 'json/flat',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=jsonflat',
+                  ...jsonFlat,
                 },
                 {
                   'destination': 'variables-light.json',
-                  'format': 'json/flat',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=jsonflat',
-                  'filter': 'darkThemeFilter',
-                  '_filter_comment': 'Custom',
+                  ...jsonFlat,
+                  ...colorElevationFilter,
                 },
               ]
             : [
                 {
                   'destination': 'variables-dark.json',
-                  'format': 'json/flat',
-                  '_format_comment': 'Custom',
-                  'filter': 'darkThemeFilter',
-                  '_filter_comment': 'Custom',
+                  ...jsonFlat,
+                  ...colorElevationFilter,
                 },
               ],
       },
@@ -419,11 +550,7 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
         '_transformGroup_comment':
           'https://amzn.github.io/style-dictionary/#/transform_groups?id=js',
         'buildPath': `dist/js/${theme}/`,
-        'options': {
-          'showFileHeader': true,
-          'fileHeader': 'fileHeader',
-          '_fileHeader_comment': 'Custom',
-        },
+        ...optionsFileHeader,
         'files':
           mode === 'light'
             ? [
@@ -456,8 +583,7 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
                   'destination': 'data-viz-tokens.js',
                   'format': `commonJS/${theme}`,
                   '_format_comment': 'Custom',
-                  'filter': 'dataVisualizationFilter',
-                  '_filter_comment': 'Custom',
+                  ...dataVisualizationFilter,
                 },
               ]
             : [
@@ -470,8 +596,7 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
                   'destination': 'data-viz-tokens_dark.js',
                   'format': `darkTheme-commonJS/${theme}`,
                   '_format_comment': 'Custom',
-                  'filter': 'dataVisualizationFilter',
-                  '_filter_comment': 'Custom',
+                  ...dataVisualizationFilter,
                 },
               ],
       },
@@ -526,125 +651,55 @@ function getAndroidConfiguration({ theme = 'main-theme', mode = 'light' }) {
     'source': getSources({ theme, modeTheme }),
     'platforms': {
       'android': {
-        'transformGroup': 'androidTransformGroup',
-        '_format_comment': 'Custom',
+        ...androidTransformGroup,
         'buildPath': `dist/android/${theme}/`,
-        'options': {
-          'showFileHeader': true,
-          'fileHeader': 'fileHeader',
-          '_fileHeader_comment': 'Custom',
-        },
+        ...optionsFileHeaderOutputReferences,
         'files':
           mode === 'light'
             ? [
                 {
                   'destination': 'colors-light.xml',
-                  'format': 'android/resources',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=androidresources',
-                  'resourceType': 'color',
-                  'filter': {
-                    'attributes': {
-                      'category': 'color',
-                    },
-                  },
-                  'options': {
-                    'outputReferences': true,
-                  },
+                  ...androidResources,
+                  ...colorResource,
+                  ...filterColor,
                 },
                 {
                   'destination': 'font-size.xml',
-                  'format': 'android/resources',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=androidresources',
-                  'resourceType': 'dimen',
-                  'filter': {
-                    'attributes': {
-                      'category': 'font',
-                      'type': 'size',
-                    },
-                  },
-                  'options': {
-                    'outputReferences': true,
-                  },
+                  ...androidResources,
+                  ...dimenResource,
+                  ...filterFontSize,
                 },
                 {
                   'destination': 'font-weight.xml',
-                  'format': 'android/resources',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=androidresources',
-                  'resourceType': 'dimen',
-                  'filter': {
-                    'attributes': {
-                      'category': 'font',
-                      'type': 'weight',
-                    },
-                  },
-                  'options': {
-                    'outputReferences': true,
-                  },
+                  ...androidResources,
+                  ...dimenResource,
+                  ...filterFontWeight,
                 },
                 {
                   'destination': 'opacity.xml',
-                  'format': 'android/resources',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=androidresources',
-                  'resourceType': 'dimen',
-                  'filter': {
-                    'attributes': {
-                      'category': 'opacity',
-                    },
-                  },
-                  'options': {
-                    'outputReferences': true,
-                  },
+                  ...androidResources,
+                  ...dimenResource,
+                  ...filterOpacity,
                 },
                 {
                   'destination': 'rounding.xml',
-                  'format': 'android/resources',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=androidresources',
-                  'resourceType': 'dimen',
-                  'filter': {
-                    'attributes': {
-                      'category': 'rounding',
-                    },
-                  },
-                  'options': {
-                    'outputReferences': true,
-                  },
+                  ...androidResources,
+                  ...dimenResource,
+                  ...filterRounding,
                 },
                 {
                   'destination': 'space.xml',
-                  'format': 'android/resources',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=androidresources',
-                  'resourceType': 'dimen',
-                  'filter': {
-                    'attributes': {
-                      'category': 'space',
-                    },
-                  },
-                  'options': {
-                    'outputReferences': true,
-                  },
+                  ...androidResources,
+                  ...dimenResource,
+                  ...filterSpace,
                 },
               ]
             : [
                 {
                   'destination': 'color-dark.xml',
-                  'format': 'android/resources',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=androidresources',
-                  'resourceType': 'color',
-                  'filter': {
-                    'attributes': {
-                      'category': 'color',
-                    },
-                  },
-                  'options': {
-                    'outputReferences': true,
-                  },
+                  ...androidResources,
+                  ...colorResource,
+                  ...filterColor,
                 },
               ],
       },
@@ -720,487 +775,184 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
     'source': getSources({ theme, modeTheme }),
     'platforms': {
       'ios': {
-        'transformGroup': 'iOSTransformGroup',
-        '_transformGroup_comment':
-          'Custom from https://amzn.github.io/style-dictionary/#/transform_groups?id=ios',
+        ...iOSTransformGroup,
         'buildPath': `dist/ios/${theme}/`,
+        ...optionsFileHeader,
         'files':
           mode === 'light'
             ? [
                 {
-                  'destination': `GestaltDesignTokensColor${theme === 'vr-theme' ? 'VR' : ''}.h`,
-                  'format': 'ios/colors.h',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsh',
-                  'className': `GestaltDesignTokensColor${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'type': `GestaltDesignTokensColorName${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'color',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensColor${getTheme(theme)}.h`,
+                  ...iosColorsH,
+                  'className': `GestaltTokensColor${getTheme(theme)}`,
+                  'type': `GestaltTokensColorName${getTheme(theme)}`,
+                  ...filterColor,
                 },
                 {
-                  'destination': `GestaltDesignTokensColor${theme === 'vr-theme' ? 'VR' : ''}.m`,
-                  'format': 'ios/colors.m',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsm',
-                  'className': `GestaltDesignTokensColor${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'type': `GestaltDesignTokensColorName${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'color',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensColor${getTheme(theme)}.m`,
+                  ...iosColorsM,
+                  'className': `GestaltTokensColor${getTheme(theme)}`,
+                  'type': `GestaltTokensColorName${getTheme(theme)}`,
+                  ...filterColor,
                 },
                 {
-                  'destination': `GestaltDesignTokensRounding${theme === 'vr-theme' ? 'VR' : ''}.h`,
-                  'format': 'ios/static.h',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsh',
-                  'className': `GestaltDesignTokensRounding${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'type': `GestaltDesignTokensRoundingName${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'rounding',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensRounding${getTheme(theme)}.h`,
+                  ...iosStaticH,
+                  'className': `GestaltTokensRounding${getTheme(theme)}`,
+                  'type': `GestaltTokensRoundingName${getTheme(theme)}`,
+                  ...filterRounding,
                 },
                 {
-                  'destination': `GestaltDesignTokensRounding${theme === 'vr-theme' ? 'VR' : ''}.m`,
-                  'format': 'ios/static.m',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsm',
-                  'className': `GestaltDesignTokensRounding${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'type': `GestaltDesignTokensRoundingName${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'rounding',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensRounding${getTheme(theme)}.m`,
+                  ...iosStaticM,
+                  'className': `GestaltTokensRounding${getTheme(theme)}`,
+                  'type': `GestaltTokensRoundingName${getTheme(theme)}`,
+                  ...filterRounding,
                 },
                 {
-                  'destination': `GestaltDesignTokensSpace${theme === 'vr-theme' ? 'VR' : ''}.h`,
-                  'format': 'ios/static.h',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsh',
-                  'className': `GestaltDesignTokensSpace${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'type': `GestaltDesignTokensSpaceName${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'space',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensSpace${getTheme(theme)}.h`,
+                  ...iosStaticH,
+                  'className': `GestaltTokensSpace${getTheme(theme)}`,
+                  'type': `GestaltTokensSpaceName${getTheme(theme)}`,
+                  ...filterSpace,
                 },
                 {
-                  'destination': `GestaltDesignTokensSpace${theme === 'vr-theme' ? 'VR' : ''}.m`,
-                  'format': 'ios/static.m',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsm',
-                  'className': `GestaltDesignTokensSpace${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'type': `GestaltDesignTokensSpaceName${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'space',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensSpace${getTheme(theme)}.m`,
+                  ...iosStaticM,
+                  'className': `GestaltTokensSpace${getTheme(theme)}`,
+                  'type': `GestaltTokensSpaceName${getTheme(theme)}`,
+                  ...filterSpace,
                 },
                 {
-                  'destination': `GestaltDesignTokensOpacity${theme === 'vr-theme' ? 'VR' : ''}.h`,
-                  'format': 'ios/static.h',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsh',
-                  'className': `GestaltDesignTokensOpacity${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'type': `GestaltDesignTokensOpacityName${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'opacity',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensOpacity${getTheme(theme)}.h`,
+                  ...iosStaticH,
+                  'className': `GestaltTokensOpacity${getTheme(theme)}`,
+                  'type': `GestaltTokensOpacityName${getTheme(theme)}`,
+                  ...filterOpacity,
                 },
                 {
-                  'destination': `GestaltDesignTokensOpacity${theme === 'vr-theme' ? 'VR' : ''}.m`,
-                  'format': 'ios/static.m',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsm',
-                  'className': `GestaltDesignTokensOpacity${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'type': `GestaltDesignTokensOpacityName${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'opacity',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensOpacity${getTheme(theme)}.m`,
+                  ...iosStaticM,
+                  'className': `GestaltTokensOpacity${getTheme(theme)}`,
+                  'type': `GestaltTokensOpacityName${getTheme(theme)}`,
+                  ...filterOpacity,
                 },
                 {
-                  'destination': `GestaltDesignTokensFontSize${theme === 'vr-theme' ? 'VR' : ''}.h`,
-                  'format': 'ios/static.h',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsh',
-                  'className': `GestaltDesignTokensFontSize${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'type': `GestaltDesignTokensFontSizeName${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'font',
-                      'type': 'size',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensFontSize${getTheme(theme)}.h`,
+                  ...iosStaticH,
+                  'className': `GestaltTokensFontSize${getTheme(theme)}`,
+                  'type': `GestaltTokensFontSizeName${getTheme(theme)}`,
+                  ...filterFontSize,
                 },
                 {
-                  'destination': `GestaltDesignTokensFontSize${theme === 'vr-theme' ? 'VR' : ''}.m`,
-                  'format': 'ios/static.m',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsm',
-                  'className': `GestaltDesignTokensFontSize${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'type': `GestaltDesignTokensFontSizeName${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'font',
-                      'type': 'size',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensFontSize${getTheme(theme)}.m`,
+                  ...iosStaticM,
+                  'className': `GestaltTokensFontSize${getTheme(theme)}`,
+                  'type': `GestaltTokensFontSizeName${getTheme(theme)}`,
+                  ...filterFontSize,
                 },
                 {
-                  'destination': `GestaltDesignTokensFontWeight${
-                    theme === 'vr-theme' ? 'VR' : ''
-                  }.h`,
-                  'format': 'ios/static.h',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsh',
-                  'className': `GestaltDesignTokensFontWeight${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'type': `GestaltDesignTokensFontWeightName${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'font',
-                      'type': 'weight',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensFontWeight${getTheme(theme)}.h`,
+                  ...iosStaticH,
+                  'className': `GestaltTokensFontWeight${getTheme(theme)}`,
+                  'type': `GestaltTokensFontWeightName${getTheme(theme)}`,
+                  ...filterFontWeight,
                 },
                 {
-                  'destination': `GestaltDesignTokensFontWeight${
-                    theme === 'vr-theme' ? 'VR' : ''
-                  }.m`,
-                  'format': 'ios/static.m',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsm',
-                  'className': `GestaltDesignTokensFontWeight${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'type': `GestaltDesignTokensFontWeightName${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'font',
-                      'type': 'weight',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensFontWeight${getTheme(theme)}.m`,
+                  ...iosStaticM,
+                  'className': `GestaltTokensFontWeight${getTheme(theme)}`,
+                  'type': `GestaltTokensFontWeightName${getTheme(theme)}`,
+                  ...filterFontWeight,
                 },
                 {
-                  'destination': `GestaltDesignTokensFontFamily${
-                    theme === 'vr-theme' ? 'VR' : ''
-                  }.h`,
-                  'format': 'ios/static.h',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsh',
-                  'className': `GestaltDesignTokensFontFamily${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'type': `GestaltDesignTokensFontFamilyName${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'font',
-                      'type': 'family',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensFontFamily${getTheme(theme)}.h`,
+                  ...iosStaticH,
+                  'className': `GestaltTokensFontFamily${getTheme(theme)}`,
+                  'type': `GestaltTokensFontFamilyName${getTheme(theme)}`,
+                  ...filterFontFamily,
                 },
                 {
-                  'destination': `GestaltDesignTokensFontFamily${
-                    theme === 'vr-theme' ? 'VR' : ''
-                  }.m`,
-                  'format': 'ios/static.m',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsm',
-                  'className': `GestaltDesignTokensFontFamily${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'type': `GestaltDesignTokensFontFamilyName${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'font',
-                      'type': 'family',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensFontFamily${getTheme(theme)}.m`,
+                  ...iosStaticM,
+                  'className': `GestaltTokensFontFamily${getTheme(theme)}`,
+                  'type': `GestaltTokensFontFamilyName${getTheme(theme)}`,
+                  ...filterFontFamily,
                 },
               ]
             : [
                 {
-                  'destination': `GestaltDesignTokensColorDark${
-                    theme === 'vr-theme' ? 'VR' : ''
-                  }.h`,
-                  'format': 'ios/colors.h',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsh',
-                  'className': `GestaltDesignTokensColor${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'type': `GestaltDesignTokensColorName${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'color',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensColorDark${getTheme(theme)}.h`,
+                  ...iosColorsH,
+                  'className': `GestaltTokensColor${getTheme(theme)}`,
+                  'type': `GestaltTokensColorName${getTheme(theme)}`,
+                  ...filterColor,
                 },
                 {
-                  'destination': `GestaltDesignTokensColorDark${
-                    theme === 'vr-theme' ? 'VR' : ''
-                  }.m`,
-                  'format': 'ios/colors.m',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsm',
-                  'className': `GestaltDesignTokensColor${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'type': `GestaltDesignTokensColorName${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'color',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensColorDark${getTheme(theme)}.m`,
+                  ...iosColorsM,
+                  'className': `GestaltTokensColor${getTheme(theme)}`,
+                  'type': `GestaltTokensColorName${getTheme(theme)}`,
+                  ...filterColor,
                 },
               ],
       },
       'ios-swift': {
-        'transformGroup': 'iOSSwiftEnumTransformGroup',
-        '_transformGroup_comment':
-          'Custom from https://amzn.github.io/style-dictionary/#/transform_groups?id=ios-swift-separate',
+        ...iOSSwiftEnumTransformGroup,
         'buildPath': `dist/ios-swift/${theme}/`,
+        ...optionsFileHeaderOutputReferences,
         'files':
           mode === 'light'
             ? [
                 {
-                  'destination': `GestaltDesignTokensColor${
-                    theme === 'vr-theme' ? 'VR' : ''
-                  }.swift`,
-                  'format': 'ios-swift/enum.swift',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftenumswift',
-                  'className': `GestaltDesignTokensColor${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'color',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensColor${getTheme(theme)}.swift`,
+                  ...iosSwiftEnumSwift,
+                  'className': `GestaltTokensColor${getTheme(theme)}`,
+                  ...filterColor,
                 },
                 {
-                  'destination': `GestaltDesignTokensRounding${
-                    theme === 'vr-theme' ? 'VR' : ''
-                  }.swift`,
-                  'format': 'ios-swift/enum.swift',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftenumswift',
-                  'className': `GestaltDesignTokensRounding${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'rounding',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensRounding${getTheme(theme)}.swift`,
+                  ...iosSwiftEnumSwift,
+                  'className': `GestaltTokensRounding${getTheme(theme)}`,
+                  ...filterRounding,
                 },
                 {
-                  'destination': `GestaltDesignTokensSpace${
-                    theme === 'vr-theme' ? 'VR' : ''
-                  }.swift`,
-                  'format': 'ios-swift/enum.swift',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftenumswift',
-                  'className': `GestaltDesignTokensSpace${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'space',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensSpace${getTheme(theme)}.swift`,
+                  ...iosSwiftEnumSwift,
+                  'className': `GestaltTokensSpace${getTheme(theme)}`,
+                  ...filterSpace,
                 },
                 {
-                  'destination': `GestaltDesignTokensOpacity${
-                    theme === 'vr-theme' ? 'VR' : ''
-                  }.swift`,
-                  'format': 'ios-swift/enum.swift',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftenumswift',
-                  'className': `GestaltDesignTokensOpacity${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'opacity',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensOpacity${getTheme(theme)}.swift`,
+                  ...iosSwiftEnumSwift,
+                  'className': `GestaltTokensOpacity${getTheme(theme)}`,
+                  ...filterOpacity,
                 },
                 {
-                  'destination': `GestaltDesignTokensFontWeight${
-                    theme === 'vr-theme' ? 'VR' : ''
-                  }.swift`,
-                  'format': 'ios-swift/enum.swift',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftenumswift',
-                  'className': `GestaltDesignTokensFontWeight${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'font',
-                      'type': 'weight',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensFontWeight${getTheme(theme)}.swift`,
+                  ...iosSwiftEnumSwift,
+                  'className': `GestaltTokensFontWeight${getTheme(theme)}`,
+                  ...filterFontWeight,
                 },
                 {
-                  'destination': `GestaltDesignTokensFontSize${
-                    theme === 'vr-theme' ? 'VR' : ''
-                  }.swift`,
-                  'format': 'ios-swift/enum.swift',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftenumswift',
-                  'className': `GestaltDesignTokensFontSize${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'font',
-                      'type': 'size',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensFontSize${getTheme(theme)}.swift`,
+                  ...iosSwiftEnumSwift,
+                  'className': `GestaltTokensFontSize${getTheme(theme)}`,
+                  ...filterFontSize,
                 },
                 {
-                  'destination': `GestaltDesignTokensFontFamily${
-                    theme === 'vr-theme' ? 'VR' : ''
-                  }.swift`,
-                  'format': 'ios-swift/enum.swift',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftenumswift',
-                  'className': `GestaltDesignTokensFontFamily${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'font',
-                      'type': 'family',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensFontFamily${getTheme(theme)}.swift`,
+                  ...iosSwiftEnumSwift,
+                  'className': `GestaltTokensFontFamily${getTheme(theme)}`,
+                  ...filterFontFamily,
                 },
               ]
             : [
                 {
-                  'destination': `GestaltDesignTokensColorDark${
-                    theme === 'vr-theme' ? 'VR' : ''
-                  }.swift`,
-                  'format': 'ios-swift/class.swift',
-                  '_format_comment':
-                    'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftclassswift',
-                  'className': `GestaltDesignTokensColor${theme === 'vr-theme' ? 'VR' : ''}`,
-                  'filter': {
-                    'attributes': {
-                      'category': 'color',
-                    },
-                  },
-                  'options': {
-                    'fileHeader': 'fileHeader',
-                    '_fileHeader_comment': 'Custom',
-                    'showFileHeader': true,
-                  },
+                  'destination': `GestaltTokensColorDark${getTheme(theme)}.swift`,
+                  ...iosSwiftEnumSwift,
+                  'className': `GestaltTokensColor${getTheme(theme)}`,
+                  ...filterColor,
                 },
               ],
       },
