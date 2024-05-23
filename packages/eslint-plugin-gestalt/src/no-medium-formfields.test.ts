@@ -7,59 +7,62 @@ import rule from './no-medium-formfields';
 const ruleTester = new RuleTester({ parserOptions });
 
 const validCode = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-medium-formfields/valid.js'),
+  path.resolve(__dirname, './__fixtures__/no-medium-formfields/valid.tsx'),
   'utf-8',
 );
 const invalidComboBoxDefault = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-medium-formfields/invalid/invalid-combobox-default.js',
+    './__fixtures__/no-medium-formfields/invalid/invalid-combobox-default.tsx',
   ),
   'utf-8',
 );
 const invalidComboBoxMedium = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-medium-formfields/invalid/invalid-combobox-medium.js'),
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-medium-formfields/invalid/invalid-combobox-medium.tsx',
+  ),
   'utf-8',
 );
 const invalidComboBoxRenamed = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-medium-formfields/invalid/invalid-combobox-renamed.js',
+    './__fixtures__/no-medium-formfields/invalid/invalid-combobox-renamed.tsx',
   ),
   'utf-8',
 );
 const invalidTextfieldDefault = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-medium-formfields/invalid/invalid-textfield-default.js',
+    './__fixtures__/no-medium-formfields/invalid/invalid-textfield-default.tsx',
   ),
   'utf-8',
 );
 const invalidTextfieldMedium = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-medium-formfields/invalid/invalid-textfield-medium.js',
+    './__fixtures__/no-medium-formfields/invalid/invalid-textfield-medium.tsx',
   ),
   'utf-8',
 );
 const invalidTextfieldRenamed = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-medium-formfields/invalid/invalid-textfield-renamed.js',
+    './__fixtures__/no-medium-formfields/invalid/invalid-textfield-renamed.tsx',
   ),
   'utf-8',
 );
 const invalidSearchFieldDefault = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-medium-formfields/invalid/invalid-searchfield-default.js',
+    './__fixtures__/no-medium-formfields/invalid/invalid-searchfield-default.tsx',
   ),
   'utf-8',
 );
 const invalidSelectListDefault = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-medium-formfields/invalid/invalid-selectlist-default.js',
+    './__fixtures__/no-medium-formfields/invalid/invalid-selectlist-default.tsx',
   ),
   'utf-8',
 );

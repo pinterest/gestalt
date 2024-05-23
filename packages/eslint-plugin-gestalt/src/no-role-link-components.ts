@@ -60,7 +60,7 @@ const rule: ESLintRule = {
           context.report(
             node,
             // @ts-expect-error - TS7005 - Variable 'importedName' implicitly has an 'any' type. | TS7005 - Variable 'importedName' implicitly has an 'any' type.
-            `${importedName} Components with role-link are disallowed in Pinboard. Please use app/common/react/ui/${importedName}Link.js instead.`,
+            `${importedName} Components with role-link are disallowed in Pinboard. Please use app/common/react/ui/${importedName}Link.tsx instead.`,
           );
         }
       },
