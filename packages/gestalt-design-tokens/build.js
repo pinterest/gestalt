@@ -426,6 +426,21 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
+  name: 'name/conflictFixing',
+  type: 'name',
+  matcher(prop) {
+    return (
+      prop.filePath.includes('vr-theme') &&
+      prop.filePath.includes('base') &&
+      prop.attributes.type.endsWith('base')
+    );
+  },
+  transformer(prop) {
+    return prop.name.replace('base', '');
+  },
+});
+
+StyleDictionary.registerTransform({
   name: 'name/prefix/level/kebab',
   type: 'name',
   matcher(prop) {
@@ -457,6 +472,7 @@ StyleDictionary.registerTransformGroup({
   transforms: [
     'attribute/cti',
     'name/cti/kebab',
+    'name/conflictFixing',
     'name/prefix/level/kebab',
     'value/elevation/css',
     'color/css',
@@ -468,6 +484,7 @@ StyleDictionary.registerTransformGroup({
   transforms: [
     'attribute/cti',
     'name/cti/pascal',
+    'name/conflictFixing',
     'name/prefix/level/pascal',
     'value/elevation/css',
     'color/hex',
@@ -490,7 +507,7 @@ StyleDictionary.registerFilter({
   matcher(token) {
     return (
       token.attributes.category === 'color' &&
-      ['data-visualization', 'dataVisualization', 'data-viz'].includes(token.attributes.type)
+      ['data-visualization', 'dataviz', 'datavizbase'].includes(token.attributes.type)
     );
   },
 });
@@ -638,6 +655,7 @@ StyleDictionary.registerTransformGroup({
   transforms: [
     'attribute/cti',
     'name/cti/snake',
+    'name/conflictFixing',
     'name/prefix/level/snake',
     'color/hex8android',
     'size/pxToDpOrSp',
@@ -731,6 +749,7 @@ StyleDictionary.registerTransformGroup({
   transforms: [
     'attribute/cti',
     'name/cti/pascal',
+    'name/conflictFixing',
     'name/prefix/level/pascal',
     'color/UIColor',
     'content/objC/literal',
@@ -745,6 +764,7 @@ StyleDictionary.registerTransformGroup({
   transforms: [
     'attribute/cti',
     'name/ti/camel',
+    'name/conflictFixing',
     'name/prefix/level/camel',
     'color/UIColorSwift',
     'content/swift/literal',
