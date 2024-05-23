@@ -15,9 +15,9 @@ import {
 import debounce from './debounce';
 import styles from './Masonry.css';
 import { Cache } from './Masonry/Cache';
-import { MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/defaultTwoColumnModuleLayout';
 import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
 import MeasurementStore from './Masonry/MeasurementStore';
+import { MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { Align, Layout, Position } from './Masonry/types';
 import throttle from './throttle';

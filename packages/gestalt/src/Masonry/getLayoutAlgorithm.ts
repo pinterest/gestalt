@@ -1,6 +1,6 @@
 import { Cache } from './Cache';
 import defaultLayout from './defaultLayout';
-import defaultTwoColumnModuleLayout from './defaultTwoColumnModuleLayout';
+import defaultMultiColumnLayout from './defaultMultiColumnLayout';
 import fullWidthLayout from './fullWidthLayout';
 import { Align, Layout, Position } from './types';
 import uniformRowLayout from './uniformRowLayout';
@@ -52,27 +52,27 @@ export default function getLayoutAlgorithm<
       width,
     });
   }
-  if (_twoColItems === true) {
-    return defaultTwoColumnModuleLayout({
-      align: layout === 'basicCentered' ? 'center' : 'start',
-      measurementCache: measurementStore,
-      positionCache: positionStore,
-      columnWidth,
-      gutter,
-      logWhitespace: _logTwoColWhitespace,
-      minCols,
-      rawItemCount: items.length,
-      width,
-    });
-  }
-  return defaultLayout({
-    align,
-    cache: measurementStore,
-    columnWidth,
-    gutter,
-    layout,
-    minCols,
-    rawItemCount: items.length,
-    width,
-  });
+  return _twoColItems
+    ? defaultMultiColumnLayout({
+        align,
+        measurementCache: measurementStore,
+        positionCache: positionStore,
+        columnWidth,
+        gutter,
+        layout,
+        logWhitespace: _logTwoColWhitespace,
+        minCols,
+        rawItemCount: items.length,
+        width,
+      })
+    : defaultLayout({
+        align,
+        cache: measurementStore,
+        columnWidth,
+        gutter,
+        layout,
+        minCols,
+        rawItemCount: items.length,
+        width,
+      });
 }

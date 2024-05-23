@@ -4,11 +4,11 @@ import FetchItems from './FetchItems';
 import styles from './Masonry.css';
 import { Cache } from './Masonry/Cache';
 import defaultLayout from './Masonry/defaultLayout';
-import defaultTwoColumnModuleLayout, {
-  MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
-} from './Masonry/defaultTwoColumnModuleLayout';
+import defaultMultiColumnLayout from './Masonry/defaultMultiColumnLayout';
 import fullWidthLayout from './Masonry/fullWidthLayout';
+import fullWidthMultiColumnLayout from './Masonry/fullWidthMultiColumnLayout';
 import MeasurementStore from './Masonry/MeasurementStore';
+import { MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
 import ScrollContainer from './Masonry/ScrollContainer';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { Align, Layout, Position } from './Masonry/types';
@@ -500,13 +500,23 @@ export default class Masonry<
     let getPositions;
 
     if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
-      getPositions = fullWidthLayout({
-        gutter,
-        cache: measurementStore,
-        minCols,
-        idealColumnWidth: columnWidth,
-        width,
-      });
+      getPositions = _twoColItems
+        ? fullWidthMultiColumnLayout({
+            gutter,
+            measurementCache: measurementStore,
+            positionCache: positionStore,
+            minCols,
+            idealColumnWidth: columnWidth,
+            width,
+            logWhitespace: _logTwoColWhitespace,
+          })
+        : fullWidthLayout({
+            gutter,
+            cache: measurementStore,
+            minCols,
+            idealColumnWidth: columnWidth,
+            width,
+          });
     } else if (layout === 'uniformRow') {
       getPositions = uniformRowLayout({
         cache: measurementStore,
@@ -515,29 +525,30 @@ export default class Masonry<
         minCols,
         width,
       });
-    } else if (_twoColItems === true) {
-      getPositions = defaultTwoColumnModuleLayout({
-        align: layout === 'basicCentered' ? 'center' : 'start',
-        measurementCache: measurementStore,
-        positionCache: positionStore,
-        columnWidth,
-        gutter,
-        logWhitespace: _logTwoColWhitespace,
-        minCols,
-        rawItemCount: items.length,
-        width,
-      });
     } else {
-      getPositions = defaultLayout({
-        align,
-        cache: measurementStore,
-        columnWidth,
-        gutter,
-        layout,
-        minCols,
-        rawItemCount: items.length,
-        width,
-      });
+      getPositions = _twoColItems
+        ? defaultMultiColumnLayout({
+            align,
+            measurementCache: measurementStore,
+            positionCache: positionStore,
+            columnWidth,
+            gutter,
+            layout,
+            minCols,
+            rawItemCount: items.length,
+            width,
+            logWhitespace: _logTwoColWhitespace,
+          })
+        : defaultLayout({
+            align,
+            cache: measurementStore,
+            columnWidth,
+            gutter,
+            layout,
+            minCols,
+            rawItemCount: items.length,
+            width,
+          });
     }
 
     let gridBody;

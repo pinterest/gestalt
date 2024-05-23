@@ -1,7 +1,7 @@
 import { Cache } from './Cache';
 import Graph from './Graph';
 import mindex from './mindex';
-import { Align, NodeData, Position } from './types';
+import { NodeData, Position } from './types';
 
 // When there's a multi column item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to minimize whitespace above the 2-col item
 // This may need to be tweaked to balance the tradeoff of delayed rendering vs having enough possible layouts
@@ -574,144 +574,124 @@ function getPositionsWithMultiColumnItem<
   return { positions: prevPositions.concat(finalPositions), heights: finalHeights };
 }
 
-const defaultTwoColumnModuleLayout = <
+const multiColumnLayout = <
   T extends {
     readonly [key: string]: unknown;
   },
 >({
-  align,
-  columnWidth = 236,
+  items,
   gutter = 14,
+  columnWidth = 236,
+  columnCount = 2,
+  centerOffset = 0,
   logWhitespace,
   measurementCache,
-  minCols = 2,
   positionCache,
-  rawItemCount,
-  width,
   whitespaceThreshold,
 }: {
-  align: Align;
-  columnWidth?: number;
+  items: ReadonlyArray<T>;
   gutter?: number;
-  logWhitespace?: (arg1: number) => void;
-  measurementCache: Cache<T, number>;
-  minCols?: number;
+  columnWidth?: number;
+  columnCount?: number;
+  centerOffset?: number;
   positionCache: Cache<T, Position>;
-  rawItemCount: number;
-  width?: number | null | undefined;
+  measurementCache: Cache<T, number>;
   whitespaceThreshold?: number;
-}): ((items: ReadonlyArray<T>) => ReadonlyArray<Position>) => {
-  const columnWidthAndGutter = columnWidth + gutter;
-  const columnCount = isNil(width)
-    ? minCols
-    : // @ts-expect-error - TS2533 - Object is possibly 'null' or 'undefined'.
-      Math.max(Math.floor((width + gutter) / columnWidthAndGutter), minCols);
-
-  return (items): ReadonlyArray<Position> => {
-    if (isNil(width) || !items.every((item) => measurementCache.has(item))) {
-      return items.map((item) => {
-        if (typeof item.columnSpan === 'number' && item.columnSpan > 1) {
-          const columnSpan = Math.min(item.columnSpan, columnCount);
-          return offscreen(columnWidth * columnSpan + gutter * (columnSpan - 1));
-        }
-        return offscreen(columnWidth);
-      });
-    }
-
-    const centerOffset =
-      align === 'center'
-        ? Math.max(
-            Math.floor(
-              // @ts-expect-error - TS2533 - Object is possibly 'null' or 'undefined'.
-              (width - (Math.min(rawItemCount, columnCount) * columnWidthAndGutter + gutter)) / 2,
-            ),
-            0,
-          )
-        : // @ts-expect-error - TS2533 - Object is possibly 'null' or 'undefined'.
-          Math.max(Math.floor((width - columnWidthAndGutter * columnCount + gutter) / 2), 0);
-
-    // the total height of each column
-    const heights = initializeHeightsArray({
-      centerOffset,
-      columnCount,
-      columnWidthAndGutter,
-      gutter,
-      items,
-      positionCache,
+  logWhitespace?: (arg1: number) => void;
+}): ReadonlyArray<Position> => {
+  if (!items.every((item) => measurementCache.has(item))) {
+    return items.map((item) => {
+      if (typeof item.columnSpan === 'number' && item.columnSpan > 1) {
+        const columnSpan = Math.min(item.columnSpan, columnCount);
+        return offscreen(columnWidth * columnSpan + gutter * (columnSpan - 1));
+      }
+      return offscreen(columnWidth);
     });
+  }
 
-    const itemsWithPositions = items.filter((item) => positionCache?.has(item));
-    const itemsWithoutPositions = items.filter((item) => !positionCache?.has(item));
+  const columnWidthAndGutter = columnWidth + gutter;
 
-    const multiColumnItems = itemsWithoutPositions.filter(
-      (item) => typeof item.columnSpan === 'number' && item.columnSpan > 1,
+  // the total height of each column
+  const heights = initializeHeightsArray({
+    centerOffset,
+    columnCount,
+    columnWidthAndGutter,
+    gutter,
+    items,
+    positionCache,
+  });
+
+  const itemsWithPositions = items.filter((item) => positionCache?.has(item));
+  const itemsWithoutPositions = items.filter((item) => !positionCache?.has(item));
+
+  const multiColumnItems = itemsWithoutPositions.filter(
+    (item) => typeof item.columnSpan === 'number' && item.columnSpan > 1,
+  );
+
+  const commonGetPositionArgs = {
+    centerOffset,
+    columnWidth,
+    columnWidthAndGutter,
+    gutter,
+    measurementCache,
+    positionCache,
+  } as const;
+
+  if (multiColumnItems.length > 0) {
+    const batchSize = multiColumnItems.length;
+    const batches = Array.from({ length: batchSize }, (): ReadonlyArray<T> => []).map(
+      (batch, i) => {
+        const startIndex = i === 0 ? 0 : itemsWithoutPositions.indexOf(multiColumnItems[i]);
+        const endIndex =
+          i + 1 === multiColumnItems.length
+            ? itemsWithoutPositions.length
+            : itemsWithoutPositions.indexOf(multiColumnItems[i + 1]);
+        return itemsWithoutPositions.slice(startIndex, endIndex);
+      },
+    );
+    const { positions: paintedItemPositions, heights: paintedItemHeights } =
+      getOneColumnItemPositions({
+        items: itemsWithPositions,
+        heights,
+        ...commonGetPositionArgs,
+      });
+
+    const {
+      positions: currentPositions,
+    }: {
+      heights: ReadonlyArray<number>;
+      positions: ReadonlyArray<{
+        item: T;
+        position: Position;
+      }>;
+    } = batches.reduce(
+      (acc, itemsToPosition, i) =>
+        getPositionsWithMultiColumnItem({
+          multiColumnItem: multiColumnItems[i],
+          itemsToPosition,
+          heights: acc.heights,
+          prevPositions: acc.positions,
+          whitespaceThreshold,
+          logWhitespace,
+          columnCount,
+          ...commonGetPositionArgs,
+        }),
+      { heights: paintedItemHeights, positions: paintedItemPositions },
     );
 
-    const commonGetPositionArgs = {
-      centerOffset,
-      columnWidth,
-      columnWidthAndGutter,
-      gutter,
-      measurementCache,
-      positionCache,
-    } as const;
+    return getPositionsOnly<T>(currentPositions);
+  }
 
-    if (multiColumnItems.length > 0) {
-      const batchSize = multiColumnItems.length;
-      const batches = Array.from({ length: batchSize }, (): ReadonlyArray<T> => []).map(
-        (batch, i) => {
-          const startIndex = i === 0 ? 0 : itemsWithoutPositions.indexOf(multiColumnItems[i]);
-          const endIndex =
-            i + 1 === multiColumnItems.length
-              ? itemsWithoutPositions.length
-              : itemsWithoutPositions.indexOf(multiColumnItems[i + 1]);
-          return itemsWithoutPositions.slice(startIndex, endIndex);
-        },
-      );
-      const { positions: paintedItemPositions, heights: paintedItemHeights } =
-        getOneColumnItemPositions({
-          items: itemsWithPositions,
-          heights,
-          ...commonGetPositionArgs,
-        });
+  const { positions: itemPositions } = getOneColumnItemPositions<T>({
+    items,
+    heights,
+    ...commonGetPositionArgs,
+  });
+  itemPositions.forEach(({ item, position }) => {
+    positionCache?.set(item, position);
+  });
 
-      const {
-        positions: currentPositions,
-      }: {
-        heights: ReadonlyArray<number>;
-        positions: ReadonlyArray<{
-          item: T;
-          position: Position;
-        }>;
-      } = batches.reduce(
-        (acc, itemsToPosition, i) =>
-          getPositionsWithMultiColumnItem({
-            multiColumnItem: multiColumnItems[i],
-            itemsToPosition,
-            heights: acc.heights,
-            prevPositions: acc.positions,
-            whitespaceThreshold,
-            logWhitespace,
-            columnCount,
-            ...commonGetPositionArgs,
-          }),
-        { heights: paintedItemHeights, positions: paintedItemPositions },
-      );
-
-      return getPositionsOnly<T>(currentPositions);
-    }
-
-    const { positions: itemPositions } = getOneColumnItemPositions<T>({
-      items,
-      heights,
-      ...commonGetPositionArgs,
-    });
-    itemPositions.forEach(({ item, position }) => {
-      positionCache?.set(item, position);
-    });
-
-    return getPositionsOnly<T>(itemPositions);
-  };
+  return getPositionsOnly<T>(itemPositions);
 };
 
-export default defaultTwoColumnModuleLayout;
+export default multiColumnLayout;

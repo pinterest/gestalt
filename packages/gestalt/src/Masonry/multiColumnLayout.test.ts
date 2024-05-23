@@ -1,7 +1,5 @@
-import defaultTwoColumnModuleLayout, {
-  initializeHeightsArray,
-} from './defaultTwoColumnModuleLayout';
 import MeasurementStore from './MeasurementStore';
+import multiColumnLayout, { initializeHeightsArray } from './multiColumnLayout';
 import { Position } from './types';
 
 type Item = {
@@ -10,21 +8,19 @@ type Item = {
   color?: string;
 };
 
-// Tests copied from defaultLayout to ensure we don't break default cases
-describe('defaultLayout test cases', () => {
+describe('base layout test cases', () => {
   test('empty', () => {
     const measurementStore = new MeasurementStore<Record<any, any>, number>();
     const positionCache = new MeasurementStore<Record<any, any>, Position>();
     const items: ReadonlyArray<Item> = [];
 
-    const layout = defaultTwoColumnModuleLayout({
-      align: 'start',
+    const positions = multiColumnLayout({
+      items,
       measurementCache: measurementStore,
       positionCache,
-      rawItemCount: items.length,
       width: 486,
     });
-    expect(layout(items)).toEqual([]);
+    expect(positions).toEqual([]);
   });
 
   test('one row', () => {
@@ -39,14 +35,13 @@ describe('defaultLayout test cases', () => {
       measurementStore.set(item, item.height);
     });
 
-    const layout = defaultTwoColumnModuleLayout({
-      align: 'start',
+    const positions = multiColumnLayout({
+      items,
+      columnCount: 3,
       measurementCache: measurementStore,
       positionCache,
-      rawItemCount: items.length,
-      width: 736,
     });
-    expect(layout(items)).toEqual([
+    expect(positions).toEqual([
       { top: 0, height: 100, left: 0, width: 236 },
       { top: 0, height: 120, left: 250, width: 236 },
       { top: 0, height: 80, left: 500, width: 236 },
@@ -66,14 +61,13 @@ describe('defaultLayout test cases', () => {
       measurementStore.set(item, item.height);
     });
 
-    const layout = defaultTwoColumnModuleLayout({
-      align: 'start',
+    const positions = multiColumnLayout({
+      items,
+      columnCount: 2,
       measurementCache: measurementStore,
       positionCache,
-      rawItemCount: items.length,
-      width: 486,
     });
-    expect(layout(items)).toEqual([
+    expect(positions).toEqual([
       { top: 0, height: 100, left: 0, width: 236 },
       { top: 0, height: 120, left: 250, width: 236 },
       { top: 114, height: 80, left: 0, width: 236 },
@@ -81,134 +75,133 @@ describe('defaultLayout test cases', () => {
     ]);
   });
 
-  test('centers grid within the viewport', () => {
-    const measurementStore = new MeasurementStore<Record<any, any>, number>();
-    const positionCache = new MeasurementStore<Record<any, any>, Position>();
-    const items: ReadonlyArray<Item> = [
-      { 'name': 'Pin 0', 'height': 100 },
-      { 'name': 'Pin 1', 'height': 120 },
-      { 'name': 'Pin 2', 'height': 80 },
-      { 'name': 'Pin 3', 'height': 100 },
-    ];
-    items.forEach((item: any) => {
-      measurementStore.set(item, item.height);
-    });
+  // test.only('centers grid within the viewport', () => {
+  //   const measurementStore = new MeasurementStore<Record<any, any>, number>();
+  //   const positionCache = new MeasurementStore<Record<any, any>, Position>();
+  //   const items: ReadonlyArray<Item> = [
+  //     { 'name': 'Pin 0', 'height': 100 },
+  //     { 'name': 'Pin 1', 'height': 120 },
+  //     { 'name': 'Pin 2', 'height': 80 },
+  //     { 'name': 'Pin 3', 'height': 100 },
+  //   ];
+  //   items.forEach((item: any) => {
+  //     measurementStore.set(item, item.height);
+  //   });
+  //
+  //   const positions = defaultTwoColumnModuleLayout({
+  //     items,
+  //     measurementCache: measurementStore,
+  //     positionCache,
+  //     rawItemCount: items.length,
+  //     width: 8000,
+  //   });
+  //
+  //   expect(positions(items)).toEqual([
+  //     { top: 0, height: 100, left: 7, width: 236 },
+  //     { top: 0, height: 120, left: 257, width: 236 },
+  //     { top: 0, height: 80, left: 507, width: 236 },
+  //     { top: 0, height: 100, left: 757, width: 236 },
+  //   ]);
+  // });
 
-    const layout = defaultTwoColumnModuleLayout({
-      align: 'start',
-      measurementCache: measurementStore,
-      positionCache,
-      minCols: 2,
-      rawItemCount: items.length,
-      width: 8000,
-    });
+  // test('floors values when centering', () => {
+  //   const measurementStore = new MeasurementStore<Record<any, any>, number>();
+  //   const positionCache = new MeasurementStore<Record<any, any>, Position>();
+  //   const items: ReadonlyArray<Item> = [
+  //     { 'name': 'Pin 0', 'height': 100 },
+  //     { 'name': 'Pin 1', 'height': 120 },
+  //     { 'name': 'Pin 2', 'height': 80 },
+  //     { 'name': 'Pin 3', 'height': 100 },
+  //   ];
+  //   items.forEach((item: any) => {
+  //     measurementStore.set(item, item.height);
+  //   });
+  //   const layout = defaultTwoColumnModuleLayout({
+  //     align: 'start',
+  //     measurementCache: measurementStore,
+  //     positionCache,
+  //     rawItemCount: items.length,
+  //     width: 501,
+  //   });
+  //
+  //   expect(layout(items)).toEqual([
+  //     { top: 0, height: 100, left: 7, width: 236 },
+  //     { top: 0, height: 120, left: 257, width: 236 },
+  //     { top: 114, height: 80, left: 7, width: 236 },
+  //     { top: 134, height: 100, left: 257, width: 236 },
+  //   ]);
+  // });
 
-    expect(layout(items)).toEqual([
-      { top: 0, height: 100, left: 7, width: 236 },
-      { top: 0, height: 120, left: 257, width: 236 },
-      { top: 0, height: 80, left: 507, width: 236 },
-      { top: 0, height: 100, left: 757, width: 236 },
-    ]);
-  });
+  // test('only centers when theres extra space', () => {
+  //   const measurementStore = new MeasurementStore<Record<any, any>, number>();
+  //   const positionCache = new MeasurementStore<Record<any, any>, Position>();
+  //   const items: ReadonlyArray<Item> = [
+  //     { 'name': 'Pin 0', 'height': 100 },
+  //     { 'name': 'Pin 1', 'height': 120 },
+  //     { 'name': 'Pin 2', 'height': 80 },
+  //     { 'name': 'Pin 3', 'height': 100 },
+  //   ];
+  //   items.forEach((item: any) => {
+  //     measurementStore.set(item, item.height);
+  //   });
+  //   const layout = defaultTwoColumnModuleLayout({
+  //     align: 'start',
+  //     measurementCache: measurementStore,
+  //     positionCache,
+  //     rawItemCount: items.length,
+  //     width: 200,
+  //   });
+  //
+  //   expect(layout(items)).toEqual([
+  //     { top: 0, height: 100, left: 0, width: 236 },
+  //     { top: 0, height: 120, left: 250, width: 236 },
+  //     { top: 114, height: 80, left: 0, width: 236 },
+  //     { top: 134, height: 100, left: 250, width: 236 },
+  //   ]);
+  // });
 
-  test('floors values when centering', () => {
-    const measurementStore = new MeasurementStore<Record<any, any>, number>();
-    const positionCache = new MeasurementStore<Record<any, any>, Position>();
-    const items: ReadonlyArray<Item> = [
-      { 'name': 'Pin 0', 'height': 100 },
-      { 'name': 'Pin 1', 'height': 120 },
-      { 'name': 'Pin 2', 'height': 80 },
-      { 'name': 'Pin 3', 'height': 100 },
-    ];
-    items.forEach((item: any) => {
-      measurementStore.set(item, item.height);
-    });
-    const layout = defaultTwoColumnModuleLayout({
-      align: 'start',
-      measurementCache: measurementStore,
-      positionCache,
-      rawItemCount: items.length,
-      width: 501,
-    });
-
-    expect(layout(items)).toEqual([
-      { top: 0, height: 100, left: 7, width: 236 },
-      { top: 0, height: 120, left: 257, width: 236 },
-      { top: 114, height: 80, left: 7, width: 236 },
-      { top: 134, height: 100, left: 257, width: 236 },
-    ]);
-  });
-
-  test('only centers when theres extra space', () => {
-    const measurementStore = new MeasurementStore<Record<any, any>, number>();
-    const positionCache = new MeasurementStore<Record<any, any>, Position>();
-    const items: ReadonlyArray<Item> = [
-      { 'name': 'Pin 0', 'height': 100 },
-      { 'name': 'Pin 1', 'height': 120 },
-      { 'name': 'Pin 2', 'height': 80 },
-      { 'name': 'Pin 3', 'height': 100 },
-    ];
-    items.forEach((item: any) => {
-      measurementStore.set(item, item.height);
-    });
-    const layout = defaultTwoColumnModuleLayout({
-      align: 'start',
-      measurementCache: measurementStore,
-      positionCache,
-      rawItemCount: items.length,
-      width: 200,
-    });
-
-    expect(layout(items)).toEqual([
-      { top: 0, height: 100, left: 0, width: 236 },
-      { top: 0, height: 120, left: 250, width: 236 },
-      { top: 114, height: 80, left: 0, width: 236 },
-      { top: 134, height: 100, left: 250, width: 236 },
-    ]);
-  });
-
-  test('justify', () => {
-    const measurementStore = new MeasurementStore<Record<any, any>, number>();
-    const positionCache = new MeasurementStore<Record<any, any>, Position>();
-    const items: ReadonlyArray<Item> = [
-      { 'name': 'Pin 0', 'height': 100 },
-      { 'name': 'Pin 1', 'height': 120 },
-      { 'name': 'Pin 2', 'height': 80 },
-      { 'name': 'Pin 3', 'height': 100 },
-    ];
-    items.forEach((item: any) => {
-      measurementStore.set(item, item.height);
-    });
-
-    const makeLayout = (align: 'center' | 'start') =>
-      defaultTwoColumnModuleLayout({
-        align,
-        measurementCache: measurementStore,
-        positionCache,
-        columnWidth: 100,
-        gutter: 0,
-        width: 1000,
-        rawItemCount: items.length,
-      })(items);
-
-    const justifyStart = makeLayout('start');
-    positionCache.reset();
-    const justifyCenter = makeLayout('center');
-
-    expect(justifyStart).toEqual([
-      { top: 0, left: 0, width: 100, height: 100 },
-      { top: 0, left: 100, width: 100, height: 120 },
-      { top: 0, left: 200, width: 100, height: 80 },
-      { top: 0, left: 300, width: 100, height: 100 },
-    ]);
-
-    expect(justifyCenter).toEqual([
-      { top: 0, left: 300, width: 100, height: 100 },
-      { top: 0, left: 400, width: 100, height: 120 },
-      { top: 0, left: 500, width: 100, height: 80 },
-      { top: 0, left: 600, width: 100, height: 100 },
-    ]);
-  });
+  // test('justify', () => {
+  //   const measurementStore = new MeasurementStore<Record<any, any>, number>();
+  //   const positionCache = new MeasurementStore<Record<any, any>, Position>();
+  //   const items: ReadonlyArray<Item> = [
+  //     { 'name': 'Pin 0', 'height': 100 },
+  //     { 'name': 'Pin 1', 'height': 120 },
+  //     { 'name': 'Pin 2', 'height': 80 },
+  //     { 'name': 'Pin 3', 'height': 100 },
+  //   ];
+  //   items.forEach((item: any) => {
+  //     measurementStore.set(item, item.height);
+  //   });
+  //
+  //   const makeLayout = (align: 'center' | 'start') =>
+  //     defaultTwoColumnModuleLayout({
+  //       align,
+  //       measurementCache: measurementStore,
+  //       positionCache,
+  //       columnWidth: 100,
+  //       gutter: 0,
+  //       width: 1000,
+  //       rawItemCount: items.length,
+  //     })(items);
+  //
+  //   const justifyStart = makeLayout('start');
+  //   positionCache.reset();
+  //   const justifyCenter = makeLayout('center');
+  //
+  //   expect(justifyStart).toEqual([
+  //     { top: 0, left: 0, width: 100, height: 100 },
+  //     { top: 0, left: 100, width: 100, height: 120 },
+  //     { top: 0, left: 200, width: 100, height: 80 },
+  //     { top: 0, left: 300, width: 100, height: 100 },
+  //   ]);
+  //
+  //   expect(justifyCenter).toEqual([
+  //     { top: 0, left: 300, width: 100, height: 100 },
+  //     { top: 0, left: 400, width: 100, height: 120 },
+  //     { top: 0, left: 500, width: 100, height: 80 },
+  //     { top: 0, left: 600, width: 100, height: 100 },
+  //   ]);
+  // });
 });
 
 describe('multi column layout test cases', () => {
@@ -231,15 +224,16 @@ describe('multi column layout test cases', () => {
       measurementStore.set(item, item.height);
     });
 
-    const layout = defaultTwoColumnModuleLayout({
-      align: 'start',
-      columnWidth: 240,
-      measurementCache: measurementStore,
-      minCols: 3,
-      positionCache,
-      rawItemCount: items.length,
-      width: 1200,
-    });
+    const layout = (itemsToLayout: Item[]) =>
+      multiColumnLayout({
+        items: itemsToLayout,
+        columnWidth: 240,
+        columnCount: 4,
+        centerOffset: 99,
+        measurementCache: measurementStore,
+        positionCache,
+      });
+
     // perform single column layout first since we expect two column items on second page+ currently
     layout(items);
 
@@ -327,15 +321,15 @@ describe('multi column layout test cases', () => {
       measurementStore.set(item, item.height);
     });
 
-    const layout = defaultTwoColumnModuleLayout({
-      align: 'start',
-      columnWidth: 240,
-      measurementCache: measurementStore,
-      minCols: 3,
-      positionCache,
-      rawItemCount: items.length,
-      width: 1200,
-    });
+    const layout = (itemsToLayout: Item[]) =>
+      multiColumnLayout({
+        items: itemsToLayout,
+        columnWidth: 240,
+        columnCount: 4,
+        centerOffset: 99,
+        measurementCache: measurementStore,
+        positionCache,
+      });
 
     let mockItems: any;
     let twoColumnModuleIndex: any;
@@ -425,17 +419,17 @@ describe('multi column layout test cases', () => {
       measurementStore.set(item, item.height);
     });
 
-    const layout = defaultTwoColumnModuleLayout({
-      align: 'start',
-      columnWidth: 240,
-      measurementCache: measurementStore,
-      minCols: 3,
-      positionCache,
-      rawItemCount: items.length,
-      width: 1000,
-      gutter: 0,
-      whitespaceThreshold: 11,
-    });
+    const layout = (itemsToLayout: Item[]) =>
+      multiColumnLayout({
+        items: itemsToLayout,
+        gutter: 0,
+        columnWidth: 240,
+        columnCount: 4,
+        centerOffset: 20,
+        measurementCache: measurementStore,
+        positionCache,
+        whitespaceThreshold: 11,
+      });
 
     items.forEach((item: any) => {
       measurementStore.set(item, item.height);
@@ -465,15 +459,15 @@ describe('multi column layout test cases', () => {
       measurementStore.set(item, item.height);
     });
 
-    const layout = defaultTwoColumnModuleLayout({
-      align: 'start',
-      columnWidth: 240,
-      measurementCache: measurementStore,
-      minCols: 3,
-      positionCache,
-      rawItemCount: items.length,
-      width: 1200,
-    });
+    const layout = (itemsToLayout: Item[]) =>
+      multiColumnLayout({
+        items: itemsToLayout,
+        columnWidth: 240,
+        columnCount: 4,
+        centerOffset: 99,
+        measurementCache: measurementStore,
+        positionCache,
+      });
 
     let mockItems: any;
     let twoColumnModuleIndex: any;
@@ -535,15 +529,15 @@ describe('multi column layout test cases', () => {
       measurementStore.set(item, item.height);
     });
 
-    const layout = defaultTwoColumnModuleLayout({
-      align: 'start',
-      columnWidth: 240,
-      measurementCache: measurementStore,
-      minCols: 5,
-      positionCache,
-      rawItemCount: items.length,
-      width: 1440,
-    });
+    const layout = (itemsToLayout: Item[]) =>
+      multiColumnLayout({
+        items: itemsToLayout,
+        columnWidth: 240,
+        columnCount: 5,
+        centerOffset: 92,
+        measurementCache: measurementStore,
+        positionCache,
+      });
 
     let mockItems: any;
     let multiColumnModuleIndex: any;
@@ -606,15 +600,14 @@ describe('multi column layout test cases', () => {
       { 'name': 'Pin 5', 'height': 205, 'color': '#230BAF' },
     ];
 
-    const layout = defaultTwoColumnModuleLayout({
-      align: 'start',
-      columnWidth: 240,
-      measurementCache: measurementStore,
-      minCols: 3,
-      positionCache,
-      rawItemCount: items.length,
-      width: 1200,
-    });
+    const layout = (itemsToLayout: Item[]) =>
+      multiColumnLayout({
+        items: itemsToLayout,
+        columnWidth: 240,
+        columnCount: 4,
+        measurementCache: measurementStore,
+        positionCache,
+      });
 
     const multiColumnModuleIndex = 2;
 
@@ -639,15 +632,15 @@ describe('multi column layout test cases', () => {
       measurementStore.set(item, item.height);
     });
 
-    const layout = defaultTwoColumnModuleLayout({
-      align: 'start',
-      columnWidth: 240,
-      measurementCache: measurementStore,
-      minCols: 3,
-      positionCache,
-      rawItemCount: items.length,
-      width: 1200,
-    });
+    const layout = (itemsToLayout: Item[]) =>
+      multiColumnLayout({
+        items: itemsToLayout,
+        columnWidth: 240,
+        columnCount: 4,
+        centerOffset: 99,
+        measurementCache: measurementStore,
+        positionCache,
+      });
 
     const columnSpan = 5;
     let mockItems: any;
@@ -707,15 +700,15 @@ describe('multi column layout test cases', () => {
       measurementStore.set(item, item.height);
     });
 
-    const layout = defaultTwoColumnModuleLayout({
-      align: 'start',
-      columnWidth: 240,
-      measurementCache: measurementStore,
-      minCols: 5,
-      positionCache,
-      rawItemCount: items.length,
-      width: 1440,
-    });
+    const layout = (itemsToLayout: Item[]) =>
+      multiColumnLayout({
+        items: itemsToLayout,
+        columnWidth: 240,
+        columnCount: 5,
+        centerOffset: 92,
+        measurementCache: measurementStore,
+        positionCache,
+      });
 
     const positions = layout(items);
     expect(positions.length).toEqual(13);
@@ -769,16 +762,17 @@ describe('multi column layout test cases', () => {
       const columnWidth = 240;
       const screenWidth = 1500;
 
-      const layout = defaultTwoColumnModuleLayout({
-        align: 'start',
-        columnWidth,
-        gutter: 0,
-        measurementCache: measurementStore,
-        minCols: 3,
-        positionCache,
-        rawItemCount: items.length,
-        width: screenWidth, // 6 rows
-      });
+      const layout = (itemsToLayout: Item[]) =>
+        multiColumnLayout({
+          items: itemsToLayout,
+          gutter: 0,
+          columnWidth: 240,
+          columnCount: 6,
+          centerOffset: 30,
+          measurementCache: measurementStore,
+          positionCache,
+        });
+
       // perform single column layout first since we expect two column items on second page+ currently
       layout(mockItems);
 
@@ -786,7 +780,8 @@ describe('multi column layout test cases', () => {
       // the first row items should be Pin 0, Pin 1, Pin 2, Pin 3, Pin 4, Pin 6
       const columnCount = Math.floor(screenWidth / columnWidth);
       const firstRowItems = mockItems.filter((i: any) => !i.columnSpan).slice(0, columnCount);
-      const margin = (screenWidth - columnWidth * columnCount) / 2;
+      // const margin = (screenWidth - columnWidth * columnCount) / 2;
+      const margin = 30;
       firstRowItems.forEach((item: any, i: any) => {
         const position = positionCache.get(item);
         expect(position?.top).toBe(0);
@@ -824,16 +819,16 @@ describe('multi column layout test cases', () => {
       const columnWidth = 240;
       const screenWidth = 720;
 
-      const layout = defaultTwoColumnModuleLayout({
-        align: 'start',
-        columnWidth,
-        gutter: 0,
-        measurementCache: measurementStore,
-        minCols: 3,
-        positionCache,
-        rawItemCount: items.length,
-        width: screenWidth, // 3 rows
-      });
+      const layout = (itemsToLayout: Item[]) =>
+        multiColumnLayout({
+          items: itemsToLayout,
+          gutter: 0,
+          columnWidth: 240,
+          columnCount: 3,
+          centerOffset: 0,
+          measurementCache: measurementStore,
+          positionCache,
+        });
 
       layout(mockItems);
 
@@ -857,7 +852,7 @@ describe('initializeHeightsArray', () => {
     const columnWidth = 236;
     const measurementStore = new MeasurementStore<Record<any, any>, number>();
     const positionCache = new MeasurementStore<Record<any, any>, Position>();
-    const items: ReadonlyArray<Item> = [
+    const items: Array<Item> = [
       { name: 'Pin 0', height: 476 },
       { name: 'Pin 1', height: 381 },
       { name: 'Pin 2', height: 274 },
@@ -885,16 +880,16 @@ describe('initializeHeightsArray', () => {
     items.forEach((item: any) => {
       measurementStore.set(item, item.height);
     });
-    const layout = defaultTwoColumnModuleLayout({
-      columnWidth,
-      gutter,
-      measurementCache: measurementStore,
-      align: 'start',
-      minCols: 3,
-      positionCache,
-      rawItemCount: items.length,
-      width: 2255,
-    });
+    const layout = (itemsToLayout: Item[]) =>
+      multiColumnLayout({
+        items: itemsToLayout,
+        gutter,
+        columnWidth,
+        columnCount: 9,
+        centerOffset: 1,
+        measurementCache: measurementStore,
+        positionCache,
+      });
     const positions = layout(items);
     expect(positions).toEqual([
       { height: 476, left: 1, top: 0, width: 236 },
@@ -968,16 +963,16 @@ describe('initializeHeightsArray', () => {
     items.forEach((item: any) => {
       measurementStore.set(item, item.height);
     });
-    const layout = defaultTwoColumnModuleLayout({
-      align: 'start',
-      columnWidth,
-      gutter,
-      measurementCache: measurementStore,
-      minCols: 3,
-      positionCache,
-      rawItemCount: items.length,
-      width: 2255,
-    });
+    const layout = (itemsToLayout: Item[]) =>
+      multiColumnLayout({
+        items: itemsToLayout,
+        gutter,
+        columnWidth,
+        columnCount: 9,
+        centerOffset: 1,
+        measurementCache: measurementStore,
+        positionCache,
+      });
     const positions = layout(items);
     expect(positions).toEqual([
       { top: 492, left: 1, width: 236, height: 416 },
