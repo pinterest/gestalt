@@ -6,14 +6,14 @@ import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Flex from './Flex';
 import Link from './Link';
-import InternalDismissButton from './shared/InternalDismissButton';
+import InternalDismissButton from './sharedSubcomponents/InternalDismissButton';
 import {
   AvatarThumbnail,
   IconThumbnail,
   ImageThumbnail,
   Message,
   TypeThumbnail,
-} from './shared/thumbnailSubcomponents';
+} from './sharedSubcomponents/thumbnailSubcomponents';
 import styles from './Toast.css';
 import PrimaryAction from './Toast/PrimaryAction';
 import useResponsiveMinWidth from './useResponsiveMinWidth';

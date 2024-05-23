@@ -9,13 +9,13 @@ import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
 import Flex from './Flex';
-import InternalDismissButton from './shared/InternalDismissButton';
+import InternalDismissButton from './sharedSubcomponents/InternalDismissButton';
 import {
   AvatarThumbnail,
   IconThumbnail,
   ImageThumbnail,
   Message,
-} from './shared/thumbnailSubcomponents';
+} from './sharedSubcomponents/thumbnailSubcomponents';
 import Text from './Text';
 import { Indexable } from './zIndex';
 
