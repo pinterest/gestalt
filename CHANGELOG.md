@@ -1,3 +1,9 @@
+## 149.0.5 (May 23, 2024)
+
+### Patch
+
+- Docs: Use img tag for GIFs ([#3590](https://github.com/pinterest/gestalt/pull/3590)) - [Preview link](https://deploy-preview-3590--gestalt.netlify.app?devexample=true)
+
 ## 149.0.4 (May 23, 2024)
 
 ### Patch
