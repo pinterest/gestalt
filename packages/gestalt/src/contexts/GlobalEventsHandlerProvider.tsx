@@ -28,6 +28,9 @@ type GlobalEventsHandlerContextType =
       radioGroupHandlers?: {
         onRender?: NoopType;
       };
+      buttonToggleHandlers?: {
+        onClick?: NoopType;
+      };
     }
   | undefined;
 
@@ -76,6 +79,12 @@ type Props = {
   radioGroupHandlers?: {
     onRender?: () => void;
   };
+  /**
+   * Handlers consumed by [ButtonToggle](https://gestalt.pinterest.systems/web/buttontoggle).
+   */
+  buttonToggleHandlers?: {
+    onClick?: () => void;
+  };
 };
 
 const GlobalEventsHandlerContext: Context<GlobalEventsHandlerContextType> =
@@ -95,6 +104,7 @@ export default function GlobalEventsHandlerProvider({
   sheetMobileHandlers,
   linkHandlers,
   radioGroupHandlers,
+  buttonToggleHandlers,
 }: Props) {
   return (
     <Provider
@@ -105,6 +115,7 @@ export default function GlobalEventsHandlerProvider({
         sheetMobileHandlers,
         linkHandlers,
         radioGroupHandlers,
+        buttonToggleHandlers,
       }}
     >
       {children}

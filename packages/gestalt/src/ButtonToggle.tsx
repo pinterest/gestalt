@@ -1,8 +1,9 @@
-import { forwardRef, Fragment, ReactNode,useImperativeHandle, useRef } from 'react';
+import { forwardRef, Fragment, ReactNode, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
 import styles from './ButtonToggle.css';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
+import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider';
 import Flex from './Flex';
 import focusStyles from './Focus.css';
 import Icon, { IconColor } from './Icon';
@@ -37,9 +38,7 @@ type Props = {
   /**
    * The background color of ButtonToggle.
    */
-  color?:
-    | 'red'
-    | 'transparent'
+  color?: 'red' | 'transparent';
   /**
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/afut/#priority) before using this prop.
    */
@@ -90,7 +89,7 @@ function InternalButtonContent({
   return (
     <Fragment>
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-      {icon ? (
+        {icon ? (
           <Icon
             accessibilityLabel=""
             color={textColor}
@@ -127,7 +126,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
     accessibilityControls,
   }: Props,
   ref,
-): ReactNode {
+) {
   const innerRef = useRef<null | HTMLButtonElement>(null);
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
@@ -165,10 +164,10 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
     [styles.md]: size === 'md',
     [styles.lg]: size === 'lg',
     [styles[color]]: !disabled && !selected,
-    [styles.noBorder]: color === 'red' && (!selected && !disabled),
+    [styles.noBorder]: color === 'red' && !selected && !disabled,
     [styles.selected]: !disabled && selected,
-    [styles.disabled]: disabled && (color!== 'red' || selected),
-    [styles.disabledRed]: disabled && (color === 'red' && !selected),
+    [styles.disabled]: disabled && (color !== 'red' || selected),
+    [styles.disabledRed]: disabled && color === 'red' && !selected,
     [styles.enabled]: !disabled,
     [touchableStyles.tapCompress]: !disabled && isTapping,
   });
@@ -195,6 +194,11 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
     </Text>
   );
 
+  // Consume GlobalEventsHandlerProvider
+  const { buttonToggleHandlers } = useGlobalEventsHandlerContext() ?? {
+    buttonToggleHandlers: undefined,
+  };
+
   return (
     <button
       ref={innerRef}
@@ -204,7 +208,10 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
       data-test-id={dataTestId}
       disabled={disabled}
       onBlur={handleBlur}
-      onClick={(event) => onClick?.({ event })}
+      onClick={(event) => {
+        buttonToggleHandlers?.onClick?.();
+        onClick?.({ event });
+      }}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onTouchCancel={handleTouchCancel}
