@@ -8,12 +8,12 @@ import Flex from './Flex';
 import Link from './Link';
 import InternalDismissButton from './shared/InternalDismissButton';
 import {
-  ToastAvatarThumbnail,
-  ToastIconThumbnail,
-  ToastImageThumbnail,
-  ToastMessage,
-  ToastTypeThumbnail,
-} from './Shared/ToastSubcomponents';
+  AvatarThumbnail,
+  IconThumbnail,
+  ImageThumbnail,
+  Message,
+  TypeThumbnail,
+} from './shared/thumbnailSubcomponents';
 import styles from './Toast.css';
 import PrimaryAction from './Toast/PrimaryAction';
 import useResponsiveMinWidth from './useResponsiveMinWidth';
@@ -173,7 +173,7 @@ export default function Toast({
           Children.only<ReactElement>(thumbnail.image).type.displayName === 'Image' ? (
             <Flex.Item flex="none">
               {/* @ts-expect-error - TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
-              <ToastImageThumbnail thumbnail={thumbnail.image} />
+              <ImageThumbnail thumbnail={thumbnail.image} />
             </Flex.Item>
           ) : null}
 
@@ -185,7 +185,7 @@ export default function Toast({
           Children.only<ReactElement>(thumbnail.icon).type.displayName === 'Icon' ? (
             <Flex.Item flex="none">
               {/* @ts-expect-error - TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
-              <ToastIconThumbnail overrideColor="inverse" thumbnail={thumbnail.icon} />
+              <IconThumbnail overrideColor="inverse" thumbnail={thumbnail.icon} />
             </Flex.Item>
           ) : null}
 
@@ -197,18 +197,18 @@ export default function Toast({
           Children.only<ReactElement>(thumbnail.avatar).type.displayName === 'Avatar' ? (
             <Flex.Item flex="none">
               {/* @ts-expect-error - TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
-              <ToastAvatarThumbnail thumbnail={thumbnail.avatar} />
+              <AvatarThumbnail thumbnail={thumbnail.avatar} />
             </Flex.Item>
           ) : null}
 
           {isNotDefaultToast ? (
             <Flex.Item flex="none">
-              <ToastTypeThumbnail type={type} />
+              <TypeThumbnail type={type} />
             </Flex.Item>
           ) : null}
 
           <Flex.Item flex="grow">
-            <ToastMessage
+            <Message
               helperLink={helperLink}
               text={isTextNode ? undefined : textElement}
               // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"link" | "warning" | "error" | "default" | "subtle" | "success" | "shopping" | "inverse" | "light" | "dark" | undefined'.

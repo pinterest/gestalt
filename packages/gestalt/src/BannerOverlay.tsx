@@ -11,11 +11,11 @@ import { useDeviceType } from './contexts/DeviceTypeProvider';
 import Flex from './Flex';
 import InternalDismissButton from './shared/InternalDismissButton';
 import {
-  ToastAvatarThumbnail,
-  ToastIconThumbnail,
-  ToastImageThumbnail,
-  ToastMessage,
-} from './Shared/ToastSubcomponents';
+  AvatarThumbnail,
+  IconThumbnail,
+  ImageThumbnail,
+  Message,
+} from './shared/thumbnailSubcomponents';
 import Text from './Text';
 import { Indexable } from './zIndex';
 
@@ -198,7 +198,7 @@ export default function BannerOverlay({
             Children.only<ReactElement>(thumbnail.image).type.displayName === 'Image' ? (
               <Flex.Item alignSelf="center">
                 {/* @ts-expect-error - TS2339 - Property 'image' does not exist. */}
-                <ToastImageThumbnail thumbnail={thumbnail.image} />
+                <ImageThumbnail thumbnail={thumbnail.image} />
               </Flex.Item>
             ) : null}
 
@@ -208,7 +208,7 @@ export default function BannerOverlay({
             Children.only<ReactElement>(thumbnail.icon).type.displayName === 'Icon' ? (
               <Flex.Item alignSelf="center">
                 {/* @ts-expect-error - TS2339 - Property 'icon' does not exist. */}
-                <ToastIconThumbnail thumbnail={thumbnail.icon} />
+                <IconThumbnail thumbnail={thumbnail.icon} />
               </Flex.Item>
             ) : null}
 
@@ -218,7 +218,7 @@ export default function BannerOverlay({
             Children.only<ReactElement>(thumbnail.avatar).type.displayName === 'Avatar' ? (
               <Flex.Item alignSelf="center">
                 {/* @ts-expect-error - TS2339 - Property 'avatar' does not exist. */}
-                <ToastAvatarThumbnail thumbnail={thumbnail.avatar} />
+                <AvatarThumbnail thumbnail={thumbnail.avatar} />
               </Flex.Item>
             ) : null}
             <Flex.Item flex="grow">
@@ -226,7 +226,7 @@ export default function BannerOverlay({
                 {title ? (
                   <Text weight="bold">{title}</Text>
                 ) : (
-                  <ToastMessage
+                  <Message
                     text={isMessageTextNode ? undefined : messageTextElement}
                     textColor={textColor}
                     textElement={isMessageTextNode ? messageTextElement : undefined}
@@ -234,7 +234,7 @@ export default function BannerOverlay({
                 )}
               </Flex>
               {title && (
-                <ToastMessage
+                <Message
                   text={isMessageTextNode ? undefined : messageTextElement}
                   textColor={textColor}
                   textElement={isMessageTextNode ? messageTextElement : undefined}
@@ -335,7 +335,7 @@ export default function BannerOverlay({
             Children.only<ReactElement>(thumbnail.image).type.displayName === 'Image' ? (
               <Flex.Item alignSelf="baseline">
                 {/* @ts-expect-error - TS2339 - Property 'image' does not exist. */}
-                <ToastImageThumbnail thumbnail={thumbnail.image} />
+                <ImageThumbnail thumbnail={thumbnail.image} />
               </Flex.Item>
             ) : null}
 
@@ -345,7 +345,7 @@ export default function BannerOverlay({
             Children.only<ReactElement>(thumbnail.icon).type.displayName === 'Icon' ? (
               <Flex.Item alignSelf="baseline">
                 {/* @ts-expect-error - TS2339 - Property 'icon' does not exist. */}
-                <ToastIconThumbnail thumbnail={thumbnail.icon} />
+                <IconThumbnail thumbnail={thumbnail.icon} />
               </Flex.Item>
             ) : null}
 
@@ -355,7 +355,7 @@ export default function BannerOverlay({
             Children.only<ReactElement>(thumbnail.avatar).type.displayName === 'Avatar' ? (
               <Flex.Item alignSelf="baseline">
                 {/* @ts-expect-error - TS2339 - Property 'avatar' does not exist. */}
-                <ToastAvatarThumbnail thumbnail={thumbnail.avatar} />
+                <AvatarThumbnail thumbnail={thumbnail.avatar} />
               </Flex.Item>
             ) : null}
             <Flex.Item flex="grow">
@@ -364,7 +364,7 @@ export default function BannerOverlay({
                   <Text weight="bold">{title}</Text>
                 ) : (
                   <Box marginBottom={2}>
-                    <ToastMessage
+                    <Message
                       text={isMessageTextNode ? undefined : messageTextElement}
                       textColor={textColor}
                       textElement={isMessageTextNode ? messageTextElement : undefined}
@@ -379,7 +379,7 @@ export default function BannerOverlay({
               </Flex>
               {title && (
                 <Box marginBottom={2}>
-                  <ToastMessage
+                  <Message
                     text={isMessageTextNode ? undefined : messageTextElement}
                     textColor={textColor}
                     textElement={isMessageTextNode ? messageTextElement : undefined}
