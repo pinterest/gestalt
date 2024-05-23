@@ -56,7 +56,7 @@
           "blurRadius": 6,
           "spreadRadius": 0,
           "color": "#000000",
-          "opacity": 0.10
+          "opacity": 0.1
         },
         "2": {
           "offsetX": 0,
@@ -70,7 +70,7 @@
     },
     "325": {
       "value": {
-         "0": {
+        "0": {
           "offsetX": 0,
           "offsetY": 1,
           "blurRadius": 0,
@@ -98,7 +98,7 @@
     },
     "350": {
       "value": {
-         "0": {
+        "0": {
           "offsetX": 0,
           "offsetY": -1,
           "blurRadius": 0,

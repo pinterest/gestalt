@@ -56,13 +56,13 @@
           "blurRadius": 2,
           "spreadRadius": 0,
           "color": "#000000",
-          "opacity": 0.30
+          "opacity": 0.3
         }
       }
     },
     "325": {
       "value": {
-         "0": {
+        "0": {
           "offsetX": 0,
           "offsetY": 2,
           "blurRadius": 8,
