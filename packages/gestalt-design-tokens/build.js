@@ -763,6 +763,236 @@ function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
                     'showFileHeader': true,
                   },
                 },
+                {
+                  'destination': `GestaltDesignTokensRounding${theme === 'vr-theme' ? 'VR' : ''}.h`,
+                  'format': 'ios/static.h',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsh',
+                  'className': `GestaltDesignTokensRounding${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'type': `GestaltDesignTokensRoundingName${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'filter': {
+                    'attributes': {
+                      'category': 'rounding',
+                    },
+                  },
+                  'options': {
+                    'fileHeader': 'fileHeader',
+                    '_fileHeader_comment': 'Custom',
+                    'showFileHeader': true,
+                  },
+                },
+                {
+                  'destination': `GestaltDesignTokensRounding${theme === 'vr-theme' ? 'VR' : ''}.m`,
+                  'format': 'ios/static.m',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsm',
+                  'className': `GestaltDesignTokensRounding${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'type': `GestaltDesignTokensRoundingName${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'filter': {
+                    'attributes': {
+                      'category': 'rounding',
+                    },
+                  },
+                  'options': {
+                    'fileHeader': 'fileHeader',
+                    '_fileHeader_comment': 'Custom',
+                    'showFileHeader': true,
+                  },
+                },
+                {
+                  'destination': `GestaltDesignTokensSpace${theme === 'vr-theme' ? 'VR' : ''}.h`,
+                  'format': 'ios/static.h',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsh',
+                  'className': `GestaltDesignTokensSpace${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'type': `GestaltDesignTokensSpaceName${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'filter': {
+                    'attributes': {
+                      'category': 'space',
+                    },
+                  },
+                  'options': {
+                    'fileHeader': 'fileHeader',
+                    '_fileHeader_comment': 'Custom',
+                    'showFileHeader': true,
+                  },
+                },
+                {
+                  'destination': `GestaltDesignTokensSpace${theme === 'vr-theme' ? 'VR' : ''}.m`,
+                  'format': 'ios/static.m',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsm',
+                  'className': `GestaltDesignTokensSpace${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'type': `GestaltDesignTokensSpaceName${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'filter': {
+                    'attributes': {
+                      'category': 'space',
+                    },
+                  },
+                  'options': {
+                    'fileHeader': 'fileHeader',
+                    '_fileHeader_comment': 'Custom',
+                    'showFileHeader': true,
+                  },
+                },
+                {
+                  'destination': `GestaltDesignTokensOpacity${theme === 'vr-theme' ? 'VR' : ''}.h`,
+                  'format': 'ios/static.h',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsh',
+                  'className': `GestaltDesignTokensOpacity${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'type': `GestaltDesignTokensOpacityName${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'filter': {
+                    'attributes': {
+                      'category': 'opacity',
+                    },
+                  },
+                  'options': {
+                    'fileHeader': 'fileHeader',
+                    '_fileHeader_comment': 'Custom',
+                    'showFileHeader': true,
+                  },
+                },
+                {
+                  'destination': `GestaltDesignTokensOpacity${theme === 'vr-theme' ? 'VR' : ''}.m`,
+                  'format': 'ios/static.m',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsm',
+                  'className': `GestaltDesignTokensOpacity${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'type': `GestaltDesignTokensOpacityName${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'filter': {
+                    'attributes': {
+                      'category': 'opacity',
+                    },
+                  },
+                  'options': {
+                    'fileHeader': 'fileHeader',
+                    '_fileHeader_comment': 'Custom',
+                    'showFileHeader': true,
+                  },
+                },
+                {
+                  'destination': `GestaltDesignTokensFontSize${theme === 'vr-theme' ? 'VR' : ''}.h`,
+                  'format': 'ios/static.h',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsh',
+                  'className': `GestaltDesignTokensFontSize${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'type': `GestaltDesignTokensFontSizeName${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'filter': {
+                    'attributes': {
+                      'category': 'font',
+                      'type': 'size',
+                    },
+                  },
+                  'options': {
+                    'fileHeader': 'fileHeader',
+                    '_fileHeader_comment': 'Custom',
+                    'showFileHeader': true,
+                  },
+                },
+                {
+                  'destination': `GestaltDesignTokensFontSize${theme === 'vr-theme' ? 'VR' : ''}.m`,
+                  'format': 'ios/static.m',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsm',
+                  'className': `GestaltDesignTokensFontSize${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'type': `GestaltDesignTokensFontSizeName${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'filter': {
+                    'attributes': {
+                      'category': 'font',
+                      'type': 'size',
+                    },
+                  },
+                  'options': {
+                    'fileHeader': 'fileHeader',
+                    '_fileHeader_comment': 'Custom',
+                    'showFileHeader': true,
+                  },
+                },
+                {
+                  'destination': `GestaltDesignTokensFontWeight${
+                    theme === 'vr-theme' ? 'VR' : ''
+                  }.h`,
+                  'format': 'ios/static.h',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsh',
+                  'className': `GestaltDesignTokensFontWeight${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'type': `GestaltDesignTokensFontWeightName${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'filter': {
+                    'attributes': {
+                      'category': 'font',
+                      'type': 'weight',
+                    },
+                  },
+                  'options': {
+                    'fileHeader': 'fileHeader',
+                    '_fileHeader_comment': 'Custom',
+                    'showFileHeader': true,
+                  },
+                },
+                {
+                  'destination': `GestaltDesignTokensFontWeight${
+                    theme === 'vr-theme' ? 'VR' : ''
+                  }.m`,
+                  'format': 'ios/static.m',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsm',
+                  'className': `GestaltDesignTokensFontWeight${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'type': `GestaltDesignTokensFontWeightName${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'filter': {
+                    'attributes': {
+                      'category': 'font',
+                      'type': 'weight',
+                    },
+                  },
+                  'options': {
+                    'fileHeader': 'fileHeader',
+                    '_fileHeader_comment': 'Custom',
+                    'showFileHeader': true,
+                  },
+                },
+                {
+                  'destination': `GestaltDesignTokensFontFamily${
+                    theme === 'vr-theme' ? 'VR' : ''
+                  }.h`,
+                  'format': 'ios/static.h',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsh',
+                  'className': `GestaltDesignTokensFontFamily${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'type': `GestaltDesignTokensFontFamilyName${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'filter': {
+                    'attributes': {
+                      'category': 'font',
+                      'type': 'family',
+                    },
+                  },
+                  'options': {
+                    'fileHeader': 'fileHeader',
+                    '_fileHeader_comment': 'Custom',
+                    'showFileHeader': true,
+                  },
+                },
+                {
+                  'destination': `GestaltDesignTokensFontFamily${
+                    theme === 'vr-theme' ? 'VR' : ''
+                  }.m`,
+                  'format': 'ios/static.m',
+                  '_format_comment':
+                    'https://amzn.github.io/style-dictionary/#/formats?id=ioscolorsm',
+                  'className': `GestaltDesignTokensFontFamily${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'type': `GestaltDesignTokensFontFamilyName${theme === 'vr-theme' ? 'VR' : ''}`,
+                  'filter': {
+                    'attributes': {
+                      'category': 'font',
+                      'type': 'family',
+                    },
+                  },
+                  'options': {
+                    'fileHeader': 'fileHeader',
+                    '_fileHeader_comment': 'Custom',
+                    'showFileHeader': true,
+                  },
+                },
               ]
             : [
                 {
