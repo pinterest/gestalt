@@ -1,3 +1,39 @@
+## 150.1.0 (May 24, 2024)
+
+### Minor
+
+- Masonry: Iterate + bug fixes (V2) ([#3594](https://github.com/pinterest/gestalt/pull/3594)) - [Preview link](https://deploy-preview-3594--gestalt.netlify.app?devexample=true)
+
+## 150.0.1 (May 24, 2024)
+
+### Patch
+
+- Internal: renames and fixes more ([#3593](https://github.com/pinterest/gestalt/pull/3593)) - [Preview link](https://deploy-preview-3593--gestalt.netlify.app?devexample=true)
+
+## 150.0.0 (May 23, 2024)
+
+### Major
+
+- Tokens: VR tokens (final vr-theme files) for Android and iOS consumption (web mapping layer not included) ([#3576](https://github.com/pinterest/gestalt/pull/3576)) - [Preview link](https://deploy-preview-3576--gestalt.netlify.app?devexample=true)
+
+## 149.0.5 (May 23, 2024)
+
+### Patch
+
+- Docs: Use img tag for GIFs ([#3590](https://github.com/pinterest/gestalt/pull/3590)) - [Preview link](https://deploy-preview-3590--gestalt.netlify.app?devexample=true)
+
+## 149.0.4 (May 23, 2024)
+
+### Patch
+
+- Docs: New Motion Guidelines page ([#3578](https://github.com/pinterest/gestalt/pull/3578)) - [Preview link](https://deploy-preview-3578--gestalt.netlify.app?devexample=true)
+
+## 149.0.3 (May 23, 2024)
+
+### Patch
+
+- Internal: TypeScript migration for eslint-plugin-gestalt test fixtures ([#3589](https://github.com/pinterest/gestalt/pull/3589)) - [Preview link](https://deploy-preview-3589--gestalt.netlify.app?devexample=true)
+
 ## 149.0.2 (May 21, 2024)
 
 ### Patch

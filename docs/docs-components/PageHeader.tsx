@@ -216,10 +216,12 @@ export default function PageHeader({
               )}
             </Flex>
 
-            <Flex direction="column" gap={4}>
-              {bannerSlim}
-              {bannerSlimExperiment}
-            </Flex>
+            {(bannerSlim || bannerSlimExperiment) && (
+              <Flex direction="column" gap={4}>
+                {bannerSlim}
+                {bannerSlimExperiment}
+              </Flex>
+            )}
 
             {type === 'component' ? <PageHeaderQualitySummary name={name} /> : null}
 

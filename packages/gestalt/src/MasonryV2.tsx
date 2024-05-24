@@ -2,6 +2,7 @@ import {
   forwardRef,
   memo,
   ReactNode,
+  startTransition,
   useCallback,
   useEffect,
   useImperativeHandle,
@@ -10,7 +11,6 @@ import {
   useRef,
   useState,
   useSyncExternalStore,
-  useTransition,
 } from 'react';
 import debounce from './debounce';
 import styles from './Masonry.css';
@@ -133,11 +133,15 @@ type Props<T> = {
    */
   _measureAll?: boolean;
   /**
+   * Experimental prop to trigger rendering updates via requestAnimationFrame
+   */
+  _useRAF?: boolean;
+  /**
    * Temporal prop to sync gutter logic on full width layout refactor.
    *
    * This is an experimental prop and will be removed in the future.
    */
-  _legacyGutterLogic?: boolean;
+  _legacyFlexibleGutterLogic?: boolean;
 };
 
 type MasonryRef = {
@@ -226,9 +230,9 @@ function useScrollContainer({
         scrollPos.current = scrollContainer ? getScrollPos(scrollContainer) : 0;
         callback();
       });
-      window.addEventListener('scroll', handler);
+      scrollContainer?.addEventListener('scroll', handler);
       return () => {
-        window.removeEventListener('scroll', handler);
+        scrollContainer?.removeEventListener('scroll', handler);
       };
     },
     [scrollContainer],
@@ -333,7 +337,8 @@ function useLayout<
   _twoColItems,
   _logTwoColWhitespace,
   _measureAll,
-  _legacyGutterLogic,
+  _useRAF,
+  _legacyFlexibleGutterLogic,
 }: {
   align: Align;
   columnWidth: number;
@@ -347,7 +352,8 @@ function useLayout<
   _twoColItems?: boolean;
   _logTwoColWhitespace?: (arg1: number) => void;
   _measureAll?: boolean;
-  _legacyGutterLogic?: boolean;
+  _useRAF?: boolean;
+  _legacyFlexibleGutterLogic?: boolean;
 }): {
   height: number;
   hasPendingMeasurements: boolean;
@@ -372,6 +378,7 @@ function useLayout<
     width,
     _twoColItems,
     _logTwoColWhitespace,
+    _legacyFlexibleGutterLogic,
   });
 
   const itemMeasurements = items.filter((item) => measurementStore.has(item));
@@ -415,11 +422,26 @@ function useLayout<
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemMeasurementsCount, items, canPerformLayout]);
 
+  const forceUpdate = useForceUpdate();
+  const rafId = useRef<number | null>(null);
+
   const updateMeasurement = useCallback(
     (item: T, itemHeight: number) => {
       measurementStore.set(item, itemHeight);
+      // schedule state update either via startTransition or requestAnimationFrame depending on whether _useRAF is true.
+      // requestAnimationFrame is to test parity with Masonry V1
+      if (!_useRAF) {
+        startTransition(() => {
+          forceUpdate();
+        });
+      } else if (!rafId.current) {
+        rafId.current = requestAnimationFrame(() => {
+          rafId.current = null;
+          forceUpdate();
+        });
+      }
     },
-    [measurementStore],
+    [measurementStore, forceUpdate, _useRAF],
   );
 
   // Math.max() === -Infinity when there are no positions
@@ -488,7 +510,6 @@ function MasonryItem<
   layout,
   left,
   renderItem,
-  startTransition,
   top,
   updateMeasurement,
   width,
@@ -501,7 +522,6 @@ function MasonryItem<
   left: number;
   layout: Layout;
   renderItem: Props<T>['renderItem'];
-  startTransition: (arg1: () => void) => void;
   top: number;
   updateMeasurement: (arg1: T, arg2: number) => void;
   width: number | null | undefined;
@@ -523,9 +543,7 @@ function MasonryItem<
       }
     : (el?: HTMLDivElement | null) => {
         if (el && isMeasurement) {
-          startTransition(() => {
-            updateMeasurement(item, el.clientHeight);
-          });
+          updateMeasurement(item, el.clientHeight);
         }
       };
   const style = isMeasurement
@@ -586,7 +604,8 @@ function Masonry<
     _twoColItems,
     _logTwoColWhitespace,
     _measureAll,
-    _legacyGutterLogic,
+    _useRAF,
+    _legacyFlexibleGutterLogic,
   }: Props<T>,
   ref:
     | {
@@ -623,7 +642,6 @@ function Masonry<
     scrollContainer: scrollContainerElement,
   });
 
-  const [, startTransition] = useTransition();
   const forceUpdate = useForceUpdate();
 
   const reflow = () => {
@@ -676,7 +694,8 @@ function Masonry<
     _twoColItems,
     _logTwoColWhitespace,
     _measureAll,
-    _legacyGutterLogic,
+    _useRAF,
+    _legacyFlexibleGutterLogic,
   });
 
   useFetchOnScroll({
@@ -750,7 +769,6 @@ function Masonry<
               left={position.left}
               // @ts-expect-error - TS2322 - Type '(arg1: { readonly data: T; readonly itemIdx: number; readonly isMeasuring: boolean; }) => ReactNode' is not assignable to type '(arg1: { readonly data: { readonly [key: string]: unknown; }; readonly itemIdx: number; readonly isMeasuring: boolean; }) => ReactNode'.
               renderItem={renderItem}
-              startTransition={startTransition}
               top={position.top}
               updateMeasurement={updateMeasurement}
               width={position.width}

@@ -8,7 +8,7 @@ import Label from './Label';
 import styles from './RadioButton.css';
 import controlStyles from './RadioButtonCheckbox.css';
 import { useRadioGroupContext } from './RadioGroup/Context';
-import FormHelperText from './shared/FormHelperText';
+import FormHelperText from './sharedSubcomponents/FormHelperText';
 import Text from './Text';
 import useFocusVisible from './useFocusVisible';
 

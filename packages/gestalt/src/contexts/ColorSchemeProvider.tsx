@@ -1,7 +1,7 @@
 import { Context, createContext, ReactNode, useContext, useEffect, useState } from 'react';
 import classnames from 'classnames';
-import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
-import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-light.json';
+import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/classic/variables-dark.json';
+import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/classic/variables-light.json';
 import layoutStyles from '../Layout.css';
 
 export type ColorScheme = 'light' | 'dark' | 'userPreference';

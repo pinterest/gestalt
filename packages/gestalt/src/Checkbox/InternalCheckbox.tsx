@@ -13,8 +13,8 @@ import Box from '../Box';
 import focusStyles from '../Focus.css';
 import Icon from '../Icon';
 import Label from '../Label';
-import FormErrorMessage from '../shared/FormErrorMessage';
-import FormHelperText from '../shared/FormHelperText';
+import FormErrorMessage from '../sharedSubcomponents/FormErrorMessage';
+import FormHelperText from '../sharedSubcomponents/FormHelperText';
 import Text from '../Text';
 import useFocusVisible from '../useFocusVisible';
 

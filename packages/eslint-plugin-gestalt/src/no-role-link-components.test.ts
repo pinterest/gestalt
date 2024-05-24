@@ -7,24 +7,24 @@ import rule from './no-role-link-components';
 const ruleTester = new RuleTester({ parserOptions });
 
 const validCode = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-role-link-components/valid.js'),
+  path.resolve(__dirname, './__fixtures__/no-role-link-components/valid.tsx'),
   'utf-8',
 );
 const invalidButton = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-role-link-components/invalid/invalid-button.js'),
+  path.resolve(__dirname, './__fixtures__/no-role-link-components/invalid/invalid-button.tsx'),
   'utf-8',
 );
 const invalidIconButton = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-role-link-components/invalid/invalid-iconbutton.js'),
+  path.resolve(__dirname, './__fixtures__/no-role-link-components/invalid/invalid-iconbutton.tsx'),
   'utf-8',
 );
 const invalidTapArea = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-role-link-components/invalid/invalid-taparea.js'),
+  path.resolve(__dirname, './__fixtures__/no-role-link-components/invalid/invalid-taparea.tsx'),
   'utf-8',
 );
 
 const getErrorMessage = (cmp: string) =>
-  `${cmp} Components with role-link are disallowed in Pinboard. Please use app/common/react/ui/${cmp}Link.js instead.`;
+  `${cmp} Components with role-link are disallowed in Pinboard. Please use app/common/react/ui/${cmp}Link.tsx instead.`;
 
 ruleTester.run('no-role-link-components', rule, {
   valid: [{ code: validCode }],

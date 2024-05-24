@@ -1,6 +1,6 @@
 import { useColorScheme } from 'gestalt';
-import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
-import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-light.json';
+import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/classic/variables-dark.json';
+import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/classic/variables-light.json';
 import { useChartContext } from './ChartGraphContext';
 import { GraphPoint } from './renderGraphPoint';
 import { DataVisualizationColors } from './types';
