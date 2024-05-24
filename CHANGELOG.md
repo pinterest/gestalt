@@ -1,3 +1,9 @@
+## 150.1.1 (May 24, 2024)
+
+### Patch
+
+- Masonry: Add multi column item support to flexible masonry ([#3574](https://github.com/pinterest/gestalt/pull/3574)) - [Preview link](https://deploy-preview-3574--gestalt.netlify.app?devexample=true)
+
 ## 150.1.0 (May 24, 2024)
 
 ### Minor
