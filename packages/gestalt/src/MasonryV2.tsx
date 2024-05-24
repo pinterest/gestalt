@@ -425,16 +425,14 @@ function useLayout<
         startTransition(() => {
           forceUpdate();
         });
-      } else {
-        if (!rafId.current) {
-          rafId.current = requestAnimationFrame(() => {
-            rafId.current = null;
-            forceUpdate();
-          });
-        }
+      } else if (!rafId.current) {
+        rafId.current = requestAnimationFrame(() => {
+          rafId.current = null;
+          forceUpdate();
+        });
       }
     },
-    [measurementStore],
+    [measurementStore, forceUpdate, _useRAF],
   );
 
   // Math.max() === -Infinity when there are no positions
