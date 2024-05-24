@@ -470,7 +470,7 @@ StyleDictionary.registerTransform({
   name: 'name/prefix/level/kebab',
   type: 'name',
   matcher(prop) {
-    return prop.filePath.includes('classic') || !prop.filePath.includes('vr-theme-web-mapping');
+    return !prop.filePath.includes('classic') || !prop.filePath.includes('vr-theme-web-mapping');
   },
   transformer(prop) {
     const prefix = prop.filePath.split('/').splice(-1)[0].substring(0, 4);
