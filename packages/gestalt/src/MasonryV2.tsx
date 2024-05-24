@@ -15,9 +15,9 @@ import {
 import debounce from './debounce';
 import styles from './Masonry.css';
 import { Cache } from './Masonry/Cache';
-import { MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/defaultTwoColumnModuleLayout';
 import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
 import MeasurementStore from './Masonry/MeasurementStore';
+import { MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { Align, Layout, Position } from './Masonry/types';
 import throttle from './throttle';
@@ -136,6 +136,12 @@ type Props<T> = {
    * Experimental prop to trigger rendering updates via requestAnimationFrame
    */
   _useRAF?: boolean;
+  /**
+   * Temporal prop to sync gutter logic on full width layout refactor.
+   *
+   * This is an experimental prop and will be removed in the future.
+   */
+  _legacyFlexibleGutterLogic?: boolean;
 };
 
 type MasonryRef = {
@@ -332,6 +338,7 @@ function useLayout<
   _logTwoColWhitespace,
   _measureAll,
   _useRAF,
+  _legacyFlexibleGutterLogic,
 }: {
   align: Align;
   columnWidth: number;
@@ -346,6 +353,7 @@ function useLayout<
   _logTwoColWhitespace?: (arg1: number) => void;
   _measureAll?: boolean;
   _useRAF?: boolean;
+  _legacyFlexibleGutterLogic?: boolean;
 }): {
   height: number;
   hasPendingMeasurements: boolean;
@@ -370,6 +378,7 @@ function useLayout<
     width,
     _twoColItems,
     _logTwoColWhitespace,
+    _legacyFlexibleGutterLogic,
   });
 
   const itemMeasurements = items.filter((item) => measurementStore.has(item));
@@ -596,6 +605,7 @@ function Masonry<
     _logTwoColWhitespace,
     _measureAll,
     _useRAF,
+    _legacyFlexibleGutterLogic,
   }: Props<T>,
   ref:
     | {
@@ -685,6 +695,7 @@ function Masonry<
     _logTwoColWhitespace,
     _measureAll,
     _useRAF,
+    _legacyFlexibleGutterLogic,
   });
 
   useFetchOnScroll({

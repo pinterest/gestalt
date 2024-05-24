@@ -4,11 +4,9 @@ import FetchItems from './FetchItems';
 import styles from './Masonry.css';
 import { Cache } from './Masonry/Cache';
 import defaultLayout from './Masonry/defaultLayout';
-import defaultTwoColumnModuleLayout, {
-  MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
-} from './Masonry/defaultTwoColumnModuleLayout';
 import fullWidthLayout from './Masonry/fullWidthLayout';
 import MeasurementStore from './Masonry/MeasurementStore';
+import { MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
 import ScrollContainer from './Masonry/ScrollContainer';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { Align, Layout, Position } from './Masonry/types';
@@ -120,6 +118,12 @@ type Props<T> = {
    * This is an experimental prop and may be removed in the future.
    */
   _logTwoColWhitespace?: (arg1: number) => void;
+  /**
+   * Temporal prop to sync gutter logic on full width layout refactor.
+   *
+   * This is an experimental prop and will be removed in the future.
+   */
+  _legacyFlexibleGutterLogic?: boolean;
 };
 
 type State<T> = {
@@ -493,6 +497,7 @@ export default class Masonry<
       scrollContainer,
       _twoColItems,
       _logTwoColWhitespace,
+      _legacyFlexibleGutterLogic,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
@@ -502,10 +507,14 @@ export default class Masonry<
     if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
       getPositions = fullWidthLayout({
         gutter,
-        cache: measurementStore,
+        measurementCache: measurementStore,
+        positionCache: positionStore,
         minCols,
         idealColumnWidth: columnWidth,
         width,
+        logWhitespace: _logTwoColWhitespace,
+        _twoColItems,
+        _legacyFlexibleGutterLogic,
       });
     } else if (layout === 'uniformRow') {
       getPositions = uniformRowLayout({
@@ -515,28 +524,19 @@ export default class Masonry<
         minCols,
         width,
       });
-    } else if (_twoColItems === true) {
-      getPositions = defaultTwoColumnModuleLayout({
-        align: layout === 'basicCentered' ? 'center' : 'start',
-        measurementCache: measurementStore,
-        positionCache: positionStore,
-        columnWidth,
-        gutter,
-        logWhitespace: _logTwoColWhitespace,
-        minCols,
-        rawItemCount: items.length,
-        width,
-      });
     } else {
       getPositions = defaultLayout({
         align,
-        cache: measurementStore,
+        measurementCache: measurementStore,
+        positionCache: positionStore,
         columnWidth,
         gutter,
         layout,
         minCols,
         rawItemCount: items.length,
         width,
+        logWhitespace: _logTwoColWhitespace,
+        _twoColItems,
       });
     }
 
