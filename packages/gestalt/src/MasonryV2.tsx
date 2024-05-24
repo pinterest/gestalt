@@ -420,6 +420,8 @@ function useLayout<
   const updateMeasurement = useCallback(
     (item: T, itemHeight: number) => {
       measurementStore.set(item, itemHeight);
+      // schedule state update either via startTransition or requestAnimationFrame depending on whether _useRAF is true.
+      // requestAnimationFrame is to test parity with Masonry V1
       if (!_useRAF) {
         startTransition(() => {
           forceUpdate();
@@ -427,7 +429,6 @@ function useLayout<
       } else {
         if (!rafId.current) {
           rafId.current = requestAnimationFrame(() => {
-            console.log('frame');
             rafId.current = null;
             forceUpdate();
           });
