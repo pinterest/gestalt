@@ -1,6 +1,7 @@
 import { Align, Layout } from 'gestalt/src//Masonry/types';
 import { Cache } from './Cache';
 import mindex from './mindex';
+import multiColumnLayout from './multiColumnLayout';
 import { Position } from './types';
 
 const offscreen = (width: number, height: number = Infinity) => ({
@@ -41,24 +42,34 @@ const calculateCenterOffset = ({
 };
 
 const defaultLayout =
-  <T>({
+  <
+    T extends {
+      readonly [key: string]: unknown;
+    },
+  >({
     align,
-    cache,
     columnWidth = 236,
     gutter = 14,
     layout,
     minCols = 2,
     rawItemCount,
     width,
+    measurementCache,
+    _twoColItems = false,
+    ...otherProps
   }: {
     columnWidth?: number;
     gutter?: number;
     align: Align;
     layout: Layout;
-    cache: Cache<T, number>;
     minCols?: number;
     rawItemCount: number;
     width?: number | null | undefined;
+    positionCache: Cache<T, Position>;
+    measurementCache: Cache<T, number>;
+    _twoColItems?: boolean;
+    whitespaceThreshold?: number;
+    logWhitespace?: (arg1: number) => void;
   }): ((items: ReadonlyArray<T>) => ReadonlyArray<Position>) =>
   (items): ReadonlyArray<Position> => {
     if (width == null) {
@@ -80,25 +91,35 @@ const defaultLayout =
       width,
     });
 
-    return items.reduce<Array<any>>((acc, item) => {
-      const positions = acc;
-      const height = cache.get(item);
-      let position;
+    return _twoColItems
+      ? multiColumnLayout({
+          items,
+          columnWidth,
+          columnCount,
+          centerOffset,
+          gutter,
+          measurementCache,
+          ...otherProps,
+        })
+      : items.reduce<Array<any>>((acc, item) => {
+          const positions = acc;
+          const height = measurementCache.get(item);
+          let position;
 
-      if (height == null) {
-        position = offscreen(columnWidth);
-      } else {
-        const heightAndGutter = height + gutter;
-        const col = mindex(heights);
-        const top = heights[col];
-        const left = col * columnWidthAndGutter + centerOffset;
+          if (height == null) {
+            position = offscreen(columnWidth);
+          } else {
+            const heightAndGutter = height + gutter;
+            const col = mindex(heights);
+            const top = heights[col];
+            const left = col * columnWidthAndGutter + centerOffset;
 
-        heights[col] += heightAndGutter;
-        position = { top, left, width: columnWidth, height };
-      }
-      positions.push(position);
-      return positions;
-    }, []);
+            heights[col] += heightAndGutter;
+            position = { top, left, width: columnWidth, height };
+          }
+          positions.push(position);
+          return positions;
+        }, []);
   };
 
 export default defaultLayout;

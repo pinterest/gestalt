@@ -1,61 +1,41 @@
 import fullWidthLayout from './fullWidthLayout';
+import MeasurementStore from './MeasurementStore';
+import { Position } from './types';
 
-const stubCache = (
-  measurements: {
-    [item: string]: number;
-  } = {},
-) => {
-  let cache = measurements;
-
-  return {
-    get(item: string) {
-      return cache[item];
-    },
-    has(item: string) {
-      return !!cache[item];
-    },
-    set(item: string, value: number) {
-      cache[item] = value;
-    },
-    reset() {
-      cache = {};
-    },
-  };
+type Item = {
+  name: string;
+  height: number;
+  color?: string;
 };
 
-test('empty', () => {
-  const layout = fullWidthLayout({
-    cache: stubCache(),
-    width: 500,
-  });
-  expect(layout([])).toEqual([]);
-});
+describe.each([false, true])('full width layout tests', (_twoColItems) => {
+  test('sets correct width and center offset when positioning', () => {
+    const measurementStore = new MeasurementStore<Record<any, any>, number>();
+    const positionCache = new MeasurementStore<Record<any, any>, Position>();
+    const items: ReadonlyArray<Item> = [
+      { 'name': 'Pin 0', 'height': 100 },
+      { 'name': 'Pin 1', 'height': 120 },
+      { 'name': 'Pin 2', 'height': 80 },
+      { 'name': 'Pin 3', 'height': 100 },
+    ];
+    items.forEach((item: any) => {
+      measurementStore.set(item, item.height);
+    });
 
-test('one row', () => {
-  const measurements = { a: 100, b: 120, c: 80 } as const;
-  const items = ['a', 'b', 'c'];
-  const layout = fullWidthLayout({
-    cache: stubCache(measurements),
-    width: 900,
+    const layout = fullWidthLayout({
+      measurementCache: measurementStore,
+      positionCache,
+      gutter: 10,
+      idealColumnWidth: 240,
+      minCols: 2,
+      width: 1000,
+      _twoColItems,
+    });
+    expect(layout(items)).toEqual([
+      { top: 0, height: 100, left: 5, width: 240 },
+      { top: 0, height: 120, left: 255, width: 240 },
+      { top: 0, height: 80, left: 505, width: 240 },
+      { top: 0, height: 100, left: 755, width: 240 },
+    ]);
   });
-  expect(layout(items)).toEqual([
-    { top: 0, height: 100, left: 0, width: 300 },
-    { top: 0, height: 120, left: 300, width: 300 },
-    { top: 0, height: 80, left: 600, width: 300 },
-  ]);
-});
-
-test('wrapping items', () => {
-  const measurements = { a: 100, b: 120, c: 80, d: 100 } as const;
-  const items = ['a', 'b', 'c', 'd'];
-  const layout = fullWidthLayout({
-    cache: stubCache(measurements),
-    width: 500,
-  });
-  expect(layout(items)).toEqual([
-    { top: 0, height: 100, left: 0, width: 250 },
-    { top: 0, height: 120, left: 250, width: 250 },
-    { top: 100, height: 80, left: 0, width: 250 },
-    { top: 120, height: 100, left: 250, width: 250 },
-  ]);
 });

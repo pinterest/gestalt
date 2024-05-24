@@ -1,19 +1,30 @@
 import { Cache } from './Cache';
 import mindex from './mindex';
+import multiColumnLayout from './multiColumnLayout';
 import { Position } from './types';
 
-const fullWidthLayout = <T>({
-  gutter = 0,
-  cache,
-  minCols = 2,
-  idealColumnWidth = 240,
+const fullWidthLayout = <
+  T extends {
+    readonly [key: string]: unknown;
+  },
+>({
   width,
+  idealColumnWidth = 240,
+  gutter = 0,
+  minCols = 2,
+  measurementCache,
+  _twoColItems = false,
+  ...otherProps
 }: {
-  gutter?: number;
-  cache: Cache<T, number>;
-  minCols?: number;
   idealColumnWidth?: number;
+  gutter?: number;
+  minCols?: number;
   width?: number | null | undefined;
+  positionCache: Cache<T, Position>;
+  measurementCache: Cache<T, number>;
+  _twoColItems?: boolean;
+  whitespaceThreshold?: number;
+  logWhitespace?: (arg1: number) => void;
 }): ((items: ReadonlyArray<T>) => ReadonlyArray<Position>) => {
   if (width == null) {
     return (items) =>
@@ -30,40 +41,50 @@ const fullWidthLayout = <T>({
   // original implementation takes with CSS.
   const colguess = Math.floor(width / idealColumnWidth);
   const columnCount = Math.max(Math.floor((width - colguess * gutter) / idealColumnWidth), minCols);
-  const columnWidth = Math.floor(width / columnCount);
+  const columnWidth = Math.floor(width / columnCount) - gutter;
+  const columnWidthAndGutter = columnWidth + gutter;
+  const centerOffset = gutter / 2;
 
   return (items: ReadonlyArray<T>) => {
-    // the total height of each column
     const heights = new Array<number>(columnCount).fill(0);
+    return _twoColItems
+      ? multiColumnLayout({
+          items,
+          columnWidth,
+          columnCount,
+          centerOffset,
+          gutter,
+          measurementCache,
+          ...otherProps,
+        })
+      : items.reduce<Array<any>>((acc, item) => {
+          const positions = acc;
+          const height = measurementCache.get(item);
+          let position;
 
-    return items.reduce<Array<any>>((acc, item) => {
-      const positions = acc;
-      const height = cache.get(item);
-      let position;
+          if (height == null) {
+            position = {
+              top: Infinity,
+              left: Infinity,
+              width: columnWidth,
+              height: Infinity,
+            };
+          } else {
+            const col = mindex(heights);
+            const top = heights[col];
+            const left = col * columnWidthAndGutter + centerOffset;
 
-      if (height == null) {
-        position = {
-          top: Infinity,
-          left: Infinity,
-          width: columnWidth,
-          height: Infinity,
-        };
-      } else {
-        const col = mindex(heights);
-        const top = heights[col];
-        const left = col * columnWidth + gutter / 2;
-
-        heights[col] += height;
-        position = {
-          top,
-          left,
-          width: columnWidth - gutter,
-          height,
-        };
-      }
-      positions.push(position);
-      return positions;
-    }, []);
+            heights[col] += height + gutter;
+            position = {
+              top,
+              left,
+              width: columnWidth,
+              height,
+            };
+          }
+          positions.push(position);
+          return positions;
+        }, []);
   };
 };
 
