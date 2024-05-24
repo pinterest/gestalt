@@ -9,7 +9,7 @@ import { useSideNavigation } from '../contexts/SideNavigationProvider';
 import Flex from '../Flex';
 import Heading from '../Heading';
 import IconButton from '../IconButton';
-import InternalDismissButton from '../shared/InternalDismissButton';
+import InternalDismissButton from '../sharedSubcomponents/InternalDismissButton';
 import styles from '../SideNavigation.css';
 import { Props } from '../SideNavigationGroup';
 import { NESTING_MARGIN_START_MAP } from '../SideNavigationTopItem';

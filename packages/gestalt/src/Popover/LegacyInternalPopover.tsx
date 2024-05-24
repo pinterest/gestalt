@@ -4,7 +4,7 @@ import { Overflow } from '../boxTypes';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import Flex from '../Flex';
 import LegacyController from '../LegacyController';
-import InternalDismissButton from '../shared/InternalDismissButton';
+import InternalDismissButton from '../sharedSubcomponents/InternalDismissButton';
 import { Indexable } from '../zIndex';
 
 type Color = 'blue' | 'white' | 'darkGray';

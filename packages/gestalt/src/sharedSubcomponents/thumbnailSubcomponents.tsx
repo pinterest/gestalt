@@ -20,7 +20,7 @@ import Text from '../Text';
 const SIZE_THUMBNAIL = 32;
 const SIZE_ICON = 24;
 
-export function ToastMessage({
+export function Message({
   text,
   textElement,
   helperLink,
@@ -121,7 +121,7 @@ export function ToastMessage({
   );
 }
 
-export function ToastImageThumbnail({ thumbnail }: { thumbnail: ReactElement }) {
+export function ImageThumbnail({ thumbnail }: { thumbnail: ReactElement }) {
   return (
     <Box aria-hidden>
       <Mask height={SIZE_THUMBNAIL} rounding={2} width={SIZE_THUMBNAIL}>
@@ -131,7 +131,7 @@ export function ToastImageThumbnail({ thumbnail }: { thumbnail: ReactElement }) 
   );
 }
 
-export function ToastIconThumbnail({
+export function IconThumbnail({
   thumbnail,
   overrideColor,
 }: {
@@ -148,15 +148,11 @@ export function ToastIconThumbnail({
   );
 }
 
-export function ToastAvatarThumbnail({ thumbnail }: { thumbnail: ReactElement }) {
+export function AvatarThumbnail({ thumbnail }: { thumbnail: ReactElement }) {
   return <Box aria-hidden>{cloneElement(thumbnail, { size: 'sm' })}</Box>;
 }
 
-export function ToastTypeThumbnail({
-  type,
-}: {
-  type: 'default' | 'success' | 'error' | 'progress';
-}) {
+export function TypeThumbnail({ type }: { type: 'default' | 'success' | 'error' | 'progress' }) {
   const { colorSchemeName } = useColorScheme();
   const {
     accessibilityIconSuccessLabel,

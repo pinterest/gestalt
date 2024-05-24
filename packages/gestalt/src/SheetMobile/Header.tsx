@@ -8,7 +8,7 @@ import Flex from '../Flex';
 import Heading from '../Heading';
 import IconButton from '../IconButton';
 import Link from '../Link';
-import InternalDismissButton from '../shared/InternalDismissButton';
+import InternalDismissButton from '../sharedSubcomponents/InternalDismissButton';
 import TapArea from '../TapArea';
 import Text from '../Text';
 
