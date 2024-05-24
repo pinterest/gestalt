@@ -218,40 +218,42 @@ const moduleExportFileHeader = ({ file, tokenArray, fileHeader }) =>
   `${fileHeader({ file, commentStyle: 'short' })} module.exports = [${tokenArray}]`;
 
 function getSources({ theme, modeTheme, platform }) {
-  if (theme === 'classic') {
+  const mappedTheme = theme === 'vr-theme-web-mapping' ? 'classic' : theme;
+
+  if (mappedTheme === 'classic') {
     return [
-      `tokens/${theme}/base-color.json`,
-      `tokens/${theme}/base-font.json`,
-      `tokens/${theme}/base-opacity.json`,
-      `tokens/${theme}/base-rounding.json`,
-      `tokens/${theme}/base-space.json`,
-      `tokens/${theme}/sema-color${modeTheme}.json`,
-      `tokens/${theme}/base-color-data-visualization${modeTheme}.json`,
-      `tokens/${theme}/sema-color-data-visualization${modeTheme}.json`,
-      `tokens/${theme}/base-elevation${modeTheme}.json`,
+      `tokens/${mappedTheme}/base-color.json`,
+      `tokens/${mappedTheme}/base-font.json`,
+      `tokens/${mappedTheme}/base-opacity.json`,
+      `tokens/${mappedTheme}/base-rounding.json`,
+      `tokens/${mappedTheme}/base-space.json`,
+      `tokens/${mappedTheme}/sema-color${modeTheme}.json`,
+      `tokens/${mappedTheme}/base-color-data-visualization${modeTheme}.json`,
+      `tokens/${mappedTheme}/sema-color-data-visualization${modeTheme}.json`,
+      `tokens/${mappedTheme}/base-elevation${modeTheme}.json`,
       ...(platform === 'web'
         ? [
-            `tokens/${theme}/comp-web-color${modeTheme}.json`,
-            `tokens/${theme}/comp-web-elevation${modeTheme}.json`,
-            `tokens/${theme}/comp-web-rounding.json`,
+            `tokens/${mappedTheme}/comp-web-color${modeTheme}.json`,
+            `tokens/${mappedTheme}/comp-web-elevation${modeTheme}.json`,
+            `tokens/${mappedTheme}/comp-web-rounding.json`,
           ]
         : []),
     ];
   }
 
   return [
-    `tokens/${theme}/base-color.json`,
-    `tokens/${theme}/base-font.json`,
-    `tokens/${theme}/sema-font.json`,
-    `tokens/${theme}/base-opacity.json`,
-    `tokens/${theme}/sema-opacity.json`,
-    `tokens/${theme}/base-rounding.json`,
-    `tokens/${theme}/sema-rounding.json`,
-    `tokens/${theme}/base-space.json`,
-    `tokens/${theme}/sema-space.json`,
-    `tokens/${theme}/base-elevation${modeTheme}.json`,
-    `tokens/${theme}/sema-elevation.json`,
-    `tokens/${theme}/sema-color${modeTheme}.json`,
+    `tokens/${mappedTheme}/base-color.json`,
+    `tokens/${mappedTheme}/base-font.json`,
+    `tokens/${mappedTheme}/sema-font.json`,
+    `tokens/${mappedTheme}/base-opacity.json`,
+    `tokens/${mappedTheme}/sema-opacity.json`,
+    `tokens/${mappedTheme}/base-rounding.json`,
+    `tokens/${mappedTheme}/sema-rounding.json`,
+    `tokens/${mappedTheme}/base-space.json`,
+    `tokens/${mappedTheme}/sema-space.json`,
+    `tokens/${mappedTheme}/base-elevation${modeTheme}.json`,
+    `tokens/${mappedTheme}/sema-elevation.json`,
+    `tokens/${mappedTheme}/sema-color${modeTheme}.json`,
   ];
 }
 
@@ -531,12 +533,14 @@ StyleDictionary.registerFilter({
 function getWebConfig({ theme = 'classic', mode = 'light' }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
 
+  const mappedTheme = theme === 'vr-theme-web-mapping' ? 'classic' : theme;
+
   return {
-    'source': getSources({ theme, modeTheme, platform: 'web' }),
+    'source': getSources({ theme: mappedTheme, modeTheme, platform: 'web' }),
     'platforms': {
       'css': {
         ...webCssTransformGroup,
-        'buildPath': `dist/css/${theme}/`,
+        'buildPath': `dist/css/${mappedTheme}/`,
         ...optionsFileHeaderOutputReferences,
         'files':
           mode === 'light'
@@ -556,7 +560,7 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
       },
       'json': {
         ...webCssTransformGroup,
-        'buildPath': `dist/json/${theme}/`,
+        'buildPath': `dist/json/${mappedTheme}/`,
         'files':
           mode === 'light'
             ? [
@@ -582,39 +586,39 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
         'transformGroup': 'webJsTransformGroup',
         '_transformGroup_comment':
           'https://amzn.github.io/style-dictionary/#/transform_groups?id=js',
-        'buildPath': `dist/js/${theme}/`,
+        'buildPath': `dist/js/${mappedTheme}/`,
         ...optionsFileHeader,
         'files':
           mode === 'light'
             ? [
                 {
                   'destination': 'constants.es.js',
-                  'format': `constantLibrary-javascript/es6/${theme}`,
+                  'format': `constantLibrary-javascript/es6/${mappedTheme}`,
                   '_format_comment': 'Custom',
                 },
                 {
                   'destination': 'constants.js',
-                  'format': `constantLibrary-commonJS/${theme}`,
+                  'format': `constantLibrary-commonJS/${mappedTheme}`,
                   '_format_comment': 'Custom',
                 },
                 {
                   'destination': 'constants.es.d.ts',
-                  'format': `constantLibrary-javascript/es6/${theme}`,
+                  'format': `constantLibrary-javascript/es6/${mappedTheme}`,
                   '_format_comment': 'Custom',
                 },
                 {
                   'destination': 'constants.d.ts',
-                  'format': `constantLibrary-commonJS/${theme}`,
+                  'format': `constantLibrary-commonJS/${mappedTheme}`,
                   '_format_comment': 'Custom',
                 },
                 {
                   'destination': 'tokens.js',
-                  'format': `commonJS/${theme}`,
+                  'format': `commonJS/${mappedTheme}`,
                   '_format_comment': 'Custom',
                 },
                 {
                   'destination': 'data-viz-tokens.js',
-                  'format': `commonJS/${theme}`,
+                  'format': `commonJS/${mappedTheme}`,
                   '_format_comment': 'Custom',
                   ...dataVisualizationFilter,
                 },
@@ -622,12 +626,12 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
             : [
                 {
                   'destination': 'tokens_dark.js',
-                  'format': `darkTheme-commonJS/${theme}`,
+                  'format': `darkTheme-commonJS/${mappedTheme}`,
                   '_format_comment': 'Custom',
                 },
                 {
                   'destination': 'data-viz-tokens_dark.js',
-                  'format': `darkTheme-commonJS/${theme}`,
+                  'format': `darkTheme-commonJS/${mappedTheme}`,
                   '_format_comment': 'Custom',
                   ...dataVisualizationFilter,
                 },
@@ -1046,15 +1050,21 @@ const platformFileMap = {
   ios: ['ios', 'ios-swift'],
 };
 
-['classic', 'vr-theme'].forEach((theme) =>
+// ['classic', 'vr-theme', 'vr-theme-web-mapping'].forEach((theme) =>
+['vr-theme-web-mapping'].forEach((theme) =>
   ['light', 'dark'].forEach((mode) => {
+    console.log(mode);
     // iOS platform
-    const StyleDictionaryIOS = StyleDictionary.extend(getIOSConfiguration({ mode, theme }));
-    platformFileMap.ios.forEach((platform) => StyleDictionaryIOS.buildPlatform(platform));
+    if (theme !== 'vr-theme-web-mapping') {
+      const StyleDictionaryIOS = StyleDictionary.extend(getIOSConfiguration({ mode, theme }));
+      platformFileMap.ios.forEach((platform) => StyleDictionaryIOS.buildPlatform(platform));
 
-    // // Android platform
-    const StyleDictionaryAndroid = StyleDictionary.extend(getAndroidConfiguration({ mode, theme }));
-    platformFileMap.android.forEach((platform) => StyleDictionaryAndroid.buildPlatform(platform));
+      // // Android platform
+      const StyleDictionaryAndroid = StyleDictionary.extend(
+        getAndroidConfiguration({ mode, theme }),
+      );
+      platformFileMap.android.forEach((platform) => StyleDictionaryAndroid.buildPlatform(platform));
+    }
 
     // web platform
     const StyleDictionaryWeb = StyleDictionary.extend(getWebConfig({ mode, theme }));
