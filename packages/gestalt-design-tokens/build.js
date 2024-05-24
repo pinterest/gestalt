@@ -230,8 +230,8 @@ function getSources({ theme, modeTheme, platform }) {
       `tokens/classic/base-rounding.json`,
       `tokens/classic/base-space.json`,
       `tokens/classic/sema-color${modeTheme}.json`,
-      `tokens/classic/base-color-data-visualization${modeTheme}.json`,
-      `tokens/classic/sema-color-data-visualization${modeTheme}.json`,
+      `tokens/classic/base-color-dataviz${modeTheme}.json`,
+      `tokens/classic/sema-color-dataviz${modeTheme}.json`,
       `tokens/classic/base-elevation${modeTheme}.json`,
       ...(platform === 'web'
         ? [
@@ -256,7 +256,12 @@ function getSources({ theme, modeTheme, platform }) {
     `tokens/vr-theme/base-elevation${modeTheme}.json`,
     `tokens/vr-theme/sema-elevation.json`,
     `tokens/vr-theme/sema-color${modeTheme}.json`,
-    ...(theme === 'vr-theme-web-mapping' ? [`tokens/vr-theme-web-mapping/base-color.json`] : []),
+    ...(theme === 'vr-theme-web-mapping'
+      ? [
+          `tokens/vr-theme-web-mapping/base-color.json`,
+          `tokens/vr-theme-web-mapping/base-color-dataviz${modeTheme}.json`,
+        ]
+      : []),
   ];
 }
 
