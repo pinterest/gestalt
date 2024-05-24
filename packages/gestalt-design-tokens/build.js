@@ -599,26 +599,26 @@ function getWebConfig({ theme, mode }) {
         'files':
           mode === 'light'
             ? [
-                ...(theme === 'vr-theme'
+                ...(theme === 'vr-theme' || theme === 'classic'
                   ? [
                       {
                         'destination': 'constants.es.js',
-                        'format': `constantLibrary-javascript/es6/${mappedTheme}`,
+                        'format': `constantLibrary-javascript/es6/${theme}`,
                         '_format_comment': 'Custom',
                       },
                       {
                         'destination': 'constants.js',
-                        'format': `constantLibrary-commonJS/${mappedTheme}`,
+                        'format': `constantLibrary-commonJS/${theme}`,
                         '_format_comment': 'Custom',
                       },
                       {
                         'destination': 'constants.es.d.ts',
-                        'format': `constantLibrary-javascript/es6/${mappedTheme}`,
+                        'format': `constantLibrary-javascript/es6/${theme}`,
                         '_format_comment': 'Custom',
                       },
                       {
                         'destination': 'constants.d.ts',
-                        'format': `constantLibrary-commonJS/${mappedTheme}`,
+                        'format': `constantLibrary-commonJS/${theme}`,
                         '_format_comment': 'Custom',
                       },
                     ]
