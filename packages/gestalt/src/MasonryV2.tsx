@@ -11,7 +11,6 @@ import {
   useRef,
   useState,
   useSyncExternalStore,
-  useTransition,
 } from 'react';
 import debounce from './debounce';
 import styles from './Masonry.css';
