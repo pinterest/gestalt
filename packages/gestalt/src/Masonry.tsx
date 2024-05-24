@@ -123,7 +123,7 @@ type Props<T> = {
    *
    * This is an experimental prop and will be removed in the future.
    */
-  _legacyGutterLogic?: boolean;
+  _legacyFlexibleGutterLogic?: boolean;
 };
 
 type State<T> = {
@@ -497,7 +497,7 @@ export default class Masonry<
       scrollContainer,
       _twoColItems,
       _logTwoColWhitespace,
-      _legacyGutterLogic,
+      _legacyFlexibleGutterLogic,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
@@ -514,7 +514,7 @@ export default class Masonry<
         width,
         logWhitespace: _logTwoColWhitespace,
         _twoColItems,
-        _legacyGutterLogic,
+        _legacyFlexibleGutterLogic,
       });
     } else if (layout === 'uniformRow') {
       getPositions = uniformRowLayout({

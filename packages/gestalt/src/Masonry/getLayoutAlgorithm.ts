@@ -20,7 +20,7 @@ export default function getLayoutAlgorithm<
   width,
   _twoColItems,
   _logTwoColWhitespace,
-  _legacyGutterLogic,
+  _legacyFlexibleGutterLogic,
 }: {
   align: Align;
   columnWidth: number;
@@ -33,7 +33,7 @@ export default function getLayoutAlgorithm<
   width: number | null | undefined;
   _twoColItems?: boolean;
   _logTwoColWhitespace?: (arg1: number) => void;
-  _legacyGutterLogic?: boolean;
+  _legacyFlexibleGutterLogic?: boolean;
 }): (forItems: ReadonlyArray<T>) => ReadonlyArray<Position> {
   if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
     return fullWidthLayout({
@@ -45,7 +45,7 @@ export default function getLayoutAlgorithm<
       width,
       logWhitespace: _logTwoColWhitespace,
       _twoColItems,
-      _legacyGutterLogic,
+      _legacyFlexibleGutterLogic,
     });
   }
   if (layout === 'uniformRow') {
