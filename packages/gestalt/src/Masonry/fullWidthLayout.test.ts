@@ -66,7 +66,7 @@ describe.each([false, true])('full width layout tests', (_twoColItems) => {
       _twoColItems,
       // When using _legacyGutterLogic we are not setting the height gutter,
       // this is the current behavior in pinboard and will be fixed
-      _legacyGutterLogic: false,
+      _legacyFlexibleGutterLogic: false,
     });
     expect(
       layout(items)
