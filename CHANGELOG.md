@@ -1,3 +1,9 @@
+## 150.1.0 (May 24, 2024)
+
+### Minor
+
+- Masonry: Iterate + bug fixes (V2) ([#3594](https://github.com/pinterest/gestalt/pull/3594)) - [Preview link](https://deploy-preview-3594--gestalt.netlify.app?devexample=true)
+
 ## 150.0.1 (May 24, 2024)
 
 ### Patch
