@@ -1,3 +1,9 @@
+## 150.0.1 (May 24, 2024)
+
+### Patch
+
+- Internal: renames and fixes more ([#3593](https://github.com/pinterest/gestalt/pull/3593)) - [Preview link](https://deploy-preview-3593--gestalt.netlify.app?devexample=true)
+
 ## 150.0.0 (May 23, 2024)
 
 ### Major
