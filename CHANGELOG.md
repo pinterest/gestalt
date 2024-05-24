@@ -1,3 +1,9 @@
+## 150.1.2 (May 24, 2024)
+
+### Patch
+
+- Docs: fix Heading page ([#3595](https://github.com/pinterest/gestalt/pull/3595)) - [Preview link](https://deploy-preview-3595--gestalt.netlify.app?devexample=true)
+
 ## 150.1.1 (May 24, 2024)
 
 ### Patch
