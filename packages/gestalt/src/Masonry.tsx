@@ -118,6 +118,12 @@ type Props<T> = {
    * This is an experimental prop and may be removed in the future.
    */
   _logTwoColWhitespace?: (arg1: number) => void;
+  /**
+   * Temporal prop to sync gutter logic on full width layout refactor.
+   *
+   * This is an experimental prop and will be removed in the future.
+   */
+  _legacyGutterLogic?: boolean;
 };
 
 type State<T> = {
@@ -491,6 +497,7 @@ export default class Masonry<
       scrollContainer,
       _twoColItems,
       _logTwoColWhitespace,
+      _legacyGutterLogic,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
@@ -507,6 +514,7 @@ export default class Masonry<
         width,
         logWhitespace: _logTwoColWhitespace,
         _twoColItems,
+        _legacyGutterLogic,
       });
     } else if (layout === 'uniformRow') {
       getPositions = uniformRowLayout({

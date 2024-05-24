@@ -14,6 +14,7 @@ const fullWidthLayout = <
   minCols = 2,
   measurementCache,
   _twoColItems = false,
+  _legacyGutterLogic = true,
   ...otherProps
 }: {
   idealColumnWidth?: number;
@@ -23,6 +24,7 @@ const fullWidthLayout = <
   positionCache: Cache<T, Position>;
   measurementCache: Cache<T, number>;
   _twoColItems?: boolean;
+  _legacyGutterLogic?: boolean;
   whitespaceThreshold?: number;
   logWhitespace?: (arg1: number) => void;
 }): ((items: ReadonlyArray<T>) => ReadonlyArray<Position>) => {
@@ -74,7 +76,7 @@ const fullWidthLayout = <
             const top = heights[col];
             const left = col * columnWidthAndGutter + centerOffset;
 
-            heights[col] += height + gutter;
+            heights[col] += height + (_legacyGutterLogic ? 0 : gutter);
             position = {
               top,
               left,

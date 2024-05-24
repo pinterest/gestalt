@@ -132,6 +132,12 @@ type Props<T> = {
    * Experimental prop to measure all items in one batch
    */
   _measureAll?: boolean;
+  /**
+   * Temporal prop to sync gutter logic on full width layout refactor.
+   *
+   * This is an experimental prop and will be removed in the future.
+   */
+  _legacyGutterLogic?: boolean;
 };
 
 type MasonryRef = {
@@ -327,6 +333,7 @@ function useLayout<
   _twoColItems,
   _logTwoColWhitespace,
   _measureAll,
+  _legacyGutterLogic,
 }: {
   align: Align;
   columnWidth: number;
@@ -340,6 +347,7 @@ function useLayout<
   _twoColItems?: boolean;
   _logTwoColWhitespace?: (arg1: number) => void;
   _measureAll?: boolean;
+  _legacyGutterLogic?: boolean;
 }): {
   height: number;
   hasPendingMeasurements: boolean;
@@ -578,6 +586,7 @@ function Masonry<
     _twoColItems,
     _logTwoColWhitespace,
     _measureAll,
+    _legacyGutterLogic,
   }: Props<T>,
   ref:
     | {
@@ -667,6 +676,7 @@ function Masonry<
     _twoColItems,
     _logTwoColWhitespace,
     _measureAll,
+    _legacyGutterLogic,
   });
 
   useFetchOnScroll({
