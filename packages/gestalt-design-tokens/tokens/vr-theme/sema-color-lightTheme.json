@@ -167,7 +167,7 @@
       "disabled": {
         "value": "{color.grayscale.150.value}"
       },
-      "focus ": {
+      "focus": {
         "value": "{color.blue.400.value}"
       },
       "success": {
