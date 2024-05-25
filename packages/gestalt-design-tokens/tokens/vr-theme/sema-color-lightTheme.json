@@ -265,42 +265,42 @@
         "value": "{color.grayscale.0.value}"
       }
     },
-    "dataviz": {
+    "datavizappenda": {
       "01": {
-        "value": "{color.datavizbase.01.value}"
+        "value": "{color.dataviz.01.value}"
       },
       "02": {
-        "value": "{color.datavizbase.02.value}"
+        "value": "{color.dataviz.02.value}"
       },
       "03": {
-        "value": "{color.datavizbase.03.value}"
+        "value": "{color.dataviz.03.value}"
       },
       "04": {
-        "value": "{color.datavizbase.04.value}"
+        "value": "{color.dataviz.04.value}"
       },
       "05": {
-        "value": "{color.datavizbase.05.value}"
+        "value": "{color.dataviz.05.value}"
       },
       "06": {
-        "value": "{color.datavizbase.06.value}"
+        "value": "{color.dataviz.06.value}"
       },
       "07": {
-        "value": "{color.datavizbase.07.value}"
+        "value": "{color.dataviz.07.value}"
       },
       "08": {
-        "value": "{color.datavizbase.08.value}"
+        "value": "{color.dataviz.08.value}"
       },
       "09": {
-        "value": "{color.datavizbase.09.value}"
+        "value": "{color.dataviz.09.value}"
       },
       "10": {
-        "value": "{color.datavizbase.10.value}"
+        "value": "{color.dataviz.10.value}"
       },
       "11": {
-        "value": "{color.datavizbase.11.value}"
+        "value": "{color.dataviz.11.value}"
       },
       "12": {
-        "value": "{color.datavizbase.12.value}"
+        "value": "{color.dataviz.12.value}"
       }
     }
   }

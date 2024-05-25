@@ -197,8 +197,8 @@ const commonJSFormatter = ({ token, darkTheme, isVR }) => {
   return JSON.stringify({
     name:
       isVR && !isWebMappingToken
-        ? [prefix, token.path.join('-').replace('base', '')].join('-')
-        : token.path.join('-').replace('base', ''),
+        ? [prefix, ...token.path].join('-').replace('appenda', '')
+        : token.path.join('-').replace('appendb', '').replace('appendb', ''),
     value: token.value,
     // For lightened values with appended 1A, let's keep {value}1A if not remove the parenthesis
 
@@ -260,6 +260,7 @@ function getSources({ theme, modeTheme, platform }) {
       ? [
           `tokens/vr-theme-web-mapping/base-color.json`,
           `tokens/vr-theme-web-mapping/base-color-dataviz${modeTheme}.json`,
+          `tokens/vr-theme-web-mapping/base-rounding.json`,
         ]
       : []),
   ];
@@ -360,10 +361,15 @@ StyleDictionary.registerFormat({
           .join('_')
           .toUpperCase()
           .replace('-', '_')
-          .replace('base', '')
-          .replace('BASE', '');
+          .replace('appenda', '')
+          .replace('appendb', '')
+          .replace('APPENDA', '')
+          .replace('APPENDB', '');
 
-        const formattedTokenNameValue = token.path.join('-').replace('base', '');
+        const formattedTokenNameValue = token.path
+          .join('-')
+          .replace('appenda', '')
+          .replace('appendb', '');
 
         return `export const TOKEN_${prefix.toUpperCase()}_${formattedTokenNameKey} = 'var(--${prefix}-${formattedTokenNameValue})';`;
       })
@@ -455,14 +461,16 @@ StyleDictionary.registerTransform({
   name: 'name/conflictFixing',
   type: 'name',
   matcher(prop) {
+    // if (prop.attributes.category === 'rounding') {
+    //   console.log(prop);
+    // }
     return (
-      prop.filePath.includes('vr-theme') &&
-      prop.filePath.includes('base') &&
-      prop.attributes.type.endsWith('base')
+      (prop.filePath.includes('vr-theme') && prop.attributes.type.endsWith('appenda')) ||
+      prop.attributes.type.endsWith('appendb')
     );
   },
   transformer(prop) {
-    return prop.name.replace('base', '');
+    return prop.name.replace('appenda', '').replace('appendb', '');
   },
 });
 
@@ -470,7 +478,7 @@ StyleDictionary.registerTransform({
   name: 'name/prefix/level/kebab',
   type: 'name',
   matcher(prop) {
-    return !prop.filePath.includes('classic') || !prop.filePath.includes('vr-theme-web-mapping');
+    return !prop.filePath.includes('classic') && !prop.filePath.includes('vr-theme-web-mapping');
   },
   transformer(prop) {
     const prefix = prop.filePath.split('/').splice(-1)[0].substring(0, 4);

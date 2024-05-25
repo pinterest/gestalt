@@ -27,10 +27,10 @@
     "32": {
       "value": "32px"
     },
-    "pill": {
+    "999": {
       "value": "999px"
     },
-    "circlebase": {
+    "circle": {
       "value": "50%"
     }
   }

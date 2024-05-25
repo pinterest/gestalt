@@ -152,7 +152,7 @@
         "900": { "value": "{color.grayscale.500.value}" }
       }
     },
-    "transparentbase": {
+    "transparentappenda": {
       "value": "{color.transparent.value}"
     }
   }
