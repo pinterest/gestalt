@@ -244,23 +244,26 @@ function getSources({ theme, modeTheme, platform }) {
   }
 
   return [
-    `tokens/vr-theme/base-color.json`,
-    `tokens/vr-theme/base-font.json`,
-    `tokens/vr-theme/sema-font.json`,
-    `tokens/vr-theme/base-opacity.json`,
-    `tokens/vr-theme/sema-opacity.json`,
-    `tokens/vr-theme/base-rounding.json`,
-    `tokens/vr-theme/sema-rounding.json`,
-    `tokens/vr-theme/base-space.json`,
-    `tokens/vr-theme/sema-space.json`,
+    'tokens/vr-theme/base-color.json',
+    'tokens/vr-theme/base-font.json',
+    'tokens/vr-theme/sema-font.json',
+    'tokens/vr-theme/base-opacity.json',
+    'tokens/vr-theme/sema-opacity.json',
+    'tokens/vr-theme/base-rounding.json',
+    'tokens/vr-theme/sema-rounding.json',
+    'tokens/vr-theme/base-space.json',
+    'tokens/vr-theme/sema-space.json',
     `tokens/vr-theme/base-elevation${modeTheme}.json`,
-    `tokens/vr-theme/sema-elevation.json`,
+    'tokens/vr-theme/sema-elevation.json',
     `tokens/vr-theme/sema-color${modeTheme}.json`,
     ...(theme === 'vr-theme-web-mapping'
       ? [
-          `tokens/vr-theme-web-mapping/base-color.json`,
+          'tokens/vr-theme-web-mapping/base-color.json',
           `tokens/vr-theme-web-mapping/base-color-dataviz${modeTheme}.json`,
-          `tokens/vr-theme-web-mapping/base-rounding.json`,
+          'tokens/vr-theme-web-mapping/base-rounding.json',
+          'tokens/vr-theme-web-mapping/base-opacity.json',
+          'tokens/vr-theme-web-mapping/base-space.json',
+          'tokens/vr-theme-web-mapping/base-font.json',
         ]
       : []),
   ];
