@@ -7,22 +7,30 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "module": "esnext",
-    "lib": ["es6", "dom"],
+    "lib": [
+      "es6",
+      "dom"
+    ],
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
     "target": "es6",
-    "noEmit": true,
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "declaration": true,
     "forceConsistentCasingInFileNames": true,
     "strictFunctionTypes": true,
     "skipLibCheck": true,
     "strict": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "outDir": ".",
     "plugins": [
       {
         "name": "typescript-plugin-css-modules",
-        "options": { "customMatcher": "\\.css$" }
+        "options": {
+          "customMatcher": "\\.css$"
+        }
       }
     ]
   },
