@@ -1,10 +1,17 @@
-import { Box, ButtonToggle, ColorSchemeProvider } from 'gestalt';
+import { Box, ButtonGroup, ButtonToggle, ColorSchemeProvider } from 'gestalt';
 
 export default function Snapshot() {
   return (
     <ColorSchemeProvider colorScheme="dark">
       <Box color="default" display="inlineBlock" padding={1}>
-        <ButtonToggle color="transparent" iconStart="sparkle" text="Save" />
+        <ButtonGroup>
+          <ButtonToggle color="transparent" iconStart="sparkle" selected={false} text="Save" />
+          <ButtonToggle color="transparent" iconStart="sparkle" selected text="Save" />
+        </ButtonGroup>
+        <ButtonGroup>
+          <ButtonToggle color="red" iconStart="sparkle" selected={false} text="Save" />
+          <ButtonToggle color="red" iconStart="sparkle" selected text="Save" />
+        </ButtonGroup>
       </Box>
     </ColorSchemeProvider>
   );
