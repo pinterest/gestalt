@@ -171,10 +171,10 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
             {({ size }) => (
               <ButtonToggle
                 accessibilityLabel={`Example size ${size}`}
-                color="red"
+                color="transparent"
                 selected={false}
                 size={size}
-                text="Save"
+                text="Follow"
               />
             )}
           </CombinationNew>
@@ -186,6 +186,7 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
 2. Transparent
     Low emphasis when placed on dark/image backgrounds, used for actions in that context.
 `}
+          title="Color"
         >
           <MainSection.Card
             cardSize="lg"
