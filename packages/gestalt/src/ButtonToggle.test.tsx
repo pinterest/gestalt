@@ -13,7 +13,7 @@ describe('<ButtonToggle />', () => {
   });
   test('Disabled state', () => {
     const instance = create(
-      <ButtonToggle color="red" disabled selected={false} text="Hello World" />,
+      <ButtonToggle color="red" disabled selected={false} text="Save" />,
     ).root;
     const { className } = instance.find((element: any) => element.type === 'div').props;
     expect(className).toContain('disabled');
