@@ -60,7 +60,7 @@ type Props = {
   /**
    * Toggles between selected/unselected.
    */
-  selected?: boolean;
+  selected: boolean;
   /**
    * sm: 32px, md: 40px, lg: 48px
    *

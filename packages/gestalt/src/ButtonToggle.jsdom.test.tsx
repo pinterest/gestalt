@@ -13,7 +13,7 @@ describe('ButtonToggle', () => {
       // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
       undefined
     >();
-    render(<ButtonToggle onClick={mockOnClick} text="ButtonText" />);
+    render(<ButtonToggle onClick={mockOnClick} selected={false} text="ButtonText" />);
     screen.getByText('ButtonText').click();
     expect(mockOnClick).toHaveBeenCalled();
   });
@@ -45,7 +45,15 @@ describe('ButtonToggle', () => {
 
   it('renders with data-test-id', () => {
     const TEST_ID = 'button-test-123';
-    render(<ButtonToggle dataTestId={TEST_ID} iconStart="sparkle" size="lg" text="Default" />);
+    render(
+      <ButtonToggle
+        dataTestId={TEST_ID}
+        iconStart="sparkle"
+        selected={false}
+        size="lg"
+        text="Default"
+      />,
+    );
     expect(
       screen.getByTestId(TEST_ID, {
         exact: true,
