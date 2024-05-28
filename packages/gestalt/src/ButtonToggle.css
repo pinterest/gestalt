@@ -5,8 +5,7 @@
 }
 
 .parentButton {
-  composes: paddingX0 from "./boxWhitespace.css";
-  composes: paddingY0 from "./boxWhitespace.css";
+  composes: paddingX0 paddingY0 from "./boxWhitespace.css";
   composes: noBorder from "./Borders.css";
   background-color: var(--color-transparent);
 }
@@ -17,27 +16,23 @@
 
 .childrenDiv {
   composes: flex from "./Layout.css";
-  composes: xsItemsCenter from "./Layout.css";
-  composes: justifyCenter from "./Layout.css";
+  composes: xsItemsCenter justifyCenter from "./Layout.css";
   composes: fullWidth from "./TapArea.css";
 }
 
 .sm {
   composes: small from "./Layout.css";
-  composes: paddingX3 from "./boxWhitespace.css";
-  composes: paddingY1 from "./boxWhitespace.css";
+  composes: paddingX3 paddingY1 from "./boxWhitespace.css";
 }
 
 .md {
   composes: medium from "./Layout.css";
-  composes: paddingX3 from "./boxWhitespace.css";
-  composes: paddingY2 from "./boxWhitespace.css";
+  composes: paddingX3 paddingY2 from "./boxWhitespace.css";
 }
 
 .lg {
   composes: large from "./Layout.css";
-  composes: paddingX4 from "./boxWhitespace.css";
-  composes: paddingY3 from "./boxWhitespace.css";
+  composes: paddingX4 paddingY3 from "./boxWhitespace.css";
 }
 
 .enabled {
