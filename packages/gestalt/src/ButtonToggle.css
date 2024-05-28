@@ -40,15 +40,6 @@
   composes: paddingY3 from "./boxWhitespace.css";
 }
 
-.block {
-  composes: xsCol12 from "./Column.css";
-  composes: block from "./Layout.css";
-}
-
-.inline {
-  composes: inlineBlock from "./Layout.css";
-}
-
 .enabled {
   composes: pointer from "./Cursor.css";
 }
@@ -90,18 +81,6 @@
   background-color: var(--color-background-button-primary-active);
 }
 
-.gray {
-  background-color: var(--color-background-button-secondary-default);
-}
-
-.gray:hover {
-  background-color: var(--color-background-button-secondary-hover);
-}
-
-.gray:active {
-  background-color: var(--color-background-button-secondary-active);
-}
-
 .transparent {
   background-color: var(--color-background-button-tertiary-default);
 }
@@ -112,42 +91,4 @@
 
 .transparent:active {
   background-color: var(--color-background-button-tertiary-active);
-}
-
-.blue {
-  background-color: var(--color-background-button-shopping-default);
-}
-
-.blue:hover {
-  background-color: var(--color-background-button-shopping-hover);
-}
-
-.blue:active {
-  background-color: var(--color-background-button-shopping-active);
-}
-
-/* COLORS ON BACKGROUND */
-
-.semiTransparentWhite {
-  background-color: var(--color-background-button-semitransparentwhite-default);
-}
-
-.semiTransparentWhite:hover {
-  background-color: var(--color-background-button-semitransparentwhite-hover);
-}
-
-.semiTransparentWhite:active {
-  background-color: var(--color-background-button-semitransparentwhite-active);
-}
-
-.white {
-  background-color: var(--color-background-button-white-default);
-}
-
-.white:hover {
-  background-color: var(--color-background-button-white-hover);
-}
-
-.white:active {
-  background-color: var(--color-background-button-white-active);
 }
