@@ -106,13 +106,13 @@ function InternalButtonContent({
 }
 
 /**
- * [ButtonToggles](https://gestalt.pinterest.systems/web/buttontoggle) is a larger alternative to selection components such as [Checkbox](/android/checkbox), [RadioButton](/web/radiobutton), and [Switch](/android/switch). It enables users to choose between two states - selected or unselected.
+ * [ButtonToggle](https://gestalt.pinterest.systems/web/buttontoggle) is a larger alternative to selection components such as [Checkbox](/android/checkbox), [RadioButton](https://gestalt.pinterest.systems/web/radiobutton), and [Switch](/android/switch). It enables users to choose between two states - selected or unselected.
  *
  * ![ButtonToggle light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ButtonToggle.spec.mjs-snapshots/ButtonToggle-chromium-darwin.png)
  * ![ButtonToggle dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ButtonToggle-dark.spec.mjs-snapshots/ButtonToggle-dark-chromium-darwin.png)
  *
  */
-const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function ButtonToggle(
+const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function ButtonToggle(
   {
     accessibilityLabel,
     color = 'transparent',
@@ -178,8 +178,8 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
 
   const textColor =
     (disabled && 'subtle') ||
-    (isDarkModeRed && 'default') ||
     (selected && 'default') ||
+    (isDarkModeRed && 'default') ||
     DEFAULT_TEXT_COLORS[color];
 
   const buttonText = (
@@ -238,6 +238,6 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
   );
 });
 
-ButtonWithForwardRef.displayName = 'ButtonToggle';
+ButtonToggleWithForwardRef.displayName = 'ButtonToggle';
 
-export default ButtonWithForwardRef;
+export default ButtonToggleWithForwardRef;
