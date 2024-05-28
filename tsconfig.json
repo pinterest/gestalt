@@ -15,16 +15,13 @@
     "noImplicitThis": true,
     "strictNullChecks": true,
     "target": "es6",
-    "noEmit": false,
-    "emitDeclarationOnly": true,
-    "declaration": true,
+    "noEmit": true,
     "forceConsistentCasingInFileNames": true,
     "strictFunctionTypes": true,
     "skipLibCheck": true,
     "strict": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "outDir": ".",
     "plugins": [
       {
         "name": "typescript-plugin-css-modules",
@@ -35,6 +32,7 @@
     ]
   },
   "exclude": [
+    "**/dist/**/*",
     "node_modules",
     "**/*.json" // Don't try and check JSON files
   ]
