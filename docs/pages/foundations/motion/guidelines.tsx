@@ -171,7 +171,7 @@ Curve is commonly used for elements that begin within the user's field of view a
               <ReducedMotionGIF
                 alt="Lateral easing animation"
                 height={250}
-                src="https://i.pinimg.com/originals/eb/82/ce/eb82ceb91f0f28d34e3a53115533a44c.png"
+                src="https://i.pinimg.com/originals/a3/fb/49/a3fb49eb2948e3a276b8c26976d52e64.gif"
                 staticImgSrc="https://i.pinimg.com/originals/eb/82/ce/eb82ceb91f0f28d34e3a53115533a44c.png"
                 width={250}
               />
