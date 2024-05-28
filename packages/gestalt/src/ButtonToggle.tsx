@@ -130,6 +130,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     [styles.lg]: size === 'lg',
     [styles[color]]: !disabled && !selected,
     [styles.noBorder]: color === 'red' && !selected && !disabled,
+    [styles.selectedBorder]: selected,
     [styles.selected]: !disabled && selected,
     [styles.disabled]: disabled && (color !== 'red' || selected),
     [styles.disabledRed]: disabled && color === 'red' && !selected,

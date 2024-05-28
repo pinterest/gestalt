@@ -42,7 +42,6 @@
 /* STATES */
 
 .disabled {
-  composes: border from "./Borders.css";
   composes: borderColorLightGrayDisabled from "./Borders.css";
   background-color: var(--color-background-button-tertiary-default);
   cursor: default;
@@ -50,7 +49,6 @@
 }
 
 .disabledRed {
-  composes: border from "./Borders.css";
   composes: borderColorLightGrayDisabled from "./Borders.css";
   background-color: var(--color-background-button-disabled-default);
   cursor: default;
@@ -60,6 +58,10 @@
 .selected {
   composes: borderColorSelected from "./Borders.css";
   background-color: var(--color-background-button-tertiary-default);
+}
+
+.selectedBorder{
+  composes: sizeLg from "./Borders.css";
 }
 
 /* COLORS */
