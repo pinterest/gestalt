@@ -16,6 +16,7 @@ import consistencyDo from '../../examples/buttontoggle/consistencyDo';
 import defaultStateExample from '../../examples/buttontoggle/defaultStateExample';
 import disabledStateExample from '../../examples/buttontoggle/disabledStateExample';
 import iconEndExample from '../../examples/buttontoggle/iconEndExample';
+import localization from '../../examples/buttontoggle/localization';
 import locationDo from '../../examples/buttontoggle/locationDo';
 import main from '../../examples/buttontoggle/main';
 import selectedStateExample from '../../examples/buttontoggle/selectedStateExample';
@@ -150,6 +151,7 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
       </AccessibilitySection>
 
       <LocalizationSection
+        code={localization}
         name={generatedDocGen?.displayName}
         noDefaultLabelProvider
         notes="Avoid truncating ButtonToggle text whenever possible. Refer to the [ButtonToggle usage guidelines](#Usage-guidelines) for more information"

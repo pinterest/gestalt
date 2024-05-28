@@ -11,7 +11,7 @@ export default function Example() {
         onClick={() => setSelected(!selected)}
         selected={selected}
         size="lg"
-        text={selected ? 'Followed' : 'Follow'}
+        text={selected ? 'Gefolgt' : 'Folgen'}
       />
     </Flex>
   );
