@@ -364,6 +364,12 @@
       "description": "Indicates an expanded content is being displayed. Background is needed to emphasize visibility",
       "keywords": ["arrow"]
     },
+     {
+      "name": "circle",
+      "categories": [],
+      "description": "",
+      "keywords": []
+    },
     {
       "name": "clear",
       "categories": ["Utility and tools"],
@@ -540,7 +546,7 @@
       "keywords": ["kebab", "more", "overflow", "menu", "meatballs"]
     },
     {
-      "name": "ellipsis-circle-outline",
+      "name": "ellipsis-circle",
       "categories": ["Utility and tools"],
       "description": "Indicates an overflow menu",
       "keywords": ["kebab", "more", "overflow", "menu", "meatballs"]

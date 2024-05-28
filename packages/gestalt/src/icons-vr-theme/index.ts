@@ -70,7 +70,7 @@ import captionsOutline from './captions-outline.svg';
 import check from './check.svg';
 import checkCircle from './check-circle.svg';
 import chevronUpCircle from './chevron-up-circle.svg';
-import circleOutline from './circle-outline.svg';
+import circle from './circle.svg';
 import clear from './clear.svg';
 import clips from './clips.svg';
 import clock from './clock.svg';
@@ -107,7 +107,7 @@ import draw from './draw.svg';
 import duplicate from './duplicate.svg';
 import edit from './edit.svg';
 import ellipsis from './ellipsis.svg';
-import ellipsisCircleOutline from './ellipsis-circle-outline.svg';
+import circleEllipsis from './ellipsis-circle.svg';
 import envelope from './envelope.svg';
 import erase from './erase.svg';
 import eraseAuto from './erase-auto.svg';
@@ -189,7 +189,6 @@ import microphone from './microphone.svg';
 import minimize from './minimize.svg';
 import mobile from './mobile.svg';
 import moon from './moon.svg';
-import move from './move.svg';
 import movePin from './move-pin.svg';
 import musicOff from './music-off.svg';
 import musicOn from './music-on.svg';
@@ -267,11 +266,11 @@ import speechExclamationPoint from './speech-exclamation-point.svg';
 import speechHeart from './speech-heart.svg';
 import speechOutline from './speech-outline.svg';
 import speed from './speed.svg';
-import speedThird from './speed-.3x.svg';
-import speedHalf from './speed-.5x.svg';
 import speed1x from './speed-1x.svg';
 import speed2x from './speed-2x.svg';
+import speedThird from './speed-3x.svg';
 import speed3x from './speed-3x.svg';
+import speedHalf from './speed-5x.svg';
 import spread from './spread.svg';
 import star from './star.svg';
 import starHalf from './star-half.svg';
@@ -396,7 +395,8 @@ const icons = Object.freeze({
   check,
   'check-circle': checkCircle,
   'chevron-up-circle': chevronUpCircle,
-  'circle-outline': circleOutline,
+  'circle': circle,
+  'circle-ellipsis': circleEllipsis,
   clear,
   clock,
   'clock-checked': clockChecked,
@@ -424,7 +424,6 @@ const icons = Object.freeze({
   duplicate,
   edit,
   ellipsis,
-  'ellipsis-circle-outline': ellipsisCircleOutline,
   envelope,
   expand,
   eye,
@@ -495,7 +494,6 @@ const icons = Object.freeze({
   minimize,
   mobile,
   moon,
-  move,
   mute,
   'move-pin': movePin,
   'music-off': musicOff,

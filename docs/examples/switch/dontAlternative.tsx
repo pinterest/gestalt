@@ -23,7 +23,7 @@ export default function Example() {
               <Icon
                 accessibilityLabel={`${checked ? 'checked' : 'unchecked'} circle`}
                 color="default"
-                icon={checked ? 'check-circle' : 'circle-outline'}
+                icon={checked ? 'check-circle' : 'circle'}
               />
             </Flex>
           ))}
