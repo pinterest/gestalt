@@ -172,6 +172,7 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
               <ButtonToggle
                 accessibilityLabel={`Example size ${size}`}
                 color="red"
+                selected={false}
                 size={size}
                 text="Save"
               />

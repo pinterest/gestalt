@@ -944,7 +944,7 @@ interface ButtonToggleProps {
   disabled?: boolean | undefined;
   iconStart?: Icons | undefined;
   onClick?: ButtonEventHandlerType | undefined;
-  selected?: boolean | undefined;
+  selected: boolean | undefined;
   size?: 'sm' | 'md' | 'lg' | undefined;
   text: string;
 }
