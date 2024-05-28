@@ -142,7 +142,7 @@ function SandpackContainer({
   );
 }
 
-export default function SandpackExample({
+function SandpackExample({
   code,
   layout = 'row',
   name,
@@ -158,7 +158,7 @@ export default function SandpackExample({
   hideEditor?: boolean;
 }) {
   const { files } = useLocalFiles();
-  const { colorScheme, devExampleMode, helixBot, textDirection } = useAppContext();
+  const { colorScheme, textDirection } = useAppContext();
   const [exampleColorScheme, setExampleColorScheme] = useState<'light' | 'dark'>(colorScheme);
   const [exampleTextDirection, setExampleTextDirection] = useState<'ltr' | 'rtl'>(textDirection);
   const experimentsObj = useDocsExperiments();
@@ -168,9 +168,7 @@ export default function SandpackExample({
     setExampleTextDirection(textDirection);
   }, [colorScheme, textDirection]);
 
-  if (helixBot) return null;
-
-  return devExampleMode === 'default' ? (
+  return (
     <SandpackProvider
       // Based on https://github.com/codesandbox/sandpack/blob/53811bb4fdfb66ea95b9881ff18c93307f12ce0d/sandpack-react/src/presets/Sandpack.tsx#L67
       customSetup={{
@@ -290,17 +288,35 @@ export default function SandpackExample({
         }
       />
     </SandpackProvider>
-  ) : (
-    <ErrorBoundary>
-      <LiveExample code={code} name={name} />
-    </ErrorBoundary>
   );
 }
 
-function ErrorBoundary({ children }) {
+function ErrorBoundary({ children }): any {
   try {
     return <div className="ererererererer">{children}</div>;
   } catch (error) {
     return 'Error';
   }
+}
+
+export default function Example(props: {
+  code: string | null | undefined | (() => ReactNode);
+  layout?: 'row' | 'column' | 'mobileRow' | 'mobileColumn';
+  name: string;
+  previewHeight?: number;
+  hideControls?: boolean;
+  hideEditor?: boolean;
+}) {
+  const { devExampleMode, helixBot } = useAppContext();
+
+  if (helixBot) return null;
+
+  if (devExampleMode === 'development')
+    return (
+      <ErrorBoundary>
+        <LiveExample {...props} />
+      </ErrorBoundary>
+    );
+
+  return <SandpackExample {...props} />;
 }

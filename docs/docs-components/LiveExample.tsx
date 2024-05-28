@@ -22,7 +22,7 @@ const MIN_EDITOR_HEIGHT = 350;
 const MAX_EDITOR_IPHONE_SE_MOBILE_WIDTH = 375;
 const MAX_EDITOR_IPHONE_SE_MOBILE_HEIGHT = 667;
 
-async function copyCode({ code }: { code: ?string }) {
+async function copyCode({ code }: { code?: string }) {
   try {
     await clipboardCopy(code ?? '');
   } catch (error) {
@@ -42,21 +42,22 @@ function SandpackContainer({
   toggleExampleColorScheme,
   toggleExampleTextDirection,
 }: {
-  exampleColorScheme: 'light' | 'dark',
-  exampleTextDirection: 'ltr' | 'rtl',
-  hideControls?: boolean,
-  hideEditor?: boolean,
-  layout: 'row' | 'column' | 'mobileRow' | 'mobileColumn',
-  name: string,
-  previewHeight?: number,
-  toggleExampleColorScheme: () => void,
-  toggleExampleTextDirection: () => void,
+  exampleColorScheme: 'light' | 'dark';
+  exampleTextDirection: 'ltr' | 'rtl';
+  hideControls?: boolean;
+  hideEditor?: boolean;
+  layout: 'row' | 'column' | 'mobileRow' | 'mobileColumn';
+  name: string;
+  previewHeight?: number;
+  toggleExampleColorScheme: () => void;
+  toggleExampleTextDirection: () => void;
 }) {
   const [editorShown, setEditorShown] = useState(!hideEditor);
   // const { sandpack } = useSandpack();
 
   const isMobileRowLayout = layout === 'mobileRow';
   const isMobileColumnLayout = layout === 'mobileColumn';
+  const isColumnLayout = ['mobileColumn', 'column'].includes(layout);
   let codeEditorHeight = MIN_EDITOR_HEIGHT;
 
   if (!!previewHeight && previewHeight > MIN_EDITOR_HEIGHT) {
@@ -72,8 +73,10 @@ function SandpackContainer({
       <Box
         borderStyle="sm"
         color="darkWash"
-        display={isMobileRowLayout ? 'flex' : undefined}
-        justifyContent="center"
+        direction={isColumnLayout ? undefined : 'row'}
+        display={isColumnLayout ? undefined : 'flex'}
+        // justifyContent="center"
+        overflow="hidden"
         rounding={2}
       >
         <LiveError />
@@ -81,6 +84,7 @@ function SandpackContainer({
           // showOpenInCodeSandbox={false}
           // showRefreshButton={false}
           style={{
+            flex: 1,
             width: isMobileRowLayout ? MAX_EDITOR_IPHONE_SE_MOBILE_WIDTH : undefined,
             height:
               isMobileRowLayout || isMobileColumnLayout
@@ -89,16 +93,13 @@ function SandpackContainer({
           }}
         />
         {editorShown && (
-          <LiveEditor
-            // showTabs={false}
-            style={{
-              height: codeEditorHeight,
-              width: '100%',
-              flex: ['mobileColumn', 'column'].includes(layout) ? 'none' : null,
-              // overflow: 'auto',
-            }}
-            // wrapContent
-          />
+          <Box
+            dangerouslySetInlineStyle={!isColumnLayout ? { __style: { flex: 1 } } : undefined}
+            height={codeEditorHeight}
+            overflow="auto"
+          >
+            <LiveEditor />
+          </Box>
         )}
       </Box>
       <Box
@@ -148,18 +149,16 @@ export default function LiveExample({
   hideControls,
   hideEditor,
 }: {
-  code: ?string | (() => ReactNode),
-  layout?: 'row' | 'column' | 'mobileRow' | 'mobileColumn',
-  name: string,
-  previewHeight?: number,
-  hideControls?: boolean,
-  hideEditor?: boolean,
+  code?: string | (() => ReactNode);
+  layout?: 'row' | 'column' | 'mobileRow' | 'mobileColumn';
+  name: string;
+  previewHeight?: number;
+  hideControls?: boolean;
+  hideEditor?: boolean;
 }): ReactNode {
-  const { files } = useLocalFiles();
-  const { colorScheme, devExampleMode, helixBot, textDirection } = useAppContext();
+  const { colorScheme, helixBot, textDirection } = useAppContext();
   const [exampleColorScheme, setExampleColorScheme] = useState<'light' | 'dark'>(colorScheme);
   const [exampleTextDirection, setExampleTextDirection] = useState<'ltr' | 'rtl'>(textDirection);
-  const experimentsObj = useDocsExperiments();
   // If the user changes the color scheme or text direction, update examples
   useEffect(() => {
     setExampleColorScheme(colorScheme);
