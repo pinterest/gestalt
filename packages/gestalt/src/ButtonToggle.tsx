@@ -1,6 +1,5 @@
-import { forwardRef, Fragment, ReactNode, useImperativeHandle, useRef } from 'react';
+import { forwardRef, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
-import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
 import styles from './ButtonToggle.css';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider';
@@ -23,8 +22,6 @@ const SIZE_NAME_TO_PIXEL = {
   md: 12,
   lg: 12,
 } as const;
-
-type Target = null | 'self' | 'blank';
 
 type Props = {
   /**
@@ -72,38 +69,6 @@ type Props = {
    */
   text: string;
 };
-
-function InternalButtonContent({
-  target,
-  text,
-  textColor,
-  icon,
-  size,
-}: {
-  target?: Target;
-  text: ReactNode;
-  textColor: IconColor;
-  icon?: keyof typeof icons;
-  size: string;
-}) {
-  return (
-    <Fragment>
-      <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-        {icon ? (
-          <Icon
-            accessibilityLabel=""
-            color={textColor}
-            icon={icon}
-            // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly sm: 10; readonly md: 12; readonly lg: 12; }'.
-            size={SIZE_NAME_TO_PIXEL[size]}
-          />
-        ) : null}
-        {text}
-      </Flex>
-      <NewTabAccessibilityLabel target={target} />
-    </Fragment>
-  );
-}
 
 /**
  * [ButtonToggle](https://gestalt.pinterest.systems/web/buttontoggle) is a larger alternative to selection components such as [Checkbox](/android/checkbox), [RadioButton](https://gestalt.pinterest.systems/web/radiobutton), and [Switch](/android/switch). It enables users to choose between two states - selected or unselected.
@@ -224,12 +189,17 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     >
       <div className={childrenDivClasses} style={compressStyle || undefined}>
         {iconStart ? (
-          <InternalButtonContent
-            icon={iconStart}
-            size={size}
-            text={buttonText}
-            textColor={textColor}
-          />
+          <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
+            {iconStart ? (
+              <Icon
+                accessibilityLabel=""
+                color={textColor as IconColor}
+                icon={iconStart}
+                size={SIZE_NAME_TO_PIXEL[size]}
+              />
+            ) : null}
+            <Text>{buttonText}</Text>
+          </Flex>
         ) : (
           buttonText
         )}
