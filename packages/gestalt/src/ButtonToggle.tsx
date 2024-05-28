@@ -180,6 +180,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
       ref={innerRef}
       aria-controls={accessibilityControls}
       aria-label={accessibilityLabel}
+      aria-pressed={selected}
       className={parentButtonClasses}
       data-test-id={dataTestId}
       disabled={disabled}
