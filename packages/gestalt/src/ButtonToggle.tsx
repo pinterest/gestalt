@@ -49,11 +49,19 @@ type Props = {
    */
   iconStart?: keyof typeof icons;
   /**
+   * Callback invoked when ButtonToggle loses focus.
+   */
+  onBlur?: (arg1: { event: React.FocusEvent<HTMLButtonElement> }) => void;
+  /**
    * Callback invoked when the user clicks (press and release) on ButtonToggle with the mouse or keyboard.
    */
   onClick?: (arg1: {
     event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>;
   }) => void;
+  /**
+   * Callback invoked when ButtonToggle gains focus.
+   */
+  onFocus?: (arg1: { event: React.FocusEvent<HTMLButtonElement> }) => void;
   /**
    * Toggles between selected/unselected.
    */
@@ -84,7 +92,9 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     dataTestId,
     disabled = false,
     iconStart,
+    onBlur,
     onClick,
+    onFocus,
     selected = false,
     size = 'md',
     text,
@@ -173,10 +183,16 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
       className={parentButtonClasses}
       data-test-id={dataTestId}
       disabled={disabled}
-      onBlur={handleBlur}
+      onBlur={(event) => {
+        handleBlur();
+        onBlur?.({ event });
+      }}
       onClick={(event) => {
         buttonToggleHandlers?.onClick?.();
         onClick?.({ event });
+      }}
+      onFocus={(event) => {
+        onFocus?.({ event });
       }}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
