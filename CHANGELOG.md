@@ -1,3 +1,9 @@
+## 150.1.3 (May 28, 2024)
+
+### Patch
+
+- Docs: Fix Motion Guidelines Lateral easing GIF ([#3599](https://github.com/pinterest/gestalt/pull/3599)) - [Preview link](https://deploy-preview-3599--gestalt.netlify.app?devexample=true)
+
 ## 150.1.2 (May 24, 2024)
 
 ### Patch
