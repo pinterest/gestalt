@@ -1,3 +1,9 @@
+## 150.1.4 (May 28, 2024)
+
+### Patch
+
+- Docs: Update design_contributions_overview.md ([#3598](https://github.com/pinterest/gestalt/pull/3598)) - [Preview link](https://deploy-preview-3598--gestalt.netlify.app?devexample=true)
+
 ## 150.1.3 (May 28, 2024)
 
 ### Patch
