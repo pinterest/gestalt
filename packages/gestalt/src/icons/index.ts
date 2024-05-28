@@ -318,7 +318,7 @@ import viewTypeSpace from './view-type-space.svg';
 import visit from './visit.svg';
 import warmth from './warmth.svg';
 import wave from './wave.svg';
-import whatsApp from './whats-app.svg';
+import whatsapp from './whatsapp.svg';
 import wifiNo from './wifi-no.svg';
 import workflowStatusAll from './workflow-status-all.svg';
 import workflowStatusCanceled from './workflow-status-canceled.svg';
@@ -395,7 +395,7 @@ const icons = Object.freeze({
   check,
   'check-circle': checkCircle,
   'chevron-up-circle': chevronUpCircle,
-  'circle': circle,
+  circle,
   'circle-ellipsis': circleEllipsis,
   clear,
   clock,
@@ -444,8 +444,8 @@ const icons = Object.freeze({
   flame,
   flash,
   flashlight,
-  flipHorizontal,
-  flipVertical,
+  'flip-horizontal': flipHorizontal,
+  'flip-vertical': flipVertical,
   folder,
   forward,
   gif,
@@ -584,7 +584,7 @@ const icons = Object.freeze({
   'view-type-list': viewTypeList,
   'view-type-space': viewTypeSpace,
   visit,
-  'whats-app': whatsApp,
+  whatsapp,
   'wifi-no': wifiNo,
   'workflow-status-all': workflowStatusAll,
   'workflow-status-canceled': workflowStatusCanceled,
@@ -647,7 +647,7 @@ const icons = Object.freeze({
   shapes,
   shuffles,
   slide,
-  'soundSlash': soundSlash,
+  'sound-slash': soundSlash,
   'speed-.3x': speedThird,
   'speed-.5x': speedHalf,
   'speed-1x': speed1x,

@@ -318,7 +318,7 @@ import viewTypeSpace from './ic_vr_view-type-space_gestalt.svg';
 import visit from './ic_vr_visit_gestalt.svg';
 import warmth from './ic_vr_warmth_gestalt.svg';
 import wave from './ic_vr_wave_gestalt.svg';
-import whatsApp from './ic_vr_whats-app_gestalt.svg';
+import whatsapp from './ic_vr_whatsapp_gestalt.svg';
 import wifiNo from './ic_vr_wifi-no_gestalt.svg';
 import workflowStatusAll from './ic_vr_workflow-status-all_gestalt.svg';
 import workflowStatusCanceled from './ic_vr_workflow-status-canceled_gestalt.svg';
@@ -584,7 +584,7 @@ const icons = Object.freeze({
   'view-type-list': viewTypeList,
   'view-type-space': viewTypeSpace,
   visit,
-  'whats-app': whatsApp,
+  whatsapp,
   'wifi-no': wifiNo,
   'workflow-status-all': workflowStatusAll,
   'workflow-status-canceled': workflowStatusCanceled,
