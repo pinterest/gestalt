@@ -6,6 +6,7 @@
     "emitDeclarationOnly": true,
     "declaration": true,
     "outDir": "./dist",
+    "rootDir": "./src",
     "paths": {
       "gestalt": ["../gestalt"]
     }
@@ -14,7 +15,6 @@
     { "path": "../gestalt" }
   ],
   "include": [
-    "./global.d.ts",
     "./src/**/*",
   ],
 }

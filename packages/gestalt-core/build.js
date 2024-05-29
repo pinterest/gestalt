@@ -149,7 +149,6 @@ export const plugins = (name) => [
   typescript({
     // note: this is the relative tsconfig for each package (e.g. packages/gestalt/tsconfig.json)
     tsconfig: relative(__dirname, './tsconfig.json'),
-    exclude: ['**/*.test.ts', '**/*.test.tsx'],
     noEmitOnError: true,
   }),
   babel({
