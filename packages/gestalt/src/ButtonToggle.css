@@ -1,0 +1,91 @@
+.button {
+  composes: borderBox minWidth60 from "./Layout.css";
+  composes: border from "./Borders.css";
+  border-radius: var(--rounding-600);
+}
+
+.parentButton {
+  composes: paddingX0 paddingY0 from "./boxWhitespace.css";
+  composes: noBorder from "./Borders.css";
+  background-color: var(--color-transparent);
+}
+
+.noBorder {
+  composes: noBorder from "./Borders.css";
+}
+
+.childrenDiv {
+  composes: flex from "./Layout.css";
+  composes: xsItemsCenter justifyCenter from "./Layout.css";
+  composes: fullWidth from "./TapArea.css";
+}
+
+.sm {
+  composes: small from "./Layout.css";
+  composes: paddingX3 paddingY1 from "./boxWhitespace.css";
+}
+
+.md {
+  composes: medium from "./Layout.css";
+  composes: paddingX3 paddingY2 from "./boxWhitespace.css";
+}
+
+.lg {
+  composes: large from "./Layout.css";
+  composes: paddingX4 paddingY3 from "./boxWhitespace.css";
+}
+
+.enabled {
+  composes: pointer from "./Cursor.css";
+}
+
+/* STATES */
+
+.disabled {
+  composes: borderColorLightGrayDisabled from "./Borders.css";
+  background-color: var(--color-background-button-tertiary-default);
+  cursor: default;
+  pointer-events: none;
+}
+
+.disabledRed {
+  composes: borderColorLightGrayDisabled from "./Borders.css";
+  background-color: var(--color-background-button-disabled-default);
+  cursor: default;
+  pointer-events: none;
+}
+
+.selected {
+  composes: borderColorSelected from "./Borders.css";
+  background-color: var(--color-background-button-tertiary-default);
+}
+
+.selectedBorder {
+  composes: sizeLg from "./Borders.css";
+}
+
+/* COLORS */
+
+.red {
+  background-color: var(--color-background-button-primary-default);
+}
+
+.red:hover {
+  background-color: var(--color-background-button-primary-hover);
+}
+
+.red:active {
+  background-color: var(--color-background-button-primary-active);
+}
+
+.transparent {
+  background-color: var(--color-background-button-tertiary-default);
+}
+
+.transparent:hover {
+  background-color: var(--color-background-button-tertiary-hover);
+}
+
+.transparent:active {
+  background-color: var(--color-background-button-tertiary-active);
+}

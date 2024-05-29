@@ -552,6 +552,21 @@ const componentData: ReadonlyArray<ComponentData> = [
   {
     id: 'ButtonToggle',
     platform: {
+      web: {
+        name: 'ButtonToggle',
+        visual: {
+          svg: <ButtonToggle />,
+        },
+        alias: ['Toggle', 'Action Button', 'Toggle Switch'],
+        description:
+          'The ButtonToggle is a larger alternative to selection components such as Checkbox, RadioButton, and Switch.',
+        category: ['Actions'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          status: 'ready',
+        },
+      },
       android: {
         name: 'ButtonToggle',
         visual: {
