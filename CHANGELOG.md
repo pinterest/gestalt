@@ -1,3 +1,9 @@
+## 150.2.0 (May 29, 2024)
+
+### Minor
+
+- ButtonToggle: New Component v1 ([#3577](https://github.com/pinterest/gestalt/pull/3577)) - [Preview link](https://deploy-preview-3577--gestalt.netlify.app?devexample=true)
+
 ## 150.1.4 (May 28, 2024)
 
 ### Patch
