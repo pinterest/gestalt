@@ -318,7 +318,7 @@ import viewTypeSpace from './ic_view-type-space_gestalt.svg';
 import visit from './ic_visit_gestalt.svg';
 import warmth from './ic_warmth_gestalt.svg';
 import wave from './ic_wave_gestalt.svg';
-import whatsApp from './ic_whatsapp_gestalt.svg';
+import whatsapp from './ic_whatsapp_gestalt.svg';
 import wifiNo from './ic_wifi-no_gestalt.svg';
 import workflowStatusAll from './ic_workflow-status-all_gestalt.svg';
 import workflowStatusCanceled from './ic_workflow-status-canceled_gestalt.svg';
