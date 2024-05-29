@@ -57,9 +57,9 @@ describe('Dropdown.Link', () => {
     // eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
     expect(screen.queryByText('Beta Badge')).toBeInTheDocument();
     expect(
-      screen.queryByText('; Opens a new tab', {
+      screen.queryByTitle(', Opens a new tab', {
         exact: true,
       }),
-    ).toBeVisible();
+    ).not.toBeVisible();
   });
 });

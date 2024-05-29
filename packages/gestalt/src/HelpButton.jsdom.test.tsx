@@ -156,7 +156,7 @@ describe('HelpButton', () => {
 
     const element = screen.getByRole('link');
     // @ts-expect-error - TS2339 - Property 'text' does not exist on type 'HTMLElement'.
-    expect(element.text).toEqual('New link text; Opens a new tab');
+    expect(element.text).toEqual('New link text');
   });
 
   it('renders a link spying the link trigger', () => {
