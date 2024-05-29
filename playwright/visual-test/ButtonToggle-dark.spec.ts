@@ -1,4 +1,3 @@
-// @flow strict
 import { expect, test } from '@playwright/test';
 
 test('ButtonToggle dark mode visual regression check', async ({ page }) => {

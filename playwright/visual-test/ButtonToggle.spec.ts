@@ -1,4 +1,3 @@
-// @flow strict
 import { expect, test } from '@playwright/test';
 
 test('ButtonToggle visual regression check', async ({ page }) => {
