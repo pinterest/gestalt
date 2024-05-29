@@ -9,13 +9,14 @@ import {
 } from 'react';
 import classnames from 'classnames';
 import getAriaLabel from './accessibility/getAriaLabel';
-import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
 import Box from './Box';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider';
 import focusStyles from './Focus.css';
 import getRoundingClassName from './getRoundingClassName';
 import Icon from './Icon';
+import iconStyles from './Icon.css';
+import icons from './icons/index';
 import layoutStyles from './Layout.css';
 import styles from './Link.css';
 import touchableStyles from './TapArea.css';
@@ -44,20 +45,33 @@ type ExternalLinkIcon =
       size: ComponentProps<typeof Text>['size'];
     };
 
-function ExternalIcon({ externalLinkIcon }: { externalLinkIcon: ExternalLinkIcon }) {
-  return externalLinkIcon === 'none' ? null : (
-    <Box aria-hidden display="inlineBlock" marginStart={1}>
-      <Icon
-        accessibilityLabel=""
-        color={externalLinkIcon === 'default' ? 'default' : externalLinkIcon?.color ?? 'default'}
-        icon="visit"
-        inline
-        size={
-          externalLinkIcon === 'default'
-            ? externalLinkIconMap['300']
-            : externalLinkIconMap[externalLinkIcon?.size ?? '300']
-        }
-      />
+function ExternalIcon({
+  externalLinkIcon,
+}: {
+  externalLinkIcon:
+    | 'default'
+    | {
+        color: ComponentProps<typeof Icon>['color'];
+        size: ComponentProps<typeof Text>['size'];
+      };
+}) {
+  const size: ComponentProps<typeof Icon>['size'] =
+    externalLinkIcon === 'default'
+      ? externalLinkIconMap['300']
+      : externalLinkIconMap[externalLinkIcon?.size ?? '300'];
+
+  const color: ComponentProps<typeof Icon>['color'] =
+    externalLinkIcon === 'default' ? 'default' : externalLinkIcon?.color ?? 'default';
+
+  const cs = classnames(iconStyles.rtlSupport, iconStyles[color], iconStyles.icon);
+  const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
+
+  return (
+    <Box display="inlineBlock" marginStart={1}>
+      <svg className={cs} height={size} role="img" viewBox="0 0 24 24" width={size}>
+        <title>{accessibilityNewTabLabel}</title>
+        <path d={icons.visit} />
+      </svg>
     </Box>
   );
 }
@@ -289,8 +303,7 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
       target={target ? `_${target}` : null}
     >
       {children}
-      <NewTabAccessibilityLabel target={target} />
-      <ExternalIcon externalLinkIcon={externalLinkIcon} />
+      {externalLinkIcon === 'none' ? null : <ExternalIcon externalLinkIcon={externalLinkIcon} />}
     </a>
   );
 });
