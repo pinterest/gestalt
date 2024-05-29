@@ -1,5 +1,6 @@
 import { forwardRef, Fragment, ReactNode } from 'react';
 import classnames from 'classnames';
+import AccessibilityOpenNewTab from '../accessibility/AccessibilityOpenNewTab';
 import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext';
 import Badge from '../Badge';
 import Box from '../Box';
@@ -155,16 +156,14 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
         </Box>
         {isExternal && (
           <Box
-            // aria-hidden is required to prevent assistive technologies from accessing the icon as the actual link already announces that the link opens a new tab
             alignItems="center"
-            aria-hidden
             color="transparent"
             display="flex"
             justifyContent="center"
             // marginStart is for spacing relative to Badge, should not be moved to parent Flex's gap
             marginStart={2}
           >
-            <Icon accessibilityLabel="" color={textColor} icon="visit" size={12} />
+            <AccessibilityOpenNewTab color={textColor} size={12} />
           </Box>
         )}
       </Flex>

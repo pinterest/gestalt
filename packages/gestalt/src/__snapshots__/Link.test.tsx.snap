@@ -40,18 +40,19 @@ exports[`external link with nofollow 1`] = `
 >
   Link
   <div
-    aria-hidden={true}
     className="box marginStart1 xsDisplayInlineBlock"
   >
     <svg
-      aria-hidden={true}
-      aria-label=""
       className="rtlSupport default icon"
       height={16}
       role="img"
       viewBox="0 0 24 24"
       width={16}
     >
+      <title>
+        , 
+        Opens a new tab
+      </title>
       <path
         d="test-file-stub"
       />
@@ -162,20 +163,6 @@ exports[`target blank 1`] = `
   target="_blank"
 >
   Link
-  <div
-    className="box relative"
-    style={
-      Object {
-        "display": "inline",
-      }
-    }
-  >
-    <div
-      className="box xsDisplayVisuallyHidden"
-    >
-      ; Opens a new tab
-    </div>
-  </div>
 </a>
 `;
 

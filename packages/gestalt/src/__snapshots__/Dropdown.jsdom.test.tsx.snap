@@ -719,32 +719,23 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       />
                     </div>
                     <div
-                      aria-hidden="true"
                       class="box justifyCenter marginStart2 transparent xsDisplayFlex xsItemsCenter"
                     >
                       <svg
-                        aria-hidden="true"
-                        aria-label=""
-                        class="rtlSupport default icon iconBlock"
+                        class="rtlSupport default icon"
                         height="12"
                         role="img"
                         viewBox="0 0 24 24"
                         width="12"
                       >
+                        <title>
+                          , 
+                          Opens a new tab
+                        </title>
                         <path
                           d="test-file-stub"
                         />
                       </svg>
-                    </div>
-                  </div>
-                  <div
-                    class="box relative"
-                    style="display: inline;"
-                  >
-                    <div
-                      class="box xsDisplayVisuallyHidden"
-                    >
-                      ; Opens a new tab
                     </div>
                   </div>
                 </a>
@@ -892,32 +883,23 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       />
                     </div>
                     <div
-                      aria-hidden="true"
                       class="box justifyCenter marginStart2 transparent xsDisplayFlex xsItemsCenter"
                     >
                       <svg
-                        aria-hidden="true"
-                        aria-label=""
-                        class="rtlSupport default icon iconBlock"
+                        class="rtlSupport default icon"
                         height="12"
                         role="img"
                         viewBox="0 0 24 24"
                         width="12"
                       >
+                        <title>
+                          , 
+                          Opens a new tab
+                        </title>
                         <path
                           d="test-file-stub"
                         />
                       </svg>
-                    </div>
-                  </div>
-                  <div
-                    class="box relative"
-                    style="display: inline;"
-                  >
-                    <div
-                      class="box xsDisplayVisuallyHidden"
-                    >
-                      ; Opens a new tab
                     </div>
                   </div>
                 </a>
@@ -969,32 +951,23 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       />
                     </div>
                     <div
-                      aria-hidden="true"
                       class="box justifyCenter marginStart2 transparent xsDisplayFlex xsItemsCenter"
                     >
                       <svg
-                        aria-hidden="true"
-                        aria-label=""
-                        class="rtlSupport default icon iconBlock"
+                        class="rtlSupport default icon"
                         height="12"
                         role="img"
                         viewBox="0 0 24 24"
                         width="12"
                       >
+                        <title>
+                          , 
+                          Opens a new tab
+                        </title>
                         <path
                           d="test-file-stub"
                         />
                       </svg>
-                    </div>
-                  </div>
-                  <div
-                    class="box relative"
-                    style="display: inline;"
-                  >
-                    <div
-                      class="box xsDisplayVisuallyHidden"
-                    >
-                      ; Opens a new tab
                     </div>
                   </div>
                 </a>

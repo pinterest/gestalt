@@ -40,10 +40,10 @@ describe('Link', () => {
     ).toBeVisible();
 
     expect(
-      screen.getByText('; Opens a new tab', {
+      screen.getByTitle(', Opens a new tab', {
         exact: true,
       }),
-    ).toBeVisible();
+    ).not.toBeVisible();
 
     render(
       <Link

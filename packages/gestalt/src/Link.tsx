@@ -8,8 +8,8 @@ import {
   useRef,
 } from 'react';
 import classnames from 'classnames';
+import AccessibilityOpenNewTab from './accessibility/AccessibilityOpenNewTab';
 import getAriaLabel from './accessibility/getAriaLabel';
-import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
 import Box from './Box';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider';
@@ -43,24 +43,6 @@ type ExternalLinkIcon =
       color: ComponentProps<typeof Icon>['color'];
       size: ComponentProps<typeof Text>['size'];
     };
-
-function ExternalIcon({ externalLinkIcon }: { externalLinkIcon: ExternalLinkIcon }) {
-  return externalLinkIcon === 'none' ? null : (
-    <Box aria-hidden display="inlineBlock" marginStart={1}>
-      <Icon
-        accessibilityLabel=""
-        color={externalLinkIcon === 'default' ? 'default' : externalLinkIcon?.color ?? 'default'}
-        icon="visit"
-        inline
-        size={
-          externalLinkIcon === 'default'
-            ? externalLinkIconMap['300']
-            : externalLinkIconMap[externalLinkIcon?.size ?? '300']
-        }
-      />
-    </Box>
-  );
-}
 
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
 
@@ -289,8 +271,20 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
       target={target ? `_${target}` : null}
     >
       {children}
-      <NewTabAccessibilityLabel target={target} />
-      <ExternalIcon externalLinkIcon={externalLinkIcon} />
+      {externalLinkIcon === 'none' ? null : (
+        <Box display="inlineBlock" marginStart={1}>
+          <AccessibilityOpenNewTab
+            color={
+              externalLinkIcon === 'default' ? 'default' : externalLinkIcon?.color ?? 'default'
+            }
+            size={
+              externalLinkIcon === 'default'
+                ? externalLinkIconMap['300']
+                : externalLinkIconMap[externalLinkIcon?.size ?? '300']
+            }
+          />
+        </Box>
+      )}
     </a>
   );
 });
