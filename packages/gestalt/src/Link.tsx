@@ -69,7 +69,7 @@ function ExternalIcon({
   return (
     <Box display="inlineBlock" marginStart={1}>
       <svg className={cs} height={size} role="img" viewBox="0 0 24 24" width={size}>
-        <title>{accessibilityNewTabLabel}</title>
+        <title>, {accessibilityNewTabLabel}</title>
         <path d={icons.visit} />
       </svg>
     </Box>
