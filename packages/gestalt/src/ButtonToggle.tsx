@@ -81,8 +81,8 @@ type Props = {
 /**
  * [ButtonToggle](https://gestalt.pinterest.systems/web/buttontoggle) is a larger alternative to selection components such as [Checkbox](/android/checkbox), [RadioButton](https://gestalt.pinterest.systems/web/radiobutton), and [Switch](/android/switch). It enables users to choose between two states - selected or unselected.
  *
- * ![ButtonToggle light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ButtonToggle.spec.mjs-snapshots/ButtonToggle-chromium-darwin.png)
- * ![ButtonToggle dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ButtonToggle-dark.spec.mjs-snapshots/ButtonToggle-dark-chromium-darwin.png)
+ * ![ButtonToggle light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ButtonToggle.spec.ts-snapshots/ButtonToggle-chromium-darwin.png)
+ * ![ButtonToggle dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ButtonToggle-dark.spec.ts-snapshots/ButtonToggle-dark-chromium-darwin.png)
  *
  */
 const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function ButtonToggle(
