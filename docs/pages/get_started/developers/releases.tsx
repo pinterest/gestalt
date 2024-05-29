@@ -66,6 +66,8 @@ Run the relevant codemod(s) in the relevant directory of your repo (not the Gest
 For a dry run to see what the changes will be, add the **-d** (dry run) and **-p** (print output) flags to pipe stdout to a file for easier inspection if you like.
 
 Do you want to learn more about how codemods work or want to start developing generic codemods? Read our [codemod README](https://github.com/pinterest/gestalt/tree/master/packages/gestalt-codemods#readme) for a walkthrough of the development process.
+
+After Gestalt version v148, we [removed support for all custom codemods](https://github.com/pinterest/gestalt/pull/3579) for Gestalt version upgrade. Before migrating to v148+, one should upgrade to v147 and apply all the custom codemod first.
 `}
         name="Codemods"
       />
@@ -358,9 +360,9 @@ See codemod code: [detectManualReplacement](https://github.com/pinterest/gestalt
 
 Custom codemods can be found in this [directory](https://github.com/pinterest/gestalt/tree/master/packages/gestalt-codemods) under the corresponding upgrade version. The name of the folder should reflect the resulting version number of your PR.
 
-Example usage for a codebase using Flow:
+Example usage for a codebase using TypeScript:
 ~~~bash
-yarn codemod --parser=flow -t={relative/path/to/codemod} relative/path/to/your/code
+yarn codemod --parser=tsx -t={relative/path/to/codemod} relative/path/to/your/code.tsx
 ~~~
 
       `}

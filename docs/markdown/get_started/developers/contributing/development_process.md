@@ -98,9 +98,9 @@ yarn generate ComponentName
     - docs/pages/visual-test<strong>/NewComponent-light.tsx</strong>: This file builds a component visual example in light mode. The component snapshot shows in VSCode when hovering over the component name
     - docs/pages/visual-test<strong>/NewComponent-dark.tsx</strong>: This file builds a component visual example in dark mode. The component snapshot shows in VSCode when hovering over the component name
   - Component testing
-    - playwright/accessibility<strong>/NewComponent.spec.mjs</strong>: This file runs accessibility Playwright tests on the new component documentation page
-    - playwright/visual-test<strong>/NewComponent.spec.mjs</strong>: This file creates visual snapshot tests on the new component in light mode
-    - playwright/visual-test<strong>/NewComponent-dark.spec.mjs</strong>: This file creates visual snapshot tests on the new component in dark mode
+    - playwright/accessibility<strong>/NewComponent.spec.ts</strong>: This file runs accessibility Playwright tests on the new component documentation page
+    - playwright/visual-test<strong>/NewComponent.spec.ts</strong>: This file creates visual snapshot tests on the new component in light mode
+    - playwright/visual-test<strong>/NewComponent-dark.spec.ts</strong>: This file creates visual snapshot tests on the new component in dark mode
   - packages/gestalt/src<strong>/README_DELETE_componentName.md</strong>: This file provides guidance on the remaining steps to set up your component. It must be deleted once the steps are done.
   - The script will also update <strong>packages/gestalt/src/index.ts</strong> adding the new component to the index list.
 
@@ -138,12 +138,6 @@ yarn generate ComponentName
 
   # Update a specific visual test snapshots with the latest builds
   yarn playwright:update-visual-test playwright/visual-test/<filename>  --update-snapshots
-  ```
-
-  - Update CSS flow types
-
-  ```bash
-  yarn run flow-generate:css
   ```
 
   - If you are introducing breaking changes, create a **[codemod](/get_started/developers/tooling/web#Release-codemods)** to help users migrate between versions.

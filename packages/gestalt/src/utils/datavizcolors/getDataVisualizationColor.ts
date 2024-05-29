@@ -1,5 +1,5 @@
-import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
-import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-light.json';
+import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/classic/variables-dark.json';
+import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/classic/variables-light.json';
 
 /** Gets the relevant dataviz color from a code. We use the color hex to generate a shade. Data visualization colors are a part of theme tokens */
 export default function getDataVisualizationColor(

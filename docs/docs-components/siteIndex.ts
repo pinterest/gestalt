@@ -201,8 +201,8 @@ const siteIndex: ReadonlyArray<siteIndexType> = [
       'Overview',
       'Accessibility',
       {
-        sectionName: 'Animation',
-        pages: ['Principles', 'Guidelines', 'Implementation'],
+        sectionName: 'Motion',
+        pages: ['Principles', 'Guidelines'],
       },
       {
         sectionName: 'Brand expression',

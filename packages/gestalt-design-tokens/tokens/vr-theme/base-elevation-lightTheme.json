@@ -1,0 +1,128 @@
+{
+  "elevation": {
+    "100": {
+      "value": {
+        "0": {
+          "offsetX": 0,
+          "offsetY": 1,
+          "blurRadius": 2,
+          "spreadRadius": 0,
+          "color": "#000000",
+          "opacity": 0.1
+        },
+        "1": {
+          "offsetX": 0,
+          "offsetY": 0,
+          "blurRadius": 1,
+          "spreadRadius": 0,
+          "color": "#000000",
+          "opacity": 0.08
+        }
+      }
+    },
+    "200": {
+      "value": {
+        "0": {
+          "offsetX": 0,
+          "offsetY": 4,
+          "blurRadius": 16,
+          "spreadRadius": 0,
+          "color": "#000000",
+          "opacity": 0.1
+        },
+        "1": {
+          "offsetX": 0,
+          "offsetY": 1,
+          "blurRadius": 4,
+          "spreadRadius": 0,
+          "color": "#000000",
+          "opacity": 0.8
+        }
+      }
+    },
+    "300": {
+      "value": {
+        "0": {
+          "offsetX": 0,
+          "offsetY": 0,
+          "blurRadius": 0,
+          "spreadRadius": 0.5,
+          "color": "#000000",
+          "opacity": 0.6
+        },
+        "1": {
+          "offsetX": 0,
+          "offsetY": 1,
+          "blurRadius": 6,
+          "spreadRadius": 0,
+          "color": "#000000",
+          "opacity": 0.1
+        },
+        "2": {
+          "offsetX": 0,
+          "offsetY": 1,
+          "blurRadius": 2,
+          "spreadRadius": 0,
+          "color": "#000000",
+          "opacity": 0.06
+        }
+      }
+    },
+    "325": {
+      "value": {
+        "0": {
+          "offsetX": 0,
+          "offsetY": 1,
+          "blurRadius": 0,
+          "spreadRadius": 0.5,
+          "color": "#000000",
+          "opacity": 0.06
+        },
+        "1": {
+          "offsetX": 0,
+          "offsetY": 2,
+          "blurRadius": 8,
+          "spreadRadius": 0,
+          "color": "#000000",
+          "opacity": 0.12
+        },
+        "2": {
+          "offsetX": 0,
+          "offsetY": 1,
+          "blurRadius": 2,
+          "spreadRadius": 0,
+          "color": "#000000",
+          "opacity": 0.06
+        }
+      }
+    },
+    "350": {
+      "value": {
+        "0": {
+          "offsetX": 0,
+          "offsetY": -1,
+          "blurRadius": 0,
+          "spreadRadius": 0.5,
+          "color": "#000000",
+          "opacity": 0.06
+        },
+        "1": {
+          "offsetX": 0,
+          "offsetY": -2,
+          "blurRadius": 8,
+          "spreadRadius": 0,
+          "color": "#000000",
+          "opacity": 0.12
+        },
+        "2": {
+          "offsetX": 0,
+          "offsetY": -1,
+          "blurRadius": 2,
+          "spreadRadius": 0,
+          "color": "#000000",
+          "opacity": 0.06
+        }
+      }
+    }
+  }
+}

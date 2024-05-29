@@ -1,4 +1,3 @@
-// eslint-disable-next-line flowtype/require-valid-file-annotation
 import { readFileSync, writeFileSync } from 'fs';
 import { extname, relative } from 'path';
 import babel from '@rollup/plugin-babel';

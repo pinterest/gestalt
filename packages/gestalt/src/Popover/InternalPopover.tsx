@@ -4,7 +4,7 @@ import Box from '../Box';
 import { Overflow } from '../boxTypes';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import Flex from '../Flex';
-import InternalDismissButton from '../shared/InternalDismissButton';
+import InternalDismissButton from '../sharedSubcomponents/InternalDismissButton';
 
 type Color = 'blue' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;

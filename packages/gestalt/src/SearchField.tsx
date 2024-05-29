@@ -5,9 +5,9 @@ import Icon from './Icon';
 import IconButton from './IconButton';
 import layout from './Layout.css';
 import styles from './SearchField.css';
-import formElement from './shared/FormElement.css';
-import FormErrorMessage from './shared/FormErrorMessage';
-import FormLabel from './shared/FormLabel';
+import formElement from './sharedSubcomponents/FormElement.css';
+import FormErrorMessage from './sharedSubcomponents/FormErrorMessage';
+import FormLabel from './sharedSubcomponents/FormLabel';
 
 type UnionRefs = HTMLDivElement | HTMLAnchorElement;
 

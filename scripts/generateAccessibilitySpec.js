@@ -4,10 +4,9 @@ const fs = require('fs');
 
 async function generate(page) {
   return await fs.promises.writeFile(
-    `./playwright/accessibility/${page}.spec.mjs`,
-    `// @flow strict
-import { test } from '@playwright/test';
-import expectAccessiblePage from './expectAccessiblePage.mjs';
+    `./playwright/accessibility/${page}.spec`,
+    `import { test } from '@playwright/test';
+import expectAccessiblePage from './expectAccessiblePage';
 
 test('${page} Accessibility check', async ({ page }) => {
   await page.goto('/${page.toLowerCase()}');

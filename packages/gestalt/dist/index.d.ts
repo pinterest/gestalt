@@ -232,7 +232,6 @@ type Icons =
   | 'lightning-bolt-circle'
   | 'link'
   | 'lips'
-  | 'live'
   | 'location'
   | 'lock'
   | 'logo-large'

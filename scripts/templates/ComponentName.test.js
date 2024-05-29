@@ -1,4 +1,3 @@
-// @flow strict
 import { create } from 'react-test-renderer';
 import ComponentName from './ComponentName';
 

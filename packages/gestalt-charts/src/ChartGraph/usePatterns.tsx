@@ -3,8 +3,8 @@ import {
   TOKEN_COLOR_BORDER_CONTAINER,
   TOKEN_COLOR_WHITE_MOCHIMALIST_0,
 } from 'gestalt-design-tokens';
-import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-dark.json';
-import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/variables-light.json';
+import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/classic/variables-dark.json';
+import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/classic/variables-light.json';
 import { DataVisualizationColors } from './types';
 
 export const useHexColor: () => (arg1: DataVisualizationColors) => string = () => {

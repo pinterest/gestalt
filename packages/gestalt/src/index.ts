@@ -1,4 +1,4 @@
-import 'gestalt-design-tokens/dist/css/variables.css';
+import 'gestalt-design-tokens/dist/css/classic/variables.css';
 import Accordion from './Accordion';
 import ActivationCard from './ActivationCard';
 import Avatar from './Avatar';

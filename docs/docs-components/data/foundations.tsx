@@ -1,6 +1,6 @@
 import { DesignOverview } from './types';
 import Accessibility from '../../graphics/foundations/accessibility.svg';
-import Animation from '../../graphics/foundations/animation.svg';
+import Motion from '../../graphics/foundations/animation.svg';
 import BrandExpression from '../../graphics/foundations/brand_expression.svg';
 import Color from '../../graphics/foundations/color.svg';
 import Content from '../../graphics/foundations/content.svg';
@@ -25,10 +25,10 @@ const foundationsTiles: ReadonlyArray<DesignOverview> = [
     path: '/foundations/accessibility',
   },
   {
-    svg: <Animation />,
-    title: 'Animation',
+    svg: <Motion />,
+    title: 'Motion',
     description: 'Guidelines for animation in product and implementation options',
-    path: '/foundations/animation/principles',
+    path: '/foundations/motion/principles',
   },
   {
     svg: <BrandExpression />,

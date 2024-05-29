@@ -16,7 +16,7 @@ import Heading from '../Heading';
 import { ESCAPE } from '../keyCodes';
 import overlayPanelStyles from '../OverlayPanel.css';
 import InternalScrollBoundaryContainer from '../ScrollBoundaryContainer/InternalScrollBoundaryContainerWithForwardRef';
-import InternalDismissButton from '../shared/InternalDismissButton';
+import InternalDismissButton from '../sharedSubcomponents/InternalDismissButton';
 import { FixedZIndex } from '../zIndex';
 
 export const PADDING_BOINTS = 6;

@@ -1,5 +1,4 @@
-// @flow strict
-const tokens = require('gestalt-design-tokens/dist/js/constants');
+const tokens = require('gestalt-design-tokens/dist/js/classic/constants');
 const stylelint = require('stylelint');
 
 const {
@@ -17,8 +16,6 @@ const meta = {
   url: 'https://gestalt.pinterest.systems/get_started/developers/eslint_plugin',
 };
 
-/** @type {import('stylelint').Rule} */
-// $FlowFixMe[missing-local-annot]
 const ruleFunction = (primary) => (root, result) => {
   const validOptions = validateOptions(result, ruleName, {
     actual: primary,
@@ -53,5 +50,4 @@ module.exports.ruleName = ruleName;
 module.exports.messages = messages;
 module.exports.meta = meta;
 
-// $FlowFixMe[signature-verification-failure]
 module.exports = createPlugin(ruleName, ruleFunction);

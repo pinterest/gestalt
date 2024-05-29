@@ -1,3 +1,111 @@
+## 150.1.4 (May 28, 2024)
+
+### Patch
+
+- Docs: Update design_contributions_overview.md ([#3598](https://github.com/pinterest/gestalt/pull/3598)) - [Preview link](https://deploy-preview-3598--gestalt.netlify.app?devexample=true)
+
+## 150.1.3 (May 28, 2024)
+
+### Patch
+
+- Docs: Fix Motion Guidelines Lateral easing GIF ([#3599](https://github.com/pinterest/gestalt/pull/3599)) - [Preview link](https://deploy-preview-3599--gestalt.netlify.app?devexample=true)
+
+## 150.1.2 (May 24, 2024)
+
+### Patch
+
+- Docs: fix Heading page ([#3595](https://github.com/pinterest/gestalt/pull/3595)) - [Preview link](https://deploy-preview-3595--gestalt.netlify.app?devexample=true)
+
+## 150.1.1 (May 24, 2024)
+
+### Patch
+
+- Masonry: Add multi column item support to flexible masonry ([#3574](https://github.com/pinterest/gestalt/pull/3574)) - [Preview link](https://deploy-preview-3574--gestalt.netlify.app?devexample=true)
+
+## 150.1.0 (May 24, 2024)
+
+### Minor
+
+- Masonry: Iterate + bug fixes (V2) ([#3594](https://github.com/pinterest/gestalt/pull/3594)) - [Preview link](https://deploy-preview-3594--gestalt.netlify.app?devexample=true)
+
+## 150.0.1 (May 24, 2024)
+
+### Patch
+
+- Internal: renames and fixes more ([#3593](https://github.com/pinterest/gestalt/pull/3593)) - [Preview link](https://deploy-preview-3593--gestalt.netlify.app?devexample=true)
+
+## 150.0.0 (May 23, 2024)
+
+### Major
+
+- Tokens: VR tokens (final vr-theme files) for Android and iOS consumption (web mapping layer not included) ([#3576](https://github.com/pinterest/gestalt/pull/3576)) - [Preview link](https://deploy-preview-3576--gestalt.netlify.app?devexample=true)
+
+## 149.0.5 (May 23, 2024)
+
+### Patch
+
+- Docs: Use img tag for GIFs ([#3590](https://github.com/pinterest/gestalt/pull/3590)) - [Preview link](https://deploy-preview-3590--gestalt.netlify.app?devexample=true)
+
+## 149.0.4 (May 23, 2024)
+
+### Patch
+
+- Docs: New Motion Guidelines page ([#3578](https://github.com/pinterest/gestalt/pull/3578)) - [Preview link](https://deploy-preview-3578--gestalt.netlify.app?devexample=true)
+
+## 149.0.3 (May 23, 2024)
+
+### Patch
+
+- Internal: TypeScript migration for eslint-plugin-gestalt test fixtures ([#3589](https://github.com/pinterest/gestalt/pull/3589)) - [Preview link](https://deploy-preview-3589--gestalt.netlify.app?devexample=true)
+
+## 149.0.2 (May 21, 2024)
+
+### Patch
+
+- Internal: remove Flow ([#3584](https://github.com/pinterest/gestalt/pull/3584)) - [Preview link](https://deploy-preview-3584--gestalt.netlify.app?devexample=true)
+
+## 149.0.1 (May 21, 2024)
+
+### Patch
+
+- Internal: TypeScript migration for gestalt-codemods ([#3586](https://github.com/pinterest/gestalt/pull/3586)) - [Preview link](https://deploy-preview-3586--gestalt.netlify.app?devexample=true)
+
+## 149.0.0 (May 21, 2024)
+
+### Major
+
+- Icon: updated redo/undo icons + deprecated live icon. ([#3585](https://github.com/pinterest/gestalt/pull/3585)) - [Preview link](https://deploy-preview-3585--gestalt.netlify.app?devexample=true)
+
+## 148.0.5 (May 21, 2024)
+
+### Patch
+
+- Internal: Migrate `eslint-plugin-gestalt` to TypeScript ([#3581](https://github.com/pinterest/gestalt/pull/3581)) - [Preview link](https://deploy-preview-3581--gestalt.netlify.app?devexample=true)
+
+## 148.0.4 (May 21, 2024)
+
+### Patch
+
+- Docs: updates re Flow and codemods ([#3583](https://github.com/pinterest/gestalt/pull/3583)) - [Preview link](https://deploy-preview-3583--gestalt.netlify.app?devexample=true)
+
+## 148.0.3 (May 21, 2024)
+
+### Patch
+
+- Internal: playwright TypeScript fixup ([#3582](https://github.com/pinterest/gestalt/pull/3582)) - [Preview link](https://deploy-preview-3582--gestalt.netlify.app?devexample=true)
+
+## 148.0.2 (May 21, 2024)
+
+### Patch
+
+- Internal: migrate playwright tests to TypeScript ([#3580](https://github.com/pinterest/gestalt/pull/3580)) - [Preview link](https://deploy-preview-3580--gestalt.netlify.app?devexample=true)
+
+## 148.0.1 (May 20, 2024)
+
+### Patch
+
+- Internal: Remove codemod for gestalt version upgrade ([#3579](https://github.com/pinterest/gestalt/pull/3579)) - [Preview link](https://deploy-preview-3579--gestalt.netlify.app?devexample=true)
+
 ## 148.0.0 (May 16, 2024)
 
 ### Major

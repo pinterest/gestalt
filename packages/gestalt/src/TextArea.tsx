@@ -2,10 +2,10 @@ import { forwardRef, ReactElement, ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import focusStyles from './Focus.css';
-import formElement from './shared/FormElement.css';
-import FormErrorMessage from './shared/FormErrorMessage';
-import FormHelperText from './shared/FormHelperText';
-import FormLabel from './shared/FormLabel';
+import formElement from './sharedSubcomponents/FormElement.css';
+import FormErrorMessage from './sharedSubcomponents/FormErrorMessage';
+import FormHelperText from './sharedSubcomponents/FormHelperText';
+import FormLabel from './sharedSubcomponents/FormLabel';
 import styles from './TextArea.css';
 
 const ROW_HEIGHT = 24;

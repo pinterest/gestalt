@@ -69,10 +69,6 @@ figma: null,
 
 Before merging
 
-## Update Flow CSS coverage
-
-yarn run flow-generate:css
-
 ## Update the TypeScript declaration files
 
 `packages/gestalt/dist/index.d.ts`

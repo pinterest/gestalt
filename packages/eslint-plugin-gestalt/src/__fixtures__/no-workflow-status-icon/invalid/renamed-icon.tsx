@@ -1,0 +1,8 @@
+// @ts-nocheck
+import { Icon as RenamedIcon } from 'gestalt';
+
+export default function TestElement() {
+  return (
+    <RenamedIcon icon="workflow-status-problem" color="error" />
+  );
+}

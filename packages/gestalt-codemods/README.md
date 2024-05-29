@@ -110,7 +110,7 @@ If it's a custom codemods, create a folder within `packages/gestalt-codemods` fo
 In the codemod file, add a usage comment at the top describing the purpose of the codemod (expected input and output) as well as a CLI command for easy copy/paste usage:
 
 ```js
-yarn codemod --parser=flow -t=packages/gestalt-codemods/{version number}/{codemod file name} relative/path/to/code/to/modify
+yarn codemod --parser=tsx -t=packages/gestalt-codemods/{version number}/{codemod file name} relative/path/to/code/to/modify
 ```
 
 1. Now comes the fun part: create your transform function! We use [jscodeshift](https://github.com/facebook/jscodeshift), so you'll want to familiarize yourself with that specific flavor of AST traversal and manipulation. [AST Explorer](https://astexplorer.net/) is invaluable for familiarizing yourself with how specific blocks of code are parsed in an AST.

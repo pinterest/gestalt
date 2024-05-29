@@ -7,10 +7,10 @@ import layout from './Layout.css';
 import styles from './SelectList.css';
 import SelectListGroup from './SelectList/SelectListGroup';
 import SelectListOption from './SelectList/SelectListOption';
-import formElement from './shared/FormElement.css';
-import FormErrorMessage from './shared/FormErrorMessage';
-import FormHelperText from './shared/FormHelperText';
-import FormLabel from './shared/FormLabel';
+import formElement from './sharedSubcomponents/FormElement.css';
+import FormErrorMessage from './sharedSubcomponents/FormErrorMessage';
+import FormHelperText from './sharedSubcomponents/FormHelperText';
+import FormLabel from './sharedSubcomponents/FormLabel';
 
 type Props = {
   /**

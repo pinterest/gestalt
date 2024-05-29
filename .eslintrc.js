@@ -1,9 +1,6 @@
-// @flow strict
 const OFF = 'off';
 const ERROR = 'error';
-const ALWAYS = 'always';
 const NEVER = 'never';
-const VERBOSE = 'verbose';
 
 const baseExtends = [
   'airbnb',
@@ -33,7 +30,7 @@ const baseRules = {
   'gestalt/only-valid-tokens': ERROR,
   'import/extensions': [
     ERROR,
-    { css: 'always', js: 'never', ts: 'never', tsx: 'never', json: 'always', mjs: 'always' },
+    { css: 'always', js: 'never', ts: 'never', tsx: 'never', json: 'always', mjs: 'never' },
   ],
   'import/first': ERROR,
   'import/newline-after-import': ERROR,
@@ -61,7 +58,7 @@ const baseRules = {
   'react-hooks/exhaustive-deps': ERROR,
   'react-hooks/rules-of-hooks': ERROR,
   'react/destructuring-assignment': OFF,
-  'react/prefer-exact-props': OFF, // Flow is set to exact_by_default to true in .flowconfig
+  'react/prefer-exact-props': OFF,
   'react/prop-types': OFF, // Already covered by TypeScript
   'react/jsx-filename-extension': OFF,
   'react/jsx-fragments': [ERROR, 'element'],
@@ -132,28 +129,11 @@ module.exports = {
     },
     {
       files: ['**/*.js'],
-      extends: [...baseExtends, 'plugin:flowtype/recommended'],
+      extends: [...baseExtends],
       parser: '@babel/eslint-parser',
-      plugins: [...basePlugins, 'flowtype'],
+      plugins: [...basePlugins],
       rules: {
         ...baseRules,
-        'flowtype/array-style-complex-type': [ERROR, VERBOSE],
-        'flowtype/array-style-simple-type': [ERROR, VERBOSE],
-        'flowtype/define-flow-type': ERROR,
-        'flowtype/no-mutable-array': ERROR,
-        'flowtype/no-types-missing-file-annotation': ERROR,
-        'flowtype/require-exact-type': OFF, // Flow is set to exact_by_default to true in .flowconfig
-        'flowtype/require-valid-file-annotation': [
-          ERROR,
-          ALWAYS,
-          {
-            'annotationStyle': 'line',
-            'strict': true,
-          },
-        ],
-        'flowtype/space-after-type-colon': [ERROR, ALWAYS, { 'allowLineBreak': true }],
-        'flowtype/space-before-type-colon': [ERROR, NEVER],
-        'flowtype/type-import-style': ERROR,
         'no-unused-vars': [ERROR, { 'args': 'after-used', 'argsIgnorePattern': '^_' }],
       },
     },
@@ -167,14 +147,6 @@ module.exports = {
       'files': ['scripts/templates/*.{js,ts,tsx}'],
       'rules': {
         'import/no-unresolved': OFF,
-      },
-    },
-    {
-      'files': ['packages/gestalt-codemods/**/*.{js,ts,tsx}', 'scripts/**/*.{js,ts,tsx}'],
-      'rules': {
-        'flowtype/no-mutable-array': OFF,
-        'flowtype/require-exact-type': OFF,
-        'flowtype/require-valid-file-annotation': OFF,
       },
     },
     {
@@ -216,7 +188,7 @@ module.exports = {
       },
     },
     {
-      'files': ['playwright/**/*.mjs', 'scripts/templates/*.spec.mjs'],
+      'files': ['playwright/**/*.ts', 'scripts/templates/*.spec.ts'],
       'extends': ['plugin:playwright/playwright-test'],
       'rules': {
         'playwright/missing-playwright-await': ERROR,
@@ -227,7 +199,6 @@ module.exports = {
         'playwright/no-page-pause': ERROR,
         'playwright/no-skipped-test': OFF, // Can be turned on when what's new is removed
         'playwright/no-wait-for-timeout': ERROR,
-        'flowtype/require-valid-file-annotation': OFF,
         'jest/expect-expect': OFF,
         'jest/no-done-callback': OFF,
         'jest/valid-expect': OFF,
