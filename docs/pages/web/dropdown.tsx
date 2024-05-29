@@ -1,6 +1,5 @@
 import { BannerSlim } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
-import { BannerSlimExperiment } from '../../docs-components/BannerSlimExperiment';
 import { DocGen, multipleDocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
@@ -38,13 +37,6 @@ export default function ComponentPage({
   return (
     <Page title={generatedDocGen.Dropdown?.displayName}>
       <PageHeader
-        bannerSlimExperiment={
-          <BannerSlimExperiment
-            componentName="Dropdown"
-            description="fix and improve underlying Popover component behavior. No visual updates"
-            pullRequest={3244}
-          />
-        }
         description={generatedDocGen?.Dropdown.description}
         name={generatedDocGen?.Dropdown.displayName}
       >
