@@ -8,6 +8,7 @@ import {
   useRef,
 } from 'react';
 import classnames from 'classnames';
+import AccessibilityOpenNewTab from './accessibility/AccessibilityOpenNewTab';
 import getAriaLabel from './accessibility/getAriaLabel';
 import Box from './Box';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
@@ -15,8 +16,6 @@ import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerPro
 import focusStyles from './Focus.css';
 import getRoundingClassName from './getRoundingClassName';
 import Icon from './Icon';
-import iconStyles from './Icon.css';
-import icons from './icons/index';
 import layoutStyles from './Layout.css';
 import styles from './Link.css';
 import touchableStyles from './TapArea.css';
@@ -44,37 +43,6 @@ type ExternalLinkIcon =
       color: ComponentProps<typeof Icon>['color'];
       size: ComponentProps<typeof Text>['size'];
     };
-
-function ExternalIcon({
-  externalLinkIcon,
-}: {
-  externalLinkIcon:
-    | 'default'
-    | {
-        color: ComponentProps<typeof Icon>['color'];
-        size: ComponentProps<typeof Text>['size'];
-      };
-}) {
-  const size: ComponentProps<typeof Icon>['size'] =
-    externalLinkIcon === 'default'
-      ? externalLinkIconMap['300']
-      : externalLinkIconMap[externalLinkIcon?.size ?? '300'];
-
-  const color: ComponentProps<typeof Icon>['color'] =
-    externalLinkIcon === 'default' ? 'default' : externalLinkIcon?.color ?? 'default';
-
-  const cs = classnames(iconStyles.rtlSupport, iconStyles[color], iconStyles.icon);
-  const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
-
-  return (
-    <Box display="inlineBlock" marginStart={1}>
-      <svg className={cs} height={size} role="img" viewBox="0 0 24 24" width={size}>
-        <title>, {accessibilityNewTabLabel}</title>
-        <path d={icons.visit} />
-      </svg>
-    </Box>
-  );
-}
 
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
 
@@ -303,7 +271,20 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
       target={target ? `_${target}` : null}
     >
       {children}
-      {externalLinkIcon === 'none' ? null : <ExternalIcon externalLinkIcon={externalLinkIcon} />}
+      {externalLinkIcon === 'none' ? null : (
+        <Box display="inlineBlock" marginStart={1}>
+          <AccessibilityOpenNewTab
+            color={
+              externalLinkIcon === 'default' ? 'default' : externalLinkIcon?.color ?? 'default'
+            }
+            size={
+              externalLinkIcon === 'default'
+                ? externalLinkIconMap['300']
+                : externalLinkIconMap[externalLinkIcon?.size ?? '300']
+            }
+          />
+        </Box>
+      )}
     </a>
   );
 });

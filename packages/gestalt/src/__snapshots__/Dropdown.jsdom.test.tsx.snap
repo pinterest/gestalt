@@ -737,16 +737,6 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       </svg>
                     </div>
                   </div>
-                  <div
-                    class="box relative"
-                    style="display: inline;"
-                  >
-                    <div
-                      class="box xsDisplayVisuallyHidden"
-                    >
-                      ; Opens a new tab
-                    </div>
-                  </div>
                 </a>
               </div>
             </div>
@@ -910,16 +900,6 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       </svg>
                     </div>
                   </div>
-                  <div
-                    class="box relative"
-                    style="display: inline;"
-                  >
-                    <div
-                      class="box xsDisplayVisuallyHidden"
-                    >
-                      ; Opens a new tab
-                    </div>
-                  </div>
                 </a>
               </div>
             </div>
@@ -985,16 +965,6 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                           d="test-file-stub"
                         />
                       </svg>
-                    </div>
-                  </div>
-                  <div
-                    class="box relative"
-                    style="display: inline;"
-                  >
-                    <div
-                      class="box xsDisplayVisuallyHidden"
-                    >
-                      ; Opens a new tab
                     </div>
                   </div>
                 </a>

@@ -33,7 +33,7 @@ exports[`Datapoint renders 1`] = `
             <div
               className="box xsDisplayVisuallyHidden"
             >
-              ,
+              , 
             </div>
           </div>
         </div>
@@ -64,7 +64,7 @@ exports[`Datapoint renders 1`] = `
             <div
               className="box xsDisplayVisuallyHidden"
             >
-              ,
+              , 
             </div>
           </div>
         </div>
@@ -141,7 +141,7 @@ exports[`Datapoint renders a badge 1`] = `
             <div
               className="box xsDisplayVisuallyHidden"
             >
-              ,
+              , 
             </div>
           </div>
         </div>
@@ -198,7 +198,7 @@ exports[`Datapoint renders a badge 1`] = `
             <div
               className="box xsDisplayVisuallyHidden"
             >
-              ,
+              , 
             </div>
           </div>
         </div>
@@ -275,7 +275,7 @@ exports[`Datapoint renders a tooltip 1`] = `
             <div
               className="box xsDisplayVisuallyHidden"
             >
-              ,
+              , 
             </div>
           </div>
         </div>
@@ -357,7 +357,7 @@ exports[`Datapoint renders a tooltip 1`] = `
             <div
               className="box xsDisplayVisuallyHidden"
             >
-              ,
+              , 
             </div>
           </div>
         </div>
@@ -434,7 +434,7 @@ exports[`Datapoint renders an accessibility label 1`] = `
             <div
               className="box xsDisplayVisuallyHidden"
             >
-              ,
+              , 
             </div>
           </div>
         </div>
@@ -465,7 +465,7 @@ exports[`Datapoint renders an accessibility label 1`] = `
             <div
               className="box xsDisplayVisuallyHidden"
             >
-              ,
+              , 
             </div>
           </div>
         </div>
