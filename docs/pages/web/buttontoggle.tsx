@@ -111,12 +111,12 @@ export default function DocsPage({ generatedDocGen }: DocType) {
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            description="If the ButtonToggle(s) trigger a significant action or irreversible change, it is recommended to include a confirmation, such as a toast message."
+            description="If the ButtonToggle(s) trigger a significant action or irreversible change, it is recommended to include a confirmation, such as a ModalAlert message."
             sandpackExample={
               <SandpackExample
                 code={confirmationDo}
                 hideEditor
-                name="If the ButtonToggle(s) trigger a significant action or irreversible change, it is recommended to include a confirmation, such as a toast message."
+                name="If the ButtonToggle(s) trigger a significant action or irreversible change, it is recommended to include a confirmation, such as a ModalAlert message."
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
