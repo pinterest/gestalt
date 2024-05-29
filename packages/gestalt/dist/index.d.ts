@@ -933,18 +933,19 @@ interface ButtonProps {
 }
 
 interface ButtonToggleProps {
-  accessibilityControls?: string | undefined;
-  accessibilityLabel?: string | undefined;
+  accessibilityControls?: string;
+  accessibilityLabel?: string;
   color?:
     | 'red'
-    | 'transparent'
-    | undefined;
+    | 'transparent';
   dataTestId?: string;
-  disabled?: boolean | undefined;
-  iconStart?: Icons | undefined;
-  onClick?: ButtonEventHandlerType | undefined;
-  selected: boolean | undefined;
-  size?: 'sm' | 'md' | 'lg' | undefined;
+  disabled?: boolean;
+  iconStart?: Icons;
+  onClick?: ButtonEventHandlerType;
+  onBlur?: AbstractEventHandler<React.FocusEventEvent<HTMLButtonElement>>;
+  onFocus?: AbstractEventHandler<React.FocusEventEvent<HTMLButtonElement>>;
+  selected: boolean;
+  size?: 'sm' | 'md' | 'lg';
   text: string;
 }
 
@@ -2684,9 +2685,9 @@ export const ButtonLink: ReactForwardRef<HTMLAnchorElement, ButtonLinkProps>;
 export const ButtonGroup: React.FunctionComponent<ButtonGroupProps>;
 
 /**
- * https://gestalt.pinterest.systems/web/button
+ * https://gestalt.pinterest.systems/web/buttontoggle
  */
-export const ButtonToggle: ReactForwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonToggleProps>;
+export const ButtonToggle: ReactForwardRef<HTMLButtonElement, ButtonToggleProps>;
 
 /**
  * https://gestalt.pinterest.systems/web/bannercallout
