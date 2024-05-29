@@ -146,7 +146,12 @@ export const plugins = (name) => [
   json({
     preferConst: true,
   }),
-  typescript({ tsconfig: relative(__dirname, '../../tsconfig.json') }),
+  typescript({
+    // note: this is the relative tsconfig for each package (e.g. packages/gestalt/tsconfig.json)
+    tsconfig: relative(__dirname, './tsconfig.json'),
+    exclude: ['**/*.test.ts', '**/*.test.tsx'],
+    noEmitOnError: true,
+  }),
   babel({
     babelHelpers: 'bundled',
     babelrc: false,
