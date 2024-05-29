@@ -60,7 +60,7 @@
   background-color: var(--color-background-button-tertiary-default);
 }
 
-.selectedBorder{
+.selectedBorder {
   composes: sizeLg from "./Borders.css";
 }
 

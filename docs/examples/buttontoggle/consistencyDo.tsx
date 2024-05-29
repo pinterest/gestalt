@@ -18,9 +18,28 @@ export default function Example() {
       >
         <Flex alignContent="center" alignItems="center" direction="column" width="100%">
           <ButtonGroup>
-            <ButtonToggle color='red' iconStart='pin' onClick={() =>setSaved(!saved)} selected={saved} size="lg" text={saved? "Saved" : "Save"} />
-            <ButtonToggle iconStart='share' onClick={() =>setShared(!shared)} selected={shared} size="lg" text={shared? "Shared" : "Share"} />
-            <ButtonToggle iconStart='star' onClick={() =>setBookmarked(!bookmarked)} selected={bookmarked} size="lg" text={bookmarked? "Bookmarked" : "Bookmark"} />
+            <ButtonToggle
+              color="red"
+              iconStart="pin"
+              onClick={() => setSaved(!saved)}
+              selected={saved}
+              size="lg"
+              text={saved ? 'Saved' : 'Save'}
+            />
+            <ButtonToggle
+              iconStart="share"
+              onClick={() => setShared(!shared)}
+              selected={shared}
+              size="lg"
+              text={shared ? 'Shared' : 'Share'}
+            />
+            <ButtonToggle
+              iconStart="star"
+              onClick={() => setBookmarked(!bookmarked)}
+              selected={bookmarked}
+              size="lg"
+              text={bookmarked ? 'Bookmarked' : 'Bookmark'}
+            />
           </ButtonGroup>
         </Flex>
       </Flex>
