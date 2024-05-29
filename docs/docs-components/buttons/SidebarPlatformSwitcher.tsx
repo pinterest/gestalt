@@ -34,6 +34,7 @@ export default function SidebarPlatformSwitcher({ onClick, componentPlatformFilt
     event: React.MouseEvent<HTMLButtonElement>;
   }) => {
     const selectedPlatform = Object.keys(PLATFORM_TO_INDEX_MAP).find(
+      // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly web: 0; readonly ios: 1; readonly android: 2; }'.
       (key) => PLATFORM_TO_INDEX_MAP[key] === activeIndex,
     );
     trackButtonClick('Sidebar Platform ', selectedPlatform);

@@ -21,6 +21,7 @@ export default function Example() {
     <Flex direction="column" gap={2} height="100%" width="100%">
       <ChartGraph
         accessibilityLabel="Example of time series chart"
+        // @ts-expect-error - TS2322 - Type 'undefined' is not assignable to type 'number'.
         data={data}
         elements={[
           { type: 'line', id: 'Actual data', precision: 'exact' },

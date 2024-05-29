@@ -145,7 +145,8 @@
     "slack-generate:post": "./scripts/generateSlackBlockKitPost.js",
     "start": "netlify dev -c \"yarn dev\"",
     "svgIcons:validate": "./scripts/validateIconSvgSpecs.js",
-    "test": "./scripts/test.sh"
+    "test": "./scripts/test.sh",
+    "tsc": "tsc --build"
   },
   "jest": {
     "projects": [

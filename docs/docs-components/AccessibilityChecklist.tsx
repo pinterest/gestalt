@@ -40,12 +40,18 @@ function AccessibilityTable({ accessibilityData }: { accessibilityData?: Compone
       </Box>
       <Table.Body>
         {['a11yVisual', 'a11yScreenreader', 'a11yNavigation', 'a11yComprehension'].map((item) => {
+          // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'ComponentAccessibility'.
           const componentStatus = accessibilityData?.[item] ?? 'notAvailable';
 
           return (
             <Table.Row key={item}>
               <Table.Cell>
-                <Text>{COMPONENT_A11Y_STATUS_MESSAGING[item].title}</Text>
+                <Text>
+                  {
+                    // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Readonly<{ a11yVisual: { title: string; ready: string; partial: string; notAvailable: string; planned: string; }; a11yNavigation: { title: string; ready: string; partial: string; notAvailable: string; planned: string; }; a11yScreenreader: { ...; }; a11yComprehension: { ...; }; }>'.
+                    COMPONENT_A11Y_STATUS_MESSAGING[item].title
+                  }
+                </Text>
               </Table.Cell>
               <Table.Cell>
                 <StatusData

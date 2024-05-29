@@ -1,14 +1,4 @@
 {
   "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "composite": true,
-    "noEmit": false,
-    "emitDeclarationOnly": true,
-    "declaration": true,
-    "outDir": "./dist/"
-  },
-  "include": [
-    "../../types/",
-    "."
-  ],
+  "include": ["."],
 }

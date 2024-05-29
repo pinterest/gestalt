@@ -1,4 +1,3 @@
-// @ts-expect-error - TS7016 - Could not find a declaration file for module './metadata'. '/docs/docs-components/metadata.js' implicitly has an 'any' type.
 import metadata from './metadata';
 
 export type DocGen = {
@@ -31,6 +30,7 @@ export type DocType = {
 };
 
 export default function docGen(componentName: string): DocGen {
+  // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{}'.
   return metadata[componentName];
 }
 

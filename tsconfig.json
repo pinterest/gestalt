@@ -38,11 +38,11 @@
   ],
   "files": [],
   "references": [
-    // { "path": "./packages/eslint-plugin-gestalt" },
+    { "path": "./packages/eslint-plugin-gestalt" },
     { "path": "./packages/gestalt" },
     { "path": "./packages/gestalt-codemods" },
     { "path": "./packages/gestalt-datepicker" },
-    { "path": "./packages/gestalt-charts" }
-    // { "path": "./docs" }
+    { "path": "./packages/gestalt-charts" },
+    { "path": "./docs" }
   ]
 }

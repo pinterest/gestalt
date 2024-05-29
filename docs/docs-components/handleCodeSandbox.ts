@@ -49,6 +49,7 @@ ${code}
 );
 export default Demo;`;
 
+// @ts-expect-error - TS2802 - Type 'Set<T>' can only be iterated through when using the '--downlevelIteration' flag or with a '--target' of 'es2015' or higher.
 const dedupeArray = <T>(arr: ReadonlyArray<T>): ReadonlyArray<T> => [...new Set(arr)];
 
 const handleCodeSandbox = async ({ code, title }: { code: string; title: string }) => {
