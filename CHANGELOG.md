@@ -1,3 +1,9 @@
+## 150.2.1 (May 29, 2024)
+
+### Patch
+
+- Link, Dropdown: fix A11y (opens new tab logic) ([#3600](https://github.com/pinterest/gestalt/pull/3600)) - [Preview link](https://deploy-preview-3600--gestalt.netlify.app?devexample=true)
+
 ## 150.2.0 (May 29, 2024)
 
 ### Minor
