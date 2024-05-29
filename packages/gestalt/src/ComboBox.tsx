@@ -490,7 +490,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
         />
       </Box>
       {showOptionsList && innerRef.current ? (
-        // @ts-expect-error - TS2786 - 'Layer' cannot be used as a JSX component.
+        
         <Layer zIndex={zIndex}>
           {/* @ts-expect-error - TS2786 - 'InternalPopover' cannot be used as a JSX component. */}
           <InternalPopover
@@ -511,7 +511,6 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
               direction="column"
               display="flex"
               flex="grow"
-              // @ts-expect-error - TS2322 - Type '{ children: Element | Element[]; ref: MutableRefObject<HTMLElement | null>; alignItems: "center"; direction: "column"; display: "flex"; ... 6 more ...; width: number; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
               id={id}
               maxHeight="30vh"
               overflow="auto"

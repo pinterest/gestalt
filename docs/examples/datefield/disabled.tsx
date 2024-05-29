@@ -34,7 +34,6 @@ export default function Example() {
           label="Date of birth"
           name="bday_datefield"
           onChange={({ value }) => {
-            // @ts-expect-error - TS2345 - Argument of type 'Date | null | undefined' is not assignable to parameter of type 'SetStateAction<Date | null>'.
             setDateValueDisableFuture(value);
           }}
           onClearInput={() => setDateValueDisableFuture(null)}
@@ -56,7 +55,6 @@ export default function Example() {
           label="Campaign activation date"
           name="bday_datefield"
           onChange={({ value }) => {
-            // @ts-expect-error - TS2345 - Argument of type 'Date | null | undefined' is not assignable to parameter of type 'SetStateAction<Date | null>'.
             setDatealueDisablePast(value);
           }}
           onClearInput={() => setDatealueDisablePast(null)}

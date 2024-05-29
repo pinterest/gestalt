@@ -26,14 +26,14 @@ export default function Example() {
       <ChartGraph
         accessibilityLabel="Beispiel für ein Liniendiagramm"
         data={[
+          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
           {
-            // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
             name: 'Women',
             'Users': 100,
             'Clickthroughs': 200,
           },
+          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
           {
-            // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
             name: 'Men',
             'Users': 200,
             'Clickthroughs': 300,

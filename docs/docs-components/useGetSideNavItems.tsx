@@ -49,7 +49,6 @@ const useGetSideNavItems = ({ sectionInfo }: { sectionInfo: siteIndexType }) => 
     }
     if (nestingLevel === 1) {
       return (
-        // @ts-expect-error - TS2741 - Property 'onExpand' is missing in type '{ children: Element[]; key: string; label: string; }' but required in type 'SideNavigationGroupProps'.
         <SideNavigation.Group key={`${navItem.sectionName}`} label={navItem.sectionName}>
           {navItem.pages.map((nestedPage) => {
             if (typeof nestedPage === 'string') {
@@ -73,7 +72,6 @@ const useGetSideNavItems = ({ sectionInfo }: { sectionInfo: siteIndexType }) => 
       );
     }
     return (
-      // @ts-expect-error - TS2741 - Property 'onExpand' is missing in type '{ children: (Element | null)[]; key: string; label: string; }' but required in type 'SideNavigationNestedGroupProps'.
       <SideNavigation.NestedGroup key={`${navItem.sectionName}`} label={navItem.sectionName}>
         {navItem.pages.map((nestedPage) => {
           if (typeof nestedPage === 'string') {

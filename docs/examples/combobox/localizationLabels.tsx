@@ -35,7 +35,6 @@ export default function Example() {
         <Box paddingX={8} paddingY={8}>
           <ComboBox
             accessibilityClearButtonLabel="Löscht den aktuellen Wert"
-            // @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'string | undefined'.
             errorMessage={errorMessage}
             helperText="Wählen Sie die Pronomen, die in Ihrem Profil erscheinen sollen, damit andere wissen, wie sie Sie ansprechen sollen. Sie können diese jederzeit bearbeiten oder entfernen."
             id="header"

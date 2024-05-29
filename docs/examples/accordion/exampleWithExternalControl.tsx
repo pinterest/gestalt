@@ -18,8 +18,6 @@ export default function Example() {
             <Box marginStart={2}>
               <Text>Step 1</Text>
             </Box>
-
-            {/* @ts-expect-error - TS2739 - Type '{ expandedIndex: any; id: string; items: { title: string; summary: string[]; children: Element; }[]; onExpandedChange: (index: number | null) => void; }' is missing the following properties from type 'AccordionExpandableProps': accessibilityCollapseLabel, accessibilityExpandLabel */}
             <Accordion.Expandable
               expandedIndex={
                 // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly 'first-0': 0; readonly 'first-1': 1; readonly 'second-0': 0; readonly 'second-1': 1; }'.
@@ -48,8 +46,6 @@ export default function Example() {
             <Box marginStart={2}>
               <Text>Step 2</Text>
             </Box>
-
-            {/* @ts-expect-error - TS2739 - Type '{ expandedIndex: any; id: string; items: { title: string; summary: string[]; children: Element; }[]; onExpandedChange: (index: number | null) => void; }' is missing the following properties from type 'AccordionExpandableProps': accessibilityCollapseLabel, accessibilityExpandLabel */}
             <Accordion.Expandable
               expandedIndex={
                 // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly 'first-0': 0; readonly 'first-1': 1; readonly 'second-0': 0; readonly 'second-1': 1; }'.

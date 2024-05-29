@@ -12,7 +12,6 @@ export default function Example() {
       text="Show BannerOverlay"
     />
   ) : (
-    // @ts-expect-error - TS2741 - Property 'onDismiss' is missing in type '{ message: string; offset: { top: number; bottom: number; }; primaryAction: { role: "button"; onClick: () => void; label: string; accessibilityLabel: string; }; thumbnail: { icon: Element; }; title: string; zIndex: FixedZIndex; }' but required in type 'BannerOverlayProps'.
     <BannerOverlay
       message="You can dismiss this banner with the primary action!"
       offset={{ top: 130, bottom: 24 }}

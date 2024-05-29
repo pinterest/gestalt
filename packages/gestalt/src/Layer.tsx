@@ -1,4 +1,4 @@
-import { ReactNode, ReactPortal, useEffect, useRef, useState } from 'react';
+import { ReactElement, ReactNode, ReactPortal, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider';
 import styles from './Layer.css';
@@ -24,7 +24,7 @@ type Props = {
 export default function Layer({
   children,
   zIndex: zIndexIndexable,
-}: Props): ReactPortal | ReactNode {
+}: Props): ReactPortal | ReactElement {
   const [mounted, setMounted] = useState(false);
   const portalContainer = useRef<HTMLDivElement | null | undefined>(null);
   const zIndex = zIndexIndexable?.index();

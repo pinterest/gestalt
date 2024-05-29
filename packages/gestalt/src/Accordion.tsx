@@ -91,7 +91,6 @@ export default function Accordion({
     <Box
       borderStyle={borderStyle !== 'none' ? borderStyle : undefined}
       color={isDarkMode ? 'elevationFloating' : 'default'}
-      // @ts-expect-error - TS2322 - Type '{ children: Element; borderStyle: "sm" | "shadow" | undefined; color: "default" | "elevationFloating"; id: string; padding: ComponentProps<ForwardRefExoticComponent<Omit<Props, "ref"> & RefAttributes<HTMLElement>>>; rounding: ComponentProps<...>; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
       id={id}
       padding={padding}
       rounding={rounding}

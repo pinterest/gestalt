@@ -14,7 +14,7 @@ export default function Example() {
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <ScrollBoundaryContainer>
         <Box
-          // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+          
           ref={viewRef}
           alignItems="center"
           color="default"

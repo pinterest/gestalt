@@ -71,7 +71,6 @@ export default function Example() {
           autoComplete="off"
           id="variants-tags"
           label="Emails"
-          // @ts-expect-error - TS2322 - Type 'ChangeTagHandler' is not assignable to type 'AbstractEventHandler<SyntheticEvent<HTMLInputElement, Event>, { value: string; }>'.
           onChange={onChangeTagManagement}
           onKeyDown={onKeyDownTagManagement}
           tags={renderedTags}

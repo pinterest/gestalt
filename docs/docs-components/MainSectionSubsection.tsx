@@ -61,7 +61,6 @@ function MainSectionSubsection({
                 <Badge
                   position="middle"
                   text={badge === 'experimental' ? 'Experimental' : 'Alpha'}
-                  // @ts-expect-error - TS2322 - Type '{ position: "middle"; text: string; tooltip: { text: string; }; }' is not assignable to type 'IntrinsicAttributes & BadgeProps'.
                   tooltip={
                     badge === 'experimental'
                       ? {

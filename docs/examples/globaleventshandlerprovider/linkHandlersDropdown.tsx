@@ -12,7 +12,7 @@ import {
 export default function Example() {
   const [onNavigationMode, setOnNavigationMode] = useState<'default' | 'custom'>('default');
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
+  const anchorRef = useRef<null | HTMLButtonElement>(null);
 
   const useOnNavigation = useCallback(
     ({
@@ -41,7 +41,6 @@ export default function Example() {
 
   return (
     <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
-      {/* @ts-expect-error - TS2322 - Type '{ onNavigation: (({ href, }: { href: ComponentProps<ReactForwardRef<HTMLAnchorElement, LinkProps>>; target?: any; }) => ({ event }: { readonly event: SyntheticEvent<Element, Event>; }) => void) | undefined; }' is not assignable to type '{ onNavigation: (arg: { href: string; target?: "blank" | "self" | null | undefined; }) => void | EventHandlerType | null; }'. */}
       <GlobalEventsHandlerProvider linkHandlers={linkHandlers}>
         <Flex direction="column" gap={2}>
           <Flex direction="column" gap={2}>

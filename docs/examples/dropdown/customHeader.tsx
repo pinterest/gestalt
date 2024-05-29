@@ -10,7 +10,7 @@ export default function CustomIconButtonPopoverExample() {
     value: string;
   }>(null);
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
+  const anchorRef = useRef<null | HTMLButtonElement>(null);
   const onSelect: ComponentProps<typeof Dropdown.Item>['onSelect'] = ({ item }) =>
     setSelected(item);
 
@@ -53,7 +53,7 @@ export default function CustomIconButtonPopoverExample() {
             // eslint-disable-next-line no-alert
             onSelect={() => alert('Pin has been hidden')}
             option={{ value: 'item 1', label: 'Hide Pin' }}
-            // @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
+            
             selected={selected}
           />
           <Dropdown.Link
@@ -70,13 +70,13 @@ export default function CustomIconButtonPopoverExample() {
               badge={{ text: 'New' }}
               onSelect={onSelect}
               option={{ value: 'item 4', label: 'Compact' }}
-              // @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
+              
               selected={selected}
             />
             <Dropdown.Item
               onSelect={onSelect}
               option={{ value: 'item 5', label: 'List' }}
-              // @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
+              
               selected={selected}
             />
           </Dropdown.Section>

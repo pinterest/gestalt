@@ -77,7 +77,6 @@ function MetaData({
         {darkModeSupport && isCustom && (
           <Badge
             text="Custom"
-            // @ts-expect-error - TS2322 - Type '{ text: string; tooltip: { text: string; idealDirection: string; }; type: "info"; }' is not assignable to type 'IntrinsicAttributes & BadgeProps'.
             tooltip={{
               text: 'This token value is hard coded and does not map to a lower level token.',
               idealDirection: 'up',
@@ -88,7 +87,6 @@ function MetaData({
         {!darkModeSupport && (
           <Badge
             text="No dark theme"
-            // @ts-expect-error - TS2322 - Type '{ text: string; tooltip: { text: string; idealDirection: string; }; type: "info"; }' is not assignable to type 'IntrinsicAttributes & BadgeProps'.
             tooltip={{
               text: 'This token value is the same as the light mode.',
               idealDirection: 'up',

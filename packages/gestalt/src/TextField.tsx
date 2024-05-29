@@ -116,7 +116,7 @@ type Props = {
  * ![TextField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextField-dark.spec.mjs-snapshots/TextField-dark-chromium-darwin.png)
  *
  */
-// @ts-expect-error - TS2345 - Argument of type '({ autoComplete, dataTestId, disabled, errorMessage, hasError, helperText, id, label, labelDisplay, maxLength, mobileEnterKeyHint, mobileInputMode, name, onBlur, onChange, onFocus, onKeyDown, placeholder, readOnly, size, tags, type: typeProp, value, }: Props, ref: ForwardedRef<HTMLInputElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLInputElement, Props>'.
+
 const TextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function TextField(
   {
     autoComplete,
@@ -144,7 +144,7 @@ const TextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function Tex
     value,
   }: Props,
   ref,
-): ReactNode {
+) {
   /**
    * Yes, this is initializing a state variable with a prop value and then disregarding the prop value — often a code smell, I know. This is necessary to internalize the effective input type (password vs text) and not force the user to handle responding to clicks on the button
    */

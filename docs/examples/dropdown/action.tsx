@@ -10,7 +10,7 @@ export default function CustomIconButtonPopoverExample() {
     subtext?: string;
     value: string;
   }>(null);
-  const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
+  const anchorRef = useRef<null | HTMLButtonElement>(null);
   const onSelect: ComponentProps<typeof Dropdown.Item>['onSelect'] = ({ item }) =>
     setSelected(item);
 
@@ -42,13 +42,13 @@ export default function CustomIconButtonPopoverExample() {
           <Dropdown.Item
             onSelect={onSelect}
             option={{ value: 'Cozy', label: 'Cozy' }}
-            // @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
+            
             selected={selected}
           />
           <Dropdown.Item
             onSelect={onSelect}
             option={{ value: 'Comfy', label: 'Comfy' }}
-            // @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
+            
             selected={selected}
           />
         </Dropdown>

@@ -99,7 +99,7 @@ function List({
 function SelectBoard() {
   const [openPopover, setOpenPopover] = useState(false);
   const [selectedBoard, setSelectedBoard] = useState('Fashion');
-  const anchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
+  const anchorRef = useRef<null | HTMLButtonElement>(null);
 
   const handleImageTap = (imageTitle: string) => {
     setSelectedBoard(imageTitle);

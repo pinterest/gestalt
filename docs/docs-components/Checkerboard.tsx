@@ -2,7 +2,6 @@ import { Box, useColorScheme } from 'gestalt';
 import { TOKEN_COLOR_BACKGROUND_DARK } from 'gestalt-design-tokens';
 
 export default function Checkerboard() {
-  // @ts-expect-error - TS2339 - Property 'colorSchemeName' does not exist on type '{ name: "lightMode" | "darkMode"; }'.
   const { colorSchemeName } = useColorScheme();
   const color =
     colorSchemeName === 'lightMode' ? TOKEN_COLOR_BACKGROUND_DARK : '#efefef'.replace('#', '%23');

@@ -10,9 +10,7 @@ export default function Example() {
       justifyContent="center"
       width="100%"
     >
-      {/* @ts-expect-error - TS2741 - Property 'dismissButton' is missing in type '{ text: string; }' but required in type 'ToastProps'. */}
       <Toast text="Signed as Three Crafty Ladies" />
-      {/* @ts-expect-error - TS2741 - Property 'dismissButton' is missing in type '{ text: Element; }' but required in type 'ToastProps'. */}
       <Toast
         text={
           <Text inline>

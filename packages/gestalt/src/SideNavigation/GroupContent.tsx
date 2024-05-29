@@ -249,7 +249,6 @@ export default function SideNavigationGroupContent({
         {(!collapsed && ['expandable', 'expandableExpanded'].includes(display)) || isMobile ? (
           <Flex.Item alignSelf="center" flex="none">
             {/* marginEnd={-2} is a hack to correctly position the counter as Flex + gap + width="100%" doean't expand to full width */}
-            {/* @ts-expect-error - TS2322 - Type '{ children: Element; "aria-hidden": true; marginEnd: -2; marginStart: 2; rounding: "circle"; tabIndex: number; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'. */}
             <Box aria-hidden marginEnd={-2} marginStart={2} rounding="circle" tabIndex={-1}>
               <Icon
                 accessibilityLabel=""

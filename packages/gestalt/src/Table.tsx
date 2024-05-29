@@ -88,7 +88,7 @@ export default function Table({
       // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null | undefined>' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
       ref={tableRef}
       maxHeight={maxHeight}
-      tabIndex="0"
+      tabIndex={0}
     >
       <table className={classNames}>
         <Box

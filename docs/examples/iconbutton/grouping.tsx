@@ -60,14 +60,14 @@ export default function Example() {
             <Dropdown.Item
               onSelect={onSelect}
               option={{ value: 'Download image', label: 'Download image' }}
-              // @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null | undefined' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
+              
               selected={selected}
             />
             <Dropdown.Item
               badge={{ text: 'New' }}
               onSelect={onSelect}
               option={{ value: 'Hide Pin', label: 'Hide Pin' }}
-              // @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null | undefined' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
+              
               selected={selected}
             />
             <Dropdown.Link

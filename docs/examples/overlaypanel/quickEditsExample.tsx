@@ -66,7 +66,6 @@ export default function Example() {
                   <Button disabled text="Reset bids" />
                 </Flex.Item>
               </Flex>
-              {/* @ts-expect-error - TS2739 - Type '{ expandedIndex: number; id: string; items: { children: Element; summary: string[]; title: string; }[]; }' is missing the following properties from type 'AccordionExpandableProps': accessibilityCollapseLabel, accessibilityExpandLabel */}
               <Accordion.Expandable
                 expandedIndex={0}
                 id="accordionExample - default"
@@ -118,7 +117,7 @@ export default function Example() {
                   },
                 ]}
               />
-              {/* @ts-expect-error - TS2739 - Type '{ id: string; items: { children: Element; summary: string[]; title: string; }[]; }' is missing the following properties from type 'AccordionExpandableProps': accessibilityCollapseLabel, accessibilityExpandLabel */}
+              
               <Accordion.Expandable
                 id="accordionExample - preview"
                 items={[

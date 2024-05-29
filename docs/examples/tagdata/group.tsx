@@ -49,7 +49,7 @@ export default function Example() {
           selected={selectedItems.includes(id)}
           showCheckbox
           text={name}
-          // @ts-expect-error - TS2741 - Property 'children' is missing in type '{ text: string; }' but required in type 'ExtendedTooltipProps'.
+          
           tooltip={{ text: tooltip }}
         />
       ))}

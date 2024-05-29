@@ -42,6 +42,5 @@ type Props = {
 
 export default function DocsExperimentProvider({ children }: Props) {
   const experiments = useDocsExperiments();
-  // @ts-expect-error - TS2322 - Type '{ children: ReactNode; value: Record<string, Experiment>; }' is not assignable to type 'IntrinsicAttributes & ExperimentProviderProps & { children?: ReactNode; }'.
   return <ExperimentProvider value={experiments}>{children}</ExperimentProvider>;
 }

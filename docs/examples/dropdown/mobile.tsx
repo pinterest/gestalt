@@ -16,7 +16,7 @@ export default function Example() {
   const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
 
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
+  const anchorRef = useRef<null | HTMLButtonElement>(null);
 
   return (
     <DeviceTypeProvider deviceType="mobile">

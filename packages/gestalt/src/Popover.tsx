@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import { Overflow } from './boxTypes';
 import InternalPopover from './Popover/InternalPopover';
 import LegacyInternalPopover from './Popover/LegacyInternalPopover';
@@ -123,7 +123,7 @@ export default function Popover({
   __experimentalPopover,
   __onPositioned,
   __overflow,
-}: Props): null | ReactNode {
+}: Props): null | ReactElement {
   const isInExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_popover_v2',
     mwebExperimentName: 'mweb_gestalt_popover_v2',

@@ -61,7 +61,6 @@ export default function SubheadingExample() {
               <Box marginBottom={4} marginEnd={8} marginStart={8}>
                 <Tabs
                   activeTabIndex={activeTabIndex}
-                  // @ts-expect-error - TS2322 - Type '({ activeTabIndex: activeTabIndexLocal, event, }: { readonly activeTabIndex: number; dangerouslyDisableOnNavigation: () => void; event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>; }) => void' is not assignable to type 'AbstractEventHandler<MouseEvent<HTMLAnchorElement, MouseEvent> | KeyboardEvent<HTMLAnchorElement>, { activeTabIndex: number; dangerouslyDisableOnNavigation?: (() => void) | undefined; }>'.
                   onChange={handleChangeTab}
                   tabs={[
                     {
@@ -86,7 +85,7 @@ export default function SubheadingExample() {
             }
           >
             <Flex direction="column" gap={2}>
-              {/* @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'. */}
+              
               <Box ref={enRef}>
                 <List label={<Text weight="bold">English</Text>}>
                   <List.Item text="One" />
@@ -101,7 +100,7 @@ export default function SubheadingExample() {
                   <List.Item text="Ten" />
                 </List>
               </Box>
-              {/* @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'. */}
+              
               <Box ref={esRef}>
                 <List label={<Text weight="bold">Español</Text>}>
                   <List.Item text="Dos" />
@@ -115,7 +114,7 @@ export default function SubheadingExample() {
                   <List.Item text="Diez" />
                 </List>
               </Box>
-              {/* @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'. */}
+              
               <Box ref={ptRef}>
                 <List label={<Text weight="bold">Português</Text>}>
                   <List.Item text="Um" />
@@ -130,7 +129,7 @@ export default function SubheadingExample() {
                   <List.Item text="Dez" />
                 </List>
               </Box>
-              {/* @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'. */}
+              
               <Box ref={chRef}>
                 <List label={<Text weight="bold">普通话</Text>}>
                   <List.Item text="一" />

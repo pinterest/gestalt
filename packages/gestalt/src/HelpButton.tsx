@@ -192,7 +192,6 @@ export default function HelpButton({
          * `id` - used to tracking children by line 130
          * `tabIndex={0}` - It's used to make the text element as a focusable element
          */}
-        {/* @ts-expect-error - TS2322 - Type '{ children: Element; ref: MutableRefObject<HTMLElement | null>; id: string; tabIndex: number; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'. */}
         <Box ref={textRef} id={`helpButtonText-${popoverId}`} tabIndex={0}>
           {textElement}
         </Box>
@@ -265,7 +264,7 @@ export default function HelpButton({
             {popoverElement}
           </Box>
         ) : (
-          // @ts-expect-error - TS2786 - 'Layer' cannot be used as a JSX component.
+          
           <Layer zIndex={zIndexWrapper}>{popoverElement}</Layer>
         ))}
     </Flex>

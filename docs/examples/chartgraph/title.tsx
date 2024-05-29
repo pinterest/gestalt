@@ -49,7 +49,6 @@ export default function Example() {
             accessibilityPopoverLabel="Expanded information about this ChartGraph"
             link={{
               href: 'https://help.pinterest.com/en/business/article/conversion-insights/',
-              // @ts-expect-error - TS2322 - Type '{ href: string; text: string; accessibilityLabel: string; }' is not assignable to type '{ accessibilityLabel?: string | undefined; externalLinkIcon?: "none" | "default" | { color: "warning" | "info" | "error" | "brandPrimary" | "default" | "subtle" | "success" | "shopping" | ... 4 more ... | undefined; size: string | ... 1 more ... | undefined; } | undefined; href: string; onClick?: AbstractEventHandle...'.
               text: 'Read our documentation',
               accessibilityLabel: 'Visit our Help center',
             }}

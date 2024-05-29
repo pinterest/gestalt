@@ -12,7 +12,7 @@ export default function Example() {
         >
           <Text size="200">This is example content.</Text>
         </Accordion>
-        {/* @ts-expect-error - TS2739 - Type '{ id: string; items: { children: Element; summary: string[]; title: string; }[]; }' is missing the following properties from type 'AccordionExpandableProps': accessibilityCollapseLabel, accessibilityExpandLabel */}
+        
         <Accordion.Expandable
           id="accordionExample - header expandable"
           items={[

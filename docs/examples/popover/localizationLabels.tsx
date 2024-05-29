@@ -3,7 +3,7 @@ import { Box, Button, DefaultLabelProvider, Flex, Layer, Popover, Text } from 'g
 
 export default function Example() {
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
+  const anchorRef = useRef<null | HTMLButtonElement>(null);
 
   useEffect(() => {
     setOpen(true);

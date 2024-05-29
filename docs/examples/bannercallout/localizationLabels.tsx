@@ -17,7 +17,6 @@ export default function Example() {
     >
       <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
         <Box paddingX={8} paddingY={8}>
-          {/* @ts-expect-error - TS2741 - Property 'iconAccessibilityLabel' is missing in type '{ dismissButton: { accessibilityLabel: string; onDismiss: () => void; }; message: string; primaryAction: { accessibilityLabel: string; href: string; label: string; target: "blank"; role: "link"; }; secondaryAction: { ...; }; title: string; type: "info"; }' but required in type 'BannerCalloutProps'. */}
           <BannerCallout
             dismissButton={{
               accessibilityLabel: 'Verwerfen Sie dieses Banner.',

@@ -12,7 +12,7 @@ export default function Example() {
     <Flex alignItems="start" height="100%" justifyContent="center" width="100%">
       <Box padding={2}>
         <Flex direction="column" gap={4} width="100%">
-          {/* @ts-expect-error - TS2741 - Property 'size' is missing in type '{ items: string[]; onChange: ({ activeIndex }: { activeIndex: number; } & { readonly event: MouseEvent<HTMLButtonElement, MouseEvent>; }) => void; selectedItemIndex: number; }' but required in type 'SegmentedControlProps'. */}
+          
           <SegmentedControl
             items={items}
             onChange={({ activeIndex }) => setItemIndex(activeIndex)}

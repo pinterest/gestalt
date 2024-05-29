@@ -37,7 +37,6 @@ type Props = {
 function LegendIcon({ payloadData }: Props) {
   const { decal: showVisualPattern } = useChartContext();
   const isAccessible = showVisualPattern === 'visualPattern';
-  // @ts-expect-error - TS2339 - Property 'colorSchemeName' does not exist on type '{ name: "lightMode" | "darkMode"; }'.
   const { colorSchemeName } = useColorScheme();
 
   // @ts-expect-error - TS2339 - Property 'referenceArea' does not exist on type '{ dataKey: string; name: string; stroke: string | null | undefined; value: number; strokeDasharray: string | number | null | undefined; strokeWidth?: number | undefined; color: string | null | undefined; fill: string | ... 1 more ... | undefined; legendType?: "line" | ... 1 more ... | undefined; isLegend?: boolean |...'.

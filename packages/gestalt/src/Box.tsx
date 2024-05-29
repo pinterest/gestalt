@@ -66,8 +66,14 @@ type Margin =
   | 'auto';
 type Padding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
+type BoxPassthroughProps = Omit<
+  React.ComponentProps<'div'>,
+  'onClick' | 'className' | 'style' | 'ref'
+> &
+  React.RefAttributes<HTMLDivElement>;
+
 // Please update `eslint-plugin-gestalt/no-box-disallowed-props` if you make changes to these props
-type Props = {
+type Props = BoxPassthroughProps & {
   /**
    *
    */
@@ -559,3 +565,5 @@ const BoxWithForwardRef = forwardRef<HTMLElement, Props>(function Box(
 BoxWithForwardRef.displayName = 'Box';
 
 export default BoxWithForwardRef;
+
+<BoxWithForwardRef id="foo" />
