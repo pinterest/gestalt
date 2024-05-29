@@ -72,7 +72,7 @@ exports[`<Toast /> Text + _dangerouslySetPrimaryAction 1`] = `
         className="FlexItem flexGrow"
       >
         <span
-          className="textColorOverrideLight"
+          className="fontSize300Override textColorOverrideLight"
         >
           <span
             className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
@@ -192,7 +192,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
         className="FlexItem flexGrow"
       >
         <span
-          className="textColorOverrideLight"
+          className="fontSize300Override textColorOverrideLight"
         >
           <span
             className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
@@ -312,7 +312,7 @@ exports[`<Toast /> Text + Image 1`] = `
         className="FlexItem flexGrow"
       >
         <span
-          className="textColorOverrideLight"
+          className="fontSize300Override textColorOverrideLight"
         >
           <span
             className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"

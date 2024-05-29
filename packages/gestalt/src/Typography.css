@@ -31,6 +31,36 @@
   font-size: var(--font-size-600);
 }
 
+.fontSize100Override * {
+  /* stylelint-disable-next-line declaration-no-important */
+  font-size: var(--font-size-100) !important;
+}
+
+.fontSize200Override * {
+  /* stylelint-disable-next-line declaration-no-important */
+  font-size: var(--font-size-200) !important;
+}
+
+.fontSize300Override * {
+  /* stylelint-disable-next-line declaration-no-important */
+  font-size: var(--font-size-300) !important;
+}
+
+.fontSize400Override * {
+  /* stylelint-disable-next-line declaration-no-important */
+  font-size: var(--font-size-400) !important;
+}
+
+.fontSize500Override * {
+  /* stylelint-disable-next-line declaration-no-important */
+  font-size: var(--font-size-500) !important;
+}
+
+.fontSize600Override * {
+  /* stylelint-disable-next-line declaration-no-important */
+  font-size: var(--font-size-600) !important;
+}
+
 /* fonts */
 
 .sansSerif {

@@ -5,11 +5,11 @@ import InternalCheckbox from './Checkbox/InternalCheckbox';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import InternalDatapoint from './Datapoint/InternalDatapoint';
 import Flex from './Flex';
+import MaybeTooltip from './sharedSubcomponents/MaybeTooltip';
 import TapArea from './TapArea';
 import styles from './TileData.css';
 import getCheckboxColors from './utils/datavizcolors/getCheckboxColor';
 import getDataVisualizationColor from './utils/datavizcolors/getDataVisualizationColor';
-import MaybeTooltip from './utils/MaybeTooltip';
 import useInteractiveStates from './utils/useInteractiveStates';
 import { Indexable } from './zIndex';
 

@@ -1,7 +1,10 @@
+import { ReactElement } from 'react';
 import Box from './Box';
 import Flex from './Flex';
 import Icon from './Icon';
+import OverridingSpan from './sharedSubcomponents/OverridingSpan';
 import Text from './Text';
+import isComponentNode from './utils/isComponentNode';
 
 const ICON_COLOR_MAP = {
   canceled: {
@@ -65,7 +68,7 @@ type Props = {
   /**
    * A label to reinforce the meaning of the status icon. See [localization](https://gestalt.pinterest.systems/web/status#Localization) to learn more.
    */
-  title?: string;
+  title?: string | ReactElement;
   /**
    * The type of status to display.
    */
@@ -81,12 +84,14 @@ type Props = {
  */
 export default function Status({ accessibilityLabel, subtext, title, type }: Props) {
   const { icon, color } = ICON_COLOR_MAP[type];
+  const isTextNode = title && isComponentNode({ text: title, components: ['Text'] });
 
   return (
     <Flex direction="column">
       <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
         <Icon accessibilityLabel={accessibilityLabel ?? ''} color={color} icon={icon} size={16} />
-        {title && <Text size="200">{title}</Text>}
+        {isTextNode && <OverridingSpan size="200" textElement={title ?? ''} />}
+        {!isTextNode && title && <Text size="200">{title}</Text>}
       </Flex>
 
       {subtext && title && (

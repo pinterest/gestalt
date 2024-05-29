@@ -1,8 +1,8 @@
 import { cloneElement, ReactElement, useEffect, useId, useRef, useState } from 'react';
 import Dropdown from '../Dropdown';
 import Pog from '../Pog';
+import MaybeTooltip from '../sharedSubcomponents/MaybeTooltip';
 import TapArea from '../TapArea';
-import MaybeTooltip from '../utils/MaybeTooltip';
 import { CompositeZIndex, FixedZIndex, Indexable } from '../zIndex';
 
 type Props = {

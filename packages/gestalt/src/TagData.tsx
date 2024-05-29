@@ -7,13 +7,13 @@ import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import focusStyles from './Focus.css';
 import Icon from './Icon';
+import MaybeTooltip from './sharedSubcomponents/MaybeTooltip';
 import styles from './TagData.css';
 import TapArea from './TapArea';
 import Text from './Text';
 import useFocusVisible from './useFocusVisible';
 import getCheckboxColors from './utils/datavizcolors/getCheckboxColor';
 import getDataVisualizationColor from './utils/datavizcolors/getDataVisualizationColor';
-import MaybeTooltip from './utils/MaybeTooltip';
 import useInteractiveStates from './utils/useInteractiveStates';
 import { Indexable } from './zIndex';
 
