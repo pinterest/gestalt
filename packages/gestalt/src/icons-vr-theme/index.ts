@@ -318,7 +318,7 @@ import viewTypeSpace from './view-type-space.svg';
 import visit from './visit.svg';
 import warmth from './warmth.svg';
 import wave from './wave.svg';
-import whatsApp from './whats-app.svg';
+import whatsApp from './whatsapp.svg';
 import wifiNo from './wifi-no.svg';
 import workflowStatusAll from './workflow-status-all.svg';
 import workflowStatusCanceled from './workflow-status-canceled.svg';
