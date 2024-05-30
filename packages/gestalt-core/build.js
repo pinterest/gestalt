@@ -1,5 +1,5 @@
-import { readFileSync, writeFileSync } from 'fs';
-import { extname, relative } from 'path';
+import { readFileSync, writeFileSync, readdirSync } from 'fs';
+import { dirname, extname, relative } from 'path';
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
@@ -124,6 +124,11 @@ const cssModules = (options = {}) => {
       cssnano(opts)
         .process(Object.values(cssCache).join(''), { from: undefined })
         .then((result) => {
+          const dist = dirname(options.output);
+
+          readdirSync(dist).forEach((file) => {
+            console.log('files in dir', dist, file);
+          });
           const filename = `${options.output}.css`;
           console.log('writing!', filename);
           writeFileSync(filename, result.css);
