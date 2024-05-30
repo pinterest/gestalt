@@ -8,7 +8,7 @@ exports[`renders correctly with drawer 1`] = `
       "maxHeight": undefined,
     }
   }
-  tabIndex="0"
+  tabIndex={0}
 >
   <table
     className="table"

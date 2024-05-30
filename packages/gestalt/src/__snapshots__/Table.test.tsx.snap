@@ -8,7 +8,7 @@ exports[`renders correctly 1`] = `
       "maxHeight": undefined,
     }
   }
-  tabIndex="0"
+  tabIndex={0}
 >
   <table
     className="table"
@@ -41,7 +41,7 @@ exports[`renders correctly with border 1`] = `
       "maxHeight": undefined,
     }
   }
-  tabIndex="0"
+  tabIndex={0}
 >
   <table
     className="table"
@@ -74,7 +74,7 @@ exports[`renders correctly with maxHeight 1`] = `
       "maxHeight": 100,
     }
   }
-  tabIndex="0"
+  tabIndex={0}
 >
   <table
     className="table"
@@ -107,7 +107,7 @@ exports[`renders correctly with stickyColumns 1`] = `
       "maxHeight": undefined,
     }
   }
-  tabIndex="0"
+  tabIndex={0}
 >
   <table
     className="table"
