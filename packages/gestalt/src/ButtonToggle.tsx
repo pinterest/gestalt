@@ -159,18 +159,6 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     (isDarkModeRed && 'default') ||
     DEFAULT_TEXT_COLORS[color];
 
-  const buttonText = (
-    <Text
-      align="center"
-      color={textColor}
-      overflow="normal"
-      size={size === 'sm' ? '200' : '300'}
-      weight="bold"
-    >
-      {text}
-    </Text>
-  );
-
   // Consume GlobalEventsHandlerProvider
   const { buttonToggleHandlers } = useGlobalEventsHandlerContext() ?? {
     buttonToggleHandlers: undefined,
@@ -217,10 +205,26 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
                 size={SIZE_NAME_TO_PIXEL[size]}
               />
             ) : null}
-            <Text>{buttonText}</Text>
+            <Text
+              align="center"
+              color={textColor}
+              overflow="normal"
+              size={size === 'sm' ? '200' : '300'}
+              weight="bold"
+            >
+              {text}
+            </Text>
           </Flex>
         ) : (
-          buttonText
+          <Text
+            align="center"
+            color={textColor}
+            overflow="normal"
+            size={size === 'sm' ? '200' : '300'}
+            weight="bold"
+          >
+            {text}
+          </Text>
         )}
       </div>
     </button>
