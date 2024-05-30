@@ -130,7 +130,7 @@
     },
     "white": {
       "mochimalist": {
-        "0": { "value": "{color.grayscale.0.value}"}
+        "0": { "value": "{color.grayscale.0.value}" }
       }
     },
     "gray": {
