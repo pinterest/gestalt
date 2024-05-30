@@ -126,7 +126,7 @@
     "transparent": {
       "value": "rgba (0,0,0,0)"
     },
-    "datavizbase": {
+    "dataviz": {
       "01": {
         "value": "#003c96"
       },

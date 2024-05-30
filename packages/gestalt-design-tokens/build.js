@@ -191,10 +191,14 @@ const regex1A = /(\{(?!\w)|\}(?!\w))/gi;
 
 const commonJSFormatter = ({ token, darkTheme, isVR }) => {
   const prefix = token.filePath.split('/').splice(-1)[0].substring(0, 4);
+
+  const isWebMappingToken = token.filePath.includes('mapping');
+
   return JSON.stringify({
-    name: isVR
-      ? [prefix, token.path.join('-').replace('base', '')].join('-')
-      : token.path.join('-'),
+    name:
+      isVR && !isWebMappingToken
+        ? [prefix, ...token.path].join('-').replace('appenda', '')
+        : token.path.join('-').replace('appenda', '').replace('appendb', ''),
     value: token.value,
     // For lightened values with appended 1A, let's keep {value}1A if not remove the parenthesis
 
@@ -220,38 +224,49 @@ const moduleExportFileHeader = ({ file, tokenArray, fileHeader }) =>
 function getSources({ theme, modeTheme, platform }) {
   if (theme === 'classic') {
     return [
-      `tokens/${theme}/base-color.json`,
-      `tokens/${theme}/base-font.json`,
-      `tokens/${theme}/base-opacity.json`,
-      `tokens/${theme}/base-rounding.json`,
-      `tokens/${theme}/base-space.json`,
-      `tokens/${theme}/sema-color${modeTheme}.json`,
-      `tokens/${theme}/base-color-data-visualization${modeTheme}.json`,
-      `tokens/${theme}/sema-color-data-visualization${modeTheme}.json`,
-      `tokens/${theme}/base-elevation${modeTheme}.json`,
+      `tokens/classic/base-color.json`,
+      `tokens/classic/base-font.json`,
+      `tokens/classic/base-opacity.json`,
+      `tokens/classic/base-rounding.json`,
+      `tokens/classic/base-space.json`,
+      `tokens/classic/sema-color${modeTheme}.json`,
+      `tokens/classic/base-color-dataviz${modeTheme}.json`,
+      `tokens/classic/sema-color-dataviz${modeTheme}.json`,
+      `tokens/classic/base-elevation${modeTheme}.json`,
       ...(platform === 'web'
         ? [
-            `tokens/${theme}/comp-web-color${modeTheme}.json`,
-            `tokens/${theme}/comp-web-elevation${modeTheme}.json`,
-            `tokens/${theme}/comp-web-rounding.json`,
+            `tokens/classic/comp-web-color${modeTheme}.json`,
+            `tokens/classic/comp-web-elevation${modeTheme}.json`,
+            `tokens/classic/comp-web-rounding.json`,
           ]
         : []),
     ];
   }
 
   return [
-    `tokens/${theme}/base-color.json`,
-    `tokens/${theme}/base-font.json`,
-    `tokens/${theme}/sema-font.json`,
-    `tokens/${theme}/base-opacity.json`,
-    `tokens/${theme}/sema-opacity.json`,
-    `tokens/${theme}/base-rounding.json`,
-    `tokens/${theme}/sema-rounding.json`,
-    `tokens/${theme}/base-space.json`,
-    `tokens/${theme}/sema-space.json`,
-    `tokens/${theme}/base-elevation${modeTheme}.json`,
-    `tokens/${theme}/sema-elevation.json`,
-    `tokens/${theme}/sema-color${modeTheme}.json`,
+    'tokens/vr-theme/base-color.json',
+    'tokens/vr-theme/base-font.json',
+    'tokens/vr-theme/sema-font.json',
+    'tokens/vr-theme/base-opacity.json',
+    'tokens/vr-theme/sema-opacity.json',
+    'tokens/vr-theme/base-rounding.json',
+    'tokens/vr-theme/sema-rounding.json',
+    'tokens/vr-theme/base-space.json',
+    'tokens/vr-theme/sema-space.json',
+    `tokens/vr-theme/base-elevation${modeTheme}.json`,
+    'tokens/vr-theme/sema-elevation.json',
+    `tokens/vr-theme/sema-color${modeTheme}.json`,
+    ...(theme === 'vr-theme-web-mapping'
+      ? [
+          'tokens/vr-theme-web-mapping/base-color.json',
+          'tokens/vr-theme-web-mapping/sema-color.json',
+          `tokens/vr-theme-web-mapping/base-color-dataviz${modeTheme}.json`,
+          'tokens/vr-theme-web-mapping/base-rounding.json',
+          'tokens/vr-theme-web-mapping/base-opacity.json',
+          'tokens/vr-theme-web-mapping/base-space.json',
+          'tokens/vr-theme-web-mapping/base-font.json',
+        ]
+      : []),
   ];
 }
 
@@ -350,10 +365,15 @@ StyleDictionary.registerFormat({
           .join('_')
           .toUpperCase()
           .replace('-', '_')
-          .replace('base', '')
-          .replace('BASE', '');
+          .replace('appenda', '')
+          .replace('appendb', '')
+          .replace('APPENDA', '')
+          .replace('APPENDB', '');
 
-        const formattedTokenNameValue = token.path.join('-').replace('base', '');
+        const formattedTokenNameValue = token.path
+          .join('-')
+          .replace('appenda', '')
+          .replace('appendb', '');
 
         return `export const TOKEN_${prefix.toUpperCase()}_${formattedTokenNameKey} = 'var(--${prefix}-${formattedTokenNameValue})';`;
       })
@@ -446,13 +466,12 @@ StyleDictionary.registerTransform({
   type: 'name',
   matcher(prop) {
     return (
-      prop.filePath.includes('vr-theme') &&
-      prop.filePath.includes('base') &&
-      prop.attributes.type.endsWith('base')
+      (prop.filePath.includes('vr-theme') && prop.attributes.type.endsWith('appenda')) ||
+      prop.attributes.type.endsWith('appendb')
     );
   },
   transformer(prop) {
-    return prop.name.replace('base', '');
+    return prop.name.replace('appenda', '').replace('appendb', '');
   },
 });
 
@@ -460,7 +479,7 @@ StyleDictionary.registerTransform({
   name: 'name/prefix/level/kebab',
   type: 'name',
   matcher(prop) {
-    return !prop.filePath.includes('classic');
+    return !prop.filePath.includes('classic') && !prop.filePath.includes('vr-theme-web-mapping');
   },
   transformer(prop) {
     const prefix = prop.filePath.split('/').splice(-1)[0].substring(0, 4);
@@ -528,8 +547,10 @@ StyleDictionary.registerFilter({
   },
 });
 
-function getWebConfig({ theme = 'classic', mode = 'light' }) {
+function getWebConfig({ theme, mode }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
+
+  const mappedTheme = theme === 'vr-theme-web-mapping' ? 'vr-theme' : theme;
 
   return {
     'source': getSources({ theme, modeTheme, platform: 'web' }),
@@ -587,34 +608,38 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
         'files':
           mode === 'light'
             ? [
-                {
-                  'destination': 'constants.es.js',
-                  'format': `constantLibrary-javascript/es6/${theme}`,
-                  '_format_comment': 'Custom',
-                },
-                {
-                  'destination': 'constants.js',
-                  'format': `constantLibrary-commonJS/${theme}`,
-                  '_format_comment': 'Custom',
-                },
-                {
-                  'destination': 'constants.es.d.ts',
-                  'format': `constantLibrary-javascript/es6/${theme}`,
-                  '_format_comment': 'Custom',
-                },
-                {
-                  'destination': 'constants.d.ts',
-                  'format': `constantLibrary-commonJS/${theme}`,
-                  '_format_comment': 'Custom',
-                },
+                ...(theme === 'vr-theme' || theme === 'classic'
+                  ? [
+                      {
+                        'destination': 'constants.es.js',
+                        'format': `constantLibrary-javascript/es6/${theme}`,
+                        '_format_comment': 'Custom',
+                      },
+                      {
+                        'destination': 'constants.js',
+                        'format': `constantLibrary-commonJS/${theme}`,
+                        '_format_comment': 'Custom',
+                      },
+                      {
+                        'destination': 'constants.es.d.ts',
+                        'format': `constantLibrary-javascript/es6/${theme}`,
+                        '_format_comment': 'Custom',
+                      },
+                      {
+                        'destination': 'constants.d.ts',
+                        'format': `constantLibrary-commonJS/${theme}`,
+                        '_format_comment': 'Custom',
+                      },
+                    ]
+                  : []),
                 {
                   'destination': 'tokens.js',
-                  'format': `commonJS/${theme}`,
+                  'format': `commonJS/${mappedTheme}`,
                   '_format_comment': 'Custom',
                 },
                 {
                   'destination': 'data-viz-tokens.js',
-                  'format': `commonJS/${theme}`,
+                  'format': `commonJS/${mappedTheme}`,
                   '_format_comment': 'Custom',
                   ...dataVisualizationFilter,
                 },
@@ -622,12 +647,12 @@ function getWebConfig({ theme = 'classic', mode = 'light' }) {
             : [
                 {
                   'destination': 'tokens_dark.js',
-                  'format': `darkTheme-commonJS/${theme}`,
+                  'format': `darkTheme-commonJS/${mappedTheme}`,
                   '_format_comment': 'Custom',
                 },
                 {
                   'destination': 'data-viz-tokens_dark.js',
-                  'format': `darkTheme-commonJS/${theme}`,
+                  'format': `darkTheme-commonJS/${mappedTheme}`,
                   '_format_comment': 'Custom',
                   ...dataVisualizationFilter,
                 },
@@ -678,7 +703,7 @@ StyleDictionary.registerTransformGroup({
   ],
 });
 
-function getAndroidConfiguration({ theme = 'main-theme', mode = 'light' }) {
+function getAndroidConfiguration({ theme, mode }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
 
   return {
@@ -806,7 +831,7 @@ StyleDictionary.registerTransformGroup({
   ],
 });
 
-function getIOSConfiguration({ theme = 'main-theme', mode = 'light' }) {
+function getIOSConfiguration({ theme, mode }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
 
   return {
@@ -1046,15 +1071,19 @@ const platformFileMap = {
   ios: ['ios', 'ios-swift'],
 };
 
-['classic', 'vr-theme'].forEach((theme) =>
+['classic', 'vr-theme', 'vr-theme-web-mapping'].forEach((theme) =>
   ['light', 'dark'].forEach((mode) => {
     // iOS platform
-    const StyleDictionaryIOS = StyleDictionary.extend(getIOSConfiguration({ mode, theme }));
-    platformFileMap.ios.forEach((platform) => StyleDictionaryIOS.buildPlatform(platform));
+    if (theme !== 'vr-theme-web-mapping') {
+      const StyleDictionaryIOS = StyleDictionary.extend(getIOSConfiguration({ mode, theme }));
+      platformFileMap.ios.forEach((platform) => StyleDictionaryIOS.buildPlatform(platform));
 
-    // // Android platform
-    const StyleDictionaryAndroid = StyleDictionary.extend(getAndroidConfiguration({ mode, theme }));
-    platformFileMap.android.forEach((platform) => StyleDictionaryAndroid.buildPlatform(platform));
+      // // Android platform
+      const StyleDictionaryAndroid = StyleDictionary.extend(
+        getAndroidConfiguration({ mode, theme }),
+      );
+      platformFileMap.android.forEach((platform) => StyleDictionaryAndroid.buildPlatform(platform));
+    }
 
     // web platform
     const StyleDictionaryWeb = StyleDictionary.extend(getWebConfig({ mode, theme }));

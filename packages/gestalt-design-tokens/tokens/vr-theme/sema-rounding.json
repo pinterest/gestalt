@@ -31,8 +31,8 @@
     "XS": {
       "value": "{rounding.4.value}"
     },
-    "circle": {
-      "value": "{rounding.circlebase.value}"
+    "circleappenda": {
+      "value": "{rounding.circle.value}"
     }
   }
 }

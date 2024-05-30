@@ -1,0 +1,39 @@
+{
+  "space": {
+    "0appenda": { "value": "{space.0.value}" },
+    "100": { "value": "{space.4.value}" },
+    "200": { "value": "{space.8.value}" },
+    "300": { "value": "{space.12.value}" },
+    "400": { "value": "{space.16.value}" },
+    "500": { "value": "{space.20.value}" },
+    "600": { "value": "{space.24.value}" },
+    "700": { "value": "{space.28.value}" },
+    "800": { "value": "{space.32.value}" },
+    "900": { "value": "{space.36.value}" },
+    "1000": { "value": "{space.40.value}" },
+    "1100": { "value": "{space.44.value}" },
+    "1200": { "value": "{space.48.value}" },
+    "1300": { "value": "{space.52.value}" },
+    "1400": { "value": "{space.56.value}" },
+    "1500": { "value": "{space.60.value}" },
+    "1600": { "value": "{space.64.value}" },
+    "negative": {
+      "100": { "value": "{space.negative.4.value}" },
+      "200": { "value": "{space.negative.8.value}" },
+      "300": { "value": "{space.negative.12.value}" },
+      "400": { "value": "{space.negative.16.value}" },
+      "500": { "value": "{space.negative.20.value}" },
+      "600": { "value": "{space.negative.24.value}" },
+      "700": { "value": "{space.negative.28.value}" },
+      "800": { "value": "{space.negative.32.value}" },
+      "900": { "value": "{space.negative.36.value}" },
+      "1000": { "value": "{space.negative.40.value}" },
+      "1100": { "value": "{space.negative.44.value}" },
+      "1200": { "value": "{space.negative.48.value}" },
+      "1300": { "value": "{space.negative.52.value}" },
+      "1400": { "value": "{space.negative.56.value}" },
+      "1500": { "value": "{space.negative.60.value}" },
+      "1600": { "value": "{space.negative.64.value}" }
+    }
+  }
+}

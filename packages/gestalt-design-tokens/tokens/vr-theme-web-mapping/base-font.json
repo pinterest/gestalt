@@ -1,0 +1,48 @@
+{
+  "font": {
+    "sizeappenda": {
+      "100": {
+        "value": "{font.size.12.value}"
+      },
+      "200": {
+        "value": "{font.size.14.value}"
+      },
+      "300": {
+        "value": "{font.size.16.value}"
+      },
+      "400": {
+        "value": "{font.size.20.value}"
+      },
+      "500": {
+        "value": "{font.size.28.value}"
+      },
+      "600": {
+        "value": "{font.size.36.value}"
+      }
+    },
+    "weightappenda": {
+      "normal": {
+        "value": "{font.weight.400.value}"
+      },
+      "semibold": {
+        "value": "{font.weight.500.value}"
+      },
+      "bold": {
+        "value": "{font.weight.700.value}"
+      }
+    },
+    "familyappenda": {
+      "default": {
+        "latin": {
+          "value": "{font.family.default.latin.value}"
+        },
+        "japanese": {
+          "value": "{font.family.default.japanese.value}"
+        }
+      },
+      "code": {
+        "value": "{font.family.code.value}"
+      }
+    }
+  }
+}
