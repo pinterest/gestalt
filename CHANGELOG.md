@@ -1,3 +1,9 @@
+## 151.0.1 (May 30, 2024)
+
+### Patch
+
+- ButtonToggle: Follow-up Fixes ([#3603](https://github.com/pinterest/gestalt/pull/3603)) - [Preview link](https://deploy-preview-3603--gestalt.netlify.app?devexample=true)
+
 ## 151.0.0 (May 30, 2024)
 
 ### Major
