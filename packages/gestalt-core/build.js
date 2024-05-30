@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
+import { existsSync, mkdirSync,readFileSync, writeFileSync } from 'fs';
 import { dirname, extname, relative } from 'path';
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
@@ -129,46 +129,42 @@ const cssModules = (options = {}) => {
             mkdirSync(outputDir, { recursive: true });
           }
           const filename = `${options.output}.css`;
-          console.log('writing!', filename);
           writeFileSync(filename, result.css);
         });
     },
   };
 };
 
-export const plugins = (name) => {
-  console.log('plugins', __dirname);
-  return [
-    cssModules({
-      output: `../${name}/dist/${name}`,
-    }),
-    nodeResolve(),
-    replace({
-      preventAssignment: true,
-      values: {
-        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-      },
-    }),
-    svgPath(),
-    json({
-      preferConst: true,
-    }),
-    typescript({
-      // note: this is the relative tsconfig for each package (e.g. packages/gestalt/tsconfig.json)
-      tsconfig: relative(__dirname, './tsconfig.json'),
-      noEmitOnError: true,
-    }),
-    babel({
-      babelHelpers: 'bundled',
-      babelrc: false,
-      exclude: 'node_modules/**',
-      rootMode: 'upward',
-      presets: [['@babel/preset-env', { targets: { node: true } }], '@babel/preset-typescript'],
-      shouldPrintComment: (comment) => /[#@]__PURE__/.exec(comment),
-    }),
-    commonjs(),
-  ];
-};
+export const plugins = (name) => [
+  cssModules({
+    output: `../${name}/dist/${name}`,
+  }),
+  nodeResolve(),
+  replace({
+    preventAssignment: true,
+    values: {
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+    },
+  }),
+  svgPath(),
+  json({
+    preferConst: true,
+  }),
+  typescript({
+    // note: this is the relative tsconfig for each package (e.g. packages/gestalt/tsconfig.json)
+    tsconfig: relative(__dirname, './tsconfig.json'),
+    noEmitOnError: true,
+  }),
+  babel({
+    babelHelpers: 'bundled',
+    babelrc: false,
+    exclude: 'node_modules/**',
+    rootMode: 'upward',
+    presets: [['@babel/preset-env', { targets: { node: true } }], '@babel/preset-typescript'],
+    shouldPrintComment: (comment) => /[#@]__PURE__/.exec(comment),
+  }),
+  commonjs(),
+];
 
 // see https://www.npmjs.com/package/@rollup/plugin-typescript#preserving-jsx-output
 export const acornInjectPlugins = [jsx()];
