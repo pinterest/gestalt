@@ -9,13 +9,14 @@ import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
 import ariaAttributesExample1 from '../../examples/status/ariaAttributesExample1';
 import ariaAttributesExample2 from '../../examples/status/ariaAttributesExample2';
+import basicTitle from '../../examples/status/basicTitle';
 import dontPlaceFarAwayFromItsSubject from '../../examples/status/dontPlaceFarAwayFromItsSubject';
 import dontUseSubText from '../../examples/status/dontUseSubText';
 import dontUseSVGsOrImages from '../../examples/status/dontUseSVGsOrImages';
 import mainExample from '../../examples/status/mainExample';
 import placeCloseToItsSubject from '../../examples/status/placeCloseToItsSubject';
-import textAdditionsExample1 from '../../examples/status/textAdditionsExample1';
-import textAdditionsExample2 from '../../examples/status/textAdditionsExample2';
+import richTitle from '../../examples/status/richTitle';
+import subtext from '../../examples/status/subtext';
 import useTitleWhenItRepresents from '../../examples/status/useTitleWhenItRepresents';
 import useToCommunicateAStepIn from '../../examples/status/useToCommunicateAStepIn';
 
@@ -185,28 +186,27 @@ If using \`title\` to describe what the icon represents, \`accessibilityLabel\` 
       <LocalizationSection name={generatedDocGen?.displayName} noDefaultLabelProvider />
 
       <MainSection name="Variants">
-        <MainSection.Subsection columns={2} title="Text additions">
+        <MainSection.Subsection
+          columns={2}
+          description="The `title` prop accepts either a string or [Text](/web/text). Use a string for simple text without any visual style. Status will handle the message style and adherence to design guidelines. If a message with more complex style is required, such as inline links, use Text to wrap your message with any additional [Text](/web/text) or [Link](/web/link) components contained within."
+          title="Title"
+        >
           <MainSection.Card
             cardSize="lg"
-            sandpackExample={
-              <SandpackExample
-                code={textAdditionsExample1}
-                layout="column"
-                name="Text Additions Example 1"
-              />
-            }
-            title="Status name"
+            sandpackExample={<SandpackExample code={basicTitle} layout="column" name="Simple" />}
+            title="Simple message string"
           />
           <MainSection.Card
             cardSize="lg"
-            sandpackExample={
-              <SandpackExample
-                code={textAdditionsExample2}
-                layout="column"
-                name="Text Additions Example 2"
-              />
-            }
-            title="Status subtext"
+            sandpackExample={<SandpackExample code={richTitle} layout="column" name="Rich" />}
+            title="Rich message with Text or Link component"
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection columns={2} title="Subtext">
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={<SandpackExample code={subtext} layout="column" name="subtext" />}
+            title="Subtext"
           />
         </MainSection.Subsection>
       </MainSection>

@@ -28,7 +28,7 @@ exports[`Status renders with accessibilityLabel 1`] = `
 </div>
 `;
 
-exports[`Status renders with title 1`] = `
+exports[`Status renders with basic title 1`] = `
 <div
   className="Flex rowGap0 columnGap0 xsDirectionColumn"
 >
@@ -60,6 +60,65 @@ exports[`Status renders with title 1`] = `
       >
         Unstarted
       </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Status renders with rich title 1`] = `
+<div
+  className="Flex rowGap0 columnGap0 xsDirectionColumn"
+>
+  <div
+    className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
+  >
+    <div
+      className="FlexItem"
+    >
+      <svg
+        aria-hidden={true}
+        aria-label=""
+        className="default icon iconBlock"
+        height={16}
+        role="img"
+        viewBox="0 0 24 24"
+        width={16}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+    <div
+      className="FlexItem"
+    >
+      <span
+        className="fontSize200Override textColorOverrideDark"
+      >
+        <div
+          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+        >
+          <a
+            aria-label="label"
+            className="link hideOutline tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
+            href="http://www.pinterest.com"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            rel=""
+            target={null}
+          >
+            Title
+          </a>
+        </div>
+      </span>
     </div>
   </div>
 </div>

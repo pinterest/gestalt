@@ -2089,7 +2089,7 @@ interface StatusProps {
     | 'warning';
   accessibilityLabel?: string | undefined;
   subtext?: string | undefined;
-  title?: string | undefined;
+  title?: string | React.ReactElement<typeof Text>;
 }
 
 interface StickyProps {

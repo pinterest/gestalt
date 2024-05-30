@@ -2,11 +2,11 @@ import { Children, ComponentProps, isValidElement, ReactElement, ReactNode } fro
 import Box from './Box';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
-import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Flex from './Flex';
 import Link from './Link';
 import InternalDismissButton from './sharedSubcomponents/InternalDismissButton';
+import OverridingSpan from './sharedSubcomponents/OverridingSpan';
 import {
   AvatarThumbnail,
   IconThumbnail,
@@ -17,6 +17,7 @@ import {
 import styles from './Toast.css';
 import PrimaryAction from './Toast/PrimaryAction';
 import useResponsiveMinWidth from './useResponsiveMinWidth';
+import isComponentNode from './utils/isComponentNode';
 
 const DEFAULT_COLORS = {
   containerColor: 'inverse',
@@ -117,37 +118,10 @@ export default function Toast({
   thumbnail,
   type = 'default',
 }: Props) {
-  const { colorSchemeName } = useColorScheme();
-  const isDarkMode = colorSchemeName === 'darkMode';
-
   const responsiveMinWidth = useResponsiveMinWidth();
   const isMobileWidth = responsiveMinWidth === 'xs';
 
-  let textElement: ReactElement | string | undefined;
-
-  if (typeof text === 'string') {
-    textElement = text;
-  }
-
-  // If `text` is a Text component, we need to override any text colors within to ensure they all match
-  const isTextNode =
-    typeof text !== 'string' &&
-    // @ts-expect-error - TS2339
-    Children.only<ReactElement>(text).type.displayName === 'Text';
-
-  if (isTextNode) {
-    let textColorOverrideStyles = isDarkMode
-      ? styles.textColorOverrideDark
-      : styles.textColorOverrideLight;
-
-    if (type === 'error') {
-      // Error type enforces bold weight
-      textColorOverrideStyles = styles.textErrorColorOverrideLight;
-    }
-
-    textElement = <span className={textColorOverrideStyles}>{text}</span>;
-  }
-
+  const isTextNode = isComponentNode({ text, components: ['Text'] });
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Toast');
 
@@ -210,10 +184,14 @@ export default function Toast({
           <Flex.Item flex="grow">
             <Message
               helperLink={helperLink}
-              text={isTextNode ? undefined : textElement}
+              text={isTextNode ? undefined : text}
               // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"link" | "warning" | "error" | "default" | "subtle" | "success" | "shopping" | "inverse" | "light" | "dark" | undefined'.
               textColor={textColor}
-              textElement={isTextNode ? textElement : undefined}
+              textElement={
+                isTextNode ? (
+                  <OverridingSpan inverseTextColor isError={type === 'error'} textElement={text} />
+                ) : undefined
+              }
               type={type}
             />
           </Flex.Item>
