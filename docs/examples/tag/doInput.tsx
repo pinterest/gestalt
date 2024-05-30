@@ -27,7 +27,6 @@ export default function Example() {
           <TextField
             id="do-topics"
             label="Topics"
-            // @ts-expect-error - TS2322 - Type '({ value, }: { event: React.ChangeEvent<HTMLInputElement>; value: string; }) => void' is not assignable to type 'AbstractEventHandler<SyntheticEvent<HTMLInputElement, Event>, { value: string; }>'.
             onChange={handleChange}
             tags={tags.map((item, index) => (
               <Tag

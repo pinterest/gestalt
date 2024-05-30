@@ -5,8 +5,8 @@ export default function Example() {
 
   return (
     <DefaultLabelProvider
+      // @ts-expect-error - TS2740 - Type '{ TableOfContents: { accessibilityLabel: string; }; }' is missing the following properties from type 'DefaultLabelContextType': Accordion, ActivationCard, BannerOverlay, BannerCallout, and 18 more'.
       labels={{
-        // @ts-expect-error - TS2322 - Type '{ TableOfContents: { accessibilityLabel: string; }; }' is not assignable to type '{ Accordion: { accessibilityCollapseLabel: string; accessibilityExpandLabel: string; }; ActivationCard: { accessibilityDismissButtonLabel: string; }; BannerOverlay: { accessibilityDismissButtonLabel: string; }; ... 17 more ...; Toast: { ...; }; }'.
         TableOfContents: {
           accessibilityLabel: 'Table of contents',
         },

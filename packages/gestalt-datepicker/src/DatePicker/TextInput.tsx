@@ -62,7 +62,6 @@ function DatePickerTextField(props: Props) {
           mobileInputMode="none"
           name={name}
           onBlur={(data) => onBlur?.(data.event)}
-          // @ts-expect-error - TS2345 - Argument of type 'SyntheticEvent<HTMLInputElement, Event>' is not assignable to parameter of type 'ChangeEvent<HTMLInputElement>'.
           onChange={(data) => onChange?.(data.event)}
           onFocus={(data) => {
             onFocus?.(data.event);

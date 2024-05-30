@@ -76,22 +76,22 @@ export default function Example() {
     <ChartGraph
       accessibilityLabel="Example of Bar chart"
       data={[
+        // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
         {
-          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
           name: 'NorthWest',
           'Campaign Autumn': 100,
           'Campaign Winter': 90,
           'Campaign Spring': 10,
         },
+        // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
         {
-          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
           name: 'Sunbelt',
           'Campaign Autumn': 200,
           'Campaign Winter': 180,
           'Campaign Spring': 50,
         },
+        // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
         {
-          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
           name: 'East Coast',
           'Campaign Autumn': 300,
           'Campaign Winter': 250,
@@ -109,7 +109,6 @@ export default function Example() {
       // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
       visualPatternSelected={visualPatternSelected}
     >
-      {/* @ts-expect-error - TS2741 - Property 'onRemove' is missing in type '{ color: "01"; id: string; onTap: ({ id, selected }: { selected: boolean; id?: string | undefined; } & { readonly event: MouseEvent<HTMLAnchorElement, MouseEvent> | KeyboardEvent<...> | KeyboardEvent<...> | MouseEvent<...>; }) => void; selected: boolean; showCheckbox: true; text: string; }' but required in type 'TagDataProps'. */}
       <TagData
         color="01"
         id="Campaign Autumn"
@@ -118,7 +117,7 @@ export default function Example() {
         showCheckbox
         text="Campaign Autumn"
       />
-      {/* @ts-expect-error - TS2741 - Property 'onRemove' is missing in type '{ color: "02"; id: string; onTap: ({ id, selected }: { selected: boolean; id?: string | undefined; } & { readonly event: MouseEvent<HTMLAnchorElement, MouseEvent> | KeyboardEvent<...> | KeyboardEvent<...> | MouseEvent<...>; }) => void; selected: boolean; showCheckbox: true; text: string; }' but required in type 'TagDataProps'. */}
+
       <TagData
         color="02"
         id="Campaign Winter"
@@ -127,7 +126,6 @@ export default function Example() {
         showCheckbox
         text="Campaign Winter"
       />
-      {/* @ts-expect-error - TS2741 - Property 'onRemove' is missing in type '{ color: "03"; id: string; onTap: ({ id, selected }: { selected: boolean; id?: string | undefined; } & { readonly event: MouseEvent<HTMLAnchorElement, MouseEvent> | KeyboardEvent<...> | KeyboardEvent<...> | MouseEvent<...>; }) => void; selected: boolean; showCheckbox: true; text: string; }' but required in type 'TagDataProps'. */}
       <TagData
         color="03"
         id="Campaign Spring"

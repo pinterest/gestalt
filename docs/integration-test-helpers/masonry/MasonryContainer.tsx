@@ -398,6 +398,7 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
         }
       }
     } else {
+      // @ts-expect-error - TS2322 - Type '() => Window | undefined' is not assignable to type '() => HTMLElement'.
       dynamicGridProps.scrollContainer = typeof window === 'undefined' ? undefined : () => window;
     }
 
@@ -421,7 +422,6 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
             items={items}
             layout={flexible ? 'flexible' : undefined}
             measurementStore={externalCache ? measurementStore : undefined}
-            // @ts-expect-error - TS2322 - Type '{ minCols?: any; gutterWidth: any; loadItems?: any; virtualBoundsTop?: any; virtualBoundsBottom?: any; scrollContainer?: any; ref: { current: any; }; _logTwoColWhitespace: ((whitespace: number) => void) | undefined; ... 7 more ...; virtualize: boolean | undefined; }' is not assignable to type 'IntrinsicAttributes & MasonryV2Props<any> & RefAttributes<MasonryV2Ref>'.
             positionStore={externalCache ? positionStore : undefined}
             renderItem={this.renderItem}
             virtualize={virtualize}

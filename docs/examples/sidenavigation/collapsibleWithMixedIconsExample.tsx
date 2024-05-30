@@ -42,7 +42,6 @@ export default function Example() {
           />
 
           <SideNavigation.Section label="Public Holidays">
-            {/* @ts-expect-error - TS2741 - Property 'onExpand' is missing in type '{ children: Element[]; label: string; }' but required in type 'SideNavigationGroupProps'. */}
             <SideNavigation.Group label="Christmas">
               <SideNavigation.NestedItem
                 active={page === '3' ? 'page' : undefined}
@@ -62,7 +61,7 @@ export default function Example() {
                   setPage('4');
                 }}
               />
-              {/* @ts-expect-error - TS2741 - Property 'onExpand' is missing in type '{ children: Element; label: string; }' but required in type 'SideNavigationNestedGroupProps'. */}
+
               <SideNavigation.NestedGroup label="Classic Christmas">
                 <SideNavigation.NestedItem
                   active={page === '5' ? 'page' : undefined}

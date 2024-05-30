@@ -39,7 +39,6 @@ export default function Example() {
         <Box width={320}>
           <ComboBox
             accessibilityClearButtonLabel="Clear the current value"
-            // @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'string | undefined'.
             errorMessage={errorMessage}
             helperText="Choose your pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
             id="uncontrolled"

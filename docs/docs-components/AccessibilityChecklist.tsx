@@ -46,8 +46,12 @@ function AccessibilityTable({ accessibilityData }: { accessibilityData?: Compone
           return (
             <Table.Row key={item}>
               <Table.Cell>
-                {/* @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Readonly<{ a11yVisual: { title: string; ready: string; partial: string; notAvailable: string; planned: string; }; a11yNavigation: { title: string; ready: string; partial: string; notAvailable: string; planned: string; }; a11yScreenreader: { ...; }; a11yComprehension: { ...; }; }>'. */}
-                <Text>{COMPONENT_A11Y_STATUS_MESSAGING[item].title}</Text>
+                <Text>
+                  {
+                    // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Readonly<{ a11yVisual: { title: string; ready: string; partial: string; notAvailable: string; planned: string; }; a11yNavigation: { title: string; ready: string; partial: string; notAvailable: string; planned: string; }; a11yScreenreader: { ...; }; a11yComprehension: { ...; }; }>'.
+                    COMPONENT_A11Y_STATUS_MESSAGING[item].title
+                  }
+                </Text>
               </Table.Cell>
               <Table.Cell>
                 <StatusData

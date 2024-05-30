@@ -73,7 +73,6 @@ export default function SubtextIconButtonFlyoutExample() {
                   key={label}
                   onSelect={handleSelect}
                   option={{ label, value }}
-                  // @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
                   selected={selected}
                 />
               ))}

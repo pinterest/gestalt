@@ -18,7 +18,7 @@ function ColorTile({ description, token, number = 400, textColor }: Props) {
     token?.includes('black') ||
     token?.includes('inverse') ||
     isTransparent;
-  // @ts-expect-error - TS2339 - Property 'colorSchemeName' does not exist on type '{ name: "lightMode" | "darkMode"; }'.
+
   const { colorSchemeName } = useColorScheme();
 
   const regex = /(?<=--)(.*?)(?=\))/g;

@@ -48,7 +48,6 @@ const ScrollBoundaryContainerWithForwardRef = forwardRef<HTMLElement, InternalPr
         display={includesFooter ? 'flex' : undefined}
         flex={onScroll || includesFooter ? 'grow' : undefined}
         height={height}
-        // @ts-expect-error - TS2322 - Type '{ children: ReactNode; ref: MutableRefObject<HTMLElement | null>; direction: "column" | undefined; display: "flex" | undefined; flex: "grow" | undefined; ... 5 more ...; width: string | undefined; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
         onScroll={onScroll}
         overflow={includesFooter ? 'visible' : overflow}
         padding={padding}

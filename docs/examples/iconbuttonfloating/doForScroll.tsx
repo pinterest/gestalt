@@ -54,7 +54,7 @@ export default function Example() {
           </Flex.Item>
         ))}
       </Flex>
-      {/* @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'. */}
+
       <Box ref={anchorRef} bottom margin={4} position="fixed" right role="contentinfo">
         <IconButtonFloating
           accessibilityControls="sections-dropdown-example"

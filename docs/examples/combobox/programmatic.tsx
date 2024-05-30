@@ -118,10 +118,8 @@ export default function Example() {
               label="Pin category"
               noResultText="No results for your selection"
               onBlur={handleOnBlur}
-              // @ts-expect-error - TS2322 - Type '({ value, }: { event: React.ChangeEvent<HTMLInputElement>; value: string; }) => void' is not assignable to type 'AbstractEventHandler<SyntheticEvent<HTMLInputElement, Event>, { value: string; }>'.
               onChange={handleOnChange}
               onClear={handleOnClear}
-              // @ts-expect-error - TS2322 - Type '({ item, }: { event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>; item: {    label: string;    subtext?: string;    value: string;}; }) => void' is not assignable to type 'AbstractEventHandler<SyntheticEvent<HTMLInputElement, Event> | KeyboardEvent<HTMLInputElement>, { item: ComboBoxItemType; }>'.
               onSelect={handleSelect}
               options={suggestedOptions}
               placeholder="Select a category"

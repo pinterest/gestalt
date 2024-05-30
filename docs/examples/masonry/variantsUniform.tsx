@@ -70,7 +70,6 @@ function GridComponent({ data }: { data: Pin }) {
 export default function Example() {
   const [pins, setPins] = useState<ReadonlyArray<Pin>>([]);
   const scrollContainerRef = useRef<HTMLDivElement | null | undefined>();
-  // @ts-expect-error - TS2749 - 'Masonry' refers to a value, but is being used as a type here. Did you mean 'typeof Masonry'?
   const gridRef = useRef<Masonry<Pin> | null | undefined>();
 
   useEffect(() => {
@@ -97,7 +96,6 @@ export default function Example() {
       >
         {scrollContainerRef.current && (
           <Masonry
-            // @ts-expect-error - TS7006 - Parameter 'ref' implicitly has an 'any' type.
             ref={(ref) => {
               gridRef.current = ref;
             }}

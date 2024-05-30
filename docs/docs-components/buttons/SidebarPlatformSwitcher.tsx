@@ -45,7 +45,6 @@ export default function SidebarPlatformSwitcher({ onClick, componentPlatformFilt
   };
 
   return (
-    // @ts-expect-error - TS2741 - Property 'size' is missing in type '{ items: (string | Element)[]; onChange: ({ activeIndex, }: { activeIndex: number; event: MouseEvent<HTMLButtonElement, MouseEvent>; }) => void; selectedItemIndex: 0 | ... 1 more ... | 2; }' but required in type 'SegmentedControlProps'.
     <SegmentedControl
       items={items}
       onChange={onSelect}

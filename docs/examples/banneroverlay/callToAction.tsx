@@ -26,7 +26,6 @@ export default function Example() {
         label: 'Primary action',
         accessibilityLabel: 'Primary action',
       }}
-      // @ts-expect-error - TS2322 - Type '{ message: string; offset: { top: number; bottom: number; }; onDismiss: () => void; primaryAction: { role: "button"; onClick: () => void; label: string; accessibilityLabel: string; }; secondaryAction: { role: string; onClick: () => void; label: string; accessibilityLabel: string; }; thumbnail: { ...; }; title: strin...' is not assignable to type 'IntrinsicAttributes & BannerOverlayProps'.
       secondaryAction={{
         role: 'button',
         onClick: () => {},

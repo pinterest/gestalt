@@ -13,15 +13,12 @@ import MasonryContainer from '../../integration-test-helpers/masonry/MasonryCont
 // This can get bumped up another order of magnitude or so if needed…perf drops off pretty rapidly after that
 const REALISTIC_PINS_DATASET_SIZE = 1000;
 
-// @ts-expect-error - TS2749 - 'Masonry' refers to a value, but is being used as a type here. Did you mean 'typeof Masonry'?
 type MasonryProps = Masonry<Record<any, any>>['props'];
 
 type MeasurementStore = MasonryProps['measurementStore'];
 type PositionStore = MasonryProps['positionStore'];
 
-// @ts-expect-error - TS2339 - Property 'createMeasurementStore' does not exist on type 'FunctionComponent<MasonryProps<any>>'.
 const measurementStore: MeasurementStore = Masonry.createMeasurementStore();
-// @ts-expect-error - TS2339 - Property 'createMeasurementStore' does not exist on type 'FunctionComponent<MasonryProps<any>>'.
 const positionStore: PositionStore = Masonry.createMeasurementStore();
 
 // This is the counterpart to `normalizeValue` in `playwright/masonry/utils/getServerURL.ts`

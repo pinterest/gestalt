@@ -6,7 +6,6 @@ export default function Example() {
       <TileData
         disabled
         title="WAU"
-        // @ts-expect-error - TS2741 - Property 'children' is missing in type '{ text: string; }' but required in type 'ExtendedTooltipProps'.
         tooltip={{ text: 'Weekly Active Users' }}
         trend={{ value: 20, accessibilityLabel: 'Trending up' }}
         value="1.25M"

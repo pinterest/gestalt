@@ -181,7 +181,6 @@ export default function PopoverEducational({
       >
         {children ??
           (message ? (
-            // @ts-expect-error - TS2322 - Type '{ children: Element; padding: 4; tabIndex: number; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
             <Box padding={4} tabIndex={0}>
               <Flex direction="column" gap={3}>
                 {textElement}

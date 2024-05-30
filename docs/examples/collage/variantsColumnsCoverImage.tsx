@@ -48,8 +48,8 @@ export default function Example() {
             <Box>
               <Text>columns = {columns}</Text>
             </Box>
-
             <Collage
+              // @ts-expect-error - TS2322 - Type 'number' is not assignable to type 'Column'
               columns={columns}
               cover
               height={150}

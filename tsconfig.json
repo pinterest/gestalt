@@ -22,12 +22,25 @@
     "plugins": [
       {
         "name": "typescript-plugin-css-modules",
-        "options": { "customMatcher": "\\.css$" }
+        "options": {
+          "customMatcher": "\\.css$"
+        }
       }
     ]
   },
   "exclude": [
+    "dist/**/*",
     "node_modules",
     "**/*.json" // Don't try and check JSON files
+  ],
+  // https://www.typescriptlang.org/docs/handbook/project-references.html#guidance
+  "files": [],
+  "references": [
+    { "path": "./packages/gestalt" },
+    { "path": "./packages/eslint-plugin-gestalt" },
+    { "path": "./packages/gestalt-codemods" },
+    { "path": "./packages/gestalt-datepicker" },
+    { "path": "./packages/gestalt-charts" },
+    { "path": "./docs" }
   ]
 }

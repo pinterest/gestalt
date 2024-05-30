@@ -287,7 +287,6 @@ export default function Dropdown({
   }
 
   const dropdown = (
-    // @ts-expect-error - TS2786 - 'Popover' cannot be used as a JSX component.
     <Popover
       __dangerouslySetMaxHeight={maxHeight}
       __experimentalPopover={isInExperiment}
@@ -324,7 +323,6 @@ export default function Dropdown({
     </Popover>
   );
 
-  // @ts-expect-error - TS2786 - 'Layer' cannot be used as a JSX component.
   return isWithinFixedContainer ? dropdown : <Layer zIndex={zIndex}>{dropdown}</Layer>;
 }
 

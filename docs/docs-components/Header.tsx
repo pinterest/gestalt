@@ -186,7 +186,6 @@ function Header() {
               <Badge
                 position="middle"
                 text="Dev mode"
-                // @ts-expect-error - TS2322 - Type '{ position: "middle"; text: string; tooltip: { text: string; idealDirection: string; accessibilityLabel: string; zIndex: CompositeZIndex; }; type: "info"; }' is not assignable to type 'IntrinsicAttributes & BadgeProps'.
                 tooltip={{
                   text: 'You are currently in dev mode, which allows you to see dev-only example previews.',
                   idealDirection: 'down',

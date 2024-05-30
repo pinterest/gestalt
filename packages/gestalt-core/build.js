@@ -1,5 +1,5 @@
-import { readFileSync, writeFileSync } from 'fs';
-import { extname, relative } from 'path';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
+import { dirname, extname, relative } from 'path';
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
@@ -124,6 +124,10 @@ const cssModules = (options = {}) => {
       cssnano(opts)
         .process(Object.values(cssCache).join(''), { from: undefined })
         .then((result) => {
+          const outputDir = dirname(options.output);
+          if (!existsSync(outputDir)) {
+            mkdirSync(outputDir, { recursive: true });
+          }
           const filename = `${options.output}.css`;
           writeFileSync(filename, result.css);
         });
@@ -146,7 +150,11 @@ export const plugins = (name) => [
   json({
     preferConst: true,
   }),
-  typescript({ tsconfig: relative(__dirname, '../../tsconfig.json') }),
+  typescript({
+    // note: this is the relative tsconfig for each package (e.g. packages/gestalt/tsconfig.json)
+    tsconfig: relative(__dirname, './tsconfig.json'),
+    noEmitOnError: process.env.DEVMODE !== 'true',
+  }),
   babel({
     babelHelpers: 'bundled',
     babelrc: false,

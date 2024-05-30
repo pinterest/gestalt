@@ -95,6 +95,7 @@ export default function Example() {
   return (
     <ChartGraph
       accessibilityLabel="Engagement rate (example)"
+      // @ts-expect-error - TS2322 - Type 'undefined' is not assignable to type 'number'.
       data={data}
       elements={[
         { type: 'line', id: 'Paid 10% per click on average' },

@@ -4,7 +4,7 @@ import { Box, Button, Flex, Image, Mask, Popover, SearchField, TapArea, Text } f
 export default function Example() {
   const [open, setOpen] = useState(false);
   const [selectedBoard, setSelectedBoard] = useState('Fashion');
-  const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
+  const anchorRef = useRef<null | HTMLButtonElement>(null);
 
   return (
     <Flex alignItems="start" height="100%" justifyContent="center" width="100%">

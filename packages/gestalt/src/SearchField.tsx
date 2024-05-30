@@ -118,7 +118,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
 
   const handleMouseLeave = () => setHovered(false);
 
-  const handleFocus = (event: React.SyntheticEvent<HTMLInputElement>) => {
+  const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
     setFocused(true);
     if (onFocus) {
       onFocus({

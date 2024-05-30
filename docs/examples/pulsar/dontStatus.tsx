@@ -14,7 +14,6 @@ export default function Example() {
       <Box dangerouslySetInlineStyle={{ __style: { marginTop: 80 } }} position="relative">
         <IconButton accessibilityLabel="Example icon button" icon="speech-ellipsis" />
 
-        {/* @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'. */}
         <Box ref={anchorRef} margin={-5} position="absolute" top>
           <Pulsar size={88} />
         </Box>

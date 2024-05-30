@@ -262,7 +262,6 @@ function ChartGraph({
   // HOOKS
   const hexColor = useHexColor();
   const patterns = usePatterns();
-  // @ts-expect-error - TS2339 - Property 'colorSchemeName' does not exist on type '{ name: "lightMode" | "darkMode"; }'.
   const { colorSchemeName } = useColorScheme();
   const { accessibilityLabelPrefixText } = useDefaultLabel('ChartGraph');
 

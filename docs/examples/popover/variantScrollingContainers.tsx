@@ -21,7 +21,6 @@ export default function Example() {
       width="100%"
     >
       <ScrollBoundaryContainer height={200}>
-        {/* @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'. */}
         <Box ref={viewRef} color="default" padding={4} width={600}>
           <Flex gap={{ column: 0, row: 4 }}>
             <Box width={200}>

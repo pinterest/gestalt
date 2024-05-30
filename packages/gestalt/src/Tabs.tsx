@@ -128,7 +128,6 @@ const TabWithForwardRef = forwardRef<HTMLElement, TabProps>(function Tab(
   }
 
   return (
-    // @ts-expect-error - TS2322 - Type '{ children: Element; ref: ForwardedRef<HTMLElement>; id: string | undefined; paddingY: 3; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
     <Box ref={ref} id={id} paddingY={3}>
       <TapAreaLink
         accessibilityCurrent={isActive ? 'page' : undefined}

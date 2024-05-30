@@ -36,7 +36,6 @@ export default function Example() {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <AvatarGroup
-        // @ts-expect-error - TS2322 - Type '{ ref: MutableRefObject<HTMLDivElement | HTMLAnchorElement | null>; accessibilityLabel: string; collaborators: { name: string; src: string; }[]; onClick: () => void; role: "button"; size: "md"; }' is not assignable to type 'IntrinsicAttributes & AvatarGroupProps'.
         ref={anchorRef}
         accessibilityLabel="Click to see group collaborators."
         collaborators={collaborators}

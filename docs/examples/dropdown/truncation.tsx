@@ -10,7 +10,7 @@ export default function CustomIconButtonPopoverExample() {
     subtext?: string;
     value: string;
   }>(null);
-  const anchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
+  const anchorRef = useRef<null | HTMLButtonElement>(null);
   const onSelect: ComponentProps<typeof Dropdown.Item>['onSelect'] = ({ item }) =>
     setSelected(item);
 
@@ -47,7 +47,6 @@ export default function CustomIconButtonPopoverExample() {
               subtext:
                 'Aktualisieren Sie Ihren Homefeed, um Ihre Vorlieben und Ideen besser widerzuspiegeln',
             }}
-            // @ts-expect-error - TS2322 - Type '{ label: string; subtext?: string | undefined; value: string; } | null' is not assignable to type 'DropdownOption | readonly DropdownOption[] | undefined'.
             selected={selected}
           />
           <Dropdown.Link

@@ -114,7 +114,6 @@ function InternalList({
           <Flex direction="column">
             <Box
               display={hiddenLabel ? 'visuallyHidden' : 'block'}
-              // @ts-expect-error - TS2322 - Type '{ children: Element; display: "visuallyHidden" | "block"; id: string; marginBottom: 0 | 4; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
               id={id}
               marginBottom={hiddenLabel ? 0 : 4}
             >

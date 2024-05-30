@@ -25,7 +25,6 @@ export default function Example() {
               id="tag-readonly"
               label="Tag ID"
               onChange={() => {}}
-              // @ts-expect-error - TS2322 - Type '{ id: string; label: string; onChange: () => void; readOnly: true; value: string; }' is not assignable to type 'IntrinsicAttributes & TextFieldProps & RefAttributes<HTMLInputElement>'.
               readOnly
               value="Tag 2022"
             />

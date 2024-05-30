@@ -8,7 +8,6 @@ export default function Example() {
         showCheckbox
         size="lg"
         text="CPM"
-        // @ts-expect-error - TS2741 - Property 'children' is missing in type '{ text: string; }' but required in type 'ExtendedTooltipProps'.
         tooltip={{ text: 'Average cost per 1K paid impressions' }}
       />
       <TagData
@@ -17,7 +16,6 @@ export default function Example() {
         showCheckbox
         size="lg"
         text="MAU"
-        // @ts-expect-error - TS2741 - Property 'children' is missing in type '{ text: string[]; }' but required in type 'ExtendedTooltipProps'.
         tooltip={{
           text: ['Monthly Active Users', 'The total monthly users over the last 30 days'],
         }}

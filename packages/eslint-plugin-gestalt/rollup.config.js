@@ -31,7 +31,7 @@ const rollupConfig = {
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
       },
     }),
-    typescript({ tsconfig: relative(__dirname, '../../tsconfig.json') }),
+    typescript({ tsconfig: relative(__dirname, './tsconfig.json') }),
     babel({
       babelrc: false,
       babelHelpers: 'bundled',

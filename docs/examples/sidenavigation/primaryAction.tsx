@@ -42,7 +42,6 @@ export default function Example() {
                   tooltip: { text: 'Delete campaign' },
                 }}
               />
-              {/* @ts-expect-error - TS2741 - Property 'onExpand' is missing in type '{ children: Element[]; counter: { number: string; accessibilityLabel: string; }; label: string; primaryAction: { onClick: ({ event }: { readonly event: KeyboardEvent<HTMLButtonElement> | KeyboardEvent<...> | MouseEvent<...> | MouseEvent<...>; }) => void; tooltip: { ...; }; dropdownItems: Element[]; }; }' but required in type 'SideNavigationGroupProps'. */}
               <SideNavigation.Group
                 counter={{ number: '12', accessibilityLabel: '12 campaign drafts' }}
                 label="Campaign drafts"

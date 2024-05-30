@@ -27,7 +27,6 @@ export default function Example() {
             position="fixed"
             width="100%"
           >
-            {/* @ts-expect-error - TS2741 - Property 'dismissButton' is missing in type '{ primaryAction: { accessibilityLabel: string; label: string; size: "lg"; role: "button"; onClick: () => void; }; text: Element; thumbnail: { image: Element; }; }' but required in type 'ToastProps'. */}
             <Toast
               primaryAction={{
                 accessibilityLabel: 'Test',

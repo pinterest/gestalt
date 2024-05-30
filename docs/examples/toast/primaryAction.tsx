@@ -3,7 +3,6 @@ import { Flex, Image, Toast } from 'gestalt';
 export default function Example() {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-      {/* @ts-expect-error - TS2741 - Property 'dismissButton' is missing in type '{ primaryAction: { accessibilityLabel: string; label: string; role: "button"; onClick: () => void; }; text: string; thumbnail: { image: Element; }; }' but required in type 'ToastProps'. */}
       <Toast
         primaryAction={{
           accessibilityLabel: 'Edit your Pin',

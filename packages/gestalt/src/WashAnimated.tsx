@@ -59,7 +59,6 @@ export default function WashAnimated({
   });
 
   return (
-    // @ts-expect-error - TS2322 - Type '{ children: (false | Element)[]; onMouseEnter: (event: MouseEvent<HTMLDivElement, MouseEvent>) => void; onMouseLeave: (event: MouseEvent<HTMLDivElement, MouseEvent>) => void; position: "relative"; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
     <Box onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} position="relative">
       {Boolean(image) && <Box marginBottom={1}>{image}</Box>}
       <Box>{children}</Box>

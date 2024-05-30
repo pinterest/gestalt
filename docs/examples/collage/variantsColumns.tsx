@@ -50,6 +50,7 @@ export default function Example() {
             </Box>
 
             <Collage
+              // @ts-expect-error - TS2322 - Type 'number' is not assignable to type 'Column'
               columns={columns}
               height={150}
               renderImage={({ index, width, height }) => {

@@ -3,7 +3,7 @@ import { Button, Dropdown, Flex, GlobalEventsHandlerProvider, Link, Text } from 
 
 export default function Example() {
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
+  const anchorRef = useRef<null | HTMLButtonElement>(null);
 
   const useRouter = {
     push: (href: string) => {

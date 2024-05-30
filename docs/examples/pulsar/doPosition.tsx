@@ -15,7 +15,6 @@ export default function Example() {
         <Button onClick={() => {}} text="Switch to 3-step ad creation" />
 
         <Box
-          // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
           ref={anchorRef}
           dangerouslySetInlineStyle={{
             __style: {

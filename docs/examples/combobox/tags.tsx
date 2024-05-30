@@ -110,11 +110,9 @@ export default function Example() {
             label="Pronouns"
             noResultText="No results for your selection"
             onBlur={handleOnBlur}
-            // @ts-expect-error - TS2322 - Type '({ value, }: { event: React.ChangeEvent<HTMLInputElement>; value: string; }) => void' is not assignable to type 'AbstractEventHandler<SyntheticEvent<HTMLInputElement, Event>, { value: string; }>'.
             onChange={handleOnChange}
             onClear={handleClear}
             onKeyDown={handleOnKeyDown}
-            // @ts-expect-error - TS2322 - Type '({ item: { label }, }: { event: React.ChangeEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>; item: { label: string; subtext?: string | undefined; value: string; }; }) => void' is not assignable to type 'AbstractEventHandler<SyntheticEvent<HTMLInputElement, Event> | KeyboardEvent<HTMLInputElement>, { item: ComboBoxItemType; }>'.
             onSelect={handleOnSelect}
             options={suggestedOptions}
             placeholder={selected.length > 0 ? '' : 'Add your pronouns'}

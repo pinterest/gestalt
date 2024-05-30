@@ -147,7 +147,6 @@ export default function InternalTooltip({
         {children}
       </Box>
       {isOpen && !!anchor && (
-        // @ts-expect-error - TS2786 - 'Layer' cannot be used as a JSX component.
         <Layer zIndex={zIndex}>
           {isInExperiment ? (
             <Controller
@@ -166,7 +165,6 @@ export default function InternalTooltip({
             >
               <Box
                 maxWidth={180}
-                // @ts-expect-error - TS2322 - Type '{ children: (false | Element)[]; maxWidth: number; onBlur: (() => void) | undefined; onFocus: (() => void) | undefined; onMouseEnter: (() => void) | undefined; onMouseLeave: (() => void) | undefined; padding: 2; role: string; tabIndex: number; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
                 onBlur={link ? handleTextMouseLeave : undefined}
                 onFocus={link ? handleTextMouseEnter : undefined}
                 onMouseEnter={link ? handleTextMouseEnter : undefined}
@@ -196,7 +194,6 @@ export default function InternalTooltip({
             >
               <Box
                 maxWidth={180}
-                // @ts-expect-error - TS2322 - Type '{ children: (false | Element)[]; maxWidth: number; onBlur: (() => void) | undefined; onFocus: (() => void) | undefined; onMouseEnter: (() => void) | undefined; onMouseLeave: (() => void) | undefined; padding: 2; role: string; tabIndex: number; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
                 onBlur={link ? handleTextMouseLeave : undefined}
                 onFocus={link ? handleTextMouseEnter : undefined}
                 onMouseEnter={link ? handleTextMouseEnter : undefined}

@@ -11,7 +11,7 @@ export default function SegmentedControlExample() {
       <Flex direction="column" gap={{ column: 6, row: 0 }}>
         <Flex direction="column" gap={{ column: 2, row: 0 }}>
           <Heading size="400">Equal widths</Heading>
-          {/* @ts-expect-error - TS2741 - Property 'size' is missing in type '{ items: string[]; onChange: ({ activeIndex }: { activeIndex: number; } & { readonly event: MouseEvent<HTMLButtonElement, MouseEvent>; }) => void; selectedItemIndex: number; }' but required in type 'SegmentedControlProps'. */}
+
           <SegmentedControl
             items={items}
             onChange={({ activeIndex }) => {
@@ -23,7 +23,6 @@ export default function SegmentedControlExample() {
 
         <Flex direction="column" gap={{ column: 2, row: 0 }}>
           <Heading size="400">Responsive widths</Heading>
-          {/* @ts-expect-error - TS2741 - Property 'size' is missing in type '{ items: string[]; onChange: ({ activeIndex }: { activeIndex: number; } & { readonly event: MouseEvent<HTMLButtonElement, MouseEvent>; }) => void; responsive: true; selectedItemIndex: number; }' but required in type 'SegmentedControlProps'. */}
           <SegmentedControl
             items={items}
             onChange={({ activeIndex }) => {
