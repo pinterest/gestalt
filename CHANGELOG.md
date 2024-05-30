@@ -1,3 +1,9 @@
+## 150.3.0 (May 30, 2024)
+
+### Minor
+
+- Status: support to Text (& links) in `title` prop ([#3601](https://github.com/pinterest/gestalt/pull/3601)) - [Preview link](https://deploy-preview-3601--gestalt.netlify.app?devexample=true)
+
 ## 150.2.1 (May 29, 2024)
 
 ### Patch
