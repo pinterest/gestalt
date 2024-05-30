@@ -146,7 +146,7 @@
     "start": "netlify dev -c \"yarn dev\"",
     "svgIcons:validate": "./scripts/validateIconSvgSpecs.js",
     "test": "./scripts/test.sh",
-    "tsc": "tsc --build"
+    "tsc": "tsc --build --force"
   },
   "jest": {
     "projects": [

@@ -35,8 +35,8 @@
   ],
   "files": [],
   "references": [
-    { "path": "./packages/eslint-plugin-gestalt" },
     { "path": "./packages/gestalt" },
+    { "path": "./packages/eslint-plugin-gestalt" },
     { "path": "./packages/gestalt-codemods" },
     { "path": "./packages/gestalt-datepicker" },
     { "path": "./packages/gestalt-charts" },
