@@ -95,7 +95,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     onBlur,
     onClick,
     onFocus,
-    selected = false,
+    selected,
     size = 'md',
     text,
     accessibilityControls,
