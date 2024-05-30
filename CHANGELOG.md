@@ -1,3 +1,9 @@
+## 151.0.0 (May 30, 2024)
+
+### Major
+
+- Internal: Auto-generate .d.ts type declaration files ([#3597](https://github.com/pinterest/gestalt/pull/3597)) - [Preview link](https://deploy-preview-3597--gestalt.netlify.app?devexample=true)
+
 ## 150.3.0 (May 30, 2024)
 
 ### Minor
