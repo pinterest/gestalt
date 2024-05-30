@@ -95,7 +95,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     onBlur,
     onClick,
     onFocus,
-    selected = false,
+    selected,
     size = 'md',
     text,
     accessibilityControls,
@@ -139,10 +139,11 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     [styles.md]: size === 'md',
     [styles.lg]: size === 'lg',
     [styles[color]]: !disabled && !selected,
-    [styles.noBorder]: color === 'red' && !selected && !disabled,
+    [styles.noBorder]: color === 'red' && !selected,
     [styles.selectedBorder]: selected,
     [styles.selected]: !disabled && selected,
     [styles.disabled]: disabled && (color !== 'red' || selected),
+    [styles.disabledTransparent]: disabled && color === 'transparent' && !selected,
     [styles.disabledRed]: disabled && color === 'red' && !selected,
     [styles.enabled]: !disabled,
     [touchableStyles.tapCompress]: !disabled && isTapping,
@@ -157,18 +158,6 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     (selected && 'default') ||
     (isDarkModeRed && 'default') ||
     DEFAULT_TEXT_COLORS[color];
-
-  const buttonText = (
-    <Text
-      align="center"
-      color={textColor}
-      overflow="normal"
-      size={size === 'sm' ? '200' : '300'}
-      weight="bold"
-    >
-      {text}
-    </Text>
-  );
 
   // Consume GlobalEventsHandlerProvider
   const { buttonToggleHandlers } = useGlobalEventsHandlerContext() ?? {
@@ -216,10 +205,26 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
                 size={SIZE_NAME_TO_PIXEL[size]}
               />
             ) : null}
-            <Text>{buttonText}</Text>
+            <Text
+              align="center"
+              color={textColor}
+              overflow="normal"
+              size={size === 'sm' ? '200' : '300'}
+              weight="bold"
+            >
+              {text}
+            </Text>
           </Flex>
         ) : (
-          buttonText
+          <Text
+            align="center"
+            color={textColor}
+            overflow="normal"
+            size={size === 'sm' ? '200' : '300'}
+            weight="bold"
+          >
+            {text}
+          </Text>
         )}
       </div>
     </button>

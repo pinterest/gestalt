@@ -43,16 +43,16 @@
 
 .disabled {
   composes: borderColorLightGrayDisabled from "./Borders.css";
-  background-color: var(--color-background-button-tertiary-default);
   cursor: default;
   pointer-events: none;
 }
 
+.disabledTransparent {
+  background-color: var(--color-background-button-tertiary-default);
+}
+
 .disabledRed {
-  composes: borderColorLightGrayDisabled from "./Borders.css";
   background-color: var(--color-background-button-disabled-default);
-  cursor: default;
-  pointer-events: none;
 }
 
 .selected {

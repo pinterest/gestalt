@@ -63,12 +63,12 @@ export default function DocsPage({ generatedDocGen }: DocType) {
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
-            description={`To make it clearer, you may want to change the label text to indicate that the ButtonToggle has been selected. For instance, changing "follow" to "Following."`}
+            description={`To make it clearer, you may want to change the label text to indicate that the ButtonToggle has been selected. For instance, changing "Follow" to "Following."`}
             sandpackExample={
               <SandpackExample
                 code={changeLabelsDo}
                 hideEditor
-                name={`To make it clearer, you may want to change the label text to indicate that the ButtonToggle has been selected. For instance, changing "follow" to "Following."`}
+                name="content"
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
@@ -84,7 +84,7 @@ export default function DocsPage({ generatedDocGen }: DocType) {
               <SandpackExample
                 code={consistencyDo}
                 hideEditor
-                name="Make sure that the ButtonToggle(s) in your application are consistently styled and placed. This should also apply to their sizing, maintaining uniformity throughout the experience."
+                name="Do Consistency"
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
@@ -100,7 +100,7 @@ export default function DocsPage({ generatedDocGen }: DocType) {
               <SandpackExample
                 code={locationDo}
                 hideEditor
-                name="Place the ButtonToggle(s) in a location where users would naturally expect to find them, taking into consideration the context. For instance, position it next to a related feature."
+                name="Do Location"
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
@@ -116,7 +116,7 @@ export default function DocsPage({ generatedDocGen }: DocType) {
               <SandpackExample
                 code={confirmationDo}
                 hideEditor
-                name="If the ButtonToggle(s) trigger a significant action or irreversible change, it is recommended to include a confirmation, such as a ModalAlert message."
+                name="Do Confirmation"
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
@@ -131,8 +131,8 @@ When ButtonToggle text does not provide sufficient context about the ButtonToggl
 Texts like “Best“, “Views“, or “Save“ can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text with deeper context to replace the ButtonToggle text, like “Follow Ryan” or “Shop Wedding Invitations”.
 
 If ButtonToggle is used as a control button to show/hide a Popover-based component, we recommend passing the following ARIA attributes to assist screen readers:
-- \`accessibilityLabel\`: if present, read by screen readers read instead of the \`text\` prop.
-- \`accessibilityControls\`: informs the screen reader that ButtonToggle controls the display of an anchored Popover-based component. It populates [aria-controls](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
+- \`accessibilityLabel\`: if present, read by screen readers read instead of the \`text\` prop. It populates [aria-label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label).
+- \`accessibilityControls\`: informs the screen reader that ButtonToggle controls the display of an interactive widget or element, or is used to modify another component.  It can be used to associate the corresponding element with the ButtonToggle. It populates [aria-controls](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls).
 `}
           title="ARIA attributes"
         />
@@ -286,24 +286,21 @@ Used to block user interaction such as hover, focus and click. Disabled ButtonTo
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[Button](/web/button)**
-Use ButtonToggle for a standard action button, like submitting a form.
+**[RadioGroup](/web/radiogroup)**
+Use when presenting a user with a list of choices for which there can only be one selection.
 
-**[ButtonLink](/web/buttonlink)**
-Use ButtonLink when a link is needed instead of an action.
+**[Checkbox](/web/checkbox)**
+Used when presenting a user with a list of choices for which there can be multiple selections.
 
-**[ButtonGroup](/web/buttongroup)**
-When displaying multiple Buttons in a layout, use ButtonGroup to ensure consistent spacing and wrapping behavior.
+**[Switch](/web/switch)**
+Use for single-cell options that can be turned on or off. Examples include a list of settings that take effect immediately without having to confirm Form submission.
 
-**[IconButton](/web/iconbutton)**
-Use IconButton when only an icon is needed instead of text.
+**[TagData](/web/tagdata)**
+TagData enables people to select multiple categories to compare with each other in a graph or chart.
 
-**[TapArea](/web/taparea)**
-Use TapArea to make non-button elements interactive, like an Image. This ensures the element interaction is accessible and uses Gestalt styles.
-
-**[Tabs](/web/tabs)**
-Tabs are intended for page-level navigation between multiple URLs.
-      `}
+**[TileData](/web/tiledata)**
+TileData enables users to select multiple categories to compare with each other in a graph or chart view, while still being able to see all of the data points.
+`}
         />
       </MainSection>
     </Page>
