@@ -11,7 +11,6 @@ export default function Example() {
         justifyContent="end"
         width="100%"
       >
-        
         <Toast
           primaryAction={{
             accessibilityLabel: 'View new recommendations',
@@ -24,9 +23,9 @@ export default function Example() {
             icon: <Icon accessibilityLabel="" icon="lightbulb" />,
           }}
         />
-        
+
         <Toast text="Password updated" type="success" />
-        
+
         <Toast
           text="2-factor authentication added for Sabina Romero"
           thumbnail={{

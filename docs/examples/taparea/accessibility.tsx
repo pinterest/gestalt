@@ -16,7 +16,6 @@ export default function MenuButtonExample() {
           onTap={() => setSelected(!selected)}
         >
           <Box
-            
             ref={anchorRef}
             alignItems="center"
             borderStyle="sm"

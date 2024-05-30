@@ -20,7 +20,6 @@ export default function Example() {
         width="100%"
       >
         <Box column={12} maxWidth={800} padding={2}>
-          
           <Accordion.Expandable
             id="Accordion"
             items={[

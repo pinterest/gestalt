@@ -9,9 +9,8 @@ export default function Example() {
         type="unordered"
       >
         <List.Item text="List item text" />
-        
+
         <List.Item text="List item text">
-          
           <List.Item text="List item text">
             <List.Item text="List item text" />
             <List.Item text="List item text" />

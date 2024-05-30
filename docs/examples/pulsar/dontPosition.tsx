@@ -15,7 +15,6 @@ export default function Example() {
         <Button onClick={() => {}} text="Switch to 3-step ad creation" />
 
         <Box
-          
           ref={anchorRef}
           dangerouslySetInlineStyle={{
             __style: {

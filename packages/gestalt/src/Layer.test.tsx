@@ -9,7 +9,7 @@ describe('Layer in server render', () => {
       expect(true).toEqual(true);
       return;
     }
-    
+
     const tree = create(<Layer>content</Layer>).toJSON();
     // @ts-expect-error - TS2339 - Property 'type' does not exist on type 'ReactTestRendererJSON | ReactTestRendererJSON[]'.
     expect(tree?.type).toBe('div');

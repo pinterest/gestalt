@@ -566,4 +566,4 @@ BoxWithForwardRef.displayName = 'Box';
 
 export default BoxWithForwardRef;
 
-<BoxWithForwardRef id="foo" />
+<BoxWithForwardRef id="foo" />;

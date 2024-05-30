@@ -96,7 +96,6 @@ export default function Example() {
         </Flex>
       </Box>
       <Box
-        
         ref={anchorRef}
         bottom
         dangerouslySetInlineStyle={{

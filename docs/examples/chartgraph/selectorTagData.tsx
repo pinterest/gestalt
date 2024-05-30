@@ -77,7 +77,7 @@ export default function Example() {
       accessibilityLabel="Example of Bar chart"
       data={[
         // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
-        { 
+        {
           name: 'NorthWest',
           'Campaign Autumn': 100,
           'Campaign Winter': 90,
@@ -108,7 +108,7 @@ export default function Example() {
       type="bar"
       // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
       visualPatternSelected={visualPatternSelected}
-    > 
+    >
       <TagData
         color="01"
         id="Campaign Autumn"
@@ -117,7 +117,7 @@ export default function Example() {
         showCheckbox
         text="Campaign Autumn"
       />
-      
+
       <TagData
         color="02"
         id="Campaign Winter"

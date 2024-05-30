@@ -47,7 +47,6 @@ export default function CustomIconButtonPopoverExample() {
               subtext:
                 'Aktualisieren Sie Ihren Homefeed, um Ihre Vorlieben und Ideen besser widerzuspiegeln',
             }}
-            
             selected={selected}
           />
           <Dropdown.Link

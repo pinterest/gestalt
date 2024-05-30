@@ -40,7 +40,6 @@ export default function CustomDisabledDropdown() {
           <Dropdown.Item
             onSelect={onSelect}
             option={{ value: 'Download image', label: 'Download image' }}
-            
             selected={selected}
           />
           <Dropdown.Item
@@ -48,7 +47,6 @@ export default function CustomDisabledDropdown() {
             disabled
             onSelect={onSelect}
             option={{ value: 'Hide Pin', label: 'Hide Pin', subtext: `This pin is already hidden` }}
-            
             selected={selected}
           />
           <Dropdown.Link
@@ -64,7 +62,6 @@ export default function CustomDisabledDropdown() {
           <Dropdown.Item
             onSelect={onSelect}
             option={{ value: 'Delete Pin', label: 'Delete Pin' }}
-            
             selected={selected}
           />
         </Dropdown>

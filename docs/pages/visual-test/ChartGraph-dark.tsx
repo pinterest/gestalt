@@ -9,12 +9,12 @@ export default function Snapshot() {
           accessibilityLabel="Example of Bar chart"
           data={[
             // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
-            { 
+            {
               name: 'A',
               'Series_01': 100,
             },
             // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'number | undefined'.
-            { 
+            {
               name: 'B',
               'Series_01': 200,
             },

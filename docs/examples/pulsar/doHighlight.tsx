@@ -19,7 +19,6 @@ export default function Example() {
           text="Set goal"
         />
 
-        
         <Box ref={anchorRef} marginStart={-3} marginTop={-9} position="absolute" top>
           <Pulsar paused={!showEducation} size={110} />
         </Box>

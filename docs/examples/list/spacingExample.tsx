@@ -5,9 +5,8 @@ export default function Example() {
     <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <List label={<Text weight="bold">Regular spacing</Text>} spacing="regular" type="unordered">
         <List.Item text="List item text" />
-        
+
         <List.Item text="List item text">
-          
           <List.Item text="List item text">
             <List.Item text="List item text" />
             <List.Item text="List item text" />

@@ -11,10 +11,6 @@
       "gestalt": ["../gestalt"]
     }
   },
-  "references": [
-    { "path": "../gestalt" },
-  ],
-  "include": [
-    "./src/**/*",
-  ],
+  "references": [{ "path": "../gestalt" }],
+  "include": ["./src/**/*"]
 }

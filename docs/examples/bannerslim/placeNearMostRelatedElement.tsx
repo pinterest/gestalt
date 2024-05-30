@@ -25,7 +25,6 @@ export default function Example() {
               id="tag-readonly"
               label="Tag ID"
               onChange={() => {}}
-              
               readOnly
               value="Tag 2022"
             />

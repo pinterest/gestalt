@@ -42,13 +42,11 @@ export default function CustomIconButtonPopoverExample() {
           <Dropdown.Item
             onSelect={onSelect}
             option={{ value: 'Cozy', label: 'Cozy' }}
-            
             selected={selected}
           />
           <Dropdown.Item
             onSelect={onSelect}
             option={{ value: 'Comfy', label: 'Comfy' }}
-            
             selected={selected}
           />
         </Dropdown>

@@ -5,11 +5,10 @@ export default function Example() {
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Box alignItems="center" display="flex" height="100%" justifyContent="center" width="100%">
         <Flex gap={2} wrap>
-          
           <TagData baseColor="secondary" text="Impressions" />
-          
+
           <TagData baseColor="secondary" text="CPM" />
-          
+
           <TagData baseColor="secondary" text="Spend" />
         </Flex>
       </Box>

@@ -4,7 +4,6 @@ export default function Example() {
   return (
     <Box height="100%" paddingY={4} width="100%">
       <Flex alignItems="end" height="100%" justifyContent="center" width="100%">
-        
         <Toast
           primaryAction={{
             accessibilityLabel: 'Edit your Pin',

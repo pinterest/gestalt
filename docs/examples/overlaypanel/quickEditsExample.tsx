@@ -117,7 +117,7 @@ export default function Example() {
                   },
                 ]}
               />
-              
+
               <Accordion.Expandable
                 id="accordionExample - preview"
                 items={[

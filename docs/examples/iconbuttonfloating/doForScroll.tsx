@@ -54,7 +54,7 @@ export default function Example() {
           </Flex.Item>
         ))}
       </Flex>
-      
+
       <Box ref={anchorRef} bottom margin={4} position="fixed" right role="contentinfo">
         <IconButtonFloating
           accessibilityControls="sections-dropdown-example"

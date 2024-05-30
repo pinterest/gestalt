@@ -53,7 +53,6 @@ export default function CustomIconButtonPopoverExample() {
             // eslint-disable-next-line no-alert
             onSelect={() => alert('Pin has been hidden')}
             option={{ value: 'item 1', label: 'Hide Pin' }}
-            
             selected={selected}
           />
           <Dropdown.Link
@@ -70,13 +69,11 @@ export default function CustomIconButtonPopoverExample() {
               badge={{ text: 'New' }}
               onSelect={onSelect}
               option={{ value: 'item 4', label: 'Compact' }}
-              
               selected={selected}
             />
             <Dropdown.Item
               onSelect={onSelect}
               option={{ value: 'item 5', label: 'List' }}
-              
               selected={selected}
             />
           </Dropdown.Section>

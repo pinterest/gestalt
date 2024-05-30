@@ -49,7 +49,6 @@ export default function Example() {
           selected={selectedItems.includes(id)}
           showCheckbox
           text={name}
-          
           tooltip={{ text: tooltip }}
         />
       ))}

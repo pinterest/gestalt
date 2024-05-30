@@ -85,7 +85,6 @@ export default function SubheadingExample() {
             }
           >
             <Flex direction="column" gap={2}>
-              
               <Box ref={enRef}>
                 <List label={<Text weight="bold">English</Text>}>
                   <List.Item text="One" />
@@ -100,7 +99,7 @@ export default function SubheadingExample() {
                   <List.Item text="Ten" />
                 </List>
               </Box>
-              
+
               <Box ref={esRef}>
                 <List label={<Text weight="bold">Español</Text>}>
                   <List.Item text="Dos" />
@@ -114,7 +113,7 @@ export default function SubheadingExample() {
                   <List.Item text="Diez" />
                 </List>
               </Box>
-              
+
               <Box ref={ptRef}>
                 <List label={<Text weight="bold">Português</Text>}>
                   <List.Item text="Um" />
@@ -129,7 +128,7 @@ export default function SubheadingExample() {
                   <List.Item text="Dez" />
                 </List>
               </Box>
-              
+
               <Box ref={chRef}>
                 <List label={<Text weight="bold">普通话</Text>}>
                   <List.Item text="一" />

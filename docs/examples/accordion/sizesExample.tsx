@@ -8,7 +8,6 @@ export default function Example() {
   return (
     <Box alignItems="center" display="flex" padding={8} width="100%">
       <Flex direction="column" gap={{ column: 2, row: 0 }} justifyContent="between" width="100%">
-        
         <SegmentedControl
           items={sizes}
           onChange={({ activeIndex }) => {

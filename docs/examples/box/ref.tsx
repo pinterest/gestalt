@@ -21,7 +21,7 @@ export default function Example() {
           onClick={() => setOpen((prevVal) => !prevVal)}
           text={open ? 'Close Popover' : 'Anchor a Popover to Box'}
         />
-        
+
         <Box ref={anchorRef} borderStyle="sm" padding={3} rounding={1}>
           <Text>I&apos;m a Box</Text>
         </Box>

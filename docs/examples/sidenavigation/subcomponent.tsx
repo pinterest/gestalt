@@ -35,14 +35,13 @@ export default function Example() {
       </SideNavigation.Section>
 
       <SideNavigation.Section label="Audiences">
-        
         <SideNavigation.Group icon="people" label="Christmas">
           <SideNavigation.NestedItem
             href="#"
             label="Luxury Christmas"
             onClick={({ event }) => event.preventDefault()}
           />
-          
+
           <SideNavigation.NestedGroup label="Classic Christmas">
             <SideNavigation.NestedItem
               href="#"
@@ -75,7 +74,7 @@ export default function Example() {
             ))}
           </SideNavigation.NestedGroup>
         </SideNavigation.Group>
-        
+
         <SideNavigation.Group icon="people" label="Halloween">
           {['West Coast', 'East Coast'].map((x) => (
             <SideNavigation.NestedItem

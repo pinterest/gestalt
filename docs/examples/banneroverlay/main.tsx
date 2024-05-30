@@ -34,7 +34,6 @@ export default function Example() {
         label: 'Get the app',
         accessibilityLabel: 'Get the app',
       }}
-      
       secondaryAction={{
         role: 'button',
         onClick: () => {},

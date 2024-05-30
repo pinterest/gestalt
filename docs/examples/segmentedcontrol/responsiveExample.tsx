@@ -11,7 +11,7 @@ export default function SegmentedControlExample() {
       <Flex direction="column" gap={{ column: 6, row: 0 }}>
         <Flex direction="column" gap={{ column: 2, row: 0 }}>
           <Heading size="400">Equal widths</Heading>
-          
+
           <SegmentedControl
             items={items}
             onChange={({ activeIndex }) => {

@@ -323,7 +323,6 @@ export default function Dropdown({
     </Popover>
   );
 
-  
   return isWithinFixedContainer ? dropdown : <Layer zIndex={zIndex}>{dropdown}</Layer>;
 }
 

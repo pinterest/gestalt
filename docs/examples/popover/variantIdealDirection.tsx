@@ -14,7 +14,6 @@ export default function Example() {
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <ScrollBoundaryContainer>
         <Box
-          
           ref={viewRef}
           alignItems="center"
           color="default"

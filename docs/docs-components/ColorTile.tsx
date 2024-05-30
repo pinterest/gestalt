@@ -18,7 +18,7 @@ function ColorTile({ description, token, number = 400, textColor }: Props) {
     token?.includes('black') ||
     token?.includes('inverse') ||
     isTransparent;
-  
+
   const { colorSchemeName } = useColorScheme();
 
   const regex = /(?<=--)(.*?)(?=\))/g;

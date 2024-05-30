@@ -264,7 +264,6 @@ export default function HelpButton({
             {popoverElement}
           </Box>
         ) : (
-          
           <Layer zIndex={zIndexWrapper}>{popoverElement}</Layer>
         ))}
     </Flex>

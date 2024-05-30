@@ -16,7 +16,6 @@ export default function Example() {
         showCheckbox
         size="lg"
         text="CPM"
-        
         tooltip={{ text: 'Average cost per 1K paid impressions' }}
       />
     </Flex>

@@ -42,37 +42,31 @@ export default function CustomIconButtonPopoverExample() {
           <Dropdown.Item
             onSelect={onSelect}
             option={{ value: 'item 1', label: 'Last 7 days' }}
-            
             selected={selected}
           />
           <Dropdown.Item
             onSelect={onSelect}
             option={{ value: 'item 2', label: 'Last 14 days' }}
-            
             selected={selected}
           />
           <Dropdown.Item
             onSelect={onSelect}
             option={{ value: 'item 3', label: 'Last 21 days' }}
-            
             selected={selected}
           />
           <Dropdown.Item
             onSelect={onSelect}
             option={{ value: 'item 4', label: 'Last 30 days' }}
-            
             selected={selected}
           />
           <Dropdown.Item
             onSelect={onSelect}
             option={{ value: 'item 5', label: 'Last 60 days' }}
-            
             selected={selected}
           />
           <Dropdown.Item
             onSelect={onSelect}
             option={{ value: 'item 6', label: 'Last 90 days' }}
-            
             selected={selected}
           />
         </Dropdown>

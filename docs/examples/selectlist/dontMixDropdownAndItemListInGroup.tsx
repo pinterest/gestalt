@@ -73,7 +73,6 @@ export default function SubtextIconButtonFlyoutExample() {
                   key={label}
                   onSelect={handleSelect}
                   option={{ label, value }}
-                  
                   selected={selected}
                 />
               ))}

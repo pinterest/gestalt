@@ -34,7 +34,7 @@ export default function Example() {
               src="https://i.ibb.co/7bQQYkX/stock2.jpg"
             />
           ),
-          
+
           mask: { rounding: 4 },
           width: 128,
         }}

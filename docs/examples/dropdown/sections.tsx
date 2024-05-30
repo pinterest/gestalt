@@ -46,13 +46,11 @@ export default function CustomIconButtonPopoverExample() {
             <Dropdown.Item
               onSelect={onSelect}
               option={{ value: 'Pin', label: 'Pin' }}
-              
               selected={selected}
             />
             <Dropdown.Item
               onSelect={onSelect}
               option={{ value: 'Story Pin', label: 'Story Pin' }}
-              
               selected={selected}
             />
           </Dropdown.Section>
@@ -61,13 +59,11 @@ export default function CustomIconButtonPopoverExample() {
               badge={{ text: 'New' }}
               onSelect={onSelect}
               option={{ value: 'Note', label: 'Note' }}
-              
               selected={selected}
             />
             <Dropdown.Item
               onSelect={onSelect}
               option={{ value: 'Section', label: 'Section' }}
-              
               selected={selected}
             />
           </Dropdown.Section>

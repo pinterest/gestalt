@@ -3,7 +3,6 @@ import { Flex, Image, Toast } from 'gestalt';
 export default function Example() {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-      
       <Toast
         primaryAction={{
           accessibilityLabel: 'Edit your Pin',

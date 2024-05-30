@@ -6,7 +6,6 @@ export default function Example() {
       <TileData
         disabled
         title="WAU"
-        
         tooltip={{ text: 'Weekly Active Users' }}
         trend={{ value: 20, accessibilityLabel: 'Trending up' }}
         value="1.25M"

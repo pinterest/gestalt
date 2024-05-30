@@ -11,7 +11,6 @@ export default function Example() {
         justifyContent="center"
         width="100%"
       >
-        
         <Toast
           primaryAction={{
             accessibilityLabel: 'Undo',

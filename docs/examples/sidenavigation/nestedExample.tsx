@@ -24,14 +24,14 @@ export default function Example() {
             label="Thanksgiving"
             onClick={({ event }) => event.preventDefault()}
           />
-          
+
           <SideNavigation.Group icon="people" label="Christmas">
             <SideNavigation.NestedItem
               href="#"
               label="Luxury Christmas"
               onClick={({ event }) => event.preventDefault()}
             />
-            
+
             <SideNavigation.NestedGroup label="Classic Christmas">
               <SideNavigation.NestedItem
                 href="#"
@@ -44,7 +44,7 @@ export default function Example() {
                 onClick={({ event }) => event.preventDefault()}
               />
             </SideNavigation.NestedGroup>
-            
+
             <SideNavigation.NestedGroup label="Alternative Christmas">
               <SideNavigation.NestedItem
                 active="section"

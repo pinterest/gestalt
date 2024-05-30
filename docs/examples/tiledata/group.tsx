@@ -52,7 +52,6 @@ export default function Example() {
           selected={selectedItems.includes(id)}
           showCheckbox
           title={name}
-          
           tooltip={{ text: tooltip }}
           trend={{ value: 20, accessibilityLabel: 'Trending up' }}
           value={value}

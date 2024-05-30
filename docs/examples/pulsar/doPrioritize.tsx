@@ -14,7 +14,6 @@ export default function Example() {
       <Box dangerouslySetInlineStyle={{ __style: { marginTop: 80 } }} position="relative">
         <IconButton accessibilityLabel="Example icon button" icon="flashlight" />
 
-        
         <Box ref={anchorRef} margin={-5} position="absolute" top>
           <Pulsar size={88} />
         </Box>

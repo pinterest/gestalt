@@ -490,7 +490,6 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
         />
       </Box>
       {showOptionsList && innerRef.current ? (
-        
         <Layer zIndex={zIndex}>
           {/* @ts-expect-error - TS2786 - 'InternalPopover' cannot be used as a JSX component. */}
           <InternalPopover

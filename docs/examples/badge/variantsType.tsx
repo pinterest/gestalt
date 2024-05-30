@@ -28,7 +28,6 @@ export default function Example() {
                   Ads & Campaigns{' '}
                   <Badge
                     text="New"
-                    
                     tooltip={{
                       text: 'This is a new feature',
                       idealDirection: 'up',

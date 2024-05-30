@@ -60,14 +60,12 @@ export default function Example() {
             <Dropdown.Item
               onSelect={onSelect}
               option={{ value: 'Download image', label: 'Download image' }}
-              
               selected={selected}
             />
             <Dropdown.Item
               badge={{ text: 'New' }}
               onSelect={onSelect}
               option={{ value: 'Hide Pin', label: 'Hide Pin' }}
-              
               selected={selected}
             />
             <Dropdown.Link

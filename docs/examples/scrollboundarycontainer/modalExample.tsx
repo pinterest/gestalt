@@ -113,7 +113,6 @@ export default function ScrollBoundaryContainerExample() {
                   label: 'Headquarters San Francisco',
                   subtext: '321 Inspiration Street, Suite # 12',
                 }}
-                
                 selected={selected}
               />
               <Dropdown.Item
@@ -123,7 +122,6 @@ export default function ScrollBoundaryContainerExample() {
                   label: 'Headquarters Seattle',
                   subtext: '123 Creativity Street, Suite # 21',
                 }}
-                
                 selected={selected}
               />
             </Dropdown>

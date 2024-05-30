@@ -42,7 +42,6 @@ export default function Example() {
           />
 
           <SideNavigation.Section label="Public Holidays">
-            
             <SideNavigation.Group label="Christmas">
               <SideNavigation.NestedItem
                 active={page === '3' ? 'page' : undefined}
@@ -62,7 +61,7 @@ export default function Example() {
                   setPage('4');
                 }}
               />
-              
+
               <SideNavigation.NestedGroup label="Classic Christmas">
                 <SideNavigation.NestedItem
                   active={page === '5' ? 'page' : undefined}

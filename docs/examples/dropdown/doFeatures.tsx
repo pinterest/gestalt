@@ -41,7 +41,6 @@ export default function CustomIconButtonPopoverExample() {
           <Dropdown.Item
             onSelect={onSelect}
             option={{ value: 'item 1', label: 'Item 1' }}
-            
             selected={selected}
           />
           <Dropdown.Item
@@ -50,7 +49,6 @@ export default function CustomIconButtonPopoverExample() {
               value: 'item 2',
               label: 'Item 2 with a really long, detailed, complex name',
             }}
-            
             selected={selected}
           />
           <Dropdown.Link
@@ -66,7 +64,6 @@ export default function CustomIconButtonPopoverExample() {
             badge={{ text: 'New' }}
             onSelect={onSelect}
             option={{ value: 'item 4', label: 'Item 4' }}
-            
             selected={selected}
           />
           <Dropdown.Link

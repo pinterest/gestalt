@@ -12,7 +12,6 @@ export default function Example() {
     <Flex alignItems="start" height="100%" justifyContent="center" width="100%">
       <Box padding={2}>
         <Flex direction="column" gap={4} width="100%">
-          
           <SegmentedControl
             items={items}
             onChange={({ activeIndex }) => setItemIndex(activeIndex)}

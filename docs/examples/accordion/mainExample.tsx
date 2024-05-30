@@ -12,7 +12,7 @@ export default function Example() {
         >
           <Text size="200">This is example content.</Text>
         </Accordion>
-        
+
         <Accordion.Expandable
           id="accordionExample - header expandable"
           items={[

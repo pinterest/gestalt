@@ -18,7 +18,7 @@ export default function Example() {
       {/* @ts-expect-error - TS2322 - Type '{ children: Element[]; size: string; type: "ordered"; }' is not assignable to type 'IntrinsicAttributes & ListProps & { children?: ReactNode; }'. */}
       <List size={items[selectedItemIndex]} type="ordered">
         <List.Item text="List item text" />
-        
+
         <List.Item text="List item text">
           <List.Item text="List item text" />
           <List.Item text={<Text>List Item text</Text>} />
@@ -26,7 +26,6 @@ export default function Example() {
         <List.Item text="List item text" />
       </List>
       <Box paddingY={8} width="500px">
-        
         <SegmentedControl
           items={items}
           onChange={({ activeIndex }) => {
