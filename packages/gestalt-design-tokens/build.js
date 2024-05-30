@@ -198,7 +198,7 @@ const commonJSFormatter = ({ token, darkTheme, isVR }) => {
     name:
       isVR && !isWebMappingToken
         ? [prefix, ...token.path].join('-').replace('appenda', '')
-        : token.path.join('-').replace('appendb', '').replace('appendb', ''),
+        : token.path.join('-').replace('appenda', '').replace('appendb', ''),
     value: token.value,
     // For lightened values with appended 1A, let's keep {value}1A if not remove the parenthesis
 
