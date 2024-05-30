@@ -1,3 +1,9 @@
+## 151.1.0 (May 30, 2024)
+
+### Minor
+
+- Tokens: VR mapping base/semantic tokens layer for web ([#3596](https://github.com/pinterest/gestalt/pull/3596)) - [Preview link](https://deploy-preview-3596--gestalt.netlify.app?devexample=true)
+
 ## 151.0.1 (May 30, 2024)
 
 ### Patch
