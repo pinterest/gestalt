@@ -153,7 +153,7 @@ export const plugins = (name) => [
   typescript({
     // note: this is the relative tsconfig for each package (e.g. packages/gestalt/tsconfig.json)
     tsconfig: relative(__dirname, './tsconfig.json'),
-    noEmitOnError: true,
+    noEmitOnError: process.env.DEVMODE === 'true' ? false : true,
   }),
   babel({
     babelHelpers: 'bundled',
