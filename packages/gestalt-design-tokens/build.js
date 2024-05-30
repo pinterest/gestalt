@@ -465,9 +465,6 @@ StyleDictionary.registerTransform({
   name: 'name/conflictFixing',
   type: 'name',
   matcher(prop) {
-    // if (prop.attributes.category === 'rounding') {
-    //   console.log(prop);
-    // }
     return (
       (prop.filePath.includes('vr-theme') && prop.attributes.type.endsWith('appenda')) ||
       prop.attributes.type.endsWith('appendb')
