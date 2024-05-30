@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, ButtonGroup, ButtonToggle, Flex, Text } from 'gestalt';
+import { Button, ButtonGroup, ButtonToggle, Flex, Toast } from 'gestalt';
 
 export default function Example() {
   const [filterPuppies, setFilterPuppies] = useState(true);
@@ -9,11 +9,11 @@ export default function Example() {
   return (
     <Flex
       alignContent="center"
-      direction="column"
+      direction="row"
       gap={2}
       height="100%"
       justifyContent="center"
-      width="50%"
+      width="100%"
     >
       <ButtonGroup>
         <ButtonToggle
@@ -43,9 +43,15 @@ export default function Example() {
           text="Filter"
         />
       </ButtonGroup>
-      <Text align="center" color="default">
-        {filter ? 'Filter Applied!' : ''}
-      </Text>
+      {filter && (
+        <Toast
+          dismissButton={{
+            accessibilityLabel: `Filter Applied!`,
+            onDismiss: () => setFilter(false),
+          }}
+          text="Filter Applied!"
+        />
+      )}
     </Flex>
   );
 }
