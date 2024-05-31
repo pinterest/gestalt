@@ -1067,6 +1067,12 @@
       "keywords": ["users", "shared", "audience"]
     },
     {
+      "name": "performance-plus",
+      "categories": ["Utilities and tools"],
+      "description": "Logo for the Performance Plus product",
+      "keywords": ["sparkles", "circle"]
+    },
+    {
       "name": "person",
       "categories": ["Utility and tools"],
       "description": "Indicates profile or a person",

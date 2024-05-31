@@ -205,6 +205,7 @@ import pause from './pause.svg';
 import pen from './pen.svg';
 import penAuto from './pen-auto.svg';
 import people from './people.svg';
+import performancePlus from './performance-plus.svg';
 import person from './person.svg';
 import personAdd from './person-add.svg';
 import personMagnifyingGlass from './person-magnifying-glass.svg';
@@ -635,6 +636,7 @@ const icons = Object.freeze({
   'paper-lines-plus': paperLinesPlus,
   'pen-auto': penAuto,
   pen,
+  'performance-plus': performancePlus,
   'person-magnifying-glass': personMagnifyingGlass,
   'record-limit-5': recordLimit5,
   'record-limit-10': recordLimit10,
