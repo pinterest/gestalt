@@ -7,18 +7,11 @@ export default function Example() {
   const [filter, setFilter] = useState(false);
 
   return (
-    <Flex
-      alignContent="center"
-      direction="row"
-      gap={2}
-      height="100%"
-      justifyContent="center"
-      width="100%"
-    >
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <ButtonGroup>
         <ButtonToggle
           onClick={() => {
-            setFilterPuppies(!filterPuppies);
+            setFilterPuppies((value) => !value);
             setFilter(false);
           }}
           selected={filterPuppies}
@@ -27,7 +20,7 @@ export default function Example() {
         />
         <ButtonToggle
           onClick={() => {
-            setFilterKittens(!filterKittens);
+            setFilterKittens((value) => !value);
             setFilter(false);
           }}
           selected={filterKittens}
@@ -46,7 +39,7 @@ export default function Example() {
       {filter && (
         <Toast
           dismissButton={{
-            accessibilityLabel: `Filter Applied!`,
+            accessibilityLabel: 'Filter Applied!',
             onDismiss: () => setFilter(false),
           }}
           text="Filter Applied!"

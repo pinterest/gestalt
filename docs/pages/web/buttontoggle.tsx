@@ -13,13 +13,13 @@ import changeLabelsDo from '../../examples/buttontoggle/changeLabelsDo';
 import colors from '../../examples/buttontoggle/colors';
 import confirmationDo from '../../examples/buttontoggle/confirmationDo';
 import consistencyDo from '../../examples/buttontoggle/consistencyDo';
-import defaultStateExample from '../../examples/buttontoggle/defaultStateExample';
-import disabledStateExample from '../../examples/buttontoggle/disabledStateExample';
-import iconEndExample from '../../examples/buttontoggle/iconEndExample';
+import defaultState from '../../examples/buttontoggle/default';
+import disabled from '../../examples/buttontoggle/disabled';
+import icon from '../../examples/buttontoggle/icon';
 import localization from '../../examples/buttontoggle/localization';
 import locationDo from '../../examples/buttontoggle/locationDo';
 import main from '../../examples/buttontoggle/main';
-import selectedStateExample from '../../examples/buttontoggle/selectedStateExample';
+import selected from '../../examples/buttontoggle/selected';
 
 const PREVIEW_HEIGHT = 300;
 
@@ -64,61 +64,28 @@ export default function DocsPage({ generatedDocGen }: DocType) {
           <MainSection.Card
             cardSize="md"
             description={`To make it clearer, you may want to change the label text to indicate that the ButtonToggle has been selected. For instance, changing "Follow" to "Following."`}
-            sandpackExample={
-              <SandpackExample
-                code={changeLabelsDo}
-                hideEditor
-                name="content"
-                previewHeight={PREVIEW_HEIGHT}
-              />
-            }
+            sandpackExample={<SandpackExample code={changeLabelsDo} hideEditor name="content" />}
             type="do"
           />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             description="Make sure that the ButtonToggle(s) in your application are consistently styled and placed. This should also apply to their sizing, maintaining uniformity throughout the experience."
             sandpackExample={
-              <SandpackExample
-                code={consistencyDo}
-                hideEditor
-                name="Do Consistency"
-                previewHeight={PREVIEW_HEIGHT}
-              />
+              <SandpackExample code={consistencyDo} hideEditor name="Do Consistency" />
             }
             type="do"
           />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             description="Place the ButtonToggle(s) in a location where users would naturally expect to find them, taking into consideration the context. For instance, position it next to a related feature."
-            sandpackExample={
-              <SandpackExample
-                code={locationDo}
-                hideEditor
-                name="Do Location"
-                previewHeight={PREVIEW_HEIGHT}
-              />
-            }
+            sandpackExample={<SandpackExample code={locationDo} hideEditor name="Do Location" />}
             type="do"
           />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             description="If the ButtonToggle(s) trigger a significant action or irreversible change, it is recommended to include a confirmation, such as a ModalAlert message."
             sandpackExample={
-              <SandpackExample
-                code={confirmationDo}
-                hideEditor
-                name="Do Confirmation"
-                previewHeight={PREVIEW_HEIGHT}
-              />
+              <SandpackExample code={confirmationDo} hideEditor name="Do Confirmation" />
             }
             type="do"
           />
@@ -128,11 +95,16 @@ export default function DocsPage({ generatedDocGen }: DocType) {
         <MainSection.Subsection
           description={`
 When ButtonToggle text does not provide sufficient context about the ButtonToggle’s behavior, supply a short, descriptive label for screen-readers using \`accessibilityLabel\`.
-Texts like “Best“, “Views“, or “Save“ can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text with deeper context to replace the ButtonToggle text, like “Follow Ryan” or “Shop Wedding Invitations”.
 
-If ButtonToggle is used as a control button to show/hide a Popover-based component, we recommend passing the following ARIA attributes to assist screen readers:
+Texts like "Follow/ing" can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text with deeper context to replace the ButtonToggle text, like “Follow/ing Ryan”.
+
 - \`accessibilityLabel\`: if present, read by screen readers read instead of the \`text\` prop. It populates [aria-label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label).
+
+If ButtonToggle is used as a control button to show/hide content, we recommend passing the following ARIA attributes to assist screen readers:
+
 - \`accessibilityControls\`: informs the screen reader that ButtonToggle controls the display of an interactive widget or element, or is used to modify another component.  It can be used to associate the corresponding element with the ButtonToggle. It populates [aria-controls](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls).
+
+
 `}
           title="ARIA attributes"
         />
@@ -192,9 +164,7 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
         >
           <MainSection.Card
             cardSize="lg"
-            sandpackExample={
-              <SandpackExample code={colors} layout="column" name="Colors" previewHeight={500} />
-            }
+            sandpackExample={<SandpackExample code={colors} name="Colors" previewHeight={150} />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -204,11 +174,9 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
           title="Icons"
         >
           <MainSection.Card
-            cardSize="lg"
             sandpackExample={
               <SandpackExample
-                // TODO: Fix this example to use iconStart instead of iconEnd
-                code={iconEndExample}
+                code={icon}
                 name="Icon start of buttontoggle example."
                 previewHeight={PREVIEW_HEIGHT}
               />
@@ -219,44 +187,53 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
         <MainSection.Subsection
           columns={2}
           description={`
-1. Default
-    The initial state of a ButtonToggle that represents it is in a non-selected state.
+1. Unselected
+The initial state of a ButtonToggle that represents it is in a non-selected state.
+
 2. Disabled
 Used to block user interaction such as hover, focus and click. Disabled ButtonToggles are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled ButtonToggles.
+
 3. Selected
-  When ButtonToggle is currently active or selected.
+When ButtonToggle is currently active or selected.
 `}
           title="States"
         >
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             sandpackExample={
               <SandpackExample
-                code={defaultStateExample}
-                name="Default state buttontoggle example."
+                code={defaultState}
+                layout="column"
+                name="Unselected state buttontoggle example."
                 previewHeight={150}
               />
             }
+            title="Unselected"
           />
+
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             sandpackExample={
               <SandpackExample
-                code={disabledStateExample}
-                name="Disabled state buttontoggle example."
-                previewHeight={150}
-              />
-            }
-          />
-          <MainSection.Card
-            cardSize="md"
-            sandpackExample={
-              <SandpackExample
-                code={selectedStateExample}
+                code={selected}
+                layout="column"
                 name="Selected state buttontoggle example."
                 previewHeight={150}
               />
             }
+            title="Selected"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={disabled}
+                layout="column"
+                name="Disabled state buttontoggle example."
+                previewHeight={150}
+              />
+            }
+            title="Disabled"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -267,7 +244,6 @@ Used to block user interaction such as hover, focus and click. Disabled ButtonTo
             description={`
 - Use fewer than three words, ideally only one.
 - Use clear and concise copy for labels, tooltips, and any supporting text.
-- To make it clearer, you may want to change the label text to indicate that the ButtonToggle has been selected. For instance, changing "follow" to "Following."
 - Make sure that all text is easy to translate for localization purposes.
 `}
             type="do"

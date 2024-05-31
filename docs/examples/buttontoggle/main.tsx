@@ -8,7 +8,7 @@ export default function Example() {
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <ButtonToggle
         iconStart="sparkle"
-        onClick={() => setSelected(!selected)}
+        onClick={() => setSelected((value) => !value)}
         selected={selected}
         size="lg"
         text={selected ? 'Followed' : 'Follow'}
