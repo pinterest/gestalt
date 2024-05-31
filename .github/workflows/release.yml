@@ -93,6 +93,8 @@ jobs:
           yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.release.outputs.VERSION }}
           cd ../gestalt-charts
           yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.release.outputs.VERSION }}
+          cd ../stylelint-plugin-gestalt
+          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.release.outputs.VERSION }}
       - name: Trigger VSCode Gestalt release
         uses: actions/github-script@v5
         with:
