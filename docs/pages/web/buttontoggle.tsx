@@ -95,11 +95,16 @@ export default function DocsPage({ generatedDocGen }: DocType) {
         <MainSection.Subsection
           description={`
 When ButtonToggle text does not provide sufficient context about the ButtonToggle’s behavior, supply a short, descriptive label for screen-readers using \`accessibilityLabel\`.
-Texts like “Best“, “Views“, or “Save“ can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text with deeper context to replace the ButtonToggle text, like “Follow Ryan” or “Shop Wedding Invitations”.
 
-If ButtonToggle is used as a control button to show/hide a Popover-based component, we recommend passing the following ARIA attributes to assist screen readers:
+Texts like "Follow/ing" can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text with deeper context to replace the ButtonToggle text, like “Follow/ing Ryan”.
+
 - \`accessibilityLabel\`: if present, read by screen readers read instead of the \`text\` prop. It populates [aria-label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label).
+
+If ButtonToggle is used as a control button to show/hide content, we recommend passing the following ARIA attributes to assist screen readers:
+
 - \`accessibilityControls\`: informs the screen reader that ButtonToggle controls the display of an interactive widget or element, or is used to modify another component.  It can be used to associate the corresponding element with the ButtonToggle. It populates [aria-controls](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls).
+
+
 `}
           title="ARIA attributes"
         />
