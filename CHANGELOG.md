@@ -1,3 +1,9 @@
+## 151.2.3 (May 31, 2024)
+
+### Patch
+
+- Internal: add stylelint-plugin-gestalt to the npm release schedule ([#3607](https://github.com/pinterest/gestalt/pull/3607)) - [Preview link](https://deploy-preview-3607--gestalt.netlify.app?devexample=true)
+
 ## 151.2.2 (May 31, 2024)
 
 ### Patch
