@@ -17,6 +17,7 @@ const packages = [
   'gestalt-charts',
   'gestalt-datepicker',
   'eslint-plugin-gestalt',
+  'stylelint-plugin-gestalt',
 ];
 
 packages.forEach((packageName) => {
