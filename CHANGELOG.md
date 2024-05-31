@@ -1,3 +1,9 @@
+## 151.2.1 (May 31, 2024)
+
+### Patch
+
+- ButtonToggle: cleanup docs. ([#3605](https://github.com/pinterest/gestalt/pull/3605)) - [Preview link](https://deploy-preview-3605--gestalt.netlify.app?devexample=true)
+
 ## 151.2.0 (May 31, 2024)
 
 ### Minor
