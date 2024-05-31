@@ -1,3 +1,9 @@
+## 151.2.4 (May 31, 2024)
+
+### Patch
+
+- Internal: remove rollup from stylelint-plugin-gestalt folder ([#3608](https://github.com/pinterest/gestalt/pull/3608)) - [Preview link](https://deploy-preview-3608--gestalt.netlify.app?devexample=true)
+
 ## 151.2.3 (May 31, 2024)
 
 ### Patch
