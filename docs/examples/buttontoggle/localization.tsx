@@ -5,7 +5,7 @@ export default function Example() {
   const [selected, setSelected] = useState(false);
 
   return (
-    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
+    <Flex alignItems="center" gap={2} height="100%" justifyContent="center" width="100%">
       <ButtonToggle
         iconStart="sparkle"
         onClick={() => setSelected(!selected)}

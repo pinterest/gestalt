@@ -64,61 +64,28 @@ export default function DocsPage({ generatedDocGen }: DocType) {
           <MainSection.Card
             cardSize="md"
             description={`To make it clearer, you may want to change the label text to indicate that the ButtonToggle has been selected. For instance, changing "Follow" to "Following."`}
-            sandpackExample={
-              <SandpackExample
-                code={changeLabelsDo}
-                hideEditor
-                name="content"
-                previewHeight={PREVIEW_HEIGHT}
-              />
-            }
+            sandpackExample={<SandpackExample code={changeLabelsDo} hideEditor name="content" />}
             type="do"
           />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             description="Make sure that the ButtonToggle(s) in your application are consistently styled and placed. This should also apply to their sizing, maintaining uniformity throughout the experience."
             sandpackExample={
-              <SandpackExample
-                code={consistencyDo}
-                hideEditor
-                name="Do Consistency"
-                previewHeight={PREVIEW_HEIGHT}
-              />
+              <SandpackExample code={consistencyDo} hideEditor name="Do Consistency" />
             }
             type="do"
           />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             description="Place the ButtonToggle(s) in a location where users would naturally expect to find them, taking into consideration the context. For instance, position it next to a related feature."
-            sandpackExample={
-              <SandpackExample
-                code={locationDo}
-                hideEditor
-                name="Do Location"
-                previewHeight={PREVIEW_HEIGHT}
-              />
-            }
+            sandpackExample={<SandpackExample code={locationDo} hideEditor name="Do Location" />}
             type="do"
           />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
             description="If the ButtonToggle(s) trigger a significant action or irreversible change, it is recommended to include a confirmation, such as a ModalAlert message."
             sandpackExample={
-              <SandpackExample
-                code={confirmationDo}
-                hideEditor
-                name="Do Confirmation"
-                previewHeight={PREVIEW_HEIGHT}
-              />
+              <SandpackExample code={confirmationDo} hideEditor name="Do Confirmation" />
             }
             type="do"
           />
@@ -192,9 +159,7 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
         >
           <MainSection.Card
             cardSize="lg"
-            sandpackExample={
-              <SandpackExample code={colors} layout="column" name="Colors" previewHeight={500} />
-            }
+            sandpackExample={<SandpackExample code={colors} name="Colors" previewHeight={150} />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -204,7 +169,6 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
           title="Icons"
         >
           <MainSection.Card
-            cardSize="lg"
             sandpackExample={
               <SandpackExample
                 // TODO: Fix this example to use iconStart instead of iconEnd
@@ -229,10 +193,10 @@ Used to block user interaction such as hover, focus and click. Disabled ButtonTo
           title="States"
         >
           <MainSection.Card
-            cardSize="md"
             sandpackExample={
               <SandpackExample
                 code={defaultStateExample}
+                layout="column"
                 name="Default state buttontoggle example."
                 previewHeight={150}
               />
@@ -243,6 +207,7 @@ Used to block user interaction such as hover, focus and click. Disabled ButtonTo
             sandpackExample={
               <SandpackExample
                 code={disabledStateExample}
+                layout="column"
                 name="Disabled state buttontoggle example."
                 previewHeight={150}
               />
@@ -253,6 +218,7 @@ Used to block user interaction such as hover, focus and click. Disabled ButtonTo
             sandpackExample={
               <SandpackExample
                 code={selectedStateExample}
+                layout="column"
                 name="Selected state buttontoggle example."
                 previewHeight={150}
               />

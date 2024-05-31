@@ -7,14 +7,7 @@ export default function Example() {
   const [filter, setFilter] = useState(false);
 
   return (
-    <Flex
-      alignContent="center"
-      direction="row"
-      gap={2}
-      height="100%"
-      justifyContent="center"
-      width="100%"
-    >
+    <Flex alignItems="center" gap={2} height="100%" justifyContent="center" width="100%">
       <ButtonGroup>
         <ButtonToggle
           onClick={() => {
