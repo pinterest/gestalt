@@ -13,13 +13,13 @@ import changeLabelsDo from '../../examples/buttontoggle/changeLabelsDo';
 import colors from '../../examples/buttontoggle/colors';
 import confirmationDo from '../../examples/buttontoggle/confirmationDo';
 import consistencyDo from '../../examples/buttontoggle/consistencyDo';
-import defaultStateExample from '../../examples/buttontoggle/defaultStateExample';
-import disabledStateExample from '../../examples/buttontoggle/disabledStateExample';
-import iconEndExample from '../../examples/buttontoggle/iconEndExample';
+import defaultState from '../../examples/buttontoggle/default';
+import disabled from '../../examples/buttontoggle/disabled';
+import icon from '../../examples/buttontoggle/icon';
 import localization from '../../examples/buttontoggle/localization';
 import locationDo from '../../examples/buttontoggle/locationDo';
 import main from '../../examples/buttontoggle/main';
-import selectedStateExample from '../../examples/buttontoggle/selectedStateExample';
+import selected from '../../examples/buttontoggle/selected';
 
 const PREVIEW_HEIGHT = 300;
 
@@ -171,8 +171,7 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
           <MainSection.Card
             sandpackExample={
               <SandpackExample
-                // TODO: Fix this example to use iconStart instead of iconEnd
-                code={iconEndExample}
+                code={icon}
                 name="Icon start of buttontoggle example."
                 previewHeight={PREVIEW_HEIGHT}
               />
@@ -183,46 +182,53 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
         <MainSection.Subsection
           columns={2}
           description={`
-1. Default
-    The initial state of a ButtonToggle that represents it is in a non-selected state.
+1. Unselected
+The initial state of a ButtonToggle that represents it is in a non-selected state.
+
 2. Disabled
 Used to block user interaction such as hover, focus and click. Disabled ButtonToggles are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled ButtonToggles.
+
 3. Selected
-  When ButtonToggle is currently active or selected.
+When ButtonToggle is currently active or selected.
 `}
           title="States"
         >
           <MainSection.Card
+            cardSize="lg"
             sandpackExample={
               <SandpackExample
-                code={defaultStateExample}
+                code={defaultState}
                 layout="column"
-                name="Default state buttontoggle example."
+                name="Unselected state buttontoggle example."
                 previewHeight={150}
               />
             }
+            title="Unselected"
           />
+
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             sandpackExample={
               <SandpackExample
-                code={disabledStateExample}
-                layout="column"
-                name="Disabled state buttontoggle example."
-                previewHeight={150}
-              />
-            }
-          />
-          <MainSection.Card
-            cardSize="md"
-            sandpackExample={
-              <SandpackExample
-                code={selectedStateExample}
+                code={selected}
                 layout="column"
                 name="Selected state buttontoggle example."
                 previewHeight={150}
               />
             }
+            title="Selected"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={disabled}
+                layout="column"
+                name="Disabled state buttontoggle example."
+                previewHeight={150}
+              />
+            }
+            title="Disabled"
           />
         </MainSection.Subsection>
       </MainSection>
@@ -233,7 +239,6 @@ Used to block user interaction such as hover, focus and click. Disabled ButtonTo
             description={`
 - Use fewer than three words, ideally only one.
 - Use clear and concise copy for labels, tooltips, and any supporting text.
-- To make it clearer, you may want to change the label text to indicate that the ButtonToggle has been selected. For instance, changing "follow" to "Following."
 - Make sure that all text is easy to translate for localization purposes.
 `}
             type="do"
