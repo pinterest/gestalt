@@ -27,6 +27,7 @@ export default function Example() {
           heading="Are you sure?"
           onDismiss={() => setWarnDiscard(false)}
           primaryAction={{
+            accessibilityLabel: 'Continue',
             label: 'Continue',
             onClick: () => {
               setBusiness(!business);
@@ -35,6 +36,7 @@ export default function Example() {
             role: 'button',
           }}
           secondaryAction={{
+            accessibilityLabel: 'Cancel',
             label: 'Cancel',
             onClick: () => setWarnDiscard(false),
             role: 'button',
