@@ -4,7 +4,7 @@ export default function Example() {
   return (
     <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex direction="column" gap={4}>
-        <Heading accessibilityLevel="none" size="300">
+        <Heading accessibilityLevel="none" size="400">
           Health dashboard
         </Heading>
         <Flex direction="column" gap={2}>
@@ -50,7 +50,7 @@ export default function Example() {
           />
         </Flex>
         <Flex direction="column" gap={2}>
-          <Text weight="bold">API for conversions</Text>
+          <Text weight="bold">Conversions API</Text>
           <Status
             title={
               <Text>
