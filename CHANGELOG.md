@@ -1,3 +1,9 @@
+## 151.2.2 (May 31, 2024)
+
+### Patch
+
+- Docs: fixes ([#3606](https://github.com/pinterest/gestalt/pull/3606)) - [Preview link](https://deploy-preview-3606--gestalt.netlify.app?devexample=true)
+
 ## 151.2.1 (May 31, 2024)
 
 ### Patch
