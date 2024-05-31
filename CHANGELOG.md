@@ -1,3 +1,9 @@
+## 151.2.0 (May 31, 2024)
+
+### Minor
+
+- Icon: new `performance-plus` icon ([#3604](https://github.com/pinterest/gestalt/pull/3604)) - [Preview link](https://deploy-preview-3604--gestalt.netlify.app?devexample=true)
+
 ## 151.1.0 (May 30, 2024)
 
 ### Minor
