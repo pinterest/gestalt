@@ -32,7 +32,6 @@ const baseRules = {
     ERROR,
     {
       css: 'always',
-      svg: 'always',
       js: 'never',
       ts: 'never',
       tsx: 'never',
