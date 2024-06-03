@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, useImperativeHandle, useRef, useState } from 'react';
+import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 import classnames from 'classnames';
 import styles from './IconButton.css';
 import icons from './icons/index';
@@ -111,7 +111,7 @@ type Props = {
  * ![IconButton dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/IconButton-dark.spec.mjs-snapshots/IconButton-dark-chromium-darwin.png)
  *
  */
-// @ts-expect-error - TS2345 - Argument of type '({ accessibilityLabel, accessibilityControls, accessibilityExpanded, accessibilityHaspopup, accessibilityPopupRole, name, selected, type, bgColor, dangerouslySetSvgPath, dataTestId, disabled, icon, iconColor, onClick, padding, tabIndex, tooltip, size, }: Props, ref: ForwardedRef<HTMLButtonElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLButtonElement, Props>'.
+
 const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function IconButton(
   {
     accessibilityLabel,
@@ -135,7 +135,7 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
     size = 'lg',
   }: Props,
   ref,
-): ReactNode {
+) {
   const innerRef = useRef<null | HTMLButtonElement>(null);
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()

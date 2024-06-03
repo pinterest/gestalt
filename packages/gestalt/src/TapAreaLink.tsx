@@ -124,7 +124,7 @@ type Props = {
  *
  * ![TapAreaLink](https://raw.githubusercontent.com/pinterest/gestalt/master/docs/graphics/building-blocks/TapArea.svg)
  */
-// @ts-expect-error - TS2345 - Argument of type '({ accessibilityLabel, accessibilityCurrent, children, dataTestId, disabled, fullHeight, fullWidth, href, mouseCursor, onBlur, onKeyDown, onFocus, onMouseDown, onMouseUp, onMouseEnter, onMouseLeave, onTap, tabIndex, rel, rounding, tapStyle, target, }: Props, ref: ForwardedRef<HTMLAnchorElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLAnchorElement, Props>'.
+
 const TapAreaLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function TapAreaLink(
   {
     accessibilityLabel,
@@ -151,7 +151,7 @@ const TapAreaLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function 
     target = null,
   }: Props,
   ref,
-): ReactNode {
+) {
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component

@@ -57,7 +57,6 @@ type Props = {
 };
 
 const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Props>(
-  // @ts-expect-error - TS2345 - Argument of type '({ badge, children, dataTestId, disabled, onSelect, hoveredItemIndex, href, id, index, isExternal, onClick, option, selected, setHoveredItemIndex, textWeight, }: Props, ref: ForwardedRef<HTMLElement | null | undefined>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLElement | null | undefined, Props>'.
   function OptionItem(
     {
       badge,
@@ -77,7 +76,7 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
       textWeight = 'normal',
     }: Props,
     ref,
-  ): ReactNode {
+  ) {
     const deviceType = useDeviceType();
     const isMobile = deviceType === 'mobile';
 

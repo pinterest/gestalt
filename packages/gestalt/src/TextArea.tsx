@@ -104,7 +104,7 @@ type Props = {
  * ![TextArea dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextArea-dark.spec.mjs-snapshots/TextArea-dark-chromium-darwin.png)
  *
  */
-// @ts-expect-error - TS2345 - Argument of type '({ dataTestId, disabled, errorMessage, hasError, helperText, id, label, labelDisplay, maxLength, name, onBlur, onChange, onFocus, onKeyDown, placeholder, readOnly, rows, tags, value, }: Props, ref: ForwardedRef<HTMLTextAreaElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLTextAreaElement, Props>'.
+
 const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function TextArea(
   {
     dataTestId,
@@ -128,7 +128,7 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
     value,
   }: Props,
   ref,
-): ReactNode {
+) {
   const [focused, setFocused] = useState(false);
   const [currentLength, setCurrentLength] = useState(value?.length ?? 0);
 

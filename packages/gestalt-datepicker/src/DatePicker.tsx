@@ -1,4 +1,4 @@
-import { forwardRef, ReactElement, ReactNode, useEffect, useImperativeHandle, useRef } from 'react';
+import { forwardRef, ReactElement, useEffect, useImperativeHandle, useRef } from 'react';
 import { Locale } from 'date-fns/locale';
 import { useGlobalEventsHandler } from 'gestalt';
 import InternalDatePicker from './DatePicker/InternalDatePicker';
@@ -99,7 +99,7 @@ export type Props = {
  * ![DatePicker closed light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DatePicker-closed.spec.mjs-snapshots/DatePicker-closed-chromium-darwin.png)
  * ![DatePicker closed dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DatePicker-closed-dark.spec.mjs-snapshots/DatePicker-closed-dark-chromium-darwin.png)
  */
-// @ts-expect-error - TS2345 - Argument of type '({ disabled, errorMessage, excludeDates, helperText, id, idealDirection, includeDates, label, localeData, maxDate, minDate, name, nextRef, onChange, placeholder, rangeEndDate, rangeSelector, rangeStartDate, selectLists, value, }: Props, ref: ForwardedRef<HTMLInputElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLInputElement, Props>'.
+
 const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function DatePicker(
   {
     disabled,
@@ -124,7 +124,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
     value,
   }: Props,
   ref,
-): ReactNode {
+) {
   const innerInputRef = useRef<null | HTMLInputElement>(null);
   // @ts-expect-error - TS2322 - Type 'HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
   useImperativeHandle(ref, () => innerInputRef.current);

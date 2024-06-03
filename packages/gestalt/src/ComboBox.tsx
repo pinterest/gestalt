@@ -147,7 +147,7 @@ type Props = {
  * ![Combobox open dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ComboBox-open-dark.spec.mjs-snapshots/ComboBox-open-dark-chromium-darwin.png)
  *
  */
-// @ts-expect-error - TS2345 - Argument of type '({ accessibilityClearButtonLabel, disabled, errorMessage, helperText, id, inputValue: controlledInputValue, label, labelDisplay, noResultText, onBlur, onChange, onClear, onFocus, onKeyDown, onSelect, options, placeholder, size, selectedOption, tags, zIndex, }: Props, ref: ForwardedRef<HTMLInputElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLInputElement, Props>'.
+
 const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function ComboBox(
   {
     accessibilityClearButtonLabel,
@@ -173,7 +173,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
     zIndex,
   }: Props,
   ref,
-): ReactNode {
+) {
   const {
     accessibilityClearButtonLabel: accessibilityClearButtonLabelDefault,
     noResultText: noResultTextDefault,
@@ -491,7 +491,6 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
       </Box>
       {showOptionsList && innerRef.current ? (
         <Layer zIndex={zIndex}>
-          {/* @ts-expect-error - TS2786 - 'InternalPopover' cannot be used as a JSX component. */}
           <InternalPopover
             anchor={innerRef.current}
             color="white"

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactElement } from 'react';
 import InternalTooltip from '../Tooltip/InternalTooltip';
 import { Indexable } from '../zIndex';
 
@@ -15,7 +15,7 @@ export default function MaybeTooltip({
   disabled,
   tooltip,
 }: {
-  children: ReactNode;
+  children: ReactElement;
   disabled?: boolean;
   tooltip?: TooltipProps;
 }) {

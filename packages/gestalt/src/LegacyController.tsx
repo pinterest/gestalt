@@ -122,7 +122,7 @@ class LegacyController extends Component<Props, State> {
     this.setState({ relativeOffset, triggerBoundingRect });
   };
 
-  render(): ReactNode {
+  render() {
     const {
       accessibilityLabel,
       anchor,

@@ -629,7 +629,7 @@ export default class Video extends PureComponent<Props, State> {
     onWaiting?.({ event });
   };
 
-  render(): ReactNode {
+  render() {
     const {
       aspectRatio,
       autoplay,

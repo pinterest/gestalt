@@ -1,4 +1,4 @@
-import { forwardRef, ReactElement, ReactNode, useEffect, useId, useState } from 'react';
+import { forwardRef, ReactElement, useEffect, useId, useState } from 'react';
 import classnames from 'classnames';
 import { TOKEN_SPACE_400, TOKEN_SPACE_1200 } from 'gestalt-design-tokens';
 import Badge from './Badge';
@@ -92,7 +92,6 @@ export type Props = {
  * Use [SideNavigation.TopItem](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.TopItem) to redirect the user to a different page or section. SideNavigation.TopItem must be used at the top level of SideNavigation. It supports badges, icons, counters, and notifications.
  */
 const SideNavigationTopItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
-  // @ts-expect-error - TS2345 - Argument of type '({ active, href, badge, counter, icon, label, primaryAction, notificationAccessibilityLabel, onClick, }: Props, ref: ForwardedRef<HTMLLIElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLLIElement, Props>'.
   function SideNavigationTopItem(
     {
       active,
@@ -106,7 +105,7 @@ const SideNavigationTopItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
       onClick,
     }: Props,
     ref,
-  ): ReactNode {
+  ) {
     const { nestedLevel } = useNesting();
 
     const {

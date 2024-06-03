@@ -78,7 +78,6 @@ function ItemIconButton({
     : new FixedZIndex(1);
   const dropdownZIndex = new CompositeZIndex([tooltipZIndex]);
   return (
-    // @ts-expect-error - TS2786 - 'MaybeTooltip' cannot be used as a JSX component.
     <MaybeTooltip
       disabled={open}
       tooltip={{

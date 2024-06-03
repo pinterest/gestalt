@@ -28,11 +28,11 @@ Related articles:
 https://americanexpress.io/hydra/
 https://kentcdodds.com/blog/how-to-use-react-context-effectively */
 
-import { Context, createContext, ReactNode, useContext } from 'react';
+import { Context, createContext, ReactElement, useContext } from 'react';
 
 export type Hydra<ContextType> = {
   Provider: Context<ContextType | undefined>['Provider'];
-  Consumer: (props: { children: (arg1: ContextType) => ReactNode }) => ReactNode;
+  Consumer: (props: { children: (arg1: ContextType) => ReactElement }) => ReactElement;
   useHook: () => ContextType;
 };
 
@@ -70,7 +70,7 @@ export default function createHydra<ContextType>(
   const { Provider } = context;
 
   // Consumer: Render Prop
-  const Consumer = ({ children }: { children: (arg1: ContextType) => ReactNode }) => {
+  const Consumer = ({ children }: { children: (arg1: ContextType) => ReactElement }) => {
     const contextValue = useContext(context);
 
     if (contextValue === undefined) {

@@ -43,7 +43,6 @@ type Props = {
   };
 };
 
-// @ts-expect-error - TS2345 - Argument of type '({ checked, disabled, errorMessage, helperText, id, image, indeterminate, label, labelDisplay, name, onChange, onClick, readOnly, size, style, }: Props, ref: ForwardedRef<HTMLInputElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLInputElement, Props>'.
 const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Checkbox(
   {
     checked = false,
@@ -63,7 +62,7 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     style,
   }: Props,
   ref,
-): ReactNode {
+) {
   const innerRef = useRef<null | HTMLInputElement>(null);
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <Checkbox ref={inputRef} /> to call inputRef.current.focus()

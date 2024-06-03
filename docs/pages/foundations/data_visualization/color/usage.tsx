@@ -78,21 +78,25 @@ type ColorCardProps = {
 };
 
 function PaletteGenerator({ count }: ColorCardProps) {
-  return [...Array(count)].map((step, idx) => {
-    const tokenStep = idx + 1;
+  return (
+    <Box>
+      {[...Array(count)].map((step, idx) => {
+        const tokenStep = idx + 1;
 
-    return (
-      <Box key={`color-${tokenStep}`} marginBottom={1}>
-        <ColorTile
-          description={`Data Visualization 0${tokenStep}`}
-          // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type '`0${number}`' can't be used to index type '{ readonly '01': "light"; readonly '02': "dark"; readonly '03': "light"; readonly '04': "dark"; readonly '05': "dark"; readonly '06': "default"; readonly '07': "dark"; readonly '08': "light"; readonly '09': "dark"; readonly '10': "light"; readonly '11': "inverse"; readonly '12': "inverse"; }'.
-          textColor={COLOR_TEXT_PAIRINGS[`0${tokenStep}`]}
-          // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'number' can't be used to index type '{ readonly '1': "var(--color-data-visualization-01)"; readonly '2': "var(--color-data-visualization-02)"; readonly '3': "var(--color-data-visualization-03)"; readonly '4': "var(--color-data-visualization-04)"; ... 7 more ...; readonly '12': "var(--color-data-visualization-12)"; }'.
-          token={MAP[tokenStep]}
-        />
-      </Box>
-    );
-  });
+        return (
+          <Box key={`color-${tokenStep}`} marginBottom={1}>
+            <ColorTile
+              description={`Data Visualization 0${tokenStep}`}
+              // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type '`0${number}`' can't be used to index type '{ readonly '01': "light"; readonly '02': "dark"; readonly '03': "light"; readonly '04': "dark"; readonly '05': "dark"; readonly '06': "default"; readonly '07': "dark"; readonly '08': "light"; readonly '09': "dark"; readonly '10': "light"; readonly '11': "inverse"; readonly '12': "inverse"; }'.
+              textColor={COLOR_TEXT_PAIRINGS[`0${tokenStep}`]}
+              // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'number' can't be used to index type '{ readonly '1': "var(--color-data-visualization-01)"; readonly '2': "var(--color-data-visualization-02)"; readonly '3': "var(--color-data-visualization-03)"; readonly '4': "var(--color-data-visualization-04)"; ... 7 more ...; readonly '12': "var(--color-data-visualization-12)"; }'.
+              token={MAP[tokenStep]}
+            />
+          </Box>
+        );
+      })}
+    </Box>
+  );
 }
 
 type PairSetProps = {
@@ -229,7 +233,6 @@ export default function ColorPage() {
                 column: 1,
               }}
             >
-              {/* @ts-expect-error - TS2786 - 'PaletteGenerator' cannot be used as a JSX component. */}
               <PaletteGenerator count={2} />
             </Flex>
             <Box marginBottom={10}>
@@ -252,7 +255,6 @@ export default function ColorPage() {
                 column: 1,
               }}
             >
-              {/* @ts-expect-error - TS2786 - 'PaletteGenerator' cannot be used as a JSX component. */}
               <PaletteGenerator count={3} />
             </Flex>
             <Box marginBottom={10}>
@@ -276,7 +278,6 @@ export default function ColorPage() {
                 column: 1,
               }}
             >
-              {/* @ts-expect-error - TS2786 - 'PaletteGenerator' cannot be used as a JSX component. */}
               <PaletteGenerator count={4} />
             </Flex>
             <Box marginBottom={10}>
@@ -300,7 +301,6 @@ export default function ColorPage() {
                 column: 1,
               }}
             >
-              {/* @ts-expect-error - TS2786 - 'PaletteGenerator' cannot be used as a JSX component. */}
               <PaletteGenerator count={6} />
             </Flex>
             <Box marginBottom={10}>
@@ -323,7 +323,6 @@ export default function ColorPage() {
                 column: 1,
               }}
             >
-              {/* @ts-expect-error - TS2786 - 'PaletteGenerator' cannot be used as a JSX component. */}
               <PaletteGenerator count={8} />
             </Flex>
             <Box marginBottom={10}>

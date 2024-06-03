@@ -148,7 +148,7 @@ function InternalButtonContent({
  * ![Button dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Button-dark.spec.mjs-snapshots/Button-dark-chromium-darwin.png)
  *
  */
-// @ts-expect-error - TS2345 - Argument of type '({ accessibilityLabel, color, dataTestId, disabled, fullWidth, iconEnd, onClick, tabIndex, selected, size, text, type, name, accessibilityControls, accessibilityExpanded, accessibilityHaspopup, }: Props, ref: ForwardedRef<HTMLButtonElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLButtonElement, Props>'.
+
 const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Button(
   {
     accessibilityLabel,
@@ -169,7 +169,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
     accessibilityHaspopup,
   }: Props,
   ref,
-): ReactNode {
+) {
   const innerRef = useRef<null | HTMLButtonElement>(null);
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component

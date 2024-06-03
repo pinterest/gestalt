@@ -163,7 +163,6 @@ export default function PopoverEducational({
 
   return (
     <Box position={zIndex ? 'relative' : undefined} zIndex={zIndex}>
-      {/* @ts-expect-error - TS2786 - 'InternalPopover' cannot be used as a JSX component. */}
       <InternalPopover
         accessibilityLabel={accessibilityLabel}
         anchor={anchor}
