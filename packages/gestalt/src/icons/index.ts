@@ -80,7 +80,7 @@ import clock from './clock.svg';
 import clockChecked from './clock-checked.svg';
 import cloudServer from './cloud-server.svg';
 import code from './code.svg';
-import codeChecked from './code-checked.svg';
+import codeCheck from './code-check.svg';
 import cog from './cog.svg';
 import collage from './collage.svg';
 import collapse from './collapse.svg';
@@ -122,6 +122,7 @@ import faceHappy from './face-happy.svg';
 import faceNeutral from './face-neutral.svg';
 import faceSad from './face-sad.svg';
 import faceSmiley from './face-smiley.svg';
+import faceSmileyOutline from './face-smiley-outline.svg';
 import faceTryon from './face-tryon.svg';
 import facebook from './facebook.svg';
 import fade from './fade.svg';
@@ -133,6 +134,7 @@ import filter from './filter.svg';
 import flag from './flag.svg';
 import flame from './flame.svg';
 import flash from './flash.svg';
+import flashAutomatic from './flash-automatic.svg';
 import flashSlash from './flash-slash.svg';
 import flashlight from './flashlight.svg';
 import flipHorizontal from './flip-horizontal.svg';
@@ -259,7 +261,6 @@ import shuffles from './shuffles.svg';
 import skintone from './skintone.svg';
 import slide from './slide.svg';
 import smiley from './smiley.svg';
-import smileyOutline from './smiley-outline.svg';
 import sortAscending from './sort-ascending.svg';
 import sortDescending from './sort-descending.svg';
 import sound from './sound.svg';
@@ -425,7 +426,7 @@ const icons = Object.freeze({
   'clock-checked': clockChecked,
   'cloud-server': cloudServer,
   'code': code,
-  'code-checked': codeChecked,
+  'code-check': codeCheck,
   'cog': cog,
   'collage': collage,
   'collapse': collapse,
@@ -467,6 +468,7 @@ const icons = Object.freeze({
   'face-neutral': faceNeutral,
   'face-sad': faceSad,
   'face-smiley': faceSmiley,
+  'face-smiley-outline': faceSmileyOutline,
   'face-tryon': faceTryon,
   'facebook': facebook,
   'fade': fade,
@@ -478,6 +480,7 @@ const icons = Object.freeze({
   'flag': flag,
   'flame': flame,
   'flash': flash,
+  'flash-automatic': flashAutomatic,
   'flash-slash': flashSlash,
   'flashlight': flashlight,
   'flip-horizontal': flipHorizontal,
@@ -604,7 +607,6 @@ const icons = Object.freeze({
   'skintone': skintone,
   'slide': slide,
   'smiley': smiley,
-  'smiley-outline': smileyOutline,
   'sort-ascending': sortAscending,
   'sort-descending': sortDescending,
   'sound': sound,
