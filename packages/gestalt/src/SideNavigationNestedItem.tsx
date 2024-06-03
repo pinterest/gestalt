@@ -38,10 +38,7 @@ type Props = {
  * Use [SideNavigation.NestedItem](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.NestedItem) to redirect the user to a different page or section. SideNavigation.NestedItem must be used in second and third nested levels.
  */
 const SideNavigationNestedItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
-  function SideNavigationNestedItem(
-    { active, counter, href, label, onClick }: Props,
-    ref,
-  ) {
+  function SideNavigationNestedItem({ active, counter, href, label, onClick }: Props, ref) {
     return (
       <SideNavigationTopItem
         ref={ref}

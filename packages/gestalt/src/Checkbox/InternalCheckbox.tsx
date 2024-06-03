@@ -43,7 +43,6 @@ type Props = {
   };
 };
 
-
 const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Checkbox(
   {
     checked = false,

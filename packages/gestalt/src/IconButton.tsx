@@ -112,7 +112,7 @@ type Props = {
  *
  */
 
- const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function IconButton(
+const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function IconButton(
   {
     accessibilityLabel,
     accessibilityControls,
