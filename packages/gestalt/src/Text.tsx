@@ -76,8 +76,8 @@ type Props = {
 /**
  * [Text](https://gestalt.pinterest.systems/web/text) component is used for all non-heading text on all surfaces, whether inside of UI components or in long-form paragraph text.
  *
- * ![Text light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Text.spec.mjs-snapshots/Text-chromium-darwin.png)
- * ![Text dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Text-dark.spec.mjs-snapshots/Text-dark-chromium-darwin.png)
+ * ![Text light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Text.spec.ts-snapshots/Text-chromium-darwin.png)
+ * ![Text dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Text-dark.spec.ts-snapshots/Text-dark-chromium-darwin.png)
  */
 const TextWithForwardRef = forwardRef<HTMLElement, Props>(function Text(
   {

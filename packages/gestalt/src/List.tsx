@@ -34,8 +34,8 @@ type Props = {
 
 /**
  * [List](https://gestalt.pinterest.systems/web/list) allows users to view individual, but related, text items grouped together.
- * ![List light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/List.spec.mjs-snapshots/List-chromium-darwin.png)
- * ![List dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/List-dark.spec.mjs-snapshots/List-dark-chromium-darwin.png)
+ * ![List light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/List.spec.ts-snapshots/List-chromium-darwin.png)
+ * ![List dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/List-dark.spec.ts-snapshots/List-dark-chromium-darwin.png)
  */
 function List({
   label,

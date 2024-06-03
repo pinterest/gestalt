@@ -124,8 +124,8 @@ type Props = {
 /**
  * [Link](https://gestalt.pinterest.systems/web/link) is mainly used as navigational element and usually appear within or directly following a paragraph or sentence.
  *
- * ![Link light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Link.spec.mjs-snapshots/Link-chromium-darwin.png)
- * ![Link dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Link-dark.spec.mjs-snapshots/Link-dark-chromium-darwin.png)
+ * ![Link light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Link.spec.ts-snapshots/Link-chromium-darwin.png)
+ * ![Link dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Link-dark.spec.ts-snapshots/Link-dark-chromium-darwin.png)
  *
  */
 const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(

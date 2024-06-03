@@ -100,8 +100,8 @@ type Props = {
 /**
  * [TextArea](https://gestalt.pinterest.systems/web/textarea) allows for multi-line input.
  *
- * ![TextArea light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextArea.spec.mjs-snapshots/TextArea-chromium-darwin.png)
- * ![TextArea dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextArea-dark.spec.mjs-snapshots/TextArea-dark-chromium-darwin.png)
+ * ![TextArea light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextArea.spec.ts-snapshots/TextArea-chromium-darwin.png)
+ * ![TextArea dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextArea-dark.spec.ts-snapshots/TextArea-dark-chromium-darwin.png)
  *
  */
 

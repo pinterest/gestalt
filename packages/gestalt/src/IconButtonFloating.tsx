@@ -64,8 +64,8 @@ type Props = {
  *
  * IconButtonFloating is typically found in the Home feed, boards, and dashboards, allowing Pinners to perform core actions.
  *
- * ![IconButtonFloating light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/IconButtonFloating.spec.mjs-snapshots/IconButtonFloating-chromium-darwin.png)
- * ![IconButtonFloating dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/IconButtonFloating-dark.spec.mjs-snapshots/IconButtonFloating-dark-chromium-darwin.png)
+ * ![IconButtonFloating light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/IconButtonFloating.spec.ts-snapshots/IconButtonFloating-chromium-darwin.png)
+ * ![IconButtonFloating dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/IconButtonFloating-dark.spec.ts-snapshots/IconButtonFloating-dark-chromium-darwin.png)
  *
  */
 const IconButtonFloatingWithForwardRef = forwardRef<HTMLButtonElement, Props>(

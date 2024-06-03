@@ -70,8 +70,8 @@ type Props = {
 /**
  * [Heading](https://gestalt.pinterest.systems/web/heading) allows you to add H1–H6 level text on a page. They are generally placed underneath a PageHeader, and provide you with a way to create a logical text hierarchy.
  *
- * ![Heading light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Heading.spec.mjs-snapshots/Heading-chromium-darwin.png)
- * ![Heading dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Heading-dark.spec.mjs-snapshots/Heading-dark-chromium-darwin.png)
+ * ![Heading light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Heading.spec.ts-snapshots/Heading-chromium-darwin.png)
+ * ![Heading dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Heading-dark.spec.ts-snapshots/Heading-dark-chromium-darwin.png)
  *
  */
 export default function Heading({

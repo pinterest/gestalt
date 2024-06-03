@@ -32,8 +32,8 @@ type Props = {
 
 /**
  * [WashAnimated](https://gestalt.pinterest.systems/web/washanimated) is used to highlight content in grids. It visually shows that children elements belong together and can highlight the items on hover.
- * ![WashAnimated light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/WashAnimated.spec.mjs-snapshots/WashAnimated-chromium-darwin.png)
- * ![WashAnimated dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/WashAnimated-dark.spec.mjs-snapshots/Button-dark-chromium-darwin.png)
+ * ![WashAnimated light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/WashAnimated.spec.ts-snapshots/WashAnimated-chromium-darwin.png)
+ * ![WashAnimated dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/WashAnimated-dark.spec.ts-snapshots/Button-dark-chromium-darwin.png)
  */
 export default function WashAnimated({
   active,

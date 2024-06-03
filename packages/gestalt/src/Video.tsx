@@ -281,7 +281,7 @@ const isNewSource = (oldSource: Source, newSource: Source): boolean => {
 /**
  * [Video](https://gestalt.pinterest.systems/web/video) is used for media layout.
  *
- * ![Video light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Video.spec.mjs-snapshots/Video-chromium-darwin.png)
+ * ![Video light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Video.spec.ts-snapshots/Video-chromium-darwin.png)
  */
 export default class Video extends PureComponent<Props, State> {
   video: HTMLVideoElement | null | undefined;

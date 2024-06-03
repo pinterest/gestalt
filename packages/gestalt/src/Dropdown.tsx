@@ -151,8 +151,8 @@ type Props = {
 /**
  * [Dropdown](https://gestalt.pinterest.systems/web/dropdown) displays a list of actions, options or links. It is triggered when a user interacts with a Button, Textfield or other control. Dropdown allows for complex functionality that can’t be accomplished with SelectList.
  *
- * ![Dropdown open light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Dropdown-open.spec.mjs-snapshots/Dropdown-open-chromium-darwin.png)
- * ![Dropdown open dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Dropdown-open-dark.spec.mjs-snapshots/Dropdown-open-dark-chromium-darwin.png)
+ * ![Dropdown open light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Dropdown-open.spec.ts-snapshots/Dropdown-open-chromium-darwin.png)
+ * ![Dropdown open dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Dropdown-open-dark.spec.ts-snapshots/Dropdown-open-dark-chromium-darwin.png)
  *
  */
 export default function Dropdown({

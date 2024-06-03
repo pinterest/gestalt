@@ -81,8 +81,8 @@ type Props = {
 /**
  * [OverlayPanels](https://gestalt.pinterest.systems/web/overlaypanel ) are surfaces that allow users to view optional information or complete sub-tasks in a workflow while keeping the context of the current page. The most common example of OverlayPanel displays content in a panel that opens from the side of the screen for the user to read or input information. OverlayPanels have default, internal padding for content.
  *
- * ![OverlayPanel light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/OverlayPanel.spec.mjs-snapshots/OverlayPanel-chromium-darwin.png)
- * ![OverlayPanel dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/OverlayPanel-dark.spec.mjs-snapshots/OverlayPanel-dark-chromium-darwin.png)
+ * ![OverlayPanel light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/OverlayPanel.spec.ts-snapshots/OverlayPanel-chromium-darwin.png)
+ * ![OverlayPanel dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/OverlayPanel-dark.spec.ts-snapshots/OverlayPanel-dark-chromium-darwin.png)
  */
 function OverlayPanel({
   accessibilityDismissButtonLabel,

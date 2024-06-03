@@ -130,8 +130,8 @@ type Props = {
  * [BannerUpsells](https://gestalt.pinterest.systems/web/bannerupsell) are banners that display short messages that focus on promoting an action or upgrading something the user already has.
  *
  *
- * ![BannerUpsell light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/BannerUpsell.spec.mjs-snapshots/BannerUpsell-chromium-darwin.png)
- * ![BannerUpsell dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/BannerUpsell-dark.spec.mjs-snapshots/BannerUpsell-dark-chromium-darwin.png)
+ * ![BannerUpsell light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/BannerUpsell.spec.ts-snapshots/BannerUpsell-chromium-darwin.png)
+ * ![BannerUpsell dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/BannerUpsell-dark.spec.ts-snapshots/BannerUpsell-dark-chromium-darwin.png)
  */
 export default function BannerUpsell({
   children,

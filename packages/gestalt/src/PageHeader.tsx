@@ -108,9 +108,9 @@ type Props = {
 /**
  * [PageHeader](https://gestalt.pinterest.systems/web/pageheader) is used to indicate the title of the current screen and can also provide additional content and actions that relate to the current screen as a whole.
  *
- * ![PageHeader light mode secondary action](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/PageHeader-items-secondaryAction.spec.mjs-snapshots/PageHeader-items-secondaryAction-md-chromium-darwin.png)
- * ![PageHeader light mode badge](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/PageHeader-thumbnail-badge-iconButton.spec.mjs-snapshots/PageHeader-thumbnail-badge-iconButton-sm-chromium-darwin.png)
- * ![PageHeader dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/PageHeader-borderStyle-dark.spec.mjs-snapshots/PageHeader-borderStyle-dark-chromium-darwin.png)
+ * ![PageHeader light mode secondary action](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/PageHeader-items-secondaryAction.spec.ts-snapshots/PageHeader-items-secondaryAction-md-chromium-darwin.png)
+ * ![PageHeader light mode badge](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/PageHeader-thumbnail-badge-iconButton.spec.ts-snapshots/PageHeader-thumbnail-badge-iconButton-sm-chromium-darwin.png)
+ * ![PageHeader dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/PageHeader-borderStyle-dark.spec.ts-snapshots/PageHeader-borderStyle-dark-chromium-darwin.png)
  *
  */
 export default function PageHeader({

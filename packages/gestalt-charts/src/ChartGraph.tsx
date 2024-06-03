@@ -212,8 +212,8 @@ type Props = {
 
 /**
  * [ChartGraph](https://gestalt.pinterest.systems/web/chartgraph) is used for displaying various types of graphs plotted on an x and y axis. It makes it easier to identify and understand patterns over time across different categories, enabling people to make informed decisions quickly.
- * ![ChartGraph light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ChartGraph.spec.mjs-snapshots/ChartGraph-chromium-darwin.png)
- * ![ChartGraph dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ChartGraph-dark.spec.mjs-snapshots/ChartGraph-dark-chromium-darwin.png)
+ * ![ChartGraph light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ChartGraph.spec.ts-snapshots/ChartGraph-chromium-darwin.png)
+ * ![ChartGraph dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ChartGraph-dark.spec.ts-snapshots/ChartGraph-dark-chromium-darwin.png)
  */
 function ChartGraph({
   accessibilityLabel,

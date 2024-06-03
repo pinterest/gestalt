@@ -151,8 +151,8 @@ type Props = {
 /**
  * [BannerSlim](https://gestalt.pinterest.systems/web/bannerslim) conveys brief information related to a specific section of a page. The message can relay success, warning, error or general information. Since they are about a specific section of a page or surface, BannerSlim sits inside of a container, and not at the top of the page. For alerts that apply to the whole page, use [BannerCallout](https://gestalt.pinterest.systems/web/bannercallout).
  *
- * ![BannerSlim light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/BannerSlim.spec.mjs-snapshots/BannerSlim-chromium-darwin.png)
- * ![BannerSlim dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/BannerSlim-dark.spec.mjs-snapshots/BannerSlim-dark-chromium-darwin.png)
+ * ![BannerSlim light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/BannerSlim.spec.ts-snapshots/BannerSlim-chromium-darwin.png)
+ * ![BannerSlim dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/BannerSlim-dark.spec.ts-snapshots/BannerSlim-dark-chromium-darwin.png)
  *
  */
 export default function BannerSlim({

@@ -32,8 +32,8 @@ type Props = {
  *
  * Switch supports right-to-left(RTL) language locales layout (auto flip on RTL locales like Arabic).
  *
- * ![Switch light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Switch.spec.mjs-snapshots/Switch-chromium-darwin.png)
- * ![Switch dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Switch-dark.spec.mjs-snapshots/Switch-dark-chromium-darwin.png)
+ * ![Switch light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Switch.spec.ts-snapshots/Switch-chromium-darwin.png)
+ * ![Switch dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Switch-dark.spec.ts-snapshots/Switch-dark-chromium-darwin.png)
  *
  */
 export default function Switch({ disabled = false, id, name, onChange, switched = false }: Props) {

@@ -91,8 +91,8 @@ type Props = {
  *
  * This is an abstraction to allow for links that look like IconButton.
  *
- * ![Pog light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Pog.spec.mjs-snapshots/Pog-chromium-darwin.png)
- * ![Pog dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Pog-dark.spec.mjs-snapshots/Pog-dark-chromium-darwin.png)
+ * ![Pog light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Pog.spec.ts-snapshots/Pog-chromium-darwin.png)
+ * ![Pog dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Pog-dark.spec.ts-snapshots/Pog-dark-chromium-darwin.png)
  *
  */
 export default function Pog({

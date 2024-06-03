@@ -89,8 +89,8 @@ type Props = {
 /**
  * [IconButtonLink](https://gestalt.pinterest.systems/web/iconbuttonlink) is mainly used as navigational element.
  *
- * ![IconButton light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/IconButton.spec.mjs-snapshots/IconButton-chromium-darwin.png)
- * ![IconButton dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/IconButton-dark.spec.mjs-snapshots/IconButton-dark-chromium-darwin.png)
+ * ![IconButton light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/IconButton.spec.ts-snapshots/IconButton-chromium-darwin.png)
+ * ![IconButton dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/IconButton-dark.spec.ts-snapshots/IconButton-dark-chromium-darwin.png)
  *
  */
 

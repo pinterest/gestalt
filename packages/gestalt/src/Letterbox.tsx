@@ -36,7 +36,7 @@ type Props = {
  *
  * Letterbox should be used in situations where you would otherwise use the CSS property `background-size: cover`.
  *
- * ![Letterbox light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Letterbox.spec.mjs-snapshots/Letterbox-chromium-darwin.png)
+ * ![Letterbox light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Letterbox.spec.ts-snapshots/Letterbox-chromium-darwin.png)
 
  */
 export default function Letterbox({ children, contentAspectRatio, height, width }: Props) {
