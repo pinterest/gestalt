@@ -51,6 +51,7 @@ import audioBars from './ic_vr_audio-bars_gestalt.svg';
 import audioMix from './ic_vr_audio-mix_gestalt.svg';
 import audioPlaying from './ic_vr_audio-playing_gestalt.svg';
 import bell from './ic_vr_bell_gestalt.svg';
+import bellFill from './ic_vr_bell-fill_gestalt.svg';
 import board from './ic_vr_board_gestalt.svg';
 import boardStickerLarge from './ic_vr_board-sticker-large_gestalt.svg';
 import boardStickerSmall from './ic_vr_board-sticker-small_gestalt.svg';
@@ -72,6 +73,7 @@ import checkCircle from './ic_vr_check-circle_gestalt.svg';
 import chevronUpCircle from './ic_vr_chevron-up-circle_gestalt.svg';
 import circle from './ic_vr_circle_gestalt.svg';
 import circleEllipsis from './ic_vr_circle-ellipsis_gestalt.svg';
+import circleInformationFill from './ic_vr_circle-information-fill_gestalt.svg';
 import clear from './ic_vr_clear_gestalt.svg';
 import clips from './ic_vr_clips_gestalt.svg';
 import clock from './ic_vr_clock_gestalt.svg';
@@ -105,12 +107,14 @@ import directionalArrowRight from './ic_vr_directional-arrow-right_gestalt.svg';
 import download from './ic_vr_download_gestalt.svg';
 import dragDrop from './ic_vr_drag-drop_gestalt.svg';
 import draw from './ic_vr_draw_gestalt.svg';
+import dropbox from './ic_vr_dropbox_gestalt.svg';
 import duplicate from './ic_vr_duplicate_gestalt.svg';
 import edit from './ic_vr_edit_gestalt.svg';
 import ellipsis from './ic_vr_ellipsis_gestalt.svg';
 import envelope from './ic_vr_envelope_gestalt.svg';
 import erase from './ic_vr_erase_gestalt.svg';
 import eraseAuto from './ic_vr_erase-auto_gestalt.svg';
+import etsy from './ic_vr_etsy_gestalt.svg';
 import expand from './ic_vr_expand_gestalt.svg';
 import eye from './ic_vr_eye_gestalt.svg';
 import eyeHide from './ic_vr_eye-hide_gestalt.svg';
@@ -138,6 +142,7 @@ import forward from './ic_vr_forward_gestalt.svg';
 import gauge from './ic_vr_gauge_gestalt.svg';
 import ghost from './ic_vr_ghost_gestalt.svg';
 import gif from './ic_vr_gif_gestalt.svg';
+import gifVisual from './ic_vr_gif-visual_gestalt.svg';
 import globe from './ic_vr_globe_gestalt.svg';
 import globeChecked from './ic_vr_globe-checked_gestalt.svg';
 import gmail from './ic_vr_gmail_gestalt.svg';
@@ -153,6 +158,7 @@ import heartOutline from './ic_vr_heart-outline_gestalt.svg';
 import highlights from './ic_vr_highlights_gestalt.svg';
 import history from './ic_vr_history_gestalt.svg';
 import home from './ic_vr_home_gestalt.svg';
+import homeFill from './ic_vr_home-fill_gestalt.svg';
 import ideaPin from './ic_vr_idea-pin_gestalt.svg';
 import imagePortrait from './ic_vr_image-portrait_gestalt.svg';
 import impressum from './ic_vr_impressum_gestalt.svg';
@@ -185,6 +191,7 @@ import marginsSmall from './ic_vr_margins-small_gestalt.svg';
 import maximize from './ic_vr_maximize_gestalt.svg';
 import megaphone from './ic_vr_megaphone_gestalt.svg';
 import menu from './ic_vr_menu_gestalt.svg';
+import messenger from './ic_vr_messenger_gestalt.svg';
 import microphone from './ic_vr_microphone_gestalt.svg';
 import minimize from './ic_vr_minimize_gestalt.svg';
 import mobile from './ic_vr_mobile_gestalt.svg';
@@ -193,8 +200,10 @@ import movePin from './ic_vr_move-pin_gestalt.svg';
 import musicOff from './ic_vr_music-off_gestalt.svg';
 import musicOn from './ic_vr_music-on_gestalt.svg';
 import mute from './ic_vr_mute_gestalt.svg';
+import muteFill from './ic_vr_mute-fill_gestalt.svg';
 import orientationLandscape from './ic_vr_orientation-landscape_gestalt.svg';
 import orientationPortrait from './ic_vr_orientation-portrait_gestalt.svg';
+import outlook from './ic_vr_outlook_gestalt.svg';
 import overlayText from './ic_vr_overlay-text_gestalt.svg';
 import overlayTextOutline from './ic_vr_overlay-text-outline_gestalt.svg';
 import overview from './ic_vr_overview_gestalt.svg';
@@ -207,6 +216,7 @@ import people from './ic_vr_people_gestalt.svg';
 import performancePlus from './ic_vr_performance-plus_gestalt.svg';
 import person from './ic_vr_person_gestalt.svg';
 import personAdd from './ic_vr_person-add_gestalt.svg';
+import personFill from './ic_vr_person-fill_gestalt.svg';
 import personMagnifyingGlass from './ic_vr_person-magnifying-glass_gestalt.svg';
 import phone from './ic_vr_phone_gestalt.svg';
 import pin from './ic_vr_pin_gestalt.svg';
@@ -236,15 +246,10 @@ import scale from './ic_vr_scale_gestalt.svg';
 import scissors from './ic_vr_scissors_gestalt.svg';
 import search from './ic_vr_search_gestalt.svg';
 import searchByImage from './ic_vr_search-by-image_gestalt.svg';
+import searchFill from './ic_vr_search-fill_gestalt.svg';
 import security from './ic_vr_security_gestalt.svg';
 import select from './ic_vr_select_gestalt.svg';
 import send from './ic_vr_send_gestalt.svg';
-import serviceDropbox from './ic_vr_service-dropbox_gestalt.svg';
-import serviceEtsy from './ic_vr_service-etsy_gestalt.svg';
-import serviceMessenger from './ic_vr_service-messenger_gestalt.svg';
-import serviceOutlook from './ic_vr_service-outlook_gestalt.svg';
-import serviceYahoo from './ic_vr_service-yahoo_gestalt.svg';
-import serviceYoutube from './ic_vr_service-youtube_gestalt.svg';
 import shadows from './ic_vr_shadows_gestalt.svg';
 import shapes from './ic_vr_shapes_gestalt.svg';
 import share from './ic_vr_share_gestalt.svg';
@@ -258,17 +263,20 @@ import smileyOutline from './ic_vr_smiley-outline_gestalt.svg';
 import sortAscending from './ic_vr_sort-ascending_gestalt.svg';
 import sortDescending from './ic_vr_sort-descending_gestalt.svg';
 import sound from './ic_vr_sound_gestalt.svg';
+import soundFill from './ic_vr_sound-fill_gestalt.svg';
 import soundSlash from './ic_vr_sound-slash_gestalt.svg';
+import soundSlashFill from './ic_vr_sound-slash-fill_gestalt.svg';
 import sparkle from './ic_vr_sparkle_gestalt.svg';
 import speech from './ic_vr_speech_gestalt.svg';
 import speechEllipsis from './ic_vr_speech-ellipsis_gestalt.svg';
+import speechEllipsisFill from './ic_vr_speech-ellipsis-fill_gestalt.svg';
 import speechExclamationPoint from './ic_vr_speech-exclamation-point_gestalt.svg';
 import speechHeart from './ic_vr_speech-heart_gestalt.svg';
-import speechOutline from './ic_vr_speech-outline_gestalt.svg';
+import speechoutline from './ic_vr_speech-outline_gestalt.svg';
 import speed from './ic_vr_speed_gestalt.svg';
-import speedThird from './ic_vr_speed-.3x_gestalt.svg';
-import speedHalf from './ic_vr_speed-.5x_gestalt.svg';
-import speed1x from './ic_vr_speed-1x_gestalt.svg';
+import speedThirdX from './ic_vr_speed-.3x_gestalt.svg';
+import speedFofthX from './ic_vr_speed-.5x_gestalt.svg';
+import speed1X from './ic_vr_speed-1x_gestalt.svg';
 import speed2x from './ic_vr_speed-2x_gestalt.svg';
 import speed3x from './ic_vr_speed-3x_gestalt.svg';
 import spread from './ic_vr_spread_gestalt.svg';
@@ -307,10 +315,11 @@ import timer10 from './ic_vr_timer-10_gestalt.svg';
 import trashCan from './ic_vr_trash-can_gestalt.svg';
 import trending from './ic_vr_trending_gestalt.svg';
 import undo from './ic_vr_undo_gestalt.svg';
+import unlock from './ic_vr_unlock_gestalt.svg';
 import uploadFeed from './ic_vr_upload-feed_gestalt.svg';
-import videoAdvance10Seconds from './ic_vr_video-advance-10-seconds_gestalt.svg';
+import videoAdvance10seconds from './ic_vr_video-advance-10-seconds_gestalt.svg';
 import videoCamera from './ic_vr_video-camera_gestalt.svg';
-import videoRewind10Seconds from './ic_vr_video-rewind-10-seconds_gestalt.svg';
+import videoRewind10seconds from './ic_vr_video-rewind-10-seconds_gestalt.svg';
 import viewTypeDefault from './ic_vr_view-type-default_gestalt.svg';
 import viewTypeDense from './ic_vr_view-type-dense_gestalt.svg';
 import viewTypeList from './ic_vr_view-type-list_gestalt.svg';
@@ -330,236 +339,308 @@ import workflowStatusQueued from './ic_vr_workflow-status-queued_gestalt.svg';
 import workflowStatusUnstarted from './ic_vr_workflow-status-unstarted_gestalt.svg';
 import workflowStatusWarning from './ic_vr_workflow-status-warning_gestalt.svg';
 import x from './ic_vr_x_gestalt.svg';
+import yahoo from './ic_vr_yahoo_gestalt.svg';
+import youtube from './ic_vr_youtube_gestalt.svg';
 
 const icons = Object.freeze({
-  '3D': threeD,
-  '3D-move': threeDMove,
+  '3d': threeD,
+  '3d-move': threeDMove,
   '360': threeSixty,
-  accessibility,
-  ad,
+  'accessibility': accessibility,
+  'ad': ad,
   'ad-group': adGroup,
-  add,
+  'add': add,
   'add-circle': addCircle,
   'add-layout': addLayout,
   'add-pin': addPin,
   'add-section': addSection,
-  'ads-stats': adsStats,
   'ads-overview': adsOverview,
-  alphabetical,
-  alert,
+  'ads-stats': adsStats,
+  'alert': alert,
+  'align-bottom': alignBottom,
   'align-bottom-center': alignBottomCenter,
   'align-bottom-left': alignBottomLeft,
   'align-bottom-right': alignBottomRight,
-  'align-bottom': alignBottom,
   'align-middle': alignMiddle,
+  'align-top': alignTop,
   'align-top-center': alignTopCenter,
   'align-top-left': alignTopLeft,
   'align-top-right': alignTopRight,
-  'align-top': alignTop,
+  'alphabetical': alphabetical,
   'android-share': androidShare,
   'angled-pin': angledPin,
-  api,
-  apple,
-  apps,
+  'animate': animate,
+  'api': api,
+  'apple': apple,
+  'apps': apps,
   'arrow-back': arrowBack,
   'arrow-circle-back': arrowCircleBack,
   'arrow-circle-down': arrowCircleDown,
   'arrow-circle-forward': arrowCircleForward,
   'arrow-circle-up': arrowCircleUp,
   'arrow-counter-clockwise': arrowCounterClockwise,
-  'arrow-double-forward': arrowDoubleForward,
   'arrow-double-back': arrowDoubleBack,
+  'arrow-double-forward': arrowDoubleForward,
   'arrow-down': arrowDown,
   'arrow-end': arrowEnd,
   'arrow-forward': arrowForward,
   'arrow-left-curved': arrowLeftCurved,
+  'arrow-nested': arrowNested,
   'arrow-start': arrowStart,
   'arrow-up': arrowUp,
   'arrow-up-left': arrowUpLeft,
   'arrow-up-right': arrowUpRight,
   'arrows-vertical': arrowsVertical,
-  bell,
-  board,
-  briefcase,
+  'aspect-ratio': aspectRatio,
+  'audio-bars': audioBars,
+  'audio-mix': audioMix,
+  'audio-playing': audioPlaying,
+  'bell': bell,
+  'bell-fill': bellFill,
+  'board': board,
+  'board-sticker-large': boardStickerLarge,
+  'board-sticker-small': boardStickerSmall,
+  'border': border,
+  'border-shadow': borderShadow,
+  'briefcase': briefcase,
   'business-hierarchy': businessHierarchy,
-  calendar,
+  'calendar': calendar,
   'calendar-check': calendarCheck,
-  camera,
+  'camera': camera,
   'camera-flip': cameraFlip,
   'camera-roll': cameraRoll,
-  cancel,
+  'cancel': cancel,
   'canonical-pin': canonicalPin,
-  captions,
+  'captions': captions,
   'captions-outline': captionsOutline,
-  'color-picker': colorPicker,
-  check,
+  'check': check,
   'check-circle': checkCircle,
   'chevron-up-circle': chevronUpCircle,
   'circle': circle,
   'circle-ellipsis': circleEllipsis,
-  clear,
-  clock,
+  'circle-information-fill': circleInformationFill,
+  'clear': clear,
+  'clips': clips,
+  'clock': clock,
   'clock-checked': clockChecked,
   'cloud-server': cloudServer,
-  code,
+  'code': code,
   'code-checked': codeChecked,
-  cog,
-  compass,
-  compose,
-  collapse,
+  'cog': cog,
+  'collage': collage,
+  'collapse': collapse,
+  'color': color,
+  'color-palette': colorPalette,
+  'color-picker': colorPicker,
   'color-solid': colorSolid,
   'color-split': colorSplit,
-  'copy-to-clipboard': copyToClipboard,
-  crop,
-  'data-source': dataSource,
-  dash,
-  desktop,
-  diagnostics,
+  'compass': compass,
+  'compose': compose,
+  'contrast': contrast,
   'conversion-tag': conversionTag,
+  'copy-to-clipboard': copyToClipboard,
   'credit-card': creditCard,
+  'crop': crop,
+  'cutout': cutout,
+  'dash': dash,
+  'data-source': dataSource,
+  'design': design,
+  'desktop': desktop,
+  'diagnostics': diagnostics,
   'directional-arrow-left': directionalArrowLeft,
   'directional-arrow-right': directionalArrowRight,
-  download,
+  'download': download,
   'drag-drop': dragDrop,
-  duplicate,
-  edit,
-  ellipsis,
-  envelope,
-  expand,
-  eye,
+  'draw': draw,
+  'dropbox': dropbox,
+  'duplicate': duplicate,
+  'edit': edit,
+  'ellipsis': ellipsis,
+  'envelope': envelope,
+  'erase-auto': eraseAuto,
+  'erase': erase,
+  'etsy': etsy,
+  'expand': expand,
+  'eye': eye,
   'eye-hide': eyeHide,
-  facebook,
-  fade,
   'face-happy': faceHappy,
   'face-neutral': faceNeutral,
   'face-sad': faceSad,
   'face-smiley': faceSmiley,
   'face-tryon': faceTryon,
+  'facebook': facebook,
+  'fade': fade,
   'file-box': fileBox,
   'file-unknown': fileUnknown,
   'fill-opaque': fillOpaque,
   'fill-transparent': fillTransparent,
-  filter,
-  flag,
-  flame,
-  flash,
-  flashlight,
-  flipHorizontal,
-  flipVertical,
-  folder,
-  forward,
-  gif,
-  globe,
+  'filter': filter,
+  'flag': flag,
+  'flame': flame,
+  'flash': flash,
+  'flash-slash': flashSlash,
+  'flashlight': flashlight,
+  'flip-horizontal': flipHorizontal,
+  'flip-vertical': flipVertical,
+  'folder': folder,
+  'forward': forward,
+  'gauge': gauge,
+  'ghost': ghost,
+  'gif': gif,
+  'gif-visual': gifVisual,
+  'globe': globe,
   'globe-checked': globeChecked,
-  gmail,
+  'gmail': gmail,
   'graph-bar': graphBar,
   'graph-pie': graphPie,
-  handle,
+  'hand': hand,
   'hand-pointing': handPointing,
-  heart,
-  'heart-outline': heartOutline,
+  'handle': handle,
+  'heart': heart,
   'heart-broken': heartBroken,
   'heart-health': heartHealth,
-  history,
-  home,
+  'heart-outline': heartOutline,
+  'highlights': highlights,
+  'history': history,
+  'home': home,
+  'home-fill': homeFill,
   'idea-pin': ideaPin,
   'image-portrait': imagePortrait,
-  impressum,
-  information,
+  'impressum': impressum,
+  'info-circle': infoCircle,
+  'information': information,
   'insights-audience': insightsAudience,
   'insights-conversion': insightsConversion,
-  instagram,
+  'instagram': instagram,
   'invoice': invoice,
-  'info-circle': infoCircle,
-  key,
-  knoop,
-  layout,
-  lightbulb,
+  'key': key,
+  'knoop': knoop,
+  'lab-flask': labFlask,
+  'lasso-magic': lassoMagic,
+  'layout': layout,
+  'lightbulb': lightbulb,
   'lightning-bolt-circle': lightningBoltCircle,
-  link,
-  lips,
-  location,
-  lock,
+  'link': link,
+  'lips': lips,
+  'location': location,
+  'lock': lock,
   'logo-large': logoLarge,
   'logo-small': logoSmall,
-  logout,
-  'manage-access': manageAccess,
+  'logout': logout,
   'magic-pen': magicPen,
+  'magic-wand': magicWand,
+  'manage-access': manageAccess,
   'margins-large': marginsLarge,
   'margins-medium': marginsMedium,
   'margins-small': marginsSmall,
-  maximize,
-  megaphone,
-  menu,
-  minimize,
-  mobile,
-  moon,
-  mute,
+  'maximize': maximize,
+  'megaphone': megaphone,
+  'menu': menu,
+  'messenger': messenger,
+  'microphone': microphone,
+  'minimize': minimize,
+  'mobile': mobile,
+  'moon': moon,
   'move-pin': movePin,
   'music-off': musicOff,
   'music-on': musicOn,
+  'mute': mute,
+  'mute-fill': muteFill,
+  'orientation-landscape': orientationLandscape,
+  'orientation-portrait': orientationPortrait,
+  'outlook': outlook,
   'overlay-text': overlayText,
   'overlay-text-outline': overlayTextOutline,
-  overview,
-  pause,
-  people,
-  person,
+  'overview': overview,
+  'paper-clip': paperClip,
+  'paper-lines-plus': paperLinesPlus,
+  'pause': pause,
+  'pen': pen,
+  'pen-auto': penAuto,
+  'people': people,
+  'performance-plus': performancePlus,
+  'person': person,
   'person-add': personAdd,
-  phone,
-  pin,
+  'person-fill': personFill,
+  'person-magnifying-glass': personMagnifyingGlass,
+  'phone': phone,
+  'pin': pin,
   'pin-hide': pinHide,
-  pinterest,
-  play,
-  protect,
-  refresh,
+  'pinterest': pinterest,
+  'play': play,
+  'protect': protect,
   'question-mark': questionMark,
-  remove,
+  'record-limit': recordLimit,
+  'record-limit-5': recordLimit5,
+  'record-limit-15': recordLimit15,
+  'record-limit-10': recordLimit10,
+  'record-limit-30': recordLimit30,
+  'record-limit-60': recordLimit60,
+  'redo': redo,
+  'refresh': refresh,
+  'remove': remove,
   'reorder-images': reorderImages,
-  replace,
-  report,
-  rewind,
-  rotate,
+  'replace': replace,
+  'report': report,
+  'rewind': rewind,
+  'rotate': rotate,
+  'saturation': saturation,
   'save-outline': saveOutline,
-  saved,
-  scale,
-  scissors,
-  search,
+  'saved': saved,
+  'scale': scale,
+  'scissors': scissors,
+  'search': search,
   'search-by-image': searchByImage,
-  security,
-  'service-dropbox': serviceDropbox,
-  'service-etsy': serviceEtsy,
-  'service-messenger': serviceMessenger,
-  'service-outlook': serviceOutlook,
-  'service-yahoo': serviceYahoo,
-  'service-youtube': serviceYoutube,
-  share,
+  'search-fill': searchFill,
+  'security': security,
+  'select': select,
+  'send': send,
+  'shadows': shadows,
+  'shapes': shapes,
+  'share': share,
   'shopping-bag': shoppingBag,
-  shrink,
-  skintone,
-  smiley,
+  'shrink': shrink,
+  'shuffles': shuffles,
+  'skintone': skintone,
+  'slide': slide,
+  'smiley': smiley,
   'smiley-outline': smileyOutline,
-  send,
-  sound,
   'sort-ascending': sortAscending,
   'sort-descending': sortDescending,
-  sparkle,
-  speech,
+  'sound': sound,
+  'sound-fill': soundFill,
+  'sound-slash': soundSlash,
+  'sound-slash-fill': soundSlashFill,
+  'sparkle': sparkle,
+  'speech': speech,
   'speech-ellipsis': speechEllipsis,
+  'speech-ellipsis-fill': speechEllipsisFill,
   'speech-exclamation-point': speechExclamationPoint,
   'speech-heart': speechHeart,
-  'speech-outline': speechOutline,
-  spread,
-  'star-outline': starOutline,
-  star,
+  'speech-outline': speechoutline,
+  'speed': speed,
+  'speed-.3x': speedThirdX,
+  'speed-.5x': speedFofthX,
+  'speed-1x': speed1X,
+  'speed-2x': speed2x,
+  'speed-3x': speed3x,
+  'spread': spread,
+  'star': star,
   'star-half': starHalf,
-  sticker,
-  sun,
+  'star-outline': starOutline,
+  'sticker': sticker,
+  'sticker-image': stickerImage,
+  'sun': sun,
+  'swap': swap,
   'switch-account': switchAccount,
-  table,
-  tag,
-  terms,
-  'text-align-left': textAlignLeft,
+  'table': table,
+  'tag': tag,
+  'target': target,
+  'template': template,
+  'terms': terms,
+  'text': text,
   'text-align-center': textAlignCenter,
+  'text-align-left': textAlignLeft,
   'text-align-right': textAlignRight,
   'text-all-caps': textAllCaps,
   'text-extra-small': textExtraSmall,
@@ -570,21 +651,28 @@ const icons = Object.freeze({
   'text-size': textSize,
   'text-small': textSmall,
   'text-spacing': textSpacing,
+  'text-sticker': textSticker,
   'thumbs-down': thumbsDown,
   'thumbs-up': thumbsUp,
+  'timer': timer,
+  'timer-3': timer3,
+  'timer-10': timer10,
   'trash-can': trashCan,
-  target,
-  trending,
+  'trending': trending,
+  'undo': undo,
+  'unlock': unlock,
   'upload-feed': uploadFeed,
-  'video-advance-10-seconds': videoAdvance10Seconds,
+  'video-advance-10-seconds': videoAdvance10seconds,
   'video-camera': videoCamera,
-  'video-rewind-10-seconds': videoRewind10Seconds,
+  'video-rewind-10-seconds': videoRewind10seconds,
   'view-type-default': viewTypeDefault,
   'view-type-dense': viewTypeDense,
   'view-type-list': viewTypeList,
   'view-type-space': viewTypeSpace,
-  visit,
-  whatsapp,
+  'visit': visit,
+  'warmth': warmth,
+  'wave': wave,
+  'whatsapp': whatsapp,
   'wifi-no': wifiNo,
   'workflow-status-all': workflowStatusAll,
   'workflow-status-canceled': workflowStatusCanceled,
@@ -595,76 +683,9 @@ const icons = Object.freeze({
   'workflow-status-queued': workflowStatusQueued,
   'workflow-status-unstarted': workflowStatusUnstarted,
   'workflow-status-warning': workflowStatusWarning,
-  x,
-  // test. to be sorted alphabetically later
-  animate,
-  'arrow-nested': arrowNested,
-  'aspect-ratio': aspectRatio,
-  'audio-bars': audioBars,
-  'audio-mix': audioMix,
-  'audio-playing': audioPlaying,
-  'board-sticker-large': boardStickerLarge,
-  'board-sticker-small': boardStickerSmall,
-  border,
-  'border-shadow': borderShadow,
-  clips,
-  collage,
-  'color-palette': colorPalette,
-  color,
-  contrast,
-  cutout,
-  design,
-  draw,
-  'erase-auto': eraseAuto,
-  erase,
-  'flash-slash': flashSlash,
-  gauge,
-  ghost,
-  hand,
-  highlights,
-  'lab-flask': labFlask,
-  'lasso-magic': lassoMagic,
-  'magic-wand': magicWand,
-  microphone,
-  'orientation-landscape': orientationLandscape,
-  'orientation-portrait': orientationPortrait,
-  'paper-clip': paperClip,
-  'paper-lines-plus': paperLinesPlus,
-  'pen-auto': penAuto,
-  pen,
-  'performance-plus': performancePlus,
-  'person-magnifying-glass': personMagnifyingGlass,
-  'record-limit-5': recordLimit5,
-  'record-limit-10': recordLimit10,
-  'record-limit-15': recordLimit15,
-  'record-limit-30': recordLimit30,
-  'record-limit-60': recordLimit60,
-  'record-limit': recordLimit,
-  redo,
-  saturation,
-  select,
-  shadows,
-  shapes,
-  shuffles,
-  slide,
-  'soundSlash': soundSlash,
-  'speed-.3x': speedThird,
-  'speed-.5x': speedHalf,
-  'speed-1x': speed1x,
-  'speed-2x': speed2x,
-  'speed-3x': speed3x,
-  speed,
-  'sticker-image': stickerImage,
-  swap,
-  template,
-  'text-sticker': textSticker,
-  text,
-  'timer-3': timer3,
-  'timer-10': timer10,
-  timer,
-  undo,
-  warmth,
-  wave,
+  'x': x,
+  'yahoo': yahoo,
+  'youtube': youtube,
 });
 
 export default icons;

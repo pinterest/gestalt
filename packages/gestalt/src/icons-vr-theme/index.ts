@@ -51,6 +51,7 @@ import audioBars from './audio-bars.svg';
 import audioMix from './audio-mix.svg';
 import audioPlaying from './audio-playing.svg';
 import bell from './bell.svg';
+import bellFill from './bell-fill.svg';
 import board from './board.svg';
 import boardStickerLarge from './board-sticker-large.svg';
 import boardStickerSmall from './board-sticker-small.svg';
@@ -71,6 +72,8 @@ import check from './check.svg';
 import checkCircle from './check-circle.svg';
 import chevronUpCircle from './chevron-up-circle.svg';
 import circle from './circle.svg';
+import circleEllipsis from './circle-ellipsis.svg';
+import circleInformationFill from './circle-information-fill.svg';
 import clear from './clear.svg';
 import clips from './clips.svg';
 import clock from './clock.svg';
@@ -104,13 +107,14 @@ import directionalArrowRight from './directional-arrow-right.svg';
 import download from './download.svg';
 import dragDrop from './drag-drop.svg';
 import draw from './draw.svg';
+import dropbox from './dropbox.svg';
 import duplicate from './duplicate.svg';
 import edit from './edit.svg';
 import ellipsis from './ellipsis.svg';
-import circleEllipsis from './ellipsis-circle.svg';
 import envelope from './envelope.svg';
 import erase from './erase.svg';
 import eraseAuto from './erase-auto.svg';
+import etsy from './etsy.svg';
 import expand from './expand.svg';
 import eye from './eye.svg';
 import eyeHide from './eye-hide.svg';
@@ -138,6 +142,7 @@ import forward from './forward.svg';
 import gauge from './gauge.svg';
 import ghost from './ghost.svg';
 import gif from './gif.svg';
+import gifVisual from './gif-visual.svg';
 import globe from './globe.svg';
 import globeChecked from './globe-checked.svg';
 import gmail from './gmail.svg';
@@ -153,6 +158,7 @@ import heartOutline from './heart-outline.svg';
 import highlights from './highlights.svg';
 import history from './history.svg';
 import home from './home.svg';
+import homeFill from './home-fill.svg';
 import ideaPin from './idea-pin.svg';
 import imagePortrait from './image-portrait.svg';
 import impressum from './impressum.svg';
@@ -185,6 +191,7 @@ import marginsSmall from './margins-small.svg';
 import maximize from './maximize.svg';
 import megaphone from './megaphone.svg';
 import menu from './menu.svg';
+import messenger from './messenger.svg';
 import microphone from './microphone.svg';
 import minimize from './minimize.svg';
 import mobile from './mobile.svg';
@@ -193,8 +200,10 @@ import movePin from './move-pin.svg';
 import musicOff from './music-off.svg';
 import musicOn from './music-on.svg';
 import mute from './mute.svg';
+import muteFill from './mute-fill.svg';
 import orientationLandscape from './orientation-landscape.svg';
 import orientationPortrait from './orientation-portrait.svg';
+import outlook from './outlook.svg';
 import overlayText from './overlay-text.svg';
 import overlayTextOutline from './overlay-text-outline.svg';
 import overview from './overview.svg';
@@ -207,6 +216,7 @@ import people from './people.svg';
 import performancePlus from './performance-plus.svg';
 import person from './person.svg';
 import personAdd from './person-add.svg';
+import personFill from './person-fill.svg';
 import personMagnifyingGlass from './person-magnifying-glass.svg';
 import phone from './phone.svg';
 import pin from './pin.svg';
@@ -236,15 +246,10 @@ import scale from './scale.svg';
 import scissors from './scissors.svg';
 import search from './search.svg';
 import searchByImage from './search-by-image.svg';
+import searchFill from './search-fill.svg';
 import security from './security.svg';
 import select from './select.svg';
 import send from './send.svg';
-import serviceDropbox from './service-dropbox.svg';
-import serviceEtsy from './service-etsy.svg';
-import serviceMessenger from './service-messenger.svg';
-import serviceOutlook from './service-outlook.svg';
-import serviceYahoo from './service-yahoo.svg';
-import serviceYoutube from './service-youtube.svg';
 import shadows from './shadows.svg';
 import shapes from './shapes.svg';
 import share from './share.svg';
@@ -258,17 +263,20 @@ import smileyOutline from './smiley-outline.svg';
 import sortAscending from './sort-ascending.svg';
 import sortDescending from './sort-descending.svg';
 import sound from './sound.svg';
+import soundFill from './sound-fill.svg';
 import soundSlash from './sound-slash.svg';
+import soundSlashFill from './sound-slash-fill.svg';
 import sparkle from './sparkle.svg';
 import speech from './speech.svg';
 import speechEllipsis from './speech-ellipsis.svg';
+import speechEllipsisFill from './speech-ellipsis-fill.svg';
 import speechExclamationPoint from './speech-exclamation-point.svg';
 import speechHeart from './speech-heart.svg';
-import speechOutline from './speech-outline.svg';
+import speechoutline from './speech-outline.svg';
 import speed from './speed.svg';
-import speedThird from './speed-.3x.svg';
-import speedHalf from './speed-.5x.svg';
-import speed1x from './speed-1x.svg';
+import speedThirdX from './speed-.3x.svg';
+import speedFofthX from './speed-.5x.svg';
+import speed1X from './speed-1x.svg';
 import speed2x from './speed-2x.svg';
 import speed3x from './speed-3x.svg';
 import spread from './spread.svg';
@@ -307,10 +315,11 @@ import timer10 from './timer-10.svg';
 import trashCan from './trash-can.svg';
 import trending from './trending.svg';
 import undo from './undo.svg';
+import unlock from './unlock.svg';
 import uploadFeed from './upload-feed.svg';
-import videoAdvance10Seconds from './video-advance-10-seconds.svg';
+import videoAdvance10seconds from './video-advance-10-seconds.svg';
 import videoCamera from './video-camera.svg';
-import videoRewind10Seconds from './video-rewind-10-seconds.svg';
+import videoRewind10seconds from './video-rewind-10-seconds.svg';
 import viewTypeDefault from './view-type-default.svg';
 import viewTypeDense from './view-type-dense.svg';
 import viewTypeList from './view-type-list.svg';
@@ -318,7 +327,7 @@ import viewTypeSpace from './view-type-space.svg';
 import visit from './visit.svg';
 import warmth from './warmth.svg';
 import wave from './wave.svg';
-import whatsApp from './whatsapp.svg';
+import whatsapp from './whatsapp.svg';
 import wifiNo from './wifi-no.svg';
 import workflowStatusAll from './workflow-status-all.svg';
 import workflowStatusCanceled from './workflow-status-canceled.svg';
@@ -330,236 +339,308 @@ import workflowStatusQueued from './workflow-status-queued.svg';
 import workflowStatusUnstarted from './workflow-status-unstarted.svg';
 import workflowStatusWarning from './workflow-status-warning.svg';
 import x from './x.svg';
+import yahoo from './yahoo.svg';
+import youtube from './youtube.svg';
 
 const icons = Object.freeze({
-  '3D': threeD,
-  '3D-move': threeDMove,
+  '3d': threeD,
+  '3d-move': threeDMove,
   '360': threeSixty,
-  accessibility,
-  ad,
+  'accessibility': accessibility,
+  'ad': ad,
   'ad-group': adGroup,
-  add,
+  'add': add,
   'add-circle': addCircle,
   'add-layout': addLayout,
   'add-pin': addPin,
   'add-section': addSection,
-  'ads-stats': adsStats,
   'ads-overview': adsOverview,
-  alphabetical,
-  alert,
+  'ads-stats': adsStats,
+  'alert': alert,
+  'align-bottom': alignBottom,
   'align-bottom-center': alignBottomCenter,
   'align-bottom-left': alignBottomLeft,
   'align-bottom-right': alignBottomRight,
-  'align-bottom': alignBottom,
   'align-middle': alignMiddle,
+  'align-top': alignTop,
   'align-top-center': alignTopCenter,
   'align-top-left': alignTopLeft,
   'align-top-right': alignTopRight,
-  'align-top': alignTop,
+  'alphabetical': alphabetical,
   'android-share': androidShare,
   'angled-pin': angledPin,
-  api,
-  apple,
-  apps,
+  'animate': animate,
+  'api': api,
+  'apple': apple,
+  'apps': apps,
   'arrow-back': arrowBack,
   'arrow-circle-back': arrowCircleBack,
   'arrow-circle-down': arrowCircleDown,
   'arrow-circle-forward': arrowCircleForward,
   'arrow-circle-up': arrowCircleUp,
   'arrow-counter-clockwise': arrowCounterClockwise,
-  'arrow-double-forward': arrowDoubleForward,
   'arrow-double-back': arrowDoubleBack,
+  'arrow-double-forward': arrowDoubleForward,
   'arrow-down': arrowDown,
   'arrow-end': arrowEnd,
   'arrow-forward': arrowForward,
   'arrow-left-curved': arrowLeftCurved,
+  'arrow-nested': arrowNested,
   'arrow-start': arrowStart,
   'arrow-up': arrowUp,
   'arrow-up-left': arrowUpLeft,
   'arrow-up-right': arrowUpRight,
   'arrows-vertical': arrowsVertical,
-  bell,
-  board,
-  briefcase,
+  'aspect-ratio': aspectRatio,
+  'audio-bars': audioBars,
+  'audio-mix': audioMix,
+  'audio-playing': audioPlaying,
+  'bell': bell,
+  'bell-fill': bellFill,
+  'board': board,
+  'board-sticker-large': boardStickerLarge,
+  'board-sticker-small': boardStickerSmall,
+  'border': border,
+  'border-shadow': borderShadow,
+  'briefcase': briefcase,
   'business-hierarchy': businessHierarchy,
-  calendar,
+  'calendar': calendar,
   'calendar-check': calendarCheck,
-  camera,
+  'camera': camera,
   'camera-flip': cameraFlip,
   'camera-roll': cameraRoll,
-  cancel,
+  'cancel': cancel,
   'canonical-pin': canonicalPin,
-  captions,
+  'captions': captions,
   'captions-outline': captionsOutline,
-  'color-picker': colorPicker,
-  check,
+  'check': check,
   'check-circle': checkCircle,
   'chevron-up-circle': chevronUpCircle,
-  circle,
+  'circle': circle,
   'circle-ellipsis': circleEllipsis,
-  clear,
-  clock,
+  'circle-information-fill': circleInformationFill,
+  'clear': clear,
+  'clips': clips,
+  'clock': clock,
   'clock-checked': clockChecked,
   'cloud-server': cloudServer,
-  code,
+  'code': code,
   'code-checked': codeChecked,
-  cog,
-  compass,
-  compose,
-  collapse,
+  'cog': cog,
+  'collage': collage,
+  'collapse': collapse,
+  'color': color,
+  'color-palette': colorPalette,
+  'color-picker': colorPicker,
   'color-solid': colorSolid,
   'color-split': colorSplit,
-  'copy-to-clipboard': copyToClipboard,
-  crop,
-  'data-source': dataSource,
-  dash,
-  desktop,
-  diagnostics,
+  'compass': compass,
+  'compose': compose,
+  'contrast': contrast,
   'conversion-tag': conversionTag,
+  'copy-to-clipboard': copyToClipboard,
   'credit-card': creditCard,
+  'crop': crop,
+  'cutout': cutout,
+  'dash': dash,
+  'data-source': dataSource,
+  'design': design,
+  'desktop': desktop,
+  'diagnostics': diagnostics,
   'directional-arrow-left': directionalArrowLeft,
   'directional-arrow-right': directionalArrowRight,
-  download,
+  'download': download,
   'drag-drop': dragDrop,
-  duplicate,
-  edit,
-  ellipsis,
-  envelope,
-  expand,
-  eye,
+  'draw': draw,
+  'dropbox': dropbox,
+  'duplicate': duplicate,
+  'edit': edit,
+  'ellipsis': ellipsis,
+  'envelope': envelope,
+  'erase-auto': eraseAuto,
+  'erase': erase,
+  'etsy': etsy,
+  'expand': expand,
+  'eye': eye,
   'eye-hide': eyeHide,
-  facebook,
-  fade,
   'face-happy': faceHappy,
   'face-neutral': faceNeutral,
   'face-sad': faceSad,
   'face-smiley': faceSmiley,
   'face-tryon': faceTryon,
+  'facebook': facebook,
+  'fade': fade,
   'file-box': fileBox,
   'file-unknown': fileUnknown,
   'fill-opaque': fillOpaque,
   'fill-transparent': fillTransparent,
-  filter,
-  flag,
-  flame,
-  flash,
-  flashlight,
+  'filter': filter,
+  'flag': flag,
+  'flame': flame,
+  'flash': flash,
+  'flash-slash': flashSlash,
+  'flashlight': flashlight,
   'flip-horizontal': flipHorizontal,
   'flip-vertical': flipVertical,
-  folder,
-  forward,
-  gif,
-  globe,
+  'folder': folder,
+  'forward': forward,
+  'gauge': gauge,
+  'ghost': ghost,
+  'gif': gif,
+  'gif-visual': gifVisual,
+  'globe': globe,
   'globe-checked': globeChecked,
-  gmail,
+  'gmail': gmail,
   'graph-bar': graphBar,
   'graph-pie': graphPie,
-  handle,
+  'hand': hand,
   'hand-pointing': handPointing,
-  heart,
-  'heart-outline': heartOutline,
+  'handle': handle,
+  'heart': heart,
   'heart-broken': heartBroken,
   'heart-health': heartHealth,
-  history,
-  home,
+  'heart-outline': heartOutline,
+  'highlights': highlights,
+  'history': history,
+  'home': home,
+  'home-fill': homeFill,
   'idea-pin': ideaPin,
   'image-portrait': imagePortrait,
-  impressum,
-  information,
+  'impressum': impressum,
+  'info-circle': infoCircle,
+  'information': information,
   'insights-audience': insightsAudience,
   'insights-conversion': insightsConversion,
-  instagram,
+  'instagram': instagram,
   'invoice': invoice,
-  'info-circle': infoCircle,
-  key,
-  knoop,
-  layout,
-  lightbulb,
+  'key': key,
+  'knoop': knoop,
+  'lab-flask': labFlask,
+  'lasso-magic': lassoMagic,
+  'layout': layout,
+  'lightbulb': lightbulb,
   'lightning-bolt-circle': lightningBoltCircle,
-  link,
-  lips,
-  location,
-  lock,
+  'link': link,
+  'lips': lips,
+  'location': location,
+  'lock': lock,
   'logo-large': logoLarge,
   'logo-small': logoSmall,
-  logout,
-  'manage-access': manageAccess,
+  'logout': logout,
   'magic-pen': magicPen,
+  'magic-wand': magicWand,
+  'manage-access': manageAccess,
   'margins-large': marginsLarge,
   'margins-medium': marginsMedium,
   'margins-small': marginsSmall,
-  maximize,
-  megaphone,
-  menu,
-  minimize,
-  mobile,
-  moon,
-  mute,
+  'maximize': maximize,
+  'megaphone': megaphone,
+  'menu': menu,
+  'messenger': messenger,
+  'microphone': microphone,
+  'minimize': minimize,
+  'mobile': mobile,
+  'moon': moon,
   'move-pin': movePin,
   'music-off': musicOff,
   'music-on': musicOn,
+  'mute': mute,
+  'mute-fill': muteFill,
+  'orientation-landscape': orientationLandscape,
+  'orientation-portrait': orientationPortrait,
+  'outlook': outlook,
   'overlay-text': overlayText,
   'overlay-text-outline': overlayTextOutline,
-  overview,
-  pause,
-  people,
-  person,
+  'overview': overview,
+  'paper-clip': paperClip,
+  'paper-lines-plus': paperLinesPlus,
+  'pause': pause,
+  'pen': pen,
+  'pen-auto': penAuto,
+  'people': people,
+  'performance-plus': performancePlus,
+  'person': person,
   'person-add': personAdd,
-  phone,
-  pin,
+  'person-fill': personFill,
+  'person-magnifying-glass': personMagnifyingGlass,
+  'phone': phone,
+  'pin': pin,
   'pin-hide': pinHide,
-  pinterest,
-  play,
-  protect,
-  refresh,
+  'pinterest': pinterest,
+  'play': play,
+  'protect': protect,
   'question-mark': questionMark,
-  remove,
+  'record-limit': recordLimit,
+  'record-limit-5': recordLimit5,
+  'record-limit-15': recordLimit15,
+  'record-limit-10': recordLimit10,
+  'record-limit-30': recordLimit30,
+  'record-limit-60': recordLimit60,
+  'redo': redo,
+  'refresh': refresh,
+  'remove': remove,
   'reorder-images': reorderImages,
-  replace,
-  report,
-  rewind,
-  rotate,
+  'replace': replace,
+  'report': report,
+  'rewind': rewind,
+  'rotate': rotate,
+  'saturation': saturation,
   'save-outline': saveOutline,
-  saved,
-  scale,
-  scissors,
-  search,
+  'saved': saved,
+  'scale': scale,
+  'scissors': scissors,
+  'search': search,
   'search-by-image': searchByImage,
-  security,
-  'service-dropbox': serviceDropbox,
-  'service-etsy': serviceEtsy,
-  'service-messenger': serviceMessenger,
-  'service-outlook': serviceOutlook,
-  'service-yahoo': serviceYahoo,
-  'service-youtube': serviceYoutube,
-  share,
+  'search-fill': searchFill,
+  'security': security,
+  'select': select,
+  'send': send,
+  'shadows': shadows,
+  'shapes': shapes,
+  'share': share,
   'shopping-bag': shoppingBag,
-  shrink,
-  skintone,
-  smiley,
+  'shrink': shrink,
+  'shuffles': shuffles,
+  'skintone': skintone,
+  'slide': slide,
+  'smiley': smiley,
   'smiley-outline': smileyOutline,
-  send,
-  sound,
   'sort-ascending': sortAscending,
   'sort-descending': sortDescending,
-  sparkle,
-  speech,
+  'sound': sound,
+  'sound-fill': soundFill,
+  'sound-slash': soundSlash,
+  'sound-slash-fill': soundSlashFill,
+  'sparkle': sparkle,
+  'speech': speech,
   'speech-ellipsis': speechEllipsis,
+  'speech-ellipsis-fill': speechEllipsisFill,
   'speech-exclamation-point': speechExclamationPoint,
   'speech-heart': speechHeart,
-  'speech-outline': speechOutline,
-  spread,
-  'star-outline': starOutline,
-  star,
+  'speech-outline': speechoutline,
+  'speed': speed,
+  'speed-.3x': speedThirdX,
+  'speed-.5x': speedFofthX,
+  'speed-1x': speed1X,
+  'speed-2x': speed2x,
+  'speed-3x': speed3x,
+  'spread': spread,
+  'star': star,
   'star-half': starHalf,
-  sticker,
-  sun,
+  'star-outline': starOutline,
+  'sticker': sticker,
+  'sticker-image': stickerImage,
+  'sun': sun,
+  'swap': swap,
   'switch-account': switchAccount,
-  table,
-  tag,
-  terms,
-  'text-align-left': textAlignLeft,
+  'table': table,
+  'tag': tag,
+  'target': target,
+  'template': template,
+  'terms': terms,
+  'text': text,
   'text-align-center': textAlignCenter,
+  'text-align-left': textAlignLeft,
   'text-align-right': textAlignRight,
   'text-all-caps': textAllCaps,
   'text-extra-small': textExtraSmall,
@@ -570,21 +651,28 @@ const icons = Object.freeze({
   'text-size': textSize,
   'text-small': textSmall,
   'text-spacing': textSpacing,
+  'text-sticker': textSticker,
   'thumbs-down': thumbsDown,
   'thumbs-up': thumbsUp,
+  'timer': timer,
+  'timer-3': timer3,
+  'timer-10': timer10,
   'trash-can': trashCan,
-  target,
-  trending,
+  'trending': trending,
+  'undo': undo,
+  'unlock': unlock,
   'upload-feed': uploadFeed,
-  'video-advance-10-seconds': videoAdvance10Seconds,
+  'video-advance-10-seconds': videoAdvance10seconds,
   'video-camera': videoCamera,
-  'video-rewind-10-seconds': videoRewind10Seconds,
+  'video-rewind-10-seconds': videoRewind10seconds,
   'view-type-default': viewTypeDefault,
   'view-type-dense': viewTypeDense,
   'view-type-list': viewTypeList,
   'view-type-space': viewTypeSpace,
-  visit,
-  'whats-app': whatsApp,
+  'visit': visit,
+  'warmth': warmth,
+  'wave': wave,
+  'whatsapp': whatsapp,
   'wifi-no': wifiNo,
   'workflow-status-all': workflowStatusAll,
   'workflow-status-canceled': workflowStatusCanceled,
@@ -595,76 +683,9 @@ const icons = Object.freeze({
   'workflow-status-queued': workflowStatusQueued,
   'workflow-status-unstarted': workflowStatusUnstarted,
   'workflow-status-warning': workflowStatusWarning,
-  x,
-  // test. to be sorted alphabetically later
-  animate,
-  'arrow-nested': arrowNested,
-  'aspect-ratio': aspectRatio,
-  'audio-bars': audioBars,
-  'audio-mix': audioMix,
-  'audio-playing': audioPlaying,
-  'board-sticker-large': boardStickerLarge,
-  'board-sticker-small': boardStickerSmall,
-  border,
-  'border-shadow': borderShadow,
-  clips,
-  collage,
-  'color-palette': colorPalette,
-  color,
-  contrast,
-  cutout,
-  design,
-  draw,
-  'erase-auto': eraseAuto,
-  erase,
-  'flash-slash': flashSlash,
-  gauge,
-  ghost,
-  hand,
-  highlights,
-  'lab-flask': labFlask,
-  'lasso-magic': lassoMagic,
-  'magic-wand': magicWand,
-  microphone,
-  'orientation-landscape': orientationLandscape,
-  'orientation-portrait': orientationPortrait,
-  'paper-clip': paperClip,
-  'paper-lines-plus': paperLinesPlus,
-  'pen-auto': penAuto,
-  pen,
-  'performance-plus': performancePlus,
-  'person-magnifying-glass': personMagnifyingGlass,
-  'record-limit-5': recordLimit5,
-  'record-limit-10': recordLimit10,
-  'record-limit-15': recordLimit15,
-  'record-limit-30': recordLimit30,
-  'record-limit-60': recordLimit60,
-  'record-limit': recordLimit,
-  redo,
-  saturation,
-  select,
-  shadows,
-  shapes,
-  shuffles,
-  slide,
-  'sound-slash': soundSlash,
-  'speed-.3x': speedThird,
-  'speed-.5x': speedHalf,
-  'speed-1x': speed1x,
-  'speed-2x': speed2x,
-  'speed-3x': speed3x,
-  speed,
-  'sticker-image': stickerImage,
-  swap,
-  template,
-  'text-sticker': textSticker,
-  text,
-  'timer-3': timer3,
-  'timer-10': timer10,
-  timer,
-  undo,
-  warmth,
-  wave,
+  'x': x,
+  'yahoo': yahoo,
+  'youtube': youtube,
 });
 
 export default icons;
