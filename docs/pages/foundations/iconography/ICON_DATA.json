@@ -364,7 +364,7 @@
       "description": "Indicates an expanded content is being displayed. Background is needed to emphasize visibility",
       "keywords": ["arrow"]
     },
-     {
+    {
       "name": "circle",
       "categories": [],
       "description": "",
