@@ -42,6 +42,6 @@
     { "path": "./packages/gestalt-datepicker" },
     { "path": "./packages/gestalt-charts" },
     { "path": "./docs" },
-    { "path": "./gestalt-icons-android" }
+    { "path": "./packages/gestalt-icons-android" }
   ]
 }
