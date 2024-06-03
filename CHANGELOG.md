@@ -1,3 +1,9 @@
+## 151.2.5 (Jun 3, 2024)
+
+### Patch
+
+- Internal: fix some TS suppressions due to ReactNode ([#3609](https://github.com/pinterest/gestalt/pull/3609)) - [Preview link](https://deploy-preview-3609--gestalt.netlify.app?devexample=true)
+
 ## 151.2.4 (May 31, 2024)
 
 ### Patch
