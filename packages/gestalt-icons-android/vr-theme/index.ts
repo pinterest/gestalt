@@ -80,7 +80,7 @@ import clock from './ic_vr_clock_gestalt.svg';
 import clockChecked from './ic_vr_clock-checked_gestalt.svg';
 import cloudServer from './ic_vr_cloud-server_gestalt.svg';
 import code from './ic_vr_code_gestalt.svg';
-import codeChecked from './ic_vr_code-checked_gestalt.svg';
+import codeCheck from './ic_vr_code-check_gestalt.svg';
 import cog from './ic_vr_cog_gestalt.svg';
 import collage from './ic_vr_collage_gestalt.svg';
 import collapse from './ic_vr_collapse_gestalt.svg';
@@ -122,6 +122,7 @@ import faceHappy from './ic_vr_face-happy_gestalt.svg';
 import faceNeutral from './ic_vr_face-neutral_gestalt.svg';
 import faceSad from './ic_vr_face-sad_gestalt.svg';
 import faceSmiley from './ic_vr_face-smiley_gestalt.svg';
+import faceSmileyOutline from './ic_vr_face-smiley-outline_gestalt.svg';
 import faceTryon from './ic_vr_face-tryon_gestalt.svg';
 import facebook from './ic_vr_facebook_gestalt.svg';
 import fade from './ic_vr_fade_gestalt.svg';
@@ -133,6 +134,7 @@ import filter from './ic_vr_filter_gestalt.svg';
 import flag from './ic_vr_flag_gestalt.svg';
 import flame from './ic_vr_flame_gestalt.svg';
 import flash from './ic_vr_flash_gestalt.svg';
+import flashAutomatic from './ic_vr_flash-automatic_gestalt.svg';
 import flashSlash from './ic_vr_flash-slash_gestalt.svg';
 import flashlight from './ic_vr_flashlight_gestalt.svg';
 import flipHorizontal from './ic_vr_flip-horizontal_gestalt.svg';
@@ -259,7 +261,6 @@ import shuffles from './ic_vr_shuffles_gestalt.svg';
 import skintone from './ic_vr_skintone_gestalt.svg';
 import slide from './ic_vr_slide_gestalt.svg';
 import smiley from './ic_vr_smiley_gestalt.svg';
-import smileyOutline from './ic_vr_smiley-outline_gestalt.svg';
 import sortAscending from './ic_vr_sort-ascending_gestalt.svg';
 import sortDescending from './ic_vr_sort-descending_gestalt.svg';
 import sound from './ic_vr_sound_gestalt.svg';
@@ -425,7 +426,7 @@ const icons = Object.freeze({
   'clock-checked': clockChecked,
   'cloud-server': cloudServer,
   'code': code,
-  'code-checked': codeChecked,
+  'code-check': codeCheck,
   'cog': cog,
   'collage': collage,
   'collapse': collapse,
@@ -467,6 +468,7 @@ const icons = Object.freeze({
   'face-neutral': faceNeutral,
   'face-sad': faceSad,
   'face-smiley': faceSmiley,
+  'face-smiley-outline': faceSmileyOutline,
   'face-tryon': faceTryon,
   'facebook': facebook,
   'fade': fade,
@@ -478,6 +480,7 @@ const icons = Object.freeze({
   'flag': flag,
   'flame': flame,
   'flash': flash,
+  'flash-automatic': flashAutomatic,
   'flash-slash': flashSlash,
   'flashlight': flashlight,
   'flip-horizontal': flipHorizontal,
@@ -604,7 +607,6 @@ const icons = Object.freeze({
   'skintone': skintone,
   'slide': slide,
   'smiley': smiley,
-  'smiley-outline': smileyOutline,
   'sort-ascending': sortAscending,
   'sort-descending': sortDescending,
   'sound': sound,
