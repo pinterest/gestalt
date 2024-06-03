@@ -6,6 +6,7 @@ export const STATUS_EQUIVALENCY_MAP = Object.freeze({
   'deprecated': 'canceled',
 });
 
+
 export const STATUS_DESCRIPTION = Object.freeze({
   ready: { title: 'Ready', description: "Available for use. Has been reviewed and QA'd." },
   partial: {
